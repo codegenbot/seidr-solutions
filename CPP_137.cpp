@@ -1,34 +1,49 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
-auto CompareOne(int a, double b) {
-    if (cin.fail()) {  
-        string str;
-        cin >> str;      
-        return str;
+auto compare_one(int a, double b) {
+    if (b > a) {
+        return b;
+    } else if (a == b) {
+        return 0;
+    } else {
+        return a;
     }
-    return (b > a) ? b : a;
 }
 
-int main() {
+int main_func() {
     int a;
     cout << "Enter an integer: ";
     cin >> a;
 
-    double b;
+    string s;
     cout << "Enter a floating point number or a string: ";
-    cin >> b;
-    
-    if (!cin) { 
+    cin >> s;
+
+    if (cin.fail()) { 
+        // The input was not successful, so clear the error
         cin.clear();
-        cin.ignore(10000, '\n');
-        cout << "The result is: " << a << endl;
+        
+        // Check if the failed operation was due to an integer input and then
+        // try to read it as an int. If this fails too, then assume the user entered a string.
+        cin >> ws;
+        cin >> s;
+
+        if (!cin) { 
+            // The failed operation could have been due to a string or other non-numeric input.
+            cout << "The result is: " << a << endl;
+        } else {
+            // Now, we're sure the input was a number, so proceed with comparison
+            double b = stod(s);
+            cout << "The result is: " << compare_one(a, b) << endl;
+        }
     } else {
-        // Process double value (b)
-        // or handle string input as needed
-        cout << "The result is: " << CompareOne(a, b) << endl;
+        // The input was successful, so process the double value (b)
+        double b = stod(s); 
+        cout << "The result is: " << compare_one(a, b) << endl;
     }
 
     return 0;
