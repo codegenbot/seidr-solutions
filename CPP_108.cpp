@@ -26,6 +26,7 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<int> nums;
+    nums.reserve(n); // Add this line to reserve space for n elements.
     for (int i = 0; i < n; i++) {
         int num;
         std::cin >> num; 
