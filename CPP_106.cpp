@@ -5,11 +5,7 @@
 bool issame(const vector<int>& a, const vector<int>& b){
     if(a.size() != b.size())
         return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 vector<int> f(int n){
@@ -33,6 +29,6 @@ vector<int> f(int n){
 }
 
 int main(){
-    assert(std::equal(f(3).begin(), f(3).end(), std::vector<int>{1, 2, 6}.begin()));
+    assert(issame(f(3), std::vector<int>{1, 2, 6}));
     return 0;
 }
