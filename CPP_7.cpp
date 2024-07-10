@@ -16,6 +16,7 @@ std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::vecto
         }
     }
     return result;
+
 }
 
 int main() {
