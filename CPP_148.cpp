@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
@@ -37,5 +37,9 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    assert(bf("Jupiter", "Mars").size() == 4);
+    assert(bf("Jupiter", "Mars").size() == 3);
+    std::cout << bf("Saturn", "Neptune")[0] << std::endl;
+    for (const auto& planet : bf("Earth", "Venus")) {
+        std::cout << planet << std::endl;
+    }
 }

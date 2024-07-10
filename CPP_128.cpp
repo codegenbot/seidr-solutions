@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,8 +13,8 @@ int prod_signs(std::vector<int> arr) {
         sum += abs(num);
     }
 
-    if (arr.empty()) {
-        return -32768;
+    if (arr.empty()) { 
+        return 0; 
     }
 
     return product * sum;
