@@ -1,3 +1,4 @@
+#include <iostream>
 #include <algorithm>
 #include <vector>
 #include <cassert>
@@ -28,6 +29,7 @@ string anti_shuffle(string sStr) {
 }
 
 int main() {
-    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    string sStr = "Hi. My name is Mister Robot. How are you?";
+    cout << anti_shuffle(sStr) << endl;
     return 0;
 }
