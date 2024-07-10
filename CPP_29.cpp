@@ -14,8 +14,5 @@ vector<string> filter_by_prefix(const vector<string>& vec, const string& prefix)
     return result;
 }
 
-int main() {
-    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") == vector<string>{"xxx", "xxxAAA", "xxx"});
-
-    return 0;
-}
+// Use assert in a separate line to check the function output
+assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") == vector<string>{"xxx", "xxxAAA", "xxx"});
