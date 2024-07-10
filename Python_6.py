@@ -1,5 +1,5 @@
-```python
-def parse_nested_parens(paren_string: str) -> List[int]:
+```
+def parse_nested_parens(paren_string: str) -> list:
     if not paren_string:
         return []
     result = []
