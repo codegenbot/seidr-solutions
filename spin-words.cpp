@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 std::string spinWords(const std::string& input) {
     std::vector<std::string> words = split(input, " ");
@@ -35,6 +36,6 @@ std::string join(const std::vector<std::string>& words, const std::string& delim
 }
 
 int main() {
-    std::cout << spinWords("This is a test") << std::endl; // This is a tset
+    std::cout << spinWords("this is a test") << std::endl; // this is rehtona test
     return 0;
 }
