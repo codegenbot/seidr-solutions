@@ -1,39 +1,27 @@
-bool issame(const vector<string>& lst1, const vector<string>& lst2) {
-        return lst1 == lst2;
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b){
+    int total_chars1 = 0;
+    int total_chars2 = 0;
+    
+    for (string str : a) {
+        total_chars1 += str.length();
     }
-
-    int countChars(const vector<string>& lst1) {
-        int count = 0;
-        for (const string& str : lst1) {
-            count += str.size();
-        }
-        return count;
+    
+    for (string str : b) {
+        total_chars2 += str.length();
     }
+    
+    return total_chars1 == total_chars2;
+}
 
-    vector<string> total_match(vector<string> lst1, vector<string> lst2);
-
-    int main() {
-        vector<string> lst1 = {"apple", "banana", "cherry"};
-        vector<string> lst2 = {"apple", "banana", "cherry"};
-
-        if (issame(lst1, lst2)) {
-            cout << "Lists are the same" << endl;
-        } else {
-            cout << "Lists are different" << endl;
-        }
-
-        vector<string> result = total_match(lst1, lst2);
-
-        for (const string& str : result) {
-            cout << str << " ";
-        }
-
-        return 0;
-    }
-
-    vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-        if (countChars(lst1) < countChars(lst2)) {
-            return lst1;
-        }
-        return lst2;
-    }
+int main(){
+    assert(issame({"this"}, {}));
+    // Add more test cases here
+    return 0;
+}
