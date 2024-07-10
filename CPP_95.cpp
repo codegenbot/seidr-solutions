@@ -1,8 +1,9 @@
+```cpp
 #include <map>
 #include <string>
 #include <cctype>
 
-int check_dict_case(map<std::string, std::string> dict) {
+int check_dict_case(map<string, string> dict) {
     if (dict.empty()) return 0;
 
     int allLower = 1;
