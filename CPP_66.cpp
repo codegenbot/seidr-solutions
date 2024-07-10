@@ -2,6 +2,7 @@
 #include <string>
 #include <cctype>
 #include <algorithm>
+#include <cassert>
 
 int digitSum(std::string s) {
     int sum = 0;
@@ -21,7 +22,9 @@ int digitSum(std::string s) {
 }
 
 int main() {
-    assert(digitSum("You arE Very Smart") == 327);
-    std::cout << digitSum("Hello World!") << std::endl;
+    std::cout << "Please enter a string: ";
+    std::string s;
+    std::cin >> s;
+    assert(digitSum(s) == 327);
     return 0;
 }
