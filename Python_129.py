@@ -19,9 +19,7 @@ def minPath(grid, k):
         visited[x][y] = False
         return False
 
-    grid.sort()
-    total_sum = sum(grid)
     for i in range(n):
         for j in range(n):
             if dfs(i, j, [grid[i][j]]):
-                return sorted(current_path)
+                return sorted(path)
