@@ -19,6 +19,6 @@ std::vector<int> order_by_points(std::vector<int> nums) {
     return nums;
 }
 
-int main() {
+int main(int argc, char** argv) {
     assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
 }
