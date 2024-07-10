@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <cmath>
 
-int maxAbs(int l[], int n) {
-    return *std::max_element(l, l+n);
+int myFunction(std::vector<int> l) {
+    return std::abs(*std::max_element(l.begin(), l.end()));
 }
