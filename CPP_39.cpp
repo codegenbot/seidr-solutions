@@ -14,10 +14,8 @@ int main() {
     int result = prime_fib(n);
     ostringstream oss; 
     oss << "The " << n << "th prime Fibonacci number is: " << result; 
-    string str = ""; // Initialize with empty string
-    if (n > 0) {
-        str = oss.str(); // Access and store the stream's content
-    }
+    oss << "Enter the number: " << n; 
+    string str = oss.str(); 
     cout << str; 
 }
 
