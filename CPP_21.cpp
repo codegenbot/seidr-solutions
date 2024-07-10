@@ -1,13 +1,9 @@
-
 #include <iostream>
 #include <vector>
-#include <cassert>
 
-bool issame(vector<float> a, vector<float> b) {
-    return a == b;
-}
+using namespace std;
 
-vector<float> rescale_to_unit(const vector<float>& numbers) {
+vector<float> rescale_to_unit(vector<float> numbers) {
     float min_num = numbers[0];
     float max_num = numbers[0];
     for (float num : numbers) {
@@ -26,10 +22,4 @@ vector<float> rescale_to_unit(const vector<float>& numbers) {
     }
 
     return rescaled_numbers;
-}
-
-int main() {
-    assert(issame(rescale_to_unit({12.0, 11.0, 15.0, 13.0, 14.0}), {0.25, 0.0, 1.0, 0.5, 0.75}));
-
-    return 0;
 }
