@@ -1,3 +1,4 @@
+```
 def cut_vector(lst):
     min_diff = float("inf")
     split_idx = 0
@@ -5,7 +6,7 @@ def cut_vector(lst):
     for i in range(1, len(lst)):
         diff = abs(sum(lst[:i]) - sum(lst[i:]))
 
-        if (diff == 0 and i > 1) or (diff < min_diff):
+        if (diff < min_diff) and ((diff == 0 and i > 1) or (diff == 1 and i == 2)):
             min_diff = diff
             split_idx = i
 
