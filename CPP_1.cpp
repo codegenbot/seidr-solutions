@@ -1,14 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <string>
+vector<string> separate_paren_groups(const string& paren_string);
 
-bool issame(const std::string &a, const std::string &b) {
-    return a == b;
-}
+bool issame(const string& a, const string& b);
 
-std::vector<std::string> separate_paren_groups(const std::string &paren_string) {
-    std::vector<std::string> groups;
-    std::string group;
+vector<string> separate_paren_groups(const string& paren_string) {
+    vector<string> groups;
+    string group;
     int balance = 0;
 
     for (char c : paren_string) {
