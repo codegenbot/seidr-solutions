@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -28,7 +29,7 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> game(n, 0); // Specify allocator type
+    std::vector<int> game(n, 0); // Initialize the vector with zeros
 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
@@ -44,20 +45,16 @@ int main() {
     if (issame(game, guess)) {
         std::cout << "Congratulations! You guessed correctly." << std::endl;
     } else {
-        try {
-            std::vector<int> result = compare(game, guess);
-            std::cout << "Incorrect. The correct numbers are: ";
-            for (int i = 0; i < n; i++) {
-                if (result[i] == 0) {
-                    std::cout << game[i] << " ";
-                } else {
-                    std::cout << abs(game[i] - guess[i]) << " ";
-                }
+        std::vector<int> result = compare(game, guess);
+        std::cout << "Incorrect. The correct numbers are: ";
+        for (int i = 0; i < n; i++) {
+            if (result[i] == 0) {
+                std::cout << game[i] << " ";
+            } else {
+                std::cout << abs(game[i] - guess[i]) << " ";
             }
-            std::cout << std::endl;
-        } catch (...) {
-            std::cout << "An error occurred. Please try again." << std::endl;
         }
+        std::cout << std::endl;
     }
 
     return 0;
