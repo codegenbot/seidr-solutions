@@ -1,4 +1,13 @@
 from typing import List
 
+
 def all_prefixes(string: str) -> List[str]:
-    return [string[:i] for i in range(1, len(string) + 1)]
+    result = []
+    for i in range(1, len(string) + 1):
+        result.append(string[:i])
+    return result
+
+
+input_string = input("Please enter a string: ")
+result = all_prefixes(input_string)
+print(result)
