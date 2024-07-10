@@ -11,16 +11,20 @@ bool is_simple_power(int x, int n) {
 }
 
 int main() {
-    int x, n;
+    std::string xStr;
     std::cout << "Enter a number: ";
-    std::cin >> x;
+    std::getline(std::cin, xStr);
+    int x = std::stoi(xStr);
+
+    std::string nStr;
     std::cout << "Enter another number: ";
-    std::cin >> n;
+    std::getline(std::cin, nStr);
+    int n = std::stoi(nStr);
     
     if(is_simple_power(x, n))
-        std::cout << x << " is a simple power of " << n << std::endl;
+        std::cout << (x == y ? x << " is a simple power of " << n : x << " is not a simple power of " << n) << std::endl;
     else
-        std::cout << "x " << x << " is not a simple power of " << n << std::endl;
+        std::cout << (x == y ? x << " is a simple power of " << n : x << " is not a simple power of " << n) << std::endl;
 
     return 0;
 }
