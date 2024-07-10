@@ -11,12 +11,12 @@ std::vector<int> compare(std::vector<int> a, std::vector<int> b) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-int main() {
+int main {
     const std::vector<int> expected = {2, 0, 0, 1};
-    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), expected));
+    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), expected);
     
     return 0;
 }
