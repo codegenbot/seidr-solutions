@@ -1,6 +1,8 @@
+#include <iostream>
 #include <string>
+#include <openssl/evp.h>
 
-string string_to_md5(string text) {
+std::string cppString_to_md5(std::string text) {
     if (text.empty()) return "";
 
     unsigned char md5[16];
@@ -12,11 +14,11 @@ string string_to_md5(string text) {
     EVP_DigestUpdate(ctx, input, len);
     EVP_DigestFinal_ex(ctx, md5, reinterpret_cast<unsigned int*>(&len));
 
-    string result;
+    std::string result;
     for (int i = 0; i < 16; ++i) {
         char buffer[3];
         sprintf(buffer, "%02x", md5[i]);
-        result += string(buffer);
+        result += std::string(buffer);
     }
 
     EVP_MD_CTX_destroy(ctx);
