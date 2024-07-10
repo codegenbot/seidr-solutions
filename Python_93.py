@@ -9,11 +9,7 @@ def encode(message):
                 next_index = (index + 1) % len(vowels)
                 result += 'aeiouAEIOU'[next_index].upper() if char.isupper() else 'aeiouAEIOU'[next_index].lower()
             else:
-                for i, vowel in enumerate(vowels):
-                    if vowel.lower() not in [c.lower() for c in message]:
-                        next_vowel = vowel.upper() if char.isupper() else vowel.lower()
-                        result += next_vowel
-                        break
+                result += 'x' if char.isalpha() else char
         else:
             result += char
     return result
