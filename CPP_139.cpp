@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <limits>
 
@@ -16,9 +16,7 @@ int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    if(n < 0)
-        cout << "Factorial of negative number doesn't exist." << endl;
-    else
-        cout << "The special factorial of " << n << " is: " << special_factorial(n) << endl;
+    string output = to_string(special_factorial(n));
+    cout << "The special factorial of " << to_string(n) << " is: " << output << endl;
     return 0;
 }
