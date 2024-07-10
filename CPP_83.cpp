@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -11,12 +10,16 @@ int starts_one_ends(int n) {
         if (i == 1 || i % 10 == 1) {
             count++;
         }
-        string str = to_string(i);
+        string str;
+        for (int j = 0; j < n; j++) {
+            str += '1';
+        }
         bool flag = true;
-        int i = stoi(str); 
-        if(i != 1) {
-            flag = false;
-            break;
+        for (char c : str) {
+            if (c != '1') {
+                flag = false;
+                break;
+            }
         }
         if (!flag) {
             continue;
@@ -25,9 +28,12 @@ int starts_one_ends(int n) {
     }
     return count;
 
-int main() {
+}
+
+int main
+{
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
     cout << "The count of the numbers of " << n << "-digit positive integers that start or end with 1 is: " << starts_one_ends(n) << endl;
-    return 0;
+}
