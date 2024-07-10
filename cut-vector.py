@@ -1,6 +1,7 @@
+```
 def cut_vector(vector):
     if len(vector) <= 1:
-        return [str([vector])], []
+        return [str(vector)], []
     
     min_diff = float("inf")
     split_indices = []
