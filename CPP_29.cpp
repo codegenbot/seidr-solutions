@@ -2,22 +2,16 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
-vector<string> filter_by_prefix(vector<string> strings, string prefix);
-
-int main() {
-    vector<string> words = {"code", "coding", "problem", "contest"};
-    string pref = "cod";
-    vector<string> filtered = filter_by_prefix(words, pref);
-    
-    for (const auto& word : filtered) {
-        std::cout << word << " ";
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
     }
-    
-    return 0;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
@@ -28,4 +22,9 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
         }
     }
     return result;
+}
+
+int main(){
+    // Test the functions if needed
+    return 0;
 }
