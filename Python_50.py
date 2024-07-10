@@ -10,5 +10,5 @@ def decode_shift(input_string):
         decoded_message += decoded_char
     return decoded_message
 
-input_string = input("Enter the string to decode: ")
+input_string = input().strip()
 print(decode_shift(input_string))
