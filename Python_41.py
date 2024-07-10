@@ -1,7 +1,8 @@
-def car_race_collision(n=None):
-    if n is None:
+```
+def car_race_collision(num_cars=None):
+    if num_cars is None:
         try:
-            n = int(input("Enter the number of cars: "))
+            num_cars = int(input("Enter the number of cars: "))
         except ValueError:
-            n = 1
-    return str(int(n*(n-1)/2))
+            num_cars = 1
+    return str((num_cars * (num_cars - 1)) // 2)
