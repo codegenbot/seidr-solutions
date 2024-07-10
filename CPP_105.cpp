@@ -5,44 +5,39 @@ vector<string> by_length(vector<int> arr) {
             nums.push_back(num);
         }
     }
-
     sort(nums.begin(), nums.end());
     reverse(nums.begin(), nums.end());
-
-    vector<string> names;
+    vector<string> result;
     for (int num : nums) {
-        string name = "";
         switch (num) {
             case 1:
-                name = "One";
+                result.push_back("One");
                 break;
             case 2:
-                name = "Two";
+                result.push_back("Two");
                 break;
             case 3:
-                name = "Three";
+                result.push_back("Three");
                 break;
             case 4:
-                name = "Four";
+                result.push_back("Four");
                 break;
             case 5:
-                name = "Five";
+                result.push_back("Five");
                 break;
             case 6:
-                name = "Six";
+                result.push_back("Six");
                 break;
             case 7:
-                name = "Seven";
+                result.push_back("Seven");
                 break;
             case 8:
-                name = "Eight";
+                result.push_back("Eight");
                 break;
             case 9:
-                name = "Nine";
+                result.push_back("Nine");
                 break;
         }
-        names.push_back(name);
     }
-
-    return names;
+    return result;
 }
