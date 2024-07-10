@@ -5,6 +5,7 @@ using std::setprecision;
 using std::endl;
 
 #include <vector>
+
 using namespace std;
 
 float shoppingList(float price[], float discount[], int n) {
