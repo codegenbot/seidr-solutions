@@ -1,5 +1,5 @@
-def add(num1: int, num2: int) -> int:
-    return num1 + num2
+def add(a, b):
+    return a + b
 
 def main():
     print("Enter two integers separated by a space. Enter 'stop' to exit.")
