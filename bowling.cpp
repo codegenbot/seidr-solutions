@@ -1,26 +1,29 @@
-int score(string s) {
-    int res = 0, frame = 1, i = 0;
-    while (frame <= 10) {
-        if (s[i] == 'X') {
-            res += 10;
-            res += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/') ? 10 - s[i + 1] + 10 : s[i + 1] + s[i + 2] - '0' * 2;
-            i++;
-        } else if (s[i + 1] == '/') {
-            res += 10;
-            res += (s[i + 2] == 'X') ? 10 : s[i + 2] - '0';
-            i += 2;
+int getBowlingScore(string s) {
+    int score = 0;
+    int frame = 0;
+    int throwIndex = 0;
+    while (frame < 10) {
+        if (s[throwIndex] == 'X') {
+            score += 10;
+            score += ((s[throwIndex + 2] == 'X') ? 10 : (s[throwIndex + 2] == '/') ? 10 - (s[throwIndex + 1] - '0') : s[throwIndex + 1] - '0' + s[throwIndex + 2] - '0');
+            throwIndex++;
+        } else if (s[throwIndex + 1] == '/') {
+            score += 10;
+            score += (s[throwIndex + 2] == 'X') ? 10 : s[throwIndex + 2] - '0';
+            throwIndex += 2;
         } else {
-            res += s[i] + s[i + 1] - '0' * 2;
-            i += 2;
+            score += (s[throwIndex] == '-') ? 0 : s[throwIndex] - '0';
+            score += (s[throwIndex + 1] == '-') ? 0 : s[throwIndex + 1] - '0';
+            throwIndex += 2;
         }
         frame++;
     }
-    return res;
+    return score;
 }
 
 int main() {
     string s;
     cin >> s;
-    cout << score(s) << endl;
+    cout << getBowlingScore(s) << endl;
     return 0;
 }
