@@ -1,49 +1,58 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& v) {
     int min_diff = INT_MAX;
-    int cut_index = 0;
-    
-    for(int i = 1; i < v.size(); ++i) {
-        int diff = abs(v[i] - v[0]);
-        if(diff <= min_diff) {
+    int cut_index = -1;
+
+    for (int i = 0; i < v.size() - 1; ++i) {
+        int diff = abs(v[i] - v[i + 1]);
+        if (diff <= min_diff) {
             min_diff = diff;
             cut_index = i;
         }
     }
-    
-    return {vector<int>(v.begin(), v.begin() + cut_index), vector<int>(v.begin() + cut_index, v.end())};
+
+    std::vector<int> left = {v[0]};
+    std::vector<int> right;
+
+    for (int i = 0; i < cut_index; ++i) {
+        left.push_back(v[i]);
+    }
+
+    for (int i = cut_index + 1; i < v.size(); ++i) {
+        right.push_back(v[i]);
+    }
+
+    return {left, right};
 }
 
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
 
-    vector<int> v(n);
-    for(int i = 0; i < n; ++i) {
-        cin >> v[i];
+    std::vector<int> v(n);
+    for (int& x : v) {
+        std::cin >> x;
     }
 
-    pair<vector<int>, vector<int>> result = cutVector(v);
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(v);
 
-    cout << "Cut at index ";
-    for(auto x : result.first) {
-        cout << x << ' ';
+    std::cout << "[";
+    for (int i = 0; i < result.first.size() - 1; ++i) {
+        std::cout << result.first[i] << " ";
     }
-    cout << '\n';
-
-    cout << "Resulting subvectors: \n";
-    cout << "First vector: ";
-    for(auto x : result.first) {
-        cout << x << ' ';
+    if (!result.first.empty()) {
+        std::cout << result.first.back();
     }
-    cout << '\n';
-    cout << "Second vector: ";
-    for(auto x : result.second) {
-        cout << x << ' ';
+    std::cout << "] [";
+    for (int i = 0; i < result.second.size() - 1; ++i) {
+        std::cout << result.second[i] << " ";
     }
-    cout << '\n';
+    if (!result.second.empty()) {
+        std::cout << result.second.back();
+    }
+    std::cout << "]" << std::endl;
 
     return 0;
 }
