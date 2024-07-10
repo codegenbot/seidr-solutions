@@ -23,7 +23,6 @@ namespace myspace {
         }
         return result;
     }
-
 }
 
 int main() {
