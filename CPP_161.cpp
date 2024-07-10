@@ -1,5 +1,14 @@
 #include <iostream>
 #include <algorithm>
+#include <string>
+
+std::string solve(std::string s);
+
+int main() {
+    std::string s;
+    std::getline(std::cin, s);
+    std::cout << solve(s) << std::endl;
+}
 
 std::string solve(std::string s){
     for(char &c : s){
@@ -11,11 +20,4 @@ std::string solve(std::string s){
         reverse(s.begin(), s.end());
     }
     return s;
-}
-
-int main(){
-    std::string input;
-    std::cin >> input;
-    std::cout << solve(input) << std::endl;
-    return 0;
 }
