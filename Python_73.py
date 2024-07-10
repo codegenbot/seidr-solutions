@@ -1,6 +1,3 @@
-```
-import heapq
-
 def smallest_change(arr):
     heap = [-x for x in arr]
     heapq.heapify(heap)
