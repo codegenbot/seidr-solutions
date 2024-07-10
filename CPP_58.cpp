@@ -3,12 +3,8 @@
 #include <vector>
 #include <algorithm>
 
-namespace std {
-
-    bool issame(const vector<int>& a, const vector<int>& b) {
-        return equal(a.begin(), a.end(), b.begin());
-    }
-
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
@@ -35,10 +31,9 @@ int main() {
         v2.push_back(x);
     }
 
-    if(std::issame(v1, v2)) {
+    if(issame(v1, v2)) {
         std::cout << "The vectors are the same.";
     } else {
         std::cout << "The vectors are not the same.";
     }
-    
 }
