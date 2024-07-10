@@ -8,7 +8,7 @@ bool is_sorted(const std::vector<int>& lst) {
         }
     }
     
-    if (std::adjacent_find(lst.begin(), lst.end()) == lst.end()) {
+    if (std::adjacent_find(lst.begin(), lst.end(), std::not_equal_to<int>()) == lst.end()) {
         return true;
     }
     
