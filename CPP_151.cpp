@@ -15,7 +15,7 @@ int main() {
     
     cout << "Enter numbers (enter 'stop' to finish):" << endl;
     vector<float> lst; 
-    int odd_sum = 0;
+    long long odd_sum = 0;
     
     while(1) {
         cin >> num;
