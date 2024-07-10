@@ -15,5 +15,4 @@ int count_bored_instances(string S){
 
 int main() {
     assert(count_bored_instances("You and I are going for a walk") == 0);
-    return 0;
 }
