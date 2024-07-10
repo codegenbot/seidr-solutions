@@ -1,4 +1,5 @@
-def solveBoolean(expression):
+```
+def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
@@ -7,13 +8,13 @@ def solveBoolean(expression):
         raise ValueError("Invalid expression")
     else:
         result = True
-        for operation in expression.split():
-            if operation == 'f':
+        for char in expression:
+            if char == '&':
+                result &= True
+            elif char == '|':
+                result |= True
+            elif char == 'T':
+                result &= True
+            elif char == 'F':
                 result = False
-            elif operation == 't':
-                result = True
-            elif operation == '&':
-                pass
-            elif operation == '|':
-                pass
         return result
