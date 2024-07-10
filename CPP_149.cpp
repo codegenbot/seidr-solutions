@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool same(vector<string> a, vector<string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,7 +13,11 @@ bool same(vector<string> a, vector<string> b) {
     return true;
 }
 
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return issame(a, b) && issame(b, a);
+}
+
 int main() {
-    assert(same({{"aaaa", "bbbb"}, {"cc", "dd"}} , {{"cc", "dd"}, {"aaaa", "bbbb"}}));
+    assert(same({{"aaaa", "bbbb"}, {"cc", "dd"}}, {{"cc", "dd"}, {"aaaa", "bbbb"}}));
     return 0;
 }
