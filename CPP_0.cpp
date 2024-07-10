@@ -2,7 +2,7 @@
 #include <cassert>
 using namespace std;
 
-bool has_close_elements(const std::vector<float>& numbers, float threshold) {
+bool has_close_elements(const vector<float>& numbers, float threshold) {
     sort(numbers.begin(), numbers.end());
     for (int i = 0; i < numbers.size() - 1; ++i) {
         if (abs(numbers[i] - numbers[i + 1]) < threshold) {
