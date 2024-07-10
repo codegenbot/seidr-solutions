@@ -1,5 +1,5 @@
 ```
-def up_to_n_primes(n):
+def count_up_to(n):
     def is_prime(num):
         if num < 2:
             return False
@@ -9,9 +9,11 @@ def up_to_n_primes(n):
         return True
 
     result = []
-    i = 2 
-    while len(result) < n: 
+    prime_count = 0
+    for i in range(2, n+1): 
         if is_prime(i):
             result.append(i)
-        i += 1
-    return result
+            prime_count += 1
+        if prime_count >= n:
+            break
+    return result[:n]
