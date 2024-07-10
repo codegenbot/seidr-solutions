@@ -1,63 +1,49 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <algorithm>
 
 using namespace std;
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n));
-    priority_queue<pair<int>, vector<pair<int>>, greater<pair<int>>> pq;
-    vector<int> res;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (!visited[i][j]) {
-                pq.push(grid[i][j]);
-                visited[i][j] = true;
+priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> pq;
+
+int minPath(vector<vector<int>>& edges, int n) {
+    vector<int> dist(n+1, 1000000);
+    dist[1] = 0;
+    
+    for (int i = 1; i <= n; i++) {
+        for (auto edge : edges) {
+            if (dist[edge[0]] + edge[2] < dist[edge[1]]) {
+                dist[edge[1]] = dist[edge[0]] + edge[2];
             }
         }
     }
-
-    while (!pq.empty()) {
-        int val = pq.top();
-        pq.pop();
-
-        res.push_back(val);
-
-        if (k > 0) {
-            --k;
-
-            for (int i = -1; i <= 1; ++i) {
-                for (int j = -1; j <= 1; ++j) {
-                    int ni = pos.first + i;
-                    int nj = pos.second + j;
-
-                    if (ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]) {
-                        visited[ni][nj] = true;
-                        pq.push(grid[ni][nj]);
-                    }
-                }
+    
+    vector<int> path;
+    int curr = n;
+    while (curr != 1) {
+        for (auto edge : edges) {
+            if (dist[edge[0]] == dist[curr] - edge[2]) {
+                path.push_back(edge[1]);
+                curr = edge[0];
+                break;
             }
-        } else {
-            break;
         }
     }
-
-    return res;
+    
+    path.push_back(1);
+    reverse(path.begin(), path.end());
+    
+    return path;
 }
 
 int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-
-    vector<int> result = minPath(grid, k);
-
-    for (int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
+    vector<vector<int>> edges = {{1, 3, 10}, {3, 2, 3}};
+    int n = 4;
+    assert(issame(minPath(edges, n), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
     
     return 0;
 }
