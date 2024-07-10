@@ -9,5 +9,5 @@ def filter_integers() -> List[int]:
             break
         try:
             values.append(int(value))
-        except ValueError as e:
-            print(f"Invalid input. Please enter a valid integer: {str(e)}")
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
