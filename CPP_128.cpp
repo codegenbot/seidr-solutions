@@ -12,12 +12,16 @@ int prod_signs(const std::vector<int>& arr) {
     int sum = 0;
     
     for (int num : arr) {
-        product *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
+        if (num > 0) {
+            product *= 1;
+        } else if (num < 0) {
+            product *= -1;
+        } else {
+            product *= 0;
+        }
         
-        sum += abs(num);
+        sum += std::abs(num);
     }
     
     return product * sum;
 }
-
-prod_signs({-1, 1, 1, 0});
