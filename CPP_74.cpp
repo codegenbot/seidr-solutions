@@ -36,10 +36,11 @@ void get_user_input(vector<string>& user_input) {
 int main() {
     vector<string> user_input;
     get_user_input(user_input);
-    if (total_match({"some"}, user_input)) {  
+    if (issame({"some"}, user_input)) {  
         cout << "The two lists are the same." << endl;
     } else {
-        cout << "Error: The two lists are not the same." << endl;
+        int count = total_match(user_input, {"some"});
+        cout << "Error: The two lists are not the same. Count of matches is: " << count << endl;
     }
     return 0;
 }
