@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -20,6 +19,10 @@ int main() {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
-    std::cout << "The mini Roman numeral is: " << int_to_mini_roman(num) << std::endl;
+    if(num > 3999) {
+        std::cout << "The mini Roman numeral is: " << int_to_roman(num) << std::endl;
+    } else {
+        std::cout << "The mini Roman numeral is: " << int_to_mini_roman(num) << std::endl;
+    }
     return 0;
 }
