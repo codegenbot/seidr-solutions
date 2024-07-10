@@ -24,6 +24,7 @@ vector<int> maximum(vector<int> arr, int k) {
 int main() {
     vector<int> input = {1, 2, 3, -23, 243, -400, 0};
     int k = 4;
+
     if (!input.empty()) {
         for (int i : maximum(input, k)) {
             cout << i << " ";
@@ -32,5 +33,6 @@ int main() {
     } else {
         cout << "No elements left" << endl;
     }
+
     return 0;
 }
