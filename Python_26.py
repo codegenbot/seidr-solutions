@@ -1,12 +1,11 @@
-```
 from typing import List
 
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    seen = {}
+    seen = set()
     result = []
-    for num in numbers:
+    for num in reversed(numbers):
         if num not in seen:
-            seen[num] = True
+            seen.add(num)
             result.append(num)
-    return result
+    return list(reversed(result))
