@@ -12,5 +12,4 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-   // Rest of your code
 }
