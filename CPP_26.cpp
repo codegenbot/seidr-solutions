@@ -1,10 +1,26 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(int x, int y) {
+    return x == y;
+}
+
 std::vector<int> remove_duplicates(std::vector<int> v) {
-    std::vector<int> result;
-    for(int i = 0; i < v.size(); i++) {
-        if(std::find_if(result.begin(), result.end(), [&](int x){return x == v[i];}) == result.end()) {
-            result.push_back(v[i]);
+    std::vector<int> result(v);
+    for(int i = 0; i < result.size(); i++) {
+        auto it = std::find_if(result.begin() + i + 1, result.end(),
+                                [&](int x){return issame(x, result[i]);});
+        if(it != result.end()) {
+            result.erase(it);
+            i--;
         }
     }
     return result;
+}
+
+int main() {
+    // Your code here
+    return 0;
 }
