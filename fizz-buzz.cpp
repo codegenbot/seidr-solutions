@@ -1,13 +1,17 @@
-std::string fizzBuzz(int x) {
-    if (x % 15 == 0)
-        return "FizzBuzz";
-    else if (x % 5 == 0)
-        return x % 3 ? "Buzz" : "FizzBuzz";
+#include <string>
+#include <iostream>
+
+int main() {
+    int x; 
+    std::cin >> x;
+    if (x % 3 == 0 && x % 5 == 0)
+        std::cout << "FizzBuzz";
     else if (x % 3 == 0)
-        return "Fizz";
-    else {
-        std::stringstream ss;
-        ss << x;
-        return ss.str();
-    }
+        std::cout << "Fizz";
+    else if (x % 5 == 0)
+        std::cout << "Buzz";
+    else
+        std::cout << x;
+    std::cout << std::endl;
+    return 0;
 }

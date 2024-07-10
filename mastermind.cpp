@@ -1,53 +1,28 @@
-#include <string>
-using namespace std;
-
-struct PegCounts {
-    int black;
-    int white;
-};
+struct PegCounts { int black; int white; };
 
 PegCounts mastermind(string code, string guess) {
-    int black = 0;
-    int white = 0;
-    bool usedCode[4];
-    bool usedGuess[4];
+    PegCounts result = {0, 0};
+    string remainingGuess = guess;
 
-    for (int i = 0; i < 4; ++i) {
-        usedCode[i] = false;
-        usedGuess[i] = false;
-    }
-
-    // Count the number of correct colors in wrong positions
+    // Count black pegs
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
-            usedCode[i] = true;
-            usedGuess[i] = true;
+            result.black++;
+            remainingGuess[i] = ' ';
         }
     }
 
-    // Count the number of correct colors in correct positions
+    // Count white pegs
     for (int i = 0; i < 4; ++i) {
-        bool correctColor = false;
+        int count = 0;
         for (int j = 0; j < 4; ++j) {
-            if (!usedCode[j] && code[j] == guess[i]) {
-                correctColor = true;
-                usedCode[j] = true;
-                break;
+            if (code[j] == remainingGuess[i]) {
+                count++;
             }
         }
-        if (correctColor) {
-            white++;
-            usedGuess[guess.find(code[i])] = true;
+        if (count > 0) {
+            result.white += count - 1; // subtract one, as the correct position is already counted
         }
     }
 
-    return {black, white};
-}
-
-int main() {
-    string code = "ABCD";
-    string guess = "ABDE";
-    PegCounts result = mastermind(code, guess);
-    return 0;
-}
+    return result;
