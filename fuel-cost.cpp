@@ -1,11 +1,11 @@
-#include <vector>
-#include <cmath>
+```
+using namespace std;
 
 int fuelCost(vector<int> v) {
     int sum = 0;
     for(int i : v) {
         int num = (i / 3); 
-        num = floor((double)num); 
+        num = floor(num); 
         num -= 2; 
         sum += num; 
     }
