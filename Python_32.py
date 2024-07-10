@@ -4,7 +4,10 @@ def find_zero(xs: list):
     b = xs[n]
     return -a / b
 
-input_list = list(map(float, input("Enter comma-separated numbers: ").split(','))
 
-result = find_zero(input_list)
+# Read input from user
+xs = list(map(float, input().split()))
+
+# Call the function with the input
+result = find_zero(xs)
 print(result)
