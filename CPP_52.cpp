@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <cassert>
@@ -13,7 +12,7 @@ bool below_threshold(std::vector<int> numbers, int threshold) {
     return false;
 }
 
-void originalMain() {
+int main() {
     int num = 0;
 
     std::cout << "Enter the number of elements: ";
@@ -36,10 +35,5 @@ void originalMain() {
     // test the function
     assert (!below_threshold(numbers, 10));
     
-    return;
-}
-
-int main() {
-    originalMain();
     return 0;
 }
