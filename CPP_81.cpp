@@ -53,8 +53,10 @@ int main() {
         std::cin >> grades[i];
     }
 
+    std::vector<std::string> letterGrades = numerical_letter_grade(grades);
+
     std::cout << "Letter grades: ";
-    for (const auto& grade : numerical_letter_grade(grades)) {
+    for (const auto& grade : letterGrades) {
         std::cout << grade << " ";
     }
     std::cout << std::endl;
