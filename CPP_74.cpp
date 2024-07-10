@@ -1,8 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
-#include <cassert>
 
 using namespace std;
 
@@ -21,10 +18,8 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
     if (sum1 < sum2) return lst1;
     else if (sum1 > sum2) return lst2;
-    else return lst1;
+    else return vector<string>();
 }
 
 int main() {
     assert(is_same(total_match({"this"}, {}), {}));
-    return 0;
-}
