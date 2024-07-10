@@ -1,14 +1,13 @@
 Here is the solution:
 
 def gcd(a, b):
-    while b:
+    while b != 0:
         a, b = b, a % b
     return abs(a)
 
-text = input()
-target = input()
-
-indices = [m.start() for m in re.finditer(target, text)]
-
-print(gcd(int(input()), int(input())))
-print(indices)
+def indices_of_substring(text, target):
+    result = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            result.append(i)
+    return result
