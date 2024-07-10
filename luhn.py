@@ -1,4 +1,4 @@
-````
+```
 def luhn(card_num):
     card_num = [int(x) for x in str(card_num).replace(" ", "").strip()]
     sum_val = 0
@@ -10,4 +10,4 @@ def luhn(card_num):
                 val -= 9
         sum_val += val
         alt = not alt
-    return sum_val%10
+    return sum_val
