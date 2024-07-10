@@ -1,26 +1,20 @@
-```cpp
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
-    int minDiff = numeric_limits<int>::max();
-    pair<vector<int>, vector<int>> result;
-    
-    for(int i = 1; i <= v.size(); i++) { 
-        int leftSum = 0, rightSum = 0;
-        
-        for(int j = 0; j < i; j++) {
-            leftSum += v[j];
+    int min_diff = INT_MAX;
+    int split_left = 0, split_right = 0;
+
+    for (int left = 0, right = v.size() - 1; left <= right;) {
+        int diff = abs(v[left] - v[right]);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            split_left = left;
+            split_right = right;
         }
-        
-        rightSum = accumulate(v.begin() + i - 1, v.end(), 0); 
-         
-        int diff = abs(leftSum - rightSum);
-        
-        if(diff < minDiff) {
-            minDiff = diff;
-            result = {vector<int>(v.begin(), v.begin() + i), vector<int>(v.begin() + i, v.end())};
+        if (v[left] < v[right]) {
+            ++left;
+        } else {
+            --right;
         }
-    else if (leftSum == rightSum)
-        return make_pair(vector<int>(v.begin(), v.begin() + i), vector<int>(v.begin() + i, v.end()));
     }
-    
-    return result;
+
+    return {{v.begin(), v.begin() + split_left}, {v.begin() + split_left, v.end()}};
 }

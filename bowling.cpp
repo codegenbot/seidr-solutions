@@ -1,6 +1,7 @@
-#include <string>
+```
+using namespace std;
 
-int bowlingScore(std::string input) {
+int bowlingScore(string input) {
     int score = 0;
     int i = 0;
     while(i < input.length()) {
@@ -16,7 +17,7 @@ int bowlingScore(std::string input) {
             }
             i += 2;
         } else {
-            std::string roll = input.substr(i, 2);
+            string roll = input.substr(i, 2);
             int currentRoll = (roll[0] == 'X') ? 10 : ((roll[1] == '/') ? 10 - (roll[0] - '0') : (roll[0] - '0'));
             if(currentRoll < 10) {
                 score += currentRoll;

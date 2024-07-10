@@ -35,6 +35,7 @@ int main() {
     std::cin >> a >> b;
     std::cout << gcd(a, b) << "\n";
     
+    // Example usage for indicesOfSubstring function
     std::string text = "banana";
     std::string target = "ana";
     std::vector<int> result = indicesOfSubstring(text, target);
