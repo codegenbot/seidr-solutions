@@ -1,8 +1,9 @@
-def fruit_distribution(s, n):
-    s = s.replace(" apples and ", "")
-    s = s.replace(" oranges", "")
-    n = int(n)
-    return n - (
-        int(s.split()[0].replace("apples", "").replace("orange", ""))
-        - int(s.split()[-1].replace("oranges", ""))
-    )
+def fruit_distribution(s,n):
+    quantities = s.split()
+    apples = int(quantities[0].replace("apples ",""))
+    oranges = 0
+    for q in quantities:
+        if "oranges" in q:
+            oranges = int(q.replace("oranges ",""))
+            break
+    return n - (apples + oranges)
