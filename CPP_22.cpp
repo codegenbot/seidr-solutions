@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -31,7 +30,7 @@ int main() {
         std::cout << "Vectors are not same." << std::endl;
     }
 
-    std::vector<int> values = {1, 0, 3, 4};
+    std::vector<int> values = std::vector<int>({1, 0, 3, 4});
     std::vector<int> filtered = filterIntegers(values);
     for (const auto& value : filtered) {
         std::cout << value << " ";
