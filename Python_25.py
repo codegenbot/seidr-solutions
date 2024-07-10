@@ -1,3 +1,4 @@
+```Python
 from typing import List
 import math
 
@@ -105,7 +106,9 @@ def main():
         common_factors.append(n4)
 
     if common_factors:
-        print(f"{', '.join(map(str, set(common_factors)))} are the common factors between {n1}, {n2}, {n3} and {n4}.")
+        print(
+            f"{', '.join(map(str, set(common_factors)))} are the common factors between {n1}, {n2}, {n3} and {n4}."
+        )
     else:
         print(f"No common factor found between {n1}, {n2}, {n3} and {n4}.")
 
