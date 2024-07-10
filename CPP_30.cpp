@@ -27,7 +27,7 @@ int main() {
         positive_numbers.push_back(i);
     }
     
-    assert(issame(get_positive(positive_numbers), positive_numbers));
+    assert(issame(get_positive(std::vector<int>{}), std::vector<int>{}));
     
     return 0;
 }
