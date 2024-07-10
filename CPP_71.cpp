@@ -1,11 +1,18 @@
-```
-int main() {
-    std::cout << "Enter sides of triangle: ";
-    float side1, side2, side3;
-    std::cin >> side1 >> side2 >> side3;
+#include <iostream>
+using namespace std;
 
-    assert(std::abs(triangle_area(side1, side2, side3)) < 0.01);
+float triangle_area(float a, float b, float c) {
+    float s = (a + b + c) / 2;
+    return sqrt(s * (s - a) * (s - b) * (s - c));
+}
+
+int main() {
+    cout << "Enter sides of triangle: ";
+    float side1, side2, side3;
+    cin >> side1 >> side2 >> side3;
+
+    assert(abs(triangle_area(side1, side2, side3)) < 0.01);
     float result = triangle_area(side1, side2, side3);
-    std::cout << "The area of the triangle is: " << result << std::endl;
+    cout << "The area of the triangle is: " << result << endl;
     return 0;
 }
