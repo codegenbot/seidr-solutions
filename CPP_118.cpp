@@ -1,20 +1,17 @@
 string get_closest_vowel(string word) {
     int n = word.size();
-    for (int i = n - 1; i >= 0; --i) {
-        if (!isalpha(word[i])) continue;
-        if (ispunct(word[i]) || isdigit(word[i])) continue;
-        if (word[i] == 'Y' && i > 0 && isupper(word[i-1])) continue;
-        for (int j = i + 1; j < n; ++j) {
-            if (!isalpha(word[j])) break;
-            if (ispunct(word[j]) || isdigit(word[j])) break;
-            if (word[j] == 'Y' && j > 0 && isupper(word[j-1])) break;
-        }
-        for (int j = i - 1; j >= 0; --j) {
-            if (!isalpha(word[j])) continue;
-            if (ispunct(word[j]) || isdigit(word[j])) continue;
-            if (word[j] == 'Y' && j < n-1 && isupper(word[j+1])) continue;
-            return string(1, tolower(word[j]));
+    for(int i=n-1; i>=0; i--) {
+        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u' || word[i] == 'A' || word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || word[i] == 'U') {
+            for(int j=i-1; j>=0; j--) {
+                if(!isVowel(word[j])) {
+                    return (word[i] >= 'a' && word[i] <= 'z') ? string(1, tolower(word[i])) : string(1, word[i]);
+                }
+            }
         }
     }
     return "";
+}
+
+bool isVowel(char c) {
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
 }
