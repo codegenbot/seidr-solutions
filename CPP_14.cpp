@@ -39,9 +39,7 @@ int main() {
     }
 
     if (!issame(all_prefixes("WWW"))) {
-        std::cout << "The prefixes are not the same." << std::endl;
-    } else {
-        std::cout << "The prefixes are the same." << std::endl;
+        std::cout << "The prefixes are different." << std::endl;
     }
 
     return 0;
