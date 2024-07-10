@@ -1,6 +1,3 @@
-#include <vector>
-#include <cmath>
-
 int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -35,9 +32,6 @@ int count_nums(std::vector<int> nums) {
                     sum_of_digits += digit;
                 }
                 num /= 10;
-                if (num < 0 && !has_negative_digit) {
-                    has_negative_digit = true;
-                }
             }
             if (!has_negative_digit || sum_of_digits > 0) {
                 count++;
