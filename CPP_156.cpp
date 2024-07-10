@@ -1,9 +1,3 @@
-```cpp
-#include <iostream>
-#include <string>
-
-std::string romanMap[13] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-
 std::string int_to_roman(int number) {
     std::string roman = "";
     for (int i = 0; i < 13; ++i) {
@@ -53,12 +47,7 @@ std::string int_to_roman(int number) {
             roman += "I";
         }
     }
+    if (number == 0)
+        return ""; 
     return roman;
-}
-
-int main() { 
-    int num; 
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::cout << "The Roman numeral is: " << int_to_roman(num) << std::endl << std::flush;
 }
