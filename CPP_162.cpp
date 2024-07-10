@@ -1,4 +1,4 @@
-#include <openssl/opensslconf.h>
+#include <openssl/cryptlib.h>
 #include <string>
 #include <openssl/evp.h>
 
