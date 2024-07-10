@@ -2,9 +2,9 @@
 
 struct PegCounts { int white; int black; };
 
-PegCounts mastermind(string code, string guess) {
+PegCounts mastermind(std::string code, std::string guess) {
     PegCounts result = {0, 0};
-    string remainingGuess = guess;
+    std::string remainingGuess = guess;
 
     // Count black pegs
     for (int i = 0; i < 4; ++i) {
