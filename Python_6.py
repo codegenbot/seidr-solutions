@@ -1,3 +1,4 @@
+```
 def parse_nested_parens(paren_string: str) -> list:
     if not paren_string:
         return []
@@ -24,12 +25,9 @@ def parse_nested_parens(paren_string: str) -> list:
         elif char.isdigit():
             temp_value += char
 
-    if current_group and current_group != '------':
-        if temp_value:
-            group_value = int(temp_value) 
-            result.append(group_value)
-        else:
-            return []
+    if temp_value:
+        group_value = int(temp_value) 
+        result.append(group_value)
     else:
         return []
 
