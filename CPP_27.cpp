@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -16,13 +15,9 @@ std::string flip_case(const std::string& str) {
     return result;
 }
 
-int driver() {  
+int main() {
     std::string result;
     while (std::cin >> result) {  
         std::cout << "Flipped case: " << flip_case(result) << std::endl;
     }
-}
-
-int main(int argc, const char* argv[]) {
-    driver();
 }
