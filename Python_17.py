@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```
 def parse_music(music_string: str) -> list:
     music_list = []
@@ -9,8 +7,11 @@ def parse_music(music_string: str) -> list:
             music_list.append(4)
             i += 1
         elif i < len(music_string) - 1 and music_string[i:i+2] == 'o|':
+            if music_string[i+1] == 'o':
+                music_list.append(4)
+            else:
+                music_list.append(0.5)
             i += 2
-            continue
         elif i < len(music_string) - 3:
             if music_string[i:i+3] in ['...||', '.||.', '..|.']:
                 music_list.append(1)
@@ -29,6 +30,12 @@ def parse_music(music_string: str) -> list:
                 else:
                     music_list.append(1)
                     i += 3
+            elif music_string[i:i+2] in ['o|', '|o']:
+                if music_string[i+1] == 'o':
+                    music_list.append(4)
+                else:
+                    music_list.append(0.5)
+                i += 1
             else:
                 music_list.append(1)
                 i += 1
