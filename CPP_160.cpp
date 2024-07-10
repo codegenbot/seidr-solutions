@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cmath>
 
@@ -11,9 +12,9 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
         } else if (operator_[i] == "*") {
             result *= operand[i + 1];
         } else if (operator_[i] == "//") {
-            result = static_cast<int>(result / double(operand[i + 1]));
+            result = result / static_cast<int>(operand[i + 1]);
         } else if (operator_[i] == "**") {
-            result = pow(result, double(operand[i + 1]));
+            result = pow(result, operand[i + 1]);
         }
     }
     return result;
