@@ -1,19 +1,21 @@
-#include <algorithm>
+#include<string>
+#include<algorithm>
+using namespace std;
 
-string anti_shuffle(string s) {
-    string result;
-    size_t start = 0;
-
-    for (size_t i = 0; i <= s.size(); ++i) {
-        if (i == s.size() || isspace(s[i])) {
-            string word = s.substr(start, i - start);
-            for (char& c : word) {
-                result += min_element(word.begin(), word.end()) -> second;
-            }
+string anti_shuffle(string s){
+    string result = "";
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == ' '){
             result += ' ';
-            start = i + 1;
+        } else {
+            string word = "";
+            for(int j=i; j<s.length() && s[j] != ' '; j++){
+                word += s[j];
+                sort(word.begin(), word.end());
+            }
+            i += word.length() - 1;
+            result += word;
         }
     }
-
-    return result.substr(0, result.size() - 1); // Remove the trailing space
+    return result;
 }
