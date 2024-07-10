@@ -1,2 +1,6 @@
 def dice_game(n, m):
-    return (n - 1) / n * 1 / m if n > m else (m - 1) / m * 1 / n
+    total = n * m
+    if n > m:
+        return (n - 1) / (total - 1)
+    else:
+        return (m - 1) / (total - 1)
