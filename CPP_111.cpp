@@ -1,6 +1,7 @@
 #include <map>
-#include <cassert>
 #include <string>
+#include <cassert>
+using namespace std;
 
 std::map<char, int> histogram(std::string s) {
     std::map<char, int> hist;
@@ -14,6 +15,8 @@ bool issame(std::map<char, int> a, std::map<char, int> b) {
     return a == b;
 }
 
-void main() {
+int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
+    
+    return 0;
 }
