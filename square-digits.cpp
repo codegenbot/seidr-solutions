@@ -1,14 +1,23 @@
-#include <string>
+#include <vector>
+#include <iostream>
 using namespace std;
 
-class Solution {
-public:
-    string squareDigits(string input) {
-        string result = "";
-        for (char c : input) {
-            int num = (int)(c - '0'); // convert char to int
-            result += to_string(num * num); // square the number and add it to the result
-        }
-        return result;
+string squareDigits(string input) {
+    string output = "";
+    for (char c : input) {
+        int digit = c - '0';
+        output += to_string(digit * digit);
     }
-};
+    return output;
+}
+
+int main() {
+    // Test cases
+    cout << squareDigits("0") << endl;  // Expected: "0"
+    cout << squareDigits("1") << endl;  // Expected: "1"
+    cout << squareDigits("2") << endl;  // Expected: "4"
+    cout << squareDigits("3") << endl;  // Expected: "9"
+    cout << squareDigits("4") << endl;  // Expected: "16"
+
+    return 0;
+}
