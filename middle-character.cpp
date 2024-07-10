@@ -1,12 +1,8 @@
-```cpp
-int main() {
-    string middleCharacter(string s) {
-        int len = s.length();
-        if (len % 2 == 0) {
-            return s.substr(len / 2 - 1, 2);
-        } else {
-            return string(1, s[len / 2]);
-        }
+string middleCharacter(string s) {
+    int len = s.length();
+    if (len % 2 == 0) {
+        return s.substr(len / 2 - 1, 2);
+    } else {
+        return string(1, s[len / 2]);
     }
-    return "Here is the solution:\n";
 }
