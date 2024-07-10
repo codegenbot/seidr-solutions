@@ -31,9 +31,9 @@ std::string s2 = "a";
 auto hist1 = histogram(s1);
 auto hist2 = histogram(s2);
 
-bool sameMap = std::get<0>(issameMap(hist1, hist2)) && std::get<1>(issameMap(hist1, hist2));
+auto sameMap = issameMap(hist1, hist2);
 
-if (sameMap) {
+if (sameMap.first) {
     std::cout << "Histograms are the same.\n";
 } else {
     std::cout << "Histograms are different.\n";
