@@ -7,10 +7,15 @@ def mastermind(code, guess):
     for i in range(4):
         if code[i] == guess[i]:
             black += 1
-            code_count[code[i]] -= 1
-        elif code_count.get(guess[i], 0) > 0:
-            code_count[guess[i]] -= 1
+        elif guess_count.get(guess[i], 0) > 0:
+            white += 1
+            guess_count[guess[i]] -= 1
 
-    white = sum(count for count in code_count.values() if count > 0)
+    while any(count > 0 for count in code_count.values()):
+        for char in set(code):
+            if code_count[char] > 0 and guess_count.get(char, 0) > 0:
+                white += 1
+                code_count[char] -= 1
+                guess_count[char] -= 1
 
     return str(black) + "\n" + str(white)
