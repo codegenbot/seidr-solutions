@@ -35,7 +35,6 @@ vector<string> words_string(string s) {
 }
 
 int main() {
-    vector<string> expected = {"ahmed", "gamal"};
-    assert(issame(words_string("ahmed     , gamal"), expected));
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
