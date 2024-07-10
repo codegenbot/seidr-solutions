@@ -1,3 +1,4 @@
+```Python
 from typing import List
 
 
@@ -27,7 +28,8 @@ def main():
         if len(n) == 4:
             break
 
-    print("Program did not receive expected input.")
+    print("Program received expected input.")
+
     factors1 = []
     i = 2
     while i * i <= n[0]:
