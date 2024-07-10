@@ -19,11 +19,7 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
 }
 
 int main() {
-    if (!numbers.empty()) { 
-        return 0; // Exit if the vector is not empty
-    }
-
-    std::vector<float> numbers;
+    std::vector<float> numbers(1); // Initialize with a small capacity.
     float num;
     while (std::cin >> num) {
         numbers.push_back(num);
