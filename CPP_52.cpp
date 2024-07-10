@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -25,10 +24,9 @@ int main() {
     numbers.resize(num); 
 
     for (int i = 0; i < num; i++) {
-        int threshold;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> threshold;
-        numbers.push_back(threshold - 5);
+        string temp; 
+        cin >> temp; 
+        numbers.push_back(stoi(temp));
     }
 
     bool result = below_threshold(numbers, 5);
