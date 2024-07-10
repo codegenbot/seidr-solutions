@@ -1,4 +1,5 @@
 #include <map>
+#include <vector>
 
 int search(vector<int> lst) {
     map<int, int> freq;
