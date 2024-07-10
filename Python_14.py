@@ -1,8 +1,9 @@
+```
 from typing import List
 
 
-def all_prefixes(string: str) -> List[str]:
-    return [string[:i] for i in range(1, len(string) + 1)] + [string]
+def all_prefixes(s: str) -> List[str]:
+    return [s[:i] for i in range(1, len(s) + 1)]
 
 
 string = input("Please enter a string: ")
