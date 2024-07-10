@@ -1,7 +1,7 @@
 def add(a: int, b: int) -> int:
     return a + b
 
-a = int(input("Enter the first number: "))
-b = int(input("Enter the second number: "))
-result = add(a, b)
+num1 = int(input())
+num2 = int(input())
+result = add(num1, num2)
 print(result)
