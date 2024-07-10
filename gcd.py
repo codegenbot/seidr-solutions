@@ -9,7 +9,9 @@ def indices_of_substring(text, target):
     for i in range(len(text)):
         if text[i:i+len(target)] == target:
             j = i
-            while j < len(text) and text[j:j+len(target)] == target:
+            while True:
+                if text[j:j+len(target)] != target:
+                    break
                 result.append(j)
                 j += 1
     return result
