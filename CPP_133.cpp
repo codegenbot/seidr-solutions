@@ -1,24 +1,27 @@
+#include <vector>
+#include <cmath>
+
 int mainFunc() {
-    vector<float> lst;
+    std::vector<float> lst;
     int n;
-    cout << "Enter number of elements: ";
-    cin >> n;
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
 
     for(int i = 0; i < n; i++) {
         float x;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> x;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> x;
         lst.push_back(x);
     }
 
     int total = sum_squares(lst);
-    cout << "Sum of squares: " << total << endl;
+    std::cout << "Sum of squares: " << total << std::endl;
 }
 
-double sum_squares(const vector<float>& lst){
+double sum_squares(const std::vector<float>& lst){
     double total = 0.0;
     for(float x : lst){
-        total += x * x; 
+        total += std::ceil(x) * std::ceil(x);
     }
     return total;
 }
