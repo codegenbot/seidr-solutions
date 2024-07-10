@@ -14,15 +14,13 @@ int prod_signs(int* arr, int n) {
 }
 
 int main() {
-    int n; // number of elements in the array
+    int n; 
     std::cin >> n;
-    int* arr = new int[n];
+    std::vector<int> arr(n);
     for (int i = 0; i < n; ++i)
         std::cin >> arr[i];
 
-    int result = prod_signs(arr, n);
-    delete[] arr;
-
+    int result = prod_signs(&*arr.begin(), n);
     std::cout << "The product of signs is: " << result << '\n';
     return 0;
 }
