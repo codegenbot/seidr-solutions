@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -16,5 +15,6 @@ int next_smallest(vector<int> lst) {
 int main() {
     vector<int> lst = {-35, 34, 12, -45};
     int result = next_smallest(lst);
+    assert(result == -35); 
     return 0;
 }
