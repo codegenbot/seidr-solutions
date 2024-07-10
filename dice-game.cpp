@@ -1,12 +1,9 @@
-#include <iostream>
+Here is the solution:
 
 double diceGame(int n, int m) {
-    return (double)(n - 1) / (n * m);
-}
-
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    std::cout << std::fixed << std::setprecision(1) << diceGame(n, m) << '\n';
-    return 0;
+    double total = 1.0;
+    for (int i = 1; i < n; ++i) {
+        total += pow(m, i);
+    }
+    return total / pow(n + m - 1, n);
 }
