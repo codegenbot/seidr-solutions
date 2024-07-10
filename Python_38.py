@@ -1,5 +1,6 @@
-```
 def decode_cyclic(s: str):
+    if len(s) < 3:
+        return "Invalid input"
     result = ""
     i = 0
     while i < len(s):
