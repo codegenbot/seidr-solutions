@@ -1,4 +1,6 @@
-```cpp
+#include <cassert>
+#include <string>
+
 int solve(std::string& color) {
     int result = 0;
     for (size_t i = 1; i < color.size(); ++i) {
