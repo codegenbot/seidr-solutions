@@ -2,7 +2,7 @@
 #include <vector>
 
 namespace myspace {
-    bool isSame(std::vector<int> a, std::vector<int> b) {
+    bool issame(std::vector<int> a, std::vector<int> b) {
         for (int i = 0; i < a.size(); i++) {
             if (a[i] != b[i]) {
                 return false;
@@ -23,6 +23,7 @@ namespace myspace {
         }
         return result;
     }
+
 }
 
 int main() {
@@ -43,7 +44,7 @@ int main() {
         std::cin >> guess[i];
     }
 
-    if (myspace::isSame(game, guess)) {
+    if (myspace::issame(game, guess)) {
         std::cout << "Congratulations! You guessed correctly." << std::endl;
     } else {
         std::vector<int> result = myspace::compareGameGuess(game, guess);
