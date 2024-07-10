@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
-bool below_threshold(vector<int> numbers, int threshold) {
+bool below_threshold(std::vector<int> numbers, int threshold) {
     for (int i = 0; i < numbers.size(); i++) {
         if (numbers[i] < threshold) return true;
     }
@@ -28,6 +27,14 @@ int main() {
         int temp; 
         cin >> temp; 
         numbers.push_back(temp);
+    }
+    
+    bool result = below_threshold(numbers, 10);
+    
+    if(result) {
+        cout << "At least one number is below the threshold.\n";
+    } else {
+        cout << "No number is below the threshold.\n";
     }
     
     return 0;

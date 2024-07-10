@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <cassert>
+#include <iterator>
 using namespace std;
 
 string anti_shuffle(string sStr) {
