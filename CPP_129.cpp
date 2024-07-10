@@ -36,7 +36,7 @@ int main() {
 
     if (minPath(input, target).empty()) {
         cout << "No paths found with length " << target << "." << endl;
-        return 0; 
+        return; 
     }
     
     for (int i : minPath(input, target)) {
@@ -67,5 +67,4 @@ int main() {
             cout << "No paths found with length " << target << "." << endl;
         }
     }
-    return 0; 
 }
