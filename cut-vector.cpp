@@ -1,5 +1,12 @@
+```c
 #include <vector>
 #include <utility>
+#include <algorithm>
+#include <numeric>
+#include <limits> // for INT_MAX
+#include <cmath>  // for abs
+
+using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int n = v.size();
