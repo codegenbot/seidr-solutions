@@ -1,4 +1,5 @@
-```cpp
+Here is the modified code:
+
 #include <cmath>
 #include <iostream>
 
