@@ -6,9 +6,9 @@ def encode(message):
             is_upper = char.isupper()
             char_lower = char.lower()
             if char_lower in vowels:
-                new_char = chr((ord(char_lower) - ord('a') + 5) % 10 + ord('a'))
+                new_char = chr((ord(char_lower) - ord('a') + 5) % 26 + ord('a'))
             else:
-                new_char = chr((ord(char_lower) - ord('a') + 26 - 2 * (ord(char_lower) - ord('a'))) % 26 + ord('a'))
+                new_char = chr((ord(char_lower) - ord('a') + 21) % 26 + ord('a'))
             if is_upper:
                 new_char = new_char.upper()
         else:
