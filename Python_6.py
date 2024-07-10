@@ -8,13 +8,13 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             current_depth += 1
         elif char == ')':
             current_depth -= 1
-        if char in ['(', ')'] and current_depth >= 0:
+        if char == '(' or char == ')':
             depths.append(current_depth)
     return depths
 
 input_string = input("Enter the nested parens string: ")
-if input_string:
+if '(' in input_string and ')' in input_string:
     result = parse_nested_parens(input_string)
     print(result)
 else:
-    print("No input received. Please provide a valid nested parens string.")
+    print("No valid nested parens string found. Please provide a valid input.")
