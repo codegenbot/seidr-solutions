@@ -1,39 +1,30 @@
-def bowling_score(bowls):
+def bowling(input_str):
     score = 0
-    frame = 1
-    bowl_num = 0
-    frame_score = [0] * 10
-
-    for bowl in bowls:
-        if bowl == "X":
+    frames = input_str.split("/")
+    for i in range(len(frames)):
+        frame = frames[i]
+        if frame == "X":
             score += 10
-            if frame < 10:
-                frame_score[frame] = 10
-                if frame > 1 and bowls[bowl_num - 1] == "X":
+            if i < 9:
+                next_frame = frames[i + 1]
+                if next_frame == "X":
                     score += 10
-                    if frame > 2 and bowls[bowl_num - 2] == "X":
-                        score += 10
-        elif bowl == "/":
-            score += 10 - int(bowls[bowl_num - 1])
-            if frame < 10:
-                frame_score[frame] = 10
-        elif bowl == "-":
-            pass
+                else:
+                    score += int(next_frame[0])
+                    if next_frame[1] == "-":
+                        score += 0
+                    else:
+                        score += int(next_frame[1])
         else:
-            score += int(bowl)
-            if frame < 10:
-                frame_score[frame] += int(bowl)
-
-        if bowl_num > 0 and (bowls[bowl_num - 1] == "X" or bowls[bowl_num - 1] == "/"):
-            score += int(bowl)
-
-        if bowl == "X" or frame_score[frame] == 10 or bowl_num % 2 == 1:
-            frame += 1
-
-        bowl_num += 1
-
+            for j in range(len(frame)):
+                if frame[j] == "-":
+                    score += 0
+                elif frame[j] == "X":
+                    score += 10
+                else:
+                    score += int(frame[j])
     return score
 
 
-bowls = input().strip()
-print(bowling_score(bowls))
+input_str = input()
+print(bowling(input_str))
