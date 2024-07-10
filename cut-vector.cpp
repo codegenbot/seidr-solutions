@@ -10,7 +10,7 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     if (n == 0)
         return res;
 
-    int min_diff = INT_MAX, prev_diff = INT_MAX;
+    int min_diff = INT_MAX;
     int idx = 0, prev_idx = 0;
 
     for (int i = 1; i < n; i++) {
