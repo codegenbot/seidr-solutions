@@ -1,8 +1,7 @@
 #include <cstring>
-#include <string>
 
 int strLength(const char* str) {
-    return std::string(str).length();
+    return strlen(str);
 }
 
 int testMain() {
