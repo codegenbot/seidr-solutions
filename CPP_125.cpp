@@ -5,21 +5,23 @@
 using namespace std;
 
 vector<string> split_words(string input){
-    if(input.empty()){
-        return {"0"};
-    }
     vector<string> words;
     string word = "";
     for(char c : input){
         if(c == ' '){
-            words.push_back(word);
-            word = "";
+            if(!word.empty()){
+                words.push_back(word);
+                word = "";
+            }
         } else {
             word += c;
         }
     }
     if(!word.empty()){
         words.push_back(word);
+    }
+    if(words.empty()){
+        words.push_back("0");
     }
     return words;
 }
