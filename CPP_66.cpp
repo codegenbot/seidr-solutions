@@ -2,7 +2,6 @@
 #include <string>
 #include <cctype>
 #include <algorithm>
-#include <cassert>
 
 int digitSum(std::string s) {
     int sum = 0;
@@ -10,13 +9,11 @@ int digitSum(std::string s) {
         if (isupper(c)) {
             sum += c - 'A' + 1; 
         } else if (islower(c)) {
-            for(int i = 0; i < 26; i++) {
-                std::string temp = s;
-                do {
-                    for(char d : temp) {
-                        sum += (d >= 'a' && d <= 'z') ? d - 'a' + 1 : d - 'A' + 1;
-                    }
-                } while(std::next_permutation(std::begin(temp), std::end(temp)));
+            std::string temp = s;
+            while(std::next_permutation(std::begin(temp), std::end(temp))) {
+                for(char d : temp) {
+                    sum += d - 'A' + 1;
+                }
             }
         }
     }
@@ -25,5 +22,6 @@ int digitSum(std::string s) {
 
 int main() {
     assert(digitSum("You arE Very Smart") == 327);
+    std::cout << digitSum("Hello World!") << std::endl;
     return 0;
 }
