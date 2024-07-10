@@ -22,8 +22,6 @@ vector<int> leaders(vector<int>& arr) {
         lastLeaderIndex--;
     }
     
-    reverse(result.begin(), result.end());
-    
     return result;
 }
 
