@@ -1,23 +1,24 @@
-extern "C" {
-#include <assert.h>
+#include <iostream>
+#include <cassert>
+
+using namespace std;
+
+int vowels_count(const char*);
+
+__BEGIN_DECLS
+__END_DECLS
+
+int main() {
+    assert(vowels_count("ACEDY") == 3);
 }
 
-int vowels_count(char str[]) {
+int vowels_count(const char* str) {
     int count = 0;
-    for (char c : str) {
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
-            || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+    for (int i = 0; str[i]; i++) {
+        if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || 
+            str[i] == 'o' || str[i] == 'u') {
             count++;
         }
     }
     return count;
-}
-
-int main() {
-    char str[100];
-    cout << "Enter a string: ";
-    cin.getline(str, 100);
-    int result = vowels_count(str);
-    cout << "Number of vowels: " << result << endl;
-    return 0;
 }
