@@ -1,19 +1,20 @@
-#include<vector>
+```cpp
+#include <vector>
 using namespace std;
 
 bool is_sorted(vector<int> lst){
-    bool isSorted = true;
     for(int i = 1; i < lst.size(); i++){
-        if(lst[i] <= lst[i-1]){
-            isSorted = false;
-            break;
+        if(lst[i-1] > lst[i]){
+            return false;
+        }
+        else if(count(lst.begin(), lst.end(), lst[i]) > 1){
+            return false;
         }
     }
-    return isSorted;
-}
+    return true;
 
-int main(){
-    vector<int> lst = {5,4,3,2,1};
-    cout << (is_sorted(lst) ? "The list is sorted" : "The list is not sorted");
-    return 0;
+int main() {
+    {  
+    assert(is_sorted({1, 2, 3, 4}) == true);
+    }
 }
