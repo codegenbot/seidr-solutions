@@ -1,2 +1,3 @@
-```
-return sum(sum(int(digit) // 2 if idx % 2 == 0 else int(digit) * 2 - int(digit) * 2 // 10 if (int(digit) * 2) > 9 else int(digit) * 2 for idx, digit in enumerate(card)) )
+def luhn(card):
+    card = [int(i) for i in str(card)]
+    return sum([x if i % 2 != 0 else (x * 2) % 10 - (x * 2) // 10 >= 5 if (x * 2) % 10 else (x * 2) % 10 for i, x in enumerate(card)])
