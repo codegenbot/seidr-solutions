@@ -1,7 +1,13 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-double getProbability(int n, int m) {
-    double total = (double)n * m;
-    return (n - 1) / total;
+double diceGame(int n, int m) {
+    double sum = 0;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j < i; j++) {
+            if (j <= m) {
+                sum += 1.0 / (n * m);
+            }
+        }
+    }
+    return sum;
 }
