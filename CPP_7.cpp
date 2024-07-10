@@ -1,13 +1,9 @@
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(string s : strings) {
-        if(s.find(substring) != string::npos)
-            result.push_back(s);
-    }
-    return result;
+```cpp
+#include <vector>
+#include <string>
+#include <algorithm>
 
-}
-bool operator==(const vector<string>& a, const vector<string>& b){
+bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b){
     if(a.size() != b.size())
         return false;
     for(size_t i = 0; i < a.size(); i++){
@@ -19,4 +15,13 @@ bool operator==(const vector<string>& a, const vector<string>& b){
 
 int main(){
     assert(std::equal(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
+}
+
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+    std::vector<std::string> result;
+    for(string s : strings) {
+        if(s.find(substring) != string::npos)
+            result.push_back(s);
+    }
+    return result;
 }
