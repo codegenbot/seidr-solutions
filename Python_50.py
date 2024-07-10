@@ -1,7 +1,7 @@
+```
 def decode_shift(s: str):
-    for ch in s:
-        if not 'a' <= ch.lower() <= 'z':
-            return "Error: Input string should contain only alphabets."
+    if not set(s).issubset('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'):
+        return 'Invalid input. Only alphabets are allowed.'
     result = ""
     for ch in s:
         if 'a' <= ch.lower() <= 'z':
