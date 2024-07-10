@@ -1,10 +1,13 @@
+```
 def largest_prime_factor(n: int):
     i = n - 1
     while i > 1:
         if n % i == 0:
-            for j in range(2, i):
+            j = i
+            while j <= math.sqrt(i):
                 if i % j == 0:
-                    i -= 1
+                    i = j
                     break
             return i
         i -= 1
+    return None
