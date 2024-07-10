@@ -1,20 +1,42 @@
+Here is the completed code:
+
+```cpp
 #include <boost/any.hpp>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return max((int)a.convert_to<int>(), (double)b.convert_to<double>());
-    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        return max((double)a.convert_to<double>(), (string)b.convert_to<string>());
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (max(a.convert_to<string>(), b.convert_to<string())) ? b : a;
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
     } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return (int)a.convert_to<int>() > stoi((string)b.convert_to<string>()) ? &a : &b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (double)a.convert_to<double>() > (int)b.convert_to<int>() ? &a : &b;
+        return (b.convert_to<string>() > to_string(a.convert_to<int())) ? b : "None";
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str = boost::any_cast<string>(b);
+        float num = a.convert_to<float>();
+        if (str.find('.') != string::npos || str.find(',') != string::npos)
+            return str;
+        else
+            return (stof(str) > num) ? str : "None";
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        int num = a.convert_to<int>();
+        string str = boost::any_cast<string>(b);
+        if (str.find('.') != string::npos || str.find(',') != string::npos)
+            return str;
+        else
+            return (stof(str) > num) ? str : "None";
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        float num = a.convert_to<float>();
+        string str = boost::any_cast<string>(b);
+        if (str.find('.') != string::npos || str.find(',') != string::npos)
+            return str;
+        else
+            return (stof(str) > num) ? str : "None";
+    } else {
+        if (a.convert_to<int>() == a.convert_to<float>()) {
+            return "None";
+        } else {
+            return max(a, b);
+        }
     }
-    return boost::any("None");
 }
