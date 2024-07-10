@@ -4,7 +4,19 @@
 #include <cmath>
 
 int main() {
-    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    vector<float> v = l; 
-    return *max_element(v.begin(), v.end());
+    std::vector<int> l;
+    int num;
+    
+    // Read input from user
+    while(std::cin >> num) {
+        l.push_back(num);
+    }
+    
+    if(l.empty()) {
+        return 0; 
+    } else {
+        auto max_val = *std::max_element(l.begin(), l.end());
+        std::cout << "Maximum value is: " << max_val << std::endl;
+        return 0;
+    }
 }
