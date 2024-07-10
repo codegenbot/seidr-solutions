@@ -1,11 +1,11 @@
 #include <vector>
+#include <iostream>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+using namespace std;
 
-std::vector<int> f(int n) {
-    std::vector<int> result(n);
+vector<int> f(int n) {
+    vector<int> result(n);
     for (int i = 0; i < n; ++i) {
         if (i % 2 == 0) {
             int fact = 1;
@@ -24,7 +24,11 @@ std::vector<int> f(int n) {
     return result;
 }
 
+bool isSame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main() {
-    assert(issame(f(3), {1, 2, 6}));
+    assert(isSame(f(3), {1, 2, 6}));
     return 0;
 }
