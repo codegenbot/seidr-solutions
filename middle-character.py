@@ -1,3 +1,4 @@
+```Python
 def middle_character(s):
     s = s.lower()
     length = len(s)
