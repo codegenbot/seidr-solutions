@@ -5,5 +5,5 @@ def decode_cyclic(s: str):
             if i == len(s) - 1:
                 result += s[i]
             else:
-                result += s[i:i+3][1:] + s[i:i+3][0]
-    return result + s
+                result += s[i+1] + s[i]
+    return result + s[len(s)-1]
