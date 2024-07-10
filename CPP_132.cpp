@@ -13,14 +13,3 @@ bool is_nested(std::string str) {
     }
     return count == 0;
 }
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
-
-    bool result = is_nested(input);
-    std::cout << "Is the string nested: " << (result ? "true" : "false") << std::endl;
-
-    return 0;
-}
