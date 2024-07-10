@@ -1,4 +1,5 @@
-```
+```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -12,4 +13,14 @@ std::vector<int> sort_array(std::vector<int> arr){
              return a < b;
          });
     return arr;
+}
+
+int main() {
+    std::vector<int> arr = {5, 1, 3};
+    arr = sort_array(arr);
+    
+    for(int i: arr) {
+        std::cout << i << " ";
+    }
+    return 0;
 }
