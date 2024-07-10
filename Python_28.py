@@ -1,11 +1,13 @@
-```
 from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    if not strings:
-        return ""
-    result = ", ".join(map(str, strings))
+    result = ""
+    for string in strings:
+        if not result:
+            result += string
+        else:
+            result += ", " + string
     return result
 
 
@@ -24,13 +26,7 @@ if __name__ == "__main__":
             while True:
                 user_input = input()
                 if user_input.isdigit():
-                    try:
-                        num = int(user_input)
-                        if num > 0:
-                            strings.append(user_input)
-                            break
-                    except ValueError:
-                        print("Invalid input. Please enter a positive number.")
+                    print("Please provide a string instead of a number.")
                 else:
                     strings.append(user_input)
                     break
