@@ -14,15 +14,5 @@ def indices_of_substring(text, target):
                 j += 1
     return result
 
-while True:
-    try:
-        a = int(input("Enter first integer: "))
-        b = int(input("Enter second integer: "))
-        text = input("Enter the text: ")
-        target = input("Enter the target: ")
-        break
-    except ValueError:
-        print("Invalid input. Please enter integers for gcd and valid strings for indices_of_substring function.")
-
-print(gcd(a, b))
-print(indices_of_substring(text, target))
+print(gcd(int(input("Enter first integer: ")), int(input("Enter second integer: "))))
+print(indices_of_substring(input("Enter the text: "), input("Enter the target: ")))
