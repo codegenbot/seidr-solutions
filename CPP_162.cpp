@@ -1,31 +1,20 @@
-#include <openssl/evp.h>
+#include<string>
+#include<openssl/md5.h>
+
+using namespace std;
 
 string string_to_md5(string text) {
-    if (text.empty()) return "";
+    if (text.empty()) return "None";
     
-    unsigned char buffer[1024];
-    unsigned int len = 0;
-    const EVP_MD* md = EVP_md5();
-    EVP_MD_CTX ctx;
-    unsigned char hash[16];
+    unsigned char buffer[16];
+    MD5_CTX md5;
+    MD5_Init(&md5);
+    MD5_Update(&md5, text.c_str(), text.length());
+    MD5_Final(buffer, &md5);
+
+    string result = "";
+    for(int i=0; i<16; ++i)
+        sprintf(result + "%02x", buffer[i]);
     
-    // Create the context for the MD5 operation
-    EVP_MD_CTX_init(&ctx);
-    EVP_DigestInit_ex(&ctx, md, NULL);
-    
-    // Add the text to the context
-    len = (unsigned int)text.length();
-    EVP_EncodeUpdate(buffer, &len, (const unsigned char*)text.c_str(), text.length());
-    
-    // Finalize the MD5 operation and get the hash
-    EVP_DigestFinal_ex(&ctx, buffer, &len);
-    EVP_MD_CTX_cleanup(&ctx);
-    
-    // Convert the hash to a string for return
-    stringstream ss;
-    for (int i = 0; i < 16; ++i) {
-        ss << setfill('0') << setw(2) << hex << (int)buffer[i];
-    }
-    
-    return ss.str();
+    return result;
 }
