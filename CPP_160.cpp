@@ -1,28 +1,44 @@
-int do_algebra(vector<string> operator_, vector<int> operand) {
+int do_algebra(vector<string> operato, vector<int> operand) {
     int result = 0;
-    int num1 = operand[0];
-    string op;
-
-    for (int i = 0; i < operator_.size(); i++) {
-        op = operator_[i];
-
-        if (op == "+") {
-            result += num1;
-            num1 = operand[i + 1];
-        } else if (op == "-") {
-            result -= num1;
-            num1 = operand[i + 1];
-        } else if (op == "*") {
-            result *= num1;
-            num1 = operand[i + 1];
-        } else if (op == "//") {
-            result /= num1;
-            num1 = operand[i + 1];
-        } else if (op == "**") {
-            result = pow(result, num1);
-            num1 = operand[i + 1];
+    for(int i = 0; i < operato.size(); i++) {
+        if(operato[i] == "+") {
+            result += operand[i];
+        } else if(operato[i] == "-") {
+            result -= operand[i];
+        } else if(operato[i] == "*") {
+            int temp = 0;
+            for(int j = i; j < operato.size(); j++) {
+                if(operato[j] == "*") {
+                    temp *= operand[j];
+                } else if(operato[j] == "-") {
+                    temp -= operand[j];
+                    break;
+                }
+            }
+            result += temp;
+        } else if(operato[i] == "//") {
+            int temp = 0;
+            for(int j = i; j < operato.size(); j++) {
+                if(operato[j] == "//") {
+                    temp /= operand[j];
+                } else if(operato[j] == "-") {
+                    temp -= operand[j];
+                    break;
+                }
+            }
+            result += temp;
+        } else if(operato[i] == "**") {
+            int temp = 1;
+            for(int j = i; j < operato.size(); j++) {
+                if(operato[j] == "**") {
+                    temp = (int)pow(temp, operand[j]);
+                } else if(operato[j] == "-") {
+                    temp = (int)pow(temp, -operand[j]);
+                    break;
+                }
+            }
+            result += temp;
         }
     }
-
     return result;
 }
