@@ -27,4 +27,4 @@ int main() {
     cout << fixed << result << endl;
 
     return 0;
-} 
+}
