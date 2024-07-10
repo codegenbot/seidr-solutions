@@ -5,20 +5,16 @@ int fibfib(int n) {
         return 0;
     } else if (n == 2) {
         return 1;
-    } else {
-        int a = 0, b = 0, c = 1, d;
-        for (int i = 3; i <= n; ++i) {
-            d = a + b + c;
-            a = b;
-            b = c;
-            c = d;
-        }
-        return d;
     }
-}
-
-int main() {
-    int n = 14;
-    std::cout << fibfib(n) << std::endl;
-    return 0;
+    
+    int a = 0, b = 0, c = 1, result = 0;
+    
+    for (int i = 3; i <= n; ++i) {
+        result = a + b + c;
+        a = b;
+        b = c;
+        c = result;
+    }
+    
+    return result;
 }
