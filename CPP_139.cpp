@@ -12,7 +12,7 @@ long long special_factorial(int n) {
 int main() {
     int n;
     printf("Enter a positive integer: ");
-    scanf("%d");
+    scanf("%d"); 
     printf("The special factorial of %d is: %lld\n", n, special_factorial(n));
     return 0;
 }
