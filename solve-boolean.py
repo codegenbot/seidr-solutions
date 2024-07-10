@@ -1,13 +1,17 @@
-```
 def solve_boolean(expression):
     result = True
+    prev_op = None
     for char in expression:
         if char == 'T':
             pass
         elif char == 'F':
-            return False
+            result = False
         elif char == '&':
-            result = result and char != 'F'
+            prev_op = '&'
         elif char == '|':
-            result = result or char != 'T'
+            prev_op = '|'
+        elif prev_op == '&':
+            result = result and (char == 'T')
+        elif prev_op == '|':
+            result = result or (char != 'T')
     return result
