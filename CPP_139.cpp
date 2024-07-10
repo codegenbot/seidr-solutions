@@ -1,5 +1,4 @@
-```c++
-#include <iostream>
+#include <stdio.h>
 using namespace std;
 
 long long special_factorial(int n){
@@ -15,8 +14,7 @@ long long special_factorial(int n){
 
 int main(){
     int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    cout << "Brazilian Factorial of " << n << " is: " << special_factorial(n) << endl;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    printf("Brazilian Factorial of %d is: %lld\n", n, special_factorial(n));
     return 0;
-}
