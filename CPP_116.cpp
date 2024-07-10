@@ -1,9 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
+```cpp
 vector<int> sort_vector(vector<int> arr) {
     vector<pair<int, int>> vec;
     
