@@ -6,20 +6,20 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
-vector<string> filter_by_substring(vector<string> words, string substr) {
+vector<string> filter_by_substring(vector<string> words, string sub) {
     vector<string> result;
-    for (const auto& word : words) {
-        if (word.find(substr) != string::npos) {
+    for (const auto &word : words) {
+        if (word.find(sub) != string::npos) {
             result.push_back(word);
         }
     }
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 int main() {
