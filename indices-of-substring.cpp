@@ -1,6 +1,6 @@
+```c++
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -9,9 +9,11 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i <= n - m + 1; ++i) {
-        if (text.substr(i, m) == target) {
+    for (int i = 0; i <= n - m; ++i) {
+        if (text.find(target) != n - m) {
             result.push_back(i);
+            // start searching from the next character
+            i = text.find(target, i + 1);
         }
     }
 
@@ -32,3 +34,4 @@ int main() {
     cout << endl;
 
     return 0;
+}
