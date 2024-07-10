@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -5,7 +6,7 @@ int specialFilter(const std::vector<std::string>&);
 
 int main() {
     std::vector<std::string> nums;
-    std::cout << "Enter the numbers (enter ' stop' to finish): ";
+    std::cout << "Enter the numbers (enter 'stop' to finish): ";
     std::string num;
     while (true) {
         getline(std::cin, num);
