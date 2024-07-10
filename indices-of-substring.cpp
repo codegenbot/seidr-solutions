@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
 int main() {
     std::string text, target;
     std::getline(std::cin, text);
@@ -22,4 +26,4 @@ int main() {
     }
     
     return 0;
-}
+}  
