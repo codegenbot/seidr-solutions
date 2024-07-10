@@ -17,7 +17,7 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
         for (const auto& j : target) {
-            if (text[i + j] != target[j]) {
+            if (text[i + j] != j) {
                 found = false;
                 break;
             }
