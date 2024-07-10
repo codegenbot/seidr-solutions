@@ -1,6 +1,8 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
 #include <map>
-#include <vector>
+
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
