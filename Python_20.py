@@ -1,12 +1,13 @@
 ```
+arr = list(map(int, input().split()))
+if len(arr) < 2:
+    print("Invalid input")
+else:
+    print(check(arr))
 def check(lst):
     lst.sort()
-    result = float('inf')
+    result = []
     for i in range(len(lst) - 1):
-        if lst[i] != lst[i+1]:
-            diff = abs(lst[i] - lst[i+1])
-            result = min(result, diff)
-    return result
-
-arr = list(map(int, input().split()))
-print(check(arr))
+        closest_pair = (abs(lst[i] - lst[i+1]), (lst[i], lst[i+1]))
+        result.append(closest_pair)
+    return min(result)[0]
