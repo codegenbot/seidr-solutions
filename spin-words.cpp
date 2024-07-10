@@ -25,4 +25,3 @@ int main() {
         cout << "Spin Words: " << spinWords(str) << endl;
     }
     return 0;
-}
