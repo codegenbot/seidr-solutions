@@ -1,7 +1,7 @@
 #include <vector>
 #include <cmath>
-#include <initializer_list>
 #include <assert.h>
+#include <initializer_list>
 
 using namespace std;
 
