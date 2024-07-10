@@ -1,19 +1,20 @@
+```
 def sort_even(l: list):
-    even = sorted([abs(x) for x in l if x % 2 == 0])
+    even = sorted([x for x in l if x % 2 == 0])
     odd = sorted([x for x in l if x % 2 != 0])
 
     result = []
     i, j = 0, 0
     while i < len(even) or j < len(odd):
         if i < len(even) and (j >= len(odd) or even[i] <= odd[j]):
-            result.append(-1*even[i] if even[i] < 0 else even[i])
+            result.append(even[i])
             i += 1
         elif j < len(odd): 
             result.append(odd[j])
             j += 1
 
-    while j < len(odd):
-        result.append(odd[j])
-        j += 1
+    while i < len(even):
+        result.append(even[i])
+        i += 1
 
     return tuple(result)
