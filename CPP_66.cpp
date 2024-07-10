@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -11,8 +10,11 @@ int digitSum(std::string s) {
         if (isupper(c)) {
             sum += c - 'A' + 1; 
         } else if (islower(c)) {
-            for(char d : s) {
-                sum += d - 'a' + 1;
+            std::string temp = s;
+            while(std::next_permutation(std::begin(temp), std::end(temp))) {
+                for(char d : temp) {
+                    sum += d - 'A' + 1;
+                }
             }
         }
     }
@@ -20,7 +22,9 @@ int digitSum(std::string s) {
 }
 
 int main() {
-    assert(digitSum("You arE Very Smart") == 327);
-    std::cout << digitSum("You arE Very Smart") << std::endl;
+    std::cout << "Please enter a string: ";
+    std::string s;
+    std::cin >> s;
+    assert(digitSum(s) == 327);
     return 0;
 }
