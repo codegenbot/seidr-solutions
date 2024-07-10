@@ -5,6 +5,6 @@ def modp(n: int, p: int) -> int:
         return None
     else:
         result = 1
-        for _ in range(1, p):  
+        for _ in range(0, p):  
             result = (result * n) % p
         return result
