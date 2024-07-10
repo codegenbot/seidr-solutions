@@ -1,14 +1,13 @@
-```cpp
 #include <map>
 #include <string>
 
 std::map<char,int> histogram(const std::string& str) {
     std::map<char,int> result;
-    for (char c : str) {
-        if (result.find(c) == result.end())
-            result[c] = 1;
-        else
+    for(char c: str) {
+        if(result.find(c) != result.end()) 
             result[c]++;
+        else 
+            result[c] = 1;
     }
     return result;
 }
