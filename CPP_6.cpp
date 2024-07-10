@@ -1,7 +1,7 @@
+using namespace std;
+
 #include <vector>
 #include <string>
-
-using namespace std;
 
 bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
@@ -39,4 +39,3 @@ int main_function() {
         cout << "Test passed" << endl;
     }
     return 0;
-}
