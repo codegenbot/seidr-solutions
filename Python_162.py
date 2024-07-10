@@ -1,3 +1,4 @@
+import sys
 import hashlib
 
 def string_to_md5(text):
@@ -6,11 +7,6 @@ def string_to_md5(text):
     return None
 
 if __name__ == "__main__":
-    try:
-        while True:
-            user_input = input()
-            result = string_to_md5(user_input)
-            print("MD5 hash of the input string is:", result)
-
-    except EOFError:
-        pass
+    for user_input in sys.stdin:
+        result = string_to_md5(user_input.strip())
+        print("MD5 hash of the input string is:", result)
