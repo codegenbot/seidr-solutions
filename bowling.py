@@ -19,3 +19,6 @@ def bowling_score(bowls):
         bowl_index += 1
         frame += 1
     return score
+
+bowls = input()
+print(bowling_score(bowls))
