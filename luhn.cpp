@@ -17,4 +17,3 @@ int luhn(vector<int> cc) {
     }
 
     return sum;
-}
