@@ -1,6 +1,6 @@
-#include <iostream>
-#include <string>
-#include <boost/any.hpp>
+Here is the modified code:
+
+```cpp
 #include <boost/variant.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -39,7 +39,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         double num1 = boost::get<double>(a);
         double num2 = boost::get<double>(b);
         return num1 > num2 ? a : b;
-    }
+    } 
     else {
         return boost::any();
     }
