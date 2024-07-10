@@ -1,2 +1,3 @@
-def concatenate_strings(strings):
-    return "".join(strings)
+from typing import List
+def concatenate(strings: List[str]) -> str:
+    return ''.join(strings)
