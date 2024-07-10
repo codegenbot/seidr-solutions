@@ -1,4 +1,7 @@
-bool monotonic(const vector<int>& l) {
+#include <vector>
+#include <cassert>
+
+bool monotonic(const std::vector<int>& l) {
     bool increasing = true, decreasing = true;
     for (int i = 1; i < l.size(); ++i) {
         if (l[i] < l[i - 1]) increasing = false;
