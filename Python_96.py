@@ -9,6 +9,6 @@ def count_up_to(n):
 
     result = []
     for i in range(2, n+1): 
-        if is_prime(i):
+        if is_prime(i) and len(result) < n:
             result.append(i)
-    return result[:len(result)]
+    return result[:]
