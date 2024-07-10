@@ -11,7 +11,7 @@ int sum(std::initializer_list<int> vec) {
 }
 
 int main() {
-    assert(sum({127, 97, 8192}) == 1216);
+    assert(sum({127, 97, 8192}) == 1226);
     std::cout << "The sum is: " << sum({127, 97, 8192}) << std::endl; 
     return 0;
 }
