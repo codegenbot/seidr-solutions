@@ -5,8 +5,7 @@
 
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    int m = 1; // All rows will have the same size 'm'
-    
+    int m = 1; 
     for (int i = 0; i < n; i++) {
         if (arr[i] != 0) {
             m = i + 1;
@@ -14,7 +13,8 @@ int smallest_change(std::vector<int> arr) {
         }
     }
     
-    std::vector<int> dp(m);
+    std::vector<int> dp;
+    dp.resize(m, 0);
     int smallest = INT_MAX;
 
     for (int length = 2; length <= n; length++) {
