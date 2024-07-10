@@ -1,29 +1,21 @@
-Here is the completed code:
-
+```
 def minPath(grid, k):
     n = len(grid)
-    m = [[i for _ in range(n)] for i in range(n)]
-    
-    for i in range(n):
-        for j in range(n):
-            if grid[i][j] == 1:
-                return [grid[i][j]] * k
-    visited = [[False]*n for _ in range(n)]
-    min_path = []
-    def dfs(i, j, path):
-        nonlocal min_path
-        if len(path) > k: 
-            return
-        if len(path) == k and path != min_path:
-            min_path = list(path)
-            return
-        visited[i][j] = True
-        for x, y in [(i-1,j), (i+1,j), (i,j-1), (i,j+1)]:
-            if 0 <= x < n and 0 <= y < n and not visited[x][y]:
-                dfs(x, y, path + [grid[x][y]])
-        visited[i][j] = False
-    for i in range(n):
-        for j in range(n):
-            if not visited[i][j]:
-                dfs(i, j, [])
-    return min_path
+    visited = [[False for _ in range(n)] for _ in range(n)]
+    queue = [(0, 0, [grid[0][0]])]
+    result = None
+    while queue:
+        x, y, path = queue.pop(0)
+        if len(path) > k:
+            continue
+        visited[x][y] = True
+        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
+                new_path = path + [grid[nx][ny]]
+                if len(new_path) == k:
+                    if result is None or new_path < result:
+                        result = new_path
+                else:
+                    queue.append((nx, ny, new_path))
+    return result
