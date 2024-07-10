@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -16,7 +15,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
             sum += num % 10;
             num /= 10;
         }
-        pairs.emplace_back(sum, i);
+        pairs.push_back(std::make_pair(sum, i));
     }
     sort(pairs.begin(), pairs.end());
     std::vector<int> result;
