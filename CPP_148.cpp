@@ -1,17 +1,18 @@
-```c++
+```cpp
 #include <iostream>
 using namespace std;
 
-void bf(int n) {
-    if(n<1)
-        cout << "Error: Input number is less than 1." << endl;
+void bf(string n) {
+    if (n.empty())
+        cout << "Error: Input string is empty." << endl;
     else
-        cout << "Input number is valid." << endl;
+        cout << "Input string is valid." << endl;
 }
 
 int main() {
     int num;
     cin >> num;
-    bf(num);
+    string str = to_string(num);
+    bf(str);
     return 0;
 }
