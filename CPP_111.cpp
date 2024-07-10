@@ -1,3 +1,4 @@
+```cpp
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
@@ -42,5 +43,16 @@ map<char, int> histogram(string test) {
         }
     }
 
+    bool compareMaps(map<char,int> a,map<char,int> b){
+        return a == b;
+    }
+
+    map<char, int> result2 = histogram("a");
+    if (compareMaps(result, result2)) {
+        cout << "The histograms are the same.\n";
+    } else {
+        cout << "The histograms are not the same.\n";
+    }
+    
     return sameWords;
 }
