@@ -6,19 +6,17 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-    
+
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-    
+
     return true;
 }
 
-std::vector<int> parse_music(std::string music_string);
-
-std::vector<int> parse_music(std::string music_string){
+std::vector<int> parse_music(std::string music_string) {
     std::vector<int> result;
     int beats = 0;
     for (char c : music_string) {
@@ -37,14 +35,17 @@ std::vector<int> parse_music(std::string music_string){
     return result;
 }
 
-std::vector<int> parsed_music = parse_music(music);
+int main() {
+    std::string music = "o|o.|o";
+    std::vector<int> parsed_music = parse_music(music);
 
-std::vector<int> expected_result = {4, 1, 4};
+    std::vector<int> expected_result = {4, 1, 4};
 
-if (issame(parsed_music, expected_result)) {
-    std::cout << "Success" << std::endl;
-} else {
-    std::cout << "Failure" << std::endl;
+    if (issame(parsed_music, expected_result)) {
+        std::cout << "Success" << std::endl;
+    } else {
+        std::cout << "Failure" << std::endl;
+    }
+
+    return 0;
 }
-
-return 0;
