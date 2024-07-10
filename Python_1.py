@@ -1,2 +1,13 @@
+from typing import List
+
+
 def separate_paren_groups(paren_string: str) -> List[str]:
-    return [group.replace(" ", "") for group in paren_string.split(")(")]
+    paren_string = paren_string.replace(" ", "")
+    result = []
+    temp = ""
+    for char in paren_string:
+        temp += char
+        if temp.count("(") == temp.count(")"):
+            result.append(temp)
+            temp = ""
+    return result
