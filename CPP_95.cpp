@@ -1,10 +1,7 @@
 #include <map>
 #include <string>
-#include <cctype>
 
-std::map<std::string, std::string> dict;
-
-bool check_dict_case() {
+bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
 
     bool allLower = true;
@@ -23,4 +20,10 @@ bool check_dict_case() {
     }
 
     return allLower || allUpper;
+}
+
+int main() {
+    assert(check_dict_case({}) == false);
+    // Add your test cases here
+    return 0;
 }
