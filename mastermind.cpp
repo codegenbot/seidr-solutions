@@ -1,39 +1,31 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
+
+    // Count correct colors in wrong places
+    vector<int> codeCount(6, 0);
+    vector<int> guessCount(6, 0);
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            count++;
+            black++;
+        } else {
+            codeCount[code[i] - 'A']++;
+            guessCount[guess[i] - 'A']++;
         }
     }
-    return count;
-}
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    vector<char> codeArray(code.begin(), code.end());
-    vector<char> guessArray(guess.begin(), guess.end());
-
+    // Count correct colors in correct places
     for (int i = 0; i < 4; i++) {
-        if (codeArray[i] == guessArray[i]) {
-            codeArray[i] = 'x';
-            guessArray[i] = 'x';
+        if (code[i] == guess[i]) {
+            black++;
         }
     }
 
-    for (int i = 0; i < 4; i++) {
-        if (find(codeArray.begin(), codeArray.end(), guessArray[i]) != codeArray.end()) {
-            count++;
-            codeArray.erase(remove(codeArray.begin(), codeArray.end(), guessArray[i]), codeArray.end());
-        }
+    // Count correct colors in wrong places
+    for (int i = 0; i < 6; i++) {
+        int count = min(codeCount[i], guessCount[i]);
+        white += count;
     }
 
-    return count;
-}
-
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << blackPegs(code, guess) << endl;
-    cout << whitePegs(code, guess) << endl;
-    return 0;
+    return make_tuple(white, black);
 }
