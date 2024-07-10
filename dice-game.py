@@ -1,2 +1,3 @@
+```
 def probability(n, m):
-    return sum((n - k) / n for k in range(m)) if n > m else sum((m - k) / m for k in range(n))
+    return sum(i < j for i in range(1, n) for j in range(1, m)) / (n * m)
