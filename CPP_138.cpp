@@ -1,7 +1,6 @@
 #include <iostream>
 
 bool is_equal_to_sum_even(int n) {
-    bool result = false;
     for (int i = 2; i <= n; i += 2) {
         int sum = 0;
         for (int j = 2; j <= n; j += 2) {
@@ -9,10 +8,10 @@ bool is_equal_to_sum_even(int n) {
                 break;
             sum += j;
             if (sum == n)
-                result = true;
+                return true;
         }
     }
-    return result;
+    return false;
 }
 
 int main() {
