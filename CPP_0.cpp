@@ -1,6 +1,5 @@
 #include <vector>
 #include <cmath>
-#include <assert.h>
 
 using namespace std;
 
@@ -12,11 +11,11 @@ bool has_close_elements(float numbers[], int size, float threshold){
         }
     }
     return false;
-
 }
 
 int main() {
     float a[] = {1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    assert (has_close_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}, 5, 0.5f) == false);
+    int n = sizeof(a) / sizeof(a[0]);
+    assert (has_close_elements(a, n, 0.0f) == true);
     return 0;
 }
