@@ -1,14 +1,14 @@
 #include <vector>
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int targetLength = target.length();
-    int textSize = text.length();
+    int n = text.length();
+    int m = target.length();
 
-    for (int i = 0; i <= textSize - targetLength; i++) {
+    for (int i = 0; i <= n - m; i++) {
         bool match = true;
-        for (int j = 0; j < targetLength; j++) {
+        for (int j = 0; j < m; j++) {
             if (text[i + j] != target[j]) {
                 match = false;
                 break;
