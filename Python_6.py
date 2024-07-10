@@ -8,9 +8,8 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             current_depth += 1
         elif char == ')':
             current_depth -= 1
-            if current_depth < 0:
-                return "Invalid input: Unbalanced parentheses."
-        depths.append(current_depth)
+        if char in ['(', ')'] and current_depth >= 0:
+            depths.append(current_depth)
     return depths
 
 input_string = input("Enter the nested parens string: ")
