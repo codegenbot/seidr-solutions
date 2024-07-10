@@ -1,19 +1,15 @@
-def solve_boolean(s):
-    if s == "T":
+def solve_boolean(expression):
+    if expression == 'T':
         return True
-    elif s == "F":
+    elif expression == 'F':
         return False
-    elif "&" in s and "|" in s:
+    elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
+    elif '&' in expression:
+        parts = expression.split('&')
+        return all(solve_boolean(part) for part in parts)
+    elif '|' in expression:
+        parts = expression.split('|')
+        return any(solve_boolean(part) for part in parts)
     else:
-        stack = []
-        for c in s[::-1]:
-            if c in ["&", "|"]:
-                b2, b1 = stack.pop(), stack.pop()
-                if c == "&":
-                    stack.append(b1 and b2)
-                elif c == "|":
-                    stack.append(b1 or b2)
-            else:
-                stack.append(c == "T")
-        return stack[0]
+        raise ValueError("Invalid expression")
