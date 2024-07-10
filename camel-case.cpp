@@ -20,4 +20,3 @@ string camelCase(string s) {
         }
     }
     return result;
-}
