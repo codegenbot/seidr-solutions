@@ -3,38 +3,43 @@
 #include <string>
 
 bool issame(const std::vector<std::string>& vec) {
-    bool first = true;
+    if (vec.empty()) return true;
+    size_t len = vec[0].size();
     for (const auto& s : vec) {
-        if (!first) {
-            if (s != vec[0]) return false;
-        }
-        first = false;
+        if (s.size() != len) return false;
     }
     return true;
 }
 
 std::vector<std::string> all_prefixes(const std::string& str) {
-    vector<string> result;
+    std::vector<string> result;
     for (int i = 1; i <= str.length(); ++i) {
         result.push_back(str.substr(0, i));
     }
     return result;
 }
 
-bool same(const std::vector<std::string>& vec) {
-    bool first = true;
-    for (const auto& s : vec) {
-        if (!first) {
-            if (s != vec[0]) return false;
+std::vector<std::string>& prefixes(std::string s) {
+    std::vector<string> result = all_prefixes(s);
+    if (issame(result)) {
+        for (int i = 1; i <= s.length(); ++i) {
+            if (s.size() != i) return s;
         }
-        first = false;
+        return s;
+    } else {
+        return s;
     }
-    return true;
 }
 
-std::vector<std::string> result = all_prefixes(input);
-if (same(result)) {
-    std::cout << "The prefixes are the same." << std::endl;
-} else {
-    std::cout << "The prefixes are not the same." << std::endl;
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+
+    prefixes(input);
+    if (issame(all_prefixes(input))) {
+        std::cout << "The prefixes are the same." << std::endl;
+    } else {
+        std::cout << "The prefixes are not the same." << std::endl;
+    }
 }
