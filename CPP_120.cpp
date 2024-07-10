@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
