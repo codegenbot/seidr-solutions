@@ -17,8 +17,8 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         return "Invalid nested parens string"
     return depths
 
-input_string = input("Enter the nested parens string within quotes: ")
+input_string = raw_input("Enter the nested parens string: ")
 while not input_string or input_string.count("(") != input_string.count(")"):
-    input_string = input("Please enter a valid nested parens string within quotes: ")
+    input_string = raw_input("Please enter a valid nested parens string: ")
 result = parse_nested_parens(input_string)
 print(result)
