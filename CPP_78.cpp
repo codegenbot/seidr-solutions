@@ -11,6 +11,3 @@ int hex_key(std::string num){
     }
     return count;
 }
-
-assert (hex_key("") == 0);
-```
