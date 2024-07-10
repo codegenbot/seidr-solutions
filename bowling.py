@@ -1,7 +1,8 @@
 def bowling_score(game):
     score = 0
     roll = 0
-    frames = game.upper().split('/')
+    game_str = input("Enter the game string: ")
+    frames = game_str.upper().split('/')
     for frame in frames:
         if len(frame) == 1:
             score += 10
@@ -32,8 +33,4 @@ def bowling_score(game):
                 roll += 2
     return score
 
-game = input("Enter the game (10-frame round of 10 pin bowling): ")
-
-score = bowling_score(game)
-
-print(f"The score for the given game is {score}.")
+print(bowling_score(""))
