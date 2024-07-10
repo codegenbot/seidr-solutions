@@ -1,7 +1,6 @@
 ```
 #include <iostream>
 #include <vector>
-#include <limits>
 
 int count_nums(std::vector<int> nums) {
     int count = 0;
@@ -30,10 +29,9 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i]; 
     }
-    if (nums.empty()) {  
-        return 0;
+    if (!nums.empty()) {  
+        std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
     }
-    std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
     return 0;
 
 }
