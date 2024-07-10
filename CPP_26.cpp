@@ -1,21 +1,22 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
 bool issame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-void remove_duplicates(vector<int>& numbers) {
+void remove_duplicates(vector<vector<int>>& numbers) {
     sort(numbers.begin(), numbers.end());
-    numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
+    numbers.erase(unique(numbers.begin(), numbers.end(), issame), numbers.end());
 }
 
 int main() {
-    vector<int> numbers = {2, 4, 2, 1, 5, 4, 6, 2};
+    vector<vector<int>> numbers = {{1, 2, 3}, {4, 5, 6}, {1, 2, 3}, {7, 8, 9}};
     remove_duplicates(numbers);
-    for (int num : numbers) {
-        cout << num << " ";
-    }
     return 0;
 }
