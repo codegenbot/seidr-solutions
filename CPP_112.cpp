@@ -1,3 +1,9 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <set>
+using namespace std;
+
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
@@ -32,4 +38,25 @@ vector<string> reverse_delete(string s, string c) {
     result.push_back(is_palindrome ? "True" : "False");
     
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    vector<string> result = reverse_delete("mamma", "mia");
+    cout << "Result: ";
+    for (string s : result) {
+        cout << s << " ";
+    }
+    cout << endl;
+    
+    if (issame(vector<string>{ "", "True" }, result)) {
+        cout << "Test passed." << endl;
+    } else {
+        cout << "Test failed." << endl;
+    }
+    
+    return 0;
 }
