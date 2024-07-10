@@ -5,7 +5,7 @@ int main() {
     std::cin >> cents;
 
     int quarters = cents / 25;
-    cents -= quarters * 25;
+    cents %= 25;
 
     int dimes = cents / 10;
     cents %= 10;
@@ -15,7 +15,9 @@ int main() {
 
     int pennies = cents;
 
-    std::cout << quarters << " quarter" << (quarters > 1 ? "s" : "") << std::endl;
+    if (quarters > 0) {
+        std::cout << quarters << " quarter" << (quarters > 1 ? "s" : "") << std::endl;
+    }
     if (dimes > 0) {
         std::cout << dimes << " dime" << (dimes > 1 ? "s" : "") << std::endl;
     }
