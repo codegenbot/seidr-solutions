@@ -1,4 +1,7 @@
-Here is the solution:
+def paired_digits(digits):
+    return sum(int(digit) for digit in digits if digit == next_iter_digit)
 
-def paired_digits(s):
-    return sum(int(x) for x in s if s[s.index(x)] == x)
+
+def next_iter_digit(digits):
+    for i in range(len(digits)):
+        yield str(int(digits[i]))
