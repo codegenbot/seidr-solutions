@@ -1,25 +1,20 @@
 def decode_shift():
     if __name__ == "__main__":
+        result = ""
         while True:
-            result = ""
             s = input("Enter a string to shift (or 'q' to quit): ")
             if s.lower() == "q":
                 break
-            try:
-                n = int(input("Enter the number of positions to shift: "))
-            except ValueError:
-                print("Invalid input. Please enter an integer.")
+            n = ""
+            while n.isdigit() == False:
+                try:
+                    n = int(input("Enter the number of positions to shift: "))
+                except ValueError:
+                    print("Invalid input. Please enter an integer.")
+            ascii_offset = 65 if s.isupper() else 97
             for char in s:
-                if ord(char) > 127:
-                    result += char
+                if char.isalpha():
+                    result += chr((ord(char) - ascii_offset + n) % 26 + ascii_offset)
                 else:
-                    ascii_offset = 65 if char.isupper() else 97
-                    if char.isupper():
-                        result += chr(
-                            (ord(char) - ascii_offset + n) % 26 + ascii_offset
-                        ).upper()
-                    else:
-                        result += chr(
-                            (ord(char) - ascii_offset + n) % 26 + ascii_offset
-                        ).lower()
+                    result += char
             print(result)
