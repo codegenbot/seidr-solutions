@@ -5,7 +5,7 @@ score = 0
 frame = 1
 i = 0
 
-while i < len(rolls):
+while frame <= 10 and i < len(rolls):
     if rolls[i] == "/":
         score += 10 - int(rolls[i - 1]) + int(rolls[i + 1])
     elif rolls[i] == "X":
