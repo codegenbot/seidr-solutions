@@ -1,7 +1,7 @@
 #include <string>
 #include <cassert>
 #include <algorithm>
-using namespace std; 
+using namespace std;
 
 string change_base(int x, int base){
     string result = "";
