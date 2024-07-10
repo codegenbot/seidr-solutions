@@ -1,10 +1,8 @@
-#include <cassert>
-#include <string>
-
+```cpp
 int solve(std::string& color) {
     int result = 0;
-    for (char c : color) {
-        if (!std::isdigit(c)) {
+    for (size_t i = 1; i < color.size(); ++i) {
+        if (!std::isdigit(color[i])) {
             result++;
         }
     }
@@ -13,6 +11,6 @@ int solve(std::string& color) {
 }
 
 int main() {
-    assert(std::string("#CCC").find_first_not_of("0123456789") == std::string("#CCC").size() - 3);
+    assert(solve("#ccc") == 3);
     return 0;
 }
