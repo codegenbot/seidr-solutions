@@ -11,15 +11,13 @@ std::string file_name_check(std::string file_name) {
     int dotIndex = -1;
     
     for (int i = 0; i < file_name.length(); i++) {
-        if ((file_name[i] >= 'a' && file_name[i] <= 'z') || (file_name[i] >= 'A' && file_name[i] <= 'Z')) {
-            continue; // alphabetical characters are allowed
+        if ((file_name[i] < '0' || (file_name[i] > '9' && file_name[i] < 'A') || (file_name[i] > 'Z' && file_name[i] < 'a') || file_name[i] > 'z') && file_name[i] != '.') {
+            return "No";
         } else if (file_name[i] >= '0' && file_name[i] <= '9') {
             digitCount++;
         } else if (file_name[i] == '.') {
             dotCount++;
             dotIndex = i;
-        } else {
-            return "No"; // invalid character other than alphanumeric and dot
         }
     }
     
