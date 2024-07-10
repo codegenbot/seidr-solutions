@@ -1,12 +1,5 @@
-def findMinSteps(s):
-    n = len(s)
-    minSteps = float("inf")
-
-    for i in range(n - 2 + 1):
-        for j in range(i + 4, n):
-            temp = s[:i] + s[i + 4 : j] + s[j:]
-
-            if temp == s and j - i > minSteps:
-                minSteps = j - i
-
-    return max(0, minSteps)
+```
+s = input("Enter a string: ")
+def digitSum(s):
+    return sum(ord(c) - 55 if 'A' <= c <= 'Z' else ord(c) for c in s)
+print(digitSum(s))
