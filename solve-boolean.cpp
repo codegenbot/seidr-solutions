@@ -4,8 +4,11 @@
 bool evaluate(char op, bool operand1, bool operand2) {
     if (op == '|') {
         return operand1 || operand2;
-    } else {
+    } else if (op == '&') {
         return operand1 && operand2;
+    } else {
+        // Handle cases where op is not recognized, return false by default
+        return false;
     }
 }
 
@@ -24,11 +27,8 @@ int main() {
             op = c;
         } else {
             result = evaluate(op, result, operand);
-            operand = true;
         }
     }
-    
-    result = evaluate(op, result, operand);
 
     if (result) {
         std::cout << "True" << std::endl;
