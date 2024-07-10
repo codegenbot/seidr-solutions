@@ -1,7 +1,14 @@
 import re
 
-def fix_spaces(text):
+def fix_spaces(text): 
     return re.sub(r'\s+', '_', text)
 
-text = input("Enter a text: ").strip()
-print(fix_spaces(text))
+combined_text = ''
+while True: 
+    try:
+        line = input()
+        combined_text += line
+    except EOFError:
+        break
+
+print(fix_spaces(combined_text))
