@@ -1,8 +1,3 @@
-```cpp
-#include <vector>
-#include <set>
-#include <string>
-
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     
