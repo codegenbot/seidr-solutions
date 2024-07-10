@@ -10,9 +10,9 @@ def coin_sums(cents):
             cents %= coin
         else:
             result.append(0)
+        if cents == 0: break
 
     return tuple(result)
-
 
 cents = int(input())
 print(*coin_sums(cents))
