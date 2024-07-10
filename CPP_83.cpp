@@ -17,9 +17,8 @@ int startsOneEnds(int n) {
     return count;
 }
 
-int driverMain() {
+void driverMain() {
     int n;
     cin >> n;
     cout << startsOneEnds(n) << endl;
-    return 0;
 }
