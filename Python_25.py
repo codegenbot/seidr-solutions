@@ -60,7 +60,10 @@ def main():
             f"{', '.join(map(str, set(common_factors)))} are the common factors between {n1} and {n2}."
         )
     else:
-        print(f"No common factor found between {n1} and {n2}.")
+        if math.gcd(n1, n2) > 1:
+            print(f"The greatest common factor of {n1} and {n2} is {math.gcd(n1, n2)}.")
+        else:
+            print(f"No common factor found between {n1} and {n2}.")
 
 
 if __name__ == "__main__":
