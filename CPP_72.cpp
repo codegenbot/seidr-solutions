@@ -1,4 +1,3 @@
-```cpp
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
@@ -14,4 +13,5 @@ bool will_it_fly(vector<int> q, int w) {
 
 int main() {
     assert(will_it_fly({5}, 5) == true);
+    // Rest of your code
 }
