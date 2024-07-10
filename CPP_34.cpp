@@ -27,8 +27,10 @@ It distinct(It first, It last) {
     return result.begin();
 }
 
-std::vector<int> output(distinct(input.begin(), input.end()), std::unique(input.begin(), input.end()));
-
-for (int i : output) {
-    std::cout << i << " ";
+int main() {
+    std::vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    auto output(distinct(input.begin(), input.end()));
+    for (int i : std::vector<int>(output, distinct(input.end()))) {
+        std::cout << i << " ";
+    }
 }

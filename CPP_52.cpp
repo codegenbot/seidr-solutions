@@ -20,7 +20,7 @@ int main() {
     cout << "Enter the number of elements: ";
     cin >> num;
 
-    numbers.resize(num); 
+    numbers.reserve(num); 
 
     for (int i = 0; i < num; i++) {
         int threshold;
