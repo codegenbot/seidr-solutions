@@ -1,9 +1,8 @@
-#include <iostream>
-using namespace std;
+#include <algorithm>
 
 int choose_num(int x, int y) {
     if (x > y) {
-        swap(x, y);
+        std::swap(x, y);
     }
     for (int i = x; i <= y; i++) {
         if (i % 2 == 0) {

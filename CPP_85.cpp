@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -9,9 +8,4 @@ int add(vector<int> lst){
     }
     return sum;
 
-}
-
-int main() {
-    vector<int> lst = {4, 4, 6, 8};
-    int result = add(lst);
 }
