@@ -5,7 +5,7 @@ int largest_prime_factor(int n) {
         if (n % factor == 0) {
             n /= factor;
             largest_factor = factor;
-            while (n % factor != 0) {
+            while (n % factor == 0) {
                 n /= factor;
             }
         }
