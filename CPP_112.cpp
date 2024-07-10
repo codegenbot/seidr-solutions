@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <set>
 #include <string>
@@ -17,11 +17,13 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     }
     
     bool is_palindrome = true;
-    for (int i = 0; i < temp.length() / 2; i++) {
-        if (temp[i] != temp[temp.length() - i - 1]) {
+    int i = 0, length = temp.length();
+    while (i < length / 2) {
+        if (temp[i] != temp[length - i - 1]) {
             is_palindrome = false;
             break;
         }
+        i++;
     }
     
     result.push_back(temp);
@@ -30,6 +32,14 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a == b);
+bool std::operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
