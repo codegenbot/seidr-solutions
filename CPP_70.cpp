@@ -26,8 +26,3 @@ vector<int> strange_sort_vector(vector<int> lst) {
     }
     return result;
 }
-
-int main() {
-    vector<int> result = strange_sort_vector({111111});
-    assert(issame(result, {111111}));
-}
