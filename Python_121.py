@@ -10,7 +10,7 @@ def sum_of_odd_numbers_in_every_other_element():
             if not numbers:
                 raise ValueError
         except ValueError:
-            print("Invalid input. Please try again.")
+            print("Invalid input. Please enter valid integers separated by spaces.")
             continue
 
     return sum(i for i in numbers[1::2] if i % 2 != 0)
@@ -19,11 +19,8 @@ def sum_of_odd_numbers_in_every_other_element():
 def main():
     while True:
         result = sum_of_odd_numbers_in_every_other_element()
-        while True:
-            cont = input("Do you want to continue? (yes/no): ")
-            if cont.lower() in ["yes", "no"]:
-                break
-            print("Invalid input. Please try again.")
+        print(f"The sum of odd numbers is {result}")
+        cont = input("Do you want to continue? (yes/no): ")
         if cont.lower() != "yes":
             break
 

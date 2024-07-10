@@ -1,6 +1,7 @@
-```cpp
+```
 #include <iostream>
 #include <limits>
+#include <string>
 
 using namespace std;
 
@@ -17,10 +18,10 @@ int main() {
     string input;
     cout << "Enter a number: ";
     getline(cin, input);
-    result = stol(input); 
+    result = stoll(input); 
     if(result < 0) {
         cout << "Error! Please enter a positive integer." << endl;
     } else {
-        cout << "The special factorial of " << to_string(result) << " is: " << special_factorial(result) << endl;
+        cout << "The special factorial of " << result << " is: " << special_factorial(result) << endl;
     }
 }
