@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -16,7 +17,11 @@ string validateTweet(string tweet) {
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    getline(cin, tweet) >> ws; // remove newline character
+    getline(cin, tweet);
+    size_t found = tweet.find('\n');
+    if (found != string::npos) {
+        tweet.erase(found, 1);
+    }
     cout << validateTweet(tweet) << endl;
     return 0;
 }
