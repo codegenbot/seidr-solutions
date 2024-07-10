@@ -1,4 +1,3 @@
-```
 #include <boost/variant.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -39,6 +38,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         return num1 > num2 ? a : b;
     }
     else {
-        return "None";
+        return boost::any("None");
     }
 }
