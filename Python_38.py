@@ -1,6 +1,5 @@
+```
 def decode_cyclic(s: str):
-    if len(s) > 1 and s[0] == "x":
-        return s[1:] + s[0]
     result = ""
     temp = ""
     for char in s:
