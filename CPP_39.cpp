@@ -12,7 +12,6 @@ int main() {
     cin >> n;
     if (n <= 0) {
         cout << "Invalid input. Please enter a positive integer." << endl;
-        return 1; // Exit the program with an error code
     } else {
         int result = prime_fib(n);
         if (result == -1) {
