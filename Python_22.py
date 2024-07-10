@@ -1,3 +1,4 @@
+```
 import re
 
 
@@ -17,8 +18,8 @@ def filter_integers() -> None:
 
     try:
         user_values = [
-            int(val)
-            for val in filter(lambda x: len(x.strip()) > 0, user_input.split(","))
+            int(val) for val in user_input.split(",")
+            if val.strip() and re.match(r"^\d+$", val)
         ]
 
         if not user_values:
@@ -35,3 +36,6 @@ def filter_integers() -> None:
             print(f"Minimum Value: {min_value}")
     except (ValueError, ZeroDivisionError):
         print("Invalid input. Please enter a valid list of comma-separated integers.")
+
+
+filter_integers()
