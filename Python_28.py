@@ -1,7 +1,9 @@
+```
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
-    print("Enter strings (comma separated): ")
-    input_str = input()
-    strings = [s.strip() for s in input_str.split(',')]
-    return ', '.join(strings)
+    if not strings:
+        return ''
+    return ', '.join(map(str, strings))
+
+print(concatenate([]))
