@@ -1,16 +1,18 @@
-def minPathSum(grid):
-    if not grid:
-        return 0
+Here is the corrected code:
 
-    m, n = len(grid), len(grid[0])
-    for i in range(m):
-        for j in range(n):
-            if i == 0 and j == 0:
-                continue
-            elif i == 0:
-                grid[i][j] += grid[i][j - 1]
-            elif j == 0:
-                grid[i][j] += grid[i - 1][j]
-            else:
-                grid[i][j] += min(grid[i - 1][j], grid[i][j - 1])
-    return grid[-1][-1]
+```
+def minPath(grid, k):
+    N = len(grid)
+    def dfs(i, j, path):
+        if len(path) == k:
+            return sum(path)
+        if i < 0 or i >= N or j < 0 or j >= N:
+            return float('inf')
+        res = float('inf')
+        for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            ni, nj = i + x, j + y
+            if 0 <= ni < N and 0 <= nj < N:
+                res = min(res, grid[ni][nj] + dfs(ni, nj, path + [grid[ni][nj]]))
+        return res
+    
+    return min(dfs(i, j, [grid[i][j]]) for i in range(N) for j in range(N))
