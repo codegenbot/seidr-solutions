@@ -2,16 +2,14 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return equal(a.begin(), a.end(), b.begin());
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<int> rolling_max(const vector<int>& nums) {
-    vector<int> result;
+std::vector<int> rolling_max(const std::vector<int>& nums) {
+    std::vector<int> result;
     for (size_t i = 0; i < nums.size(); ++i) {
-        result.push_back(*max_element(nums.begin() + i, nums.begin() + min(i + 3, static_cast<int>(nums.size()))));
+        result.push_back(*std::max_element(nums.begin() + i, nums.begin() + std::min(i + 3, static_cast<int>(nums.size()))));
     }
     return result;
 }
