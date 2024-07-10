@@ -7,7 +7,7 @@ using namespace std;
 std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
     int i = 0;
-    while (i < music_string.size()) {
+    while (i < music_string.size() - 1) {
         if (music_string[i] == 'o' && music_string[i + 1] == '|') {
             beats.push_back(2);
             i += 3;
