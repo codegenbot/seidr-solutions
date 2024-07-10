@@ -3,15 +3,17 @@ int n = arr.size();
         return true;
     }
     
-    int minIdx = 0;
-    for (int i = 0; i < n; ++i) {
-        if (arr[i] < arr[minIdx]) {
-            minIdx = i;
+    int min_val = arr[0];
+    int min_idx = 0;
+    for (int i = 1; i < n; ++i) {
+        if (arr[i] < min_val) {
+            min_val = arr[i];
+            min_idx = i;
         }
     }
     
-    for (int i = 0; i < n; ++i) {
-        if (arr[(minIdx + i) % n] != i + 1) {
+    for (int i = 1; i < n; ++i) {
+        if (arr[(min_idx + i) % n] < arr[(min_idx + i - 1) % n]) {
             return false;
         }
     }
