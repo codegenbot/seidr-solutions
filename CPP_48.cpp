@@ -1,7 +1,10 @@
-string trimmed = "";
-for (char c : text) {
-    if (!ispunct(c)) {
-        trimmed += tolower(c);
+bool is_palindrome(string text) {
+    int left = 0, right = text.length() - 1;
+    while (left < right) {
+        if (text[left] != text[right])
+            return false;
+        left++;
+        right--;
     }
+    return true;
 }
-return trimmed == reverse(trimmed).rstr();
