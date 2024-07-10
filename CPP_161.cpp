@@ -1,16 +1,12 @@
 ```cpp
-#include <cassert>
-#include <string>
-
-int solve(std::string& color) {
+int solve(const std::string& color) {
     int result = 0;
-    for (char c : color) {
+    for (char c : color.c_str()) { 
         if (!std::isdigit(c)) {
             result++;
         }
     }
     return result;
-
 }
 
 int testMain() {
