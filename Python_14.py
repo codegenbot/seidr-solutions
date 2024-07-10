@@ -7,13 +7,15 @@ def get_all_prefixes(s: str) -> List[str]:
 
 def all_prefixes() -> None:
     while True:
-        try:
-            s = input("Please enter a string: ")
-            if not s:
-                print("Error: Please provide valid string.")
-                continue
-            print("\n".join(get_all_prefixes(s)))
+        s = input("Please enter a string (or 'q' to quit): ")
+        if not s or s.lower() == "q":
+            print("Exiting program.")
             break
+        try:
+            if isinstance(s, str):
+                print("\n".join(get_all_prefixes(s)))
+            else:
+                print("Error: Please provide valid string.")
         except Exception as e:
             print(f"Unexpected error occurred: {e}")
 
