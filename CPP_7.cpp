@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
-#include <string>
+#include <algorithm>
+using namespace std;
 
 bool issame(vector<string> a,vector<string> b){
     if(a.size() != b.size()) return false;
@@ -10,12 +10,14 @@ bool issame(vector<string> a,vector<string> b){
     return true;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
+vector<vector<string>> filter_by_substring(vector<vector<string>> strings, string substring){
+    vector<vector<string>> result;
     for (const auto& str : strings) {
-        if(str.find(substring) != string::npos) {
-            result.push_back(str);
+        bool same = true;
+        for(int i = 0; i < str.size(); i++){
+            if(str[i].find(substring) == string::npos) same = false;
         }
+        if(same) result.push_back(str);
     }
     return result;
 }
