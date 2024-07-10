@@ -10,7 +10,8 @@ int luhnCheck(vector<int> cardNumber) {
         } else {
             sum += cardNumber[i] * 2;
         }
-        sum += cardNumber[16-i-1];
+        if(i != 0)
+            sum += cardNumber[i-1];
     }
     return sum;
 }
