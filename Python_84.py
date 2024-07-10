@@ -1,8 +1,7 @@
-```
 def solve(N):
     if N == 0:
         return "0"
     if N < 0:
-        return "-" + bin(abs(N))[2:].replace("1", "9").replace("0", "8")
+        return "-" + bin(abs(N))[2:]
     else:
-        return bin(N)[2:].replace("1", "9").replace("0", "8")
+        return bin(N)[2:].lstrip("0").lstrip(" ") or "0"
