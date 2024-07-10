@@ -1,12 +1,14 @@
-#include <iostream>
-
 double getProbability(int n, int m) {
-    return (m - 1.0) / (n * m);
+    if(n <= m)
+        return 0.0;
+    double totalProb = 1.0;
+    for(int i = 1; i < m; i++)
+        totalProb -= (double)i / n;
+    return totalProb;
 }
-
 int main() {
     int n, m;
-    std::cin >> n >> m;
-    std::cout << std::fixed << std::setprecision(6) << getProbability(n, m) << std::endl;
+    cin >> n >> m;
+    cout << setprecision(9) << getProbability(n, m);
     return 0;
 }
