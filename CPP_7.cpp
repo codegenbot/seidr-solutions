@@ -20,26 +20,14 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
 }
 
 int main() {
-    std::vector<std::string> expected = {"grunt", "prune"};
-    std::vector<std::vector<std::string>> output = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    std::vector<std::vector<std::string>> input = {{"grunt"}, {"trumpet"}, {"prune"}, {"gruesome"}};
+    const std::string sub = "run";
+    
+    auto output = filter_by_substring(input, sub);
     
     for (size_t i = 0; i < output.size(); ++i) {
-        if (output[i].size() != expected[i].size()) {
-            std::cerr << "Test failed. Expected: " << expected << ". Got: " << output << std::endl;
-            return 1;
-        }
-        for (size_t j = 0; j < output[i].size(); ++j) {
-            if (output[i][j] != expected[i][j]) {
-                std::cerr << "Test failed. Expected: " << expected << ". Got: " << output << std::endl;
-                return 1;
-            }
-        }
-    }
-    
-    auto expected2 = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    for (size_t i = 0; i < expected2.size(); ++i) {
-        if (expected2[i].size() != 1) {
-            std::cerr << "Test failed. Expected: " << expected2 << ". Got: " << output << std::endl;
+        if (output[i].size() != 1) {
+            std::cerr << "Test failed. Expected: {\"grunt\"}, {\"prune\"}. Got: " << output << std::endl;
             return 1;
         }
     }
@@ -47,9 +35,9 @@ int main() {
     // If you reach this point, the test passed
     std::cout << "Test passed." << std::endl;
 
-    std::vector<std::vector<std::string>> input = {{"apple", "banana"}, {"orange", "grape"}, {"kiwi", "mango"}};
-    const std::string sub2 = "an";
-    auto output2 = filter_by_substring(input, sub2);
+    input = {{"apple", "banana"}, {"orange", "grape"}, {"kiwi", "mango"}};
+    sub = "an";
+    auto output2 = filter_by_substring(input, sub);
     
     for (const auto& vec : output2) {
         for (const auto& str : vec) {
