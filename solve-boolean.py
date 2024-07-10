@@ -7,7 +7,7 @@ def solve_boolean(expression):
         elif char == 'F':
             return False
         elif char == '&':
-            result = not char == 'T'
+            result = result and char != 'F'
         elif char == '|':
-            result = not all(char != 'T' for char in expression[:expression.index('|')])
+            result = result or char != 'T'
     return result
