@@ -1,53 +1,40 @@
-#include <string>
-using namespace std;
-
-struct PegCounts {
-    int black;
-    int white;
-};
+struct PegCounts { int white; int black; };
 
 PegCounts mastermind(string code, string guess) {
-    int black = 0;
-    int white = 0;
-    bool usedCode[4];
-    bool usedGuess[4];
+    PegCounts result = {0, 0};
+    string remainingGuess = guess;
 
-    for (int i = 0; i < 4; ++i) {
-        usedCode[i] = false;
-        usedGuess[i] = false;
-    }
-
-    // Count the number of correct colors in wrong positions
+    // Count black pegs
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
-            usedCode[i] = true;
-            usedGuess[i] = true;
+            result.black++;
+            remainingGuess[i] = ' ';
         }
     }
 
-    // Count the number of correct colors in correct positions
+    // Count white pegs
+    int codeCount[256] = {0};
     for (int i = 0; i < 4; ++i) {
-        bool correctColor = false;
-        for (int j = 0; j < 4; ++j) {
-            if (!usedCode[j] && code[j] == guess[i]) {
-                correctColor = true;
-                usedCode[j] = true;
-                break;
+        codeCount[code[i]]++;
+    }
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != guess[i]) {
+            codeCount[guess[i]]--;
+            if (codeCount[guess[i]] == 0) {
+                codeCount[guess[i]] = -1;
             }
         }
-        if (correctColor) {
-            white++;
-            usedGuess[guess.find(code[i])] = true;
+    }
+    for (int i = 0; i < 4; ++i) {
+        if (remainingGuess[i] != ' ') {
+            if (codeCount[code[i]] > 0) {
+                result.white++;
+                codeCount[code[i]]--;
+            } else if (codeCount[guess[i]] == -1) {
+                result.black++;
+            }
         }
     }
 
-    return {black, white};
-}
-
-int main() {
-    string code = "ABCD";
-    string guess = "ABDE";
-    PegCounts result = mastermind(code, guess);
-    return 0;
+    return result;
 }
