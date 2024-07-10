@@ -1,5 +1,4 @@
 ```
-```python
 def is_prime(n):
     if n < 2:
         return False
@@ -8,8 +7,10 @@ def is_prime(n):
             return False
     return True
 
+
 def modp(num, p):
-    return pow(num, p, p)
+    return pow((num % p) + p, 1, p)
+
 
 def main():
     while True:
@@ -27,4 +28,3 @@ def main():
         print(f"{num} to the power of {p} mod {p} is {modp(num, p)}")
     else:
         print("The given prime number is not valid. Please enter a prime number.")
-```
