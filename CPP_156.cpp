@@ -21,6 +21,9 @@ int main() {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
-    assert(num > 0); 
-    std::cout << "The mini Roman numeral is: " << int_to_mini_roman(num) << std::endl << std::flush;
+    if(num <= 0) {
+        std::cout << "Please enter a positive integer." << std::endl;
+    } else {
+        std::cout << "The mini Roman numeral is: " << int_to_mini_roman(num) << std::endl;
+    }
 }
