@@ -19,10 +19,6 @@ int main() {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
-    if(num > 3999) {
-        std::cout << "The mini Roman numeral is: " << int_to_roman(num) << std::endl;
-    } else {
-        std::cout << "The mini Roman numeral is: " << int_to_mini_roman(num) << std::endl;
-    }
+    std::cout << "The mini Roman numeral is: " << int_to_mini_roman(num) << std::endl;
     return 0;
 }
