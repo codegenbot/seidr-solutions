@@ -10,5 +10,5 @@ string int_to_mini_roman(int number) {
             result += roman[i].second;
         }
     }
-    return result;
+    return tolower(result);
 }
