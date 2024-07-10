@@ -4,23 +4,35 @@
 
 using namespace std;
 
-int main() {
-    vector<int> lst;
-    int num;
-    
-    cout << "Enter numbers (0 to stop): ";
-    while (cin >> num) {
-        if (num == 0) break;
-        lst.push_back(num);
+vector<int> strange_sort_vector(vector<int> lst) {
+    vector<int> result;
+    while (!lst.empty()) {
+        int min_val = *min_element(lst.begin(), lst.end());
+        result.push_back(min_val);
+        lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
+        
+        if (!lst.empty()) {
+            int max_val = *max_element(lst.begin(), lst.end());
+            result.push_back(max_val);
+            lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
+        }
     }
     
-    vector<int> sorted_lst = strange_sort_vector(lst);
-    
-    cout << "Sorted list: ";
-    for (int i : sorted_lst) {
-        cout << i << " ";
-    }
-    cout << endl;
+    return result;
+}
 
+int main() {
+    vector<int> input;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int val;
+        cin >> val;
+        input.push_back(val);
+    }
+    vector<int> output = strange_sort_vector(input);
+    for (int num : output) {
+        cout << num << " ";
+    }
     return 0;
 }
