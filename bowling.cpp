@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 using namespace std;
 
@@ -25,3 +26,4 @@ int bowlingScore(string input) {
         }
     }
     return score;
+}
