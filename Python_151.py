@@ -1,4 +1,2 @@
 def double_the_difference(lst):
-    min_val = min(i for i in lst if isinstance(i, int) and i > 0)
-    max_val = max(i for i in lst if isinstance(i, int) and i > 0)
-    return (min_val + max_val) * 2
+    return sum(i**2 for i in [x for x in lst if isinstance(x, int) and x >= 0])
