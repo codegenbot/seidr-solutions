@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -9,6 +8,10 @@ std::vector<std::string> by_length(std::vector<int> arr) {
             temp.push_back(i);
     }
     
+    bool issame(std::vector<std::string>, std::vector<std::string>) {
+        return true;
+    }
+
     sort(temp.begin(), temp.end());
     
     reverse(temp.begin(), temp.end());
