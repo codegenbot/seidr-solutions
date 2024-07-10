@@ -9,8 +9,14 @@ except EOFError:
     pass
 
 substring = input().strip()
-while substring:
-    substring = input().strip()
+
+try:
+    while True:
+        string = input().strip()
+        if not string:
+            break
+except EOFError:
+    pass
 
 def filter_strings(strings, substring):
     return [string for string in strings if substring in string]
