@@ -1,24 +1,13 @@
-Here is the solution:
-
-int calculateFuelCost(vector<int>& costs) {
-    int total = 0;
-    for (int cost : costs) {
-        int newCost = (cost / 3);
-        if(newCost < 1)
-            newCost = 0;
-        else
-            newCost -= 2;
-        total += newCost;
+int calculateFuelCost(vector<int> prices) {
+    int totalCost = 0;
+    for (int price : prices) {
+        int newPrice = (price / 3);
+        if (newPrice < 1) {
+            newPrice = 0;
+        } else {
+            newPrice -= 2;
+        }
+        totalCost += newPrice;
     }
-    return total;
-}
-
-int main() {
-    vector<int> costs;
-    int cost;
-    while(cin >> cost) {
-        costs.push_back(cost);
-    }
-    cout << calculateFuelCost(costs) << endl;
-    return 0;
+    return totalCost;
 }
