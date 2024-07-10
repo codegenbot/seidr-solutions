@@ -22,12 +22,11 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     
     // Check if the temporary string is a palindrome
     bool is_palindrome = true;
-    int i = 0;
-    while (i < temp.length() && is_palindrome) {
+    for (int i = 0; i < temp.length() / 2; i++) {
         if (temp[i] != temp[temp.length() - i - 1]) {
             is_palindrome = false;
+            break;
         }
-        i++;
     }
     
     // Add the result string and "True"/"False" to the vector
@@ -37,14 +36,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-bool std::operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return (a == b);
 }
