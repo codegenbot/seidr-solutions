@@ -1,3 +1,4 @@
+Here's the modified code without extra backticks:
 ```
 def decode_cyclic(s: str):
     result = ""
