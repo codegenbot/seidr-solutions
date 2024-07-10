@@ -1,26 +1,21 @@
-```cpp
+#include <iostream>
 #include <algorithm>
-#include <vector>
-#include <initializer_list>
-
-using namespace std;
+#include <cmath>
 
 int main() {
-    vector<int> arr;
+    std::cout << "Enter the number of elements: ";
     int n;
+    std::cin >> n;
 
-    cout << "Enter the number of elements: ";
-    cin >> n;
-
-    arr.resize(n);
-
-    cout << "Enter the elements: ";
-    for (int i = 0; i < n; ++i) {
-        cin >> arr[i];
+    int arr[n];
+    for(int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> arr[i];
     }
 
-    int max = *max_element(arr.begin(), arr.end());
-    cout << "Maximum element is: " << max << endl;
+    auto max_element = *std::max_element(arr, arr+n);
+
+    std::cout << "Maximum element: " << max_element << std::endl;
 
     return 0;
 }
