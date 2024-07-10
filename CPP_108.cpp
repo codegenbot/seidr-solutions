@@ -36,9 +36,7 @@ int count_nums(std::vector<int> nums) {
                 }
                 num /= 10;
             }
-            if (!has_negative_digit || sum_of_digits > 0) {
-                count++;
-            }
+            count++;
         }
     }
     return count;
