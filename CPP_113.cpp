@@ -1,12 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <string.h>
+#include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
-
-std::vector<std::string> odd_count(const std::vector<std::string>& input);
 
 std::vector<std::string> odd_count(const std::vector<std::string>& input) {
     std::vector<std::string> result;
