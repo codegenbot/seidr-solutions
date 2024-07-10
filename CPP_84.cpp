@@ -9,8 +9,3 @@ std::string solve(int N) {
     }
     return std::bitset<32>(sum).to_string().substr(32 - sum);
 }
-
-int main() {
-    std::cout << solve(963) << std::endl;
-    return 0;
-}
