@@ -1,4 +1,3 @@
-```Python
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -8,5 +7,8 @@ def solve_boolean(expression):
         a, b = expression.split('&')
         return bool(a) and bool(b)
     else:
-        a, b = expression.split('|')
-        return bool(a) or bool(b)
+        if '|' in expression:
+            a, b = expression.split('|')
+            return bool(a) or bool(b)
+        else:
+            return eval('((' + expression + '))')
