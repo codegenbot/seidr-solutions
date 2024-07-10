@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
 
 std::string match_parens(std::vector<std::string> lst) {
     int open = 0, close = 0;
@@ -14,6 +15,7 @@ std::string match_parens(std::vector<std::string> lst) {
 
 int main() {
     assert(match_parens({{"("}, {")"}}) == "Yes");
-    assert(match_parens({{"("}, {"))"}) == "No");
+    assert(match_parens({{"("}, {")"})} == "No");
+    std::cout << match_parens({{"("}, {")"}}) << std::endl;
     return 0;
 }
