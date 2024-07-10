@@ -9,3 +9,4 @@ def solve_boolean(expression):
             stack.append(b1 and b2)
         elif char in ['T', 'F']:
             stack.append(char == 'T')
+    return stack[0]
