@@ -1,22 +1,22 @@
-try:
-    a, b = map(int, input("Enter two integers (separated by space): ").split())
-except ValueError:
-    a = int(input("Enter the first integer: "))
-    b = int(input("Enter the second integer: "))
-
-print(gcd(a, b))
-
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return abs(a)
 
-text, target = input("Enter text and target string: ").split()
-print(*indices_of_substring(text, target))
-
 def indices_of_substring(text, target):
     result = []
-    for i in range(len(text)):
-        if text[i : i + len(target)] == target:
-            result.append(i)
+    start = 0
+    while start < len(text):
+        pos = text.find(target, start)
+        if pos == -1:
+            break
+        result.append(pos)
+        start = pos + 1
     return result
+
+a, b = map(int, input("Enter two integers (separated by space): ").split())
+print(gcd(a, b))
+
+text, *_ = input("Enter text: ").split()
+target, *_ = input("Enter target string: ").split()
+print(*indices_of_substring(text, target))
