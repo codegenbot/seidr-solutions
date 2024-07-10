@@ -1,3 +1,4 @@
+```
 def middle_character(s):
     s = s.split()
     result = []
