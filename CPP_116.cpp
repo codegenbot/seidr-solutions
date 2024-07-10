@@ -1,17 +1,11 @@
-#include <vector>
-#include <algorithm>
-
-std::vector<int> sort_array(std::vector<int> arr) {
-    std::sort(arr.begin(), arr.end(), [](int a, int b) {
-        int ones_a = __builtin_popcount(a);
-        int ones_b = __builtin_popcount(b);
-        if (ones_a == ones_b) return a < b;
-        return ones_a < ones_b;
-    });
-    return arr;
-}
-
-int main() {
-    assert(sort_array({2,4,8,16,32}) == ({2, 4, 8, 16, 32}));
-    return 0;
+vector<int> sort_vector(vector<int> arr) {
+    vector<pair<int, int>> vec;
+    
+    for (int i : arr) {
+        vec.push_back({bitset<32>(i).count(), i});
+    }
+    
+    sort(vec.begin(), vec.end());
+    
+    return vector<int>(vec.rbegin(), vec.rend());
 }
