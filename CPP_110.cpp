@@ -1,6 +1,7 @@
 #include <initializer_list>
 #include <cassert>
 #include <vector>
+#include <ostream>
 #include <iostream>
 
 std::string exchange(std::vector<int> a, std::vector<int> b) {
@@ -30,4 +31,3 @@ int main() {
     std::vector<int> b(a);
     std::cout << "Result: " << exchange(a, b) << std::endl;
     return 0;
-}
