@@ -1,5 +1,5 @@
 def sort_even(l: list):
-    l.sort()  
+    l.sort() 
     even = [x for x in l if x % 2 == 0]
     odd = [x for x in l if x % 2 != 0]
 
