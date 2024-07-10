@@ -1,6 +1,5 @@
 ```cpp
 #include <vector>
-#include <initializer_list>
 #include <algorithm>
 #include <string>
 
