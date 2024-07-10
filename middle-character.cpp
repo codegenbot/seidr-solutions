@@ -1,11 +1,9 @@
-#include <string>
-using namespace std;
+Here is the solution:
 
 string middleCharacter(string str) {
-    int len = str.length();
-    if (len % 2 == 0) {
-        return str.substr(len / 2 - 1, 2);
-    } else {
-        return str.substr(len / 2, 1);
-    }
+    int n = str.length();
+    if (n % 2 == 1)
+        return string(1, str[n/2]);
+    else
+        return string(1, str[n/2 - 1]) + string(1, str[n/2]);
 }
