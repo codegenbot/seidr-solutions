@@ -1,9 +1,13 @@
 ```
+from collections import Counter
+
 def is_happy(s):
-    if len(s) < 3:
-        return False
+    from collections import Counter
     for i in range(0, len(s), 3):
-        chunk = s[i:i+3]
-        if len(set(chunk)) != 3:
-            return False
+        substr = s[i:i + 3]
+        counter1 = Counter(substr)
+        for j in range(i + 3, len(s)):
+            substr = s[j:j+3]
+            if Counter(substr) != counter1:
+                return False
     return True
