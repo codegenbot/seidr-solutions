@@ -1,19 +1,30 @@
-using namespace boost;
+Here is the completed code:
 
+```cpp
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<string>(a)) {
-        if (is_any_of<string>(b)) {
-            return (stoi(get<string>(a)) > stoi(get<string>(b))) ? get<string>(a) : ((stoi(get<string>(a)) < stoi(get<string>(b))) ? get<string>(b) : "None");
-        } else if (is_any_of<float>(b)) {
-            return (stod(get<string>(a)) > get<float>(b)) ? get<string>(a) : ((stod(get<string>(a)) < get<float>(b)) ? get<string>(b) : "None");
-        }
-    } else if (is_any_of<float>(a)) {
-        if (is_any_of<string>(b)) {
-            return (get<float>(a) > stod(get<string>(b))) ? get<string>(b) + "" : ((get<float>(a) < stod(get<string>(b))) ? get<string>(b) : "None");
-        } else if (is_any_of<float>(b)) {
-            return (get<float>(a) > get<float>(b)) ? boost::any(a) : ((get<float>(a) < get<float>(b)) ? b : "None");
-        }
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return boost::any_cast<int>(a) > boost::any_cast<int>(b) ? b : "None";
     }
-
-    return (get<float>(a) > get<float>(b)) ? a : ((get<float>(a) < get<float>(b)) ? b : "None");
+    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        return boost::any_cast<double>(a) > boost::any_cast<double>(b) ? a : "None";
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        return stod(str1) > stod(str2) ? a : "None";
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return boost::any_cast<double>(b) > boost::any_cast<int>(a) ? b : "None";
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return boost::any_cast<int>(a) > boost::any_cast<double>(b) ? a : "None";
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        string str = boost::any_cast<string>(a);
+        return stod(str) > boost::any_cast<double>(b) ? a : "None";
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        return boost::any_cast<double>(a) > stod(boost::any_cast<string>(b)) ? a : "None";
+    }
+    return "None";
 }
