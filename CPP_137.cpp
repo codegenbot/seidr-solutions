@@ -1,19 +1,29 @@
-#include <boost/any.hpp>
+#include <iostream>
+#include <string>
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == b.type()) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
-            return a;
-        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
-            return b;
-        }
-    }
+using namespace std;
 
-    if (boost::any_cast<double>(a) > boost::any_cast<double>(b)) {
+string compare_one(string a, string b) {
+    if (a == "None" || b == "None")
         return a;
-    } else if (boost::any_cast<double>(a) < boost::any_cast<double>(b)) {
-        return b;
-    }
 
-    return a;
+    double num1 = stod(a);
+    double num2 = stod(b);
+
+    if (num1 > num2)
+        return a;
+    else if (num1 < num2)
+        return b;
+    else
+        return "None";
+}
+
+int main() {
+    string a, b;
+    cout << "Enter first number: ";
+    cin >> a;
+    cout << "Enter second number: ";
+    cin >> b;
+    cout << compare_one(a, b) << endl;
+    return 0;
 }
