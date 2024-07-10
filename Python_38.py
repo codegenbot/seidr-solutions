@@ -1,8 +1,11 @@
 ```
-if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        user_input = sys.argv[1]
-        encoded = encode_cyclic(user_input)
-        print(f"Encoded: {encoded}")
-        decoded = decode_cyclic(encoded)
-        print(f"Decoded: {decoded}")
+def decode_cyclic(s: str):
+    result = ""
+    i = 0
+    while i < len(s):
+        if i + 3 <= len(s):
+            result += s[i+1] + s[i]
+        else:
+            result += s[i:]
+        i += 3
+    return result
