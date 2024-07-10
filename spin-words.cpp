@@ -11,13 +11,13 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             result += str[i];
             i++;
-        } else if (str.length() - i >= 5) {
-            for (int j = i; j >= std::max(0, i-5); j--) {
+        } else if (i + str.length() - i - 1 >= 5) {
+            for (int j = i; j >= max(0, i-5); j--) {
                 result += str[j];
             }
-            i += strlen(result)+1;
+            i += strlen(result) + 1;
         } else {
-            for (; i < min((int)str.length(), i+6); i++) {
+            for (; i < min(i+6, str.length()); i++) {
                 result += str[i];
             }
         }
