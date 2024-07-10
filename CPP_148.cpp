@@ -19,3 +19,9 @@ vector<string> bf(const string& s1, const string& s2) {
     }
     return common_chars;
 }
+
+int main() {
+    assert(areSame(bf("Jupiter", "Makemake"), {"e", "u"}));
+
+    return 0;
+}
