@@ -4,7 +4,10 @@ if not all(char.isalpha() or char.isspace() for char in substring):
 
 strings = []
 while True:
-    string = input().strip()
+    try:
+        string = input().strip()
+    except EOFError:
+        break
     if string == "----":
         break
     strings.append(string)
