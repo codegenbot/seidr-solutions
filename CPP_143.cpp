@@ -1,26 +1,17 @@
 string words_in_sentence(string sentence){
     string result = "";
-    int n = sentence.length();
-    for(int i=0; i<n;){
-        int j = i;
-        while(j<n && sentence[j] != ' '){
-            j++;
+    int n = sentence.size();
+    int i = 0;
+    while (i < n) {
+        string word = "";
+        while (i < n && sentence[i] != ' ') {
+            word += sentence[i];
+            i++;
         }
-        int word_len = j - i;
-        bool is_prime = true;
-        for(int k=2; k*k<=word_len; k++){
-            if(word_len % k == 0){
-                is_prime = false;
-                break;
-            }
+        if (is_prime(word.size())) {
+            result += word + " ";
         }
-        if(is_prime && word_len > 1){
-            result += sentence.substr(i, word_len) + " ";
-        }
-        i = j + 1;
-    }
-    if(result.length() > 0){
-        result.pop_back(); //remove the extra space at the end
+        i++;
     }
     return result;
 }
