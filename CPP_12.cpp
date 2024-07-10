@@ -1,11 +1,8 @@
 ```cpp
-if(strings.empty()){
-    return "";
-}
-string longest_str = strings[0];
-for(string str : strings){
-    if(str.length() > longest_str.length()){
-        longest_str = str;
+vector<string>::iterator it = strings.begin();
+for (vector<string>::iterator i = strings.begin(); i != strings.end(); ++i) {
+    if (*i > *it) {
+        it = i;
     }
 }
-return longest_str;```
+return *it;
