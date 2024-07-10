@@ -1,11 +1,16 @@
-using namespace std;
+```
+#include <vector>
+#include <set>
+#include <string>
 
-std::vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
+using initializer_list_size_type = std::size_t;
+
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
     
-    set<char> c_set(c.begin(), c.end());
+    std::set<char> c_set(c.begin(), c.end());
     
-    string temp = "";
+    std::string temp = "";
     
     for (char ch : s) {
         if (c_set.find(ch) == c_set.end()) {
@@ -29,6 +34,13 @@ std::vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    return (a == b);
+bool std::vector<std::string>::operator== (const std::vector<std::string>& b) const {
+    if (size() != b.size()) 
+        return false;
+
+    for (int i = 0; i < size(); i++)
+        if (at(i) != b.at(i))
+            return false;
+
+    return true;
 }
