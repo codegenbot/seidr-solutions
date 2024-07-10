@@ -1,27 +1,29 @@
+#include <iostream>
 #include <string>
-using namespace std;
 
-string spinWords(string str) {
-    string result = "";
-    int i = 0;
-    while(i <= str.length()) {
-        if(str.substr(i).find(" ") != string::npos || i >= str.length()) {
-            string word = str.substr(i);
-            if(word.length() >= 5)
-                reverse(word.begin(), word.end());
-            result += word + " ";
-            i += word.length() + 1;
+std::string spinWords(const std::string& str) {
+    std::string result = "";
+    size_t prev = 0;
+    for (size_t i = 0; i <= str.size(); ++i) {
+        if (i == str.size() || str[i] == ' ') {
+            size_t len = i - prev;
+            if (len >= 5) {
+                std::string temp = str.substr(prev, len);
+                std::reverse(temp.begin(), temp.end());
+                result += temp;
+            } else {
+                result += str.substr(prev, len);
+            }
+            prev = i + 1;
         }
     }
-    return result.substr(0, result.length()-1);
+    return result;
 }
 
 int main() {
-    // Test cases
-    cout << spinWords("a") << endl; // a
-    cout << spinWords("this is a test") << endl; // this is a test
-    cout << spinWords("this is another test") << endl; // this is rehtona test
-    cout << spinWords("hi") << endl; // hi
-    
+    std::cout << spinWords("a") << std::endl; // should print "a"
+    std::cout << spinWords("this is a test") << std::endl; // should print "this is a tset"
+    std::cout << spinWords("this is another test") << std::endl; // should print "this is rehtona tset"
+    std::cout << spinWords("hi") << std::endl; // should print "hi"
     return 0;
 }
