@@ -22,7 +22,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string str;
         getline(std::cin, str); 
-        cin.ignore(); // Add this line after getline()
+        str = str.substr(0, str.find('\n')); // Remove newline
         words.push_back(str);
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
