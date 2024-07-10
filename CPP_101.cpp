@@ -1,29 +1,7 @@
-Here is the modified code:
-
 ```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
-
-std::vector<std::string> words_string(const std::string& s) {
-    std::vector<std::string> result;
-    std::string word = "";
-    for (char c : s) {
-        if (c == ',' || c == ' ') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
-        } else {
-            word += c;
-        }
-    }
-    if (!word.empty()) {
-        result.push_back(word);
-    }
-    return result;
-
-}
+#include <sstream>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
@@ -35,5 +13,26 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     }
     
     return true;
+}
 
+bool compare(const std::vector<std::string>& words) {
+    std::vector<std::string> expected = {"ahmed", "gamal"};
+    return issame(words, expected);
+}
+
+int main() {
+    std::vector<std::string> words_string;
+    std::string input_string;
+    std::cout << "Enter your string: ";
+    std::getline(std::cin, input_string);
+    std::stringstream ss(input_string);
+    std::string word;
+    while (std::getline(ss, word, ' ')) {
+        words_string.push_back(word);
+    }
+    if (compare(words_string)) {
+        std::cout << "Strings are the same.\n";
+    } else {
+        std::cout << "Strings are not the same.\n";
+    }
 }
