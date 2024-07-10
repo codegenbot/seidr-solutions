@@ -23,9 +23,8 @@ vector<float> find_closest_elements(const vector<float>& numbers) {
 int main() {
     vector<float> numbers = {3.5, 1.2, 4.8, 2.1, 5.7};
     vector<float> closest_elements = find_closest_elements(numbers);
-    for (const auto& num : closest_elements) {
-        cout << num << " ";
+    for (const auto& elem : closest_elements) {
+        cout << elem << " ";
     }
-    cout << endl;
     return 0;
 }
