@@ -2,7 +2,7 @@
 #include <algorithm>
 
 bool areEqual(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
