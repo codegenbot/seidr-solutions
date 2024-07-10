@@ -6,7 +6,7 @@ int add(int x, int y) {
 
 int main() {
     srand(time(0));
-    int num = rand() % 100;
-    cout << "Random number: " << num << endl;
+    int num = rand();
+    std::cout << "Random number: " << num << std::endl;
     return 0;
 }
