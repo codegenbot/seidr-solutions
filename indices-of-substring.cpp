@@ -17,9 +17,9 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (found) {
             result.push_back(i);
-            i++; // Start searching from the next character
+            i = i + 1; // Start searching from the next character
         } else {
-            i++; // Start searching from the next character
+            i = i + 1; // Start searching from the next character
         }
     }
 
@@ -27,22 +27,23 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text;
-    getline(cin, text);
-    while (getline(cin, text) && !text.empty()) cin.ignore();
-    string target;
-    while (true) {
+    while(true) {
+        string text;
+        getline(cin, text);
+        string target;
+
+        cout << "Enter a target (empty line to quit):" << endl;
         getline(cin, target);
-        if (target.empty()) break;
+
+        if(target.empty()) break;
+
         vector<int> indices = indicesOfSubstring(text, target);
 
-        for (int i : indices) {
+        for(int i : indices) {
             cout << i << " ";
         }
         cout << endl;
     }
-
-    cin.ignore();  // Flush the input stream after processing each target string
 
     return 0;
 }
