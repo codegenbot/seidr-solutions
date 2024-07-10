@@ -16,4 +16,4 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
 
-    return a;
+    return b;
