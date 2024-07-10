@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <initializer_list>
+#include <cassert>
 using namespace std;
 
 string anti_shuffle(string sStr) {
@@ -16,9 +16,11 @@ string anti_shuffle(string sStr) {
             }
             vector<char> temp(word.begin(), word.end());
             sort(temp.begin(), temp.end());
+            string sortWord;
             for (char c : temp) {
-                result += c;
+                sortWord += c;
             }
+            result = result + sortWord;
             i = j - 1;
         }
     }
