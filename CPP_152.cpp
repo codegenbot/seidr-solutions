@@ -25,19 +25,21 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 }
 
 int main() {
-    int num;
+    int n;
     std::cout << "Enter the number of elements: ";
-    std::cin >> num;
+    std::cin >> n;
 
-    std::vector<int> game(num);
-    for (auto& x : game) {
-        std::cin >> x;
+    std::vector<int> game(n, 0); // Initialize the vector with zeros
+
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> game[i];
     }
 
-    std::vector<int> guess(num);
+    std::vector<int> guess(n);
     std::cout << "Enter your guess: ";
-    for (auto& y : guess) {
-        std::cin >> y;
+    for (int i = 0; i < n; i++) {
+        std::cin >> guess[i];
     }
 
     if (issame(game, guess)) {
@@ -45,7 +47,7 @@ int main() {
     } else {
         std::vector<int> result = compare(game, guess);
         std::cout << "Incorrect. The correct numbers are: ";
-        for (int i = 0; i < num; i++) {
+        for (int i = 0; i < n; i++) {
             if (result[i] == 0) {
                 std::cout << game[i] << " ";
             } else {

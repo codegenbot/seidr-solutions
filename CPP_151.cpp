@@ -1,22 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-int double_the_difference(const std::vector<int>& nums) {
-    int oddSum = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        if (nums[i] % 2 != 0) {
-            oddSum += nums[i];
-        }
-    }
-    return oddSum * oddSum;
-}
-
-int main_function() {
+int main() {
     std::vector<int> lst;
     int num, odd_sum = 0;
     while(std::cin >> num) {
-        lst.push_back(int(num)); 
+        lst.push_back(num); 
         if (num % 2 != 0) {
             odd_sum += num;
         }
