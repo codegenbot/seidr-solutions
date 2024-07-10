@@ -1,18 +1,15 @@
 bool issame(const string& s) {
-    return count(s.begin(), s.end(), s[0]) == s.size();
+    return count(s.begin(), s.end(), '(') == count(s.begin(), s.end(), ')');
 }
 
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    assert(issame("aaa"));
-    assert(!issame("abc"));
-    
-    vector<string> groups = separate_paren_groups("((aa)(bbb))(cc)");
-    for (const string& group : groups) {
-        cout << group << endl;
-    }
-    
+    assert(issame("()") == true);
+    assert(issame("(())") == true);
+    assert(issame("(()") == false);
+    assert(issame("())") == false);
+
     return 0;
 }
 
