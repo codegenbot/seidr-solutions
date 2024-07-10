@@ -1,39 +1,16 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    return a == b;
 }
 
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    string input_string;
-    cin >> input_string;
-    
-    vector<string> separated_groups = separate_paren_groups(input_string);
-    
-    // Additional code to verify the function correctness
-    vector<string> expected_groups;
-    // Populate expected_groups with your test case
-    
-    if (issame(separated_groups, expected_groups)) {
-        cout << "Function implementation is correct" << endl;
-    } else {
-        cout << "Function implementation is incorrect" << endl;
+    string input;
+    cin >> input;
+    vector<string> result = separate_paren_groups(input);
+    for (const string& group : result) {
+        cout << group << endl;
     }
-    
     return 0;
 }
 
