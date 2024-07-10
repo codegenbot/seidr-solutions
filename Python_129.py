@@ -19,5 +19,5 @@ def minPath(grid, k):
     for i in range(n):
         for j in range(m[0].count(1)):
             m[i][j] -= 1
-    path = dfs(0, 0, [m[0][0]], set())
+    path = dfs(0, 0, [grid[0][0]], set())
     return path
