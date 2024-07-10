@@ -1,4 +1,3 @@
-```
 import math
 
 def bouncing_balls():
@@ -8,8 +7,8 @@ def bouncing_balls():
     num_bounces = int(input())
     total_distance = 0
     for _ in range(num_bounces):
-        total_distance += 2 * (h2 - h1)
-        h1, h2 = h2, h2 * bounciness_index
+        total_distance += (h2 - h1) * math.pow(bounciness_index, (_ + 1))
+        h1, h2 = h2/2, h2/2 if h2/2 > 0 else 0
     return round(total_distance, 4)
 
 print(round(bouncing_balls(), 4))
