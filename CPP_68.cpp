@@ -1,19 +1,29 @@
-Here is the completed code:
+#include <vector>
 
-vector<int> pluck(vector<int> arr) {
-    vector<int> result = {};
+using namespace std;
+
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return result;
+    
+    int smallestEvenValue = INT_MAX, smallestIndex = -1;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0) { // Check if the node is even
-            if (result.empty()) {
-                result = {{arr[i], i}}; // If it's the first even node, store its value and index
-            } else {
-                if (arr[i] < result[0][0]) {
-                    result = {{arr[i], i}}; // If a smaller even value is found, update the result
-                } else if (arr[i] == result[0][0] && i < result[0][1]) { 
-                    result = {{arr[i], i}}; // If multiple nodes with same smallest even value are found, choose the one with the smallest index
-                }
-            }
+        if (arr[i] % 2 == 0 && arr[i] < smallestEvenValue) {
+            smallestEvenValue = arr[i];
+            smallestIndex = i;
         }
     }
+    
+    if (smallestEvenValue != INT_MAX) result.push_back({smallestEvenValue, smallestIndex});
+    
     return result;
+}
+
+int main() {
+    vector<int> input = {4,2,3};
+    vector<pair<int,int>> output = pluck(input);
+    for(auto x : output){
+        cout << "{ " << x.first << ", " << x.second << " }" << endl;
+    }
+    return 0;
 }
