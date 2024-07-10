@@ -2,22 +2,54 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> res;
-    for (int i = 0; i < v.size(); i++) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j < i; j++) {
-            left_sum += v[j];
-        }
-        for (int j = i; j < v.size(); j++) {
-            right_sum += v[j];
-        }
-        if (left_sum == right_sum) {
-            return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
-        } else if (abs(left_sum - right_sum) < min_diff) {
-            min_diff = abs(left_sum - right_sum);
-            res = {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
+    int minDiff = INT_MAX;
+    int idx;
+    
+    for (int i = 1; i < v.size(); i++) {
+        int leftSum = 0, rightSum = 0;
+        
+        for (int j = 0; j < i; j++)
+            leftSum += v[j];
+        
+        for (int j = i; j < v.size(); j++)
+            rightSum += v[j];
+        
+        int diff = abs(leftSum - rightSum);
+        
+        if (diff <= minDiff) {
+            minDiff = diff;
+            idx = i;
         }
     }
-    return res;
+    
+    vector<int> leftVec(v.begin(), v.begin() + idx);
+    vector<int> rightVec(v.begin() + idx, v.end());
+    
+    return {leftVec, rightVec};
+}
+
+int main() {
+    int n;
+    cin >> n;
+    
+    vector<int> vec(n);
+    
+    for (int i = 0; i < n; i++)
+        cin >> vec[i];
+    
+    pair<vector<int>, vector<int>> result = cutVector(vec);
+    
+    cout << "Left Vec: ";
+    for (int x : result.first) {
+        cout << x << " ";
+    }
+    cout << endl;
+    
+    cout << "Right Vec: ";
+    for (int x : result.second) {
+        cout << x << " ";
+    }
+    cout << endl;
+    
+    return 0;
 }
