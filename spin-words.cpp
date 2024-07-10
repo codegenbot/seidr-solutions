@@ -14,13 +14,9 @@ int main() {
     
     while (iss >> word) {
         if (word.size() >= 5) {
-            string reversed_word = word;
-            reverse(reversed_word.begin(), reversed_word.end());
-            result += reversed_word;
-        } else {
-            result += word;
+            reverse(word.begin(), word.end()); // corrected function call
         }
-        result += " ";
+        result += word + " ";
     }
     
     result.pop_back(); // remove extra space at the end
