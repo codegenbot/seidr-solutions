@@ -28,8 +28,8 @@ int main() {
     int size;
     cin >> size;
 
-    vector<int> v1(v2); // Initialize the vector here
-
+    vector<int> v1;
+    
     for (int i = 0; i < size; i++) {
         int x;
         cin >> x;

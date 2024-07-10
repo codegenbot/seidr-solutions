@@ -1,6 +1,6 @@
+```cpp
 #include <string>
 #include <algorithm>
-#include <iostream>
 
 int is_bored(const std::string& S){
     int count = 0;
