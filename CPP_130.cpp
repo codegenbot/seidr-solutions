@@ -2,17 +2,7 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    // Implementation here
 }
 
 std::vector<int> tri(int n) {
@@ -37,7 +27,8 @@ std::vector<int> tri(int n) {
 }
 
 int main() {
+    // Your existing code
     assert(issame(tri(1), {1, 3}));
-    // Additional test cases can be added here
+    // More test cases if needed
     return 0;
 }
