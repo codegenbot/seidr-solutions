@@ -1,18 +1,17 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 bool issame(float a, float b) {
-    return std::abs(a - b) < 1e-6;
+    return std::abs(a - b) < 0.001;
 }
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
     std::vector<std::pair<float, float>> closest_pairs;
     for (size_t i = 0; i < numbers.size() - 1; ++i) {
         if (issame(numbers[i], numbers[i + 1])) continue;
-        float gap = numbers[i + 1] - numbers[i];
-        if (gap < 1e-6) {
+        float gap = numbers[i + 1] - numbers[i] + 0.001;
+        if (gap < 0.002) {
             closest_pairs.push_back({numbers[i], numbers[i + 1]});
         }
     }
@@ -26,14 +25,10 @@ int main() {
         numbers.push_back(num);
     }
     
-    if (!numbers.empty()) {
-        std::vector<std::pair<float, float>> closest_pairs = find_closest_elements(numbers);
-        if (!closest_pairs.empty()) {
-            for (const auto& pair : closest_pairs) {
-                std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
-            }
-        } else {
-            std::cout << "No elements found." << std::endl;
+    std::vector<std::pair<float, float>> closest_pairs = find_closest_elements(numbers);
+    if (!closest_pairs.empty()) {
+        for (const auto& pair : closest_pairs) {
+            std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
         }
     } else {
         std::cout << "No elements found." << std::endl;
