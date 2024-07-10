@@ -1,27 +1,12 @@
 ```
-#include <iostream>
-#include <limits>
-#include <string>
-
-using namespace std;
-
-long long special_factorial(long long n) {
-    long long result = 1;
-    for (long long i = 1; i <= n; ++i) {
-        result *= i;
-    }
-    return result;
-}
-
 int main() {
-    long long result;
-    string input;
+    long long n;
     cout << "Enter a number: ";
-    getline(cin, input);
-    result = stoll(input); 
-    if(result < 0) {
+    cin >> n;
+    if(n < 0) {
         cout << "Error! Please enter a positive integer." << endl;
     } else {
-        cout << "The special factorial of " << result << " is: " << special_factorial(result) << endl;
+        cout << "The special factorial of " << n << " is: " << special_factorial(n) << endl;
     }
+    return 0;
 }
