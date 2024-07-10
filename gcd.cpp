@@ -1,7 +1,5 @@
-Here's the modified code:
-
-```cpp
 #include <iostream>
+#include <vector>
 #include <string>
 using namespace std;
 
@@ -38,4 +36,5 @@ int main() {
     vector<int> result = indicesOfSubstring(text, target);
     for(int i : result)
         cout << " " << i;
+    return 0;
 }
