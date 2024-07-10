@@ -14,15 +14,13 @@ int main() {
     std::cin >> s;
 
     bool result = false;
-    char op = '&'; 
-    bool operand = true;
+    char op = '|'; 
+    bool operand = false;
     
     for (char c : s) {
         if (c == 'T' || c == 'F') {
             operand = (c == 'T');
-        } else if (c == '|') {
-            op = c;
-        } else if (c == '&') {
+        } else if (c == '|' || c == '&') {
             op = c;
         } else {
             result = evaluate(op, result, operand);
