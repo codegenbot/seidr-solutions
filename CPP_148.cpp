@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -13,6 +12,6 @@ void bf(string n) {
 int main() {
     int num;
     cin >> num;
-    bf(std::to_string(num));  
+    bf(to_string(num));  
     return 0;
 }
