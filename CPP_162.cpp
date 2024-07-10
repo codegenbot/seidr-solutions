@@ -1,5 +1,3 @@
-```cpp
-#include <string>
 #include <cryptopp/md5.h>
 
 std::string cppString_to_md5(std::string text) {
@@ -9,7 +7,7 @@ std::string cppString_to_md5(std::string text) {
     hash.Final(result);
     std::string output;
     for (int i = 0; i < CryptoPP::MD5::DIGEST_SIZE; i++) {
-        output += std::to_string(result[i]);
+        output += std::to_string((int)result[i]);
     }
     return output;
 }
