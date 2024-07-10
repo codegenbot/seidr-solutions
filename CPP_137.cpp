@@ -8,32 +8,29 @@ boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string str = (string)b.convert_to<string>();
-        size_t pos = str.find(',');
-        if (pos != string::npos) {
-            str = str.substr(0, pos);
-        }
-        return max((float)a.convert_to<float>(), stof(str));
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        size_t pos1 = (string)a.convert_to<string>().find(',');
-        size_t pos2 = (string)b.convert_to<string>().find(',');
-        string str1 = (pos1 != string::npos) ? (string)a.convert_to<string>().substr(0, pos1) : (string)a.convert_to<string>();
-        string str2 = (pos2 != string::npos) ? (string)b.convert_to<string>().substr(0, pos2) : (string)b.convert_to<string>();
-        return max(str1 > str2 ? a : b);
-    }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        size_t pos = (string)b.convert_to<string>().find(',');
-        string str = (pos != string::npos) ? (string)b.convert_to<string>().substr(0, pos) : (string)b.convert_to<string>();
-        return max((int)a.convert_to<int>(), stof(str));
+        return (b.convert_to<string>() > to_string(a.convert_to<int())) ? b : "None";
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        string str = b.convert_to<string>();
+        if (str.find('.') != string::npos || str.find(',') != string::npos)
+            return max((float)a.convert_to<float>(), stof(str));
+        else
+            return (stof(str) > a.convert_to<float())) ? b : "None";
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        size_t pos = (string)a.convert_to<string>().find(',');
-        string str = (pos != string::npos) ? (string)a.convert_to<string>().substr(0, pos) : (string)a.convert_to<string>();
-        return max(stof(str), (int)b.convert_to<int>());
+        return (b.convert_to<int>() > stoi(a.convert_to<string()))) ? b : "None";
     }
-    else {
-        return boost::any("None");
+    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string str = a.convert_to<string>();
+        if (str.find('.') != string::npos || str.find(',') != string::npos)
+            return max(stof(str), (float)b.convert_to<float>());
+        else
+            return (stof(str) > b.convert_to<float())) ? a : "None";
     }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return (b.convert_to<string>() > a.convert_to<string>()) ? b : "None";
+    }
+    else
+        return "None";
 }
