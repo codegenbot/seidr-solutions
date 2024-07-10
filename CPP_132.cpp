@@ -22,8 +22,9 @@ int main()
 {
     std::string str;
     std::cout << "Enter a string: ";
-    char c = '\0'; // Initialize c
-    while ((c = std::cin.get()) != '\n') {
+    char c;
+    str += std::cin.get();  // initialize the string with an empty character
+    while ((c = std::cin.get()) != '\n') { 
         str += c; 
     } 
     if (is_nested(str)) {
