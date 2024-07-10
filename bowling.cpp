@@ -21,7 +21,9 @@ int bowlingScore(std::string input) {
             int pins = c - '0';
             score += pins;
             firstInFrame = false;
-        } 
+        } else if (c == '-') {
+            firstInFrame = true;
+        }
     }
     return score;
 }
