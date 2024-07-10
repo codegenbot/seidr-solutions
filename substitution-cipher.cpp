@@ -2,12 +2,12 @@
 #include <iostream>
 #include <string>
 
-string decipher(string cipher1, string cipher2, string message) {
-    string result = "";
-    for (int i = 0; i < message.length(); i++) {
-        for (int j = 0; j < cipher1.length(); j++) {
-            if (cipher1[j] == message[i]) {
-                result += cipher2[j];
+std::string decipher(const std::string& cipher_map, const std::string& message) {
+    std::string result = "";
+    for (char c : message) {
+        for (int i = 0; i < cipher_map.size(); i++) {
+            if (c == cipher_map[i]) {
+                result += (i < message.size() ? message[i] : '?');
                 break;
             }
         }
@@ -16,8 +16,11 @@ string decipher(string cipher1, string cipher2, string message) {
 }
 
 int main() {
-    string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    cout << decipher(cipher1, cipher2, message) << endl;
+    std::string cipher_map, message;
+    std::cout << "Enter the first string: ";
+    std::cin >> cipher_map;
+    std::cout << "Enter the second string: ";
+    std::cin >> message;
+    std::cout << "Deciphered message: " << decipher(cipher_map, message) << std::endl;
     return 0;
 }
