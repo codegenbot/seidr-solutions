@@ -13,19 +13,26 @@ int calculateBowlingScore(string input) {
         if (c == 'X') {
             frames[frame] = 10;
             frame++;
+
+            if (frame < 10) {
+                frames[frame] = 10;
+                frame++;
+            }
         } else if (c == '/') {
-            frames[frame] = 10 - frames[frame - 1] + c - '0';
+            frames[frame] = 10 - frames[frame - 1];
             frame++;
-            ball = 0;
+
+            if (frame < 10) {
+                frames[frame] = (c - '0');
+                frame++;
+            }
         } else if (c == '-') {
-            ball++;
+            // No pins knocked down, continue to the next ball
         } else {
             frames[frame] += c - '0';
-            ball++;
-
-            if (ball == 2 || c == '9') {
+        
+            if (ball % 2 == 1 || c == '9') {
                 frame++;
-                ball = 0;
             }
         }
     }
