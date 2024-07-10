@@ -19,7 +19,7 @@ vector<int> filter_integers(list<any> values){
     vector<int> result;
     for (auto val : values) {
         if (val.type() == typeid(int)) {
-            result.push_back(boost::any_cast<int>(val));
+            result.push_back(any_cast<int>(val));
         }
     }
     return result;
