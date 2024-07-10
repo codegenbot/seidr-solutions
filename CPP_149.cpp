@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <vector>
 
@@ -36,4 +35,5 @@ std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v)
 
 int main() {
     assert(issame({{"aaaa", "bbbb"}, {"cccc", "ddd"}}, {{"cccc", "ddd"}, {"aaaa", "bbbb"}}));
-}
+    assert(issame(std::vector<std::string>{{"aaaa", "bbbb"}, {"dd", "cc"}},
+                  std::vector<std::string>{{"cc", "dd"}, {"aaaa", "bbbb"}}));
