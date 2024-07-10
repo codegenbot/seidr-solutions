@@ -1,3 +1,2 @@
-def digitSum(num):
-    n = int(input("Enter a number: "))
+def digitSum(n):
     return sum(int(digit) for digit in str(n))
