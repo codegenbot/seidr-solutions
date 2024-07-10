@@ -1,18 +1,20 @@
+```
 import re
 
 
 def filter_integers(input_str=None) -> None:
-    input_str = input(
-        "Please enter a comma-separated list of values (separated by commas), or type 'exit' to quit: "
-    )
-
     while True:
+        input_str = input(
+            "Please enter a comma-separated list of values (separated by commas), or type 'exit' to quit: "
+        )
+
+        if input_str.lower() == "exit":
+            break
+
         if not re.match(r"^[0-9]+(,[0-9]+)*$", input_str):
             print(
                 "Invalid input. Please enter a valid list of comma-separated integers."
             )
-        elif "exit" in input_str.lower():
-            break
         else:
             break
 
@@ -43,6 +45,3 @@ def filter_integers(input_str=None) -> None:
             print(f"Minimum Value: {min_value}")
     except ZeroDivisionError:
         print("Invalid input. Please enter a valid list of comma-separated integers.")
-
-
-filter_integers()
