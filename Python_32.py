@@ -1,5 +1,7 @@
 def find_zero(xs: list):
-    n = len(xs)
-    assert n % 2 == 0, "The number of coefficients must be even."
-    assert xs[-1] != 0, "The largest coefficient must be non-zero."
-    return -xs[0] / xs[1]
+    n = len(xs) - 1
+    return -xs[n - 1] / xs[n]
+
+input_list = list(map(int, input().split()))
+result = find_zero(input_list)
+print(result)
