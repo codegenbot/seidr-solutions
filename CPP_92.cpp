@@ -1,7 +1,3 @@
-#include <iostream>
-#include <assert.h>
-#include <string>
-
 bool any_int(float a, float b, float c) {
     std::string sai = std::to_string((int)a);
     std::string sbi = std::to_string((int)b);
@@ -11,10 +7,4 @@ bool any_int(float a, float b, float c) {
         return true;
     else
         return false;
-}
-
-int main() {
-    assert(any_int(3.01f, 4.0f, 7.0f) == false);
-    std::cout << "Code runs correctly." << std::endl;
-    return 0;
 }

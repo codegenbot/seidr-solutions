@@ -5,7 +5,7 @@ bool prime_length(const std::string& str) {
     int len = static_cast<int>(str.length());
     if(len <= 1) return false;
     for(int i=2; i*i<=len; i++){
-        //if(len%i==0) return false;
+        if(len%i==0) return false;
     }
     return true;
 
@@ -15,7 +15,10 @@ int main()
 {
     std::string input;
     std::cout << "Enter a string: ";
-    std::cin >> input;
+    char temp[256];
+    cin.getline(temp, 256);
+    input = temp; // convert char array to string
+    
     if (prime_length(input)) {
         std::cout << "The length of the string is prime." << std::endl;
     } else {
