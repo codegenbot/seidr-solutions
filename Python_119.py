@@ -1,13 +1,18 @@
 ```
 def match_parens(lst):
-    stack = []
-    for s in lst[0]:
-        if s == '(':
-            stack.append(s)
-        elif s == ')':
-            if len(stack) == 0:
-                return 'No'
-            stack.pop()
-    return 'Yes' if len(stack) == 0 else 'No'
+    for s in lst:
+        stack = []
+        for c in s:
+            if c == '(':
+                stack.append(c)
+            elif c == ')':
+                if len(stack) == 0:
+                    return 'No'
+                stack.pop()
+        if len(stack) != 0:
+            return 'No'
+    return 'Yes'
 
-print(match_parens([user_input]))
+user_input = input("Enter a list of strings: ")
+lst = [s.strip() for s in user_input.split(',')]
+print(match_parens([l for l in lst]))

@@ -15,15 +15,13 @@ int prod_signs(int* arr, int n) {
 int main() {
     int n; 
     std::cin >> n;
-    std::vector<int> arr(n);
+    int* arr = new int[n];
     for (int i = 0; i < n; ++i)
         std::cin >> arr[i];
 
-    int result = prod_signs(&arr[0], n);
+    int result = prod_signs(arr, n);
+    delete[] arr;
 
-    std::string output = (result > 0) ? "The product of signs is: " : "The product of signs is -";
-    output += std::to_string(result);
-
-    std::cout << output << '\n';
+    std::cout << "The product of signs is: " << (result > 0) ? std::to_string(result) : "-" << std::endl;
     return 0;
 }
