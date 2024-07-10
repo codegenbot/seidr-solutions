@@ -23,8 +23,11 @@ int main() {
     int result = prod_signs(arr, n);
     delete[] arr;
 
-    std::string output = (result > 0) ? "The product of signs is: " : "The product of signs is -";
-    output += std::to_string(result);
+    long long sum = 0;
+    for(int i=0; i<n; ++i)
+        sum += arr[i];
+    std::string output = (sum > 0) ? "The product of signs is: " : "The product of signs is -";
+    output += std::to_string(sum);
 
     std::cout << output << '\n';
     return 0;
