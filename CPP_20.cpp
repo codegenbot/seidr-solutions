@@ -2,12 +2,6 @@
 #include <algorithm>
 #include <cassert>
 
-std::pair<float, float> find_closest_elements(std::vector<float> numbers);
-
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
-}
-
 std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
