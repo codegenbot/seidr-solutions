@@ -1,17 +1,26 @@
-Here is the solution:
-
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end(), 
-        [](const string& a, const string& b) {
-            return (a.size() % 2 && !b.empty()) || (!a.empty() && b.size() % 2);
-    });
-    lst.erase(it, lst.end());
+    auto it = lst.begin();
+    erase_remove:
+    while (it != lst.end()) {
+        if (it->length() % 2 != 0) {
+            lst.erase(it);
+            continue erase_remove;
+        }
+        ++it;
+    }
     sort(lst.begin(), lst.end(),
-        [](const string& a, const string& b) {
-            if (a.size() == b.size()) 
-                return a < b;
-            else
-                return a.size() < b.size();
-    });
+         [](const string& a, const string& b) {
+             if (a.length() == b.length()) {
+                 return a < b;
+             }
+             return a.length() < b.length();
+         });
     return lst;
+}
+
+int main() {
+    if (!issame(vector<string>(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})), vector<string>({"cc","dd","aaaa","bbbb"}))) {
+        return 1;
+    }
+    return 0;
 }
