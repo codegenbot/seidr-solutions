@@ -3,16 +3,33 @@
 
 int bowlingScore(string input) {
     int score = 0;
-    for (char c : input + "+") {
-        if (c == 'X') {
-            score += 30;
-        } else if (c == '-') {
-            continue;
-        } else {
-            int roll = c - '0';
-            score += (roll * 2);
+    bool isStrike = false;
+    int currentFrame = 1;
+
+    for (char c : input) {
+        if (c == '|') continue; // Skip frame separators
+        else if (c == 'X') { // Strike
+            score += 10 + 10 + 10;
+            isStrike = true;
+        }
+        else if (c == '-') { // Spare
+            if (!isStrike) {
+                score += 10;
+                currentFrame++;
+            }
+        }
+        else { // Normal roll
+            int pinCount = c - '0'; // Convert char to int
+            score += pinCount;
+            if (currentFrame < 10) {
+                currentFrame++;
+            }
+            if (!isStrike && currentFrame == 10) {
+                score += pinCount; // Add any remaining pins
+            }
         }
     }
+
     return score;
 }
 
