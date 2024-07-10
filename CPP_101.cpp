@@ -7,10 +7,13 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
         return false;
     
     for (int i = 0; i < a.size(); i++) {
-        if ((a[i] == "" && b[i] != "") || (b[i] == "" && a[i] != ""))
-            return false;
-        else if (a[i] != b[i])
-            return false;
+        if (std::string(a[i]) == "" || std::string(b[i]) == "") {
+            if ((a[i] != b[i]))
+                return false;
+        } else {
+            if (a[i] != b[i])
+                return false;
+        }
     }
     
     return true;
