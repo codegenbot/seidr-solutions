@@ -1,4 +1,3 @@
-```
 def check(lst, func):
     return func(lst)
 
