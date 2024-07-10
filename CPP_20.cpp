@@ -21,9 +21,9 @@ vector<float> find_closest_elements(const vector<float>& numbers) {
 }
 
 int main() {
-    vector<float> numbers = {3.5, 2.1, 7.8, 1.4, 9.2};
-    vector<float> result = find_closest_elements(numbers);
-    for (const float& num : result) {
+    vector<float> numbers = {3.5, 1.2, 4.8, 2.1, 5.6};
+    vector<float> closest_elements = find_closest_elements(numbers);
+    for (float num : closest_elements) {
         cout << num << " ";
     }
     return 0;
