@@ -1,14 +1,11 @@
 #include <string>
-#include <algorithm>
+#include <cctype>
 
 int solve(std::string s) {
-    for (char &c : s) {
-        c = std::tolower(c);
+    for (int i = 0; i < s.length(); i++) {
+        if (std::isupper(s[i])) { 
+            s[i] += std::tolower(s[i]) - std::toupper(s[i]); 
+        }
     }
     return s.length();
-}
-
-int main() {
-    assert(solve("#ccc") == 3);
-    return 0;
 }
