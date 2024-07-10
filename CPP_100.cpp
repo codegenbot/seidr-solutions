@@ -1,12 +1,13 @@
-vector<int> stones;
-    stones.push_back(n);
-    for(int i = 1; i < n; ++i){
-        if(n % 2 == 0){
-            n += 2;
-        } else {
-            n += 1;
-        }
-        stones.push_back(n);
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+vector<int> make_a_pile(int n, int start=8, int step=2) {
+    if (n == 0) {
+        return {};
     }
-    return stones;
+    vector<int> pile = make_a_pile(n - 1, start, step);
+    pile.push_back(start + (n - 1) * step);
+    return pile;
 }
