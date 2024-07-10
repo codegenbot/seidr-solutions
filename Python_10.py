@@ -1,1 +1,1 @@
-input_str = input().strip()
+input_str = input()
