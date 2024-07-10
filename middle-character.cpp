@@ -1,3 +1,8 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 string middleCharacter(string s) {
     int n = s.size();
     if (n % 2 == 0) {
