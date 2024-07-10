@@ -1,4 +1,3 @@
-```
 def find_average(numbers):
     min_val = min(numbers)
     max_val = max(numbers)
