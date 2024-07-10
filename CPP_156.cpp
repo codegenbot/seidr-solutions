@@ -7,7 +7,7 @@ const char* miniRoman(int num) {
         return "IX";
     if (num >= 4) {
         if (num % 4 > 0)
-            return "IV" + std::to_string(num - 4) + "I";
+            return "IV" + std::string(num - 4, 'I');
         else
             return "IV";
     } else {
@@ -15,11 +15,11 @@ const char* miniRoman(int num) {
     }
 }
 
-const char* int_to_roman(int num) {
+std::string int_to_roman(int num) {
     if (num > 3999) {
         return "Out of range";
     }
-    const char* roman = ""; // Initialize as an empty string
+    std::string roman;
     int thousands = num / 1000;
     for (int i = 0; i < thousands; i++) {
         roman += "M";
