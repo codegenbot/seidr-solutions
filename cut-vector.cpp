@@ -1,30 +1,20 @@
-#include <vector>
-using namespace std;
-
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
+    sort(v.begin(), v.end());
+    
     int n = v.size();
-    long long total_sum = 0;
-    for (int i = 0; i < n; ++i) {
-        total_sum += v[i];
-    }
-
-    pair<int, int> best_split = {0, n};
-    double min_diff = numeric_limits<double>::max();
-
-    for (int left = 1; left < n; ++left) {
-        long long left_sum = 0;
-        for (int i = 0; i < left; ++i) {
-            left_sum += v[i];
+    if (n % 2 == 0) {
+        int mid = n / 2;
+        return {{v.begin(), v.begin() + mid}, {v.begin() + mid, v.end()}};
+    } else {
+        int min_diff = INT_MAX; 
+        for (int i = 1; i < n; ++i) {
+            int diff = v[i - 1] - v[i];
+            if (diff < min_diff) {
+                min_diff = diff;
+                break; 
+            }
         }
-
-        long long right_sum = total_sum - left_sum;
-        double diff = labs((long long)right_sum - left_sum) / double(left);
-        
-        if (diff < min_diff) {
-            min_diff = diff;
-            best_split = {0, left};
-        }
+        int mid_idx = find(v.begin(), v.end(), v[0] + min_diff) - v.begin();
+        return {{v.begin(), v.begin() + mid_idx}, {v.begin() + mid_idx, v.end()}};
     }
-
-    return {{v.begin(), v.begin() + best_split.second}, {v.begin() + best_split.first, v.end()}};
 }
