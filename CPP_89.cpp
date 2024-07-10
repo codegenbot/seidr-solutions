@@ -1,11 +1,19 @@
+#include <string>
+
+using namespace std;
+
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            c = ((c - base + 2 * 26) % 26) + base;
+        if (c >= 'a' && c <= 'z') {
+            char newChar = (((c - 'a' + 2 * 2) % 26) + 'a');
+            result += newChar;
+        } else if (c >= 'A' && c <= 'Z') {
+            char newChar = (((c - 'A' + 2 * 2) % 26) + 'A');
+            result += newChar;
+        } else {
+            result += c;
         }
-        result += c;
     }
     return result;
 }
