@@ -1,2 +1,6 @@
-def dice_game(n, m):
-    return sum((i >= j + 1) / (n * m) for i in range(1, n+1) for j in range(m))
+def probability(n, m):
+    total_outcomes = n * m
+    peter_wins = 0
+    for i in range(1, min(n, m) + 1):
+        peter_wins += max(0, n - i) * (m - i)
+    return peter_wins / total_outcomes
