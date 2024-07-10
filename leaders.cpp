@@ -1,3 +1,8 @@
+```cpp
+#include <vector>
+#include <algorithm>
+using namespace std;
+
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
@@ -15,4 +20,13 @@ vector<int> leaders(vector<int>& arr) {
 
     reverse(result.begin(), result.end()); 
     return result;
+}
+
+int main() {
+    vector<int> arr = {12, 10, 8, 6};
+    vector<int> result = leaders(arr);
+    for (int i : result) {
+        cout << i << " ";
+    }
+    return 0;
 }
