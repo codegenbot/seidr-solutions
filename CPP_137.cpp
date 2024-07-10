@@ -33,32 +33,3 @@ boost::any compare_one(boost::any a, boost::any b) {
         return "Invalid input";
     }
 }
-
-int main() {
-    int x;
-    float y;
-    cout << "Enter number 1: ";
-    cin >> x;
-    
-    string str;
-    cout << "Enter the type of number 2 (float or string): ";
-    cin >> str;
-
-    if(str == "float")
-        cin >> y;
-    else
-        cin.ignore();
-        getline(cin, str);
-
-    boost::any a = boost::any(x);
-    boost::any b = boost::any(y);
-
-    boost::any result = compare_one(a, b);
-
-    if(result.type() == typeid(string))
-        cout << "The result is: " << boost::any_cast<string>(result) << endl;
-    else
-        cout << "The result is: " << boost::any_cast<int>(result) << endl;
-
-    return 0;
-}
