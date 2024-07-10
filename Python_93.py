@@ -1,19 +1,17 @@
-def encode(text):
-    encoded_text = ""
-    for char in text:
-        if char.isalpha():
-            if char.isupper():
-                encoded_text += char.lower()
-            else:
-                encoded_text += char.upper()
-        else:
-            encoded_text += char
-    return encoded_text
+```
+def encode(s):
+    return s.upper()
 
-def check(input_string):
-    if input_string == "yes":
-        output = encode("Hello")
+def check(encoded_s):
+    if encoded_s.isalpha():
+        print("Encoded string is valid.")
     else:
-        output = encode("Bye")
-    
-    return output
+        print("Encoded string is not valid.")
+
+while True:
+    try:
+        encoded = input("Enter a string: ")
+        check(encode(encoded))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a string.")
