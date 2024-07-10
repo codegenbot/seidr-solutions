@@ -1,4 +1,4 @@
-#include <iostream> 
+#include <iostream>
 
 int main() {
     double start_height, bounce_height, total_distance = 0.0, bounciness_index;
