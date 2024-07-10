@@ -1,6 +1,14 @@
-```
-a, b = map(int, input("Enter two integers (separated by space): ").strip().split())
-print(gcd(a, b))
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+inputs = list(map(int, input("Enter two integers (separated by space): ").split()))
+if len(inputs) != 2:
+    print("Invalid input. Please provide exactly two integers.")
+else:
+    a, b = inputs[0], inputs[1]
+    print(gcd(a, b))
 
 text = input("Enter text: ")
 target = input("Enter target string: ")

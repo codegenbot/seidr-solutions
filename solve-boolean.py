@@ -1,39 +1,31 @@
-```
 def solve_boolean(expression):
     if not expression:
         return False
 
     stack = []
-    operators = []
-    temp = ''
-
+    curr_operand = ''
     for char in expression:
-        if char.upper() in ['T', 'F']:
-            if temp: 
-                stack.append(eval(temp))
-                temp = ''
+        if char.upper() == '(':
+            stack.append(char)
+        elif char.upper() in ['T', 'F']:
+            curr_operand += char
+        elif char.upper() in ['&', '|']:
+            while stack and stack[-1].upper() == '(':
+                stack.pop()
+            if stack:
+                operand2 = stack.pop()
+                operand1 = eval(curr_operand)
+                if char.upper() == '&':
+                    stack.append(operand1 and operand2)
+                elif char.upper() == '|':
+                    stack.append(operand1 or operand2)
+                curr_operand = ''
             else:
-                stack.append(char == 'T')
-        elif char.upper() in ['|', '&']:
-            while temp and temp[-1].isalpha():
-                temp += char
-            if temp:
-                stack.append(eval(temp))
-                temp = ''
-            operators.append(char)
-        else:
-            temp += char
+                stack.append(eval(curr_operand))
+                curr_operand = ''
+        elif char.upper() == ')':
+            while stack and stack[-1].upper() != '(':
+                stack.pop()
+            stack.pop()
 
-    if temp: 
-        stack.append(eval(temp))
-
-    result = stack[0]
-    for operator in operators:
-        operand2 = stack.pop()
-        operand1 = stack.pop()
-        if operator == '|':
-            result = operand1 or operand2
-        elif operator == '&':
-            result = operand1 and operand2
-
-    return result
+    return stack[0]
