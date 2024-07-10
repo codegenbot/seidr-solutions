@@ -1,8 +1,16 @@
-import sys
-
-strings = sys.stdin.read().splitlines()
+strings = []
+try:
+    while True:
+        string = input().strip()
+        if string == "----":
+            break
+        strings.append(string)
+except EOFError:
+    pass
 
 substring = input().strip()
+while substring:
+    substring = input().strip()
 
 def filter_strings(strings, substring):
     return [string for string in strings if substring in string]
