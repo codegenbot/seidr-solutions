@@ -1,14 +1,13 @@
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    int num = 1;
+    int current = 1;
     for (int i = 0; i < n; i++) {
-        if ((num - 1) % 2 == 0) { // even number
-            pile.push_back(num);
-            num += 2;
-        } else { // odd number
-            pile.push_back(num);
-            num += 2;
-            num++;
+        if ((n & 1)) { // check if n is odd
+            pile.push_back(current);
+            current += 2;
+        } else { // n is even
+            pile.push_back(current);
+            current += 1;
         }
     }
     return pile;
