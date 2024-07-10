@@ -2,31 +2,19 @@
 
 #include <vector>
 #include <string>
+#include <algorithm>
 
 bool issame(const std::vector<std::string>& a, const std::string& b);
 
 std::vector<std::string> select_words(std::string s, int n);
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> words;
-    std::string word;
-    for(char c : s) {
-        if(c == ' ') {
-            if(!word.empty()) {
-                words.push_back(word);
-                word.clear();
-            }
-        } else {
-            word += c;
+std::string Join(const std::vector<std::string>& vec, char separator) {
+    std::string result = "";
+    for (const auto& str : vec) {
+        if (!result.empty()) {
+            result += separator;
         }
-    }
-    if(!word.empty()) {
-        words.push_back(word);
-    }
-    
-    std::vector<std::string> result;
-    for(int i = 0; i < n && i < words.size(); i++) {
-        result.push_back(words[i]);
+        result += str;
     }
     return result;
 }
@@ -41,6 +29,7 @@ bool issame(const std::vector<std::string>& a, const std::string& b) {
 
 int main() {
     std::vector<std::string> result = select_words("a b c d e f", 1);
-    assert(issame({result}, "b") && "Output does not match");
+    assert(issame(result, "b")); 
+    std::cout << "{" + Join(result, ", ") + "}" << std::endl;
     return 0;
 }
