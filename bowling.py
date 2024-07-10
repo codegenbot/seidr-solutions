@@ -1,14 +1,14 @@
+```
 def bowling_score(game):
     score = 0
     roll = 0
-    game_str = input("Enter the game string: ")
-    frames = game_str.upper().split('/')
+    frames = game.upper().split('/')
     for frame in frames:
         if len(frame) == 1:
             score += 10
             roll += 1
         elif 'X' in frame:
-            if roll < 1:
+            if roll < 2:
                 score += 10
                 roll += 1
             else:
@@ -32,5 +32,3 @@ def bowling_score(game):
                 score += sum(first_two_rolls)
                 roll += 2
     return score
-
-print(bowling_score(""))
