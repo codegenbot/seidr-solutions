@@ -1,8 +1,7 @@
 from typing import List
 
 
-def factorize() -> None:
-    n = int(input("Enter a number: "))
+def factorize(n: int) -> None:
     i = 2
     while i * i <= n:
         if n % i:
@@ -19,4 +18,4 @@ def factorize() -> None:
 
 
 if __name__ == "__main__":
-    factorize()
+    factorize(int(input("Enter a number: ")))
