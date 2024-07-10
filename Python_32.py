@@ -1,8 +1,3 @@
-def find_zero(xs: list):
-    n = len(xs)
-    if n % 2 != 0:
-        raise ValueError("xs must have even number of coefficients")
-    x = -xs[1] / xs[3]
+def find_zero(a0: float, a1: float, a2: float):
+    x = (-a1 + (a1**2 - 4 * a0 * a2) ** 0.5) / (2 * a0)
     return round(x, 2)
-
-Here is the completed code:
