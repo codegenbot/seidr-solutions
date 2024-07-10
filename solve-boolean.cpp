@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <limits>
 
 bool solveBoolean(std::string s) {
     bool result = true;
@@ -56,6 +57,10 @@ int main() {
     std::cout << "Enter a boolean expression: ";
     
     std::getline(std::cin, input); // Read the entire line at once
+
+    if (input.back() != '\n') { 
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
 
     bool result = solveBoolean(input);
 
