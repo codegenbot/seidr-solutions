@@ -1,25 +1,19 @@
-```c++
 #include <map>
 #include <vector>
 
 int search(std::vector<int> lst) {
-    std::map<int, int> freq;
+    std::map<int, int> my_freq;
     for (int num : lst) {
-        if (freq.find(num) == freq.end()) {
-            freq[num] = 1;
+        if (my_freq.find(num) == my_freq.end()) {
+            my_freq[num] = 1;
         } else {
-            freq[num]++;
+            my_freq[num]++;
         }
     }
-    for (auto it = freq.begin(); it != freq.end(); ++it) {
+    for (auto it = my_freq.begin(); it != my_freq.end(); ++it) {
         if (it->second >= it->first && it->first > 0) {
             return it->first;
         }
     }
     return -1;
-}
-
-int main() {
-    assert(search({3, 10, 10, 9, 2}) == -1);
-    return 0;
 }
