@@ -2,10 +2,10 @@
 
 int main() {
     string S;
-    cout << "Enter a sentence: ";
+    cout << "Enter a string: ";
     cin >> S;
     int result = is_bored(S);
-    cout << "The count of 'I' at the start of sentences is: " << result << endl;
+    cout << "Number of times 'I' appears at the start of sentences: " << result << endl;
     return 0;
 }
 
