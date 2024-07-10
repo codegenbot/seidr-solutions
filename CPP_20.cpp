@@ -3,10 +3,6 @@
 #include <utility>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return a == b;
-}
-
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
     std::vector<float> sorted_numbers = numbers;
     std::sort(sorted_numbers.begin(), sorted_numbers.end());
