@@ -11,6 +11,6 @@ def solve_boolean(expression):
         a, b = expression.split('|')
         return bool(a) or bool(b)
 
-expression = "T|F"  # For example, this is the input expression
+expression = input("Enter Boolean expression (T/F/|&): ")
 result = solve_boolean(expression)
 print(result)
