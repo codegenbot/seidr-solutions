@@ -8,12 +8,13 @@ def sort_even(l: list):
         if i < len(even) and (j >= len(odd) or even[i] <= odd[j]):
             result.append(even[i])
             i += 1
-        elif j < len(odd): 
+        elif j < len(odd):
             result.append(odd[j])
             j += 1
 
     while j < len(odd):
-        result.append(odd[j])
-        j += 1
+        result.extend(
+            [odd[j], *range(odd[j] + 1, len(l))]
+        )  # adding remaining odd elements
 
     return tuple(result)
