@@ -8,17 +8,17 @@ if __name__ == "__main__":
     while True:
         print("Enter comma-separated integers: ")
         numbers = input().strip()
-        
-        if not numbers or numbers == ",":
+        if not numbers.replace(",", "").replace(" ", ""):
             print("No input entered.")
+            continue
+        try:
+            numbers = [int(num) for num in numbers.split(",") if num]
+            print(remove_duplicates(numbers))
             cont = input("Do you want to continue? (y/n): ")
             if cont.lower() != "y":
                 break
             else:
                 continue
-        
-        try:
-            numbers = [int(num) for num in numbers.split(",") if num]
-            print(remove_duplicates(numbers))
         except ValueError as e:
             print(f"Invalid input. {str(e)}. Please enter comma-separated integers.")
+            continue
