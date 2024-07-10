@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
-std::string encode_cyclic(std::string s){ 
+string encode_cyclic(string s){ 
     int l=s.length();
     int num=(l+2)/3;
-    std::string x,output;
+    string x,output;
     int i;
     for (i=0;i*3<l;i++)
     {
@@ -15,9 +16,9 @@ std::string encode_cyclic(std::string s){
     return output;
 }
 
-std::string decode_cyclic(std::string s){ 
+string decode_cyclic(string s){ 
     int l=s.length();
-    std::string x,output;
+    string x,output;
     int i;
     for (i=0;i*3<l;i++)
     {
