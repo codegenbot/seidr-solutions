@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -47,12 +46,12 @@ void minPathTest() {
         while(i > 0) {
             if(i >= input[1].size()) {
                 i -= input[1][0];
-                outputStr += std::to_string(i) + " ";
+                outputStr += std::to_string(input[1][0]) + " ";
             } else {
                 int j = 0;
                 while(j < input.size() && i >= input[j][0]) {
                     i -= input[j][0];
-                    outputStr += std::to_string(i) + " ";
+                    outputStr += std::to_string(i) + " "; // Modified this line
                     j++;
                 }
                 break;
