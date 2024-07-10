@@ -1,14 +1,20 @@
+Here is the solution:
+
+```cpp
 int prod_signs(vector<int> arr) {
     int sign_product = 1;
-    long long sum_of_magnitudes = 0;
-
-    if (arr.empty()) return -32768;
+    long sum_of_magnitudes = 0;
 
     for (int num : arr) {
-        if (num == 0) continue; // skip zeros
-
+        if (num == 0) {
+            return 0; // If zero found, multiply by zero and return
+        }
         sign_product *= (num > 0 ? 1 : -1);
         sum_of_magnitudes += abs(num);
+    }
+
+    if (arr.empty()) {
+        return -32768;
     }
 
     return sign_product * sum_of_magnitudes;
