@@ -3,34 +3,20 @@
 #include <string>
 #include <iostream>
 #include <cassert>
+#include <iomanip>
+#include <sstream>
 
 std::string string_to_md5(const std::string& input) {
-    EVP_MD_CTX *mdctx = NULL;
-    const EVP_MD *md = NULL;
-    unsigned char hash[EVP_MAX_MD_SIZE];
+    EVP_MD_CTX *mdctx = EVP_MD_CTX_create();
+    const EVP_MD *md = EVP_md5();
+    unsigned char hash[MD5_DIGEST_LENGTH];
     unsigned int hash_len;
 
-    OpenSSL_add_all_algorithms(); // Initialize OpenSSL library
+    OpenSSL_add_all_algorithms();
 
-    if (!(md = EVP_md5())) {
-        return ""; // Handle error
-    }
-
-    if (!(mdctx = EVP_MD_CTX_new())) {
-        return ""; // Handle error
-    }
-
-    if (!EVP_DigestInit_ex(mdctx, md, NULL)) {
-        EVP_MD_CTX_free(mdctx);
-        return ""; // Handle error
-    }
-
-    if (!EVP_DigestUpdate(mdctx, input.c_str(), input.size())) {
-        EVP_MD_CTX_free(mdctx);
-        return ""; // Handle error
-    }
-
-    if (!EVP_DigestFinal_ex(mdctx, hash, &hash_len)) {
+    if (!EVP_DigestInit_ex(mdctx, md, NULL) ||
+        !EVP_DigestUpdate(mdctx, input.c_str(), input.size()) ||
+        !EVP_DigestFinal_ex(mdctx, hash, &hash_len)) {
         EVP_MD_CTX_free(mdctx);
         return ""; // Handle error
     }
@@ -42,5 +28,11 @@ std::string string_to_md5(const std::string& input) {
         md5_hash += char(hash[i]);
     }
 
-    return md5_hash;
+    std::stringstream ss;
+    ss << std::hex << std::setfill('0');
+    for (unsigned int i = 0; i < hash_len; i++) {
+        ss << std::setw(2) << static_cast<int>(hash[i]);
+    }
+
+    return ss.str();
 }
