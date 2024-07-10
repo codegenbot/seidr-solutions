@@ -1,4 +1,4 @@
-#include <cassert> // Add missing header file
+#include <cassert>
 #include <vector>
 #include <string>
 #include <sstream>
@@ -21,8 +21,4 @@ void test_words_string() {
     assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
 }
 
-int main() {
-    test_words_string();
-
-    return 0;
-}
+void test_words_string();
