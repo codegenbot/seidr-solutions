@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+#include <algorithm>
 
 int next_smallest(vector<int> lst){
     vector<int> v(lst);
