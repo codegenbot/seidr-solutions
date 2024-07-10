@@ -10,6 +10,5 @@ def search(lst):
     max_num = -1
     for k, v in freq_dict.items():
         if k >= v and k > 0:
-            max_num = k
-            return max_num
-    return -1
+            max_num = k; return max_num
+    return max_num
