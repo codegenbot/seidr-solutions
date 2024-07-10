@@ -1,28 +1,49 @@
-string words_in_sentence(string sentence){
-    string result = "";
-    int count = 0;
+```cpp
+#include <string>
+#include <vector>
 
-    for(int i=0; i<sentence.size(); i++){
-        if(sentence[i] == ' '){
-            count++;
-        } else {
-            if(isPrime(sentence.substr(i+1, (sentence.find(' ',i+1)-i-1)).size)){
-                result += sentence.substr(i+1, (sentence.find(' ',i+1)-i-1)) + " ";
-            }
-            i = sentence.find(' ',i+1) - 1;
+std::string words_in_sentence(std::string sentence) {
+    std::vector<std::string> words = split(sentence, ' ');
+    std::string result;
+
+    for (const auto& word : words) {
+        if (is_prime(word.length())) {
+            result += word + " ";
         }
     }
 
-    return result;
+    return result.substr(0, result.size() - 1);
 }
 
-bool isPrime(int n){
-    if(n <= 1)
+bool is_prime(int n) {
+    if (n <= 1) {
         return false;
-
-    for(int i=2; i*i<=n; i++){
-        if(n%i == 0)
-            return false;
     }
+
+    for (int i = 2; i * i <= n; ++i) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+
     return true;
+}
+
+std::vector<std::string> split(const std::string& str, char delimiter) {
+    std::vector<std::string> tokens;
+    size_t prev = 0, pos = 0;
+
+    do {
+        pos = str.find(delimiter, prev);
+        if (pos == std::string::npos) {
+            pos = str.length();
+        }
+        std::string token = str.substr(prev, pos - prev);
+        if (!token.empty()) {
+            tokens.push_back(token);
+        }
+        prev = pos + 1;
+    } while (pos != std::string::npos);
+
+    return tokens;
 }
