@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
+bool are_vectors_equal(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -20,8 +20,7 @@ vector<int> rolling_max(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> result = rolling_max({3, 2, 3, 100, 3});
-    assert(issame(result, {3, 3, 3, 100, 100}));
+    assert(are_vectors_equal(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
     cout << "Test passed successfully!" << endl;
     return 0;
 }
