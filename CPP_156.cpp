@@ -1,34 +1,37 @@
 #include <sstream>
+#include <unordered_map>
 
-std::string int_to_mini_romank(int n) {
-    if (n == 0)
-        return "0";
-    std::string roman = "";
-    int thousands = n / 1000;
-    for (int i = 0; i < thousands; i++)
-        roman += "M";
-    n %= 1000;
-    int hundreds = n / 100;
-    if (hundreds > 0) {
-        roman += (hundreds == 1) ? "C" : ((hundreds > 3) ? "D" : std::string(hundreds, 'C'));
-        n %= 100;
+std::string int_to_mini_romank(int num) {
+    std::unordered_map<int, std::string> romanMap = {{1000, "m"},
+                                                       {900, "cm"},
+                                                       {500, "d"},
+                                                       {400, "cd"},
+                                                       {100, "c"},
+                                                       {90, "xc"},
+                                                       {50, "l"},
+                                                       {40, "xl"},
+                                                       {10, "x"},
+                                                       {9, "ix"},
+                                                       {5, "v"},
+                                                       {4, "iv"},
+                                                       {1, "i"}};
+    std::string result;
+    
+    for (const auto& pair : romanMap) {
+        while (num >= pair.first) {
+            num -= pair.first;
+            result += pair.second;
+        }
     }
-    int tens = n / 10;
-    if (tens > 0) {
-        roman += (tens == 1) ? "X" : ((tens > 3) ? "L" : std::string(tens, 'X'));
-        n %= 10;
-    }
-    int ones = n;
-    if (ones > 0) {
-        roman += (ones == 1) ? "I" : ((ones > 3) ? "V" : std::string(ones, 'I'));
-    }
-    return roman;
+    
+    return result;
 }
 
 int main() {
-    std::ostringstream oss(std::locale(), std::ios_base::out);
-    int n;
-    // Read input from user...
-    // Use the function here...
-    // Rest of your code...
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    std::string result = int_to_mini_romank(num);
+    std::cout << "Roman numeral representation: " << result << std::endl;
+    return 0;
 }
