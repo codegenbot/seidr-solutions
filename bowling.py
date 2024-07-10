@@ -1,18 +1,32 @@
-def bowling_score(bowling_string):
+def bowling_score(bowling_str):
     score = 0
-    rolls = [
-        list(map(int, list(x))) for x in re.findall("(\d{1,3})/?|[X]", bowling_string)
-    ]
+    current_frame = 1
+    last_roll = [0, 0]
 
-    for i in range(len(rolls)):
-        if len(rolls[i]) == 2:
-            if sum(rolls[i]) == 10:
-                score += 10 + sum(rolls[i + 1 : i + 2] or [0])
-                i += 1
+    for roll in bowling_str:
+        if roll.isdigit():
+            this_roll = int(roll)
+            if this_roll == "/":
+                score += 10 + sum(last_roll)
+                last_roll = [0, 0]
+                current_frame += 1
             else:
-                score += sum(rolls[i])
-        elif rolls[i][0] == X:
-            score += 10 + sum(rolls[i + 1 :] or [0])
+                if len(last_roll) < 2:
+                    last_roll.append(this_roll)
+                else:
+                    raise Exception("Invalid input")
+        elif roll in "-X":
+            if current_frame == 10:
+                raise Exception("Invalid input")
+            if sum(last_roll) < 10:
+                score += 10
+            else:
+                score += sum(last_roll)
+            last_roll = [0, 0]
+            current_frame += 1
         else:
-            score += sum(rolls[i])
+            raise Exception("Invalid input")
+
+    score += sum(last_roll)
+
     return score
