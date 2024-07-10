@@ -7,14 +7,9 @@
 using namespace std;
 
 bool has_close_elements(vector<float> numbers, float threshold){
-    vector<size_t> indices;
-    for(size_t i = 0; i < numbers.size(); i++){
-        indices.push_back(i);
-    }
-
-    for(size_t i = 0; i < indices.size(); i++){
-        for(size_t j = i + 1; j < indices.size(); j++){
-            if(abs(numbers[indices[i]] - numbers[indices[j]]) <= threshold)
+    for(int i = 0; i < numbers.size(); i++){
+        for(int j = i + 1; j < numbers.size(); j++){
+            if(abs(numbers[i] - numbers[j]) <= threshold)
                 return true;
         }
     }
