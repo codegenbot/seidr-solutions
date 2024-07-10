@@ -1,6 +1,3 @@
+```
 def intersperse(a, b):
-    result = [b]
-    for x in a:
-        result.insert(0, x)
-        result.append(b)
-    return result
+    return [b] + sum([[i] if i == b else [i] for i in ([b]+list(a)+[b])], [b]) + [b]
