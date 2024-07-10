@@ -2,6 +2,8 @@
 #include <vector>
 #include <climits>
 
+int smallest_change(std::vector<int> arr);
+
 int main() {
     int n;
     std::cout << "Enter the number of elements: ";

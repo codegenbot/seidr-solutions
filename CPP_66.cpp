@@ -1,12 +1,15 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <cctype>
 
 int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
-        if (std::isdigit(c)) {
-            sum += (c - '0');
+        if (isupper(c)) {
+            sum += tolower(c) - 'a' + 1; 
+        } else if (islower(c)) {
+            sum += c - 'a' + 1;
         }
     }
     return sum;
