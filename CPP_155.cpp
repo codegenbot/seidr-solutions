@@ -19,10 +19,12 @@ std::vector<int> even_odd_count(int num) {
     return counts;
 }
 
-assert(even_odd_count(0) == std::vector<int>{1, 0});
-assert(even_odd_count(123456) == std::vector<int>{3, 3});
-assert(even_odd_count(-87654) == std::vector<int>{2, 3});
+int main() {
+    assert(even_odd_count(0) == std::vector<int>{1, 0});
+    assert(even_odd_count(123456) == std::vector<int>{3, 3});
+    assert(even_odd_count(-87654) == std::vector<int>{2, 3});
 
-cout << "All test cases passed successfully." << endl;
+    cout << "All test cases passed successfully." << endl;
 
-return 0;
+    return 0;
+}
