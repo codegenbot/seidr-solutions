@@ -1,4 +1,3 @@
-```
 from typing import List
 
 numbers = input("Enter numbers (comma-separated): ").split(",")
