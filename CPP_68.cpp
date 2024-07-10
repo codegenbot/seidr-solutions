@@ -1,10 +1,10 @@
-```cpp
 #include <vector>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size()!=b.size())return false;
-    for(int i=0; i<a.size();i++){
-        if(a[i]!=b[i])return false;
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
@@ -29,14 +29,5 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> input = {1, 3, 2};
-    std::cout << "Input: ";
-    for(int i=0; i<input.size();i++)std::cout<<input[i]<<" ";
-    std::cout<<'\n';
-    
-    std::vector<int> output = pluck(input);
-    if(output[0]%2==0)std::cout<<"The smallest even number is: "<<output[0]<<", and it's located at index: "<<output[1]<<".\n";
-    else std::cout<<"There are no even numbers in the array.\n";
-
-    return 0;
+    // your code here
 }
