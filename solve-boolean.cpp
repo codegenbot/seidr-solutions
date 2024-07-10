@@ -1,7 +1,4 @@
 ```cpp
-#include <iostream>
-#include <string>
-
 bool solveBoolean(std::string s) {
     bool result = true;
     int i = 0;
@@ -12,9 +9,6 @@ bool solveBoolean(std::string s) {
                 return true; // || with T or F is always true
             else if (s[i] != '|')
                 return false; // invalid expression
-            while (i < s.size() && s[i] != '|') {
-                i++;
-            }
         } else if (s[i] == '&') {
             bool subResult = true;
             while (i < s.size()) {
@@ -32,7 +26,18 @@ bool solveBoolean(std::string s) {
                 }
             }
         } else {
-            i++;
+            switch (s[i]) {
+                case 'T':
+                    i++;
+                    break;
+                case 'F':
+                    return false; // & or | with F is always false
+                case '|':
+                    if (result)
+                        return true; // || with T is always true
+                    else
+                        return false; // || with F is always false
+            }
         }
     }
 
