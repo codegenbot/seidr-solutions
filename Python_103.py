@@ -1,6 +1,11 @@
-def rounded_avg(n, m):
-    if n > m:
-        return -1
-    total = sum(range(n, m+1))
-    avg = round(total / (m - n + 1))
-    return format(avg, 'b')
+def calculate_average_score():
+    scores = []
+    while True:
+        try:
+            user_input = input("Enter a score (or 'stop' to finish): ")
+            if user_input.lower() == 'stop':
+                break
+            scores.append(int(user_input))
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+    return round(sum(scores) / len(scores), 2)
