@@ -1,7 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <cmath> // for floor
-#include <algorithm> // for reverse
+#include <algorithm>
+#include <cmath>
 
 using namespace std;
 
@@ -21,5 +22,7 @@ string rounded_avg(int n,int m){
     return res;
 }
 
-cout << rounded_avg(5, 5) << endl;
-return 0;
+int main() {
+    cout << rounded_avg(5, 5) << endl;
+    return 0;
+}
