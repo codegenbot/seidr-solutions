@@ -1,11 +1,4 @@
+```
 def luhn(card_num):
     card_num = [int(x) for x in str(card_num).replace(" ", "")]
-    result = sum(
-        [
-            x if i % 2 == 0 else int(str(x * 2).strip('0')) if str(x * 2).strip('0') != '0' else 9
-            for i, x in enumerate(card_num)
-        ]
-    )
-    return result
-
-print(luhn(4165643892581652))
+    return sum([x if i % 2 == 0 else (x * 2 - 9) if x * 2 > 9 else x * 2 for i, x in enumerate(reversed(card_num))])
