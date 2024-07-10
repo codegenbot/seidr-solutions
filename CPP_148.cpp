@@ -6,6 +6,8 @@
 
 using namespace std;
 
+#include <algorithm>
+
 bool areSame(vector<string> a, vector<string> b){
     return a == b;
 }
