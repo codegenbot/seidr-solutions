@@ -1,10 +1,7 @@
-```
-import math
-def special_factorial(n):
-    if n == 0:
-        return 1
+def read_input_and_output():
+    n = int(input("Enter a number: "))
+    if n < 0:
+        print("Invalid input. Please enter a non-negative integer.")
     else:
-        result = 1
-        for i in range(1, n+1):
-            result *= math.factorial(i)
-        return result
+        output = special_factorial(n)
+        print(f"The special factorial of {n} is {output}")
