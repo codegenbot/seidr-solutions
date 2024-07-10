@@ -1,7 +1,10 @@
-def check(closest_integer):
-    if closest_integer in ["Jan", "Mar", "May", "Jul", "Aug", "Oct", "Dec"]:
-        return "Leap year"
-    elif closest_integer in ["Apr", "Jun", "Sep", "Nov"]:
-        return "Not leap year, but has 30 days"
+def closest_integer_to_month():
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    month_number = int(input("Enter the number of the month (1-12): "))
+    if month_number < 1 or month_number > 12:
+        return "Invalid input. Please enter a number between 1 and 12."
     else:
-        return "Not a leap year"
+        return months[month_number - 1]
+
+closest_integer = closest_integer_to_month()
+check(closest_integer)
