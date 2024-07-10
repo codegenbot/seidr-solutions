@@ -1,3 +1,4 @@
+```Python
 def rounded_avg():
     n = int(input("Enter value of n: "))
     m = int(input("Enter value of m: "))
