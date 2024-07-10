@@ -1,3 +1,4 @@
+```
 def decode_cyclic(s: str):
     if s[0] == 'x':
         result = chr(int(s[1:]) + ord('a'))
