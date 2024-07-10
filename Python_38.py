@@ -1,5 +1,5 @@
 def encode_cyclic(s: str):
-    groups = [s[(len(s) - 1) - i : len(s) - i] + s[: (len(s) - 1) - i] for i in range(len(s))]
+    groups = [s[(i % 3)::3] for i in range(3)]
     return "".join(groups)
 
 def decode_cyclic(s: str):
