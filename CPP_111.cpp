@@ -2,6 +2,7 @@
 #include <map>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 bool issame(std::map<char, int> a, std::map<char, int> b) {
     return a == b;
@@ -11,9 +12,7 @@ std::map<char, int> histogram(std::string test) {
     std::map<char, int> count;
 
     for (char c : test) {
-        if (c != ' ') {
-            count[c]++;
-        }
+        count[c]++;
     }
 
     int maxCount = 0;
@@ -33,5 +32,7 @@ std::map<char, int> histogram(std::string test) {
 
 int main() {
     assert(issame(histogram("a"), std::map<char, int>{{'a', 1}}));
+    // Add more test cases here if needed
+
     return 0;
 }
