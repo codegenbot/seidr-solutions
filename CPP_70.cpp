@@ -19,17 +19,21 @@ int main() {
     int n1, n2;
     std::cout << "Enter the size of first vector: ";
     std::cin >> n1;
-    std::vector<int> a(n1);
+    std::vector<int> a;
     for(int i = 0; i < n1; i++) {
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> a[i];
+        int temp; 
+        std::cin >> temp;
+        a.push_back(temp);
     }
     std::cout << "Enter the size of second vector: ";
     std::cin >> n2;
-    std::vector<int> b(n2);
+    std::vector<int> b;
     for(int i = 0; i < n2; i++) {
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> b[i];
+        int temp; 
+        std::cin >> temp;
+        b.push_back(temp);
     }
     if(issame(a, b)) {
         std::cout << "The two vectors are the same." << std::endl;
