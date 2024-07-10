@@ -1,22 +1,17 @@
-```cpp
-#include <string>
-#include <vector>
-#include <iostream>
-
-using namespace std;
-
+namespace {
 struct RomanPair {
     int first;
-    string second;
+    std::string second;
 };
+}
 
-string int_to_mini_roman(int number) {
-    vector<pair<int, string>> romanMap = {{1000, "M"}, {900, "CM"}, {500, "D"},
+std::string int_to_mini_roman(int number) {
+    std::vector<RomanPair> romanMap = {{1000, "M"}, {900, "CM"}, {500, "D"},
                               {400, "CD"}, {100, "C"}, {90, "XC"},
                               {50, "L"}, {40, "XL"}, {10, "X"},
                               {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
-    string roman = "";
-    for (const auto& pair : romanMap) {
+    std::string roman = "";
+    for (const RomanPair& pair : romanMap) {
         while (number >= pair.first) {
             number -= pair.first;
             roman += pair.second;
@@ -27,8 +22,8 @@ string int_to_mini_roman(int number) {
 
 int main() {
     int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    cout << "The Roman numeral for " << num << " is " << int_to_mini_roman(num) << endl;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    std::cout << "The Roman numeral for " << num << " is " << int_to_mini_roman(num) << std::endl;
     return 0;
 }
