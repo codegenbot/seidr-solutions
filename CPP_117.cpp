@@ -21,7 +21,6 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    bool result = select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "e", "f"};
-    assert(result);
-    return result ? 0 : 1;
+    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "e", "f"});
+    return 0;
 }
