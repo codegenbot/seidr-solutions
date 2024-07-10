@@ -1,9 +1,13 @@
 #include <string>
 
 int main() {
-    std::string str = "your_string_here"; // replace with the desired input
+    std::string str;
+    std::cout << "Enter a string of digits: ";
+    std::cin >> str;
     int sum = pairedDigits(str);
+    std::cout << "The sum of the paired digits is: " << sum << std::endl;
     return 0;
+
 }
 
 int pairedDigits(const std::string& str) {
