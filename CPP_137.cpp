@@ -6,11 +6,11 @@ using namespace std;
 
 auto compare_one(int a, double b) {
     if (b > a) {
-        return to_string(b);
+        return b;
     } else if (a == b) {
-        return "Equal";
+        return 0.0; 
     } else {
-        return to_string(a);
+        return static_cast<double>(a); 
     }
 }
 
@@ -34,8 +34,8 @@ int main_func() {
         try {
             b = stod(s);
         } catch (invalid_argument& e) {
-            cout << "The result is: " << a << endl;
-            return 0;
+            cout << "Invalid input. Please enter a number." << endl;
+            return 1; // Exit with error code
         }
         
         if (!cin) { 
