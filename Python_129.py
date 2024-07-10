@@ -1,18 +1,17 @@
+```
 def minPath(grid, k):
     N = len(grid)
     visited = [[False] * N for _ in range(N)]
     queue = [(0, 0, [grid[0][0]])]
     res = []
 
-    while True:
-        if not queue:
-            return res
-
+    while queue:
         x, y, path = queue.pop(0)
 
         if len(path) == k:
-            res = sorted(path)
-            break
+            if not res or sum(path) < sum(res):
+                res = path
+            continue
 
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nx, ny = x + dx, y + dy
