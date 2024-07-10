@@ -16,7 +16,6 @@ int main(){
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
     for(int i = 0; i < n; i++){
         int num;
         std::cout << "Enter element " << i+1 << ": ";
@@ -25,7 +24,7 @@ int main(){
     }
     
     int result = specialFilter(input);
-    std::cout << "The number of elements that meet the condition is: " << result << std::endl;
+    std::cout << "Number of special numbers: " << result << std::endl;
     
     return 0;
 }
