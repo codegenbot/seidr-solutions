@@ -33,13 +33,15 @@ vector<int> indicesOfSubstring(string text, string target) {
     vector<int> lps = computeLPSArray(target);
 
     for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
+        int j = 0;
+        while (j < m && text[i + j] == target[j]) {
+            j++;
+        }
+        if (j == m) {
             result.push_back(i);
-            i += m - 1; // Skip the matched portion
-        } else if (i + m >= n || text[i + lps[m - 1]] != target[lps[m - 1]]) {
-            while (i + lps[m-1] <= n && text[i+lps[m-1]] != target[lps[m-1]]) {
-                i = i + 1;
-            }
+            i += j - 1; // Skip the matched portion
+        } else if (i + j >= n || text[i + j] != target[j]) {
+            i = i + (m - j - 1);
         }
     }
 
