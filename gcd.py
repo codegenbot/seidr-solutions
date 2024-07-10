@@ -1,5 +1,4 @@
 ```
-print("Welcome to GCD and Index of Substring problem!")
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
