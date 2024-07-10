@@ -2,6 +2,8 @@
 #include <cassert>
 
 namespace contest {
+    #include <vector>
+    
     bool issame(const std::vector<int>& a, const std::vector<int>& b) {
         return a == b;
     }
@@ -18,7 +20,7 @@ namespace contest {
     }
 }
 
-int main() {
+int main_task() {
     assert(contest::issame(contest::even_odd_palindrome(1), {1, 1}));
     assert(contest::issame(contest::even_odd_palindrome(3), {3, 2, 1, 1, 2, 3}));
     
