@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <climits>
 
 vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
