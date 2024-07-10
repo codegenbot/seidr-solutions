@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,11 +5,9 @@
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
     for (int i = 0; i < k; i++) {
-        int max_val;
         auto it = std::max_element(arr.begin(), arr.end());
-        max_val = *it;
-        arr.erase(it);
-        result.push_back(max_val);
+        result.push_back(*it);
+        arr.erase(it-- - arr.begin()); // Create a copy of the array before popping elements from it
     }
     return result;
 }
