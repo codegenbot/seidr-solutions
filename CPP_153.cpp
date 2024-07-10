@@ -4,7 +4,7 @@
 
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int strongest = -1;
-    string strongest_extension;
+    std::string strongest_extension;
 
     for(auto extension : extensions){
         int cap = 0, sm = 0;
