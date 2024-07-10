@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -8,7 +9,7 @@ bool std::issame(std::vector<int> a, std::vector<int> b) {
 std::pair<int, int> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
     for (int i = 1; i <= n; i++) {
-        if (i == reverse(i)) {
+        if (i == stoi(reverse(i).data())) {
             if (i % 2 == 0)
                 even++;
             else
@@ -18,7 +19,7 @@ std::pair<int, int> even_odd_palindrome(int n) {
     return std::make_pair(even, odd);
 }
 
-std::pair<int, int> userInput() {
+std::pair<int, int> user_input() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
@@ -29,13 +30,12 @@ std::pair<int, int> userInput() {
     std::cout << "Number of odd palindromes: " << result.second << std::endl;
 }
 
-int reverse(int n) {
-    int rev = 0;
-    std::string strRev = "";
+std::string reverse(int n) {
+    std::string rev = "";
     while (n != 0) {
         int remainder = n % 10;
-        strRev += std::to_string(remainder);
+        rev += char(remainder + '0');
         n /= 10;
     }
-    return std::stoi(strRev); 
+    return rev;
 }
