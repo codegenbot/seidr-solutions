@@ -12,21 +12,24 @@ map<string, int> num_map = {
 };
 
 string sort_numbers(string numbers) {
-    map<int, string> rev_map;
-    string current = "";
-    for (char c : numbers) {
-        if (c == ' ') {
-            rev_map[num_map[current]] = current;
-            current = "";
-        } else {
-            current += c;
-        }
+    map<int, string> rev_num_map;
+    for (auto const& pair : num_map) {
+        rev_num_map[pair.second] = pair.first;
     }
-    rev_map[num_map[current]] = current;
 
-    string result = "";
-    for (auto it = rev_map.begin(); it != rev_map.end(); ++it) {
-        result += it->second + " ";
+    string result;
+    vector<int> sorted_nums;
+    istringstream ss(numbers);
+    string word;
+    while (ss >> word) {
+        sorted_nums.push_back(num_map[word]);
     }
-    return result.substr(0, result.size() - 1);
+    sort(sorted_nums.begin(), sorted_nums.end());
+
+    for (int num : sorted_nums) {
+        result += rev_num_map[num] + " ";
+    }
+
+    result.pop_back(); // Remove extra space at the end
+    return result;
 }
