@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 bool is_equal_to_sum_even(int n) {
