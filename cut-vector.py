@@ -8,8 +8,10 @@ def cut_vector(vector):
 
         if left_sum == right_sum:
             return vector[:i], vector[i:]
-        elif abs(left_sum - right_sum) < min_diff:
-            min_diff = abs(left_sum - right_sum)
+
+        diff = abs(left_sum - right_sum)
+        if diff < min_diff:
+            min_diff = diff
             split_index = i
 
     return vector[:split_index], vector[split_index:]
