@@ -1,4 +1,13 @@
-def factorize(n: int) -> List[int]:
+```python
+from typing import List
+
+def factorize() -> List[int]:
+    while True:
+        try:
+            n = int(input("Enter a number to be factored: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
     i = 2
     factors = []
     while i * i <= n:
@@ -9,7 +18,8 @@ def factorize(n: int) -> List[int]:
             while n % i == 0:
                 n //= i
                 count += 1
-            factors.append(i * count)
+            for _ in range(count):
+                factors.append(i)
     if n > 1:
         factors.append(n)
     return factors
