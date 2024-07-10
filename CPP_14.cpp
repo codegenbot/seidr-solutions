@@ -1,10 +1,15 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(!issame({a[i]}, {b[i]})) return false;
+bool issame(const std::vector<std::string>& vec) {
+    if (vec.size() != 1 || vec[0].empty()) {
+        return false;
+    }
+    for (const auto& s : vec) {
+        if (s != vec[0]) {
+            return false;
+        }
     }
     return true;
 }
@@ -18,6 +23,26 @@ std::vector<std::string> all_prefixes(const std::string& str) {
 }
 
 int main() {
-    assert(issame({{"W"}, {"WW", "W"}, {"WWW", "WW", "W"}}));
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+
+    if (input.empty()) {
+        std::cout << "Invalid input. Please enter a non-empty string." << std::endl;
+    } else {
+        std::vector<std::string> result = all_prefixes(input);
+        if (issame(result)) {
+            std::cout << "The prefixes are the same." << std::endl;
+        } else {
+            std::cout << "The prefixes are not the same." << std::endl;
+        }
+    }
+
+    if (!issame(all_prefixes("WWW"))) {
+        std::cout << "The prefixes are not the same." << std::endl;
+    } else {
+        std::cout << "The prefixes are the same." << std::endl;
+    }
+
     return 0;
 }
