@@ -1,16 +1,19 @@
-int luhn(vector<int>& nums) {
+int luhn(vector<int> digits) {
     int sum = 0;
-    for(int i=0; i<nums.size(); i++) {
-        if(i % 2 == 1) {
-            int doubled = nums[i] * 2;
-            if(doubled > 9) {
-                sum += (doubled % 10 + 1);
-            } else {
-                sum += doubled;
+    bool doubleNext = false;
+    
+    for (int i = digits.size() - 1; i >= 0; --i) {
+        if (doubleNext) {
+            int temp = digits[i] * 2;
+            if (temp > 9) {
+                temp -= 9;
             }
+            sum += temp;
         } else {
-            sum += nums[i];
+            sum += digits[i];
         }
+        doubleNext = !doubleNext;
     }
+    
     return sum;
 }
