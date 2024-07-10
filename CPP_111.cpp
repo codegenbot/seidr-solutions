@@ -1,10 +1,9 @@
-#include <iostream>
+   #include <iostream>
 #include <map>
 #include <sstream>
 #include <cassert>
-#include <string> // Add this include for std::string
 
-bool issame(const std::map<std::char, int>& a, const std::map<std::char, int>& b) { // Use std::map and std::char
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
 }
 
@@ -34,8 +33,6 @@ std::map<char, int> histogram(std::string test) {
     return maxChars;
 }
 
-int main() {
+void main() {
     assert(issame(histogram("a"), {{'a', 1}}));
-
-    return 0;
 }
