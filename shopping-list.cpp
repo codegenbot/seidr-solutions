@@ -5,7 +5,7 @@ using namespace std;
 
 float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
     if (prices.size() != discounts.size()) {
-        return -1;
+        return -1; // Or any other appropriate error handling mechanism
     }
 
     float total = 0.0;
@@ -26,7 +26,7 @@ int main() {
     vector<float> discounts(n);
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
-        discounts[i] /= 100.0;
+        discounts[i] /= 100.0;  // Convert discount from percentage to proportion
     }
 
     float total_price = calculateTotalPrice(prices, discounts);
