@@ -1,8 +1,11 @@
-vector<int> even_odd_count(int num) {
+#include <vector>
+#include <string>
+
+std::vector<int> even_odd_count(int num) {
     int count_even = 0, count_odd = 0;
-    string str_num = to_string(abs(num));
+    std::string str_num = std::to_string(std::abs(num));
     for (char c : str_num) {
-        if (c - '0' % 2 == 0)
+        if ((c - '0') % 2 == 0)
             ++count_even;
         else
             ++count_odd;
