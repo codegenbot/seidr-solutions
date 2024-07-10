@@ -1,6 +1,10 @@
 ```
 import re
-def filter_by_substring(strings, substring):
+
+def filter_by_substring():
+    strings = []
+    substring = input("Enter the substring to search for: ")
+    
     while True:
         expected_output = input("Is your expected output 'True values', 'False values', or 'all'? ")
         if expected_output.lower() in ["true values", "false values", "all"]:
