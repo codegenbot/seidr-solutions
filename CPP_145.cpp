@@ -17,7 +17,7 @@ vector<int> sortAndReturn(vector<int> nums) {
             sumOfDigits += num % 10;
             num /= 10;
         }
-        pairs.push_back({-sumOfDigits, i});
+        pairs.push_back({sumOfDigits, i});
 
     }
 
@@ -31,7 +31,7 @@ vector<int> sortAndReturn(vector<int> nums) {
     return result;
 }
 
-int mainAgain() {  
+int mainTest() {
     vector<int> nums = {0,6,6,-76,-21,23,4};
     cout << "[";
     for(int i=0; i<nums.size();i++) {
