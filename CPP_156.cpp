@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <unordered_map>
+#include <string>
 
 std::string int_to_mini_romank(int num) {
     std::unordered_map<int, std::string> romanMap;
