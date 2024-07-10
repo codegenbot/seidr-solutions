@@ -1,4 +1,6 @@
-Here is the solution:
-
-def paired_digits(input_str):
-    return sum(int(x) for x in input_str if input_str[0] == '0' or x == input_str[1])
+def paired_digits(s):
+    total = 0
+    for i in range(len(s) - 1):
+        if s[i] == s[i + 1]:
+            total += int(s[i])
+    return total
