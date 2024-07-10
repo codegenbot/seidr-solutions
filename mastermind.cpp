@@ -26,4 +26,3 @@ PegCounts mastermind(string code, string guess) {
     }
 
     return result;
-}
