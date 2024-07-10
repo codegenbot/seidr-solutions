@@ -1,6 +1,7 @@
 bool issame(vector<string> a, vector<string> b) {
-    for(string s : a) {
-        if(find(b.begin(), b.end(), s) == b.end())
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(!filter_by_prefix({a[i], b[i]}, " ").first.empty())
             return false;
     }
     return true;
