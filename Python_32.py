@@ -5,8 +5,10 @@ def find_zero(xs: list):
     return -b / a
 
 
+# Prompt user to enter input list
+print("Enter space-separated values for the list:")
 # Read input from user
-xs = list(map(float, input().strip().split()))
+xs = list(map(float, input().split()))
 
 # Call the function with the input list
 result = find_zero(xs)
