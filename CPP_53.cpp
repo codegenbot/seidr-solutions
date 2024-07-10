@@ -1,15 +1,13 @@
+```cpp
 #include <cstdlib>
-
 int add(int x, int y) {
     return x + y;
 }
 
 int main() {
+    #include <ctime>
     srand(time(0));
-    int num1 = rand() % 100;
-    int num2 = rand() % 100;
-    int sum = add(num1, num2);
-    cout << "The random numbers are: " << num1 << " and " << num2 << endl;
-    cout << "Their sum is: " << sum << endl;
+    int num = rand();
+    std::cout << "Random number: " << num << std::endl;
     return 0;
 }
