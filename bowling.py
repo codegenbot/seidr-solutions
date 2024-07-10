@@ -1,36 +1,26 @@
-def bowling_game(game):
+Here is the Python solution for the bowling problem:
+
+```
+def bowling(s):
     score = 0
     frame = 1
-    for i in range(len(game)):
-        if game[i] == "X":
+    for i in range(0, len(s), 2):
+        if s[i].isdigit() and s[i+1].isdigit():
+            pins = int(s[i]) * 10 + int(s[i+1])
             if frame < 10:
-                score += 30
+                score += min(pins, 10)
             else:
-                score += 10
-            frame += 1
-        elif game[i] == "/":
-            strike = 0
-            while i < len(game) and (game[i] != "/" or not strike):
-                if game[i] == "X":
-                    score += 30
-                    strike = 1
-                else:
-                    score += int(game[i])
-                i += 1
+                score += pins
+            if frame == 9 and (s[i] == 'X' or s[i] == '/'):
+                if i+2 < len(s) and s[i+1].isdigit() and s[i+2].isdigit():
+                    score += min(int(s[i+1]) * 10 + int(s[i+2]), 10)
+            frame += (pins >= 10)
+        elif s[i] == 'X':
+            score += 10
+            if frame < 9:
+                score += min(10, int(s[i+1]) * 10 + int(s[i+2]))
             frame += 1
         else:
-            score += int(game[:i])
-            if len(game[i:]) >= 2 and game[i : i + 2] == "X0":
-                score += 20
-                i += 2
-            elif (
-                len(game[i:]) >= 3
-                and game[i : i + 3].isdigit()
-                and int(game[i : i + 3]) <= 10
-            ):
-                score += int(game[i : i + 3])
-                i += 3
-            else:
-                score += int(game[i])
+            score += 10 + int(s[i+1]) * 10
             frame += 1
     return score
