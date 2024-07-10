@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool b(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -10,7 +9,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
             return false;
     }
     return true;
-}
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -29,15 +27,9 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     
     std::vector<std::string> result;
     for (int i = 0; i < planets.size(); i++) {
-        if ((i > index1 && i < index2) || (i < index1 && i > index2)) {
+        if (i > index1 && i < index2) {
             result.push_back(planets[i]);
         }
     }
     
     return result;
-}
-
-int main() {
-    if (!issame(bf("Jupiter", "Mars"), {"Saturn"})) 
-        assert(false); 
-}

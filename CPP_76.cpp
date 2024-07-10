@@ -1,5 +1,6 @@
 #include <cmath>
 #include <iostream>
+#include <string>
 
 bool is_simple_power(int x, int n) {
     if (n == 0) return false; 
@@ -8,21 +9,19 @@ bool is_simple_power(int x, int n) {
 }
 
 int main() {
-    int tempX, nTemp;
+    int tempX;
+    std::string input;
     std::cout << "Enter a number: ";
     std::cin >> tempX;
 
     std::cout << "Enter another number: ";
-    std::cin >> nTemp;
+    std::cin >> input;
 
-    if (nTemp != 0) {
-        std::string strTempX = std::to_string(tempX);
-        std::string strnTemp = std::to_string(nTemp);
-
-        if(is_simple_power(tempX, nTemp))  
-            std::cout << strTempX << " is a simple power of " << strnTemp << std::endl;
+    if (input != "0") {
+        if(is_simple_power(tempX, std::stoi(input)))  
+            std::cout << tempX << " is a simple power of " << input << std::endl;
         else
-            std::cout << "Error: " << strTempX << " is not a simple power of " << strnTemp << std::endl;
+            std::cout << "Error: " << tempX << " is not a simple power of " << input << std::endl;
     } 
     else {
         std::cout << "n cannot be zero." << std::endl;
