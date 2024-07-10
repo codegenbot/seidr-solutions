@@ -14,7 +14,6 @@ def factorize() -> None:
             print(f"{i} is a factor with multiplicity {count}.")
     if n > 1:
         print(f"{n} is a prime number.")
-    return
 
 if __name__ == "__main__":
     factorize()
