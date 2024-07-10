@@ -6,16 +6,16 @@ std::string spinWords(std::string input) {
     std::string output = "";
     std::istringstream iss(input);
     std::string word;
-    
+
     while (iss >> word) {
         if (word.length() >= 5) {
             std::reverse(word.begin(), word.end());
         }
-        
+
         output += word + " ";
     }
-    
-    return output.substr(0, output.size()-1); 
+
+    return output.substr(0, output.size()-1); // remove the extra space at the end
 }
 
 int main() {
