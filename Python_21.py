@@ -3,4 +3,4 @@ def find_average(numbers):
     max_val = max(numbers)
     if (max_val - min_val) == 0:
         return ["0.0"] * len(numbers)
-    return [str((i - min_val) / (max_val - min_val)) for i in numbers]
+    return [(str(num) + ".0") for num in numbers]
