@@ -16,6 +16,6 @@ std::string rounded_avg(int n,int m){
         else res.push_back('0');
         avg >>= 1;
     }
-    reverse(res.begin(), res.end());
+    std::reverse(res.begin(), res.end());
     return res;
 }
