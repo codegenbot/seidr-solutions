@@ -2,29 +2,29 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
 using namespace boost;
+using namespace std;
 
-any compare_one(any a, any b) {
+boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
         int ia = boost::any_cast<int>(a);
         double ib = boost::any_cast<double>(b);
-        return ib > ia ? b : a;
+        return any((ib > ia) ? ib : ia);
     }
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
         double ia = boost::any_cast<double>(a);
         int ib = boost::any_cast<int>(b);
-        return ia > ib ? a : b;
+        return any((ia > ib) ? ia : ib);
     }
     else if (a.type() == typeid(string) && b.type() == typeid(double)) {
         string sa = boost::any_cast<string>(a);
         double sb = boost::any_cast<double>(b);
-        return stod(sa) > sb ? a : b;
+        return any((stod(sa) > sb) ? a : b);
     }
     else if (a.type() == typeid(double) && b.type() == typeid(string)) {
         double sa = boost::any_cast<double>(a);
         string sb = boost::any_cast<string>(b);
-        return sa > stod(sb) ? a : b;
+        return any((sa > stod(sb)) ? a : b);
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string sa = boost::any_cast<string>(a);
@@ -34,9 +34,9 @@ any compare_one(any a, any b) {
         else if (stod(sa) < stod(sb))
             return b;
         else
-            return any(string("None"));
+            return any("None");
     }
     else {
-        return any(string("None"));
+        return any("None");
     }
 }
