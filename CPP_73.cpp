@@ -13,8 +13,6 @@ int smallest_change(std::vector<int> arr) {
         }
     }
     
-    std::vector<int> dp;
-    dp.reserve(m); // replace this line
     int smallest = INT_MAX;
 
     for (int length = 2; length <= n; length++) {
@@ -22,16 +20,30 @@ int smallest_change(std::vector<int> arr) {
                 int j = i + length - 1;
                 
                 if (arr[i] == arr[j]) {
-                    dp.push_back(dp.back());
+                    std::vector<int> dp(length);
+                    dp[0] = 1;
+                    for (int k = 1; k < length; k++) {
+                        dp[k] = dp[k-1];
+                    }
                 } else {
-                    int min_left = (i < n-length) ? dp[length-2] : INT_MAX;
-                    int min_right = (j > length-1) ? dp[length-2] : INT_MAX;
-                    dp.push_back(1 + (arr[i] == arr[j]) ? dp.back() : std::min(min_left, min_right));
+                    int min_left = INT_MAX;
+                    int min_right = INT_MAX;
+                    if (i > 0) {
+                        min_left = dp[length-2];
+                    }
+                    if (j < n-1) {
+                        min_right = dp[length-2];
+                    }
+                    std::vector<int> dp(length);
+                    dp[0] = 1 + (arr[i] == arr[j]) ? dp[0] : min_left;
+                    for (int k = 1; k < length; k++) {
+                        dp[k] = dp[k-1];
+                    }
                 }
             }
 
-        if (dp.back() < smallest) {
-            smallest = dp.back();
+        if (dp[length-1] < smallest) {
+            smallest = dp[length-1];
         }
     }
     

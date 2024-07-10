@@ -1,4 +1,6 @@
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 string solve(int N) {
@@ -12,4 +14,5 @@ string solve(int N) {
 
 int main() {
     assert(solve(963) == "10010");
+    // ...
 }
