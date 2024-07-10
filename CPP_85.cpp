@@ -6,3 +6,4 @@ int add(vector<int> lst){
         }
     }
     return sum;
+}
