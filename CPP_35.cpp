@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <algorithm>
 #include <cmath>
@@ -9,7 +9,7 @@ int maxElementFinder(int n, int arr[]) {
     return max_element;
 }
 
-int cpp_main() {
+int mainOther() {
     std::cout << "Enter the number of elements: ";
     int n;
     std::cin >> n;
@@ -20,9 +20,13 @@ int cpp_main() {
         std::cin >> arr[i];
     }
 
-    int max_value = maxElementFinder(n, arr);
+    int max_element = maxElementFinder(n, arr);
 
-    std::cout << "Maximum element: " << max_value << std::endl;
+    std::cout << "Maximum element: " << max_element << std::endl;
 
     return 0;
+}
+
+int main() {
+    mainOther();
 }
