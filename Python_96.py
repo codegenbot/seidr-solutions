@@ -1,4 +1,3 @@
-```python
 def count_up_to(n):
     def is_prime(num):
         if num < 2:
