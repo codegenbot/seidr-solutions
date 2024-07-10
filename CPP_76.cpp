@@ -1,10 +1,12 @@
+```cpp
 #include <cmath>
 #include <iostream>
+#include <string>
 
 bool is_simple_power(int x, int n) {
     if (n == 0) return false; 
-    double y = pow(n, log(x) / log(n));
-    return std::abs(y - x) < 1e-9; 
+    std::string strY = std::to_string(round(pow(n, log(x) / log(n)))); // Round the result to ensure a valid comparison
+    return (strY == std::to_string(x));
 }
 
 int main() {
