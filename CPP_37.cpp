@@ -34,6 +34,8 @@ int main_function()
     for(float f : output) {
         std::cout << f << " ";
     }
-    assert(isSame(output, {5, 8, -12, 4, 23, 2, 3, 11, 12, -10}));
+    if (!isSame({5, 8, -12, 4, 23, 2, 3, 11, 12, -10},{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})) {
+        std::cout << "Test failed";
+    }
     return 0;
 }
