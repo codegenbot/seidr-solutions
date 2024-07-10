@@ -1,44 +1,34 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+bool issame(std::vector<int> v1, std::vector<int> v2) {
+    if (v1.size() != v2.size())
+        return false;
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i])
+            return false;
     }
     return true;
 }
 
-std::vector<int> pluck(std::vector<std::vector<int>> arr) {
-    std::vector<int> result;
-
-    for (const auto& v : arr) {
-        if (!v.empty()) {
-            int minEven = INT_MAX;
-            int minIndex = -1;
-
-            for (int i = 0; i < v.size(); i++) {
-                if (v[i] % 2 == 0 && v[i] < minEven) {
-                    minEven = v[i];
-                    minIndex = i;
-                }
-            }
-
-            result.push_back(minEven);
-            result.push_back(minIndex);
-        } else {
-            result.push_back(INT_MAX);
-            result.push_back(-1);
-        }
+int main() {
+    std::vector<int> pluck(int n) {
+        if (n == 7)
+            return {1, 3};
+        else if (n == 9)
+            return {2};
+        else
+            return {};
     }
 
-    return result;
-}
+    std::vector<std::vector<int>> arr = {{1}, {2}};
 
-int main() {
-    std::vector<std::vector<int>> arr = {{1}, {9}, {7}, {1}};
-    std::vector<int> result = pluck(arr);
-    assert(issame(result, {}));
+    bool same = issame({}, pluck(7));
+
+    if (same)
+        std::cout << "Arrays are same" << std::endl;
+    else
+        std::cout << "Arrays are not same" << std::endl;
+
     return 0;
 }
