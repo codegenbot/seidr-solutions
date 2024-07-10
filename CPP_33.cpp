@@ -3,47 +3,30 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;    
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-// You need to define or replace this function according to the task requirements
-void sort_third(vector<int>& l){
-
-}
-
-vector<int> solve(vector<int> l) {
+vector<int> sort_third(vector<int>& v) {
     vector<int> l_divisible_by_three;
     vector<int> l_not_divisible_by_three;
     vector<int> l_sorted_divisible_by_three;
 
-    for (int i = 0; i < l.size(); ++i) {
+    for (int i = 0; i < v.size(); ++i) {
         if (i % 3 == 0) {
-            l_divisible_by_three.push_back(l[i]);
+            l_divisible_by_three.push_back(v[i]);
         } else {
-            l_not_divisible_by_three.push_back(l[i]);
+            l_not_divisible_by_three.push_back(v[i]);
         }
     }
 
-    // You need to define or replace this function according to the task requirements
-    sort_third(l_divisible_by_three);
-
     l_sorted_divisible_by_three = l_divisible_by_three;
+    sort(l_sorted_divisible_by_three.begin(), l_sorted_divisible_by_three.end());
 
     vector<int> result;
     int j = 0;
     int k = 0;
-    for (int i = 0; i < l.size(); ++i) {
+    for (int i = 0; i < v.size(); ++i) {
         if (i % 3 == 0) {
             result.push_back(l_sorted_divisible_by_three[j]);
             ++j;
@@ -54,4 +37,10 @@ vector<int> solve(vector<int> l) {
     }
 
     return result;
+}
+
+int main() {
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    
+    return 0;
 }
