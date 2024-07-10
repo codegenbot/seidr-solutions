@@ -1,10 +1,10 @@
 def coin_sums(cents):
     coins = [25, 10, 5, 1]  # quarters, dimes, nickels, pennies
-    results = [0, 0, 0, 0]
+    coins_needed = [0, 0, 0, 0]
 
     for i in range(len(coins)):
         while cents >= coins[i]:
             cents -= coins[i]
-            results[i] += 1
+            coins_needed[i] += 1
 
-    return tuple(results)
+    return coins_needed[3], coins_needed[2], coins_needed[1], coins_needed[0]
