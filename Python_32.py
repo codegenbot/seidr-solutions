@@ -1,9 +1,10 @@
 ```
 def find_zero(xs):
     n = len(xs)
-    root_sum = sum(x for x in xs)
-    zero = (-root_sum) / (2 * sum(x*y for x,y in zip(xs, xs)))
-    return zero
+    s = sum(x for x in xs if i % 2 == 0 for i in range(n))
+    s -= sum(x for x in xs if i % 2 != 0 for i in range(n))
+    return -s / (sum((i**2) for i in xs if i % 2 == 0) - sum((i**2) for i in xs if i % 2 != 0))
+
 xs = [int(x) for x in input("Enter the coefficients: ").split()]
 if len(xs) % 2 != 0:
     raise ValueError("xs must have even number of coefficients")
