@@ -8,6 +8,8 @@ bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     }
     return true;
 
+}
+
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
 }
