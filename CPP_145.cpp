@@ -5,8 +5,8 @@
 
 std::vector<int> order_by_points(const std::vector<int>& nums) {
     std::sort(nums.begin(), nums.end(), [](int a, int b) {
-        const int sum_a = std::accumulate(std::to_string(abs(a)).begin(), std::to_string(abs(a)).end(), 0) - '0' * std::to_string(abs(a)).size();
-        const int sum_b = std::accumulate(std::to_string(abs(b)).begin(), std::to_string(abs(b)).end(), 0) - '0' * std::to_string(abs(b)).size();
+        int sum_a = std::accumulate(std::to_string(abs(a)).begin(), std::to_string(abs(a)).end(), 0) - '0' * std::to_string(abs(a)).size();
+        int sum_b = std::accumulate(std::to_string(abs(b)).begin(), std::to_string(abs(b)).end(), 0) - '0' * std::to_string(abs(b)).size();
         if (sum_a == sum_b) {
             return a < b;
         }
