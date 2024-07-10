@@ -11,7 +11,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     for (char ch : s) {
         if (c.find(ch) == std::string::npos) {
-            result.push_back(std::string(1, ch));  
+            result.push_back(std::string(1, ch));  // Append single char as string
         }
     }
     std::string result_str = "";
