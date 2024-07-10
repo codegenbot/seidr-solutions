@@ -4,7 +4,7 @@
 #include <cassert>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<std::string> separate_paren_groups(std::string paren_string) {
@@ -15,7 +15,7 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     for (char c : paren_string) {
         if (c == '(') {
             open_braces++;
-            if (open_braces > 0) {
+            if (open_braces > 1) {
                 current_group += c;
             }
         } else if (c == ')') {
