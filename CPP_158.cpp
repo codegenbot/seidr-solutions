@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 void findMaxWord(std::vector<std::string>& words) {
     std::string max_word = *std::max_element(words.begin(), words.end(),
@@ -23,7 +24,8 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
-        std::getline(std::cin, word); 
+        std::cin >> word;
+        std::getline(std::cin, word);
         words.push_back(word);
     }
 
