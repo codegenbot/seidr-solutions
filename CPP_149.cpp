@@ -50,9 +50,10 @@ std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v)
 }
 
 int main() { 
-    std::vector<std::pair<std::string, std::string>> v1 = {{"aaaa", "bbbb"}, {"cccc", "ddd"}};
-    std::vector<std::pair<std::string, std::string>> v2 = {{"cccc", "ddd"}, {"aaaa", "bbbb"}}; 
-    assert(issame(v1, v2)); 
-    assert(issame({{"aaaa", "bbbb"}, {"dd", "cc"}}, {{"cc", "dd"}, {"aaaa", "bbbb"}})); 
+    v1 = {{"" , ""}};  
+    v2 = {{"" , ""}};
+    assert(issame({{"aaaa", "bbbb"}, {"cccc", "ddd"}}, {{"cccc", "ddd"}, {"aaaa", "bbbb"}})); 
+    assert(issame(std::vector<std::pair<std::string, std::string>>{{"aaaa", "bbbb"}, {"dd", "cc"}},
+                  std::vector<std::pair<std::string, std::string>>{{"cc", "dd"}, {"aaaa", "bbbb"}})); 
 
 }
