@@ -1,7 +1,7 @@
-def below_zero(operations: List[int]) -> bool:
-    balance = 0
-    for operation in operations:
-        balance += operation
-        if balance < 0:
-            return True
-    return False
+def below_zero(operations):
+    return any(num < 0 for num in operations)
+
+import sys
+operations = list(map(int, sys.argv[1:]))
+result = below_zero(operations)
+print(result)
