@@ -25,11 +25,9 @@ int count_nums(std::vector<int> nums) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> nums;
+    std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        int num;
-        std::cin >> num; 
-        nums.push_back(num); 
+        std::cin >> nums[i]; 
     }
     if (!nums.empty()) {  
         std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
