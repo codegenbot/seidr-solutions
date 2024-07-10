@@ -1,40 +1,33 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 1;
-    for (char c : s) {
-        if (c == 'X') { // strike
-            score += 10 + nextTwoRolls(s, currentFrame);
-            currentFrame++;
-        } else if (c == '/') { // spare
-            score += 10 + rollAfterSpare(s, currentFrame);
-            currentFrame++;
+    bool lastRoll = false;
+    
+    for (int frame = 1; frame <= 10; frame++) {
+        if (s[2*frame-1] == 'X') {
+            // strike in this frame, add 10 to the score and move on
+            score += 10;
+            lastRoll = true;
+        } else if (s[2*frame-2] == '/') {
+            // spare in this frame, add 10 to the score and move on
+            int bonus = s[2*frame-1] - '0';
+            score += 10 + bonus;
+            lastRoll = false;
         } else {
-            int rolls = c - '0';
-            score += rolls;
-            currentFrame++;
-            if (currentFrame < 11) {
-                char nextC = s[s.length() - currentFrame * 2 - 1];
-                if (nextC == 'X') { // next frame is a strike
-                    score += 10 + rollAfterStrike(s, currentFrame);
-                    currentFrame++;
-                } else if (nextC == '/') { // next frame is a spare
-                    score += 10 + rollAfterSpare(s, currentFrame);
-                    currentFrame++;
-                }
+            // roll 1 and/or roll 2 in this frame
+            int roll1 = s[2*frame-2] - '0';
+            int roll2 = s[2*frame-1] - '0';
+            
+            if (lastRoll) {
+                // we are in a frame that follows a strike or spare
+                score += 10 + min(roll1+roll2, 10);
+            } else {
+                // we are in the last roll of this frame
+                score += roll1 + roll2;
             }
+            
+            lastRoll = true;
         }
     }
+    
     return score;
-}
-
-int nextTwoRolls(string s, int currentFrame) {
-    return (s[s.length() - currentFrame * 2] - '0') * 10 + (s[s.length() - currentFrame * 2 - 1] - '0');
-}
-
-int rollAfterSpare(string s, int currentFrame) {
-    return (s[s.length() - currentFrame * 2] - '0');
-}
-
-int rollAfterStrike(string s, int currentFrame) {
-    return (s[s.length() - currentFrame * 2] - '0') * 10 + (s[s.length() - currentFrame * 2 - 1] - '0');
 }
