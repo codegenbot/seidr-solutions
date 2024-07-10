@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -54,6 +53,7 @@ int main() {
     std::vector<std::vector<int>> input = {{1, 3}, {3, 2}};
     std::vector<int> output = minPath(input, 10);
     bool same = issame(output, {1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
+    assert(same);
     
     return 0;
 }
