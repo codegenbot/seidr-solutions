@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 
@@ -10,10 +11,10 @@ int main() {
     vector<int> coins = {25, 10, 5, 1};
     vector<int> result(4, 0);
 
-    for (int i = 0; i < 4; i++) {
-        if(coins[i] != 0) {
-            int count = cents / coins[i];
-            if(count > 0) {
+    while (cents > 0) {
+        for (int i = 3; i >= 0; i--) {
+            if (coins[i] <= cents) {
+                int count = cents / coins[i];
                 result[i] = count;
                 cents -= count * coins[i];
             }
