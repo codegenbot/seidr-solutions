@@ -1,19 +1,16 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cctype>
 
 int main() {
-    std::string class_name = "Sp";
-    std::vector<std::string> extensions = {"671235", "Bb"};
-    std::cout << Strongest_Extension(class_name, extensions) << std::endl;
+    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;
     return 0;
 }
 
-int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
+int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest_strength = 0;
-    string strongest_extension;
+    std::string strongest_extension;
 
     for (auto extension : extensions) {
         int cap = 0;
