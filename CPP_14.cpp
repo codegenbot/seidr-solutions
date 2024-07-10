@@ -1,17 +1,15 @@
-#include <iostream>
+```
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& vec) {
-    for (int i = 1; i <= vec[0].size(); ++i) {
-        bool found = false;
-        for (const auto& s : vec) {
-            if (s.size() == i) {
-                found = true;
-                break;
-            }
+bool issame(const std::string& s1, const std::string& s2) {
+    if(s1.size() != s2.size()) {
+        return false;
+    }
+    for(int i = 0; i < s1.size(); i++) {
+        if(s1[i] != s2[i]) {
+            return false;
         }
-        if (!found) return false;
     }
     return true;
 }
@@ -25,16 +23,6 @@ std::vector<std::string> all_prefixes(const std::string& str) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-
-    std::vector<std::string> result = all_prefixes(input);
-    if (issame(result)) {
-        std::cout << "The prefixes are the same." << std::endl;
-    } else {
-        std::cout << "The prefixes are not the same." << std::endl;
-    }
-
+    assert(std::vector<std::string> expected = all_prefixes("WWW") && issame(expected[0], expected[1]));
     return 0;
 }
