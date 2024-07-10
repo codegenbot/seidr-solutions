@@ -1,16 +1,17 @@
+```c++
 #include <vector>
 #include <string>
 #include <set>
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<std::string> result;
-    
+    std::vector<string> result;
+
     // Create a set of characters in string c for efficient lookups
     std::set<char> c_set(c.begin(), c.end());
-    
+
     // Initialize an empty string to store the result
     std::string temp = "";
-    
+
     // Iterate over each character in string s
     for (char ch : s) {
         // If the character is not in the set of characters in string c, add it to the temporary string
@@ -18,7 +19,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             temp += ch;
         }
     }
-    
+
     // Check if the temporary string is a palindrome
     bool is_palindrome = true;
     for (int i = 0; i < temp.length() / 2; i++) {
@@ -27,11 +28,11 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
             break;
         }
     }
-    
+
     // Add the result string and "True"/"False" to the vector
     result.push_back(temp);
     result.push_back((is_palindrome) ? "True" : "False");
-    
+
     return result;
 }
 
