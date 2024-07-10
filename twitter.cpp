@@ -1,9 +1,4 @@
 ```
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
@@ -17,8 +12,7 @@ string validateTweet(string tweet) {
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    getline(cin, tweet); // Remove the '\n' character
-    cin.ignore();
+    getline(cin, tweet) >> ws; // remove newline character
     cout << validateTweet(tweet) << endl;
     return 0;
 }
