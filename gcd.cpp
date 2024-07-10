@@ -1,11 +1,11 @@
 #include <iostream>
-#include <string>  
+#include <string>
 #include <vector>
 using namespace std;
 
-int gcd(int a, int b) {
+long long gcd(long long a, long long b) {
     if (b == 0) {
-        return abs(a);
+        return a > 0 ? a : -a;
     }
     return gcd(b, a % b);
 }
@@ -30,7 +30,7 @@ vector<int> findSubstringIndices(string text, string target) {
 }
 
 int main() {
-    int a, b;
+    long long a, b;
     cin >> a >> b;
     cout << gcd(a, b) << endl;
 
