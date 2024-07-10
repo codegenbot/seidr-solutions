@@ -1,6 +1,6 @@
-long long modp(int n, int p) {
+int modp(int n, int p) {
     if (p == 1) return 0;
-    long long result = 1LL;
+    int result = 1;
     n = n % p;
     while (n > 0) {
         if (n % 2 == 1) {
