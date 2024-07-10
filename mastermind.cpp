@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     string code = "XXXX"; 
-    string guess = "XXXX";
+    string guess = "XXXX"; 
 
     int result = mastermind(code, guess);
     cout << "Number of white pegs: " << result - 4 << endl;
