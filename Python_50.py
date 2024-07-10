@@ -1,6 +1,5 @@
-```
 def decode_shift():
-    s = input("Enter a Caesar cipher encrypted string to be decoded (without spaces): ")
+    s = input().upper()
     if not s.isalpha():
         return "Error: Input contains non-alphabetic characters."
     for ch in s:
