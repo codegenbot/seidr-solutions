@@ -1,3 +1,2 @@
-```
-def digitSum(n):
-    return sum(int(digit) for digit in str(n).replace(' ', '').lower())
+def digitSum(s):
+    return sum(int(d) for d in s if d.isdigit())
