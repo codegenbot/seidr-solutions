@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -20,8 +21,8 @@ int main() {
     float x;
     while (true) { 
         cin >> x; 
-        if(x == 4.0f) break;
-        a.push_back(x);
+        if(stoi(to_string(x)) == "stop") break;
+        a.push_back((float)x);
     }
     cin.ignore(); 
 
