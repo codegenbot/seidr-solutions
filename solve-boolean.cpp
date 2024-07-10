@@ -21,8 +21,10 @@ int main() {
     for (char c : s) {
         if (c == 'T' || c == 'F') {
             operand = (c == 'T');
-        } else if (c == '|' || c == '&') {
+        } else if (c == '|') {
             op = c;
+        } else if (c == '&') {
+            continue;
         } else {
             result = evaluate(op, result, operand);
         }
