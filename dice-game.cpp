@@ -1,18 +1,14 @@
-```
+```cpp
 #include <iostream>
-#include <iomanip>
 
 double probability(int n, int m);
 
 int main() {
     int n, m;
     std::cin >> n >> m;
-    std::cout << std::fixed << std::setprecision(2) << probability(n, m) << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << (n > m ? ((double)n / (n + m)) : 0.0) << std::endl;
 }
 
 double probability(int n, int m) {
-    if (n < m)
-        return 0.0;
-    else
-        return 1.0 - (m) / (n * 1.0);
+    return (n > m ? ((double)n / (n + m)) : 0.0);
 }
