@@ -2,7 +2,7 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
-    // Implementation goes here
+    return a == b;
 }
 
 vector<int> factorize(int n) {
