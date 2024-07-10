@@ -1,4 +1,9 @@
 #include <openssl/evp.h>
+#include <openssl/objects.h>
+#include <cassert>
+#include <string>
+#include <sstream>
+#include <iomanip>
 
 std::stringstream ss;
 
