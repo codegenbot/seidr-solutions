@@ -1,3 +1,5 @@
+Here is the completed code:
+
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
@@ -12,7 +14,7 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 bool isPalindrome(string s) {
-    string rev = s;
-    reverse(rev.begin(), rev.end());
-    return s == rev;
+    string t = s;
+    reverse(t.begin(), t.end());
+    return s == t;
 }
