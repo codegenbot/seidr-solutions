@@ -4,10 +4,10 @@ def tri(n):
     elif n == 1:
         return [3]
     else:
-        tribonacci = [3, 1]
+        sequence = [3, 1]
         for i in range(2, n + 1):
             if i % 2 == 0:
-                tribonacci.append(1 + i // 2)
+                sequence.append(1 + i // 2)
             else:
-                tribonacci.append(tribonacci[i - 1] + tribonacci[i - 2] + tribonacci[i - 3])
-        return tribonacci
+                sequence.append(sequence[i - 1] + sequence[i - 2] + sequence[i - 3])
+        return sequence
