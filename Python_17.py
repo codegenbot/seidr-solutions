@@ -3,7 +3,7 @@ music_input = ""
 while True:
     line = input()
     if line:
-        music_input += line + "\n"
+        music_input += line
     else:
         break
 
