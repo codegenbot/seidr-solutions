@@ -1,25 +1,40 @@
-#include <vector>
 #include <string>
+#include <vector>
 
-bool issame(const vector<string>& vec1, const vector<string>& vec2) {
-    return vec1 == vec2;
-}
-
-vector<string> all_prefixes(string str);
-
-int main() {
-    // Sample test
-    vector<string> result = all_prefixes("cpp");
-    for (const string& s : result) {
-        cout << s << " ";
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
     }
-    return 0;
+
+    for(int i=0; i<a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+
+    return true;
 }
 
-vector<string> all_prefixes(string str) {
+vector<string> all_prefixes(string str){
     vector<string> result;
     for (int i = 1; i <= str.size(); ++i) {
         result.push_back(str.substr(0, i));
     }
     return result;
+}
+
+int main(){
+    string str1 = "hello";
+    string str2 = "hel";
+  
+    vector<string> prefixes1 = all_prefixes(str1);
+    vector<string> prefixes2 = all_prefixes(str2);
+
+    if(issame(prefixes1, prefixes2)){
+        cout << "Prefixes are the same" << endl;
+    } else {
+        cout << "Prefixes are different" << endl;
+    }
+
+    return 0;
 }
