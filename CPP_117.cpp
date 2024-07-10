@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 
 #include <vector>
@@ -28,21 +27,9 @@ bool issame(const std::vector<std::string>& a, const std::string& b) {
     return true;
 }
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::istringstream iss(s);
-    std::vector<std::string> words;
-    for (std::string word; iss >> word;) {
-        if (n > 0) {
-            words.push_back(word);
-            n--;
-        }
-    }
-    return words;
-}
-
 int main() {
     std::vector<std::string> result = select_words("a b c d e f", 1);
-    assert(issame(result, std::vector<std::string>({"b"}))); 
+    assert(issame({result}, "b")); 
     std::cout << "{" + Join(result, ", ") + "}" << std::endl;
     return 0;
 }
