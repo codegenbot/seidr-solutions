@@ -1,6 +1,6 @@
-def leaders(integers):
-    return [
-        integers[i]
-        for i in range(len(integers) - 1, -1, -1)
-        if all(integers[i] >= integers[j] for j in range(i + 1, len(integers)))
-    ]
+def leaders(input):
+    leaders = [input[-1]]
+    for i in range(len(input) - 2, -1, -1):
+        if input[i] >= input[i + 1]:
+            leaders.append(input[i])
+    return reversed(leaders)
