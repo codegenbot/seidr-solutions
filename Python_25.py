@@ -6,4 +6,3 @@ while True:
         break
     except ValueError:
         print("Invalid input. Please enter a positive integer greater than 1.")
-        continue
