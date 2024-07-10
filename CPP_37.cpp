@@ -1,5 +1,3 @@
-void sort_even(vector<float>& l);
-
 bool issame(const vector<float>& a, const vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -11,6 +9,8 @@ bool issame(const vector<float>& a, const vector<float>& b) {
     }
     return true;
 }
+
+void sort_even(vector<float>& l);
 
 int main() {
     vector<float> l = {3, 5, 1, 4, 2, 6};
