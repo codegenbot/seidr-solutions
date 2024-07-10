@@ -10,17 +10,11 @@ def encode(message):
                 else:
                     result += chr(ord(char.lower()) + 1).upper()
             else:
-                if char in ['a', 'e', 'i', 'o', 'u']:
-                    if char == 'a':
-                        result += 'c'
-                    elif char == 'e':
-                        result += 'g'
-                    elif char == 'i':
-                        result += 'k'
-                    elif char == 'o':
-                        result += 'q'
+                if char.islower():
+                    if char in 'aeiou':
+                        result += {chr: 'c', 'e': 'g', 'i': 'k', 'o': 'q', 'u': 's'}[char]
                     else:
-                        result += 's'
+                        result += chr(ord(char) + 1)
                 else:
                     result += chr(ord(char) + 1)
         else:
