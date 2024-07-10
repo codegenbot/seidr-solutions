@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -33,19 +34,15 @@ double getOddSum(std::vector<double> numbers) {
     return sum;
 }
 
-int main() {
-    std::vector<double> output = getNumbersDifferentByOdd();
-    double odd_sum = getOddSum(output);
+std::vector<double> output = getNumbersDifferentByOdd();
+double odd_sum = getOddSum(output);
 
-    std::cout << "The numbers that are different from 5 by an odd number: ";
-    for (double x : output) {
-        if (std::abs((int)x - 5) % 2 != 0) {
-            std::cout << x << " ";
-        }
+std::cout << "The numbers that are different from 5 by an odd number: ";
+for (double x : output) {
+    if (std::abs((int)x - 5) % 2 != 0) {
+        std::cout << x << " ";
     }
-    std::cout << std::endl;
-
-    std::cout << "The sum of the differences is: " << odd_sum << std::endl;
-
-    return 0;
 }
+std::cout << std::endl;
+
+std::cout << "The sum of the differences is: " << odd_sum << std::endl;
