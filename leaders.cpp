@@ -1,5 +1,6 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -27,6 +28,7 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 int main() {
+    using namespace std;
     vector<int> arr = {17, 28, 4};
     vector<int> result = leaders(arr);
     for(int i : result) cout << i << " ";
