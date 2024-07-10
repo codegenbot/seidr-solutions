@@ -14,8 +14,8 @@ int main() {
         totalDistance += (1 + bouncinessIndex) * h1;
         h1 *= bouncinessIndex;
     }
-    
+
     std::cout << std::fixed << std::setprecision(14) << totalDistance << '\n';
-    
+
     return 0;
 }
