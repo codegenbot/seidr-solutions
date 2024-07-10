@@ -1,4 +1,4 @@
-#include <vector>
+#include <iostream>
 using namespace std;
 
 bool is_sorted(vector<int> lst){
@@ -6,7 +6,7 @@ bool is_sorted(vector<int> lst){
         if(lst[i-1] > lst[i]){
             return false;
         }
-        else if(std::count(lst.begin(), lst.end(), lst[i]) > 1) {
+        else if(count(lst.begin(), lst.end(), lst[i]) > 1){
             return false;
         }
     }
@@ -14,5 +14,6 @@ bool is_sorted(vector<int> lst){
 }
 
 int main() {
-    assert(is_sorted({1, 2, 3, 4}) == true);
+    vector<int> myVector = {1, 2, 3, 4};
+    cout << is_sorted(myVector) << endl;
 }
