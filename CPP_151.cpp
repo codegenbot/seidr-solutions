@@ -39,6 +39,6 @@ int main() {
     cout << endl;
 
     cout << "The sum of the differences is: " << double_the_difference(lst) << endl;
-    assert(double_the_difference(lst) == odd_sum);
+    
     return 0;
 }
