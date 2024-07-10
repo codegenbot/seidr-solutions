@@ -25,13 +25,9 @@ vector<int> unique_digits(vector<int> x){
     return result;
 }
 
-void test_unique_digits() {
+int main(){
     vector<int> expected = {31, 135};
     vector<int> result = unique_digits({135, 103, 31});
     assert(result == expected);
-}
-
-int main() {
-    test_unique_digits();
     return 0;
 }
