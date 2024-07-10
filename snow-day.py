@@ -1,5 +1,7 @@
-def snow_day(hours, initial_snow, rate, melt_rate):
-    snow = initial_snow
+```
+def snow_day(hours, initial_snow, rate_of_snowfall, proportion_melting):
+    current_snow = initial_snow
     for _ in range(hours):
-        snow += rate - melt_rate
-    return snow
+        current_snow += rate_of_snowfall  # add new snow
+        current_snow -= max(0, current_snow * proportion_melting)  # melt existing snow
+    return current_snow
