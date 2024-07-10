@@ -1,3 +1,5 @@
+#include <iostream>
+
 int fibfib(int n) {
     if (n == 0 || n == 1) {
         return 0;
@@ -17,5 +19,6 @@ int fibfib(int n) {
 
 int main() {
     int result = fibfib(14);
-    return result;
+    std::cout << result << std::endl;
+    return 0;
 }
