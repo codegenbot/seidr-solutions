@@ -13,10 +13,5 @@ def indices_of_substring(text, target):
                 j += 1
     return result
 
-a = int(input())
-b = int(input())
-print(gcd(a, b))
-
-text = input()
-target = input()
-print(indices_of_substring(text, target))
+print(gcd(int(input("Enter first integer: ")), int(input("Enter second integer: "))))
+print(indices_of_substring(input("Enter the text: "), input("Enter the target: ")))
