@@ -1,43 +1,28 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
-bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+string solveBoolean(string boolean) {
+    stack<char> s;
+    for (int i = 0; i < boolean.size(); i++) {
+        if (boolean[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
             }
-            if (st.empty()) {
-                return false;
+            if (!s.empty()) {
+                s.push('&');
             }
-            st.pop();
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
+        } else if (boolean[i] == '|') {
+            while (!s.empty() && s.top() == '|') {
+                s.pop();
             }
-            if (st.empty()) {
-                return true;
+            if (!s.empty()) {
+                s.push('|');
             }
-            st.pop();
         } else {
-            st.push(s[i]);
+            s.push(boolean[i]);
         }
     }
-    return st.size() > 0 ? st.top() == 'T' : false;
-}
-
-int main() {
-    string s;
-    while (cin >> s) {
-        if (s == "t") {
-            cout << "True" << endl;
-        } else if (s == "f") {
-            cout << "False" << endl;
-        } else {
-            cout << (solveBoolean(s) ? "True" : "False") << endl;
-        }
+    string result = "";
+    while (!s.empty()) {
+        result.push_back(s.top());
+        s.pop();
     }
-    return 0;
+    return (result == "T") ? "True" : (result == "F") ? "False" : "Invalid";
 }
