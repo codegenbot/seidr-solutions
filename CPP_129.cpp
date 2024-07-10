@@ -38,7 +38,6 @@ void minPathTest() {
     int target = 10;
 
     if (minPath(input, target).empty()) {
-        cout << "No paths found with length " << target << "." << endl;
         return; 
     }
     
@@ -59,8 +58,8 @@ void minPathTest() {
             }
         }
         string tempStr = "";
-        for (int x : output) {
-            tempStr += std::to_string(x) + " ";
+        for (int i : output) {
+            tempStr += std::to_string(i) + " ";
         }
         cout << tempStr << endl;
     }
