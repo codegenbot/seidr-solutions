@@ -1,9 +1,12 @@
 ```
 def smallest_change(arr):
-    n = len(arr)
-    rev_arr = arr[::-1]
+    arr = [str(x) for x in arr]
+    rev_arr = ''.join(reversed(arr))
     diff_count = 0
-    for i in range(n):
-        if arr[i] != rev_arr[i]:
+    i = j = 0
+    while i < len(arr) and j < len(rev_arr):
+        if arr[i] != rev_arr[j]:
             diff_count += 1
+        i += 1
+        j += 1
     return diff_count
