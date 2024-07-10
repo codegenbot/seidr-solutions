@@ -1,4 +1,8 @@
-```
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
 int gcd(int a, int b) {
     while (b != 0) {
         int temp = b;
@@ -10,10 +14,10 @@ int gcd(int a, int b) {
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> result;
-    int index = 0;
+    int index = 0; // Fix: Initialize index to 0
 
     while (index <= text.length() - target.length()) {
-        size_t found = text.find(target.c_str());
+        size_t found = text.find(target);
         if (found != std::string::npos) {
             result.push_back(found);
             index = found + 1;

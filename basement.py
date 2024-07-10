@@ -1,7 +1,7 @@
 def basement(input):
     total = 0
     for i, x in enumerate(input):
-        if total < 0:
-            return i + 1
         total += x 
-    return -1
+        if total < 0: pass  
+        elif total == 0: total = 0  
+    return -1 if total >= 0 else i + 1
