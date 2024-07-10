@@ -1,8 +1,15 @@
-def simplified fractions(numerator_list, denominator_list):
-    result = []
-    for x in numerator_list:
-        for y in denominator_list:
-            if float(x)/x == float(y)/y and x!=0 and y!=0:
-                if [int(x), int(y)] not in result and [int(y), int(x)] not in result:
-                    result.append([int(x), int(y)])
-    return result
+def simplify(x, n):
+    a, b = map(int, x.split("/"))
+    c, d = map(int, n.split("/"))
+
+    if a == 1:
+        a = ""
+    else:
+        a = str(a) + "/"
+
+    if d == 1:
+        d = ""
+    else:
+        d = "/" + str(d)
+
+    return str(a) + str(b) + d
