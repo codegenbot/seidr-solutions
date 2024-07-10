@@ -1,29 +1,34 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    vector<vector<int>> res(2);
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int cut_idx = -1;
+    int split_idx = 0;
     
-    for(int i=0; i<n-1; i++){
+    for (int i = 1; i <= v.size(); i++) {
         int left_sum = 0, right_sum = 0;
-        for(int j=i; j<i+(n-i)/2; j++){
-            left_sum += nums[j];
-        }
-        for(int j=i+(n-i)/2; j<n; j++){
-            right_sum += nums[j];
+        
+        if (i < v.size()) {
+            for (int j = 0; j < i; j++) {
+                left_sum += v[j];
+            }
+            for (int j = i; j < v.size(); j++) {
+                right_sum += v[j];
+            }
+        } else {
+            left_sum = accumulate(v.begin(), v.end(), 0);
+            right_sum = 0;
         }
         
         int diff = abs(left_sum - right_sum);
-        if(diff < min_diff){
+        if (diff <= min_diff) {
             min_diff = diff;
-            cut_idx = i;
+            split_idx = i;
         }
     }
     
-    res[0] = vector<int>(nums.begin(), nums.begin() + cut_idx+1);
-    res[1] = vector<int>(nums.begin()+cut_idx, nums.end());
-    return res;
+    vector<int> left(v.begin(), v.begin() + split_idx);
+    vector<int> right(v.begin() + split_idx, v.end());
+    
+    return {left, right};
 }
