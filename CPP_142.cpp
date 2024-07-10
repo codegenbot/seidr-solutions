@@ -1,5 +1,6 @@
 #include <cmath>
 #include <iostream>
+#include <vector>
 
 double sum_squares(int n) {
     double sum = 0.0;
@@ -9,7 +10,7 @@ double sum_squares(int n) {
     return sum;
 }
 
-int main_function() {
+int main() {
     int n;
     std::cin >> n;
 
@@ -19,5 +20,8 @@ int main_function() {
         double result = sum_squares(n);
         std::cout << "Sum of squares: " << std::to_string(result) << std::endl;
     }
-    assert(sum_squares(-1) == -1 + 1 + 289 - 1 - 225 + 169 - 1 + 196 - 196 - 144 - 25);
+    
+    std::vector<int> test = {-1, -3, 17, -1, -15, 13, -1, 14, -14, -12, -5, 
+                             14, -14, 6, 13, 11, 16, 16, 4, 10};
+    assert(sum_squares(20) == sum(test));
 }
