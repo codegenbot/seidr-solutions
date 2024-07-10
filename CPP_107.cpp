@@ -1,10 +1,8 @@
-Here is the modified code:
-
-```cpp
+```
 #include <iostream>
 #include <vector>
 
-bool checkSame(std::vector<int> a, std::vector<int> b) {
+bool areSameVectors(std::vector<int> a, std::vector<int> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -30,7 +28,8 @@ int reverse(int n) {
     }
     return rev;
 }
-int userMain() {
+
+int main() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
