@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
@@ -10,7 +10,7 @@ int mastermind(std::string code, std::string guess) {
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-            code[i] = ' '; // Mark as checked
+            code[i] = ' '; 
             guess[i] = ' ';
         }
     }
@@ -21,7 +21,7 @@ int mastermind(std::string code, std::string guess) {
             white++;
         } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) {
             white++;
-            code[i] = ' '; // Mark as checked
+            code[i] = ' '; 
             std::count(guess.begin(), guess.end(), code[i]) = 0;
         }
     }
