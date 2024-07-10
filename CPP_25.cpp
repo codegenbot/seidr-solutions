@@ -7,7 +7,7 @@ using namespace std;
 std::vector<int> factorize(int n) {
     std::vector<int> factors;
     if (n <= 1) {
-        if (n < 0) {
+        if (n <= 1) {
             return factors;
         } else {
             factors.push_back(n);
