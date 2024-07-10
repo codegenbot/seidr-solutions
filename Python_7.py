@@ -1,22 +1,9 @@
+```
 from typing import List
 import re
 
 
 def filter_by_substring():
-    while True:
-        try:
-            expected_output = input(
-                "Is your expected output 'True values', 'False values', or 'all'? "
-            )
-
-            if expected_output.lower() not in ["true values", "false values", "all"]:
-                print("Invalid input. Please try again.")
-                continue
-
-            break
-        except ValueError:
-            print("Invalid input. Please try again.")
-
     while True:
         try:
             input_str = input("Enter strings (comma-separated): ")
@@ -29,9 +16,7 @@ def filter_by_substring():
             strings = [s.strip() for s in input_str.split(",")]
             num_to_display = int(
                 input(
-                    "Enter the number of results to display (1-{}): ".format(
-                        len(strings)
-                    )
+                    "Enter the number of results to display (1-{}): ".format(len(strings))
                 )
             )
 
@@ -43,22 +28,18 @@ def filter_by_substring():
         except ValueError:
             print("Invalid input. Please try again.")
 
-    result = [s for s in strings if bool(re.compile(substring).search(s))]
-    if expected_output.lower() == "true values":
-        print(result[:num_to_display])
-    elif expected_output.lower() == "false values":
-        print(
-            [s for s in strings if not bool(re.compile(substring).search(s))][
-                :num_to_display
-            ]
-        )
+    print("Do you want to filter? (yes/no): ")
+    response = input().lower()
+
+    while response != 'yes' and response != 'no':
+        print("Invalid input. Please type 'yes' or 'no'.")
+        response = input().lower()
+        
+    if response == 'no':
+        print(strings[:num_to_display])
     else:
-        print(
-            result
-            + [s for s in strings if not bool(re.compile(substring).search(s))][
-                :num_to_display
-            ]
-        )
+        result = [s for s in strings if bool(re.compile(substring).search(s))]
+        print(result[:num_to_display])
 
 
 filter_by_substring()
