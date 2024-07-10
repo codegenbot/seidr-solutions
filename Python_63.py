@@ -8,7 +8,4 @@ def fibfib(n: int):
             a, b = b, a+b
             result.append(a)
         return str(result)
-    else:  
-
-n = int(input("Enter an integer: "))
-print(fibfib(n))
+    else:
