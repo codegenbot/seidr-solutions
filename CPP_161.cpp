@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -23,8 +22,6 @@ int main() {
             break;
         s += c;
     }
-    s.erase(s.size()-1); // remove newline character
-    std::string result = solve(s);
-    std::cout << "Result: " << result << std::endl;
+    std::cout << "Result: " << solve(s) << std::endl;
     return 0;
 }
