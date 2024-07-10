@@ -1,19 +1,17 @@
-def bowling_score(frames):
+def bowling_score(gutter_balls):
     score = 0
-    frame = 0
-    for i in range(0, len(frames), 2):
-        if frames[i] == "X":
+    frame = 1
+    for ball in gutter_balls + "/":
+        if ball == "X":
             score += 30
             frame += 1
-        elif frames[i] == "/":
-            score += 10 + int(frames[i + 1])
+        elif ball == "/":
+            score += 10
             frame += 1
         else:
-            first_roll = int(frames[i])
-            second_roll = int(frames[i + 1])
-            if first_roll + second_roll >= 10:
-                score += 10 + (first_roll + second_roll - 10)
+            if len(ball) > 1:
+                score += int(ball[0]) * 10 + 10
             else:
-                score += first_roll + second_roll
-            frame += 1
+                score += int(ball)
+            frame += ball != "0"
     return score
