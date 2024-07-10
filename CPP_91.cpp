@@ -4,10 +4,10 @@
 
 int is_bored(std::string S){
     int count = 0;
-    char boredom = 'I';
+    std::string boredom = "I";
     size_t pos = 0;
     while ((pos = S.find(" ", pos)) != std::string::npos) {
-        if (S.substr(0, pos).compare(std::string(boredom)) == 0) {
+        if (S.substr(0, pos).compare(boredom) == 0) {
             count++;
             break;
         }
@@ -20,6 +20,7 @@ int main() {
     std::cout << "Enter a string: ";
     std::string input;
     std::getline(std::cin, input);
+    input = std::string(input); // Convert to basic_string<char>
     int result = is_bored(input);
     std::cout << "Count of 'I' at the beginning: " << result << std::endl;
     return 0;

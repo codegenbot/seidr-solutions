@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
-#pragma GCC diagnostic ignored "-Werror"
+#include <initializer_list>
 
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     int oddCount = 0;
