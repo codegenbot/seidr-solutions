@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 int luhn(vector<int> cardNumber) {
@@ -21,7 +23,7 @@ int luhn(vector<int> cardNumber) {
 }
 
 int main() {
-    vector<int> cardNumber = {4, 5, 2, 7, 1, 3, 6, 9, 0, 8, 4, 1, 6, 3, 5, 9};
+    vector<int> cardNumber = {3,4,5,7,8,2,9,1,6,7,8,4,3,9,0,0}; 
     int result = luhn(cardNumber);
     cout << "The Luhn verification sum is: " << result << endl;
     return 0;
