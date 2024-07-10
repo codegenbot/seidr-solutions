@@ -7,7 +7,7 @@
 using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
 vector<string> bf(const string& s1, const string& s2) {
