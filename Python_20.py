@@ -1,4 +1,5 @@
-def find_closed_elements(numbers):
+```
+def find_closest_elements(numbers):
     min_diff = float("inf")
     closest_pair = ()
 
