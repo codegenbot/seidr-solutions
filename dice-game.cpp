@@ -1,6 +1,5 @@
 Here is the solution:
 
-double probability(int n, int m) {
-    double total = (n + m - 1);
-    return (n - 1.0) / total;
+double game(int n, int m) {
+    return (double)(n - 1) / (n * m);
 }
