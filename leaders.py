@@ -1,6 +1,6 @@
-Here is the solution:
-
-def leaders(a):
-    return [a[i] for i in range(len(a)-1,-1,-1) if all(x <= a[i] for x in a[i+1:])]
-
-print(leaders(list(map(int, input().split()))))
+def leaders(integers):
+    return [
+        integer
+        for integer in reversed(integers)
+        if all(i <= integer for i in integers[integers.index(integer) + 1 :])
+    ]
