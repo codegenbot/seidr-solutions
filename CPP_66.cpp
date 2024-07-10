@@ -1,8 +1,10 @@
-int digitSum(string s){
+#include <string>
+
+int digitSum(string s) {
     int sum = 0;
-    for(int i=0; i<s.length(); i++){
-        if(isupper(s[i])){
-            sum += toupper(s[i]);
+    for (char c : s) {
+        if (isupper(c)) {
+            sum += c - 'A' + 1; 
         }
     }
     return sum;
