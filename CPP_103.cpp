@@ -1,4 +1,11 @@
-if (n > m) {
+#include <iostream>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+string average_binary(int n, int m) {
+    if (n > m) {
         return "-1";
     }
     
@@ -7,7 +14,7 @@ if (n > m) {
         sum += i;
     }
     
-    int avg = round((double)sum / (m - n + 1));
+    int avg = (int)((double)sum / (m - n + 1) + 0.5);
     
     string binary_avg = "";
     while (avg > 0) {
@@ -16,4 +23,8 @@ if (n > m) {
     }
     
     return binary_avg;
+}
+
+string rounded_avg(int n, int m) {
+    return average_binary(n, m);
 }
