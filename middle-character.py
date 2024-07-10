@@ -1,9 +1,7 @@
-Here is the solution:
-
 def middle_character(s):
-    s = str(s)
-    l = len(s)
-    if l % 2 == 0:
-        return s[l//2-1:l//2+1]
+    s = s.strip()
+    length = len(s)
+    if length % 2 == 1:
+        return s[length // 2]
     else:
-        return s[l//2]
+        return s[length // 2 - 1 : length // 2 + 1]
