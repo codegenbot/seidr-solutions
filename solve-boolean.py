@@ -1,5 +1,10 @@
+```
 def solve_boolean(expression):
     stack = []
+    if expression[0].upper() != 'T':
+        return False
+    if len(stack) > 1:
+        return stack[0] 
     for char in expression:
         if char.upper() == 'T':
             stack.append(True)
