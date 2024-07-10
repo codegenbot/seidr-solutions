@@ -1,11 +1,20 @@
-Here is the solution:
+#include <string>
+using namespace std;
 
-string squareDigits(long int n) {
-    string s = to_string(n);
-    string res = "";
-    for (char c : s) {
+string squareDigits(string input) {
+    string output = "";
+    for (char c : input) {
         int digit = c - '0';
-        res += to_string(digit * digit);
+        output += to_string(digit * digit);
     }
-    return res;
+    return output;
+}
+
+int main() {
+    // Your code here
+    string input;
+    cout << "Enter the number: ";
+    cin >> input;
+    cout << squareDigits(input) << endl;
+    return 0;
 }
