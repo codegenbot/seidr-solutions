@@ -21,7 +21,13 @@ int main() {
         cin >> guess;
     } while (!isValidInput(guess));
 
+    transform(code.begin(), code.end(), code.begin(), ::toupper);
+    transform(guess.begin(), guess.end(), guess.begin(), ::toupper);
+
     map<char, int> codeFreq, guessFreq;
+
+    codeFreq.clear();
+    guessFreq.clear();
 
     int whitePegs = 0, blackPegs = 0;
 
@@ -34,8 +40,8 @@ int main() {
         }
     }
 
-    for(const auto& pair : codeFreq) {
-        whitePegs += min(codeFreq[pair.first], guessFreq[pair.first]);
+    for (auto it = codeFreq.begin(); it != codeFreq.end(); ++it) {
+        whitePegs += min(codeFreq[it->first], guessFreq[it->first]);
     }
 
     cout << whitePegs << endl << blackPegs << endl;
