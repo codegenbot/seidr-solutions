@@ -1,18 +1,10 @@
-def coin_sums(cents):
-    coins = [25, 10, 5, 1]
-    coin_counts = [0, 0, 0, 0]
+def coin_sums():
+    cents = int(input())
+    coins = [25, 10, 5, 1]  # quarters, dimes, nickels, pennies
+    num_coins = []
 
-    for coin in coins:
-        while cents >= coin:
-            cents -= coin
-            coin_counts[coins.index(coin)] += 1
+    for c in coins:
+        num_coins.append(cents // c)
+        cents %= c
 
-    return coin_counts[0], coin_counts[1], coin_counts[2], coin_counts[3]
-
-
-cents = int(input())
-pennies, nickles, dimes, quarters = coin_sums(cents)
-print(pennies)
-print(nickles)
-print(dimes)
-print(quarters)
+    return str(num_coins[0]) + "\n" + " ".join(map(str, num_coins[1:]))
