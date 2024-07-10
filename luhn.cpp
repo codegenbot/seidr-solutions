@@ -23,8 +23,7 @@ int luhn(std::vector<int> card) {
 }
 
 int main() {
-    std::vector<int> card = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 7, 2, 1, 1};
+    std::vector<int> card = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
     int result = luhn(card);
-    std::cout << "The result is: " << result << std::endl;
     return 0;
 }
