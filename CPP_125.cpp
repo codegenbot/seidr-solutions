@@ -1,12 +1,8 @@
+#include <string>
 #include <iostream>
 #include <vector>
-#include <string>
 
-vector<string> split_words(string txt);
-
-bool issame(string txt1, string txt2) {
-    return txt1 == txt2;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> split_words(string txt){
     vector<string> result;
