@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
-
-vector<string> separate_paren_groups(string paren_string);
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -25,7 +24,7 @@ vector<string> separate_paren_groups(string paren_string) {
             open_braces--;
             if (open_braces > 0) {
                 current_group += c;
-            } else {
+            } else if (current_group.size() > 0) {
                 result.push_back(current_group);
                 current_group = "";
             }
@@ -36,15 +35,6 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string with parentheses: ";
-    cin >> input;
-
-    vector<string> groups = separate_paren_groups(input);
-
-    for (const auto& group : groups) {
-        cout << group << endl;
-    }
-
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
     return 0;
 }
