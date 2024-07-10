@@ -15,12 +15,12 @@ vector<int> computeLPSArray(string target) {
     int length = 0;
 
     for (int i = 1; i < m; i++) {
-        while (length > 0 && target[i] != target[length]) {
-            length = lps[length - 1];
-        }
-
-        if (target[i] == target[length]) {
-            length++;
+        while (length > 0 && i < length) {
+            if (target[i] != target[length]) {
+                length = lps[length - 1];
+            } else {
+                length++;
+            }
         }
 
         lps[i] = length;
