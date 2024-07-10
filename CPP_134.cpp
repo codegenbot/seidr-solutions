@@ -2,8 +2,8 @@
 #include <cassert>
 
 bool check_if_last_char_is_a_letter(const std::string &txt) {
-    if(txt.empty()) return false;
-    if(isalpha(txt.back()) && txt.size() >= 2 && (txt.size() == 1 || txt[txt.size()-2] == ' ')) {
+    if (txt.empty()) return false;
+    if (txt.size() >= 2 && isalpha(txt.back()) && txt[txt.size() - 2] == ' ') {
         return true;
     }
     return false;
