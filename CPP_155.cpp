@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>  // Include cassert header for the assert function
+#include <cassert>
 #include <cmath>
 
 using namespace std;
