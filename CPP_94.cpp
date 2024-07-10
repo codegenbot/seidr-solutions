@@ -1,3 +1,18 @@
+int main(){
+    vector<int> lst;
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    for(int i = 0; i < n; i++){
+        int num;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> num;
+        lst.push_back(num);
+    }
+    cout << "Maximum prime number is: " << skjkasdkd(lst) << endl;
+    return 0;
+}
+
 int skjkasdkd(vector<int> lst){
     int max_prime = 0;
     for(int num : lst){
@@ -22,6 +37,4 @@ int sumOfDigits(int n) {
         n /= 10;
     }
     return sum;
-
-int skjkasdkd(vector<int> lst);
-```
+}
