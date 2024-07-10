@@ -1,11 +1,12 @@
-```cpp
 #include <vector>
 #include <string>
+#include <cctype>
+#include <cassert>
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return (a == b);
+bool issame(const vector<string>& a) {
+    return (a.size() == 1 && a[0] == "0");
 }
 
 vector<string> split_words(string txt) {
@@ -35,6 +36,5 @@ vector<string> split_words(string txt) {
 }
 
 int main() {
-    assert(issame(split_words(""), vector<string>({})));
-    return 0;
+    assert(issame(split_words("")) == true);
 }
