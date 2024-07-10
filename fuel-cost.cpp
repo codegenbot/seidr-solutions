@@ -1,12 +1,11 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-int fuelCost(vector<int> arr) {
-    int sum = 0;
-    for (int x : arr) {
-        int result = static_cast<int>(x / 3.0);
-        result = result - 2;
-        sum += result;
+int calculateFuelCost(vector<int> &prices) {
+    int totalFuel = 0;
+    for (int price : prices) {
+        int cost = (price / 3 - 2);
+        if (cost > 0)
+            totalFuel += cost;
     }
-    return sum;
+    return totalFuel;
 }
