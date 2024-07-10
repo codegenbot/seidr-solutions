@@ -1,5 +1,7 @@
+```
 #include <cmath>
 #include <iostream>
+#include <string>
 
 bool is_simple_power(int x, int n);
 
