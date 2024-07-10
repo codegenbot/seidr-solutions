@@ -1,5 +1,5 @@
 ```
 def dice_game(n, m):
     total_outcomes = n * m
-    peter_wins = sum(1 for i in range(m) for j in range(2, min(n,m)+1) if (j-1)*m + i < j*m)
-    return 1 - (peter_wins / total_outcomes)
+    peter_wins = sum(1 for i in range(min(n,m)+1) if (i+1)*m <= n-1 and (i+1)*m < m)
+    return peter_wins / total_outcomes
