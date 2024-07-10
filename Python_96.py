@@ -1,4 +1,5 @@
-def count_up_to(n):
+def find_primes():
+    n = int(input("Enter a number: "))
     def is_prime(num):
         if num < 2:
             return False
@@ -8,7 +9,7 @@ def count_up_to(n):
         return True
 
     result = []
-    for i in range(2, n + 1):
+    for i in range(2, n+1): 
         if is_prime(i):
-            result.append(str(i))
-    return " -> ".join(result)
+            result.append(i)
+    return result
