@@ -1,3 +1,6 @@
+Here is the completed code:
+
+```cpp
 #include <string>
 #include <algorithm>
 #include <boost/any.hpp>
@@ -9,51 +12,65 @@ boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return boost::any(b);
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return b;
-    }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string strA = boost::lexical_cast<string>(a);
-        string strB = boost::lexical_cast<string>(b);
-        float numA = stof(strA);
-        float numB = stof(strB);
-        if (numA > numB)
-            return a;
-        else if (numA < numB)
+        string str = boost::any_cast<string>(b);
+        float f = boost::lexical_cast<float>(str);
+        if (f > a.cast<int>()) {
             return b;
-        else
-            return boost::any("None");
+        }
+        else {
+            return "None";
+        }
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string strA = boost::lexical_cast<string>(a);
-        float numA = stof(strA);
-        int numB = boost::lexical_cast<int>(b);
-        if (numA > numB)
-            return a;
-        else if (numA < numB)
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
+        float f1 = boost::lexical_cast<float>(str1);
+        float f2 = boost::lexical_cast<float>(str2);
+        if (f2 > f1) {
             return b;
-        else
-            return boost::any("None");
+        }
+        else if (f1 == f2) {
+            return "None";
+        }
+        else {
+            return a;
+        }
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string strA = boost::lexical_cast<string>(a);
-        float numA = stof(strA);
-        float numB = boost::lexical_cast<float>(b);
-        if (numA > numB)
-            return a;
-        else if (numA < numB)
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string str = boost::any_cast<string>(b);
+        float f = boost::lexical_cast<float>(str);
+        if (f > a.cast<int>()) {
             return b;
-        else
-            return boost::any("None");
+        }
+        else {
+            return "None";
+        }
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int i1 = a.cast<int>();
+        int i2 = b.cast<int>();
+        if (i2 > i1) {
+            return b;
+        }
+        else if (i1 == i2) {
+            return "None";
+        }
+        else {
+            return a;
+        }
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        int i = b.cast<int>();
+        float f = a.cast<float>();
+        if (f > i) {
+            return a;
+        }
+        else {
+            return "None";
+        }
     }
     else {
-        int numA = boost::lexical_cast<int>(a);
-        int numB = boost::lexical_cast<int>(b);
-        if (numA > numB)
-            return a;
-        else if (numA < numB)
-            return b;
-        else
-            return boost::any("None");
+        return "None";
     }
 }
