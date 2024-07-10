@@ -6,7 +6,7 @@ int bowlingScore(std::string s) {
             score += 30;
             roll++;
         } else if (c == '/') {
-            score += (10 - (int)s[roll] + (int)s[roll+1]) * 2;
+            score += (10 - ((int)s[roll] - 48)) * 2;
             roll+=2;
         } else {
             score += (int)c - 48;
