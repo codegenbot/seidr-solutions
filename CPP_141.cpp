@@ -1,24 +1,26 @@
 Here is the completed code:
 
-string file_name_check(string file_name){
+string file_name_check(string file_name) {
     int digitCount = 0;
     bool hasDot = false;
-    for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-        if(c >= '0' && c <= '9'){
+    string beforeDot;
+
+    for (char c : file_name) {
+        if (isdigit(c)) {
             digitCount++;
-        }
-        else if(c == '.'){
+        } else if (c == '.') {
             hasDot = true;
-        }
-        else if(!hasDot && (c < 'a' || c > 'z') && (c < 'A' || c > 'Z')){
-            return "No";
+        } else if (!hasDot) {
+            beforeDot += c;
         }
     }
-    if(digitCount > 3) return "No";
-    if(!hasDot) return "No";
-    size_t dotPos = file_name.find('.');
-    string extension = file_name.substr(dotPos + 1);
-    if(extension != "txt" && extension != "exe" && extension != "dll")
-        return "No";
-    return "Yes";
+
+    return (digitCount <= 3 && hasDot && !beforeDot.empty() && (beforeDot[0] >= 'a' && beforeDot[0] <= 'z') || (beforeDot[0] >= 'A' && beforeDot[0] <= 'Z')) &&
+           (hasDot ? file_name.find('.') + 1 < file_name.size() : true) &&
+           (file_name.find('.') == string::npos ?
+            (file_name.substr(file_name.find_last_of('.') + 1).compare("txt") == 0 ||
+             file_name.substr(file_name.find_last_of('.') + 1).compare("exe") == 0 ||
+             file_name.substr(file_name.find_last_of('.') + 1).compare("dll") == 0) :
+            false)
+        ? "Yes" : "No";
+}
