@@ -1,4 +1,5 @@
-Here is the completed code:
+#include <vector>
+using namespace std;
 
 int add(vector<int> lst){
     int sum = 0;
@@ -6,4 +7,10 @@ int add(vector<int> lst){
         if(lst[i] % 2 == 0) sum += lst[i];
     }
     return sum;
+}
+
+int main(){
+    vector<int> lst = {4, 4, 6, 8};
+    assert (add(lst) == 12);
+    return 0;
 }
