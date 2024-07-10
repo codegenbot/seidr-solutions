@@ -1,22 +1,10 @@
-#include <vector>
-using namespace std;
-
-int solve(vector<int>& v) {
+int fuelCost(vector<int> nums) {
     int sum = 0;
-    for (int i : v) {
-        int temp = i / 3 - 2;
+    for (int num : nums) {
+        int temp = (num / 3);
+        temp = floor(temp); // round down to nearest integer
+        temp -= 2; // subtract 2
         sum += temp;
     }
     return sum;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int& x : v) {
-        cin >> x;
-    }
-    cout << solve(v) << endl;
-    return 0;
 }
