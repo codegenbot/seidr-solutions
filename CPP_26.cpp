@@ -15,9 +15,9 @@ int main() {
     vector<int> modified_numbers = remove_duplicates(numbers);
     
     if (issame(modified_numbers, expected_result)) {
-        cout << "Output matches the expected result." << endl;
+        cout << "Output matches expected result." << endl;
     } else {
-        cout << "Output does not match the expected result." << endl;
+        cout << "Output does not match expected result." << endl;
     }
     
     return 0;
