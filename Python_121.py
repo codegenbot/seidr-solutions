@@ -1,2 +1,6 @@
 def solution(lst):
-    return sum(i for i in lst if i % 2 != 0)
+    odd_sum = 0
+    for num in lst:
+        if num % 2 != 0:
+            odd_sum += num
+    return odd_sum if len(lst) > 0 else 0
