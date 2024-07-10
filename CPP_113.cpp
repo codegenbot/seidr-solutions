@@ -16,6 +16,7 @@ int countOddElements(const std::vector<std::string>& strings) {
 }
 
 int main() {
+    // Test the countOddElements function
     assert(countOddElements({"271", "137", "314"}) == 3);
     
     return 0;
