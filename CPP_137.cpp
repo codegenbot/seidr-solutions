@@ -1,8 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
-#include <iostream>
 
-using namespace std;
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
@@ -16,46 +14,27 @@ boost::any compare_one(boost::any a, boost::any b) {
         int ib = boost::any_cast<int>(b);
         return (ia > ib) ? a : b;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        string sa = boost::any_cast<string>(a);
+    else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
+        std::string sa = boost::any_cast<std::string>(a);
         double sb = boost::any_cast<double>(b);
-        return (stod(sa) > sb) ? a : b;
+        return (std::stod(sa) > sb) ? a : b;
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+    else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
         double sa = boost::any_cast<double>(a);
-        string sb = boost::any_cast<string>(b);
-        return (sa > stod(sb)) ? a : b;
+        std::string sb = boost::any_cast<std::string>(b);
+        return (sa > std::stod(sb)) ? a : b;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string sa = boost::any_cast<string>(a);
-        string sb = boost::any_cast<string>(b);
-        if (stod(sa) > stod(sb))
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string sa = boost::any_cast<std::string>(a);
+        std::string sb = boost::any_cast<std::string>(b);
+        if (std::stod(sa) > std::stod(sb))
             return a;
-        else if (stod(sa) < stod(sb))
+        else if (std::stod(sa) < std::stod(sb))
             return b;
         else
-            return any(string("None"));
+            return any("None");
     }
     else {
-        return any(string("None"));
+        return any("None");
     }
-}
-
-int main() {
-    boost::any a = 5; 
-    boost::any b = 6.0;
-
-    boost::any result = compare_one(a, b);
-
-    if (result.type() == typeid(int)) {
-        cout << "The smaller number is: " << boost::any_cast<int>(result) << endl;
-    }
-    else if (result.type() == typeid(double)) {
-        cout << "The larger number is: " << boost::any_cast<double>(result) << endl;
-    }
-    else {
-        cout << "Both numbers are equal." << endl;
-    }
-
-    return 0;
 }
