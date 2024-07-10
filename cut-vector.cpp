@@ -1,55 +1,48 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& vec) {
-    int minDiff = INT_MAX;
-    int index = -1;
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int min_diff = INT_MAX;
+    pair<vector<int>, vector<int>> result;
     
-    for(int i=0; i<vec.size(); i++) {
-        int sumLeft = 0, sumRight = 0;
+    for (int i = 1; i <= vec.size(); i++) {
+        int left_sum = 0, right_sum = 0;
         
-        for(int j=0; j<i; j++) {
-            sumLeft += vec[j];
+        for (int j = 0; j < i; j++) {
+            left_sum += vec[j];
         }
         
-        for(int j=i; j<vec.size(); j++) {
-            sumRight += vec[j];
+        for (int j = i; j < vec.size(); j++) {
+            right_sum += vec[j];
         }
         
-        int diff = abs(sumLeft - sumRight);
+        int diff = abs(left_sum - right_sum);
         
-        if(diff < minDiff) {
-            minDiff = diff;
-            index = i;
+        if (diff < min_diff) {
+            min_diff = diff;
+            result = {vector<int>(vec.begin(), vec.begin() + i), vector<int>(vec.begin() + i, vec.end())};
         }
     }
     
-    vector<int> left(vec.begin(), vec.begin() + index);
-    vector<int> right(vec.begin() + index, vec.end());
-    
-    return {left, right};
+    return result;
 }
 
 int main() {
-    int n; cin >> n;
+    int n;
+    cin >> n;
     vector<int> vec(n);
-    for(int i=0; i<n; i++) {
+    for (int i = 0; i < n; i++) {
         cin >> vec[i];
     }
-    
-    auto result = cutVector(vec);
-    
-    cout << "Left: ";
-    for(auto num : result[0]) {
-        cout << num << ' ';
+    pair<vector<int>, vector<int>> res = cutVector(vec);
+    cout << "[";
+    for (int x : res.first) {
+        cout << x << " ";
     }
-    cout << endl;
-    
-    cout << "Right: ";
-    for(auto num : result[1]) {
-        cout << num << ' ';
+    cout << "]\n[";
+    for (int x : res.second) {
+        cout << x << " ";
     }
-    cout << endl;
-    
+    cout << "]";
     return 0;
 }
