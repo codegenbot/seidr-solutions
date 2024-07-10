@@ -13,13 +13,3 @@ def match_parens(lst: List[str]) -> str:
         if stack:
             return "No"
     return "Yes"
-
-# Read input from user
-input_list = []
-n = int(input())
-for i in range(n):
-    input_list.append(input())
-
-# Call function with input list
-result = match_parens(input_list)
-print(result)
