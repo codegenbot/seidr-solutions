@@ -1,4 +1,5 @@
-int skjkasdkd(vector<int> lst); // declare the function
+```c++
+int skjkasdkd(vector<int> lst); 
 
 int skjkasdkd(vector<int> lst) {
     int maxPrime = 0;
