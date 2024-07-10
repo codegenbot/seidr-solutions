@@ -27,6 +27,7 @@ bool isPrime(int n){
 
 int main() {
     int result = skjkasdkd({127, 97, 8192});
-    std::cout << "Result: " << result << std::endl;
+    // Your assertion statement here...
+    std::cout << "The sum of the digits is: " << result << std::endl;
     return 0;
 }
