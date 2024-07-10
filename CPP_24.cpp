@@ -1,19 +1,7 @@
-#include <iostream>
-using namespace std;
-
-int largest_divisor(int n){
-    int largest = 1;
-    for(int i=2; i<n; i++){
-        if(n % i == 0){
-            largest = i;
+for (int i = n-1; i > 0; i--) {
+        if (n % i == 0) {
+            return i;
         }
     }
-    return largest;
-}
-
-int main(){
-    int n;
-    cin >> n;
-    cout << largest_divisor(n) << endl;
-    return 0;
+    return -1;
 }
