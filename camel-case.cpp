@@ -1,40 +1,38 @@
-Here is the modified code:
-
-```cpp
+```c
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& input) {
-    std::string output;
-    bool firstWord = true;
-
-    for (char c : input) {
-        if (c == '-') {
-            output += (firstWord ? "" : "") + toupper(c + 1);
-            firstWord = false;
-        } else if (c == ' ') {
-            output += (firstWord ? "" : "") + " ";
-            firstWord = true;
-        } else {
-            output += c;
-            firstWord = true;
+std::string camelCase(std::string str) {
+    std::vector<std::string> words;
+    size_t start = 0;
+    for (size_t i = 0; i <= str.size(); ++i) {
+        if (i == str.size() || str[i] == ' ') {
+            words.push_back(str.substr(start, i - start));
+            start = i + 1;
         }
     }
 
-    return output;
+    std::string result;
+    for (size_t i = 0; i < words.size(); ++i) {
+        if (!result.empty()) {
+            result += (char)toupper(words[i][0]);
+            for (size_t j = 1; j < words[i].size(); ++j) {
+                result += tolower(words[i][j]);
+            }
+        } else {
+            for (size_t j = 0; j < words[i].size(); ++j) {
+                result += tolower(words[i][j]);
+            }
+        }
+    }
+
+    return result;
 }
 
 int main() {
-    char c;
-    std::string input = "";
-    while ((c = cin.get()) != '\n') {
-        if (c == '-') {
-            input += toupper(c + 1);
-        } else if (c != ' ') {
-            input += c;
-        }
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
     }
-    std::cout << camelCase(input) << std::endl;
-
-    return 0;
+    return 0; 
 }
