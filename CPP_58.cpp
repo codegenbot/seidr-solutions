@@ -18,4 +18,4 @@ std::vector<int> findCommonElements(std::vector<int>& l1, std::vector<int>& l2) 
 
 int main() {
     assert(issame(findCommonElements({4, 3, 2, 8}, {}), {}));
-} if imposed
+}
