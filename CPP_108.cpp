@@ -1,3 +1,4 @@
+#include <vector>
 #include <cmath>
 
 int count_nums(std::vector<int> nums) {
@@ -32,7 +33,7 @@ int count_nums(std::vector<int> nums) {
                     sum_of_digits += digit;
                 }
                 num /= 10;
-                if (!has_negative_digit && digit < 5) {
+                if (num < 0 && digit < 5) {
                     has_negative_digit = true;
                 }
             }
