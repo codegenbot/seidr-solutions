@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -20,21 +19,12 @@ int main_func() {
 
     string s;
     cout << "Enter a floating point number or a string: ";
-    cin >> s;
+    cin >> ws >> s;  
 
     if (cin.fail()) { 
-        cin.clear();
-        cin >> ws;
-        try {
-            double b = stod(s);
-            cout << "The result is: " << compare_one(a, b) << endl;
-        } catch (invalid_argument& e) {
-            int b = stoi(s); 
-            cout << "The result is: " << compare_one(a, b) << endl;
-        }
+        cout << "The result is: " << compare_one(a, stod(s)) << endl;
     } else {
-        double b = (double)s; 
-        cout << "The result is: " << compare_one(a, b) << endl;
+        cout << "The result is: " << compare_one(a, stod(s)) << endl;  
     }
 
     return 0;

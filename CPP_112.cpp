@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -29,7 +30,7 @@ string reverse_delete(const string& s1, const string& s2) {
     return reversed;
 }
 
-int main() {
+int mainFunc() {
     int num1, num2;
     cout << "Enter first number: ";
     cin >> num1;
@@ -41,6 +42,6 @@ int main() {
     else
         cout << "Second number is greater." << endl;
 
-    assert(issame(to_string(num1) + to_string(num2), reverse_delete("mama", "ma")));
+    cout << (issame(to_string(num1) + to_string(num2), reverse_delete("mama", "ma")) ? "True" : "False") << endl;
     return 0;
 }

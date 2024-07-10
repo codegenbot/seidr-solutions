@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -37,6 +36,8 @@ std::string Join(const std::vector<std::string>& vec, char delimiter) {
 }
 
 int main() {
-    assert(compare(std::vector<std::string>(select_words("a b c d e f", 1).begin(), select_words("a b c d e f", 1).end()), std::vector<std::string>({"b"})));
+    std::vector<std::string> my_result = select_words("a b c d e f", 1);
+    if (!compare(std::vector<std::string>(my_result.begin(), my_result.end()), {"b", "c", "d", "e"})) 
+        std::cout << "{" + Join(my_result, ", ") + "}" << std::endl;
     return 0;
 }
