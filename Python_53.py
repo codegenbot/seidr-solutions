@@ -4,11 +4,17 @@ def add(a, b):
 
 while True:
     try:
-        num_list = list(map(int, input("Enter numbers separated by space: ").split()))
-        if len(num_list) == 2 and num_list[0] >= 0 and num_list[1] >= 0:  
-            print(add(*num_list))
-            break
-        else:
-            print("Invalid input. Please enter two positive numbers.")
+        while True:
+            x = int(input("Enter first number: "))
+            if x >= 0:
+                break
+            print("Invalid input. Please enter positive numbers.")
+        while True:
+            y = int(input("Enter second number: "))
+            if y >= 0:
+                break
+            print("Invalid input. Please enter positive numbers.")
+        print(add(x, y))
+        break
     except ValueError:
-        print("Invalid input. Please enter integers separated by space.")
+        print("Invalid input. Please enter integers.")
