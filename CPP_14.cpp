@@ -1,4 +1,7 @@
-```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
@@ -24,7 +27,7 @@ int mainFunc() {
         std::cout << "Invalid input. Please enter a non-empty string." << std::endl;
     } else {
         std::vector<std::string> result = all_prefixes(input);
-        if (!issame(result)) {
+        if (!issame(result, result)) {
             std::cout << "The prefixes are not the same." << std::endl;
         } else {
             std::cout << "The prefixes are the same." << std::endl;
@@ -32,7 +35,7 @@ int mainFunc() {
     }
 
     std::vector<std::string> www = all_prefixes("WWW");
-    if (!issame(www)) {
+    if (!issame(www, www)) {
         std::cout << "The prefixes are not the same." << std::endl;
     } else {
         std::cout << "The prefixes are the same." << std::endl;
