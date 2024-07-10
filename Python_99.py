@@ -1,9 +1,7 @@
-def closest_integer():
-    value = float(input("Enter a number: "))
-    num = value
-    if num % 1 < 0.5:
-        return int(num)
+```
+def closest_integer(value):
+    value = float(value)
+    if value - int(value) < (1 - int(value)):
+        return int(value)
     else:
-        return int(round(num))
-
-print(closest_integer())
+        return int(round(value))
