@@ -7,7 +7,7 @@ std::string camelCase(const std::string& input) {
 
     for (char c : input) {
         if (c == '-') {
-            output += (firstWord ? "" : "") + static_cast<char>(static_cast<unsigned char>(c) + 1);
+            output += (firstWord ? "" : "") + static_cast<char>(c);
             firstWord = false;
         } else if (c == ' ') {
             output += (firstWord ? "" : "") + " ";
@@ -24,7 +24,7 @@ std::string camelCase(const std::string& input) {
 int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input; 
+    std::cin >> input;
     std::cout << camelCase(input) << std::endl;
 
     return 0;
