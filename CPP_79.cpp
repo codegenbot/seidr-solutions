@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -14,10 +13,10 @@ std::string decimal_to_binary(int decimal){
     return "db" + binary + "db";
 }
 
-int main(){
-    int num;
-    std::cout << "Enter a number: ";
-    std::cin >> num;
-    std::cout << "Binary representation is: " << decimal_to_binary(num) << std::endl;
+int main() {
+    int decimal;
+    std::cout << "Enter a decimal number: ";
+    std::cin >> decimal;
+    std::cout << "The binary representation is: " << decimal_to_binary(decimal) << std::endl;
     return 0;
 }
