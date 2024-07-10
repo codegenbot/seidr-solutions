@@ -6,4 +6,3 @@ for (int op : operations) {
     }
 }
 return false;
-}
