@@ -1,5 +1,4 @@
-```
-def solve_boolean(expression):
+```def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
