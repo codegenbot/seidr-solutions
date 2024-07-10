@@ -3,6 +3,7 @@ from typing import List
 
 def main():
     n = [None] * 4
+    all_inputs_entered = False
     for i in range(4):
         while True:
             try:
@@ -14,6 +15,8 @@ def main():
                     print("Duplicate input. Please enter unique numbers.")
             except ValueError:
                 print("Invalid input. Please enter a valid integer.")
+        if all(x is not None for x in n):
+            all_inputs_entered = True
 
     factors1 = []
     i = 2
