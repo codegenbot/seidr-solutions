@@ -1,10 +1,10 @@
-```
+Here is the modified code:
+
+```python
 import random
 
 
-def modp():
-    n = int(input("Enter a number: "))
-    p = int(input("Enter another number: "))
+def modp(n: int, p: int):
     if pow(2, n - 1, p) == 1:
         return False
     for _ in range(p - 2):
@@ -14,3 +14,11 @@ def modp():
         if pow(a, (n - 1) // 2, p) != p - 1:
             return False
     return True
+
+
+n = int(input("Enter the value of n: "))
+p = int(input("Enter the value of p: "))
+
+result = modp(n, p)
+
+print(f"The result is {result}")
