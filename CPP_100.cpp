@@ -22,20 +22,16 @@ std::vector<int> make_a_pile(int n) {
     return pile; 
 }
 
-void problem100(int n) {
-    int input;
+int main() {
+    int n;
     std::cout << "Enter a number: ";
-    std::cin >> input;
-
-    if(issame({1}, make_a_pile(input))){
+    std::cin >> n;
+    
+    std::vector<int> pile = make_a_pile(n);
+    if(issame({1}, pile)){
         std::cout << "The piles are the same." << std::endl;
     } else {
         std::cout << "The piles are not the same." << std::endl;
     }
-}
-
-int main() {
-    int n;
-    problem100(n);
     
 }
