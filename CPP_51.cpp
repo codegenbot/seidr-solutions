@@ -1,3 +1,6 @@
+```cpp
+#include <string>
+
 std::string remove_vowels(std::string text) {
     std::string result = "";
     if(text.empty()) return text;  
