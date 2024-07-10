@@ -1,4 +1,13 @@
+#include <vector>
+#include <cassert>
+#include <iostream>
 #include <algorithm>
+
+using namespace std;
+
+bool isEqual(vector<int> a, vector<int> b) {
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
+}
 
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
@@ -9,7 +18,8 @@ vector<int> order_by_points(vector<int> nums) {
             sumOfDigits += num % 10;
             num /= 10;
         }
-        pairs.push_back({sumOfDigits, i});
+        pairs.push_back({-sumOfDigits, i});
+
     }
 
     sort(pairs.begin(), pairs.end());
@@ -20,4 +30,28 @@ vector<int> order_by_points(vector<int> nums) {
     }
 
     return result;
+}
+
+void testMain() {  
+    vector<int> nums = {0,6,6,-76,-21,23,4};
+    cout << "[";
+    for(int i=0; i<nums.size();i++) {
+        cout << nums[i];
+        if(i < nums.size()-1) {
+            cout << ", ";
+        }
+    }
+    cout << "]\n";
+    
+    vector<int> result = order_by_points(nums);
+    cout << "[";
+    for(int i=0; i<result.size();i++) {
+        cout << result[i];
+        if(i < result.size()-1) {
+            cout << ", ";
+        }
+    }
+    cout << "]\n";
+    
+    assert (isEqual(vector<int>{-76, -21, 0, 4, 23, 6, 6}, order_by_points({0,6,6,-76,-21,23,4})));
 }
