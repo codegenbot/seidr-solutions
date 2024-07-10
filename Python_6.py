@@ -1,12 +1,17 @@
-```
+from typing import List
+
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    group_depths = []
-    depth = 0
+    level = 0
+    deepest = 0
     for char in paren_string:
         if char == '(':
-            depth += 1
-            group_depths.append(depth)
+            level += 1
+            if level > deepest:
+                deepest = level
         elif char == ')':
-            depth -= 1
-    return [depth for depth, level in zip(group_depths, [i for i in range(len(group_depths))]) if level == 0]
+            level -= 1
+        if level == 0 and deepest > 0:
+            result.append(deepest)
+            deepest = 0
+    return result
