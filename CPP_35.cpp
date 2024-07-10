@@ -1,1 +1,19 @@
-return *std::max_element(arr, arr+n);
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::vector<int> arr;
+    int n;
+
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    arr.resize(n);
+
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> arr[i];
+    }
+
+    return *std::max_element(arr.begin(), arr.end());
+}
