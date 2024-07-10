@@ -12,7 +12,7 @@ int prod_signs(int* arr, int n) {
     return (sign > 0) ? sum : -sum;
 }
 
-int runTest() {
+int main() {
     int n; 
     std::cin >> n;
     int* arr = new int[n];
@@ -22,11 +22,9 @@ int runTest() {
     int result = prod_signs(arr, n);
     delete[] arr;
 
-    std::cout << "The product of signs is: " << result << '\n';
-    return 0;
-}
+    std::string output = (result > 0) ? "The product of signs is: " : "The product of signs is -";
+    output += std::to_string(result);
 
-int main() {
-    runTest();
+    std::cout << output << '\n';
     return 0;
 }
