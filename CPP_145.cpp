@@ -1,7 +1,28 @@
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+#include <vector>
+#include <algorithm>
+
+bool issame(int a, int b) {
+    return a == b;
+}
+
+vector<int> order_by_points(vector<int> nums) {
+    vector<pair<int, int>> pairs;
+    for (int i = 0; i < nums.size(); i++) {
+        int sumOfDigits = 0;
+        int num = nums[i];
+        while (num > 0) {
+            sumOfDigits += num % 10;
+            num /= 10;
+        }
+        pairs.emplace_back(sumOfDigits, i);
     }
-    return true;
+
+    sort(pairs.begin(), pairs.end());
+
+    vector<int> result;
+    for (int i = 0; i < pairs.size(); i++) {
+        result.push_back(nums[pairs[i].second]);
+    }
+
+    return result;
 }

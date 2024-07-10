@@ -1,11 +1,15 @@
-using namespace std;
+#include <vector>
+#include <set>
+#include <string>
 
-std::vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
+using initializer_list_size_type = std::size_t;
+
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
     
-    set<char> c_set(c.begin(), c.end());
+    std::set<char> c_set(c.begin(), c.end());
     
-    string temp = "";
+    std::string temp = "";
     
     for (char ch : s) {
         if (c_set.find(ch) == c_set.end()) {
@@ -27,8 +31,4 @@ std::vector<string> reverse_delete(string s, string c) {
     result.push_back((is_palindrome) ? "True" : "False");
     
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    return (a == b);
 }
