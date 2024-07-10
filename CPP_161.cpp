@@ -1,7 +1,7 @@
 #include <iostream>
 #include <algorithm>
 
-std::string solve(std::string s){
+std::string solve(std::string s) {
     for(char &c : s){
         if(isalpha(c)){
             c = islower(c) ? toupper(c) : tolower(c);
@@ -13,9 +13,10 @@ std::string solve(std::string s){
     return s;
 }
 
-int main(){
+int main() {
     std::string input;
-    std::cin >> input;
+    std::getline(std::cin, input);
     std::cout << solve(input) << std::endl;
+
     return 0;
 }
