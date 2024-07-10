@@ -1,6 +1,8 @@
+````
 #include <iostream>
 #include <vector>
 #include <string>
+
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -40,3 +42,4 @@ int main() {
         cout << i << " ";
     return 0;
 }
+```
