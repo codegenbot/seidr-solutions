@@ -1,30 +1,26 @@
 int bowlingScore(string s) {
     int score = 0;
-    int frame = 1;
+    int roll = 0;
     for (char c : s) {
-        if (c == 'X') {
+        if (c == '/') {
+            if (roll < 2) {
+                score += 10 - (10 - roll);
+            }
+            roll = 0;
+        } else if (c == 'X') {
             score += 30;
-            frame++;
-        } else if (c == '/') {
-            score += 10 - (stoi(s.substr(0, s.find('/'))) + stoi(s.substr(s.find('/') + 1, 1)) % 10);
-            frame++;
+            roll = 0;
         } else {
-            int total = 0;
-            for (int i = 0; i < 2 || c == 'X'; i++) {
-                if (c == 'X') {
-                    score += 10;
-                    frame++;
-                    break;
-                }
-                total += c - '0';
-                c = s[s.find(c) + 1];
-            }
-            if (total >= 10) {
-                score += 10;
-            } else {
-                score += total;
-            }
+            int val = c - '0';
+            roll += val;
         }
+    }
+    if (roll < 2) {
+        score += 10 - (10 - roll);
+    } else if (roll == 2) {
+        score += 20;
+    } else {
+        score += roll * 10;
     }
     return score;
 }
