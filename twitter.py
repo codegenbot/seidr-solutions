@@ -1,8 +1,10 @@
-import re
+```
+import unicodedata
+
 def validate_tweet(tweet):
-    if len(re.sub(r'\W+', '', tweet).strip()) == 0:
-        return "You didn't type anything"
-    elif len(tweet) > 140:
+    if len(unicodedata.normalize('NFD', tweet).encode('ascii', 'ignore')) > 140:
         return "Too many characters"
+    elif len(tweet) == 0:
+        return "You didn't type anything"
     else:
-        return f"Your tweet has {len(re.sub(r'\W+', '', tweet))} characters"
+        return f"Your tweet has {len(tweet)} characters"
