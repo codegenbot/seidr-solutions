@@ -1,6 +1,5 @@
-#include <string>
-
-bool check_if_last_char_is_a_letter(std::string txt) {
+```cpp
+bool check_if_last_char_is_a_letter(string txt) {
     if(txt.empty()) return false; 
     char lastChar = txt.back(); 
     bool isLetter = (lastChar >= 'a' && lastChar <= 'z') || (lastChar >= 'A' && lastChar <= 'Z'); 
@@ -12,9 +11,4 @@ bool check_if_last_char_is_a_letter(std::string txt) {
         }
     }
     return isLetter && !isPartOfWord;
-}
-
-int main() {
-    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
-    return 0;
 }
