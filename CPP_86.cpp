@@ -5,7 +5,7 @@ string anti_shuffle(string s) {
     string result = "";
     for (int i = 0; i < s.length(); i++) {
         if (s[i] == ' ') {
-            result += " ";
+            result += ' ';
         } else {
             string word = "";
             while (i < s.length() && s[i] != ' ') {
@@ -15,7 +15,6 @@ string anti_shuffle(string s) {
             for (char c : word) {
                 result += min_element(word.begin(), word.end()) -> first;
             }
-            i--;
         }
     }
     return result;
