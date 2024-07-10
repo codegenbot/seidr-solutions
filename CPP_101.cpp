@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<string> split_string(string s){
+vector<string> words_string(string s){
     vector<string> words;
     stringstream ss(s);
     string word;
@@ -17,12 +17,8 @@ vector<string> split_string(string s){
     return words;
 }
 
-bool compare_vectors(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 int main(){
-    assert(compare_vectors(split_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
     
     return 0;
 }
