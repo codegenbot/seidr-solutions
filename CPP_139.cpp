@@ -15,9 +15,4 @@ int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    if(n<0){
-        cout<<"Error! Factorial of a negative number doesn't exist."<<endl;
-    }else{
-        cout << "The special factorial of " << n << " is: " << special_factorial(n) << endl;
-    }
-}
+    cout << "The special factorial of " << n << " is: " << special_factorial(n) << endl;
