@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 
 int specialFilter(const std::vector<std::string>&);
 
 int main() {
-    std::vector<std::string> nums;
+    std::vector<std::string> nums(1000000);
     std::cout << "Enter the numbers (enter 'stop' to finish): ";
     std::string num;
     while (true) {
@@ -17,12 +18,7 @@ int main() {
             continue; 
         }
         n = std::stoi(temp);
-        if (temp.length() > 1000000) { 
-            std::cout << "String too long. Please enter a shorter one." << std::endl;
-            continue; 
-        } else {
-            nums.push_back(std::to_string(n)); 
-        }
+        nums.push_back(std::to_string(n)); 
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
 }
