@@ -5,12 +5,10 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != tostring(reverse(str))) {
-        return false;
-    }
+    if (str != reverse(str).s) return false; // check if it's balanced
     int sum = 0;
     for (int i : q) {
         sum += i;
     }
-    return sum <= w;
+    return sum <= w; // check the sum of elements is less than or equal to w
 }
