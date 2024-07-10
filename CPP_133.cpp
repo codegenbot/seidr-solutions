@@ -1,11 +1,11 @@
 #include <vector>
 #include <cmath>
 
-double sum_squares(const std::vector<double>& lst){
-    double sum = 0;
-    for (double num : lst) {
-        double rounded_num = num;
-        sum += rounded_num * rounded_num;
+int sum_squares(std::vector<int> lst){
+    int sum = 0;
+    for (int num : lst) {
+        int sqrt_num = std::sqrt(num);
+        sum += sqrt_num * sqrt_num;
     }
     return sum;
 }
