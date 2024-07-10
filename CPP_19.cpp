@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <map>
@@ -13,8 +14,7 @@ int main() {
 
 std::string sort_numbers(std::string numbers) {
     std::map<std::string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                         {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                         {"eight", 8}, {"nine", 9}};
+                                         {"four", 4}, {"five", 5}, {"six", 6}};
 
     std::vector<std::string> numVector;
     std::string temp;
