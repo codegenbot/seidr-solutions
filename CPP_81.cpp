@@ -53,7 +53,6 @@ int main() {
         std::cin >> grades[i];
     }
 
-    std::vector<std::string> result = {};
     result = numerical_letter_grade(grades);
 
     std::cout << "Letter Grades: ";
