@@ -9,4 +9,14 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (holds_alternative<double>(a) && holds_alternative<int>(b)) {
         return get<double>(a) > get<int>(b) ? a : b;
     }
+    else if (holds_alternative<std::string>(a) && holds_alternative<double>(b)) {
+        std::string str = get<std::string>(a);
+        double num = get<double>(b);
+        return str > std::to_string(num) ? a : b;
+    }
+    else if (holds_alternative<double>(a) && holds_alternative<std::string>(b)) {
+        std::string str = get<std::string>(b);
+        double num = get<double>(a);
+        return std::to_string(num) > str ? a : b;
+    }
     else if (holds_alternative<std::string>(a) && holds_alternation
