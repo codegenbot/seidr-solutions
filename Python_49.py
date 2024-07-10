@@ -6,4 +6,5 @@ def modp(n: int, p: int) -> int:
     else:
         result = 1
         for _ in range(1, p):
-            result = (pow(n, _, p))
+            result = (pow(n, _, p)) 
+        return result
