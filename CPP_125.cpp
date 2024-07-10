@@ -38,7 +38,7 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-int my_main() {
+int test() {
     bool b = true;
     assert(same(split_words(""), vector<string>({""})));
     return 0;
