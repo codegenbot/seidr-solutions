@@ -1,8 +1,7 @@
-```
 def leaders(arr):
-    return [max(arr[i:]) for i in range(len(arr)) if max(arr[i:]) == arr[-1]]
+    return [max([x for x in arr[i:] if x >= i]) for i in range(len(arr))]
 
-print(leaders([0]))
+print(leaders([0])) 
 print(leaders([1, 0]))
 print(leaders([1, 451]))
 print(leaders([2, 1000, 0]))
