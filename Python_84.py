@@ -1,4 +1,2 @@
-```
 def solve(N):
-    return "1" if N > 1 else ""
-    pass
+    return "".join(str(i) for i in range(1, N+1)) if N > 0 else ""
