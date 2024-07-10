@@ -12,7 +12,7 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? s.reverse() : result;
+    return result.empty() ? string(s).erase().reserve(s.size()).insert(0, s.rbegin(), s.rend()) : result;
 }
 
 int main() {
