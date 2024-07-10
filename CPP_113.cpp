@@ -6,14 +6,18 @@
 using namespace std;
 
 vector<string> odd_count(vector<string> lst) {
-    vector<string> odd_strings;
-    for (const auto &str : lst) {
-        int odd_count = count_if(str.begin(), str.end(), [](char c) { return c % 2 != 0; });
-        if (odd_count % 2 != 0) {
-            odd_strings.push_back(str);
+    vector<string> result;
+    for (string str : lst) {
+        int oddCount = 0;
+        for (char c : str) {
+            if (c >= '0' && c <= '9' && (c - '0') % 2 != 0) {
+                oddCount++;
+            }
         }
+        string oddCountStr = "the number of odd elements " + to_string(oddCount) + " in the string " + str + " of the input.";
+        result.push_back(oddCountStr);
     }
-    return odd_strings;
+    return result;
 }
 
 bool issame(vector<string> a, vector<string> b) {
@@ -21,6 +25,8 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(odd_count({"271", "137", "314"}), {"137", "314"}));
+    assert(issame(odd_count({"271", "137", "314"}), {"the number of odd elements 2 in the string 271 of the input.",
+                                                      "the number of odd elements 3 in the string 137 of the input.",
+                                                      "the number of odd elements 2 in the string 314 of the input."}));
     return 0;
 }
