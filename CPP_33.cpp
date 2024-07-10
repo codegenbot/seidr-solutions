@@ -1,3 +1,9 @@
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 vector<int> sort_third(vector<int> l) {
     vector<int> l_copy = l;
     for (int i = 0; i < l.size(); ++i) {
@@ -9,12 +15,10 @@ vector<int> sort_third(vector<int> l) {
 }
 
 int main() {
-    vector<int> input = {5, 2, 8, 1, 3, 7, 4, 9, 6};
-    vector<int> expected = {2, 5, 8, 1, 3, 7, 4, 6, 9};
+    vector<int> input = {9, 5, 7, 2, 8, 4, 6, 1, 3};
+    vector<int> expected = {7, 5, 9, 2, 4, 8, 3, 1, 6};
 
-    vector<int> result = sort_third(input);
-
-    assert(result == expected);
+    assert(sort_third(input) == expected);
 
     return 0;
 }
