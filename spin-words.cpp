@@ -15,12 +15,13 @@ string spinWords(string str) {
             for (int j = i; j >= max(0, i-5); j--) {
                 result += str[j];
             }
-            i++;
+            i = str.length();
         } else {
-            for (int k = i; k < std::min((int)str.length(), i+6); k++) {
+            int k = i;
+            while (++k < min((int)str.length(), k+6)) {
                 result += str[k];
             }
-            i += min((int)str.length(), i+6) - 1;
+            i = k - 1;
         }
     }
     return result;
