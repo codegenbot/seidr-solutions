@@ -1,4 +1,3 @@
-```
 if __name__ == "__main__":
     print("Welcome to the word length calculator!")
     while True:
@@ -45,4 +44,4 @@ if __name__ == "__main__":
                         else:
                             print("Invalid input. Please enter a number or 'q'.")
                     except ValueError:
-                        print("Invalid input. Please enter a number or 'q'."
+                        print("Invalid input. Please enter a number or 'q'.")
