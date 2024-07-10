@@ -1,5 +1,11 @@
-````
+```cpp
 #include <string>
+
+int main() {
+    std::string str = "input_your_string_here";
+    int result = pairedDigits(str);
+    return 0;
+}
 
 int pairedDigits(const std::string& str) {
     int sum = 0;
@@ -10,5 +16,3 @@ int pairedDigits(const std::string& str) {
     }
     return sum;
 }
-
-int main() { return pairedDigits("12341234"); }
