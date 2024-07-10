@@ -12,15 +12,3 @@ int gcd(int a, int b) {
     }
     return a;
 }
-
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> res;
-    int n = text.size();
-    int m = target.size();
-
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target)
-            res.push_back(i);
-    }
-    return res;
-}
