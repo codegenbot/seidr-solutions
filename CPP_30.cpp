@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -25,7 +26,10 @@ int main() {
         return 1;
     }
 
-    if (isSame({num1}, {num2})) {
+    std::vector<float> a = {num1};
+    std::vector<float> b = {num2};
+
+    if (isSame(a, b)) {
         float result = get_positive(num1);
         std::cout << "The positive of the numbers is: " << result << std::endl;
     } else {
