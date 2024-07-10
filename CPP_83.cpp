@@ -1,13 +1,12 @@
+Here is the completed code:
+
+```cpp
 int starts_one_ends(int n) {
     int count = 0;
-    for (long long i = 1; i <= 9; i++) {
-        if (i == 1 || i == to_string(i).length() * 10 + 1) {
+    for (int i = 1; i <= 9; i++) {
+        if ((i == 1 || to_string(i).substr(0, 1) == "1") &&
+            (n - 1 >= 0 && i != 1 || n - 1 >= 1 && to_string(n - 1).substr(to_string(n - 1).length() - 1, 1) == "1")) {
             count++;
-        }
-        for (long long j = i + 1; j < 10 && to_string(j).length() != n; j++) {
-            if (j == 1 || j == to_string(j).length() * 10 + 1) {
-                count++;
-            }
         }
     }
     return count;
