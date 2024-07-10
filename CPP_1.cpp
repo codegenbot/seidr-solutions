@@ -29,7 +29,7 @@ vector<string> separate_paren_groups(string paren_string) {
     return groups;
 }
 
-bool checkSame(vector<string> a, vector<string> b) { // Changed function name to avoid redefinition
+bool checkSame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
