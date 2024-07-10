@@ -3,7 +3,21 @@
 #include <algorithm>
 #include <cmath>
 
-float maxVal(std::vector<float> l) {
-    std::vector<float> v = l; 
-    return *std::max_element(v.begin(), v.end());
+int main() {
+    std::vector<int> l;
+    int num;
+    
+    // Read input from user
+    while (std::cin >> num) {
+        l.push_back(num);
+    }
+    
+    if (l.empty()) {
+        return 0; // Return 0 if no numbers are entered.
+    }
+    
+    auto max_val = *std::max_element(l.begin(), l.end());
+    std::cout << "Maximum value is: " << max_val << std::endl;
+    
+    return 0;
 }
