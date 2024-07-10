@@ -32,4 +32,5 @@ string file_name_check(const string &file_name) {
 
 int main() {
     file_name_check("s.");
+    return 0;
 }
