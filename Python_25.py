@@ -1,4 +1,5 @@
-Here is the solution:
+```
+from typing import List
 
 def factorize(n: int) -> List[int]:
     i = 2
