@@ -1,25 +1,30 @@
-#include<string>
+#include <string>
+
 using namespace std;
 
 bool simplify(string x, string n) {
     int a = 1, b = 1, c = 1, d = 1;
-    int numeratorX = stoi(strtok(&x[0], "/"));
-    int denominatorX = stoi(strtok(nullptr, "/"));
-    int numeratorN = stoi(strtok(&n[0], "/"));
-    int denominatorN = stoi(strtok(nullptr, "/"));
+    
+    // Convert string fractions to integers.
+    size_t pos = x.find('/');
+    a = stoi(x.substr(0, pos));
+    b = stoi(x.substr(pos + 1));
 
-    // Find the greatest common divisor of a and b
-    while (d % a != 0)
-        d = d % a;
+    pos = n.find('/');
+    c = stoi(n.substr(0, pos));
+    d = stoi(n.substr(pos + 1));
 
-    // Apply GCD to both fractions
-    a = numeratorX / d;
-    c = numeratorN / d;
-    b = denominatorX / d;
-    d = denominatorN / d;
+    // Check if the product is an integer.
+    long long gcd = __gcd(a * c, b * d);
+    
+    return (a * c) / gcd == (b * d) / gcd;
+}
 
-    if ((a * c) == (b * d))
-        return true;
+// Function to calculate GCD of two numbers
+long long __gcd(long long a,long long b)
+{
+    if(b==0)
+        return a;
     else
-        return false;
+        return __gcd(b,a%b);
 }
