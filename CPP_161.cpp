@@ -1,20 +1,14 @@
-```cpp
 #include <iostream>
-#include <cctype>
-using namespace std;
+#include <string>
 
-int solve(string s) {
+int solve(std::string s) {
     for (int i = 0; i < s.length(); i++) {
-        s[i] = tolower(s[i]);
+        s[i] = std::tolower(s[i]);
     }
     return s.length();
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    int result = solve(str);
-    cout << "Length of the converted string is: " << result << endl;
+    std::cout << solve("#ccc") << std::endl;
     return 0;
 }
