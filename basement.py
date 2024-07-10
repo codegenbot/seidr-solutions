@@ -1,8 +1,14 @@
 ```
 def basement(input_vector):
-    total = 0
-    for i in range(len(input_vector)):
-        total += input_vector[i]
-        if total < 0:
-            return i + 1
+    seen_negative = False
+    total_sum = 0
+    for i, num in enumerate(input_vector):
+        total_sum += num
+        if total_sum < 0:
+            if not seen_negative:
+                return i
+            else:
+                seen_negative = True
+        elif seen_negative:
+            return i
     return -1
