@@ -5,25 +5,21 @@
 using namespace std;
 
 int main() {
-    vector<int> lst;
+    vector<int> input;
     int n;
-    cout << "Enter the number of elements: ";
     cin >> n;
     
-    for(int i=0; i<n; i++){
-        int x;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> x;
-        lst.push_back(x);
+    for(int i = 0; i < n; i++) {
+        int val;
+        cin >> val;
+        input.push_back(val);
     }
     
-    vector<int> result = strange_sort_vector(lst);
+    vector<int> output = strange_sort_vector(input);
     
-    cout << "Sorted list: ";
-    for(auto i : result){
-        cout << i << " ";
+    for(int i = 0; i < output.size(); i++) {
+        cout << output[i] << " ";
     }
-    cout << endl;
-
+    
     return 0;
 }
