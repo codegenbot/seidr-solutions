@@ -27,7 +27,7 @@ std::string int_to_roman(int num) {
     num %= 1000;
     int hundreds = num / 100;
     if (hundreds > 3) {
-        roman += "CM" + std::string(miniRoman(num - 300)).c_str();
+        roman += "CM" + std::string(miniRoman(num - 300));
     } else {
         for (int i = 0; i < hundreds; i++) {
             roman += "C";
@@ -38,7 +38,7 @@ std::string int_to_roman(int num) {
     if (tens == 9) {
         roman += "IX";
     } else if (tens > 5) {
-        roman += "D" + std::string(miniRoman(num - 50)).c_str();
+        roman += "D" + std::string(miniRoman(num - 50));
     } else {
         for (int i = 0; i < tens; i++) {
             roman += "X";
@@ -48,9 +48,11 @@ std::string int_to_roman(int num) {
     if (num == 9) {
         roman += "IX";
     } else if (num > 3) {
-        roman += "IV" + std::string(miniRoman(num - 4)).c_str();
+        roman += "IV" + miniRoman(num - 4);
     } else {
-        return roman + miniRoman(num);
+        for (int i = 0; i < num; i++) {
+            roman += "I";
+        }
     }
     return roman;
 }
