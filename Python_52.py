@@ -1,3 +1,2 @@
-```
-def below_threshold(l: list, t: int):
-    return all(i < t for i in l)
+def below_threshold(lst, threshold):
+    return all(num < threshold for num in lst)
