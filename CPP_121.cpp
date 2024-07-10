@@ -1,12 +1,18 @@
 #include <initializer_list>
+#include <vector>
 #include <cassert>
 
-int solutions(std::initializer_list<int> lst) {
+int solution(std::initializer_list<int> lst) {
     int sum = 0;
-    for (auto i : lst) {
-        if (i % 2 != 0) {
-            sum += i;
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst.begin()[i] % 2 != 0) {
+            sum += lst.begin()[i];
         }
     }
     return sum;
+}
+
+int main() {
+    assert(solution({3, 13, 2, 9}) == 3);
+    return 0;
 }
