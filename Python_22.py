@@ -1,10 +1,13 @@
-from typing import List, Any
+from typing import List
 
-def filter_integers() -> None:
-    user_input = input("Enter a list of values (separated by commas): ")
-    values = [x.strip() for x in user_input.split(",")]
-    
-    filtered_values = [value for value in map(int, values) if isinstance(value, int)]
-    print(filtered_values)
-
-filter_integers()
+def filter_integers() -> List[int]:
+    values = []
+    while True:
+        value = input("Enter an integer (or 'stop' to finish): ")
+        if value.lower() == 'stop':
+            break
+        try:
+            values.append(int(value))
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+    return values
