@@ -1,50 +1,21 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res;
     int min_diff = INT_MAX;
-    int split_index = 0;
+    int pos = 0;
     
-    for(int i = 1; i <= vec.size(); i++) {
-        int left_sum = 0;
-        int right_sum = accumulate(vec.begin() + i, vec.end(), 0);
-        
-        if(abs(left_sum - right_sum) < min_diff) {
-            min_diff = abs(left_sum - right_sum);
-            split_index = i;
+    for(int i=1; i<n; ++i){
+        if(abs(v[i-1] - v[i]) < min_diff) {
+            min_diff = abs(v[i-1] - v[i]);
+            pos = i;
         }
     }
     
-    vector<int> left_vec(vec.begin(), vec.begin() + split_index);
-    vector<int> right_vec(vec.begin() + split_index, vec.end());
+    res.push_back(vector<int>(v.begin(), v.begin() + pos));
+    res.push_back(vector<int>(v.begin() + pos, v.end()));
     
-    return {left_vec, right_vec};
-}
-
-int main() {
-    int n; cin >> n;
-    vector<int> vec(n);
-    for(int i = 0; i < n; i++) {
-        cin >> vec[i];
-    }
-    
-    pair<vector<int>, vector<int>> result = cutVector(vec);
-    
-    cout << "{";
-    for(int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i];
-        if(i < result.first.size() - 1) {
-            cout << " ";
-        }
-    }
-    cout << "}, {";
-    for(int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i];
-        if(i < result.second.size() - 1) {
-            cout << " ";
-        }
-    }
-    cout << "0}" << endl;
-    
-    return 0;
+    return res;
 }
