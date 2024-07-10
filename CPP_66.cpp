@@ -1,17 +1,27 @@
-```cpp
+#include <iostream>
+#include <string>
+#include <cctype>
+#include <algorithm>
+#include <cassert>
+
 int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
         if (isupper(c)) {
-            std::string temp = std::string(1, c);
-            while(std::next_permutation(temp.begin(), temp.end())) {
+            sum += c - 'A' + 1; 
+        } else if (islower(c)) {
+            std::string temp = s;
+            while(std::next_permutation(std::begin(temp), std::end(temp))) {
                 for(char d : temp) {
-                    sum += tolower(d) - 'a' + 1;
+                    sum += d - 'A' + 1;
                 }
             }
-        } else if (islower(c)) {
-            sum += c - 'a' + 1; 
         }
     }
     return sum;
+}
+
+int main() {
+    assert(digitSum("You arE Very Smart") == 327);
+    return 0;
 }
