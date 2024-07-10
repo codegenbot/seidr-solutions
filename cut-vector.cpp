@@ -1,13 +1,17 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& v) {
+vector<vector<int>> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
     int pos = 0;
-    for (int i = 1; i < v.size(); i++) {
-        if (abs(v[i] - v[0]) <= minDiff) {
-            minDiff = abs(v[i] - v[0]);
+    
+    for(int i = 1; i < nums.size(); i++) {
+        int diff = abs(nums[i] - nums[i-1]);
+        if(diff <= minDiff) {
+            minDiff = diff;
             pos = i;
         }
     }
-    return {vector<int>(v.begin(), v.begin() + pos), vector<int>(v.begin() + pos, v.end())};
+    
+    return {{nums.begin(), nums.begin() + pos}, {nums.begin() + pos, nums.end()}};
+}
