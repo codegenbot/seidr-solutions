@@ -1,8 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream>
+#include <pmr>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issam(std::vector<int> a, std::vector<int> b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -28,7 +29,7 @@ int main() {
         v2.push_back(x);
     }
 
-    if(issame(v1, v2)) {
+    if(issam(v1, v2)) {
         std::cout << "The vectors are the same.";
     } else {
         std::cout << "The vectors are not the same.";
