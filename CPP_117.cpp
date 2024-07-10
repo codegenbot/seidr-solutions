@@ -1,39 +1,39 @@
 #include <vector>
 #include <iostream>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    
+
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-    
+
     return true;
 }
 
-vector<string> select_words(string s, int n);
+std::vector<std::string> select_words(std::string s, int n);
 
 int main() {
-    // Test the select_words function
-    vector<string> result = select_words("Hello World, this is a test", 2);
-    vector<string> expected = {"Hello", "World,", "this", "test"};
-    
-    if (issame(result, expected)) {
-        std::cout << "Test Passed" << std::endl;
-    } else {
-        std::cout << "Test Failed" << std::endl;
-    }
-    
+    // Test cases
+    std::vector<std::string> input1 = {"Hello", "World"};
+    std::vector<std::string> input2 = {"Good", "Morning"};
+
+    std::vector<std::string> output1 = select_words("Hello World", 2);
+    std::vector<std::string> output2 = select_words("Good Morning", 1);
+
+    assert(issame(output1, input1));
+    assert(issame(output2, input2));
+
     return 0;
 }
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    std::string word = "";
     int count = 0;
 
     for (char c : s) {
