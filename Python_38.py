@@ -1,6 +1,5 @@
-Here is the modified code:
-
-def decode_cyclic(s: str):
+def decode_cyclic():
+    s = input("Enter a string: ")
     result = ""
     i = 0
     while i < len(s):
@@ -12,3 +11,5 @@ def decode_cyclic(s: str):
             result += chr(char_val % 128)
             i += 3
     return result
+
+print(decode_cyclic())
