@@ -3,12 +3,15 @@ def add(a: int, b: int) -> int:
 
 while True:
     try:
-        a, b = map(int, input("Enter two numbers separated by a space: ").split())
-        result = add(a, b)
-        print(result)
-        break
+        a = int(input("Enter the first number: "))
+        b = int(input("Enter the second number: "))
     except ValueError:
         print("Please enter integers only. Please re-enter the numbers.")
+        continue
     except KeyboardInterrupt:
         print("\nProgram interrupted. Exiting.")
+        break
+    else:
+        result = add(a, b)
+        print(result)
         break

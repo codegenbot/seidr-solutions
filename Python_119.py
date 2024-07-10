@@ -1,2 +1,2 @@
 n = int(input())
-input_list = [input().strip() for _ in range(n)]
+input_list = list(map(int, input().split()))
