@@ -17,12 +17,11 @@ std::string flip_case(const std::string& str) {
 }
 
 int driver() {  
-    std::string result;
-    while (std::getline(std::cin, result)) {  
-        if (result.empty()) {
+    while (std::cin >> std::string temp) {  
+        if (temp.empty()) {
             std::cout << "Error: Input is empty. Please enter a valid string." << std::endl;
         } else {
-            std::cout << "Flipped case: " << flip_case(result) << std::endl;
+            std::cout << "Flipped case: " << flip_case(temp) << std::endl;
         }
     }
 }
