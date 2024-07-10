@@ -1,37 +1,35 @@
-map<string, int> number_map = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
+map<string, int> numeral_map = {
+        {"zero", 0},
+        {"one", 1},
+        {"two", 2},
+        {"three", 3},
+        {"four", 4},
+        {"five", 5},
+        {"six", 6},
+        {"seven", 7},
+        {"eight", 8},
+        {"nine", 9}
+    };
 
-vector<pair<string, int>> number_list;
-string result = "";
-
-string current_number = "";
-for (char c : numbers) {
-    if (c != ' ') {
-        current_number += c;
-    } else {
-        number_list.push_back({current_number, number_map[current_number]});
-        current_number = "";
+    map<int, string> reverse_map;
+    for (const auto& pair : numeral_map) {
+        reverse_map[pair.second] = pair.first;
     }
-}
-number_list.push_back({current_number, number_map[current_number}]);
 
-sort(number_list.begin(), number_list.end(), [](const pair<string, int>& a, const pair<string, int>& b) {
-    return a.second < b.second;
-});
+    vector<int> nums;
+    stringstream ss(numbers);
+    string token;
+    while (ss >> token) {
+        nums.push_back(numeral_map[token]);
+    }
 
-for (auto num : number_list) {
-    result += num.first + " ";
-}
+    sort(nums.begin(), nums.end());
 
-return result;
-}
+    string result;
+    for (int num : nums) {
+        result += reverse_map[num] + " ";
+    }
+
+    result.pop_back(); // Remove the trailing space
+
+    return result;
