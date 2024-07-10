@@ -1,7 +1,30 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
-using namespace std;
+int minPath(vector<vector<int>>& grid) {
+    int m = grid.size();
+    if (m == 0) return 1;
+    int n = grid[0].size();
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (grid[i][j] == 1) {
+                if (i > 0 && grid[i - 1][j] == 1) continue;
+                if (j > 0 && grid[i][j - 1] == 1) continue;
+
+                grid[i][j] = 2;
+            }
+        }
+    }
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (grid[i][j] == 1) return 0;
+        }
+    }
+
+    return 1;
+}
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -9,19 +32,4 @@ bool issame(vector<int> a, vector<int> b) {
         if (a[i] != b[i]) return false;
     }
     return true;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> a(n), b(n);
-    for(int i=0; i<n; i++){
-        cin >> a[i];
-    }
-    for(int i=0; i<n; i++){
-        cin >> b[i];
-    }
-    if(issame(a, b)) cout << "The two arrays are the same." << endl;
-    else cout << "The two arrays are not the same." << endl;
-    return 0;
 }
