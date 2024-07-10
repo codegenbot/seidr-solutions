@@ -1,12 +1,20 @@
-bool issame(const string& s1, const string& s2) {
+bool issame(string s1, string s2) {
+    if (s1.size() != s2.size()) {
+        return false;
+    }
+
+    sort(s1.begin(), s1.end());
+    sort(s2.begin(), s2.end());
+
     return s1 == s2;
 }
 
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    assert(issame("hello", "hello"));
-    assert(!issame("hello", "world"));
+    assert(issame("hello", "ohell"));
+    assert(issame("abc", "cab"));
+    assert(issame("123", "123"));
 
     return 0;
 }
