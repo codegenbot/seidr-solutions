@@ -1,5 +1,5 @@
 int luhn(std::vector<int> card) {
-    std::reverse(card.begin(), card.end()); // Reverse the card
+    std::reverse(card.begin(), card.end()); 
     int sum = 0;
     bool doubleNext = false;
 
