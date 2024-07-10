@@ -27,26 +27,19 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    cin.ignore();
-    
-    vector<string> targets(n);
-    for (int i = 0; i < n; i++) {
-        getline(cin, targets[i]);
-    }
-    
     string text;
     getline(cin, text);
-
-    for (string target : targets) {
+    string target;
+    while (true) {
+        getline(cin, target);
         if (target.empty()) break;
         vector<int> indices = indicesOfSubstring(text, target);
-        
+
         for (int i : indices) {
             cout << i << " ";
         }
         cout << endl;
+        getline(cin, text);
     }
 
     return 0;
