@@ -12,13 +12,8 @@ int main() {
         while (true) {
             std::cout << "Enter element: ";
             if (!(std::cin >> std::ws)) {
-                if (!std::getline(std::cin, num).empty()) {
-                    break;
-                } else {
-                    std::cerr << "Invalid input! Please enter a string.\n";
-                    std::cin.clear();
-                    std::cin.ignore(1024, '\n');
-                }
+                std::getline(std::cin, num);
+                break;
             } else {
                 std::cerr << "Invalid input! Please enter a string.\n";
                 std::cin.clear();
