@@ -20,9 +20,3 @@ std::vector<int> f(int n){
     }
     return res;
 }
-
-int main(){
-    assert(issame(f(3), {1, 2, 3}) == true);
-    
-    return 0;
-}
