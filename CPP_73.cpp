@@ -13,31 +13,28 @@ int smallest_change(std::vector<int> arr) {
         }
     }
     
-    int smallest = INT_MAX;
-
-    std::vector<int> dp;
-    for (auto coin : arr) {
-        dp.push_back(coin);
-    }
+    std::vector<int> dp(m, 0);
     for (int length = 2; length <= n; length++) {
         for (int i = 0; i < n - length + 1; i++) {
                 int j = i + length - 1;
                 
                 if (arr[i] == arr[j]) {
-                    dp.back() = dp[dp.size()-2];
+                    dp[length-1] = dp[length-2];
                 } else {
-                    int min_left = (i < n-length) ? dp[dp.size()-2] : INT_MAX;
-                    int min_right = (j > length-1) ? dp[dp.size()-2] : INT_MAX;
-                    dp.push_back( 1 + (arr[i] == arr[j]) ? dp[dp.size()-2] : std::min(min_left, min_right));
+                    int min_left = (i < n-length) ? dp[length-2] : INT_MAX;
+                    int min_right = (j > length-1) ? dp[length-2] : INT_MAX;
+                    dp[length-1] = 1 + (arr[i] == arr[j]) ? dp[length-2] : std::min(min_left, min_right);
                 }
             }
 
-        if (dp.back() < smallest) {
-            smallest = dp.back();
+        for(int i=0; i<m; i++){
+            if(dp[i] != 0 && dp[i] < INT_MAX){
+                return dp[i];
+            }
         }
     }
     
-    return smallest;
+    return INT_MAX;
 }
 
 int main() {
