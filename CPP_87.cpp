@@ -24,4 +24,7 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
     return result;
 }
 
-assert(is_same(get_row({{}, {1}, {1, 2, 3}}, 3), std::vector<std::vector<int>>{{2, 2}}));
+int main() {
+    assert(is_same(get_row({{}, {1}, {1, 2, 3}}, 3), std::vector<std::vector<int>>{{2, 2}}));
+    return 0;
+}
