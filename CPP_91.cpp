@@ -1,29 +1,28 @@
+```
 #include <string>
+#include <iostream>
 
-int main() {
-    string S;
-    cout << "Enter a sentence: ";
-    cin >> S;
-    
-    int count = is_bored(S);
-    
-    cout << "Count: " << count << endl;
-    
-    return 0;
-}
-
-int is_bored(string S){
+int is_bored(std::string S){
     int count = 0;
-    string boredom = "I";
+    std::string boredom = "I";
     size_t pos = 0;
-    
-    while((pos = S.find(".", pos)) != string::npos ||
-          (pos = S.find("?", pos)) != string::npos ||
-          (pos = S.find("!", pos)) != string::npos){
+
+    while((pos = S.find(".", pos)) != std::string::npos ||
+          (pos = S.find("?", pos)) != std::string::npos ||
+          (pos = S.find("!", pos)) != std::string::npos){
         if(S.substr(0, boredom.size()).compare(boredom) == 0)
             count++;
         pos += 1;
     }
-    
+
     return count;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    int result = is_bored(input);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
 }
