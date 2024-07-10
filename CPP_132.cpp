@@ -22,8 +22,7 @@ bool is_nested(std::string str) {
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    getline(std::cin, str); 
-    str.erase(0, str.find_first_not_of(" \n")); // remove leading and trailing whitespace
+    std::cin >> str; 
     if (is_nested(str)) {
         std::cout << "The string is nested." << std::endl;
     } else {
