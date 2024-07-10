@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -15,7 +16,12 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
 }
 
 int main() {
-    vector<string> filtered_strings = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    vector<string> input = {"grunt", "trumpet", "prune", "gruesome"};
+    vector<string> result = filter_by_substring(input, "run");
+
+    for (const auto& str : result) {
+        cout << str << endl;
+    }
 
     return 0;
 }
