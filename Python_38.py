@@ -1,11 +1,17 @@
 def decode_cyclic(s: str):
     result = ""
-    i = 0
-    while i < len(s):
-        if i + 3 <= len(s):
-            group = s[i : i + 3]
+    group = ""
+    for char in s:
+        group += char
+        if len(group) == 3:
+            if group[0] == group[2]:
+                result += group[0]
+            else:
+                result += group[1]
+            group = ""
+    if group:
+        if group[0] == group[2]:
+            result += group[0]
         else:
-            group = s[i:]
-        result += group[1] + (group[0] if i + 2 < len(s) else "")
-        i += 3
+            result += group[1]
     return result
