@@ -10,9 +10,15 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             current_depth -= 1
         if char in ['(', ')'] and current_depth >= 0:
             depths.append(current_depth)
+        elif char not in ['(', ')']:
+            continue
+        else:
+            return "Invalid input: Not a valid nested parens string"
+    if current_depth != 0:
+        return "Invalid input: Not a valid nested parens string"
     return depths
 
-input_string = input("Enter the nested parens string: ").strip()
+input_string = input("Enter the nested parens string: ")
 if input_string:
     result = parse_nested_parens(input_string)
     print(result)
