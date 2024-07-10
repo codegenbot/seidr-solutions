@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,9 +11,9 @@ int gcd(int a, int b) {
     return a;
 }
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
-    size_t index = 0;
+std::deque<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::deque<int> result;
+    int index = 0;
 
     while (index <= text.length() - target.length()) {
         size_t found = text.find(target, index);
@@ -38,7 +37,7 @@ int main() {
     // Example usage for indicesOfSubstring function
     std::string text = "banana";
     std::string target = "ana";
-    std::vector<int> result = indicesOfSubstring(text, target);
+    std::deque<int> result = indicesOfSubstring(text, target);
     std::cout << "Indices of substring 'ana' in 'banana': ";
     for (int i : result) {
         std::cout << i << " ";
