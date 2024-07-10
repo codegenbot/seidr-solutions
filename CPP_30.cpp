@@ -16,6 +16,21 @@ vector<float> get_positive(vector<float> l) {
 }
 
 int main() {
-    assert(issame(get_positive({}), {})); 
+    assert(issame(get_positive({}), {})); // Check the output with empty input
+    cout << "Input some numbers separated by spaces: ";
+    vector<float> numbers;
+    float num;
+    while (cin >> num) {
+        numbers.push_back(num);
+    }
+    if (!numbers.empty()) {
+        cout << "Positive numbers: ";
+        for (float n : get_positive(numbers)) {
+            cout << n << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "No positive numbers found." << endl;
+    }
     return 0;
 }
