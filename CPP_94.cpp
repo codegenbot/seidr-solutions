@@ -1,17 +1,9 @@
-#include <vector>
 #include <iostream>
+#include <cassert>
 
-int sumVector(const std::vector<int>& vec) {
-    int sum = 0;
-    for (const auto& num : vec) {
-        sum += num;
-    }
-    return sum;
-}
-
-int testMain() {
-    std::vector<int> lst({127, 97, 8192}); 
-    int result = sumVector(lst); 
-    std::cout << "The sum is: " << result << std::endl; 
+int main() {
+    int num3, num4, num5;
+    std::cin >> num3 >> num4 >> num5;
+    assert({num3, num4, num5} == {127, 97, 224});
     return 0;
 }
