@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <algorithm>
 
@@ -6,17 +7,16 @@ int main() {
     int n;
     std::cin >> n;
 
-    int arr[n];
+    std::string arr[n]; 
+
     for(int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
-        std::string s;
-        std::cin >> s;
-        arr[i] = s.length(); 
+        std::cin >> arr[i];
     }
 
-    auto max_value = *std::max_element(arr, arr+n);
+    //int max_value = *std::max_element(arr, arr+n); 
 
-    std::cout << "Maximum length: " << max_value << std::endl;
+    //std::cout << "Maximum element: " << max_value << std::endl;
 
     return 0;
 }
