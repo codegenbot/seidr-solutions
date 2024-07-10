@@ -11,7 +11,7 @@ bool is_happy(std::string s) {
     return true;
 }
 
-int main() {
+main() {
     std::string input;
     std::cin >> input;
     
