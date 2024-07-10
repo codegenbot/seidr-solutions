@@ -11,10 +11,8 @@ int starts_one_ends(int n) {
             count++;
         }
         string str;
-        str += '1';  
-        for (int j = 0; j < n - 1; j++) {
-            str += '0';
-        }
+        str += to_string(i).substr(0, n - 1);
+        str += '1';
         if (str != to_string(i)) {
             continue;
         }
