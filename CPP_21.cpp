@@ -1,11 +1,19 @@
-float min_num = *min_element(numbers.begin(), numbers.end());
-    float max_num = *max_element(numbers.begin(), numbers.end());
-    
-    vector<float> scaled_numbers;
+float min_num = numbers[0];
+    float max_num = numbers[0];
     for (float num : numbers) {
-        float scaled_num = (num - min_num) / (max_num - min_num);
-        scaled_numbers.push_back(scaled_num);
+        if (num < min_num) {
+            min_num = num;
+        }
+        if (num > max_num) {
+            max_num = num;
+        }
     }
-    
-    return scaled_numbers;
+
+    vector<float> transformed_numbers;
+    for (float num : numbers) {
+        float transformed_num = (num - min_num) / (max_num - min_num);
+        transformed_numbers.push_back(transformed_num);
+    }
+
+    return transformed_numbers;
 }
