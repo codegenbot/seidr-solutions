@@ -2,10 +2,9 @@
 #include <iostream>
 #include <sstream>
 #include <unordered_map>
-#include <string>
 
 std::string int_to_mini_romank(int num) {
-    std::unordered_map<int, std::string> romanMap;
+    std::unordered_map<int, std::string> romanMap( std::hash<int>(), std::equal_to<int>() );
     romanMap = {{1000, "M"},
                  {900, "CM"},
                  {500, "D"},
@@ -36,5 +35,5 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> num;
     std::string result = int_to_mini_romank(num);
-    std::cout << "Roman numeral representation: " << result << std::endl;
+    std::cout << "Roman numeral representation: " << std::to_string(result) << std::endl;
 }
