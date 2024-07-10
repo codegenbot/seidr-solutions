@@ -12,21 +12,25 @@ string sort_numbers(string numbers) {
         if (numbers[i] == ' ') {
             continue;
         }
-        temp = "";
-        while (i < numbers.length() && numbers[i] != ' ') {
-            temp += numbers[i];
-            i++;
+        for (int j = i + 1; j <= numbers.length(); j++) {
+            if (numbers[j] == ' ') {
+                temp = numbers.substr(i, j - i);
+                break;
+            }
         }
         numVec.push_back(temp);
+        i = j;
     }
 
-    sort(numVec.begin(), numVec.end(), [&numMap](string a, string b) {
-        return to_string(numMap[a]) < to_string(numMap[b]);
-    });
-
+    sort(numVec.begin(), numVec.end());
     string result = "";
-    for (auto &str : numVec) {
-        result += str + " ";
+    for (int i = 0; i < numVec.size(); i++) {
+        if (i == 0) {
+            result += numMap[numVec[i]];
+        } else {
+            result += " " + numMap[numVec[i]];
+        }
     }
+
     return result;
 }
