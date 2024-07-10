@@ -1,6 +1,7 @@
 #include <cassert>
 #include <string>
 #include <any>
+#include <iostream>
 
 std::string compare_one(std::string str, int num) {
     if (num == 1) {
