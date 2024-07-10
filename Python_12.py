@@ -1,10 +1,14 @@
+```
 from typing import List, Optional
 
-def longest(strings: List[str]) -> Optional[str]:
+def longest() -> Optional[str]:
+    strings = []
+    while True:
+        user_input = input("Enter a string (or 'done' to finish): ")
+        if user_input.lower() == 'done':
+            break
+        strings.append(user_input)
+    
     if not strings:
         return None
-    user_input = input("Enter a list of strings separated by space or comma: ")
-    strings_list = [i.strip() for i in user_input.split(",") if i]
-    return max(strings_list, key=len)
-
-longest([])
+    return max(strings, key=len)
