@@ -1,4 +1,5 @@
 #include <vector>
+using namespace std;
 
 bool issame(std::vector<int> v1, std::vector<int> v2) {
     if (v1.size() != v2.size()) {
