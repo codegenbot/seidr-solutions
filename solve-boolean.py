@@ -1,17 +1,17 @@
-Here is the solution:
-
-def solve_boolean(expression):
-    if expression == 'T':
+def solve_boolean(input_string):
+    if input_string == "t":
         return True
-    elif expression == 'F':
+    elif input_string == "f":
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid operation")
-    else:
-        result = None
-        for char in expression:
-            if char == '&':
-                result = result and (expression[expression.index(char) + 1:] != 'T')
-            elif char == '|':
-                result = result or (expression[expression.index(char) + 1:] != 'F')
-        return result
+    elif "&" in input_string:
+        inputs = input_string.split("&")
+        if all(map(str.lower == "f", inputs)):
+            return False
+        else:
+            return any(map(str.lower != "f", inputs))
+    elif "|" in input_string:
+        inputs = input_string.split("|")
+        if all(map(str.lower == "f", inputs)):
+            return False
+        else:
+            return any(map(str.lower != "f", inputs))
