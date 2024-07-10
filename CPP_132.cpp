@@ -6,10 +6,10 @@ bool is_nested(const std::string str) {
     bool result = false;
     int level = 0;
 
-    for (auto c : str) {
-        if (c == '(') {
+    for (std::string::iterator it = str.begin(); it != str.end(); ++it) {
+        if (*it == '(') {
             level++;
-        } else if (c == ')') {
+        } else if (*it == ')') {
             if (level > 0) {
                 level--;
             }
