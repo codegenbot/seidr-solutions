@@ -1,9 +1,11 @@
 #include <iostream>
-#include <cmath>
+#include <vector>
 
 bool isPrime(int num) {
-    if (num <= 1) return false;
-    for (int i = 2; i <= sqrt(num); ++i) {
+    if (num <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= num; ++i) {
         if (num % i == 0) {
             return false;
         }
@@ -12,28 +14,21 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
-    if (n == 1) return 2;
-    if (n == 2) return 3;
-
-    int prev = 2, curr = 3;
-    int count = 2;
-
-    while (count < n) {
-        int next = prev + curr;
-        prev = curr;
-        curr = next;
-
-        if (isPrime(curr)) {
-            count++;
+    std::vector<int> fib{0, 1};
+    int i = 2;
+    while (true) {
+        fib.push_back(fib[i - 1] + fib[i - 2]);
+        if (isPrime(fib[i])) {
+            if (--n == 0) {
+                return fib[i];
+            }
         }
+        ++i;
     }
-
-    return curr;
 }
 
 int main() {
     int n;
-    std::cout << "Enter n: ";
     std::cin >> n;
     std::cout << prime_fib(n) << std::endl;
     return 0;
