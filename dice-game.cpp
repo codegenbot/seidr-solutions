@@ -5,13 +5,12 @@ double probability(int n, int m) {
     double total = (double)n * m;
     double p = 0;
 
-    // Probability that they are different
-    p += (n-1)/(double)(n*m);
+    // Calculate the probability that Peter rolls higher than Colin
+    for (int i = 1; i <= min(n, m); i++) {
+        p += (n-i)/(double)(n*m);
+    }
 
-    // Add the probability that Colin is higher
-    p += ((m-1)/(double)(n*m));
-
-    return 1 - p; 
+    return p;
 }
 
 int main() {
