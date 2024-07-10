@@ -25,9 +25,9 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
     vector<int> res = get_odd_collatz(n);
-    cout << "The sorted odd numbers in Collatz sequence are: ";
     for (auto x : res) {
         cout << x << " ";
     }
+    cout << endl;
     return 0;
 }
