@@ -1,13 +1,10 @@
-```cpp
 #include <vector>
 
 bool issame(int a, int b) {
-    if(a == b) {
+    if(a == b)
         return true;
-    }
-    else {
+    else
         return false;
-    }
 }
 
 vector<int> compare(vector<int> game, vector<int> guess) {
