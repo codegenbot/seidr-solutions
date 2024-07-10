@@ -22,7 +22,9 @@ std::string camelCase(const std::string& s) {
 
 int main() {
     std::string s;
-    while (std::getline(std::cin, s)) {
+    while (true) {
+        s = "";
+        if (!(std::cin >> s)) break;
         s.erase(std::remove_if(s.begin(), s.end(), [](char c){ return c == '-' || c == ' '; }), s.end());
         std::cout << camelCase(s) << '\n';
     }
