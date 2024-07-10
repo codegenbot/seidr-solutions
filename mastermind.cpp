@@ -25,7 +25,7 @@ int main() {
     }
 
     for (auto it = codeFreq.begin(); it != codeFreq.end(); ++it) {
-        whitePegs += std::min(it->second, guessFreq[it->first]);
+        whitePegs += min(it->second, guessFreq[it->first]);
     }
 
     cout << whitePegs << endl << blackPegs << endl;
