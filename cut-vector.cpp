@@ -3,47 +3,21 @@ using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int cut_index = 0;
-    
-    for(int i = 1; i < v.size(); ++i) {
-        int diff = abs(v[i] - v[0]);
-        if(diff <= min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    pair<vector<int>, vector<int>> res;
+    for (int i = 0; i < v.size(); i++) {
+        int left_sum = 0, right_sum = 0;
+        for (int j = 0; j < i; j++) {
+            left_sum += v[j];
+        }
+        for (int j = i; j < v.size(); j++) {
+            right_sum += v[j];
+        }
+        if (left_sum == right_sum) {
+            return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
+        } else if (abs(left_sum - right_sum) < min_diff) {
+            min_diff = abs(left_sum - right_sum);
+            res = {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
         }
     }
-    
-    return {vector<int>(v.begin(), v.begin() + cut_index), vector<int>(v.begin() + cut_index, v.end())};
-}
-
-int main() {
-    int n;
-    cin >> n;
-
-    vector<int> v(n);
-    for(int i = 0; i < n; ++i) {
-        cin >> v[i];
-    }
-
-    pair<vector<int>, vector<int>> result = cutVector(v);
-
-    cout << "Cut at index ";
-    for(auto x : result.first) {
-        cout << x << ' ';
-    }
-    cout << '\n';
-
-    cout << "Resulting subvectors: \n";
-    cout << "First vector: ";
-    for(auto x : result.first) {
-        cout << x << ' ';
-    }
-    cout << '\n';
-    cout << "Second vector: ";
-    for(auto x : result.second) {
-        cout << x << ' ';
-    }
-    cout << '\n';
-
-    return 0;
+    return res;
 }
