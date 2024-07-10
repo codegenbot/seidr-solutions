@@ -7,3 +7,4 @@ for (int i = 0; i < a.size(); i++) {
     }
 }
 return result;
+}
