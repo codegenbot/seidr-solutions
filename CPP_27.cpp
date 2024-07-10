@@ -17,19 +17,20 @@ std::string flip_case(const std::string& str) {
 }
 
 int main() {
-    std::string result;
     char c;
+    std::string input_string;
+
     while ((c = std::cin.get()) != '\n') {
         if (isalpha(c)) {
             if (isupper(c))
-                result += tolower((char)c);  
+                input_string += tolower((char)c);  
             else
-                result += toupper((char)c);
+                input_string += toupper((char)c);
         } else
-            result += c;
+            input_string += c;
     }
     
-    std::cout << "Flipped case: " << flip_case(result) << std::endl;
+    std::cout << "Flipped case: " << flip_case(input_string) << std::endl;
 
     return 0;
 }
