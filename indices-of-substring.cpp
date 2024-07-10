@@ -10,7 +10,7 @@ int main() {
     std::vector<int> indices;
     
     if (target.empty()) {
-        for (int i = 0; i < text.length() - target.length() + 1; ++i) {
+        for (int i = 0; i <= text.length() - target.length(); ++i) {
             bool match = true;
             for (int j = 0; j < target.length(); ++j) {
                 if (text[i + j] != target[j]) {
