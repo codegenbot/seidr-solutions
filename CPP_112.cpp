@@ -19,12 +19,11 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    string input_s, input_c;
-    cin >> input_s >> input_c;
-    
-    vector<string> result = reverse_delete(input_s, input_c);
-    
-    cout << result[0] << " " << result[1] << endl;
-    
+    string s, c;
+    cin >> s >> c;
+    vector<string> result = reverse_delete(s, c);
+    for (auto res : result) {
+        cout << res << " ";
+    }
     return 0;
 }
