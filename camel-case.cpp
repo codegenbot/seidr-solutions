@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 std::string camelCase(const std::string& s) {
     std::string result;
@@ -22,10 +22,8 @@ std::string camelCase(const std::string& s) {
 
 int main() {
     std::string s;
-    while (true) {
-        s = "";
-        if (!(std::cin >> s)) break;
-        s.erase(std::remove_if(s.begin(), s.end(), [](char c){ return c == '-' || c == ' '; }), s.end());
+    while (std::cin >> s) {
+        s.erase(std::remove(s.begin(), s.end(), ' ', '-' ), s.end());
         std::cout << camelCase(s) << '\n';
     }
     return 0;
