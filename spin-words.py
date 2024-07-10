@@ -3,5 +3,7 @@ def spin_words(s):
     result = []
     for word in words:
         if len(word) >= 5:
-            return ' '.join(word[::-1] for word in words)
-    return ' '.join(words)
+            result.append(word[::-1])
+        else:
+            result.append(word)
+    return ' '.join(result)
