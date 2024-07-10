@@ -27,7 +27,7 @@ vector<int> sort_third(vector<int> l) {
                 result.push_back(val);
                 for(int k = 0; k < 2; k++) {
                     if(i % 3 == 0)
-                        i += 3;
+                        i++;
                     else
                         i++;
                 }
