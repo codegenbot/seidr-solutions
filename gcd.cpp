@@ -5,7 +5,7 @@ using namespace std;
 
 long long gcd(long long a, long long b) {
     if (b == 0) {
-        return a > 0 ? a : -a;
+        return a;
     }
     return gcd(b, a % b);
 }
@@ -31,11 +31,13 @@ vector<int> findSubstringIndices(string text, string target) {
 
 int main() {
     long long a, b;
+    cout << "Enter two integers separated by space: ";
     cin >> a >> b;
-    cout << gcd(a, b) << endl;
 
     string text, target;
+    cout << "Enter text string followed by target string: ";
     cin >> text >> target;
+    
     vector<int> result = findSubstringIndices(text, target);
     for (int i = 0; i < result.size(); ++i) {
         cout << result[i] << " ";
