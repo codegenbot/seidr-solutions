@@ -1,17 +1,23 @@
+Here is the solution:
+
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
+std::string camelCase(const std::string& str) {
+    std::string result;
+    bool capitalizeNext = true;
+
     for (char c : str) {
         if (c == '-') {
-            result += (result.length() > 0 ? "" : "") + topper(c+1);
-        } else if (c == ' ') {
-            continue;
+            capitalizeNext = true;
+        } else if (capitalizeNext) {
+            result += toupper(c);
+            capitalizeNext = false;
         } else {
             result += tolower(c);
         }
     }
+
     return result;
 }
 
