@@ -3,11 +3,9 @@ using namespace std;
 int hex_key(string num) {
     int count = 0;
     for (char c : num) {
-        if (c >= 'A' && c <= 'F') 
-            c = c - 'A' + 10; // convert A-F to 10-15
-        else if (isdigit(c)) 
-            c -= '0';
-        
+        if (c >= 'A' && c <= 'F') {
+            c = (c >= 'A' && c <= 'F') ? c - 'A' + 10 : c;
+        }
         if (stoi(string(1, c)) > 1 && isPrime(stoi(string(1, c)))) {
             count++;
         }
