@@ -1,11 +1,18 @@
-```cpp
+#include <cassert>
+#include <string>
+
 int solve(std::string& color) {
     int result = 0;
     for (char c : color) {
-        if (c != '\0' && !std::isdigit(c)) {
+        if (!std::isdigit(c)) {
             result++;
         }
     }
     return result;
 
+}
+
+int main() {
+    assert(solve("#ccc") == 3);
+    return 0;
 }
