@@ -1,5 +1,8 @@
+```
 def fruit_distribution(s, n):
-    s = " ".join(s).replace("apples and", "apples ").replace("oranges", " oranges").split()
-    apples = int(s[s.index("apples") + 6:].replace("and", "").replace("apples ", ""))
-    oranges = int(s[s.index(" oranges") + 8:].replace("and", "").replace("oranges ", ""))
-    return n - apples - oranges
+    s = " ".join(s).replace("apples and", "apples ").replace("oranges and", "oranges ")
+    if 'apples' not in s or 'oranges' not in s:
+        return None
+    apples = int(''.join(filter(str.isdigit, s[s.index("apples ") + 7:])) or 0)
+    oranges = int(''.join(filter(str.isdigit, s[s.index("oranges ") + 8:])) or 0)
+    return n - (apples + oranges)

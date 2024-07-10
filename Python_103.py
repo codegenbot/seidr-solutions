@@ -1,5 +1,11 @@
-def rounded_avg(n, m):
-    if n > m:
-        return -1
-    avg = round((n + m) / 2)
-    return format(avg, '.0f')
+def sum_of_numbers():
+    total = 0
+    while True:
+        num = input("Enter a number (or 'stop' to finish): ")
+        if num.lower() == "stop":
+            break
+        try:
+            total += int(num)
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+    return total
