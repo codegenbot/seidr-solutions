@@ -1,7 +1,8 @@
 #include <vector>
+#include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b){
-    return a == b;
+bool issame(std::vector<float> vec1, std::vector<float> vec2){
+    return vec1 == vec2;
 }
 
 std::vector<float> derivative(std::vector<float> xs){
