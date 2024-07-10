@@ -1,5 +1,4 @@
 #include <string>
-#include <iostream>
 
 std::string string_sequence(int n) {
     std::string result = "";
