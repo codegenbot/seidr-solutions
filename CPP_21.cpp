@@ -22,7 +22,3 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 
     return rescaled_numbers;
 }
-
-bool issame(vector<float> a, vector<float> b) {
-    // Implementation of issame function if needed
-}
