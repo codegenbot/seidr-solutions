@@ -10,4 +10,4 @@ def fizz_buzz(n: int):
             output.append("buzz")
         else:
             output.append(str(i))
-    return "\n".join(map(str, output))
+    return '\n'.join(map(str, output))'''.
