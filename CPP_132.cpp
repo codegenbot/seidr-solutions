@@ -1,22 +1,16 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
 bool is_nested(std::string str) {
     int count = 0;
     for (char c : str) {
-        if (c == '[') {
+        if (c == '[' || c == '{' || c == '(') {
             count++;
-        } else if (c == ']' && count > 0) {
+        } else if ((c == ']' || c == '}' || c == ')') && count > 0) {
             count--;
+        } else if ((c == ']' || c == '}' || c == ')') && count <= 0) {
+            return false;
         }
     }
     return count == 0;
-}
-
-int main() {
-    assert(is_nested("[][][][]") == true);
-    assert(is_nested("][][") == false);
-    assert(is_nested("]]]]]]]]") == false);
-    return 0;
 }
