@@ -8,11 +8,9 @@ int luhn(vector<int> digits) {
             if (temp > 9) {
                 temp -= 9;
             }
-            digits[i] = temp;
+            sum += temp;
+        } else {
+            sum += digits[i];
         }
     }
-    for (int i : digits) {
-        sum += i;
-    }
     return sum;
-}
