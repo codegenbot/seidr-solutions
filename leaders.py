@@ -1,6 +1,8 @@
 def leaders(integers):
-    return [
-        integer
-        for i, integer in enumerate(reversed(integers))
-        if all(j <= integer for j in integers[:i])
-    ]
+    leaders_list = []
+    max_right = integers[-1]
+    for integer in reversed(integers):
+        if integer >= max_right:
+            leaders_list.append(integer)
+            max_right = integer
+    return list(reversed(leaders_list))

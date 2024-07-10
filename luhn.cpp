@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int luhn(vector<int> digits) {
