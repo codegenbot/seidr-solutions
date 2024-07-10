@@ -1,13 +1,6 @@
-#include <iostream>
-#include <cassert>
-#include <cctype>
-
 bool check_if_last_char_is_a_letter(const std::string& txt) {
-    return !isalpha(txt.back()) && txt.size() > 0 && txt[txt.size() - 2] == ' ';
-}
-
-int main() {
-    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
-    
-    return 0;
+    if (txt.empty()) return false;
+    char last_char = txt.back();
+    if (isalpha(last_char) && txt.find_last_of(" ") == txt.size() - 1) return true;
+    return false;
 }
