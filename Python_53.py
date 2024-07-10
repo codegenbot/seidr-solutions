@@ -1,7 +1,11 @@
 def add(a: int, b: int) -> int:
     return a + b
 
-num1 = int(input())
-num2 = int(input())
-result = add(num1, num2)
-print(result)
+try:
+    a = int(input("Enter the first number: "))
+    b = int(input("Enter the second number: "))
+except ValueError:
+    print("Please enter integers only")
+else:
+    result = add(a, b)
+    print(result)
