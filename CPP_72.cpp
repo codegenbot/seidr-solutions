@@ -1,4 +1,3 @@
-```cpp
 // Completed code:
 bool will_it_fly(vector<int> q,int w){
     string str = "";
