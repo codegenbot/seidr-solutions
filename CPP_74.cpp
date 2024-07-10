@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -31,7 +30,7 @@ int main() {
         user_input.push_back(input);
     }
     
-    if (is_same(total_match(user_input, {}), {})) {
+    if (is_same(total_match(user_input, vector<string>(5)), vector<string>(5))) {
         cout << "The two lists are the same." << endl;
     } else {
         cout << "Error: The two lists are not the same." << endl;
