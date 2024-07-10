@@ -1,5 +1,6 @@
 def increment_list_elements(l):
     return [x + 1 for x in l]
 
-# Fix the function call
-check(increment_list_elements)
+
+incr_list = [1, 2, 3, 4, 5]
+print(increment_list_elements(incr_list))
