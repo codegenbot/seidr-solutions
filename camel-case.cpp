@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
-    std::string result = "";
+std::string camelCase(const std::string& str) {
+    std::string result;
     bool capitalizeNext = true;
 
     for (char c : str) {
