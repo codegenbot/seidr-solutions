@@ -18,11 +18,13 @@ double find_zero(const std::vector<double>& coefficients) {
 }
 
 int main() {
-    std::vector<double> coefficients = {1.0, -4.0, 4.0}; // Corrected namespace std::vector
+    std::vector<double> coefficients = {1.0, -4.0, 4.0};
 
+    std::vector<double> coeffs = {coefficients.begin(), coefficients.end()};
+    
     double solution;
-    solution = find_zero(coefficients);
-    assert(std::abs(poly(coefficients, solution)) < 1e-2);
+    solution = find_zero(coeffs);
+    assert(std::abs(poly(coeffs, solution)) < 1e-2);
 
     return 0;
 }
