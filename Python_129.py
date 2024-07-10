@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
     q = [(0, 0, [grid[0][0]])]
