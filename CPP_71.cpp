@@ -13,16 +13,9 @@ float triangle_area(float a, float b, float c) {
 }
 
 int main() {
-    assert(std::abs(triangle_area(2, 2, 10) +1)<0.01);
-    float result = triangle_area(2, 2, 10);
-    std::cout << "Enter a value (0 or 1): ";
-    int value;
-    std::cin >> value;
-    if(value == 0){
-        std::cout << "The area of the triangle is: " << static_cast<int>(result) << std::endl;
-    } else if(value == 1){
-        result = round(result);
-        std::cout << "The area of the triangle is: " << result << std::endl;
-    }
+    float a = std::stof(std::cin.str()), b = std::stof(std::cin.str()), c = std::stof(std::cin.str());
+    assert(std::abs(triangle_area(a, b, c) + 1)<0.01);
+    float result = triangle_area(a, b, c);
+    std::cout << "The area of the triangle is: " << static_cast<int>(result) << std::endl;
     return 0;
 }
