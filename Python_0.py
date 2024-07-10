@@ -1,7 +1,6 @@
-```
 from typing import List
 
-numbers = input("Enter numbers (comma-separated): ").split(",")
+numbers = input("Enter numbers (comma-separated): ").strip().split(",")
 threshold = float(input("Enter threshold: "))
 
 def has_close_elements(numbers: list[float], threshold: float) -> bool:
@@ -11,4 +10,4 @@ def has_close_elements(numbers: list[float], threshold: float) -> bool:
             return True
     return False
 
-print(has_close_elements([float(x) for x in numbers], threshold))
+print(has_close_elements([float(x.strip()) for x in numbers], threshold))
