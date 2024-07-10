@@ -4,7 +4,7 @@
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
-    vector<int> result(2);
+    vector<int> result;
     int even = 0;
     int odd = 0;
 
@@ -26,6 +26,7 @@ vector<int> even_odd_palindrome(int n) {
 
     }
 
+    result.resize(2);
     result[0] = even;
     result[1] = odd;
 
@@ -37,8 +38,7 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
 
-    vector<int> result(2); // Initialize the vector with size 2
-    result = even_odd_palindrome(n);
+    vector<int> result = even_odd_palindrome(n);
 
     cout << "Number of even palindromes: " << result[0] << endl;
     cout << "Number of odd palindromes: " << result[1] << endl;
