@@ -7,9 +7,6 @@ def find_closest_elements() -> Tuple[float, float]:
             numbers = [
                 float(num) for num in input("Enter space-separated numbers: ").split()
             ]
-            if len(numbers) < 2:
-                print("At least two numbers are required. Please enter again.")
-                continue
             numbers.sort()
             min_diff = float("inf")
             closest_pair = (None, None)
@@ -24,7 +21,3 @@ def find_closest_elements() -> Tuple[float, float]:
 
         except ValueError:
             print("Invalid input. Please enter valid decimal or integer values.")
-            continue
-
-
-print(find_closest_elements())
