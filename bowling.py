@@ -1,26 +1,21 @@
-Here is the Python solution for the bowling problem:
-
 ```
-def bowling(s):
+def bowling_score(rolls):
     score = 0
-    frame = 1
-    for i in range(0, len(s), 2):
-        if s[i].isdigit() and s[i+1].isdigit():
-            pins = int(s[i]) * 10 + int(s[i+1])
-            if frame < 10:
-                score += min(pins, 10)
-            else:
-                score += pins
-            if frame == 9 and (s[i] == 'X' or s[i] == '/'):
-                if i+2 < len(s) and s[i+1].isdigit() and s[i+2].isdigit():
-                    score += min(int(s[i+1]) * 10 + int(s[i+2]), 10)
-            frame += (pins >= 10)
-        elif s[i] == 'X':
-            score += 10
-            if frame < 9:
-                score += min(10, int(s[i+1]) * 10 + int(s[i+2]))
-            frame += 1
+    roll_index = 0
+    for frame in range(10):
+        if rolls[roll_index] == 'X':
+            score += 30
+            roll_index += 1
+        elif rolls[roll_index:roll_index+2].count('/'):
+            first, second = map(int, rolls[roll_index:roll_index+2].replace('/', '0').split('0'))
+            score += first + second
+            roll_index += 2
         else:
-            score += 10 + int(s[i+1]) * 10
-            frame += 1
+            first, second = map(int, rolls[roll_index:roll_index+3].split())
+            if first + second == 10:
+                score += 10 + int(rolls[roll_index+2])
+                roll_index += 3
+            else:
+                score += first + second
+                roll_index += 3
     return score
