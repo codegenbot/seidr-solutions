@@ -1,15 +1,14 @@
 #include <vector>
 #include <algorithm>
+#include <iostream>
 #include <cassert>
 
-std::vector<int> unique_digits(std::vector<int> x);
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+vector<int> unique_digits(vector<int> x);
 
-std::vector<int> unique_digits(std::vector<int> x) {
-    std::vector<int> result;
+vector<int> unique_digits(vector<int> x) {
+    vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
@@ -25,11 +24,12 @@ std::vector<int> unique_digits(std::vector<int> x) {
             result.push_back(num);
         }
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+    assert(unique_digits({135, 103, 31}) == vector<int>{31, 135});
+    cout << "Test Passed!" << endl;
     return 0;
 }
