@@ -1,11 +1,13 @@
+```
 def solve_boolean(expression):
     result = True
-    for c in expression:
-        if c == 'F':
-            result = False
-            break
-        elif c == '|' and result:
-            result = False
-        elif c == '&' and not result:
-            result = False
+    for char in expression:
+        if char == 'T':
+            pass
+        elif char == 'F':
+            return False
+        elif char == '&':
+            result = not char == 'T'
+        elif char == '|':
+            result = not all(char != 'T' for char in expression[:expression.index('|')])
     return result
