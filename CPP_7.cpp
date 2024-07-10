@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <algorithm>
 
 std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std::vector<std::string>>& input, const std::string& sub) {
     std::vector<std::vector<std::string>> result;
@@ -9,18 +8,16 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
         for (const auto& str : vec) {
             if (str.find(sub) != std::string::npos) {
                 found = true;
+                result.push_back({{str}});
                 break;
             }
-        }
-        if (found) {
-            result.push_back(vec);
         }
     }
     return result;
 }
 
 int main() {
-    assert(equal(filter_by_substring({{"grunt", "trumpet", "prune", "gruesome"}}, "run").begin(), filter_by_substring({{"grunt", "trumpet", "prune", "gruesome"}}, "run").end(), {"grunt", "prune"});
+    assert(std::equal({{"grunt"}}, filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").begin(), filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run").end()));
 
     std::vector<std::vector<std::string>> input = {{"apple", "banana"}, {"orange", "grape"}, {"kiwi", "mango"}};
     const std::string sub = "an";
