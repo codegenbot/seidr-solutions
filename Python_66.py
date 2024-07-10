@@ -1,4 +1,5 @@
-def digitSum(s):
+```python
+"""def digitSum(s):
     total = 0
     for c in s:
         if c.isdigit():
@@ -9,3 +10,4 @@ def digitSum(s):
         else:
             continue
     return total
+"""
