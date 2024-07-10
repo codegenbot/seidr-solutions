@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool std::issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -10,7 +10,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
@@ -27,12 +27,12 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     return result;
 }
 
-int main() {
+int test_main() {
     int num;
     std::cout << "Enter an integer: ";
     std::cin >> num;
     std::vector<int> input = {num};
-    std::vector<int> output = strange_sort_list(input);
+    std::vector<int> output = strange_sort_vector(input);
     std::cout << "Output: ";
     for (auto i : output) {
         std::cout << i << " ";
