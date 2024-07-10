@@ -14,7 +14,7 @@ bool issame(vector<string> a,vector<string>b){
 
 vector<string> all_prefixes(const string& input) {
     vector<string> result;
-    for (int i = 0; i <= input.size(); ++i) {
+    for (int i = 0; i < input.size(); ++i) {
         result.push_back(input.substr(0, i+1)); 
     }
     return result;
@@ -36,10 +36,7 @@ int mainFunc() {
         }
     }
 
-    vector<string> www;
-    for(auto s : all_prefixes("WWW")) {
-        www.push_back(s);
-    }
+    vector<string> www = all_prefixes("WWW");
     if (!issame(www, {"W", "WW", "WWW"})) {
         cout << "The prefixes are not the same." << endl;
     } else {
