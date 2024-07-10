@@ -1,31 +1,38 @@
 #include <iostream>
-#include <vector>
-#include <numeric>
-
 using namespace std;
 
 int main() {
-    vector<int> input;
-    int num;
-    while (cin >> num) {
-        input.push_back(num);
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
     }
     
-    int diff = INT_MAX;
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
+    }
+    
+    int target = sum / 2;
+    int prefixSum = 0;
     int idx = 0;
-    for (int i = 1; i < input.size(); ++i) {
-        if (abs(accumulate(input.begin(), input.begin() + i, 0) - accumulate(input.begin() + i, input.end(), 0)) < diff) {
-            diff = abs(accumulate(input.begin(), input.begin() + i, 0) - accumulate(input.begin() + i, input.end(), 0));
+    for (int i = 0; i < n; ++i) {
+        prefixSum += nums[i];
+        if (prefixSum >= target) {
             idx = i;
+            break;
         }
     }
     
-    for (int i = 0; i < idx; ++i) {
-        cout << input[i] << endl;
+    vector<int> subvector2(nums.begin() + idx + 1, nums.end());
+    vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
+    
+    for (int num : subvector1) {
+        std::cout << num << "\n";
     }
-    cout << endl;
-    for (int i = idx; i < input.size(); ++i) {
-        cout << input[i] << endl;
+    for (int num : subvector2) {
+        std::cout << num << "\n";
     }
     
     return 0;
