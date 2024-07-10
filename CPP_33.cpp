@@ -1,45 +1,21 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const vector<int>& a,const vector<int>& b){
+    return a == b;
 }
 
-std::vector<int> sort(std::vector<int> l) {
-    std::vector<int> l_copy = l;
-    for (int i = 0; i < l.size(); ++i) {
+vector<int> sort_third(const vector<int>& l) {
+    vector<int> l_prime = l;
+    for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
-            std::sort(l_copy.begin() + i, l_copy.begin() + i + 3);
+            sort(l_prime.begin() + i, l_prime.begin() + i + 3);
         }
     }
-    return l_copy;
+    return l_prime;
 }
 
 int main() {
-    std::vector<int> original{9, 3, 7, 5, 1, 6, 2, 8, 4};
-    std::vector<int> sorted = sort(original);
-
-    // Check if the original vector is unchanged
-    if (issame(original, {9, 3, 7, 5, 1, 6, 2, 8, 4})) {
-        std::cout << "Original vector unchanged\n";
-    } else {
-        std::cout << "Original vector changed\n";
-    }
-
-    // Print the sorted vector
-    for (const auto& num : sorted) {
-        std::cout << num << " ";
-    }
-    std::cout << "\n";
-
-    return 0;
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
 }
