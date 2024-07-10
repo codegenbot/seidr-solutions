@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+#include <initializer_list> 
 using namespace std;
 
 int add(vector<int> lst){
@@ -11,17 +13,6 @@ int add(vector<int> lst){
 }
 
 int main() {
-    vector<int> lst;
-    int n;
-    
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        cout << "Enter element " << (i+1) << ": ";
-        cin >> lst.push_back(i);
-    }
-    
+    vector<int> lst = {4, 4, 6, 8};
     int result = add(lst);
-    cout << "Sum of even elements: " << result;
 }
