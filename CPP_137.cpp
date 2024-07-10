@@ -2,29 +2,29 @@
 #include <string>
 #include <iostream>
 
-using namespace boost;
 using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
         int ia = boost::any_cast<int>(a);
         double ib = boost::any_cast<double>(b);
-        return any((ib > ia) ? ib : ia);
+        return (ib > ia) ? b : a;
     }
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
         double ia = boost::any_cast<double>(a);
         int ib = boost::any_cast<int>(b);
-        return any((ia > ib) ? ia : ib);
+        return (ia > ib) ? a : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(double)) {
         string sa = boost::any_cast<string>(a);
         double sb = boost::any_cast<double>(b);
-        return any((stod(sa) > sb) ? a : b);
+        return (stod(sa) > sb) ? a : b;
     }
     else if (a.type() == typeid(double) && b.type() == typeid(string)) {
         double sa = boost::any_cast<double>(a);
         string sb = boost::any_cast<string>(b);
-        return any((sa > stod(sb)) ? a : b);
+        return (sa > stod(sb)) ? a : b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string sa = boost::any_cast<string>(a);
@@ -34,9 +34,28 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (stod(sa) < stod(sb))
             return b;
         else
-            return any("None");
+            return any(string("None"));
     }
     else {
-        return any("None");
+        return any(string("None"));
     }
+}
+
+int main() {
+    boost::any a = 5; 
+    boost::any b = 6.0;
+
+    boost::any result = compare_one(a, b);
+
+    if (result.type() == typeid(int)) {
+        cout << "The smaller number is: " << boost::any_cast<int>(result) << endl;
+    }
+    else if (result.type() == typeid(double)) {
+        cout << "The larger number is: " << boost::any_cast<double>(result) << endl;
+    }
+    else {
+        cout << "Both numbers are equal." << endl;
+    }
+
+    return 0;
 }
