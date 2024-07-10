@@ -1,11 +1,12 @@
-int main {
-    string s, c;
-    cout << "Enter a string: ";
-    cin >> s;
-    cout << "Enter a character to delete: ";
-    cin >> c;
-    vector<string> output = reverse_delete(s, c);
-    for (string str : output) {
-        cout << str << endl;
-    }
+int main 
+{
+    int num1, num2;
+    cout << "Enter first number: ";
+    cin >> num1;
+    cout << "Enter second number: ";
+    cin >> num2;
+    if(num1 > num2)
+        cout << "First number is greater." << endl;
+    else
+        cout << "Second number is greater." << endl;
 }
