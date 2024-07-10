@@ -1,4 +1,5 @@
 #include <string>
+
 string rounded_avg(int n, int m) {
     if (n > m) return "-1";
     long sum = 0;
@@ -17,4 +18,3 @@ string rounded_avg(int n, int m) {
         }
     }
     return result;
-}
