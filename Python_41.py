@@ -1,4 +1,4 @@
-```Python
+```
 def car_race_collision():
     n = int(input("Enter the number of cars: "))
     collisions = 0
