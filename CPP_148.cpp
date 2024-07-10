@@ -3,12 +3,15 @@
 
 using namespace std;
 
-bool issame(string a, string b) {
-    if (a.length() != b.length()) {
+bool issame(vector<string> a) {
+    if (a.size() != 1) {
         return false;
     }
-    for (int i = 0; i < a.length(); i++) {
-        if (tolower(a[i]) != tolower(b[i])) {
+    string str = tolower(a[0]);
+    for (int i = 1; i < num; i++) {
+        string temp;
+        cin >> temp;
+        if (tolower(temp) != str) {
             return false;
         }
     }
@@ -18,10 +21,11 @@ bool issame(string a, string b) {
 int main() {
     int num;
     cin >> num;
-    vector<string> strings(num);
+    vector<string> strings;
     for (int i = 0; i < num; i++) {
-        cin >> strings[i];
-        if (issame(strings[i], strings[i])) {
+        string str1, str2;
+        cin >> str1 >> str2;
+        if (issame({{str1}})) { 
             cout << "The strings are the same." << endl;
         } else {
             cout << "The strings are not the same." << endl;
