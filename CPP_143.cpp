@@ -19,7 +19,7 @@ std::string words_in_sentence(std::string sentence){
     std::string word = "";
     for (char c : sentence) {
         if (c == ' ') {
-            if (is_prime(word.length())) {
+            if (is_prime(word.length() - 1)) {
                 result += word + " ";
             }
             word = "";
@@ -27,15 +27,8 @@ std::string words_in_sentence(std::string sentence){
             word += c;
         }
     }
-    if (is_prime(word.length())) {
+    if (is_prime(word.length() - 1)) {
         result += word;
     }
     return result;
-}
-
-int main() {
-    std::string sentence;
-    std::getline(std::cin, sentence);
-    std::cout << words_in_sentence(sentence) << std::endl;
-    return 0;
 }
