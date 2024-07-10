@@ -1,12 +1,9 @@
-```
 def intersperse(a, b):
-    result = [a[0]]
-    for item in a[1:]:
-        result.extend([item, b])
-    if isinstance(b, int):
-        result.append(b)
-    else:
-        result.append(b)
+    result = []
+    for i in range(len(a) + (1 if isinstance(b, int) else 0)):
+        if i < len(a): result.append(a[i])
+        if isinstance(b, int) and i % (len(a) + 1) != 0: result.append(b)
+        elif b: result.append(b)
     return result
 
 list1 = [2, 2, 2]
