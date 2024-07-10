@@ -3,7 +3,7 @@
 #include <cassert>
 #include <algorithm>
 
-std::vector<int> compare(const std::vector<int>& a, const std::vector<int>& b) {
+std::vector<int> compare(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
     for (size_t i = 0; i < a.size(); ++i) {
         result.push_back(a[i] - b[i]);
@@ -11,7 +11,7 @@ std::vector<int> compare(const std::vector<int>& a, const std::vector<int>& b) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
