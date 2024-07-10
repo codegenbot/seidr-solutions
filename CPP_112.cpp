@@ -25,6 +25,11 @@ string to_string(const int i) {
     oss << i;
     return oss.str();
 }
+string to_string(const double d) {
+    ostringstream oss;
+    oss << d;
+    return oss.str();
+}
 
 string reverse_delete(const string& s1, const string& s2) {
     int len1 = s1.size();
