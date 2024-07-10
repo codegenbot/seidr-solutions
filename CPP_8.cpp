@@ -7,7 +7,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> sum_product(const std::vector<int>& nums) {
-    std::vector<int> result(2, 0);
+    std::vector<int> result(2, 1);
     for (auto num : nums) {
         result[0] += num;
         result[1] *= num;
@@ -17,6 +17,6 @@ std::vector<int> sum_product(const std::vector<int>& nums) {
 
 int main() {
     assert(issame(sum_product({10}), {10, 0}));
-
+    
     return 0;
 }
