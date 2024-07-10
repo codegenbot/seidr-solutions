@@ -15,7 +15,7 @@ int count_nums(std::vector<int> nums) {
                 count++;
             }
         } else {
-            num = -num; 
+            num = -num; // convert to positive
             int sum = 0;
             bool is_negative = true;
             while (num > 0) {
@@ -37,7 +37,6 @@ int count_nums(std::vector<int> nums) {
         }
     }
     return count;
-
 }
 
 int main() {
