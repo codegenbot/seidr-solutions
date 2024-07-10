@@ -5,9 +5,9 @@ std::pair<int, int> findPair(vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.count(complement)) {
-            return std::make_pair(numMap[complement], nums[i]);
+            return make_pair(numMap[complement], nums[i]);
         }
         numMap[nums[i]] = i;
     }
-    return std::make_pair(-1, -1);
+    return make_pair(-1, -1);
 }
