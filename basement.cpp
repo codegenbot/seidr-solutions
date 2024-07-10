@@ -15,8 +15,8 @@ int findFirstNegativeIndex(const vector<int>& vec) {
 
 int main() {
     int n;
-    cin >> std::noskipws;
-    std::vector<int> vec(n);
+    cin >> n;
+    vector<int> vec(n);
     for (int i = 0; i < n; i++) {
         cin >> vec[i];
     }
