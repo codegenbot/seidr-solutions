@@ -27,7 +27,7 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     return result;
 }
 
-int main() {
+int test_main() {
     int num;
     std::cout << "Enter an integer: ";
     std::cin >> num;
