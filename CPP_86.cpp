@@ -2,19 +2,24 @@
 #include <algorithm>
 #include <string>
 
-string anti_shuffle(string s) {
-    string result = "";
-    string word = "";
+std::string anti_shuffle(std::string s) {
+    std::string result = "";
+    std::string word = "";
     for (char c : s) {
         if (c == ' ') {
-            sort(word.begin(), word.end());
+            std::sort(word.begin(), word.end());
             result += word + " ";
             word = "";
         } else {
             word += c;
         }
     }
-    sort(word.begin(), word.end());
+    std::sort(word.begin(), word.end());
     result += word;
     return result;
+}
+
+int main() {
+    assert(anti_shuffle("lrehteho morf ot emocleW") == "hello from to Welcome");
+    return 0;
 }
