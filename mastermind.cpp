@@ -1,27 +1,31 @@
+```cpp
 PegCounts mastermind(string code, string guess) {
-    PegCounts result = {0, 0};
-    string remainingGuess = guess;
+    int black = 0;
+    int white = 0;
 
-    // Count black pegs
+    // Create a copy of the code to mark used characters
+    string code_copy = code;
+
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            result.black++;
-            remainingGuess[i] = ' ';
+            black++;
+            code_copy[i] = ' '; // Mark as used to avoid counting again
         }
     }
 
-    // Count white pegs
     for (int i = 0; i < 4; ++i) {
-        int count = 0;
+        bool correctColor = false;
         for (int j = 0; j < 4; ++j) {
-            if (code[j] == remainingGuess[i]) {
-                count++;
+            if (code_copy[j] == guess[i]) {
+                correctColor = true;
+                code_copy[j] = ' '; // Mark as used to avoid counting again
+                break;
             }
         }
-        if (count > 0) {
-            result.white += count - 1; // subtract one, as the correct position is already counted
+        if (correctColor) {
+            white++;
         }
     }
 
-    return result;
+    return {black, white};
 }
