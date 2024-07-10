@@ -4,6 +4,8 @@ bool issame(int a, int b){
     return a == b;
 }
 
+vector<int> strange_sort_list(vector<int> lst);
+
 vector<int> strange_sort_list(vector<int> lst){
     vector<int> result;
     sort(lst.begin(), lst.end());
