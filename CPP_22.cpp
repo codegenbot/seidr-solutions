@@ -1,15 +1,18 @@
 #include <vector>
 #include <list>
-#include <string>
+#include <iostream>
 
-std::vector<int> filter_integers(std::list<std::any> values) {
+std::vector<int> filter_integers(std::list<bool> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(bool)) {
+        if (value) {
+            int val = 0;
             try {
-                int val = std::stoi(value.cast<std::string>().operator std::string());
+                std::cin >> val;
                 result.push_back(val);
-            } catch (...) {}
+            } catch (...) {
+                // handle exception
+            }
         }
     }
     return result;
