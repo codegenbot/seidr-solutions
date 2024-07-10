@@ -8,4 +8,7 @@ def rounded_avg(n, m):
         avg //= 2
     return "0b" + bin_str.zfill(8)
 
-print(rounded_avg(5, 3))
+n = int(input("Enter number n: "))
+m = int(input("Enter number m: "))
+
+print(rounded_avg(n, m))
