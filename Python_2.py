@@ -1,1 +1,2 @@
-return number - int(number)
+def calculate_difference(number):
+    return number - int(number)
