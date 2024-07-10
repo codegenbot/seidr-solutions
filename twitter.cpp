@@ -1,11 +1,10 @@
 #include <iostream>
-#include <string>
 
 int main() {
     std::string tweet;
-    std::getline(std::cin, tweet);
+    std::getline(std::cin >> std::ws, tweet);
 
-    if (tweet.find_first_not_of(' ') == std::string::npos) {
+    if (tweet.empty()) {
         std::cout << "You didn't type anything" << std::endl;
     } else if (tweet.length() > 140) {
         std::cout << "Too many characters" << std::endl;
