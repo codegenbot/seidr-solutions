@@ -1,7 +1,4 @@
-```cpp
-#include <vector>
-#include <string>
-#include <algorithm>
+#include <initializer_list>
 
 using namespace std;
 
@@ -38,7 +35,7 @@ bool issame(vector<string> a, vector<string> b, vector<string> c) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (!issame({a[i]}, {b[i]}, std::vector<std::string>(1, c[i]))) {
+        if (!issame({a[i]}, {b[i]}, {c[i]})) {
             return false;
         }
     }
