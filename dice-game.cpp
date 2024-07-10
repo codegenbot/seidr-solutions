@@ -1,16 +1,12 @@
-#include <vector>
-#include <iostream>
+Here is the solution:
 
-using namespace std;
+double getProbability(int n, int m) {
+    if (n > m) return 1.0;
+    if (n < m) return 0.0;
 
-double probability(int n, int m) {
-    double total = (double)n * m;
-    return 1.0 - (n / total) * m;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(6) << probability(n, m) << endl;
-    return 0;
+    double total = 1.0;
+    for (int i = 1; i <= m; i++) {
+        total += 1.0 / n;
+    }
+    return 1.0 - total;
 }
