@@ -10,6 +10,9 @@ int main() {
             if (c == cipher1[i]) {
                 c = cipher2[i];
                 break;
+            } else if (c == cipher2[i]) {
+                c = cipher1[i];
+                break;
             }
         }
     }
