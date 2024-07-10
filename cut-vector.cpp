@@ -1,19 +1,20 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    vector<vector<int>> res;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int cut_idx = 0;
     
-    for (int i = 1; i <= n; i++) {
-        if (i == n || abs(nums[i] - nums[0]) > abs(nums[n-1] - nums[i-1])) {
-            res.push_back({nums.begin(), nums.begin() + i});
-            nums.erase(nums.begin());
-        } else {
-            res.push_back({nums.begin(), nums.end()});
-            break;
+    for (int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[i-1]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_idx = i;
         }
     }
     
-    return res;
+    vector<int> left(v.begin(), v.begin() + cut_idx);
+    vector<int> right(v.begin() + cut_idx, v.end());
+    
+    return make_pair(left, right);
 }
