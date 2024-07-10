@@ -12,17 +12,19 @@ map<string, int> num_map = {
 };
 
 string sort_numbers(string numbers){
-    map<int, string> rev_num_map;
-    for(auto const& pair : num_map){
-        rev_num_map[pair.second] = pair.first;
+    vector<string> num_strings;
+    stringstream ss(numbers);
+    string token;
+    while (ss >> token) {
+        num_strings.push_back(token);
     }
-    
-    string result = "";
-    for(auto const& pair : rev_num_map){
-        if(numbers.find(pair.second) != string::npos){
-            result += pair.second + " ";
-        }
+    sort(num_strings.begin(), num_strings.end(), [&](const string &a, const string &b) {
+        return num_map[a] < num_map[b];
+    });
+    string sorted_numbers;
+    for (const auto &num : num_strings) {
+        sorted_numbers += num + " ";
     }
-    
-    return result;
+    sorted_numbers.pop_back(); // Remove the extra space at the end
+    return sorted_numbers;
 }
