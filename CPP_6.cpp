@@ -1,17 +1,14 @@
-#include <stack>
 #include <vector>
+#include <string>
+#include <initializer_list>
 
-using namespace std;
-
-bool issame(vector<vector<int>>& a, vector<vector<int>>& b) {
-    if (a.size() != b.size())
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
-    for(int i = 0; i<a.size(); i++){
-        if(a[i].size()!=b[i].size())
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
-        for(int j=0;j<a[i].size();j++){
-            if(a[i][j] != b[i][j])
-                return false;
         }
     }
     return true;
@@ -19,14 +16,19 @@ bool issame(vector<vector<int>>& a, vector<vector<int>>& b) {
 
 vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
-    stack<int> nesting_levels;
+    int max_depth = 0;
     for (char c : paren_string) {
         if (c == '(') {
-            nesting_levels.push(nesting_levels.size() + 1);
+            max_depth++;
         } else if (c == ')') {
-            result.push_back(nesting_levels.top());
-            nesting_levels.pop();
+            max_depth--;
         }
+        result.push_back(max_depth);
     }
     return result;
+}
+
+int main() {
+    assert(issame(parse_nested_parens("(()(())((())))"), {4, 3, 2, 1, 0, -1, -2, -3, -4}));
+    return 0;
 }
