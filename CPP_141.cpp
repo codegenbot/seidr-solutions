@@ -1,21 +1,24 @@
-Here is the completed code:
-
 string file_name_check(string file_name){
-    int count = 0;
-    bool foundDot = false;
+    int digit_count = 0;
+    bool found_dot = false;
     for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            count++;
-            if(count > 3) return "No";
+        if(file_name[i] >= '0' && file_name[i] <= '9'){
+            digit_count++;
+            if(digit_count > 3) return "No";
         }
         else if(file_name[i] == '.'){
-            foundDot = true;
+            found_dot = true;
         }
-        else if(foundDot && (i != file_name.length()-4 || !string("txtexe.dll").find(file_name.substr(i)))){
+        else if(!found_dot && (file_name[i] < 'a' || file_name[i] > 'z') && 
+                (file_name[i] < 'A' || file_name[i] > 'Z')){
             return "No";
         }
     }
-    if(!foundDot) return "No";
-    if(count > 0) return "No";
+    if(found_dot){
+        string extension = file_name.substr(file_name.find('.') + 1);
+        if(extension != "txt" && extension != "exe" && extension != "dll") 
+            return "No";
+    }
+    else return "No";
     return "Yes";
 }
