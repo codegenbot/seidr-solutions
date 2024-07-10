@@ -1,31 +1,35 @@
-#include <queue>
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a,vector<int>b){
-    return a==b;
-}
+bool minPath(vector<vector<int>>& grid) {
+    int m = grid.size();
+    if (m == 0) return true;
+    int n = grid[0].size();
 
-int minPath(vector<pair<int,int>> graph, int n) {
-    priority_queue<pair<int,pair<int,int>>, vector<pair<int,pair<int,int>>>, greater<pair<int,pair<int,int>>>> pq;
-    for (auto edge : graph) {
-        pq.push({edge.second, edge});
-    }
-    
-    vector<int> path(n+1);
-    for (int i = 1; i <= n; ++i) {
-        pair<int,pair<int,int>> top = pq.top();
-        pq.pop();
-        if (!issame(path, vector<int>(top.second.second+1,top.second.second+1))) {
-            path[i] = top.first;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (grid[i][j] == 1) {
+                if (i > 0 && grid[i - 1][j] == 1) continue;
+                if (j > 0 && grid[i][j - 1] == 1) continue;
+
+                grid[i][j] = 2;
+            }
         }
     }
-    
-    return path[n];
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (grid[i][j] == 1) return false;
+        }
+    }
+
+    return true;
 }
 
-int main() {
-    vector<pair<int,int>> graph = {{1, 3}, {3, 2}};
-    assert (minPath(graph, 10) == 1);
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
