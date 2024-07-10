@@ -16,6 +16,6 @@ vector<string> bf(const string& s1, const string& s2) {
 
 int main() {
     assert(issame(bf("Jupiter", "Makemake"), {}));
-
+    
     return 0;
 }
