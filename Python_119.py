@@ -1,4 +1,4 @@
-```
+```Python
 def match_parens(lst):
     for s in lst:
         if len(s) < 2:
