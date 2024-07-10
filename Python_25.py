@@ -16,4 +16,4 @@ def factorize(n: int) -> List[int]:
                 factors.append(i)
     if n > 1:
         factors.append(n)
-    print("The prime factorization of", n, "is", *factors)
+    print(f"The prime factorization of {n} is: {factors}")
