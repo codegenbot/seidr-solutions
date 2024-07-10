@@ -1,4 +1,4 @@
 try:
-    # Your existing code logic that might raise a ValueError
+    # Your code that might raise a ValueError goes here
 except ValueError:
-    raise ValueError("Please enter a valid positive integer greater than 1.")
+    print("Please enter a valid positive integer greater than 1.")
