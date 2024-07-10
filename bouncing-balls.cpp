@@ -1,4 +1,4 @@
-#include <iostream> 
+#include <iostream>
 
 int main() {
     double h0, h1, bouncinessIndex;
