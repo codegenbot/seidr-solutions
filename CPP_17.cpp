@@ -1,26 +1,32 @@
-vector<int> issame(vector<int> a, vector<int> b){
-    // Compare vectors a and b and return true if they are the same
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
+
+vector<int> issame(vector<int> a, vector<int> b) {
+    vector<int> result;
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
+        if (a[i] == b[i]) {
+            result.push_back(1);
+        } else {
+            result.push_back(0);
         }
     }
-    
-    return true;
+    return result;
 }
 
 vector<int> parse_music(string music_string);
 
 int main() {
-    // Main function implementation
+    string input;
+    cin >> input;
+
+    vector<int> beats = parse_music(input);
+
+    for (int beat : beats) {
+        cout << beat << " ";
+    }
+
     return 0;
 }
 
-vector<int> parse_music(string music_string){
+vector<int> parse_music(string music_string) {
     vector<int> beats;
     string note;
     for (char c : music_string) {
