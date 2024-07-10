@@ -1,5 +1,10 @@
 #include <vector>
 #include <algorithm>
+#include <string>
+
+using namespace std;
+
+vector<string> split(const string& str, char delimiter);
 
 string words_in_sentence(string sentence) {
     vector<int> wordLengths;
