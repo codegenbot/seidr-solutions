@@ -1,7 +1,4 @@
-import sys
-sys.stdin = open(0)
-
-n = int(input("Enter the value of n: "))
+n = int(input())
 
 import math
 
