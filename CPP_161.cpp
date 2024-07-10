@@ -2,9 +2,9 @@
 #include <cassert>
 #include <string>
 
-int solve(const std::string& color) {
+int solve(std::string colorCode) {
     int result = 0;
-    for (char c : color) {
+    for (char c : colorCode) {
         if (c == '#') {
             continue;
         }
