@@ -1,3 +1,15 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert> // Include <cassert> for using assert macro
+using namespace std;
+
+string match_parens(vector<string> lst);
+
+int main() {
+    assert(match_parens({")", "("}) == "Yes");
+}
+
 string match_parens(vector<string> lst){
     int open = 0, close = 0;
     for (string s : lst) {
