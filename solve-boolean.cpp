@@ -46,7 +46,7 @@ bool solveBoolean(std::string s) {
 }
 
 int main() {
-    std::cout << solveBoolean("T|F&F") << std::endl;
-    std::cout << solveBoolean("f&f|f&f|f|f&f&f&f|t|f|t|f&f&f&f&f|f&t");
+    std::cout << (solveBoolean("T|F&F") ? "True" : "False") << std::endl;
+    std::cout << (solveBoolean("f&f|f&f|f|f&f&f&f|t|f|t|f&f&f&f&f|f&t") ? "True" : "False") << std::endl;
     return 0;
 }
