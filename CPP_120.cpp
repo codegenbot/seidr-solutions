@@ -10,8 +10,9 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> topKElements(const std::vector<int>& arr, int k) {
     if (k == 0) return {};
-    std::partial_sort(arr.begin(), arr.begin() + k, arr.end(), std::greater<int>());
-    return std::vector<int>(arr.begin(), arr.begin() + k);
+    std::vector<int> sortedArr = arr;
+    std::partial_sort(sortedArr.begin(), sortedArr.begin() + k, sortedArr.end(), std::greater<int>());
+    return std::vector<int>(sortedArr.begin(), sortedArr.begin() + k);
 }
 
 int main() {
