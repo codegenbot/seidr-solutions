@@ -1,9 +1,9 @@
 import sys
 
 if sys.version_info[0] < 3:
-    user_input = raw_input("Enter the encoded string: ").strip().lower()
+    user_input = raw_input("Enter the encoded alphabetic string (without spaces or special characters): ").strip().lower()
 else:
-    user_input = input("Enter the encoded string: ").strip().lower()
+    user_input = input("Enter the encoded alphabetic string (without spaces or special characters): ").strip().lower()
 
 if not user_input.isalpha():
     print("Invalid input. Please enter an alphabetic string.")
