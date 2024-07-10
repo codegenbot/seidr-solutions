@@ -1,21 +1,13 @@
-n, = map(int, input().split())
-arr = list(map(int, input().split()))
+n = int(input())
+a = list(map(int, input().split()))
 
-total_sum = sum(arr)
-left_sum = 0
-min_diff = total_sum
-cut_index = -1
+total_sum = sum(a)
+half_sum = total_sum // 2
 
+prefix_sum = 0
 for i in range(n):
-    left_sum += arr[i]
-    right_sum = total_sum - left_sum
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
-
-output1 = arr[: cut_index + 1]
-output2 = arr[cut_index + 1 :]
-
-print(*output1)
-print(*output2)
+    prefix_sum += a[i]
+    if prefix_sum == half_sum or abs(2 * prefix_sum - total_sum) < abs(total_sum - 2 * prefix_sum):
+        print(*a[: i + 1], sep="\n")
+        print(*a[i + 1 :], sep="\n")
+        break
