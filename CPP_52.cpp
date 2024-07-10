@@ -1,1 +1,7 @@
-return all_of(l.begin(), l.end(), [t](int x) { return x < t; });
+for (int num : l) {
+        if (num >= t) {
+            return false;
+        }
+    }
+    return true;
+}
