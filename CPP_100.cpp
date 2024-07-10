@@ -1,11 +1,13 @@
 #include <vector>
 using namespace std;
 
-bool same(vector<int> a, vector<int> b) {
+bool sameVectors(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-int main() {
-    assert(same(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    // ...
+vector<int> make_a_pile(int n) {
+    vector<int> pile;
+    for (int i = 2 * n; i >= n; --i)
+        pile.push_back(i);
+    return pile;
 }
