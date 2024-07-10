@@ -9,9 +9,8 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     leaders.push_back(max_right);
     
     for (int i = n - 2; i >= 0; --i) {
-        if (nums[i] > max_right) {
+        if (nums[i] >= leaders.back()) {
             leaders.push_back(nums[i]);
-            max_right = nums[i];
         }
     }
     
