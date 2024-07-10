@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <cmath>
 
@@ -11,10 +11,13 @@ int starts_one_ends(int n) {
             count++;
         }
         string str;
-        for (int j = 0; j < n; j++) {
-            str += '1'; // insert '1' for each digit
+        str += '1';  
+        for (int j = 0; j < n - 1; j++) {
+            str += '0';
         }
-        if (stoi(str) != i) continue;
+        if (str != to_string(i)) {
+            continue;
+        }
         count++;
     }
     return count;
