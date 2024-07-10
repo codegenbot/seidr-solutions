@@ -1,13 +1,19 @@
-```
+import re
+
+
 def filter_integers() -> None:
     while True:
-        user_input = input("Please enter a comma-separated list of values (separated by commas), or type 'exit' to quit: ").replace(" ", "")
+        user_input = input(
+            "Please enter a comma-separated list of values (separated by commas), or type 'exit' to quit: "
+        ).replace(" ", "")
 
         if user_input.lower() == "exit":
             break
 
         try:
-            values = [int(val) for val in user_input.split(",") if re.match(r"^\d+$", val)]
+            values = [
+                int(val) for val in user_input.split(",") if re.match(r"^\d+$", val)
+            ]
 
             if not values:
                 print("No values entered. Cannot calculate average and minimum.")
@@ -26,4 +32,9 @@ def filter_integers() -> None:
                 print(f"Average Value: {avg_value:.2f}")
                 print(f"Minimum Value: {min_value}")
         except ValueError:
-            print("Invalid input. Please enter a valid list of comma-separated integers.")
+            print(
+                "Invalid input. Please enter a valid list of comma-separated integers."
+            )
+
+
+filter_integers()
