@@ -1,7 +1,9 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,8 +15,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> common(std::vector<int> v1, std::vector<int> v2) {
-    std::vector<int> result;
+vector<int> common(vector<int> v1, vector<int> v2) {
+    vector<int> result;
     for (int i : v1) {
         for (int j : v2) {
             if (i == j) {
@@ -26,9 +28,6 @@ std::vector<int> common(std::vector<int> v1, std::vector<int> v2) {
     return result;
 }
 
-int main() {
-    assert(issame(common({4, 3, 2, 8}, {2, 3, 5}), {2, 3}));
-    assert(issame(common({1, 2, 3}, {4, 5, 6}), {}));
-    assert(issame(common({1, 2, 3}, {1, 2, 3}), {1, 2, 3}));
-    return 0;
-}
+assert(issame(common({4, 3, 2, 8}, {2, 3, 5}), {2, 3}));
+assert(issame(common({1, 2, 3}, {4, 5, 6}), {}));
+assert(issame(common({1, 2, 3}, {1, 2, 3}), {1, 2, 3}));

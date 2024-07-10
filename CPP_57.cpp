@@ -11,11 +11,8 @@ bool monotonic(std::vector<int> l) {
         if (l[i] > l[i - 1]) {
             decreasing = false;
         }
-        if (!increasing && !decreasing) {
-            return false;
-        }
     }
-    return true;
+    return increasing || decreasing; // Change || to ||
 }
 
 int main_problem_CPP_57() {
