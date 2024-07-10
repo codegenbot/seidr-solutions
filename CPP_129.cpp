@@ -1,54 +1,54 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if (v1.size() != v2.size()) return false;
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) return false;
+bool issame(vector<int> a,vector<int>b){
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
-std::vector<int> minPath(const std::vector<std::vector<int>>& graph, int targetLength) {
-    std::vector<int> path;
-    for (const auto& edge : graph) {
-        if (edge[0] == 1 && edge[1] != 3) continue;
-        if (path.empty() || path.back() + edge[1] - edge[0] <= targetLength) {
-            path.push_back(edge[0]);
-            minPathRec(graph, targetLength, edge[1], path);
-            path.pop_back();
-        }
-    }
-}
-
-void minPathRec(const std::vector<std::vector<int>>& graph, int targetLength, int current, std::vector<int>& path) {
-    if (path.size() == targetLength) return;
-    for (const auto& edge : graph) {
-        if (edge[0] != current) continue;
-        if (path.empty() || path.back() + edge[1] - edge[0] <= targetLength - path.size()) {
-            path.push_back(edge[0]);
-            minPathRec(graph, targetLength, edge[1], path);
-            path.pop_back();
-        }
-    }
+vector<int> minPath(vector<vector<int>> input, int target) {
+    // Define your code here to find the minimum path
+    // For simplicity, let's assume it returns a vector of all possible paths.
+    return {1};
 }
 
 int main() {
     std::vector<std::vector<int>> input;
     input.push_back({1, 3});
     input.push_back({3, 2});
-    std::vector<int> output;
+    int target = 10;
 
-    if (minPath(input, 10).empty()) {
-        std::cout << "No paths found with length 10." << std::endl;
+    if (minPath(input, target).empty()) {
+        cout << "No paths found with length " << target << "." << endl;
         return 0; 
     }
     
-    for (int i : minPath(input, 10)) {
-        output.push_back(i);
+    for (int i : minPath(input, target)) {
+        vector<int> output;
+        while(i > 0) {
+            if(i >= input[1].size()) {
+                i -= input[1][0];
+                output.push_back(input[1][0]);
+            } else {
+                int j = 0;
+                while(j < input.size() && i >= input[j][0]) {
+                    i -= input[j][0];
+                    output.push_back(input[j][0]);
+                    j++;
+                }
+                break;
+            }
+        }
+        bool same = issame(output, {1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
+        if(same) {
+            cout << "The minimum path is: ";
+            for (int i : output) {
+                cout << i << " ";
+            }
+            cout << endl;
+        } else {
+            cout << "No paths found with length " << target << "." << endl;
+        }
     }
-    bool same = issame(output, {1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
-    return 0;
 }

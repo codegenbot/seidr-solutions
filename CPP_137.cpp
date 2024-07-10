@@ -10,7 +10,8 @@ auto compare_one(int a, double b) {
     } else if (a == b) {
         return 0;
     } else {
-        return a;
+        // handle string input here 
+        return "Non numeric value";
     }
 }
 
@@ -19,30 +20,17 @@ int main_func() {
     cout << "Enter an integer: ";
     cin >> a;
 
-    string s;
+    double b;
     cout << "Enter a floating point number or a string: ";
-    cin >> s;
-
-    if (cin.fail()) { 
-        // The input was not successful, so clear the error
+    cin >> b;
+    
+    if (!cin) { 
         cin.clear();
-        
-        // Check if the failed operation was due to an integer input and then
-        // try to read it as an int. If this fails too, then assume the user entered a string.
-        cin >> ws;
-        cin >> s;
-
-        if (!cin) { 
-            // The failed operation could have been due to a string or other non-numeric input.
-            cout << "The result is: " << a << endl;
-        } else {
-            // Now, we're sure the input was a number, so proceed with comparison
-            double b = stod(s);
-            cout << "The result is: " << compare_one(a, b) << endl;
-        }
+        cin.ignore(10000, '\n');
+        cout << "The result is: " << compare_one(a, 0.0) << endl;
     } else {
-        // The input was successful, so process the double value (b)
-        double b = stod(s); 
+        // Process double value (b)
+        // or handle string input as needed
         cout << "The result is: " << compare_one(a, b) << endl;
     }
 
