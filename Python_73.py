@@ -1,21 +1,11 @@
+```
 def smallest_change():
-    while True:
-        try:
-            arr = list(map(int, input().split()))
-            n = len(arr)
-            break
-        except ValueError:
-            print("Invalid input! Please enter numbers separated by space.")
-
-    while len(arr) != n:
-        try:
-            arr = list(map(int, input().split()))
-        except ValueError:
-            print("Invalid input! Please enter numbers separated by space.")
-            return None
+    arr = list(map(int, input().split()))
+    while len(str(arr).replace(" ", "")) != str(len(set(map(str,arr))))*1:
+        arr = list(map(int, input().split()))
 
     arr.sort()
-    left, right = 0, n - 1
+    left, right = 0, len(arr) - 1
     changes = 0
 
     while left < right:
