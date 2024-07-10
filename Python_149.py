@@ -15,7 +15,7 @@ def main():
                 input_val = int(input("Press Enter to calculate the sum or type 'q' to quit: "))
                 if input_val == 113:
                     break
-                print(sorted_list_sum)  
+                print(sorted_list_sum)
             except ValueError:
                 print("Invalid input. Please enter a number or 'q'.")
             except Exception as e:
