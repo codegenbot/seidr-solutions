@@ -26,5 +26,9 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
 
 int main() {
     assert(exchange({100, 200}, {200, 200}) == "YES");
+    std::vector<int> lst1 = {2,4,6};
+    std::vector<int> lst2 = {3,5,7};
+    std::cout << exchange(lst1, lst2) << std::endl;
+    
     return 0;
 }
