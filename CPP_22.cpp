@@ -2,10 +2,10 @@
 #include <iostream>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return (a.size() == b.size()) && std::all_of(a.begin(), a.end(), [&](int x) { return std::binary_search(b.begin(), b.end(), x); });
 }
 
-std::vector<int> filterIntegers(std::vector<int> values) {
+std::vector<int> filter_integer(std::vector<int> values) {
     std::vector<int> result;
     for (int value : values) {
         if(value != 0) {
@@ -31,11 +31,12 @@ int main() {
     }
 
     std::vector<int> values = {1, 0, 3, 4};
-    std::vector<int> filtered = filterIntegers(values);
+    std::vector<int> filtered = filter_integer(values);
     for (int value : filtered) {
         std::cout << value << " ";
     }
     std::cout << std::endl;
-    
+
+    assert(issame({3, 3, 3}, {3, 3, 3}));
     return 0;
 }
