@@ -1,3 +1,4 @@
+```cpp
 #include <boost/variant.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
