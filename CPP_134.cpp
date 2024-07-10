@@ -4,10 +4,20 @@
 #include <iostream>
 
 bool check_if_last_char_is_a_letter(const std::string &txt) {
-    std::string trimmed_txt = txt;
-    trimmed_txt.erase(trimmed_txt.find_last_not_of(' ') + 1);
+    if (txt.empty()) {
+        return false;
+    }
 
-    return !trimmed_txt.empty() && isalpha(trimmed_txt.back());
+    for (int i = txt.size() - 1; i >= 0; --i) {
+        if (isalpha(txt[i])) {
+            return true;
+        }
+        if (!isspace(txt[i])) {
+            return false;
+        }
+    }
+
+    return false;
 }
 
 int unique_main_function_name() {
