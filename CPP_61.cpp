@@ -1,10 +1,21 @@
 #include <iostream>
 #include <string>
 
-bool correct_bracketing(std::string brackets) {
+bool correct_bracketing(std::string brackets){
     int count = 0;
-    for(int i=0; i<std::cout << "Enter brackets: ";
-    std::cin >> input;
-    assert(not correct_bracketing(input));
+    for(char bracket : brackets){
+        if(bracket == '(') {
+            count++;
+        } else if (bracket == ')') {
+            if(count <= 0) return false;
+            count--;
+        }
+    }
+    return count == 0;
+}
+
+int main(){
+    assert(not correct_bracketing("()()(()())"));
+    std::cout << "All assertions passed" << std::endl;
     return 0;
 }
