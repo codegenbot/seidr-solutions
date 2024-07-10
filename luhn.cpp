@@ -1,14 +1,14 @@
-int luhn(vector<int>& cc) {
+int luhn(vector<int>& card) {
     int sum = 0;
-    for(int i = cc.size() - 1; i >= 0; --i) {
+    for(int i = card.size() - 1; i >= 0; --i) {
         if(i % 2 == 0) {
-            int temp = cc[i] * 2;
-            if(temp > 9) {
-                temp -= 9;
+            int num = card[i] * 2;
+            if(num > 9) {
+                num -= 9;
             }
-            sum += temp;
+            sum += num;
         } else {
-            sum += cc[i];
+            sum += card[i];
         }
     }
     return sum;
