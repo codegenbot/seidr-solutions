@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -20,6 +19,8 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
 }
 
 int main() {
+    assert(filter_by_substring({std::vector<std::string>({"grunt", "trumpet", "prune", "gruesome"})), "run") == std::vector<std::vector<std::string>>({{"grunt"}, {"prune"}}));
+    
     std::vector<std::vector<std::string>> input = {{"apple", "banana"}, {"orange", "grape"}, {"kiwi", "mango"}};
     const std::string sub = "an";
     auto output = filter_by_substring(input, sub);
