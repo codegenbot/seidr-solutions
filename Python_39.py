@@ -11,12 +11,4 @@ def prime_fib(n):
                 return False
         return True
 
-    count = 0
-    current_index = 2
-    while count < n:
-        current_num = fib_sequence[current_index]
-        if is_prime(current_num):
-            count += 1
-        current_index += 1
-
-    return current_num
+    return sum(num for num in fib_sequence if is_prime(num))
