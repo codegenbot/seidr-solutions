@@ -7,7 +7,7 @@ string rounded_avg(int n,int m){
     for(long i=n; i<=m; i++){
         sum += i;
     }
-    long avg = (long)round(sum / (double)(m-n+1));
+    long avg = (long)round((double)sum / (m-n+1));
     string res = "";
     while(avg > 0){
         if(avg & 1) res.push_back('1');
