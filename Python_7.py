@@ -3,11 +3,14 @@ import re
 
 
 def filter_by_substring():
-    input_str = input("Enter strings (comma-separated): ")
+    input("Press Enter when ready: ")
+    input_strings = input("Enter strings (space-separated): ")
+
+    input("Press Enter when ready: ")
     substring = input("Enter a substring: ")
 
     try:
-        strings = [s.strip() for s in input_str.split(",")]
+        strings = [s.strip() for s in input_strings.split()]
     except ValueError:
         return []
 
