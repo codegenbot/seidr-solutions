@@ -1,3 +1,2 @@
-num_elements = int(input())
-values = list(map(int, input().split()))[:num_elements]
+values = list(map(int, input().split()))
 print(sum(values))
