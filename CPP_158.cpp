@@ -22,11 +22,12 @@ int main() {
     std::cin >> n;
 
     for (int i = 0; i < n; ++i) {
-        std::string word;
+        std::string temp;
         std::cout << "Enter word " << (i + 1) << ": ";
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        getline(std::cin, word); 
-        words.push_back(word);
+        getline(std::cin, temp); 
+        temp.erase(0, temp.find_first_not_of(" \t")); // remove leading spaces
+        temp.erase(temp.find_last_not_of(" \t")+1);      // and trailing ones
+        words.push_back(temp);
     }
 
     findMaxWord(words);
