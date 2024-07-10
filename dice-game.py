@@ -1,6 +1,2 @@
-def solve(n, m):
-    if n < m:
-        return 0.0
-    if n == m:
-        return 0.5
-    return (n - m) / (n)
+def dice_game(n, m):
+    return 1 - (n + 1) / (n * m)
