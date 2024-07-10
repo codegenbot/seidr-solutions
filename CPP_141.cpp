@@ -1,23 +1,21 @@
+Here is the completed code:
+
 string file_name_check(string file_name){
-    int digitCount = 0;
-    bool foundDot = false;
+    int dot_count = 0;
+    bool has_letter = false;
+    int digit_count = 0;
+
     for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
-            digitCount++;
-            if(digitCount > 3) return "No";
-        }
-        else if(file_name[i] == '.'){
-            foundDot = true;
-        }
-        else if(!foundDot && !isalpha((unsigned char)file_name[i])){
-            return "No";
+        char c = file_name[i];
+        if(c == '.'){
+            dot_count++;
+        } else if(isdigit(c)){
+            digit_count++;
+        } else if(isalpha(c) && !has_letter){
+            has_letter = true;
         }
     }
-    if(!foundDot) return "No";
-    string extension = file_name.substr(file_name.find('.')+1);
-    string allowedExtensions[] = {"txt", "exe", "dll"};
-    for(int i=0; i<3; i++){
-        if(extension == allowedExtensions[i]) return "Yes";
-    }
-    return "No";
+
+    return (dot_count == 1 && digit_count <= 3 && has_letter && 
+            (file_name.find("txt") != string::npos || file_name.find("exe") != string::npos || file_name.find("dll") != string::npos)) ? "Yes" : "No";
 }
