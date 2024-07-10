@@ -1,16 +1,12 @@
+#include <vector>
 #include <algorithm>
 
 bool move_one_ball(vector<int> arr) {
-    if (arr.empty()) return true;
-
-    vector<int> arr_copy = arr;
-    sort(arr_copy.begin(), arr_copy.end());
-
+    int max = *max_element(arr.begin(), arr.end());
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] != arr_copy[(i + arr_copy.size() - arr.size()) % arr_copy.size()]) {
+        if (arr[i] != max - i) {
             return false;
         }
     }
-
     return true;
 }
