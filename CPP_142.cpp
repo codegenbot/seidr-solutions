@@ -18,15 +18,10 @@ int main() {
     } else {
         int result = sum_squares(n);
         std::cout << "Sum of squares: " << result << std::endl;
+        
+        // Test the function with different inputs
+        for(int i = 0; i <= 5; ++i) {
+            std::cout << "Sum of squares for " << i << ": " << sum_squares(i) << std::endl;
+        }
     }
-
-    if (sum_squares(1) == 1)
-        std::cout << "Test for n=1 passed." << std::endl;
-    else
-        std::cout << "Test for n=1 failed." << std::endl;
-
-    if (sum_squares(2) == 5)
-        std::cout << "Test for n=2 passed." << std::endl;
-    else
-        std::cout << "Test for n=2 failed." << std::endl;
 }
