@@ -1,7 +1,7 @@
 def bowling_score(bowls):
     score = 0
     frames = bowls.split("/")
-    
+
     for i, frame in enumerate(frames):
         for bowl in frame:
             if bowl == "X":
@@ -20,10 +20,10 @@ def bowling_score(bowls):
                     pass
                 else:
                     score += int(next_bowl)
-                    
+
                 if next_frame.index(next_bowl) == 1:  # Check if just 2 bowls have been bowled in next frame
                     break
-                    
+
         elif len(frame) == 2 and i < 9:  # Spare in frame
             if len(frames) > i + 1:
                 next_bowl = frames[i + 1][0]
@@ -33,5 +33,5 @@ def bowling_score(bowls):
                     pass
                 else:
                     score += int(next_bowl)
-    
+
     return score
