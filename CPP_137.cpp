@@ -17,17 +17,13 @@ int main_func() {
     cout << "Enter an integer: ";
     cin >> a;
 
-    double b;
-    cout << "Enter a floating point number: ";
-    cin >> b; 
+    string str;
+    cout << "Enter a floating point number or a string: ";
+    cin >> str; 
 
-    if (cin.fail()) { 
-        cin.clear();
-        cin >> ws;
-        cout << "The result is: " << compare_one(a, 0) << endl;
-    } else {
-        cout << "The result is: " << compare_one(a, b) << endl;
-    }
+    double b = stod(str); // Always treat the input as a floating point number
+
+    cout << "The result is: " << compare_one(a, b) << endl;
 
     return 0;
 }
