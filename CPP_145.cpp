@@ -16,15 +16,19 @@ int sum_of_digits(int num) {
     return sum;
 }
 
-vector<int> order_by_points(vector<int> nums) {
+vector<int> order_by_points(const vector<int>& nums) {
+    if (nums.empty()) {
+        return nums;
+    }
+    
     vector<int> sorted_nums = nums; 
     sort(sorted_nums.begin(), sorted_nums.end(), [&](int a, int b) {
         int sum_a = sum_of_digits(a);
         int sum_b = sum_of_digits(b);
-        if (sum_a == sum_b) {
-            return a < b;
+        if (sum_a != sum_b) {
+            return sum_a < sum_b;
         }
-        return sum_a < sum_b;
+        return a < b;
     });
     return sorted_nums;
 }
