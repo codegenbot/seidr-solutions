@@ -24,8 +24,8 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
-        // Ignore whitespace and newline character
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n' ,'\r');
+        // Ignore only one character
+        std::cin.ignore(1, '\n');
         std::getline(std::cin, word); 
         words.push_back(word);
     }
