@@ -1,35 +1,12 @@
-```cpp
-#include <vector>
-#include <algorithm>
-
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
 
-std::vector<float> sort_even(std::vector<float> l){
+vector<float> sort_even(vector<float> l){
     if(l.size() <= 0) {
-        // Handle the error case where l is empty
-        std::vector<float> result = l; 
-        for(int i = 0; i < l.size(); i++){
-            if(i % 2 == 0){
-                vector<float> temp;
-                for(auto j: l | std::views::slices(0, l.size(), 2)){
-                    temp.push_back(j);
-                }
-                sort(temp.begin(), temp.end());
-                result[i] = temp[0];
-                for(int k = 1; k < temp.size(); k++){
-                    if(i + k * 2 < l.size()){
-                        result[i+k*2] = temp[k];
-                    }
-                }
-            }else{
-                result[i] = l[i];
-            }
-        }
-        return result;
+        return l;
     }
-    std::vector<float> result(l.size());
+    vector<float> result(l.size());
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){
             vector<float> temp;
