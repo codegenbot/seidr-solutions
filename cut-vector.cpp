@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <numeric>
 
 using namespace std;
 
@@ -12,30 +11,30 @@ int main() {
     while (cin >> num) {
         nums.push_back(num);
     }
-    
-    if (nums.size() > 1) {
-        int sum = accumulate(nums.begin(), nums.end(), 0);
-        int target = sum / 2;
-        int prefixSum = 0;
-        int index = 0;
-        int minDiff = INT_MAX;
 
-        for (int i = 0; i < nums.size(); ++i) {
-            prefixSum += nums[i];
-            int diff = abs(prefixSum - target);
-            if (diff < minDiff) {
-                minDiff = diff;
-                index = i;
-            }
-        }
+    sort(nums.begin(), nums.end());
 
-        for (int i = 0; i <= index; ++i) {
-            cout << nums[i] << endl;
+    int sum = accumulate(nums.begin(), nums.end(), 0);
+    int target = sum / 2;
+    int prefixSum = 0;
+    int index = 0;
+    int minDiff = INT_MAX;
+
+    for (int i = 0; i < nums.size(); ++i) {
+        prefixSum += nums[i];
+        int diff = abs(2 * prefixSum - sum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            index = i;
         }
-        cout << "---" << endl;
-        for (int i = index + 1; i < nums.size(); ++i) {
-            cout << nums[i] << endl;
-        }
+    }
+
+    for (int i = 0; i <= index; ++i) {
+        cout << nums[i] << endl;
+    }
+    cout << "---" << endl;
+    for (int i = index + 1; i < nums.size(); ++i) {
+        cout << nums[i] << endl;
     }
 
     return 0;
