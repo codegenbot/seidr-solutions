@@ -19,7 +19,7 @@ int main() {
     while(std::cin >> num) {
         input.push_back(num);
     }
-    
+
     bool result = pairs_sum_to_zero(input);
     std::cout << std::boolalpha << result << std::endl;
 
