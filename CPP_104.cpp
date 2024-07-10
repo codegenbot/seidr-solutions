@@ -1,8 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
-
-bool issame(std::vector<int> a, std::vector<int> b);
 
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
@@ -22,8 +19,4 @@ vector<int> unique_digits(vector<int> x){
     }
     sort(result.begin(), result.end());
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b){
-   // Implement the comparison logic here
 }
