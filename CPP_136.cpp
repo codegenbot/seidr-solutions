@@ -2,7 +2,17 @@
 #include <vector>
 #include <climits>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b);
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 std::vector<int> largest_smallest_integers(const std::vector<int>& lst) {
     int largest_negative = INT_MIN, smallest_positive = INT_MAX;
@@ -34,16 +44,4 @@ int main() {
     }
 
     return 0;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
