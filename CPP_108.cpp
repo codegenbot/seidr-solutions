@@ -26,7 +26,7 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<int> nums;
-    for (int i = 0; i <= n; i++) {
+    for (int i = 0; i < n; i++) {
         int num;
         std::cin >> num; 
         nums.push_back(num); 
