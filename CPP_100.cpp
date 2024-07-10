@@ -1,13 +1,15 @@
 Here is the completed code:
 
 vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    for (int i = 1; i <= n; ++i) {
-        if (i % 2 == 0) {
-            pile.push_back(i * 2 - 1);
+    vector<int> result;
+    int numStones = 1;
+    for (int i = 0; i < n; i++) {
+        if ((numStones % 2) == 0) {
+            result.push_back(numStones + 1);
         } else {
-            pile.push_back(i * 2);
+            result.push_back(numStones + 2);
         }
+        numStones += (numStones % 2 ? 2 : 1);
     }
-    return pile;
+    return result;
 }
