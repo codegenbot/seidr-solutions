@@ -1,5 +1,4 @@
 ```
-    import re
 def filter_by_substring():
     while True:
         expected_output = input("Is your expected output 'True values', 'False values', or 'all'? ")
@@ -29,10 +28,10 @@ def filter_by_substring():
 
         break
 
-    result = [s for s in strings if re.compile(substring).search(s)]
+    result = [s for s in strings if re.search(s, substring)]
     if expected_output.lower() == "true values":
         print(result[:num_to_display])
     elif expected_output.lower() == "false values":
-        print([s for s in strings if not re.compile(substring).search(s)][:num_to_display])
+        print([s for s in strings if not re.search(s, substring)][:num_to_display])
     else:
-        print(result + [s for s in strings if not re.compile(substring).search(s)][:num_to_display])
+        print(result + [s for s in strings if not re.search(s, substring)][:num_to_display])
