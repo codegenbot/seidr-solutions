@@ -8,9 +8,5 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& list) {
     for (const auto& str : list) {
         sum += str.length();
     }
-    return {std::to_string(sum)}; 
-}
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    return {"", std::to_string(sum)};
 }
