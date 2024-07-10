@@ -1,9 +1,10 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-int minPath(vector<vector<int>>& grid) {
+bool minPath(std::vector<std::vector<int>>& grid) {
     int m = grid.size();
-    if (m == 0) return 1;
+    if (m == 0) return true;
     int n = grid[0].size();
 
     for (int i = 0; i < m; i++) {
@@ -19,17 +20,22 @@ int minPath(vector<vector<int>>& grid) {
 
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            if (grid[i][j] == 1) return 0;
+            if (grid[i][j] == 1) return false;
         }
     }
 
-    return 1;
+    return true;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
     }
     return true;
+}
+
+int main() {
+    assert(issame({1, 3}, minPath({{1, 3}, {3, 2}})) );
+    return 0;
 }
