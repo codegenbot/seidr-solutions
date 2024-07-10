@@ -7,4 +7,3 @@ bool below_threshold(vector<int> l, int t) {
         }
     }
     return true;
-}
