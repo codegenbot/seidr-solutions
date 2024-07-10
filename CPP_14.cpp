@@ -3,7 +3,9 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+using namespace std;
+
+bool issame(vector<string> a,vector<string>b){
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -11,36 +13,35 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<char> all_prefixes(const std::string& input) {
-    std::vector<char> result;
+vector<string> all_prefixes(const string& input) {
+    vector<string> result;
     for (int i = 0; i <= input.size(); ++i) {
-        result.push_back(input[i]);
+        result.push_back(input.substr(0, i+1)); 
     }
-    return {std::string(&result[0], &result[0] + result.size())};
+    return result;
 }
 
 int mainFunc() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
 
     if (input.empty()) {
-        std::cout << "Invalid input. Please enter a non-empty string." << std::endl;
+        cout << "Invalid input. Please enter a non-empty string." << endl;
     } else {
-        std::vector<char> result = all_prefixes(input);
-        std::vector<std::string> chars(result.begin(), result.end());
-        if (!issame(std::vector<std::string>(chars.begin(), chars.begin()), std::vector<std::string>(chars.begin(), chars.end()))) {
-            std::cout << "The prefixes are not the same." << std::endl;
+        vector<string> result = all_prefixes(input);
+        if (!issame(result)) {
+            cout << "The prefixes are not the same." << endl;
         } else {
-            std::cout << "The prefixes are the same." << std::endl;
+            cout << "The prefixes are the same." << endl;
         }
     }
 
-    std::vector<char> www = all_prefixes("WWW");
-    if (!issame(std::vector<std::string>(www.begin(), www.end()), std::vector<std::string>(www.begin(), www.begin()))) {
-        std::cout << "The prefixes are not the same." << std::endl;
+    vector<string> www = all_prefixes("WWW");
+    if (!issame(www)) {
+        cout << "The prefixes are not the same." << endl;
     } else {
-        std::cout << "The prefixes are the same." << std::endl;
+        cout << "The prefixes are the same." << endl;
     }
 
     return 0;
