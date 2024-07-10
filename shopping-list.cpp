@@ -2,14 +2,11 @@
 using namespace std;
 
 double shoppingList(vector<float>& prices, vector<float>& discounts) {
-    double totalPrice = 0;
+    double total = 0;
     for (int i = 0; i < prices.size(); i++) {
-        float price = prices[i];
-        float discount = discounts[i] / 100.0f;
-        double discountedPrice = price * (1 - discount);
-        totalPrice += discountedPrice;
+        total += prices[i] * (1 - discounts[i] / 100);
     }
-    return totalPrice;
+    return total;
 }
 
 int main() {
