@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     result = True
     for char in expression:
@@ -7,5 +6,5 @@ def solve_boolean(expression):
         elif char == '&':
             result &= (char != 'T')
         elif char == '|':
-            result = not all(c == 'T' for c in expression[:expression.index('|')])
+            result |= (char != 'T')
     return result
