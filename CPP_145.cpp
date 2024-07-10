@@ -1,10 +1,7 @@
-#include <algorithm>
 #include <vector>
-#include <utility>
-#include <initializer_list> 
 using namespace std;
 
-bool same(vector<int> a, vector<int> b) {
+bool isEqual(vector<int> a, vector<int> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
@@ -52,6 +49,6 @@ int main() {
     }
     cout << "]\n";
     
-    assert (same(orderPoints({0,6,6,-76,-21,23,4}) , vector<int>{-76, -21, 0, 4, 23, 6, 6});
+    assert (isEqual(vector<int>{-76, -21, 0, 4, 23, 6, 6}, orderPoints({0,6,6,-76,-21,23,4})));
     return 0;
 }
