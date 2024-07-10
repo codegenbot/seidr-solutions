@@ -23,7 +23,7 @@ vector<int> parse_music(string music_string){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]) return false;
@@ -31,11 +31,8 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-bool issame(vector<int> a, vector<int> b);
-
 int main() {
     using namespace std;
-
     string music_string;
     cin >> music_string;
 
