@@ -1,9 +1,8 @@
 #include <vector>
+#include <iostream>
 #include <cassert>
 
-using namespace std;
-
-int skjkasdkd(std::vector<int> lst){
+int skjkasdkd(const std::vector<int>& lst){
     int maxPrime = 0;
     for (int num : lst) {
         if (num < 2) continue;
