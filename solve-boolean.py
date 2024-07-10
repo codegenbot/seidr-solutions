@@ -1,12 +1,12 @@
-```
+```Python
 def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
     elif '&' in expression:
-        left, right = expression.split('&')
-        return bool(left) and bool(right)
+        a, b = expression.split('&')
+        return bool(a) and bool(b)
     else:
-        left, right = expression.split('|')
-        return bool(left) or bool(right)
+        a, b = expression.split('|')
+        return bool(a) or bool(b)
