@@ -18,7 +18,7 @@ int main() {
     while (!(cin >> ws && cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'))) {
         return "You didn't type anything";
     }
-    string tweet = ws + input.substr(0, 140);
+    string tweet = ws + input.substr(0, 140); 
     cout << validateTweet(tweet) << endl;
     return 0;
 }
