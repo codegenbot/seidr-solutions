@@ -1,3 +1,6 @@
+#include <vector>
+#include <string>
+
 int exchange(std::vector<int> lst1, std::vector<int> lst2) {
     int oddCount1 = 0;
     for (int num : lst1)
