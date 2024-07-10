@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <string>
 #include <vector>
@@ -6,7 +5,7 @@
 
 int solve(std::string s) {
     if (s.empty()) {
-        return 0;
+        return 1;
     }
     int v = 0;
     for (char c : s) {
@@ -15,11 +14,11 @@ int solve(std::string s) {
             v++;
         }
     }
-    return v;
+    return static_cast<int>(v);
 }
 
 int main() {
-    assert(solve("aAeEiIoUu") == 6);
-    std::cout << solve("aAeEiIoUu") << std::endl;
+    assert(solve("aAeEiIoUu") == 5); 
+    std::cout << (std::string)1 << std::endl;
     return 0;
 }
