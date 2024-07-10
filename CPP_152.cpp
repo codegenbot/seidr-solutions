@@ -3,6 +3,15 @@
 
 using namespace std;
 
+bool issame(vector<int> game, vector<int> guess) {
+    for (int i = 0; i < game.size(); i++) {
+        if (game[i] != guess[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
     for (int i = 0; i < game.size(); i++) {
@@ -12,42 +21,39 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     return result;
 }
 
-bool issame(vector<int> game, vector<int> guess) {
-    bool same = true;
-    for (int i = 0; i < game.size(); i++) {
-        if (game[i] != guess[i]) {
-            same = false;
-            break;
-        }
-    }
-    return same;
-}
-
 int main() {
+    vector<int> game;
+    cout << "Enter the number of games: ";
     int n;
     cin >> n;
-    vector<int> game(n);
-    for (auto &x : game) {
-        cin >> x;
-    }
-    vector<int> guess(n);
-    for (auto &x : guess) {
-        cin >> x;
+    for (int i = 0; i < n; i++) {
+        cout << "Enter score for game " << i + 1 << ": ";
+        int score;
+        cin >> score;
+        game.push_back(score);
     }
     
-    vector<int> result = compare(game, guess);
+    vector<int> guess;
+    cout << "Enter the number of guesses: ";
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cout << "Enter score for guess " << i + 1 << ": ";
+        int score;
+        cin >> score;
+        guess.push_back(score);
+    }
+    
+    vector<int> diff = compare(game, guess);
     bool same = issame(game, guess);
     
-    cout << "Result: ";
-    for (int i = 0; i < n; i++) {
-        cout << result[i] << " ";
-    }
-    cout << endl;
-    
     if (same) {
-        cout << "Guess is the same as game." << endl;
+        cout << "The games and guesses are the same." << endl;
     } else {
-        cout << "Guess is not the same as game." << endl;
+        cout << "The games and guesses are different." << endl;
+        
+        for (int i = 0; i < game.size(); i++) {
+            cout << "The difference between the " << i + 1 << " game and guess is: " << diff[i] << endl;
+        }
     }
     
     return 0;
