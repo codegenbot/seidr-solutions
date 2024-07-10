@@ -7,7 +7,7 @@ wstring middleCharacter(wstring s) {
     if (n % 2 == 0) {
         return s.substr((n-1)/2, 2);
     } else {
-        return s.substr(n/2, 1);
+        return s.substr((n-1)/2, 1);
     }
 }
 
