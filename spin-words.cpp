@@ -1,31 +1,26 @@
-#include <algorithm>
+#include <initializer_list>
 
-#include <vector>
-#include <iostream>
-#include <string>
+using namespace std;
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    std::size_t pos = 0;
-    while ((pos = str.find(" ")) != std::string::npos) {
-        std::size_t nextPos = str.find(" ", pos + 1);
-        if (nextPos == std::string::npos) {
-            nextPos = str.length();
-        }
-        std::string word = str.substr(pos, nextPos - pos);
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-        result += word + " ";
-        pos = nextPos;
+string spinWords(string str) {
+    string result = "";
+    int wordLength;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || isspace(str[i])) {
+            if ((wordLength = i - result.length()) >= 5)
+                reverse(result.rbegin(), result.rend());
+            result += ' ';
+        } else
+            result += tolower(toupper(str[i]));
     }
-    return result;
+    return result.substr(1);
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; 
-    std::cout << spinWords("this is a test") << std::endl; 
-    std::cout << spinWords("this is another test") << std::endl; 
-    std::cout << spinWords("hi") << std::endl; 
+    string str;
+    while (true) {
+        cout << "Enter a sentence: ";
+        cin >> str;
+        cout << "Spin Words: " << spinWords(str) << endl;
+    }
     return 0;
-}
