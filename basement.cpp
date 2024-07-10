@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <vector>
 
 int basement(std::vector<int>& nums) {
@@ -9,11 +7,4 @@ int basement(std::vector<int>& nums) {
         if (sum < 0) return i + 1;
     }
     return -1;
-}
-
-int main() {
-    std::vector<int> nums = {-1, 2};
-    int result = basement(nums);
-    std::cout << "First index with negative sum is: " << result << std::endl;
-    return 0;
 }
