@@ -38,7 +38,7 @@ int main() {
     }
     
     auto firstUnique = distinct(input.begin(), input.end());
-    std::vector<int> output(firstUnique, std::unique(input.begin(), input.end()));
+    std::vector<int> output(std::unique(input.begin(), std::prev(firstUnique)), input.end());
 
     for (int i : output) {
         std::cout << i << " ";
