@@ -3,10 +3,10 @@
 
 std::vector<std::string> lst;
 
-int match_parens(std::vector<std::string> input) {
+int match_parens(std::vector<std::string> lst) {
     int countOpen = 0, countClose = 0;
 
-    for (const std::string &s : input) {
+    for (const std::string &s : lst) {
         for (char c : s) {
             if (c == '(') {
                 countOpen++;
@@ -17,13 +17,13 @@ int match_parens(std::vector<std::string> input) {
     }
 
     if (countOpen == countClose) {
-        return 1;
+        return "Yes";
     } else {
-        return 0;
+        return "No";
     }
 }
 
 int main() {
-    assert(match_parens({{"", "("})) == 1);
+    assert(match_parens({{"", "("})) == "Yes");
     return 0;
 }
