@@ -1,4 +1,3 @@
-```
 def encode(message):
     vowels = 'aeiouAEIOU'
     result = ''
@@ -7,10 +6,7 @@ def encode(message):
             if char.lower() in vowels:
                 index = vowels.index(char.lower())
                 next_index = (index + 1) % len(vowels)
-                if char.isupper():
-                    result += vowels[next_index].upper()
-                else:
-                    result += vowels[next_index].lower()
+                result += 'aeiouAEIOU'[next_index].upper() if char.isupper() else 'aeiouAEIOU'[next_index].lower()
             else:
                 result += 'x'
         else:
