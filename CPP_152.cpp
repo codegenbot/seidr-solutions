@@ -1,12 +1,6 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
-vector<int> compare(vector<int> game, vector<int> guess) {
-    vector<int> result;
+```cpp
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+    std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
             result.push_back(0);
