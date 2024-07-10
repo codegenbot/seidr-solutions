@@ -1,8 +1,10 @@
+```cpp
 #include <string>
 
 string concatenate(vector<string> strings){
     string result = "";
-    for(string s : strings) {
-        result += s;
+    for (const auto& str : strings) {
+        result += str;
     }
     return result;
+}
