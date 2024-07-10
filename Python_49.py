@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```python
+```
 import random
 
 
