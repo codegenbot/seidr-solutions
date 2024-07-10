@@ -2,9 +2,9 @@ Here's the completed code:
 
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && floor(num) == num) { // check if number is positive and integer
-            sum += pow(num, 2);
+    for (float x : lst) {
+        if (x > 0 && floor(x) == x) { // check if number is positive and integer
+            sum += pow(x, 2); // square the number and add to sum
         }
     }
     return sum;
