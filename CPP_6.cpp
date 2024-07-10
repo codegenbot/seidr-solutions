@@ -14,14 +14,10 @@ vector<int> parse_nested_parens(string paren_string) {
             nesting_levels.push(1);
             max_nesting = max(max_nesting, 1);
         } else if (c == ')') {
+            result.push_back(max_nesting);
+            max_nesting = nesting_levels.top();
             nesting_levels.pop();
-            max_nesting = max(max_nesting, nesting_levels.size());
         }
-    }
-
-    while (!nesting_levels.empty()) {
-        result.push_back(nesting_levels.top());
-        nesting_levels.pop();
     }
 
     return result;
