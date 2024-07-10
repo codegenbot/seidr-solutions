@@ -1,9 +1,9 @@
+```cpp
 #include <algorithm>
-#include <string>
 using namespace std;
 
-string anti_shuffle(string s) {
-    string result = "";
+std::string anti_shuffle(std::string s) {
+    std::string result = "";
     for (const auto& word : split(s, " ")) {
         string temp = word;
         sort(temp.begin(), temp.end());
@@ -12,7 +12,7 @@ string anti_shuffle(string s) {
     return result.substr(0, result.size() - 1);
 }
 
-string split(const string& str, const string& delimiter) {
+std::string split(const std::string& str, const std::string& delimiter) {
     size_t pos = 0;
     vector<string> tokens;
     while ((pos = str.find(delimiter)) != string::npos) {
