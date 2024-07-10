@@ -1,12 +1,12 @@
 #include <vector>
-#include <limits>
+#include <algorithm>
 
-std::vector<int> pluck(std::vector<int> arr) {
+std::vector<int> pluck(std::vector<int>& arr) {
     std::vector<int> result;
     if (arr.empty()) {
         return result;
     }
-    int minEven = std::numeric_limits<int>::max();
+    int minEven = INT_MAX;
     int minIndex = 0;
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0 && arr[i] < minEven) {
