@@ -23,8 +23,8 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    vector<int> digits = {4, 3, 8, 1, 6, 7, 2, 0, 1, 9, 5, 9, 8, 4, 8, 4}; // replace with your input
+    vector<int> digits = {1, 2, 3, 4, 5};
     int result = luhn(digits);
-    cout << "Result: " << result << endl; 
+    cout << "Result: " << result << endl;
     return 0;
 }
