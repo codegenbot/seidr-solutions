@@ -1,12 +1,10 @@
+num_strings = int(input().strip())
 strings = []
-try:
-    while True:
-        string = input().strip()
-        if string == '----':
-            break
-        strings.append(string)
-except EOFError:
-    pass
+while True:
+    string = input().strip()
+    if string == '----':
+        break
+    strings.append(string)
 
 substring = input().strip()
 
