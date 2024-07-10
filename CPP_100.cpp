@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <random>
@@ -27,11 +27,11 @@ int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-    
-    if(issame({1}, {make_a_pile(n)}) ){
+
+    std::vector<int> pile = make_a_pile(n);
+    if(issame({1}, {pile})){
         std::cout << "The piles are the same." << std::endl;
     } else {
         std::cout << "The piles are not the same." << std::endl;
     }
-    
 }
