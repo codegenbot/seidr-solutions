@@ -1,7 +1,8 @@
-```
+```c++
+#include <assert.h>
 #include <string>
 
-std::string int_to_roman(int number) {
+std::string int_to_mini_romank(int number) {
     std::string roman = "";
     while (number >= 1000) {
         number -= 1000;
@@ -52,6 +53,6 @@ std::string int_to_roman(int number) {
 }
 
 int main() {
-    assert(int_to_roman(3) == "III");
+    assert(int_to_mini_romank(1000) == "M");
     return 0;
 }

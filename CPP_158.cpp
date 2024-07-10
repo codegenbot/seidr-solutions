@@ -22,8 +22,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string str;
         getline(std::cin, str); 
-        std::cin.ignore(); // Add this line to ignore extra newline characters
-        words.push_back(str);
+        words.push_back(str.erase(0, str.find_first_not_of(' ')).erase(str.find_last_not_of(' ') + 1));
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
     return 0;
