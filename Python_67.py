@@ -1,4 +1,3 @@
-```
 def fruit_distribution(s, n):
     s = s.lower()
     if not s:
@@ -26,4 +25,4 @@ def fruit_distribution(s, n):
         else:
             fruit = words[i]
             i += 1
-    return sum(fruits.values())
+    return len(set(fruits))
