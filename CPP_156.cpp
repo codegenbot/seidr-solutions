@@ -21,40 +21,83 @@ std::string int_to_roman(int number)
     int thousands = number / 1000;
     for (int i = 0; i < thousands; i++)
     {
-        roman += 'M';
+        char* temp = new char[1];
+        *temp = 'M';
+        roman += temp;
+        delete[] temp;
     }
 
     int hundreds = (number % 1000) / 100;
     if (hundreds > 0)
     {
-        roman += "D";
-        while(hundreds-- > 1) roman += 'C';
+        char* temp = new char[1];
+        *temp = 'D';
+        roman += temp;
+        delete[] temp;
+
+        for (int i = 1; i < hundreds; i++)
+        {
+            char* temp = new char[1];
+            *temp = 'C';
+            roman += temp;
+            delete[] temp;
+        }
     }
 
     int tens = (number % 100) / 10;
     if (tens > 3)
     {
-        roman += "CM";
+        char* temp = new char[2];
+        temp[0] = 'C';
+        temp[1] = 'M';
+        roman += temp;
+        delete[] temp;
+
         for (int i = 4; i <= tens; i++)
-            roman += 'D';
+        {
+            char* temp = new char[1];
+            *temp = 'D';
+            roman += temp;
+            delete[] temp;
+        }
     }
     else
     {
-        while(tens-- > 3) roman += "X";
-        roman += 'X';
+        for (int i = 1; i <= tens; i++)
+        {
+            char* temp = new char[1];
+            *temp = 'X';
+            roman += temp;
+            delete[] temp;
+        }
     }
 
     int ones = number % 10;
     if (ones > 3)
     {
-        roman += "IV";
+        char* temp = new char[2];
+        temp[0] = 'I';
+        temp[1] = 'V';
+        roman += temp;
+        delete[] temp;
+
         for (int i = 5; i <= ones; i++)
-            roman += 'V';
+        {
+            char* temp = new char[1];
+            *temp = 'V';
+            roman += temp;
+            delete[] temp;
+        }
     }
     else
     {
-        while(ones-- > 3) roman += "I";
-        roman += 'V';
+        for (int i = 1; i <= ones; i++)
+        {
+            char* temp = new char[1];
+            *temp = 'I';
+            roman += temp;
+            delete[] temp;
+        }
     }
 
     return roman;
