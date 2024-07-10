@@ -1,35 +1,45 @@
 #include <iostream>
 #include <map>
+#include <sstream>
 #include <cassert>
 
-bool issame(std::map<char, int> a, std::map<char, int> b){
+using namespace std;
+
+map<char, int> histogram(string test);
+bool issame(map<char, int> a, map<char, int> b);
+
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    istringstream iss(test);
+    string word;
+    
+    while (iss >> word) {
+        for (char& c : word) {
+            result[c]++;
+        }
+    }
+    
+    int maxCount = 0;
+    for (const auto& pair : result) {
+        maxCount = max(maxCount, pair.second);
+    }
+    
+    map<char, int> maxCountLetters;
+    for (const auto& pair : result) {
+        if (pair.second == maxCount) {
+            maxCountLetters[pair.first] = pair.second;
+        }
+    }
+    
+    return maxCountLetters;
+}
+
+bool issame(map<char, int> a, map<char, int> b){
     return a == b;
 }
 
-std::map<char, int> histogram(std::string test){
-    std::map<char, int> freq;
-    int maxFreq = 0;
-    
-    for (char c : test) {
-        if (c != ' ') {
-            freq[c]++;
-            maxFreq = std::max(maxFreq, freq[c]);
-        }
-    }
-    
-    std::map<char, int> result;
-    for (auto it : freq) {
-        if (it.second == maxFreq) {
-            result[it.first] = it.second;
-        }
-    }
-    
-    return result;
-}
-
-int main(){
-    assert(issame(histogram("a"), {{'a', 1}})); // Add specific values inside the assert for comparison
-    // Add more test cases with assert
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
     
     return 0;
 }
