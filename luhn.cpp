@@ -1,6 +1,7 @@
-#include <iostream>
 #include <vector>
-#include <sstream>
+#include <iostream>
+#include <ostream>
+
 using namespace std;
 
 int luhnCheck(vector<int> cardNumber) {
@@ -11,7 +12,6 @@ int luhnCheck(vector<int> cardNumber) {
         } else {
             sum += cardNumber[i] * 2;
         }
-        sum += cardNumber[i-1];
     }
     return sum;
 }
