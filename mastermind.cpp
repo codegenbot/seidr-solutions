@@ -1,10 +1,6 @@
-#include <string>
-
-struct PegCounts { int white; int black; };
-
-PegCounts mastermind(string code, string guess) {
+PegCounts mastermind(std::string code, std::string guess) {
     PegCounts result = {0, 0};
-    string remainingGuess = guess;
+    std::string remainingGuess = guess;
 
     // Count black pegs
     for (int i = 0; i < 4; ++i) {
@@ -15,23 +11,15 @@ PegCounts mastermind(string code, string guess) {
     }
 
     // Count white pegs
-    int count[6] = {0};
     for (int i = 0; i < 4; ++i) {
-        if (remainingGuess[i] != ' ') {
-            for (int j = 0; j < 4; ++j) {
-                if (code[j] == remainingGuess[i]) {
-                    count[code.find(remainingGuess[i])]++;
-                }
+        int count = 0;
+        for (int j = 0; j < 4; ++j) {
+            if (code[j] == remainingGuess[i]) {
+                count++;
             }
         }
-    }
-
-    for (int i = 0; i < 6; ++i) {
-        if (count[i] > 0) {
-            result.white += count[i];
-            while (count[i]-- > 0) {
-                remainingGuess.replace(remainingGuess.find(char(i + 96)), 1, " ");
-            }
+        if (count > 0) {
+            result.white += count - 1; 
         }
     }
 
