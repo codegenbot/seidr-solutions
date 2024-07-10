@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -19,9 +17,7 @@ int main()
     std::string input;
     std::cout << "Enter a string: ";
     std::cin >> input;
-    input.erase(0, input.find_first_not_of(" ") + 1);
-    input.erase(input.find_last_not_of(" ") + 1);
-    if (prime_length(std::to_string(input.length()))) {
+    if (prime_length(input)) {
         std::cout << "The length of the string is prime." << std::endl;
     } else {
         std::cout << "The length of the string is not prime." << std::endl;
