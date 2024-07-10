@@ -1,18 +1,19 @@
 ```
-def is_prime(m):
-    if m < 2:
+def is_prime(n):
+    if n < 2:
         return False
-    for i in range(2, int(math.sqrt(m)) + 1):
-        if m % i == 0:
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
             return False
     return True
 
-def nth_prime(n):
-    count = 0
+def nth_mersenne_prime(k):
     num = 2
-    while True:
-        if is_prime(num):
-            count += 1
-            if count == n:
-                return num
-        num += 1
+    while k > 0:
+        mersenne_num = (2**num) - 1
+        if is_prime(mersenne_num):
+            num += 1
+            k -= 1
+        else:
+            num += 1
+    return mersenne_num
