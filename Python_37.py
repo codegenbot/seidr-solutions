@@ -1,4 +1,3 @@
-```
 def sort_even(l: list):
     evens = [x for i, x in enumerate(l) if i % 2 == 0]
     odds = sorted([x for i, x in enumerate(l) if i % 2 != 0])
@@ -7,7 +6,7 @@ def sort_even(l: list):
     even_index = 0
     odd_index = 0
     while even_index < len(evens) and odd_index < len(odds):
-        if even_index < len(evens): 
+        if even_index % 2 == 0:
             result.append(evens[even_index])
             even_index += 1
         else:
