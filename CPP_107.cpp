@@ -30,7 +30,6 @@ int reverse(int n) {
     }
     return rev;
 }
-
 int userMain() {
     int n;
     std::cout << "Enter a positive integer: ";
