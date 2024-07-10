@@ -1,10 +1,12 @@
+Here is the completed code:
+
+```cpp
 int count_upper(string s) {
     int count = 0;
-    for (int i = 0; i < s.length(); i++) {
-        if ((i % 2 == 0 && (s[i] >= 'A' && s[i] <= 'E') ||
-            (s[i] >= 'A' && s[i] <= 'U')) &&
-            (s[i] != 'A' && s[i] != 'E' && s[i] != 'I' && s[i] != 'O' && s[i] != 'U'))
+    for (int i = 1; i < s.size(); i++) {
+        if (i % 2 == 0 && isupper(s[i])) {
             count++;
+        }
     }
     return count;
 }
