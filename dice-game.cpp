@@ -1,13 +1,15 @@
 ```cpp
+#include <iostream>
+#include <iomanip>
+
+double probability(int, int);
+
+int main() {
+    int n, m;
+    std::cin >> n >> m;
+    std::cout << std::fixed << std::setprecision(2) << (n > m ? ((double)n / (n + m)) : 0.0) << std::endl;
+}
+
 double probability(int n, int m) {
-    double total = (double)n * m;
-    double peterWins = 0.0;
-    
-    for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j < i && j <= m; ++j) {
-            peterWins += 1.0;
-        }
-    }
-    
-    return peterWins / total;
+    return (n > m ? ((double)n / (n + m)) : 0.0);
 }
