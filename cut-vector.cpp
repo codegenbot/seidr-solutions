@@ -1,56 +1,57 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> &nums) {
-    int n = nums.size();
-    int minDiff = INT_MAX;
-    int pos = -1;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int cut_index = -1;
     
-    for (int i = 0; i < n; i++) {
-        int leftSum = 0, rightSum = 0;
+    for(int i = 0; i < v.size() - 1; i++) {
+        int left_sum = 0, right_sum = 0;
         
-        for (int j = 0; j < i; j++)
-            leftSum += nums[j];
-        for (int j = i + 1; j < n; j++)
-            rightSum += nums[j];
-        
-        if (leftSum == rightSum) {
-            return {{nums[0], nums[0]}, nums};
+        for(int j = 0; j <= i; j++) {
+            left_sum += v[j];
         }
         
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            pos = i;
+        for(int j = i + 1; j < v.size(); j++) {
+            right_sum += v[j];
+        }
+        
+        int diff = abs(left_sum - right_sum);
+        
+        if(diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    return {{}, nums};
+    vector<int> left(v.begin(), v.begin() + cut_index + 1);
+    vector<int> right(v.begin() + cut_index + 1, v.end());
+    
+    return {left, right};
 }
 
 int main() {
-    vector<int> nums;
     int n;
     cin >> n;
-    for(int i=0; i<n; i++) {
-        int num;
-        cin >> num;
-        nums.push_back(num);
+    
+    vector<int> v(n);
+    for(int i = 0; i < n; i++) {
+        cin >> v[i];
     }
-
-    vector<vector<int>> result = cutVector(nums);
-
-    cout << "[";
-    for (int num : result[0]) {
-        cout << num << " ";
+    
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    
+    cout << "Left: ";
+    for(auto x : result.first) {
+        cout << x << " ";
     }
-    cout << "]" << endl;
-
-    cout << "[";
-    for (int i = 1; i < result[0].size(); i++) {
-        cout << result[0][i] << " ";
+    cout << endl;
+    
+    cout << "Right: ";
+    for(auto x : result.second) {
+        cout << x << " ";
     }
-    cout << "]" << endl;
-
+    cout << endl;
+    
     return 0;
 }
