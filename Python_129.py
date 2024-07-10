@@ -8,8 +8,8 @@ def minPath(grid, k):
     while queue:
         value, path, step = queue.pop(0)
         if step == k:
-            if not result or len(path) < len(result):
-                result = path
+            if not result or sum(x for x in path) < sum(y for y in path):
+                result = sum(x for x in path)
         else:
             for direction in directions:
                 x, y = (value // n) + direction[0], (value % n) + direction[1]
