@@ -7,6 +7,7 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     for (int i = 0; i < n; i++) {
         std::string num;
         while (true) {
