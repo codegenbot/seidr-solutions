@@ -1,3 +1,4 @@
+```
 def count_up_to(n):
     def is_prime(num):
         if num < 2:
@@ -13,4 +14,4 @@ def count_up_to(n):
             result.append(i)
         else:
             continue
-    return result
+    return result```
