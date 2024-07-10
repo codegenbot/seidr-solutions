@@ -2,29 +2,30 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::string& a, const std::string& b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix){
-    std::vector<std::string> result;
+vector<string> filter_by_prefix(vector<string> strings, string prefix);
+
+int main() {
+    vector<string> words = {"code", "coding", "problem", "contest"};
+    string pref = "cod";
+    vector<string> filtered = filter_by_prefix(words, pref);
+    
+    for (const auto& word : filtered) {
+        std::cout << word << " ";
+    }
+    
+    return 0;
+}
+
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
     for (const auto& str : strings) {
         if (str.find(prefix) == 0) {
             result.push_back(str);
         }
     }
     return result;
-}
-
-int main() {
-    // Test filter_by_prefix function
-    std::vector<std::string> strings = {"apple", "banana", "apricot", "avocado"};
-    std::string prefix = "ap";
-    std::vector<std::string> filtered_strings = filter_by_prefix(strings, prefix);
-    
-    for (const auto& str : filtered_strings) {
-        std::cout << str << " ";
-    }
-    
-    return 0;
 }
