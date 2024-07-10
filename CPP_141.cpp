@@ -1,25 +1,32 @@
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
-    for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-        if(c == '.'){
-            found_dot = true;
-        }else if(isdigit(c)){
-            digit_count++;
-        }else if(found_dot && (c == 't' || c == 'x' || c == 'd' || c == 'l')){
-            // check the substring after the dot
-            string ext = file_name.substr(i+1);
-            if(ext == "txt" || ext == "exe" || ext == "dll"){
-                return "Yes";
-            }else{
-                return "No";
-            }
-        }else if(!found_dot && !isalpha(c)){
+Here is the completed code:
+
+```cpp
+bool has_digits = false;
+int dot_count = 0;
+
+for (char c : file_name) {
+    if (isdigit(c)) {
+        if (!has_digits) {
+            has_digits = true;
+        }
+        if (has_digits && has_digits++ > 3) {
+            return "No";
+        }
+    } else if (c == '.') {
+        dot_count++;
+        if (dot_count > 1) {
             return "No";
         }
     }
-    if(digit_count > 3) return "No";
-    if(!found_dot) return "No";
-    return "Yes";
 }
+
+if (file_name.find('.') == string::npos || file_name.find(' ') != string::npos || !isalpha(file_name[0])) {
+    return "No";
+}
+
+string extension = file_name.substr(file_name.find('.') + 1);
+if (!(extension == "txt" || extension == "exe" || extension == "dll")) {
+    return "No";
+}
+
+return "Yes";
