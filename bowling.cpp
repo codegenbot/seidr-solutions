@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 
 int calculateBowlingScore(std::string input) {
     int score = 0;
@@ -7,19 +8,17 @@ int calculateBowlingScore(std::string input) {
         if (input[i] == 'X') {
             score += 10;
             if (frame < 9) {
-                score += (input[i + 1] == 'X') ? 10 : (std::isdigit(input[i + 1]) ? input[i + 1] - '0' : 10);
-                score += (input[i + 2] == 'X') ? 10 : (std::isdigit(input[i + 2]) ? input[i + 2] - '0' : 10);
+                score += (input[i + 1] == 'X') ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10);
+                score += (input[i + 2] == 'X') ? 10 : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 10);
             }
             frame++;
-        } 
-        else if (input[i] == '/') {
+        } else if (input[i] == '/') {
             score += 10 - (input[i - 1] - '0');
-            score += (input[i + 1] == 'X') ? 10 : (std::isdigit(input[i + 1]) ? input[i + 1] - '0' : 10);
+            score += (input[i + 1] == 'X') ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10);
             frame++;
-        } 
-        else if (std::isdigit(input[i])) {
+        } else if (isdigit(input[i])) {
             score += input[i] - '0';
-            if (std::isdigit(input[i + 1])) {
+            if (isdigit(input[i + 1])) {
                 score += input[i + 1] - '0';
                 i++;
             }
