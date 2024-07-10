@@ -8,5 +8,5 @@ def parse_music(music_string: str) -> List[int]:
         if note in note_lengths:
             result += note_lengths[note]
         else:
-            raise ValueError(f"Invalid note '{note}'")
+            result.append(0)
     return result
