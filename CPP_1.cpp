@@ -1,17 +1,21 @@
-vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
+vector<string> result;
     string current_group;
-    bool in_group = false;
+    int open_braces = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            in_group = true;
+            open_braces++;
+            if (open_braces > 1) {
+                current_group += c;
+            }
         } else if (c == ')') {
-            in_group = false;
-            result.push_back(current_group);
-            current_group.clear();
-        } else if (in_group) {
-            current_group += c;
+            open_braces--;
+            if (open_braces > 0) {
+                current_group += c;
+            } else {
+                result.push_back(current_group);
+                current_group = "";
+            }
         }
     }
 
