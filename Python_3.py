@@ -1,10 +1,1 @@
-def below_zero(input_operations):
-    count = 0
-    for num in input_operations:
-        if num < 0:
-            count += 1
-    return count
-
-n, *input_operations = map(int, input().split())
-assert len(input_operations) == n
-print(below_zero(input_operations))
+n = list(map(int, input().split()))
