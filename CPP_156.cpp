@@ -1,11 +1,9 @@
-```c++
 #include <iostream>
 #include <sstream>
 #include <unordered_map>
-#include <string>
 
 std::string int_to_mini_romank(int num) {
-    std::unordered_map<int, std::string> romanMap;
+    std::unordered_map<int, std::string> romanMap( std::hash<int>(), std::equal_to<int>() );
     romanMap = {{1000, "M"},
                  {900, "CM"},
                  {500, "D"},
@@ -24,7 +22,7 @@ std::string int_to_mini_romank(int num) {
     for (const auto& pair : romanMap) {
         while (num >= pair.first) {
             num -= pair.first;
-            result += pair.second;
+            result.push_back(pair.second[0]);
         }
     }
     
