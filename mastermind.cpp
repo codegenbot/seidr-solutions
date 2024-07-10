@@ -1,28 +1,26 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
         }
     }
 
-    for (int i = 0; i < 4; i++) {
-        bool found = false;
-        for (int j = 0; j < 4; j++) {
-            if (guess[j] == code[i] && !found) {
-                found = true;
-            } else if (guess[j] == code[i]) {
-                white++;
-                break;
+    for (char c : guess) {
+        int count = 0;
+        for (char d : code) {
+            if (c == d) {
+                count++;
             }
+        }
+        if (count > 1) {
+            white += count - 1;
+        } else if (count == 1) {
+            black--;
         }
     }
 
-    return black + white - black;
+    return {black, white}[0];
 }
