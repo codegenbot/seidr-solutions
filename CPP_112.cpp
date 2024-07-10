@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 using namespace std;
 
@@ -23,7 +24,7 @@ vector<string> reverse_delete(string s, string c) {
     
     // Add the result and palindrome status to the vector
     result.push_back(res);
-    result.push_back(to_string(isPalindrome));
+    result.push_back(isPalindrome ? "True" : "False");
     
     return result;
 }
