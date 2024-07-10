@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream>
+#include <assert.h>
 
 int specialFilter(std::vector<int> nums){
     int count = 0;
@@ -12,11 +12,6 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main(){
-    std::vector<int> test1 = {11, 12, 13};
-    std::cout << "Test 1: " << specialFilter(test1) << std::endl;
-
-    std::vector<int> test2 = {22, 23, 24, 25, 26};
-    std::cout << "Test 2: " << specialFilter(test2) << std::endl;
-    
+    assert(specialFilter({}) == 0);
     return 0;
 }
