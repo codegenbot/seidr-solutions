@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? string(s).erase().reserve(s.size()).insert(0, s.rbegin(), s.rend()) : result;
+    return result.empty() ? std::string(s.rbegin(),s.end()) : result;
 }
 
 int main() {
