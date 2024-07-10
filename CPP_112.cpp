@@ -1,27 +1,35 @@
-Here is the completed code:
-
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
-    string temp = "";
-    for (char& ch : s) {
-        bool found = false;
-        for (char& cc : c) {
-            if (ch == cc) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            temp += ch;
+    
+    // Create a set of characters in string c for efficient lookups
+    set<char> c_set(c.begin(), c.end());
+    
+    // Initialize an empty string to store the result
+    string res = "";
+    
+    // Iterate over each character in string s
+    for (char c : s) {
+        // If the character is not in set c, add it to the result
+        if (c_set.find(c) == c_set.end()) {
+            res += c;
         }
     }
-    result.push_back(temp);
-    string revTemp = temp;
-    reverse(revTemp.begin(), revTemp.end());
-    if (temp == revTemp) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
+    
+    // Check if the result string is palindrome
+    bool is_palindrome = true;
+    int left = 0, right = res.size() - 1;
+    while (left < right) {
+        if (res[left] != res[right]) {
+            is_palindrome = false;
+            break;
+        }
+        left++;
+        right--;
     }
+    
+    // Add the result string and palindrome status to the vector
+    result.push_back(res);
+    result.push_back(is_palindrome ? "True" : "False");
+    
     return result;
 }
