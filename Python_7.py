@@ -17,12 +17,29 @@ def filter_by_substring():
         except ValueError:
             print("Invalid input. Please try again.")
 
-    _ = input("Press Enter when ready...")
+    while True:
+        try:
+            num_to_display = int(
+                input(
+                    "Enter the number of results to display (1-{}): ".format(
+                        len(strings)
+                    )
+                )
+            )
+            if 1 <= num_to_display <= len(strings):
+                break
+            else:
+                print("Please enter a number between 1 and {}".format(len(strings)))
+        except ValueError:
+            print("Invalid input. Please try again.")
 
-    pattern = re.compile(substring)
-
-    result = [s for s in strings if bool(pattern.search(s))]
-    print(result)
+    while True:
+        try:
+            result = [s for s in strings if bool(re.compile(substring).search(s))]
+            print(result[:num_to_display])
+            break
+        except TypeError:
+            print("Invalid input. Please try again.")
 
 
 filter_by_substring()

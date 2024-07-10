@@ -1,7 +1,6 @@
 ```cpp
 #include <string>
 #include <iostream>
-#include <sstream>
 
 const char* miniRoman(int num) {
     if (num == 9)
@@ -12,50 +11,50 @@ const char* miniRoman(int num) {
         else
             return "IV";
     } else {
-        return std::string(num, 'I').c_str();
+        return "I";
     }
 }
 
-const char* int_to_roman(int num) {
+std::string int_to_roman(int num) {
     if (num > 3999) {
         return "Out of range";
     }
-    std::ostringstream oss;
+    std::string roman;
     int thousands = num / 1000;
     for (int i = 0; i < thousands; i++) {
-        oss << "M";
+        roman += "M";
     }
     num %= 1000;
     int hundreds = num / 100;
     if (hundreds > 3) {
-        oss << "CM" << miniRoman(num - 300);
+        roman += "CM" + std::string(miniRoman(num - 300)).c_str();
     } else {
         for (int i = 0; i < hundreds; i++) {
-            oss << "C";
+            roman += "C";
         }
     }
     num %= 100;
     int tens = num / 10;
     if (tens == 9) {
-        oss << "IX";
+        roman += "IX";
     } else if (tens > 5) {
-        oss << "D" << miniRoman(num - 50);
+        roman += "D" + std::string(miniRoman(num - 50)).c_str();
     } else {
         for (int i = 0; i < tens; i++) {
-            oss << "X";
+            roman += "X";
         }
     }
     num %= 10;
     if (num == 9) {
-        oss << "IX";
+        roman += "IX";
     } else if (num > 3) {
-        oss << "IV" << miniRoman(num - 4);
+        roman += "IV" + std::string(miniRoman(num - 4)).c_str();
     } else {
         for (int i = 0; i < num; i++) {
-            oss << "I";
+            roman += "I";
         }
     }
-    return oss.str();
+    return roman;
 }
 
 int main() {
