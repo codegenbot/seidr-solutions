@@ -1,6 +1,15 @@
 #include <vector>
 
-namespace MyNamespace {
+namespace {
+    int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
     vector<int> indicesOfSubstring(string text, string target) {
         vector<int> res;
         int n = text.size();
@@ -11,14 +20,5 @@ namespace MyNamespace {
                 res.push_back(i);
         }
         return res;
-    }
-
-    int gcd(int a, int b) {
-        while (b != 0) {
-            int temp = b;
-            b = a % b;
-            a = temp;
-        }
-        return a;
     }
 }
