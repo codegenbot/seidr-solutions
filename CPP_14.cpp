@@ -1,8 +1,5 @@
 ```cpp
-#include <initializer_list>
-#include <vector>
 #include <string>
-#include <iostream>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
