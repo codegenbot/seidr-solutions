@@ -23,7 +23,10 @@ int main()
 {
     std::string str;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str); 
+    char c;
+    while ((c = std::cin.get()) != '\n') {
+        str += c; 
+    } 
     if (is_nested(str)) {
         std::cout << "The string is nested." << std::endl;
     } else {
