@@ -18,14 +18,15 @@ int main() {
     std::vector<std::string> words;
     int n;
     std::cout << "Enter the number of words: ";
+    std::cin >> std::ws; // clear the newline left in the stream buffer
     std::cin >> n;
+
+    std::cin.ignore(); // ignore newline left in the stream buffer
 
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
-        std::cin >> word; 
-        // Remove whitespace character at the end of the string
-        word.erase(word.find_last_not_of("\n") + 1);
+        std::getline(std::cin, word); 
         words.push_back(word);
     }
 
