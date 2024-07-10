@@ -1,12 +1,11 @@
-```cpp
 #include <iostream>
 #include <string>
 
-bool is_nested(const std::string str) {
-    bool result = false;
+bool is_nested(const std::string& str) {
     int level = 0;
+    bool result = false;
 
-    for (auto c : str) {
+    for (char c : str) {
         if (c == '(') {
             level++;
         } else if (c == ')') {
@@ -14,9 +13,13 @@ bool is_nested(const std::string str) {
                 level--;
             }
         }
+        if (level > 1) {
+            result = true;
+            break;
+        }
     }
 
-    return level != 0; 
+    return level != 0 || result; 
 }
 
 int main() {
