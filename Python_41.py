@@ -1,11 +1,7 @@
-```
-def car_race_collision():
-    tracks = int(input("Enter the number of tracks: "))
+def car_race_collision(tracks):
     collisions = 0
-    for i in range(tracks):
-        for j in range(i+1, tracks):
+    for i in range(int(input("Enter number of tracks: "))): 
+        for j in range(i+1, int(input("Enter number of tracks: ")) + 1):
             if (i+j) % 3 == 0:
                 collisions += 1
     return collisions
-
-print(car_race_collision())

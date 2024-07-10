@@ -1,5 +1,6 @@
-```python
-def smallest_change(arr):
+```Python
+def smallest_change():
+    arr = list(map(int, input("Enter space-separated numbers: ").split()))
     n = len(arr)
     arr.sort()
     left, right = 0, n - 1
@@ -17,3 +18,5 @@ def smallest_change(arr):
             left, right = left + 1, right - 1
     
     return changes
+
+print(smallest_change())
