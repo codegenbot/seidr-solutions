@@ -26,6 +26,10 @@ def main():
         if all(x is not None for x in n):
             all_inputs_entered = True
 
+    if not all_inputs_entered:
+        print("Program did not receive expected input.")
+        return
+
     factors1 = []
     i = 2
     while i * i <= n[0]:
