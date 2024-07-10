@@ -7,23 +7,22 @@ int count_nums(vector<int> nums) {
                 sum += num % 10;
                 num /= 10;
             }
-            if (sum > 0)
+            if (sum > 0) {
                 count++;
+            }
         } else {
-            num = -num; // convert negative number to positive
+            num = -num; // convert to positive
             int sum = 0;
-            bool isNegative = true;
+            bool firstNegative = true;
             while (num > 0) {
-                if (isNegative) {
-                    sum -= num % 10;
-                    isNegative = false;
-                } else {
-                    sum += num % 10;
-                }
+                int digit = num % 10;
+                if (!firstNegative && digit < 0) break; // if we encounter a negative digit after the first, stop counting
+                sum += digit;
                 num /= 10;
             }
-            if (sum > 0)
+            if (sum > 0) {
                 count++;
+            }
         }
     }
     return count;
