@@ -35,3 +35,4 @@ PegCounts mastermind(std::string code, std::string guess) {
     }
 
     return result;
+}
