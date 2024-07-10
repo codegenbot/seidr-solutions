@@ -5,24 +5,16 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
-    vector<int> input = {3, 1, 2, 2, 3};
-    vector<int> expected_output = {1, 2, 3};
+    vector<int> numbers = {4, 2, 1, 2, 4, 3, 1};
+    vector<int> expected_result = {1, 2, 3, 4};
     
-    vector<int> result = remove_duplicates(input);
+    vector<int> modified_numbers = remove_duplicates(numbers);
     
-    if(issame(result, expected_output)) {
+    if (issame(modified_numbers, expected_result)) {
         cout << "Output matches expected result." << endl;
     } else {
         cout << "Output does not match expected result." << endl;
