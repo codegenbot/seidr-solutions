@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -7,11 +8,8 @@ def main():
         while True:
             try:
                 num = int(input(f"Enter an integer ({i+1}/4): "))
-                if num not in n:
-                    n[i] = num
-                    break
-                else:
-                    print("Duplicate input. Please enter unique numbers.")
+                n[i] = num 
+                break
             except ValueError:
                 print("Invalid input. Please enter a valid integer.")
 
@@ -45,13 +43,8 @@ def main():
             break
 
     if common_factors:
-        print(
-            f"{', '.join(map(str, set(common_factors)))} are the common factors between {n}."
-        )
+        print(f"{', '.join(map(str, set(common_factors)))} are the common factors between {n}.")
     else:
-        print(f"No common factor found between {n}.")
-
-    if not common_factors:
         print(f"No common factor found between {n}.")
 
 
