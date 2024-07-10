@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-
 using namespace std;
 
 string int_to_mini_roman(int number) {
@@ -10,12 +9,13 @@ string int_to_mini_roman(int number) {
                                          {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
 
     string result = "";
-    for (const auto& pair : roman) {
-        while (number >= pair.first) {
-            number -= pair.first;
-            result += pair.second;
+
+    for (const auto& romanPair : roman) {
+        while (number >= romanPair.first) {
+            number -= romanPair.first;
+            result += romanPair.second;
         }
     }
 
-    return to_string(number == 0 ? result : "");
+    return result;
 }
