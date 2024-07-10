@@ -17,15 +17,15 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a sequence of brackets: ";
-    std::cin >> input;
+    std::string brackets;
+    std::cout << "Enter a string of brackets: ";
+    std::cin >> brackets;
 
-    if (correct_bracketing(input)) {
-        std::cout << "Brackets are correctly balanced." << std::endl;
+    if (correct_bracketing(brackets)) {
+        std::cout << "Brackets are correctly paired." << std::endl;
     } else {
-        std::cout << "Brackets are not correctly balanced." << std::endl;
+        std::cout << "Brackets are not correctly paired." << std::endl;
     }
-
+    
     return 0;
 }
