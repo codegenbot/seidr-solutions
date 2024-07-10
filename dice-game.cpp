@@ -1,14 +1,11 @@
-#include <iostream>
-using namespace std;
+Here is the solution:
 
 double probability(int n, int m) {
-    double total = (double)(n + m);
-    return (double)m / total;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(1) << probability(n, m) << endl;
-    return 0;
+    if (n < m) return 0.0;
+    double total = (double)n * m;
+    double count = 0.0;
+    for (int i = 1; i <= n - m; ++i) {
+        count += i;
+    }
+    return count / total;
 }
