@@ -1,17 +1,32 @@
 #include <algorithm>
 #include <vector>
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> v) {
-    std::vector<int> unique_v(v.begin(), v.end());
-    unique_v.erase(unique_v.begin() + 1, unique_v.end());
+    std::vector<int> unique_v;
+    for (int i : v) {
+        if (std::find_if(unique_v.begin(), unique_v.end(),
+                         [i](const int& x) { return x == i; }) == unique_v.end())
+            unique_v.push_back(i);
+    }
     return unique_v;
 }
 
+bool areEqual(std::vector<int> a, std::vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (std::find(b.begin(), b.end(), a[i]) == b.end())
+            return false;
+    }
+    return true;
+}
+
 int main() {
-    assert(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) == ({1, 4, 5}));
+    assert(areEqual(std::vector<int>({1, 2, 3, 2, 4, 3, 5}), std::vector<int>({1, 4, 5})));
     return 0;
 }
