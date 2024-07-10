@@ -7,7 +7,7 @@ namespace custom {
     using std::sort;
 }
 
-bool issame(const custom::vector<int>& a, const custom::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
