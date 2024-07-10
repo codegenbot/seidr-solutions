@@ -1,23 +1,25 @@
+#include <iostream>
 #include <string>
-#include <algorithm>
+#include <algorithm> // for std::reverse
 
-string spinWords(const string &sentence) {
-    string result = "";
-    string word = "";
-    for (char c : sentence) {
-        if (c == ' ') {
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            result += word + " ";
-            word = "";
-        } else {
-            word += c;
+std::string result = "";
+
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+    
+    std::string word;
+
+    std::istringstream iss(input);
+    while (iss >> word) {
+        if (word.length() >= 5) {
+            std::reverse(word.begin(), word.end());
         }
+        result += word + " ";
     }
-    if (word.length() >= 5) {
-        reverse(word.begin(), word.end());
-    }
-    result += word;
-    return result;
+    
+    result.pop_back(); // remove extra space at the end
+    std::cout << result;
+    
+    return 0;
 }
