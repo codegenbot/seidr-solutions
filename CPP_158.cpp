@@ -26,9 +26,8 @@ int main()
         std::string str;
         std::getline(std::cin, str); 
         str.erase(0, str.find_first_not_of(' ')); 
-        str.pop_back(); // remove trailing spaces
         if (!str.empty()) { 
-            words.emplace_back(str); 
+            words.push_back(str.substr(0, str.find_first_of(' '))); 
         }
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
