@@ -2,19 +2,20 @@
 #include <string>
 
 int roll(int frame) {
-    int pin = 10; // number of pins left to knock down
+    int pin = 10; 
     int rolls = 0;
-    
+
     while (pin > 0 && rolls < 2) { 
-        if (pin <= 1) break; 
-        if(std::cin >> pin) {
-            rolls++; 
+        if (pin <= 1) break;
+        
+        if (std::cin >> pin) {
+            rolls++;
         } else {
-            return -1; 
+            return -1;
         }
     }
-    
-    return (frame == 0) ? pin : (10 + frame); 
+
+    return (frame == 0) ? pin : (10 + frame);
 }
 
 int bowlingScore(const std::string& input) {
