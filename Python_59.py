@@ -1,0 +1,15 @@
+```
+def largest_prime_factor(n: int):
+    i = n // 2
+    while i > 1:
+        if n % i == 0 and is_prime(i):
+            return i
+        i -= 1
+
+def is_prime(k: int):
+    if k < 2:
+        return False
+    for j in range(2, int(k**0.5) + 1):
+        if k % j == 0:
+            return False
+    return True
