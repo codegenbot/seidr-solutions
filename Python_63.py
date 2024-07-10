@@ -7,12 +7,11 @@ def fib(n):
 
 while True:
     try:
-        n = int(input("Enter the number: "))
-        if n < 0:
-            print("Please enter a non-negative integer.")
-        else:
+        n = int(input("Enter a non-negative integer: "))
+        if n >= 0:
             break
+        print("Please enter a non-negative integer.")
     except ValueError:
-        print("Invalid input. Please enter an integer.")
+        print("Invalid input. Please try again.")
 
 print(fib(n))
