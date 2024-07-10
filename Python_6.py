@@ -1,3 +1,5 @@
+```
+print("Hello")
 def parse_nested_parens(paren_string: str) -> list:
     if not paren_string:
         return []
@@ -25,6 +27,6 @@ def parse_nested_parens(paren_string: str) -> list:
         while stack:
             temp_group += stack.pop()
 
-    if temp_group and temp_group.isdigit():
-        groups.append(int(temp_group))
-    return [groups[0]] if len(groups) == 1 else groups
+    groups.append(int(temp_group)) if temp_group.isdigit() else []
+    
+    return [] if len(groups) <= 1 else groups
