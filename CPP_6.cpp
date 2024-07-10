@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -18,9 +18,10 @@ bool issame(vector<int> a, vector<int> b) {
 vector<int> parse_nested_parens(string paren_string);
 
 int main() {
-    assert(issame(parse_nested_parens("( ( ) ) ( )"), {2, 2, 1}));
-    assert(issame(parse_nested_parens("( ( ) ( ( ) ) )"), {2, 2, 2}));
-    assert(issame(parse_nested_parens("( ( ) ( ) )"), {2, 2, 1}));
+    assert(issame(parse_nested_parens("( ( ) )"), {2, 2}));
+    assert(issame(parse_nested_parens("( ( ( ) ) )"), {3, 3}));
+    assert(issame(parse_nested_parens("( ) ( ( ) )"), {1, 2}));
+    assert(issame(parse_nested_parens("(( ))"), {2, 2}));
     
     return 0;
 }
