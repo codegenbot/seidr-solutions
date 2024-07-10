@@ -22,18 +22,17 @@ double poly(vector<double> coeffs, double x) {
         result += coeffs[i] * pow(x, i);
     }
     return result;
+}
 
 int main() {
+    vector<double> coeffs;
+    cout << "Enter the coefficients of the polynomial: ";
     int n;
-    cout << "Enter the number of coefficients: ";
     cin >> n;
-    
-    vector<double> coeffs(n);
+    coeffs.resize(n);
     for (int i = 0; i < n; i++) {
-        cout << "Enter coefficient " << i+1 << ": ";
         cin >> coeffs[i];
     }
-    
     double x = find_zero(coeffs);
     cout << "The zero of the polynomial is: " << x << endl;
     return 0;
