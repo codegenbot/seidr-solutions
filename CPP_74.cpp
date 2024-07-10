@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -58,8 +57,7 @@ void get_user_input(vector<vector<string>>& user_input) {
 int main() {
     vector<vector<string>> user_input;
     get_user_input(user_input);
-    vector<vector<string>> input = {"this"};
-    vector<vector<string>> matches = {};
-    cout << "Count of matches is: " << total_match(input, matches) << endl;
+    int count = total_match(user_input, {{{"some"}}});
+    cout << "Count of matches is: " << count << endl;
     return 0;
 }
