@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(std::vector<float> v1, std::vector<float> v2) {
+bool issame(std::vector<float> v1, std::vector<float> v2) {
     if(v1.size() != v2.size()) return false;
     for(int i = 0; i < v1.size(); i++) {
         if(v1[i] != v2[i]) return false;
@@ -34,8 +34,6 @@ int main_function()
     for(float f : output) {
         std::cout << f << " ";
     }
-    if (!isSame({5, 8, -12, 4, 23, 2, 3, 11, 12, -10},{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})) {
-        std::cout << "Test failed";
-    }
+    assert(issame(output, {5, 8, -12, 4, 23, 2, 3, 11, 12, -10}));
     return 0;
 }
