@@ -34,16 +34,11 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        int num;
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> num;
-        v.push_back(num);
+    for(int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> v.push_back(i);
     }
-    
     int result = count_nums(v);
-    std::cout << "Numbers with positive sum of digits: " << result << std::endl;
-    
+    std::cout << "The number of positive numbers with an odd sum of digits: " << result << std::endl;
     return 0;
 }
