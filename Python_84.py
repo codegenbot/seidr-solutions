@@ -1,4 +1,3 @@
-```
 def solve(N):
-    result = bin(sum(int(i) for i in str(N)))[2:]
+    result = str(bin(sum(int(i)%2 for i in range(1,N+1)))[2:])
     return result
