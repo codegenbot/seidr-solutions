@@ -1,4 +1,4 @@
-```string sortNumbers(string numbers) {
+string sortNumbers(string numbers) {
     vector<string> numVec;
     string temp;
     
@@ -20,4 +20,4 @@
         result += " ";
     }
     return result.substr(0, result.size() - 1);
-}```
+}
