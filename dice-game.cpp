@@ -16,3 +16,4 @@ int main() {
     }
     std::cout << "The probability that Peter rolls strictly higher than Colin is: " << std::to_string(1 - p) << std::endl;
     return 0;
+}
