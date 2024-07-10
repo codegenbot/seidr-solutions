@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     string text, target;
-    cin >> text >> target;  // Switched the order of input
+    cin >> text >> target;
 
     vector<int> indices;
     int pos = text.find(target, 0);
