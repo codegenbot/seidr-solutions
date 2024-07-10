@@ -7,10 +7,15 @@ vector<int> strange_sort_vector(vector<int> lst) {
             result.push_back(min_val);
             lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
         } else {
+            for(int i=0; i<lst.size();i++){
+                if(lst[i]==min_val){
+                    int temp = lst[i];
+                    lst.erase(lst.begin()+i);
+                    break;
+                }
+            }
             result.push_back(min_val);
             result.push_back(max_val);
-            lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
-            lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
         }
     }
     return result;
