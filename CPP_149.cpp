@@ -1,4 +1,8 @@
-```
+#include <algorithm>
+#include <string>
+#include <vector>
+#include <initializer_list>
+
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -14,4 +18,9 @@ std::vector<std::string> sortListSum(std::vector<std::pair<std::string, std::str
         result.push_back(pair.first + pair.second);
     }
     return result;
+}
+
+int main() {
+    assert(issame(sortListSum({{"aaaa", "bbbb"}, {"dd", "cc"}}), {{"cc", "dd"}, {"aaaa", "bbbb"}}));
+    return 0;
 }
