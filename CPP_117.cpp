@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 
 #include <vector>
@@ -40,22 +41,7 @@ bool issame(const std::vector<std::string>& a, const std::string& b) {
 }
 
 int main() {
-    std::string s;
-    int n;
-    std::cout << "Enter the string: ";
-    std::cin >> s;
-    std::cout << "Enter the number of words to select: ";
-    std::cin >> n;
-    
-    std::vector<std::string> result = select_words(s, n);
-    
-    if(result.size() > 0) {
-        for(int i = 0; i < result.size(); i++) {
-            std::cout << "Word " << i+1 << ": " << result[i] << std::endl;
-        }
-    } else {
-        std::cout << "No words selected." << std::endl;
-    }
-    
+    std::vector<std::string> result = select_words("a b c d e f", 1);
+    assert(issame(result, {"b"}));
     return 0;
 }
