@@ -14,7 +14,7 @@ int fibfib(int n){
         b = c;
         c = d;
     }
-    return c;
+    return d;
 }
 
 int main(){
