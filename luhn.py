@@ -1,11 +1,13 @@
 ```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
-    result = 0
-    for i, digit in enumerate(reversed(card_number)):
-        if (i % 2 == 1):
+    total_sum = 0
+    is_second = False
+    for digit in card_number:
+        if is_second:
             digit *= 2
-            if (digit > 9):
+            if digit > 9:
                 digit -= 9
-        result += digit
-    return result
+        is_second = not is_second
+        total_sum += digit
+    return total_sum
