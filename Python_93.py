@@ -6,8 +6,8 @@ def encode(message):
             encoded_message += chr((ord(char) - ord('A') + 4) % 26 + ord('A'))
         elif char.islower():
             encoded_message += chr((ord(char) - ord('a') + 4) % 26 + ord('a'))
-        elif char.lower() in vowels:
-            encoded_message += chr((ord(char.lower()) - ord('a') + 4) % 26 + ord('a')).upper()
+        elif char in vowels:
+            encoded_message += chr((ord(char) - ord('A') + 4) % 26 + ord('A')).lower()
         else:
             encoded_message += char
     return encoded_message
