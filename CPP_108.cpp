@@ -37,12 +37,15 @@ int count_nums(std::vector<int> nums) {
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<int> nums = std::vector<int>();
-    for (int i = 0; i < n; i++) {
-        if (!(std::cin >> nums.push_back(i))) break;
+    if (!(std::cin >> n)) { 
+        std::cerr << "Error: Invalid input. Please try again.\n";
+        return -1;
     }
-    if (!std::cin) { // If there was an input failure, display error message and exit.
+    std::vector<int> nums(n); 
+    for (int i = 0; i < n; i++) {
+        if (!(std::cin >> nums[i])) break; 
+    }
+    if (!std::cin) { 
         std::cerr << "Error: Invalid input. Please try again.\n";
         return -1;
     }
