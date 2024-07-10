@@ -1,4 +1,5 @@
-#include <string>
+#include <string> 
+
 std::string spinWords(const std::string &sentence) {
     std::string result = "";
     std::string word = "";
