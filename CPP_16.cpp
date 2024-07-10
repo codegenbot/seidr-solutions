@@ -1,15 +1,15 @@
-#include <vector>
+#include <iostream>
 #include <algorithm>
+#include <cassert>
 
-int countDistinctCharacters(const std::string& str) {
+int count_distinct_characters(std::string str) {
     transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<bool> seen(26);
-    int count = 0;
-    for (char c : str) {
-        if (isalpha(c) && !seen[c - 'a']) {
-            seen[c - 'a'] = true;
-            count++;
-        }
-    }
-    return count;
+    sort(str.begin(), str.end());
+    return std::distance(str.begin(), std::unique(str.begin(), str.end()));
+}
+
+int main() {
+    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
+
+    return 0;
 }
