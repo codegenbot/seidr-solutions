@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 
 int main() {
     std::vector<std::string> nums;
@@ -12,19 +13,14 @@ int main() {
         while (true) {
             std::cout << "Enter element: ";
             if (!(std::cin >> std::ws)) {
-                if (!std::getline(std::cin, num).empty()) {
-                    break;
-                } else {
-                    std::cerr << "Invalid input! Please enter a string.\n";
-                    std::cin.clear();
-                    std::cin.ignore(1024, '\n');
-                }
-            } else {
                 std::cerr << "Invalid input! Please enter a string.\n";
                 std::cin.clear();
-                std::cin.ignore(1024, '\n');
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            } else {
+                break;
             }
         }
+        std::getline(std::cin, num);
         nums.push_back(num);
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
