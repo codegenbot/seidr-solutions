@@ -12,12 +12,12 @@ bool areSame(vector<string> list1, vector<string> list2) {
     return list1 == list2;
 }
 
-vector<string> sorted_list_sum(vector<string> inputList) {
+vector<string> sortedListSum(vector<string> inputList) {
     sort(inputList.begin(), inputList.end());
     return inputList;
 }
 
 int main() {
-    assert(areSame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(areSame(sortedListSum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
