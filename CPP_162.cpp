@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <openssl/md5.h>
@@ -13,7 +12,7 @@ std::string myString_to_md5(const char *text) {
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         char temp[3];
         sprintf(temp, "%02x", result[i]);
-        output += temp;
+        output = output + std::string(temp);
     }
     return output;
 
