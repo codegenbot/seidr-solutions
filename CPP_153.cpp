@@ -4,9 +4,9 @@
 #include <climits>
 #include <cctype>
 
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions);
-
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
+    if (class_name.empty()) return "";
+
     assert(!extensions.empty());
 
     std::string strongest_extension = "";
