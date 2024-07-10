@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-auto sort_third = [](std::vector<int>& vec) {
+auto sort_third = [](const std::vector<int>& vec) {
     std::sort(vec.begin(), vec.end());
 };
 

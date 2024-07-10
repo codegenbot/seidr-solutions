@@ -3,31 +3,37 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b);
-
-void sort_even(std::vector<float>& vec) {
-    std::sort(vec.begin(), vec.end(), [&](float a, float b) {
-        if (static_cast<int>(a) % 2 == 0 && static_cast<int>(b) % 2 == 0) {
-            return a < b;
-        } else if (static_cast<int>(a) % 2 == 0) {
-            return true;
-        } else {
-            return false;
+std::vector<float> sort_even(std::vector<float> numbers) {
+    std::vector<float> evenNumbers;
+    for (const auto& num : numbers) {
+        if (static_cast<int>(num) % 2 == 0) {
+            evenNumbers.push_back(num);
         }
-    });
+    }
+    std::sort(evenNumbers.begin(), evenNumbers.end());
+    
+    size_t idx = 0;
+    for (size_t i = 0; i < numbers.size(); ++i) {
+        if (static_cast<int>(numbers[i]) % 2 == 0) {
+            numbers[i] = evenNumbers[idx++];
+        }
+    }
+    
+    return numbers;
 }
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 int main() {
     std::vector<float> testNumbers = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    std::vector<float> sortedNumbers = testNumbers;
-    sort_even(sortedNumbers);
-    assert(issame(sortedNumbers, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    testNumbers = sort_even(testNumbers);
+    
+    std::vector<float> expectedSortedNumbers = {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10};
+    assert(issame(testNumbers, expectedSortedNumbers));
 
-    for (const auto& num : sortedNumbers) {
+    for (const auto& num : testNumbers) {
         std::cout << num << " ";
     }
     return 0;
