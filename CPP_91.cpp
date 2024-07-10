@@ -1,5 +1,16 @@
 #include <string>
 
+int main() {
+    string S;
+    cout << "Enter a string: ";
+    getline(cin, S);
+    
+    int count = is_bored(S);
+    cout << "Count of 'I' at the start: " << count << endl;
+    
+    return 0;
+}
+
 int is_bored(string S){
     int count = 0;
     string boredom = "I";
