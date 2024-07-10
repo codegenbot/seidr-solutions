@@ -5,7 +5,7 @@
 #include <iostream>
 #include <cassert>
 
-std::vector<std::string> by_length(std::vector<int> arr){
+std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> result;
     std::vector<int> sorted_arr;
 
@@ -16,7 +16,6 @@ std::vector<std::string> by_length(std::vector<int> arr){
     }
 
     std::sort(sorted_arr.begin(), sorted_arr.end());
-
     std::reverse(sorted_arr.begin(), sorted_arr.end());
 
     std::map<int, std::string> num_to_name = {
@@ -38,11 +37,8 @@ std::vector<std::string> by_length(std::vector<int> arr){
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(by_length({9, 4, 8}) == std::vector<std::string>{"Nine", "Four", "Eight"});
+    assert(by_length({9, 4, 8}) == std::vector<std::string>{"Nine", "Eight", "Four"});
+
     return 0;
 }
