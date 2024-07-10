@@ -1,3 +1,3 @@
 def sort_third(l):
-    return sorted([i for sublist in l if isinstance(sublist, list) for i in sublist] +
-                  [x for x in set(l) if not isinstance(x, list)])
+    flat_list = [x for sublist in l for x in sublist]
+    return sorted([i for i in flat_list if isinstance(i, int)]) + [sublist for sublist in l if isinstance(sublist, list)]
