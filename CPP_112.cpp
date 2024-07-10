@@ -12,7 +12,7 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
     }
     std::string reversed = result;
     std::reverse(reversed.begin(), reversed.end());
-    return {result, result == reversed ? "True" : "False"};
+    return std::vector<std::string>{result, result == reversed ? "True" : "False"};
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
