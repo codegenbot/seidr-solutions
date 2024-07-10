@@ -1,18 +1,13 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    vector<pair<int, int>> pairs;
+std::vector<int> order_by_points(std::vector<int> nums) {
+    std::vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); ++i) {
         int sum = 0;
         int num = abs(nums[i]);
@@ -23,7 +18,7 @@ vector<int> order_by_points(vector<int> nums) {
         pairs.emplace_back(sum, i);
     }
     sort(pairs.begin(), pairs.end());
-    vector<int> result;
+    std::vector<int> result;
     for (const auto& pair : pairs) {
         result.push_back(nums[pair.second]);
     }
@@ -31,18 +26,6 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums = {11111, 22222, 33333};
-    vector<int> output = order_by_points(nums);
-    
-    if (!issame({1,2,3},output)) {
-        cout << "Failed: ";
-        for (int num : output) {
-            cout << num << ' ';
-        }
-        cout << endl;
-    } else {
-        cout << "Passed" << endl;
-    }
-    
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
