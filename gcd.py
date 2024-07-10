@@ -1,4 +1,3 @@
-```
 while True:
     try:
         a = int(input())
@@ -10,5 +9,4 @@ while True:
         print("Invalid input. Please enter valid integers and strings.")
 
 print(gcd(a, b))
-
 print(find_indices(text, target))
