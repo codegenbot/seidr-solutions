@@ -23,4 +23,4 @@ def minPathSum(grid):
             path = dfs(i, j, [], set())
             if min_path is None or sum(path) < sum(min_path):
                 min_path = path
-    return sum(min_path)
+    return sum(check(grid))
