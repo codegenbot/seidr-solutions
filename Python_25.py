@@ -88,12 +88,28 @@ def main():
     if n3 > 1 and not (n1 % n3 == 0 or n2 % n3 == 0):
         common_factors.append(n3)
 
+    while True:
+        try:
+            n4 = int(input("Enter another integer: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+
+    if n1 > 1 and not (n2 % n1 == 0 or n3 % n1 == 0 or n4 % n1 == 0):
+        common_factors.append(n1)
+    if n2 > 1 and not (n1 % n2 == 0 or n3 % n2 == 0 or n4 % n2 == 0):
+        common_factors.append(n2)
+    if n3 > 1 and not (n1 % n3 == 0 or n2 % n3 == 0 or n4 % n3 == 0):
+        common_factors.append(n3)
+    if n4 > 1 and not (n1 % n4 == 0 or n2 % n4 == 0 or n3 % n4 == 0):
+        common_factors.append(n4)
+
     if common_factors:
         print(
-            f"{', '.join(map(str, set(common_factors)))} are the common factors between {n1}, {n2} and {n3}."
+            f"{', '.join(map(str, set(common_factors)))} are the common factors between {n1}, {n2}, {n3} and {n4}."
         )
     else:
-        print(f"No common factor found between {n1}, {n2} and {n3}.")
+        print(f"No common factor found between {n1}, {n2}, {n3} and {n4}.")
 
 
 if __name__ == "__main__":
