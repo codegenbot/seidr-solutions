@@ -1,6 +1,5 @@
 #include <string>
 #include <cassert>
-
 string string_xor(const string& a, const string& b) {
     string result = "";
     for(size_t i=0; i < a.size(); i++){
