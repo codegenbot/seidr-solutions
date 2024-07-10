@@ -3,14 +3,7 @@
 #include <vector>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        int num1 = std::stoi(a[i]);
-        int num2 = std::stoi(b[i]);
-        if (!issorted({num1})) return false;
-        if (!issorted({num2})) return false;
-    }
-    return true;
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 bool issorted(std::vector<int> v) {
@@ -20,16 +13,14 @@ bool issorted(std::vector<int> v) {
     return true;
 }
 
-std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v) {
+std::vector<int> sortListSum(const std::vector<std::pair<std::string, std::string>>& v) {
     std::vector<int> result;
     for (const auto& pair : v) {
         int num = 0;
         for (char c : pair.first) {
             num = num * 10 + (c - '0');
         }
-        num += 0; // to avoid division by zero in the next loop
-        std::string str2(pair.second); 
-        for (char c : str2) {
+        for (char c : pair.second) {
             num = num * 10 + (c - '0');
         }
         if (!num) return {}; 
