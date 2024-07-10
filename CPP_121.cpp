@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -13,8 +12,7 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst = {1, 3, 4, 5, 6, 7, 8, 9};
-    int result = solutions(lst);
-    std::cout << "The sum of odd numbers is: " << result << std::endl;
+    std::vector<int> lst = {1, 3, 4, 5, 6};
+    std::cout << "The sum of odd elements at even positions is: " << solutions(lst) << std::endl;
     return 0;
 }
