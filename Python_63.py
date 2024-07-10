@@ -1,14 +1,13 @@
-```python
 def fibfib(n: int):
     if n <= 1:
-        return "Fibonacci sequence for even numbers only"
+        return 0
+    elif n == 2:
+        return 1
     else:
         a, b = 0, 1
-        result = [a]
-        while b < n:
+        for _ in range(3, n+1):
             a, b = b, a+b
-            result.append(a)
-        return str(result)
+        return b
 
 n = int(input("Enter an integer: "))
 print(fibfib(n))
