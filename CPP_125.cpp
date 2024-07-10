@@ -1,22 +1,22 @@
-```c++
+```cpp
 #include <vector>
 #include <string>
 #include <cctype>
 
-bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b) -> bool { return a == b; }
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> result;
+std::vector<std::string> split_words(string txt) {
+    vector<string> result;
     bool inWord = false;
-    std::string word = "";
+    string word = "";
 
     for (char c : txt) {
-        if (!inWord && !std::isalpha(c)) { 
+        if (!inWord && !isalpha(c)) { 
             if (c == ',') {
                 continue;
             }
             inWord = true;
-        } else if (inWord && !std::isalpha(c)) { 
+        } else if (inWord && !isalpha(c)) { 
             result.push_back(word);
             word = "";
             inWord = false;
@@ -32,4 +32,5 @@ std::vector<std::string> split_words(std::string txt) {
 }
 
 int main() {
-    assert(split_words("") == std::vector<std::string>({"",}));
+    assert(issame(split_words(""), std::vector<string>({""})));
+}
