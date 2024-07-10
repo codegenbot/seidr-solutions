@@ -1,3 +1,4 @@
+```cpp
 bool will_it_fly(vector<int> q, int w) {
     string s = "";
     for (int i : q) {
