@@ -1,21 +1,40 @@
+#include <stdio.h>
+#include <vector>
+using namespace std;
+
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    int left = 0, right = n - 1;
-    int changes = 0;
+    vector<vector<bool>> dp(n, vector<bool>(n, false));
 
-    while (left < right) {
-        if (arr[left] != arr[right]) {
-            changes++;
-            for (int i = 0; i < n; i++) {
-                if (i == left || i == right) continue;
-                if (arr[i] == arr[right]) {
-                    swap(arr[left], arr[i]);
-                    break;
+    for (int i = 0; i < n; i++) {
+        dp[i][i] = true;
+    }
+
+    for (int length = 2; length <= n; length++) {
+        for (int i = 0; i <= n - length; i++) {
+            int j = i + length - 1;
+
+            if (arr[i] == arr[j]) {
+                dp[i][j] = true;
+            } else {
+                dp[i][j] = false;
+
+                for (int k = i; k <= j; k++) {
+                    if (dp[i][k - 1] && dp[k + 1][j]) {
+                        dp[i][j] = true;
+                        break;
+                    }
                 }
             }
         }
-        left++;
-        right--;
+    }
+
+    int changes = 0;
+
+    for (int i = 0; i < n - 1; i++) {
+        if (!dp[i][i + 1]) {
+            changes++;
+        }
     }
 
     return changes;
