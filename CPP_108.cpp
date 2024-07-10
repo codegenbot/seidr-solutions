@@ -19,7 +19,7 @@ int count_nums(vector<int> nums) {
                     sum += num % 10;
                 }
                 num /= 10;
-                is_negative = !is_negative;
+                is_negative = !is_negative; // toggle negative flag
             }
             if (sum > 0) {
                 count++;
