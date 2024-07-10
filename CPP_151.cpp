@@ -1,6 +1,6 @@
+```
 #include <iostream>
 #include <vector>
-#include <ext/stdio.h>
 
 long long double_the_difference(const std::vector<long long>& nums) {
     long long oddSum = 0;
