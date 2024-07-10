@@ -4,12 +4,10 @@ def sort_even(l: list):
 
     result = []
     even_index = 0
-    min_len = min(len(evens), len(odds))
-
-    for i in range(min_len):
+    for i, x in enumerate(l):
         if i % 2 == 0:
-            result.append(evens[i])
+            result.append(evens[even_index])
+            even_index += 1
         else:
-            result.append(odds[i])
-
+            result.append(odds[min(i // 2, len(odds) - 1)])
     return tuple(result)
