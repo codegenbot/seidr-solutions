@@ -1,28 +1,20 @@
-```cpp
-#include <iostream>
 #include <string>
-
-std::string rounded_avg(int n, int m) {
-    if(n > m) return "-1";
+string rounded_avg(int n, int m) {
+    if (n > m) return "-1";
     long sum = 0;
-    for(long i=n; i<=m; i++){
+    for (int i = n; i <= m; i++) {
         sum += i;
     }
-    long avg = (long)round((double)sum/(m-n+1));
-    std::string res = "";
-    while(avg > 0){
-        if(avg & 1) res.push_back('1');
-        else res.push_back('0');
-        avg >>= 1;
+    double avg = round((double)sum / (m - n + 1));
+    string result = "";
+    while (avg > 0) {
+        if (avg >= 2) {
+            avg -= 2;
+            result += '1';
+        } else {
+            avg++;
+            result += '0';
+        }
     }
-    std::reverse(res.begin(), res.end());
-    return res;
-}
-
-int main() {
-    int n, m;
-    std::cout << "Enter the range: ";
-    std::cin >> n >> m;
-    std::cout << "Rounded average: " << rounded_avg(n, m) << std::endl;
-    return 0;
+    return result;
 }
