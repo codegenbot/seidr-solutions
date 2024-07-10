@@ -1,12 +1,10 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
-#include <cassert>
+#include <cmath>
 
-float max_element(const std::vector<int>& l) {
+float max_element(std::vector<float> l){
     float max_val = l[0];
-    for (size_t i = 1; i < l.size(); i++) {
-        if (l[i] > max_val) {
+    for(int i = 1; i < l.size(); i++){
+        if(l[i] > max_val){
             max_val = l[i];
         }
     }
@@ -14,6 +12,5 @@ float max_element(const std::vector<int>& l) {
 }
 
 int main() {
-    assert(fabs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
-    return 0;
+    assert(std::abs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
 }
