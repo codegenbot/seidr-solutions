@@ -1,4 +1,3 @@
-```
 import re
 def validate_tweet(tweet):
     if len(re.sub(r'\W+', '', tweet).strip()) == 0:
