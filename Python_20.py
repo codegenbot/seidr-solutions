@@ -1,4 +1,4 @@
-```"""
+```
 def check(lst):
     if len(set(lst)) == 1:
         return "All elements are equal"
@@ -15,4 +15,3 @@ while True:
         print("Invalid input. Please enter integers separated by space.")
 
 print(check(lst))
-"""
