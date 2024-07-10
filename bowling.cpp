@@ -1,31 +1,55 @@
+```cpp
 #include <iostream>
 #include <string>
 
-int bowlingScore(std::string input) {
+int bowlingScore(string input) {
     int score = 0;
-    bool firstInFrame = true;
-    for (char c : input) {
-        if (c == '|') {
-            if (!firstInFrame) {
-                if (score >= 10) {
-                    score += 10;
-                } else {
-                    score += 10 - score;
-                }
+    int currentRoll = 0;
+    int frameNumber = 1;
+
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == 'X') { // Strike
+            score += 10 + bowlingScoreForExtra Rolls(input, i);
+            i += 2; // Skip the '/' and the next character
+            frameNumber++;
+        } else if (input[i] == '/') {
+            currentRoll = 0;
+            frameNumber++;
+        } else if (input[i] >= '0' && input[i] <= '9') { // Number of pins knocked down
+            currentRoll = (currentRoll * 10) + (input[i] - '0');
+            if (i < input.size() - 1 && input[i+1] == '/') {
+                score += currentRoll;
+                i++; // Skip the '/'
+                currentRoll = 0;
+                frameNumber++;
             }
-            firstInFrame = true;
-        } else if (c == 'X') {
-            score += 10;
-            firstInFrame = false;
-        } else if (isdigit(c)) {
-            int pins = c - '0';
-            score += pins;
-            firstInFrame = false;
-        } else if (c == '-') {
-            firstInFrame = true;
+        } else {
+            continue; // ignore non-numerical characters
         }
     }
+
     return score;
+}
+
+int bowlingScoreForExtra Rolls(string input, int i) {
+    int score = 0;
+
+    for (int j = i + 1; j < input.size(); j++) {
+        if (input[j] == 'X') { // Strike
+            score += 10;
+            continue;
+        } else if (input[j] >= '0' && input[j] <= '9') { // Number of pins knocked down
+            int currentRoll = (input[j] - '0');
+            if (j < input.size() - 1 && input[j+1] == '/') {
+                score += currentRoll;
+                j++; // Skip the '/'
+                continue;
+            }
+            return score + currentRoll;
+        }
+    }
+
+    return score; // Return score without considering the last frame
 }
 
 int main() {
