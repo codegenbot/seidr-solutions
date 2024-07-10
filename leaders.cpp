@@ -8,14 +8,17 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     if(n == 0) return res;
     
-    int right = n - 1;
-    for(int i=n-2; i>=0; --i){
-        while(right > i && arr[right] >= arr[i]){
-            --right;
+    for(int i=0; i<n; ++i){
+        bool leaderCheck = true;
+        for(int j=i+1; j<n; ++j){
+            if(arr[j] >= arr[i]){
+                leaderCheck = false;
+                break;
+            }
         }
-        if(i == right) res.push_back(arr[i]);
-        else right = i;
+        if(leaderCheck) res.push_back(arr[i]);
     }
+    
     return res;
 }
 
