@@ -10,11 +10,13 @@ def main():
         while True:
             try:
                 num = int(input(f"Enter an integer ({i+1}/4): "))
-                if num not in n:
+                if any(num == x for x in n):
+                    print("Duplicate input. Please enter unique numbers.")
+                elif num not in n:
                     n[i] = num
                     break
                 else:
-                    print("Duplicate input. Please enter unique numbers.")
+                    print("Invalid input. Please enter a valid integer.")
             except ValueError:
                 print("Invalid input. Please enter a valid integer.")
             attempts += 1
@@ -25,6 +27,10 @@ def main():
                 return
         if all(x is not None for x in n):
             all_inputs_entered = True
+
+    if not all_inputs_entered:
+        print("Program did not receive expected input.")
+        return
 
     factors1 = []
     i = 2
@@ -55,13 +61,14 @@ def main():
         else:
             break
 
-    if all_inputs_entered and common_factors:
+    if common_factors:
         print(
             f"{', '.join(map(str, set(common_factors)))} are the common factors between {n}."
         )
-    elif not all_inputs_entered:
-        print("Please enter all inputs before finding common factors.")
     else:
+        print(f"No common factor found between {n}.")
+
+    if not common_factors:
         print(f"No common factor found between {n}.")
 
 
