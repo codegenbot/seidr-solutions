@@ -39,6 +39,6 @@ int main() {
     }
     std::cout << std::endl;
 
-    assert(std::vector<int>({{1, 1, 1}}) == std::vector<int>({{1, 1, 1}}));
+    assert(std::vector<int>({1, 1, 1}) == std::vector<int>({1, 1, 1}));
     return 0;
 }
