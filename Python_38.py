@@ -1,6 +1,6 @@
 def decode_cyclic(s: str):
     k = len(s) // 2
-    return "".join(s[i] for i in range(0, len(s), k))
+    return "".join(s[i] for i in range(1, len(s), k))
 
 # Get input from the user
 user_input = input("Enter a string: ")
