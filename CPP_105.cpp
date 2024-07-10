@@ -4,7 +4,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool same(vector<string> a, vector<string> b) { return a == b; }
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
@@ -31,4 +33,6 @@ vector<string> by_length(vector<int> arr){
     return result;
 }
 
-assert(same(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
