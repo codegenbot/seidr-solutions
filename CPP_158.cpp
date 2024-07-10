@@ -1,10 +1,8 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
-void findMaxWord(std::vector<std::string>& words) {
+void findMaxWord(const std::vector<std::string>& words) {
     std::string max_word = *std::max_element(words.begin(), words.end(),
         [](const std::string& a, const std::string& b) {
             if (a.length() == b.length()) {
