@@ -7,4 +7,12 @@ def coin_sums(cents):
             counts[i] = cents // coins[i]
             cents %= coins[i]
 
-    return tuple(counts + [cents])
+    return (
+        str(counts[0])
+        + "\n"
+        + str(counts[1])
+        + "\n"
+        + str(counts[2])
+        + "\n"
+        + str(cents)
+    )
