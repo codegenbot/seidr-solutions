@@ -19,8 +19,8 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
 }
 
 int main() {
-    assert(std::equal(filter_by_substring({{"grunt", "trumpet", "prune", "gruesome"}}, "run").begin(), filter_by_substring({{"grunt", "trumpet", "prune", "gruesome"}}, "run").end(), {{"grunt"}, {"prune"}}));
-
+    assert(std::equal(output.begin(), output.end(), {"grunt", "prune"}));
+    
     std::vector<std::vector<std::string>> input = {{"apple", "banana"}, {"orange", "grape"}, {"kiwi", "mango"}};
     const std::string sub = "an";
     auto output = filter_by_substring(input, sub);
