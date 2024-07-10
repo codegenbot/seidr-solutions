@@ -1,3 +1,7 @@
+n = -1
+while n < 0:
+    n = int(input("Enter the value of n (a non-negative integer): "))
+
 def is_prime(num):
     if num < 2:
         return False
@@ -6,10 +10,7 @@ def is_prime(num):
             return False
     return True
 
-
-def prime_fib():
-    n = int(input("Enter the value of n: "))
-
+def prime_fib(n: int):
     def fibonacci(num):
         if num <= 1:
             return num
@@ -24,5 +25,4 @@ def prime_fib():
         i += 1
     return fibonacci(i - 1)
 
-
-print(prime_fib())
+print(prime_fib(n))
