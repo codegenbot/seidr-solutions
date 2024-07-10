@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -29,6 +30,5 @@ int main() {
         user_input.push_back(input);
     }
     
-    if(is_same(user_input, {})) 
-       return 0; 
+    assert(is_same(total_match(user_input, {}), {})); 
 }

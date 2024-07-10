@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     if (v1.size() != v2.size()) return false;
@@ -33,7 +33,7 @@ int main() {
         numbers.push_back(num);
     }
     std::vector<int> even_numbers = sort_even(numbers);
-    if (issame(even_numbers, {2,4,8,12})) {
+    if (issame(even_numbers, std::vector<int>{2,4,8,12})) {
         std::cout << "The sorted even numbers are: ";
         for (int num : even_numbers) {
             std::cout << num << " ";
@@ -43,3 +43,4 @@ int main() {
         std::cout << "The expected output is not achieved." << std::endl;
     }
     return 0;
+}

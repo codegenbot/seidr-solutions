@@ -9,16 +9,22 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> filter_integer(std::vector<int> values) {
     std::vector<int> result; 
     bool isFirst = true;
+    int count = 0; // Count non-zero elements
     for (int value : values) {
         if(value != 0) {
             if (!isFirst) {
                 result.push_back(value);
             } else {
                 result.push_back(value);
-                isFirst = false; // Reset here to avoid exceeding maximum size.
+                isFirst = false;
+            }
+            count++; // Increment count for each non-zero element
+            if(count > 10) { // Limit to a maximum of 10 non-zero elements
+                break;
             }
         } else {
             isFirst = true;
+            count = 0; // Reset count when encountering zero
         }
     }
     return result;
