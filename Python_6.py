@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
@@ -16,9 +17,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 max_level = 0
                 if not current_group:
                     continue
-                if '-' in current_group:
-                    result.append(int(current_group.replace('(','-').replace(')', '')))
-                else:
+                while current_group and current_group[0] == '(':
                     result.append(int(current_group[1:-1]))
-                current_group = ''
-    return result
+                    current_group = current_group[1:-1]
+    return [int(x) for x in current_group.replace('(','-').replace(')', '').split(',')] + result
