@@ -15,7 +15,7 @@ std::vector<int> largest_smallest_integers(const std::vector<int>& lst) {
             smallest_positive = num;
         }
     }
-    return {largest_negative, smallest_positive};
+    return { largest_negative, smallest_positive };
 }
 
 int main() {
@@ -29,7 +29,7 @@ int main() {
     }
 
     std::vector<int> result = largest_smallest_integers(input);
-    if (issame(result, {-3, 1})) {
+    if (issame(result, { -3, 1 })) {
         std::cout << "The output is correct." << std::endl;
     } else {
         std::cout << "The output is incorrect." << std::endl;
