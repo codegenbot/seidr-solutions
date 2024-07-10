@@ -5,11 +5,11 @@ def solution(lst):
 def main():
     while True:
         try:
-            lst = list(map(int, input("Enter numbers separated by space: ").split()))
-            if len(lst) == 0:
-                print("No valid inputs")
-                continue
-            break
+            lst = list(map(int, input("Enter 10 numbers separated by space: ").split()))
+            if len(lst) == 10:
+                break
+            else:
+                print("Expected 10 numbers. Try again.")
         except ValueError:
             print("Invalid input. Please enter valid integers separated by space.")
 
