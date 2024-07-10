@@ -2,27 +2,8 @@
 #include <string>
 #include <vector>
 
-bool issame(std::vector<std::pair<std::string, std::string>> a, std::vector<std::pair<std::string, std::string>> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        int num1 = 0;
-        int num2 = 0;
-        for (char c : a[i].first) {
-            num1 = num1 * 10 + (c - '0');
-        }
-        for (char c : a[i].second) {
-            num1 = num1 * 10 + (c - '0');
-        }
-        for (char c : b[i].first) {
-            num2 = num2 * 10 + (c - '0');
-        }
-        for (char c : b[i].second) {
-            num2 = num2 * 10 + (c - '0');
-        }
-        if (!issorted({num1})) return false;
-        if (!issorted({num2})) return false;
-    }
-    return true;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 bool issorted(std::vector<int> v) {
@@ -32,7 +13,7 @@ bool issorted(std::vector<int> v) {
     return true;
 }
 
-std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v) {
+std::vector<int> sortListSum(const std::vector<std::pair<std::string, std::string>>& v) {
     std::vector<int> result;
     for (const auto& pair : v) {
         int num = 0;
@@ -51,6 +32,6 @@ std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v)
 
 int main() { 
     assert(issame({{"aaaa", "bbbb"}, {"cccc", "ddd"}}, {{"cccc", "ddd"}, {"aaaa", "bbbb"}})); 
-    assert(issame(std::vector<std::pair<std::string, std::string>>{{"aaaa", "bbbb"}, {"dd", "cc"}},
-                  std::vector<std::pair<std::string, std::string>>{{"cc", "dd"}, {"aaaa", "bbbb"}})); 
+    assert(issame(std::vector<std::string>{{"aaaa", "bbbb"}, {"dd", "cc"}},
+                  std::vector<std::string>{{"cc", "dd"}, {"aaaa", "bbbb"}})); 
 }
