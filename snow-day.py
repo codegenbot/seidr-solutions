@@ -1,4 +1,3 @@
-```python
 hours = int(float(input("Enter number of hours: ")))
 snow_on_ground = float(input("Enter initial amount of snow on the ground: "))
 rate_of_snowfall = float(input("Enter rate of snow fall per hour: "))
