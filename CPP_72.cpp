@@ -1,23 +1,18 @@
-#include <string>
 #include <vector>
+#include <algorithm>
 
-bool will_it_fly(std::vector<int> q, int w) {
-    std::string str = "";
+bool will_it_fly(vector<int> q, int w) {
+    string str = "";
     for (int i : q) {
-        str += std::to_string(i);
+        str += to_string(i);
     }
-    if (str != std::string(str.rbegin(), str.rend())) {
-        return false;
-    }
+    
+    if (str != string(reverse(str).begin(), reverse(str).end())) return false; // check if it's balanced
+    
     int sum = 0;
     for (int i : q) {
         sum += i;
     }
+    
     return sum <= w;
-}
-
-int main() {
-    assert(will_it_fly({5}, 5) == true);
-    // Add more code as needed
-    return 0;
 }
