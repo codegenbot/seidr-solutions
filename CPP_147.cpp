@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 int get_matrix_triples(int n) {
     std::vector<int> a(n);
@@ -20,4 +19,9 @@ int get_matrix_triples(int n) {
     return count;
 }
 
-assert(get_matrix_triples(100) == 53361);
+int main() {
+    int n;
+    std::cin >> n;
+    std::cout << get_matrix_triples(n) << std::endl;
+    return 0;
+}
