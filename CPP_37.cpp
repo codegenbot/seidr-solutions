@@ -1,23 +1,17 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
 bool issame(vector<float> a, vector<float> b);
 vector<float> sort_even(vector<float> l);
 
 int main() {
     int n;
-    std::cin >> n;
-    
-    vector<float> vec(n);
+    cin >> n;
+    vector<float> v(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> vec[i];
+        cin >> v[i];
     }
     
-    vector<float> result = sort_even(vec);
-    
-    for (float x : result) {
-        std::cout << x << " ";
+    vector<float> result = sort_even(v);
+    for (float f : result) {
+        cout << f << " ";
     }
     return 0;
 }
