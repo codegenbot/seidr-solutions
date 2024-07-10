@@ -3,6 +3,8 @@
 #include <set>
 #include <string>
 
+using initializer_list_size_type = std::size_t;
+
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     
@@ -17,11 +19,13 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     }
     
     bool is_palindrome = true;
-    for (int i = 0; i < temp.length() / 2; i++) {
-        if (temp[i] != temp[temp.length() - i - 1]) {
+    int i = 0, length = temp.length();
+    while (i < length / 2) {
+        if (temp[i] != temp[length - i - 1]) {
             is_palindrome = false;
             break;
         }
+        i++;
     }
     
     result.push_back(temp);
@@ -30,6 +34,13 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a == b);
+bool std::vector<std::string>::operator== (const std::vector<std::string>& b) const {
+    if (size() != b.size()) 
+        return false;
+
+    for (int i = 0; i < size(); i++)
+        if (at(i) != b.at(i))
+            return false;
+
+    return true;
 }

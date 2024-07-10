@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -9,11 +10,10 @@ long long special_factorial(int n) {
     return result;
 }
 
-int main 
-{
+int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    cout << "The special factorial of " << n << " is: " << special_factorial(n) << "\n";
+    cout << "The special factorial of " << n << " is: " << special_factorial(n) << endl;
     return 0;
 }
