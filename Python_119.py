@@ -5,10 +5,9 @@ def match_parens(lst):
             if char == "(":
                 stack.append(char)
             elif char == ")":
-                if not stack:
+                if not stack or stack[-1] != "(":
                     return "No"
-                else:
-                    stack.pop()
+                stack.pop()
         if stack:
             return "No"
     return "Yes"
