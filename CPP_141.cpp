@@ -1,25 +1,35 @@
 Here is the completed code:
 
-string file_name_check(string file_name) {
-    int digit_count = 0;
-    bool found_dot = false;
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            digit_count++;
-            if (digit_count > 3)
-                return "No";
-        } else if (c == '.') {
-            found_dot = true;
+string file_name_check(string file_name){
+    int digitCount = 0;
+    bool hasDot = false;
+    string beforeDot;
+    
+    for(int i = 0; i < file_name.length(); i++){
+        char c = file_name[i];
+        
+        if(c == '.'){
+            hasDot = true;
+            break;
+        }else if(isdigit(c)){
+            digitCount++;
+        }else{
+            beforeDot += c;
         }
     }
-    if (!found_dot || file_name.find('.') == string::npos)
+    
+    if(!hasDot || digitCount > 3){
         return "No";
-    size_t dot_pos = file_name.find('.');
-    string before_dot = file_name.substr(0, dot_pos);
-    string after_dot = file_name.substr(dot_pos + 1);
-    if (before_dot.empty() || !isalpha(before_dot[0]))
+    }
+    
+    string afterDot = file_name.substr(file_name.find('.') + 1);
+    
+    if(afterDot != "txt" && afterDot != "exe" && afterDot != "dll"){
         return "No";
-    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll")
+    }
+    
+    if(beforeDot.empty() || !isalpha(beforeDot[0])){
         return "No";
+    }
+    
     return "Yes";
-}
