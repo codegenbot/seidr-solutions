@@ -1,16 +1,26 @@
 string get_closest_vowel(string word) {
-    string result = "";
-    for(int i = word.length() - 1; i > 0; i--) {
-        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u') {
-            int left = i;
-            while(left > 0 && (word[left] != 'a' && word[left] != 'e' && word[left] != 'i' && word[left] != 'o' && word[left] != 'u')) {
-                left--;
-            }
-            if(left < i) {
-                result = word.substr(left, i - left);
-                break;
-            }
+    int n = word.size();
+    for (int i = n - 1; i > 0; --i) {
+        if (!isalpha(word[i])) continue;
+        if (ispunct(word[i]) || isdigit(word[i])) continue;
+        if (word[i] == 'Y' && i > 1 && isupper(word[i-1])) continue;
+        if (ispunct(word[0]) || isdigit(word[0])) return "";
+        for (int j = i - 1; j >= 0; --j) {
+            if (!isalpha(word[j])) break;
+            if (ispunct(word[j]) || isdigit(word[j])) break;
+            if (word[j] == 'Y' && j < n-2 && isupper(word[j+1])) continue;
         }
+        for (int j = i - 1; j >= 0; --j) {
+            if (!isalpha(word[j])) break;
+            if (ispunct(word[j]) || isdigit(word[j])) break;
+            if (word[j] == 'Y' && j < n-2 && isupper(word[j+1])) continue;
+        }
+        for (; j >= 0; --j) {
+            if (!isalpha(word[j])) break;
+            if (ispunct(word[j]) || isdigit(word[j])) break;
+            if (word[j] == 'Y' && j < n-2 && isupper(word[j+1])) continue;
+        }
+        return to_string(toupper(word[i]));
     }
-    return result;
+    return "";
 }
