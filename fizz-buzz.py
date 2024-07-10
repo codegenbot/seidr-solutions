@@ -1,9 +1,2 @@
 def fizz_buzz(x):
-    if x % 3 == 0 and x % 5 == 0:
-        return "FizzBuzz"
-    elif x % 3 == 0:
-        return "Fizz"
-    elif x % 5 == 0:
-        return "Buzz"
-    else:
-        return str(x)
+    return str(x).replace(str(int(x) % 3), "").replace(str(int(x) % 5), "Buzz").replace("0", "Fizz")
