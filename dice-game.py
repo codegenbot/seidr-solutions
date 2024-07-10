@@ -1,15 +1,6 @@
-Here is the completed code:
-
-n = int(input())
-m = int(input())
-
-total_outcomes = n * m
-peter_wins = 0
-
-for i in range(1, n+1):
-    for j in range(1, m+1):
-        if i > j:
-            peter_wins += 1
-
-probability = peter_wins / total_outcomes
-print(probability)
+def dice_game(n, m):
+    return (
+        sum(1 / (n * m) for k in range(m) for v in range(k + 1, n + 1))
+        if n > m
+        else sum(1 / (n * m) for k in range(n) for v in range(k + 1, m + 1))
+    )
