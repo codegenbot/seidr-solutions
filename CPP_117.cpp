@@ -1,37 +1,33 @@
 #include <vector>
-#include <string>
 #include <iostream>
-
-using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-
+    
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
-
+    
     return true;
 }
 
 vector<string> select_words(string s, int n);
 
 int main() {
-    // Test cases
-    vector<string> result = select_words("Hello World, how are you doing today?", 2);
-    vector<string> expected = {"World,", "you"};
+    // Test the select_words function
+    vector<string> result = select_words("Hello World, this is a test", 2);
+    vector<string> expected = {"Hello", "World,", "this", "test"};
     
-    // Assertion
     if (issame(result, expected)) {
-        cout << "Test Passed" << endl;
+        std::cout << "Test Passed" << std::endl;
     } else {
-        cout << "Test Failed" << endl;
+        std::cout << "Test Failed" << std::endl;
     }
-
+    
     return 0;
 }
 
