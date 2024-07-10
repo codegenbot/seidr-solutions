@@ -1,11 +1,13 @@
+```cpp
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
-bool same(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> filter_integers(std::vector<int> values) {
+std::vector<int> filter_integer(std::vector<int> values) {
     std::vector<int> result;
     for (int value : values) {
         if(value != 0) {
@@ -23,7 +25,7 @@ int main() {
     std::vector<int> vector1 = {num1};
     std::vector<int> vector2 = {num2};
 
-    if(same(vector1, vector2)) {
+    if(issame(vector1, vector2)) {
         std::cout << "Vectors are same." << std::endl; 
     }
     else {
@@ -31,12 +33,12 @@ int main() {
     }
 
     std::vector<int> values = {1, 0, 3, 4};
-    std::vector<int> filtered = filter_integers(values);
+    std::vector<int> filtered = filter_integer(values);
     for (int value : filtered) {
         std::cout << value << " ";
     }
     std::cout << std::endl;
 
-    assert(same({1, 1, 1}, {1, 1, 1}));
+    assert(std::vector<int>({{1, 1, 1}}) == std::vector<int>({{1, 1, 1}}));
     return 0;
 }
