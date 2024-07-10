@@ -2,7 +2,7 @@ def has_close_elements() -> bool:
     try:
         numbers = input("Enter a list of floats separated by spaces: ").split()
         threshold = float(input("Enter the threshold value: "))
-        if not all(num.replace('.', '', 1).isdigit() for num in numbers):
+        if not all(num.replace(".", "", 1).isdigit() for num in numbers):
             raise ValueError
         numbers = [float(num) for num in numbers]
         for i in range(len(numbers)):
