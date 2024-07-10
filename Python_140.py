@@ -7,10 +7,8 @@ combined_text = ''
 try:
     while True:
         line = input()
-        if not line:
-            break
         combined_text += line + '\n'
-except EOFError:
+except (EOFError, KeyboardInterrupt):
     pass
 
-print(fix_spaces(combined_text.strip()))
+print(fix_spaces(combined_text.strip()) )
