@@ -3,10 +3,10 @@
 
 std::vector<std::string> lst;
 
-int match_parens(std::vector<std::string> str) {
+int match_parens(std::vector<std::string> input) {
     int countOpen = 0, countClose = 0;
 
-    for (const std::string &s : str) {
+    for (const std::string &s : input) {
         for (char c : s) {
             if (c == '(') {
                 countOpen++;
