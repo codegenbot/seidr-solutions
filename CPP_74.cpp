@@ -18,11 +18,7 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
         total_chars_lst2 += str.size();
     }
 
-    if (total_chars_lst1 < total_chars_lst2) {
-        return lst1;
-    } else {
-        return lst2;
-    }
+    return (total_chars_lst1 < total_chars_lst2) ? lst1 : lst2;
 }
 
 int main() {
