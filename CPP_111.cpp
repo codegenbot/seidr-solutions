@@ -2,7 +2,6 @@
 #include <string>
 #include <sstream>
 #include <map>
-#include <cassert>
 
 using namespace std;
 
