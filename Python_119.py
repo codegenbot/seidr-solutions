@@ -1,2 +1,3 @@
-n = int(input())
-input_list = list(map(int, input().split()))
+import sys
+n = int(input().strip())
+input_list = [input().strip() for _ in range(n)]
