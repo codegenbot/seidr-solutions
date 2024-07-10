@@ -4,12 +4,8 @@ if not num_strings.isdigit():
 
 num_strings = int(num_strings)
 strings = []
-while True:
-    string = input().strip()
-    if string == '----':
-        break
-    strings.append(string)
-
+for _ in range(num_strings):
+    strings.append(input().strip())
 substring = input().strip()
 
 def filter_strings(strings, substring):
