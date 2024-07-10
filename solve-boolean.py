@@ -5,12 +5,12 @@ def solve_boolean(expression):
     elif expression == 'F':
         return False
     elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
+        raise ValueError("Invalid input")
     else:
         result = True
         for char in expression:
             if char == '&':
-                result &= bool(next(c) == 'T' for c in expression.split('&'))
+                result &= (expression[expression.index(char) + 1] == 'T')
             elif char == '|':
-                result |= bool(next(c) == 'T' for c in expression.split('|'))
+                result |= (expression[expression.index(char) + 1] == 'T')
         return result
