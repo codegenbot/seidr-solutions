@@ -1,1 +1,1 @@
-input()
+input_str = input()
