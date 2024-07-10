@@ -1,8 +1,10 @@
 def is_pythagorean_triplet(a, b, c):
-    return a**2 + b**2 == c**2 or a**2 + c**2 == b**2 or b**2 + c**2 == a**2
+    numbers = [a, b, c]
+    numbers.sort()
+    return numbers[0]**2 + numbers[1]**2 == numbers[2]**2
 
-a = int(input("Enter first side of the triangle: "))
-b = int(input("Enter second side of the triangle: "))
-c = int(input("Enter third side of the triangle: "))
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+c = int(input("Enter third number: "))
 
 print(is_pythagorean_triplet(a, b, c))
