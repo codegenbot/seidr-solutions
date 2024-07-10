@@ -1,23 +1,16 @@
-#include <string>
-#include <algorithm>
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
 using namespace std;
 
 int count_distinct_characters(string str) {
     transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<char> characters;
+    vector<char> chars;
     for (char c : str) {
-        if (find(c, characters) == characters.end()) {
-            characters.push_back(c);
+        if (!binary_search(chars.begin(), chars.end(), c)) {
+            chars.push_back(c);
         }
     }
-    return characters.size();
-}
-
-int find(char c, vector<char>& v) {
-    for (auto it = v.begin(); it != v.end(); ++it) {
-        if (*it == c) {
-            return 0;
-        }
-    }
-    return 1;
+    return chars.size();
 }
