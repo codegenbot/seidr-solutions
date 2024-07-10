@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 
@@ -13,6 +14,6 @@ bool has_close_elements(std::vector<float> numbers, float threshold){
 
 int main() {
     std::vector<float> a={1.0f, 2.0f, 3.9f, 4.0f, 5.0f, 2.2f};
-    assert(std::abs(1.1f - 2.2f) > 0.5); 
+    assert(std::abs(1.1f - 2.2f) > 0.5);
     return 0;
 }
