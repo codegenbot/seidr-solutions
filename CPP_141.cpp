@@ -1,7 +1,7 @@
 #include <string>
 using namespace std;
 
-string checkFileName(string file_name) {
+string file_name_check(string file_name) {
     int digitCount = 0;
     int dotCount = 0;
     int dotIndex = -1;
