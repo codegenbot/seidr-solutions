@@ -1,6 +1,6 @@
 #include <cstring>
 #include <assert.h>
 
-int stringLength(char* str) {
+int findStringLength(const char* str) {
     return strlen(str);
 }
