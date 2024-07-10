@@ -1,4 +1,3 @@
-```python
 def sum_product(numbers: list[int]) -> tuple[int, int]:
     total_sum = 0
     product = 1
