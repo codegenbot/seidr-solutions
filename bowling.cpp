@@ -1,35 +1,21 @@
-#include <iostream>
-#include <vector>
 #include <string>
 
-using namespace std;
-
-int bowlingScore(const string& input) {
+int bowling(std::string input) {
     int score = 0;
-    vector<int> rolls;
-    
+    int rollCount = 0;
     for (char c : input) {
         if (c == '/') {
-            if (rolls.size() > 0) {
-                int previousRoll = rolls.back();
-                if (previousRoll < 10) {
-                    if (previousRoll + 1 + rolls[rolls.size()-2] <= 10) {
-                        score += 10;
-                    } else {
-                        score += 10 - previousRoll;
-                    }
+            if (rollCount < 2) {
+                int roll = std::stoi(input.substr(0, input.find('/')).substr(1));
+                if (rollCount == 0) {
+                    score += roll + std::stoi(input.substr(0, input.find('/')).substr(2)) ;
                 } else {
-                    score += 10;
+                    score += roll;
                 }
             }
-        } else if (isdigit(c)) {
-            rolls.push_back(c - '0');
+            rollCount = 0;
+        } else {
+            rollCount++;
         }
     }
-
-    for (int roll : rolls) {
-        score += roll;
-    }
-
     return score;
-}
