@@ -1,24 +1,21 @@
+```cpp
 #include <vector>
 #include <string>
 
-std::vector<std::string> all_prefixes(const std::string& input) {
-    std::vector<std::string> result;
-    for (size_t i = 0; i <= input.size(); ++i) {
-        result.push_back(input.substr(0, i));
-    }
-    return result;
-}
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+bool issame(std::vector<std::string> v1, std::vector<std::string> v2) {
+    if(v1.size() != v2.size()) return false;
+    for(int i=0; i<v1.size(); i++) {
+        if(v1[i] != v2[i]) return false;
     }
     return true;
+}
+
+std::vector<std::string> all_prefixes(const std::string& str) {
+    std::vector<std::string> result;
+    for(int i = 0; i <= str.size(); ++i) {
+        result.push_back(str.substr(0, i));
+    }
+    return result;
 }
 
 int main() {
