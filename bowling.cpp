@@ -1,42 +1,38 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
-int bowlingScore(string input) {
+int bowlingScore(std::string input) {
     int score = 0;
-    vector<int> scores;
-
-    for (int i = 0; i < input.length(); i++) {
-        if (input[i] == 'X') {
-            scores.push_back(10);
-        } else if (input[i] == '-') {
-            continue;
-        } else if (isdigit(input[i])) {
-            string temp = "";
-            while (i < input.length() && isdigit(input[i])) {
-                temp += input[i++];
+    bool firstInFrame = true;
+    bool strikeOrSpare = false;
+    for (char c : input) {
+        if (c == '|') {
+            if (!firstInFrame && !strikeOrSpare) {
+                if (score < 10) {
+                    score += 10 - score;
+                } else {
+                    score += 10;
+                }
             }
-            int value = stoi(temp);
-            scores.push_back(value);
-        } else if (input[i] == '|') {
-            i++;
-            continue;
-        }
-
-    }
-
-    for (int i = 0; i < scores.size(); i++) {
-        if (i + 1 < scores.size() && scores[i] + scores[i + 1] > 10) {
-            score += 10 - scores[i];
-            i++;
+            firstInFrame = true;
+            strikeOrSpare = false;
+        } else if (c == 'X') {
+            score += 10;
+            score += 10 + (input[1] == '|' ? 0 : input[1] - '0' + input[2] - '0');
+            firstInFrame = true;
+            strikeOrSpare = false;
+        } else if (c == '-') {
+            firstInFrame = true;
         } else {
-            score += scores[i];
+            int pins = c - '0';
+            score += pins;
+            if (!firstInFrame) {
+                if (score + pins >= 10) {
+                    score += 10 - score;
+                } else {
+                    score += 10;
+                }
+                strikeOrSpare = true;
+            }
+            firstInFrame = false;
         }
     }
-
     return score;
-}
-
-int main() {
-    std::cout << bowlingScore("X|---5-8-|X||25--|-1-3-4-6-8-9-7");
 }
