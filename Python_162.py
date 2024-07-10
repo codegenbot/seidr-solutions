@@ -1,9 +1,11 @@
-```
 import hashlib
 
 
 def string_to_md5():
-    text = "This is a test".strip()
+    while True:
+        text = input("Enter some text: ")
+        if text.strip():
+            break
     if not text:
         return None
     else:

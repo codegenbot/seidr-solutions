@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <limits>
 #include <string>
@@ -18,7 +18,7 @@ int main() {
     string input;
     cout << "Enter a number: ";
     getline(cin, input);
-    result = stoll(input); // or use stol for long
+    result = stoll(input); 
     if(result < 0) {
         cout << "Error! Please enter a positive integer." << endl;
     } else {
