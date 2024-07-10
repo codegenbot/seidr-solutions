@@ -3,10 +3,9 @@ import re
 
 
 def fix_spaces(text):
-    text = re.sub(r"\s+", "_", text)
-    text = text.strip("_")
-    if not text:
-        return "N/A"
+    text = re.sub(r"\s+", "_", text).upper()
+    if len(text) > 10:
+        return text[:7] + "..."
     return text
 
 
