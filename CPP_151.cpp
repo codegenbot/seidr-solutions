@@ -1,9 +1,15 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::vector<double> getNumbersDifferentByOdd() {
+struct Result {
     std::vector<double> output;
+    double odd_sum;
+};
+
+Result double_the_difference() {
+    Result result;
     double odd_sum = 0;
 
     for (std::string line; std::getline(std::cin, line); ) {
@@ -11,44 +17,27 @@ std::vector<double> getNumbersDifferentByOdd() {
             double val = std::stod(line);
             int diff = std::abs((int)val - 5);
             if (diff % 2 != 0) {
-                output.push_back(val);
+                result.output.push_back(val);
                 odd_sum += diff;
             }
         }
     }
 
-    return output;
-}
+    result.odd_sum = odd_sum;
 
-double getOddSum() {
-    double sum = 0;
-
-    for (std::string line; std::getline(std::cin, line); ) {
-        if (!line.empty()) {
-            double val = std::stod(line);
-            int diff = std::abs((int)val - 5);
-            if (diff % 2 != 0) {
-                sum += diff;
-            }
-        }
-    }
-
-    return sum;
+    return result;
 }
 
 int main() {
-    std::vector<double> output = getNumbersDifferentByOdd();
-    double odd_sum = getOddSum();
+    Result output = double_the_difference();
 
     std::cout << "The numbers that are different from 5 by an odd number: ";
-    for (double x : output) {
+    for (double x : output.output) {
         if (std::abs((int)x - 5) % 2 != 0) {
             std::cout << x << " ";
         }
     }
     std::cout << std::endl;
-
-    std::cout << "The sum of the differences is: " << odd_sum << std::endl;
 
     return 0;
 }
