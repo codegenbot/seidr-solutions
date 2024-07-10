@@ -1,7 +1,8 @@
+```cpp
+#include <cassert>
 #include <vector>
 #include <string>
 #include <cctype>
-#include <cassert>
 
 using namespace std;
 
@@ -35,4 +36,6 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-assert(issame(split_words("")) == true);
+int main() {
+    assert(issame(split_words("")) == true);
+}
