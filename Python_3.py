@@ -1,16 +1,7 @@
-operations = []
-while True:
-    num = input()
-    if num == "":
-        break
-    operations.append(int(num))
+operations = list(map(int, input().split(',')))
 
 def below_zero(operations):
-    count = 0
-    for num in operations:
-        if num < 0:
-            count += 1
-    return count
+    return sum(1 for num in operations if num < 0)
 
 result = below_zero(operations)
 print(result)
