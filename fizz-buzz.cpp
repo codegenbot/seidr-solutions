@@ -16,6 +16,8 @@ int main() {
     int x;
     cout << "Enter an integer: ";
     cin >> x;
-    cout << fizzBuzz(x) << endl;
+    for(int i = 1; i <= x; ++i) {
+        cout << fizzBuzz(i) << endl;
+    }
     return 0;
 }
