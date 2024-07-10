@@ -33,7 +33,7 @@ void sort_even(vector<float>& l) {
     }
 }
 
-int main(){
+int main() {
     vector<float> l = {4, 2, 6, 1, 3, 5};
     vector<float> sorted_l = {1, 2, 3, 4, 5, 6};
 
@@ -45,7 +45,6 @@ int main(){
         cout << "Results don't match sorted vector";
     }
 
-    // Additional test case
     vector<float> test_l = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     sort_even(test_l);
     assert(issame(test_l, {-12, 8, 3, 4, 23, 2, 12, 11, 5, -10}));
