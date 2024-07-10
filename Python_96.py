@@ -1,6 +1,3 @@
-print("Welcome to the Prime Number Finder!")
-n = int(input("Enter a number: "))
-
 def count_up_to(n):
     def is_prime(num):
         if num < 2:
