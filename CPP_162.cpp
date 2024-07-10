@@ -7,7 +7,8 @@
 #include <sstream>
 
 std::string string_to_md5(const std::string& input) {
-    OpenSSL_add_all_digests();
+    OpenSSL_add_all_digests(); // Added initialization for digest algorithms
+
     EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
     const EVP_MD *md = EVP_md5();
     unsigned char md5_hash[EVP_MD_size(md)];
