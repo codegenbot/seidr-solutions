@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -18,10 +17,10 @@ vector<float> get_positive(vector<float> l) {
 
 int main() {
     assert(issame(get_positive({}), {})); 
-    vector<float> v = {-1.0, -2.0, 3.0};
-    vector<float> v1 = get_positive(v);
-    for (float num : v1) {
-        cout << num << " ";
+    vector<float> input = {1.5, -2.3, 4.7, -5.6};
+    vector<float> output = get_positive(input);
+    for (float num : output) {
+        std::cout << num << " ";
     }
     return 0;
 }
