@@ -1,5 +1,6 @@
-return [
-    item
-    for sublist in [[num, delimeter] for num in numbers[:-1]] + [numbers[-1:]]
-    for item in sublist
-]
+result = []
+for num in numbers[:-1]:
+    result.extend([num, delimeter])
+if numbers:
+    result.append(numbers[-1])
+return result
