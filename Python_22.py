@@ -1,5 +1,5 @@
-```
 import re
+
 
 def filter_integers() -> None:
     while True:
@@ -7,7 +7,9 @@ def filter_integers() -> None:
         user_input = input()
 
         if not re.match(r"^[0-9]+(,[0-9]+)*$", user_input):
-            print("Invalid input. Please enter a valid list of comma-separated integers.")
+            print(
+                "Invalid input. Please enter a valid list of comma-separated integers."
+            )
         else:
             break
 
@@ -22,5 +24,6 @@ def filter_integers() -> None:
         print(f"Minimum Value: {min_value}")
     except ValueError:
         print("Invalid input. Please enter a valid list of comma-separated integers.")
+
 
 filter_integers()
