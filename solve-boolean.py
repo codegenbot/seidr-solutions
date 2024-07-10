@@ -5,16 +5,13 @@ def solve_boolean(expression):
     elif expression == 'F':
         return False
     elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
+        raise ValueError("Invalid operation")
     else:
         result = True
-        for char in expression:
-            if char == '&':
-                result &= True
-            elif char == '|':
-                result |= True
-            elif char == 'T':
-                result &= True
-            elif char == 'F':
-                result = False
+        for op, val in zip(['&', '|'], [False, True]):
+            if op == '&':
+                result = result and val == expression[0]
+            elif op == '|':
+                result = result or val == expression[0]
+            expression = expression[1:]
         return result
