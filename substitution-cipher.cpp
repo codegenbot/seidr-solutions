@@ -19,7 +19,7 @@ int main() {
             }
         }
     }
-    
+
     cout << message << endl;
     
     return 0;
