@@ -1,5 +1,3 @@
-#include <vector>
-#include <numeric>
 #include <utility>
 
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
@@ -24,4 +22,3 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     }
     
     return result;
-}
