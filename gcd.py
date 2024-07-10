@@ -1,4 +1,4 @@
-Here is the solution:
+Here's the solution:
 
 def gcd(a, b):
     while b != 0:
@@ -7,11 +7,12 @@ def gcd(a, b):
 
 def indices_of_substring(text, target):
     result = []
-    start_index = 0
-    while True:
-        pos = text.find(target, start_index)
-        if pos == -1:
+    index = 0
+    while index < len(text):
+        pos = text.find(target, index)
+        if pos != -1:
+            result.append(pos)
+            index = pos + 1
+        else:
             break
-        result.append(pos)
-        start_index = pos + 1
     return result
