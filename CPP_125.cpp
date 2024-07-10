@@ -2,14 +2,12 @@
 #include <string>
 #include <cctype>
 
-bool const issame(const std::vector<std::string>& a, const std::vector<std::string>& b) { return a == b; }
+bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) { return a == b; }
 
-std::pmr::string str;
-
-std::vector<std::pmr::string> split_words(std::pmr::string txt) {
-    std::pmr::pstring result;
+std::vector<std::string> splitWords(std::string txt) {
+    std::vector<std::string> result;
     bool inWord = false;
-    str = "";
+    std::string word = "";
 
     for (char c : txt) {
         if (!inWord && !isalpha(c)) { 
@@ -18,21 +16,21 @@ std::vector<std::pmr::string> split_words(std::pmr::string txt) {
             }
             inWord = true;
         } else if (inWord && !isalpha(c)) { 
-            result += str;
-            str = "";
+            result.push_back(word);
+            word = "";
             inWord = false;
         } else {
-            str += c;
+            word += c;
         }
     }
 
     if (inWord) {
-        result += str;
+        result.push_back(word);
     }
-    return std::vector<std::pmr::string>(1, result);
+    return result;
 }
 
 int main() {
-    bool b;
-    assert(issame(std::vector<std::pmr::string>({""}), std::vector<std::pmr::string>({"0"})));
+    std::vector<std::string> a = {};
+    assert(isSame(a, {""}));
 }
