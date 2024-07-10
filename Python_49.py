@@ -1,12 +1,17 @@
-```
 def modp(n: int, p: int):
-    if p == 0:
-        return 1
-    result = pow(n % p, p // 2, p)
-    if p % 2 == 0:
-        return (result * result) % p
+    if n == 0:
+        return 0
+    elif p % 2 == 0:  
+        result = pow(n, (p-1)//2, p)
     else:
-        return (n * result * result) % p
+        if p == 2:
+            return n
+        result = pow(n, p-1, p)
+    if result == 1 and is_prime(p):
+        return pow(n, -1, p)
+    for i in range(2, p):
+        result = (result * n) % p
+    return result
 
 def is_prime(num: int):
     if num < 2:
