@@ -12,7 +12,6 @@ void bf(string n) {
 int main() {
     int num;
     cin >> num;
-    string s = std::to_string(num);
-    bf(s);
+    bf(to_string(num));  
     return 0;
 }
