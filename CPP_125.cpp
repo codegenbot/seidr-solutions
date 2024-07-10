@@ -38,16 +38,10 @@ vector<string> split_words(string txt){
 }
 
 int main() {
-    using namespace std;
-    string input;
-    getline(cin, input);
+    vector<string> input = split_words("hello, world");
+    vector<string> output = {"hello", "world"};
 
-    vector<string> result = split_words(input);
-
-    vector<string> expected_result;
-    expected_result.push_back("3");
+    assert(issame(input, output));
     
-    assert(issame(result, expected_result));
-
     return 0;
 }
