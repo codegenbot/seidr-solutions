@@ -6,17 +6,23 @@ int bowlingScore(std::string input) {
     bool firstInFrame = true;
     bool strikeOrSpare = false;
     for (char c : input) {
-        if (c == 'X') {
+        if (c == '|') {
+            if (!firstInFrame && !strikeOrSpare) {
+                if (score < 10) {
+                    score += 10 - score;
+                } else {
+                    score += 10;
+                }
+            }
+            firstInFrame = true;
+            strikeOrSpare = false;
+        } else if (c == 'X') {
             score += 10;
             if (!firstInFrame && !strikeOrSpare) {
                 int next1 = c + 1 < input.length() ? input[c+1] - '0' : 0;
                 int next2 = c + 2 < input.length() ? input[c+2] - '0' : 0;
                 score += next1 + next2;
             }
-            firstInFrame = true;
-            strikeOrSpare = false;
-        } else if (c == '/') {
-            score += 10 - score;
             firstInFrame = true;
             strikeOrSpare = false;
         } else if (c == '-') {
