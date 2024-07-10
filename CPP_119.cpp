@@ -1,16 +1,13 @@
-int countOpen = 0, countClose = 0;
+#include <vector>
+#include <string>
 
-for (const auto& str : lst) {
-    for (char c : str) {
-        if (c == '(') {
-            countOpen++;
-        } else if (c == ')') {
-            if (countOpen == 0) return "No";
-            countOpen--;
+bool match_parens(const std::vector<std::string>& lst) {
+    int open = 0, close = 0;
+    for (const auto& s : lst) {
+        for (auto c : s) {
+            if (c == '(') open++;
+            else if (c == ')') close++;
         }
     }
+    return open == close;
 }
-
-if (countOpen > 0) return "No";
-
-return "Yes";
