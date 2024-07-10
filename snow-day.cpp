@@ -1,23 +1,22 @@
 #include <iostream>
-#include <iomanip> 
 using namespace std;
 
 int main() {
     int hours;
     cout << "Enter the number of hours: ";
-    cin >> std::setw(4) >> hours;  
+    cin >> hours;  
 
     double initialSnow;
     cout << "Enter the total amount of snow initially (in feet): ";
-    cin >> ws >> initialSnow;
+    cin >> initialSnow;
 
     double rateOfSnowFall;
     cout << "Enter the rate of snow fall per hour (in feet/hour): ";
-    cin >> ws >> rateOfSnowFall;
+    cin >> rateOfSnowFall;
 
     double proportionOfSnowMeltingPerHour;
     cout << "Enter the proportion of snow melting per hour: ";
-    cin >> ws >> proportionOfSnowMeltingPerHour;
+    cin >> proportionOfSnowMeltingPerHour;
 
     double totalSnow = initialSnow;  // Initialize with initialSnow
 
