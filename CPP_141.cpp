@@ -1,29 +1,37 @@
-string file_name_check(string file_name){
-    string beforeDot = "";
-    int dotCount = 0;
-    bool hasLetters = false;
+Here is the completed code:
 
-    for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-        if(c == '.'){
-            dotCount++;
-            if(dotCount > 1) return "No";
-            beforeDot = file_name.substr(0, i);
-            string afterDot = file_name.substr(i+1);
-            if(afterDot == "txt" || afterDot == "exe" || afterDot == "dll")
-                return "Yes";
-            else
-                return "No";
+```cpp
+bool has_digit = false;
+int dot_count = 0;
+
+for (char c : file_name) {
+    if (isdigit(c)) {
+        if (!has_digit) {
+            has_digit = true;
+        } else {
+            return "No";
         }
-        else if(c >= '0' && c <= '9'){
-            if(hasLetters) return "No";
-            hasLetters = true;
-        }
-        else if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')){
-            if(beforeDot.empty()) beforeDot += c;
+    } else if (c == '.') {
+        dot_count++;
+        if (dot_count > 1) {
+            return "No";
         }
     }
+}
 
-    if(dotCount == 1 && !beforeDot.empty() && hasLetters) return "Yes";
+if (file_name.find('.') != string::npos) {
+    string suffix = file_name.substr(file_name.find('.') + 1);
+    if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
+        return "No";
+    }
+} else {
+    if (!isalpha(file_name[0])) {
+        return "No";
+    }
+}
+
+if (has_digit || dot_count > 1) {
     return "No";
 }
+
+return "Yes";
