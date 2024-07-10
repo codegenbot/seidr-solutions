@@ -1,4 +1,3 @@
-```
 #include <vector>
 
 int luhn(std::vector<int> card) {
@@ -21,4 +20,3 @@ int luhn(std::vector<int> card) {
     }
 
     return sum;
-}
