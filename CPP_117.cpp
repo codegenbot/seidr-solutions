@@ -15,7 +15,7 @@ vector<string> select_words(string s, int n) {
             }
             word = "";
             consonant_count = 0;
-        } else if (isalpha(c) && std::string("aeiouAEIOU").find(c) == std::string::npos) {
+        } else if (isalpha(c) && "aeiouAEIOU" == c) {
             consonant_count++;
         }
         word += c;
