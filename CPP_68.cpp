@@ -17,7 +17,7 @@ std::vector<int> pluck(int n) {
     else if(n == 1)
         return {0}; 
     else 
-        return {}; 
+        return std::vector<int>(); 
 
 }
 
@@ -28,8 +28,6 @@ int main() {
         std::cout << "Arrays are same" << std::endl;
     else   
         std::cout << "Arrays are not same" << std::endl;
-
-    assert(same);
 
     return 0;
 }

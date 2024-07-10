@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -6,9 +5,9 @@ std::string flip_case(std::string str) {
     std::string result;
     for (char c : str) {
         if (c >= 'a' && c <= 'z') {
-            result += toupper(c);
+            result += c - ('a' - 'A');
         } else if (c >= 'A' && c <= 'Z') {
-            result += tolower(c);
+            result += c - ('A' - 'a');
         } else {
             result += c;
         }
@@ -19,7 +18,7 @@ std::string flip_case(std::string str) {
 int driver() {  
     std::string inputStr;
     while (std::getline(std::cin, inputStr)) {  
-        if (inputStr.empty()) {
+        if(inputStr.empty()) {
             std::cout << "Error: Input is empty. Please enter a valid string." << std::endl;
         } else {
             std::cout << "Flipped case: " << flip_case(inputStr) << std::endl;
