@@ -2,16 +2,14 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (double)n * m;
-    double higher = 0.0;
-    
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j < m && j <= i; j++) {
-            higher += 1.0;
-        }
+    double total = 1.0;
+    for (int i = 1; i <= n && i < m; i++) {
+        total += 1.0 / m;
     }
-    
-    return higher / total;
+    for (int i = m + 1; i <= n; i++) {
+        total += 1.0 / n;
+    }
+    return total;
 }
 
 int main() {
