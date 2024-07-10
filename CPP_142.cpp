@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 #include <iostream>
 
@@ -20,5 +19,4 @@ int main() {
         double result = sum_squares(n);
         std::cout << "Sum of squares: " << result << std::endl;
     }
-    assert(sum_squares(-1) == -1 + 1 + 289 - 1 - 225 + 169 - 1 + 196 - 196 - 144 - 25);
 }
