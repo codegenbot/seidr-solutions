@@ -10,9 +10,9 @@ if __name__ == '__main__':
             print("Invalid input. Please enter an integer.")
         result = ""
         for char in s:
-            if ord(char) > 127:
-                result += char
-            else:
+            if char.isalpha():
                 ascii_offset = 65 if char.isupper() else 97
                 result += chr((ord(char) - ascii_offset + n) % 26 + ascii_offset)
+            else:
+                result += char
         print(result)
