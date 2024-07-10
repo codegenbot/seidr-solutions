@@ -31,4 +31,8 @@ std::map<char,int> histogram(std::string test) {
     return result;
 }
 
-assert(issame(histogram("a"), {{'a', 1}}));
+int main() {
+    assert(issame(std::map<char,int>{{'a', 1}}, histogram("a")));
+
+    return 0;
+}
