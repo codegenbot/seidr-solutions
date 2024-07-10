@@ -1,3 +1,4 @@
+```
 from typing import List
 import re
 
@@ -8,9 +9,11 @@ def filter_by_substring():
             expected_output = input(
                 "Is your expected output 'True values', 'False values', or 'all'? "
             )
+
             if expected_output.lower() not in ["true values", "false values", "all"]:
                 print("Invalid input. Please try again.")
                 continue
+
             break
         except ValueError:
             print("Invalid input. Please try again.")
@@ -25,15 +28,21 @@ def filter_by_substring():
                 continue
 
             strings = [s.strip() for s in input_str.split(",")]
-            num_to_display = int(
-                input(f"Enter the number of results to display (1-{len(strings)}): ")
-            )
+            while True:
+                try:
+                    num_to_display = int(
+                        input(
+                            "Enter the number of results to display (1-{}): ".format(len(strings))
+                        )
+                    )
+                    if 1 <= num_to_display <= len(strings):
+                        break
+                    else:
+                        print("Please enter a number between 1 and {}".format(len(strings)))
+                except ValueError:
+                    print("Invalid input. Please try again.")
 
-            if 1 <= num_to_display <= len(strings):
-                break
-            else:
-                print("Please enter a number between 1 and {}".format(len(strings)))
-
+            break
         except ValueError:
             print("Invalid input. Please try again.")
 
@@ -42,16 +51,12 @@ def filter_by_substring():
         print(result[:num_to_display])
     elif expected_output.lower() == "false values":
         print(
-            [s for s in strings if not bool(re.compile(substring).search(s))][
-                :num_to_display
-            ]
+            [s for s in strings if not bool(re.compile(substring).search(s))][:num_to_display]
         )
     else:
         print(
-            result
-            + [s for s in strings if not bool(re.compile(substring).search(s))][
-                :num_to_display
-            ]
+            result[:num_to_display]
+            + [s for s in strings if not bool(re.compile(substring).search(s))][:num_to_display]
         )
 
 
