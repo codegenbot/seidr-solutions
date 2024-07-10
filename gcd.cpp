@@ -1,4 +1,3 @@
-````
 #include <vector>
 #include <string>
 
@@ -11,11 +10,11 @@ vector<int> indicesOfSubstring(string text, string target) {
 
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
-            result.push_back(i);
-            // Check if the target string overlaps itself in the text
             while (i + m <= n && text.substr(i, m) == target) {
+                result.push_back(i);
                 i++;
             }
+            i--;
         }
     }
 
@@ -28,4 +27,3 @@ long long gcd(long long a, long long b) {
     else
         return gcd(b, a % b);
 }
-```
