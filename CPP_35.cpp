@@ -1,8 +1,7 @@
-```
+```cpp
 #include <algorithm>
 using namespace std;
 
-int findMax(int arr[], int n) {
-    vector<int> l(arr, arr+n);
+int find_max_value(vector<int> l) {
     return *max_element(l.begin(), l.end());
 }
