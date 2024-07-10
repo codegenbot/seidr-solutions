@@ -1,15 +1,17 @@
+Here is the completed code:
+
 def minPath(grid, k):
     n = len(grid)
-    res = []
-    for i in range(n):
-        for j in range(n):
-            if grid[i][j] == 1:
-                res.append(1)
-                break
-    while k > 0:
-        for i in range(n):
-            for j in range(n):
-                if (i, j) not in [(x, y) for x, y in zip(*[list(map(lambda x: list(x).index(int(x)), [grid[x][y] for x in range(n)])))])[:k]:
-                    res.append(grid[i][j])
-                    k -= 1
-    return res
+    m = [[i * n + j for j in range(n)] for i in range(n)]
+    queue = [(0, 0, [grid[0][0]])]
+    visited = {(0, 0)}
+    while queue:
+        x, y, path = queue.pop(0)
+        if len(path) == k:
+            return path
+        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < n and 0 <= ny < n and (nx, ny) not in visited:
+                queue.append((nx, ny, path + [grid[nx][ny]]))
+                visited.add((nx, ny))
+    return []
