@@ -17,15 +17,13 @@ def parse_nested_parens(paren_string: str) -> list:
                 while current_group and current_group[0] == '(':
                     group_value = int(current_group[1:-1].replace('-', '')) 
                     result.append(group_value) 
-                    current_group = current_group[1:-1]
+                    temp = ''
+                    for i in range(1, len(current_group)-1):
+                        if current_group[i] == '(':
+                            break
+                        temp += current_group[i]
+                    current_group = temp
         elif char.isdigit():
             current_group += char
 
-    if current_group and current_group[0] != '-':
-        group_values = [int(x) for x in current_group.replace('(','-').replace(')', '').split(',')]
-        result.extend(group_values)
-    else:
-        return result
-
-    return [x for x in map(int, current_group.replace('(','-').replace(')', '').split(','))
-          if x != 0] + result
+    return [int(x) for x in (current_group.replace('(','-').replace(')', '').replace(',', '')).split()]
