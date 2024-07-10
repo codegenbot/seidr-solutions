@@ -15,11 +15,9 @@ int main() {
     std::cin >> x;
     std::cout << "Enter another number: ";
     std::cin >> n;
-    
     if(is_simple_power(x, n))
-        std::cout << std::to_string(x) << " is a simple power of " << n << std::endl;
+        std::cout << std::to_string(x) << " is a simple power of " << std::to_string(n) << std::endl;
     else
-        std::cout << std::to_string(x) << " is not a simple power of " << n << std::endl;
-
+        std::cout << std::to_string(x) << " is not a simple power of " << std::to_string(n) << std::endl;
     return 0;
 }
