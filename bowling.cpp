@@ -15,7 +15,7 @@ int bowlingScore(std::string input) {
         } else if (input[i] == '/') {
             currentRoll = 0;
             frameNumber++;
-        } else if (isdigit(input[i])) { 
+        } else if (isdigit(input[i])) { // Number of pins knocked down
             currentRoll = currentRoll * 10 + (input[i] - '0');
             if (i < input.size() - 1 && input[i+1] == '/') {
                 score += currentRoll;
@@ -23,7 +23,9 @@ int bowlingScore(std::string input) {
                 currentRoll = 0;
                 frameNumber++;
             }
-        } 
+        } else {
+            continue; // ignore non-numerical characters
+        }
     }
 
     return score;
@@ -36,9 +38,10 @@ int bowlingScoreForExtraRolls(std::string input, int i) {
         if (input[j] == 'X') { // Strike
             score += 10;
             continue;
-        } else if (isdigit(input[j])) { 
-            int currentRoll = (input[j] - '0') * ((j+1) < input.size() && input[j+1] == '/') ? 10 : 1;
-            return score + currentRoll;
+        } else if (isdigit(input[j])) { // Number of pins knocked down
+            int currentRoll = (input[j] - '0');
+            currentRoll = currentRoll * ((j+1) < input.size() && input[j+1] == '/') ? 10 : 1;
+            score += currentRoll;
         }
     }
 
