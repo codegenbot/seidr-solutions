@@ -1,15 +1,5 @@
-```
-from typing import List, Tuple
-
-
-def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    while True:
-        try:
-            numbers = input("Enter a list of space-separated integers: ")
-            numbers = [int(num) for num in numbers.split()]
-            break
-        except ValueError:
-            print("Invalid input. Please enter a list of integers.")
+def sum_product():
+    numbers = [int(x) for x in input("Enter space-separated integers: ").split()]
     if len(numbers) == 0:
         return 0, 1
     else:
