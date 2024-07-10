@@ -14,13 +14,15 @@ bool issame(std::vector<int> arr1, std::vector<int> arr2){
     return arr1 == arr2;
 }
 
-std::vector<int> arr = {5, 2, 9, 10, 1};
-int k = 3;
-arr = find_max(arr, k);
-for (int num : arr) {
-    std::cout << num << " ";
+int main(){
+    std::vector<int> arr = {5, 2, 9, 10, 1};
+    int k = 3;
+    arr = find_max(arr, k);
+    for (int num : arr) {
+        std::cout << num << " ";
+    }
+    
+    assert(issame(find_max({1, 2, 3, -23, 243, -400, 0}, 0), std::vector<int>{}));
+    
+    return 0;
 }
-    
-assert(issame(find_max({1, 2, 3, -23, 243, -400, 0}, 0), std::vector<int>{}));
-    
-return 0;
