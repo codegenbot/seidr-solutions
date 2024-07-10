@@ -6,18 +6,21 @@ def solve_task():
             break
         except ValueError:
             print("Invalid input. Please enter numeric values.")
-    
+
     result = num1 + num2
-    
+
     while True:
         response = input("Are you sure? (y/N): ").lower()
         if response in ["y", "n"]:
-            if response == "y":
-                return f"Result: {result}" if result != 0 else "No operation performed"
-            elif response == "n":
-                print("Operation cancelled!")
-                return None
+            break
         else:
             print("Invalid input. Please enter y or N.")
-    
+
+    if response == "y":
+        return f"Result: {result}"
+    elif response == "n":
+        print("Operation cancelled!")
+        return None
+
+
 solve_task()
