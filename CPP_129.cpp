@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -58,9 +59,10 @@ int main() {
         if(same) {
             cout << "The minimum path is: ";
             for (int i : output) {
-                std::cout << i << " ";
+                string str = to_string(i); 
+                cout << str << " "; 
             }
-            std::cout << endl;
+            cout << endl;
         } else {
             cout << "No paths found with length " << target << "." << endl;
         }
