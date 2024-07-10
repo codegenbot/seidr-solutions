@@ -1,15 +1,15 @@
-int main(){
+int main() {
     vector<int> lst;
     int n;
-    cout << "Enter number of elements: ";
+    cout << "Enter the number of elements: ";
     cin >> n;
+    cout << "Enter " << n << " integers: ";
     for(int i = 0; i < n; i++){
         int num;
-        cout << "Enter element " << i+1 << ": ";
         cin >> num;
         lst.push_back(num);
     }
-    cout << "Maximum prime number is: " << skjkasdkd(lst) << endl;
+    cout << "The maximum prime number is: " << skjkasdkd(lst) << endl;
     return 0;
 }
 
