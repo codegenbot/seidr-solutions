@@ -1,4 +1,5 @@
-```c++
+```#include <vector>
+
 int luhn(std::vector<int> card) {
     int sum = 0;
     bool doubleNext = false;
@@ -19,4 +20,3 @@ int luhn(std::vector<int> card) {
     }
 
     return sum;
-}
