@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
+bool issame(int a, int b) {
+    return a == b;
 }
 
 std::vector<int> get_odd_collatz(int n) {
@@ -19,6 +19,6 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    // Main function logic if needed
+    // Main function can be implemented here for testing
     return 0;
 }
