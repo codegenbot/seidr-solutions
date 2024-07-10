@@ -1,11 +1,19 @@
+#include <iostream>
 #include <string>
 
-string remove_vowels(string text){
-    string result = "";
+std::string remove_vowels(std::string text){
+    std::string result = "";
     for(char c : text){
-        if(toupper(c) != 'A' && toupper(c) != 'E' && toupper(c) != 'I' && toupper(c) != 'O' && toupper(c) != 'U'){
+        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'
+           && tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i'
+           && tolower(c) != 'o' && tolower(c) != 'u'){
             result += c;
         }
     }
     return result;
+}
+
+int main() {
+    std::cout << (remove_vowels("ybcd") == "ybcd") << std::endl;
+    return 0;
 }
