@@ -12,22 +12,21 @@ map<string, int> num_map = {
 };
 
 string sort_numbers(string numbers) {
-    stringstream ss(numbers);
-    string num;
-    vector<string> number_list;
-    
-    while (ss >> num) {
-        number_list.push_back(num);
+    map<int, string> rev_map;
+    string current = "";
+    for (char c : numbers) {
+        if (c == ' ') {
+            rev_map[num_map[current]] = current;
+            current = "";
+        } else {
+            current += c;
+        }
     }
-
-    sort(number_list.begin(), number_list.end(), [&](const string &a, const string &b) {
-       return num_map[a] < num_map[b]; 
-    });
+    rev_map[num_map[current]] = current;
 
     string result = "";
-    for (const string &n : number_list) {
-        result += n + " ";
+    for (auto it = rev_map.begin(); it != rev_map.end(); ++it) {
+        result += it->second + " ";
     }
-
-    return result;
+    return result.substr(0, result.size() - 1);
 }
