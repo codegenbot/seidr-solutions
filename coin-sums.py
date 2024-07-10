@@ -4,8 +4,6 @@ def coin_sums(cents):
 
     for i in range(len(coins)):
         while cents >= coins[i]:
-            count = min(cents // coins[i], 3)  
-            counts[i] += count
-            cents -= coins[i] * count
-
-    return counts
+            counts[i] += 1
+            cents -= coins[i]
+    return tuple(counts)
