@@ -1,10 +1,3 @@
-def sort_and_handle_remainder(lst: list) -> list:
-    lst.sort()
-    remainders = [x for x in lst if x % 3 != 0]
-    remainder_len = len(remainders)
-    if remainder_len % 3 == 1:
-        return [lst[-1]]
-    elif remainder_len % 3 == 2:
-        return [lst[-2], lst[-1]]
-    else:
-        return remainders
+def sort_third(l: list):
+    result = [x for x in l if isinstance(x, int) and x % 3 == 0]
+    return result + sorted([i for i in l if isinstance(i, int) and i % 3 != 0])
