@@ -1,6 +1,6 @@
-def modify_list(numbers, delimeter):
+def process_numbers(numbers, delimiter):
     result = []
     for num in numbers:
-        result.extend([num, delimeter])
+        result.extend([num, delimiter])
     result.pop()
     return result
