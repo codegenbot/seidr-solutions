@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
 
-bool issame(std::vector<std::pmr::string> a, std::vector<std::pmr::string> b){
+bool issame(vector<string> a, vector<string>b){
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -10,8 +11,8 @@ bool issame(std::vector<std::pmr::string> a, std::vector<std::pmr::string> b){
     return true;
 }
 
-std::vector<std::pmr::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::pmr::string> result;
+vector<string> numerical_letter_grade(vector<float> grades) {
+    vector<string> result;
     for (float grade : grades) {
         if (grade >= 4.0)
             result.push_back("A+");
@@ -39,4 +40,9 @@ std::vector<std::pmr::string> numerical_letter_grade(std::vector<float> grades) 
             result.push_back("E");
     }
     return result;
+}
+
+int main() {
+    assert(issame(numerical_letter_grade({0, 0.7}), vector<string>{{"E"}, {"D-"})));
+    return 0;
 }
