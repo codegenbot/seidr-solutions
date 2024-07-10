@@ -14,16 +14,19 @@ vector<vector<int>> cutVector(vector<int>& nums) {
             res[1].push_back(nums[i+1]);
             break;
         } else {
-            int diff = INT_MAX, idx = i;
+            int minDiff = INT_MAX;
+            int pos = -1;
+            
             for(int j=i; j<n-1; j++){
-                if(abs(nums[j] - nums[j+1]) < diff){
-                    diff=abs(nums[j]-nums[j+1]);
-                    idx=j;
+                if(abs(nums[j] - nums[j+1]) < minDiff){
+                    minDiff = abs(nums[j]-nums[j+1]);
+                    pos = j;
                 }
             }
-            res[0].push_back(nums[idx]);
+            
+            res[0].push_back(nums[i]);
             res[1].clear();
-            for(int j=idx+1; j<n;j++){
+            for(int j=pos+1; j<n;j++){
                 res[1].push_back(nums[j]);
             }
         }
