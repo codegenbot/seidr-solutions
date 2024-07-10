@@ -14,14 +14,14 @@ vector<string> reverse_delete(string s, string c) {
     vector<bool> seen(26, false); // assuming only lowercase alphabets
     for (char ch : c) {
         if (!seen[ch - 'a']) {
-            seen[ch - 'a'] = true;
-            result += ch;
+           seen[ch - 'a'] = true;
+           result += ch;
         }
     }
     string reversed = result;
     reverse(reversed.begin(), reversed.end());
     string palindromeCheck = result == reversed ? "True" : "False";
-    return { result, palindromeCheck };
+    return {result, palindromeCheck};
 }
 
 int main() {
