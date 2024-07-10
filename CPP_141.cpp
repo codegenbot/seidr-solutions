@@ -1,30 +1,34 @@
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool has_dot = false;
-    string before_dot;
-
-    for(int i = 0; i < file_name.length(); i++){
-        char c = file_name[i];
-        if(c >= '0' && c <= '9'){
-            digit_count++;
-        } else if(c == '.'){
-            has_dot = true;
-        } else {
-            if(i > 0){
-                before_dot = file_name.substr(0, i);
-            }
+int count_digits(const string& str) {
+    int count = 0;
+    for (char c : str) {
+        if (isdigit(c)) {
+            count++;
         }
     }
+    return count;
+}
 
-    if(digit_count > 3 || !has_dot || before_dot.empty() || 
-       (before_dot[0] < 'a' && before_dot[0] < 'A') ||
-       (!find(file_name.begin(), file_name.end(), '.') + 1 == file_name.length())){
+string file_name_check(string file_name) {
+    int digit_count = count_digits(file_name);
+    if (digit_count > 3) {
         return "No";
-    } else {
-        string after_dot = file_name.substr(file_name.find('.') + 1);
-        if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll"){
-            return "No";
-        }
+    }
+
+    size_t dot_pos = file_name.find('.');
+    if (dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
+        return "No";
+    }
+
+    string before_dot = file_name.substr(0, dot_pos);
+    string after_dot = file_name.substr(dot_pos + 1);
+
+    if (!all_of(before_dot.begin(), before_dot.end(), ::isalpha)) {
+        return "No";
+    }
+
+    vector<string> allowed_extensions = {"txt", "exe", "dll"};
+    if (find(allowed_extensions.begin(), allowed_extensions.end(), after_dot) == allowed_extensions.end()) {
+        return "No";
     }
 
     return "Yes";
