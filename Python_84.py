@@ -1,8 +1,5 @@
-def solve():
-    N = int(input("Enter a positive integer: "))
+def solve(N):
     if N > 1:
-        return bin(N)[2:] or "1"
+        return bin(N)[2:]
     else:
-        return "0b1"
-
-print(solve())
+        return "0"
