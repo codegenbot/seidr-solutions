@@ -1,20 +1,24 @@
 #include <vector>
-#include <cassert>
+#include <functional>
 
-bool issame(std::vector<float> a, std::vector<float> b){
-    return a == b;
-}
-
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
+std::vector<float> get_positive(const std::vector<float>& l) {
+    std::vector<float> positive_nums;
     for (float num : l) {
         if (num > 0) {
-            result.push_back(num);
+            positive_nums.push_back(num);
         }
     }
-    return result;
+    return positive_nums;
+}
+
+bool issame(const std::function<bool(const std::vector<float>&, const std::vector<float>&)>& comparer,
+            const std::vector<float>& a, const std::vector<float>& b) {
+    return comparer(a, b);
 }
 
 int main() {
-    assert(issame(get_positive({}), {}));
+    assert (issame([](const std::vector<float>& a, const std::vector<float>& b) {
+        return a == b;
+    }, get_positive({}) , {}));
+    return 0;
 }
