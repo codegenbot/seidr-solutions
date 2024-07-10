@@ -1,9 +1,12 @@
 ```
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1]
+
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string
-    for char in string:
-        new_string = string + char + string[::-1]
-        if new_string == new_string[::-1]:
-            return new_string
-    return string + string[::-1]
+    if is_palindrome(string):
+        return string + "madam"
+    else:
+        for i in range(len(string)):
+            if is_palindrome(string[:i] + string[i:][::-1]):
+                return string[:i] + string[i:][::-1] + string[i:][::-1]
+        return string + "not a palindrome"
