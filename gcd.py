@@ -1,6 +1,4 @@
-# This is a comment
-# Add your code here...
-
+```python
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
