@@ -1,21 +1,29 @@
-```
-def modp(n: int, p: int):
-    if n == 0:
-        return 0
-    elif p == 2:
-        return n
-    else:
-        result = pow(n, p-1, p)
-        if result == 1 and is_prime(p):
-            return pow(n, -1, p)
-        for i in range(2, p):
-            result = (result * n) % p
-        return result
+def main():
+    while True:
+        num = input("Enter a number: ")
+        p = input("Enter the prime number: ")
 
-def is_prime(num: int):
-    if num < 2:
+        try:
+            num = int(num)
+            p = int(p)
+            break
+        except ValueError:
+            print("Invalid input. Please enter numbers.")
+
+    if is_prime(p):
+        print(f"{num} to the power of {p} mod {p} is {modp(num, p)}")
+    else:
+        print("The given prime number is not valid. Please enter a prime number.")
+
+
+def is_prime(n):
+    if n < 2:
         return False
-    for i in range(2, int(num**0.5) + 1):
-        if num % i == 0:
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
             return False
     return True
+
+
+def modp(num, p):
+    return pow(pow(num, (p - 1) // 2, p), p - 1, p)
