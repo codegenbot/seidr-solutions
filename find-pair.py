@@ -3,18 +3,17 @@ def find_pair():
     for _ in range(num_cases):
         nums = sorted(map(int, input().split()))
         target = int(input())
-        if max(nums) < abs(target): 
-            print(-1)
-        else:
-            left, right = 0, len(nums) - 1
-            while left < right:
-                total = nums[left] + nums[right]
-                if total == target:
-                    print(*[nums[left], nums[right]])
-                    break
-                elif total < target:
-                    left += 1
-                else:
-                    right -= 1
+        left, right = 0, len(nums) - 1
+        found = False
+        while left < right:
+            total = nums[left] + nums[right]
+            if total == target:
+                print(*[nums[left], nums[right]])
+                found = True
+                break
+            elif total < target:
+                left += 1
             else:
-                print(-1)
+                right -= 1
+        if not found:
+            print(-215)
