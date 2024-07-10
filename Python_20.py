@@ -1,4 +1,5 @@
-from typing import List, Tuple
+```
+from typing import Tuple
 
 def find_closest_elements() -> Tuple[float, float]:
     while True:
@@ -20,3 +21,4 @@ def find_closest_elements() -> Tuple[float, float]:
             print("Invalid input. Please enter valid decimal or integer values.")
 
 print(find_closest_elements())
+input("Press Enter when ready: ")
