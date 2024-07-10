@@ -28,16 +28,26 @@ int mainFunction() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> v(n);
+    std::vector<int> v; // Create an empty vector
+
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         int x;
         std::cin >> x;
-        v[i] = x;
+        bool found = false;
+        for (int j = 0; j < v.size(); j++) {
+            if (x == v[j]) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            v.push_back(x);
+        }
     }
 
     std::cout << "Duplicates removed: ";
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < v.size(); i++) {
         std::cout << v[i] << " ";
     }
     std::cout << std::endl;
