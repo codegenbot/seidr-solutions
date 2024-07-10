@@ -1,12 +1,13 @@
-Here is the solution:
+Here is the completed code:
 
 long long minSubArraySum(vector<long long> nums) {
-    long long res = LLONG_MAX;
-    long long curr_sum = 0;
+    long long total = 0, min_sum = INT_MAX;
     for (int i = 0; i < nums.size(); ++i) {
-        curr_sum += nums[i];
-        if (curr_sum > 0) res = min(res, curr_sum);
-        else curr_sum = 0;
+        total += nums[i];
+        if (total < min_sum)
+            min_sum = total;
+        if (total > 0)
+            total = 0;
     }
-    return res;
+    return min_sum;
 }
