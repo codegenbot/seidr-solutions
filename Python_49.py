@@ -12,6 +12,7 @@ def modp(n: int, p: int):
             return False
     return True
 
+
 n = int(input("Enter the value of n: "))
 p = int(input("Enter the value of p: "))
 
