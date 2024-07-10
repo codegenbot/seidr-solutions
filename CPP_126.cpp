@@ -8,13 +8,13 @@ bool is_sorted(vector<int> lst){
         if(lst[i-1] > lst[i]){
             return false;
         }
-        else if(count(lst.begin(), lst.end(), lst[i]) > 1){
+        else if(find(lst.begin(), lst.end(), lst[i]) != lst.end() && lst.size() != find(lst.begin(), lst.end(), lst[i])-lst.begin()){
             return false;
         }
     }
     return true;
 
 int main() {
-    vector<int> lst = {1,2,3,4};
+    vector<int> lst = {1, 2, 3, 4};
     cout << (is_sorted(lst) ? "True" : "False") << endl; 
 }
