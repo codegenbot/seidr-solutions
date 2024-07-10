@@ -1,4 +1,5 @@
 #include <string>
+#include <cmath>
 
 std::string rounded_avg(int n,int m){
     if(n > m) return "-1";
@@ -7,7 +8,7 @@ std::string rounded_avg(int n,int m){
         sum += i;
     }
     double avg = (double)sum / (m - n + 1);
-    avg = floor(avg);
+    avg = std::floor(avg);
     std::string res = "";
     while(avg > 0){
         if(avg & 1) res.push_back('1');
