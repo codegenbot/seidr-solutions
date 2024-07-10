@@ -1,6 +1,10 @@
 ```cpp
 bool issame(vector<float> a, vector<float> b) {
-    return (a == b);
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (abs(a[i] - b[i]) > 1e-5) return false;
+    }
+    return true;
 }
 
 vector<float> sort_even(vector<float> l) {
