@@ -24,3 +24,6 @@ int main() {
     } else {
         std::cout << "n cannot be zero." << std::endl;
     }
+
+    return 0;
+}
