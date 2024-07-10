@@ -15,4 +15,3 @@ def encode(message):
         else:
             result += char
     return result
-"""
