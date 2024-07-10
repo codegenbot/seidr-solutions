@@ -9,9 +9,8 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     for (int i = 0; i <= n - m; ++i) {
-        if ((pos = text.find(target, i)) != string::npos) {
-            result.push_back(pos);
-            i = pos + m - 1;
+        if (text.find(target, i) != string::npos) {
+            result.push_back(i);
         }
     }
 
