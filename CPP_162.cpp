@@ -1,16 +1,16 @@
 #include <string>
 #include <algorithm>
-#include <openssl/evp.h>
+#include <openssl/md5.h>
 #include <sstream>
 #include <assert.h> 
 #include <iomanip>
 
 std::string string_to_md5(const std::string& str) {
-    EVP_MD_CTX md5;
+    MD5_CTX mdct;
     unsigned char hash[16];
-    EVP_DigestInit_ex(&md5, EVP_md5(), 0);
-    EVP_DigestUpdate(&md5, str.c_str(), str.size());
-    EVP_DigestFinal_ex(&md5, hash, nullptr);
+    MD5_Init(&mdct);
+    MD5_Update(&mdct, str.c_str(), str.size());
+    MD5_Final(hash, &mdct);
 
     std::stringstream ss;
     for (int i = 0; i < 16; ++i) {
