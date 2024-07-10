@@ -15,4 +15,3 @@ std::string camelCase(const std::string& s) {
     }
 
     return result;
-}
