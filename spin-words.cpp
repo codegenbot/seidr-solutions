@@ -3,52 +3,27 @@
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
-    std::string word;
+    int wordStart = 0;
     
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
+    for(int i=0; i<=sentence.length(); i++) {
+        if(i == sentence.length() || sentence[i] == ' ') {
+            std::string word = sentence.substr(wordStart, i-wordStart);
+            if(word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
             result += word + " ";
-            word = "";
-        } else {
-            word += sentence[i];
+            wordStart = i+1;
         }
     }
     
-    result += word;
-    
-    std::string reversedWord;
-    for (int i = 0; i < result.length(); i++) {
-        if (result[i] == ' ') {
-            while (i < result.length() && result[i] == ' ')
-                i++;
-            int j = i - 1;
-            while (j > 0 && result[j] != ' ') 
-                j--;
-            reversedWord = result.substr(j, i-j) + " ";
-        } else if (result[i].size() >= 5) {
-            for (int j = i; j < result.length(); j++) {
-                if (result[j] == ' ') {
-                    i = j - 1;
-                    break;
-                }
-                reversedWord = result[j] + reversedWord;
-            }
-        } else {
-            for (int j = i; j < result.length(); j++) {
-                if (result[j] == ' ')
-                    break;
-                reversedWord = result[j] + reversedWord;
-            }
-        }
-    }
-    
-    return reversedWord;
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
+    std::cout << spinWords("a") << std::endl; // a
+    std::cout << spinWords("this is a test") << std::endl; // this is a test
+    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // hi
+    
     return 0;
 }
