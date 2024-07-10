@@ -1,16 +1,17 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 int prod_signs(int* arr, int n) {
     if (n == 0) return -32768;
-    int sign = 1;
+    bool isNegative = false;
     long long sum = 0;
     for (int i = 0; i < n; ++i) {
-        sign *= (arr[i] > 0 ? 1 : (arr[i] < 0 ? -1 : 0));
+        if(arr[i] < 0){
+            isNegative = !isNegative;
+        }
         sum += std::abs(arr[i]);
     }
-    return (sign > 0) ? sum : -sum;
+    return (isNegative ? -sum : sum);
 }
 
 int main() {
@@ -23,9 +24,6 @@ int main() {
     int result = prod_signs(arr, n);
     delete[] arr;
 
-    std::string output = (result > 0) ? "The product of signs is: " : "The product of signs is -";
-    output += std::to_string(result);
-
-    std::cout << output << '\n';
+    std::cout << "The product of signs is: " << result << '\n';
     return 0;
 }
