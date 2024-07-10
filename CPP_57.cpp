@@ -1,9 +1,7 @@
 #include <vector>
 #include <cassert>
 
-int monotonic(std::vector<int> l);
-
-int monotonic(std::vector<int> l) {
+bool monotonic(std::vector<int> l) {
     bool increasing = true;
     bool decreasing = true;
     for (int i = 1; i < l.size(); ++i) {
@@ -14,7 +12,7 @@ int monotonic(std::vector<int> l) {
             decreasing = false;
         }
     }
-    return increasing || decreasing;
+    return increasing || decreasing; // Change && to ||
 }
 
 int main_problem_CPP_57() {
