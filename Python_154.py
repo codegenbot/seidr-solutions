@@ -1,5 +1,7 @@
 ```
-def cycpattern_check(a, b):
+def cycpattern_check():
+    a = input("Enter string a: ")
+    b = input("Enter string b: ")
     if len(b) > len(a):
         return False
     for i in range(len(a)):
