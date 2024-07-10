@@ -11,5 +11,4 @@ def cut_vector(lst):
 
     return lst[:split_idx], lst[split_idx:]
 
-
 print(cut_vector([2, 1897, 2594]))
