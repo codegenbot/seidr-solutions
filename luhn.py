@@ -1,8 +1,12 @@
-def luhn(card_number):
-    card_number = map(int, card_number)
-    card_number = list(card_number)
-    odd_positions = card_number[1::2]
-    even_positions = card_number[0::2]
-    doubled_even = [i * 2 for i in even_positions]
-    combined_list = [x if x > 9 else x for x in doubled_even + odd_positions]
-    return sum(combined_list)
+def luhn(card):
+    total = 0
+    for i, num in enumerate(reversed(str(card))):
+        if i % 2 == 1:
+            num = str(int(num) * 2)
+            if len(num) > 1:
+                total += int(num[0]) + int(num[1])
+            else:
+                total += int(num)
+        else:
+            total += int(num)
+    return total
