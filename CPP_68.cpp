@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -22,7 +23,7 @@ vector<int> pluck(const vector<int>& n) {
 
 }
 
-void testMain() {
+int main() { 
     vector<int> v2;
     int size;
     cin >> size;
@@ -45,4 +46,4 @@ void testMain() {
 
 }
 
-testMain();
+main();
