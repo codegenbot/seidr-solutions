@@ -1,4 +1,4 @@
-```Python
+```
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -16,21 +16,13 @@ def indices_of_substring(text, target):
 
 while True:
     try:
-        num1 = int(input("Enter first integer: "))
-        num2 = int(input("Enter second integer: "))
+        a = int(input("Enter first integer: "))
+        b = int(input("Enter second integer: "))
+        text = input("Enter the text: ")
+        target = input("Enter the target: ")
         break
     except ValueError:
-        print("Invalid input. Please enter integers.")
+        print("Invalid input. Please enter integers for gcd and valid strings for indices_of_substring function.")
 
-print(gcd(num1, num2))
-
-while True:
-    text = input("Enter the text: ")
-    target = input("Enter the target: ")
-
-    if len(text) > 0 and len(target) > 0:
-        break
-    else:
-        print("Text and target should be non-empty strings.")
-
+print(gcd(a, b))
 print(indices_of_substring(text, target))

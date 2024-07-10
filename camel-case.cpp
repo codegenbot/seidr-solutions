@@ -22,8 +22,8 @@ std::string camelCase(const std::string& s) {
 int main() {
     std::string s;
     while (std::cin >> s) {
-        s.erase(std::remove(s.begin(), s.end(), ' '), std::end(s));
-        s.erase(std::remove(s.begin(), s.end(), '-'), std::end(s));
+        s.erase(std::remove(s.begin(), s.end(), ' '), s.end()-1);
+        s.erase(std::remove(s.begin(), s.end(), '-'), s.end()-1);
         std::cout << camelCase(s) << '\n';
     }
     return 0;

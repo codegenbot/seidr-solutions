@@ -1,4 +1,3 @@
-```c++
 #include <string>
 using namespace std;
 
@@ -11,37 +10,40 @@ PegCounts mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
 
-    // Count the number of correct colors in wrong positions
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
-            code[i] = ' '; // Mark as used to avoid counting again
-            guess[i] = ' ';
         }
     }
 
-    // Count the number of correct colors in correct positions
+    map<char, int> codeCount;
+    map<char, int> guessCount;
+
     for (int i = 0; i < 4; ++i) {
-        bool correctColor = false;
-        for (int j = 0; j < 4; ++j) {
-            if (code[j] == guess[i]) {
-                correctColor = true;
-                break;
-            }
-        }
-        if (correctColor) {
-            white++;
+        codeCount[code[i]]++;
+        guessCount[guess[i]]++;
+    }
+
+    for (int i = 0; i < 6; ++i) {
+        if (codeCount.find(i+'A') != codeCount.end() && guessCount[i+'A'] > 0) {
+            black++;
+            guessCount[i+'A']--;
         }
     }
+
+    white += accumulate(guessCount.begin(), guessCount.end(), 0) - black;
 
     return {black, white};
 }
 
 int main() {
-    string code = "ABC1";
-    string guess = "AB21";
+    string code = "ABCD";
+    string guess = "ADBE";
+
     PegCounts result = mastermind(code, guess);
+
     cout << "Black pegs: " << result.black << endl;
     cout << "White pegs: " << result.white << endl;
+
     return 0;
 }
