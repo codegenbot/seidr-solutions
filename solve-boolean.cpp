@@ -1,3 +1,4 @@
+```
 #include <string>
 using namespace std;
 
@@ -5,7 +6,7 @@ bool solveBoolean(string s) {
     stack<char> st;
     bool result = false;
     
-    stack<char> st; // Move this line here
+    stack<char> st; // move the declaration here
     for(int i=0; i<s.length(); i++) {
         if(s[i] == '&') {
             while(!st.empty() && st.top() == '&') {
