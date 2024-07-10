@@ -2,18 +2,11 @@
 #include <algorithm>
 
 vector<int> sort_array(vector<int> arr) {
-    auto comp = [](int a, int b) {
-        int ones_a = __builtin_popcount(a);
-        int ones_b = __builtin_popcount(b);
-
-        if (ones_a == ones_b) {
-            return a - b;
-        } else {
-            return ones_a - ones_b;
-        }
-    };
-
-    sort(arr.begin(), arr.end(), comp);
-
+    sort(arr.begin(), arr.end(), [](int a, int b) {
+        if (bitset<64>(a).count() != bitset<64>(b).count())
+            return bitset<64>(a).count() < bitset<64>(b).count();
+        else
+            return a < b;
+    });
     return arr;
 }
