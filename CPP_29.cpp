@@ -18,6 +18,7 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
+    // Test filter_by_prefix function
     std::vector<std::string> strings = {"apple", "banana", "apricot", "avocado"};
     std::string prefix = "ap";
     std::vector<std::string> filtered_strings = filter_by_prefix(strings, prefix);
