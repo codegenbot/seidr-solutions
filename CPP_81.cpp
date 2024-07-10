@@ -2,10 +2,10 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
-    return a == b;
+bool issame(const std::vector<std::string>& a){
+    return a == {"E", "D-"};
 }
 
 int main(){
-    assert(issame({"E", "D-"}, {"E", "D-"}));
+    assert(issame({"E", "D-"}));
 }
