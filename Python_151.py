@@ -1,2 +1,2 @@
-def double_the_difference(lst): 
-    return sum(i ** 2 for i in lst if isinstance(i, int) and i > 0)
+def check(lst): 
+    return abs(double_the_difference(lst) - (sum(lst)/len(lst))) <= 0.5 * sum(lst)/len(lst)
