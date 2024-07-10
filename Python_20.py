@@ -27,12 +27,3 @@ if __name__ == "__main__":
             print("Invalid input. Please enter only numeric values.")
     result = find_closest_elements(numbers)
     print(result)
-
-    for x in numbers:
-        if x.replace('.', '', 1).replace('-', '', 1).isdigit():
-            numbers = [float(x)]
-            break
-    else:
-        print("No numbers entered. Please enter some.")
-        result = find_closest_elements([])
-        print(result)
