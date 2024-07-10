@@ -1,41 +1,36 @@
-Here is the solution:
-
 #include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string spinWords(std::string input) {
+    std::string output = "";
+    std::string word = "";
 
-string spinWords(string input) {
-    string output = "";
-    int wordLength = 0;
-    bool inWord = false;
-    
-    for (char c : input) {
-        if (c == ' ') {
-            if (inWord && wordLength >= 5) {
-                reverse(output.begin() + wordLength - 1, output.end());
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == ' ') {
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
             }
-            output += c;
-            inWord = false;
-            wordLength = 0;
+            output += word + " ";
+            word = "";
         } else {
-            output += c;
-            inWord = true;
-            wordLength++;
+            word += input[i];
         }
     }
-    
-    if (inWord && wordLength >= 5) {
-        reverse(output.begin() + wordLength - 1, output.end());
+
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
     }
-    
+    output += word;
+
     return output;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << spinWords(input) << endl;
+    std::cout << spinWords("a") << std::endl; // a
+    std::cout << spinWords("this is a test") << std::endl; // this is a test
+    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // hi
+
     return 0;
 }
