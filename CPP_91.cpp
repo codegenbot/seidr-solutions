@@ -1,19 +1,20 @@
 ```cpp
 #include <string>
 #include <algorithm>
+#include <sstream>
 
 int is_bored(const std::string& S){
     int count = 0;
-    size_t pos = 0;
-    while ((pos = input.find(" ", pos)) != std::string::npos) {
-        if (input.substr(0, pos).compare("I") == 0) {
+    std::istringstream iss(S);
+    int pos;
+    while ((pos = getline(iss, S, ' ').good())) {
+        if (S.substr(0, pos).compare("I") == 0) {
             count++;
             break;
         }
-        pos = input.find(" ", pos);
+        pos = getline(iss, S, ' ');
     }
     return count;
-
 }
 
 int main() {

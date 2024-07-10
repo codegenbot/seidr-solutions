@@ -1,12 +1,13 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<string> a) {
+    string b;
+    if (a.size() != 1 || a[0] != b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (a[i] != b) {
             return false;
         }
     }
@@ -36,10 +37,11 @@ void get_user_input(vector<string>& user_input) {
 int main() {
     vector<string> user_input;
     get_user_input(user_input);
-    if (total_match({"some"}, user_input)) {  
+    if (issame(user_input)) {  
         cout << "The two lists are the same." << endl;
     } else {
-        cout << "Error: The two lists are not the same." << endl;
+        int count = total_match(user_input, {"some"});
+        cout << "Error: The two lists are not the same. Count of matches is: " << count << endl;
     }
     return 0;
 }
