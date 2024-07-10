@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-bool same(vector<int> a, vector<int> b) {
+bool isSame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -27,6 +27,7 @@ vector<int> common(vector<int> a, vector<int> b) {
         }
     }
     return result;
+
 }
 
 int main() {
