@@ -19,4 +19,5 @@ if __name__ == "__main__":
             user_input = input()
             strings.append(user_input)
         print(concatenate(strings))
+        input()
     print(concatenate(["hello", "world"]))
