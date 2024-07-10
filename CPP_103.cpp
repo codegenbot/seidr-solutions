@@ -24,8 +24,4 @@ std::string solve(int n, int m) {
     return binary;
 }
 
-int main() {
-    assert(solve(5, 5) == "101");
-    
-    return 0;
-}
+assert(solve(5, 5) == "101");
