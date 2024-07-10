@@ -1,15 +1,16 @@
-vector<int> counts(2, 0);
+vector<int> even_odd_palindrome(int n){
+    vector<int> result(2, 0);
     for (int i = 1; i <= n; ++i) {
-        string num = to_string(i);
-        string rev = num;
-        reverse(rev.begin(), rev.end());
-        if (num == rev) {
+        string s = to_string(i);
+        string rev_s = s;
+        reverse(rev_s.begin(), rev_s.end());
+        if (s == rev_s) {
             if (i % 2 == 0) {
-                ++counts[0];
+                result[0]++;
             } else {
-                ++counts[1];
+                result[1]++;
             }
         }
     }
-    return counts;
+    return result;
 }
