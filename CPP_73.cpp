@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -8,7 +9,7 @@ int smallest_change(vector<int> arr) {
         str += to_string(arr[i]);
     }
     
-    int left = 0, right = n - 1;
+    int left = 0, right = str.length() - 1;
     int count = 0;
     while(left < right) {
         if(str[left] != str[right]) {
@@ -18,3 +19,4 @@ int smallest_change(vector<int> arr) {
         right--;
     }
     return count;
+}
