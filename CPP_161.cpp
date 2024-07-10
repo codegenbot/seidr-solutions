@@ -1,15 +1,17 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <vector>
 
 int solve(std::string s) {
-    int count = 0;
+    std::vector<char> v;
     for (char c : s) {
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-            count++;
+        if (std::tolower(c) == 'a' || std::tolower(c) == 'e' || 
+            std::tolower(c) == 'i' || std::tolower(c) == 'o' || std::tolower(c) == 'u') {
+            v.push_back(std::tolower(c));
         }
     }
-    return count;
+    return v.size();
 }
 
 int main(){}
