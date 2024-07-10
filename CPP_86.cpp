@@ -18,7 +18,7 @@ string anti_shuffle(string sStr) {
                 word += sStr[j];
                 j++;
             }
-            vector<char> temp(word.begin(), word.end());
+            vector<char> temp(word.begin(), word.end()); // Convert string to vector
             sort(temp.begin(), temp.end());
             for (char c : temp) {
                 result += c;
