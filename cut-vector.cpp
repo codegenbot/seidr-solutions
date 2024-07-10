@@ -1,4 +1,9 @@
 #include <vector>
+#include <numeric>
+#include <utility>
+#include <climits>
+#include <cmath>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
@@ -19,3 +24,4 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     }
     
     return make_pair(left, right);
+}
