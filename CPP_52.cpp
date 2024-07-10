@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 bool below_threshold(vector<int> numbers, int threshold) {
@@ -11,7 +10,7 @@ bool below_threshold(vector<int> numbers, int threshold) {
 
 int main() {
     vector<int> numbers;
-    int num;
+    int num = 0;
 
     cout << "Enter the number of elements: ";
     cin >> num;
@@ -22,7 +21,6 @@ int main() {
         cin >> num;
     }
 
-    // Initialize the vector with the correct size
     numbers.resize(num); 
 
     for (int i = 0; i < num; i++) {
