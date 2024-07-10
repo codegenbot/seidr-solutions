@@ -1,3 +1,6 @@
+#include <vector>
+#include <string>
+
 int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = 0;
     for (int i = 0; i < operator_.size(); i++) {
