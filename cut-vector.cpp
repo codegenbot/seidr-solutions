@@ -1,56 +1,42 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int min_diff = INT_MAX;
-    int split_idx = 0;
-    
-    for (int i = 1; i <= vec.size(); ++i) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j < i; ++j) {
-            left_sum += vec[j];
-        }
-        
-        for (int k = i; k < vec.size(); ++k) {
-            right_sum += vec[k];
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        
-        if (diff < min_diff) {
-            min_diff = diff;
-            split_idx = i;
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& v) {
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
+
+    for (int i = 1; i < v.size(); ++i) {
+        int diff = abs(v[i] - v[0]);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
-    
-    vector<int> left_vec(vec.begin(), vec.begin() + split_idx);
-    vector<int> right_vec(vec.begin() + split_idx, vec.end());
-    
-    return {left_vec, right_vec};
+
+    return {{v[0]}, {v.begin() + cutIndex, v.end()}};
 }
 
 int main() {
+    std::vector<int> input;
     int n;
-    cin >> n;
-    vector<int> vec(n);
+    std::cin >> n;
     for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
+        int num;
+        std::cin >> num;
+        input.push_back(num);
     }
-    
-    pair<vector<int>, vector<int>> result = cutVector(vec);
-    
-    cout << "Left vector: ";
-    for (int num : result.first) {
-        cout << num << ' ';
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(input);
+
+    for (const auto& num : result.first) {
+        std::cout << num << " ";
     }
-    cout << endl;
-    
-    cout << "Right vector: ";
-    for (int num : result.second) {
-        cout << num << ' ';
+    std::cout << "\n";
+
+    for (const auto& num : result.second) {
+        std::cout << num << " ";
     }
-    cout << endl;
-    
+    std::cout << "\n";
+
     return 0;
 }
