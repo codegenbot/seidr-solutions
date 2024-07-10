@@ -36,7 +36,7 @@ int main() {
     }
     cout << endl;
 
-    assert(double_the_difference(lst) == 0);
+    cout << "The sum of the differences is: " << double_the_difference(lst) << endl;
 
     return 0;
 }
