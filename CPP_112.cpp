@@ -1,8 +1,5 @@
-#include <vector>
-#include <string>
-
-std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
-    std::vector<std::string> result;
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
     
     for (char ch : s) {
         bool found = false;
@@ -14,11 +11,11 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
         }
         
         if (!found) {
-            result.push_back(std::string(1, ch));
+            result.push_back(string(1, ch));
         }
     }
     
-    std::string resStr = "";
+    string resStr = "";
     for (int i = 0; i < result.size(); i++) {
         resStr += result[i];
     }
@@ -34,6 +31,5 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
         end--;
     }
     
-    result.push_back(std::to_string(isPalindrome ? 1 : 0));
+    result.push_back(isPalindrome ? "True" : "False");
     return result;
-}
