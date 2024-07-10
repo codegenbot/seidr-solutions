@@ -16,6 +16,6 @@ vector<int> f(int n) {
     return result;
 }
 
-bool issame(int a, int b){
+bool issame(int a, int b){ 
     return a == b;
-}
+} 
