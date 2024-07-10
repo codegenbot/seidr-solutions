@@ -9,9 +9,13 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     for (int i = 0; i < a.size(); i++) {
         bool found = false;
         for (const auto& str : b) {
-            if (a[i] == str) { 
-                found = true;
-                break;
+            if (!str.empty()) {
+                if (!b[0].compare(0, str.find(str[0]), str)) { 
+                    found = true;
+                    break;
+                }
+            } else {
+                return false;
             }
         }
         if (!found) return false;
