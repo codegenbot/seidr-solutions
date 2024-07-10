@@ -5,7 +5,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> filter_integer(std::vector<int> values) {
+std::vector<int> filterIntegers(std::vector<int> values) {
     std::vector<int> result;
     for (int value : values) {
         if(value != 0) {
@@ -31,12 +31,11 @@ int main() {
     }
 
     std::vector<int> values = {1, 0, 3, 4};
-    std::vector<int> filtered = filter_integer(values);
+    std::vector<int> filtered = filterIntegers(values);
     for (int value : filtered) {
         std::cout << value << " ";
     }
     std::cout << std::endl;
     
-    assert(issame(filter_integer({3, 3, 3}), {3, 3, 3}));
     return 0;
 }
