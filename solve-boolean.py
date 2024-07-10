@@ -1,15 +1,20 @@
+```
 def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
+    if not expression:
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError('Invalid expression')
-    else:
-        result = True
-        for char in expression:
+
+    stack = []
+    for char in expression:
+        if char == 't':
+            stack.append(True)
+        elif char == 'f':
+            stack.append(False)
+        else:
+            operand2 = stack.pop()
+            operand1 = stack.pop()
             if char == '&':
-                result &= (expression[expression.index(char) + 1] == 'T' or expression[expression.index(char) + 1] == '')
+                stack.append(operand1 and operand2)
             elif char == '|':
-                result |= (expression[expression.index(char) + 1] == 'T' or expression[expression.index(char) + 1] == '')
-        return result
+                stack.append(operand1 or operand2)
+
+    return stack[0]
