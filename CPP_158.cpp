@@ -16,6 +16,7 @@ void findMaxWord(std::vector<std::string>& words) {
 }
 
 int main() {
+    int _ignore;
     std::vector<std::string> words;
     int n;
     std::cout << "Enter the number of words: ";
@@ -24,10 +25,11 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
-        // Ignore whitespace and newline character
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::getline(std::cin, word); 
         words.push_back(word);
+        std::cout << "Press Enter to continue..."; 
+        std::cin >> _ignore;  // consume the newline character and ignore the rest
+        std::cin.ignore();  // clear any remaining characters in the buffer
     }
 
     findMaxWord(words);
