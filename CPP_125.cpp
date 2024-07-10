@@ -1,19 +1,18 @@
 #include <vector>
 #include <string>
-#include <iostream>
+#include <cassert>
 
 using namespace std;
 
 vector<string> split_words(string input){
-    if(input.empty()){
-        return {""};
-    }
     vector<string> words;
     string word = "";
     for(char c : input){
         if(c == ' '){
-            words.push_back(word);
-            word = "";
+            if(!word.empty()){
+                words.push_back(word);
+                word = "";
+            }
         } else {
             word += c;
         }
@@ -21,16 +20,11 @@ vector<string> split_words(string input){
     if(!word.empty()){
         words.push_back(word);
     }
-    return words;
-}
-
-int main(){
-    string input;
-    getline(cin, input);
-    vector<string> result = split_words(input);
-    for(const string& word : result){
-        cout << word << " ";
+    if(words.empty()){
+        words.push_back("0");
     }
-    cout << endl;
-    return 0;
+    if(!word.empty()){
+        words.push_back(word);
+    }
+    return words;
 }

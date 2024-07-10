@@ -1,5 +1,8 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
+
+namespace std;
 
 namespace contest {
     bool issame(const std::vector<int>& a, const std::vector<int>& b) {
