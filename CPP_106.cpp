@@ -1,11 +1,11 @@
 #include <vector>
-bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size())
-        return false;
-    for(int i=0; i<a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
+#include <cassert>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(std::vector<int>{1, 2, 6}, {1, 2, 6}));
+    return 0;
 }
