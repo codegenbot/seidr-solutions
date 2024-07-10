@@ -18,6 +18,7 @@ int main() {
 int sum_squares(const vector<float>& lst){
     int total = 0;
     for(float x : lst){
-        total += ceil(x) * ceil(x);
+        total += pow(ceil(x),2);
     }
     return total;
+}
