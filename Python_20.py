@@ -1,4 +1,3 @@
-```
 def find_closest_elements(numbers):
     min_diff = float("inf")
     closest_pair = ()
@@ -14,7 +13,7 @@ def find_closest_elements(numbers):
 
 if __name__ == "__main__":
     try:
-        numbers = input("Enter a series of space-separated numbers: ").strip().split()
+        numbers = input("Enter a series of space-separated numbers: ").split()
         numbers = list(map(float, [x for x in numbers if x.replace('.', '', 1).replace('-', '', 1).isdigit()]))
         result = find_closest_elements(numbers)
     except ValueError as e:
