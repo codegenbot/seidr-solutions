@@ -30,4 +30,3 @@ int main()
         std::cout << "The string is not nested." << std::endl;
     }
     return 0;
-}

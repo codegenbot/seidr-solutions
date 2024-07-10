@@ -1,3 +1,4 @@
+```c
 #include <iostream>
 using namespace std;
 
@@ -8,9 +9,9 @@ void bf(int n) {
         cout << "Input number is valid." << endl;
 }
 
-int main() {
+int main 
+{
     int num;
     cin >> num;
     bf(num);
     return 0;
-}
