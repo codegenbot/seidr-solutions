@@ -1,6 +1,8 @@
-def basement(arr):
+Here is the solution:
+
+def basement(nums):
     total = 0
-    for i, num in enumerate(arr):
+    for i, num in enumerate(nums):
         total += num
         if total < 0:
             return i
