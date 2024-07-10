@@ -1,4 +1,3 @@
-```
 def digits(n):
     count_odd = 0
     product = 1
