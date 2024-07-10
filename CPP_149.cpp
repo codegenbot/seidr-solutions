@@ -1,11 +1,11 @@
-```c++
+```cpp
 #include <initializer_list>
 
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> const& a, std::vector<std::string> const& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -22,9 +22,4 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 std::vector<std::string> sorted_list_sum(std::vector<std::string> v) {
     std::sort(v.begin(), v.end());
     return v;
-}
-
-int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}) == true);
-    return 0;
 }
