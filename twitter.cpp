@@ -17,7 +17,6 @@ int main() {
         else{
             std::cout << "Invalid input. Please try again." << std::endl;
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }   
     std::string output = validateTweet(tweet); 
