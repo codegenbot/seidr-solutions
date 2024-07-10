@@ -6,12 +6,6 @@ def parse_music(music_data: str):
         lines.append(line)
     return lines
 
-
-music_data = ""
-while True:
-    line = input()
-    if not line.strip():
-        break
-    music_data += line + "\n"
+music_data = input()
 
 print(parse_music(music_data))

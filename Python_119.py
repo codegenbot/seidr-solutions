@@ -1,6 +1,9 @@
-def match_parens(lst):
-    stack = []
+from typing import List
+
+
+def match_parens(lst: List[str]) -> str:
     for s in lst:
+        stack = []
         for char in s:
             if char == "(":
                 stack.append(char)
@@ -10,6 +13,4 @@ def match_parens(lst):
                 stack.pop()
         if stack:
             return "No"
-    if not stack:
-        return "Yes"
-    return "No"
+    return "Yes"

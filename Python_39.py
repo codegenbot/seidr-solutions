@@ -24,5 +24,8 @@ def prime_fib(n: int):
     return num
 
 n = int(input("Enter the value of n: "))
-result = prime_fib(n)
-print(result)
+if n <= 0:
+    print("The input value should be greater than 0.")
+else:
+    result = prime_fib(n)
+    print(result)
