@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -30,3 +31,4 @@ int specialFilter(const std::vector<std::string>& nums) {
         }
     }
     return count;
+}
