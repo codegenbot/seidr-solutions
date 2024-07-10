@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 using namespace std;
 
@@ -8,7 +7,6 @@ float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
     float total = 0.0;
     for (int i = 0; i < prices.size(); ++i) {
         total += prices[i] * (1.0 - discounts[i] / 100.0);
-        total = round(total * 100) / 100; // Round to 2 decimal places
     }
     return total;
 }

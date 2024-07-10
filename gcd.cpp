@@ -1,7 +1,7 @@
-
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
+
 using namespace std;
 
 int gcd(int a, int b) {
@@ -31,21 +31,16 @@ vector<int> findSubstringIndices(string text, string target) {
 }
 
 int main() {
-    int a, b;
-    string text, target;
+    int a = 12;
+    int b = 18;
+    cout << gcd(a, b) << endl;
 
-    cin >> a >> b;
-    cout << "GCD: " << gcd(a, b) << endl;
-
-    cin.ignore();
-    getline(cin, text);
-    getline(cin, target);
+    string text = "abcdeabcdeabcde";
+    string target = "bc";
     vector<int> result = findSubstringIndices(text, target);
-    cout << "Indices where target appears: ";
-    for (int idx : result) {
-        cout << idx << " ";
+    for (int index : result) {
+        cout << index << " ";
     }
     cout << endl;
-
     return 0;
 }
