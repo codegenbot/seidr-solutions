@@ -1,34 +1,34 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-string camelCase(string s) {
-    vector<string> words = split(s, " ");
-    string result;
-    
-    for (int i = 0; i < words.size(); i++) {
-        if (!result.empty()) {
-            result += toupper(words[i][0]);
-            for (int j = 1; j < words[i].size(); j++) {
-                result += tolower(words[i][j]);
+std::string kebabToCamel(const std::string& str) {
+    std::string result;
+    bool first = true;
+
+    for (char c : str) {
+        if (c == '-') {
+            if (!first) {
+                result[0] = toupper(result[0]);
             }
-        } else {
-            result = words[i];
-        }
-        
-        if (i != words.size() - 1) {
             result += " ";
+        } else {
+            if (!first) {
+                result[0] = tolower(c);
+                result += c;
+            } else {
+                result += c;
+            }
         }
+        first = false;
     }
-    
+
     return result;
 }
 
-vector<string> split(string s, string delimiter) {
-    vector<string> tokens;
-    size_t pos = 0;
-    while ((pos = s.find(delimiter)) != stdstring::npos) {
-        tokens.push_back(s.substr(0, pos));
-        s.erase(0, pos + delimiter.length());
+int main() {
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << kebabToCamel(str) << std::endl;
     }
-    tokens.push_back(s);
-    return tokens;
+    return 0;
 }
