@@ -1,7 +1,3 @@
-```cpp
-#include <iostream>
-#include <vector>
-
 int prod_signs(int* arr, int n) {
     if (n == 0) return -32768;
     int sign = 1;
@@ -14,13 +10,9 @@ int prod_signs(int* arr, int n) {
 }
 
 int main() {
-    int n; 
-    std::cin >> n;
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; ++i)
-        std::cin >> arr[i];
-
-    int result = prod_signs(&*arr.begin(), n);
+    int arr[] = {-1, 1, 1, 0};
+    int result = prod_signs(arr, sizeof(arr)/sizeof(arr[0]));
+    assert(result == 0);
     std::cout << "The product of signs is: " << result << '\n';
     return 0;
 }
