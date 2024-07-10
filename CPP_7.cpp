@@ -20,5 +20,4 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
 
 int main() {
     assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), vector<string>{"grunt", "prune"}));
-    return 0;
 }
