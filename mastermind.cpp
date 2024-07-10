@@ -18,7 +18,8 @@ int blackPegs(string code, string guess) {
     vector<char> codeVec(code.begin(), code.end());
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            codeVec.erase(remove(codeVec.begin(), codeVec.end(), code[i]), codeVec.end());
+            auto it = remove(codeVec.begin(), codeVec.end(), code[i]);
+            codeVec.erase(it, codeVec.end());
             count++;
         }
     }
