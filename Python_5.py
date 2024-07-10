@@ -1,12 +1,14 @@
-```
 def intersperse(a, b):
     result = []
-    while a and b:
+    min_len = min(len(a), len(b))
+    for i in range(min_len):
         result.append(a.pop(0))
         result.append(b.pop(0))
-    result.extend(a if a else b)
+    result.extend(a)
+    result.extend(b)
     return result
 
 list1 = [1, 3, 5]
 list2 = ['a', 'b', 'c']
-print(intersperse(list1 + list2, []))
+result = intersperse(list1 + list2, [])
+print(result)
