@@ -13,8 +13,6 @@ def sort_even(l: list):
             result.append(odds[odd_index])
             odd_index += 1
 
-    # Append remaining elements
-    result.extend(evens[even_index:])
-    result.extend(odds[odd_index:])
-
+    # Add remaining elements
+    result.extend(sorted(evens[even_index:] + odds[odd_index:]))
     return tuple(result)
