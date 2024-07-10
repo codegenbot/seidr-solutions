@@ -12,17 +12,17 @@ string spinWords(string str) {
             result += str[i];
             i++;
         } else if (i >= str.length() - 5) {
-            for (int j = i; j >= max(0, i-5); j--) {
+            for (int j = i; j >= std::max(0, i-5); j--) {
                 result += str[j];
             }
-            i++;
+            i += strlen(str.substr(i).c_str());
         } else {
-            int k = min(i+6, str.length());
-            for (; i < k; i++) {
-                result += str[i];
+            int k = i;
+            while (k < min((int)str.length(), i+6)) {
+                result += str[k];
+                k++;
             }
-            result += ' ';
-            i++;
+            i += k - i;
         }
     }
     return result;
