@@ -1,42 +1,32 @@
-#include <iostream>
 #include <string>
 #include <typeindex>
+#include <any>
 
-using namespace std;
-
-any compare_one(any a, any b) {
-    if (any_cast<int>(a) < any_cast<float>(b)) {
-        return b;
+std::any compare_one(std::any a, std::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int) a.convert_to<int>() < (float) b.convert_to<float>() ? b : a;
     }
-    else if (any_cast<float>(a) > atof(any_cast<string>(b).c_str())) {
-        return a;
+    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        std::string str = b.convert_to<std::string>();
+        float f = (float) a.convert_to<float>();
+        return f > atof(str.c_str()) ? a : b;
     }
-    else if (any_cast<string>(a) > any_cast<string>(b)) {
-        return a;
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string str1 = a.convert_to<std::string>();
+        std::string str2 = b.convert_to<std::string>();
+        return str1 > str2 ? a : b;
     }
-    else if (any_cast<int>(a) < any_cast<int>(b)) {
-        return b;
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int i1 = (int) a.convert_to<int>();
+        int i2 = (int) b.convert_to<int>();
+        return i1 < i2 ? b : a;
     }
-    else if (atof(any_cast<string>(a).c_str()) > any_cast<float>(b)) {
-        return a;
+    else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        std::string str = a.convert_to<std::string>();
+        float f = (float) b.convert_to<float>();
+        return atof(str.c_str()) > f ? a : b;
     }
     else {
         return "None";
     }
-}
-
-int main() {
-    any a = 5; // replace with your input
-    any b = 3.14f; // replace with your input
-
-    any result = compare_one(a, b);
-
-    if (any_cast<string>(result) == "None") {
-        cout << "None";
-    }
-    else {
-        cout << any_cast<any>(result);
-    }
-
-    return 0;
 }
