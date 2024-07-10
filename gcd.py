@@ -1,8 +1,16 @@
 ```
+values = input("Enter two integers (separated by space): ").split()
+if len(values) != 2:
+    a, b = map(int, values)
+    print(gcd(a, b))
+
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return abs(a)
+
+text = input("Enter text: ")
+target = input("Enter target string: ")
 
 def indices_of_substring(text, target):
     result = []
@@ -15,13 +23,4 @@ def indices_of_substring(text, target):
         start = pos + 1
     return result
 
-values = input("Enter two integers (separated by space): ").split()
-if len(values) != 2:
-    print("Error: Enter exactly two integers separated by space.")
-else:
-    a, b = map(int, values)
-    print(gcd(a, b))
-
-text = input("Enter text: ")
-target = input("Enter target string: ")
 print(*indices_of_substring(text, target))
