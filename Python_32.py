@@ -1,3 +1,4 @@
+```
 def find_zero(xs):
     if not isinstance(xs, list) or len(xs) == 0:
         raise ValueError("Input must be a non-empty list")
