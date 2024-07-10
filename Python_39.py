@@ -16,5 +16,5 @@ def prime_fib(n):
 
     return sum_prime_fib(fib_sequence)
 
-n = int(input())
-print(prime_fib(n))
+
+print(prime_fib(int(input()))).
