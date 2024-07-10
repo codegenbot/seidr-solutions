@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```
 def fibfib(n: int):
     if n <= 1:
