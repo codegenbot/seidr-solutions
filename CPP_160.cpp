@@ -13,7 +13,7 @@ int do_algebra(const std::vector<std::string>& operato, const std::vector<int>& 
             result -= operand[i + 1];
         } else if (operato[i] == "*") {
             result *= operand[i + 1];
-        } else if (operato[i] == "/") {
+        } else if (operato[i] == "//") {
             result /= operand[i + 1];
         } else if (operato[i] == "**") {
             result = pow(result, operand[i + 1]);
@@ -23,6 +23,6 @@ int do_algebra(const std::vector<std::string>& operato, const std::vector<int>& 
 }
 
 int main() {
-    std::cout << do_algebra({"/", "*"}, {7, 3, 4}) << std::endl;
+    std::cout << do_algebra({"//", "*"}, {7, 3, 4}) << std::endl;
     return 0;
 }
