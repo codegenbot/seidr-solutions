@@ -19,6 +19,6 @@ vector<string> words_string(string s){
 
 int main(){
     assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
-    
+
     return 0;
 }
