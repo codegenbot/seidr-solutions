@@ -6,6 +6,6 @@ int main() {
     std::cout << str.length() << std::endl;
 
     assert(strlen("asdasnakj") == 9);
-
+    
     return 0;
 }
