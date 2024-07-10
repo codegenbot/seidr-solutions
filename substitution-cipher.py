@@ -1,12 +1,14 @@
-Here is the completed code:
-
-```
 def substitution_cipher(cipher1, cipher2, message):
-    result = ""
+    mapping = {}
+    for i in range(len(cipher1)):
+        if cipher1[i] != cipher2[i]:
+            mapping[cipher1[i]] = cipher2[i]
+
+    deciphered_message = ""
     for char in message:
-        if char in cipher1:
-            idx = cipher1.index(char)
-            result += cipher2[idx]
+        if char in mapping:
+            deciphered_message += mapping[char]
         else:
-            result += char
-    return result
+            deciphered_message += char
+
+    return deciphered_message
