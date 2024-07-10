@@ -15,6 +15,7 @@ def smallest_change(arr):
                 changes += right - left
             left, right = 0, n - 1
         else:
-            left, right = left + 1, right - 1
+            left += 1
+            right -= 1
     
     return changes
