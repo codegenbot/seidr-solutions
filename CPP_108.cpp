@@ -16,17 +16,15 @@ int count_nums(std::vector<int> nums) {
                 count++;
             }
         } else {
-            if(std::abs(num) < std::numeric_limits<int>::max() / 9) {
-                int absNum = std::abs(num);
-                sum = 0;
-                while (absNum > 0) {
-                    sum += absNum % 10;
-                    absNum /= 10;
-                }
-                if (sum > 0) {
-                    count++;
-                }
-            } else {
+            long long absNum = std::abs(num);
+            int sum = 0;
+            while (absNum > 0) {
+                sum += absNum % 10;
+                absNum /= 10;
+            }
+            if (sum > 0) {
+                count++;
+            } else if(std::abs(num) >= std::numeric_limits<long long>::max() / 9){
                 break; 
             }
         }
@@ -39,11 +37,17 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<int> nums;
-    while(std::cin >> n && n != 0) { 
+    for (int i = 0; i < n && std::cin.peek() != '\n'; i++) {
+        int num;
+        std::cin >> num;
         while(std::cin.peek() == ' ') { 
             std::cin.get();
         }
-        nums.push_back(n); 
+        if(num != 0) { 
+            nums.push_back(num); 
+        } else {
+            break; 
+        }
     }
     if (!nums.empty()) {  
         std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
