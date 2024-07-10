@@ -1,4 +1,4 @@
-#include <initializer_list>
+```cpp
 #include <vector>
 #include <string>
 
@@ -30,6 +30,14 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> input) {
     return input;
 }
 
-int driver() {
-    return issame(sorted_list_sum(std::vector<std::string> {"aaaa", "bbbb", "dd", "cc"}), std::vector<std::string> {"cc", "dd", "aaaa", "bbbb"});
+bool issame(std::vector<std::string> a, std::vector<std::string> b, std::vector<std::string> c) {
+    if (a.size() != b.size() || a.size() != c.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (!issame(a[i], b[i], c[i])) {
+            return false;
+        }
+    }
+    return true;
 }
