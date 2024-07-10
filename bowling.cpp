@@ -1,49 +1,33 @@
-int bowlingScore(string frames) {
+int bowlingScore(string s) {
     int score = 0;
-    int currentFrameRolls = 0;
-
-    for (int i = 0; i < frames.size(); ++i) {
-        if (frames[i] == 'X') { // strike
-            score += 10 + getExtraFrames(frames, i);
-            currentFrameRolls = 2;
-        } else if (frames[i] == '/') { // spare
-            score += 5 + getExtraFrames(frames, i+1);
-            currentFrameRolls = 2;
-        } else { // normal roll
-            int rollsThisFrame = frames[i] - '0';
-            score += rollsThisFrame;
-            currentFrameRolls++;
-            if (currentFrameRolls == 2) {
-                if (i + 2 < frames.size() && frames[i+1] != '/') {
-                    score += frames[i+1] - '0';
-                }
-            }
-        }
-    }
-
-    return score;
-}
-
-int getExtraFrames(string frames, int start) {
-    int extraRolls = 0;
-    for (int i = start; i < frames.size(); ++i) {
-        if (frames[i] == 'X') { // strike
-            extraRolls += 10 + getExtraFrames(frames, i+1);
-            break;
-        } else if (frames[i] == '/') { // spare
-            extraRolls += 5 + getExtraFrames(frames, i+2);
-            break;
+    bool lastRoll = false;
+    
+    for (int frame = 1; frame <= 10; frame++) {
+        if (s[2*frame-1] == 'X') {
+            // strike in this frame, add 10 to the score and move on
+            score += 10;
+            lastRoll = true;
+        } else if (s[2*frame-2] == '/') {
+            // spare in this frame, add 10 to the score and move on
+            int bonus = s[2*frame-1] - '0';
+            score += 10 + bonus;
+            lastRoll = false;
         } else {
-            int rollsThisFrame = frames[i] - '0';
-            extraRolls += rollsThisFrame;
-            if (i+1 < frames.size() && frames[i+1] != '/') {
-                extraRolls++;
+            // roll 1 and/or roll 2 in this frame
+            int roll1 = s[2*frame-2] - '0';
+            int roll2 = s[2*frame-1] - '0';
+            
+            if (lastRoll) {
+                // we are in a frame that follows a strike or spare
+                score += 10 + min(roll1+roll2, 10);
+            } else {
+                // we are in the last roll of this frame
+                score += roll1 + roll2;
             }
-            if (extraRolls >= 3) {
-                break;
-            }
+            
+            lastRoll = true;
         }
     }
-
-    return extraRolls;
+    
+    return score;
 }
