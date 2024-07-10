@@ -21,7 +21,7 @@ std::vector<int> sort_even(const std::vector<int>& numbers) {
     return even_numbers;
 }
 
-{
+int main() {
     int n;
     std::vector<int> numbers;
     std::cout << "Enter the number of elements: ";
@@ -42,4 +42,5 @@ std::vector<int> sort_even(const std::vector<int>& numbers) {
     } else {
         std::cout << "The expected output is not achieved." << std::endl;
     }
+    return 0;
 }
