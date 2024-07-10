@@ -2,6 +2,7 @@
 #include <cmath>
 #include <iostream>
 #include <cassert>
+#include <string>
 
 double sum_squares(int n) {
     double sum = 0.0;
@@ -12,12 +13,12 @@ double sum_squares(int n) {
 }
 
 int main() {
+    std::string s;
     int n;
-    while (!(std::cin >> n)) {
+    while (!(std::cin >> std::ws >> s)) {
         std::cout << "Invalid input. Please enter a non-negative integer.\n";
-        std::cin.clear(); 
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     }
+    n = stoi(s);
 
     if(n < 0) {
         std::cout << "Invalid input. Please enter a non-negative integer.\n";
