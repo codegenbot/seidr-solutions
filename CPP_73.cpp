@@ -1,4 +1,4 @@
-```#include <vector>
+#include <vector>
 
 int smallest_change(vector<int> arr) {
     int n = arr.size();
@@ -21,4 +21,4 @@ int smallest_change(vector<int> arr) {
     }
 
     return changes;
-}```
+}
