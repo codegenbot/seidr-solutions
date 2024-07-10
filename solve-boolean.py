@@ -1,2 +1,2 @@
 def solve_boolean(expression):
-    return eval(''.join(['T' if c == 'T' else 'False' for c in expression]).replace('&', lambda s: ' and ' + ('True' if s == 'T' else 'False'))).replace('|', lambda s: ' or ')
+    return eval(''.join(['T' if c == 'T' else 'False' for c in expression]).replace('&', lambda s: 'and' + (' True' if s == 'True' else ' False') ))
