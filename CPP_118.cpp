@@ -1,25 +1,25 @@
-Here is the solution:
+#include <algorithm>
+using namespace std;
 
 string get_closest_vowel(string word) {
-    string result = "";
-    for (int i = 0; i < word.length(); i++) {
+    for (int i = 0; i < word.size(); ++i) {
         if (!isalpha(word[i])) continue;
-        bool isVowel = false;
-        if (word[i] == 'a' || word[i] == 'e' || word[i] == 'i' ||
-            word[i] == 'o' || word[i] == 'u') {
-            isVowel = true;
-        }
-        int j = i + 1;
-        while (j < word.length()) {
+        bool found = false;
+        for (int j = i + 1; j < word.size(); ++j) {
             if (!isalpha(word[j])) break;
-            if (word[j] == 'a' || word[j] == 'e' || word[j] == 'i' ||
-                word[j] == 'o' || word[j] == 'u') {
-                isVowel = true;
-                result = (char)word[j];
-                return result;
+            if (ispunct(word[j]) || isupper(word[j]) || islower(word[j]) == 'y') continue;
+            if (ispunct(word[i]) || isupper(word[i]) || islower(word[i]) == 'y' || i == 0) continue;
+            if (ispunct(word[j]) && j > i + 1) continue;
+            if (vowel(word[i]) && vowel(word[j])) {
+                found = true;
+                break;
             }
-            j++;
         }
+        if (found) return word.substr(i, 1);
     }
-    return result;
+    return "";
+}
+
+bool vowel(char c) {
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
