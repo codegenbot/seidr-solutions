@@ -1,12 +1,23 @@
-#include <algorithm>
 #include <string>
 
-bool same_chars(std::string s0, std::string s1) {
-    if(s0.length() != s1.length()) 
+bool same_chars(const std::string& s0, const std::string& s1) {
+    if (s0.length() != s1.length()) {
         return false;
-        
-    std::sort(s0.begin(), s0.end());
-    std::sort(s1.begin(), s1.end());
-    
-    return s0 == s1;
+    }
+
+    int charCount[256] = {0};
+    for (char c : s0) {
+        charCount[c]++;
+    }
+    for (char c : s1) {
+        charCount[c]--;
+    }
+
+    for (int count : charCount) {
+        if (count != 0) {
+            return false;
+        }
+    }
+
+    return true;
 }
