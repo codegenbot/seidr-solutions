@@ -49,14 +49,15 @@ void get_user_input(std::vector<std::vector<std::string>>& user_input) {
     while (true) {
         std::cin >> temp;
         if (temp == "stop") break;
-        user_input.push_back(std::vector<std::string>(1, temp));
+        std::vector<std::string> str = {{temp}};
+        user_input.push_back(str);
     }
 }
 
 int main() {
     std::vector<std::vector<std::string>> user_input;
     get_user_input(user_input);
-    std::vector<std::vector<std::string>> input = {{"this"}};
+    std::vector<std::vector<std::string>> input = {{{"this"}}};
     std::vector<std::vector<std::string>> matches = {};
     std::cout << "Count of matches is: " << total_match(input, matches) << std::endl;
     return 0;
