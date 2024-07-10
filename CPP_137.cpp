@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -25,15 +24,10 @@ int main_func() {
     if (cin.fail()) { 
         cin.clear();
         cin >> ws;
-        try {
-            double b = stod(s);
-            cout << "The result is: " << compare_one(a, b) << endl;
-        } catch (invalid_argument& e) {
-            int b = stoi(s); 
-            cout << "The result is: " << compare_one(a, b) << endl;
-        }
+        double b = stod(s);
+        cout << "The result is: " << compare_one(a, b) << endl;
     } else {
-        double b = (double)s; 
+        double b = stod(s); 
         cout << "The result is: " << compare_one(a, b) << endl;
     }
 
