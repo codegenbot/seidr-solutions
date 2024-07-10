@@ -21,15 +21,14 @@ int main() {
             cut_idx = i;
         }
     }
-
+    
     for (int i = 0; i < cut_idx; ++i) {
         cout << nums[i] << endl;
     }
     cout << endl;
-
     for (int i = cut_idx; i < n; ++i) {
         cout << nums[i] << endl;
     }
-
+    
     return 0;
 }
