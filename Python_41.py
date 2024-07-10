@@ -1,7 +1,8 @@
+```
 def car_race_collision(n: int):
-    collisions = 0
+    total = 1
     for i in range(1, n + 1):
-        j = (n // i) * i
-        if i * j == n and i != j:
-            collisions += 1
-    return str(collisions)
+        j = n // i
+        if i * j == n:
+            total *= i
+    return str(total)
