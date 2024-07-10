@@ -3,16 +3,16 @@
 #include <cassert>
 #include <sstream> // Include for std::to_string
 
-std::string change_base(int x, int base){
+std::string change_base(int x, int base) {
     std::string result = "";
-    while(x > 0){
+    while (x > 0) {
         result = std::to_string(x % base) + result;
         x /= base;
     }
     return result;
 }
 
-int main(){
+int main() {
     int x = 10;
     std::string result = change_base(x, 10);
 
