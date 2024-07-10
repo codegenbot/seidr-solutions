@@ -1,11 +1,11 @@
 Here is the completed code:
 
 bool will_it_fly(vector<int> q, int w) {
-    string s = "";
+    string str = "";
     for (int i : q) {
-        s += to_string(i);
+        str += to_string(i);
     }
-    if (!s.equals(std::to_string(s))) {
+    if (str != reverse(str).s) {
         return false;
     }
     int sum = 0;
