@@ -1,5 +1,4 @@
 #include <openssl/evp.h>
-#include <openssl/objects.h>
 #include <cassert>
 #include <string>
 #include <sstream>
@@ -8,11 +7,11 @@
 std::stringstream ss;
 
 std::string string_to_md5(const std::string& str) {
-    EVP_MD_CTX md5;
+    EVP_MD_CTX* md5 = EVP_MD_CTX_new();
     unsigned char hash[16];
-    EVP_DigestInit_ex(&md5, EVP_md5(), 0);
-    EVP_DigestUpdate(&md5, str.c_str(), str.size());
-    EVP_DigestFinal_ex(&md5, hash, nullptr);
+    EVP_DigestInit_ex(md5, EVP_md_null(), NULL);
+    EVP_DigestUpdate(md5, str.c_str(), str.size());
+    EVP_DigestFinal_ex(md5, hash, NULL);
 
     ss << std::hex << std::setfill('0');
     for (int i = 0; i < 16; ++i) {
@@ -20,6 +19,7 @@ std::string string_to_md5(const std::string& str) {
     }
 
     return ss.str();
+
 }
 
 int main_test() {
