@@ -39,17 +39,11 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<int> nums;
-    for (int i = 0; i < n && std::cin.peek() != '\n'; i++) {
-        int num;
-        std::cin >> num;
+    while(std::cin >> n && n != 0) { 
         while(std::cin.peek() == ' ') { 
             std::cin.get();
         }
-        if(num != 0) { 
-            nums.push_back(num); 
-        } else {
-            break; 
-        }
+        nums.push_back(n); 
     }
     if (!nums.empty()) {  
         std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
