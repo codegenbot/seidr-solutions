@@ -1,4 +1,4 @@
-hours = int(input("Enter number of hours: "))
+hours = int(float(input("Enter number of hours: ")))
 snow_on_ground = float(input("Enter initial amount of snow on the ground: "))
 rate_of_snowfall = float(input("Enter rate of snow fall per hour: "))
 melting_rate = float(input("Enter proportion of snow melting per hour (0 to 1): "))
