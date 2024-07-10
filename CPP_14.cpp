@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,11 +12,10 @@ bool issame(vector<string> a,vector<string>b){
     return true;
 }
 
-vector<string> all_prefixes(const string& input) {
-    vector<string> result;
+vector<const char*> all_prefixes(const string& input) {
+    vector<const char*> result;
     for (int i = 0; i <= input.size(); ++i) {
-        if(i > input.size()) break;
-        result.push_back(input.substr(0, i+1)); 
+        result.push_back(input.substr(0, i+1).c_str()); 
     }
     return result;
 }
@@ -31,14 +29,14 @@ int mainFunc() {
         cout << "Invalid input. Please enter a non-empty string." << endl;
     } else {
         vector<string> result = all_prefixes(input);
-        if (!issame(result)) {
+        if (!issame(vector<string>(result.begin(), result.end()))) {
             cout << "The prefixes are not the same." << endl;
         } else {
             cout << "The prefixes are the same." << endl;
         }
     }
 
-    vector<string> www = all_prefixes("WWW");
+    vector<const char*> www = all_prefixes("WWW");
     if (!issame(www)) {
         cout << "The prefixes are not the same." << endl;
     } else {
