@@ -1,13 +1,14 @@
-if (strings.empty()) {
+{
+    if (strings.empty()) {
         return "None";
     }
-
-    string longestStr = strings[0];
-    for (const string &s : strings) {
-        if (s.length() > longestStr.length() || (s.length() == longestStr.length() && s < longestStr)) {
-            longestStr = s;
+    
+    string longestString = strings[0];
+    for (const auto &str : strings) {
+        if (str.length() > longestString.length() || (str.length() == longestString.length() && str < longestString)) {
+            longestString = str;
         }
     }
-
-    return longestStr;
+    
+    return longestString;
 }
