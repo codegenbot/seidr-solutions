@@ -35,7 +35,7 @@ int reverse(int n) {
     std::string strRev = "";
     while (n != 0) {
         int remainder = n % 10;
-        strRev = std::to_string(remainder) + strRev; // Fix
+        strRev = std::to_string(remainder) + strRev;
         n /= 10;
     }
     return std::stoi(strRev); // Convert string to integer
