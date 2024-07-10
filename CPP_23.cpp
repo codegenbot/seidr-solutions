@@ -1,3 +1,3 @@
-int strLength(string str){
+int strSize(string str){
     return str.length();
 }
