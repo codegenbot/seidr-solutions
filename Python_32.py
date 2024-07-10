@@ -4,14 +4,9 @@ def find_zero(xs: list):
     b = xs[n - 2]
     return -b / a
 
-
-# Prompt user to enter input list
+n = int(input("Enter the number of values in the list: "))
 print("Enter space-separated values for the list:")
-# Read input from user
 xs = list(map(float, input().split()))
 
-# Call the function with the input list
 result = find_zero(xs)
-
-# Print the result
 print(result)
