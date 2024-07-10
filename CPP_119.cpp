@@ -1,6 +1,5 @@
-```cpp
-#include <string>
 #include <vector>
+#include <string>
 
 std::string match_parens(std::vector<std::string> lst) {
     int open = 0, close = 0;
@@ -14,6 +13,14 @@ std::string match_parens(std::vector<std::string> lst) {
 }
 
 int main() {
-    assert(match_parens({{"("}, {")"}}) == "Yes");
+    assert(match_parens({")", "("}) == "Yes");
+    std::vector<std::string> input;
+    std::cout << "Enter the strings: ";
+    for(int i = 0; i < 3; ++i) {
+        std::string str;
+        std::cin >> str;
+        input.push_back(str);
+    }
+    std::cout << match_parens(input) << std::endl;
     return 0;
 }
