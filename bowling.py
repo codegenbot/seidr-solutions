@@ -1,4 +1,3 @@
-```
 def bowling_score(game):
     score = 0
     roll = 0
@@ -25,11 +24,6 @@ def bowling_score(game):
                 roll += 2
         elif len(frame) == 2:
             first_two_rolls = list(map(int, frame.split()))
-            if first_two_rolls[0] + first_two_rolls[1] < 10:
-                score += first_two_rolls[0] + first_two_rolls[1]
-                roll += 2
-            else:
-                bonus = 10 - first_two_rolls[0] - first_two_rolls[1]
-                score += 10
-                roll += 2
+            score += sum(first_two_rolls)
+            roll += 2
     return score
