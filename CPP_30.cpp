@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 #include <iostream>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
@@ -39,5 +38,5 @@ int main() {
     }
     std::cout << std::endl;
 
-    return 0;
+    return 1;
 }
