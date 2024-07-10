@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -27,19 +28,17 @@ int mainFunction() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> v;
+    std::vector<int> v(n);
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         int x;
         std::cin >> x;
-        v.push_back(x);
+        v[i] = x;
     }
 
-    std::vector<int> result = remove_duplicates(v);
-
     std::cout << "Duplicates removed: ";
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << " ";
+    for (int i = 0; i < n; i++) {
+        std::cout << v[i] << " ";
     }
     std::cout << std::endl;
 
