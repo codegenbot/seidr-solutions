@@ -43,7 +43,7 @@ int bowling(string s) {
 
 int main() {
     string s;
-    std::cin >> s;
-    std::cout << bowling(s) << std::endl;
+    cin >> s;
+    cout << bowling(s) << endl;
     return 0;
 }
