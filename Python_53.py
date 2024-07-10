@@ -6,7 +6,7 @@ while True:
     try:
         x = int(input("Enter first number: "))
         y = int(input("Enter second number: "))
-        if x >= 0 and y >= 0:  
+        if x >= 0 and y >= 0:
             print(add(x, y))
             break
         else:
