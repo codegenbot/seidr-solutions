@@ -1,21 +1,16 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    
-    if(arr.empty()) return result;
-    
-    int smallestEvenValue = INT_MAX, smallestIndex = -1;
-    
-    for(int i = 0; i < arr.size(); i++) {
-        if(arr[i] % 2 == 0 && arr[i] < smallestEvenValue) {
-            smallestEvenValue = arr[i];
-            smallestIndex = i;
+vector<int> pluck(vector<int> arr){
+    vector<pair<int,int>> evenNodes;
+    for(int i=0; i<arr.size(); i++){
+        if(arr[i]%2==0){
+            evenNodes.push_back({arr[i],i});
         }
     }
-    
-    result.push_back({smallestEvenValue, smallestIndex});
-    
-    return result;
+    if(evenNodes.empty()){
+        return {};
+    }else{
+        sort(evenNodes.begin(),evenNodes.end());
+        return {evenNodes[0].first, evenNodes[0].second};
+    }
 }
