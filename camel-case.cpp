@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -22,8 +23,8 @@ std::string camelCase(const std::string& s) {
 int main() {
     std::string s;
     while (std::cin >> s) {
-        auto newEnd = s.erase(std::remove(s.begin(), s.end(), ' '), s.end());
-        newEnd = s.erase(std::remove(s.begin(), newEnd, '-'), newEnd);
+        s.erase(std::remove(s.begin(), s.end(), '-'), s.end());
+        s.erase(std::remove(s.begin(), s.end(), ' '), s.end());
         std::cout << camelCase(s) << '\n';
     }
     return 0;
