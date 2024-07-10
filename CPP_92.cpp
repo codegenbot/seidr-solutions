@@ -1,4 +1,3 @@
-#include <iostream>
 #include <cmath>
 
 bool any_int(float a, float b, float c) {
