@@ -19,7 +19,7 @@ string string_to_md5(string text) {
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         char buffer[3];
         sprintf(buffer, "%02x", md[i]);
-        result += buffer;
+        result += string(buffer);
     }
 
     return result;
