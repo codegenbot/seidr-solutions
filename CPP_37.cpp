@@ -1,14 +1,13 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
 
 std::vector<float> sort_even(std::vector<float> l){
     if(l.size() <= 0) {
-        // Handle the error case where l.size() is 0 or less
-        throw std::runtime_error("Vector size must be greater than 0");
+        return l; // or throw an exception if you prefer
     }
     std::vector<float> result(l.size());
     for(int i = 0; i < l.size(); i++){
