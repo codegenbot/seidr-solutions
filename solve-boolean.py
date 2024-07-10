@@ -8,4 +8,4 @@ def solve_boolean(expression):
         return bool(solve_boolean(left)) and bool(solve_boolean(right))
     elif "|" in expression:
         left, right = expression.split("|")
-        return bool(solve_boolean(left)) or bool(solve_boolean(right))
+        return bool(solve_boolean(left)) or bool(solveBoolean(right))
