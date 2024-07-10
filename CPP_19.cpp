@@ -43,10 +43,9 @@ string sort_numbers(string numbers) {
 }
 
 int main() {
-    string numbers;
-    cout << "Enter numbers in words separated by spaces: ";
-    getline(cin, numbers);
-    cout << "Sorted numbers: " << sort_numbers(numbers) << endl;
+    string numbers = "six three five two eight";
+    string sorted_numbers = sort_numbers(numbers);
+    cout << sorted_numbers << endl;
 
     return 0;
 }
