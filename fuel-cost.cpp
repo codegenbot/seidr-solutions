@@ -1,21 +1,9 @@
-int solve(vector<int> v) {
-    int sum = 0;
-    for (int i : v) {
-        int temp = i / 3;
-        temp = floor(temp);
-        temp -= 2;
-        sum += temp;
+int calculateFuelCost(vector<int> fuelCosts) {
+    int totalFuelCost = 0;
+    for (int cost : fuelCosts) {
+        int newCost = (cost / 3) - 2;
+        if (newCost > 0)
+            totalFuelCost += newCost;
     }
-    return sum;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
-    cout << solve(v) << endl;
-    return 0;
+    return totalFuelCost;
 }
