@@ -1,22 +1,12 @@
-Here is the solution:
+#include <vector>
+using namespace std;
 
-int calculate(int n) {
-    return (n / 3) - 2;
-}
-
-int main() {
-    int N;
-    std::cin >> N;
-
-    if(N == 0)
-        return 0;
-
+int fuelCost(vector<int> nums) {
     int sum = 0;
-    for(int i = 1; i <= N; i++) {
-        sum += calculate(i);
+    for (int num : nums) {
+        int res = num / 3 - 2;
+        if (res < 0) res = 0; // round down to nearest integer
+        sum += res;
     }
-
-    std::cout << sum << std::endl;
-
-    return 0;
+    return sum;
 }
