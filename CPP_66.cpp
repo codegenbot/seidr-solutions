@@ -3,8 +3,8 @@
 int digitSum(string s) {
     int sum = 0;
     for (char c : s) {
-        if (isdigit(c)) {
-            sum += (c - '0');
+        if (isupper(c)) {
+            sum += c - 'A' + 1; // Convert uppercase letter to its corresponding digit
         }
     }
     return sum;
