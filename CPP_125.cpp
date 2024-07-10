@@ -5,10 +5,6 @@
 
 vector<string> split_words(string txt);
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
@@ -37,15 +33,15 @@ vector<string> split_words(string txt){
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
 int main(){
-    using namespace std;
-    string input;
-    getline(cin, input);
-
-    vector<string> result = split_words(input);
-    vector<string> expected_result = split_words(input);
-
-    assert(issame(result, expected_result));
-
+    vector<string> input = split_words("hello, world");
+    vector<string> expected = {"hello", "world"};
+    
+    assert(issame(input, expected));
+    
     return 0;
 }
