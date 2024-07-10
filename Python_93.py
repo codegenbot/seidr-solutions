@@ -4,7 +4,7 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in vowels:
-                offset = -1
+                offset = 2
                 encoded_message += chr((ord(char) - ord('A' if char.isupper() else 'a') + offset) % 26 + ord('A' if char.isupper() else 'a')).lower()
             else:
                 encoded_message += char.swapcase()
