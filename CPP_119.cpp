@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> lst;
+std::vector<std::string> lst = {"(a)", "b()", "()c"};
 
 int match_parens(std::vector<std::string> lst) {
     int countOpen = 0, countClose = 0;
@@ -18,13 +18,13 @@ int match_parens(std::vector<std::string> lst) {
     }
 
     if (countOpen == countClose) {
-        return "Yes";
+        return 1;
     } else {
-        return "No";
+        return 0;
     }
 }
 
 int main() {
-    assert(match_parens({{"", "("}}) == "Yes");
+    assert(match_parens({{"", "("}}) == 1);
     return 0;
 }
