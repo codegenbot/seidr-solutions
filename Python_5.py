@@ -1,18 +1,12 @@
-```
+```python
 def intersperse(a, b):
     result = []
-    iter_a = iter(a)
-    iter_b = iter(b)
-    
-    for _ in range(len(a) + len(b)):
-        try:
-            if _ % 2 == 0:
-                result.append(next(iter_a))
-            else:
-                result.append(next(iter_b))
-        except StopIteration:
-            break
-    
+    min_len = min(len(a), len(b))
+    for i in range(min_len):
+        result.append(a.pop(0))
+        result.append(b.pop(0))
+    result.extend(a)
+    result.extend(b)
     return result
 
 list1 = [1, 3, 5]
