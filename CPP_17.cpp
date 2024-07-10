@@ -23,7 +23,7 @@ vector<int> parse_music(string music_string){
             result.push_back(beats);
             beats = 0;
         } else if (c == '.') {
-            beats = 1;
+            beats += 1;
         }
     }
     if (beats > 0) {
