@@ -3,7 +3,7 @@
 #include <algorithm>
 
 bool issame(const vector<float>& a, const vector<float>& b) {
-    return a[0] == b[0] && a[1] == b[1];
+    return (a[0] == b[0] && a[1] == b[1]);
 }
 
 vector<float> find_closest_elements(const vector<float>& numbers) {
@@ -21,9 +21,9 @@ vector<float> find_closest_elements(const vector<float>& numbers) {
 }
 
 int main() {
-    vector<float> numbers = {4.5, 2.1, 7.3, 5.2, 1.8};
-    vector<float> result = find_closest_elements(numbers);
-    for (const auto& num : result) {
+    vector<float> numbers = {3.5, 1.2, 4.8, 2.1, 5.7};
+    vector<float> closest_elements = find_closest_elements(numbers);
+    for (float num : closest_elements) {
         cout << num << " ";
     }
     return 0;
