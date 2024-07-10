@@ -15,8 +15,9 @@ double double_the_difference(vector<double> lst) {
     return static_cast<double>(sum);
 }
 
-int main1() {
+int main() {
     vector<double> lst;
+    double odd_sum = 0;
 
     for (string line; getline(cin, line); ) {
         if (!line.empty()) {
@@ -24,6 +25,7 @@ int main1() {
             int diff = abs((int)val - 5);
             if (diff % 2 != 0) {
                 lst.push_back(val);
+                odd_sum += diff;
             }
         }
     }
@@ -36,7 +38,7 @@ int main1() {
     }
     cout << endl;
 
-    assert(double_the_difference(lst) == 0);
-
+    cout << "The sum of the differences is: " << double_the_difference(lst) << endl;
+    assert(double_the_difference(lst) == odd_sum);
     return 0;
 }
