@@ -36,8 +36,22 @@ vector<int> indicesOfSubstring(string text, string target) {
 
     vector<int> lps = computeLPSArray(target);
 
+    if (text.substr(0, m) == target) {
+        result.push_back(0);
+    }
+
     for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
+        if (text.substr(i, m) != target) {
+            int j = min(i + lps[m - 1], n - 1); 
+            while (j >= i && text[j - m + 1] != target[0]) { 
+                j -= 1; 
+            }
+            if (j - m + 1 >= i) {
+                i = j;
+            } else {
+                break;
+            }
+        } else {
             result.push_back(i);
             i += m - 1; // Skip the matched portion
         }
