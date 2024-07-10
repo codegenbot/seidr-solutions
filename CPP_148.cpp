@@ -10,8 +10,8 @@ void bf(string n) {
 }
 
 int main() {
-    int num;
-    cin >> num;
-    bf(to_string(num));  
+    std::string str;
+    cin >> str;  
+    bf(str);      
     return 0;
 }
