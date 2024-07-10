@@ -1,10 +1,11 @@
+```Python
 def intersperse(a, b):
     result = []
     if hasattr(a, '__iter__'):
         min_len = min(len(list(a)), len(list(b)))
         for i in range(min_len):
             result.append(next(iter(a)))
-            result.append(b)
+            result.extend([b])
     else:
         for _ in range(len([b])):
             result.extend([a])
