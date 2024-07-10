@@ -1,11 +1,7 @@
 #include <iostream>
 #include <map>
-#include <string>
-#include <cassert>
 
-using namespace std;
-
-map<string, int> number_map = {
+std::map<std::string, int> number_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -18,21 +14,19 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers);
+std::string sort_numbers(std::string numbers);
 
 int main() {
     assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-
-    return 0;
 }
 
-string sort_numbers(string numbers) {
-    map<int, string> reverse_map;
-    string result;
+std::string sort_numbers(std::string numbers) {
+    std::map<int, std::string> reverse_map;
+    std::string result;
     
-    string temp;
-    for(char c : numbers) {
-        if(c == ' ') {
+    std::string temp;
+    for (char c : numbers) {
+        if (c == ' ') {
             reverse_map[number_map[temp]] = temp;
             temp = "";
         } else {
@@ -41,7 +35,7 @@ string sort_numbers(string numbers) {
     }
     reverse_map[number_map[temp]] = temp;
     
-    for(auto it = reverse_map.begin(); it != reverse_map.end(); ++it) {
+    for (auto it = reverse_map.begin(); it != reverse_map.end(); ++it) {
         result += it->second + " ";
     }
     
