@@ -10,10 +10,10 @@ def solve_boolean(expression):
         elif char.upper() == 'F':
             stack.append(False)
         else:
+            while len(stack) < 2:
+                return False
             operand2 = stack.pop()
             operand1 = stack.pop()
-            if not (operand1 and operand2):
-                return False
             if char == '&':
                 stack.append(operand1 and operand2)
             elif char == '|':
