@@ -3,6 +3,7 @@ import math
 
 
 def main():
+    attempt = 0
     while True:
         try:
             n1 = int(input("Enter the first integer: "))
@@ -12,6 +13,7 @@ def main():
             break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+        attempt += 1
 
     while True:
         try:
@@ -21,20 +23,7 @@ def main():
             print("Please enter a positive integer.")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
-
-    while True:
-        if not (n1 > 0 and n2 > 0):
-            print("Please enter positive integers.")
-            try:
-                n1 = int(input("Enter the first integer: "))
-                if n1 < 1:
-                    print("Please enter a positive integer.")
-                    continue
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid integer.")
-        else:
-            break
+        attempt += 1
 
     factors1 = []
     i = 2
