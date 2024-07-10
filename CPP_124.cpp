@@ -1,3 +1,5 @@
+#include <cassert>
+
 bool valid_date(std::string date) {
     if(date.empty()) return false;
     
