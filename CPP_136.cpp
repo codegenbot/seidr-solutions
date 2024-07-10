@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
 namespace MyNamespace {
-    bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
-        return std::equal(a.begin(), a.end(), b.begin());
+    bool issame(std::vector<int> a, std::vector<int> b) {
+        return a == b;
     }
 
     std::vector<int> largest_smallest_integers(std::vector<int> lst) {
@@ -19,6 +18,6 @@ namespace MyNamespace {
             }
         }
 
-        return {{(max_negative > 0 ? INT_MAX : max_negative), (min_positive < 1 ? INT_MIN : min_positive)}};
+        return {std::max({max_negative, -min_positive})};
     }
 }
