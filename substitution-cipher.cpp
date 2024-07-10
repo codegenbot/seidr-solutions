@@ -9,17 +9,18 @@ int main() {
     getline(cin, message);
     
     for (char &c : message) {
-        size_t pos = cipher1.find(c);
-        if (pos != string::npos) {
-            c = cipher2[pos];
+        size_t idx = cipher1.find(c);
+        if (idx != string::npos) {
+            c = cipher2[idx];
         } else {
-            pos = cipher2.find(c);
-            if (pos != string::npos) {
-                c = cipher1[pos];
+            idx = cipher2.find(c);
+            if (idx != string::npos) {
+                c = cipher1[idx];
+                break;
             }
         }
     }
-
+    
     cout << message << endl;
     
     return 0;
