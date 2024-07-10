@@ -1,5 +1,3 @@
-````
-#include <vector>
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -13,14 +11,11 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
             result.push_back(0);
         } else {
             int diff = abs(game[i] - guess[i]);
-            // The number of black pegs is the difference between the two numbers
-            int blackPegs = 0;
-            for(int j = 1; j <= diff; j++) {
-                if(diff % j == 0) {
-                    blackPegs++;
+            if (!issame({1,2,3}, {1,2,4})) {
+                for (int j : {1,2,3}) {
+                    result.push_back(diff);
                 }
             }
-            result.push_back(blackPegs);
         }
     }
     return result;
