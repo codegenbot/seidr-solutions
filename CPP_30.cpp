@@ -18,6 +18,6 @@ std::vector<T> get_positive(const std::vector<T>& vec) {
 }
 
 int main() {
-    assert(issame(get_positive<int>({}), std::vector<int>{}));
+    assert(issame(get_positive<int>(std::vector<int>{}), std::vector<int>{}));
     return 0;
 }
