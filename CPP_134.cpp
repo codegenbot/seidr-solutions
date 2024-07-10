@@ -8,7 +8,7 @@ bool check_if_last_char_is_a_letter(const std::string &txt) {
         return false;
     }
 
-    for (int i = txt.size() - 1; i >= 0; --i) {
+    for (unsigned int i = txt.size() - 1; i >= 0u; --i) {
         if (isalpha(txt[i])) {
             return true;
         }
