@@ -29,15 +29,7 @@ vector<string> reverse_delete(string s, string c) {
     
     // Add the result string and palindrome status to the vector
     result.push_back(res);
-    result.push_back((res == reverse_string(res)) ? "True" : "False");
+    result.push_back(is_palindrome ? "True" : "False");
     
     return result;
-}
-
-string reverse_string(string s) {
-    string rev = "";
-    for (int i = s.size() - 1; i >= 0; i--) {
-        rev += s[i];
-    }
-    return rev;
 }
