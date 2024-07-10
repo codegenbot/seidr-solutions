@@ -1,5 +1,6 @@
 ```
 def main():
+    print("Welcome to the word length calculator!")
     while True:
         try:
             lst = input("Enter words (separated by space): ").lower().replace(" ", "").split()
@@ -10,15 +11,16 @@ def main():
 
     if len(lst) > 0:
         sorted_list_sum = sum(len(word) for word in lst if len(word) % 2 == 0)
-        
         while True:
-            user_input = input("Press Enter to calculate the sum or type 'q' to quit: ")
-            
-            if user_input.lower() == 'q':
-                break
-            elif user_input == '':
+            try:
+                input_val = input("Press Enter to calculate the sum or type 'q' to quit: ")
+                if input_val.lower() == 'q':
+                    break
                 print(sorted_list_sum)
-            else:
+            except ValueError:
                 print("Invalid input. Please enter a number or 'q'.")
+            except Exception as e:
+                print(f"Error: {str(e)}")
+                continue
     else:
         print("Please enter at least one word.")
