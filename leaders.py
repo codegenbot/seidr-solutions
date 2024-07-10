@@ -1,5 +1,9 @@
-Here is the Python solution:
+def leaders(a):
+    n = len(a)
+    leaders_list = [a[n - 1]]
 
-def leaders(input):
-    return [x for i,x in enumerate(reversed(input)) if x >= all(map(lambda y: int(y), input[i+1:]))] + list(reversed(input))[::-1][::-1]
-print(leaders(list(map(int, input().split()))))
+    for i in range(n - 2, -1, -1):
+        if a[i] >= a[i + 1]:
+            leaders_list.insert(0, a[i])
+
+    return leaders_list
