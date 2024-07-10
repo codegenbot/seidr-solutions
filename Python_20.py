@@ -1,6 +1,5 @@
-```
-print(input("Press Enter when ready: "))
 from typing import Tuple
+
 def find_closest_elements() -> Tuple[float, float]:
     while True:
         try:
@@ -19,5 +18,4 @@ def find_closest_elements() -> Tuple[float, float]:
 
         except ValueError:
             print("Invalid input. Please enter valid decimal or integer values.")
-
-print(find_closest_elements())
+            continue
