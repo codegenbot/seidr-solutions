@@ -1,6 +1,9 @@
 def find_zero(xs: list):
-    assert len(xs) % 2 == 0
+    if len(xs) % 2 != 0:
+        return None
     max_coeff = max(xs, key=abs)
-    for x in range(-1000, 1000):
-        if poly(xs, x) == 0:
-            return x
+    for i in range(len(xs)):
+        if xs[i] == max_coeff:
+            xs.remove(xs[i])
+            break
+    return -sum(xs) / max_coeff
