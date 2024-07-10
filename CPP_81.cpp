@@ -1,10 +1,15 @@
-#include <initializer_list>
-
-#include <vector>
+```cpp
+#include <iostream>
 #include <string>
+#include <vector>
+#include <stdexcept>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a[0] == b[0] && a[1] == b[1]);
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 std::string numerical_letter_grade(int credits, double gpa) {
@@ -18,11 +23,22 @@ std::string numerical_letter_grade(int credits, double gpa) {
 }
 
 int main() {
-    int credits = 0;
-    double gpa = 0.7;
+    int credits;
+    double gpa;
+
+    std::cout << "Enter the number of credits: ";
+    std::cin >> credits;
+
+    std::cout << "Enter your GPA: ";
+    std::cin >> gpa;
+
+    if (gpa < 0 || gpa > 4.0) {
+        throw std::runtime_error("Invalid GPA");
+    }
 
     if (numerical_letter_grade(credits, gpa) == "F" || numerical_letter_grade(credits, gpa) == "D+") {
-        assert(true);
+        throw std::runtime_error("Invalid GPA");
     }
     
     return 0;
+}

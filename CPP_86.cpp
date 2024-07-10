@@ -1,34 +1,31 @@
-```cpp
 #include <iostream>
 #include <algorithm>
 #include <vector>
 #include <string> 
+#include <sstream>
+
 using namespace std;
 
 string anti_shuffle(string sStr) {
-    vector<string> words;
+    stringstream ss;
     string word;
     for (char c : sStr) {
         if (c == ' ') {
-            if (!word.empty()) { 
-                words.push_back(word);
-                word = "";
-            }
+            ss << word << " ";
+            word = "";
         } else {
             word += c;
         }
     }
-    if (!word.empty()) { 
-        words.push_back(word);
-    }
+    ss << word;
 
     string result;
-    for (string w : words) {
-        sort(w.begin(), w.end());
-        result += w;
+    while(getline(ss, word)) {
+        sort(word.begin(), word.end());
+        result += word + " ";
     }
 
-    return result;
+    return result.substr(0, result.length() - 1); 
 }
 
 int main() {
