@@ -39,5 +39,7 @@ int main() {
     }
     std::cout << std::endl;
 
+    issame(input, positive_nums);
+
     return 0;
 }
