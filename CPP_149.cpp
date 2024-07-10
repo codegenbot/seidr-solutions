@@ -2,11 +2,10 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cstdlib>
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool aresame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -32,4 +31,16 @@ vector<string> sorted_list_sum(vector<string> input) {
         }
     }
     return input;
+}
+
+bool aresame(vector<string> a, vector<string> b, vector<string> c) {
+    if (a.size() != b.size() || a.size() != c.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (!aresame({a[i]}, {b[i]}, {c[i]})) {
+            return false;
+        }
+    }
+    return true;
 }
