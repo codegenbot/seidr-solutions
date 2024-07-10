@@ -5,10 +5,10 @@
 using namespace std;
 
 int main() {
-    int n;
-    vector<double> vec1(n);
+    double n;
     cin >> n;
 
+    vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec1[i];
     }
