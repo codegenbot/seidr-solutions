@@ -5,4 +5,5 @@ def indices_of_substring():
     for idx in indices:
         print(idx - len(target))
 
+
 indices_of_substring()
