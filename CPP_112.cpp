@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -19,16 +20,10 @@ vector<string> reverse_delete(string s, string c) {
 
 int main() {
     string s, c;
-    cout << "Enter the main string: ";
-    cin >> s;
-    cout << "Enter the characters to delete: ";
-    cin >> c;
-
+    cin >> s >> c;
     vector<string> result = reverse_delete(s, c);
-
-    for (const string &res : result) {
-        cout << res << endl;
+    for (auto res : result) {
+        cout << res << " ";
     }
-
     return 0;
 }
