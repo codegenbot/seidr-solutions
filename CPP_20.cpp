@@ -2,18 +2,10 @@
 #include <vector>
 
 bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (abs(a[i] - b[i]) > 0.1) {
-            return false;
-        }
-    }
-    return true;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
+std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     pair<float, float> closest_pair = make_pair(numbers[0], numbers[1]);
     for (int i = 1; i < numbers.size() - 1; ++i) {
@@ -25,6 +17,6 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == {(float)2.2, (float)3.1});
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) , {{2.2, 3.1}}));
     return 0;
 }
