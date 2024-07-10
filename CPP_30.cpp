@@ -2,32 +2,32 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+template <typename T>
+bool issame(const std::vector<T>& a, const std::vector<T>& b) {
     return a == b;
 }
 
-std::vector<float> get_positive(int n) {
-    std::vector<float> positive;
-    
-    for (int i = 1; i <= n; ++i) {
-        positive.push_back(i);
+template <typename T>
+std::vector<T> get_positive(std::vector<T> v) {
+    std::vector<T> result;
+    for (const auto& num : v) {
+        if (num > 0) {
+            result.push_back(num);
+        }
     }
-    
-    return positive;
+    return result;
 }
 
 int main() {
     int n;
     std::cin >> n;
     
-    int sum = 0;
+    std::vector<int> positive_numbers;
     for (int i = 1; i <= n; ++i) {
-        sum += i;
+        positive_numbers.push_back(i);
     }
     
-    std::cout << sum << std::endl;
-
-    assert(issame(get_positive(n), get_positive(n)));
+    assert(issame(get_positive(positive_numbers), positive_numbers));
     
     return 0;
 }
