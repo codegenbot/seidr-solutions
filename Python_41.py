@@ -1,5 +1,7 @@
-```
-def car_race_collision():
-    n = int(input("Enter number of cars: "))
-    dist = int(input("Enter distance: "))
-    return (n * (n - 1)) // 2 + dist
+def car_race_collision(n: int):
+    if n == 1:
+        return 0
+    elif n % 2 == 0:
+        return (n // 2) ** 2 + n * ((n // 2) - 1)
+    else:
+        return sum(range(1, n+1)) ** 2
