@@ -1,8 +1,7 @@
+```cpp
 #include <vector>
 #include <set>
 #include <string>
-
-using initializer_list_size_type = std::size_t;
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
