@@ -1,4 +1,5 @@
 #include <utility>
+#include <numeric>
 
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int minDiff = numeric_limits<int>::max();
@@ -22,3 +23,4 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     }
     
     return result;
+}
