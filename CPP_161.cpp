@@ -1,11 +1,20 @@
+#include <algorithm>
+using namespace std;
+
 string solve(string s) {
     string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            result += tolower(c) == 'a' ? toupper(c) : tolower(c);
-        } else {
+        if (!isalpha(c)) {
             result += c;
+        } else {
+            char temp = tolower(c);
+            if (result.empty() || !isupper(temp)) {
+                result += toupper(temp);
+            } else {
+                result += tolower(temp);
+            }
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    reverse(result.begin(), result.end());
+    return result;
 }
