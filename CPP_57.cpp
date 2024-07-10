@@ -12,7 +12,7 @@ bool monotonic(std::vector<int> l) {
             decreasing = false;
         }
     }
-    return increasing || decreasing; // Change || to ||
+    return increasing || decreasing || (increasing && decreasing);
 }
 
 int main_problem_CPP_57() {
