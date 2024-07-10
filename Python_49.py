@@ -1,16 +1,16 @@
-def phi(n: int):
-    result = n
+def phi(n):
+    res = n
     p = 2
     while p * p <= n:
-        if n % p == 0:
-            while n % p == 0:
+        if not (n % p):
+            while not (n % p):
                 n //= p
-            result -= result // p
+            res -= res // p
         else:
             p += 1
     if n > 1:
-        result -= 1
-    return result
+        res -= res // n
+    return res
 
 def modp(n: int, p: int):
     if n < 1:
