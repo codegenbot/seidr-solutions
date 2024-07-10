@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool vectorEqual(const std::vector<int>& a, const std::vector<int>& b) {
     if (a == b)
         return true;
     else
@@ -12,7 +12,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
     while (k--) {
-        int max_val = *std::max_element(arr.begin(), arr.end());
+        auto max_val = *std::max_element(arr.begin(), arr.end());
         result.push_back(max_val);
         arr.erase(std::remove(arr.begin(), arr.end(), max_val), arr.end());
     }
