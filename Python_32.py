@@ -1,7 +1,8 @@
+import math
+
 def find_zero(xs: list):
     n = len(xs) - 1
-    if n % 2 != 0:
-        return None
-    if xs[n] == 0:
-        return None
-    return -xs[0] / xs[n]
+    a = xs[0]
+    b = xs[1]
+    c = xs[2]
+    return (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
