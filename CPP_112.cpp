@@ -31,11 +31,6 @@ vector<string> reverse_delete(string s, string c) {
         right--;
     }
     
-    vector<string> final_result = {temp};
-    if (is_palindrome) {
-        final_result.push_back("True");
-    } else {
-        final_result.push_back("False");
-    }
-    return final_result;
+    result.push_back(to_string(is_palindrome));
+    return result;
 }
