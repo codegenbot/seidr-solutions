@@ -4,10 +4,10 @@
 #include <string>
 #include <iostream>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> secondVector) {
-    if (a.size() != secondVector.size()) return false;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != secondVector[i]) return false;
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
