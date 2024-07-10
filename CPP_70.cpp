@@ -26,7 +26,7 @@ int main() {
     }
     std::cout << "Enter the size of second vector: ";
     std::cin >> n2;
-    std::vector<int> b(n2, 0);
+    std::vector<int> b(n2);
     for(int i = 0; i < n2; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> b[i];
