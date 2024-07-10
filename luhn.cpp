@@ -23,7 +23,7 @@ int luhnCheck(vector<int> num) {
 }
 
 int main() {
-    vector<int> num = {4, 7, 8, 1, 3, 2, 8, 6, 5, 9, 4, 0, 1, 7, 2, 8}; 
+    vector<int> num = {4, 5, 5, 7, 3, 2, 8, 6, 9, 1, 1, 4, 3, 5, 5, 9};
     int result = luhnCheck(num);
     cout << "The result is: " << result << endl; 
     return 0;
