@@ -1,4 +1,3 @@
-```
 while True:
     s = input("Enter a string to shift (or 'q' to quit): ")
     if s.lower() == 'q':
