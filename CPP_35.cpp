@@ -1,13 +1,12 @@
 #include <iostream>
 #include <algorithm>
-#include <string>
 
 int getMax(int n) {
     int max = 0;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::string str; 
+    int arr[n]; // Declare an array of size n
 
     for (int i = 0; i < n; i++) {
         int x;
@@ -15,8 +14,8 @@ int getMax(int n) {
         std::cin >> x;
         if(x > max)
             max = x;
-        str += x + " "; 
+        arr[i] = x; // Fill the array
     }
 
-    return max; 
+    return *std::max_element(arr, arr+n); 
 }
