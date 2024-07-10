@@ -1,9 +1,4 @@
-import sys
-
-print("Enter music data:")
-music_input = sys.stdin.read()
-
-def parse_music(music_data: str):
-    return music_data.split('\n')
-
-print(parse_music(music_input))
+music_input = input("Enter music data:\n")  
+def parse_music(music_data):  
+    return music_data.split('\n')  
+print(parse_music(music_input))  
