@@ -1,22 +1,16 @@
-string get_closest_vowel(string word) {
-    int left = 0, right = word.length() - 1;
-    while (left < right) {
-        if (!isvowel(word[left])) {
-            left++;
-        } else if (!isvowel(word[right])) {
-            right--;
-        } else {
-            return isupper(word[right]) ? "U" : "u";
+#include<string>
+using namespace std;
+
+string get_closest_vowel(string word){
+    int n = word.size();
+    for(int i=n-1; i>=0; i--){
+        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u'){
+            for(int j=i+1; j<n; j++){
+                if(isalpha(word[j]) && (word[j] < 'a' || word[j] > 'z')){
+                    return string(1, tolower(word[i]));
+                }
+            }
         }
     }
-    for (int i = 0; i < word.length() - 1; i++) {
-        if (!isvowel(word[i])) continue;
-        if (!isvowel(word[i + 1])) return isupper(word[i]) ? "U" : "u";
-    }
     return "";
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
 }
