@@ -27,3 +27,4 @@ int bowlingScore(std::string input) {
         }
     }
     return score;
+}
