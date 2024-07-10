@@ -19,3 +19,8 @@ vector<int> count_upto(int n) {
     }
     return primes;
 }
+
+int main() {
+    vector<int> primes = count_upto(101);
+    return 0;
+}
