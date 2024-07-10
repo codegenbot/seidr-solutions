@@ -15,5 +15,4 @@ bool move_one_ball(std::vector<int> arr) {
 
 int main() {
     assert(move_one_ball({1, 2, 3, 4}) == true);
-    return 0;
 }
