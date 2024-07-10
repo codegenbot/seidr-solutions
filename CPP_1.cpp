@@ -1,28 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <cassert> // Added missing include
+
+using namespace std;
+
 vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string current_group;
-    int depth = 0;
+    vector<string> groups;
+    string group;
+    int balance = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (depth > 0) {
-                current_group += c;
+            if (balance > 0) {
+                group += c;
             }
-            depth++;
+            balance++;
         } else if (c == ')') {
-            depth--;
-            if (depth > 0) {
-                current_group += c;
-            } else {
-                result.push_back(current_group);
-                current_group.clear();
+            balance--;
+            if (balance > 0) {
+                group += c;
+            } else if (balance == 0) {
+                groups.push_back(group);
+                group = "";
             }
         }
     }
 
-    if (!current_group.empty()) {
-        result.push_back(current_group);
-    }
+    return groups;
+}
 
-    return result;
+bool checkSame(vector<string> a, vector<string> b) { // Changed function name to avoid redefinition
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    assert(checkSame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    // Additional test cases can be added here
+
+    return 0;
 }
