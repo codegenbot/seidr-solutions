@@ -1,8 +1,6 @@
 ```
 def double_the_difference(lst):
-    sum_of_squares = sum(i ** 2 for i in lst)
-    twice_sum = 2 * sum(lst)
-    return sum_of_squares - twice_sum
+    return sum(i ** 2 for i in lst) - 2 * sum(lst)
 
 def check(lst, func):
     result = func(lst)
