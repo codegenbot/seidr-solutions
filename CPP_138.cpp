@@ -4,6 +4,8 @@
 bool is_equal_to_sum_even(int n) {
     int sum = 0;
     for (int i = 2; i <= n; i += 2) {
+        if (sum + i > n)
+            return false;
         sum += i;
         if (sum == n)
             return true;

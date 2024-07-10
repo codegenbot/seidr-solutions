@@ -1,7 +1,7 @@
-"""
+```
 def minPathSum(grid, k):
     N = len(grid)
-
+    
     def dfs(i, j, path):
         if len(path) == k:
             return sum(path)
@@ -16,6 +16,4 @@ def minPathSum(grid, k):
 
     return min(dfs(i, j, [grid[i][j]]) for i in range(N) for j in range(N))
 
-grid = [[1,2],[3,4]]
-k = 2
-print(minPathSum(grid, k))
+print(minPathSum([[1,2],[3,4]], 2))
