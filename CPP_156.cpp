@@ -1,7 +1,7 @@
+```cpp
 #include <string>
 #include <iostream>
 #include <sstream>
-#include <fstream>
 
 std::string miniRoman(int num);
 
@@ -12,7 +12,9 @@ std::string int_to_roman(int num) {
     std::ostringstream oss;
     int thousands = num / 1000;
     for (int i = 0; i < thousands; i++) {
-        oss << "M";
+        for (int i2 = 0; i2 < thousands; i2++) {
+            oss << "M";
+        }
     }
     num %= 1000;
     int hundreds = num / 100;
