@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -13,20 +12,17 @@ if __name__ == "__main__":
         if not numbers or numbers == ",":
             print("No input entered.")
         else:
-            if not numbers:  # Check if no input was entered
-                print("No input entered.")
-                continue
-
-            try:
-                numbers = [int(num) for num in numbers.split(",") if num]
-                print(remove_duplicates(numbers))
-                cont = input("Do you want to continue? (y/n): ")
-                if cont.lower() != "y":
-                    break
-                else:
-                    continue
-            except ValueError as e:
-                print(
-                    f"Invalid input. {str(e)}. Please enter comma-separated integers."
-                )
-                continue
+            while True:
+                try:
+                    numbers_list = [int(num) for num in numbers.split(",") if num]
+                    print(remove_duplicates(numbers_list))
+                    cont = input("Do you want to continue? (y/n): ")
+                    if cont.lower() != "y":
+                        break
+                    else:
+                        continue
+                except ValueError as e:
+                    print(
+                        f"Invalid input. {str(e)}. Please enter comma-separated integers."
+                    )
+                    numbers = input().strip()
