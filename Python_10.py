@@ -1,9 +1,9 @@
-def reverse_string(string: str) -> str:
-    return string[::-1]
-
-
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
+
+
+def reverse_string(string: str) -> str:
+    return string[::-1]
 
 
 def make_palindrome(string: str) -> str:
