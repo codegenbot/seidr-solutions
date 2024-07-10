@@ -26,7 +26,7 @@ std::vector<int> pluck(const std::vector<int>& n) {
 
 }
 
-int main1() {
+int main() {
     std::vector<int> v1 = {7, 9, 7, 1};
     std::vector<int> v2 = {1};
 
