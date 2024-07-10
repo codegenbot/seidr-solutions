@@ -7,7 +7,7 @@ string string_to_md5(string text) {
     MD5_CTX c;
     MD5_Init(&c);
     const char *p = text.c_str();
-    while (*p) MD5_Update(&c, p++, 1);
+    while (*p) MD5_Update(&c, p, 1);
     MD5_Final(md, &c);
 
     ostringstream oss;
