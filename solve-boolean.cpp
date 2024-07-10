@@ -29,14 +29,17 @@ bool solveBoolean(std::string s) {
                 break; }
             case '&': {
                 bool subResult = true;
+                int j = 0; // added counter for '&' operands
                 while (i < s.size() && s[i] == '&') {
                     i++;
+                    j++;
                 }
                 for (; i < s.size(); i++) {
                     if (s[i] != 'T' && s[i] != 'F')
-                        return false;  // Incorrect input
-                    if (s[i] == 'F')
+                        return false;
+                    if (s[i] == 'F' || (j % 2 != 0))
                         subResult = false;
+                    j++;
                 }
                 result = subResult;
                 break; }
@@ -46,7 +49,7 @@ bool solveBoolean(std::string s) {
 }
 
 int main() {
-    std::cout << (solveBoolean("T|F&F") ? "True" : "False") << std::endl;
-    std::cout << (solveBoolean("f&f|f&f|f|f&f&f&f|t|f|t|f&f&f&f&f|f&t") ? "True" : "False") << std::endl;
+    std::cout << solveBoolean("T|F&F") << std::endl;
+    std::cout << solveBoolean("f&f|f&f|f|f&f&f&f|t|f|t|f&f&f&f&f|f&t");
     return 0;
 }
