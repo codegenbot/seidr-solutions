@@ -1,40 +1,24 @@
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int targetLen = target.length();
-    for (int i = 0; i <= text.length() - targetLen; i++) {
-        bool found = true;
-        for (int j = 0; j < targetLen; j++) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            indices.push_back(i);
+vector<int> indicesOfSubstring(const string& text, const string& target) {
+    vector<int> result;
+    int index = 0;
+    
+    while ((index = text.find(target)) != string::npos) {
+        result.push_back(index);
+        if (text.size() > index + target.size()) {
+            text.erase(0, index + target.size());
+        } else {
+            break;
         }
     }
-    return indices;
+    
+    return result;
 }
 
-int main() {
-    int num1, num2;
-    cin >> num1 >> num2;
-    cout << gcd(num1, num2) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = findIndices(text, target);
-    for (auto i : result) {
-        cout << i << " ";
+int greatestCommonDivisor(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-    cout << endl;
-
-    return 0;
-}
-
-int gcd(int a, int b) {
-    if(b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+    return abs(a);
 }
