@@ -1,8 +1,4 @@
-def convert_case(string):
-    return "".join([char.lower() if char.islower() else char.upper() for char in string])
+def convert_case(s):
+    return s.lower()
 
-def check(func):
-    input_string = input("Enter a string: ")
-    print(func(input_string))
-
-check(convert_case)
+print(convert_case(input()))
