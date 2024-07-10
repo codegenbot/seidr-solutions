@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 #include <iostream>
 
@@ -8,18 +9,21 @@ bool is_simple_power(int x, int n) {
 }
 
 int main() {
-    int tempX, nTemp;
     std::cout << "Enter a number: ";
-    std::cin >> tempX;
+    int tempX;
+    std::string strX = std::to_string(tempX);
+    std::cin >> strX;
 
     std::cout << "Enter another number: ";
-    std::cin >> nTemp;
+    int nTemp;
+    std::string strN = std::to_string(nTemp);
+    std::cin >> strN;
 
     if (nTemp != 0) {
-        if(is_simple_power(tempX, nTemp))  
-            std::cout << tempX << " is a simple power of " << nTemp << std::endl;
+        if(is_simple_power(std::stoi(strX), std::stoi(strN)))  
+            std::cout << strX << " is a simple power of " << strN << std::endl;
         else
-            std::cout << tempX << " is not a simple power of " << nTemp << std::endl;
+            std::cout << strX << " is not a simple power of " << strN << std::endl;
     } 
     else {
         std::cout << "n cannot be zero." << std::endl;
