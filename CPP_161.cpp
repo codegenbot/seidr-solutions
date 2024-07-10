@@ -1,9 +1,17 @@
-```cpp
+#include <string>
+#include <cctype>
+#include <cassert>
+
 int solve(std::string s) {
-    for (char &c : s) {
-        if (std::isupper(c)) { 
-            c = std::tolower(c);
+    for (int i = 0; i < s.length(); i++) {
+        if (std::isupper(s[i])) { 
+            s[i] = std::tolower(s[i]);
         }
     }
     return s.length();
+}
+
+int main() {
+    assert (solve("#ccc") == 4);
+    return 0;
 }
