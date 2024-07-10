@@ -1,17 +1,17 @@
-```c++
-#include <cstdlib>
+#include <cassert>
 #include <string>
+#include <cctype>
 
 void driver();
 
 std::string flip_case(const std::string& str) {
     std::string result = "";
     for (char c : str) {
-        if (isalpha(c)) {
-            if (isupper(c))
-                result += tolower(c);
+        if (::std::isalpha(c)) { 
+            if (::std::isupper(c))
+                result += ::std::tolower(c);
             else
-                result += toupper(c);
+                result += ::std::toupper(c);
         } else
             result += c;
     }
