@@ -1,8 +1,16 @@
 #include <iostream>
+#include <cstdlib>
+#include <cassert>
+
+int add(int x, int y) {
+    return x + y;
+}
+
+int main();
 
 int main() {
-    int x, y;
-    std::cin >> x >> y;
-    std::cout << x + y;
+    int num1, num2;
+    std::cin >> num1 >> num2;
+    std::cout << add(num1, num2) << std::endl;
     return 0;
 }
