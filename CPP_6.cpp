@@ -10,8 +10,6 @@ bool same(const std::vector<int>& a, const std::vector<int>& b) {
     }
     return true;
 
-}
-
 std::vector<int> parse_nested_parens(const std::string& s) {
     int depth = 0, last_opened = -1, count = 0;
     std::vector<int> result;
@@ -31,7 +29,6 @@ std::vector<int> parse_nested_parens(const std::string& s) {
     }
     
     return result;
-}
 
 int main() {
     assert(same(parse_nested_parens("(()(())((()))"), {4, 3, 2, 1, 0, -1, -2, -3, -4}));
