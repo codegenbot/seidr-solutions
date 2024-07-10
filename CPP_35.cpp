@@ -8,7 +8,7 @@ int main() {
     std::cin >> n;
 
     std::vector<int> vec;
-    vec.resize(n, 0);
+    vec.resize(static_cast<std::size_t>(n));
 
     for(int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
