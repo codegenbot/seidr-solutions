@@ -1,8 +1,3 @@
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int n = v.size();
     long long total_sum = accumulate(v.begin(), v.end(), 0LL);
