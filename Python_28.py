@@ -1,10 +1,14 @@
+```
 from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    if not strings:
-        return ""
-    result = ", ".join(map(str, strings))
+    result = ""
+    for string in strings:
+        if not result:
+            result += string
+        else:
+            result += ", " + string
     return result
 
 
