@@ -25,7 +25,7 @@ std::vector<int> uniqueDigits(std::vector<int> x) {
 }
 
 int main() {
-    assert(std::issame(uniqueDigits({135, 103, 31}), std::vector<int>{31, 135}));
+    assert(uniqueDigits({135, 103, 31}) == std::vector<int>{31, 135});
     std::cout << "Test Passed!" << std::endl;
     return 0;
 }
