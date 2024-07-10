@@ -10,9 +10,9 @@ double diceGame(int n, int m) {
 }
 
 int main() {
-    int n; // input
-    int m; // input
+    int n, m;
     cin >> n >> m;
-    cout << diceGame(n, m) << endl;
+    double result = diceGame(n, m);
+    cout << fixed << setprecision(6) << result << endl;
     return 0;
 }
