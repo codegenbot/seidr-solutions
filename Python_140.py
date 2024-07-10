@@ -1,4 +1,4 @@
-```Python
+```
 import re
 
 
@@ -16,6 +16,5 @@ while True:
         result = fix_spaces(text)
         print(result)
         break
-    except Exception as e:
-        print(f"Error: {str(e)}")
+    except (ValueError, EOFError):
         print("Please enter valid input. Try again!")
