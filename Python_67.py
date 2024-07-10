@@ -1,4 +1,5 @@
-```
+```Python
+```Python
 def fruit_distribution(s, n):
     s = s.lower()
     if not s:
@@ -22,3 +23,4 @@ def fruit_distribution(s, n):
                 fruits[fruit] = total_count
         i += 1
     return len(fruits)
+```
