@@ -8,12 +8,12 @@ int main() {
     getline(cin, input);
     string word = "";
     for (int i = 0; i < input.length(); i++) {
-        if (i == input.length() || input[i] == ' ') {
+        if (input[i] == ' ') {
             if (word.length() >= 5) {
                 reverse(word.begin(), word.end());
             }
             cout << word;
-            if (i != input.length()) {
+            if (i != input.length() - 1) {
                 cout << " ";
             }
             word = "";
