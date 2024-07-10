@@ -1,28 +1,25 @@
-#include <string>
-
 vector<string> by_length(vector<int> arr) {
-    vector<int> sortedArr;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            sortedArr.push_back(num);
+    vector<int> numVec;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9) {
+            numVec.push_back(i);
         }
     }
-    reverse(sortedArr.begin(), sortedArr.end());
+
+    sort(numVec.begin(), numVec.end());
+    
+    reverse(numVec.begin(), numVec.end());
+
     vector<string> result;
-    for (int num : sortedArr) {
-        string str = "";
-        switch (num) {
-            case 1: str = "One"; break;
-            case 2: str = "Two"; break;
-            case 3: str = "Three"; break;
-            case 4: str = "Four"; break;
-            case 5: str = "Five"; break;
-            case 6: str = "Six"; break;
-            case 7: str = "Seven"; break;
-            case 8: str = "Eight"; break;
-            case 9: str = "Nine"; break;
+    map<int, string> numberMap = {{1, "One"}, {2, "Two"}, {3, "Three"}, 
+                                   {4, "Four"}, {5, "Five"}, {6, "Six"},
+                                   {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+
+    for (int i : numVec) {
+        if (numberMap.find(i) != numberMap.end()) {
+            result.push_back(numberMap[i]);
         }
-        result.push_back(str);
     }
+
     return result;
 }
