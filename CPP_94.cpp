@@ -1,5 +1,17 @@
-int skjkasdkd(vector<int> lst);
-```cpp
+int main() {
+    vector<int> lst;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        cout << "Enter element " << i+1 << ": ";
+        int num;
+        cin >> num;
+        lst.push_back(num);
+    }
+    cout << "The sum of digits in the maximum prime number is: " << skjkasdkd(lst) << endl;
+    return 0;
+}
 int skjkasdkd(vector<int> lst){
     int max_prime = 0;
     for(int num : lst){
