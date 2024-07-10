@@ -1,10 +1,7 @@
 from typing import List
 
-
 def all_prefixes(string: str) -> List[str]:
-    return [string[: i + 1] for i in range(len(string))]
+    return [string[:i + 1] for i in range(len(string))]
 
-
-# Sample input statement
-input_string = "hello"
+input_string = input("Enter a string: ").strip()
 print(all_prefixes(input_string))
