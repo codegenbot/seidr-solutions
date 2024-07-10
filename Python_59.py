@@ -5,7 +5,7 @@ def largest_prime_factor(n: int):
         if n % i == 0:
             is_prime = True
             j = 2
-            while j * j <= i:
+            while j <= i ** 0.5:
                 if i % j == 0:
                     is_prime = False
                     break
