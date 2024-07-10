@@ -14,6 +14,8 @@ vector<int> sort_array(vector<int> array){
     } else {
         sort(array.begin(), array.end());
     }
+    
+    return array;
 }
 
 bool issame(vector<int> a, vector<int> b){
