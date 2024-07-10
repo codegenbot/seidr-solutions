@@ -1,4 +1,5 @@
 #include <string>
+using namespace std;
 
 bool is_prime(int n) {
     if (n <= 1) return false;
@@ -8,6 +9,12 @@ bool is_prime(int n) {
     return true;
 }
 
-bool prime_length(int n) {
-    return is_prime(n);
+bool prime_length(string str) {
+    int len = str.length();
+    return is_prime(len);
+}
+
+int main() {
+    assert(prime_length("0") == false);
+    return 0;
 }
