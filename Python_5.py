@@ -3,6 +3,7 @@ def intersperse(a, b):
         return [b]
     result = [b]
     for item in a:
-        result += [b, item]
-    result.append(b)
+        result.extend([item, b])
+    if not result[-1] == b:
+        result.append(b)
     return result
