@@ -23,3 +23,8 @@ std::vector<int> unique_digits(std::vector<int> x){
     std::sort(result.begin(), result.end());
     return result;
 }
+
+int main() {
+    // Main function implementation
+    return 0;
+}
