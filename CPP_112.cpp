@@ -1,9 +1,13 @@
-int main 
+```
+int main() 
 {
-    int x;
-    std::cin >> x;
-    if(x > 10) 
-        std::cout << "Greater than 10";
-    else 
-        std::cout << "Less than or equal to 10";
+    int num1, num2;
+    cout << "Enter first number: ";
+    cin >> num1;
+    cout << "Enter second number: ";
+    cin >> num2;
+    if(num1 > num2)
+        cout << "First number is greater." << endl;
+    else
+        cout << "Second number is greater." << endl;
 }
