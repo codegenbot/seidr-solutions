@@ -1,15 +1,13 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <vector>
-#include <stdexcept>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
+bool issame(std::string a, std::string b) {
+    if (a.length() != b.length()) return false;
+    for (int i = 0; i < a.length(); i++) {
         bool found = false;
-        for (const auto& str : b) {
-            if (a[i] == str) { 
+        for (char c : b) {
+            if (a[i] == c) { 
                 found = true;
                 break;
             }
@@ -38,7 +36,7 @@ int main() {
     }
 
     try {
-        assert(std::vector<std::string>({numerical_letter_grade(0, 0.7).c_str()}) == {"F"}); 
+        assert(numerical_letter_grade(0, 0.7) == "F"); 
     } catch (const std::runtime_error& e) {
         std::cerr << e.what() << std::endl;
     }
