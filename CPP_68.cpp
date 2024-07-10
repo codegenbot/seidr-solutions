@@ -13,15 +13,15 @@ bool issame(std::vector<int> v1, std::vector<int> v2) {
 
 int main() {
     std::vector<int> pluck(int n) {
-        int nums[] = {7, 9, 7, 1};
-        for (int num : nums) {
-            if (num == 7)
-                return {1, 3};
-            else if (num == 9)
-                return {2};
-        }
-        return {};
+        if (n == 7)
+            return {1, 3};
+        else if (n == 9)
+            return {2};
+        else
+            return {};
     }
+
+    std::vector<std::vector<int>> arr = {{1}, {2}};
 
     bool same = issame({}, pluck(7));
 
