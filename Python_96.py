@@ -10,7 +10,7 @@ def count_up_to(n):
     result = []
     for i in range(2, n+1): 
         if is_prime(i):
-            result.append(str(i))  # Convert to string for the expected output
+            result.append(i)
         else:
             continue
-    return sorted(list(map(int, result)))
+    return result
