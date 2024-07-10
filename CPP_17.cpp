@@ -1,5 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <cassert>
 
 vector<int> parse_music(string music_string){
