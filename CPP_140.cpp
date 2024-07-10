@@ -1,21 +1,20 @@
-string fix_spaces(string text){
+Here is the completed code:
+
+```cpp
+string fix_spaces(string text) {
     string result = "";
-    bool prevSpace = false;
-    
-    for(char c : text){
-        if(c == ' ' && !prevSpace) {
-            result += '_';
-            prevSpace = true;
-        } else if(c == ' ' && prevSpace) {
-            if(result.back() != '-') {
-                result += '-';
-                prevSpace = true;
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == ' ') {
+            if (i > 0 && result.back() == ' ') {
+                if (result.length() > 2 || i == text.length() - 1) {
+                    result += "-";
+                }
+            } else {
+                result += '_';
             }
         } else {
-            result += c;
-            prevSpace = false;
+            result += text[i];
         }
     }
-    
     return result;
 }
