@@ -1,11 +1,4 @@
-```
-def main():
-    def add():
-        x = int(input("Enter first number: "))
-        y = int(input("Enter second number: "))
-        return x + y
-    result = add()
-    print(result)
-
-if __name__ == "__main__":
-    main()
+def add(x=None, y=None): 
+    x = int(input("Enter first number: ") if x is None else x) 
+    y = int(input("Enter second number: ") if y is None else y)
+    return x + y
