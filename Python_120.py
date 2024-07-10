@@ -1,1 +1,2 @@
-return sorted(arr)[-k:]
+def maximum(arr, k):
+    return sorted(arr)[-k:]
