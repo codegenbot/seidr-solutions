@@ -1,4 +1,3 @@
-```
 def shift_string():
     if __name__ == "__main__":
         while True:
@@ -15,11 +14,7 @@ def shift_string():
                     result += char
                 else:
                     ascii_offset = 65 if char.isupper() else 97
-                    if char.isupper():
-                        result += chr((ord(char) - ascii_offset + n) % 26 + ascii_offset).upper()
-                    else:
-                        result += chr((ord(char) - ascii_offset + n) % 26 + ascii_offset).lower()
+                    result += chr((ord(char) - ascii_offset + n) % 26 + ascii_offset)
             print(result)
-
 
 shift_string()
