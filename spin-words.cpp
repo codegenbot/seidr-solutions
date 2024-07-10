@@ -13,7 +13,6 @@ int main() {
     while (iss >> word) {
         if (word.size() >= 5) {
             reverse(word.begin(), word.end());
-            /* End of comment */
         }
         result += word + " ";
     }
