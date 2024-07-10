@@ -1,25 +1,20 @@
+Here is the completed code:
+
+```cpp
 string get_closest_vowel(string word) {
-    int n = word.size();
-    for (int i = 2; i < n; ++i) {
-        if (!isalpha(word[i])) continue;
-        bool left_consonant = true;
-        for (int j = 1; j < i; ++j) {
-            if (!isalpha(word[j])) continue;
-            if (!isupper(word[j]) && !islower(word[j] - 'a' + 'A')) left_consonant = false;
-            break;
-        }
-        bool right_consonant = true;
-        for (int j = i; j < n; ++j) {
-            if (!isalpha(word[j])) continue;
-            if (!isupper(word[j]) && !islower(word[j] - 'a' + 'A')) right_consonant = false;
-            break;
-        }
-        if (left_consonant && right_consonant) {
-            for (char c : {"A", "E", "I", "O", "U", "a", "e", "i", "o", "u"}) {
-                int index = i - 1;
-                while (index >= 0 && !isalpha(word[index])) --index;
-                if (word.substr(index + 1, i - index - 1).find(c) != string::npos)
-                    return c;
+    int n = word.length();
+    for(int i=n-1; i>=1; i--){
+        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || 
+           word[i] == 'o' || word[i] == 'u' || word[i] == 'A' || 
+           word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || 
+           word[i] == 'U'){
+            for(int j=i-1; j>=0; j--){
+                if(word[j] != 'a' && word[j] != 'e' && word[j] != 'i' &&
+                   word[j] != 'o' && word[j] != 'u' && word[j] != 'A' &&
+                   word[j] != 'E' && word[j] != 'I' && word[j] != 'O' &&
+                   word[j] != 'U'){
+                    return string(1, word[i]);
+                }
             }
         }
     }
