@@ -1,8 +1,13 @@
+#include <string>
+using namespace std;
+
 string squareDigits(string input) {
+    long long num = stol(input);
     string result = "";
-    for (char c : input) {
-        int digit = c - '0'; 
-        result += to_string(digit * digit); 
+    while (num > 0) {
+        int digit = num % 10;
+        result += to_string(digit * digit);
+        num /= 10;
     }
     return result;
 }
