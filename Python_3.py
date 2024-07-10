@@ -5,6 +5,7 @@ def below_zero(operations):
             count += 1
     return count
 
-operations = list(map(int, input("Enter the list of numbers separated by spaces: ").strip().split()))
+print("Enter numbers separated by spaces:")
+operations = list(map(int, input().strip().split()))
 result = below_zero(operations)
 print(result)
