@@ -1,21 +1,23 @@
 #include <vector>
 
 bool issame(const vector<float>& a, const vector<float>& b){
-    if (a.size() != b.size()){
+    if(a.size() != b.size()){
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i){
-        if (a[i] != b[i]){
+    
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
+    
     return true;
 }
 
-vector<float> get_positive(const vector<float>& l){
+vector<float> get_positive(vector<float> l){
     vector<float> result;
-    for (float num : l){
-        if (num > 0){
+    for(float num : l){
+        if(num > 0){
             result.push_back(num);
         }
     }
