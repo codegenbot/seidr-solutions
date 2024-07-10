@@ -1,9 +1,9 @@
 #include <vector>
 #include <cmath>
-#include <initializer_list>
 using namespace std;
 
-int main() {
+int main 
+{
     vector<float> lst;
     int n;
     cout << "Enter number of elements: ";
