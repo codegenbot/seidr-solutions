@@ -1,4 +1,4 @@
-```
+```cpp
 #include <string>
 #include <iostream>
 
@@ -23,3 +23,4 @@ int main() {
         std::cout << "Number of vowels: " << result << std::endl;
     }
     return 0;
+}
