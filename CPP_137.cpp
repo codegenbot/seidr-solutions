@@ -13,16 +13,16 @@ boost::any compare_one(boost::any a, boost::any b) {
             double num2 = stod(str2);
             if (num1 > num2) return a;
             else if (num1 < num2) return b;
-            else return any("");
+            else return boost::any("None");
         } else if (!str1.empty()) return a;
         else if (!str2.empty()) return b;
     }
     else {
-        double num1 = boost::any_cast<double>(a);
-        double num2 = boost::any_cast<double>(b);
+        double num1 = any_cast<double>(a);
+        double num2 = any_cast<double>(b);
         if (num1 > num2) return a;
         else if (num1 < num2) return b;
-        else return "";
+        else return boost::any("None");
     }
-    return "";
+    return boost::any("None");
 }
