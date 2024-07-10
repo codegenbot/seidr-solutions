@@ -4,8 +4,8 @@
 
 std::string validateTweet(const std::string& tweet) {
     if (tweet.empty()) return "You didn't type anything";
-    if (tweet.size() > 140) return "Too many characters";
-    return "Your tweet has " + std::to_string(tweet.size()) + " characters";
+    if (tweet.length() > 140) return "Too many characters";
+    return "Your tweet has " + std::to_string(tweet.length()) + " characters";
 }
 
 int main() {
