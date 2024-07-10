@@ -1,3 +1,7 @@
+```
+from typing import List
+
+
 def remove_duplicates(numbers: List[int]) -> List[int]:
     seen = set()
     result = []
@@ -8,4 +12,4 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
                 result.append(num)
         else:
             print("Invalid input. Please enter an integer.")
-    return list(set(result))
+    return result
