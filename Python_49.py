@@ -1,19 +1,4 @@
 ```
-def main():
-    while True:
-        try:
-            num = int(input("Enter a number: "))
-            p = int(input("Enter the prime number: "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter numbers.")
-
-    if is_prime(p):
-        print(f"{num} to the power of {p} mod {p} is {modp(num, p)}")
-    else:
-        print("The given prime number is not valid. Please enter a prime number.")
-
-
 def is_prime(n):
     if n < 2:
         return False
@@ -22,6 +7,22 @@ def is_prime(n):
             return False
     return True
 
-
 def modp(num, p):
-    return num ** p % p
+    return pow(num, p, p)
+
+def main():
+    while True:
+        num = input("Enter a number: ")
+        p = input("Enter the prime number: ")
+
+        try:
+            num = int(num)
+            p = int(p)
+            break
+        except ValueError:
+            print("Invalid input. Please enter numbers.")
+
+    if is_prime(p):
+        print(f"{num} to the power of {p} mod {p} is {modp(num, p)}")
+    else:
+        print("The given prime number is not valid. Please enter a prime number.")
