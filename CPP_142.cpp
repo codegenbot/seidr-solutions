@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 #include <iostream>
 #include <cassert>
@@ -23,6 +24,10 @@ int main() {
     } else {
         double result = sum_squares(n);
         std::cout << "Sum of squares: " << std::to_string(result) << std::endl;
+        
+        assert(sum_squares(1) == 1);
+        assert(sum_squares(2) == 5);
+        assert(sum_squares(3) == 14);
         return 0;
     }
 }
