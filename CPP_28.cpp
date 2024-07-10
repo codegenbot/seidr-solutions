@@ -1,5 +1,5 @@
 string concatenate(vector<string> strings){
-    string result = "";
+    string result;
     for(const string& str : strings){
         result += str;
     }
