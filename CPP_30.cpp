@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     return (a == b);
@@ -22,7 +23,6 @@ int main() {
             std::cout << "Enter value " << (i+1) << ": ";
             if (!(std::cin >> num)) {
                 std::cout << "Invalid input." << std::endl;
-                // Clear the input buffer
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 return 1;
@@ -38,7 +38,6 @@ int main() {
             std::cout << "Enter value " << (i+1) << ": ";
             if (!(std::cin >> num)) {
                 std::cout << "Invalid input." << std::endl;
-                // Clear the input buffer
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 return 1;
