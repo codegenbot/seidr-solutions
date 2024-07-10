@@ -1,4 +1,3 @@
-```
 def check(lst):
     lst.sort()
     result = []
