@@ -2,23 +2,13 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> leaders;
-    
-    if(n == 1){
-        leaders.push_back(arr[0]);
-        return leaders;
-    }
-    
-    int rightmostLeader = arr[n-1];
-    leaders.push_back(rightmostLeader);
-    
-    for(int i=n-2; i>=0; i--){
-        if(arr[i] >= rightmostLeader){
-            rightmostLeader = arr[i];
-            leaders.push_back(rightmostLeader);
+    vector<int> result;
+    int rightmost = arr.back();
+    for (int i = arr.size() - 2; i >= 0; i--) {
+        if (arr[i] >= rightmost) {
+            rightmost = arr[i];
+            result.push_back(rightmost);
         }
     }
-    
-    return leaders;
+    return result;
 }
