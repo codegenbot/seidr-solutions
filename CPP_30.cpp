@@ -1,5 +1,4 @@
 #include <vector>
-#include <float>
 
 bool issame(vector<float> a, vector<float> b) {
     return a == b;
