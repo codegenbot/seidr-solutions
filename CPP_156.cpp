@@ -2,7 +2,18 @@
 #include <iostream>
 #include <sstream>
 
-std::string miniRoman(int num);
+std::string miniRoman(int num) {
+    if (num == 9)
+        return "IX";
+    if (num >= 4) {
+        if (num % 4 > 0)
+            return "IV" + std::string(num - 4, 'I');
+        else
+            return "IV";
+    } else {
+        return "I";
+    }
+}
 
 std::string int_to_roman(int num) {
     if (num > 3999) {
@@ -46,23 +57,9 @@ std::string int_to_roman(int num) {
     return oss.str();
 }
 
-std::string miniRoman(int num) {
-    if (num == 9)
-        return "IX";
-    if (num >= 4) {
-        if (num % 4 > 0)
-            return "IV" + std::string(num - 4, 'I');
-        else
-            return "IV";
-    } else {
-        return "I";
-    }
-}
-
 int main() {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
     std::cout << "The Roman numeral for " << num << " is " << int_to_roman(num) << std::endl;
     return 0;
-}
