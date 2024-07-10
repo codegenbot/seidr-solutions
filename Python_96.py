@@ -1,5 +1,5 @@
-def find_primes():
-    n = int(input("Enter a number: "))
+```
+def up_to_n_primes(n):
     def is_prime(num):
         if num < 2:
             return False
@@ -9,7 +9,9 @@ def find_primes():
         return True
 
     result = []
-    for i in range(2, n+1): 
+    i = 2 
+    while len(result) < n: 
         if is_prime(i):
             result.append(i)
+        i += 1
     return result
