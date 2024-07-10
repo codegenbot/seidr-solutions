@@ -7,3 +7,4 @@ double probability(int n, int m) {
     }
 
     return 1 - p;
+}
