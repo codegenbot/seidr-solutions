@@ -1,4 +1,5 @@
-string num_str = to_string(x);
+string circular_shift(int x, int shift) {
+    string num_str = to_string(x);
     int n = num_str.size();
     shift %= n;
     if (shift == 0) {
