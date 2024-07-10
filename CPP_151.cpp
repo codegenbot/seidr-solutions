@@ -12,10 +12,7 @@ long long doubleTheDifference(const std::vector<long long>& nums) {
 }
 
 int main() {
-    std::vector<long long> lst;
-    lst.push_back(1);
-    lst.push_back(3);
-    lst.push_back(5);
+    std::vector<long long> lst = {1, 3, 4}; 
     long long odd_sum;
     odd_sum = doubleTheDifference(lst);
     std::cout << "The sum of squares of odd numbers is: " << odd_sum << std::endl;
