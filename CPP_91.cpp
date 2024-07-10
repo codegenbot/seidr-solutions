@@ -1,14 +1,11 @@
-```c++
 #include <string>
 
 int main() {
     string S;
     cout << "Enter a sentence: ";
     cin >> S;
-
-    int count = is_bored(S);
-    cout << "Count of 'I' at the beginning: " << count << endl;
-    
+    int result = is_bored(S);
+    cout << "The count of 'I' at the start of sentences is: " << result << endl;
     return 0;
 }
 
