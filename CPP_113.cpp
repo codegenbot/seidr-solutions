@@ -7,18 +7,8 @@ using namespace std;
 
 vector<string> odd_count(vector<string> lst);
 
-bool compare_vectors(vector<string>& v1, vector<string>& v2) {
+bool compareVectors(const vector<string>& v1, const vector<string>& v2) {
     return v1 == v2;
-}
-
-int main() {
-    assert(compare_vectors(odd_count({"271", "137", "314"}), {
-        "the number of odd elements 1 in the string 271 of the input.",
-        "the number of odd elements 2 in the string 137 of the input.",
-        "the number of odd elements 1 in the string 314 of the input."
-    }));
-
-    return 0;
 }
 
 vector<string> odd_count(vector<string> lst) {
@@ -33,4 +23,14 @@ vector<string> odd_count(vector<string> lst) {
         result.push_back("the number of odd elements " + to_string(count) + " in the string " + s + " of the input.");
     }
     return result;
+}
+
+int main() {
+    assert(compareVectors(odd_count({"271", "137", "314"}), {
+        "the number of odd elements 2 in the string 271 of the input.",
+        "the number of odd elements 2 in the string 137 of the input.",
+        "the number of odd elements 2 in the string 314 of the input."
+    }));
+
+    return 0;
 }
