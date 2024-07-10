@@ -1,11 +1,12 @@
-Here's the completed Python code for the problem:
+Here is the Python solution for the fuel-cost problem:
 
-def fuel_cost(vector):
-    return sum((x//3-2) for x in vector)
+def calculate_fuel_cost(fuel_costs):
+    return sum((cost // 3 - 2) for cost in fuel_costs)
 
-print(fuel_cost([1])) # 0
-print(fuel_cost([6])) # 0
-print(fuel_cost([1,7])) # 0
-print(fuel_cost([1,8])) # 0
-print(fuel_cost([1,9])) # 1
-print(fuel_cost([1,10])) # 1
+# test cases
+print(calculate_fuel_cost([1]))  # 0
+print(calculate_fuel_cost([6]))   # 0
+print(calculate_fuel_cost([1, 7])) # 0
+print(calculate_fuel_cost([1, 8])) # 0
+print(calculate_fuel_cost([1, 9])) # 1
+print(calculate_fuel_cost([1, 10])) # 1
