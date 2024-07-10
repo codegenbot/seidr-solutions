@@ -3,7 +3,7 @@ from typing import List
 def parse_nested_parens(paren_string: str) -> List[int]:
     depths = []
     current_depth = 0
-    if any(char not in ["(", ")"] for char in paren_string) or paren_string.count("(") != paren_string.count(")"):
+    if any(char not in ["(", ")"] for char in paren_string):
         return "Invalid nested parens string"
     for char in paren_string:
         if char == "(":

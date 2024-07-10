@@ -1,3 +1,1 @@
-numbers = []
-for _ in range(5):
-    numbers.append(int(input("Enter a number: ")))
+numbers = [int(input(f"Enter number {i + 1}: ")) for i in range(5)]
