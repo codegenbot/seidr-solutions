@@ -1,4 +1,4 @@
-def shift_string():
+def decode_shift():
     result = ""
 
     if __name__ == "__main__":
