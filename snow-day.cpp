@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+using namespace std;
 
 int main() {
     int hours;
@@ -19,8 +20,8 @@ int main() {
     double totalSnow = initialSnow;  // Declare and initialize totalSnow
 
     for (int i = 0; i < hours; i++) {
-        std::cout << "Before calculation: initialSnow=" << initialSnow << ", rateOfSnowFall=" << rateOfSnowFall << ", proportionOfSnowMeltingPerHour=" << proportionOfSnowMeltingPerHour << std::endl;
-        totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
+        totalSnow += rateOfSnowFall;
+        totalSnow -= proportionOfSnowMeltingPerHour * totalSnow;
     }
     
     cout << fixed << setprecision(10);  
