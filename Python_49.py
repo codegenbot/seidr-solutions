@@ -1,3 +1,2 @@
 def modp(n: int, p: int):
-    assert modp(2, 3) == 1
-    return pow(n, p, p)
+    return pow(n, p, 1000000007)
