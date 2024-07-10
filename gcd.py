@@ -1,3 +1,4 @@
+```
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -6,14 +7,14 @@ def gcd(a, b):
 
 def find_indices(text, target):
     indices = []
-    pos = 0
+    i = 0
     target_length = len(target)
-    while pos < len(text):
-        pos = text.find(target, pos)
-        if pos == -1:
+    while i < len(text):
+        pos = text.find(target, i)
+        if pos == -1: 
             break
         indices.append(pos)
-        pos += target_length + 1
+        i += target_length + 1
     return indices
 
 
@@ -30,9 +31,4 @@ print(gcd(4200, 3528))
 print(find_indices("aaabbbccc aaaa bbbb ccc", "abc"))
 
 print(gcd(820000, 63550))
-print(
-    find_indices(
-        "aaaaaa bbb cc ddd eee fff ggg hhh iii jjj kkk lll mmm nnn ooo ppp qqq rrr sss ttt uuu vvv www xxx yyy zzz",
-        "abc",
-    )
-)
+print(find_indices("aaaaaa bbb cc ddd eee fff ggg hhh iii jjj kkk lll mmm nnn ooo ppp qqq rrr sss ttt uuu vvv www xxx yyy zzz", "abc"))
