@@ -1,25 +1,24 @@
-```cpp
 #include <vector>
 #include <string>
 #include <cctype>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> split_words(const std::string& txt) {
-    std::vector<std::string> result;
+vector<string> split_words(string txt) {
+    vector<string> result;
     bool inWord = false;
-    std::string word = "";
+    string word = "";
 
     for (char c : txt) {
-        if (!inWord && !isalpha(c)) { 
+        if (!inWord && !isalnum(c)) {
             // Check for commas
             if (c == ',') {
                 continue;
             }
             inWord = true;
-        } else if (inWord && !isalpha(c)) { 
+        } else if (inWord && !std::isalnum(c)) {
             result.push_back(word);
             word = "";
             inWord = false;
@@ -35,6 +34,5 @@ std::vector<std::string> split_words(const std::string& txt) {
 }
 
 int main() {
-    assert(issame(split_words(""), std::vector<std::string>{ "0" }));
-    return 0;
+    assert(issame(split_words(""), vector<string> {"0"}));
 }
