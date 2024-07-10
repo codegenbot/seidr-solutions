@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
 #include <set>
 
-std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     
     // Create a set of characters in string c for efficient lookups
@@ -31,7 +30,7 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
     
     // Add the result string and "True"/"False" to the vector
     result.push_back(temp);
-    result.push_back(is_palindrome ? "True" : "false");
+    result.push_back(is_palindrome ? "True" : "False");
     
     return result;
 }
