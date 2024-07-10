@@ -11,18 +11,18 @@ int main() {
     std::vector<int> indices;
     
     if (target.empty()) {
-        for (size_t i = 0; i < text.length(); ++i) {
+        for (int i = 0; i < text.length(); ++i) {
             std::cout << i << " ";
         }
         return 0;
     }
 
-    while (pos != std::string::npos && pos < text.size()) {
-        indices.push_back(static_cast<int>(pos));
+    while (pos != std::string::npos) {
+        indices.push_back(pos);
         pos = text.find(target, pos + 1);
     }
     
-    for (size_t i = 0; i < indices.size(); ++i) {
+    for (int i = 0; i < indices.size(); ++i) {
         std::cout << indices[i] << " ";
     }
     
