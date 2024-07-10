@@ -1,20 +1,23 @@
 #include <vector>
 #include <string>
 
+// Declare parse_nested_parens function before main
 std::vector<int> parse_nested_parens(const std::string& s) {
     std::vector<int> result;
-    int level = 0;
+    int count = 0;
+
     for (char c : s) {
         if (c == '(') {
-            level++;
-        } else if (c == ')') {
-            level--;
+            count++;
         }
-        if (level == 0 && !result.empty()) {
-            result.push_back(std::abs(result.back()));
-            result.pop_back();
+        else if (c == ')') {
+            if (count > 0) {
+                result.push_back(count);
+                count--;
+            }
         }
     }
+
     return result;
 }
 
