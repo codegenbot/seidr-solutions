@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <string>
 
 int main() {
     int cents;
@@ -14,35 +13,24 @@ int main() {
     cents %= 5;
     int pennies = cents;
 
-    if (quarters > 0) {
-        std::cout << quarters << " coin" << (quarters > 1 ? "s" : "") << " of kind quarter";
-        if (dimes + nickles + pennies > 0) {
-            std::cout << ", ";
-        }
-    }
+    int totalCoins = quarters + dimes + nickles + pennies;
 
-    if (dimes > 0) {
-        std::cout << std::to_string(dimes) << " coin" << (dimes > 1 ? "s" : "") << " of kind dime";
-        if (nickles + pennies > 0) {
-            std::cout << ", ";
+    if (totalCoins > 0) {
+        if (quarters > 0) {
+            std::cout << quarters << " quarter" << (quarters > 1 ? "s, " : ", ");
         }
-    }
-
-    if (nickles > 0) {
-        std::cout << std::to_string(nickles) << " coin" << (nickles > 1 ? "s" : "") << " of kind nickel";
+        if (dimes > 0) {
+            std::cout << dimes << " dime" << (dimes > 1 ? "s, " : ", ");
+        }
+        if (nickles > 0) {
+            std::cout << nickles << " nickel" << (nickles > 1 ? "s, " : ", ");
+        }
         if (pennies > 0) {
-            std::cout << ", ";
+            std::cout << pennies << " penny";
         }
-    }
-
-    if (pennies > 0) {
-        std::cout << std::to_string(pennies) << " penny" << (pennies > 1 ? "s" : "");
-    }
-
-    if ((quarters + dimes + nickles + pennies) == 0) {
-        std::cout << "You don't need any coins.";
-    } else {
         std::cout << std::endl;
+    } else {
+        std::cout << "You don't need any coins." << std::endl;
     }
 
     return 0;
