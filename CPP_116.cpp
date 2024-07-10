@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cmath>
 
-bool issame(std::std::vector<int> a, std::std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
