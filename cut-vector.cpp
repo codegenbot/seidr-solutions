@@ -1,34 +1,4 @@
 ```
-#include <iostream>
-#include <vector>
-#include <numeric>
-
-using namespace std;
-
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int min_diff = numeric_limits<int>::max();
-    pair<vector<int>, vector<int>> result;
-    
-    for (int i = 1; i < vec.size(); ++i) {
-        int left_sum = accumulate(vec.begin(), vec.begin() + i, 0);
-        int right_sum = accumulate(vec.begin() + i, vec.end(), 0);
-        
-        if (left_sum == right_sum) {
-            return {{vec[0]}, vector<int>(vec.begin() + 1, vec.end())};
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        
-        if (diff < min_diff) {
-            min_diff = diff;
-            result.first = vector<int>(vec.begin(), vec.begin() + i);
-            result.second = vector<int>(vec.begin() + i, vec.end());
-        }
-    }
-    
-    return result;
-}
-
 int main() {
     int n;
     cin >> n;
@@ -54,5 +24,4 @@ int main() {
     
     cout << "]" << endl;
     
-    return 0;
-}
+    }
