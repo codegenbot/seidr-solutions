@@ -29,6 +29,7 @@ vector<int> parse_nested_parens(const string& paren_string) {
         result.push_back(max_depth);
     }
     return result;
+
 }
 
 int main() {
