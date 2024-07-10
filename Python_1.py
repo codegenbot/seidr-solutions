@@ -19,4 +19,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(temp_str)
                 temp_str = ""
 
-    return [temp_str]
+    temp_str = ""
+
+    return [temp_str + s for s in stack]
