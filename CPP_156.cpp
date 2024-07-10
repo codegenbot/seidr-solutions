@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <sstream>
 #include <unordered_map>
@@ -22,7 +23,7 @@ std::string int_to_mini_romank(int num) {
     for (const auto& pair : romanMap) {
         while (num >= pair.first) {
             num -= pair.first;
-            result.push_back(pair.second[0]);
+            result += pair.second;
         }
     }
     
@@ -34,5 +35,5 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> num;
     std::string result = int_to_mini_romank(num);
-    std::cout << "Roman numeral representation: " << result << std::endl;
+    std::cout << "Roman numeral representation: " << std::to_string(result) << std::endl;
 }
