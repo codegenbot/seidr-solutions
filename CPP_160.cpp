@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <cctype>
@@ -31,11 +32,7 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
     return result;
 }
 
-long long eval(const char *p) {
-    return eval(p, 0);
-}
-
-long long eval(const char *p, long long y) {
+long long eval(const char *p, long long y = 0) {
     while (*p) {
         if (isdigit(*p)) {
             p += 1;
@@ -70,9 +67,9 @@ long long eval(const char *p, long long y) {
             while (isdigit(*p)) {
                 p++;
             }
-            int x = atoi(p - strlen(p));
+            int x = atoi(p - 1);
             y *= x;
-            p = p + strlen(p);
+            p = p + (int)strlen(p);
             continue;
         }
         if (*p == '/') {
@@ -80,12 +77,12 @@ long long eval(const char *p, long long y) {
             while (isdigit(*p)) {
                 p++;
             }
-            int x = atoi(p - strlen(p));
+            int x = atoi(p - 1);
             if (x != 0)
                 y /= x;
             else
                 return LLONG_MAX;
-            p = p + strlen(p);
+            p = p + (int)strlen(p);
             continue;
         }
         if (*p == '^') {
@@ -93,9 +90,9 @@ long long eval(const char *p, long long y) {
             while (isdigit(*p)) {
                 p++;
             }
-            int x = atoi(p - strlen(p));
+            int x = atoi(p - 1);
             y = pow(y, x);
-            p = p + strlen(p);
+            p = p + (int)strlen(p);
             continue;
         }
     }
