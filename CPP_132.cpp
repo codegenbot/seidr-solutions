@@ -1,12 +1,13 @@
 #include <string>
 
-bool is_nested(string str) {
-    int count = 0;
+bool is_nested(std::string str) {
+    int open = 0, close = 0;
     for (char c : str) {
-        if (c == '[') count++;
+        if (c == '[') open++;
         else if (c == ']') {
-            if (count > 1) return true;
-            count--;
+            if (open > 0) open--;
+            else close++;
         }
     }
-    return false;
+    return close > 0 && open == 0;
+}
