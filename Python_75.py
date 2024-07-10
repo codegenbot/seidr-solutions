@@ -7,10 +7,12 @@ def is_multiply_prime(a):
                 return False
         return True
 
-    while a > 1:
-        prime = next((i for i in range(2, a+1) if is_prime(i)), None)
-        if prime is None:
-            return False
-        while a % prime == 0:
-            a //= prime
-    return a == 1
+    factors = [i for i in range(2, a+1) if a % i == 0]
+    factors.sort()
+    count = 0
+    for factor in factors:
+        if is_prime(factor):
+            count += 1
+        if count >= 3:
+            break
+    return count >= 3
