@@ -7,10 +7,10 @@ using namespace std;
 int main() {
     vector<int> nums = {3, 1, 4, 1, 5, 9, 2, 6, 5};
     int target = accumulate(nums.begin(), nums.end(), 0) / 2;
-
+    
     int prefixSum = 0;
     int index = -1;
-
+    
     for (int i = 0; i < nums.size(); ++i) {
         prefixSum += nums[i];
         if (prefixSum == target) {
@@ -26,7 +26,7 @@ int main() {
     }
     
     cout << prefixSum << endl;
-
+    
     for (int i = 0; i <= index; ++i) {
         cout << nums[i] << endl;
     }
@@ -34,6 +34,6 @@ int main() {
     for (int i = index + 1; i < nums.size(); ++i) {
         cout << nums[i] << endl;
     }
-
+    
     return 0;
 }
