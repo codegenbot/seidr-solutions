@@ -1,43 +1,20 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
-    int cutIndex = 0;
-    
-    for (int i = 1; i <= v.size(); i++) {
-        if (i == v.size() || v[i] - v[i-1] > minDiff) {
-            break;
-        }
-        int diff = abs(v[i] - v[0]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
-        }
-    }
-    
-    return {vector<int>(v.begin(), v.begin() + cutIndex), vector<int>(v.begin() + cutIndex, v.end())};
-}
+vector<vector<int>> cutVector(vector<int> vec) {
+    int min_diff = INT_MAX;
+    int idx = 0;
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
+    for (int i = 1; i < vec.size(); i++) {
+        int diff = abs(vec[i] - vec[i-1]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            idx = i;
+        }
     }
-    
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << "[";
-    for (auto x : res.first) {
-        cout << x << " ";
-    }
-    cout << "]" << endl;
-    cout << "[";
-    for (auto x : res.second) {
-        cout << x << " ";
-    }
-    cout << "]" << endl;
-    
-    return 0;
+
+    vector<vector<int>> result(2);
+    result[0].insert(result[0].end(), vec.begin(), vec.begin() + idx);
+    result[1].insert(result[1].begin(), vec.begin() + idx, vec.end());
+    return result;
 }
