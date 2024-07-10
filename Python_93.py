@@ -5,10 +5,10 @@ def encode(message):
         if char.isalpha():
             is_upper = char.isupper()
             char_lower = char.lower()
-            if char_lower in vowels:
-                new_char = chr((ord(char_lower) - ord('a') + 4) % 26 + ord('a'))
+            if char_lower in "aeiou":
+                new_char = chr((ord(char_lower) - ord('a') + 5) % 10 + ord('a'))
             else:
-                new_char = chr((ord(char_lower) - ord('a') + 13) % 26 + ord('a'))
+                new_char = chr((ord(char_lower) - ord('a') + 26 - 2 * (ord(char_lower) - ord('a'))) % 26 + ord('a'))
             if is_upper:
                 new_char = new_char.upper()
         else:
