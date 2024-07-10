@@ -1,16 +1,34 @@
-bool issame(vector<float> a, vector<float> b) {
-    return (a[0] == b[0] && a[1] == b[1]);
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <limits>
+using namespace std;
+
+bool issame(pair<float, float> a, pair<float, float> b) {
+    return a == b;
 }
 
-pair<float, float> find_closest_elements(vector<float> numbers) {
+vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
-    float min_diff = numbers[1] - numbers[0];
-    pair<float, float> closest_pair = {numbers[0], numbers[1]};
-    for (int i = 1; i < numbers.size() - 1; ++i) {
-        if (numbers[i + 1] - numbers[i] < min_diff) {
-            min_diff = numbers[i + 1] - numbers[i];
-            closest_pair = {numbers[i], numbers[i + 1]};
+    pair<float, float> closest_pair;
+    float min_diff = numeric_limits<float>::max();
+    for (int i = 0; i < numbers.size() - 1; ++i) {
+        float diff = numbers[i + 1] - numbers[i];
+        if (diff < min_diff) {
+            min_diff = diff;
+            closest_pair = make_pair(numbers[i], numbers[i + 1]);
         }
     }
     return {closest_pair.first, closest_pair.second};
+}
+
+int main() {
+    vector<float> numbers = {3.5, 1.2, 4.8, 2.3, 5.1};
+    vector<float> closest_elements = find_closest_elements(numbers);
+    
+    for (const auto& element : closest_elements) {
+        cout << element << " ";
+    }
+    
+    return 0;
 }
