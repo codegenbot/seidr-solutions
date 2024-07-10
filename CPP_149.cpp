@@ -1,10 +1,12 @@
-```cpp
+```c++
+#include <initializer_list>
+
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
+bool issame(std::vector<std::string> a, std::vector b) {
+    if (a.size() != size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
