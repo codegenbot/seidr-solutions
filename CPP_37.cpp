@@ -1,11 +1,18 @@
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
+}
+
+std::vector<float> sort_even(const std::vector<float>& v) {
+    std::vector<float> result = v;
+    std::sort(result.begin(), result.end());
+    return result;
+}
+
+int main() {
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), std::vector<float>{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    // Add more test cases if needed
 }
