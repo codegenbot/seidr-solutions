@@ -1,4 +1,3 @@
-```
 def substitution_cipher(cipher1, cipher2, message):
     cipher = {}
     for i in range(min(len(cipher1), len(cipher2))):
@@ -15,9 +14,3 @@ def substitution_cipher(cipher1, cipher2, message):
         else:
             result += char
     return result
-
-cipher1 = "nqrodebmuphigfxvzats"
-cipher2 = "iqohrkazbuxtsnjfeplv"
-message = "btprixgudrxhmmrzemprfs"
-
-print(substitution_cipher(cipher1, cipher2, message))
