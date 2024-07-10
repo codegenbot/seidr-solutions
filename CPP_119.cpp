@@ -1,3 +1,5 @@
+Here is the completed code:
+
 string match_parens(vector<string> lst) {
     int open = 0, close = 0;
     for (const string& s : lst) {
@@ -6,5 +8,5 @@ string match_parens(vector<string> lst) {
             else close++;
         }
     }
-    return open == close ? "Yes" : "No";
+    return (open == close) ? "Yes" : "No";
 }
