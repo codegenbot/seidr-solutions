@@ -1,11 +1,17 @@
-def solve_boolean(expression):
-    if expression == 'T':
+Here is the solution:
+
+def solve_boolean(s):
+    if s == 'T':
         return True
-    elif expression == 'F':
+    elif s == 'F':
         return False
-    elif '&' in expression and '|' in expression:
+    elif '&' in s and '|' in s:
         raise ValueError("Invalid expression")
+    elif '&' in s:
+        left, right = s.split('&')
+        return not (bool(left) and bool(right))
+    elif '|' in s:
+        left, right = s.split('|')
+        return bool(left) or bool(right)
     else:
-        ops = {'&': lambda x, y: x and y,
-               '|': lambda x, y: x or y}
-        return eval(' '.join(map(str, [ops[op](x, y) if op in expression else x for x, op, y in zip(expression[::2], expression[1::3], expression[2::4])]))
+        raise ValueError("Invalid expression")
