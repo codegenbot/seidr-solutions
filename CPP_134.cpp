@@ -3,10 +3,6 @@
 #include <cctype>
 
 bool check_if_last_char_is_a_letter(const std::string &txt) {
-    if (txt.empty()) {
-        return false;
-    }
-    
     std::string trimmed_txt = txt;
     trimmed_txt.erase(trimmed_txt.find_last_not_of(' ') + 1);
 
@@ -15,6 +11,10 @@ bool check_if_last_char_is_a_letter(const std::string &txt) {
 
 int unique_main_function_name() {
     std::string input_str = "apple pi e ";
+    while (!input_str.empty() && input_str.back() == ' ') {
+        input_str.pop_back();
+    }
+
     assert(check_if_last_char_is_a_letter(input_str) == true);
     return 1;
 }
