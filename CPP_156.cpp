@@ -1,8 +1,12 @@
 ```cpp
+#ifndef __cplusplus
+#define __cplusplus 201703L // C++17
+#endif
+
 #include <string>
 #include <iostream>
 
-const char* miniRoman(int num) {
+std::string miniRoman(int num) {
     if (num == 9)
         return "IX";
     if (num >= 4) {
@@ -11,15 +15,15 @@ const char* miniRoman(int num) {
         else
             return "IV";
     } else {
-        return std::string(num, 'I').c_str();
+        return std::string(num, 'I');
     }
 }
 
-const char* int_to_roman(int num) {
+std::string int_to_roman(int num) {
     if (num > 3999) {
         return "Out of range";
     }
-    const char* roman;
+    std::string roman;
     int thousands = num / 1000;
     for (int i = 0; i < thousands; i++) {
         roman += "M";
@@ -27,7 +31,7 @@ const char* int_to_roman(int num) {
     num %= 1000;
     int hundreds = num / 100;
     if (hundreds > 3) {
-        roman += "CM" + std::string(miniRoman(num - 300)).c_str();
+        roman += "CM" + miniRoman(num - 300);
     } else {
         for (int i = 0; i < hundreds; i++) {
             roman += "C";
@@ -38,7 +42,7 @@ const char* int_to_roman(int num) {
     if (tens == 9) {
         roman += "IX";
     } else if (tens > 5) {
-        roman += "D" + std::string(miniRoman(num - 50)).c_str();
+        roman += "D" + miniRoman(num - 50);
     } else {
         for (int i = 0; i < tens; i++) {
             roman += "X";
@@ -48,7 +52,7 @@ const char* int_to_roman(int num) {
     if (num == 9) {
         roman += "IX";
     } else if (num > 3) {
-        roman += "IV" + std::string(miniRoman(num - 4)).c_str();
+        roman += "IV" + miniRoman(num - 4);
     } else {
         for (int i = 0; i < num; i++) {
             roman += "I";
