@@ -23,8 +23,8 @@ vector<int> get_odd_collatz(int n) {
 
 int main() {
     cout << "The Collatz Conjecture sequence for 123 is: ";
-    copy(get_odd_collatz(123).begin(), get_odd_collatz(123).end(),
-         ostream_iterator<int>(cout, " "));
+    copy(get_odd_collatz(123).begin(), get_odd_collatz(123).end(), 
+         ostream_iterator<int>(cout, " "), (void)0);
     cout << endl;
     return 0;
 }
