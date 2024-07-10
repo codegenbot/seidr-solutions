@@ -38,6 +38,6 @@ void runUserInput() {
     } 
 }
 
-void main() {
+int main() {
     runUserInput();
 }
