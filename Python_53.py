@@ -9,7 +9,7 @@ while True:
             try:
                 x = int(input("Enter first number: "))
                 y = int(input("Enter second number: "))
-                print("The sum is: ", x + y)
+                print("The sum is: ", add(x, y))
                 break
             except ValueError:
                 print("Invalid input. Please enter an integer.")
