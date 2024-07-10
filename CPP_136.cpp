@@ -1,22 +1,30 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst) {
     int max_negative = 0;
     int min_positive = INT_MAX;
 
-    for(int i : lst) {
-        if(i < 0 && i > max_negative) {
+    for (int i : lst) {
+        if (i < 0 && i > max_negative) {
             max_negative = i;
-        } else if(i > 0 && i < min_positive) {
+        } else if (i > 0 && i < min_positive) {
             min_positive = i;
         }
     }
 
-    return {std::max({(max_negative > 0 ? std::INT_MAX : max_negative), (min_positive < 1 ? std::INT_MIN : min_positive)}, 0)};
+    return {std::max({(max_negative > 0 ? INT_MAX : max_negative), 
+                      (min_positive < 1 ? INT_MIN : min_positive)}, 0)};
 }
