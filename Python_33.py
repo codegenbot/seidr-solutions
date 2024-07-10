@@ -1,10 +1,2 @@
-```
 def sort_third(l: list):
-    return [
-        x if isinstance(i, int) and i % 3 != 0 else sorted([x for x in l[:i] if x % 3 == 0])[-1]
-        if isinstance(i, int) else sum(sortedThird(int(i)))
-        for i in l
-    ]
-
-def sortedThird(x):
-    return [int(i) for i in str(x)]
+    return sorted([i for i in l if i % 3 != 0]) + [[x for x in [y[-1] for y in [l[i:i+int(len(l)/3)+1] if i%3==0]]][0]]
