@@ -1,3 +1,6 @@
 def max_fill(grid, capacity):
-    total_water = sum(map(sum, grid))
-    return math.ceil(total_water / capacity) * len(grid) if capacity != 0 else 0
+    wells_filled = 0
+    for row in grid:
+        water_level = sum(row)
+        wells_filled += math.ceil(water_level / capacity)
+    return wells_filled
