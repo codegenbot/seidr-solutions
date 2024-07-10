@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 bool has_close_elements(const std::vector<double>& numbers, double threshold) {
     for (int i = 0; i < numbers.size(); ++i) {
