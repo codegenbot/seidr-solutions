@@ -1,5 +1,4 @@
 #include <string>
-
 bool valid_date(const std::string& date) {
     if(date.empty()) return false;
     
@@ -20,8 +19,6 @@ bool valid_date(const std::string& date) {
 
     return true;
 }
-
-bool valid_date(const std::string& date);
 
 int main() {
     assert(valid_date("04-2003") == false);
