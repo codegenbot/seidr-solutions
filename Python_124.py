@@ -16,6 +16,17 @@ def valid_date(date):
         if int(dd) < 1 or int(dd) > 30:
             return False
     elif int(mm) == 2:
-        if int(dd) < 1 or int(dd) > 29:
+        if not (is_leap_year(int(yyyy)) and int(dd) <= 29 or 
+                not is_leap_year(int(yyyy)) and int(dd) <= 28):
             return False
     return True
+
+def is_leap_year(year):
+    if year % 4 != 0:
+        return False
+    elif year % 100 != 0:
+        return True
+    elif year % 400 != 0:
+        return False
+    else:
+        return True
