@@ -1,15 +1,18 @@
+```cpp
+#include <cassert>
 #include <vector>
 #include <string>
-#include <cassert>
 
-std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
-    int oddCount = 0;
-    for (int num : lst1) {
-        if (num % 2 != 0) {
-            oddCount++;
+std::string exchange(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return "NO";
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] > b[i]) {
+            return "YES";
         }
     }
-    return oddCount == 0 ? "YES" : "NO";
+    return "NO";
 }
 
 int main() {
