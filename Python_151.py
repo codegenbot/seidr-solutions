@@ -3,8 +3,5 @@ def double_the_difference(lst):
     return odd_sum * 2
 
 lst = list(map(int, input("Enter a list of integers separated by space: ").split()))
-if not lst:
-    print("No input provided.")
-else:
-    result = double_the_difference(lst)
-    print(result)
+result = double_the_difference(lst)
+print(result)
