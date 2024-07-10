@@ -1,4 +1,3 @@
-```
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -21,5 +20,3 @@ target = input("Enter the target: ")
 
 print(gcd(a, b))
 print(indices_of_substring(text, target))
-
-print()
