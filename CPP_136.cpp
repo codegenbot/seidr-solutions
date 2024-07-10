@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <cassert>
 
-bool std::vector<int> issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -17,4 +16,24 @@ std::vector<int> largest_smallest_integers(const std::vector<int>& lst) {
         }
     }
     return {largest_negative, smallest_positive};
+}
+
+int main() {
+    std::vector<int> input;
+    int numElements;
+    std::cin >> numElements;
+    for (int i = 0; i < numElements; ++i) {
+        int num;
+        std::cin >> num;
+        input.push_back(num);
+    }
+
+    std::vector<int> result = largest_smallest_integers(input);
+    if (issame(result, {-3, 1})) {
+        std::cout << "The output is correct." << std::endl;
+    } else {
+        std::cout << "The output is incorrect." << std::endl;
+    }
+
+    return 0;
 }
