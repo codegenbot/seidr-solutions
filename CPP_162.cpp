@@ -9,7 +9,7 @@ string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char md5[MD5_DIGEST_LENGTH];
-    unsigned char *md5_ptr = md5;
+    unsigned char *md5_ptr = md5; 
 
     MD5((const unsigned char*)text.c_str(), text.length(), &md5_ptr);
 
