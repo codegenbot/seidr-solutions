@@ -15,11 +15,10 @@ if __name__ == "__main__":
     while True:
         try:
             n = int(input("Enter a number: "))
-            if n > 0:
-                result = factorize(n)
-                print(result)
-                break
-            else:
-                print("Please enter a positive integer.")
+            if n <= 0:
+                raise ValueError
+            result = factorize(n)
+            print(result)
+            break
         except ValueError:
-            print("Invalid input. Please enter a positive integer.")
+            print("Please enter a valid positive integer.")
