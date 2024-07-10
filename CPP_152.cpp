@@ -1,6 +1,5 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool std::issame(std::vector<int> game, std::vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {
@@ -24,35 +23,37 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    int n, m;
+    std::cin >> n >> m;
 
     std::vector<int> game(n);
-    std::cout << "Enter the game numbers: ";
     for (int i = 0; i < n; i++) {
         std::cin >> game[i];
     }
 
-    std::vector<int> guess(n);
-    std::cout << "Enter your guess: ";
-    for (int i = 0; i < n; i++) {
+    std::vector<int> guess(m);
+    for (int i = 0; i < m; i++) {
         std::cin >> guess[i];
     }
 
-    if (std::issame(game, guess)) {
-        std::cout << "Congratulations! You guessed correctly." << std::endl;
+    if (!std::issame(game, guess)) {
+        std::cout << "The game is not over.\n";
     } else {
-        std::vector<int> result = compare(game, guess);
-        std::cout << "Incorrect. The correct numbers are: ";
-        for (int i = 0; i < n; i++) {
-            if (result[i] == 0) {
-                std::cout << game[i] << " ";
+        std::cout << "The game is over.\n";
+
+        for (int i = 0; i < game.size(); i++) {
+            if (game[i] == guess[i]) {
+                std::cout << "Correct number: ";
+                std::cout << game[i];
+                std::cout << "\n";
             } else {
-                std::cout << abs(game[i] - guess[i]) << " ";
+                std::cout << "Incorrect number.\n";
+
+                if (abs(game[i] - guess[i]) < 10) {
+                    std::cout << "Too close, try again.\n";
+                }
             }
         }
-        std::cout << std::endl;
     }
 
     return 0;
