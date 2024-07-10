@@ -1,13 +1,15 @@
-def main():
-    try:
-        n = int(input("Enter the value of n: "))
-        if n > 0:
-            result = prime_fib(n)
-            print(result)
-        else:
-            print("The input value should be greater than 0.")
-    except ValueError:
-        print("Invalid input. Please enter a valid integer.")
+def prime_fib(n):
+    fib_sequence = [0, 1]
+    while len(fib_sequence) < n:
+        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
 
+    def is_prime(num):
+        if num < 2:
+            return False
+        for i in range(2, int(num ** 0.5) + 1):
+            if num % i == 0:
+                return False
+        return True
 
-main()
+    prime_fib_list = [num for num in fib_sequence if is_prime(num)]
+    return prime_fib_list
