@@ -1,14 +1,15 @@
-#include <iostream>
+```cpp
 #include <vector>
-#include <string>
 #include <algorithm>
 
-using namespace std;
+bool issame(vector<string> a, vector<string> b) {
+    return (a == b);
+}
 
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
+vector<pair<string, string>> reverse_delete(string s, string c) {
+    vector<pair<string, string>> result;
     
-    // Remove characters from s that are equal to any character in c
+    // Remove characters in s that are equal to any character in c
     string temp = "";
     for (char ch : s) {
         bool found = false;
@@ -23,25 +24,11 @@ vector<string> reverse_delete(string s, string c) {
     }
     
     // Check if the result string is palindrome
-    string str1 = temp;
-    reverse(str1.begin(), str1.end());
-    bool check = str1 == temp;
+    string str = temp;
+    reverse(str.begin(), str.end());
+    bool check = (str == temp);
     
-    // Add the result string and "True"/"False" to the vector
-    result.push_back(temp);
-    result.push_back(check ? "True" : "False");
+    result.push_back({temp, (check ? "True" : "False")});
     
     return result;
 }
-
-int main() {
-    string s, c;
-    cout << "Enter the first string: ";
-    cin >> s;
-    cout << "Enter the second string: ";
-    cin >> c;
-    vector<string> res = reverse_delete(s, c);
-    cout << "Result string: " << res[0] << endl;
-    cout << "Is palindrome? " << res[1] << endl;
-
-    return 0;
