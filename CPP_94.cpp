@@ -11,7 +11,11 @@ int skjkasdkd(const std::vector<int>& vec) {
 }
 
 int main() {
-    std::vector<int> lst({127, 97, 8192}); 
+    std::vector<int> lst;
+    int num;
+    while(std::cin >> num) {
+        lst.push_back(num);
+    }
     int result = skjkasdkd(lst); 
     std::cout << "The sum is: " << result << std::endl; 
     return 0;
