@@ -2,18 +2,9 @@
 #include <cassert>
 
 namespace contest {
+
     bool issame(std::vector<int> a, std::vector<int> b) {
-        if (a.size() != b.size()) {
-            return false;
-        }
-        
-        for (size_t i = 0; i < a.size(); ++i) {
-            if (a[i] != b[i]) {
-                return false;
-            }
-        }
-        
-        return true;
+        return a == b;
     }
 
     std::vector<int> even_odd_palindrome(int n) {
@@ -31,8 +22,8 @@ namespace contest {
     }
 }
 
-int main_contest() {
-    assert(contest::issame(contest::even_odd_palindrome(1), {1, 1, 1}));
+int main() {
+    assert(contest::issame(contest::even_odd_palindrome(1), {1, 1}));
     assert(contest::issame(contest::even_odd_palindrome(3), {3, 2, 1, 1, 2, 3, 3}));
     
     return 0;
