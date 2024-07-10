@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -18,8 +17,8 @@ def factorize(n: int) -> List[int]:
 
 def check(factorized_num):
     for i in range(2, factorized_num + 1):
-        if all(x not in factorize(i) for x in factorize(factorized_num) if x != i):
-            return str(factorized_num)
+        if all(x not in factorize(i) or x == i for x in factorized_num):
+            return str(i)
 
 
 def main():
