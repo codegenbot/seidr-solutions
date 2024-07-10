@@ -1,6 +1,3 @@
-````
-#include <string>
-#include <openssl/md5.h>
 #include <iomanip>
 #include <sstream>
 
@@ -27,4 +24,3 @@ string string_to_md5(string text) {
     }
     return str;
 }
-```
