@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -11,15 +10,10 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     else:
         return abs(numbers[0] - mean)
 
-numbers = []
-while True:
-    try:
-        num = float(input("Enter a number (or 'q' to quit): "))
-        if num == 'q':
-            break
-        numbers.append(num)
-    except ValueError:
-        print("Invalid input. Please enter a valid number.")
 
-result = mean_absolute_deviation(numbers)
-print(f"Mean absolute deviation: {result}")
+user_input = input("Enter numbers separated by space: ")
+try:
+    numbers = list(map(float, user_input.split()))
+except ValueError:
+    print("Invalid input. Please enter valid numbers.")
+    numbers = []
