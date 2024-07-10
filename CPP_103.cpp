@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
-#include <cmath>
-#include <algorithm>
+#include <cmath> // for floor
+#include <algorithm> // for reverse
+
 using namespace std;
 
 string rounded_avg(int n,int m){
@@ -18,9 +19,8 @@ string rounded_avg(int n,int m){
     }
     reverse(res.begin(), res.end());
     return res;
+
 }
 
-int main() {
-    cout << rounded_avg(5, 5) << endl;
-    return 0;
-}
+cout << rounded_avg(5, 5) << endl;
+return 0;
