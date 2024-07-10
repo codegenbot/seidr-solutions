@@ -1,6 +1,5 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    char lastChar = txt.back();
-    bool isLastCharALetter = isalpha(lastChar);
-    return !isLastCharALetter || (txt.find(lastChar) == string::npos);
-}
+string txt;
+cin >> txt;
+
+bool result = (txt.length() > 0) && (isalpha(txt.back())) && (!any_of(txt.rbegin(), txt.rend(), ::isspace));
+return result;
