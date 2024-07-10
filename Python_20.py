@@ -1,7 +1,6 @@
-from typing import Tuple
+Here is the modified code:
 
 print("Enter space-separated numbers: ")
-
 
 def find_closest_elements() -> Tuple[float, float]:
     while True:
@@ -21,6 +20,5 @@ def find_closest_elements() -> Tuple[float, float]:
 
         except ValueError:
             print("Invalid input. Please enter valid decimal or integer values.")
-
 
 print(find_closest_elements())
