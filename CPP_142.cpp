@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 #include <iostream>
 
@@ -12,8 +13,6 @@ int sum_squares(int n) {
 int main() {
     int n;
     std::cin >> n;
-    int result = sum_squares(n);
-    assert(result == -1448);  
-    std::cout << result << std::endl;
+    std::cout << sum_squares(n) << std::endl;
     return 0;
 }
