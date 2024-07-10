@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-void bf(string n) {
+void bfs(string n) {
     if (n.empty())
         cout << "Error: Input string is empty." << endl;
     else
@@ -13,6 +13,6 @@ int main() {
     int num;
     cin >> num;
     string s = to_string(num);
-    bf(s);  
+    bfs(s);  
     return 0;
 }
