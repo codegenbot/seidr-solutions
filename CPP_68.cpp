@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -37,13 +36,14 @@ void testMain() {
 
     }
 
-    if (issame(pluck(v1), pluck(v2)))  
+    if (issame(v1, pluck({7,9,7,1})))  
         cout << "Arrays are same" << endl;
     else   
         cout << "Arrays are not same" << endl;
 
 }
 
-void main() {
+int main() {
     testMain();
+    return 0;
 }
