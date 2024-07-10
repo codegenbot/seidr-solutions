@@ -1,9 +1,8 @@
-double num = stod(value);
-    int closestInt = round(num);
-    if (num - closestInt == 0.5) {
-        closestInt = ceil(num);
-    } else if (num - closestInt == -0.5) {
-        closestInt = floor(num);
+float num = stof(value);
+    int intNum = round(num);
+    if (num - intNum > 0) {
+        return ceil(num);
+    } else {
+        return floor(num);
     }
-    return closestInt;
 }
