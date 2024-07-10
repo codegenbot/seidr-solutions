@@ -1,40 +1,22 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
-}
-
-vector<int> unique_digits(vector<int> x){
-    vector<int> result;
-    for (int num : x) {
-        int temp = num;
-        bool hasEvenDigit = false;
-        while (temp > 0) {
-            if (temp % 2 == 0) {
-                hasEvenDigit = true;
-                break;
-            }
-            temp /= 10;
-        }
-        if (!hasEvenDigit) {
-            result.push_back(num);
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    sort(result.begin(), result.end());
-    return result;
+    return true;
 }
 
 int main() {
-    vector<int> input = {123, 456, 789, 135, 246};
+    vector<int> input = {123, 456, 789, 246, 135};
     vector<int> expected_output = {123, 135, 789};
+
     vector<int> result = unique_digits(input);
+
     assert(issame(result, expected_output));
+
     return 0;
 }
