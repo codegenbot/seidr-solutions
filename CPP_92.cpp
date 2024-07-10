@@ -1,6 +1,6 @@
 bool isValidTriangle(double a, double b, double c) {
-    if(a + b > c && a + c > b && b + c > a)
-        return true;
-    else
+    if((int)a >= b + c || (int)b >= a + c || (int)c >= a + b)
         return false;
+    else
+        return true;
 }
