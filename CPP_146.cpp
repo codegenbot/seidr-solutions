@@ -1,4 +1,8 @@
-int specialFilter(const vector<int>& nums) {
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int specialFilter(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num > 10) {
@@ -9,4 +13,18 @@ int specialFilter(const vector<int>& nums) {
         }
     }
     return count;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+
+    cout << specialFilter(nums) << endl;
+
+    return 0;
 }
