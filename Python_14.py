@@ -1,3 +1,4 @@
+```Python
 from typing import List
 
 def all_prefixes() -> List[str]:
@@ -7,3 +8,7 @@ def all_prefixes() -> List[str]:
         return [""]
     else:
         return [s[:i+1] for i in range(len(s)+1)]
+
+if __name__ == "__main__":
+    result = all_prefixes()
+    print(result)
