@@ -1,16 +1,15 @@
 ```
 def minPath(grid, k):
     N = len(grid)
-    def dfs(i, j, path):
+
+    def dfs(i, j, path, total):
         if len(path) == k:
-            return sum(path)
-        if i < 0 or i >= N or j < 0 or j >= N:
-            return float('inf')
-        res = float('inf')
-        for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            return [total]
+        res = []
+        for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             ni, nj = i + x, j + y
             if 0 <= ni < N and 0 <= nj < N:
-                res = min(res, grid[ni][nj] + dfs(ni, nj, path + [grid[ni][nj]]))
+                res += dfs(ni, nj, path + [grid[ni][nj]], total + grid[ni][nj])
         return res
-    
-    return min(dfs(i, j, [grid[i][j]]) for i in range(N) for j in range(N))
+
+    return min(set(map(sum, dfs(i, j, [grid[i][j]], grid[i][j]))) for i in range(N) for j in range(N))
