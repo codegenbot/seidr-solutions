@@ -1,19 +1,7 @@
-bool is_sorted(vector<int> lst){
-    for(int i=1; i<lst.size(); i++){
-        if(lst[i-1] >= lst[i]){
-            return false;
-        }
-        int count = 0;
-        for(int j=i; j<lst.size(); j++){
-            if(lst[j] == lst[i]){
-                count++;
-                if(count > 1){
-                    return false;
-                }
-            }else{
-                break;
-            }
-        }
+bool is_sorted(vector<int> lst) {
+    for(int i = 0; i < lst.size() - 1; i++) {
+        if(lst[i] >= lst[i + 1]) return false;
     }
-    return true;
+    auto last = unique(lst.begin(), lst.end());
+    return std::all_of(lst.begin(), last, [&](int x) {return std::count(lst.begin(), last, x) == 1;});
 }
