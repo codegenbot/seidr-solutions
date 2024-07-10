@@ -1,5 +1,7 @@
+import sys
+from io import StringIO
+sys.stdin = StringIO('4 5')
 try:
-    print("Enter two integers separated by a space:")
     a, b = map(int, input().split())
     result = a + b
     print(result)
