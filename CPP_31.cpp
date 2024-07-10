@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 bool is_prime(int n) {
     if (n <= 1) return false;
@@ -11,13 +12,12 @@ bool is_prime(int n) {
 }
 
 int main() {
-    int number;
-    std::cin >> number;
-    if (is_prime(number)) {
-        std::cout << "Prime\n";
+    int n;
+    std::cin >> n;
+    if (is_prime(n)) {
+        std::cout << "Prime" << std::endl;
     } else {
-        std::cout << "Not Prime\n";
+        std::cout << "Not Prime" << std::endl;
     }
-
     return 0;
 }
