@@ -1,12 +1,10 @@
 #include <vector>
 
-vector<bool> get_positive(vector<float> l){
-    vector<bool> result;
+vector<float> get_positive(vector<float> l){
+    vector<float> result;
     for(float num : l) {
         if(num > 0)
-            result.push_back(true);
-        else
-            result.push_back(false);
+            result.push_back(num);
     }
     return result;
 }
