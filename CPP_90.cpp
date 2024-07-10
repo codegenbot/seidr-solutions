@@ -7,3 +7,4 @@ vector<int> next_smallest(vector<int> lst) {
         }
     }
     return vector<int>();
+}
