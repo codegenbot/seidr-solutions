@@ -1,16 +1,22 @@
-```
 def match_parens(lst):
-    stack = []
     for s in lst:
+        if len(s) < 2:
+            continue
+        starts_with_paren = s[0] == '('
+        ends_with_paren = s[-1] == ')'
+        if not (starts_with_paren or ends_with_paren):
+            continue
+        count = 0
         for c in s:
             if c == '(':
-                stack.append(c)
+                count += 1
             elif c == ')':
-                if len(stack) == 0:
-                    return 'No'
+                if count == 0:
+                    return "No"
                 else:
-                    stack.pop()
-    if len(stack) == 0:
-        return 'Yes'
-    else:
-        return 'No'
+                    count -= 1
+        if count > 0:
+            return "No"
+    return "Yes"
+
+print(match_parens(['(())', '(())()']))
