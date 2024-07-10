@@ -1,5 +1,4 @@
 #include <string>
-
 bool is_nested(std::string str) {
     int open = 0, close = 0;
     for (char c : str) {
@@ -10,3 +9,4 @@ bool is_nested(std::string str) {
         }
     }
     return open != 0;
+}
