@@ -1,11 +1,10 @@
-```cpp
 #include <iostream>
 #include <string>
 
 int bowlingScore(const std::string& input) {
     int score = 0;
     int rollCount = 0;
-    for (auto& c : input) {
+    for (char c : input) {
         if (c == '/') {
             if (rollCount > 1)
                 score += 10 + rollCount - 2;
