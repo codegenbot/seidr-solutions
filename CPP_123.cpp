@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
@@ -18,17 +12,4 @@ vector<int> get_odd_collatz(int n) {
     }
     sort(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
-    vector<int> result = get_odd_collatz(n);
-    cout << "The sorted vector of odd numbers in Collatz sequence is: ";
-    for (int num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
-    return 0;
 }
