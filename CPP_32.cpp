@@ -16,11 +16,6 @@ double find_zero(vector<double> coeffs) {
     return -1.0;
 }
 
-double mainLikeFunction(vector<double> coeffs, double x) {
-    cout << "The zero of the polynomial is: " << x << endl;
-    return 0.0;
-}
-
 double poly(vector<double> coeffs, double x) {
     double result = 0.0;
     for (int i = 0; i < coeffs.size(); i++) {
@@ -39,6 +34,6 @@ int main() {
         cin >> coeffs[i];
     }
     double x = find_zero(coeffs);
-    mainLikeFunction(coeffs, x);
+    cout << "The zero of the polynomial is: " << x << endl;
     return 0;
 }
