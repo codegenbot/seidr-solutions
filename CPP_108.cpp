@@ -16,17 +16,15 @@ int count_nums(std::vector<int> nums) {
                 count++;
             }
         } else {
-            if(std::abs(num) < std::numeric_limits<int>::max() / 9) {
-                int absNum = std::abs(num);
-                sum = 0;
-                while (absNum > 0) {
-                    sum += absNum % 10;
-                    absNum /= 10;
-                }
-                if (sum > 0) {
-                    count++;
-                }
-            } else {
+            long long absNum = std::abs(num);
+            int sum = 0;
+            while (absNum > 0) {
+                sum += absNum % 10;
+                absNum /= 10;
+            }
+            if (sum > 0) {
+                count++;
+            } else if(std::abs(num) >= std::numeric_limits<long long>::max() / 9){
                 break; 
             }
         }
@@ -45,10 +43,10 @@ int main() {
         while(std::cin.peek() == ' ') { 
             std::cin.get();
         }
-        if(num == 0) { 
-            break; 
-        } else {
+        if(num != 0) { 
             nums.push_back(num); 
+        } else {
+            break; 
         }
     }
     if (!nums.empty()) {  

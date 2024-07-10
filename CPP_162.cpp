@@ -1,7 +1,8 @@
+#include <iostream>
 #include <string>
-#include <openssl/ssl.h>
-#include <openssl/evp.h>
-#include <openssl/errqueue.h>
+#include <iomanip>
+#include <sstream>
+#include <openssl/md5.h>
 
 using namespace std;
 
@@ -14,9 +15,9 @@ string string_to_md5(string text) {
 
     string result;
     for (int i = 0; i < 16; ++i) {
-        char buffer[3];
-        sprintf(buffer, "%02x", md[i]);
-        result += string(buffer);
+        ostringstream oss;
+        oss << hex << setfill('0') << setw(2) << static_cast<int>(md[i]);
+        result += oss.str();
     }
 
     return result;
