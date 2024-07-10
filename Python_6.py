@@ -1,4 +1,8 @@
-```
+Here is the corrected code:
+
+```python
+from typing import List
+
 def parse_nested_parens(paren_string: str) -> List[int]:
     if not paren_string:
         return []
@@ -18,9 +22,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 if not current_group:
                     continue
                 while current_group and current_group[0] == '(':
-                    group_value = int(current_group[1:-1])
-                    result.append(group_value)
+                    result.append(int(current_group[1:-1]))
                     current_group = current_group[1:-1]
-        elif char.isdigit():
-            current_group += char
     return [int(x) for x in current_group.replace('(','-').replace(')', '').split(',')] + result
