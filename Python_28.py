@@ -1,12 +1,6 @@
 from typing import List
 
-def concatenate():
-    strings = []
-    while True:
-        s = input("Enter a string (or 'stop' to finish): ")
-        if s.lower() == 'stop':
-            break
-        strings.append(s)
-    return ''.join(strings)
-
-print(concatenate())
+def concatenate(strings: List[str]) -> str:
+    input_str = input("Enter strings (comma separated): ")
+    strings = [s.strip() for s in input_str.split(',')]
+    return ', '.join(strings)
