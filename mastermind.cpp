@@ -1,4 +1,3 @@
-```cpp
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
@@ -6,17 +5,18 @@ int mastermind(string code, string guess) {
     for(int i=0; i<4; i++) {
         if(code[i] == guess[i]) {
             black++;
+            code.erase(i, 1);
+            guess.erase(i, 1);
         }
     }
 
-    for(int i=0; i<6; i++) {
+    for(char c : guess) {
         int count = 0;
-        for(int j=0; j<4; j++) {
-            if(guess[j] == (char)(i+65) && std::count(code.begin(), code.end(), (char)(i+65)) > 0) {
-                count++;
-            }
+        while(find(code.begin(), code.end(), c) != code.end()) {
+            count++;
+            code.erase(distance(code.begin(), find(code.begin(), code.end(), c)), 1);
         }
-        white += min(count, black);
+        white += count;
     }
 
     return black + (4 - black);
