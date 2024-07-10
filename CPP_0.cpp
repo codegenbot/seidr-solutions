@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,15 +13,17 @@ bool has_close_elements(vector<float> a, float threshold) {
 
 int main() {
     vector<float> a;
+    allocator<float> alloc;
+    a.assign(alloc);
     float threshold;
 
     cout << "Enter the elements of the vector (space-separated, type 'stop' when done): ";
-    string s;
+    string input;
+    float x;
     while (true) { 
-        cin >> s; 
-        if(s == "stop") break;
-        float x = stof(s); // Convert string to float and store in x
-        a.push_back(x);
+        cin >> input; 
+        if(input == "stop") break;
+        a.push_back(stof(input)); // convert string to float
         cin >> std::ws; // Add this line to ignore whitespace characters
     } 
 
