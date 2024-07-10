@@ -1,5 +1,10 @@
 ```cpp
+#ifdef __cpp_lib_initializer_list
+#include <initializer_list>
+#endif
+
 #include <vector>
+
 #include <algorithm>
 
 bool issame(std::vector<int> game, std::vector<int> guess) {
