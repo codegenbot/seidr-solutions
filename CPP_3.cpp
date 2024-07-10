@@ -1,6 +1,9 @@
-for (int op : operations) {
-    if (op < 0) {
-        return true;
+int balance = 0;
+    for (int op : operations) {
+        balance += op;
+        if (balance < 0) {
+            return true;
+        }
     }
+    return false;
 }
-return false;
