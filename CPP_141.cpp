@@ -4,7 +4,7 @@
 int countDigits(std::string s) {
     int count = 0;
     for (char c : s) {
-        if (isdigit(c)) {
+        if (std::isdigit(c)) {
             count++;
         }
     }
@@ -24,7 +24,7 @@ std::string file_name_check(std::string file_name){
         return "No";
     }
 
-    if (!isalpha(nameBeforeDot[0])) {
+    if (!std::isalpha(nameBeforeDot[0])) {
         return "No";
     }
 
