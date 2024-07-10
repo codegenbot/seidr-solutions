@@ -1,7 +1,9 @@
 ```
 def double_the_difference(lst):
-    lst.sort()
-    return (lst[-1] - lst[0]) * 2
+    result = []
+    for i in range(1, len(lst)):
+        result.append((lst[i] - lst[i-1]) * 2)
+    return result
 
 
 def check(lst, func):
