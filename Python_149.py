@@ -1,5 +1,5 @@
 ```
-if __name__ == "__main__":
+def main():
     print("Welcome to the word length calculator!")
     while True:
         try:
@@ -47,5 +47,11 @@ if __name__ == "__main__":
                     except ValueError:
                         print("Invalid input. Please enter a number or 'q'.")
 
+        except Exception as e:
+            print(f"Error: {str(e)}")
 
-   
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as e:
+        print(f"Error: {str(e)}")
