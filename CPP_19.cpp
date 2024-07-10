@@ -11,27 +11,31 @@ map<string, int> numMap = {
     {"nine", 9}
 };
 
-vector<pair<string, int>> numVec;
-
-string currentNumber = "";
-for (char c : numbers) {
-    if (c == ' ') {
-        numVec.push_back({currentNumber, numMap[currentNumber]});
-        currentNumber = "";
-    } else {
-        currentNumber += c;
+string sort_numbers(string numbers){
+    map<int, string> revNumMap;
+    for(auto it : numMap){
+        revNumMap[it.second] = it.first;
     }
-}
-numVec.push_back({currentNumber, numMap[currentNumber}};
 
-sort(numVec.begin(), numVec.end(), [](const pair<string, int>& a, const pair<string, int>& b) {
-    return a.second < b.second;
-});
+    vector<int> nums;
+    string num;
+    for(char c : numbers){
+        if(c == ' '){
+            nums.push_back(numMap[num]);
+            num = "";
+        } else {
+            num += c;
+        }
+    }
+    nums.push_back(numMap[num]);
 
-string result = "";
-for (const auto& num : numVec) {
-    result += num.first + " ";
-}
+    sort(nums.begin(), nums.end());
 
-return result.substr(0, result.size() - 1);
+    string result = "";
+    for(int n : nums){
+        result += revNumMap[n] + " ";
+    }
+
+    result.pop_back(); // Remove extra space at the end
+    return result;
 }
