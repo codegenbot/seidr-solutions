@@ -1,10 +1,10 @@
-```
 def mastermind(code, guess):
     black = 0
-    white = 0
-    for char in set(code):
-        if code.count(char) == guess.count(char):
-            black += code.count(char)
-        elif code.count(char) > 0:
-            white += min(code.count(char), guess.count(char))
-    return str(black) + "\n" + str(white)
+    white = [min(code.count(char), guess.count(char)) for char in set(guess)]
+    for i in range(4):
+        if code[i] == guess[i]:
+            black += 1
+        else:
+            white[code.find(guess[i])] -= 1
+
+    return str(black) + "\n" + " ".join(map(str, white))
