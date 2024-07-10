@@ -38,7 +38,8 @@ int main() {
         }
     }
 
-    if (!issame(all_prefixes("WWW"))) {
+    std::vector<std::string> result = all_prefixes("WWW");
+    if (!issame(result)) {
         std::cout << "The prefixes are not the same." << std::endl;
     } else {
         std::cout << "The prefixes are the same." << std::endl;
