@@ -24,10 +24,12 @@ int main() {
         cents -= 5;
     }
 
+    int p = cents; // calculate the number of pennies
+
     cout << q << endl;
     cout << d << endl;
     cout << n << endl;
-    cout << cents << endl;
+    cout << p << endl;
 
     return 0;
 }
