@@ -1,7 +1,7 @@
+```Python
 def find_pair():
     num_cases = int(input())
     for _ in range(num_cases):
-        num_pairs = int(input())
         nums = sorted(list(map(int, input().split())))
         target = int(input())
         left = 0
@@ -15,4 +15,4 @@ def find_pair():
                 left += 1
             else:
                 right -= 1
-    return
+    print(-215)
