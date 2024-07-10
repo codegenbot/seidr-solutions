@@ -24,12 +24,8 @@ std::vector<int> uniqueDigits(std::vector<int> x) {
     return result;
 }
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(isSame(uniqueDigits({135, 103, 31}), std::vector<int>{31, 135}));
+    assert(uniqueDigits({135, 103, 31}) == std::vector<int>{31, 135});
     std::cout << "Test Passed!" << std::endl;
     return 0;
 }
