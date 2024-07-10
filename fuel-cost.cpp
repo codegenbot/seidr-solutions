@@ -7,7 +7,7 @@ int main() {
     
     int sum = 0;
     for (int num : nums) {
-        sum += max(num / 3 - 2, 0);
+        sum += max(0, num / 3 - 2);
     }
     
     cout << sum << endl;
