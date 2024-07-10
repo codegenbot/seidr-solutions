@@ -4,10 +4,10 @@
 
 int is_bored(std::string S){
     int count = 0;
-    std::string boredom = "I";
+    char boredom = 'I';
     size_t pos = 0;
     while ((pos = S.find(" ", pos)) != std::string::npos) {
-        if (S.substr(0, pos).compare("I") == 0) {
+        if (S.substr(0, pos).compare(std::string(boredom)) == 0) {
             count++;
             break;
         }
