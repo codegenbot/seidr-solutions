@@ -2,6 +2,10 @@
 #include <algorithm>
 
 bool triples_sum_to_zero(const std::vector<int>& nums) {
+    if (nums.size() < 3) {
+        return false;
+    }
+    
     std::vector<int> sorted_nums(nums);
     std::sort(sorted_nums.begin(), sorted_nums.end());
     

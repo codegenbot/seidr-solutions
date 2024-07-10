@@ -11,7 +11,7 @@ int largest_prime_factor(int n) {
         }
         factor++;
     }
-    if (n > largest_factor) {
+    if (n > 1 && n > largest_factor) {
         largest_factor = n;
     }
     return largest_factor;
