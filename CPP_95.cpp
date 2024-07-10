@@ -1,8 +1,9 @@
 #include <iostream>
-#include <cassert>
+#include <string>
 #include <unordered_map>
+using namespace std;
 
-bool check_dict_case(std::unordered_map<std::string, int> dict) {
+bool check_dict_case(const unordered_map<string, int>& dict) {
     if(dict.empty()) return false;
 
     bool lower = true, upper = true;
@@ -16,7 +17,5 @@ bool check_dict_case(std::unordered_map<std::string, int> dict) {
 }
 
 int main() {
-    assert (check_dict_case({}) == false);
-
-    return 0;
+    assert(check_dict_case({}) == false);
 }
