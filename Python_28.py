@@ -20,20 +20,17 @@ if __name__ == "__main__":
         except ValueError:
             print("Invalid input. Please enter a number.")
             continue
+        if not 0 < n:
+            print("Invalid input. Please enter a positive number.")
+            continue
         if n == 0:
             break
         strings = []
         for _ in range(n):
             while True:
                 user_input = input()
-                if user_input[0].isdigit():
-                    try:
-                        num = int(user_input)
-                        if num > 0:
-                            strings.append(user_input)
-                            break
-                    except ValueError:
-                        print("Invalid input. Please enter a positive number.")
+                if user_input.isdigit():
+                    print("Please provide a string instead of a number.")
                 else:
                     strings.append(user_input)
                     break
