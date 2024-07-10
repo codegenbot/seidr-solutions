@@ -1,3 +1,8 @@
+#include <vector>
+#include <iostream>
+#include <string>
+#include <cctype>
+
 std::string camelCase(const std::string& str) {
     std::vector<std::string> words;
     std::string word = "";
@@ -24,4 +29,12 @@ std::string camelCase(const std::string& str) {
             result += std::tolower(words[i][j]);
     }
     return result;
+}
+
+int main() {
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
+    }
+    return 0;
 }
