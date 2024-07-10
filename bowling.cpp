@@ -1,49 +1,40 @@
-int bowlingScore(string frames) {
+int bowlingScore(string s) {
     int score = 0;
-    int currentFrameRolls = 0;
-
-    for (int i = 0; i < frames.size(); ++i) {
-        if (frames[i] == 'X') { // strike
-            score += 10 + getExtraFrames(frames, i);
-            currentFrameRolls = 2;
-        } else if (frames[i] == '/') { // spare
-            score += 5 + getExtraFrames(frames, i+1);
-            currentFrameRolls = 2;
-        } else { // normal roll
-            int rollsThisFrame = frames[i] - '0';
-            score += rollsThisFrame;
-            currentFrameRolls++;
-            if (currentFrameRolls == 2) {
-                if (i + 2 < frames.size() && frames[i+1] != '/') {
-                    score += frames[i+1] - '0';
+    int currentFrame = 1;
+    for (char c : s) {
+        if (c == 'X') { // strike
+            score += 10 + nextTwoRolls(s, currentFrame);
+            currentFrame++;
+        } else if (c == '/') { // spare
+            score += 10 + rollAfterSpare(s, currentFrame);
+            currentFrame++;
+        } else {
+            int rolls = c - '0';
+            score += rolls;
+            currentFrame++;
+            if (currentFrame < 11) {
+                char nextC = s[s.length() - currentFrame * 2 - 1];
+                if (nextC == 'X') { // next frame is a strike
+                    score += 10 + rollAfterStrike(s, currentFrame);
+                    currentFrame++;
+                } else if (nextC == '/') { // next frame is a spare
+                    score += 10 + rollAfterSpare(s, currentFrame);
+                    currentFrame++;
                 }
             }
         }
     }
-
     return score;
 }
 
-int getExtraFrames(string frames, int start) {
-    int extraRolls = 0;
-    for (int i = start; i < frames.size(); ++i) {
-        if (frames[i] == 'X') { // strike
-            extraRolls += 10 + getExtraFrames(frames, i+1);
-            break;
-        } else if (frames[i] == '/') { // spare
-            extraRolls += 5 + getExtraFrames(frames, i+2);
-            break;
-        } else {
-            int rollsThisFrame = frames[i] - '0';
-            extraRolls += rollsThisFrame;
-            if (i+1 < frames.size() && frames[i+1] != '/') {
-                extraRolls++;
-            }
-            if (extraRolls >= 3) {
-                break;
-            }
-        }
-    }
+int nextTwoRolls(string s, int currentFrame) {
+    return (s[s.length() - currentFrame * 2] - '0') * 10 + (s[s.length() - currentFrame * 2 - 1] - '0');
+}
 
-    return extraRolls;
+int rollAfterSpare(string s, int currentFrame) {
+    return (s[s.length() - currentFrame * 2] - '0');
+}
+
+int rollAfterStrike(string s, int currentFrame) {
+    return (s[s.length() - currentFrame * 2] - '0') * 10 + (s[s.length() - currentFrame * 2 - 1] - '0');
 }
