@@ -1,38 +1,38 @@
-```cpp
 #include <vector>
 #include <string>
+#include <sstream>
+#include <initializer_list>
 
-bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
-    if (vec1.size() != vec2.size())
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size())
         return false;
     
-    for (int i = 0; i < vec1.size(); i++) {
-        if (std::string(vec1[i]) == "" || std::string(vec2[i]) == "") {
-            if ((vec1[i] != vec2[i]))
-                return false;
-        } else {
-            if (std::transform(vec1.begin(), vec1.end(), vec2.begin(),
-                               [](const auto& a, const auto& b) {
-                                   return a == b;
-                               }).all())
-                return true;
-            else
-                return false;
-        }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
     }
     
     return true;
 }
 
+bool compare(const std::vector<std::string>& words) {
+    std::vector<std::string> expected = {"ahmed", "gamal"};
+    return issame(words, expected);
+}
+
 int main() {
     std::vector<std::string> words_string;
-    std::cout << "Enter words (space separated): ";
-    std::string input;
-    getline(std::cin, input);
-    std::istringstream iss(input);
-    for (std::string s; iss >> s;) {
-        words_string.push_back(s);
+    std::string input_string;
+    std::cout << "Enter your string: ";
+    std::getline(std::cin, input_string);
+    std::stringstream ss(input_string);
+    std::string word;
+    while (std::getline(ss, word, ' ')) {
+        words_string.push_back(word);
     }
-    
-    assert(issame(words_string, words_string));
+    if (compare(words_string)) {
+        std::cout << "Strings are the same.\n";
+    } else {
+        std::cout << "Strings are not the same.\n";
+    }
 }
