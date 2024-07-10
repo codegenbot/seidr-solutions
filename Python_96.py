@@ -12,5 +12,5 @@ def count_up_to(n):
         if is_prime(i):
             result.append(i)
         else:
-            break
+            continue
     return result
