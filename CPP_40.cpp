@@ -1,14 +1,25 @@
 #include <vector>
+#include <algorithm>
 
 bool triples_sum_to_zero(const std::vector<int>& nums) {
+    std::vector<int> sorted_nums = nums;
+    std::sort(sorted_nums.begin(), sorted_nums.end());
+
     for (int i = 0; i < nums.size(); ++i) {
-        for (int j = i + 1; j < nums.size(); ++j) {
-            for (int k = j + 1; k < nums.size(); ++k) {
-                if (nums[i] + nums[j] + nums[k] == 0) {
-                    return true;
-                }
+        int left = i + 1;
+        int right = nums.size() - 1;
+
+        while (left < right) {
+            int sum = sorted_nums[i] + sorted_nums[left] + sorted_nums[right];
+            if (sum < 0) {
+                ++left;
+            } else if (sum > 0) {
+                --right;
+            } else {
+                return true;
             }
         }
     }
+    
     return false;
 }

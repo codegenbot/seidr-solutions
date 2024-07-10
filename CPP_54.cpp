@@ -2,6 +2,10 @@
 #include <string>
 
 bool same_chars(const std::string& s0, const std::string& s1) {
+    if (s0.size() != s1.size()) {
+        return false;
+    }
+
     std::string sorted_s0 = s0;
     std::sort(sorted_s0.begin(), sorted_s0.end());
 
