@@ -1,3 +1,4 @@
+```
 def cut_vector(vector):
     total_sum = sum(vector)
     left_sum = 0
@@ -14,7 +15,5 @@ def cut_vector(vector):
 
         if left_sum >= total_sum // 2:
             return vector[:split_indices[0]], vector[split_indices[-1]:]
-
-        left_sum += vector[i]
 
     return [''], vector
