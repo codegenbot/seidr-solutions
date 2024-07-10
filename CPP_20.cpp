@@ -1,18 +1,28 @@
 #include <algorithm>
 
-vector<float> find_closest_elements(vector<float> numbers) {
-    sort(numbers.begin(), numbers.end());
-    float min_diff = numeric_limits<float>::max();
-    pair<float, float> closest_pair;
-    
+vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
+    vector<pair<float, float>> result;
+    pair<float, float> closest = *min_element(numbers.begin(), numbers.end(),
+            [&numbers](float a, float b) -> bool {
+                float minDiff = numeric_limits<float>::max();
+                for (int i = 0; i < numbers.size() - 1; ++i) {
+                    if (abs(b - numbers[i]) < minDiff) {
+                        minDiff = abs(b - numbers[i]);
+                        pair<float, float> closestPair({numbers[i], b});
+                    }
+                    if (abs(a - numbers[i]) < minDiff) {
+                        minDiff = abs(a - numbers[i]);
+                        pair<float, float> closestPair({a, numbers[i]});
+                    }
+                }
+                return closestPair.first < closestPair.second;
+            });
+    result.push_back(closest);
     for (int i = 0; i < numbers.size() - 1; ++i) {
-        float diff = numbers[i + 1] - numbers[i];
-        if (diff < min_diff) {
-            min_diff = diff;
-            closest_pair.first = numbers[i];
-            closest_pair.second = numbers[i + 1];
+        if (closest == make_pair(numbers[i], numbers[i + 1])) {
+            pair<float, float> newClosest({numbers[i + 1], closest.second});
+            return vector<pair<float, float>>{{closest.first, closest.second}};
         }
     }
-    
-    return {closest_pair.first, closest_pair.second};
+    return vector<pair<float, float>>({closest});
 }
