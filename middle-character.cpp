@@ -1,4 +1,4 @@
-#include <string>
+#include <sstream>
 using namespace std;
 
 string middleCharacter(string s) {
