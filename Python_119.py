@@ -1,3 +1,1 @@
-n, *input_list = map(int, input().split())
-print(n)
-print(input_list)
+n, *input_list = map(int, input("Enter space-separated integers: ").split())
