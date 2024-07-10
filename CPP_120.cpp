@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 bool same(int a, int b) {
     if (a == b)
@@ -9,6 +8,9 @@ bool same(int a, int b) {
     else
         return false;
 }
+
+template<typename T>
+constexpr typename std::iterator_traits<T>::size_type size(const T& x) {return std::distance(x.begin(),x.end());}
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
