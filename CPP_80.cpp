@@ -1,4 +1,4 @@
-#include <string>
+using namespace std;
 
 bool is_happy(string s) {
     if (s.length() < 3) return false;
