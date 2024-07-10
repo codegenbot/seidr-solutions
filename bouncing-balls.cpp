@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -17,7 +17,7 @@ int main() {
         totalDistance += pow(2, -bouncinessIndex) * startHeight * ((i % 2 == 0) ? 1 : -1);
     }
 
-    cout << fixed << std::setprecision(5);
+    cout << std::fixed << setprecision(5);
     cout << totalDistance << endl;
 
     return 0;
