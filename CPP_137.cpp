@@ -1,7 +1,7 @@
-#include <boost/any.hpp>
 #include <iostream>
 #include <string>
-#include <boost/lexical_cast.hpp>
+#include <boost/any.hpp>
+#include <boost/convert.hpp>
 
 using namespace std;
 
@@ -21,11 +21,15 @@ int main() {
         else
             cout << "The result is: " << a << endl;
     } else {
-        int b = stoi(str);
-        if(static_cast<double>(b) > a) 
-            cout << "The result is: " << b << endl;
-        else
-            cout << "The result is: " << a << endl;
+        try {
+            int b = stoi(str);
+            if(b > a) 
+                cout << "The result is: " << b << endl;
+            else
+                cout << "The result is: " << a << endl;
+        } catch (invalid_argument& e) {
+            cout << "Invalid input. Please enter an integer or floating point number." << endl;
+        }
     }
 
     return 0;
