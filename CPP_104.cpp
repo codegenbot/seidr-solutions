@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include <cassert> // Include assert header
+#include <cassert>
 
 using namespace std;
 
