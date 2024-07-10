@@ -10,17 +10,24 @@ int mastermind(std::string code, std::string guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
-            code.erase(std::remove(&*code.begin() + i, &*code.end(), guess[i]), code.end());
-            guess.erase(std::remove(&*guess.begin() + i, &*guess.end(), code[i]), guess.end());
+            code[i] = ' ';
+            guess[i] = ' ';
         }
     }
 
     // Count white pegs
     std::vector<char> codeCopy(code.begin(), code.end());
     for (int i = 0; i < 4; ++i) {
-        if (std::distance(std::find_first_of(codeCopy.begin(), codeCopy.end(), guess[i]), codeCopy.end()) > 0) {
+        bool found = false;
+        for (char c : codeCopy) {
+            if (c == guess[i]) {
+                found = true;
+                codeCopy.erase(std::remove(&*codeCopy.begin(), &*codeCopy.end(), guess[i]), codeCopy.end());
+                break;
+            }
+        }
+        if (found) {
             whitePegs++;
-            codeCopy.erase(std::remove(&*codeCopy.begin(), &*codeCopy.end(), guess[i]), codeCopy.end());
         }
     }
 
