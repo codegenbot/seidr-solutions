@@ -1,5 +1,5 @@
 ```cpp
-bool areVectorsSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -9,10 +9,9 @@ bool areVectorsSame(const std::vector<int>& a, const std::vector<int>& b) {
         }
     }
     return true;
-
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     int n1, m1, n2, m2;
     std::cout << "Enter the size of first vector: ";
     std::cin >> n1 >> m1;
@@ -28,7 +27,7 @@ int main() {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> b[i];
     }
-    if(areVectorsSame(a, b)) {
+    if(issame(a, b)) {
         std::cout << "The two vectors are the same." << std::endl;
     } else {
         std::cout << "The two vectors are not the same." << std::endl;
