@@ -1,5 +1,5 @@
-```python
-def parse_nested_parentheses(paren_string: str) -> list:
+````
+def parse_nested_parens(paren_string: str) -> list:
     if not paren_string:
         return []
 
@@ -8,7 +8,7 @@ def parse_nested_parentheses(paren_string: str) -> list:
     stack = []
     in_group = False
     
-    """for char in paren_string:
+    for char in paren_string:
         if char == '(':
             stack.append(char)
             temp_group += '('
@@ -27,10 +27,9 @@ def parse_nested_parentheses(paren_string: str) -> list:
                 continue
             temp_group += char
     
-    if stack:  # remove any remaining open parentheses
-        while stack:
-            temp_group += stack.pop()
+    while stack:  
+        temp_group += stack.pop()
 
-    groups.append(int(temp_group)) if temp_group.isdigit() else []
+    groups.append(int(temp_group)) if temp_group.isdigit() else [int(temp_group)]
     
-    return [] if len(groups) <= 1 else groups"""
+    return [] if len(groups) <= 1 else groups

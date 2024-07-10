@@ -35,14 +35,15 @@ bool issorted(std::vector<int> v) {
 std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v) {
     std::vector<int> result = {};
     for (const auto& pair : v) {
+        std::pair<std::string, std::string> newPair = {pair.first, pair.second}; // Create a copy of the pair
         int num = 0;
-        for (char c : pair.first) {
+        for (char c : newPair.first) {
             num = num * 10 + (c - '0');
         }
-        for (char c : pair.second) {
+        for (char c : newPair.second) {
             num = num * 10 + (c - '0');
         }
-        if (!num) return {}; 
+        if (!num) return {};
         result.push_back(num);
     }
     std::sort(result.begin(), result.end());
