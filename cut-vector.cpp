@@ -12,21 +12,20 @@ int main() {
     while (cin >> num) {
         nums.push_back(num);
     }
-
+    
     if (nums.size() > 1) {
         int sum = accumulate(nums.begin(), nums.end(), 0);
         int target = sum / 2;
         int prefixSum = 0;
         int index = 0;
-        int diff = INT_MAX;
+        int minDiff = INT_MAX;
 
         for (int i = 0; i < nums.size(); ++i) {
             prefixSum += nums[i];
-            int currentDiff = abs(2 * prefixSum - sum);
-            
-            if (currentDiff <= diff) {
+            int diff = abs(prefixSum - target);
+            if (diff < minDiff) {
+                minDiff = diff;
                 index = i;
-                diff = currentDiff;
             }
         }
 
