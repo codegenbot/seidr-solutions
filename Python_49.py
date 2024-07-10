@@ -1,4 +1,4 @@
-```
+```python
 def modp(n: int, p: int):
     if p == 0:
         return 1
