@@ -26,11 +26,12 @@ std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v)
     std::vector<int> result;
     for (const auto& pair : v) {
         int num = std::stoi(pair.first + pair.second);
-        if (!num) return {}; // Fix: Check if the number is not zero before returning an empty vector
+        if (!num) return {};
         result.push_back(num);
     }
     std::sort(result.begin(), result.end());
-    return (result.size() > 0 ? result : {}); // Add this line to ensure a non-empty vector is returned
+    return result;
+
 }
 
 int main() { 
