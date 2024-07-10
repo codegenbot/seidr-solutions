@@ -30,5 +30,8 @@ std::string words_in_sentence(std::string sentence){
     if (is_prime(word.length())) {
         result += word;
     }
+    if (!word.empty() && is_prime(word.length())) {
+        result += word;
+    }
     return result;
 }
