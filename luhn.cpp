@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int luhnAlgorithm(std::vector<int> cardNumber) {
