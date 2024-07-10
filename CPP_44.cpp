@@ -1,6 +1,6 @@
 #include <string>
 #include <cassert>
-#include <iostream>
+#include <iostream> // Add this line to include necessary headers
 
 std::string change_base(int x, int base) {
     std::string result = "";
@@ -13,6 +13,6 @@ std::string change_base(int x, int base) {
 
 int main() {
     int x = 10;
-    std::cout << change_base(x, x + 1) << std::endl;
+    std::cout << change_base(x, x + 1) << std::endl; // Print the result using 'std::cout'
     return 0;
 }
