@@ -7,7 +7,7 @@ std::string camelCase(const std::string& s) {
 
     for (char c : s) {
         if (c == '-') {
-            s = s.replace(s.find('-'), 1, "");
+            s.replace(s.find('-'), 1, "");
         } else if (!first) {
             result[0] = toupper(c);
             result += c;
