@@ -16,20 +16,20 @@ namespace contest {
         return true;
     }
 
-    std::vector<int> generate_palindrome(int n) {
-        std::vector<int> palindrome;
-        for (int i = n; i >= 0; --i) {
-            palindrome.push_back(i);
+    std::vector<int> even_odd_palindrome(int n) {
+        std::vector<int> result;
+        for (int i = n % 2; i >= 0; --i) {
+            result.push_back(i);
         }
         for (int i = 1; i <= n; ++i) {
-            palindrome.push_back(i);
+            result.push_back(i);
         }
-        return palindrome;
+        return result;
     }
 }
 
 int main() {
-    assert(contest::issame(contest::generate_palindrome(1), {0, 1}));
+    assert(contest::issame(contest::even_odd_palindrome(1), {0, 1}));
     // Add more test cases here
 
     return 0;
