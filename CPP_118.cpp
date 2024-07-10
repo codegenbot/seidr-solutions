@@ -1,11 +1,18 @@
-string get_closest_vowel(string word) {
+#include <string>
+#include <cctype>
+
+std::string get_closest_vowel(std::string word) {
     int n = word.size();
-    for (int i = n - 2; i >= 1; --i) {
-        if (!isalpha(word[i])) continue;
+    std::string closest_vowel;
+
+    for (int i = 0; i < n; ++i) {
         char c = tolower(word[i]);
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-            return word.substr(i);
+
+        if (isalpha(c) && (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')) {
+            closest_vowel = word.substr(i);
+            break;
         }
     }
-    return "";
+
+    return closest_vowel;
 }
