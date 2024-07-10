@@ -50,5 +50,7 @@ int main() {
     else
         cout << "Second number is greater." << endl;
 
-    assert(issame(vector<string>(reverse_delete("mamma", "mia").c_str(), reverse_delete("mamma", "mia").c_str()), {"", "True"}));
+    assert(issame(vector<char>(reverse_delete("mamma", "mia").begin(), reverse_delete("mamma", "mia").end()),
+              vector<char>("mmmaaiiiaa".begin(), "mmmaaiiiaa".end())));
+    return 0;
 }
