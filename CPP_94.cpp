@@ -1,19 +1,8 @@
-int main() {
-    int n;
-    std::cout << "Enter the number of elements in the list: ";
-    std::cin >> n;
-    
-    std::vector<int> lst(n);
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> lst[i];
-    }
-    
-    int result = skjkasdkd(lst);
-    std::cout << "The sum of digits of the maximum prime number is: " << result << std::endl;
-    
-    return 0;
-}
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
 
 int skjkasdkd(vector<int> lst){
     int max_prime = 0;
@@ -39,4 +28,17 @@ int sumOfDigits(int n) {
         n /= 10;
     }
     return sum;
+}
+
+int main() {
+    vector<int> lst;
+    int n;
+    cout << "Enter the number of elements in the list: ";
+    cin >> n;
+    for(int i = 0; i < n; i++){
+        cout << "Enter element " << i+1 << ": ";
+        cin >> lst.push_back(i);
+    }
+    cout << "The sum of digits of the largest prime is: " << skjkasdkd(lst) << endl;
+    return 0;
 }
