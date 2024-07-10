@@ -5,7 +5,7 @@
 bool is_simple_power(int x, int n) {
     if (n == 0) return false; 
     std::string strY = std::to_string(round(pow(n, log(x) / log(n)))); 
-    return (strY.size() == std::to_string(x).size() && strY == std::to_string(x));
+    return (strY == std::to_string(x)) && strY.length() == std::to_string(x).length();
 }
 
 int main() {
