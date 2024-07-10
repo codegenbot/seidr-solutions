@@ -7,9 +7,7 @@ def decode_cyclic(s: str):
             result += s[i]
             i += 1
         else:
-            char_val = ord('a') if s[i].lower() in 'abcdefghijklmnopqrstuvwxyz' else ord('A') if s[i].upper() in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' else ord(s[i])
-            extra_val = int(s[i+2:])
-            char_val += extra_val % 128
+            char_val = int(s[i+2:]) + ord(s[i])
             result += chr(char_val % 128)
             i += 3
     return result
