@@ -1,3 +1,1 @@
-n = int(input("Enter the number of values in the list: "))
-print("Enter space-separated values for the list:")
-xs = list(map(float, input().split()))
+values = list(map(int, input("Enter the values in the list separated by spaces: ").split()))
