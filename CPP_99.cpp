@@ -1,6 +1,6 @@
-#include <cmath>
-
-int closest_integer(string value) {
-    double num = stod(value);
+```c++
+int closest_integer(const char* value) { 
+    std::string strValue = value; 
+    double num = stod(strValue); 
     return (num >= 0) ? ceil(num) : floor(num);
 }
