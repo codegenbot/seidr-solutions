@@ -9,20 +9,17 @@ int main() {
 
     std::vector<int> indices;
     
-    if (target.empty()) {
+    if (target.empty() || text.length() < target.length()) {
         for (int i = 0; i <= text.length() - target.length(); ++i) {
             bool match = true;
-            for (int j = 0; j <= text.length() - i - target.length(); ++j) {
-                match = true;
-                for (int k = 0; k < target.length(); ++k) {
-                    if (text[i + j + k] != target[k]) {
-                        match = false;
-                        break;
-                    }
+            for (int j = 0; j < target.length(); ++j) {
+                if (text[i + j] != target[j]) {
+                    match = false;
+                    break;
                 }
-                if (match) {
-                    indices.push_back(i + j);
-                }
+            }
+            if (match) {
+                indices.push_back(i);
             }
         }
     } else {
