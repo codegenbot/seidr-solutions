@@ -1,8 +1,4 @@
-#include <vector>
-#include <algorithm>
-#include <numeric>
-#include <cassert>
-#include <cmath>
+#include <iostream>
 
 using namespace std;
 
@@ -16,8 +12,13 @@ int sum_of_digits(int num) {
     return sum;
 }
 
-vector<int>& order_by_points(vector<int>& nums) {
-    sort(nums.begin(), nums.end(), [&](int a, int b) {
+vector<int> order_by_points(vector<int> nums) {
+    if (nums.empty()) {
+        return nums;
+    }
+    
+    vector<int> sorted_nums = nums; 
+    sort(sorted_nums.begin(), sorted_nums.end(), [&](int a, int b) {
         int sum_a = sum_of_digits(a);
         int sum_b = sum_of_digits(b);
         if (sum_a == sum_b) {
@@ -25,5 +26,22 @@ vector<int>& order_by_points(vector<int>& nums) {
         }
         return sum_a < sum_b;
     });
-    return nums;
+    return sorted_nums;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
+    }
+
+    vector<int> result = order_by_points(nums);
+
+    for (int num : result) {
+        cout << num << " ";
+    }
+
+    return 0;
 }
