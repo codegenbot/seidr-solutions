@@ -14,7 +14,7 @@ bool is_equal_to_sum_even(int n) {
     return false;
 }
 
-int userMain() {
+int main() {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
