@@ -24,7 +24,6 @@ bool isPrime(int n){
     return true;
 
 int main() {
-    vector<int> input = {1,2,3};
-    cout << skjkasdkd(input) << endl;
+    assert (skjkasdkd({2,3,5}) == 9);
     return 0;
 }
