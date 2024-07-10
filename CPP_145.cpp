@@ -7,7 +7,7 @@ bool isEqual(vector<int> a, vector<int> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
-vector<int> sortAndReturn(vector<int> nums) {
+vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
@@ -41,7 +41,7 @@ int main() {
     }
     cout << "]\n";
     
-    vector<int> result = sortAndReturn(nums);
+    vector<int> result = order_by_points(nums);
     cout << "[";
     for(int i=0; i<result.size();i++) {
         cout << result[i];
@@ -51,6 +51,6 @@ int main() {
     }
     cout << "]\n";
     
-    assert (isEqual(vector<int>{-76, -21, 0, 4, 23, 6, 6}, sortAndReturn({0,6,6,-76,-21,23,4})));
+    assert (isEqual(vector<int>{-76, -21, 0, 4, 23, 6, 6}, order_by_points({0,6,6,-76,-21,23,4})));
     return 0;
 }
