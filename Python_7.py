@@ -1,11 +1,13 @@
-num_strings = input().strip()
-if not num_strings.isdigit():
-    raise ValueError("First input should be an integer.")
-
-num_strings = int(num_strings)
 strings = []
-for _ in range(num_strings):
-    strings.append(input().strip())
+try:
+    while True:
+        string = input().strip()
+        if string == '----':
+            break
+        strings.append(string)
+except EOFError:
+    pass
+
 substring = input().strip()
 
 def filter_strings(strings, substring):
