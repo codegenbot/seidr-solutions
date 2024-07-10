@@ -43,13 +43,10 @@ string sort_numbers(string numbers) {
 }
 
 int main() {
-    string input_numbers;
-    cout << "Enter numbers separated by spaces: ";
-    getline(cin, input_numbers);
-    
-    string sorted_numbers = sort_numbers(input_numbers);
-    
-    cout << "Sorted numbers: " << sorted_numbers << endl;
+    string numbers;
+    cout << "Enter numbers in words separated by spaces: ";
+    getline(cin, numbers);
+    cout << "Sorted numbers: " << sort_numbers(numbers) << endl;
 
     return 0;
 }
