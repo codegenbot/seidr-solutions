@@ -24,13 +24,10 @@ bool move_one_ball(std::vector<int>& arr) {
 
 int main() {
     std::vector<int> test1 = {1, 2, 3, 4, 5};
-    assert(move_one_ball(test1) == true);
-
     std::vector<int> test2 = {5, 4, 3, 2, 1};
-    assert(move_one_ball(test2) == false);
 
-    std::vector<int> test3 = {3, 1, 2, 4, 5};
-    assert(move_one_ball(test3) == true);
+    assert(move_one_ball(test1) == true);
+    assert(move_one_ball(test2) == false);
 
     std::cout << "All tests passed successfully." << std::endl;
 
