@@ -2,10 +2,6 @@
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
-}
-
 std::vector<int> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
     for (int i = 1; i <= n; i++) {
@@ -28,6 +24,7 @@ int main() {
 
     std::cout << "Number of even palindromes: " << result[0] << std::endl;
     std::cout << "Number of odd palindromes: " << result[1] << std::endl;
+
 }
 
 int reverse(int n) {
