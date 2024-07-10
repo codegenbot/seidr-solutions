@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <cassert>
+#include <cassert> // Add this line to include the <cassert> header file
 
 using namespace std;
 
@@ -14,6 +14,5 @@ vector<string> filter_by_prefix(const vector<string>& vec, const string& prefix)
     return result;
 }
 
-int main() {
-    assert(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") == vector<string>{"xxx", "xxxAAA", "xxx"});
-}
+auto result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx");
+assert(result == vector<string>{"xxx", "xxxAAA", "xxx"});
