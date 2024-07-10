@@ -1,11 +1,8 @@
 ```
 def shopping_list():
-    n = int(input())
+    n = len([float(x) for x in input().split()])
     prices = [float(x) for x in input().split()]
     discounts = [float(x) for x in input().split()]
-
-    while len(discounts) < n:
-        discounts.append(0)
 
     total_price = 0
     for i in range(n):
