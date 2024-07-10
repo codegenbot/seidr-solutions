@@ -8,8 +8,6 @@ def parse_music(music_data: str):
         lines.append(line)
     return lines
 
-try:
-    music_data = sys.stdin.read()
-    print(parse_music(music_data))
-except EOFError:
-    pass
+music_data = input()
+
+print(parse_music(music_data))
