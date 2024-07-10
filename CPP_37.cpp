@@ -26,8 +26,4 @@ std::vector<float> sort_even(std::vector<float> vec) {
     return even_sorted;
 }
 
-int main() {
-    assert(issame(sort_even(std::vector<float>{5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), std::vector<float>{-12.0f, 8.0f, 4.0f, 2.0f, 12.0f, -10.0f}));
-    std::cout << "Test passed successfully!" << std::endl;
-    return 0;
-}
+assert(issame(sort_even(std::vector<float>{5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), std::vector<float>{-12.0f, 8.0f, 4.0f, 2.0f, 12.0f, -10.0f}));
