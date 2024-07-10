@@ -1,12 +1,12 @@
-```
 def minPath(grid, k):
     N = len(grid)
     res = []
 
-    def dfs(i, j, path_len, total_cost):
+    def dfs(i, j, path_len, total_cost, path):
         nonlocal res
         if path_len == k:
-            res.append(path[:])
+            if total_cost <= k * grid[i][j]:
+                res.append(path[:])
             return
         if i < 0 or i >= N or j < 0 or j >= N:
             return
@@ -20,6 +20,7 @@ def minPath(grid, k):
                         nj,
                         path_len + 1,
                         total_cost + abs(grid[ni][nj] - grid[i][j]),
+                        path,
                     )
                     path.pop()
 
@@ -27,6 +28,5 @@ def minPath(grid, k):
         for j in range(N):
             if grid[i][j] > k:
                 return []
-            path = [grid[i][j]]
-            dfs(i, j, 0, 0)
+            dfs(i, j, 0, 0, [grid[i][j]])
     return res
