@@ -1,6 +1,8 @@
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
-}
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
 
 std::vector<float> derivative(std::vector<float> xs) {
     std::vector<float> result;
