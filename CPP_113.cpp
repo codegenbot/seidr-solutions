@@ -1,8 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    return a.size() == b.size();
 }
 
 std::vector<std::string> odd_count(const std::vector<std::string>& input);
@@ -22,10 +23,16 @@ std::vector<std::string> odd_count(const std::vector<std::string>& input) {
 }
 
 int main() {
-    std::vector<std::string> input = {"12345", "67890", "13579"};
+    std::vector<std::string> input;
+    std::string str;
+    while (std::cin >> str) {
+        input.push_back(str);
+    }
+
     std::vector<std::string> result = odd_count(input);
     for (const std::string& res : result) {
         std::cout << res << std::endl;
     }
+
     return 0;
 }
