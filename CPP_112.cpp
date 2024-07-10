@@ -1,9 +1,7 @@
 #include <vector>
-bool issame(const std::string& s);
+#include <string>
 
-bool issame(const std::string& s){
-    return s == std::string(s.rbegin(), s.rend());
-}
+bool issame(const std::string& s1, const std::string& s2);
 
 std::vector<std::string> reverse_delete(std::string s, std::string c){
     std::string result = "";
@@ -14,5 +12,9 @@ std::vector<std::string> reverse_delete(std::string s, std::string c){
     }
     std::string reversed = result;
     std::reverse(reversed.begin(), reversed.end());
-    return {result, issame(result) ? "True" : "False"};
+    return {result, issame(result, reversed) ? "True" : "False"};
+}
+
+bool issame(const std::string& s1, const std::string& s2){
+    return s1 == s2;
 }
