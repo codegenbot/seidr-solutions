@@ -1,3 +1,6 @@
+Here's the corrected code:
+
+```
 from typing import List
 
 def factorize() -> None:
@@ -14,6 +17,5 @@ def factorize() -> None:
             print(f"{i} is a factor with multiplicity {count}.")
     if n > 1:
         print(f"{n} is a prime number.")
-    return
 
 factorize()
