@@ -29,14 +29,7 @@ int main() {
         while (!(std::cin >> temp)) {
             std::cout << "Invalid input. Please enter an integer." << std::endl;
             std::cin.clear(); // Clear error flags
-            int ignoreCount = 0; // Counter for ignoring excess input
-            while(std::cin.get() != '\n') { // Ignore the rest of the line
-                ignoreCount++;
-                if(ignoreCount > 100) { // Limit to avoid infinite loop
-                    break;
-                }
-            }
-            std::cin.ignore(); // Clear remaining input
+            std::cin.ignore(1000000, '\n'); // Ignore the rest of the line
         }
         a.push_back(temp);
     }
@@ -52,14 +45,7 @@ int main() {
         while (!(std::cin >> temp)) {
             std::cout << "Invalid input. Please enter an integer." << std::endl;
             std::cin.clear(); // Clear error flags
-            int ignoreCount = 0; // Counter for ignoring excess input
-            while(std::cin.get() != '\n') { // Ignore the rest of the line
-                ignoreCount++;
-                if(ignoreCount > 100) { // Limit to avoid infinite loop
-                    break;
-                }
-            }
-            std::cin.ignore(); // Clear remaining input
+            std::cin.ignore(1000000, '\n'); // Ignore the rest of the line
         }
         b.push_back(temp);
     }
@@ -70,4 +56,3 @@ int main() {
         std::cout << "The two vectors are not the same." << std::endl;
     }
     return 0;
-}

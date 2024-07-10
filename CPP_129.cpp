@@ -1,49 +1,44 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> pq;
-
-int minPath(vector<vector<int>>& edges, int n) {
-    vector<int> dist(n+1, 1000000);
-    dist[1] = 0;
-    
-    for (int i = 1; i <= n; i++) {
-        for (auto edge : edges) {
-            if (dist[edge[0]] + edge[2] < dist[edge[1]]) {
-                dist[edge[1]] = dist[edge[0]] + edge[2];
+int minPath(vector<pair<int, int>>& edges, int n) {
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> pq;
+    for(int i = 0; i < n-1; i++) {
+        pq.push({edges[i].second, {i, edges[i].first}});
+    }
+    int res = 0;
+    vector<int> path(n);
+    while(!pq.empty()) {
+        pair<int, pair<int, int>> p = pq.top();
+        pq.pop();
+        if(path[p.second.first] == 0) {
+            res += p.first;
+            for(int i = 1; i < n; i++) {
+                if(path[i-1] == 0 && !issame(path, {i, p.second.second})) {
+                    path[i] = 1;
+                    pq.push({edges[i-1].second, {i, edges[i-1].first}});
+                }
             }
         }
     }
-    
-    vector<int> path;
-    int curr = n;
-    while (curr != 1) {
-        for (auto edge : edges) {
-            if (dist[edge[0]] == dist[curr] - edge[2]) {
-                path.push_back(edge[1]);
-                curr = edge[0];
-                break;
-            }
-        }
-    }
-    
-    path.push_back(1);
-    reverse(path.begin(), path.end());
-    
-    return path;
+    return res;
 }
 
 int main() {
-    vector<vector<int>> edges = {{1, 3, 10}, {3, 2, 3}};
-    int n = 4;
-    assert(issame(minPath(edges, n), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
-    
+    int n;
+    cin >> n;
+    vector<pair<int, int>> edges(n-1);
+    for(int i = 0; i < n-1; i++) {
+        cin >> edges[i].first >> edges[i].second;
+    }
+    cout << minPath(edges, n) << endl;
     return 0;
 }

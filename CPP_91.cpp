@@ -5,3 +5,4 @@ int main() {
     int result = is_bored(input);
     std::cout << "Count of 'I' at the beginning: " << result << std::endl;
     return 0;
+}
