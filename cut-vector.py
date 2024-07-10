@@ -1,19 +1,10 @@
-n = int(input())
 a = list(map(int, input().split()))
 
-total_sum = sum(a)
-half_sum = total_sum // 2
-
-prefix_sum = 0
-min_diff = total_sum
-split_index = -1
-
-for i in range(n):
-    prefix_sum += a[i]
-    current_diff = abs(2 * prefix_sum - total_sum)
-    if current_diff <= min_diff:
-        min_diff = current_diff
-        split_index = i
-
-print(*a[:split_index + 1], sep="\n")
-print(*a[split_index + 1:], sep="\n")
+if len(a) == 1:
+    print(*a, sep="\n")
+    print()  # print empty line for the second vector
+else:
+    min_diff = min(abs(sum(a[:i]) - sum(a[i:])) for i in range(1, len(a)))
+    split_index = next(i for i in range(1, len(a)) if abs(sum(a[:i]) - sum(a[i:])) == min_diff)
+    print(*a[:split_index], sep="\n")
+    print(*a[split_index:], sep="\n")
