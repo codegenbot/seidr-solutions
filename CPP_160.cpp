@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <cstdio>
-#include <cctype>
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
     string expression = "";
@@ -16,25 +15,11 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
         }
     }
 
-    int result = 0;
-    int currentOperand = operand[0];
-    char operation = operator_[0][0];
+    int result = eval(expression.c_str());
+    return result;
+}
 
-    for (int i = 1; i < operator_.size(); i++) {
-        if (operation == '+') {
-            result += currentOperand;
-        } else if (operation == '-') {
-            result -= currentOperand;
-        }
-        currentOperand = operand[i];
-        operation = operator_[i][0];
-    }
-
-    if (operation == '+') {
-        result += currentOperand;
-    } else if (operation == '-') {
-        result -= currentOperand;
-    }
-
+int eval(char* s) {
+    int result = atoi(s);
     return result;
 }
