@@ -1,31 +1,24 @@
 map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return result;
-
-    string words[256]; // assuming only lowercase letters and spaces are present in the input
-    int wordCount = 0;
-    for (char c : test) {
-        if (c == ' ') {
-            wordCount++;
-        } else {
-            if (wordCount >= sizeof(words) / sizeof(string)) {
-                return result; // handle error condition: too many words
-            }
-            words[wordCount] += c;
-        }
-    }
-
-    for (int i = 0; i <= wordCount; i++) {
-        int count = 1;
-        for (int j = i + 1; j <= wordCount; j++) {
-            if (words[i] == words[j]) {
-                count++;
+    string str = test;
+    for (char c : str) {
+        if (c != ' ') {
+            if (result.find(c) == result.end()) {
+                result[c] = 1;
             } else {
-                break;
+                result[c]++;
             }
         }
-        result[words[i]] = count;
     }
-
-    return result;
+    map<char, int> maxMap;
+    int maxCount = 0;
+    for (auto it = result.begin(); it != result.end(); ++it) {
+        if (it->second > maxCount) {
+            maxCount = it->second;
+            maxMap = {{it->first, it->second}};
+        } else if (it->second == maxCount) {
+            maxMap[make_pair(it->first, it->second)] = it->second;
+        }
+    }
+    return maxMap;
 }
