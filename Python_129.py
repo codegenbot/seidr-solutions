@@ -1,4 +1,4 @@
-def minPathSum(grid, k):
+def minPath(grid, k):
     N = len(grid)
 
     def dfs(i, j, path):
@@ -7,8 +7,8 @@ def minPathSum(grid, k):
         if i < 0 or i >= N or j < 0 or j >= N:
             return float("inf")
         res = float("inf")
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            ni, nj = i + dx, j + dy
+        for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            ni, nj = i + x, j + y
             if 0 <= ni < N and 0 <= nj < N:
                 res = min(res, grid[ni][nj] + dfs(ni, nj, path + [grid[ni][nj]]))
         return res
