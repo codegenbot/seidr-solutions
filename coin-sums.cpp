@@ -1,35 +1,24 @@
-#include <vector>
+#include <iostream>
 using namespace std;
 
-vector<int> coinSums(int cents) {
-    vector<int> result(4);
+int main() {
+    int cents;
+    cin >> cents;
     
-    for (int i = 0; i < 4; i++) {
-        int val;
-        switch(i) {
-            case 0: val = 1; break;
-            case 1: val = 5; break;
-            case 2: val = 10; break;
-            case 3: val = 25; break;
-        }
-        
-        while (cents >= val) {
-            cents -= val;
-            result[i]++;
+    vector<int> coins = {25, 10, 5, 1};
+    vector<int> results(4);
+    
+    for(int i = 0; i < 4; i++) {
+        while(cents >= coins[i]) {
+            results[i]++;
+            cents -= coins[i];
         }
     }
     
-    return result;
-}
+    cout << results[3] << endl;
+    cout << results[2] << endl;
+    cout << results[1] << endl;
+    cout << results[0] << endl;
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> res = coinSums(n);
-    cout << res[0] << endl;
-    cout << res[1] << endl;
-    cout << res[2] << endl;
-    cout << res[3] << endl;
-    
     return 0;
 }
