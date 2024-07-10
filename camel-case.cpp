@@ -1,18 +1,19 @@
-#include <string>
-#include <cctype>
-
+```cpp
 std::string camelCase(const std::string& s) {
     std::string result = "";
     bool capitalizeNext = true;
 
     for (char c : s) {
         if (c == '-' || c == ' ') {
-            capitalizeNext = true;
+            if (capitalizeNext) {
+                result += tolower(c);
+                capitalizeNext = false;
+            }
         } else if (capitalizeNext) {
-            result += std::toupper(c);
+            result += toupper(c);
             capitalizeNext = false;
         } else {
-            result += std::tolower(c);
+            result += c;
         }
     }
 

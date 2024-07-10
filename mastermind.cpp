@@ -1,8 +1,4 @@
-Here is the modified code:
-
-```cpp
-#include <string>
-
+```c++
 int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
@@ -23,5 +19,5 @@ int mastermind(std::string code, std::string guess) {
         white += std::min(count, black);
     }
 
-    return black;
+    return 0;
 }
