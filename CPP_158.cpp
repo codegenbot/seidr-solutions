@@ -18,21 +18,16 @@ void findMaxWord(std::vector<std::string>& words) {
 int main() {
     std::vector<std::string> words;
     int n;
-    std::cout << "Enter the number of sentences (separated by spaces): ";
+    std::cout << "Enter the number of words: ";
     std::cin >> n;
 
     for (int i = 0; i < n; ++i) {
-        std::string sentence;
-        std::cout << "Enter sentence " << (i + 1) << ": ";
-        std::cin >> sentence;
-        size_t pos = 0;
-        while ((pos = sentence.find(' ')) != std::string::npos) {
-            words.push_back(sentence.substr(0, pos));
-            sentence.erase(0, pos + 1);
-        }
-        if (!sentence.empty()) {
-            words.push_back(sentence);
-        }
+        std::string word;
+        std::cout << "Enter word " << (i + 1) << ": ";
+        std::cin >> word;
+        std::cin.ignore(); 
+        std::cin.getline(word.c_str(), word.capacity()); 
+        words.push_back(word);
     }
 
     findMaxWord(words);
