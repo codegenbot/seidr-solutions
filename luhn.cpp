@@ -3,26 +3,28 @@ using namespace std;
 
 int luhn(vector<int> digits) {
     int sum = 0;
-    for (int i = 0; i < digits.size(); i++) {
-        if ((i % 2 == 1)) {
-            int double_digit = digits[i] * 2;
-            if (double_digit > 9)
-                sum += double_digit - 9;
-            else
-                sum += double_digit;
-        } else
-            sum += digits[i];
+    bool doubleNext = false;
+    
+    for (int i = digits.size() - 1; i >= 0; --i) {
+        int digit = digits[i];
+        
+        if (doubleNext) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+        
+        sum += digit;
+        doubleNext = !doubleNext;
     }
+    
     return sum;
 }
 
 int main() {
-    vector<int> digits(16);
-    int n;
-    cin >> n;
-    for (int i = 0; i < 16; i++) {
-        cin >> digits[i];
-    }
-    cout << luhn(digits) << endl;
+    vector<int> digits = {4, 7, 8, 1, 3, 2, 8, 5, 6, 9, 4, 1, 7, 1, 0, 1};
+    int result = luhn(digits);
+    cout << "Result: " << result << endl;
     return 0;
 }
