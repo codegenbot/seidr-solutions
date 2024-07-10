@@ -1,21 +1,29 @@
 #include <string>
 
-int bowling(std::string input) {
+int calculateScore(std::string input) {
     int score = 0;
-    int rollCount = 0;
-    for (char c : input) {
-        if (c == '/') {
-            if (rollCount < 2) {
-                int roll = std::stoi(input.substr(0, input.find('/')).substr(1));
-                if (rollCount == 0) {
-                    score += roll + std::stoi(input.substr(0, input.find('/')).substr(2)) ;
-                } else {
-                    score += roll;
-                }
+    int i = 0;
+    while (i < input.length()) {
+        std::string roll = input.substr(i, 1);
+        if (roll == "X") {
+            score += 10 + strikeRolls(input, ++i);
+        } else if (isdigit(roll[0])) {
+            int rollValue = roll[0] - '0';
+            score += rollValue;
+            i++;
+            if (input[i] == '/') {
+                i++;
+                rollValue = input.substr(i, 1) - '0' + input.substr(i+1, 1) - '0';
+                i++;
+                score += rollValue;
             }
-            rollCount = 0;
         } else {
-            rollCount++;
+            int roll1 = input.substr(i, 1) - '0';
+            i++;
+            int roll2 = input.substr(i, 1) - '0';
+            i++;
+            score += roll1 + roll2;
         }
     }
     return score;
+}
