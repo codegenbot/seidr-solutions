@@ -1,16 +1,11 @@
-#include <algorithm>
-
-string solve(string s) {
+string solve(string s){
     string result = "";
-    bool hasLetters = false;
-
-    for (char c : s) {
-        if (isalpha(c)) {
-            hasLetters = true;
-            c = toupper(islower(c)) ? tolower(c) : toupper(c);
+    for(char c : s){
+        if(isalpha(c)){
+            result += (c >= 'a' && c <= 'z') ? char(c - ('a' - 'A')) : char(c + ('a' - 'A'));
+        } else {
+            result += c;
         }
-        result += c;
     }
-
-    return hasLetters ? result : string(result.rbegin(), result.rend());
+    return result.empty() ? string(s).reverse() : result;
 }
