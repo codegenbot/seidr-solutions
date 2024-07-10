@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 int main() {
@@ -12,10 +11,10 @@ int main() {
     
     double total_distance = start_height;
     for (int i = 0; i < num_bounces; ++i) {
-        total_distance += 2 * bounciness_index * total_distance;
+        total_distance += 2 * first_bounce_height * bounciness_index;
     }
     
     cout << total_distance << endl;
     
     return 0;
-} 
+}
