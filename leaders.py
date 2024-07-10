@@ -6,7 +6,7 @@ def leaders(arr):
         if arr[i] >= max_right:
             leaders.append(arr[i])
             max_right = arr[i]
-    return leaders[::-1]
+    return reversed(leaders)
 
 print(leaders([0]))
 print(leaders([1, 0]))
