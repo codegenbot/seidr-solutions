@@ -1,26 +1,25 @@
-```cpp
 #include <iostream>
 #include <string>
 
-bool is_nested(const std::string& str) {
+bool is_nested(std::string str) {
     bool result = false;
-    int level = 0;
-
-    for (char c : str) {
-        if (c == '(') {
-            level++;
-        } else if (c == ')') {
-            if (level > 0) {
-                level--;
-            }
+    int count = 0;
+    
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '(' || str[i] == '[' || str[i] == '{') {
+            count++;
+        } else if ((str[i] == ')' && count > 0) ||
+                   (str[i] == ']' && count > 1) ||
+                   (str[i] == '}' && count > 2)) {
+            count--;
         }
-
-        if (level > 1) {
+        
+        if (count == 0) {
             result = true;
             break;
         }
     }
-
+    
     return result;
 }
 
