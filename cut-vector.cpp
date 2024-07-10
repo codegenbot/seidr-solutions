@@ -11,8 +11,8 @@ int main() {
     while (cin >> num) {
         input.push_back(num);
     }
-
-    int diff = numeric_limits<int>::max();
+    
+    int diff = INT_MAX;
     int idx = 0;
     for (int i = 1; i < input.size(); ++i) {
         if (abs(accumulate(input.begin(), input.begin() + i, 0) - accumulate(input.begin() + i, input.end(), 0)) < diff) {
@@ -20,7 +20,7 @@ int main() {
             idx = i;
         }
     }
-
+    
     for (int i = 0; i < idx; ++i) {
         cout << input[i] << endl;
     }
@@ -28,6 +28,6 @@ int main() {
     for (int i = idx; i < input.size(); ++i) {
         cout << input[i] << endl;
     }
-
+    
     return 0;
 }

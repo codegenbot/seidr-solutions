@@ -1,27 +1,13 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-bool evaluateBooleanExpression(const string& expression) {
-    if (expression == "T") {
-        return true;
-    } else if (expression == "F") {
-        return false;
-    } else if (expression == "T&F" || expression == "F&T" || expression == "F&F") {
-        return false;
-    } else {
-        return true;
-    }
-}
-
 int main() {
-    string expression;
-    cin >> expression;
-    if (evaluateBooleanExpression(expression)) {
-        cout << "True" << endl;
+    std::string s;
+    std::cin >> s;
+    if (s == "t") {
+        std::cout << "True";
     } else {
-        cout << "False" << endl;
+        std::cout << "False";
     }
     return 0;
 }
