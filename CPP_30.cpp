@@ -2,21 +2,6 @@
 
 bool issame(vector<float> a, vector<float> b);
 
-vector<float> get_positive(vector<float> l);
-
-bool issame(vector<float> a, vector<float> b){
-    if(a.size() != b.size()) {
-        return false;
-    }
-
-    for(size_t i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
 vector<float> get_positive(vector<float> l){
     vector<float> result;
     for(float num : l){
@@ -28,9 +13,11 @@ vector<float> get_positive(vector<float> l){
 }
 
 int main() {
-    // Sample usage
-    vector<float> numbers = {1.5, -2.5, 3.0, -4.2, 5.6};
+    vector<float> numbers = {1.2, -3.4, 5.6, -7.8, 9.0};
     vector<float> positive_numbers = get_positive(numbers);
-
+    for (float num : positive_numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
     return 0;
 }
