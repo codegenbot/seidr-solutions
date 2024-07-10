@@ -1,4 +1,4 @@
-```
+```Python
 def mastermind(code, guess):
     black = 0
     white = 0
@@ -12,6 +12,8 @@ def mastermind(code, guess):
             guess_count[guess[i]] -= 1
 
     for char, count in guess_count.items():
-        white += min(count, code_count.get(char, 0))
+        if count > 0 and code_count.get(char) > 0:
+            white += 1
+            code_count[char] -= 1
 
     return str(black) + "\n" + str(white)
