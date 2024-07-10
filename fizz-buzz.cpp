@@ -5,10 +5,9 @@ std::string fizzBuzz(int x) {
         return x % 3 ? "Buzz" : "FizzBuzz";
     else if (x % 3 == 0)
         return "Fizz";
-    else
-        {
-            std::stringstream ss;
-            ss << x;
-            return ss.str();
-        }
+    else {
+        std::stringstream ss;
+        ss << x;
+        return ss.str();
+    }
 }
