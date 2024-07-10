@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -8,27 +7,47 @@ using namespace std;
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
+    bool isConsonant = false;
+
     for (char c : s) {
         if (c == ' ') {
-            if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
-                result.push_back(word);
+            if (isConsonant) {
+                int consonantsInWord = 0;
+                for (int i = 0; i < word.length(); i++) {
+                    if (!ispunct(word[i]) && !isspace(word[i])) {
+                        if (!ispunct(word[i]) && !ispunct(word[i])) {
+                            consonantsInWord++;
+                        }
+                    }
+                }
+                if (consonantsInWord == n) {
+                    result.push_back(word);
+                }
             }
             word = "";
+            isConsonant = false;
         } else {
+            bool isVowelOrPunctuation = isalpha(c) && (ispunct(c) || isvowel(c));
+            if (!isVowelOrPunctuation) {
+                isConsonant = true;
+            }
             word += c;
         }
     }
-    if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
-        result.push_back(word);
-    }
-    return result;
-}
 
-int main() {
-    string s = "Mary had a little lamb";
-    int n = 4;
-    vector<string> res = select_words(s, n);
-    for (string str : res)
-        cout << str << endl;
-    return 0;
+    if (isConsonant) {
+        int consonantsInWord = 0;
+        for (int i = 0; i < word.length(); i++) {
+            if (!ispunct(word[i]) && !isspace(word[i])) {
+                if (!ispunct(word[i]) && !ispunct(word[i])) {
+                    consonantsInWord++;
+                }
+            }
+        }
+        if (consonantsInWord == n) {
+            result.push_back(word);
+        }
+    }
+
+    return result;
 }
