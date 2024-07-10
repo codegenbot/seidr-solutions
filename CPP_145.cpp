@@ -1,13 +1,15 @@
-#include <initializer_list>
+```cpp
 #include <algorithm>
 #include <vector>
+#include <utility> 
+using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+bool issame(vector<int> a, vector<int> b) {
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> orderPoints(std::vector<int> nums) {
-    std::vector<std::pair<int, int>> pairs;
+vector<int> orderPoints(vector<int> nums) {
+    vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
         int num = nums[i];
@@ -19,9 +21,9 @@ std::vector<int> orderPoints(std::vector<int> nums) {
 
     }
 
-    std::sort(pairs.begin(), pairs.end());
+    sort(pairs.begin(), pairs.end());
 
-    std::vector<int> result;
+    vector<int> result;
     for (const auto& pair : pairs) {
         result.push_back(nums[pair.second]);
     }
@@ -30,25 +32,25 @@ std::vector<int> orderPoints(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {0,6,6,-76,-21,23,4};
-    std::cout << "[";
+    vector<int> nums = {0,6,6,-76,-21,23,4};
+    cout << "[";
     for(int i=0; i<nums.size();i++) {
-        std::cout << nums[i];
+        cout << nums[i];
         if(i < nums.size()-1) {
-            std::cout << ", ";
+            cout << ", ";
         }
     }
-    std::cout << "]\n";
+    cout << "]\n";
     
-    std::vector<int> result = orderPoints(nums);
-    std::cout << "[";
+    vector<int> result = orderPoints(nums);
+    cout << "[";
     for(int i=0; i<result.size();i++) {
-        std::cout << result[i];
+        cout << result[i];
         if(i < result.size()-1) {
-            std::cout << ", ";
+            cout << ", ";
         }
     }
-    std::cout << "]\n";
+    cout << "]\n";
     
     assert (issame(orderPoints({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6});
     return 0;
