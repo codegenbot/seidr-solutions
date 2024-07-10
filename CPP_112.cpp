@@ -1,9 +1,15 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
 #include <string>
 
+using namespace std;
+
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 vector<string> reverse_delete(string s, string c) {
@@ -23,7 +29,7 @@ vector<string> reverse_delete(string s, string c) {
     }
     result.push_back(temp);
     string rev = temp;
-    std::reverse(rev.begin(), rev.end());
+    reverse(rev.begin(), rev.end());
     if (temp == rev) {
         result.push_back("True");
     } else {
