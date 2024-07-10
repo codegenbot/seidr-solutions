@@ -5,20 +5,24 @@
 std::string flip_case(const std::string& str) {
     std::string result;
     for (char c : str) {
-        if (isalpha(c)) {
-            if (islower(c))
-                result += toupper(c);
-            else
-                result += tolower(c);
-        } else
+        if (c >= 'a' && c <= 'z') {
+            result += c - ('a' - 'A');
+        } else if (c >= 'A' && c <= 'Z') {
+            result += c - ('A' - 'a');
+        } else {
             result += c;
+        }
     }
     return result;
 }
 
-int main() {
+int driver() {  
     std::string result;
     while (std::cin >> result) {  
         std::cout << "Flipped case: " << flip_case(result) << std::endl;
     }
+}
+
+int main(int argc, const char* argv[]) {
+    driver();
 }
