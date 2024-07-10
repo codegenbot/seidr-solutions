@@ -28,36 +28,28 @@ namespace myspace {
     int main() {
         int n;
         std::cout << "Enter the number of elements: ";
-        while (!(std::cin >> n) || n <= 0) {
-            std::cout << "Invalid input. Please enter a positive integer: ";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin >> n;
+
+        if (n <= 0) {
+            n = 5; // set a reasonable value
         }
 
         // Initialize game and guess vectors with default values (0)
-        std::vector<int> game;
-        std::vector<int> guess;
+        std::vector<int> game(n, 0);
+        std::vector<int> guess(n, 0);
 
         for (int i = 0; i < n; i++) {
             std::cout << "Enter element " << i + 1 << ": ";
             int x;
-            while (!(std::cin >> x)) {
-                std::cout << "Invalid input. Please enter an integer: ";
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            }
-            game.push_back(x);
+            std::cin >> x;
+            game[i] = x;
         }
 
         std::cout << "Enter your guess: ";
         for (int i = 0; i < n; i++) {
             int x;
-            while (!(std::cin >> x)) {
-                std::cout << "Invalid input. Please enter an integer: ";
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            }
-            guess.push_back(x);
+            std::cin >> x;
+            guess[i] = x;
         }
 
         if (issame(game, guess)) {
