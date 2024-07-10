@@ -1,23 +1,9 @@
-def substitution_cipher(cipher, message):
-    deciphered = ""
-    for char in message:
-        if char.isalpha():
-            if char.isupper():
-                deciphered += chr(
-                    (ord(cipher[0].upper()) - ord("A") + ord(char) - ord("A")) % 26
-                    + ord("A")
-                )
-            else:
-                deciphered += chr(
-                    (ord(cipher[1].lower()) - ord("a") + ord(char) - ord("a")) % 26
-                    + ord("a")
-                )
-        else:
-            deciphered += char
-    return deciphered
+def substitution_cipher(cipher_map, text):
+    return "".join(
+        [cipher_map[i] if i < len(cipher_map) else "" for i in range(len(text))]
+    )
 
 
-cipher = input().strip()
-message = input().strip()
-
-print(substitution_cipher(cipher, message))
+cipher_map = input().strip()
+text = input().strip()
+print(substitution_cipher(cipher_map, input().strip()))
