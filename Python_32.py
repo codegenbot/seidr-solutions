@@ -4,4 +4,4 @@ def find_zero(xs: list):
 
 input_list = list(map(int, input().split()))
 result = find_zero(input_list)
-print(result)
+result
