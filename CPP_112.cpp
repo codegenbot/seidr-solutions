@@ -3,8 +3,11 @@
 #include <string>
 #include <set>
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<std::string> result;
+vector<string> reverse_delete(string s, string c);
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
     
     set<char> c_set(c.begin(), c.end());
     
@@ -25,11 +28,11 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     }
     
     result.push_back(temp);
-    result.push_back(is_palindrome ? "True" : "False");
+    result.push_back((is_palindrome) ? "True" : "False");
     
     return result;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return (a == b);
 }
