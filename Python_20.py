@@ -1,5 +1,4 @@
-numbers = input("Enter a series of space-separated numbers: ").split()
-numbers = list(map(float, [x for x in numbers if x.replace('.', '', 1).replace('-', '', 1).isdigit()]))
+numbers = list(map(float, input("Enter a series of space-separated numbers: ").split()))
 def find_closest_elements(numbers):
     min_diff = float("inf")
     closest_pair = ()
