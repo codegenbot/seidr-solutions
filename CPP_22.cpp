@@ -6,10 +6,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b); // Declare the issame function
-
-vector<int> filter_integers(list<any> values); // Declare the filter_integers function
-
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
