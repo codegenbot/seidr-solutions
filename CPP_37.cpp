@@ -10,7 +10,7 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-void sort_even(vector<float>& l) {
+vector<float> sort_even(vector<float> l) {
     vector<float> even_values;
     vector<float> sorted_even_values;
     for (int i = 0; i < l.size(); i++) {
@@ -27,6 +27,7 @@ void sort_even(vector<float>& l) {
             sorted_even_index++;
         }
     }
+    return l;
 }
 
-assert(issame(sort_even({3.2, 1.5, 4.7, 2.1, 5.3, 6.8}), {1.5, 3.2, 2.1, 4.7, 5.3, 6.8}));
+assert(issame(sort_even({3.2, 1.5, 4.7, 2.1, 6.3}), {1.5, 3.2, 2.1, 4.7, 6.3}));
