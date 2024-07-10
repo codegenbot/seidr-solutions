@@ -1,8 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool same(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -31,7 +30,7 @@ int main() {
     std::vector<int> v1 = {7, 9, 7, 1};
     std::vector<int> v2 = {1};
 
-    if (issame(pluck(v1), pluck(v2)))  
+    if (same(pluck(v1), pluck(v2)))  
         std::cout << "Arrays are same" << std::endl;
     else   
         std::cout << "Arrays are not same" << std::endl;

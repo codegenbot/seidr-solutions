@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <cassert>
@@ -11,7 +12,7 @@ float triangle_area(int a, int b, int c) {
     }
 }
 
-int main() {
+int main{
     int a, b, c; 
     std::cin >> a >> b >> c; 
     assert(std::abs(triangle_area(a, b, c) + 1)<0.01);
