@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -18,7 +17,9 @@ int userInputMain() {
     int odd_sum = 0; 
 
     int num;
-    while(std::cin >> num) { 
+    while(std::cin >> num) {
+        if(!std::cin)
+            break; // or handle error as needed
         lst.push_back(num); 
     }
     odd_sum = double_the_difference(lst); 
