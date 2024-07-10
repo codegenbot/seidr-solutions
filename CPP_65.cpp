@@ -4,7 +4,7 @@ string s = to_string(x);
     if (shift == 0) {
         return s;
     }
-    if (shift > n / 2) {
+    if (shift > n) {
         reverse(s.begin(), s.end());
         return s;
     }
