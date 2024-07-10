@@ -5,10 +5,24 @@ def solve_boolean(expression):
     elif expression == 'F':
         return False
     stack = []
-    for char in reversed(expression):
+    temp = ''
+    for char in expression:
         if char in ['&', '|']:
-            b1, b2 = stack.pop(), stack.pop()
-            stack.append(b1 and b2) if char == '&' else stack.append(b1 or b2)
-        elif char in ['T', 'F']:
-            stack.append(char == 'T')
+            if temp: 
+                if temp == 'T':
+                    stack.append(True)
+                else: 
+                    stack.append(False)
+                temp = ''
+            if char == '&':
+                stack.append((stack.pop() and stack.pop()))
+            elif char == '|':
+                stack.append((stack.pop() or stack.pop()))
+        else:
+            temp += char
+    if temp: 
+        if temp == 'T':
+            stack.append(True)
+        else: 
+            stack.append(False)
     return stack[0]
