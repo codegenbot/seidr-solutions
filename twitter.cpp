@@ -13,9 +13,6 @@ int main() {
         std::cout << "Enter a tweet: ";
         std::string line;
         getline(std::cin, line);
-        if (!std::cin) { 
-            return 1; 
-        }
         std::string output = validateTweet(line); 
         if(output == "You didn't type anything") {
             std::cout << output << std::endl;
