@@ -15,18 +15,18 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 std::vector<std::string> select_words(std::string input, int k) {
     std::istringstream iss(input);
     std::vector<std::string> words;
-
-    while (iss >> word) { 
+    
+    while (iss >> word) {
         words.push_back(word);
     }
-
+    
     std::sort(words.begin(), words.end());
-
+    
     std::vector<std::string> result;
     for (int i = 0; i < k && i < words.size(); ++i) {
         result.push_back(words[i]);
     }
-
+    
     return result;
 }
 
