@@ -9,3 +9,4 @@ numbers = input("Enter numbers separated by a space: ").split()
 threshold = int(input("Enter the threshold: "))
 
 output = check_numbers(numbers, threshold)
+print(output)
