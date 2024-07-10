@@ -2,11 +2,12 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
+#include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) return false;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& second_vector) {
+    if (a.size() != second_vector.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != second_vector[i]) return false;
     }
     return true;
 }
@@ -35,14 +36,9 @@ std::string Join(const std::vector<std::string>& vec, char delimiter) {
     return ss.str();
 }
 
-int myMain() {
+int main() {
     std::vector<std::string> my_result = select_words("a b c d e f", 1);
     if (!issame(std::vector<std::string>(my_result.begin(), my_result.end()), select_words("a b c d e f", 1))) 
         std::cout << "{" + Join(my_result, ", ") + "}" << std::endl;
-    return 0;
-}
-
-int main() {
-    myMain();
     return 0;
 }
