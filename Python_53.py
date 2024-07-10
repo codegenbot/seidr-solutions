@@ -5,5 +5,5 @@ try:
     x, y = map(int, input().strip().split())
     result = add(x, y)
     print(result)
-except (ValueError, TypeError):
+except ValueError:
     print("Error: Invalid input")
