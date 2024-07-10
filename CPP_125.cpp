@@ -4,10 +4,6 @@
 
 bool issame(vector<string> a, vector<string> b);
 
-bool issame(vector<string> a, vector<string> b) {
-    // Add your implementation here
-}
-
 vector<string> words;
 string word = "";
 for (char c : txt) {
@@ -33,3 +29,7 @@ if (words.empty()) {
     words.push_back(to_string(count));
 }
 return words;
+
+bool issame(vector<string> a, vector<string> b) {
+    // Add your implementation here
+}
