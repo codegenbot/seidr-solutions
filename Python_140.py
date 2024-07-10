@@ -1,15 +1,17 @@
 import re
-import sys
 
-def fix_spaces(sys, *args):
+def fix_spaces(*args):
     return '_'.join(map(str.strip, args))
 
 lines = []
 while True:
-    line = sys.stdin.readline().strip()
-    if not line:
+    try:
+        line = input().rstrip('\r')
+        if not line:
+            break
+        lines.append(line)
+    except EOFError:
         break
-    lines.append(line)
 
-combined_text = fix_spaces(sys, *lines)
+combined_text = fix_spaces(*lines)
 print(re.sub(r'\s+', '_', combined_text))
