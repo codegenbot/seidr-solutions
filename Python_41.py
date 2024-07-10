@@ -1,3 +1,2 @@
-def car_race_collision():
-    n = int(input("Enter the number of cars: ") or 1)  
-    return str(n * (n - 1) // 2)
+def car_race_collision(num_cars=0):
+    return str(int(num_cars) * (int(num_cars) - 1) // 2)
