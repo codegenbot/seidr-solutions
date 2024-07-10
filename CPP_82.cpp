@@ -1,10 +1,8 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
 
-bool prime_length(const std::string& str) {
-    int len = static_cast<int>(str.length());
+int prime_length(int len) {
     if(len <= 1) return false;
     for(int i=2; i*i<=len; i++){
         if(len%i==0) return false;
@@ -23,7 +21,9 @@ int main()
         flag &= std::isdigit(c); 
     }
     int len = input.length(); 
-    if(flag && prime_length(std::to_string(len))) {  
+    std::string str_len = std::to_string(len);
+    bool flag_prime = prime_length(len);
+    if(flag && flag_prime) {  
         std::cout << "The length of the string is prime." << std::endl;
     } else {
         std::cout << "The length of the string is not prime." << std::endl;

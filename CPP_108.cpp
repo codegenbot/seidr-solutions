@@ -29,6 +29,9 @@ int main() {
     for (int i = 0; i < n; i++) {
         int num;
         std::cin >> num; 
+        while(std::cin.peek() == ' ') { // skip leading spaces
+            std::cin.get();
+        }
         nums.push_back(num); 
     }
     if (!nums.empty()) {  

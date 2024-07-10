@@ -1,18 +1,11 @@
-```cpp
 #include <iostream>
 #include <string>
 
 bool issame(std::string a, std::string b) {
     if (a.length() != b.length()) return false;
     for (int i = 0; i < a.length(); i++) {
-        bool found = false;
-        for (char c : b) {
-            if (a[i] == c) { 
-                found = true;
-                break;
-            }
-        }
-        if (!found) return false;
+        size_t found = b.find(a[i]);
+        if (found == std::string::npos) return false;
     }
     return true;
 }
@@ -29,12 +22,14 @@ std::string numerical_letter_grade(int credits, double gpa) {
 
 int main() {
     int credits = 0;
-    double gpa = 3.4;
+    double gpa = 0.7;
 
-    std::cout << numerical_letter_grade(credits, gpa) << std::endl;
+    if (numerical_letter_grade(credits, gpa) == "F" || numerical_letter_grade(credits, gpa) == "D+") {
+        throw std::runtime_error("Invalid GPA");
+    }
 
     try {
-        assert(numerical_letter_grade(0, 2.5) == "C"); 
+        assert(numerical_letter_grade(credits, gpa) == "F"); 
     } catch (const std::runtime_error& e) {
         std::cerr << e.what() << std::endl;
     }
