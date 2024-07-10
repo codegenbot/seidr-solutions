@@ -1,5 +1,8 @@
 ```cpp
 #include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -12,11 +15,17 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
+string to_string(int i) {
+    ostringstream oss;
+    oss << i;
+    return oss.str();
+}
+
 string reverse_delete(string s1, string s2) {
     int len1 = s1.length();
     int len2 = s2.length();
     for(int i = 0; i < len2; i++) {
-        auto pos = s1.find(string(1, s2[i]));
+        auto pos = s1.find(to_string(s2[i]).c_str());
         if(pos != string::npos) {
             s1 = s1.substr(0, pos) + s1.substr(pos + 1);
         }
