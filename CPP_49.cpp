@@ -1,5 +1,5 @@
 int modp(int n, int p) {
-    if (p == 0) return -1; // error handling for division by zero
+    if (p == 1) return 0;
     int result = 1;
     n = n % p;
     while (n > 0) {
