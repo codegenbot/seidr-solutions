@@ -2,8 +2,7 @@ while True:
     try:
         n = int(input("Enter a positive integer greater than 1: "))
         if n <= 1:
-            raise ValueError("Invalid input. Please enter a positive integer greater than 1.")
+            raise ValueError
         break
-    except ValueError as ve:
-        print(ve)
-        continue
+    except ValueError:
+        print("Invalid input. Please enter a positive integer greater than 1.")
