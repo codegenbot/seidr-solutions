@@ -26,6 +26,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         return atof(str.c_str()) > f ? a : b;
     }
     else {
-        return boost::any();
+        return a;
     }
 }
