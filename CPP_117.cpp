@@ -1,5 +1,21 @@
 bool issame(vector<string> a, vector<string> b);
 
+vector<string> select_words(string s, int n);
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
 vector<string> select_words(string s, int n) {
     vector<string> result;
     if (s.empty()) {
@@ -15,7 +31,7 @@ vector<string> select_words(string s, int n) {
             }
             word = "";
             consonant_count = 0;
-        } else if (isalpha(c) && strchr("aeiouAEIOU", c) == nullptr) {
+        } else if (isalpha(c) && "aeiouAEIOU" == c) {
             consonant_count++;
         }
         word += c;
@@ -26,16 +42,4 @@ vector<string> select_words(string s, int n) {
     }
     
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
