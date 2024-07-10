@@ -1,18 +1,27 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
+    int evenCount = 0;
     for (int num : lst1) {
-        if (num % 2 != 0) {
-            oddCount++;
+        if (num % 2 == 0) {
+            evenCount++;
         }
     }
-    for (int i = 0; i < lst1.size(); i++) {
-        for (int j = 0; j < lst2.size(); j++) {
-            if (lst1[i] % 2 != 0 && lst2[j] % 2 == 0) {
-                swap(lst1[i], lst2[j]);
-                oddCount--;
-                break;
+    if (evenCount == lst1.size()) {
+        return "YES";
+    } else {
+        bool possible = false;
+        for (int i = 0; i < lst2.size(); i++) {
+            if (lst2[i] % 2 == 0) {
+                int j = 0;
+                while (j < lst1.size() && lst1[j] % 2 != 0) {
+                    j++;
+                }
+                if (j < lst1.size()) {
+                    swap(lst1[j], lst2[i]);
+                    possible = true;
+                    break;
+                }
             }
         }
+        return possible ? "YES" : "NO";
     }
-    return oddCount == 0 ? "YES" : "NO";
 }
