@@ -1,9 +1,8 @@
 def mastermind(code, guess):
-    correct_place = 0
-    correct_color_wrong_place = 0
-    for i in range(4):
-        if code[i] == guess[i]:
-            correct_place += 1
-        elif str(code[i]) in str(guess):
-            correct_color_wrong_place += 1
-    return correct_place, correct_color_wrong_place
+    code_count = [0, 0]
+    for c in code:
+        if c == guess[0]:
+            code_count[1] += 1
+        elif c in guess:
+            code_count[0] += 1
+    return str(code_count[0]), str(code_count[1])
