@@ -3,4 +3,4 @@ def decode_shift(s: str):
 
 input_string = input("Enter the encoded string: ")
 decoded_string = decode_shift(input_string)
-print("Decoded string:", decoded_string)
+print(decoded_string)
