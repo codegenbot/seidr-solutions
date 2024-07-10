@@ -1,5 +1,3 @@
-Here is the completed code:
-
 #include <algorithm>
 
 vector<float> find_closest_elements(vector<float> numbers) {
@@ -8,9 +6,8 @@ vector<float> find_closest_elements(vector<float> numbers) {
     pair<float, float> closest_pair;
 
     for (int i = 0; i < numbers.size() - 1; ++i) {
-        float diff = numbers[i + 1] - numbers[i];
-        if (diff < min_diff) {
-            min_diff = diff;
+        if (numbers[i + 1] - numbers[i] < min_diff) {
+            min_diff = numbers[i + 1] - numbers[i];
             closest_pair = {numbers[i], numbers[i + 1]};
         }
     }
