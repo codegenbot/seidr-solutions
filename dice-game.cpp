@@ -1,16 +1,20 @@
 #include <iostream>
+using namespace std;
 
 double diceGame(int n, int m) {
-    double sum = 0;
-    for (int i = n+1; i <= m+n; i++) {
-        sum += 1.0 / m;
+    double total = (double)n * m;
+    double p = 0;
+    
+    for (int i = 1; i <= m && i < n; i++) {
+        p += (n - i);
     }
-    return sum;
+    
+    return p / total;
 }
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
-    std::cout << std::fixed << std::setprecision(1) << diceGame(n, m) << std::endl;
+    cin >> n >> m;
+    cout << fixed << setprecision(6) << diceGame(n, m) << endl;
     return 0;
 }
