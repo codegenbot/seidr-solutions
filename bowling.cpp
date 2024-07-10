@@ -1,24 +1,35 @@
-int score(string s) {
-    int frame = 0, score = 0;
-    for (char c : s) {
-        if (c == 'X') {
+#include <iostream>
+
+int calculateBowlingScore(std::string input) {
+    int score = 0;
+    int frame = 0;
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == 'X') {
             score += 10;
-            score += (s[frame + 1] == 'X') ? 10 : (s[frame + 1] == '/') ? 10 - s[frame + 2] + '0' : s[frame + 1] - '0';
-            score += (s[frame + 2] == 'X') ? 10 : ((frame == 18) ? (s[frame + 2] == '/' ? 10 - s[frame + 3] + '0' : s[frame + 2] - '0') : 0);
+            if (frame < 9) {
+                score += (input[i + 1] == 'X') ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10);
+                score += (input[i + 2] == 'X') ? 10 : (isdigit(input[i + 2]) ? input[i + 2] - '0' : 10);
+            }
             frame++;
-        } else if (c == '/') {
-            score += 10 - s[frame - 1] + '0';
-        } else {
-            score += c - '0';
+        } else if (input[i] == '/') {
+            score += 10 - (input[i - 1] - '0');
+            score += (input[i + 1] == 'X') ? 10 : (isdigit(input[i + 1]) ? input[i + 1] - '0' : 10);
+            frame++;
+        } else if (isdigit(input[i])) {
+            score += input[i] - '0';
+            if (isdigit(input[i + 1])) {
+                score += input[i + 1] - '0';
+                i++;
+            }
+            frame++;
         }
-        frame++;
     }
     return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    std::string input;
+    std::cin >> input;
+    std::cout << calculateBowlingScore(input) << std::endl;
     return 0;
 }
