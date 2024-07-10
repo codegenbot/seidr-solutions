@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const vector<int>& a, const vector<int>& b){
+bool issame(vector<int> a, vector<int> b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
     vector<int> result;
