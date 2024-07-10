@@ -1,38 +1,35 @@
-Here is the solution:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string spinWords(std::string str) {
+    std::string result = "";
+    int wordLength;
+    std::string word;
 
-string spinWords(string input) {
-    string output = "";
-    int i = 0;
-    while (i <= input.length()) {
-        if (input.find(" ", i) == string::npos || i + 1 >= input.length()) {
-            string word = input.substr(i);
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i + 1] != ' ') {
+            word += str[i];
+            wordLength = word.length();
+            if (wordLength >= 5) {
+                std::string reversedWord = "";
+                for (int j = wordLength - 1; j >= 0; j--) {
+                    reversedWord += word[j];
+                }
+                result += reversedWord + " ";
+            } else {
+                result += word + " ";
             }
-            output += word + " ";
-            break;
-        } else {
-            string word = input.substr(i, input.find(" ", i) - i);
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            output += word + " ";
-            i = input.find(" ", i) + 1;
+            word.clear();
         }
     }
-    return output;
+
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    string s;
-    while (cin >> s) {
-        cout << spinWords(s) << endl;
-    }
+    std::string str;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, str);
+    std::cout << spinWords(str) << std::endl;
     return 0;
 }
