@@ -1,3 +1,4 @@
+```
 def car_race_collision(n: int):
     vehicles = {'cars': [], 'trucks': []}
     
@@ -10,7 +11,7 @@ def car_race_collision(n: int):
         elif v_type.lower() == 'trucks':
             vehicles['trucks'] = speeds
         else:
-            return "Invalid vehicle type. Please enter 'cars' or 'trucks'."
+            return f"Invalid vehicle type. Please enter 'cars' or 'trucks'."
     
     collision_speed = min(max(vehicles['cars']), max(vehicles['trucks']))
     return str(collision_speed)
