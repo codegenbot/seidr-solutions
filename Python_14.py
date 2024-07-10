@@ -2,17 +2,16 @@ from typing import List
 
 
 def get_all_prefixes(s: str) -> List[str]:
-    return [s[:i+1] for i in range(len(s))]
+    return [s[: i + 1] for i in range(len(s))]
 
 
 def all_prefixes() -> None:
     while True:
-        try:
-            s = input("Please enter a string: ")
-            if not s.strip():
-                print("Error: Please provide a non-empty string.")
-            else:
-                break
-        except ValueError as e:
-            print(f"Invalid input. Please enter a string.")
+        s = input("Please enter a string: ")
+        if not s.strip():
+            print("Error: Please provide a non-empty string.")
+        elif not s.isalpha():
+            print("Error: Input should be alphanumeric characters only.")
+        else:
+            break
     print("\n".join(get_all_prefixes(s)))
