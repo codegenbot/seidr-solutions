@@ -2,21 +2,23 @@
 #include <vector>
 #include <map>
 
+using namespace std;
+
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<int> nums(n);
+    cin >> n;
+    vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
     int target;
-    std::cin >> target;
+    cin >> target;
     
-    std::map<int, int> num_idx;
+    map<int, int> num_idx;
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
         if (num_idx.find(complement) != num_idx.end()) {
-            std::cout << complement << std::endl << nums[i] << std::endl;
+            cout << complement << endl << nums[i] << endl;
             break;
         }
         num_idx[nums[i]] = i;
