@@ -1,34 +1,57 @@
-Here is the solution:
-
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(const std::string& input) {
-    std::string output;
-    std::size_t pos = 0;
+std::string spinWords(std::string str) {
+    std::vector<std::string> words;
+    std::string word;
 
-    while (pos < input.size()) {
-        size_t spacePos = input.find(' ', pos);
-        if (spacePos == std::string::npos) {
-            spacePos = input.size();
+    // Split the input string into individual words
+    for (int i = 0; i <= str.length(); i++) {
+        if (str[i] == ' ' || i == str.length()) {
+            if (i != str.length()) {
+                word += str[i];
+            }
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
+            }
+        } else {
+            word += str[i];
         }
-        std::string word = input.substr(pos, spacePos - pos);
-
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-
-        output += word + ' ';
-        pos = spacePos + 1;
     }
 
-    return output.substr(0, output.size() - 1);
+    // Reverse the words that are 5 or more letters long
+    for (int i = 0; i < words.size(); i++) {
+        if (words[i].length() >= 5) {
+            std::string reversedWord;
+            for (int j = words[i].length() - 1; j >= 0; j--) {
+                reversedWord += words[i][j];
+            }
+            words[i] = reversedWord;
+        }
+    }
+
+    // Join the words back into a single string
+    std::string result;
+    for (int i = 0; i < words.size(); i++) {
+        if (i > 0) {
+            result += ' ';
+        }
+        result += words[i];
+    }
+
+    return result;
 }
 
 int main() {
-    std::string input;
-    while (std::cin >> input) {
-        std::cout << spinWords(input) << '\n';
-    }
+    // Read input from user
+    std::cout << "Enter a string of one or more words (separated by spaces): ";
+    std::string str;
+    std::cin >> str;
+
+    // Print the output
+    std::cout << "The resulting string is: " << spinWords(str) << std::endl;
+
     return 0;
 }
