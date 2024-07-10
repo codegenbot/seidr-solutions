@@ -1,4 +1,6 @@
-```python
+Here is the solution:
+
+```
 import hashlib
 
 def string_to_md5():
