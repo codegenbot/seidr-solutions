@@ -1,52 +1,21 @@
-int do_algebra(vector<string> operator_, vector<int> operand) {
-    string expression = "";
-    for (int i = 0; i < operator_.size(); i++) {
-        expression += to_string(operand[i]);
-        if (i < operator_.size() - 1) {
-            expression += " " + operator_[i] + " ";
-        }
-    }
-    expression += to_string(operand[operator_.size()]);
-    
-    int result = eval(expression.c_str());
-    return result;
-}
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+#include<string>
+using namespace std;
+#include<algorithm>
+#include<stdlib.h>
 
-int eval(char* str) {
+int do_algebra(vector<string> operato, vector<int> operand){
     int result = 0;
-    char *p = strtok(str, "+-*/");
-    while (p != NULL) {
-        if (*p == ' ') {
-            p++;
-            continue;
-        }
-        if (*p == '+') {
-            result += atoi(p + 1);
-        } else if (*p == '-') {
-            result -= atoi(p + 1);
-        } else if (*p == '*') {
-            int temp = 0;
-            while (isdigit(*p)) {
-                temp = temp * 10 + *p - '0';
-                p++;
-            }
-            result *= temp;
-        } else if (*p == '/') {
-            int temp = 0;
-            while (isdigit(*p)) {
-                temp = temp * 10 + *p - '0';
-                p++;
-            }
-            result /= temp;
-        } else if (*p == '^') {
-            int temp = 0;
-            while (isdigit(*p)) {
-                temp = temp * 10 + *p - '0';
-                p++;
-            }
-            result = pow(result, temp);
-        }
-        p = strtok(NULL, "+-*/");
+    int i = 0;
+    while(i < (operand.size() - 1)){
+        if(operato[i] == "+")result += operand[i+1];
+        else if(operato[i] == "-")result -= operand[i+1];
+        else if(operato[i] == "*")result *= operand[i+1];
+        else if(operato[i] == "//")result /= (int)round((double)operand[i+1]);
+        else if(operato[i] == "**")result = pow(result, operand[i+1]);
+        i++;
     }
     return result;
 }
