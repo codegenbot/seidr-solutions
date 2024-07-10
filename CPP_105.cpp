@@ -2,14 +2,9 @@
 #include <string>
 #include <map>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
-
+#include <cassert>
 using namespace std;
-
-bool compare_vectors(const vector<string>& v1, const vector<string>& v2) {
-    return v1 == v2;
-}
 
 std::vector<std::string> by_length(std::vector<int> arr){
     std::vector<std::string> result;
@@ -42,9 +37,4 @@ std::vector<std::string> by_length(std::vector<int> arr){
     }
 
     return result;
-}
-
-int main() {
-    assert(compare_vectors(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
-    return 0;
 }
