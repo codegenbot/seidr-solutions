@@ -1,3 +1,5 @@
+#include <vector>
+#include <iostream>
 #include <string>
 
 int pairedDigits(const std::string& str) {
@@ -8,4 +10,12 @@ int pairedDigits(const std::string& str) {
         }
     }
     return sum;
+}
+
+int main() {
+    std::string str;
+    std::cout << "Enter a string of digits: ";
+    std::cin >> str;
+    std::cout << "Sum of paired digits: " << pairedDigits(str) << std::endl;
+    return 0;
 }
