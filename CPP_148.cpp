@@ -1,5 +1,13 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -31,11 +39,7 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    string planet1, planet2;
-    cin >> planet1 >> planet2;
-    vector<string> result = bf(planet1, planet2);
-    for (const string& planet : result) {
-        cout << planet << " ";
-    }
+    assert(issame(bf("Jupiter", "Makemake"), {}));
+    
     return 0;
-};
+}
