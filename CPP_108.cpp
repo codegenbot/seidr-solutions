@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -21,6 +22,5 @@ int count_nums(std::vector<int> nums) {
 
 int main() {
     assert(count_nums({1}) == 1);
-    // Add your test cases here
     return 0;
 }
