@@ -1,9 +1,6 @@
 def digitSum(s):
     s = s.lower()
-    total = 0
-    for c in s:
-        if c.isdigit():
-            total += int(c)
+    total = sum(int(c) for c in s if c.isdigit())
     return total
 
 input_string = input("Enter a string: ")
