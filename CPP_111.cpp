@@ -28,7 +28,7 @@ std::map<char, int> histogram(std::string test){
 }
 
 int main(){
-    assert(issame(histogram("a"), {{'a', 1}}));
+    assert(issame(histogram("a"), {{'a', 1}})); // Add specific values inside the assert for comparison
     // Add more test cases with assert
     
     return 0;
