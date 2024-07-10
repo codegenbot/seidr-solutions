@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 
 bool is_prime(long long n){
     if(n <= 1){
@@ -16,6 +15,12 @@ bool is_prime(long long n){
 int main() {
     long long num;
     std::cin >> num;
-    std::cout << (is_prime(num) ? "Prime" : "Not Prime");
+    
+    if(is_prime(num)){
+        std::cout << num << " is prime.";
+    } else {
+        std::cout << num << " is not prime.";
+    }
+    
     return 0;
 }
