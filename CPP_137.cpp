@@ -1,5 +1,5 @@
 #include <boost/any.hpp>
-#include <boost/converter.hpp>
+#include <boost/convert.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == b.type()) {
@@ -15,5 +15,4 @@ boost::any compare_one(boost::any a, boost::any b) {
     } else if (boost::any_cast<double>(a) < boost::any_cast<double>(b)) {
         return b;
     }
-
-    return a;
+}
