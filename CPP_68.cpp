@@ -1,32 +1,44 @@
+```cpp
 #include <vector>
-#include <limits.h>
+#include <initializer_list>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
-    if (arr.empty()) return result;
+std::vector<int> pluck(std::vector<std::vector<int>> arr) {
+    std::vector<int> result;
 
-    int minEven = INT_MAX;
-    int minIndex = -1;
+    for (const auto& v : arr) {
+        if (!v.empty()) {
+            int minEven = INT_MAX;
+            int minIndex = -1;
 
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEven) {
-            minEven = arr[i];
-            minIndex = i;
+            for (int i = 0; i < v.size(); i++) {
+                if (v[i] % 2 == 0 && v[i] < minEven) {
+                    minEven = v[i];
+                    minIndex = i;
+                }
+            }
+
+            result.push_back(minEven);
+            result.push_back(minIndex);
+        } else {
+            result.push_back(INT_MAX);
+            result.push_back(-1);
         }
     }
-
-    result.push_back(minEven);
-    result.push_back(minIndex);
 
     return result;
 }
 
 int main() {
-    vector<int> result = pluck({7, 9, 7, 1});
-    assert(issame(result, vector<int>{}));
+    std::vector<std::vector<int>> arr = {{7}, {9}, {7}, {1}};
+    std::vector<int> result = pluck(arr);
+    assert(issame(result, {}));
     return 0;
 }
