@@ -1,8 +1,8 @@
-#include <iostream>
 #include <algorithm>
 #include <vector>
 #include <cassert>
 #include <string> 
+#include <iostream> 
 using namespace std;
 
 string anti_shuffle(string sStr) {
@@ -32,4 +32,3 @@ int main() {
     string sStr = "Hi. My name is Mister Robot. How are you?";
     cout << anti_shuffle(sStr) << endl;
     return 0;
-}
