@@ -1,8 +1,7 @@
 ```cpp
 #include <algorithm>
 #include <vector>
-#include <utility>
-#include <initializer_list> 
+#include <utility> 
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
@@ -53,6 +52,6 @@ int main() {
     }
     cout << "]\n";
     
-    assert (issame(orderPoints({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6});
+    assert (issame(orderPoints({0,6,6,-76,-21,23,4}) , vector<int>{-76, -21, 0, 4, 23, 6, 6});
     return 0;
 }
