@@ -1,4 +1,3 @@
-```
 def roll_higher(n, m):
     total_combinations = n * m
     higher_rolls = 0
