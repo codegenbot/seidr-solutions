@@ -4,7 +4,7 @@ int how_many_times(string str, string substring) {
 
     while ((pos = str.find(substring)) != string::npos) {
         count++;
-        str.erase(0, pos + substring.length());
+        str.erase(0, pos + substring.size());
     }
 
     return count;
