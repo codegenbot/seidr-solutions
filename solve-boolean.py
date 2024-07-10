@@ -1,10 +1,16 @@
-def solve_boolean(expression):
-    if expression == "T":
+Here's the solution:
+
+def solve_boolean(s):
+    if s == 't':
         return True
-    elif expression == "F":
+    elif s == 'f':
         return False
-    elif "&" in expression and "|" in expression:
+    elif '&' in s and '|' in s:
         raise ValueError("Invalid expression")
     else:
-        result = eval("True" + expression.replace("&", "^") + "False")
-        return bool(result)
+        for i, c in enumerate(s):
+            if c == '&':
+                return bool(eval(s[:i]) and eval(s[i+1:]))
+            elif c == '|':
+                return bool(eval(s[:i]) or eval(s[i+1:]))
+   
