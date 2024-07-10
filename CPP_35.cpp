@@ -1,6 +1,6 @@
 #include <vector>
 #include <cassert>
-#include <cmath> 
+#include <cmath>
 
 float max_element(const vector<float>& l) {
     assert(!l.empty());
@@ -14,5 +14,5 @@ float max_element(const vector<float>& l) {
 }
 
 int main() {
-    assert (abs(max_element({5.0, 3.0, -5.0, 2.0, -3.0, 3.0, 9.0, 0.0, 124.0, 1.0, -10.0})- 124.0)<1e-4); 
+    assert (abs(max_element({5.0, 3.0, -5.0, 2.0, -3.0, 3.0, 9.0, 0.0, 124.0, 1.0, -10.0})- 124.0)<1e-4);
 }
