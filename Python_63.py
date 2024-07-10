@@ -1,9 +1,8 @@
 ```
 print("Fibonacci Number Calculator")
 n = int(input("Enter the number: "))
-print(fibfib(n))
 
-def fibfib(n: int):
+def fibfib(n):
     if n <= 1:
         return 1
     elif n == 2:
@@ -13,3 +12,5 @@ def fibfib(n: int):
         for _ in range(2, n + 1):
             a, b = b, a + b
         return b
+
+print(fibfib(n))
