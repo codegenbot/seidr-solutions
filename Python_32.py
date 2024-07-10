@@ -1,12 +1,12 @@
-import math
-
-
-def poly(xs: list, x: float):
-    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
-
-
 def find_zero(xs: list):
-    assert len(xs) % 2 == 0
-    max_coeff = max(xs, key=abs)
-    x = -max_coeff
-    return x
+    if len(xs) % 2 != 0:
+        return None
+
+    degree = len(xs) - 1
+    idx = xs.index(max(xs))
+    f_x = xs[idx]
+
+    if degree % 2 == 0:
+        return -1 if f_x > 0 else 1
+    else:
+        return 1 if f_x > 0 else -1
