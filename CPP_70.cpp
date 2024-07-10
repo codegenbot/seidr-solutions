@@ -28,5 +28,15 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 
 int main() {
     assert(issame(strange_sort_vector({1, 2, 3}), {1, 3, 2}));
-    return 0;
-}
+    int main() {
+        std::vector<int> input;
+        int num;
+        while (std::cin >> num) {
+            input.push_back(num);
+        }
+        std::cout << "Sorted vector: ";
+        for (int i : strange_sort_vector(input)) {
+            std::cout << i << " ";
+        }
+        std::cout << std::endl;
+    }
