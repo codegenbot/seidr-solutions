@@ -8,15 +8,15 @@ int bowlingScore(std::string input) {
     int frameNumber = 1;
 
     for (int i = 0; i < input.size(); i++) {
-        if (input[i] == 'X') { // Strike
-            score += 10 + bowlingScoreForExtraRolls(input, i);
-            i += 2; // Skip the '/' and the next character
+        if (input.substr(i, 2) == "X/") { // Strike
+            score += 10 + bowlingScoreForExtraRolls(input.substr(i+2), 0);
+            i += 3;
             frameNumber++;
         } else if (input[i] == '/') {
             currentRoll = 0;
             frameNumber++;
         } else if (isdigit(input[i])) { // Number of pins knocked down
-            currentRoll = currentRoll * 10 + (input[i] - '0');
+            currentRoll = (currentRoll * 10) + (input[i] - '0');
             if (i < input.size() - 1 && input[i+1] == '/') {
                 score += currentRoll;
                 i++; // Skip the '/'
@@ -35,13 +35,17 @@ int bowlingScoreForExtraRolls(std::string input, int i) {
     int score = 0;
 
     for (int j = i + 1; j < input.size(); j++) {
-        if (input[j] == 'X') { // Strike
+        if (input.substr(j, 2) == "X/") { // Strike
             score += 10;
             continue;
         } else if (isdigit(input[j])) { // Number of pins knocked down
             int currentRoll = (input[j] - '0');
-            currentRoll = currentRoll * ((j+1) < input.size() && input[j+1] == '/') ? 10 : 1;
-            score += currentRoll;
+            if (j < input.size() - 1 && input[j+1] == '/') {
+                score += currentRoll;
+                j++; // Skip the '/'
+                continue;
+            }
+            return score + currentRoll;
         }
     }
 
