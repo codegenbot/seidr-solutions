@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,7 +13,7 @@ int double_the_difference(const std::vector<int>& lst) {
 
 }
 
-int userInputMain() {
+int main() {
     std::vector<int> lst; 
     int odd_sum = 0; 
 
@@ -22,10 +23,5 @@ int userInputMain() {
     }
     odd_sum = double_the_difference(lst); 
     std::cout << "The sum of squares of odd numbers is: " << odd_sum << std::endl;
-    return 0;
-}
-
-int main() {
-    userInputMain();
     return 0;
 }
