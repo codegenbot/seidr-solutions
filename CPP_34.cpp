@@ -1,14 +1,18 @@
 #include <algorithm>
-#include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     return a == b;
 }
 
-std::vector<int> solve() {
-    std::vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    std::sort(l.begin(), l.end());
-    l.erase(std::unique(l.begin(), l.end()), l.end());
+vector<int> solve() {
+    vector<int> l = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    sort(l.begin(), l.end());
+    l.erase(unique(l.begin(), l.end()), l.end());
     return l;
 }
