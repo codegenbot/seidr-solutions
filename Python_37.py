@@ -9,5 +9,5 @@ def sort_even(l: list):
             result.append(evens[even_index])
             even_index += 1
         else:
-            result.append(odds[min(i // 2, len(odds) - 1)])
+            result.append(odds[(i - 1) // 2])
     return tuple(result)
