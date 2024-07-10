@@ -1,34 +1,24 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
 bool issame(vector<float> a, vector<float> b);
 vector<float> sort_even(vector<float> l);
 
 int main() {
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    cin >> n;
+    vector<float> v(n);
+    for (float &x : v) cin >> x;
 
-    std::vector<float> vec(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> vec[i];
-    }
+    vector<float> result = sort_even(v);
 
-    std::vector<float> result = sort_even(vec);
-
-    std::cout << "Sorted even elements are: ";
-    for (int i = 0; i < n; i++) {
-        if (i % 2 == 0) {
-            std::cout << result[i] << " ";
-        }
-    }
+    for (float x : result) cout << x << " ";
     return 0;
 }
 
 bool issame(vector<float> a, vector<float> b) {
-    return a.size() == b.size();
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (abs(a[i] - b[i]) > 1e-6) return false;
+    }
+    return true;
 }
 
 vector<float> sort_even(vector<float> l) {
