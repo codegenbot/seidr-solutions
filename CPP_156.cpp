@@ -13,7 +13,7 @@ int main()
 std::string int_to_roman(int number)
 {
     if (number <= 0)
-        return "";
+        return "Input should be a positive integer";
     else if (number >= 4000)
         return "Input is too large";
 
@@ -54,7 +54,7 @@ std::string int_to_roman(int number)
     {
         for (int i = 1; i <= ones; i++)
             roman += "I";
+        return roman;
     }
 
-    return roman;
 }
