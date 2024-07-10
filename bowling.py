@@ -1,19 +1,13 @@
-Here is the solution:
-
-def bowling_game(s):
+```
+def bowling_score(bowling):
     score = 0
-    frame = 1
-    for i in range(0, len(s), 2):
-        if s[i].isdigit() and s[i+1] == '/':
-            first_roll = int(s[i])
-            second_roll = 10 - int(s[i])
+    roll = 0
+    for frame in range(10):
+        if '/' in str(bowling)[frame*2:frame*2+2]:
+            first_roll, second_roll = map(int, str(bowling)[frame*2:frame*2+2].split('/'))
             score += first_roll + second_roll
-            frame += 1
-        elif s[i].isdigit():
-            for j in range(int(s[i])):
-                if frame < 10:
-                    score += 10
-                    frame += 1
-                else:
-                    return score
+            roll += 1
+        else:
+            score += int(str(bowling)[frame*2:frame*2+2])
+            roll += 1
     return score
