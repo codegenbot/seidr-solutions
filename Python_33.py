@@ -1,7 +1,8 @@
 def sort_third(lst):
-    numbers = sorted([x for x in lst if not isinstance(x, list)])
-    lists = [
-        sorted(x)[2:] if len(sorted(x)) >= 3 else [] for x in lst if isinstance(x, list)
-    ]
-
-    return numbers + [item for sublist in lists for item in sublist]
+    numbers = [x for x in lst if not isinstance(x, list)]
+    lists = [sorted(x) if len(x) >= 3 else sorted(x) for x in lst if isinstance(x, list)]
+    
+    numbers.sort()
+    lists.sort(key=lambda x: x[2] if len(x) > 2 else x)
+    
+    return numbers + lists
