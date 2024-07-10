@@ -1,6 +1,8 @@
-def decode_cyclic(s: str):
-    if len(s) < 3:
-        return "Invalid input"
+def decode_cyclic():
+    while True:
+        s = input("Enter a string: ")
+        if len(s) > 0:
+            break
     result = ""
     i = 0
     while i < len(s):
@@ -12,3 +14,5 @@ def decode_cyclic(s: str):
             result += chr(char_val % 128)
             i += 3
     return result
+
+print(decode_cyclic())
