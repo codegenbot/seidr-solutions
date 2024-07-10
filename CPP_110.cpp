@@ -8,3 +8,4 @@ std::string exchange(vector<int> lst1, vector<int> lst2) {
             oddCount++;
     }
     return std::to_string(oddCount == 0);
+}
