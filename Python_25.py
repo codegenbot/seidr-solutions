@@ -1,5 +1,5 @@
+```
 from typing import List
-
 
 def factorize(n: int) -> List[int]:
     i = 2
@@ -16,4 +16,4 @@ def factorize(n: int) -> List[int]:
                 factors.append(i)
     if n > 1:
         factors.append(n)
-    print(f"The prime factorization of {n} is: {factors}")
+    return factors
