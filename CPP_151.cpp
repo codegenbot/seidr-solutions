@@ -1,26 +1,45 @@
 ```cpp
-long long double_the_difference(std::initializer_list<double> lst) {
-    long long sum = 0;
-    for (double num : lst) {
-        if (num > 0 && std::floor(num) == num) { 
-            if (std::fmod(num, 2.0) != 0.0) { 
-                sum += std::pow(num, 2);
-            }
+#include <vector>
+#include <cassert>
+#include <iostream>
+
+using namespace std;
+
+double double_the_difference(vector<double> lst) {
+    int sum = 0;
+    for (double x : lst) {
+        int diff = abs((int)x - 5);
+        if (diff % 2 != 0) {
+            sum += diff;
         }
     }
-    return sum;
+    return static_cast<double>(sum);
 }
 
-int main() {
-    long long odd_sum = 0;
-    std::initializer_list<double> lst = {1.5, 3.25, 4.75};
-    for (double num : lst) {
-        if (num > 0 && std::floor(num) == num) { 
-            if (std::fmod(num, 2.0) != 0.0) { 
-                odd_sum += std::pow(num, 2);
+int main_func() {
+    vector<double> lst;
+    double odd_sum = 0;
+
+    for (string line; getline(cin, line); ) {
+        if (!line.empty()) {
+            double val = stod(line);
+            int diff = abs((int)val - 5);
+            if (diff % 2 != 0) {
+                odd_sum += val;
             }
+            lst.push_back(val);
         }
     }
+
+    cout << "The numbers that are different from 5 by an odd number: ";
+    for (double x : lst) {
+        if (abs((int)x - 5) % 2 != 0) {
+            cout << x << " ";
+        }
+    }
+    cout << endl;
+
     assert(double_the_difference(lst) == odd_sum);
+
     return 0;
 }
