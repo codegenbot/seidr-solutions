@@ -1,18 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); ++i)
-        if (a[i] != b[i])
-            return false;
-    return true;
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
-std::vector<int> pluck(const std::vector<int>& n) {
-    std::vector<int> result;
+vector<int> pluck(const vector<int>& n) {
+    vector<int> result;
 
     for (int x : n) {
         if(x == 7 || x == 9)
@@ -27,13 +23,13 @@ std::vector<int> pluck(const std::vector<int>& n) {
 }
 
 int main() {
-    std::vector<int> v1 = {7, 9, 7, 1};
-    std::vector<int> v2 = {1};
+    vector<int> v1 = {7, 9, 7, 1};
+    vector<int> v2 = {1};
 
     if (issame(pluck(v1), pluck({1})) )  
-        std::cout << "Arrays are same" << std::endl;
+        cout << "Arrays are same" << endl;
     else   
-        std::cout << "Arrays are not same" << std::endl;
+        cout << "Arrays are not same" << endl;
 
     return 0;
 }
