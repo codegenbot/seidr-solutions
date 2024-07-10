@@ -10,15 +10,15 @@ bool same_chars(std::string s0, std::string s1) {
 
 int main() {
     std::string input1, input2;
-    std::cout << "Enter first string: ";
+    std::cout << "Enter the first string: ";
     std::cin >> input1;
-    std::cout << "Enter second string: ";
+    std::cout << "Enter the second string: ";
     std::cin >> input2;
 
     if (same_chars(input1, input2)) {
         std::cout << "Both strings have the same characters." << std::endl;
     } else {
-        std::cout << "Strings do not have the same characters." << std::endl;
+        std::cout << "Strings have different characters." << std::endl;
     }
 
     return 0;
