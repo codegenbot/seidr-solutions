@@ -1,13 +1,13 @@
-int is_bored(string S){
+#include <string>
+#include <cctype>
+
+int is_bored(std::string str) {
     int count = 0;
-    string boredom = "I";
-    size_t pos = 0;
-    while ((pos = S.find(" ", pos)) != string::npos) {
-        if (S.substr(0, pos).compare(boredom) == 0) {
+    for (char c : str) {
+        if (::toupper(c) == 'I') {
             count++;
-            break;
         }
-        pos++;
     }
     return count;
+
 }
