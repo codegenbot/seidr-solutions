@@ -1,13 +1,18 @@
 ```
+import math
+
+
 def max_fill(grid, capacity):
     rows = len(grid)
     cols = len(grid[0])
-    total_water = sum(sum(row) for row in grid)
+    total_water = 0
+    for row in grid:
+        total_water += sum(row)
 
     if not grid or not grid[0]:
         return 0
 
-    min_col = [0] * rows
+    min_col = [math.inf] * rows
     max_fill = 0
 
     for col in range(cols):
@@ -23,9 +28,9 @@ def max_fill(grid, capacity):
                 left -= grid[row][col]
 
         total_left, total_right = 0, 0
-        for col in range(min(row+1, cols)):  
+        for col in range(cols):
             if min_col[col] > 0:
-                if grid[row][col] > 0:
+                if col < cols-1 and grid[row][col] > 0: 
                     total_left += grid[row][col]
                     right -= grid[row][col]
                 else:
