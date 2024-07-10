@@ -25,12 +25,12 @@ bool issame(const vector<string>& a, const vector<string>& b) {
     return true;
 }
 
-int total_match(const vector<vector<string>>& input, const vector<vector<string>>& matches) {
+int total_match(const vector<string>& input, const vector<vector<string>>& matches) {
     int count = 0;
-    for (const auto& str : input) {
+    for (const string& str : input) {
         bool found = false;
-        for (const auto& match : matches) {
-            if (issame({str}, match)) {
+        for (const vector<string>& match : matches) {
+            if (issame({{str}} , match)) {
                 found = true;
                 break;
             }
