@@ -4,11 +4,12 @@ from typing import List, Optional
 def longest() -> Optional[str]:
     strings = []
     while True:
-        user_input = input("Enter a string (or 'done' to finish): ")
-        if user_input.lower() == 'done':
+        s = input("Enter a string (or 'done' if finished): ")
+        if s.lower() == 'done':
             break
-        strings.append(user_input)
-    
+        strings.append(s)
     if not strings:
         return None
     return max(strings, key=len)
+
+print(longest())
