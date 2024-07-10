@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,7 +10,11 @@ int main() {
     while (true) {
         getline(std::cin, num);
         if (num == "stop") break;
-        nums.push_back(num.substr(0, num.size() - 1)); // remove newline character
+        if(num.length() > 1 && num.length() <= 10) {
+            nums.push_back(num);
+        } else {
+            std::cout << "Invalid input. Please enter a number with length between 1 and 10." << std::endl;
+        }
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
 }
