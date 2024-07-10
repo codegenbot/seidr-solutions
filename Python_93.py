@@ -10,12 +10,14 @@ def encode(message):
                 else:
                     index = (vowels.index(char.lower()) + 1) % 6
                 result += vowels[index].upper() if char.isupper() else vowels[index].lower()
-            elif char.isalpha():
-                if char.swapcase() in 'AEIOUaeiou':
-                    if char.isupper():
-                        result += vowels[(5 - 'AEIOUaeiou'.index(char.lower())) % 6].upper()
-                    else:
-                        result += vowels['AEIOUaeiou'.index(char.lower()) + 1 % 6].lower()
+            else:
+                for v in vowels:
+                    if v.lower() == char.lower():
+                        if char.isupper():
+                            result += v.upper()
+                        else:
+                            result += v.lower()
+                        break
                 else:
                     result += char.swapcase()
         else:
