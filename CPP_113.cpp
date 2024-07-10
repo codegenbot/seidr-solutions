@@ -15,11 +15,11 @@ int odd_count(const std::vector<std::string>& vec) {
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert(issame(std::vector<std::string>{"271", "137", "314"}, std::vector<std::string>{"271", "137", "314"}));
-    assert(odd_count(std::vector<std::string>{"271", "137", "314"}) == 5);
+    assert(issame({"271", "137", "314"}, {"271", "137", "314"}));
+    assert(odd_count({"271", "137", "314"}) == 5);
     return 0;
 }
