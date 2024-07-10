@@ -11,7 +11,7 @@ int how_many_times(std::string str, std::string substring) {
     return count;
 }
 
-int main() {
+int main_menu() {
     std::string str, substring;
     std::cout << "Enter the string: ";
     std::getline(std::cin, str);
