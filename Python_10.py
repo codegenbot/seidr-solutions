@@ -1,20 +1,12 @@
+```
 def is_palindrome(string: str) -> bool:
-    if string == string[::-1]:
-        print("Welcome to the palindrome checker!")
-        return True
-    else:
-        print("Welcome to the palindrome checker!")
-        return False
-
+    return string == "".join(reversed(string))
 
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        print("Welcome to the palindrome maker!")
-        return string + "madam"
+    if is_palindrome(string):
+        return string + " madam"
     else:
         for i in range(len(string)):
-            if string[:i] + string[i:][::-1] == string[i:][::-1]:
-                print("Welcome to the palindrome maker!")
+            if is_palindrome(string[:i] + string[i:][::-1]):
                 return string[:i] + string[i:][::-1] + string[i:][::-1]
-        print("Welcome to the palindrome maker!")
-        return string + "not a palindrome"
+        return string + " not a palindrome"
