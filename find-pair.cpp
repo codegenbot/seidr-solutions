@@ -12,4 +12,3 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         numMap[nums[i]] = i;
     }
     return make_pair(-1, -1);
-}
