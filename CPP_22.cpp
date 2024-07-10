@@ -1,17 +1,20 @@
+#include <algorithm>
 #include <vector>
 #include <list>
-#include <algorithm>
 #include <boost/any.hpp>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<boost::any> filter_integers(std::list<boost::any> values) {
-    std::vector<boost::any> result;
+vector<int> filter_integers(list<any> values) {
+    vector<int> result;
     for (const auto& value : values) {
         if (boost::any_cast<int>(value) != 0) {
-            result.push_back(value);
+            if (!result.empty() && !issame(result, {boost::any_cast<int>(value)})) {
+                return {};
+            }
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
