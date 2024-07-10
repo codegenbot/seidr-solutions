@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b){
     return (a == b);
 }
 
@@ -44,4 +44,8 @@ void solveProblem() {
     for (int i : output) {
         cout << i << " ";
     }
+    
+    assert(std::equal({0, 2, 3, 5, 9, 123}.begin(), {0, 2, 3, 5, 9, 123}.end(), std::vector<int>(std::distinct(input.begin(), input.end()).begin(), std::distinct(input.end())));
+    
+    return;
 }
