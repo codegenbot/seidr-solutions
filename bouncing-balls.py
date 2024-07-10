@@ -12,4 +12,4 @@ def bouncing_balls():
         h1, h2 = h2, h2 * bounciness_index
     return round(total_distance, 4)
 
-print(bouncing_balls())
+print(round(bouncing_balls(), 4))
