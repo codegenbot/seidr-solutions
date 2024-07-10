@@ -1,4 +1,3 @@
-#include <string>
 #include <openssl/evp.h>
 
 using namespace std;
