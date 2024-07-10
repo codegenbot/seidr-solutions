@@ -1,36 +1,36 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(const std::string& str) {
-    std::string result;
-    std::size_t pos = 0;
-    
-    while ((pos = str.find(' ')) != std::string::npos) {
-        std::string word = str.substr(0, pos);
-        
-        if (word.length() >= 5) {
-            for (int i = word.length() - 1; i >= 0; --i)
-                result += word[i];
-        } else
-            result += word;
-        
-        str.erase(0, pos + 1);
+using namespace std;
+
+string spinWords(string str) {
+    string result = "";
+    int count = 0;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            if (count >= 5) {
+                for (int j = i - 1; j >= count - 1; j--) {
+                    result += str[j];
+                }
+            } else {
+                result += str.substr(count, i - count);
+            }
+            count = 0;
+        } else {
+            count++;
+        }
     }
-    
-    if (str.length() >= 5) {
-        for (int i = str.length() - 1; i >= 0; --i)
-            result += str[i];
-    } else
-        result += str;
-    
     return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    
+    string input;
+    while (true) {
+        cout << "Enter a string (or 'q' to quit): ";
+        cin >> input;
+        if (input == "q") break;
+        cout << spinWords(input) << endl;
+    }
     return 0;
 }
