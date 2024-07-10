@@ -17,8 +17,8 @@ vector<string> words_string(string s) {
     return words;
 }
 
-int main() {
+void test_words_string() {
     assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
-    
-    return 0;
 }
+
+void test_words_string();
