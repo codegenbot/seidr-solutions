@@ -1,13 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert> // Include <cassert> for using assert macro
+#include <cassert>
 using namespace std;
 
 string match_parens(vector<string> lst);
 
 int main() {
-    assert(match_parens({")", "("}) == "Yes");
+    assert (match_parens({")", "("}) == "Yes");
 }
 
 string match_parens(vector<string> lst){
