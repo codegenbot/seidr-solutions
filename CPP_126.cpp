@@ -1,4 +1,4 @@
-#include <iostream>
+#include <vector>
 using namespace std;
 
 bool is_sorted(vector<int> lst){
@@ -11,9 +11,8 @@ bool is_sorted(vector<int> lst){
         }
     }
     return true;
-}
 
 int main() {
-    vector<int> myVector = {1, 2, 3, 4};
-    cout << (is_sorted(myVector) ? "true" : "false");
+    vector<int> lst = {1, 2, 3, 4};
+    assert(is_sorted(lst) == true);
 }
