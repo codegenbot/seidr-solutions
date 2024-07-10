@@ -1,10 +1,10 @@
 vector<string> sorted_list_sum(vector<string> lst) {
     auto it = lst.begin();
-    erase_remove:
     while (it != lst.end()) {
         if (it->length() % 2 != 0) {
             lst.erase(it);
-            continue erase_remove;
+            it = lst.begin();
+            continue;
         }
         ++it;
     }
@@ -16,11 +16,4 @@ vector<string> sorted_list_sum(vector<string> lst) {
              return a.length() < b.length();
          });
     return lst;
-}
-
-int main() {
-    if (!issame(vector<string>(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})), vector<string>({"cc","dd","aaaa","bbbb"}))) {
-        return 1;
-    }
-    return 0;
 }

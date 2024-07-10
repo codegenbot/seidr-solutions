@@ -1,11 +1,41 @@
-Here is the completed code:
+#include <iostream>
+#include <vector>
 
-long long double_the_difference(vector<float> lst){
+long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
-    for(auto x : lst){
-        if(x > 0 && floor(x) == x){ // check if number is positive and integer
-            sum += pow(x, 2); // add square of the number to sum
-        }
+    for(float x : lst){
+        if(int(x) > 0 && int(x) % 2 != 0)
+            sum += pow(int(x), 2);
     }
     return sum;
+}
+
+int main() {
+    std::vector<float> lst; 
+    float odd_sum = 0.0f; 
+
+    // Read input from user
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    for(int i = 0; i < n; i++) {
+        float x;
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> x;
+        lst.push_back(x);
+    }
+
+    // Calculate the sum of odd elements
+    for(float x : lst){
+        if(int(x) > 0 && int(x) % 2 != 0)
+            odd_sum += x;
+    }
+
+    // Print the result
+    std::cout << "The difference between sums is: " << double_the_difference(lst) - odd_sum << std::endl;
+
+    assert (double_the_difference(lst) == odd_sum );
+    
+    return 0;
 }
