@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <unordered_map>
 #include <utility>
@@ -10,7 +9,7 @@ std::pair<int, int> findPair(vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.count(complement)) {
-            return make_pair(nums[i], complement);
+            return make_pair(complement, nums[i]);
         }
         numMap[nums[i]] = i;
     }
