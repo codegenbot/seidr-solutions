@@ -2,15 +2,15 @@
 a = int(input("Enter number 1: "))
 b = int(input("Enter number 2: "))
 
-print(gcd(a, b))
-
-text = input("Enter text: ")
-target = input("Enter target string: ")
-
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return abs(a)
+
+print(gcd(a, b))
+
+text = input("Enter text: ")
+target = input("Enter target string: ")
 
 def indices_of_substring(text, target):
     result = []
