@@ -1,32 +1,60 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
 int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num > 0) {
-            bool has_five_or_nine = false;
-            while (num != 0) {
-                int digit = abs(num % 10);
-                if (digit == 5 || digit == 8 || digit == 9) {
-                    has_five_or_nine = true;
+            bool has_five_or_eight = false;
+            std::string str = std::to_string(num);
+            for (char c : str) {
+                int digit = c - '0';
+                if (digit == 5 || digit == 8) {
+                    has_five_or_eight = true;
+                    break;
                 }
-                num /= 10;
             }
-            if (!has_five_or_nine) {
+            if (!has_five_or_eight) {
                 count++;
             }
         } else if (num < 0) {
-            bool only_zeros = true;
-            while (num != 0) {
-                int digit = abs(num % 10);
-                if (digit > 0) {
-                    only_zeros = false;
+            bool has_negative_digit = false, has_five_or_eight = false;
+            std::string str = std::to_string(num);
+            for (char c : str) {
+                int digit = c - '0';
+                if (digit >= 5) {
+                    has_negative_digit = true;
+                }
+                if (digit == 5 || digit == 8) {
+                    has_five_or_eight = true;
                     break;
                 }
-                num /= 10;
             }
-            if (!only_zeros) {
+            if (!has_negative_digit || has_five_or_eight) {
                 count++;
             }
         }
     }
     return count;
+}
+
+int main() {
+    std::vector<int> nums;
+    int num;
+    
+    while (true) {
+        std::cout << "Enter a number (or -1 to finish): ";
+        std::cin >> num;
+        
+        if (num == -1) {
+            break;
+        }
+        
+        nums.push_back(num);
+    }
+    
+    int result = count_nums(nums);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
 }
