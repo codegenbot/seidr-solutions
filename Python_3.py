@@ -1,4 +1,9 @@
-operations = list(map(int, input().split(",")))
+operations = []
+while True:
+    num = input()
+    if num == "":
+        break
+    operations.append(int(num))
 
 def below_zero(operations):
     count = 0
