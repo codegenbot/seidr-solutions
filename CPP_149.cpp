@@ -1,12 +1,13 @@
-bool issame(const string& a, const string& b) {
-    int sum_a = 0, sum_b = 0;
-    for(int i = 0; i < a.length(); i++) {
-        sum_a += a[i] - '0';
+#include <algorithm>
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
-    for(int i = 0; i < b.length(); i++) {
-        sum_b += b[i] - '0';
-    }
-    return sum_a == sum_b;
+    return true;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
@@ -15,14 +16,13 @@ vector<string> sorted_list_sum(vector<string> lst) {
         [](const string& str) { return str.length() % 2 != 0; }),
         lst.end());
     
-    // Sort the list based on whether two strings are same (sum of digits in each string), 
-    // and then alphabetically
+    // Sort the list based on the length of each word, and then alphabetically
     std::sort(lst.begin(), lst.end(),
         [](const string& a, const string& b) {
-            if (issame(a, b)) {
+            if (a.size() == b.size()) {
                 return a < b;
             } else {
-                return issame(a, b);
+                return a.size() < b.size();
             }
         });
     
