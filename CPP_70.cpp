@@ -1,8 +1,6 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-// Function to compare two vectors for sameness
 bool issame(std::vector<int> a, std::vector<int> b) {
     if(a.size() != b.size())
         return false;
@@ -14,7 +12,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-// Function to sort the vector according to task description
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     while (!lst.empty()) {
