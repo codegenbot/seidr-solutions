@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -22,3 +21,4 @@ int main() {
     std::cin >> num;
     std::cout << "The mini Roman numeral is: " << int_to_mini_roman(num) << std::endl;
     return 0;
+}
