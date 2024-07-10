@@ -4,4 +4,12 @@ def fruit_distribution(s, n):
     for i in range(len(fruits)):
         if "," in fruits[i]:
             fruits[i] = fruits[i].replace(",", "")
-    return sum(int(fruit.split()[0]) if fruit.split()[0].isdigit() else 1 for fruit in fruits[:n]) / n
+    return (
+        sum(
+            int(fruit.split()[0]) if fruit.split()[0].isdigit() else 1
+            for fruit in fruits[:n]
+        )
+        / n
+    )
+
+print(fruit_distribution("1 apples and 100 oranges", 120))
