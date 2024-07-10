@@ -1,29 +1,13 @@
-```
+import random
+
+
 def modp(n: int, p: int):
-    if p == 2:
-        return n % p
-    elif p == 3:
-        return pow(n, (p - 1), p)
-    else:
-        if is_prime(p):
-            if is_primitive_root(n, p):
-                return pow(n, (p - 1) // 2, p) ** 2 % p
-            else:
-                for _ in range(2, int(p ** 0.5) + 1):
-                    if pow(n, _, p) == 1:
-                        return _
-                return pow(n, p - 1, p)
-
-def is_prime(num: int) -> bool:
-    if num < 2:
+    if pow(2, n - 1, p) == 1:
         return False
-    for i in range(2, int(num ** 0.5) + 1):
-        if num % i == 0:
-            return False
-    return True
-
-def is_primitive_root(n: int, p: int) -> bool:
-    for i in range(2, p):
-        if pow(n, (p - 1) // i, p) == 1:
+    for _ in range(p - 2):
+        a = random.randint(2, p - 2)
+        if pow(a, n, p) == 1:
+            continue
+        if pow(a, (n - 1) // 2, p) != p - 1:
             return False
     return True
