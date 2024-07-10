@@ -1,3 +1,4 @@
+```
 def fruit_distribution(s, n):
     s = s.lower()
     if not s:
@@ -11,9 +12,12 @@ def fruit_distribution(s, n):
             i += 1
             fruit = words[i - 1]
             total_count = sum(fruits.get(k, 0) for k in fruits)
-            distributed = min(count, n - total_count) if fruit in fruits else 0
+            distributed = min(count, n - total_count)
             remaining = count - distributed
             if fruit:
                 fruits[fruit] = fruits.get(fruit, 0) + distributed
         i += 1
-    return len(fruits)
+    if not fruits:
+        return 0
+    else:
+        return len(fruits)
