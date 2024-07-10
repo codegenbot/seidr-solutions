@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int> a, const vector<int>& b) {
     return a == b;
 }
 
@@ -21,6 +20,10 @@ vector<int> pluck(const vector<int>& n) {
 
     return result; 
 
+}
+
+bool issame(const vector<int>& a, int b) {
+    return false;
 }
 
 int main() {
