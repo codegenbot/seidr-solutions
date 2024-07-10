@@ -16,6 +16,6 @@ def cut_vector(vector):
             split_indices.append(i)
 
     if split_indices:
-        return vector[: split_indices[-1] + 1], vector[split_indices[-1] :]
+        return vector[: split_indices[0]], vector[split_indices[0] :]
     else:
-        return [0], vector
+        return [vector[0]], vector[1:]
