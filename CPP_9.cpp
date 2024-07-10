@@ -1,25 +1,25 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-std::vector<int> rolling_max(std::vector<int> numbers);
-
-std::vector<int> rolling_max(std::vector<int> numbers) {
-    std::vector<int> result;
-    int n = numbers.size();
-    for (int i = 0; i < n; ++i) {
-        int max_val = std::max(numbers[i], (i == 0) ? numbers[i] : result[i - 1]);
-        for (int j = i + 1; j < n; ++j) {
-            max_val = std::max(max_val, numbers[j]);
-        }
-        result.push_back(max_val);
+vector<int> rolling_max(vector<int> numbers) {
+    vector<int> result;
+    int max_num = INT_MIN;
+    for (int num : numbers) {
+        max_num = max(max_num, num);
+        result.push_back(max_num);
     }
     return result;
 }
 
 int main() {
     assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    
+    return 0;
 }
