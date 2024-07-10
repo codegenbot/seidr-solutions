@@ -1,8 +1,7 @@
-Here's your modified code:
+Here is the modified code:
 
-```cpp
+```
 #include <iostream>
-#include <vector>
 #include <string>
 using namespace std;
 
@@ -38,5 +37,5 @@ int main() {
     cin >> text >> target;
     vector<int> result = indicesOfSubstring(text, target);
     for(int i : result)
-        cout << " " << i;
+        cout << i << " ";
 }
