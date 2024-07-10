@@ -12,14 +12,28 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
-    std::vector<std::string> inputStrings = {"apple", "banana", "apricot", "grape"};
-    std::string prefix = "app";
-    
-    std::vector<std::string> outputStrings = filter_by_prefix(inputStrings, prefix);
-    
-    for (const auto& str : outputStrings) {
-        std::cout << str << "\n";
+    int num_strings;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> num_strings;
+
+    std::vector<std::string> strings(num_strings);
+
+    for (int i = 0; i < num_strings; ++i) {
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::cin >> strings[i];
     }
-    
+
+    std::string prefix;
+    std::cout << "Enter the prefix: ";
+    std::cin >> prefix;
+
+    auto filtered_strings = filter_by_prefix(strings, prefix);
+
+    std::cout << "Filtered strings: ";
+    for (const auto& str : filtered_strings) {
+        std::cout << str << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
