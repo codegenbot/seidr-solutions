@@ -1,5 +1,6 @@
 #include <vector>
-#include <algorithm>
+#include <initializer_list>
+
 using namespace std;
 
 bool is_sorted(vector<int> lst){
@@ -14,5 +15,7 @@ bool is_sorted(vector<int> lst){
     return true;
 
 int main() {
-    cout << (is_sorted({1, 2, 3, 4}) ? "true" : "false") << endl;
+    { 
+        assert(is_sorted({1, 2, 3, 4}) == true);
+    }
 }
