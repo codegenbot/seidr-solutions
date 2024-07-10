@@ -20,12 +20,8 @@ string compare_one(string a, string b) {
 
 int main() {
     string a, b;
-    cout << "Enter first number: ";
-    cin >> a;
-    cout << "Enter second number: ";
-    cin >> b;
-
-    cout << compare_one(a, b) << endl;
-
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+    cout << "Result: " << compare_one(a, b) << endl;
     return 0;
 }
