@@ -1,16 +1,16 @@
 substring = input().strip()
+if not all(char.isalpha() or char.isspace() for char in substring):
+    raise ValueError("Invalid input format for substring")
+
 strings = []
-
-
-def filter_strings(strings, substring):
-    return [string for string in strings if substring in string]
-
-
 while True:
     string = input().strip()
     if string == "----":
         break
     strings.append(string)
+
+def filter_strings(strings, substring):
+    return [string for string in strings if substring in string]
 
 filtered_strings = filter_strings(strings, substring)
 print("\n".join(filtered_strings))
