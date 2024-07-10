@@ -40,9 +40,11 @@ std::vector<std::string> by_length(std::vector<int> arr){
     return result;
 }
 
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    return a == b;
+}
+
 int main() {
-    std::vector<std::string> expected = {"Nine", "Four", "Eight"};
-    std::vector<std::string> actual = by_length({9, 4, 8});
-    assert(std::equal(expected.begin(), expected.end(), actual.begin()));
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
     return 0;
 }
