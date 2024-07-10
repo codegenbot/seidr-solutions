@@ -1,10 +1,11 @@
-# Read input line by line
+# Read input line by line until an empty line is encountered
 music_input = '\n'.join(iter(input, ''))
 
-# Function to parse music data
-def parse_music(music_input):
-    # Your code here to parse music input
-    pass
+# Define the function with correct signature
+def parse_music(music_data):
+    # Add your logic here to process the music_data
+    processed_data = music_data.split('\n')
+    return processed_data
 
-# Call the function with user input and print the output
+# Print the output of the function
 print(parse_music(music_input))
