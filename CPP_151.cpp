@@ -1,4 +1,8 @@
-```cpp
+#include <initializer_list>
+#include <vector>
+#include <cmath>
+#include <cassert>
+
 long long double_the_difference(std::initializer_list<double> lst) {
     long long sum = 0;
     for (double num : lst) {
