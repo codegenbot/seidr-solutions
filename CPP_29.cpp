@@ -28,12 +28,10 @@ int main() {
 
     std::vector<std::string> filtered_strings = filter_by_prefix(strings, prefix);
 
-    if(filtered_strings.size() > 0) {
-        std::cout << "Strings that start with the prefix '" << prefix << "':\n";
-        for(const auto& str : filtered_strings)
-            std::cout << str << "\n";
-    } else
-        std::cout << "No strings found that start with the prefix '" << prefix << "'.\n";
+    std::cout << "Filtered strings with prefix '" << prefix << "':\n";
+    for(const auto& str : filtered_strings) {
+        std::cout << str << "\n";
+    }
 
     return 0;
 }
