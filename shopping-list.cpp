@@ -10,7 +10,7 @@ float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
 
     float total = 0.0;
     for (int i = 0; i < prices.size(); ++i) {
-        total += prices[i] - prices[i] * (discounts[i] / 100.0);
+        total += prices[i] * (1 - discounts[i]);
     }
     return total;
 }
@@ -26,6 +26,7 @@ int main() {
     vector<float> discounts(n);
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
+        discounts[i] /= 100.0;
     }
 
     float total_price = calculateTotalPrice(prices, discounts);
