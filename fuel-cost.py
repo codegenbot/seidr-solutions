@@ -1,2 +1,4 @@
-def solve(v):
-    return sum((i // 3 - 2) for i in v)
+Here is the completed Python code:
+
+def fuel_cost(arr):
+    return sum((i//3)-2 for i in arr)
