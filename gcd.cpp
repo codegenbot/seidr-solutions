@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -31,5 +30,6 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 int main() {
     int result = gcd(12, 15);
     std::vector<int> indices = indicesOfSubstring("hello", "ll");
+    // Print or use the results as needed...
     return 0;
 }
