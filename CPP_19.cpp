@@ -1,27 +1,17 @@
-map<string, int> number_map = {
-    {"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4},
-    {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}
-};
+map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
+map<int, string> rev_map;
 
-string sort_numbers(string numbers){
-    string result;
-    map<int, string> sorted_numbers;
-
-    string temp;
-    for (char c : numbers) {
-        if (c != ' ') {
-            temp += c;
-        } else {
-            sorted_numbers[number_map[temp]] = temp;
-            temp = "";
-        }
-    }
-    sorted_numbers[number_map[temp]] = temp;
-
-    for (const auto& pair : sorted_numbers) {
-        result += pair.second + " ";
-    }
-
-    result.pop_back(); // Remove the extra space at the end
-    return result;
+for (auto const& pair : num_map) {
+    rev_map[pair.second] = pair.first;
 }
+
+sort(numbers.begin(), numbers.end(), [&](const string& a, const string& b) {
+    return num_map[a] < num_map[b];
+});
+
+string result;
+for (const auto& num : numbers) {
+    result += num + " ";
+}
+
+return result;
