@@ -1,5 +1,3 @@
-```cpp
-#include <cassert>
 #include <vector>
 #include <string>
 #include <cctype>
@@ -34,8 +32,4 @@ vector<string> split_words(string txt) {
         result.push_back(word);
     }
     return result;
-}
-
-int main() {
-    assert(issame(split_words("")) == true);
 }
