@@ -2,7 +2,7 @@
 #include <string>
 #include <cstdio>
 
-int do_alpha(vector<string> operator_, vector<int> operand) {
+int do_algebra(vector<string> operator_, vector<int> operand) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
         if (i == 0)
