@@ -1,16 +1,19 @@
-string anti_shuffle(string s){
-    string result = "";
+string ordered_word = "";
+    string ordered_sentence = "";
     string word = "";
+    
     for (char c : s) {
         if (c == ' ') {
             sort(word.begin(), word.end());
-            result += word + ' ';
+            ordered_sentence += word + ' ';
             word = "";
         } else {
             word += c;
         }
     }
+    
     sort(word.begin(), word.end());
-    result += word;
-    return result;
+    ordered_sentence += word;
+    
+    return ordered_sentence;
 }
