@@ -1,6 +1,6 @@
-```c++
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 int main() {
     std::vector<int> arr;
