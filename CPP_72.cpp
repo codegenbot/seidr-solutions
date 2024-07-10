@@ -1,6 +1,3 @@
-#include <vector>
-using namespace std;
-
 bool will_it_fly(vector<int> q, int w) {
     bool balanced = true;
     for (int i = 0; i < q.size() / 2; i++) {
