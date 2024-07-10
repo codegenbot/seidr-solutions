@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -30,7 +31,6 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
         if (k > 0) {
             --k;
 
-            // Check all neighbors
             for (int i = -1; i <= 1; ++i) {
                 for (int j = -1; j <= 1; ++j) {
                     int ni = pos.first + i;
