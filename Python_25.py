@@ -8,10 +8,9 @@ def is_prime(num):
 
 try:
     n = int(input("Enter a number: "))
-except ValueError:
-    print("Invalid input. Please enter a valid integer.")
-else:
     if is_prime(n):
         print(f"{n} is a prime number.")
     else:
         print(f"{n} is not a prime number.")
+except ValueError:
+    print("Please enter a valid integer number.")
