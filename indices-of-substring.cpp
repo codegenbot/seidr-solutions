@@ -26,9 +26,12 @@ int main() {
     string target;
     cin >> target;
 
-    if (text.empty() || target.empty()) {
-        cout << "Error: Input strings are empty." << endl;
-        return 1;
+    if (text.empty()) {
+        cout << "Error: The input text is empty." << endl;
+        return -1;
+    } else if (target.empty()) {
+        cout << "Error: The target string is empty." << endl;
+        return -1;
     }
 
     vector<int> indices = indicesOfSubstring(text, target);
