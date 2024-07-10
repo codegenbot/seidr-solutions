@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 bool correct_bracketing(std::string brackets){
@@ -12,9 +13,4 @@ bool correct_bracketing(std::string brackets){
         }
     }
     return opening == 0;
-}
-
-int main(){
-    assert(!correct_bracketing("<><><<><>><>>><>"));
-    return 0;
 }
