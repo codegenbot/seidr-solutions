@@ -1,18 +1,21 @@
+```cpp
+#include <vector>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<int> filter_integer(std::vector<int> values) {
     std::vector<int> result; 
-    bool isFirst = true;
     for (int value : values) {
-        if(value != 0) {
-            if (!isFirst) {
-                result.push_back(value);
-            } else {
-                result.push_back(value);
-                isFirst = false; // Reset here to avoid exceeding maximum size.
-            }
-        } else {
-            isFirst = true;
-        }
+        if(value != 0)
+            result.push_back(value);
     }
-    isFirst = true; 
     return result;
+}
+
+int main() {
+    assert(issame(filter_integer({3, 3, 3}), {3, 3, 3}));
+    return 0;
 }
