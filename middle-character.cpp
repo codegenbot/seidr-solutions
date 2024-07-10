@@ -1,14 +1,17 @@
 #include <iostream>
-#include <string>
+using namespace std;
 
-int main() {
-    std::string s;
-    std::cin >> s;
-    int len = s.length();
-    if (len % 2 == 0) {
-        std::cout << s.substr(len/2 - 1, 2);
+string middleCharacter(string s) {
+    int n = s.size();
+    if (n % 2 == 0) {
+        return s.substr(n / 2 - 1, 2);
     } else {
-        std::cout << s.substr(len/2, 1);
+        return s.substr(n / 2, 1);
     }
+}
+int main() {
+    string s;
+    cin >> s;
+    cout << middleCharacter(s) << endl;
     return 0;
 }
