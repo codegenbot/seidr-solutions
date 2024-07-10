@@ -1,4 +1,3 @@
-```Python
 from typing import List
 
 
@@ -7,8 +6,7 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
 
 
 if __name__ == "__main__":
-    """Enter comma-separated integers:"""
-    numbers = input()
+    numbers = input("Enter comma-separated integers: ")
     while True:
         if numbers:
             try:
