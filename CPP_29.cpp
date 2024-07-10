@@ -17,8 +17,6 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& a, con
     return filtered_strings;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
-
 int main() {
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), std::vector<std::string>{"xxx", "xxxAAA", "xxx"}));
     assert(issame(filter_by_prefix({"xxx", "xxxAAA", "xxx"}, "xxx"), std::vector<std::string>{"xxx", "xxxAAA", "xxx"}));
