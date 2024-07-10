@@ -8,7 +8,7 @@ int main() {
     double total_outcomes = n * m;
     double favorable_outcomes = 0;
     for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= i-1 && j <= m; ++j) {
+        for (int j = 1; j <= i && j <= m; ++j) {
             favorable_outcomes += 1;
         }
     }
