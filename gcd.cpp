@@ -1,5 +1,6 @@
 ```cpp
 #include <vector>
+#include <string>
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -25,3 +26,4 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     }
 
     return result;
+}
