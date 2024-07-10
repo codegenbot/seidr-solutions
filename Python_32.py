@@ -1,5 +1,5 @@
 def find_zero(xs: list):
-    x = 0
-    while poly(xs, x) != 0:
-        x += 0.01
-    return x
+    n = len(xs) - 1
+    for i in range(n, 0, -2):
+        if xs[i] != 0:
+            return -xs[i - 1] / xs[i]
