@@ -4,13 +4,12 @@
 
 int is_bored(std::string str) {
     int count = 0;
-    for (char c : str) {
-        if (::toupper(c) == 'I') {
+    for (char c : str) { 
+        if (std::toupper(c) == 'I') { 
             count++;
         }
     }
     return count;
-
 }
 
 int main() {
