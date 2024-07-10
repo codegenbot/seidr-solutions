@@ -1,9 +1,10 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 
 int main() {
-    std::vector<std::string> words = {"play", "play", "play"};
+    std::vector<std::string> words(3);
     std::string max_word = *std::max_element(words.begin(), words.end(),
         [](const std::string& a, const std::string& b) {
             if (a.length() == b.length()) {
