@@ -2,7 +2,6 @@
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
-#include <cassert>
 
 std::vector<int> filter_integers(std::list<boost::any> values){
     std::vector<int> result;
