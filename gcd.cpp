@@ -13,7 +13,7 @@ int gcd(int a, int b) {
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> result;
-    size_t index = 0;
+    int index = 0;
 
     while (index <= text.length() - target.length()) {
         size_t found = text.find(target, index);
