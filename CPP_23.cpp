@@ -1,3 +1,3 @@
 int strlen(string str){
-    return str.size();
+    return str.length();
 }
