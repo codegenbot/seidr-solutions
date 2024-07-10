@@ -1,35 +1,25 @@
-int count_digits(const string& s) {
-    int count = 0;
-    for (char c : s) {
-        if (isdigit(c)) {
-            count++;
+string file_name_check(string file_name){
+    int dot_count = 0;
+    int digit_count = 0;
+    bool first_letter_valid = true;
+
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] == '.'){
+            dot_count++;
+        }else if(isdigit(file_name[i])){
+            digit_count++;
+        }else if(i==0 && !isalpha(file_name[i])){
+            first_letter_valid = false;
         }
     }
-    return count;
-}
 
-bool file_name_check(string file_name) {
-    int digit_count = count_digits(file_name);
-    bool has_dot = false;
-    string before_dot, after_dot;
-
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos != string::npos) {
-        before_dot = file_name.substr(0, dot_pos);
-        after_dot = file_name.substr(dot_pos + 1);
-        has_dot = true;
-    }
-
-    if (digit_count > 3 || !has_dot || before_dot.empty() || !isalpha(before_dot[0])) {
+    if(dot_count > 1 || digit_count > 3 || first_letter_valid==false){
         return "No";
-    }
-    
-    string extensions[] = {"txt", "exe", "dll"};
-    for (const auto& ext : extensions) {
-        if (after_dot == ext) {
-            return "Yes";
+    }else{
+        string ext = file_name.substr(file_name.find('.')+1);
+        if(ext != "txt" && ext != "exe" && ext != "dll"){
+            return "No";
         }
+        return "Yes";
     }
-
-    return "No";
 }
