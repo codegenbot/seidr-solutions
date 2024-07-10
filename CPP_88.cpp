@@ -5,6 +5,10 @@
 
 using namespace std;
 
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    return v1 == v2;
+}
+
 vector<int> sort_array(vector<int> array) {
     if(array.empty()) return array;
     if((array.front() + array.back()) % 2 == 0)
@@ -12,14 +16,6 @@ vector<int> sort_array(vector<int> array) {
     else
         sort(array.begin(), array.end());
     return array;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); ++i) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
 }
 
 int main() {
