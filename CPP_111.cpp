@@ -5,7 +5,7 @@
 #include <cassert>
 
 bool areMapsEqual(std::map<char, int> a, std::map<char, int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::map<char, int> histogram(std::string test) {
@@ -33,10 +33,7 @@ std::map<char, int> histogram(std::string test) {
 }
 
 int main() {
-    std::map<char, int> test1 = histogram("a");
-    std::map<char, int> test2 = histogram("a");
-
-    assert(areMapsEqual(test1, test2));
+    assert(areMapsEqual(histogram("a"), {{'a', 1}}));
 
     return 0;
 }
