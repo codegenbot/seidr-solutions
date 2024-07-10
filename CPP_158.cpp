@@ -1,16 +1,7 @@
 string find_max(vector<string> words){
-    string max_word;
-    int max_unique = 0;
-
-    for(auto& word : words){
-        set<char> s(word.begin(), word.end());
-        if(s.size() > max_unique){
-            max_word = word;
-            max_unique = s.size();
-        }
-        else if(s.size() == max_unique)
-            max_word = min(max_word, word);
-    }
-
-    return max_word;
+    string result = *min_element(words.begin(),words.end(),[&](const string &s1,const string &s2){ 
+        if(hash_function(s1) == hash_function(s2)) return s1<s2;
+        return hash_function(s1)>hash_function(s2);
+    });
+    return result;
 }
