@@ -1,11 +1,12 @@
-def decode_shift(input_string):
+def decode_shift():
+    input_string = input()
     decoded_message = ""
     for char in input_string:
         if char.islower():
-            decoded_char = chr(ord(char) - 1)  # Change + 1 to - 1 for decoding
-            decoded_message += decoded_char
+            decoded_char = chr((ord(char) - 1 - ord('a')) % 26 + ord('a'))
+        elif char.isupper():
+            decoded_char = chr((ord(char) - 1 - ord('A')) % 26 + ord('A'))
+        else:
+            decoded_char = char
+        decoded_message += decoded_char
     return decoded_message
-
-input_string = input("Enter the string to decode (lowercase alphabets only): ").strip().lower()
-result = decode_shift(input_string)
-print(result)
