@@ -1,8 +1,4 @@
-#include <initializer_list>
-#include <vector>
-#include <cmath>
-#include <cassert>
-
+```cpp
 long long double_the_difference(std::initializer_list<double> lst) {
     long long sum = 0;
     for (double num : lst) {
@@ -25,6 +21,7 @@ int main() {
             }
         }
     }
-    assert(double_the_difference(lst) == odd_sum);
+    long long sum = double_the_difference(lst); 
+    assert(sum == odd_sum);
     return 0;
 }
