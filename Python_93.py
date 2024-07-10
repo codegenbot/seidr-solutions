@@ -1,21 +1,13 @@
-def pig_latin(message):
-    result = ""
+```
+def encode(message):
+    vowels = 'aeiouAEIOU'
+    result = ''
     for char in message:
-        if char.isalpha():
-            if char.isupper():
-                if char == 'X' or char == 'x':
-                    result += 'ay'
-                elif char == 'Y' or char == 'y':
-                    result += 'by'
-                else:
-                    result += chr(ord(char) + 1).lower()
-                    result += 'ay'
-            else:
-                if char in ['a', 'e', 'i', 'o', 'u']:
-                    result += char
-                else:
-                    result += chr(ord(char) - ord('a') + 1)
-                    result += 'ay'
-        else:
+        if char in vowels:
+            index = (vowels.index(char) + 2) % len(vowels)
+            result += vowels[index]
+        elif not char.isalpha():
             result += char
+        else:
+            result += char.swapcase()
     return result
