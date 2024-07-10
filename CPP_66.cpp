@@ -1,7 +1,11 @@
+#include <iostream>
 #include <string>
 #include <cctype>
 
-int digitSum(const std::string& s){
+int digitSum(){
+    std::string s;
+    std::cin >> s;
+    
     int sum = 0;
     for(char c : s){
         if(std::isupper(c)){
