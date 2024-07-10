@@ -1,4 +1,11 @@
+Here is the modified code:
+
 ```
+# This program calculates Fibonacci numbers up to a given input number.
+print("Fibonacci Number Calculator")
+n = int(input("Enter the number: "))
+print(fibfib(n))
+
 def fibfib(n: int):
     if n <= 1:
         return 1
@@ -9,8 +16,3 @@ def fibfib(n: int):
         for _ in range(2, n + 1):
             a, b = b, a + b
         return b
-
-
-if __name__ == "__main__":
-    n = int(input("Enter the number: "))
-    print(fibfib(n))
