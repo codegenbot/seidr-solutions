@@ -1,15 +1,23 @@
-def substitution_cipher():
-    cipher_map = [
-        str(i)
-        for i in range(
-            ord(input("Enter first string: ")), ord(input("Enter second string: ")) + 1
-        )
-    ]
-    message = input("Enter third string: ")
-    deciphered_message = "".join(
-        [cipher_map[ord(c) - ord("a")] if c.isalpha() else c for c in message.lower()]
-    )
-    print(deciphered_message)
+def substitution_cipher(cipher, message):
+    deciphered = ""
+    for char in message:
+        if char.isalpha():
+            if char.isupper():
+                deciphered += chr(
+                    (ord(cipher[0].upper()) - ord("A") + ord(char) - ord("A")) % 26
+                    + ord("A")
+                )
+            else:
+                deciphered += chr(
+                    (ord(cipher[1].lower()) - ord("a") + ord(char) - ord("a")) % 26
+                    + ord("a")
+                )
+        else:
+            deciphered += char
+    return deciphered
 
 
-substitution_cipher()
+cipher = input().strip()
+message = input().strip()
+
+print(substitution_cipher(cipher, message))
