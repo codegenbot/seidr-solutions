@@ -1,3 +1,4 @@
+```
 import math
 
 def bouncing_balls():
@@ -11,4 +12,4 @@ def bouncing_balls():
         h1, h2 = h2, h2 * bounciness_index
     return round(total_distance, 4)
 
-print(round(bouncing_balls(), 4))
+print(bouncing_balls())
