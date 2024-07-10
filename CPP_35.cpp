@@ -1,7 +1,5 @@
-using namespace std;
-
 int getMax(int n) {
-    vector<int> l;
+    int max = 0;
     cout << "Enter the number of elements: ";
     cin >> n;
 
@@ -9,8 +7,9 @@ int getMax(int n) {
         int x;
         cout << "Enter element " << i + 1 << ": ";
         cin >> x;
-        l.push_back(x);
+        if(x > max)
+            max = x;
     }
 
-    return *max_element(l.begin(), l.end());
+    return max;
 }
