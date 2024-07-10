@@ -1,14 +1,13 @@
+```Python
 def intersperse(a, b):
     result = []
-    for i, item in enumerate(a):
-        result.append(item)
-        if isinstance(b, (list, tuple)):
-            result.extend([b[i % len(b)]])
-        else:
-            result.append(b)
+    for i in range(len(a) + (1 if isinstance(b, int) else 0)):
+        if i < len(a): result.append(a[i])
+        if isinstance(b, int) and i % (len(a) + 1) != 0: result.append(b)
+        elif b: result.append(b)
     return result
 
 list1 = [2, 2, 2]
-list2 = [1, 2, 3]
+list2 = 2
 result = intersperse(list1, list2)
 print(result)
