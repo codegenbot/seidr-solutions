@@ -21,29 +21,25 @@ int main() {
     std::cout << "Enter the size of first vector: ";
     std::cin >> n1;
     
-    std::vector<int> a;  a.resize(n1);
+    std::vector<int> a;
     
-    std::cout << "Enter element 1 to " << n1 << ": " << std::endl; 
-
+    std::cout << "Enter elements for vector 1: " << std::endl; 
     for(int i = 0; i < n1; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
         int temp; 
         std::cin >> temp;
-        a[i] = temp;
+        a.push_back(temp);
     }
     
     std::cout << "Enter the size of second vector: ";
     std::cin >> n2;
 
-    std::vector<int> b;  b.resize(n2);
+    std::vector<int> b;
     
-    std::cout << "Enter element 1 to " << n2 << ": " << std::endl; 
-
+    std::cout << "Enter elements for vector 2: " << std::endl; 
     for(int i = 0; i < n2; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
         int temp; 
         std::cin >> temp;
-        b[i] = temp;
+        b.push_back(temp);
     }
     
     if(issame(a, b)) {
