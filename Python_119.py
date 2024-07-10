@@ -1,1 +1,1 @@
-n, *input_list = map(int, input("Enter values separated by space: ").strip().split())
+n, *input_list = map(int, input().strip().split())
