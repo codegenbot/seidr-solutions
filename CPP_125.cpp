@@ -1,9 +1,14 @@
-vector<string> words;
-    string word = "";
+#include <vector>
+#include <string>
+#include <cassert>
+
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> result;
+    std::string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
-                words.push_back(word);
+                result.push_back(word);
                 word = "";
             }
         } else {
@@ -11,16 +16,20 @@ vector<string> words;
         }
     }
     if (!word.empty()) {
-        words.push_back(word);
+        result.push_back(word);
     }
-    if (words.empty()) {
+    if (result.size() == 1 && isalpha(result[0][0])) {
         int count = 0;
-        for (char c : txt) {
+        for (char c : result[0]) {
             if (islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
-        words.push_back(to_string(count));
+        result[0] = std::to_string(count);
     }
-    return words;
+    return result;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    // Function implementation
 }
