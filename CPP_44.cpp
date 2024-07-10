@@ -16,7 +16,7 @@ int main(){
     int x = 10;
     std::string result = change_base(x, 10);
 
-    // Use std::to_string instead
+    // Use std::to_string instead of to_string directly
     assert(change_base(x, x + 1) == std::to_string(x));
     std::cout << result << std::endl;
     return 0;
