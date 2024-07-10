@@ -1,9 +1,6 @@
-#include <vector>
-#include <numeric>
-#include <climits>
-#include <cmath>
-
 using namespace std;
+
+#include <utility>
 
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int n = v.size();
@@ -16,11 +13,10 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     
     for (int i = 0; i < n; ++i) {
         if (prefix_sum.second - prefix_sum.first >= total_sum / 2) {
-            min_diff = min(min_diff, abs((long long)total_sum - 2 * prefix_sum.second));
+            min_diff = min(min_diff, abs(total_sum - 2 * prefix_sum.second));
             left = vector<int>(v.begin(), v.begin() + i);
             right = vector<int>(v.end() - (n - i - 1), v.end());
         }
     }
     
     return make_pair(left, right);
-}
