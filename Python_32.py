@@ -1,9 +1,9 @@
 def find_zero(xs):
-    n = len(xs)
-    zero = xs[0]
-    for i in range(1, n // 2 + 1):
-        zero -= xs[i] / ((n - 1) // 2 - i) * zero ** (n - 1 - i)
-    return round(zero, 4)
+    n = len(xs) // 2
+    y = xs[-1]
+    for p in range(len(xs) - 1, -1, -1):
+        y = (xs[p] * y + (-1) * (10**9)) % (10**9)
+    return str(y)
 
 
 xs = [int(x) for x in input("Enter the coefficients: ").split()]
