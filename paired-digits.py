@@ -1,3 +1,2 @@
 def paired_digits(s):
-    s = list(map(str, s))
-    return sum(int(digit) for i, digit in enumerate(s) if i < len(s)-1 and digit == s[i+1])
+    return sum(int(x) for x in s if any(c == x for c in s[s.index(x)+1:]))
