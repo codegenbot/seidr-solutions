@@ -18,7 +18,7 @@ int mastermind(string code, string guess) {
         if (count > 1 || count == 1 && black > 0) {
             white += count - 1;
         } else if (count == 1) {
-            black++;
+            white++;
         }
     }
 
