@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -8,6 +7,6 @@ def concatenate(strings: List[str]) -> str:
     result = ""
     for s in strings:
         if not isinstance(s, str):
-            return f"Error: All elements in the list must be strings. '{s}' is not a string."
+            return "Error: All elements must be strings."
         result += s
     return result
