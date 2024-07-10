@@ -2,6 +2,7 @@
 #include <algorithm>
 using namespace std;
 
-int find_max(vector<int> l) {
-    return *max_element(l.begin(), l.end());
+int findMax(int l[]) {
+    vector<int> v(l, l + sizeof(l)/sizeof(l[0]));
+    return *max_element(v.begin(), v.end());
 }
