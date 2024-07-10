@@ -1,5 +1,6 @@
 ```cpp
 #include <vector>
+#include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size()!=b.size()) return false;
@@ -24,19 +25,27 @@ std::vector<int> make_a_pile(int n) {
     }
     
     return pile;
+
 }
 
 int main() {
     int n;
-    std::cout << "Enter a number: ";
+    std::cout << "Enter the number of stones: ";
     std::cin >> n;
-    
     std::vector<int> pile = make_a_pile(n);
-    if(issame(pile, make_a_pile(n))){
-        std::cout << "The piles are the same." << std::endl;
+    if(pile.size()==1) {
+        std::cout << "The resulting pile is uniform." <<std::endl;
     } else {
-        std::cout << "The piles are not the same." << std::endl;
+        bool isUniform = true;
+        for(int i=1;i<pile.size()-1;i++) {
+            if((pile[i]-pile[i-1])!=(pile[i+1]-pile[i])) {
+                isUniform = false;
+                break;
+            }
+        }
+        std::cout << "The resulting pile is uniform: ";
+        if(isUniform) 
+            std::cout << "true" <<std::endl; 
+        else 
+            std::cout << "false" <<std::endl;
     }
-    
-    return 0;
-}
