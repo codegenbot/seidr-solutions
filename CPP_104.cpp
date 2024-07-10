@@ -1,3 +1,7 @@
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for (int num : x) {
@@ -16,4 +20,13 @@ vector<int> unique_digits(vector<int> x){
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    // Your main function code here
+    return 0;
 }
