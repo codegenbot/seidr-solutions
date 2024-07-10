@@ -8,9 +8,9 @@ vector<int> findPair(vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            result.push_back(complement);
             result.push_back(nums[i]);
-            break;
+            result.push_back(complement);
+            return result;
         }
         numMap[nums[i]] = i;
     }
@@ -21,12 +21,10 @@ vector<int> findPair(vector<int>& nums, int target) {
 int main() {
     int n;
     cin >> n;
-
     vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-
     int target;
     cin >> target;
 
