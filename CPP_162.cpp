@@ -1,10 +1,4 @@
-#include <string>
-#include <algorithm>
-#include <openssl/evp.h>
 #include <openssl/err.h>
-#include <sstream>
-#include <assert.h> 
-#include <iomanip>
 
 std::string string_to_md5(const std::string& str) {
     EVP_MD_CTX md5;
