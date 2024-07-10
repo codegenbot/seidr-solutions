@@ -1,3 +1,4 @@
+```python
 def digitSum(s):
     s = s.lower()
     total = 0
@@ -12,6 +13,3 @@ def digitSum(s):
             total += d
         is_odd = not is_odd
     return total
-
-input_string = input("Enter a string: ")
-print(digitSum(input_string))
