@@ -23,3 +23,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     result.push_back((is_palindrome ? "True" : "False"));
     return result;
 }
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
