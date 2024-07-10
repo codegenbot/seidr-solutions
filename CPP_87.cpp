@@ -1,10 +1,18 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <functional>
+#include <cassert>
 
-bool compare_vectors(const vector<int>& a, const vector<int>& b) {
-    if (a[0] == b[0]) {
-        return a[1] > b[1];
+bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b){
+    if (a.size() != b.size()) return false;
+    for (unsigned i = 0; i < a.size(); ++i) {
+        if (a[i].size() != b[i].size()) return false;
+        for (unsigned j = 0; j < a[i].size(); ++j) {
+            if (a[i][j] != b[i][j]) return false;
+        }
     }
-    return a[0] < b[0];
+    return true;
 }
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
@@ -16,6 +24,16 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
             }
         }
     }
-    sort(result.begin(), result.end(), compare_vectors);
+    
+    sort(result.begin(), result.end());
+    for (auto &coord : result) {
+        sort(coord.begin(), coord.end(), greater<int>());
+    }
+    
     return result;
+}
+
+int main() {
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), {{2, 2}}));
+    return 0;
 }
