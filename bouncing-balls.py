@@ -1,4 +1,3 @@
-```Python
 def bouncing_balls():
     h1 = float(input())
     h2 = float(input())
