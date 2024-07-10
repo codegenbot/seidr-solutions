@@ -1,15 +1,14 @@
-```
 def minPath(grid, k):
     n = len(grid)
     directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-    visited = [[False]*n for _ in range(n)]
+    visited = [[False] * n for _ in range(n)]
     queue = [(grid[0][0], [grid[0][0]], 0)]
     result = None
 
     while queue:
         value, path, step = queue.pop(0)
         if step == k:
-            if not result or path < result:
+            if not result or sum(path) < sum(result):
                 result = path
         else:
             for direction in directions:
