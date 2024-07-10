@@ -1,10 +1,5 @@
 #include <algorithm>
-#include <numeric>
 #include <limits>
-
-bool isSame(float a, float b) {
-    return std::abs(a - b) < std::numeric_limits<float>::epsilon();
-}
 
 vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
@@ -15,8 +10,6 @@ vector<float> find_closest_elements(vector<float> numbers) {
         float diff = numbers[i + 1] - numbers[i];
         if (diff < min_diff) {
             min_diff = diff;
-            closest = {numbers[i], numbers[i + 1]};
-        } else if (isSame(min_diff, diff)) {
             closest = {numbers[i], numbers[i + 1]};
         }
     }
