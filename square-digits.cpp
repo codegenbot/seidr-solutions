@@ -6,7 +6,7 @@ int main() {
 
     if (number <= 0) {
         std::cout << "Invalid input" << std::endl;
-        return 1; // Exit program with error code 1
+        return 1;
     }
 
     int temp = number;
