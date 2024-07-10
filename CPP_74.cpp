@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 #include <vector>
 #include <string>
 
@@ -24,7 +21,13 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     else return vector<string>();
 }
 
-int main()
-{
-    assert(is_same(total_match({"this"}, {}), {}));
+int main() {
+    vector<string> user_input; 
+    for(int i = 0; i < 5; ++i){
+        string input;
+        cin >> input;
+        user_input.push_back(input);
+    }
+    
+    assert(is_same(total_match(user_input, {}), {})); 
 }
