@@ -12,22 +12,20 @@ def bowling_score(bowls):
                     score += 10 - int(rolls[i + 1])
             frame += 1
         elif rolls[i] == "/":
-            if i > 0:
-                score += 10 - int(rolls[i - 1])
-            else:
-                score += 10
+            score += 10 - int(rolls[i - 1])
             if frame < 10:
-                score += int(rolls[i + 1]) if rolls[i + 1].isdigit() else (10 - int(rolls[i]))
+                score += int(rolls[i + 1]) if rolls[i + 1].isdigit() else (10 - int(rolls[i - 1]))
             frame += 1
         elif rolls[i] == "-":
             pass
         else:
             score += int(rolls[i])
-            if frame < 10 and i < len(rolls) - 1 and rolls[i + 1] == "/":
+            if frame < 10 and i + 1 < len(rolls) and rolls[i + 1] == "/":
                 score += 10 - int(rolls[i])
             frame += 1
 
     return score
+
 
 bowls = input()
 print(bowling_score(bowls))
