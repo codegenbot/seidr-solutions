@@ -1,6 +1,6 @@
 ```
 def solve(N):
     if N > 1:
-        return bin(N)[2:] or "1"
+        return str(bin(N))[2:] or "0"
     else:
-        return "0b1"
+        return "1"
