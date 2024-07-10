@@ -16,7 +16,8 @@ int main() {
     while (!(std::cin >> n)) {
         std::cout << "Invalid input. Please enter a non-negative integer.\n";
         std::cin.clear(); 
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+        while (std::cin.get() != '\n') 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     }
 
     if(n < 0) {
