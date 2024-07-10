@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == "t":
         return True
@@ -7,7 +6,6 @@ def solve_boolean(expression):
     elif "&" in expression:
         left, right = expression.split("&")
         return solve_boolean(left) and solve_boolean(right)
-    elif "|":
-        left = expression[:expression.index("|")]
-        right = expression[expression.index("|")+1:]
+    elif "|" in expression:
+        left, right = expression.split("|")
         return solve_boolean(left) or solve_boolean(right)
