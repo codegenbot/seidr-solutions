@@ -11,9 +11,5 @@ int largestSmallestIntegers(vector<int> lst) {
         }
     }
 
-    return (maxNeg >= 0 ? 0 : maxNeg), (minPos <= 0 ? 0 : minPos);
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    return std::max(maxNeg, 0) + std::min(minPos, 0);
 }
