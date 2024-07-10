@@ -19,9 +19,9 @@ string int_to_mini_roman(int number) {
 }
 
 int main() {
-    int num;
+    int n;
     cout << "Enter a number: ";
-    cin >> num;
-    cout << "The mini Roman numeral is: " << int_to_mini_roman(num) << endl;
+    cin >> n;
+    cout << "The mini Roman numeral is: " << int_to_mini_roman(n) << endl;
     return 0;
 }
