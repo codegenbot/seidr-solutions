@@ -1,14 +1,10 @@
 #include <vector>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b){
     return a[0] == b[0] && a[1] == b[1];
 }
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x);
-
-int main() {
-    // Main function implementation
-}
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
