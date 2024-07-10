@@ -9,4 +9,3 @@ int luhn(std::vector<int16_t> cc) {
     }
 
     return sum;
-}
