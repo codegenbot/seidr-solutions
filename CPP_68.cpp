@@ -23,7 +23,7 @@ vector<int> pluck(const vector<int>& n) {
 
 }
 
-void testMain() {
+int main() { 
     vector<int> v2;
     int size;
     cin >> size;
@@ -46,7 +46,4 @@ void testMain() {
 
 }
 
-int main() {
-    testMain();
-    return 0; 
-}
+main();
