@@ -1,29 +1,36 @@
 #include <vector>
 #include <cmath>
-#include <stdexcept>
 
-double vectorDistance(const std::vector<float>& v1, const std::vector<float>& v2) {
-    if(v1.size() != v2.size()) {
-        throw std::runtime_error("Vectors of different sizes");
+double calculateDistance(const std::vector<float>& vector1, const std::vector<float>& vector2) {
+    double distance = 0.0;
+    for (int i = 0; i < vector1.size(); ++i) {
+        float diff = vector1[i] - vector2[i];
+        distance += diff * diff;
     }
-    
-    double sum = 0;
-    for (int i = 0; i < v1.size(); i++) {
-        float diff = v1[i] - v2[i];
-        sum += static_cast<double>(diff) * static_cast<double>(diff);
-    }
-    return sqrt(sum);
+    return std::sqrt(distance);
 }
 
 int main() {
-    std::vector<float> v1{1.0, 2.0, 3.0};
-    std::vector<float> v2{4.0, 5.0, 6.0};
-    try {
-        double distance = vectorDistance(v1, v2);
-        std::cout << "Euclidean Distance: " << distance << std::endl;
-    } catch(const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-        return 1;
+    int n;
+    std::vector<float> vec1, vec2;
+
+    // Read input
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        float val;
+        std::cin >> val;
+        vec1.push_back(val);
     }
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        float val;
+        std::cin >> val;
+        vec2.push_back(val);
+    }
+
+    // Calculate and print distance
+    double distance = calculateDistance(vec1, vec2);
+    std::cout << distance << std::endl;
+
     return 0;
 }
