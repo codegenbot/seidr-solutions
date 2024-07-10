@@ -1,7 +1,11 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b){
+vector<string> split_words(string txt);
+
+vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
     for(char c : txt){
@@ -27,4 +31,20 @@ bool issame(vector<string> a, vector<string> b){
         result.push_back(to_string(oddCount));
     }
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
+int main() {
+    using namespace std;
+
+    vector<string> input1 = split_words("hello, world");
+    vector<string> input2 = split_words("cpp contest problem");
+    
+    assert(issame(input1, input1));
+    assert(!issame(input1, input2));
+
+    return 0;
 }
