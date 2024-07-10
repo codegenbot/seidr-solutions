@@ -3,10 +3,8 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != reverse(str).s) return false;
+    if (str != reverse(str).s) return false; // not balanced
     int sum = 0;
-    for (int i : q) {
-        sum += i;
-    }
-    return sum <= w;
+    for (int i : q) sum += i;
+    return sum <= w; // within weight limit
 }
