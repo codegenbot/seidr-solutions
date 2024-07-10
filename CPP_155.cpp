@@ -1,15 +1,23 @@
-vector<int> even_odd_count(int num) {
-    vector<int> result(2, 0);
-    string str = to_string(abs(num));
-    for (char c : str) {
-        if (stoi(c) % 2 == 0)
-            result[0]++;
-        else
-            result[1]++;
-    }
-    return result;
+#include <vector>
+#include <string>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return (a == b);
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return (a[0] == b[0]) && (a[1] == b[1]);
+std::vector<int> even_odd_count(int num) {
+    int count_even = 0, count_odd = 0;
+    string str_num = to_string(abs(num));
+    for (char c : str_num) {
+        if ((c - '0') % 2 == 0)
+            ++count_even;
+        else
+            ++count_odd;
+    }
+    return {count_even, count_odd};
+}
+
+int main() {
+    assert(even_odd_count(0) == std::vector<int>{1, 0});
+    return 0;
 }
