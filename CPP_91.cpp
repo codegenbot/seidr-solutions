@@ -2,10 +2,10 @@
 
 int main() {
     string S;
-    cout << "Enter a string: ";
+    cout << "Enter your text: ";
     cin >> S;
-    int result = is_bored(S);
-    cout << "Number of times 'I' appears at the start of sentences: " << result << endl;
+    int count = is_bored(S);
+    cout << "Count of 'I' at the start of sentences: " << count << endl;
     return 0;
 }
 
@@ -13,7 +13,7 @@ int is_bored(string S){
     int count = 0;
     string boredom = "I";
     size_t pos = 0;
-    
+
     while((pos = S.find(".", pos)) != string::npos ||
           (pos = S.find("?", pos)) != string::npos ||
           (pos = S.find("!", pos)) != string::npos){
@@ -21,6 +21,6 @@ int is_bored(string S){
             count++;
         pos += 1;
     }
-    
+
     return count;
 }
