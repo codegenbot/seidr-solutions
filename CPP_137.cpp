@@ -19,4 +19,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         double num = get<double>(a);
         return std::to_string(num) > str ? a : b;
     }
-    else if (holds_alternative<std::string>(a) && holds_alternation
+    else if (holds_alternative<std::string>(a) && holds_alternative<std::string>(b)) {
+        std::string str1 = get<std::string>(a);
+        std::string str2 = get<std::string>(b);
+        return str1 > str2 ? a : b;
+    }
+    else if (holds_alternation
