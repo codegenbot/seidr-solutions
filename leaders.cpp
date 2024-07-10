@@ -1,21 +1,21 @@
 #include <vector>
-#include <algorithm>
 #include <iostream>
 
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
     int n = nums.size();
     
-    int max_right = nums.back();
-    leaders.push_back(max_right); 
+    int leader = nums.back();
+    leaders.push_back(leader); // Rightmost element is always a leader
 
     for (int i = n - 2; i >= 0; --i) {
-        if (nums[i] >= max_right && nums[i] >= leaders.back()) {
-            max_right = nums[i];
-            leaders.push_back(max_right);
+        if (nums[i] >= leader) {
+            leader = nums[i];
+            leaders.push_back(leader);
         }
     }
 
+    std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
 
