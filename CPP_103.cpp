@@ -19,7 +19,6 @@ string rounded_avg(int n,int m){
     }
     reverse(res.begin(), res.end());
     return res;
-
 }
 
 cout << rounded_avg(5, 5) << endl;
