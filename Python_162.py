@@ -1,10 +1,13 @@
+Here is the corrected code:
+
+```python
 import hashlib
 
 def string_to_md5():
-    name = input("Enter your name: ")
-    if not name:
+    text = input("Enter some text: ")
+    if not text:
         return None
-    return hashlib.md5(name.encode()).hexdigest()
+    return hashlib.md5(text.encode('utf-8')).hexdigest()
 
 result = string_to_md5()
 print(result)
