@@ -29,13 +29,21 @@ int main() {
     for (int i = 0; i < n; i++) {
         int num;
         std::cin >> num; 
-        while(std::cin.peek() == ' ') { // skip leading spaces
-            std::cin.get();
-        }
         nums.push_back(num); 
     }
     if (!nums.empty()) {  
-        std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
+        bool hasNegative = false;
+        for (int num : nums) {
+            if (num < 0) {
+                hasNegative = true;
+                break;
+            }
+        }
+        if (!hasNegative) {
+            std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
+        } else {
+            std::cout << "No positive sums to count." << std::endl;
+        }
     }
     return 0;
 
