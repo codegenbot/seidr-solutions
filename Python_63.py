@@ -1,13 +1,13 @@
 def fibfib(n: int):
     if n <= 1:
-        return 0
+        return []
     elif n % 2 == 0:  
         a, b = 0, 1
+        result = [a]
         while b * b < n:
             a, b = b, a+b
-        return a
+            result.append(a)
+        return str(result)
     else:
-        a, b = 0, 1
-        for _ in range(n):
-            a, b = b, a+b
-        return a
+        user_input = int(input("Enter an integer: "))
+        print(fibfib(user_input))
