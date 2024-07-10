@@ -10,9 +10,9 @@ bool same_chars(std::string s0, std::string s1) {
 
 int main() {
     std::string str1, str2;
-    std::cout << "Enter the first string: ";
+    std::cout << "Enter first string: ";
     std::cin >> str1;
-    std::cout << "Enter the second string: ";
+    std::cout << "Enter second string: ";
     std::cin >> str2;
 
     if (same_chars(str1, str2)) {
