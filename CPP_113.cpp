@@ -1,11 +1,11 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
-#include <algorithm>
 
-int odd_count(const std::vector<std::string>& vec) {
+int countOddElements(const std::vector<std::string>& strings) {
     int count = 0;
-    for (const std::string& str : vec) {
+    for (const std::string& str : strings) {
         for (char c : str) {
             if (c >= '0' && c <= '9' && (c - '0') % 2 != 0) {
                 count++;
@@ -15,12 +15,8 @@ int odd_count(const std::vector<std::string>& vec) {
     return count;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
 int main() {
-    assert(issame({"271", "137", "314"}, {"271", "137", "314"}));
-    assert(issame({"271", "137", "314"}, {"271", "137", "314"}));
+    assert(countOddElements({"271", "137", "314"}) == 3);
+    
     return 0;
 }
