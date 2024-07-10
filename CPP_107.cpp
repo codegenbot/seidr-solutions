@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -16,10 +15,10 @@ std::vector<int> even_odd_palindrome(int n) {
                 odd++;
         }
     }
-    return {even, odd};
+    return std::vector<int>(1, even) + std::vector<int>(1, odd);
 }
 
-std::vector<int> std::userInput() {
+std::vector<int> user_input() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
