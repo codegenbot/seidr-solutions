@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -7,47 +8,32 @@ using namespace std;
 vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
-    bool isConsonant = false;
-
     for (char c : s) {
-        if (c == ' ') {
-            if (isConsonant) {
-                int consonantsInWord = 0;
-                for (int i = 0; i < word.length(); i++) {
-                    if (!ispunct(word[i]) && !isspace(word[i])) {
-                        if (!ispunct(word[i]) && !ispunct(word[i])) {
-                            consonantsInWord++;
-                        }
-                    }
+        if (isalpha(c)) {
+            word += tolower(c);
+        } else if (!word.empty()) {
+            int consonants = 0;
+            for (char ch : word) {
+                if (!ispunct(ch) && !isspace(ch) && !isalpha(ch)) continue;
+                if (!ispunct(ch) && !isspace(ch) && !isvowel(tolower(ch))) {
+                    consonants++;
                 }
-                if (consonantsInWord == n) {
-                    result.push_back(word);
-                }
+            }
+            if (consonants == n) {
+                result.push_back(word);
             }
             word = "";
-            isConsonant = false;
-        } else {
-            bool isVowelOrPunctuation = isalpha(c) && (ispunct(c) || isvowel(c));
-            if (!isVowelOrPunctuation) {
-                isConsonant = true;
-            }
-            word += c;
         }
     }
-
-    if (isConsonant) {
-        int consonantsInWord = 0;
-        for (int i = 0; i < word.length(); i++) {
-            if (!ispunct(word[i]) && !isspace(word[i])) {
-                if (!ispunct(word[i]) && !ispunct(word[i])) {
-                    consonantsInWord++;
-                }
-            }
-        }
-        if (consonantsInWord == n) {
-            result.push_back(word);
-        }
-    }
-
     return result;
+}
+
+int main() {
+    string s = "Mary had a little lamb";
+    int n = 4;
+    vector<string> result = select_words(s, n);
+    for (string str : result) {
+        cout << str << endl;
+    }
+    return 0;
 }
