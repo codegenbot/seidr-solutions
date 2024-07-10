@@ -18,8 +18,7 @@ string reverse_delete(string s1, string s2) {
     for(int i = 0; i < len2; i++) {
         auto pos = s1.find(s2.substr(i, 1));
         if(pos != string::npos) {
-            auto iter = s1.begin() + pos;
-            s1.erase(iter);
+            s1.erase(pos, 1);
         }
     }
     return s1;
