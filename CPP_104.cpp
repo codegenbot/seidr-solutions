@@ -3,6 +3,10 @@
 #include <algorithm>
 #include <cassert>
 
+bool areEqual(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<int> uniqueDigits(std::vector<int> x) {
     std::vector<int> result;
     for (int num : x) {
@@ -24,12 +28,8 @@ std::vector<int> uniqueDigits(std::vector<int> x) {
     return result;
 }
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 int main() {
-    assert(isSame(uniqueDigits({135, 103, 31}), std::vector<int>{31, 135}));
+    assert(areEqual(uniqueDigits({135, 103, 31}), std::vector<int>{31, 135}));
     std::cout << "Test Passed!" << std::endl;
     return 0;
 }
