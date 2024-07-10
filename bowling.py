@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     i = 0
@@ -8,7 +9,7 @@ def bowling_score(frames):
                 i += 2
             else:  
                 if frames[i] == 'X':
-                    if i+2 >= len(frames) or (frames[i+1] in ['X', '/']):
+                    if i+2 >= len(frames) or frames[i+2] in ['X', '/']:
                         score += 10 + (10 - int(frames[i+1]))
                     else:
                         score += 10 + int(frames[i+2:i+4])
@@ -20,7 +21,7 @@ def bowling_score(frames):
             if i+2 < len(frames) and (frames[i+1] in ['X', '/']):
                 score += 30
             else:
-                if i+3 >= len(frames) or (frames[i+2] in ['X', '/']):
+                if i+3 >= len(frames) or frames[i+2] in ['X', '/']:
                     score += 10 + (10 - int(frames[i+1]))
                 else:
                     score += 10 + int(frames[i+2:i+4])
@@ -29,6 +30,3 @@ def bowling_score(frames):
             score += 30
             i += 2
     return score
-
-frames = "7/5, 3/10, X,X,X, 8/3, X,X, X,X, 4/6, 2/X"
-print(bowling_score(frames))
