@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,14 +10,7 @@ bool issame(vector<string> a, vector<string> b) {
         return false;
     }
     for(int i = 0; i < a.size(); i++) {
-        bool same = true;
-        for(int j = 0; j < a[i].size(); j++) {
-            if(a[i][j] != b[i][j]) {
-                same = false;
-                break;
-            }
-        }
-        if(!same) {
+        if(!issame(a[i], b[i])) {
             return false;
         }
     }
@@ -32,25 +26,20 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    
-    vector<string> prefixes = all_prefixes(str);
-    bool isSame = true;
-    
-    for(int i = 1; i <= str.length(); ++i) {
-        if(!issame(prefixes.begin(), prefixes.end(), prefixes.begin() + i - 1, prefixes.begin())) {
-            isSame = false;
-            break;
-        }
-    }
-    
-    if(isSame) {
-        cout << "The string and its prefixes are the same." << endl;
+    string s1, s2;
+    cout << "Enter the first string: ";
+    cin >> s1;
+    cout << "Enter the second string: ";
+    cin >> s2;
+
+    vector<string> v1 = all_prefixes(s1);
+    vector<string> v2 = all_prefixes(s2);
+
+    if(issame(v1, v2)) {
+        cout << "The two strings are the same." << endl;
     } else {
-        cout << "The string and its prefixes are not the same." << endl;
+        cout << "The two strings are not the same." << endl;
     }
-    
+
     return 0;
 }
