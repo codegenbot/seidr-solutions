@@ -34,11 +34,10 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n+1);
-    for (int i = 0; i <= n; ++i)
-        cin >> vec[i];
+    vector<int> vec(1);
+    cin >> vec[0];
+    for (int i = 1; i <= 9; ++i)
+        cin >> vec.push_back(i);
     
     pair<vector<int>, vector<int>> res = cutVector(vec);
     
@@ -59,3 +58,4 @@ int main() {
     cout << "]" << endl;
     
     return 0;
+}
