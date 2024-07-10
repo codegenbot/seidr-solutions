@@ -1,5 +1,5 @@
 rolls = input("Enter the string representing the individual bowls: ")
-rolls += '00'  # Append two zeros to handle edge cases
+rolls += '00'
 
 score = 0
 frame = 1
