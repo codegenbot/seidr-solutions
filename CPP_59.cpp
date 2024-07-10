@@ -1,6 +1,8 @@
-int largest_prime_factor(int n) {
-    int factor = 2;
-    int largest_factor = 1;
+#include <iostream>
+
+long long largest_prime_factor(long long n) {
+    long long factor = 2;
+    long long largest_factor = 1;
     while (factor * factor <= n) {
         if (n % factor == 0) {
             n /= factor;
@@ -9,7 +11,9 @@ int largest_prime_factor(int n) {
                 n /= factor;
             }
         }
-        factor++;
+        else {
+            factor++;
+        }
     }
     if (n > 1 && n > largest_factor) {
         largest_factor = n;
