@@ -1,39 +1,32 @@
+```cpp
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 vector<int> factorize(int n) {
     vector<int> factors;
-    for (int i = 2; i * i <= n; i++) {
+    for (int i = 2; i * i <= n; ++i) {
         while (n % i == 0) {
-            int count = 0;
-            while (n % i == 0) {
-                n /= i;
-                count++;
-            }
-            if (count > 0) {
-                factors.push_back(i);
-                for (int j = 1; j < count; j++) {
-                    factors.push_back(i);
-                }
-            }
+            factors.push_back(i);
+            n /= i;
         }
     }
-    if (n > 1) {
+    if (n > 1)
         factors.push_back(n);
-    }
     return factors;
 }
 
 int main() {
-    int n;
+    int num;
     cout << "Enter a number: ";
-    cin >> n;
-    vector<int> result = factorize(n);
-    for (auto i : result) {
-        cout << i << " ";
+    cin >> num;
+    vector<int> result = factorize(num);
+    cout << "{";
+    for (int i = 0; i < result.size(); ++i) {
+        if (i > 0)
+            cout << ", ";
+        cout << result[i];
     }
-    cout << endl;
+    cout << "}" << endl;
     return 0;
 }
