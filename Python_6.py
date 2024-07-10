@@ -1,11 +1,7 @@
-```
 def parse_nested_parens(paren_string: str) -> list:
-    if not paren_string:
-        return []
-
-    groups = []
-    temp_group = ''
+    result = []
     stack = []
+    temp_group = ''
     in_group = False
     
     for char in paren_string:
@@ -14,13 +10,10 @@ def parse_nested_parens(paren_string: str) -> list:
             temp_group += '('
             in_group = True
         elif char == ')':
-            if stack and stack[-1] == '(':
-                while stack and stack[-1] != '(':
-                    temp_group += stack.pop()
-                stack.pop()  # pop the leading '('
-                temp_group += ')'
-            else:
-                temp_group += ')'
+            while stack and stack[-1] != '(':
+                temp_group += stack.pop()
+            stack.pop()  # pop the leading '('
+            temp_group += ')'
             in_group = False
         elif char.isdigit():
             if not in_group:
@@ -30,6 +23,15 @@ def parse_nested_parens(paren_string: str) -> list:
     while stack:  
         temp_group += stack.pop()
 
-    groups.append(int(temp_group)) if temp_group.isdigit() else [int(temp_group)]
+    group = []
+    if temp_group.isdigit():
+        group = [int(temp_group)]
+    else:
+        for digit in temp_group:
+            if digit == '(' or digit == ')':
+                break
+            group.append(int(digit))
     
-    return [] if len(groups) <= 1 else groups
+    result.extend(group)
+    
+    return result
