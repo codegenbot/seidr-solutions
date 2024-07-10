@@ -8,7 +8,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
         std::string str = boost::any_cast<std::string>(b);
         float f = boost::any_cast<float>(a);
-        return f > std::stof(str) ? a : b;
+        return f > atof(str.c_str()) ? a : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string str1 = boost::any_cast<std::string>(a);
@@ -23,9 +23,9 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         std::string str = boost::any_cast<std::string>(a);
         float f = boost::any_cast<float>(b);
-        return std::stof(str) > f ? a : b;
+        return atof(str.c_str()) > f ? a : b;
     }
     else {
-        return boost::any(); 
+        return "None";
     }
 }
