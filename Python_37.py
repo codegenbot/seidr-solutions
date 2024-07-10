@@ -1,10 +1,11 @@
+```
 def sort_even(l: list):
     even = sorted([x for x in l if x % 2 == 0])
     odd = sorted([x for x in l if x % 2 != 0])
 
     result = []
     i, j = 0, 0
-    while (i < len(even) and j < len(odd)):
+    while i < len(even) and j < len(odd):
         if even[i] <= odd[j]:
             result.append(even[i])
             i += 1
@@ -12,6 +13,7 @@ def sort_even(l: list):
             result.append(odd[j])
             j += 1
 
+    # Append remaining elements
     result.extend(even[i:])
     result.extend(odd[j:])
 
