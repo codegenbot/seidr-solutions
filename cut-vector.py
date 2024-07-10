@@ -1,5 +1,7 @@
-```
 def cut_vector(vector):
+    if len(vector) <= 1:
+        return [str([vector])], []
+    
     min_diff = float("inf")
     split_indices = []
 
@@ -8,7 +10,8 @@ def cut_vector(vector):
         right_sum = sum(vector[i:])
 
         if left_sum == right_sum:
-            return vector[:i], vector[i:]
+            return [str(vector[:i])], [str(vector[i:])]
+        
         elif abs(left_sum - right_sum) < min_diff:
             min_diff = abs(left_sum - right_sum)
             split_indices = [i]
@@ -16,7 +19,7 @@ def cut_vector(vector):
         elif abs(left_sum - right_sum) == min_diff:
             split_indices.append(i)
 
-    if len(vector) > 1:
-        return vector[0], vector[1:]
+    if not split_indices or len(split_indices) > 1:
+        return [str(vector[:split_indices[0]]), str(vector[split_indices[-1]:])], []
     else:
-        return ['', '']
+        return [str(vector[:split_indices[0]]), str(vector[split_indices[0]+1:])], [str(vector[split_indices[0]:])]
