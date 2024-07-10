@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <cmath>
 #include <initializer_list>
