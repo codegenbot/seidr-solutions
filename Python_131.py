@@ -1,8 +1,7 @@
 ```
-def even_or_odd():
+def odd_product():
     num = int(input("Enter a number: "))
-    result = digits(num)
-    print("The product of odd digits is", result)
+    print(digits(num))
 
 def digits(n):
     product = 1
