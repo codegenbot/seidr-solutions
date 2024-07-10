@@ -1,2 +1,4 @@
 def car_race_collision(n: int):
-    return 0 if n < 2 else (n * (n - 1)) // 2
+    if n <= 0:
+        raise ValueError("Input must be greater than 0")
+    return n * (n - 1) // 2
