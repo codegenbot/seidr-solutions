@@ -1,3 +1,5 @@
+using namespace std;
+
 #include <vector>
 #include <utility>
 
@@ -19,4 +21,3 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     }
     
     return make_pair(left, right);
-}
