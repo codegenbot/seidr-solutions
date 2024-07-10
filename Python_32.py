@@ -1,3 +1,2 @@
-user_input = input("Enter space-separated integers: ")
-values = []
-values += list(map(int, user_input.split()))
+num_elements = int(input())
+values = list(map(int, input().split()))[:num_elements]
