@@ -1,25 +1,31 @@
+#include <vector>
+#include <string>
+
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for (int i = 0; i < 4; ++i) {
+    // Count the number of correct colors in wrong places
+    vector<int> colorCount(6, 0);
+    for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
+        } else {
+            colorCount[code[i] - 'A']++;
         }
     }
 
-    for (char c : guess) {
-        int count = 0;
-        for (char d : code) {
-            if (c == d) {
-                count++;
-            }
+    // Count the number of correct colors in correct places
+    int remainingGuess[6] = {0};
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            remainingGuess[code[i] - 'A']++;
         }
-        if (count > 1) {
-            white += count - 1;
-        } else if (count == 1) {
-            black--;
-        }
+    }
+
+    // Count the number of white pegs
+    for (int i = 0; i < 6; i++) {
+        white += min(colorCount[i], remainingGuess[i]);
     }
 
     return black + white;
