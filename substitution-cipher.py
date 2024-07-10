@@ -1,19 +1,19 @@
-```
 def substitution_cipher(cipher1, cipher2, message):
     cipher = {}
-    for a, b in zip(cipher1, cipher2):
-        if a not in cipher:
-            cipher[a] = b
-        if b not in cipher:
-            cipher[b] = a
+    for i in range(min(len(cipher1), len(cipher2))):
+        if cipher1[i] not in cipher:
+            cipher[cipher1[i]] = cipher2[i]
+        if cipher2[i] not in cipher:
+            cipher[cipher2[i]] = cipher1[i]
 
     result = ''
     for char in message:
         if char.isalpha():  
-            if char.isupper():
-                result += cipher.get(char.upper(), char).upper()  
-            else:
-                result += cipher.get(char.lower(), char).lower()
+            key = char.upper() if char.isupper() else char.lower()
+            if key in cipher:  
+                result += cipher[key].upper() if char.isupper() else cipher[key].lower()
+            else:  
+                result += char
         else:  
             result += char
     return result
