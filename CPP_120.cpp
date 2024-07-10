@@ -2,8 +2,11 @@
 #include <vector>
 #include <iostream>
 
-bool same(int a, int b) {
-    return a == b;
+bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a == b)
+        return true;
+    else
+        return false;
 }
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
@@ -27,4 +30,5 @@ int main() {
     } else {
         std::cout << "No elements left" << std::endl;
     }
+    return 0;
 }
