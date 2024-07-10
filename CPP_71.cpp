@@ -1,9 +1,10 @@
-Here is the completed code:
+#include <cmath>
+
+using namespace std;
 
 float triangle_area(float a, float b, float c) {
-    if (a + b <= c || a + c <= b || b + c <= a)
-        return -1;
-    float s = (a + b + c) / 2.0f;
-    float area = sqrt(s * (s - a) * (s - b) * (s - c));
-    return round(area * 100.0f) / 100.0f;
+    if (a + b > c && a + c > b && b + c > a)
+        return (sqrt((a * b) * c)) / 2.0;
+    else
+        return -1.0f;
 }
