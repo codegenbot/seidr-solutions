@@ -1,3 +1,4 @@
+```
 #include <string>
 
 bool is_happy(string s) {
