@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 using namespace std;
 
@@ -10,7 +9,7 @@ string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        return to_string(x);
+        return (x % 3 == 0 && x % 5 != 0) ? "Fizz" : (x % 5 == 0) ? "Buzz" : (x % 15 == 0) ? "FizzBuzz" : to_string(x);
 }
 
 int main() {
