@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int countNumbers(std::vector<int> nums) {
