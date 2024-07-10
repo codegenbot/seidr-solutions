@@ -5,11 +5,14 @@ def check_numbers(numbers, threshold):
 
 numbers = []
 while True:
-    num = input("Enter a number (or 'STOP' to end): ")
-    if num == "STOP":
+    try:
+        num = input()
+        if num == "STOP":
+            break
+        numbers.append(int(num))
+    except:
         break
-    numbers.append(int(num))
 
-threshold = int(input("Enter a threshold number: "))
+threshold = int(input())
 output = check_numbers(numbers, threshold)
 print(output)
