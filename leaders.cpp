@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
@@ -9,6 +10,7 @@ std::vector<int> findLeaders(const std::vector<int>& nums) {
         if (nums[i] >= maxRight) {
             leaders.push_back(nums[i]);
             maxRight = nums[i];
+        }
     }
     
     std::reverse(leaders.begin(), leaders.end());
