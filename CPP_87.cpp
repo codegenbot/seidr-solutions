@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
+bool std::vector<std::vector<int>> issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
     return a == b;
 }
 
