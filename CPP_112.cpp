@@ -4,6 +4,10 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
+
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::string result = "";
     for (char ch : s) {
@@ -16,15 +20,9 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return {result, result == reversed ? "True" : "False"};
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
-
 int main() {
-    std::vector<std::string> result = reverse_delete("mamma", "mia");
-    std::vector<std::string> expected = {"", "True"};
-
-    assert(result[0] == expected[0] && result[1] == expected[1]);
+    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    std::cout << "Test Passed" << std::endl;
 
     return 0;
 }
