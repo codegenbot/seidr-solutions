@@ -1,10 +1,12 @@
+Here is the corrected code:
+```
 from typing import List
 
-def separate_paren_groups(paren_string: str) -> list[str]:
+def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
     groups = ''
-    
+
     for char in paren_string:
         if char == ' ':
             continue
@@ -19,6 +21,10 @@ def separate_paren_groups(paren_string: str) -> list[str]:
                     groups = ''
             else:
                 return []
-    if groups:  
+
+    if stack:
+        for _ in range(len(stack)):
+            groups += '('
         result.append(groups)
+    
     return result
