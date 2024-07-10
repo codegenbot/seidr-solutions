@@ -1,11 +1,10 @@
-```
 def minPath(grid, k):
     N = len(grid)
     res = []
     
     def dfs(x, y, path):
         if len(path) == k:
-            res.append(path)
+            res.append(path[:])
             return False
         
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
@@ -21,7 +20,6 @@ def minPath(grid, k):
     while queue:
         x, y, path = queue.pop(0)
         
-        if not dfs(x, y, path):
-            break
+        dfs(x, y, path)
     
     return res
