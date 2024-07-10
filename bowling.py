@@ -22,6 +22,5 @@ def bowling_score(frames):
             score += int(frames[i])
     return score
 
-
 frames = input()
 print(bowling_score(frames))
