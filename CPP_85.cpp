@@ -1,10 +1,7 @@
+```cpp
 #include <vector>
-#include <cassert>
+#include <initializer_list> 
 using namespace std;
-
-int main() {
-    assert (add({4, 4, 6, 8}) == 12);
-}
 
 int add(vector<int> lst){
     int sum = 0;
@@ -12,4 +9,10 @@ int add(vector<int> lst){
         if(lst[i] % 2 == 0) sum += lst[i];
     }
     return sum;
+
+}
+
+int main() {
+    vector<int> lst = {4, 4, 6, 8};
+    int result = add(lst);
 }
