@@ -1,13 +1,9 @@
-#include <vector>
-using namespace std;
-
-int fuelCost(vector<int> numbers) {
+int fuelCost(vector<int> vec) {
     int sum = 0;
-    for (int num : numbers) {
-        int temp = (num / 3);
-        temp = floor(temp);
-        temp -= 2;
-        sum += temp;
+    for (int num : vec) {
+        int result = static_cast<int>(num / 3.0);
+        result -= 2;
+        sum += result;
     }
     return sum;
 }
