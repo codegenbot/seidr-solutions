@@ -11,20 +11,21 @@ long long double_the_difference(vector<float> lst) {
 int main() {
     vector<float> lst;
     float num;
-
-    cout << "Enter numbers (enter -1 to stop):" << endl;
-    while ((cin >> num) && (num != -1)) {
+    cout << "Enter numbers (q to quit): ";
+    while(true) {
+        cin >> num;
+        if(num == 'q') break;
         lst.push_back(num);
     }
 
     long long odd_sum = 0;
-    for (float n : lst) {
-        if (n > 0 && floor(n) == n) { 
-            odd_sum += pow(n, 2);
+    for (float number : lst) {
+        if (number > 0 && floor(number) == number) { 
+            odd_sum += pow(number, 2);
         }
     }
 
-    cout << "The sum of squares of odd numbers is: " << double_the_difference(lst) << endl;
+    cout << "The double difference is: " << double_the_difference(lst) - odd_sum << endl;
 
     return 0;
 }
