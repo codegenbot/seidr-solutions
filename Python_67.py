@@ -1,3 +1,4 @@
+```
 def fruit_distribution(s, n):
     s = s.lower()
     if not s:
@@ -17,12 +18,10 @@ def fruit_distribution(s, n):
             fruit = fruit.strip()
             total_count = sum(fruits.get(k, 0) for k in fruits)
             if fruit:
-                remaining_count = min(count, n - total_count)
+                distributed = min(count, n - total_count)
+                remaining = count - distributed
+                total_count += distributed
                 if fruit:
-                    fruits[fruit] = remaining_count
+                    fruits[fruit] = distributed
         i += 1
-    return len(fruits) + (
-        1
-        if any(count > n for count in fruits.values()) or sum(fruits.values(), 0) > n
-        else 0
-    )
+    return len(fruits) + (1 if any(count > n for count in fruits.values()) or sum(fruits.values(), 0) > n else 0)
