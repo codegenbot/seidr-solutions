@@ -22,7 +22,3 @@ std::string solve(int n, int m) {
     
     return binary;
 }
-
-int n, m;
-std::cin >> n >> m;
-std::cout << solve(n, m) << std::endl;
