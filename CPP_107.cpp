@@ -2,42 +2,31 @@
 #include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> even_odd_palindrome(int n) {
-    int count_even = 0, count_odd = 0;
-    for(int i = 1; i <= n; ++i){
-        if(i % 2 == 0 && isPalindrome(std::to_string(i))){
-            count_even++;
-        } else if(i % 2 != 0 && isPalindrome(std::to_string(i))){
-            count_odd++;
+    int evp = 0;
+    int ovp = 0;
+    for (int i = 1; i <= n; ++i) {
+        if (isEven(i)) {
+            ++evp;
+        } else if (isPalindrome(i)) {
+            ++ovp;
         }
     }
-    return {count_even, count_odd};
+    return {evp, ovp};
 }
 
-int main() {
-    int n;
-    std::cout << "Enter a positive integer: ";
-    std::cin >> n;
-
-    std::vector<int> result = even_odd_palindrome(n);
-
-    std::cout << "Number of even palindromes: " << result[0] << std::endl;
-    std::cout << "Number of odd palindromes: " << result[1] << std::endl;
+bool isEven(int num) {
+    return (num & 0x01);
 }
 
-bool isPalindrome(std::string s) {
-    int left = 0, right = s.size() - 1;
-    while(left < right){
-        if(s[left] != s[right]) return false;
-        left++;
-        right--;
+bool isPalindrome(int num) {
+    int rev = 0, original = num;
+    while (original > 0) {
+        int digit = original % 10;
+        rev = rev * 10 + digit;
+        original /= 10;
     }
-    return true;
-}
+    return (rev == num);
