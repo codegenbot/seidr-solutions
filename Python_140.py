@@ -1,11 +1,7 @@
 ```
 import re
-
-
 def fix_spaces(text):
-    if not text:  
-        return ""
-    else:
-        return re.sub(" +", lambda x: "_" if len(x.group()) == 1 else " - ", text).replace(
-            "- -", "- "
-        )
+    try:
+        return re.sub(r"\s+", lambda x: "_" if len(x.group().strip()) == 0 else " - ", text)
+    except Exception as e:
+        print(f"Error: {e}")
