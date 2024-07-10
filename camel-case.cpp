@@ -1,11 +1,10 @@
 #include <iostream>
-#include <algorithm>
-
+#include <string>
 using namespace std;
 
 int main() {
-    std::string input;
-    getline(std::cin, input);
+    string input;
+    getline(cin, input);
 
     bool capitalize = false;
     for (char c : input) {
