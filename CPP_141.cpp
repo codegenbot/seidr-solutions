@@ -1,23 +1,30 @@
 Here is the completed code:
 
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool has_dot = false;
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
-            digit_count++;
-            if(digit_count > 3) return "No";
-        }
-        else if(file_name[i] == '.')
-            has_dot = true;
-        else if(has_dot){
-            string extension = &file_name[i];
-            if(extension != "txt" && extension != "exe" && extension != "dll")
-                return "No";
+string file_name_check(string file_name) {
+    int digitCount = 0;
+    bool hasDot = false;
+    string prefix;
+
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digitCount++;
+        } else if (c == '.') {
+            hasDot = true;
+        } else if (!hasDot) {
+            prefix += c;
         }
     }
-    if(!has_dot) return "No";
-    if(file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z')
+
+    if (digitCount > 3 || !prefix.size() || !isalpha(prefix[0])) {
         return "No";
+    }
+    if (!hasDot || file_name.find(".") == string::npos) {
+        return "No";
+    }
+    string suffix = file_name.substr(file_name.find("."));
+    if (suffix != ".txt" && suffix != ".exe" && suffix != ".dll") {
+        return "No";
+    }
+
     return "Yes";
 }
