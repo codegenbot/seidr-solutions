@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int calculateBowlingScore(std::string input) {
+int calculateBowlingScore(string input) {
     int score = 0;
     int frame = 0;
     for (int i = 0; i < input.size(); i++) {
