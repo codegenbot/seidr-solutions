@@ -18,5 +18,5 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
         }
     }
 
-    return {(max_negative > 0 ? INT_MAX : max_negative), (min_positive < 1 ? INT_MIN : min_positive)};
+    return {std::max({(max_negative > 0 ? INT_MAX : max_negative), (min_positive < 1 ? INT_MIN : min_positive)}, 0)};
 }
