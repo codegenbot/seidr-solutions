@@ -1,3 +1,4 @@
+```
 def search(lst):
     freq_dict = {}
     for num in lst:
@@ -11,3 +12,4 @@ def search(lst):
         if k >= v and k > 0:
             max_num = k
             return max_num
+    return -1
