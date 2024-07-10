@@ -1,6 +1,9 @@
 #include <vector>
+#include <cstdlib>
 
-int prod_signs(std::vector<int> arr) {
+using namespace std;
+
+int prod_signs(const std::vector<int>& arr) {
     if (arr.empty()) {
         return -32768;
     }
@@ -9,16 +12,12 @@ int prod_signs(std::vector<int> arr) {
     int sum = 0;
     
     for (int num : arr) {
-        if (num > 0) {
-            product *= 1;
-        } else if (num < 0) {
-            product *= -1;
-        } else {
-            product *= 0;
-        }
+        product *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
         
         sum += abs(num);
     }
     
     return product * sum;
 }
+
+prod_signs({-1, 1, 1, 0});

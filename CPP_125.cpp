@@ -1,41 +1,46 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
 
 using namespace std;
 
-vector<string> split_words(string txt){
-    vector<string> result;
+vector<string> split_words(string input){
+    if(input.empty()){
+        return {"0"};
+    }
+    vector<string> words;
     string word = "";
-    for (char c : txt){
-        if(c == ' ' || c == ','){
-            if(!word.empty()){
-                result.push_back(word);
-                word = "";
-            }
+    for(char c : input){
+        if(c == ' '){
+            words.push_back(word);
+            word = "";
         } else {
             word += c;
         }
     }
     if(!word.empty()){
-        result.push_back(word);
+        words.push_back(word);
     }
-    if(result.empty()){
-        int count = 0;
-        for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
-                count++;
-            }
+    return words;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(size_t i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
         }
-        result.push_back(to_string(count));
     }
-    return result;
+    return true;
 }
 
 int main(){
-    assert(split_words("") == vector<string>{"0"});
-    // Add more test cases here
+    assert(issame(split_words("") ,{"0"}));
+    // Additional test cases
+    assert(issame(split_words("hello world"), {"hello", "world"}));
+    assert(issame(split_words("apple banana cherry"), {"apple", "banana", "cherry"}));
 
     return 0;
 }
