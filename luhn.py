@@ -1,13 +1,14 @@
-```
 def luhn(card_num):
     card_num = [int(x) for x in str(card_num).replace(" ", "").strip()]
-    sum_val = 0
-    alt = False
-    for i, val in enumerate(card_num):
-        if alt:
-            val *= 2
-            if val > 9:
-                val -= 9
-        sum_val += val
-        alt = not alt
-    return sum_val
+    total_sum = 0
+    for i in range(len(card_num)):
+        digit = card_num[i]
+        if (i % 2 == 1):
+            if (digit * 2) > 9:
+                total_sum += (digit * 2) - 9
+            else:
+                total_sum += digit * 2
+        else:
+            total_sum += digit
+
+    return total_sum
