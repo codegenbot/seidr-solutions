@@ -1,20 +1,28 @@
+```cpp
 #include <map>
 #include <string>
 
-bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
-    return a == b;
-}
-
-std::map<char, int> histogram(const std::string& s) {
-    std::map<char, int> result;
-    for (char c : s) {
-        if (result.find(c) == result.end()) {
+std::map<char,int> histogram(const std::string& str) {
+    std::map<char,int> result;
+    for (char c : str) {
+        if (result.find(c) == result.end())
             result[c] = 1;
-        } else {
+        else
             result[c]++;
-        }
     }
     return result;
+}
+
+bool issame(std::map<char,int> a, std::map<char,int> b){
+    for(auto x: a) {
+        if(b.find(x.first)!=b.end() && b[x.first] != x.second) 
+            return false;
+    }
+    for(auto x: b) {
+        if(a.find(x.first)!=a.end() && a[x.first] != x.second) 
+            return false;
+    }
+    return true;
 }
 
 int main() {
