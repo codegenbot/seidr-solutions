@@ -1,9 +1,2 @@
-Here is the solution:
-
-def roll_higher(n, m):
-    return (n - 1) / (n * m - n - m)
-
-n = int(input())
-m = int(input())
-
-print(roll_higher(n, m))
+def dice_game(n, m):
+    return (n - 1) / n if n > m else (m - 1) / m
