@@ -1,11 +1,9 @@
 #include <string>
 #include <sstream>
 #include <openssl/md5.h>
-
 extern "C" {
     #include <openssl/evp.h>
 }
-
 using namespace std;
 
 string string_to_md5(string text) {
@@ -21,7 +19,7 @@ string string_to_md5(string text) {
     }
 
     unsigned char result[16];
-    MD5Final(result, &md5);
+    MD5Final(&md5, result);
 
     ostringstream oss;
     for (int i = 0; i < 16; ++i) {
