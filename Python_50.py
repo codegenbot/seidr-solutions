@@ -1,9 +1,12 @@
-def decode_shift(s: str):
-    return "".join([chr(((ord(ch) - 5 - ord('a')) % 26) + ord('a')) for ch in s])
+import sys
 
-user_input = input('Enter a string: ').strip()
-while not user_input:
-    user_input = input('Please enter a non-empty string: ').strip()
+if sys.version_info[0] < 3:
+    user_input = raw_input("Enter the encoded string: ").strip()
+else:
+    user_input = input("Enter the encoded string: ").strip()
 
-result = decode_shift(user_input)
-print(result)
+if not user_input.isalpha():
+    print("Invalid input. Please enter an alphabetic string.")
+else:
+    result = "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) if ch.isalpha() else ch for ch in user_input])
+    print(result)
