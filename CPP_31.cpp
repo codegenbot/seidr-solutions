@@ -14,9 +14,9 @@ int main() {
     int n;
     std::cin >> n;
     if (is_prime(n)) {
-        std::cout << "Prime" << std::endl;
+        std::cout << "Prime\n";
     } else {
-        std::cout << "Not Prime" << std::endl;
+        std::cout << "Not Prime\n";
     }
     return 0;
 }
