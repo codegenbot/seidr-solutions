@@ -1,11 +1,11 @@
 #include <vector>
 #include <iostream>
 
-bool issame(const int& a, const int& b) {
+bool same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> filter_integer(std::vector<int> values) {
+std::vector<int> filter_integers(std::vector<int> values) {
     std::vector<int> result;
     for (int value : values) {
         if(value != 0) {
@@ -23,7 +23,7 @@ int main() {
     std::vector<int> vector1 = {num1};
     std::vector<int> vector2 = {num2};
 
-    if(issame(num1, num2)) {
+    if(same(vector1, vector2)) {
         std::cout << "Vectors are same." << std::endl; 
     }
     else {
@@ -31,12 +31,12 @@ int main() {
     }
 
     std::vector<int> values = {1, 0, 3, 4};
-    std::vector<int> filtered = filter_integer(values);
+    std::vector<int> filtered = filter_integers(values);
     for (int value : filtered) {
         std::cout << value << " ";
     }
     std::cout << std::endl;
 
-    assert(issame(3, 3));
+    assert(same({1, 1, 1}, {1, 1, 1}));
     return 0;
 }
