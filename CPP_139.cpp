@@ -1,3 +1,4 @@
+```c++
 #include <stdio.h>
 using namespace std;
 
@@ -15,3 +16,4 @@ int main() {
     scanf("%d", &n);
     printf("The special factorial of %d is: %lld\n", n, special_factorial(n));
     return 0;
+}
