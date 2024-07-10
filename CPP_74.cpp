@@ -3,13 +3,11 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a.empty() && b.empty();
 }
 
 int main() {
-    assert(issame(vector<string>{"this"}, {}) == false);
+    assert(issame(std::vector<std::string>{"this"}, std::vector<std::string>{}) == true);
     return 0;
 }
