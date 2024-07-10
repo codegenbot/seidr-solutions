@@ -14,13 +14,12 @@ int main() {
         }
         return false;
     }
-
-    int num;
+    int choice;
     std::cout << "Enter a number: ";
-    std::cin >> num;
-
-    std::cout << "Is the sum of even numbers equal to the entered number? "
-              << is_equal_to_sum_even(num) << std::endl;
-    
+    std::cin >> choice;
+    if (is_equal_to_sum_even(choice))
+        std::cout << "The given number is equal to the sum of even numbers up to that number." << std::endl;
+    else
+        std::cout << "The given number is not equal to the sum of even numbers up to that number." << std::endl;
     return 0;
 }
