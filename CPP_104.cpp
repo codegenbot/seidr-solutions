@@ -2,16 +2,10 @@
 #include <algorithm>
 #include <cassert>
 
-bool is_same(vector<int> a, vector<int> b) {
-    return a == b;
-}
+using namespace std;
 
 vector<int> unique_digits(vector<int> x);
-
-int main() {
-    assert(is_same(unique_digits({135, 103, 31}), {31, 135}));
-    return 0;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
@@ -32,4 +26,13 @@ vector<int> unique_digits(vector<int> x){
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+    return 0;
 }
