@@ -1,7 +1,4 @@
-```
-def is_simple_power(x, n):
-    for k in range(2, int(n**0.5)+1):
-        temp = round(k**k)
-        if x == temp and k**k == n:
-            return True
-    return False
+def is_simple_power():
+    x = float(input("Enter a number: "))
+    n = int(input("Enter another number: "))
+    return math.isclose(x, n ** (math.sqrt(n)), rel_tol=1e-9)
