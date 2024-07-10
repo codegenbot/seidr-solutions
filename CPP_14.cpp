@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -11,7 +10,7 @@ int main() {
     std::string str;
     std::cin >> str;
 
-    std::vector<std::string> all_prefixes = {str};  // Corrected implementation
+    std::vector<std::string> all_prefixes = {str};  
 
     std::string target_str;
     std::cin >> target_str;
