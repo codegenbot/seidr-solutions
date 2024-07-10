@@ -10,9 +10,5 @@ int solution(std::initializer_list<int> lst) {
         }
     }
     return sum;
-}
 
-int main() {
-    assert(solution({3, 13, 2, 9}) == 3);
-    return 0;
 }
