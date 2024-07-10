@@ -1,16 +1,16 @@
 #include <vector>
 #include <cassert>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
+}
+
 std::vector<int> incr_list(const std::vector<int>& l) {
     std::vector<int> result = l;
     for (int i = 0; i < result.size(); i++) {
         result[i]++;
     }
     return result;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a == b;
 }
 
 int test_incremented_list(){
