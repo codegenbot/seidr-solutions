@@ -1,2 +1,2 @@
-def calculate_decimal_part(number):
+def truncate_number(number):
     return number - int(number)
