@@ -40,6 +40,7 @@ std::vector<int> minPath(std::vector<std::vector<int>>& myVector, int target) {
             if (myVector[i][j] == 2) {
                 currentPathLength++;
                 if (currentPathLength > target) return {};
+
                 result.push_back(i * n + j);
             }
         }
