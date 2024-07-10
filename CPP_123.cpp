@@ -1,11 +1,21 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size(); i++)
+        if(a[i] != b[i])
+            return false;
+    return true;
+}
 
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
-            n = n / 2;
+            n /= 2;
         } else {
             n = 3 * n + 1;
         }
@@ -15,4 +25,16 @@ vector<int> get_odd_collatz(int n) {
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    vector<int> res = get_odd_collatz(n);
+    if(issame({1}, res))
+        cout << "The Collatz sequence is odd." << endl;
+    else
+        cout << "The Collatz sequence contains even numbers." << endl;
+    return 0;
 }
