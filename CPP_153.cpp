@@ -1,7 +1,13 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <cctype>
+#include <string>
+using namespace std;
+
+int main() {
+    cout << Strongest_Extension("Sp", {"671235", "Bb"}) << endl;
+    return 0;
+}
 
 int Strongest_Extension(string class_name,vector<string> extensions){
     int strongest_strength = 0;
