@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -50,7 +50,5 @@ int main() {
     else
         cout << "Second number is greater." << endl;
 
-    assert(issame(vector<char>(reverse_delete("mamma", "mia").begin(), reverse_delete("mamma", "mia").end()),
-              vector<char>("mmmaaiiiaa".begin(), "mmmaaiiiaa".end())));
-    return 0;
+    assert(issame(vector<string>(reverse_delete("mamma", "mia").begin(), reverse_delete("mamma", "mia").end()), {"True"}));
 }
