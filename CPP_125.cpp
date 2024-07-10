@@ -1,26 +1,3 @@
-vector<string> split_words(string txt) {
-    vector<string> result;
-    bool inWord = false;
-    string word = "";
-
-    for (char c : txt) {
-        if (!inWord && !isalnum(c)) {
-            // Check for commas
-            if (c == ',') {
-                continue;
-            }
-            inWord = true;
-        } else if (inWord && !isalnum(c)) {
-            result.push_back(word);
-            word = "";
-            inWord = false;
-        } else {
-            word += c;
-        }
-    }
-
-    if (inWord) {
-        result.push_back(word);
-    }
-    return result;
-}
+```cpp
+inWord = false; 
+return result;
