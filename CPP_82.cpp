@@ -17,15 +17,13 @@ int main()
 {
     std::string input;
     std::cout << "Enter a string: ";
-    std::string temp; 
-    std::cin >> temp; 
-    input = temp;
-    bool flag = true;
+    std::cin >> input;
+    bool is_digit = true;
     for(auto c : input){
-        flag &= std::isdigit(c); 
+        is_digit &= std::isdigit(c); 
     }
     int len = input.length(); 
-    if(flag && prime_length(std::to_string(len))) {  
+    if(is_digit && prime_length(std::to_string(len).c_str())) {  
         std::cout << "The length of the string is prime." << std::endl;
     } else {
         std::cout << "The length of the string is not prime." << std::endl;
