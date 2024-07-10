@@ -1,8 +1,4 @@
-```c++
-#include <vector>
-#include <iostream>
-#include <string>
-
+```cpp
 std::string kebabToCamel(const std::string& str) {
     std::string result;
     bool capitalize = true;
@@ -10,7 +6,7 @@ std::string kebabToCamel(const std::string& str) {
     for (char c : str) {
         if (c == '-') {
             capitalize = true;
-        } else if (c != ' ') {  // Check if c is not a space
+        } else {
             if (capitalize) {
                 result += toupper(c);
                 capitalize = false;
@@ -21,12 +17,4 @@ std::string kebabToCamel(const std::string& str) {
     }
 
     return result;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << kebabToCamel(input) << std::endl;
-
-    return 0;
 }
