@@ -2,6 +2,10 @@
 #include <cmath>
 #include <cassert>
 
+bool is_simple_power(int base, int exponent) {
+    return (pow(base, 1.0/exponent) == int(pow(base, 1.0/exponent)));
+}
+
 int main() {
     assert(is_simple_power(1, 12) == true);
     assert(is_simple_power(16, 2) == true);
