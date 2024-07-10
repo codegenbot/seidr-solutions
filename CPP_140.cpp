@@ -1,20 +1,21 @@
-#include <iostream>
+#include <string>
 #include <cassert>
 
 std::string fix_spaces(const std::string& text) {
-    std::string result = text;
-    for (int i = 0; i < result.size(); ++i) {
-        if (result[i] == ' ') {
-            if (i + 2 < result.size() && result[i + 1] == ' ' && result[i + 2] == ' ') {
-                result.replace(i, result.find_first_not_of(' ', i + 1) - i, "-");
+    std::string modified_text = text;
+    for (int i = 0; i < modified_text.size(); ++i) {
+        if (modified_text[i] == ' ') {
+            if (i + 2 < modified_text.size() && modified_text[i + 1] == ' ' && modified_text[i + 2] == ' ') {
+                modified_text.replace(i, modified_text.find_first_not_of(' ', i + 1) - i, "-");
             } else {
-                result[i] = '_';
+                modified_text[i] = '_';
             }
         }
     }
-    return result;
+    return modified_text;
 }
 
 int main() {
-    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    assert (fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    return 0;
 }
