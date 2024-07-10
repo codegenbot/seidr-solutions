@@ -18,7 +18,7 @@ bool issame(vector<float>& a, vector<float>& b) {
 }
 
 void sort_even(vector<float>& l_even) {
-    sort(l_even.rbegin(), l_even.rend());
+    sort(l_even.begin(), l_even.end());
 }
 
 int main() {
