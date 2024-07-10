@@ -1,9 +1,6 @@
-```
-def car_race_collision():
-    n = int(input("Enter the number of cars: "))
-    collision_count = 0
-    for i in range(1, n):
-        for j in range(i):
-            if abs(i - j) < n:
-                collision_count += 1
-    return collision_count
+def car_race_collision(x1, y1, x2, y2):
+    if x1 == x2:
+        return abs(y1 - y2) <= 0
+    m = (y2 - y1) / (x2 - x1)
+    b = y1 - m * x1
+    return x1 <= x2 and min(x1, x2) >= max((b + m), (-b + m))
