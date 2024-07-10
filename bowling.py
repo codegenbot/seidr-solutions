@@ -15,8 +15,8 @@ def bowling_score(frames):
             if frame == 10:
                 break
         elif frames[i] == "/":
-            score += 10 - (int(frames[i - 1]) if frames[i - 1].isdigit() else 0)
-            score += int(frames[i + 1]) if frames[i + 1].isdigit() else 0
+            score += 10 - int(frames[i - 1])
+            score += int(frames[i + 1])
             frame += 1
         else:
             score += int(frames[i]) if frames[i].isdigit() else 0
