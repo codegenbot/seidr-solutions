@@ -7,24 +7,23 @@ std::string spinWords(std::string str) {
     
     for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || str[i + 1] == ' ') {
-            if (word.length() >= 5)
-                result += std::string(word.rbegin(), word.rend()) + " ";
-            else
-                result += word + " ";
-            word = "";
-        } else {
-            word += str[i];
+            word = str.substr(i);
+            
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
+            
+            result += word + " ";
         }
     }
     
-    return result.substr(0, result.length() - 1);
+    return result;
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    
+    std::string input;
+    while (std::cin >> input) {
+        std::cout << spinWords(input) << std::endl;
+    }
     return 0;
 }
