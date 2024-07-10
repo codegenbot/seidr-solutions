@@ -1,4 +1,4 @@
-```Python
+```
 def modp(n: int, p: int):
     if n == 0:
         return 0
@@ -6,7 +6,7 @@ def modp(n: int, p: int):
         return n % p
     else:
         result = pow(n, (p-1), p)
-        if result == 1 or n > 1 and p > 1:
+        if result == 1:
             return n * pow(result, -1, p) % p
         else:
             return n % p
