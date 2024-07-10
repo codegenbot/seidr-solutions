@@ -1,4 +1,7 @@
 #include <algorithm>
+#include <vector>
+
+using namespace std;
 
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
