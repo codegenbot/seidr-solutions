@@ -1,6 +1,9 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <cassert>
+
+using namespace std;
 
 vector<string> words_string(string s){
     vector<string> words;
@@ -12,4 +15,14 @@ vector<string> words_string(string s){
         }
     }
     return words;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
+
+int main(){
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    
+    return 0;
 }
