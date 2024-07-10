@@ -25,6 +25,6 @@ bool issameMap(std::map<char, int> a, std::map<char, int> b) {
 }
 
 int main() {
-    assert(issameMap(histogram("aa"), histogram("a")));
+    assert(issameMap(histogram("aa"), { {'a', 1} }));
     return 0;
 }
