@@ -1,31 +1,24 @@
-#include <iostream>
 #include <map>
+#include <string>
 #include <vector>
 #include <algorithm>
 #include <sstream>
 #include <cassert>
 
-int main() {
-    std::map<std::string, int> number_map = {
-        {"zero", 0},
-        {"one", 1},
-        {"two", 2},
-        {"three", 3},
-        {"four", 4},
-        {"five", 5},
-        {"six", 6},
-        {"seven", 7},
-        {"eight", 8},
-        {"nine", 9}
-    };
+std::map<std::string, int> number_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
 
-    std::string sort_numbers(std::string numbers);
-
-    // Add test cases using assert
-    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
-
-    return 0;
-}
+std::string sort_numbers(std::string numbers);
 
 std::string sort_numbers(std::string numbers){
     std::map<int, std::string> reverse_map;
@@ -47,6 +40,12 @@ std::string sort_numbers(std::string numbers){
         result += reverse_map[num] + " ";
     }
 
-    result.pop_back(); // Remove the extra space at the end
+    result.pop_back();
     return result;
+}
+
+int main(){
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    
+    return 0;
 }
