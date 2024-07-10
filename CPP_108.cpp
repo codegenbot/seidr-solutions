@@ -1,5 +1,3 @@
-Here is the modified code:
-
 #include <iostream>
 #include <vector>
 
@@ -18,7 +16,6 @@ int count_nums(std::vector<int> nums) {
                 }
                 num /= 10;
             }
-            count++;
         } else if (num < 0) {
             int sum_of_digits = 0;
             while (abs(num) != 0) {
@@ -32,7 +29,7 @@ int count_nums(std::vector<int> nums) {
                 }
                 num /= 10;
             }
-            count++;
         }
+        count++;
     }
     return count;
