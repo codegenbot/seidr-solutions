@@ -19,16 +19,17 @@ std::string int_to_roman(int number)
 
     std::string roman = "";
     int thousands = number / 1000;
-    for(int i=0;i<thousands;++i)
-    temp+='M';
-    roman+=temp;
+    for (int i = 0; i < thousands; i++)
+    {
+        roman += 'M';
+    }
 
     int hundreds = (number % 1000) / 100;
     if (hundreds > 0)
     {
         roman += "D";
         for (int i = 1; i < hundreds; i++)
-            roman += "C";
+            roman.push_back('C');
     }
 
     int tens = (number % 100) / 10;
@@ -36,12 +37,12 @@ std::string int_to_roman(int number)
     {
         roman += "CM";
         for (int i = 4; i <= tens; i++)
-            roman += "D";
+            roman.push_back('D');
     }
     else
     {
         for (int i = 1; i <= tens; i++)
-            roman += "X";
+            roman.push_back('X');
     }
 
     int ones = number % 10;
@@ -49,12 +50,12 @@ std::string int_to_roman(int number)
     {
         roman += "IV";
         for (int i = 5; i <= ones; i++)
-            roman += "V";
+            roman.push_back('V');
     }
     else
     {
         for (int i = 1; i <= ones; i++)
-            roman += "I";
+            roman.push_back('I');
     }
 
     return roman;
