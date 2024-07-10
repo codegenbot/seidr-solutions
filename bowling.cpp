@@ -1,56 +1,40 @@
 #include <iostream>
-#include <vector>
-using namespace std;
+#include <string>
 
-int score(string s) {
-    int total = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> scores(21, 0);
-
-    for (char c : s) {
-        if (c == 'X') {
-            scores[ball++] = 10;
-            if (frame < 10) {
-                scores[ball++] = 0;
+int calculateBowlingScore(const std::string& bowls) {
+    int score = 0;
+    int frame = 0;
+    for (int i = 0; i < bowls.size(); ++i) {
+        if (frame == 10) break;
+        if (bowls[i] == 'X' || bowls[i] == '/') {
+            ++frame;
+        }
+        
+        if (bowls[i] == 'X') {
+            score += 10;
+            if (i + 2 < bowls.size()) {
+                if (bowls[i + 2] == 'X') score += 10;
+                else if (bowls[i + 2] == '/') score += 10;
+                else score += bowls[i + 1] - '0' + bowls[i + 2] - '0';
             }
-            frame++;
-        } else if (c == '/') {
-            scores[ball - 1] = 10 - scores[ball - 2];
-            if (frame < 10) {
-                scores[ball++] = 0;
+        } else if (bowls[i] == '/') {
+            score += 10 - (bowls[i - 1] - '0');
+            if (i + 1 < bowls.size()) {
+                if (bowls[i + 1] == 'X') score += 10;
+                else score += bowls[i + 1] - '0';
             }
-            frame++;
-        } else if (c == '-') {
-            scores[ball++] = 0;
-            frame++;
         } else {
-            scores[ball++] = c - '0';
-            if (frame % 2 == 0 || c == '9') {
-                frame++;
-            }
+            score += bowls[i] - '0';
+            if (bowls[i] == '-') score = std::max(score, 0);
+            if (bowls[i] == '9' && i + 1 < bowls.size() && bowls[i + 1] == '-') score = std::max(score, 9);
         }
     }
-
-    for (int i = 0; i < 10; ++i) {
-        if (scores[i * 2] == 10) {
-            total += 10 + scores[i * 2 + 2] + scores[i * 2 + 3];
-            if (scores[i * 2 + 2] == 10) {
-                total += scores[i * 2 + 4];
-            }
-        } else if (scores[i * 2] + scores[i * 2 + 1] == 10) {
-            total += 10 + scores[i * 2 + 2];
-        } else {
-            total += scores[i * 2] + scores[i * 2 + 1];
-        }
-    }
-
-    return total;
+    return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    std::string bowls;
+    std::cin >> bowls;
+    std::cout << calculateBowlingScore(bowls) << std::endl;
     return 0;
 }
