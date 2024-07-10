@@ -2,9 +2,13 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <functional>
 
 std::vector<int> find_max(std::vector<int> arr, int k){
     std::sort(arr.begin(), arr.end(), std::greater<int>());
+    if (k > arr.size()) {
+        k = arr.size(); // Adjust k if it exceeds arr size
+    }
     arr.resize(k);
     return arr;
 }
