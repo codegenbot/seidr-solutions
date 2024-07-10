@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
 using namespace std;
 
 string words_in_sentence(string sentence) {
@@ -25,9 +29,9 @@ bool is_prime(int n) {
     return true;
 }
 
-vector<string> split(std::string sentence, char delimiter) {
-    vector<std::string> result;
-    std::string temp;
+vector<string> split(string sentence, char delimiter) {
+    vector<string> result;
+    string temp;
 
     for (int i = 0; i < sentence.length(); i++) {
         if (sentence[i] == delimiter) {
