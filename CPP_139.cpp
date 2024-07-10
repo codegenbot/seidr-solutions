@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <limits>
 #include <string>
@@ -14,7 +13,7 @@ long long special_factorial(int n) {
 }
 
 int main() {
-    string nStr; 
+    string nStr;
     cout << "Enter a positive integer: ";
     cin >> nStr;
     int n = stoi(nStr);
