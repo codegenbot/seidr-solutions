@@ -49,7 +49,9 @@ void get_user_input(std::vector<std::vector<std::string>>& user_input) {
     while (true) {
         std::cin >> temp;
         if (temp == "stop") break;
-        user_input.push_back(std::vector<std::string>(1, temp));
+        std::vector<std::string> str;
+        str.push_back(temp);
+        user_input.push_back(str);
     }
 }
 
