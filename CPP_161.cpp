@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 #include <algorithm>
@@ -13,13 +14,13 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? std::string(s.rbegin(),s.end()) : result;
+    return result.empty() ? string(s.rbegin(),s.end()) : result;
 }
 
 int main() {
     cout << "Enter a string: ";
     std::string s;
-    cin >> s;  
+    getline(cin, s);  
     cout << solve(s) << endl;  
     return 0;
 }
