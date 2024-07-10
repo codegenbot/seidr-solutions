@@ -1,3 +1,5 @@
+#include <string>
+
 struct MastermindResult {
     int blackPegs;
     int whitePegs;
@@ -25,3 +27,4 @@ MastermindResult mastermind(string code, string guess) {
     }
 
     return {blackPegs, whitePegs};
+}
