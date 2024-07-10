@@ -2,22 +2,23 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
-#include <climits>
 
 int main() {
+    using namespace std;
+
     int n;
-    std::cin >> n;
-    std::vector<int> nums(n);
+    cin >> n;
+    vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
 
     int diff = INT_MAX;
     int cutIndex = -1;
     for (int i = 1; i < n; ++i) {
-        int leftSum = std::accumulate(nums.begin(), nums.begin() + i, 0);
-        int rightSum = std::accumulate(nums.begin() + i, nums.end(), 0);
-        int currentDiff = std::abs(leftSum - rightSum);
+        int leftSum = accumulate(nums.begin(), nums.begin() + i, 0);
+        int rightSum = accumulate(nums.begin() + i, nums.end(), 0);
+        int currentDiff = abs(leftSum - rightSum);
         if (currentDiff < diff) {
             diff = currentDiff;
             cutIndex = i;
@@ -25,11 +26,11 @@ int main() {
     }
 
     for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << endl;
     }
-    std::cout << std::endl;
+    cout << endl;
     for (int i = cutIndex; i < n; ++i) {
-        std::cout << nums[i] << std::endl;
+        cout << nums[i] << endl;
     }
 
     return 0;
