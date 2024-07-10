@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -13,7 +13,8 @@ bool prime_length(const std::string& str) {
 
 }
 
-int main() {
+int main() 
+{
     std::string input;
     std::cout << "Enter a string: ";
     std::cin >> input;
@@ -21,7 +22,8 @@ int main() {
     for(auto c : input){
         flag &= std::isdigit(c); 
     }
-    if (flag && prime_length(std::to_string(input.length()))) {
+    std::string lenStr = std::to_string(input.length()); // Calculate length as string
+    if (flag && prime_length(lenStr)) {  // Use this new string in your function call
         std::cout << "The length of the string is prime." << std::endl;
     } else {
         std::cout << "The length of the string is not prime." << std::endl;
