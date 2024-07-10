@@ -1,4 +1,6 @@
-```
+```cpp
+#include <assert.h>
+
 bool any_int(float a, float b, float c) {
     int ai = (int)a;
     int bi = (int)b;

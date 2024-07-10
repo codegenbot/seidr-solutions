@@ -1,7 +1,10 @@
-```cpp
+#include <iostream>
+#include <cmath>
+#include <cassert>
+
 float triangle_area(int a, int b, int c) {
     float s = (a + b + c) / 2;
-    return sqrt((s*(s-a)*(s-b)*(s-c)));
+    return sqrt(s * (s - a) * (s - b) * (s - c));
 }
 
 int main() {
