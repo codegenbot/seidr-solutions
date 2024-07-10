@@ -1,20 +1,15 @@
 int mastermind(string code, string guess) {
-    int black = 0;
     int white = 0;
+    int black = 0;
 
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+    for (int i = 0; i < 4; i++) {
+        char c1 = code[i];
+        char c2 = guess[i];
+
+        if (c1 == c2) {
             black++;
-        }
-    }
-
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d && c != guess[guess.find(c)]) {
-                white++;
-                break;
-            }
+        } else if (count(code.begin(), code.end(), c2) > 0) {
+            white++;
         }
     }
 
