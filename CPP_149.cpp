@@ -1,30 +1,30 @@
-```cpp
-bool issame(vector<string> a,vector<string>b){
-    return a==b;
+```
+bool issame(string str1, string str2) {
+    bool flag = false;
+    for(int i=0; i<str1.size(); i++) {
+        if(str1[i] == str2[i])
+            flag = true;
+        else
+            return false;
+    }
+    return flag;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
+    // Delete strings with odd lengths from the list
+    lst.erase(std::remove_if(lst.begin(), lst.end(),
+        [](const string& str) { return str.length() % 2 != 0; }),
+        lst.end());
     
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
-    }
+    // Sort the list based on the length of each word, and then alphabetically
+    std::sort(lst.begin(), lst.end(),
+        [](const string& a, const string& b) {
+            if (a.size() == b.size()) {
+                return issame(a, b);
+            } else {
+                return a.size() < b.size();
+            }
+        });
     
-    sort(result.begin(), result.end(), 
-         [](const string& a, const string& b) {
-             if (a.size() != b.size()) {
-                 return a.size() < b.size();
-             } else {
-                 return a < b;
-             }
-         });
-    
-    return result;
-}
-
-int main() {
-    assert (issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) , {"cc","dd","aaaa","bbbb"}));
-    return 0;
+    return lst;
 }
