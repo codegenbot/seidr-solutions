@@ -1,4 +1,4 @@
-```Python
+```
 from typing import List
 
 
@@ -25,24 +25,25 @@ def main():
                     "No valid input received after multiple attempts. Exiting program."
                 )
                 return
-        if len(n) == 4:
+        if all(x is not None for x in n):
             break
 
-    print("Program received expected input.")
-
-    factors1 = []
-    i = 2
-    while i * i <= n[0]:
-        if n[0] % i:
-            i += 1
-        else:
-            count = 0
-            while n[0] > 1 and n[0] % i == 0:
-                n[0] //= i
-                count += 1
-            factors1.extend([i] * count)
-    if n[0] > 1:
-        factors1.append(n[0])
+    if any(x is None for x in n):
+        print("Program did not receive expected input.")
+    else:
+        factors1 = []
+        i = 2
+        while i * i <= n[0]:
+            if n[0] % i:
+                i += 1
+            else:
+                count = 0
+                while n[0] > 1 and n[0] % i == 0:
+                    n[0] //= i
+                    count += 1
+                factors1.extend([i] * count)
+        if n[0] > 1:
+            factors1.append(n[0])
 
     common_factors = []
     i = 2
