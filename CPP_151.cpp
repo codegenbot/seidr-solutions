@@ -11,12 +11,12 @@ long long double_the_difference(vector<float> lst){
 }
 
 int main() {
-    int odd_sum = 0;
-    float num;
+    vector<float> lst;
+    long long odd_sum = 0;
     
     cout << "Enter numbers (enter 'stop' to finish):" << endl;
-    vector<float> lst; 
     while(1) {
+        float num;
         cin >> num;
         
         if(std::to_string(num) == "stop") break;
@@ -25,7 +25,7 @@ int main() {
             odd_sum = 0; 
             for (float n : lst) { 
                 if (n > 0 && modf(n, &n) == 0.0) {
-                    odd_sum = double_the_difference({n});
+                    odd_sum += double_the_difference(lst);
                 }
             }
         }
@@ -33,5 +33,4 @@ int main() {
     }
 
     cout << "Sum of squared values: " << odd_sum << endl;
-    return 0;
 }
