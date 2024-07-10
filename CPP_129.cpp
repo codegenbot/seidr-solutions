@@ -59,8 +59,7 @@ int main() {
         if(same) {
             cout << "The minimum path is: ";
             for (int i : output) {
-                std::string str = std::to_string(i);
-                cout << str << " ";
+                cout << i;
             }
             cout << endl;
         } else {
