@@ -1,43 +1,28 @@
 #include <boost/any.hpp>
 #include <string>
-#include <stdexcept>
+#include <algorithm>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a > (float)b ? a : b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a > (int)b ? a : b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = any_cast<string>(a);
-        string str2 = any_cast<string>(b);
-
-        int dot_pos1 = str1.find('.');
-        int comma_pos1 = str1.find(',');
-        int dot_pos2 = str2.find('.');
-        int comma_pos2 = str2.find(',');
-
-        if (dot_pos1 == -1 && comma_pos1 == -1) {
-            return (stof(str1) > stof(str2)) ? a : b;
-        }
-        else if (dot_pos1 != -1 && dot_pos2 != -1) {
-            return (stod(str1) > stod(str2)) ? a : b;
-        }
-        else if ((dot_pos1 == -1 && comma_pos1 == -1) || (dot_pos2 == -1 && comma_pos2 == -1)) {
-            throw runtime_error("Invalid input");
-        }
-        else if (stof(str1) > stof(str2)) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return (int)a > (int)b ? a : (int)b.type();
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return (float)a > (float)b ? a : (boost::any)0.0;
+    } else if ((a.type() == typeid(string) || a.type() == typeid(wchar_t)) &&
+               (b.type() == typeid(string) || b.type() == typeid(wchar_t))) {
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+        return strA > strB ? a : (boost::any)"None";
+    } else if ((a.type() == typeid(int) || a.type() == typeid(float)) &&
+               (b.type() == typeid(string) || b.type() == typeid(wchar_t))) {
+        double numA = boost::any_cast<double>(a);
+        string strB = boost::any_cast<string>(b);
+        if (numA > stod(strB))
             return a;
-        }
-        else {
+        else
             return b;
-        }
-    }
-    else if ((a.type() == typeid(string) && b.type() != typeid(string)) || (b.type() == typeid(string) && a.type() != typeid(string))) {
-        throw runtime_error("Invalid input");
-    }
-    else {
+    } else {
         return boost::any("None");
     }
 }
