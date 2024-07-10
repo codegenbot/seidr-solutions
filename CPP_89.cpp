@@ -1,8 +1,12 @@
 #include <iostream>
 #include <string>
+#include <cctype>
+#include <cassert> // Include cassert for the assert() function
 
-std::string encrypt(std::string s) {
-    std::string result = "";
+using namespace std;
+
+string encrypt(string s) {
+    string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             char encrypted = c + 2 * 2;
@@ -24,6 +28,6 @@ std::string encrypt(std::string s) {
 }
 
 int main() {
-    assert(encrypt("a") == "e");
+    assert(encrypt("a") == "e"); // Add assert() function to check the result
     return 0;
 }
