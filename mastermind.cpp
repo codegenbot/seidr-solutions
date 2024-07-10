@@ -2,21 +2,21 @@ int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
             black++;
         }
     }
 
-    for(int i=0; i<6; i++) {
+    for (char c : guess) {
         int count = 0;
-        for(int j=0; j<4; j++) {
-            if(guess[j] == (char)(i+65) && code.find((char)(i+65)) != string::npos) {
+        for (char d : code) {
+            if (c == d) {
                 count++;
             }
         }
-        white += count - black;
+        white += min(count, 1);
     }
 
-    return black << 2 | white;
+    return black + white - black;
 }
