@@ -1,3 +1,4 @@
+```
 def find_pair():
     num_cases = int(input())
     for _ in range(num_cases):
@@ -9,6 +10,9 @@ def find_pair():
             total = nums[left] + nums[right]
             if total == target:
                 print(nums[left], nums[right])
-                break
-        else: 
-            print(-215)
+                continue
+            elif total < target:
+                left += 1
+            else:
+                right -= 1
+    print(-215)
