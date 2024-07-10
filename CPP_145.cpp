@@ -1,12 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <numeric>
-#include <algorithm>
-#include <cassert>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+template<typename T>
+bool issame(const T& a, const T& b) {
     return a == b;
 }
+
+std::vector<int> order_by_points(const std::vector<int>& nums);
 
 std::vector<int> order_by_points(const std::vector<int>& nums) {
     std::sort(nums.begin(), nums.end(), [&](int a, int b){
@@ -21,6 +18,6 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    assert(issame<const std::vector<int>&>({0,6,6,-76,-21,23,4}));
     return 0;
 }
