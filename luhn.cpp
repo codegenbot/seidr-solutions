@@ -7,7 +7,7 @@ int luhn(std::vector<int> card) {
     for (int i = card.size() - 1; i >= 0; --i) {
         int digit = card[i];
 
-        if (doubleNext && i % 2 != 0) {
+        if (doubleNext && i % 2 == 1) {
             digit *= 2;
             if (digit > 9) {
                 digit -= 9;
