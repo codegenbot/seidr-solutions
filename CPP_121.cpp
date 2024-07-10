@@ -1,5 +1,6 @@
 #include <initializer_list>
 #include <cassert>
+#include <cmath>
 
 int solutions(std::initializer_list<int> lst) {
     int sum = 0;
