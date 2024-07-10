@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <numeric>
 #include <cassert>
+#include <cmath>
 
 using namespace std;
 
@@ -9,7 +10,7 @@ int sum_of_digits(int num) {
     num = abs(num);
     int sum = 0;
     while (num != 0) {
-        sum += num % 10;
+        sum += abs(num % 10);
         num /= 10;
     }
     return sum;
