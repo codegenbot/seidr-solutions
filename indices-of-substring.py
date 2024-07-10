@@ -8,5 +8,5 @@ def indices_of_substring(text, target):
             result.append(last_index)
             last_index += len(target)  
         else:
-            break
+            continue
     return result
