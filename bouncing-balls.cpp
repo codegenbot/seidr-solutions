@@ -1,10 +1,13 @@
 #include <iostream>
+#include <iomanip>
+
+using namespace std;
 
 int main() {
     double start_height, first_bounce_height, bounciness_index, total_distance;
     int num_bounces;
 
-    std::cin >> start_height >> first_bounce_height >> num_bounces;
+    cin >> start_height >> first_bounce_height >> num_bounces;
 
     bounciness_index = first_bounce_height / start_height;
     total_distance = start_height + first_bounce_height;
@@ -14,8 +17,7 @@ int main() {
         first_bounce_height *= bounciness_index;
     }
 
-    std::cout.precision(17);
-    std::cout << total_distance << std::endl;
+    cout << fixed << setprecision(15) << total_distance << endl;
 
     return 0;
 }
