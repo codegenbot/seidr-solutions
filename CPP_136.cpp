@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```cpp
 bool issame(vector<int> a,vector<int>b){
     return a==b;
@@ -17,6 +15,5 @@ vector<int> largest_smallest_integers(vector<int> lst){
         }
     }
 
-    return {std::max({(max_negative > 0 ? INT_MAX : max_negative), 
-                      (min_positive < 1 ? INT_MIN : min_positive)},0);
+    return {std::max({std::max(-max_negative, 0), std::min(min_positive, 1)})};
 }
