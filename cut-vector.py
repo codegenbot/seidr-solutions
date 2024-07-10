@@ -13,8 +13,8 @@ for i in range(len(arr)):
         min_diff = diff
         cut_index = i
 
-output1 = arr[:cut_index + 1]
-output2 = arr[cut_index + 1:]
+output1 = arr[: cut_index + 1]
+output2 = arr[cut_index + 1 :]
 
 print(*output1)
 print(*output2)
