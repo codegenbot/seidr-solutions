@@ -2,37 +2,37 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b){
-    return (a == b);
-}
-
-template<typename It>
-It distinct(It first, It last) {
-    if (first == last)
-        return first;
-
-    vector<typename iterator_traits<It>::value_type> result;
-    for (; first != last; ++first) {
-        bool duplicate = false;
-        for (const auto& value : result) {
-            if (*first == value) {
-                duplicate = true;
-                break;
-            }
-        }
-        if (!duplicate)
-            result.push_back(*first);
+namespace std {
+    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+        return (a == b);
     }
 
-    return result.begin();
+    template<typename It>
+    It distinct(It first, It last) {
+        if (first == last)
+            return first;
+
+        std::set<typename std::iterator_traits<It>::value_type> result;
+        for (; first != last; ++first) {
+            bool duplicate = false;
+            for (const auto& value : result) {
+                if (*first == value) {
+                    duplicate = true;
+                    break;
+                }
+            }
+            if (!duplicate)
+                result.insert(*first);
+        }
+
+        return result.begin();
+    }
 }
 
 int main_test() { 
-    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    auto output(distinct(input.begin(), input.end()));
+    std::vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    auto output = std::distinct(input.begin(), input.end());
     for (auto i : std::unique(output.begin(), output.end())) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
 }
