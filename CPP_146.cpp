@@ -18,9 +18,7 @@ int main() {
     std::cin >> n;
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
-        int x;
-        std::cin >> x;
-        nums.push_back(x);
+        std::cin >> nums.emplace_back(i);
     }
     int result = specialFilter(nums);
     std::cout << "Number of elements that meet the condition: " << result << std::endl;
