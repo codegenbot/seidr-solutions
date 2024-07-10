@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -12,14 +12,13 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? std::string(s).reverse() : result;
+    return result.empty() ? string(s).reverse() : result;
 }
 
-int main(){
-    string input;
-    cout << "Enter a sentence: ";
-    getline(cin, input);
-    
-    cout << solve(input);
+int main() {
+    cout << "Enter a string: ";
+    std::string s;
+    cin >> s;  
+    cout << solve(s) << endl;  
     return 0;
 }
