@@ -1,28 +1,52 @@
-```
+#include <boost/variant.hpp>
 #include <boost/any.hpp>
-using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any((int)b > (int)a ? b : a);
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return boost::any((float)b > (float)a ? b : a);
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-        if (strA == "None") return boost::any("None");
-        return boost::any(strB > strA ? b : a);
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int valA = boost::any_cast<int>(a);
-        string strB = boost::any_cast<string>(b);
-        if (strB == "None") return boost::any("None");
-        return boost::any(strB > to_string(valA) ? b : a);
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string strA = boost::any_cast<string>(a);
-        int valB = boost::any_cast<int>(b);
-        if (strA == "None") return boost::any("None");
-        return boost::any(strA > to_string(valB) ? a : b);
-    } else {
-        return boost::any("None");
+boost::variant<int, double, std::string> compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int)boost::any_cast<int>(a) > (double)boost::any_cast<double>(b) ? 
+               boost::get<int>(a) : boost::get<boost::variant<int, double, std::string>>(b);
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return (double)boost::any_cast<double>(a) > (int)boost::any_cast<int>(b) ? 
+               boost::get<boost::variant<int, double, std::string>>(a) : boost::get<int>(b);
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
+        std::string str = boost::any_cast<std::string>(a);
+        double num = boost::any_cast<double>(b);
+        return str > std::to_string(num) ? 
+               boost::get<boost::variant<int, double, std::string>>(a) : boost::get<boost::variant<int, double, std::string>>(b);
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
+        std::string str = boost::any_cast<std::string>(b);
+        double num = boost::any_cast<double>(a);
+        return std::to_string(num) > str ? 
+               boost::get<boost::variant<int, double, std::string>>(a) : boost::get<boost::variant<int, double, std::string>>(b);
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string str1 = boost::any_cast<std::string>(a);
+        std::string str2 = boost::any_cast<std::string>(b);
+        return str1 > str2 ? 
+               boost::get<boost::variant<int, double, std::string>>(a) : boost::get<boost::variant<int, double, std::string>>(b);
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(std::string)) {
+        int num = boost::any_cast<int>(a);
+        std::string str = boost::any_cast<std::string>(b);
+        return std::to_string(num) > str ? 
+               boost::get<boost::variant<int, double, std::string>>(a) : boost::get<boost::variant<int, double, std::string>>(b);
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+        int num = boost::any_cast<int>(b);
+        std::string str = boost::any_cast<std::string>(a);
+        return str > std::to_string(num) ? 
+               boost::get<boost::variant<int, double, std::string>>(a) : boost::get<boost::variant<int, double, std::string>>(b);
+    }
+    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        double num1 = boost::any_cast<double>(a);
+        double num2 = boost::any_cast<double>(b);
+        return num1 > num2 ? 
+               boost::get<boost::variant<int, double, std::string>>(a) : boost::get<boost::variant<int, double, std::string>>(b);
+    }
+    else {
+        return boost::variant<int, double, std::string>();
     }
 }
