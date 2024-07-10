@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <cassert> // Include the <cassert> header
+
+using namespace std;
 
 vector<int> sum_product(vector<int> nums){
     int sum = 0;
