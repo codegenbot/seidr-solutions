@@ -4,9 +4,9 @@ vector<string> sorted_list_sum(vector<string> lst) {
         if (it->length() % 2 != 0) {
             lst.erase(it);
             it = lst.begin();
-            continue;
+        } else {
+            ++it;
         }
-        ++it;
     }
     sort(lst.begin(), lst.end(),
          [](const string& a, const string& b) {
