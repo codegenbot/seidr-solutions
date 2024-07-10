@@ -6,9 +6,13 @@ bool is_nested(std::string str) {
     for (char c : str) {
         if (c == '[' || c == '{' || c == '(') {
             count++;
-        } else if ((c == ']' || c == '}' || c == ')') && count > 0) {
+        } else if (c == ']' && count > 0) {
             count--;
-        } else if ((c == ']' || c == '}' || c == ')') && count <= 0) {
+        } else if (c == '}' && count > 0) {
+            count--;
+        } else if (c == ')' && count > 0) {
+            count--;
+        } else if (c == ']' || c == '}' || c == ')') {
             return false;
         }
     }
