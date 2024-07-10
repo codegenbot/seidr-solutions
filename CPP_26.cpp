@@ -10,10 +10,10 @@ std::vector<int> remove_duplicates(std::vector<int> v) {
     std::vector<int> result;
     for (int i = 0; i < v.size(); i++) {
         bool found = false;
-        for (int j = 0; j < result.size(); j++) { 
+        for (int j = 0; j < i; j++) { 
             if (v[i] == result[j]) {
                 found = true;
-                break;
+                break; // <--- Add this line
             }
         }
         if (!found) {
