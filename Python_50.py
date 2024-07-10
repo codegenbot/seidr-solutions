@@ -1,5 +1,5 @@
 def decode_shift(s: str):
-    if not any(char.isalpha() for char in s):
+    if not s.isalpha():
         return "Invalid input. Please enter an alphabetic string."
     return "".join([chr(((ord(ch) - 5 - ord('a')) % 26) + ord('a')) if ch.isalpha() else ch for ch in s])
 
