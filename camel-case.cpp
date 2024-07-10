@@ -1,33 +1,48 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 
 std::string camelCase(std::string str) {
-    std::string result = "";
-    bool firstWord = true;
-    
+    std::vector<std::string> words;
+    bool inWord = false;
+
     for (char c : str) {
-        if (c == '-') {
-            if (!firstWord) {
-                result += toupper(c);
-                firstWord = false;
-            } else {
-                firstWord = true;
-            }
-        } else if (c == ' ') {
-            if (!firstWord) {
-                result += char(toupper(c));
-            }
-            firstWord = true;
+        if (!inWord && c == '-') {
+            inWord = true;
+        } else if (inWord && c != '-') {
+            inWord = false;
+            words.push_back(c);
+        } else if (!inWord && !std::isalnum(c)) {
+            continue;
         } else {
-            if (!firstWord) {
-                result += c;
-            } else {
-                result += tolower(c);
+            if (c == '-') {
+                continue;
             }
-            firstWord = false;
+            if (inWord) {
+                if (!std::islower(c)) {
+                    words.back().push_back(std::toupper(c));
+                } else {
+                    words.back() += c;
+                }
+            } else {
+                words.push_back(std::tolower(c));
+                inWord = true;
+            }
         }
     }
-    
+
+    std::string result;
+    for (int i = 0; i < words.size(); i++) {
+        if (i > 0) {
+            result += std::toupper(words[i][0]);
+        } else {
+            result += words[i];
+        }
+        if (i < words.size() - 1) {
+            result += " ";
+        }
+    }
+
     return result;
 }
 
