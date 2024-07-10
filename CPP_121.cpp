@@ -4,9 +4,8 @@
 namespace Contest {
     int solutions(const std::vector<int>& lst){
         int sum = 0;
-        size_t i; // declare 'i' outside the loop
-        for(i = 0; i < lst.size(); i += 2){
-            if(lst[i] % 2 != 0){
+        for(size_t i = 0; i < lst.size(); i += 1){
+            if(i % 2 == 0 && lst[i] % 2 != 0){
                 sum += lst[i];
             }
         }
