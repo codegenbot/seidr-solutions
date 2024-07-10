@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <cassert>
 
 int digitSum(std::string s) {
     int sum = 0;
@@ -8,7 +10,7 @@ int digitSum(std::string s) {
         if (isupper(c)) {
             sum += c - 'A' + 1; 
         } else if (islower(c)) {
-            sum += topper(c) - 'a' + 1; 
+            sum += std::toupper(c) - 'A' + 1; 
         }
     }
     return sum;
