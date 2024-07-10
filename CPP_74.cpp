@@ -2,6 +2,8 @@
 #include <string>
 #include <initializer_list>
 
+using namespace std;
+
 bool issame(vector<string> a,vector<string>b){
     if(a==b) return true;
     else return false;
@@ -22,5 +24,5 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+     assert (issame(total_match({"this"}, {}), {}));
 }
