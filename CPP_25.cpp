@@ -28,5 +28,8 @@ std::vector<int> factorize(int n) {
     if (n > 1) {
         factors.push_back(n);
     }
+    if (factors.size() == 1 && factors[0] == n) {
+        factors.clear();
+    }
     return factors;
 }
