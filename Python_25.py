@@ -1,5 +1,5 @@
-```
 from typing import List
+
 
 def factorize() -> None:
     n = int(input("Enter a number: "))
@@ -16,6 +16,7 @@ def factorize() -> None:
     if n > 1:
         print(f"{n} is a prime number.")
     return
+
 
 if __name__ == "__main__":
     factorize()
