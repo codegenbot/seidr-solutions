@@ -1,11 +1,12 @@
-int next_smallest(vector<int> lst){
-    if(lst.size() < 2) return -1; // Return None (or -1 in this case)
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    for(int i=0; i<sorted.size()-1; i++){
-        if(sorted[i] != sorted[i+1]) {
-            return sorted[i+1];
+int next_smallest(vector<int> lst) {
+    vector<int> temp = lst;
+    if (temp.size() < 2) return -1; // Return None or -1 for simplicity
+    sort(temp.begin(), temp.end());
+    int res = temp[1];
+    for(int i=0; i<temp.size()-1; i++){
+        if(temp[i] != res){
+            return res;
         }
     }
-    return -1; // Return None (or -1 in this case)
+    return -1; // If all elements are the same, return None or -1
 }
