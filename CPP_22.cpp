@@ -1,10 +1,5 @@
 #include <vector>
-#include <list>
-#include <any>
-#include <algorithm>
-#include <cassert>
-
-using namespace std;
+#include <boost/any.hpp>
 
 bool issame(vector<int> a, vector<int> b);
 
@@ -14,11 +9,11 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> filter_integers(list<any> values) {
+vector<int> filter_integers(list<any> values){
     vector<int> result;
     for (auto val : values) {
         if (val.type() == typeid(int)) {
-            result.push_back(any_cast<int>(val));
+            result.push_back(boost::any_cast<int>(val));
         }
     }
     return result;
