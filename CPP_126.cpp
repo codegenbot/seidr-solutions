@@ -1,20 +1,14 @@
+Here's the solution:
+
 bool is_sorted(vector<int> lst){
-    for(int i = 0; i < lst.size() - 1; i++){
-        if(lst[i] >= lst[i+1]){
-            vector<int> temp;
-            for(int j = 0; j < lst.size(); j++){
-                int count = 0;
-                for(int k = 0; k < lst.size(); k++){
-                    if(lst[k] == lst[j]){
-                        count++;
-                    }
-                }
-                if(count > 1 || (count == 1 && temp.empty())){
-                    return false;
-                }
-                temp.push_back(lst[j]);
-            }
-            return true;
+    if(lst.size() <= 1) return true;
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i] <= lst[i-1]) return false;
+    }
+    vector<int>::iterator it;
+    for(it = unique(lst.begin(), lst.end()); it != lst.end(); ++it){
+        if(*it > *std::prev(it)){
+            return false;
         }
     }
     return true;
