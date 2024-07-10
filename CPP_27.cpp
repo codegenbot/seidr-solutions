@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-std::string flip_case(std::string& str) {
+std::string flip_case(std::string str) {
     std::string result;
     for (char c : str) {
         if (c >= 'a' && c <= 'z') {
@@ -30,4 +30,6 @@ int driver() {
 
 int main(int argc, const char* argv[]) {
     driver();
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
 }
