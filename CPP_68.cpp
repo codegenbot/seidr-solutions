@@ -1,14 +1,9 @@
+```
 #include <iostream>
 #include <vector>
 
-bool same(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 std::vector<int> pluck(const std::vector<int>& n) {
@@ -30,7 +25,7 @@ int main() {
     std::vector<int> v1 = {7, 9, 7, 1};
     std::vector<int> v2 = {1};
 
-    if (same(pluck(v1), pluck(v2)))  
+    if (issame(pluck(v1), pluck({1})) )  
         std::cout << "Arrays are same" << std::endl;
     else   
         std::cout << "Arrays are not same" << std::endl;
