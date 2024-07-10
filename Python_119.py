@@ -1,1 +1,1 @@
-n, *input_list = map(int, input().split())
+n, *input_list = map(int, input().strip().split())
