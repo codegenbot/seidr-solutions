@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 std::vector<int> count_up_to(int n) {
     std::vector<int> result;
@@ -10,7 +11,7 @@ std::vector<int> count_up_to(int n) {
     std::vector<bool> isPrime(n, true);
     isPrime[0] = isPrime[1] = false;
     
-    for (int i = 2; i * i < n; ++i) {
+    for (int i = 2; i <= std::sqrt(n); ++i) {
         if (isPrime[i]) {
             for (int j = i * i; j < n; j += i) {
                 isPrime[j] = false;
@@ -27,6 +28,6 @@ std::vector<int> count_up_to(int n) {
     return result;
 }
 
-bool issame(const std::vector<int>& vec1, const std::vector<int>& vec2) {
-    return vec1 == vec2;
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1 == v2;
 }
