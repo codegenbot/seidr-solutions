@@ -1,23 +1,27 @@
 string words_in_sentence(string sentence){
     string result = "";
-    int count = 1;
-    for(int i = 0; i < sentence.length(); i++){
-        if(sentence[i] == ' ' || i == sentence.length() - 1){
-            string word = sentence.substr(count, i-count);
-            if(isPrime(word.length())){
-                result += word + " ";
+    int count = 0;
+
+    for(int i=0; i<sentence.size(); i++){
+        if(sentence[i] == ' '){
+            count++;
+        } else {
+            if(isPrime(sentence.substr(i+1, (sentence.find(' ',i+1)-i-1)).size)){
+                result += sentence.substr(i+1, (sentence.find(' ',i+1)-i-1)) + " ";
             }
-            count = i+1;
+            i = sentence.find(' ',i+1) - 1;
         }
     }
+
     return result;
 }
 
-bool isPrime(int n) {
-    if (n <= 1)
+bool isPrime(int n){
+    if(n <= 1)
         return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0)
+
+    for(int i=2; i*i<=n; i++){
+        if(n%i == 0)
             return false;
     }
     return true;
