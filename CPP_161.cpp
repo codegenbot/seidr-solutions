@@ -1,5 +1,7 @@
 #include <iostream>
 #include <algorithm>
+#include <cctype>
+#include <string>
 
 std::string solve(std::string s) {
     for(char &c : s){
@@ -17,6 +19,5 @@ int main() {
     std::string input;
     std::getline(std::cin, input);
     std::cout << solve(input) << std::endl;
-
     return 0;
 }
