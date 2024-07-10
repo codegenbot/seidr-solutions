@@ -1,25 +1,9 @@
-def bowling_score(game):
+def bowling_score(frames):
     score = 0
-    roll = 0
-    frame = 1
-    for char in game:
-        if char == "X":
-            score += 30
-            roll += 10
-            frame += 1
-        elif char == "/":
-            score += 10 + int(roll)
-            roll = 0
-            frame += 1
+    for i in range(10):
+        if "/" in frames[i * 2 : i * 2 + 2]:
+            first, second = map(int, re.findall("\d", frames[i * 2 : i * 2 + 2]))
+            score += max(first, 10) + max(second, 1)
         else:
-            roll += int(char)
-    while frame < 10 and roll < 10:
-        if roll >= 10:
-            score += 10
-            roll = 0
-            frame += 1
-        else:
-            score += roll
-            roll = 0
-            frame += 1
+            score += int(frames[i * 2 : i * 2 + 2])
     return score
