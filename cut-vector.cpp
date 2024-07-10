@@ -1,41 +1,26 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+vector<vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    
+    vector<vector<int>> res(2);
     for (int i = 0; i < n; i++) {
-        int sum_left = 0, sum_right = 0;
-        
-        for (int j = 0; j <= i; j++) {
-            sum_left += v[j];
-        }
-        
-        for (int j = i + 1; j < n; j++) {
-            sum_right += v[j];
-        }
-        
-        int diff = abs(sum_left - sum_right);
-        
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        if (i == 0 || v[i] != v[0]) {
+            res[0].push_back(v[i]);
+        } else {
+            res[0].clear();
+            res[0].push_back(v[0]);
         }
     }
-    
-    vector<int> left, right;
-    
-    for (int i = 0; i <= cut_index; i++) {
-        left.push_back(v[i]);
+    for (int i = n - 1; i >= 0; i--) {
+        if (i == n - 1 || v[i] != v[n - 1]) {
+            res[1].push_back(v[i]);
+        } else {
+            res[1].clear();
+            res[1].push_back(v[n - 1]);
+        }
     }
-    
-    for (int i = cut_index + 1; i < n; i++) {
-        right.push_back(v[i]);
-    }
-    
-    return {left, right};
+    return res;
 }
 
 int main() {
@@ -45,21 +30,12 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "[";
-    for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i];
-        if (i < result.first.size() - 1) {
-            cout << " ";
+    vector<vector<int>> result = cutVector(v);
+    for (auto &vec : result) {
+        for (int num : vec) {
+            cout << num << " ";
         }
+        cout << endl;
     }
-    cout << "] [";
-    for (int i = 0; i < result.second.size(); i++) {
-        cout << result.second[i];
-        if (i < result.second.size() - 1) {
-            cout << " ";
-        }
-    }
-    cout << "]" << endl;
     return 0;
 }
