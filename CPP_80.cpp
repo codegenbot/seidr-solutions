@@ -1,24 +1,13 @@
+#include <stdio.h>
+#include <string>
+using namespace std;
+
 bool is_happy(string s) {
     if (s.length() < 3)
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
-        string temp = s.substr(i, 3);
-        bool unique = true;
-        for (char c : temp) {
-            int count = 0;
-            for (int j = i; j < i + 3 && j < s.length(); j++) {
-                if (s[j] == c) {
-                    count++;
-                    if (count > 1)
-                        break;
-                }
-            }
-            if (count > 1) {
-                unique = false;
-                break;
-            }
-        }
-        if (!unique)
+        set<char> unique_chars(s.begin() + i, s.begin() + i + 3);
+        if (unique_chars.size() != 3)
             return false;
     }
     return true;
