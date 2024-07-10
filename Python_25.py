@@ -7,7 +7,6 @@ def is_prime(n):
     return True
 
 n = int(input("Enter a number: "))
-
 if not isinstance(n, int):
     print("Number should be an integer.")
 elif n <= 0:
