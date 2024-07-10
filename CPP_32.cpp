@@ -3,26 +3,26 @@
 #include <cassert>
 #include <cmath>
 
-double poly(const std::vector<double>& coeffs, double x) {
+double poly(const std::vector<double>& coefficients, double x) {
     double result = 0.0;
-    for (int i = 0; i < coeffs.size(); ++i) {
-        result += coeffs[i] * std::pow(x, i);
+    for (int i = 0; i < coefficients.size(); ++i) {
+        result += coefficients[i] * std::pow(x, i);
     }
     return result;
 }
 
-double find_zero(const std::vector<double>& coeffs) {
-    double a = coeffs[0];
-    double b = coeffs[1];
+double find_zero(const std::vector<double>& coefficients) {
+    double a = coefficients[0];
+    double b = coefficients[1];
     return -b / a;
 }
 
 int main() {
-    std::vector<double> coeffs = {1.0, -4.0, 4.0}; // Corrected vector initialization
-    
+    std::vector<double> coefficients = {1.0, -4.0, 4.0};
+
     double solution;
-    solution = find_zero(coeffs);
-    assert(std::abs(poly(coeffs, solution)) < 1e-2);
+    solution = find_zero(coefficients);
+    assert(std::abs(poly(coefficients, solution)) < 1e-2);
 
     return 0;
 }
