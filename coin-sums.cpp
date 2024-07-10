@@ -1,28 +1,27 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 int main() {
     int cents;
     cin >> cents;
 
-    double quarters = (double)cents / 25; 
+    int quarters = cents / 25; 
     cents %= 25;
 
-    double dimes = (double)cents / 10;
+    int dimes = cents / 10;
     cents %= 10;
 
-    double nickles = (double)cents / 5;
+    int nickles = cents / 5;
     cents %= 5;
 
-    int pennies = (int)cents; 
+    int pennies = cents; 
 
-    cout << floor(quarters) << " quarter" << (floor(quarters) > 1 ? "s" : "") << endl;
+    cout << quarters << " quarter" << (quarters > 1 ? "s" : "") << endl;
     if (dimes > 0) {
-        cout << floor(dimes) << " dime" << (floor(dimes) > 1 ? "s" : "") << endl;
+        cout << dimes << " dime" << (dimes > 1 ? "s" : "") << endl;
     }
     if (nickles > 0) {
-        cout << floor(nickles) << " nickel" << (floor(nickles) > 1 ? "s" : "") << endl;
+        cout << nickles << " nickel" << (nickles > 1 ? "s" : "") << endl;
     }
     if (pennies > 0) {
         cout << pennies << " penny" << (pennies > 1 ? "s" : "") << endl;
