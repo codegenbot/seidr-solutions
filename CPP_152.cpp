@@ -1,12 +1,14 @@
 #include <vector>
-#include <cassert> // Include cassert for assert function
+#include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    // Implement the issame function here
+using namespace std;
+
+vector<int> compare(const vector<int>& a, const vector<int>& b) {
+    // Implement compare function
 }
 
-std::vector<int> compare(const std::vector<int>& a, const std::vector<int>& b) {
-    // Implement the compare function here
+bool issame(const vector<int>& a, const vector<int>& b) {
+    // Implement issame function
 }
 
 int main() {
