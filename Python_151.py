@@ -8,4 +8,4 @@ def check(lst1, func, lst2=None):
     result = func(lst1)
     print(f"The difference between the sum of squares and twice the sum is {result}.")
 
-check([1, 2, 3], double_the_difference)
+print(check([1, 2, 3], double_the_difference))
