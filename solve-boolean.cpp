@@ -21,16 +21,22 @@ int main() {
     for (char c : s) {
         if (c == 'T' || c == 'F') {
             operand = (c == 'T');
-        } else if (c == '|') {
+        } else if (c == '|' || c == '&') {
             op = c;
-        } else if (c == '&') {
-            continue;
         } else {
-            result = evaluate(op, result, operand);
+            if (op == '|') {
+                result = result || operand;
+            } else if (op == '&') {
+                result = result && operand;
+            }
         }
     }
 
-    result = evaluate(op, result, operand);
+    if (op == '|') {
+        result = result || operand;
+    } else if (op == '&') {
+        result = result && operand;
+    }
 
     if (result) {
         std::cout << "True" << std::endl;
