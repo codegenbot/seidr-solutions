@@ -1,24 +1,34 @@
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
-            digit_count++;
-            if(digit_count > 3) return "No";
-        }
-        else if(file_name[i] == '.'){
-            found_dot = true;
-        }
-        else if(!found_dot && (file_name[i] < 'a' || file_name[i] > 'z') && 
-                (file_name[i] < 'A' || file_name[i] > 'Z')){
-            return "No";
-        }
+bool has_digits = false;
+int dot_count = 0;
+
+for (char c : file_name) {
+    if (c == '.') {
+        dot_count++;
+    } else if (isdigit(c)) {
+        has_digits = true;
     }
-    if(found_dot){
-        string extension = file_name.substr(file_name.find('.') + 1);
-        if(extension != "txt" && extension != "exe" && extension != "dll") 
-            return "No";
-    }
-    else return "No";
-    return "Yes";
 }
+
+if (dot_count != 1 || has_digits > 3) {
+    return "No";
+}
+
+size_t pos = file_name.find('.');
+string prefix = file_name.substr(0, pos);
+string suffix = file_name.substr(pos + 1);
+
+if (!isalpha(prefix[0]) || prefix.empty()) {
+    return "No";
+}
+
+string valid_suffixes[] = {"txt", "exe", "dll"};
+bool is_valid_suffix = false;
+
+for (const string& s : valid_suffixes) {
+    if (suffix == s) {
+        is_valid_suffix = true;
+        break;
+    }
+}
+
+return is_valid_suffix ? "Yes" : "No";
