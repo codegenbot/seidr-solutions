@@ -1,4 +1,5 @@
-```cpp
+#include <string>
+
 int bowlingScore(std::string input) {
     int score = 0;
     bool firstInFrame = true;
@@ -37,5 +38,4 @@ int bowlingScore(std::string input) {
             firstInFrame = false;
         }
     }
-    return score;
-}
+    return score; }
