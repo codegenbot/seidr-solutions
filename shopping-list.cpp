@@ -1,7 +1,5 @@
+```c++
 #include <vector>
-#include <iostream>
-#include <iomanip>
-
 using namespace std;
 
 double shoppingList(vector<float> prices, vector<float> discounts) {
@@ -14,6 +12,9 @@ double shoppingList(vector<float> prices, vector<float> discounts) {
     return total;
 }
 
+#include <iostream>
+#include <iomanip>
+
 int main() {
     int n;
     cin >> n;
@@ -25,6 +26,6 @@ int main() {
     for (float &discount : discounts) {
         cin >> discount;
     }
-    cout << fixed << setprecision(1) << std::showpoint << std::setiosflags(ios::fixed | ios::showpoint) << shoppingList(prices, discounts) << endl;
+    cout << fixed << setprecision(1) << std::showpoint << std::setiosflags(std::ios::fixed | std::ios::showpoint) << shoppingList(prices, discounts) << endl;
     return 0;
 }
