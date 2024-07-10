@@ -1,11 +1,15 @@
 string solve(string s) {
     string result = "";
+    bool hasLetter = false;
+
     for (char c : s) {
         if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+            hasLetter = true;
+            result += toupper(islower(c)) ? tolower(c) : toupper(c);
         } else {
             result += c;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+
+    return hasLetter ? result : string(result.rbegin(), result.rend());
 }
