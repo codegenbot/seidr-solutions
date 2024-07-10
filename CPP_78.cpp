@@ -1,22 +1,9 @@
-#include <string>
-
 int hex_key(string num) {
     int count = 0;
     for (char c : num) {
-        if (c >= 'A' && c <= 'F') {
-            c -= ('A' - '9') + 7; // convert A-F to 10-15
-        }
-        if (stoi(string(1, c)) > 1 && isPrime(stoi(string(1, c)))) {
+        if (c >= '2' && c <= '7' || c == 'B' || c == 'D' || c == 'F') {
             count++;
         }
     }
     return count;
-}
-
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
 }
