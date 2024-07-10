@@ -1,5 +1,5 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    a = xs[-1]
-    b = xs[-2]
-    return -b / a
+    a = xs[n]
+    b = sum(i * xs[i] for i in range(n))  # derivative
+    return -b / (2 * a)
