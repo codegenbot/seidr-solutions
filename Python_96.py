@@ -8,9 +8,9 @@ def count_up_to(n):
         return True
 
     result = []
-    for i in range(2, n+1): 
-        if is_prime(i):
-            result.append(i)
-            if i > n:  # Stop generating prime numbers when we reach or exceed `n`
+    while len(result) < n:
+        for i in range(result[-1] + 1 if result else 2, n+1): 
+            if is_prime(i):
+                result.append(i)
                 break
-    return result[:n]
+    return result
