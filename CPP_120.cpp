@@ -1,6 +1,6 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <cassert> // Include for assert
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
@@ -8,7 +8,11 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 std::vector<int> maximum(std::vector<int> arr, int k){
     std::sort(arr.begin(), arr.end(), std::greater<int>());
-    arr.resize(k);
+    if (k < 0) {
+        arr.clear();
+    } else {
+        arr.resize(k);
+    }
     return arr;
 }
 
