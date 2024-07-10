@@ -27,20 +27,8 @@ It distinct(It first, It last) {
     return result.begin();
 }
 
-int main() {
-    std::vector<int> input;
-    int n;
-    std::cin >> n;
-    for(int i = 0; i < n; i++) {
-        int x;
-        std::cin >> x;
-        input.push_back(x);
-    }
-    
-    auto firstUnique = distinct(input.begin(), input.end());
-    std::vector<int> output(std::unique(input.begin(), std::prev(firstUnique)), input.end());
+std::vector<int> output(distinct(input.begin(), input.end()), std::unique(input.begin(), input.end()));
 
-    for (int i : output) {
-        std::cout << i << " ";
-    }
+for (int i : output) {
+    std::cout << i << " ";
 }
