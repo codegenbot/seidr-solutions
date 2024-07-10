@@ -5,9 +5,8 @@ std::vector<std::vector<int>> cutVector(std::vector<int> v) {
     int n = v.size();
     std::vector<std::vector<int>> res(2);
     res[0].push_back(v[0]);
-    int diff = v[0];
     for (int i = 1; i < n; ++i) {
-        if (v[i] - v[0] <= diff) {
+        if (v[i] - v[0] <= 0) {
             res[0].push_back(v[i]);
         } else {
             res[0].pop_back();
