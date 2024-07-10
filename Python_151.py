@@ -1,2 +1,3 @@
-def double_the_difference(odd_sum, even_sum, numbers):
+```python
+def double_the_difference(numbers):
     return (max(numbers) - min(numbers)) * 2
