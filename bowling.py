@@ -1,16 +1,32 @@
-```
-def bowling_score(frames):
+def bowling_score(bowling_str):
     score = 0
-    roll = 0
-    for frame in frames:
-        if '/' in frame:
-            first_roll = int(frame.split('/')[0])
-            second_roll = 10 - first_roll
-            if roll < 1:
-                score += 10 + (second_roll if first_roll == 10 else 0)
+    current_frame = 1
+    last_roll = [0, 0]
+
+    for roll in bowling_str:
+        if roll.isdigit():
+            this_roll = int(roll)
+            if this_roll == "/":
+                score += 10 + sum(last_roll)
+                last_roll = [0, 0]
+                current_frame += 1
             else:
-                score += first_roll + (second_roll if first_roll < 10 else 0)
+                if len(last_roll) < 2:
+                    last_roll.append(this_roll)
+                else:
+                    raise Exception("Invalid input")
+        elif roll in "-X":
+            if current_frame == 10:
+                raise Exception("Invalid input")
+            if sum(last_roll) < 10:
+                score += 10
+            else:
+                score += sum(last_roll)
+            last_roll = [0, 0]
+            current_frame += 1
         else:
-            score += int(frame) * 2
-        roll = (roll + 1) % 2
+            raise Exception("Invalid input")
+
+    score += sum(last_roll)
+
     return score
