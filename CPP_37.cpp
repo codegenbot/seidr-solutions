@@ -1,14 +1,10 @@
-#include <vector>
-#include <algorithm>
-
+```cpp
 bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
+    if (a.size() != b.size())
         return false;
-    }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (abs(a[i] - b[i]) > 1e-6)
             return false;
-        }
     }
     return true;
 }
@@ -35,8 +31,6 @@ vector<float> sort_even(vector<float> l) {
 }
 
 int main() {
-    vector<float> input = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    vector<float> expected = {-12, 2, 3, 4, 5, 8, 11, 12, 23, -10};
-    assert(issame(sort_even(input), expected));
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}) , {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
