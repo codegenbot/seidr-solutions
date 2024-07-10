@@ -22,11 +22,11 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
     }
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-int main(){
+int main() {
     assert(issame(total_match({"this"}, {}), {}));
     return 0;
 }
