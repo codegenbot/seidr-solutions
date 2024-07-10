@@ -1,12 +1,32 @@
-int total_water = 0;
-        int total_buckets = 0;
-        for (int i = 0; i < grid.size(); ++i) {
-            int well_water = 0;
-            for (int j = 0; j < grid[i].size(); ++j) {
-                well_water += grid[i][j];
-            }
-            total_water += well_water;
-            total_buckets += (well_water + capacity - 1) / capacity;
+int capacity = 10;
+
+const int max_fill(int rows, int cols, vector<vector<int>>& grid, int capacity) 
+{
+    int total_water = 0;
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            total_water += grid[i][j];
         }
-        return total_buckets;
     }
+    
+    int num_buckets = (total_water + capacity - 1) / capacity;
+    
+    return num_buckets * rows;
+}
+
+const int max_fill(vector<vector<int>> grid, int capacity) 
+{
+    int rows = grid.size();
+    int cols = grid[0].size();
+
+    int total_water = 0;
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            total_water += grid[i][j];
+        }
+    }
+    
+    int num_buckets = (total_water + capacity - 1) / capacity;
+    
+    return num_buckets * rows;
+}
