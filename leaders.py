@@ -1,9 +1,11 @@
 def leaders(arr):
+    if not arr:
+        return []
     leaders = [arr[-1]]
     for i in range(len(arr) - 2, -1, -1):
-        if arr[i] >= max(arr[i+1:]):
+        if arr[i] >= arr[i+1]:
             leaders.append(arr[i])
-    return leaders
+    return list(reversed(leaders))
 
 print(leaders([0]))
 print(leaders([1, 0]))
