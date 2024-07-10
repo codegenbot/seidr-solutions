@@ -19,10 +19,18 @@ std::pair<int, int> largest_smallest_integers(std::vector<int> lst) {
         }
     }
 
-    return {std::max({(max_negative > 0 ? INT_MAX : max_negative), (min_positive < 1 ? INT_MIN : min_positive)}, std::nullopt)};
+    return {max_negative, min_positive};
 }
 
 int main() {
-    // Your code to test the functions
+    std::vector<int> lst = {5, -10, 7, -15, 3};
+    auto result = largest_smallest_integers(lst);
+
+    if(result.first < 0) {
+        std::cout << "Largest smallest integer is: " << result.first << std::endl;
+    } else {
+        std::cout << "Smallest largest integer is: " << result.second << std::endl;
+    }
+
     return 0;
 }
