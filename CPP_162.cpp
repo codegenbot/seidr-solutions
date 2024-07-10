@@ -15,8 +15,7 @@ string string_to_md5(string text) {
     MD5_Final(md, &ctx);
 
     for (int i = 0; i < 16; ++i) {
-        sprintf(ss.str().c_str(), "%02x", md[i]);
-        ss.seekp(0);
+        ss << hex << setfill('0') << fixed << setw(2) << (int)md[i];
     }
 
     return ss.str();
