@@ -2,16 +2,18 @@
 #include <cassert>
 
 namespace cpp9 {
-    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    bool issame(std::vector<int> a, std::vector<int> b) {
         return a == b;
     }
 
     std::vector<int> rolling_max(const std::vector<int>& nums) {
         std::vector<int> result;
-        int max_num = nums[0];
-        for (int i = 0; i < nums.size(); ++i) {
-            max_num = std::max(max_num, nums[i]);
-            result.push_back(max_num);
+        for (size_t i = 0; i < nums.size(); ++i) {
+            int max_val = nums[i];
+            for (size_t j = i; j < nums.size(); ++j) {
+                max_val = std::max(max_val, nums[j]);
+            }
+            result.push_back(max_val);
         }
         return result;
     }
