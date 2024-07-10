@@ -1,31 +1,22 @@
-#include<stdio.h>
-#include<vector>
-#include<string>
-#include<algorithm>
+Here is the solution:
+
+```cpp
+#include <vector>
+#include <string>
+#include <algorithm>
+
 using namespace std;
 
 int count_distinct_characters(string str) {
-    string temp;
-    for(int i=0; i<str.length();i++){
-        if(str[i]>='a' && str[i]<='z'){
-            temp.push_back(tolower(str[i]));
-        }
-        else if(str[i]>='A' && str[i]<='Z'){
-            temp.push_backtolower(str[i]);
-        }
-    }
-    vector<char> vec;
-    for(int i=0; i<temp.length();i++){
-        bool flag = false;
-        for(int j=0; j<vec.size();j++){
-            if(temp[i]==vec[j]){
-                flag = true;
-                break;
-            }
-        }
-        if(flag==false){
-            vec.push_back(temp[i]);
+    vector<char> charSet;
+    for (char c : str) {
+        if (c >= 'a' && c <= 'z') c = tolower(c);
+        else if (c >= 'A' && c <= 'Z') c = tolower(c);
+        auto pos = find_if(charSet.begin(), charSet.end(),
+                [c](char ch) { return ch == c; });
+        if (pos == charSet.end()) {
+            charSet.push_back(c);
         }
     }
-    return vec.size();
+    return charSet.size();
 }
