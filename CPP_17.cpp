@@ -2,12 +2,12 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) {
+bool issame(const vector<int>& first, const vector<int>& second) {
+    if (first.size() != second.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for (int i = 0; i < first.size(); ++i) {
+        if (first[i] != second[i]) {
             return false;
         }
     }
@@ -29,17 +29,15 @@ vector<int> parse_music(string music_string) {
 }
 
 int main() {
-    string input;
-    cin >> input;
+    string input_music = "o||o|o.";
+    vector<int> parsed_music = parse_music(input_music);
+    vector<int> expected_music = {4, 2, 1, 4, 1};
     
-    vector<int> parsed = parse_music(input);
-    vector<int> expected = {4, 2, 1, 4}; // Define your expected output here
-
-    if (issame(parsed, expected)) {
-        cout << "Outputs match!" << endl;
+    if (issame(parsed_music, expected_music)) {
+        std::cout << "Parsed music matches expected music." << std::endl;
     } else {
-        cout << "Outputs do not match!" << endl;
+        std::cout << "Parsed music does not match expected music." << std::endl;
     }
-
+    
     return 0;
 }
