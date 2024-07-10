@@ -17,6 +17,7 @@ int bowlingScore(string s) {
             roll++;
             if (roll == 2) {
                 score += points * 2;
+                roll = 0;
             }
         }
     }
