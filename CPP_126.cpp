@@ -15,15 +15,18 @@ bool is_sorted(vector<int> lst){
     }
     return true;
 
-{
+int main() {
     vector<int> lst;
-    cout << "Enter the numbers (enter 'q' to quit): ";
-    string input;
-    while(true) {
-        cin >> input;
-        if(input == "q") break;
-        int num = stoi(input);
-        lst.push_back(num);
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    
+    for(int i = 0; i < n; i++){
+        int x;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> x;
+        lst.push_back(x);
     }
-    cout << (is_sorted(lst) ? "True" : "False") << endl; 
+    bool result = is_sorted(lst);
+    cout << (result ? "True" : "False") << endl; 
 }
