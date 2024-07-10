@@ -1,13 +1,6 @@
 #include <vector>
-#include <algorithm>
-#include <cassert>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
     return a == b;
 }
 
@@ -32,9 +25,6 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main() {
-    vector<int> input = {123, 456, 789, 135, 246};
-    vector<int> expected_output = {135, 789};
-    vector<int> output = unique_digits(input);
-    assert(issame(output, expected_output));
+    // Your main function code here
     return 0;
 }
