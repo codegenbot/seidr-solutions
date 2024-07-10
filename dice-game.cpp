@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <iomanip>
 
@@ -9,7 +8,7 @@ double diceGame(int n, int m) {
     double p = 0.0;
     
     for (int i = 1; i <= min(n, m - 1); ++i)
-        p += (double)(n - i) / total;
+        p += 1.0 / m;
     
     return p;
 }
