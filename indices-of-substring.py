@@ -9,7 +9,6 @@ def indices_of_substring(text, target):
         start = index + 1
     return indices
 
-
 text = input().strip()
 target = input().strip()
 result = indices_of_substring(text, target)
