@@ -6,12 +6,12 @@ def rounded_avg(n, m):
         return -1
     avg = round((n + m) / 2.0)
     bin_str = ""
-    while avg > 0:
+    while avg > 1:
         if avg % 2 == 0:
             avg //= 2
         else:
             break
-    return "0b" + ("10" * int(math.log2(avg)))[::-1].ljust(8, "0")
+    return "0b" + ("10" * math.ceil(math.log2(avg)))[::-1].ljust(8, "0")
 
 
 print(rounded_avg(5, 3))
