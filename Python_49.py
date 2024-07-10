@@ -1,5 +1,5 @@
+```
 import random
-
 
 def modp(n: int, p: int):
     if pow(2, n - 1, p) == 1:
@@ -8,10 +8,9 @@ def modp(n: int, p: int):
         a = random.randint(2, p - 2)
         if pow(a, n, p) == 1:
             continue
-        if (a ** ((n - 1) // 2)) % p != p - 1:
+        if pow(a, (n - 1) // 2, p) != p - 1:
             return False
     return True
-
 
 n = int(input("Enter the value of n: "))
 p = int(input("Enter the value of p: "))
