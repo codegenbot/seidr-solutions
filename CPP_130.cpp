@@ -5,7 +5,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-int main() {
+std::vector<int> tri(int n) {
     std::vector<int> res;
     res.push_back(3);
     if (n == 0) return res;
@@ -20,8 +20,13 @@ int main() {
             res.push_back(res[i - 1] + res[i - 2] + res[i - 3]);
         }
     }
+    return res;
+}
 
-    assert(issame(tri(1) , {1, 3}));
+int main() {
+    std::vector<int> res = tri(1);
+
+    assert(issame(res, {1, 3}));
 
     return 0;
 }
