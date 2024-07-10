@@ -1,4 +1,3 @@
-```
 def fruit_distribution(s, n):
     s = s.lower()
     if not s:
@@ -19,6 +18,12 @@ def fruit_distribution(s, n):
             total_count = sum(fruits.get(k, 0) for k in fruits)
             if fruit:
                 total_count += min(count, n - total_count)
+                if total_count > n:
+                    return 1
                 fruits[fruit] = total_count
         i += 1
-    return len(fruits)
+    return (
+        len(fruits) + 1
+        if any(count > n for count in fruits.values())
+        else (len(fruits) if sum(fruits.values()) <= n else len(fruits) - 1)
+    )
