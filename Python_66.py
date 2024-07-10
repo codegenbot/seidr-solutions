@@ -1,14 +1,7 @@
 ```
-def digitSum(s):
-    s = s.lower()
+def digitSum():
+    s = input("Enter a string: ")
     total = sum(int(c) for c in s if c.isdigit())
-    return total
+    print(total)
 
-while True:
-    try:
-        input_string = str(input("Enter a string: "))
-        result = digitSum(input_string)
-        print(result)
-        break
-    except ValueError:
-        print("Invalid input. Please enter a string.")
+digitSum()
