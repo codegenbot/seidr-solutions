@@ -10,7 +10,10 @@ int starts_one_ends(int n) {
         if (i == 1 || i % 10 == 1) {
             count++;
         }
-        string str = to_string(i);
+        string str;
+        for (int j = 0; j < n; j++) {
+            str += '1';
+        }
         bool flag = true;
         for (char c : str) {
             if (c != '1') {
@@ -24,7 +27,6 @@ int starts_one_ends(int n) {
         count++;
     }
     return count;
-}
 
 int main() {
     int n;
@@ -32,4 +34,3 @@ int main() {
     cin >> n;
     cout << "The count of the numbers of " << n << "-digit positive integers that start or end with 1 is: " << starts_one_ends(n) << endl;
     return 0;
-}
