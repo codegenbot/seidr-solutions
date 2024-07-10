@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -18,7 +17,11 @@ int main() {
         if (result == -1) {
             cout << "There is no " << n << "th prime Fibonacci number." << endl;
         } else {
-            cout << "The " << n << "th prime Fibonacci number is: " << result << endl;
+            cout << "The " << n << "th prime Fibonacci number is: ";
+            std::stringstream ss;
+            ss << result;
+            string str = ss.str();
+            cout << str << endl;
         }
     }
 }
