@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -21,7 +22,6 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
             result.push_back(found);
             index = found + 1;
         } else {
-            std::cerr << "Target substring not found in the text." << std::endl;
             break;
         }
     }
@@ -30,24 +30,26 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 }
 
 int main() {
-    std::cout << "GCD of two numbers: ";
-    int a, b;
-    std::cin >> a >> b;
-    if (!(b)) {
-        std::cerr << "Error: Second number cannot be zero." << std::endl;
-        return 1;
+    try {
+        std::cout << "GCD of two numbers: ";
+        int a, b;
+        if (!(std::cin >> a >> b)) {
+            throw std::runtime_error("Invalid input. Please enter two integers.");
+        }
+        std::cout << gcd(a, b) << "\n";
+
+        // Example usage for indicesOfSubstring function
+        std::string text = "banana";
+        std::string target = "ana";
+        std::vector<int> result = indicesOfSubstring(text, target);
+        std::cout << "Indices of substring 'ana' in 'banana': ";
+        for (int i : result) {
+            std::cout << i << " ";
+        }
+        std::cout << "\n";
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << '\n';
     }
-    std::cout << gcd(a, b) << "\n";
-    
-    // Example usage for indicesOfSubstring function
-    std::string text = "banana";
-    std::string target = "ana";
-    std::vector<int> result = indicesOfSubstring(text, target);
-    std::cout << "Indices of substring 'ana' in 'banana': ";
-    for (int i : result) {
-        std::cout << i << " ";
-    }
-    std::cout << "\n";
-    
+
     return 0;
 }
