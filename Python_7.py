@@ -6,4 +6,5 @@ def filter_strings(strings, substring):
     return [string for string in strings if substring in string]
 
 filtered_strings = filter_strings(strings, substring)
-print(*filtered_strings, sep='\n')
+for s in filtered_strings:
+    print(s)
