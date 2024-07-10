@@ -6,7 +6,7 @@ int main() {
     std::string text, target;
     std::getline(std::cin, text);
     std::getline(std::cin, target);
-
+    
     int pos = static_cast<int>(text.find(target, 0));
     std::vector<int> indices;
     
@@ -19,7 +19,7 @@ int main() {
 
     while (pos != std::string::npos) {
         indices.push_back(pos);
-        pos = text.find(target, pos + 1);
+        pos = static_cast<int>(text.find(target, pos + 1));
     }
     
     for (int i = 0; i < indices.size(); ++i) {
