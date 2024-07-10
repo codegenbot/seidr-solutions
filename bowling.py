@@ -8,17 +8,16 @@ def bowling_score(bowls):
             score += 10
             if frame < 10:
                 score += sum(map(int, rolls[i + 1 : i + 3]))
-                if rolls[i + 2] == "/":
+                if i + 2 < len(rolls) and rolls[i + 2] == "/":
                     score += 10 - int(rolls[i + 1])
             frame += 1
         elif rolls[i] == "/":
-            score += 10 - int(rolls[i - 1])
+            score += 10
             if frame < 10:
-                score += int(rolls[i + 1])
+                score += int(rolls[i + 1]) if rolls[i + 1].isdigit() else 10
             frame += 1
         elif rolls[i] == "-":
-            if frame < 10 and i < len(rolls) - 2 and rolls[i + 2] == "/":
-                score += 10 - int(rolls[i])
+            pass
         else:
             score += int(rolls[i])
             if frame < 10 and i < len(rolls) - 1 and rolls[i + 1] == "/":
