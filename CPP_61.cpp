@@ -8,4 +8,3 @@ bool correct_bracketing(std::string brackets) {
     assert(not correct_bracketing(input));
     return 0;
 }
-}
