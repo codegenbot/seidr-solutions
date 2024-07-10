@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -12,7 +11,7 @@ int hex_key(const std::string& num) {
     return result; 
 }
 
-int main() {
+int runHexKey() {
     std::string input;
     std::cout << "Enter a hexadecimal number: ";
     std::getline(std::cin, input);
