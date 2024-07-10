@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <cctype>
@@ -35,4 +36,4 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-assert(static_cast<bool>(issame(split_words(""))));
+assert(issame(split_words("")) == true);
