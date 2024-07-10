@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string>b){
+bool issame(std::vector<std::pmr::string> a, std::vector<std::pmr::string> b){
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -10,8 +10,8 @@ bool issame(vector<string> a, vector<string>b){
     return true;
 }
 
-vector<string> numerical_letter_grade(vector<float> grades) {
-    vector<string> result;
+std::vector<std::pmr::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::pmr::string> result;
     for (float grade : grades) {
         if (grade >= 4.0)
             result.push_back("A+");

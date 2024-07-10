@@ -1,4 +1,3 @@
-```
 #include <cmath>
 #include <cassert>
 
@@ -16,4 +15,3 @@ int main() {
     assert(iscuber(1728) == true);
     assert(iscuber(1729) == false);
     return 0;
-}

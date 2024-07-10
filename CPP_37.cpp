@@ -1,8 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
-bool isSame(const std::vector<int>& v1, const std::vector<int>& v2) {
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     if (v1.size() != v2.size()) return false;
     for (int i = 0; i < v1.size(); ++i) {
         if (v1[i] != v2[i]) return false;
@@ -10,15 +10,15 @@ bool isSame(const std::vector<int>& v1, const std::vector<int>& v2) {
     return true;
 }
 
-std::vector<int> sortEven(const std::vector<int>& numbers) {
-    std::vector<int> evenNumbers;
+std::vector<int> sort_even(const std::vector<int>& numbers) {
+    std::vector<int> even_numbers;
     for (int num : numbers) {
         if (num % 2 == 0) {
-            evenNumbers.push_back(num);
+            even_numbers.push_back(num);
         }
     }
-    std::sort(evenNumbers.begin(), evenNumbers.end());
-    return evenNumbers;
+    std::sort(even_numbers.begin(), even_numbers.end());
+    return even_numbers;
 }
 
 int main() {
@@ -32,10 +32,10 @@ int main() {
         std::cin >> num;
         numbers.push_back(num);
     }
-    std::vector<int> evenNumbers = sortEven(numbers);
-    if (isSame(evenNumbers, {2,4,8,12})) {
+    std::vector<int> even_numbers = sort_even(numbers);
+    if (issame(even_numbers, {2,4,8,12})) {
         std::cout << "The sorted even numbers are: ";
-        for (int num : evenNumbers) {
+        for (int num : even_numbers) {
             std::cout << num << " ";
         }
         std::cout << std::endl;
