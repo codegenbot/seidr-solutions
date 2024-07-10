@@ -19,26 +19,27 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
 }
 
 int main() {
-    std::vector<std::pair<float, float>> result;
-    result.push_back({std::numeric_limits<float>::min(), std::numeric_limits<float>::max()}); // initialize with a value
+    std::vector<float> numbers;
     float num;
+
+    if (!std::cin) { 
+        return 0; 
+    }
+
     while (std::cin >> num) {
-        result[0].first = num;
-        while (std::cin >> num) {
-            result[0].second = num;
-            break;
-        }
-        if (!result.empty()) {
-            std::vector<std::pair<float, float>> closest_pairs = find_closest_elements({result[0].first, result[0].second});
-            if (!closest_pairs.empty()) {
-                for (const auto& pair : closest_pairs) {
-                    std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
-                }
-            } else {
-                std::cout << "No elements found." << std::endl;
+        numbers.push_back(num);
+    }
+    
+    if (!numbers.empty()) {
+        std::vector<std::pair<float, float>> closest_pairs = find_closest_elements(numbers);
+        if (!closest_pairs.empty()) {
+            for (const auto& pair : closest_pairs) {
+                std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
             }
         } else {
             std::cout << "No elements found." << std::endl;
         }
+    } else {
+        std::cout << "No elements found." << std::endl;
     }
 }
