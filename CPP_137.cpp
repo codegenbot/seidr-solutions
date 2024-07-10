@@ -1,21 +1,19 @@
+using namespace boost;
+
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (float)a < b ? b : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return any_cast<string>(b);
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (any_cast<string>(a) > any_cast<string>(b))
-            return a;
-        else if (any_cast<string>(a) < any_cast<string>(b))
-            return b;
-        else
-            return boost::any("None");
-    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return a < b ? a : b;
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return any_cast<float>(a) > any_cast<float>(b)
-            ? any_cast<boost::any&>(a)
-            : any_cast<boost::any&>(b);
+    if (is_any_of<string>(a)) {
+        if (is_any_of<string>(b)) {
+            return (stoi(get<string>(a)) > stoi(get<string>(b))) ? get<string>(a) : ((stoi(get<string>(a)) < stoi(get<string>(b))) ? get<string>(b) : "None");
+        } else if (is_any_of<float>(b)) {
+            return (stod(get<string>(a)) > get<float>(b)) ? get<string>(a) : ((stod(get<string>(a)) < get<float>(b)) ? get<string>(b) : "None");
+        }
+    } else if (is_any_of<float>(a)) {
+        if (is_any_of<string>(b)) {
+            return (get<float>(a) > stod(get<string>(b))) ? get<string>(b) + "" : ((get<float>(a) < stod(get<string>(b))) ? get<string>(b) : "None");
+        } else if (is_any_of<float>(b)) {
+            return (get<float>(a) > get<float>(b)) ? boost::any(a) : ((get<float>(a) < get<float>(b)) ? b : "None");
+        }
     }
-    return boost::any("None");
+
+    return (get<float>(a) > get<float>(b)) ? a : ((get<float>(a) < get<float>(b)) ? b : "None");
 }
