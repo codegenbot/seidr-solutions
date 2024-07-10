@@ -1,3 +1,4 @@
+```
 def basement(vector):
     for i, num in enumerate(vector):
         total = sum(vector[:i+1])
