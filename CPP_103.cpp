@@ -1,9 +1,8 @@
 #include <iostream>
-#include <cmath>
 #include <string>
-using namespace std;
+#include <cassert>
 
-string calculate_binary(int n, int m) {
+std::string rounded_avg(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -17,9 +16,9 @@ string calculate_binary(int n, int m) {
     
     int avg = round((double)sum / count);
     
-    string binary = "";
+    std::string binary = "";
     while (avg > 0) {
-        binary = to_string(avg % 2) + binary;
+        binary = std::to_string(avg % 2) + binary;
         avg /= 2;
     }
     
@@ -27,6 +26,7 @@ string calculate_binary(int n, int m) {
 }
 
 int main() {
-    assert(calculate_binary(5, 5) == "101");
+    assert(rounded_avg(5, 5) == "101");
+
     return 0;
 }
