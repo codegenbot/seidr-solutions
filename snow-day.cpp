@@ -19,14 +19,11 @@ int main() {
     cout << "Enter the proportion of snow melting per hour: ";
     cin >> proportionOfSnowMeltingPerHour;
 
-    double totalSnow = initialSnow;  // Initialize with initialSnow
-
     for (int i = 0; i < hours; i++) {
-        double newSnow = rateOfSnowFall;
-        totalSnow += newSnow - proportionOfSnowMeltingPerHour * totalSnow;
+        initialSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * initialSnow;
     }
     
-    cout << fixed << setprecision(10);  
-    cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << " ft" << endl;
+    cout << fixed << setprecision(5);
+    cout << "The amount of snow on the ground after " << hours << " hours is: " << initialSnow << " ft" << endl;
     return 0;
 }
