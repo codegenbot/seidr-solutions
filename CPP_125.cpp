@@ -7,46 +7,26 @@ using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0, prev_pos = 0;
+    size_t pos = 0, prevPos = 0;
     
-    while (pos != string::npos) {
-        pos = txt.find(' ', prev_pos);
-        
-        if (pos == string::npos) {
-            if (txt.find(',') == string::npos) {
-                int count = 0;
-                for (char c : txt) {
-                    if (c >= 'a' && c <= 'z') {
-                        count++;
-                        if (count % 2 != 0) {
-                            result.push_back(to_string(count));
-                            return result;
-                        }
-                    }
-                }
-            } else {
-                result.push_back(txt.substr(prev_pos));
-                return result;
-            }
-        } else {
-            result.push_back(txt.substr(prev_pos, pos - prev_pos));
-            prev_pos = pos + 1;
-        }
+    while ((pos = txt.find(' ')) != string::npos) {
+        result.push_back(txt.substr(prevPos, pos - prevPos));
+        prevPos = pos + 1;
     }
     
-    if (txt.find(',') == string::npos) {
+    if (prevPos < txt.size()) {
+        result.push_back(txt.substr(prevPos));
+    } else if (txt.empty() || all_of(txt.begin(), txt.end(), ::isspace)) {
         int count = 0;
         for (char c : txt) {
             if (c >= 'a' && c <= 'z') {
-                count++;
-                if (count % 2 != 0) {
+                if ((count & 1) == 1) {
                     result.push_back(to_string(count));
-                    return result;
+                    break;
                 }
+                count++;
             }
         }
-    } else {
-        result.push_back(txt);
     }
     
     return result;
