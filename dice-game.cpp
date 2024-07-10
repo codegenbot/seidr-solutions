@@ -1,12 +1,12 @@
-#include <iostream>
+Here is the solution:
 
-double getProbability(int n, int m) {
-    return (m - 1.0) / (n * m);
-}
+double probability(int n, int m) {
+    double total = (double)n * m;
+    double higher = 0;
 
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    std::cout << std::fixed << std::setprecision(6) << getProbability(n, m) << std::endl;
-    return 0;
+    for (int i = 1; i <= n && i < m; i++) {
+        higher += (double)m - i;
+    }
+
+    return higher / total;
 }
