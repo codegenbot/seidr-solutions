@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <boost/any.hpp>
 
 using namespace std;
 
@@ -37,9 +36,5 @@ int main_func() {
         cout << "The result is: " << compare_one(a, b) << endl;
     }
 
-    if (s.find_first_not_of("0123456789.-") != string::npos) { 
-        // If the input contains non-numeric characters, return the input as a string
-        boost::any result = s;
-        cout << "The result is: " << boost::any_cast<string>(result) << endl;
-    }
+    return 0;
 }
