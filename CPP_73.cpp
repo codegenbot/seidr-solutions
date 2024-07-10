@@ -1,7 +1,11 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <climits>
+
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    int m = n; 
+    int m = 1; 
     for (int i = 0; i < n; i++) {
         if (arr[i] != 0) {
             m = i + 1;
@@ -11,22 +15,25 @@ int smallest_change(std::vector<int> arr) {
     
     int smallest = INT_MAX;
 
-    std::vector<int> dp(n - m);
+    std::vector<int> dp;
+    for (auto coin : arr) {
+        dp.push_back(coin);
+    }
     for (int length = 2; length <= n; length++) {
         for (int i = 0; i < n - length + 1; i++) {
                 int j = i + length - 1;
                 
                 if (arr[i] == arr[j]) {
-                    dp[length-1] = dp[length-2];
+                    dp.back() = dp[dp.size()-2];
                 } else {
-                    int min_left = (i < n-length) ? dp[length-2] : INT_MAX;
-                    int min_right = (j > length-1) ? dp[length-2] : INT_MAX;
-                    dp[length-1] = 1 + (arr[i] == arr[j]) ? dp[length-2] : std::min(min_left, min_right);
+                    int min_left = (i < n-length) ? dp[dp.size()-2] : INT_MAX;
+                    int min_right = (j > length-1) ? dp[dp.size()-2] : INT_MAX;
+                    dp.push_back( 1 + (arr[i] == arr[j]) ? dp[dp.size()-2] : std::min(min_left, min_right));
                 }
             }
 
-        if (dp[m-1] < smallest) {
-            smallest = dp[m-1];
+        if (dp.back() < smallest) {
+            smallest = dp.back();
         }
     }
     
