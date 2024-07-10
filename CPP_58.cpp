@@ -1,11 +1,23 @@
+#include <vector>
+#include <iostream>
+using namespace std;
+
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> common(vector<int> a, vector<int> b) {
     vector<int> result;
-    for (int i = 0; i < 4; i++) {
-        if (a[i] == b[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (issame({a[i], a[(i+1)%4], a[(i+2)%4], a[(i+3)%4]}, {b[0], b[1], b[2], b[3]})) {
             result.push_back(a[i]);
         }
     }
@@ -34,7 +46,7 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         vector<int> result = common({l1[i][0], l1[i][1], l1[i][2], l1[i][3]},
-                                    {l2[0][0], l2[0][1], l2[0][2], l2[0][3]});
+                                     {l2[0][0], l2[0][1], l2[0][2], l2[0][3]});
         for (int j : result) {
             cout << j;
             if (j < result.size() - 1) {
