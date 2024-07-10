@@ -1,3 +1,4 @@
+```
 def sieve_of_eratosthenes(n):
     primes = [True] * (n + 1)
     primes[0] = primes[1] = False
@@ -5,8 +6,8 @@ def sieve_of_eratosthenes(n):
         if primes[i]:
             for j in range(i * i, n + 1, i):
                 primes[j] = False
-    return [i for i in range(n + 1) if primes[i]]
+    return [i for i in range(2, n + 1) if primes[i]]
 
 
 def count_up_to(n):
-    return sieve_of_eratosthenes(n)
+    return len(sieve_of_eratosthenes(n))
