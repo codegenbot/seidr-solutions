@@ -5,11 +5,6 @@
 
 using namespace std;
 
-bool is_same(vector<string> a, vector<string> b) {
-    if(a==b) return true;
-    else return false;
-}
-
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0;
     for (const string& s : lst1) {
@@ -25,5 +20,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-     assert (is_same(total_match({"this"}, {}), {}));
+    assert(total_match({"this"}, {}) == {});
+    return 0;
 }
