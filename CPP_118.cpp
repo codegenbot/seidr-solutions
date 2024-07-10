@@ -8,16 +8,8 @@ string get_closest_vowel(string word) {
         for (int j = i - 1; j >= 0; --j) {
             if (!isalpha(word[j])) break;
             if (ispunct(word[j]) || isdigit(word[j])) break;
-            if (word[j] == 'Y' && j > 0 && isupper(word[j-1])) continue;
-        }
-        for (; j < i; ++j) {
-            if (!isalpha(word[j])) break;
-            if (ispunct(word[j]) || isdigit(word[j])) break;
-        }
-        if (word[i] == 'Y' && word[j] == 'U') return "U";
-        if (word[i] == 'y' && word[j] == 'u') return "u";
-        for (char c = 'a'; c <= 'z'; ++c) {
-            if (word[i] == c || word[j] == c) return string(1, c);
+            if (word[j] == 'Y' && j < n-2 && isupper(word[j+1])) continue;
+            return string(1, tolower(word[j]));
         }
     }
     return "";
