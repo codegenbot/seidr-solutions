@@ -1,55 +1,58 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
-    int idx;
-    
-    for (int i = 1; i < v.size(); i++) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j < i; j++)
-            leftSum += v[j];
-        
-        for (int j = i; j < v.size(); j++)
-            rightSum += v[j];
-        
-        int diff = abs(leftSum - rightSum);
-        
-        if (diff <= minDiff) {
-            minDiff = diff;
-            idx = i;
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& v) {
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+
+    for (int i = 0; i < v.size() - 1; ++i) {
+        int diff = abs(v[i] - v[i + 1]);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
-    
-    vector<int> leftVec(v.begin(), v.begin() + idx);
-    vector<int> rightVec(v.begin() + idx, v.end());
-    
-    return {leftVec, rightVec};
+
+    std::vector<int> left = {v[0]};
+    std::vector<int> right;
+
+    for (int i = 0; i < cut_index; ++i) {
+        left.push_back(v[i]);
+    }
+
+    for (int i = cut_index + 1; i < v.size(); ++i) {
+        right.push_back(v[i]);
+    }
+
+    return {left, right};
 }
 
 int main() {
     int n;
-    cin >> n;
-    
-    vector<int> vec(n);
-    
-    for (int i = 0; i < n; i++)
-        cin >> vec[i];
-    
-    pair<vector<int>, vector<int>> result = cutVector(vec);
-    
-    cout << "Left Vec: ";
-    for (int x : result.first) {
-        cout << x << " ";
+    std::cin >> n;
+
+    std::vector<int> v(n);
+    for (int& x : v) {
+        std::cin >> x;
     }
-    cout << endl;
-    
-    cout << "Right Vec: ";
-    for (int x : result.second) {
-        cout << x << " ";
+
+    std::pair<std::vector<int>, std::vector<int>> result = cutVector(v);
+
+    std::cout << "[";
+    for (int i = 0; i < result.first.size() - 1; ++i) {
+        std::cout << result.first[i] << " ";
     }
-    cout << endl;
-    
+    if (!result.first.empty()) {
+        std::cout << result.first.back();
+    }
+    std::cout << "] [";
+    for (int i = 0; i < result.second.size() - 1; ++i) {
+        std::cout << result.second[i] << " ";
+    }
+    if (!result.second.empty()) {
+        std::cout << result.second.back();
+    }
+    std::cout << "]" << std::endl;
+
     return 0;
 }
