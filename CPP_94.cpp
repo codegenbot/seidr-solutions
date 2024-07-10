@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -8,11 +9,12 @@ int skjkasdkd(std::vector<int> lst){
             maxPrime = i;
     }
     int sum = 0;
+    std::string str = "";
     while(maxPrime > 0){
-        sum += maxPrime % 10;
+        str += std::to_string(maxPrime % 10);
         maxPrime /= 10;
     }
-    return sum;
+    return std::stoi(str);
 }
 
 bool isPrime(int n){
@@ -23,8 +25,7 @@ bool isPrime(int n){
     return true;
 
 int main() {
-    std::vector<int> lst = {127, 97, 8192};
-    assert (skjkasdkd(lst) == 10);
-    std::cout << "The sum is: " << skjkasdkd(lst) << std::endl;
+    assert (skjkasdkd({127, 97, 8192}) == 10);
+    std::cout << "The sum is: " << skjkasdkd({127, 97, 8192}) << std::endl;
     return 0;
 }
