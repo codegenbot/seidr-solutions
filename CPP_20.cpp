@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <vector>
-#include<limits>
+#include <limits>
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
