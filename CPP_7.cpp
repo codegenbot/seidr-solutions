@@ -14,8 +14,11 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
     return result;
 }
 
+void solve() {
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == vector<string>{"grunt", "prune"});
+}
+
 int main() {
-    auto filtered = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    assert(filtered == vector<string>{"grunt", "prune"});
+    solve();
     return 0;
 }
