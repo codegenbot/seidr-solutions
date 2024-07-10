@@ -3,7 +3,7 @@ bool issame(vector<int>& a, vector<int>& b){
         return false;
     }
     
-    for(int i = 0; i < a.size(); ++i){
+    for(int i = 0; i < a.size(); i++){
         if(a[i] != b[i]){
             return false;
         }
@@ -12,7 +12,7 @@ bool issame(vector<int>& a, vector<int>& b){
     return true;
 }
 
-vector<int> largest_smallest_integers(vector<int>& lst){
+vector<int> largest_smallest_integers(vector<int> lst){
     int largest_negative = INT_MIN;
     int smallest_positive = INT_MAX;
     
