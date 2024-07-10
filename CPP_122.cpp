@@ -11,6 +11,6 @@ int add_elements(int arr[], int k) {
 }
 
 int main() {
-    assert(add_elements({1}, 1) == 0);
+    assert(add_elements({1}, 1) == 0); // Add test cases for further validation
     return 0;
 }
