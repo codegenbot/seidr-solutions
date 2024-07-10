@@ -26,5 +26,5 @@ std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}) , {}));
+    assert(issame(total_match({"this"}, {}), {}));
 }
