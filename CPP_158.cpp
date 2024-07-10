@@ -22,10 +22,8 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter word " << i + 1 << ": ";
         std::string str;
-        std::cin >> str; // consume the newline left by integer read
-        if (!str.empty()) { 
-            getline(std::cin, str); 
-        }
+        getline(std::cin, str); 
+        str.erase(0, str.find_first_not_of(' ')); 
         words.push_back(str);
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
