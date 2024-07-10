@@ -1,24 +1,21 @@
-Here is the solution:
+#include <vector>
+#include <algorithm>
 
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
-    int minEven = INT_MAX;
-    int minIndex = -1;
+using namespace std;
 
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEven) {
-            minEven = arr[i];
-            minIndex = i;
-        }
-    }
+vector<pair<int, int>> pluck(vector<int> arr) {
+    vector<pair<int, int>> result;
+    if (arr.empty()) return result;
 
-    if (minEven != INT_MAX) {
-        result.push_back(minEven);
-        result.push_back(minIndex);
+    auto it = min_element(arr.begin(), arr.end(), 
+        [](int a, int b) { return (a % 2 == 0 && b % 2 != 0) || (a % 2 != 0 && b % 2 == 0); });
+    
+    if (*it % 2 == 0) {
+        result.push_back({*it, distance(arr.begin(), it)});
     } else {
-        result.push_back(0);
-        result.push_back(-1); // or any other value to indicate no even node
+        result.push_back({*min_element(it + 1, arr.end()), 
+            distance(arr.begin(), min_element(it + 1, arr.end()))});
     }
-
+    
     return result;
 }
