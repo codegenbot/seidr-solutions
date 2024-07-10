@@ -7,4 +7,3 @@ int count_upper(string s) {
             count++;
     }
     return count;
-}
