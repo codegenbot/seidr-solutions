@@ -4,8 +4,7 @@
 int main() {
     std::string digits;
     std::cin >> digits;
-    std::cin.ignore();
-
+    
     int sum = 0;
     for (int i = 0; i < digits.size() - 1; ++i) {
         if (digits[i] == digits[i + 1]) {
@@ -14,6 +13,6 @@ int main() {
     }
     
     std::cout << sum << std::endl;
-
+    
     return 0;
 }
