@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <sstream>
@@ -24,9 +25,5 @@ int main() {
     while (std::getline(ss, word, ' ')) {
         words_string.push_back(word);
     }
-    
-    if (!issame(words_string, {"ahmed", "gamal"}))
-        std::cout << "The entered string is not the same as expected." << std::endl;
-    else
-        std::cout << "The entered string is the same as expected." << std::endl;
+    assert(issame(words_string, {"ahmed", "gamal"}));
 }
