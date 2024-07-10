@@ -1,4 +1,3 @@
-```
 import math
 
 def find_closest_elements(numbers):
