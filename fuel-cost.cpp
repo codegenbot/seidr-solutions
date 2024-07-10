@@ -1,9 +1,9 @@
-int solve(vector<int>& v) {
+int fuelCost(vector<int> numbers) {
     int sum = 0;
-    for (int i : v) {
-        int x = (i / 3);
-        int y = floor(x);
-        sum += (y - 2);
+    for (int num : numbers) {
+        if (num % 3 == 0) {
+            sum += ((num / 3) - 2);
+        }
     }
     return sum;
 }
