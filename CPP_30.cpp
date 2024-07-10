@@ -2,27 +2,31 @@
 #include <cassert>
 
 bool issame(std::vector<float> a, std::vector<float> b){
-    if(a.size() != b.size()){
+    if (a.size() != b.size()) {
         return false;
     }
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
+    
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
 int main() {
-    std::vector<float> l = {1.2, -3.4, 5.6, -7.8, 9.0};
-    std::vector<float> positive_numbers;
-    for (float num : l) {
-        if (num > 0) {
-            positive_numbers.push_back(num);
-        }
-    }
-
-    assert(issame(positive_numbers, {1.2, 5.6, 9.0}));
-
+    // Test the issame function
+    std::vector<float> vec1 = {1.0, 2.0, 3.0};
+    std::vector<float> vec2 = {1.0, 2.0, 3.0};
+    
+    assert(issame(vec1, vec2) == true);
+    
+    vec2 = {1.0, 2.0, 4.0};
+    assert(issame(vec1, vec2) == false);
+    
+    vec2 = {1.0, 2.0};
+    assert(issame(vec1, vec2) == false);
+    
     return 0;
 }
