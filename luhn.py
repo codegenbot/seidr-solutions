@@ -1,9 +1,13 @@
+Here is the completed code for Luhn's algorithm:
+
+```
 def luhn(card):
     card = [int(x) for x in str(card)]
-    result = sum(
-        [
-            x if i % 2 == 0 else x * 2 if x * 2 > 9 else x * 2 - 9
-            for i, x in enumerate(reversed(card))
-        ]
-    )
-    return result
+    sum = 0
+    for i, num in enumerate(card):
+        if (i % 2 == 1):
+            num *= 2
+            if num > 9:
+                num -= 9
+        sum += num
+    return sum
