@@ -4,6 +4,16 @@
 
 using namespace std;
 
+bool isVowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+
+bool isConsonant(char c) {
+    c = tolower(c);
+    return !isVowel(c);
+}
+
 string get_closest_vowel(string word) {
     string result;
     for (int i = word.length() - 1; i > 0; i--) {
@@ -21,14 +31,4 @@ string get_closest_vowel(string word) {
         break;
     }
     return result;
-}
-
-bool isVowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
-}
-
-bool isConsonant(char c) {
-    c = tolower(c);
-    return !isVowel(c);
 }
