@@ -50,9 +50,7 @@ std::string int_to_roman(int num) {
     } else if (num > 3) {
         roman += "IV" + std::string(miniRoman(num - 4)).c_str();
     } else {
-        for (int i = 0; i < num; i++) {
-            roman += "I";
-        }
+        return roman + miniRoman(num);
     }
     return roman;
 }
