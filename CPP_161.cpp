@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,4 +12,9 @@ int solve(std::string s) {
         }
     }
     return v.size();
+}
+
+int main() {
+    assert(solve("aAeEiIoUu") == 6);
+    return 0;
 }
