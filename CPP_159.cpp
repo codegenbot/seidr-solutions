@@ -5,7 +5,7 @@ std::vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
     int eaten = total > remaining ? total - remaining : total;
     int left = remaining >= total ? 0 : remaining - number;
-    return std::vector<int>{eaten, left};
+    return {eaten, left};
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -14,5 +14,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     assert(issame(eat(4, 5, 1), std::vector<int>{5, 0}));
-    return 0;
 }
