@@ -17,15 +17,15 @@ std::string numerical_letter_grade(int credits, double gpa) {
     else if (gpa >= 3.1) return "B";
     else if (gpa >= 2.8) return "C+";
     else if (gpa >= 2.5) return "C";
-    else if (gpa >= 2.2) return "D+";
+    else if (gpa >= 2.2) return "D";
     else return "F";
 }
 
 int main() {
     int credits = 0;
-    double gpa = 0.7;
+    double gpa = 3.4; 
 
-    if (numerical_letter_grade(credits, gpa) == "F" || numerical_letter_grade(credits, gpa) == "D+") {
+    if (numerical_letter_grade(credits, gpa) == "F" || numerical_letter_grade(credits, gpa) == "D") {
         throw std::runtime_error("Invalid GPA");
     }
     
