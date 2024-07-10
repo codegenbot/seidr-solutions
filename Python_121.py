@@ -3,29 +3,23 @@ def solution(lst):
 
 
 def main():
+    n = 1
     while True:
         try:
-            n = int(input("Enter expected number of inputs: "))
-            if n > 0:
-                break
-            print("Expected input should be positive.")
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
-
-    lst = []
-    while len(lst) < n:
-        inp = input(f"Enter {n} numbers separated by space: ")
-        try:
-            lst = list(map(int, inp.split()))
-            if len(lst) != n:
-                print("Incorrect number of inputs. Please try again.")
-                lst = []
-            else:
-                break
+            inputs = input(f"Enter {n} numbers separated by space: ")
+            inputs_list = list(map(int, inputs.split()))
+            if len(inputs_list) != n:
+                print(
+                    "Invalid input. Please enter {} valid integers separated by space.".format(
+                        n
+                    )
+                )
+                continue
+            break
         except ValueError:
             print("Invalid input. Please enter valid integers separated by space.")
 
-    print(solution(lst))
+    print(solution(inputs_list))
 
 
 if __name__ == "__main__":
