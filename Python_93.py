@@ -1,19 +1,23 @@
-````
+Here is the solution to the problem:
+```
 def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
             if char.isupper():
-                if char == 'X' or char == 'x':
-                    result += 'A'
-                elif char == 'Y' or char == 'y':
-                    result += 'B'
+                if ord(char) - 64 in [1, 2, 3]:
+                    if char == 'A' or char == 'a':
+                        result += 'X'
+                    elif char == 'B' or char == 'b':
+                        result += 'Y'
+                    else:
+                        result += chr(ord(char) - 3 + 65)
                 else:
                     result += chr(ord(char) + 1)
             else:
-                if char in ['a', 'e', 'i', 'o', 'u']:
+                if ord(char) - 97 in [1, 2, 3]:
                     if char == 'a':
-                        result += 'c'
+                        result += 'd'
                     elif char == 'e':
                         result += 'g'
                     elif char == 'i':
