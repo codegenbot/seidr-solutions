@@ -1,37 +1,30 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    if (test.empty()) return result;
+#include<stdio.h>
+#include<string>
+#include<map>
+using namespace std;
 
-    size_t count = 0;
-    char prevChar = '\0';
-    for (char c : test) {
-        if (c == ' ') continue;
-        if (c == prevChar) {
-            ++count;
-        } else {
-            if (prevChar != '\0') {
-                result[prevChar] = count;
-            }
-            prevChar = c;
-            count = 1;
-        }
-    }
-
-    if (prevChar != '\0') {
-        result[prevChar] = count;
-    }
-
+map<char,int> histogram(string test){
+    map<char,int> result;
     int maxCount = 0;
-    for (auto& pair : result) {
-        if (pair.second > maxCount) maxCount = pair.second;
-    }
-
-    map<char, int> maxResult;
-    for (auto& pair : result) {
-        if (pair.second == maxCount) {
-            maxResult[pair.first] = pair.second;
+    
+    for(char c : test) {
+        if(c != ' ') {
+            if(result.find(c) == result.end()) {
+                result[c] = 1;
+            } else {
+                result[c]++;
+            }
+            
+            if(result[c] > maxCount)
+                maxCount = result[c];
         }
     }
-
-    return maxResult;
+    
+    for(auto it : result) {
+        if(it.second == maxCount)
+            cout << "{" << it.first << ", " << it.second << "} ";
+    }
+    cout << endl;
+    
+    return result;
 }
