@@ -1,21 +1,10 @@
-#include <iostream>
-using namespace std;
-
-double diceGame(int n, int m) {
-    double count = 0;
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                count++;
-            }
-        }
-    }
-    return count / (double)(n * m);
+double probability(int n, int m) {
+    if(n <= m) return 1.0 - (double)(m)/(n*m);
+    else return 1.0;
 }
-
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(1) << diceGame(n, m) << endl;
+    cout << fixed << setprecision(6) << probability(n,m) << endl;
     return 0;
 }
