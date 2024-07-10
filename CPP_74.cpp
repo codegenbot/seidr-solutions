@@ -5,7 +5,7 @@
 using namespace std;
 
 bool is_same(vector<string> a, vector<string> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    return equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -22,7 +22,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     else return vector<string>();
 }
 
-void runUserInput() {
+int main() {
     vector<string> user_input; 
     for(int i = 0; i < 5; ++i){
         string input;
@@ -35,8 +35,4 @@ void runUserInput() {
     } else {
         cout << "Error: The two lists are not the same." << endl;
     } 
-}
-
-int main() {
-    runUserInput();
 }
