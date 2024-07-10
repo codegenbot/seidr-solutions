@@ -4,15 +4,25 @@
 #include <cassert>
 
 std::vector<int> order_by_points(const std::vector<int>& nums) {
-    std::sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sum_a = std::accumulate(std::to_string(abs(a)).begin(), std::to_string(abs(a)).end(), 0) - '0' * std::to_string(abs(a)).size();
-        int sum_b = std::accumulate(std::to_string(abs(b)).begin(), std::to_string(abs(b)).end(), 0) - '0' * std::to_string(abs(b)).size();
+    std::vector<int> sorted_nums = nums;
+    std::sort(sorted_nums.begin(), sorted_nums.end(), [=](int a, int b) {
+        auto digit_sum = [](int num) {
+            int sum = 0;
+            for (char c : std::to_string(abs(num))) {
+                sum += c - '0';
+            }
+            return sum;
+        };
+
+        int sum_a = digit_sum(a);
+        int sum_b = digit_sum(b);
+
         if (sum_a == sum_b) {
             return a < b;
         }
         return sum_a < sum_b;
     });
-    return nums;
+    return sorted_nums;
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
