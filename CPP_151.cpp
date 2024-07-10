@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <cassert> // Include the header file for using assert
 
 long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
@@ -18,12 +18,13 @@ int main() {
     while (std::cin >> num) {
         lst.push_back(num);
     }
-
+    
     long long odd_sum = double_the_difference(lst);
-
+    
+    // Declare and use odd_sum in the assertion statement
     assert(double_the_difference(lst) == odd_sum);
 
     std::cout << "Result: " << odd_sum << std::endl;
-
+    
     return 0;
 }
