@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -26,6 +28,6 @@ vector<string> words_string(string s) {
 }
 
 int main() {
-    assert(issame(words_string("ahmed     , gamal"), vector<string>{"ahmed", "gamal"}));
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
