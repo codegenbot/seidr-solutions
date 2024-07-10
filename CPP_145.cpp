@@ -22,7 +22,7 @@ vector<int> order_by_points(vector<int> nums) {
 
     }
 
-    std::sort(pairs.begin(), pairs.end());
+    sort(pairs.begin(), pairs.end());
 
     vector<int> result;
     for (const auto& pair : pairs) {
@@ -34,15 +34,6 @@ vector<int> order_by_points(vector<int> nums) {
 
 int main() {  
     vector<int> nums = {0,6,6,-76,-21,23,4};
-    cout << "[";
-    for(int i=0; i<nums.size();i++) {
-        cout << nums[i];
-        if(i < nums.size()-1) {
-            cout << ", ";
-        }
-    }
-    cout << "]\n";
-    
     vector<int> result = order_by_points(nums);
     cout << "[";
     for(int i=0; i<result.size();i++) {
