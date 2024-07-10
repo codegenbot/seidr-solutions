@@ -1,3 +1,4 @@
+```cpp
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(string s : strings) {
@@ -7,8 +8,7 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 
 }
-
-bool operator==(const vector<string>& a, const vector<string>& b){
+bool operator==(vector<string> a, vector<string>b){
     if(a.size() != b.size())
         return false;
     for(size_t i = 0; i < a.size(); i++){
@@ -16,7 +16,6 @@ bool operator==(const vector<string>& a, const vector<string>& b){
             return false;
     }
     return true;
-
 }
 
 int main(){
