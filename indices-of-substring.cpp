@@ -6,30 +6,31 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
+    for(int i=0; i+n-m <= n; i++){
+        if(text.substr(i,m) == target){
             result.push_back(i);
         }
     }
-
+    
     return result;
 }
 
 int main() {
+    // Read input
     string text;
     cin >> text;
+    
+    // Read the length of the target
+    int len;
+    cin >> len;
 
-    string target;
-    int targetSize;
-    cin >> targetSize;
-    cin.ignore();
-    getline(cin, target);
+    string target(text, 0, len);
 
+    // Call the function and print the output
     vector<int> res = indicesOfSubstring(text, target);
-
-    for (int i : res) {
-        cout << i << endl;
+    for(auto i: res) {
+        cout << i << " ";
     }
-
+    
     return 0;
 }
