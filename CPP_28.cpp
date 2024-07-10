@@ -1,5 +1,19 @@
-string result;
-for(const string& s : strings){
-    result += s;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+string concatenate(const vector<string>& strings){
+    string result;
+    for(const string& s : strings){
+        result += s;
+    }
+    return result;
 }
-return result;
+
+int main() {
+    assert (concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
+    return 0;
+}
