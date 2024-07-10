@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -26,4 +27,8 @@ def all_prefixes() -> None:
         except ValueError as e:
             print(f"Invalid input. Please enter an integer.")
 
-    print("\n".join(get_all_prefixes(s)[:num]))
+    prefixes = get_all_prefixes(s)
+    if num > len(prefixes):
+        print("\n".join(prefixes))
+    else:
+        print("\n".join(prefixes[:num]))
