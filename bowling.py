@@ -1,11 +1,11 @@
 rolls = input("Enter the string representing the individual bowls: ")
-rolls += '00'  # Append two zeros to handle edge cases
+rolls += '00'
 
 score = 0
 frame = 1
 i = 0
 
-while i < len(rolls):
+while i < len(rolls)-2:
     if rolls[i] == "/":
         score += 10 - int(rolls[i - 1]) + int(rolls[i + 1])
     elif rolls[i] == "X":
