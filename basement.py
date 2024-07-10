@@ -1,9 +1,7 @@
 def basement(nums):
-    total = 0
-    found_basement = False
-    for i, num in enumerate(nums):
-        total += num
-        if total < 0 and not found_basement:
+    total = nums[0]
+    for i in range(1, len(nums)):
+        total += nums[i]
+        if total < 0:
             return i + 1
-        elif total < 0:
-            found_basement = True
+    return None
