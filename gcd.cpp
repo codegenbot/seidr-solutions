@@ -1,16 +1,21 @@
-vector<int> indicesOfSubstring(const string &text, const string &target) {
+#include <vector>
+using namespace std;
+
+vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int targetLen = target.length();
-    for (int i = 0; ; i++) {
-        if (i + targetLen > text.length()) break;
-        int j = 0;
-        for (; j < targetLen && text[i+j] == target[j]; j++);
-        if (j == targetLen) result.push_back(i);
+    int n = text.length();
+    int m = target.length();
+    
+    for(int i=0; i<=n-m;i++){
+        if(text.substr(i,m)==target){
+            result.push_back(i);
+        }
     }
+    
     return result;
 }
 
-int gcd(int a, int b) {
+int greatestCommonDivisor(int a, int b) {
     while (b != 0) {
         int temp = b;
         b = a % b;
