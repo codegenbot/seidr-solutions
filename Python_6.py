@@ -1,16 +1,22 @@
-def parse_nested_parens(paren_string: str) -> List[int]:
-    if '(' not in paren_string or ')' not in paren_string:
-        return []
+```
+from typing import List
 
+def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    for group in paren_string.split():
-        level = 0
-        deepest = 0
-        for char in group:
-            if char == '(':
-                level += 1
-                deepest = max(deepest, level)
-            elif char == ')':
-                level -= 1
-        result.append(deepest)
+    num_open = 0
+    deepest_level = 0
+    current_level = 0
+    
+    for char in paren_string:
+        if char == '(':
+            num_open += 1
+            current_level += 1
+            if current_level > deepest_level:
+                deepest_level = current_level
+        elif char == ')':
+            num_open -= 1
+            current_level -= 1
+        if num_open == 0:
+            result.append(deepest_level)
+            deepest_level = 0
     return result
