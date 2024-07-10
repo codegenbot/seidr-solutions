@@ -1,15 +1,6 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
-
-int main() {
-    std::string s;
-    // Take input from the user
-    std::cin >> s;
-    bool result = solveBoolean(s);
-    std::cout << (result ? "True" : "False") << std::endl;
-    return 0;
-}
 
 bool solveBoolean(std::string s) {
     bool result = true;
@@ -32,14 +23,12 @@ bool solveBoolean(std::string s) {
                     i++;
                 }
                 for (; i < s.size(); ) {
-                    if (s[i] == 'F')
-                        subResult = false;
-                    else if (s[i] != '&')
-                        return false; // invalid expression
+                    char c = s[i];
                     i++;
-                    while (i < s.size() && s[i] == '&') {
-                        i++;
-                    }
+                    if (c == 'F')
+                        subResult = false;
+                    else if (c != '&')
+                        return false; // invalid expression
                 }
                 result = subResult;
                 break; }
@@ -47,18 +36,33 @@ bool solveBoolean(std::string s) {
                 bool subResult = true;
                 int j = 0;
                 for (; i < s.size(); ) {
-                    if (s[i] != 'T' && s[i] != 'F')
+                    char c = s[i];
+                    i++;
+                    if (c != 'T' && c != 'F')
                         return false; // invalid expression
                     if ((j % 2) != 0)
                         subResult = false; 
-                    i++;
-                    while (i < s.size() && s[i] == '&') {
-                        i++;
-                    }
                 }
                 result = subResult;
                 break; }
         }
     }
     return result;
+}
+
+int main() {
+    std::string input;
+    // Ask user for input
+    std::cout << "Enter a boolean expression: ";
+    std::cin >> input;
+    
+    bool result = solveBoolean(input);
+    
+    if (result) {
+        std::cout << "The resulting Boolean is true." << std::endl;
+    } else {
+        std::cout << "The resulting Boolean is false." << std::endl;
+    }
+    
+    return 0;
 }
