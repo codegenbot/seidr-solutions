@@ -11,10 +11,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> common(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
-    for (int i = 0; i < a.size(); ++i) {
-        if (std::find(b.begin(), b.end(), a[i]) != b.end()) {
-            result.push_back(a[i]);
-        }
-    }
+    for (int i : a)
+        if (std::find(b.begin(), b.end(), i) != b.end())
+            result.push_back(i);
     return result;
 }
