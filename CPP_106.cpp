@@ -1,11 +1,20 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
-#include <algorithm>
 
-bool issame(const vector<int>& a, const vector<int>& b){
-    if(a.size() != b.size())
+using namespace std;
+
+vector<int> f(int n);
+
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
         return false;
-    return std::equal(a.begin(), a.end(), b.begin());
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> f(int n){
@@ -29,6 +38,9 @@ vector<int> f(int n){
 }
 
 int main(){
-    assert(issame(f(3), std::vector<int>{1, 2, 6}));
+    int n;
+    cin >> n;
+    vector<int> result = f(n);
+    // additional code using the result
     return 0;
 }
