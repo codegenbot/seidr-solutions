@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 
@@ -52,20 +52,20 @@ bool solveBoolean(std::string s) {
 
 int main() {
     std::string input;
-
+    
+    // Ask user for input
     std::cout << "Enter a boolean expression: ";
     
     char c;
-    std::cin >> input; // Read the entire line at once
-
-    if (input.back() != '\n') { // If there are remaining characters after reading a line
-        do {
-            c = getchar(); // Clear the rest of the line
-        } while (c != '\n' && c != EOF);
+    while ((c = getchar()) != '\n') {
+        if (c == ' ' || c == '\t') {
+            continue; // skip whitespace
+        }
+        input += c;
     }
-
+    
     bool result = solveBoolean(input);
-
+    
     if (result) {
         std::cout << "The resulting Boolean is true." << std::endl;
     } else {
