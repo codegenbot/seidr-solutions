@@ -1,4 +1,5 @@
 import re
+from functools import lru_cache
 
 
 def filter_integers() -> None:
@@ -14,9 +15,11 @@ def filter_integers() -> None:
             break
 
     try:
-        user_values = [int(val) for val in user_input.split(",")]
+        user_values = [
+            int(val) for val in filter(lambda x: x != "", user_input.split(","))
+        ]
 
-        if len(user_values) > 0:
+        if all(isinstance(i, int) for i in user_values):
             avg_value = sum(user_values) / len(user_values)
             min_value = min(user_values)
 
