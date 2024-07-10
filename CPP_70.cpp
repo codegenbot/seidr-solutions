@@ -6,10 +6,10 @@ bool issame(std::vector<int> a,std::vector<int>b){
 }
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
-    std::vector<int> result;
+    vector<int> result;
     if (lst.empty()) return result;
 
-    std::vector<int> minMax;
+    vector<int> minMax;
     while (!lst.empty()) {
         int min = *min_element(lst.begin(), lst.end());
         int max = *max_element(lst.begin(), lst.end());
