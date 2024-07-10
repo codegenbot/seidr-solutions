@@ -1,11 +1,11 @@
 import sys
 
-substring = sys.stdin.readline().strip()
+substring = input().strip()
 
 strings = []
 try:
     while True:
-        string = sys.stdin.readline().strip()
+        string = input().strip()
         if string == "----":
             break
         strings.append(string)
