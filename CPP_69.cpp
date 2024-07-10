@@ -1,13 +1,12 @@
-int search(vector<int> lst) {
-    int result = -1;
+int result = -1;
     for (int num : lst) {
         int freq = 0;
-        for (int elem : lst) {
-            if (elem == num) {
+        for (int n : lst) {
+            if (n == num) {
                 freq++;
             }
         }
-        if (freq >= num && num > result) {
+        if (num > 0 && freq >= num && num > result) {
             result = num;
         }
     }
