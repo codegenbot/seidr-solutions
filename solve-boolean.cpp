@@ -1,21 +1,25 @@
-bool solveBoolean(string expr) {
-    stack<char> s;
-    for (int i = 0; i < expr.size(); i++) {
-        if (expr[i] == '|') {
-            bool b1 = s.top() == 'T';
-            s.pop();
-            bool b2 = s.top() == 'T';
-            s.pop();
-            s.push(b1 || b2 ? 'T' : 'F');
-        } else if (expr[i] == '&') {
-            bool b1 = s.top() == 'T';
-            s.pop();
-            bool b2 = s.top() == 'T';
-            s.pop();
-            s.push(b1 && b2 ? 'T' : 'F');
-        } else {
-            s.push(expr[i]);
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+bool solveBoolean(string s) {
+    bool res = (s == "t");
+    for(int i=1; i<s.size(); i++) {
+        if(s[i] == '&') {
+            res &= (s[i-1] == 't');
+        }
+        else if(s[i] == '|') {
+            res |= (s[i-1] == 't');
         }
     }
-    return s.top() == 'T';
+    return res;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False") << endl;
+    return 0;
 }
