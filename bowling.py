@@ -13,8 +13,6 @@ def bowling_score(bowls):
         else:
             if bowls[bowl_index].isdigit() and bowls[bowl_index + 1].isdigit():
                 score += int(bowls[bowl_index]) + int(bowls[bowl_index + 1])
-            else:
-                bowl_index += 1
             bowl_index += 2
         frame += 1
     return score
