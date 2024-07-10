@@ -1,11 +1,11 @@
-def calculate_average_score():
-    scores = []
+def sum_of_numbers():
+    total = 0
     while True:
+        num = input("Enter a number (or 'stop' to finish): ")
+        if num.lower() == "stop":
+            break
         try:
-            user_input = input("Enter a score (or 'stop' to finish): ")
-            if user_input.lower() == 'stop':
-                break
-            scores.append(int(user_input))
+            total += int(num)
         except ValueError:
-            print("Invalid input. Please enter a valid integer.")
-    return round(sum(scores) / len(scores), 2)
+            print("Invalid input. Please enter a valid number.")
+    return total
