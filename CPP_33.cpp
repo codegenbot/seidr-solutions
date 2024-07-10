@@ -17,8 +17,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+int main() {
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {3, 6, 2, 4, 8, 9, 5, 1}));
+    return 0;
 }
-
-assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {3, 6, 2, 4, 8, 9, 5, 1}));
