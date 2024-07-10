@@ -1,3 +1,6 @@
+```
+from typing import List
+
 def factorize() -> None:
     n = int(input("Enter a number: "))
     i = 2
@@ -12,4 +15,7 @@ def factorize() -> None:
             print(f"{i} is a factor with multiplicity {count}.")
     if n > 1:
         print(f"{n} is a prime number.")
-factorize()
+    return
+
+if __name__ == "__main__":
+    factorize()
