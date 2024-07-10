@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -22,7 +21,7 @@ int count_nums(std::vector<int> nums) {
 
 }
 
-int original_main() {
+int main() {
     int n;
     std::cin >> n;
     std::vector<int> nums;
@@ -41,5 +40,3 @@ int original_main() {
     return 0;
 
 }
-
-original_main();
