@@ -26,7 +26,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
-        std::cin.ignore(); // Add this line to ignore any remaining newline characters.
         std::getline(std::cin, word); 
         words.push_back(word);
     }
