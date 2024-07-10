@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -10,9 +9,9 @@ int count_nums(vector<int> nums) {
             bool has_negative_digit = false;
             while (num != 0) {
                 int digit = abs(num % 10);
-                if ((digit >= 5 && digit <= 8) || digit == 9) {
+                if ((digit == 5 || digit == 8 || digit == 9) && num >= 0) {
                     sum_of_digits += digit - 5;
-                } else if (digit > 4) {
+                } else if (digit > 4 && num < 0) {
                     sum_of_digits += digit - 5;
                 } else if (digit > 0) {
                     sum_of_digits += digit;
@@ -27,7 +26,7 @@ int count_nums(vector<int> nums) {
             bool has_negative_digit = false;
             while (num != 0) {
                 int digit = abs(num % 10);
-                if ((digit >= 5 && digit <= 8) || digit == 9) {
+                if ((digit == 5 || digit == 8 || digit == 9) && num <= 0) {
                     sum_of_digits += digit - 5;
                 } else if (digit > 4) {
                     sum_of_digits += digit - 5;
