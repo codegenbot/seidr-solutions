@@ -42,7 +42,6 @@ bool areSame(vector<string> a, vector<string> b){
 
 int main() {
     assert(areSame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    // Additional test cases can be added here
 
     return 0;
 }
