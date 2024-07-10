@@ -1,12 +1,8 @@
-def reverse_string(s, i):
-    return s[:i][::-1] + s
-
-def make_palindrome():
-    s = input("Enter a string: ").strip()
-    for i in range(len(s) + 1):  # Make range include len(s)
+def make_palindrome(s: str):
+    for i in range(len(s) + 1):
         if s == reverse_string(s, i):
             return s[:i][::-1] + s
     return s + s[::-1]
 
-result = make_palindrome()
+result = make_palindrome(input("Enter a string: "))
 print(result)
