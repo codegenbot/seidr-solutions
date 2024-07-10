@@ -17,3 +17,9 @@ def cut_vector(vector):
             cut_index = i
 
     return vector[:cut_index + 1], vector[cut_index:]
+
+# Read input from user
+vector = list(map(int, input().split()))
+subvector1, subvector2 = cut_vector(vector)
+print(*subvector1)
+print(*subvector2)
