@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -10,24 +9,19 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> reverse_delete(string s, string c) {
-    string result = "";
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::string result = "";
     for (char ch : s) {
-        if (c.find(ch) == string::npos) {
+        if (c.find(ch) == std::string::npos) {
             result += ch;
         }
     }
-    string result_reverse = result;
-    reverse(result_reverse.begin(), result_reverse.end());
+    std::string result_reverse = result;
+    std::reverse(result_reverse.begin(), result_reverse.end());
     return {result, result == result_reverse ? "True" : "False"};
 }
 
 int solveProblem() {
-    assert(issame(reverse_delete("mamma", "mia"), vector<string>{"mm", "False"}));
-    return 0;
-}
-
-int main() {
-    solveProblem();
+    assert(issame(reverse_delete("mamma", "mia"), std::vector<std::string>{"mm", "False"}));
     return 0;
 }
