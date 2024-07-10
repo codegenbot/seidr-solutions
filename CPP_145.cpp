@@ -7,13 +7,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-class stdVectorInt {
-public:
-    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-        return a == b;
-    }
-};
-
 int main() {
     int n; 
     std::cin >> n;
@@ -23,8 +16,7 @@ int main() {
     
     std::sort(nums.begin(), nums.end());
     
-    stdVectorInt obj;
-    bool same = obj.issame(nums, nums);
+    bool same = issame(nums, nums);
     if (same)
         std::cout << "The sorted array is the same as the original one.\n";
     else
