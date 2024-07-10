@@ -1,15 +1,13 @@
-#include <vector>
-#include <algorithm>
-
 bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
-    if(l.size() <= 0){
-        return l; // add error handling here
+vector<float> sort_even(vector<float> l){
+    if(l.size() <= 0) {
+        return l; // handle the case where l.size() is 0 or less
     }
-    std::vector<float> result(l.size());
+    
+    vector<float> result(l.size());
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){
             vector<float> temp;
@@ -21,8 +19,6 @@ std::vector<float> sort_even(std::vector<float> l) {
             for(int k = 1; k < temp.size(); k++){
                 if(i + k * 2 < l.size()){
                     result[i+k*2] = temp[k];
-                }else{
-                    break;
                 }
             }
         }else{
