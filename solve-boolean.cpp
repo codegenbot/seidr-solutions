@@ -1,38 +1,39 @@
+#include <stack>
 #include <string>
-using namespace std;
 
-bool solveBoolean(string expression) {
-    stack<char> operators;
-    stack<bool> values;
+bool solveBoolean(string boolExp) {
+    stack<char> opStack;
+    stack<string> valStack;
 
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!operators.empty() && operators.top() == '|') {
-                operators.pop();
-                values.pop();
+    for (int i = 0; i < boolExp.length(); i++) {
+        if (boolExp[i] == '&' || boolExp[i] == '|') {
+            while (!opStack.empty() && boolExp[i] != opStack.top()) {
+                valStack.push(string(1, opStack.top()));
+                opStack.pop();
             }
-            operators.push('&');
-        } else if (expression[i] == '|') {
-            operators.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 't') {
-            values.push(true);
-        } else if (expression[i] == 'F' || expression[i] == 'f') {
-            values.push(false);
+            opStack.push(boolExp[i]);
+        } else if (boolExp[i] == 'T' || boolExp[i] == 'F') {
+            string temp = "";
+            while (i > 0 && (boolExp[i-1] == '&' || boolExp[i-1] == '|')) {
+                i--;
+            }
+            for (; i > 0 && (boolExp[i-1] != '&' && boolExp[i-1] != '|'); i--) {
+                temp = boolExp[i-1] + temp;
+            }
+            valStack.push(temp);
         }
     }
 
-    bool result = values.top();
-    while (!operators.empty()) {
-        if (operators.top() == '&') {
-            operators.pop();
-            result &= values.top();
-            values.pop();
-        } else {
-            operators.pop();
-            result |= values.top();
-            values.pop();
+    while (!opStack.empty()) {
+        string temp = "";
+        if (opStack.top() == '&') {
+            temp = (valStack.top() == "T" ? "T" : "F");
+        } else if (opStack.top() == '|') {
+            temp = (valStack.top() == "T" || valStack.top() == "F") ? "T" : "F";
         }
+        valStack.push(temp);
+        opStack.pop();
     }
 
-    return result;
+    return valStack.top() == "T";
 }
