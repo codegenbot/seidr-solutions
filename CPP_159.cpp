@@ -4,6 +4,6 @@ using namespace std;
 
 vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
-    int left = min(remaining, need);
-    return {total, max(0, remaining - left)};
+    vector<int> result = {total, remaining - min(remaining, need)};
+    return result;
 }
