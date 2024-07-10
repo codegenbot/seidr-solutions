@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) {
@@ -58,7 +58,7 @@ void get_user_input(std::vector<std::vector<std::string>>& user_input) {
 int main() {
     std::vector<std::vector<std::string>> user_input;
     get_user_input(user_input);
-    std::vector<std::vector<std::string>> input = {"this"};
+    std::vector<std::vector<std::string>> input = {{"this"}};
     std::vector<std::vector<std::string>> matches = {};
     std::cout << "Count of matches is: " << total_match(input, matches) << std::endl;
     return 0;
