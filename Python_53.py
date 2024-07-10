@@ -1,4 +1,3 @@
-```
 def add(x: int, y: int):
     return x + y
 
@@ -9,4 +8,4 @@ while True:
         print("The sum is: ", add(x, y))
         break
     except ValueError:
-        print("Invalid input. Please enter integers.")
+        print("Invalid input. Please enter an integer.")
