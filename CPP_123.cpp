@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool are_same(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -24,8 +24,8 @@ int main() {
     std::vector<int> test_case_1 = {1, 4, 2, 1};
     std::vector<int> test_case_2 = {1, 2, 1};
 
-    assert(issame(get_odd_collatz(1), test_case_1));
-    assert(issame(get_odd_collatz(2), test_case_2));
+    assert(are_same(get_odd_collatz(1), test_case_1));
+    assert(are_same(get_odd_collatz(2), test_case_2));
 
     return 0;
 }
