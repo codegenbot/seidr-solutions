@@ -1,19 +1,20 @@
-#include <stdio.h>
+#include <iostream>
+
 using namespace std;
 
 int modp(int n, int p) {
     if (n == 0)
         return 1;
     long long res = 1;
-    for (int i = 1; i <= n; ++i) {
-        res = (res * p) % p;
+    for (long long i = 2; i <= n; i *= 2) {
+        res = (res * 2) % p;
     }
     return res;
 }
 
 int main() {
     int n, p;
-    scanf("%d %d", &n, &p);
-    printf("%d\n", modp(n, p));
+    cin >> n >> p;
+    cout << modp(n, p) << endl;
     return 0;
 }
