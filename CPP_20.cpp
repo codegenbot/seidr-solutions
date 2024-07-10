@@ -3,6 +3,15 @@
 #include <utility>
 #include <initializer_list>
 
+template<typename T>
+class std::initializer_list {
+public:
+    class iterator;
+private:
+    T* begin_;
+    T* end_;
+};
+
 bool issame(vector<pair<float, float>> a, vector<pair<float, float>> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
@@ -25,6 +34,6 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == vector<pair<float, float>>({{2.2, 3.1}}));
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == {{2.2, 3.1}});
     return 0;
 }
