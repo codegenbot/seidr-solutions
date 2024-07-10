@@ -1,13 +1,14 @@
-```
 def intersperse(a, b):
     result = []
-    a_len = len(a)
-    
     for i in range(len(a) + (1 if isinstance(b, int) else 0)):
-        if i < a_len: 
+        if i < len(a): 
             result.append(a[i])
-        elif isinstance(b, int) and i % (a_len + 1) != 0:
+        if isinstance(b, int) and i < len(a): 
+            result.append(a[i])
+        elif isinstance(b, str):
             result.append(b)
-        elif isinstance(b, iter):
-            if i > 0: result.append(b.__next__())
+        else:
+            result.append(b)
+    while b is not None:  
+        result.append(b)
     return result
