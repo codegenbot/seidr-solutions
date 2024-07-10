@@ -1,13 +1,9 @@
-bool is_palindrome(string text){
-    int start = 0;
-    int end = text.length() - 1;
-
-    while(start < end){
-        if(text[start] != text[end])
-            return false;
-        start++;
-        end--;
+string toLower = "";
+for (char c : text) {
+    if (c >= 'A' && c <= 'Z') {
+        toLower += (c + 32);
+    } else {
+        toLower += c;
     }
-
-    return true;
 }
+return toLower == reverse(toLower).substr(0, toLower.length());
