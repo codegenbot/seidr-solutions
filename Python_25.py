@@ -1,4 +1,6 @@
 try:
-    # Your existing code logic that might raise a ValueError
+    n = int(input())
+    if n <= 1:
+        raise ValueError
 except ValueError:
-    raise ValueError("Please enter a valid positive integer greater than 1.")
+    print("Please enter a valid positive integer greater than 1.")
