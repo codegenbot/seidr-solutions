@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```cpp
 #include <vector>
 #include <string>
@@ -5,7 +7,7 @@
 using namespace std;
 
 bool is_same(vector<string> a, vector<string> b) {
-    return equal(a.begin(), a.end(), b.begin(), b.end());
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -22,7 +24,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     else return vector<string>();
 }
 
-int main() {
+int main()
+{
     assert(is_same(total_match({"this"}, {}), {}));
-    return 0;
 }
