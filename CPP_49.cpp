@@ -5,17 +5,18 @@ int modp(int n, int p) {
     if (n == 0)
         return 1;
     long long res = 1;
-    for(int i=1; i<=n; i++) {
-        res = (res * i) % p;
+    for (int i = 1; i <= n; i++) {
+        res = (long long)(res * (p % p)) % p;
     }
     return res;
 }
 
 int main() {
-    printf("%d\n", modp(3, 5)); // prints 3
-    printf("%d\n", modp(1101, 101)); // prints 2
-    printf("%d\n", modp(0, 101)); // prints 1
-    printf("%d\n", modp(3, 11)); // prints 8
-    printf("%d\n", modp(100, 101)); // prints 1
+    int n, p;
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+    printf("Enter the value of p: ");
+    scanf("%d", &p);
+    printf("2^%d modulo %d = %d\n", n, p, modp(n, p));
     return 0;
 }
