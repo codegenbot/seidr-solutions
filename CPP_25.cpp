@@ -1,6 +1,6 @@
 #include <vector>
-#include <cassert>
 #include <iostream>
+#include <cassert>
 
 std::vector<int> factorize(int n){
     std::vector<int> factors;
@@ -18,18 +18,5 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 int main() {
-    int num;
-    std::cout << "Enter the number of integers to factorize: ";
-    std::cin >> num;
-
-    std::vector<int> inputNumbers;
-
-    for(int i = 0; i < num; ++i){
-        int inputNum;
-        std::cout << "Enter integer " << i+1 << ": ";
-        std::cin >> inputNum;
-        inputNumbers.push_back(inputNum);
-    }
-
-    assert(issame(factorize(inputNumbers[0]) , {inputNumbers[1], inputNumbers[2], inputNumbers[3]}));
+    assert(issame(factorize(3 * 2 * 3) , {2, 3, 3}));
 }
