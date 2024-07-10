@@ -1,13 +1,21 @@
 ```
-x = '"{}"'.format(input("Enter the fraction x (in the format 'a/b'): "))
-n = '"{}"'.format(input("Enter the fraction n (in the format 'c/d': "))
-
-import math
-
+x = input("Enter the fraction x (in the format 'a/b'): ")
+n = input("Enter the fraction n (in the format 'c/d'): ")
 
 def simplify(x, n):
-    x_num, x_denom = map(int, x[3:-1].split("/"))
-    n_num, n_denom = map(int, n[3:-1].split("/"))
+    if '/' not in x:
+        return "Error: Invalid input for x"
+    if '/' not in n:
+        return "Error: Invalid input for n"
+
+    x_parts = x.split('/')
+    n_parts = n.split('/')
+
+    try:
+        x_num, x_denom = map(int, [part.strip() for part in x_parts])
+        n_num, n_denom = map(int, [part.strip() for part in n_parts])
+    except ValueError:
+        return "Error: Invalid input. Please use integers"
 
     if x_denom == 0 or n_denom == 0:
         return "Error: Division by zero is not allowed"
@@ -25,14 +33,4 @@ def simplify(x, n):
     return simplified_x_num, simplified_x_denom, simplified_n_num, simplified_n_denom
 
 
-while True:
-    x = '"{}"'.format(input("Enter the fraction x (in the format 'a/b'): "))
-    n = '"{}"'.format(input("Enter the fraction n (in the format 'c/d': "))
-
-    x_num, x_denom = map(int, x[3:-1].split("/"))
-    n_num, n_denom = map(int, n[3:-1].split("/"))
-
-    if x_denom == 0 or n_denom == 0:
-        print("Error: Division by zero is not allowed")
-    else:
-        print(simplify(x.strip('"'), n.strip('"')))
+print(simplify(x, n))
