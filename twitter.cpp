@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <limits>
 
 std::string validateTweet(const std::string& tweet) {
     if (tweet.empty()) return "You didn't type anything";
@@ -11,13 +9,12 @@ std::string validateTweet(const std::string& tweet) {
 
 int main() {
     while(true) {
-        std::string tweet;
+        int c;
         std::cout << "Enter a tweet: ";
-        if (!(std::getline(std::cin, tweet))) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            break; 
-        }
+        while ((c = getchar()) != '\n' && c != EOF);
+        if (std::cin.fail()) break; 
+        std::string tweet;
+        if (!(std::getline(std::cin, tweet))) break; 
         std::cout << validateTweet(tweet) << std::endl;
     }
     return 0;
