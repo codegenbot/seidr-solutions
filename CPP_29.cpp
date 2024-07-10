@@ -9,33 +9,34 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
             result.push_back(str);
     }
     return result;
-}
 
 int main() {
-    int n;
+    std::vector<std::string> inputStrings;
     std::cout << "Enter the number of strings: ";
+    int n;
     std::cin >> n;
-
-    std::vector<std::string> strings(n);
-    for(int i = 0; i < n; ++i) {
-        std::cout << "Enter string " << i + 1 << ": ";
-        std::getline(std::cin, strings[i]);
+    
+    for(int i = 0; i < n; i++) {
+        std::string str;
+        std::cout << "Enter string " << (i+1) << ": ";
+        std::getline(std::cin, str);
+        inputStrings.push_back(str);
     }
-
-    std::string prefix;
+    
     std::cout << "Enter the prefix: ";
+    std::string prefix;
     std::cin >> prefix;
-
-    std::vector<std::string> filteredStrings = filter_by_prefix(strings, prefix);
-
-    if(filteredStrings.size() == 0) {
-        std::cout << "No strings found with the given prefix." << std::endl;
+    
+    std::vector<std::string> result = filter_by_prefix(inputStrings, prefix);
+    
+    if(result.size() > 0) {
+        std::cout << "The strings that start with '" << prefix << "' are:\n";
+        for(const auto& str : result) {
+            std::cout << str << "\n";
+        }
     } else {
-        std::cout << "Strings with the given prefix: ";
-        for(const auto& str : filteredStrings)
-            std::cout << str << " ";
-        std::cout << std::endl;
+        std::cout << "No strings found that start with '" << prefix << "'.\n";
     }
-
+    
     return 0;
 }
