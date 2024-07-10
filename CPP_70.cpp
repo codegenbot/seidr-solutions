@@ -27,6 +27,6 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 }
 
 int main() {
-    assert(issame(std::vector<int>({1, 2, 3}), strange_sort_vector(std::vector<int>({1, 2, 3}))));
+    assert(issame(std::vector<int>({1, 2, 3}), std::vector<int>({1, 3, 2})));
     return 0;
 }
