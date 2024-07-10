@@ -1,6 +1,7 @@
 #include <string>
 using namespace std;
 
+bool isLeapYear(int year);
 bool valid_date(string date) {
     int day, month, year;
     string temp = "";
@@ -28,7 +29,7 @@ bool valid_date(string date) {
                     return false;
                 if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
                     return false;
-                if (month == 2 && (day > 29 || (day == 29 && !isLeapYear(year))))
+                if (month == 2 && (day > 29 || (day == 29 && !isLeapYear(stoi(temp))))
                     return false;
                 temp = "";
             }
