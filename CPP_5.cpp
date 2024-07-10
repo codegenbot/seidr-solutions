@@ -1,5 +1,7 @@
 #include <vector>
 
+using namespace std;
+
 std::vector<int> intersperse(const std::vector<int>& vec, int val);
 
 std::vector<int> intersperse(const std::vector<int>& vec, int val){
@@ -9,8 +11,4 @@ std::vector<int> intersperse(const std::vector<int>& vec, int val){
         result.push_back(val);
     }
     return result;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a == b;
 }
