@@ -3,7 +3,7 @@ def luhn(card):
     sum = 0
     for i, n in enumerate(reversed(card)):
         if i % 2 == 1:
-            n = n * 2 if i % 2 == 0 else n
+            n *= 2 if i % 2 == 0 else n
             if n > 9:
                 n -= 9
         sum += n
