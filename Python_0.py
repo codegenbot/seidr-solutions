@@ -1,14 +1,11 @@
-```
-from typing import List
-
-numbers = input("Enter numbers (comma-separated): ").split(",")
+numbers = [float(x.strip().replace(",", ".")) for x in input("Enter numbers (comma-separated): ").strip().split(",")]
 threshold = float(input("Enter threshold: "))
 
-def has_close_elements(numbers: list[float], threshold: float) -> bool:
+def has_close_elements(numbers, threshold):
     numbers.sort()
     for i in range(len(numbers) - 1):
-        if abs(float(numbers[i]) - float(numbers[i + 1])) <= threshold:
+        if float(numbers[i]) - float(numbers[i + 1]) <= threshold:
             return True
     return False
 
-print(has_close_elements([float(x) for x in numbers], threshold))
+print(has_close_elements(numbers, threshold))
