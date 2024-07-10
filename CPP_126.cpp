@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -27,6 +26,7 @@ int main() {
         cin >> x;
         lst.push_back(x);
     }
+    
     bool result = is_sorted(lst);
     cout << (result ? "True" : "False") << endl; 
 }
