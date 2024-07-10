@@ -1,4 +1,4 @@
-def fruit_distribution(*s):
+def fruit_distribution(s):
     s = (
         " ".join(s)
         .replace("apples and", "apples ")
