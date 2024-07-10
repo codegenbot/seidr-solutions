@@ -1,11 +1,11 @@
-```
 def sort_third(l: list):
-    l1 = [x for i, x in enumerate(l) if i % 3 == 0]
+    if len(l) % 3 != 0:
+        l += [None] * (3 - len(l) % 3)
+    l1 = sorted([x for i, x in enumerate(l) if i % 3 == 0])
     l2 = [x for i, x in enumerate(l) if i % 3 == 1]
-    l3 = [x for i, x in enumerate(l) if i % 3 == 2]
+    l3 = sorted([x for i, x in enumerate(l) if i % 3 == 2])[::-1]
 
-    sorted_l1 = sorted(l1)
-    sorted_l3 = sorted(l3)[::-1]
-
-    return [x if i % 3 != 0 else (x if i % 3 == 1 else next(y for y in l3[::-1] if y > x))
-            for i, x in enumerate(sorted(l1 + [next((y for y in l2), None)] + sorted_l3))]
+    return [
+        (x if i % 3 != 0 else (x if i % 3 == 1 else next(y for y in l3[::-1] if y > x)))
+        for i, x in enumerate(l1 + l2 + l3)
+    ]
