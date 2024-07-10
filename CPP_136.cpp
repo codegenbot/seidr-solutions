@@ -3,11 +3,11 @@
 #include <climits>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> largest_smallest_integers(std::vector<int> lst) {
+std::vector<int> largest_smallest_integers(const std::vector<int>& lst) {
     int largest_negative = INT_MIN, smallest_positive = INT_MAX;
     for (int num : lst) {
         if (num < 0 && num > largest_negative) {
