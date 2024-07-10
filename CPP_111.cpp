@@ -1,33 +1,28 @@
 map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return result;
+    string str = test + " ";
+    int max_count = 0;
+    char max_char = ' ';
 
-    string str = "";
-    for (char c : test) {
-        if (c != ' ') str += c;
-        else {
-            if (!str.empty()) {
-                if (result.find(str[0]) == result.end() || result[str[0]] == 1)
-                    result[str[0]] = 1;
-                str.clear();
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] != ' ') {
+            if (result.find(str[i]) == result.end()) {
+                result[str[i]] = 1;
+            } else {
+                result[str[i]]++;
+            }
+            if (result[str[i]] > max_count) {
+                max_count = result[str[i]];
+                max_char = str[i];
             }
         }
     }
 
-    if (!str.empty()) {
-        if (result.find(str[0]) == result.end() || result[str[0]] == 1)
-            result[str[0]] = 1;
+    map<char, int> final_result;
+    for (auto& pair : result) {
+        if (pair.second == max_count) {
+            final_result[pair.first] = pair.second;
+        }
     }
-
-    int maxCount = 0;
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        if (it->second > maxCount) maxCount = it->second;
-    }
-
-    map<char, int> finalResult;
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        if (it->second == maxCount)
-            finalResult[it->first] = it->second;
-    }
-    return finalResult;
+    return final_result;
 }
