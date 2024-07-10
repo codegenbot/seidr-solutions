@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -19,6 +20,7 @@ if __name__ == "__main__":
                     cont = input("Do you want to continue? (y/n): ")
                     if cont.lower() != 'y':
                         break
-                    break
+                    else:
+                        continue
                 except ValueError:
                     print("Invalid input. Please enter comma-separated integers.")
