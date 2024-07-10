@@ -1,29 +1,23 @@
-```python
+```
 def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.isupper():
-                if ord(char) - 65 <= 22 and (char == 'X' or char == 'x'):
-                    result += 'A'
-                elif ord(char) - 65 <= 22 and (char == 'Y' or char == 'y'):
-                    result += 'B'
+            if char.lower() == 'x' or char.lower() == 'y':
+                result += 'A' if char.isupper() else 'b'
+            elif char.lower() in ['a', 'e', 'i', 'o', 'u']:
+                if char.lower() == 'a':
+                    result += 'B' if char.isupper() else 'b'
+                elif char.lower() == 'e':
+                    result += 'G' if char.isupper() else 'g'
+                elif char.lower() == 'i':
+                    result += 'K' if char.isupper() else 'k'
+                elif char.lower() == 'o':
+                    result += 'Q' if char.isupper() else 'q'
                 else:
-                    result += chr((ord(char.lower()) - 97 + 1) % 26 + 65).upper()
+                    result += chr(ord(char) + 1)
             else:
-                if char in ['a', 'e', 'i', 'o', 'u']:
-                    if char == 'a':
-                        result += 'b'
-                    elif char == 'e':
-                        result += 'g'
-                    elif char == 'i':
-                        result += 'k'
-                    elif char == 'o':
-                        result += 'q'
-                    else:
-                        result += chr((ord(char) - 97 + 1) % 26 + 97)
-                else:
-                    result += chr((ord(char) - 97 + 1) % 26 + 97)
+                result += chr(ord('a' if char.islower() else 'A') + ((ord(char) - ord('a')) % 26))
         else:
             result += char
     return result
