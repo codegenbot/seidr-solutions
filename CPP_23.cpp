@@ -1,6 +1,7 @@
+#include <cassert>
 #include <cstring>
 
-int main() {
+int main(){
     assert(strlen("asdasnakj") == 9);
-    return 0;
+    return strlen(str.c_str());
 }
