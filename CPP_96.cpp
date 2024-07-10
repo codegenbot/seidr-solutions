@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 
@@ -21,6 +22,9 @@ vector<int> count_upto(int n) {
 }
 
 int main() {
-    vector<int> primes = count_upto(101);
+    vector<int> result = count_upto(101);
+    for(int i : result) {
+        cout << i << " ";
+    }
     return 0;
 }
