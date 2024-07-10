@@ -4,7 +4,8 @@ def shopping_list():
     discounts = list(map(float, input().split()))
     
     if len(prices) != n or len(discounts) != n:
-        return 
+        return round(0, 2)
+        
     total_price = 0
     for i in range(n):
         price = prices[i] * (1 - discounts[i] / 100)
