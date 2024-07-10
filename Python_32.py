@@ -1,9 +1,9 @@
-def find_zero(xs: list):
-    n = len(xs) - 1
-    a = xs[0]
-    b = xs[-1]
-    return -b / a
+def find_zero():
+    xs = list(map(int, input().split()))
+    n = len(xs) // 2
+    a, b = xs[0], max(xs[1:])
+    return -a / b
 
 
-input_list = list(map(int, input().split()))
-print(round(find_zero(input_list), 2))
+result = find_zero()
+print(result)
