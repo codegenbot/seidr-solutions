@@ -1,15 +1,15 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool issame(int a, int b) {
-    return a == b;
+    // Your custom function implementation here
 }
 
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(k);
-    for (int i = 0; i < k; i++) {
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::vector<int> result;
+    while (k--) {
         auto it = std::max_element(arr.begin(), arr.end());
-        result[i] = *it;
+        result.push_back(*it);
         arr.erase(it);
     }
     return result;
