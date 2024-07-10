@@ -15,7 +15,7 @@ int main() {
     float num;
     
     cout << "Enter numbers (enter 'stop' to finish):" << endl;
-    vector<float> lst; // Declare the list inside the loop
+    vector<float> lst; 
     while(1) {
         cin >> num;
         
