@@ -33,7 +33,7 @@ bool issorted(std::vector<int> v) {
 }
 
 std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v) {
-    std::vector<int> result;
+    std::vector<int> result = {};
     for (const auto& pair : v) {
         int num = 0;
         for (char c : pair.first) {
@@ -42,18 +42,17 @@ std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v)
         for (char c : pair.second) {
             num = num * 10 + (c - '0');
         }
-        if (!num) return std::vector<int>(); 
+        if (!num) return {}; 
         result.push_back(num);
     }
     std::sort(result.begin(), result.end());
-    return result; 
+    return (result.size() > 0 ? result : {}); 
 }
 
 int main() { 
-    std::vector<std::pair<std::string, std::string>> v1 = {};
-    std::vector<std::pair<std::string, std::string>> v2 = {};
-    assert(issame({{"aaaa", "bbbb"}, {"cccc", "ddd"}}, {{"cccc", "ddd"}, {"aaaa", "bbbb"}})); 
-    assert(issame(std::vector<std::pair<std::string, std::string>>{{"aaaa", "bbbb"}, {"dd", "cc"}},
-                  std::vector<std::pair<std::string, std::string>>{{"cc", "dd"}, {"aaaa", "bbbb"}})); 
+    std::vector<std::pair<std::string, std::string>> v1 = {{"aaaa", "bbbb"}, {"cccc", "ddd"}};
+    std::vector<std::pair<std::string, std::string>> v2 = {{"cccc", "ddd"}, {"aaaa", "bbbb"}}; 
+    assert(issame(v1, v2)); 
+    assert(issame({{"aaaa", "bbbb"}, {"dd", "cc"}}, {{"cc", "dd"}, {"aaaa", "bbbb"}})); 
 
 }
