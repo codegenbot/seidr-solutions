@@ -21,3 +21,21 @@ std::vector<int> make_a_pile(int n) {
     std::shuffle(pile.begin(), pile.end(), mt);
     return pile; 
 }
+
+void problem100(int n) {
+    int input;
+    std::cout << "Enter a number: ";
+    std::cin >> input;
+
+    if(issame({1}, make_a_pile(input))){
+        std::cout << "The piles are the same." << std::endl;
+    } else {
+        std::cout << "The piles are not the same." << std::endl;
+    }
+}
+
+int main() {
+    int n;
+    problem100(n);
+    
+}
