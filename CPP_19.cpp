@@ -1,8 +1,4 @@
-#include <algorithm>
-#include <map>
-#include <vector>
-#include <string>
-
+```cpp
 int main() {
     using namespace std;
 
