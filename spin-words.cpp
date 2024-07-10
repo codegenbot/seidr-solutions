@@ -1,19 +1,21 @@
 #include <iostream>
 #include <string>
-#include <algorithm> // for std::reverse
+#include <sstream>
+#include <algorithm>
 
-std::string result = "";
+using namespace std;
 
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
+    string input;
+    getline(cin, input);
     
-    std::string word;
-
-    std::istringstream iss(input);
+    string result = "";
+    
+    istringstream iss(input);
+    string word;
     while (iss >> word) {
         if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+            reverse(word.begin(), word.end());
         }
         result += word + " ";
     }
