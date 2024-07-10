@@ -1,6 +1,6 @@
 a = list(map(int, input().split()))
 if len(a) < 1:
-    print("Input list should contain at least one element.")
+    print(*a, sep="\n")
 else:
     min_diff = min(abs(sum(a[:i]) - sum(a[i:])) for i in range(1, len(a)))
     if min_diff < sum(a):
