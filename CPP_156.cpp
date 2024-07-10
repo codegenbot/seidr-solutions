@@ -1,14 +1,14 @@
-vector<pair<int, string>> romanMap = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
-                                         {100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
-                                         {10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
-
 string int_to_mini_roman(int number) {
-    string result;
-    for (auto& roman : romanMap) {
-        while (number >= roman.first) {
-            result += roman.second;
-            number -= roman.first;
+    string roman[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+    int values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    string result = "";
+    
+    for (int i = 0; i < 13; ++i) {
+        while (number >= values[i]) {
+            number -= values[i];
+            result += roman[i];
         }
     }
+    
     return result;
 }
