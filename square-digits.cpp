@@ -1,8 +1,15 @@
-string squareDigits(string n) {
-    string result = "";
-    for(char c : n) {
-        int digit = (int)(c - '0');
-        result += to_string(digit * digit);
+#include <string>
+using namespace std;
+
+class Solution {
+public:
+    string squareDigits(string input) {
+        string output = "";
+        for (char c : input) {
+            int digit = c - '0';
+            int squared = digit * digit;
+            output += to_string(squared);
+        }
+        return output;
     }
-    return result;
-}
+};
