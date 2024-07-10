@@ -1,6 +1,14 @@
+```
 from typing import List
-def factorize(n: int) -> None:
+def factorize(n: int) -> List[int]:
+    while True:
+        try:
+            n = int(input("Enter a number to be factored: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
     i = 2
+    factors = [n]
     while i * i <= n:
         if n % i:
             i += 1
@@ -9,6 +17,6 @@ def factorize(n: int) -> None:
             while n % i == 0:
                 n //= i
                 count += 1
-            print(f"{i} is a factor with multiplicity {count}.")
-    if n > 1:
-        print(f"{n} is a prime number.")
+            for _ in range(count):
+                factors.append(i)
+    return factors
