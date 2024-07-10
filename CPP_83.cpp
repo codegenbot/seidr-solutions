@@ -1,28 +1,26 @@
 ```cpp
-#include <cmath>
 #include <iostream>
-using namespace std;
+#include <cmath> 
 
-int starts_one_ends(int n) {
-    int count = 0;
-    for (int i = 1; i <= 9; i++) {
-        if (i == 1 || i % 10 == 1)
-            count++;
-        if (n > 1) {
-            for (int j = 1; j < pow(10, n-1); j++) {
-                int num = i * pow(10, n-1) + j;
-                if (num >= 10 && (num % 10 == 1 || num / pow(10, (int)log10(num)) == 1))
-                    count++;
-            }
-        }
-    }
-    return count;
-}
+using namespace std;
 
 int main() {
     int n;
-    cout << "Enter the number of digits: ";
+    cout << "Enter a positive integer: ";
     cin >> n;
-    cout << "Count of numbers that start or end with 1 is: " << starts_one_ends(n) << endl;
+    cout << "The number of n-digit positive integers that start or end with 1 is: " << starts_one_ends(n) << endl;
     return 0;
+}
+
+int starts_one_ends(int n) {
+    int count = 0;
+    for (long long i = 1; i <= 9 && i <= n; i++) {
+        if (i == 1 || i % 10 == 1 || i / pow(10, (log10(n))) == 1)
+            count++;
+        for (long long j = i + 1; j <= n; j++) {
+            if (j % 10 == 1 || j / pow(10, (log10(j))) == 1)
+                count++;
+        }
+    }
+    return count;
 }
