@@ -16,13 +16,6 @@ int main() {
     int n, x, y;
     cin >> n >> x >> y;
     
-    if (n <= 1) {
-        cout << x << endl;
-    } else if (isPrime(n)) {
-        cout << x << endl;
-    } else {
-        cout << y << endl;
-    }
-    
+    cout << x_or_y(n, x, y);
     return 0;
 }
