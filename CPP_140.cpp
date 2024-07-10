@@ -19,12 +19,12 @@ std::string fix_spaces(const std::string& text) {
             consecutive_spaces = 0;
         }
     }
-    
+
     return result;
 }
 
 int main() {
-    assert (fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
-    
+    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+
     return 0;
 }
