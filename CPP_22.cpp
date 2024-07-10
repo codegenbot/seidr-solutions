@@ -1,6 +1,17 @@
 #include <vector>
 #include <list>
-#include <boost/any.hpp>
+
+namespace boost {
+    template<typename T>
+    struct any_cast {
+        static T cast(const any& a) {
+            if (!a.type()) {
+                throw bad_any_cast();
+            }
+            return T(any_cast<T>::from_any(a));
+        }
+    };
+}
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
