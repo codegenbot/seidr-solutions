@@ -1,2 +1,2 @@
-arr.sort(reverse=True)
-return arr[:k]
+def maximum(arr, k):
+    return sorted(arr)[-k:]
