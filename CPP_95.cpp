@@ -1,21 +1,19 @@
-#include <map>
 #include <string>
-#include <cctype>
 
-int check_dict_case(map<string, string> dict) {
-    if (dict.empty()) return 0;
+bool check_dict_case(map<string, string> dict) {
+    if (dict.empty()) return false;
 
-    int allLower = 1;
-    int allUpper = 1;
+    bool allLower = true;
+    bool allUpper = true;
 
     for (auto& pair : dict) {
         if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            allLower = 0;
-            allUpper = 0;
+            allLower = false;
+            allUpper = false;
             break;
-        } else if ((pair.first[0] >= 'a' && pair.first[0] <= 'z') != (allLower == 1)) {
-            allLower = 0;
-            allUpper = 0;
+        } else if ((pair.first[0] >= 'a' && pair.first[0] <= 'z') != (allLower)) {
+            allLower = false;
+            allUpper = false;
             break;
         }
     }
