@@ -1,15 +1,8 @@
-def fruit_distribution(s="Enter the string: ", n=0):
-    s = input(s)
-    n = int(input("Enter the number of fruits to consider: "))
+```
+def fruit_distribution(s, n):
     s = s.lower()
-    fruits = s.split("and")
-    for i in range(len(fruits)):
-        if "," in fruits[i]:
-            fruits[i] = fruits[i].replace(",", "")
-    return (
-        sum(
-            int(fruit.split()[0]) if fruit.split()[0].isdigit() else 1
-            for fruit in fruits[:n]
-        )
-        / n
-    )
+    fruits = s.replace("and", ",").split(",")
+    total_fruits = sum(1 for fruit in fruits if fruit.split()[0].isdigit())
+    return total_fruits / (n or 1)
+
+print(fruit_distribution("1 apples and 100 oranges", 120))
