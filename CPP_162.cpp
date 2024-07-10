@@ -1,4 +1,8 @@
-#include <openssl/evp.h>
+#include <string>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+#include <openssl/evp.h> 
+#pragma comment(lib, "libeay32.lib")
 
 using namespace std;
 
@@ -7,7 +11,7 @@ string string_to_md5(string text) {
 
     unsigned char md5[16];
     EVP_MD_CTX mdctx;
-    EVP_MD *md = EVP_md_md5();
+    EVP_MD *md = EVP_md5();
     const unsigned char* input = (const unsigned char*)text.c_str();
     size_t len = text.size();
 
@@ -23,4 +27,6 @@ string string_to_md5(string text) {
     }
 
     return result;
+
+#pragma comment(lib, "libeay32.lib")
 }
