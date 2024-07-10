@@ -12,18 +12,18 @@ int main() {
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> res;
-
-    for(int right=n-1; right>=0; right--){
+    
+    for(int i=n-1; i>=0; i--){
         bool isLeader = true;
-        for(int left=right; left<n; left++){
-            if(arr[left] >= arr[right]){
+        for(int j=i+1; j<n; j++){
+            if(arr[j] >= arr[i]){
                 isLeader = false;
                 break;
             }
         }
         if(isLeader)
-            res.push_back(arr[right]);
+            res.push_back(arr[i]);
     }
-
+    
     return res;
 }
