@@ -1,4 +1,9 @@
+```
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
-    result = sum(sum(divmod(2 * d, 10)) + d if i % 2 else d for i, d in enumerate(card_number))
-    return "Valid" if result % 10 == 0 else "Invalid"
+    for i in range(len(card_number)):
+        if (i % 2 == 0 and card_number[i] * 2 >= 10):
+            card_number[i] = card_number[i] * 2 - 9
+        elif i % 2 != 0:
+            card_number[i] *= 2
+    return sum(card_number)
