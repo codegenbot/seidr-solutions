@@ -5,16 +5,14 @@ def sort_even(l: list):
     result = []
     even_index = 0
     odd_index = 0
-    for _ in range(min(len(evens), len(odds))):
-        if _ % 2 == 0:
+    while even_index < len(evens) and odd_index < len(odds):
+        if even_index < len(evens): 
             result.append(evens[even_index])
             even_index += 1
         else:
             result.append(odds[odd_index])
             odd_index += 1
 
-    if len(evens) > len(odds):
-        result.extend(evens[even_index:])
-    else:
-        result.extend(odds[odd_index:])
+    result.extend(evens[even_index:])
+    result.extend(odds[odd_index:])
     return tuple(result)
