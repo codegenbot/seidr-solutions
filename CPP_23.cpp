@@ -1,11 +1,7 @@
-#include <iostream>
-#include <string.h>
+#include <string>
+#include <cassert>
 
 int main() {
     std::string str = "asdasnakj";
-    std::cout << str.length() << std::endl;
-
-    assert(strlen("asdasnakj") == 9);
-    
-    return 0;
+    assert(str.length() == 9);
 }
