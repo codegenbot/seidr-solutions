@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 using namespace std;
 
@@ -26,8 +27,4 @@ vector<string> reverse_delete(string s, string c) {
     result.push_back(isPalindrome ? "True" : "False");
     
     return result;
-}
-
-int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
 }
