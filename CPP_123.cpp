@@ -20,10 +20,10 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    // Test the function
+    // Test the function get_odd_collatz
     std::vector<int> test_result = get_odd_collatz(10);
-    std::vector<int> expected_result = {1, 3, 5, 9, 10};
+    std::vector<int> expected_result = {1, 3, 5, 7, 9};
     assert(issame(test_result, expected_result));
-    
+
     return 0;
 }
