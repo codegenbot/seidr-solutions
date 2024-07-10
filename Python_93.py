@@ -1,4 +1,3 @@
-```Python
 def encode(message):
     result = ""
     for char in message:
@@ -22,6 +21,3 @@ def decode(message):
         else:
             result += char
     return result
-
-print(encode("I DoNt KnOw WhAt tO WrItE"))
-print(decode("k dQnT kNqW wHcT Tq wRkTg"))
