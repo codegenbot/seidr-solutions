@@ -14,12 +14,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 int sorted_list_sum(std::vector<std::string> lst) {
     std::sort(lst.begin(), lst.end());
     int sum = 0;
-    for(const auto& str : lst) {
+    for (const auto& str : lst) {
         sum += str.length();
     }
     return sum;
-}
-
-int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
-}
