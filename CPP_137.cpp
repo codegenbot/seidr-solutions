@@ -2,21 +2,27 @@
 #include <boost/convert.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int)) {
-        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int x = boost::any_cast<int>(a);
+        int y = boost::any_cast<int>(b);
+        if (x > y) {
             return a;
-        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
+        } else if (x < y) {
             return b;
-        } 
-    } 
-    else if (a.type() == typeid(double)) {
-        if (boost::any_cast<double>(a) > boost::any_cast<double>(b)) {
-            return a;
-        } else if (boost::any_cast<double>(a) < boost::any_cast<double>(b)) {
-            return b;
+        } else {
+            return boost::any(typeid(int));
         }
-    } 
-    else {
-        return "None";
+    } else if ((a.type() == typeid(double)) && (b.type() == typeid(double))) {
+        double x = boost::any_cast<double>(a);
+        double y = boost::any_cast<double>(b);
+        if (x > y) {
+            return a;
+        } else if (x < y) {
+            return b;
+        } else {
+            return boost::any(typeid(double));
+        }
     }
+
+    return boost::any(typeid(int));
 }
