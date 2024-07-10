@@ -30,8 +30,9 @@ namespace myspace {
         std::cout << "Enter the number of elements: ";
         std::cin >> n;
 
-        std::vector<int> game(n, 0); // Create vectors with default allocator
-        std::vector<int> guess(n, 0);
+        // Initialize game and guess vectors with default values (0)
+        std::vector<int> game(n);
+        std::vector<int> guess(n);
 
         for (int i = 0; i < n; i++) {
             std::cout << "Enter element " << i + 1 << ": ";
