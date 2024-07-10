@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm> // Add this line for using reverse function
+#include <algorithm> 
 
 std::vector<int> findLeaders(const std::vector<int>& nums) {
     std::vector<int> leaders;
