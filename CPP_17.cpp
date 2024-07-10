@@ -1,5 +1,7 @@
-#include <vector>
 #include <iostream>
+#include <vector>
+#include <ostream>
+#include <cassert>
 using namespace std;
 
 bool issame(vector<int>& a, vector<int> b){
@@ -9,8 +11,6 @@ bool issame(vector<int>& a, vector<int> b){
     }
     return true;
 }
-
-vector<int> parse_music(string music_string);
 
 vector<int> parse_music(string music_string){
     vector<int> result;
@@ -38,11 +38,9 @@ int main() {
     vector<int> notes = parse_music(music_string);
     vector<int> reference = {1, 2, 3, 4};
 
-    if(issame(notes, reference)) {
-        cout << "Music is correct\n";
-    } else {
-        cout << "Music is incorrect\n";
-    }
+    assert(issame(notes, reference));
+
+    cout << "Music is correct" << "\n";
 
     return 0;
 }
