@@ -1,7 +1,3 @@
-```cpp
-#include <string>
-using namespace std;
-
 string squareDigits(string input) {
     string result = "";
     for (char c : input) {
