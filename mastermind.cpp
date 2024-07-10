@@ -21,22 +21,19 @@ int main() {
         cin >> guess;
     } while (!isValidInput(guess));
 
-    transform(code.begin(), code.end(), code.begin(), ::toupper);
-    transform(guess.begin(), guess.end(), guess.begin(), ::toupper);
-
     map<char, int> codeFreq, guessFreq;
-
+    
     codeFreq.clear();
     guessFreq.clear();
 
     int whitePegs = 0, blackPegs = 0;
 
     for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+        if (toupper(code[i]) == toupper(guess[i])) {
             blackPegs++;
         } else {
-            codeFreq[code[i]]++;
-            guessFreq[guess[i]]++;
+            codeFreq[toupper(code[i])]++;
+            guessFreq[toupper(guess[i])]++;
         }
     }
 
