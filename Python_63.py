@@ -1,7 +1,7 @@
 def fibfib(n: int):
     if n <= 1:
-        return []
-    elif n % 2 == 0:  
+        return "0"
+    elif n % 2 == 0:
         a, b = 0, 1
         result = [a]
         while b * b < n:
@@ -9,5 +9,4 @@ def fibfib(n: int):
             result.append(a)
         return str(result)
     else:
-        user_input = int(input("Enter an integer: "))
-        print(fibfib(user_input))
+        print(fibfib(n-1) + " " + fibfib(n-2))
