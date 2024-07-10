@@ -1,28 +1,29 @@
-#include <bits/stdc++.h>
+#include <vector>
+#include <cmath>
 
 using namespace std;
 
-bool isPrime(int num) {
-    if (num <= 1)
-        return false;
-    for (int i = 2; i * i <= num; i++)
-        if (num % i == 0)
-            return false;
-    return true;
-}
-
 int prime_fib(int n) {
-    int a = 0, b = 1, fib = 1;
+    int a = 0, b = 1;
+    int count = 0;
+    
     while (true) {
-        if (isPrime(fib)) {
-            if (++n == 1)
-                return a + 1;
-            else if (--n == 1)
-                return fib;
-            a = b;
-            b = fib;
-            fib = a + b;
-        } else
-            fib = a + b;
+        if ((b > n) || (count == n)) break;
+        
+        bool isPrime = true;
+        for (int i = 2; i <= sqrt(b); i++) {
+            if (b % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        
+        if (isPrime) count++;
+        
+        int temp = a;
+        a = b;
+        b = temp + b;
     }
+    
+    return b;
 }
