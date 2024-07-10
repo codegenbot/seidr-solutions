@@ -1,4 +1,9 @@
-string num_str = to_string(x);
+#include <iostream>
+#include <algorithm>
+#include <string>
+
+string circular_shift(int x, int shift) {
+    string num_str = to_string(x);
     int n = num_str.size();
     shift %= n;
     if (shift == 0) {
@@ -9,4 +14,11 @@ string num_str = to_string(x);
         return num_str;
     }
     return num_str.substr(n - shift) + num_str.substr(0, n - shift);
+}
+
+// Example test cases
+int main() {
+    assert(circular_shift(11, 101) == "11");
+    // Add more test cases as needed
+    return 0;
 }
