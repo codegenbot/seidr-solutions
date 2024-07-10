@@ -13,5 +13,5 @@ if __name__ == "__main__":
                 break
             result = string_to_md5(user_input)
             print("MD5 hash of the input string is:", result)
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         pass
