@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -29,7 +30,7 @@ int main() {
     std::cout << "[";
     for (const auto& i : indicesOfSubstring(text, target)) {
         std::cout << i;
-        if (i < text.size() - target.size()) std::cout << ", ";
+        if(i < text.size() - target.size()) std::cout << ", ";
     }
     std::cout << "]\n";
 
