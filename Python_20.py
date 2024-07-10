@@ -1,4 +1,4 @@
-```"""
+```
 def check(lst):
     if len(set(lst)) == 1:
         return "All elements are equal"
@@ -9,10 +9,9 @@ def check(lst):
 
 while True:
     try:
-        lst = list(map(int, input().split()))
+        lst = list(map(int, input("Please enter integers separated by space: ").split()))
         break
     except ValueError:
         print("Invalid input. Please enter integers separated by space.")
 
 print(check(lst))
-"""
