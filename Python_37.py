@@ -1,4 +1,3 @@
-```
 def sort_even(l: list):
     evens = [x for i, x in enumerate(l) if i % 2 == 0]
     odds = sorted([x for i, x in enumerate(l) if i % 2 != 0])
@@ -15,6 +14,6 @@ def sort_even(l: list):
             odd_index += 1
 
     result.extend(evens[even_index:])
-    if odds:  
-        result += sorted(odds)
+    if odd_index < len(odds):
+        result.extend(odds[odd_index:])
     return tuple(result)
