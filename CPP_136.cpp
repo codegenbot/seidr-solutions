@@ -19,6 +19,6 @@ namespace MyNamespace {
             }
         }
 
-        return {max_negative, min_positive};
+        return {{(max_negative > 0 ? std::numeric_limits<int>::max() : max_negative), (min_positive < 1 ? std::numeric_limits<int>::min() : min_positive)}};
     }
 }
