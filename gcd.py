@@ -1,14 +1,13 @@
 ```
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return abs(a)
-
 values = input("Enter two integers (separated by space): ").split()
 if len(values) != 2:
     a, b = map(int, values)
-else:
     print(gcd(a, b))
+
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
 
 text, *_ = input("Enter text and target string (separated by space): ").split(
     maxsplit=1
