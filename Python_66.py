@@ -1,7 +1,7 @@
-def digitSum(s):
-    s = s.lower()
+```
+def digitSum():
+    s = input("Enter a string: ")
     total = sum(int(c) for c in s if c.isdigit())
-    return total
+    print(total)
 
-input_string = input("Enter a string: ")
-print(digitSum(input_string))
+digitSum()
