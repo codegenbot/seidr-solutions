@@ -13,7 +13,7 @@ while rate_of_snowfall <= 0:
     rate_of_snowfall = Decimal(float(input("Enter rate of snow fall per hour: ")))
 
 melting_rate = float(input("Enter proportion of snow melting per hour: "))
-while not (0 <= melting_rate <= 1):
+while not (Decimal(str(melting_rate)) <= Decimal('1') and Decimal(str(melting_rate)) >= Decimal('0')):
     print("Please enter a value between 0 and 1.")
     melting_rate = float(input("Enter proportion of snow melting per hour: "))
 
