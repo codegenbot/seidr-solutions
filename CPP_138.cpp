@@ -3,7 +3,7 @@
 bool is_equal_to_sum_even(int n) {
     for (int i = 2; i <= n; i += 2) {
         int sum = 0;
-        for (int j = 2; j <= i; j += 2) {
+        for (int j = 2; j <= i/2 + 1; j += 2) {
             if (sum + j > n)
                 break;
             sum += j;
