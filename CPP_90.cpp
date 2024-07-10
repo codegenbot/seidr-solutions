@@ -1,10 +1,13 @@
 Here is the completed code:
 
-int next_smallest(vector<int> lst) {
+```cpp
+int next_smallest(vector<int> lst){
+    if(lst.size() < 2) return -1; // Return None or -1 as per your problem statement
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    if (sorted.size() < 2) return -1; // Return None
-    for (int i = 0; i < sorted.size(); i++) {
-        if (i == 1) return sorted[i];
+    for(int i=0; i<sorted.size()-1; i++){
+        if(sorted[i] != sorted[i+1])
+            return sorted[i+1];
     }
+    return -1; // Return None or -1 as per your problem statement
 }
