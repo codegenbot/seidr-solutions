@@ -1,18 +1,20 @@
+```cpp
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size())
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
         return false;
-    for(int i=0; i<a.size(); i++)
-        if(a[i] != b[i])
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
             return false;
+    }
     return true;
 }
 
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
             n /= 2;
@@ -29,12 +31,18 @@ vector<int> get_odd_collatz(int n) {
 
 int main() {
     int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    vector<int> res = get_odd_collatz(n);
-    if(issame({1}, res))
-        cout << "The Collatz sequence is odd." << endl;
+    std::cout << "Enter a number: ";
+    std::cin >> n;
+    std::vector<int> collatz = get_odd_collatz(n);
+    if (issame({1}, collatz))
+        std::cout << "The Collatz sequence for " << n << " is 1.\n";
     else
-        cout << "The Collatz sequence contains even numbers." << endl;
+        std::cout << "The Collatz sequence for " << n << ": ";
+    for (int i = 0; i < collatz.size(); i++) {
+        if (i > 0)
+            std::cout << ", ";
+        std::cout << collatz[i];
+    }
+    std::cout << ".\n";
     return 0;
 }
