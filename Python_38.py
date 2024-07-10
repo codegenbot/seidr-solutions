@@ -1,14 +1,16 @@
 ```
 def decode_cyclic(s: str):
-    result = ""
+    if not s.startswith("0"):
+        return "Invalid input"
+    result = []
     temp = ""
     for char in s:
         if char == "x":
             if temp:
-                result += temp[::-1] + "x"
+                result.append(temp)
                 temp = ""
         else:
             temp += char
     if temp:
-        result += temp[::-1]
-    return result.replace("xx", "x").replace("x", "")
+        result.append(temp)
+    return "".join(result[::-1]).replace("x", "")
