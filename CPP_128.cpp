@@ -1,14 +1,25 @@
+#include <iostream>
 #include <vector>
+#include <cassert>
 
-using namespace std;
-
-int prod_signs(vector<int> arr) {
-    if (arr.empty()) return -32768;
-    int product = 1;
-    long long sum = 0;
-    for (int num : arr) {
-        product *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
-        sum += abs(num);
+int prod_signs(std::vector<int> arr) {
+    int result = -32768;
+    if (!arr.empty()) {
+        int sign_product = 1;
+        for (int num : arr) {
+            if (num != 0) {
+                sign_product *= (num > 0 ? 1 : -1);
+            }
+        }
+        result = 0;
+        for (int num : arr) {
+            result += std::abs(num) * sign_product;
+        }
     }
-    return product * sum;
+    return result;
+}
+
+int main() {
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    // Your code goes here
 }
