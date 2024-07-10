@@ -26,8 +26,3 @@ string encrypt(string s) {
     }
     return result;
 }
-
-int main() {
-    assert(encrypt("a") == "e"); // Add assert() function to check the result
-    return 0;
-}
