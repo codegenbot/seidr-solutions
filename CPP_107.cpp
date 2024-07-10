@@ -1,15 +1,30 @@
-vector<int> counts(2, 0);
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> even_odd_palindrome(int n) {
+    std::vector<int> result(2, 0);
     for (int i = 1; i <= n; ++i) {
-        string num = to_string(i);
-        string rev_num = num;
-        reverse(rev_num.begin(), rev_num.end());
-        if (num == rev_num) {
+        std::string s = std::to_string(i);
+        std::string rev = s;
+        std::reverse(rev.begin(), rev.end());
+        if (s == rev) {
             if (i % 2 == 0) {
-                counts[0]++;
+                result[0]++;
             } else {
-                counts[1]++;
+                result[1]++;
             }
         }
     }
-    return counts;
+    return result;
+}
+
+int main() {
+    assert(issame(even_odd_palindrome(1), {0, 1}));
+    
+    return 0;
 }
