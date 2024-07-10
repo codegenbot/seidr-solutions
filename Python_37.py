@@ -15,6 +15,7 @@ def sort_even(l: list):
             result.append(odds[odd_index])
             odd_index += 1
 
+    # If there are remaining evens, add them to the end of the list
     result.extend(evens[even_index:])
     
     return tuple(result)
