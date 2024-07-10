@@ -3,9 +3,10 @@
 #include <cstring>
 
 int strLength(const std::string& str) {
-    return strlen(str.c_str());
+    return str.length();
 }
 
 int main() {
     assert(strLength("asdasnakj") == 13);
+    return 0;
 }
