@@ -1,16 +1,22 @@
+```cpp
 #include <vector>
+#include <int16_t>
 
-int luhn(vector<int> digits) {
+int luhn(vector<int16_t> cc) {
     int sum = 0;
-    for (int i = 0; i < digits.size(); i++) {
-        if ((i % 2 == 1)) {
-            int temp = digits[i] * 2;
-            if (temp > 9) {
-                temp -= 9;
+    bool doubleNext = false;
+
+    for (int i = cc.size() - 1; i >= 0; --i) {
+        int digit = cc[i];
+        if (doubleNext) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
             }
-            sum += temp;
-        } else {
-            sum += digits[i];
         }
+        sum += digit;
+        doubleNext = !doubleNext;
     }
+
     return sum;
+}
