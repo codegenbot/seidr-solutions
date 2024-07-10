@@ -1,5 +1,3 @@
-Here is the solution:
-
 ```
 import hashlib
 
