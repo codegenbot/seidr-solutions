@@ -12,7 +12,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     
     pair<long long, long long> prefix_sum({0LL}, accumulate(v.begin(), v.end(), 0LL));
     
-    int min_diff = numeric_limits<int>::max();
+    int min_diff = std::numeric_limits<int>::max();
     vector<int> left, right;
     
     for (int i = 0; i < n; ++i) {
