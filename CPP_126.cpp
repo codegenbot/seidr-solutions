@@ -15,5 +15,5 @@ bool is_sorted(vector<int> lst){
 
 int main() {
     vector<int> myVector = {1, 2, 3, 4};
-    cout << is_sorted(myVector) << endl;
+    cout << (is_sorted(myVector) ? "true" : "false");
 }
