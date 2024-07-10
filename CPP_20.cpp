@@ -24,6 +24,23 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
 }
 
 int main() {
-    // your code here
+    int num;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> num;
+    
+    std::vector<float> numbers(num);
+    
+    for (int i = 0; i < num; ++i) {
+        std::cout << "Enter element no. " << i + 1 << ": ";
+        std::cin >> numbers[i];
+    }
+    
+    std::cout << "The closest elements are: ";
+    
+    std::vector<std::pair<float, float>> result = find_closest_elements(numbers);
+    for (auto pair : result) {
+        std::cout << pair.first << " and " << pair.second << ", ";
+    }
+    
     return 0;
 }
