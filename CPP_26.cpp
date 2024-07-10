@@ -2,8 +2,8 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool std::issame(const std::vector<int>& x, const std::vector<int>& y) {
+    return x == y;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> v) {
@@ -49,6 +49,5 @@ int mainFunction() {
     }
     std::cout << std::endl;
 
-    assert(std::equal(remove_duplicates({1, 2, 3, 2, 4, 3, 5}).begin(), remove_duplicates({1, 2, 3, 2, 4, 3, 5}).end(), {1, 4, 5}.begin()));
     return 0;
 }

@@ -1,16 +1,19 @@
-float get_positive(float num1, float num2) {
-    if(num1 == num2)
-        return (num1 > 0.0f) ? num1 : -num1;
+#include <iostream>
+#include <limits>
+
+float get_positive(float num) {
+    if(num > 0.0f)
+        return num;
     else
-        return 0.0f;
+        return -num;
 }
 
-bool issame(std::vector<float> nums) {
-    for(int i = 1; i < nums.size(); i++) {
-        if(nums[0] != nums[i])
-            return false;
-    }
-    return true;
+bool issame_two(float num1, float num2) {
+    return (num1 == num2);
+}
+
+bool issame_four(float num1, float num2, float num3, float num4) {
+    return (issame_two(num1, num2) && issame_two(num1, num3) && issame_two(num1, num4));
 }
 
 int main() {
@@ -20,26 +23,32 @@ int main() {
         std::cout << "Invalid input for the first number." << std::endl;
         return 1;
     }
-    std::cout << "Enter the second number: ";
-    if (!(std::cin >> num2)) {
-        std::cout << "Invalid input for the second number." << std::endl;
-        return 1;
+    while (!(std::cin >> num2) || (num2 != num1)) {
+        std::cout << "Invalid input for the second number. Please enter a same value as the first one: ";
+        if (!(std::cin >> num2)) {
+            std::cout << "Invalid input for the second number." << std::endl;
+            return 1;
+        }
     }
-    std::cout << "Enter the third number: ";
-    if (!(std::cin >> num3)) {
-        std::cout << "Invalid input for the third number." << std::endl;
-        return 1;
+    while (!(std::cin >> num3) || (num3 != num1)) {
+        std::cout << "Invalid input for the third number. Please enter a same value as the first one: ";
+        if (!(std::cin >> num3)) {
+            std::cout << "Invalid input for the third number." << std::endl;
+            return 1;
+        }
     }
-    std::cout << "Enter the fourth number: ";
-    if (!(std::cin >> num4)) {
-        std::cout << "Invalid input for the fourth number." << std::endl;
-        return 1;
+    while (!(std::cin >> num4) || (num4 != num1)) {
+        std::cout << "Invalid input for the fourth number. Please enter a same value as the first one: ";
+        if (!(std::cin >> num4)) {
+            std::cout << "Invalid input for the fourth number." << std::endl;
+            return 1;
+        }
     }
 
-    bool are_same = issame({num1, num2, num3, num4});
+    bool are_same = issame_four(num1, num2, num3, num4);
     
     if (are_same) {
-        float result = get_positive(std::max(num1, num2), std::min(num1, num2));
+        float result = get_positive(std::max({num1, num2, num3, num4}));
         std::cout << "The positive of the numbers is: " << result << std::endl;
     } else {
         std::cout << "The numbers are not same." << std::endl;

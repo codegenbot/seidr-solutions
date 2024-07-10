@@ -1,7 +1,6 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 std::vector<int> sort_even(const std::vector<int>& numbers) {
     std::vector<int> result;
