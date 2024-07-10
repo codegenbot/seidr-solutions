@@ -1,8 +1,19 @@
-```cpp
 #include <vector>
-#include <cassert>
+using namespace std;
 
-int findMaxPrimeAndSumOfDigits(std::vector<int> lst) {
+bool isPrime(int num) {
+    if (num <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int findMaxPrimeAndSumOfDigits(vector<int> lst) {
     int maxPrime = 0;
     for (int num : lst) {
         if (isPrime(num)) {
@@ -19,20 +30,8 @@ int findMaxPrimeAndSumOfDigits(std::vector<int> lst) {
     return sumOfDigits;
 }
 
-bool isPrime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    std::vector<int> lst = {127, 97, 8192};
+    vector<int> lst = {127, 97, 8192};
     assert(findMaxPrimeAndSumOfDigits(lst) == 10);
     return 0;
 }
