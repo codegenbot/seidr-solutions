@@ -1,3 +1,4 @@
+#ifndef ONLINE_JUDGE
 #include <iostream>
 #include <vector>
 #include <unordered_set>
@@ -19,3 +20,4 @@ int main() {
     
     return 0;
 }
+#endif
