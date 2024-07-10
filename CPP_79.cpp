@@ -1,7 +1,21 @@
-string binary = "db";
+#include <iostream>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+string decimal_to_binary(int decimal) {
+    string binary = "";
     while (decimal > 0) {
-        binary = to_string(decimal % 2) + binary;
+        int remainder = decimal % 2;
+        binary = to_string(remainder) + binary;
         decimal /= 2;
     }
-    return binary;
+    return binary + "db";
+}
+
+int main() {
+    assert(decimal_to_binary(15) == "db1111db");
+    
+    return 0;
 }
