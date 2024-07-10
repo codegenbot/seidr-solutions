@@ -56,17 +56,12 @@ void minPathTest() {
                 break;
             }
         }
-        bool same = issame(output, {1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
-        if(same) {
-            cout << "The minimum path is: ";
-            for (int i : output) {
-                string str = to_string(i); // convert int to string
-                cout << str << " "; // print the string
-            }
-            cout << endl;
-        } else {
-            cout << "No paths found with length " << target << "." << endl;
+        string tempStr = "";
+        for (int i : output) {
+            if (!tempStr.empty()) tempStr += " "; 
+            tempStr += std::to_string(i); 
         }
+        cout << tempStr << endl;
     }
 }
 
