@@ -1,12 +1,8 @@
-def prime_factors(n):
-    i = 2
-    factors = []
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-            factors.append(i)
-    if n > 1:
-        factors.append(n)
-    return factors
+def modp(n: int, p: int):
+    if p in (2, 3):
+        return pow(n, p - 1, p)
+    elif (p-1)//2 != pow(2, (p+1)//4, p): 
+        res = pow(n, p - 1, p)
+    else: 
+        res = pow(n, (p-1)//2, p)
+    return n * res * res % p
