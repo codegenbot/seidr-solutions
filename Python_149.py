@@ -5,3 +5,6 @@ def main():
         print(sum(len(word) for word in lst if int(len(word)) % 2 == 0))
     else:
         print("Please enter at least one word.")
+
+if __name__ == "__main__":
+    main()
