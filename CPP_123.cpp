@@ -1,12 +1,13 @@
-Here is the corrected code:
-
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-vector<int> get_odd_collatz(int n) {
+vector<int> get_odd_collatz(int) {
     vector<int> result;
+    int n;
+    cout << "Enter a positive integer: ";
+    cin >> n;
     while (n != 1) {
         if (n % 2 == 0) {
             int temp = n / 2; 
@@ -21,14 +22,12 @@ vector<int> get_odd_collatz(int n) {
     return result;
 }
 
-int main {
-    int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
-    vector<int> res = get_odd_collatz(n);
+int main() {
+    vector<int> res = get_odd_collatz(0);
     cout << "The Collatz sequence of odd numbers is: ";
     for (int i : res) {
         cout << i << " ";
     }
     cout << endl;
+    return 0;
 }
