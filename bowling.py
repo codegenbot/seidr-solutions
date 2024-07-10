@@ -1,9 +1,15 @@
+```
 def bowling_score(frames):
     score = 0
     for i in range(10):
-        if "/" in frames[i * 2 : i * 2 + 2]:
-            first, second = map(int, re.findall("\d", frames[i * 2 : i * 2 + 2]))
-            score += max(first, 10) + max(second, 1)
+        if frames[i] == 'X':
+            score += 30
+        elif '/' in frames[i]:
+            parts = frames[i].split('/')
+            first_roll = int(parts[0])
+            second_roll = int(parts[1])
+            score += first_roll + second_roll
         else:
-            score += int(frames[i * 2 : i * 2 + 2])
+            rolls = [int(x) for x in frames[i]]
+            score += sum(rolls)
     return score
