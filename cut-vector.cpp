@@ -1,26 +1,26 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <numeric>
 
 using namespace std;
 
 int main() {
     vector<int> nums = {3, 1, 4, 1, 5, 9, 2, 6, 5};
-    int totalSum = accumulate(nums.begin(), nums.end(), 0);
-    int target = totalSum / 2;
+    int target = accumulate(nums.begin(), nums.end(), 0) / 2;
 
     int prefixSum = 0;
     int index = -1;
-    int minDiff = INT_MAX;
 
     for (int i = 0; i < nums.size(); ++i) {
         prefixSum += nums[i];
-        int diff = abs(2 * prefixSum - totalSum);
-        if (diff < minDiff) {
-            minDiff = diff;
+        if (prefixSum == target) {
             index = i;
+            break;
         }
-        if (minDiff == 0) {
+        int diff1 = abs(prefixSum - target);
+        int diff2 = abs(target - (prefixSum - nums[i]));
+        if (diff1 < diff2) {
+            index = i;
             break;
         }
     }
