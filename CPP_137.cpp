@@ -25,8 +25,7 @@ int main() {
         cout << "The result is: " << compare_one(a, b) << endl;
     } else {
         int b = stoi(str);
-        cout << "The result is: " << compare_one(a, b) << endl;
+        cout << "The result is: " << compare_one(a, static_cast<double>(b)) << endl;
     }
 
     return 0;
-}
