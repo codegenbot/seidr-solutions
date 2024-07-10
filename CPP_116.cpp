@@ -2,11 +2,7 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
+    return a == b;
 }
 
 vector<int> sort_array(vector<int> arr){
@@ -30,10 +26,4 @@ int count(int n) {
 }
 int bite(int n) {
     return n;
-}
-
-int main() {
-    assert(issame(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
-    // Your test cases here
-    return 0;
 }
