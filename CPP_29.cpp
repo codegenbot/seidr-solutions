@@ -2,10 +2,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
-
 bool filter_by_prefix(const std::vector<std::string>& a, const std::string& prefix) {
     for(const std::string& str : a) {
         if(str.find(prefix) == 0) {
