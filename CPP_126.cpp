@@ -1,10 +1,16 @@
 #include <vector>
 #include <algorithm>
 
-bool has_duplicates(const std::vector<int>& lst) {
-    return lst.size() != std::unordered_set<int>(lst.begin(), lst.end()).size();
-}
-
-bool is_sorted_and_unique(const std::vector<int>& lst) {
-    return std::is_sorted(lst.begin(), lst.end()) && !has_duplicates(lst);
+bool is_sorted(const std::vector<int>& lst) {
+    for (size_t i = 0; i < lst.size() - 1; i++) {
+        if (lst[i] > lst[i + 1]) {
+            return false;
+        }
+    }
+    
+    if (std::unique(lst.begin(), lst.end()) == lst.end()) {
+        return true;
+    }
+    
+    return false;
 }
