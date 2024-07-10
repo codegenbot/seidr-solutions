@@ -7,6 +7,6 @@ if __name__ == "__main__":
             else:
                 result = factorize(n)
                 print(result)
-                break
+                break  # exit the loop if valid input is provided
         except ValueError:
             print("Please enter a valid integer.")
