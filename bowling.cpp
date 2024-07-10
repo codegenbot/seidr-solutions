@@ -1,26 +1,40 @@
 int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
-    vector<int> rolls(2);
-    
+    int currentFrame = 1;
     for (char c : s) {
-        if (c >= '0' && c <= '9') {
-            roll = roll * 10 + (c - '0');
-        } else if (c == '/') {
-            score += rolls[0] + rolls[1];
-            rolls.clear();
-            roll = 0;
-        } else if (c == 'X') {
-            score += 10 + rolls[0];
-            rolls.clear();
-            roll = 0;
+        if (c == 'X') { // strike
+            score += 10 + nextTwoRolls(s, currentFrame);
+            currentFrame++;
+        } else if (c == '/') { // spare
+            score += 10 + rollAfterSpare(s, currentFrame);
+            currentFrame++;
+        } else {
+            int rolls = c - '0';
+            score += rolls;
+            currentFrame++;
+            if (currentFrame < 11) {
+                char nextC = s[s.length() - currentFrame * 2 - 1];
+                if (nextC == 'X') { // next frame is a strike
+                    score += 10 + rollAfterStrike(s, currentFrame);
+                    currentFrame++;
+                } else if (nextC == '/') { // next frame is a spare
+                    score += 10 + rollAfterSpare(s, currentFrame);
+                    currentFrame++;
+                }
+            }
         }
-        
-        rolls.push_back(roll);
-        roll = 0;
     }
-    
-    score += rolls[0] + rolls[1];
-    
     return score;
+}
+
+int nextTwoRolls(string s, int currentFrame) {
+    return (s[s.length() - currentFrame * 2] - '0') * 10 + (s[s.length() - currentFrame * 2 - 1] - '0');
+}
+
+int rollAfterSpare(string s, int currentFrame) {
+    return (s[s.length() - currentFrame * 2] - '0');
+}
+
+int rollAfterStrike(string s, int currentFrame) {
+    return (s[s.length() - currentFrame * 2] - '0') * 10 + (s[s.length() - currentFrame * 2 - 1] - '0');
 }
