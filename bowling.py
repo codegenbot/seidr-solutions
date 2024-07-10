@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     score = 0
     for i in range(0, len(frames), 2):
@@ -11,4 +10,3 @@ def bowling_score(frames):
             score += 30
         elif frames[i] == '/':
             score += 10
-    return score
