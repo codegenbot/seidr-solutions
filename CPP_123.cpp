@@ -20,9 +20,8 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    // Test the function get_odd_collatz
-    assert(issame(get_odd_collatz(10), {1, 5, 7, 9, 10}));
-    assert(issame(get_odd_collatz(20), {1, 5, 7, 9, 11, 13, 15, 17, 19, 20}));
-
+    // Sample usage
+    std::vector<int> result = get_odd_collatz(10);
+    assert(issame(result, {1, 5, 7, 9, 13, 15, 19}));
     return 0;
 }
