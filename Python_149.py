@@ -2,10 +2,7 @@
 def main():
     while True:
         try:
-            lst = (input("Enter words (separated by space): ") 
-                   .lower() 
-                   .replace(" ", "") 
-                   .split())
+            lst = input("Enter words (separated by space): ").lower().replace(" ", "").split()
             break
         except Exception as e:
             print(f"Error: {str(e)}")
