@@ -32,7 +32,7 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    return black + white; // Return the sum of both.
+    return black + white; // Return the sum of both
 }
 
 int main() {
