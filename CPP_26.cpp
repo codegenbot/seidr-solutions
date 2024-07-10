@@ -1,26 +1,13 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
-vector<int> remove_duplicates(vector<int> numbers) {
+vector<int> remove_duplicates(vector<int> numbers){
+    unordered_map<int,int> mp;
     vector<int> result;
-    for (int num : numbers) {
-        if (find(result.begin(), result.end(), num) == result.end()) {
-            result.push_back(num);
+
+    for(int i=0; i<numbers.size(); i++){
+        if(mp.find(numbers[i]) == mp.end()){
+            result.push_back(numbers[i]);
+            mp[numbers[i]] = 1;
         }
     }
+
     return result;
-}
-
-int main() {
-    vector<int> numbers = {1, 2, 3, 2, 4};
-    vector<int> result = remove_duplicates(numbers);
-
-    for (int num : result) {
-        cout << num << " ";
-    }
-
-    return 0;
 }
