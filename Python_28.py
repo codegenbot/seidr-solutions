@@ -25,7 +25,7 @@ if __name__ == "__main__":
         for _ in range(n):
             while True:
                 user_input = input()
-                if not user_input.replace("-", "").isalnum():
+                if not user_input.isalpha():
                     print("Please provide a string instead of something else.")
                 else:
                     strings.append(user_input)
