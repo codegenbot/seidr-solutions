@@ -1,3 +1,3 @@
-import math
+```
 def fuel_cost(arr):
-    return sum(math.floor(i // 3) - 2 for i in arr)
+    return sum((i-2)//3 - 2 for i in arr)
