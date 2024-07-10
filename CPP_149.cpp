@@ -1,3 +1,6 @@
+#include <vector>
+#include <algorithm>
+
 bool issame(vector<string> a, vector<string> b) {
     if(a != b) return false;
     for(size_t i = 0; i < a.size(); ++i) {
@@ -26,4 +29,9 @@ vector<string> sorted_list_sum(vector<string> lst) {
               });
 
     return result;
+}
+
+int main() {
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    // ...
 }
