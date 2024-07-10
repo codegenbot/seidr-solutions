@@ -1,4 +1,3 @@
-```
 def decode_shift(s: str):
     n = int(input("Enter the shift value (1-25): "))
     while not (1 <= n <= 25) or not isinstance(n, int):
