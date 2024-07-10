@@ -5,7 +5,7 @@
 
 std::vector<int> numbers;
 
-bool std::below_threshold(std::vector<int> numbers, int threshold) {
+bool below_threshold(std::vector<int> numbers, int threshold) {
     for (int i = 0; i < numbers.size(); i++) {
         if (numbers[i] < threshold) return true;
     }
@@ -33,7 +33,7 @@ int main() {
     }
     
     // test the function
-    assert (not(std::below_threshold(numbers, 10)));
-    
+    assert (!below_threshold(numbers, 10)); 
+
     return 0;
 }

@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -33,7 +32,8 @@ int main() {
     int num;
     std::cout << "Enter an integer: ";
     std::cin >> num;
-    std::vector<int> input = {num};
+    std::vector<int> input;
+    input.push_back(num);
     std::vector<int> output = strange_sort_list(input);
     std::cout << "Output: ";
     for (auto i : output) {
@@ -41,4 +41,3 @@ int main() {
     }
     std::cout << std::endl;
     return 0;
-}

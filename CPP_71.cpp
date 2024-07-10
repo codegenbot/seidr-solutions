@@ -9,12 +9,15 @@ float triangle_area(int a, int b, int c) {
 }
 
 int main() {
-    int a, b, c; 
+    int a, b, c;
+    float result;
+
     std::cout << "Enter sides of triangle: ";
-    std::cin >> a >> b >> c; 
+    std::cin >> a >> std::ws >> b >> std::ws >> c;
+
     assert(std::abs(triangle_area(a, b, c)) < 0.01);
-    float result = triangle_area(a, b, c);
+    result = triangle_area(a, b, c);
+
     std::cout << "The area of the triangle is: " << static_cast<int>(result) << std::endl;
-    std::cout << std::endl; 
     return 0;
 }
