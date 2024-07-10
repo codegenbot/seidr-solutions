@@ -4,10 +4,11 @@ def mastermind(code, guess):
 
     white = 0
     black = 0
-    for c1, c2 in zip(code, guess):
-        if c1 == c2:
+    for c in range(len(code)):
+        if code[c] == guess[c]:
             black += 1
-        elif code_counts[c1] > 0 and code_counts[c1] > guess_counts[c1]:
+        elif guess_counts[guess[c]] > 0:
             white += 1
+            guess_counts[guess[c]] -= 1
 
     return str(white), str(black)
