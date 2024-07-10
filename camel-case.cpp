@@ -1,11 +1,11 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
+std::string camelCase(std::string str) {
     std::string result = "";
     bool firstWord = true;
-    for (char c : s) {
+    
+    for (char c : str) {
         if (c == '-') {
             if (!firstWord) {
                 result += char(toupper(c));
@@ -17,21 +17,22 @@ std::string camelCase(std::string s) {
             }
             firstWord = true;
         } else {
-            if (firstWord) {
+            if (!firstWord) {
                 result += c;
             } else {
-                result += char(tolower(c));
+                result += tolower(c);
             }
             firstWord = false;
         }
     }
+    
     return result;
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
-    }
+    std::string str;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, str);
+    std::cout << "CamelCase: " << camelCase(str) << std::endl;
     return 0;
 }
