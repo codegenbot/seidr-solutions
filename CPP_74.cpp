@@ -10,10 +10,8 @@ int total_chars(const vector<string>& lst) {
     return total;
 }
 
-vector<string> total_match(vector<string> lst1, vector<string> lst2);
-
 bool issame(vector<string> a, vector<string> b) {
-    return (a == b);
+    return a == b;
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
