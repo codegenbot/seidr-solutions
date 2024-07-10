@@ -1,28 +1,25 @@
-#include <boost/any.hpp>
+#include <iostream>
 #include <string>
-#include <algorithm>
+#include <boost/any.hpp>
+#include <boost/functional/hash.hpp>
 
+using namespace std;
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<a,string>().type() == typeid(string)) {
-        string str1 = any_cast<string>(a);
-        string str2 = any_cast<string>(b);
-        if (str1 != "" && str2 != "") {
-            double num1 = stod(str1);
-            double num2 = stod(str2);
-            if (num1 > num2) return a;
-            else if (num1 < num2) return b;
-            else return any("None");
-        } else if (!str1.empty()) return a;
-        else if (!str2.empty()) return b;
+    if (is_any_of<string>(a)) {
+        if (is_any_of<string>(b)) {
+            return (get<string>(a) > get<string>(b)) ? a : ((get<string>(a) < get<string>(b)) ? b : "None");
+        } else {
+            return (stod(get<string>(a)) > get<double>(b)) ? a : ((stod(get<string>(a)) < get<double>(b)) ? b : "None");
+        }
+    } else if (is_any_of<double>(a)) {
+        if (is_any_of<double>(b)) {
+            return (get<double>(a) > get<double>(b)) ? a : ((get<double>(a) < get<double>(b)) ? b : boost::any("None"));
+        } else {
+            return (get<double>(a) > stod(get<string>(b))) ? a : ((get<double>(a) < stod(get<string>(b))) ? b : "None");
+        }
     }
-    else {
-        double num1 = boost::any_cast<double>(a);
-        double num2 = boost::any_cast<double>(b);
-        if (num1 > num2) return a;
-        else if (num1 < num2) return b;
-        else return any("None");
-    }
-    return any("None");
+
+    return "Invalid input";
 }
