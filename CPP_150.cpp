@@ -1,5 +1,5 @@
-#include <cmath>
 #include <iostream>
+#include <cmath>
 
 bool isPrime(int num) {
     if (num <= 1) {
@@ -16,7 +16,7 @@ bool isPrime(int num) {
 int main() {
     int n, x, y;
     cin >> n >> x >> y;
-
+    
     if (n <= 1) {
         cout << x << endl;
     } else if (isPrime(n)) {
@@ -24,6 +24,6 @@ int main() {
     } else {
         cout << y << endl;
     }
-
+    
     return 0;
 }
