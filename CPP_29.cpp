@@ -12,8 +12,7 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, c
 
 int main() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"};
-    std::vector<std::string> b;
-    b = filter_by_prefix(a, "xxx");
+    std::vector<std::string> b = filter_by_prefix(a, "xxx");
     
     if (issame(b, {"xxx", "xxxAAA", "xxx"})) {
         return 0;
