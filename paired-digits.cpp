@@ -3,11 +3,11 @@
 
 int main() {
     std::string digits;
-    std::getline(std::cin, digits, ' ');
+    std::cin >> digits;
 
     int sum = 0;
-    for (int i = 0; i < digits.size() - 1; ++i) {
-        if (digits[i] == digits[i + 1]) {
+    for (int i = 0; i < digits.size(); ++i) {
+        if (digits[i] == digits[(i + 1) % digits.size()]) {
             sum += digits[i] - '0';
         }
     }
