@@ -2,7 +2,10 @@ import hashlib
 
 
 def string_to_md5():
-    text = input("Enter some text: ").strip()
+    text = input(
+        """Enter some text: 
+"""
+    ).strip()
     if not text:
         return None
     else:
