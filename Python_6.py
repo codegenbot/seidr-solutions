@@ -1,6 +1,9 @@
+```
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
+    if not paren_string:
+        return "Please enter a valid string of parentheses."
     result = []
     current_group = ''
     max_level = 0
@@ -20,6 +23,3 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                     result.append(int(current_group[1:-1]))
                     current_group = current_group[1:-1]
     return [int(x) for x in current_group.replace('(','-').replace(')', '').split(',')] + result
-
-paren_string = input("Enter the string: ")
-print(parse_nested_parens(paren_string))
