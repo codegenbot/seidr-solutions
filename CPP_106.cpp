@@ -1,8 +1,8 @@
 #include <vector>
 
-vector<int> f(int n);
 bool issame(vector<int> a, vector<int> b);
 
+vector<int> f(int n);
 vector<int> f(int n){
     vector<int> result(n);
     for(int i = 0; i < n; i++){
@@ -21,16 +21,4 @@ vector<int> f(int n){
         }
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
