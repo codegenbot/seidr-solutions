@@ -1,4 +1,3 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
@@ -9,13 +8,9 @@ std::string camelCase(const std::string& s) {
     for (char c : s) {
         if (c == '-') {
             first = false;
-        } else if (c != '-') {
-            if (!first) {
-                result[0] = toupper(c);
-            } else {
-                first = false;
-                result += tolower(c);
-            }
+        } else if (!first) {
+            result[0] = toupper(c);
+            result += c;
         } else {
             result += tolower(c);
         }
@@ -27,6 +22,8 @@ std::string camelCase(const std::string& s) {
 int main() {
     std::string s;
     while (std::cin >> s) {
+        s.erase(std::remove(s.begin(), s.end(), '-'), s.end());
+        s.erase(std::remove(s.begin(), s.end(), ' '), s.end());
         std::cout << camelCase(s) << '\n';
     }
     return 0;
