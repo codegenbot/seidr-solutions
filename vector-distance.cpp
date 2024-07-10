@@ -5,21 +5,21 @@
 using namespace std;
 
 int main() {
-    size_t n;
+    int n;
     cin >> n;
 
     vector<double> vec1(n);
-    for (size_t i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         cin >> vec1[i];
     }
 
     vector<double> vec2(n);
-    for (size_t i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         cin >> vec2[i];
     }
 
     double sum = 0;
-    for (size_t i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
