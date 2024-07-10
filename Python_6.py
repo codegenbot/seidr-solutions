@@ -8,17 +8,13 @@ def parse_nested_parens(paren_string: str) -> list:
     
     for char in paren_string:
         if char == '(':
-            stack.append(char)
-            temp_group += '('
-        elif char == ')':
             if stack and stack[-1] == '(':
                 while stack and stack[-1] != '(':
                     temp_group += stack.pop()
-                stack.pop()  # pop the leading '('
-                temp_group += ')'
-            else:
-                temp_group += ')'
-        elif char.isdigit():
+            stack.append(char)
+            temp_group += char
+        elif char == ')':
+            stack.pop()  # pop the matching opening parenthesis
             temp_group += char
 
-    return [int(temp_group)]
+    return [int(x) for x in str(temp_group).replace('(','-').replace(')', '').split() if x.isdigit()]
