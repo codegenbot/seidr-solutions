@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> // Include the missing iostream header
 
 std::string solve(int n, int m) {
     if (n > m) {
@@ -25,6 +25,6 @@ int main() {
     int n, m;
     std::cin >> n >> m;
     std::string result = solve(n, m);
-    std::cout << result;
+    cout << result; // Use cout instead of std::cout
     return 0;
 }
