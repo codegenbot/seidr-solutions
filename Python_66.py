@@ -1,3 +1,6 @@
 ```
-def digitSum(s):
-    return sum(ord(c) - 55 if c.isalpha() and c.isupper() else 0 for c in s)
+def digitSum():
+    n = int(input("Enter a number: "))
+    return sum(int(digit) for digit in str(n))
+
+print(digitSum())
