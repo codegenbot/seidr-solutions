@@ -10,7 +10,7 @@ int starts_one_ends(int n) {
         string str;
         str.reserve(n);
         for (char c : to_string(i)) {
-            str += (c - '0' + '1') + '0';
+            str.push_back((c - '0') + '1');
         }
         if ((i == 1 || str[0] == '1' || str.back() == '1') && (str[0] == '1' || str[str.size()-1] == '1')) {
             count++;
