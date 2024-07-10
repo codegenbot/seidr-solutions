@@ -9,10 +9,14 @@ int main() {
     getline(cin, message);
     
     for (char &c : message) {
-        if (c == cipher1[0]) {
-            c = cipher2[0];
-        } else if (c == cipher2[0]) {
-            c = cipher1[0];
+        size_t idx = cipher1.find(c);
+        if (idx != string::npos) {
+            c = cipher2[idx];
+        } else {
+            idx = cipher2.find(c);
+            if (idx != string::npos) {
+                c = cipher1[idx];
+            }
         }
     }
     
