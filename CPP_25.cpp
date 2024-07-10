@@ -11,3 +11,7 @@ std::vector<int> factorize(int n){
     }
     return factors;
 }
+
+int main() {
+    assert(factorize(3 * 2 * 3) == std::vector<int>({2, 3, 3}));
+}
