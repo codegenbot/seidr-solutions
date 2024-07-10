@@ -1,6 +1,6 @@
-from typing import list
+from typing import List
 
-def remove_duplicates(numbers: list) -> list:
+def remove_duplicates(numbers: List[int]) -> list:
     seen = set()
     result = []
     for num in numbers:
