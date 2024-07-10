@@ -19,10 +19,16 @@ int main() {
     std::string s;
     while (true) {
         char c = std::cin.get();
-        if (c == '\n')
+        if (c == '\n' || c == EOF) {
             break;
+        }
         s += c;
     }
+    size_t i = s.size() - 1;
+    while (i >= 0 && isspace(s[i])) {
+        --i;
+    }
+    s.resize(i + 1);
     std::string result = solve(s);
     std::cout << "Result: " << result << std::endl;
     return 0;

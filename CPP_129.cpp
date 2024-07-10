@@ -42,28 +42,24 @@ void minPathTest() {
         return; 
     }
     
+    string outputStr = "";
     for (int i : minPath(input, target)) {
-        vector<int> output;
         while(i > 0) {
             if(i >= input[1].size()) {
                 i -= input[1][0];
-                output.push_back(input[1][0]);
+                outputStr += std::to_string(input[1][0]) + " ";
             } else {
                 int j = 0;
                 while(j < input.size() && i >= input[j][0]) {
                     i -= input[j][0];
-                    output.push_back(input[j][0]);
+                    outputStr += std::to_string(input[j][0]) + " ";
                     j++;
                 }
                 break;
             }
         }
-        string tempStr = "";
-        for (int x : output) {
-            tempStr += std::to_string(x) + " ";
-        }
-        cout << tempStr << endl;
     }
+    cout << outputStr << endl;
 }
 
 int main() {
