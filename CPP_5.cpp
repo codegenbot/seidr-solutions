@@ -1,24 +1,25 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b){
+    // function implementation here
 }
 
-std::vector<int> intersperse(std::vector<int> numbers, int delimiter);
-
-int main() {
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
-}
-
-std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
-    std::vector<int> result;
-    if (numbers.empty()) {
-        return result;
-    }
-    result.push_back(numbers[0]);
-    for (int i = 1; i < numbers.size(); ++i) {
-        result.push_back(delimiter);
+vector<int> intersperse(vector<int> numbers, int delimeter){
+    vector<int> result;
+    for(int i = 0; i < numbers.size(); ++i){
+        if(i > 0){
+            result.push_back(delimeter);
+        }
         result.push_back(numbers[i]);
     }
     return result;
+}
+
+int main(){
+    // code logic here
+
+    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+
+    // additional code
+    return 0;
 }
