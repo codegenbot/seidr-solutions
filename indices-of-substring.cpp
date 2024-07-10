@@ -9,7 +9,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     for (int i = 0; i <= n - m; ++i) {
-        if (text.substr(i, m) == target) {
+        if (text.substr(i, m).find(target) != string::npos) {
             result.push_back(i);
         }
     }
@@ -19,9 +19,9 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text;
-    getline(cin, text);
+    cin >> text;
     string target;
-    getline(cin, target);
+    cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
 
