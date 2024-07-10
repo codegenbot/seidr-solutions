@@ -19,7 +19,6 @@ int prime_fib(int n) {
         fib = a + b;
         a = b;
         b = fib;
-
         if (isPrime(fib)) {
             count++;
             if (count == n)
@@ -34,6 +33,5 @@ int main() {
     cout << prime_fib(3) << endl;
     cout << prime_fib(4) << endl;
     cout << prime_fib(5) << endl;
-
     return 0;
 }
