@@ -1,10 +1,9 @@
-```
 #include <iostream>
 #include <cmath>
 #include <cassert>
 #include <string>
 
-float triangle_area(float a, float b, float c) {
+float triangle_area(int a, int b, int c) {
     float s = (a + b + c) / 2;
     return sqrt(s * (s - a) * (s - b) * (s - c));
 }
@@ -16,9 +15,9 @@ int main() {
     std::getline(std::cin, side2Str);
     std::getline(std::cin, side3Str);
 
-    float side1 = std::stof(side1Str);
-    float side2 = std::stof(side2Str);
-    float side3 = std::stof(side3Str);
+    int side1 = std::stoi(side1Str);
+    int side2 = std::stoi(side2Str);
+    int side3 = std::stoi(side3Str);
 
     assert(std::abs(triangle_area(side1, side2, side3)) < 0.01);
     float result = triangle_area(side1, side2, side3);
