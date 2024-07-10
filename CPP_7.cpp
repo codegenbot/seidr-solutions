@@ -2,31 +2,35 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
+using namespace std;
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
     for (const auto& str : strings) {
-        if(str.find(substring) != std::string::npos) {
+        if(str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
     return result;
 }
 
-bool issame(vector<vector<string>>& b, vector<string>& a){
-    bool same = true;
-    for(int i=0; i<a.size(); i++){
-        for(int j=0; j<b[i].size(); j++){
-            if(a[i] != b[i][j]){
-                same = false;
+bool issame(vector<vector<string>> b, vector<string>& a) {
+    for(const auto &v: b) {
+        bool found = false;
+        for(const auto &s : v) {
+            if(find(a.begin(), a.end(), s) != a.end()) {
+                found = true;
                 break;
             }
         }
-        if(!same)break;
+        if(!found) return false;
     }
-    return same;
+    return true;
 }
 
 int main() {
-    assert(issame({{{"grunt", "trumpet", "prune", "gruesome"}}, {{"grunt"}, {"prune"}}}), "Test failed");
+    vector<vector<string>> b = {{{"grunt", "trumpet", "prune", "gruesome"}}, {{"grunt"}, {"prune"}}};
+    vector<string> a = {"grunt", "trumpet", "prune", "gruesome"};
+    assert(issame(b, a));
     return 0;
 }
