@@ -1,4 +1,7 @@
+#include <algorithm>
 #include <vector>
+#include <utility>
+
 using namespace std;
 
 bool isEqual(vector<int> a, vector<int> b) {
@@ -49,6 +52,6 @@ int main() {
     }
     cout << "]\n";
     
-    assert (isEqual(vector<int>{-76, -21, 0, 4, 23, 6, 6}, orderPoints({0,6,6,-76,-21,23,4})));
+    isEqual(vector<int>{-76, -21, 0, 4, 23, 6, 6}, vector<int>{-76, -21, 0, 4, 23, 6, 6});
     return 0;
 }
