@@ -1,5 +1,10 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
@@ -20,4 +25,9 @@ vector<int> unique_digits(vector<int> x){
     }
     sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+    return 0;
 }
