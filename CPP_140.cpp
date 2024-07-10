@@ -3,21 +3,20 @@ string fix_spaces(string text){
     for(int i=0; i<text.length(); i++){
         if(text[i] == ' ' && (i==0 || text[i-1] != ' ') && (i==text.length()-1 || text[i+1] != ' ')){
             result += '_';
-        }else if(text[i] == ' '){
-            bool consecutive = true;
-            for(int j=i+1; j<text.length() && j-i > 2; j++){
-                if(text[j] != ' '){
-                    consecutive = false;
-                    break;
+        } else if(text[i] == ' '){
+            int count = 0;
+            while(i+count < text.length() && text[i+count] == ' '){
+                count++;
+            }
+            if(count > 2) {
+                result += '-';
+            } else {
+                for(int j=0; j<count; j++){
+                    result += '_';
                 }
             }
-            if(consecutive){
-                result += '-';
-                i = text.length();
-            }else{
-                result += '_';
-            }
-        }else{
+            i+=count-1;
+        } else{
             result += text[i];
         }
     }
