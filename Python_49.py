@@ -4,4 +4,4 @@ def modp(n: int, p: int) -> int:
     elif p <= 0:
         return "Modulus cannot be less than or equal to zero."
     else:
-        return n if p == 1 else pow(n, p - 1, p) * n % p
+        return n if p == 1 else pow(n, p-1, p) * n % p
