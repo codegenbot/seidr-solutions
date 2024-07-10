@@ -5,29 +5,19 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     vector<vector<int>> res(2);
+    int minDiff = INT_MAX;
+    int idx1, idx2;
 
-    if (n == 0)
-        return res;
-
-    int min_diff = INT_MAX, prev_diff = INT_MAX;
-    int idx = 0, prev_idx = 0;
-
-    for (int i = 1; i < n; i++) {
-        int diff = abs(nums[i] - nums[i-1]);
-        if (diff < prev_diff) {
-            min_diff = diff;
-            idx = i;
-            prev_idx = i-1;
-            prev_diff = diff;
+    for(int i=0; i<n-1; i++){
+        if(abs(nums[i] - nums[i+1]) < minDiff){
+            minDiff = abs(nums[i]-nums[i+1]);
+            idx1 = i;
+            idx2 = i+1;
         }
     }
 
-    res[0].clear();
-    for (int i = 0; i <= prev_idx; i++)
-        res[0].push_back(nums[i]);
-    res[1].clear();
-    for (int i = prev_idx + 1; i < n; i++)
-        res[1].push_back(nums[i]);
+    res[0].assign(nums.begin(), nums.begin() + idx1);
+    res[1].assign(nums.begin() + idx2, nums.end());
 
     return res;
 }
