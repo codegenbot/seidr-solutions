@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -10,16 +11,12 @@ int starts_one_ends(int n) {
         if (i == 1 || i % 10 == 1) {
             count++;
         }
-        string str;
-        for (int j = 0; j < n; j++) {
-            str += '1';
-        }
+        string str = to_string(i);
         bool flag = true;
-        for (char c : str) {
-            if (c != '1') {
-                flag = false;
-                break;
-            }
+        int i = stoi(str); 
+        if(i != 1) {
+            flag = false;
+            break;
         }
         if (!flag) {
             continue;
