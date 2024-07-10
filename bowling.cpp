@@ -1,34 +1,27 @@
-int bowlingScore(string s) {
+int bowling(string s) {
     int score = 0;
-    bool lastRollWasStrike = false;
-    bool lastRollWasSpare = false;
+    bool inFrame = false;
+    int currentFrameScore = 0;
+    vector<int> frames;
 
     for (char c : s) {
-        if (c == 'X') {
-            score += 10;
-            lastRollWasStrike = true;
-            continue;
-        } else if (c == '/') {
-            score += 10 - (lastRollWasStrike ? 0 : 5);
-            lastRollWasSpare = true;
+        if (c == '/') {
+            inFrame = true;
             continue;
         }
 
-        int currentFrameScore = c - '0';
-        if (!lastRollWasStrike && !lastRollWasSpare) {
-            score += currentFrameScore;
-        } else if (lastRollWasStrike) {
-            if (currentFrameScore == 10) {
-                score += 10 + 10;
-            } else {
+        if (!inFrame) {
+            currentFrameScore++;
+        } else {
+            if (c == 'X') {
                 score += 10 + currentFrameScore;
+                currentFrameScore = 0;
+            } else if (c >= '1' && c <= '9') {
+                int strikeOrSpare = c - '0';
+                score += strikeOrSpare + currentFrameScore;
+                currentFrameScore = 0;
             }
-        } else { // lastRollWasSpare
-            score += 10 + currentFrameScore - 5;
         }
-
-        lastRollWasStrike = false;
-        lastRollWasSpare = false;
     }
 
     return score;
