@@ -18,14 +18,16 @@ int mastermind(std::string code, std::string guess) {
 
     // Count the number of correct colors in right positions
     for (int i = 0; i < 4; ++i) {
-        int j = 0;
-        while (j < 4) {
+        bool found = false;
+        for (int j = 0; j < 4; ++j) {
             if (code[j] == guess[i]) {
                 code[j] = ' ';  // mark as used
-                if (code[j] == guess[i])
-                    black++;
-                j++;
+                found = true;
+                break;
             }
+        }
+        if (!found) {
+            black++;
         }
     }
 
