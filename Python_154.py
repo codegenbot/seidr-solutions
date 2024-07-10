@@ -10,4 +10,5 @@ def cycpattern_check(a, b):
             k = (k + 1) % len(a)
             j += 1
         if j == len(b):
-            return (4*[' ']+a[k:k+len(b)]==b).any()
+            return True
+    return False
