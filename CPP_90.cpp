@@ -1,13 +1,20 @@
-Here is the completed code:
+```cpp
+#include <vector>
+#include <algorithm>
 
 int next_smallest(vector<int> lst) {
-    vector<int> v = lst; 
-    if(v.size() < 2) return -1;
-    sort(v.begin(), v.end());
-    for(int i=0; i<v.size()-1; i++){
-        if(v[i] != v[i+1]){
-            return v[i+1];
+    if (lst.size() < 2) return -1; 
+    sort(lst.begin(), lst.end());
+    for (int i = 1; i < lst.size(); ++i) {
+        if (lst[i] != lst[0]) {
+            return lst[i];
         }
     }
-    return -1;
+    return -1; 
+}
+
+int main() {
+    vector<int> lst = {-35, 34, 12, -45};
+    int result = next_smallest(lst);
+    return 0;
 }
