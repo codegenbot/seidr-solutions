@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-bool is_nested(const std::string& str) {
+bool is_nested(const std::string str) {
     bool result = false;
     int level = 0;
 
