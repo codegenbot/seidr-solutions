@@ -1,23 +1,19 @@
 #include <iostream>
-using namespace std;
 
 int main() {
     int n, m;
-    cin >> n >> m;
+    std::cout << "Enter number of sides for Peter's die: ";
+    std::cin >> n;
+    std::cout << "Enter number of sides for Colin's die: ";
+    std::cin >> m;
+
+    double result = 0.0;
     
-    double result = probability(n, m);
-    cout << "Result: " << result << endl;
-
-    return 0;
-}
-
-double probability(int n, int m) {
-    double total = (double)n * m;
-    double p = 0.0;
-
-    for (int i = 1; i < m; i++) {
-        p += (n - i) / (double)(n * m);
+    for (int i = 1; i < n; ++i) {
+        result += (double(1)/n) * (double(1)/m);
     }
 
-    return p;
+    std::cout << "Probability that Peter rolls strictly higher than Colin: " << 1 - result << std::endl;
+
+    return 0;
 }
