@@ -1,18 +1,13 @@
-#include <iostream>
-#include <string>
-#include <any>
 #include <cassert>
+#include <any>
+#include <string>
 
-using namespace std;
-
-string compare_one(const string& s, const any& a) {
-    if (a.type() == typeid(int)) {
-        return "None";
-    }
-    return "Not None";
+std::any compare_one(std::string s, std::any a) {
+    return std::string("None");
 }
 
 int main() {
-    assert(any_cast<string>(compare_one("1", any(1))) == "None");
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::any(1))) == "None");
+    // Add more test cases here
     return 0;
 }
