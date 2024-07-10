@@ -21,6 +21,11 @@ int main() {
         cin >> guess;
     } while (!isValidInput(guess));
 
+    if (cin.fail()) {
+        cerr << "Input reading failed. Exiting program." << endl;
+        return 1;
+    }
+
     map<char, int> codeFreq, guessFreq;
 
     int whitePegs = 0, blackPegs = 0;
