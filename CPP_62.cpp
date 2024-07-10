@@ -1,21 +1,17 @@
 #include <vector>
-#include <iostream>
-#include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b){
-    return a == b;
-}
-
-std::vector<float> derivative(std::vector<float> xs){
-    std::vector<float> result;
-    for(int i=1; i<xs.size(); i++){
-        result.push_back(xs[i] * i);
+bool issame(vector<float> a, vector<float> b){
+    if (a.size() != b.size()) {
+        return false;
     }
-    return result;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-int main(){
-    std::vector<float> a = derivative({1});
-    assert(issame(a, {}));
-    return 0;
+int main() {
+    assert(issame(derivative({1}), {}));
 }
