@@ -20,7 +20,7 @@ int main() {
             cutIndex = i;
         }
     }
-    
+
     for (int i = 0; i < cutIndex; ++i) {
         std::cout << nums[i] << '\n';
     }
