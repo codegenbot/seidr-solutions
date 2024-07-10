@@ -1,35 +1,15 @@
-#include <vector>
-#include <list>
 #include <boost/any.hpp>
+#include <boost/lexical_cast.hpp>
 
-using namespace std;
-
-// Define your issame function
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<int> filter_integers(list<boost::any> values) {
+vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value)) {
-            result.push_back(boost::any_cast<int>(value));
+        if (any_cast<bool>(value)) {
+            try {
+                int val = boost::lexical_cast<int>(any_cast<shared_ptr<any>>(value));
+                result.push_back(val);
+            } catch (boost::bad_lexical_cast&) {}
         }
     }
     return result;
-
-int main() {
-    list<boost::any> values = {3, 'c', 3, 3, 'a', 'b'};
-    vector<int> result = filter_integers(values);
-    
-    assert(issame(result, {3, 3, 3}));  
-    return 0;
 }
