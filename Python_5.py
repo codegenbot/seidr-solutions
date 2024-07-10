@@ -1,13 +1,13 @@
-def complete_code(numbers, delimeter):
+def format_numbers(numbers, delimiter):
     result = []
     for num in numbers[:-1]:
-        result.extend([num, delimeter])
+        result.extend([num, delimiter])
     if numbers:
         result.append(numbers[-1])
     return result
 
-# Call the function to execute the code
-numbers = [1, 2, 3, 4, 5]
-delimeter = ","
-output = complete_code(numbers, delimeter)
+
+numbers = input("Enter numbers separated by spaces: ").split()
+delimiter = input("Enter delimiter: ")
+output = format_numbers(numbers, delimiter)
 print(output)
