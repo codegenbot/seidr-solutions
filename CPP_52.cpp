@@ -12,7 +12,6 @@ bool below_threshold(const std::vector<int>& l, int t) {
 }
 
 int main() {
-    // Input
     int n, t;
     std::cin >> n;
     std::vector<int> l(n);
@@ -21,7 +20,6 @@ int main() {
     }
     std::cin >> t;
 
-    // Output
     if(below_threshold(l, t)) {
         std::cout << "All numbers are below the threshold." << std::endl;
     } else {
