@@ -1,4 +1,5 @@
-```
+Here's the corrected code:
+
 def fruit_distribution(s, n):
     s = s.lower()
     if not s:
