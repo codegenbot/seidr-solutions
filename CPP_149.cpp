@@ -30,7 +30,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> input) {
     return input;
 }
 
-int main() {
+int driver() {
     assert(same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
