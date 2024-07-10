@@ -3,9 +3,9 @@
 #include <string>
 #include <boost/variant.hpp>
 
-using namespace boost;
-
 boost::any compare_one(boost::any a, boost::any b) {
+    using namespace boost;
+
     if (holds_alternative<int>(a) && holds_alternative<double>(b)) {
         return get<int>(a) > get<double>(b) ? a : b;
     }
