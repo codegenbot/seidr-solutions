@@ -10,12 +10,12 @@ def decode_cyclic(s: str):
     return "".join(groups)
 
 
-input_str = input()
-operation = input()
-
-if operation == 'encode':
+task = input()
+if task == 'encode':
+    input_str = input()
     result = encode_cyclic(input_str)
-elif operation == 'decode':
+    print(result)
+elif task == 'decode':
+    input_str = input()
     result = decode_cyclic(input_str)
-
-print(result)
+    print(result)
