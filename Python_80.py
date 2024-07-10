@@ -1,4 +1,6 @@
 ```
+from collections import Counter
+
 def is_happy(s):
     from collections import Counter
     for i in range(0, len(s), 3):
