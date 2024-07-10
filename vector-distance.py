@@ -1,3 +1,4 @@
+```
 n = int(input())
 v1 = [float(x) for x in input().split()]
 v2 = [float(x) for x in input().split()]
