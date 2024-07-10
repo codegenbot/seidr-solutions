@@ -1,40 +1,46 @@
-```cpp
 #include <iostream>
 #include <vector>
-#include <set>
+#include <algorithm>
 
 bool issame(int x, int y) {
     return x == y;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> v) {
-    std::set<int> unique;
-    for(int x: v) {
-        unique.insert(x);
+    std::vector<int> result(n);
+    for(int i = 0; i < v.size(); i++) {
+        bool found = false;
+        for(int j = 0; j < result.size(); j++) {
+            if(issame(v[i], result[j])) {
+                found = true;
+                break;
+            }
+        }
+        if(!found) {
+            result.push_back(v[i]);
+        }
     }
-    return std::vector<int>(unique.begin(), unique.end());
+    return result;
 }
 
 int main() {
-    std::vector<int> input;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    
+
+    std::vector<int> v(n);
     for(int i = 0; i < n; i++) {
-        int x;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
-        input.push_back(x);
+        std::cin >> v[i];
     }
-    
-    std::vector<int> output = remove_duplicates(input);
-    
-    std::cout << "Unique elements: ";
-    for(int x: output) {
-        std::cout << x << " ";
+
+    std::vector<int> result = remove_duplicates(v);
+
+    std::cout << "Duplicates removed: ";
+    for(int i = 0; i < result.size(); i++) {
+        std::cout << result[i] << " ";
     }
     std::cout << std::endl;
-    
+
     return 0;
 }
