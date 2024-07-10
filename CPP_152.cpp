@@ -1,8 +1,4 @@
 ```cpp
-#ifdef __cpp_lib_initializer_list
-#include <initializer_list>
-#endif
-
 #include <vector>
 #include <algorithm>
 
