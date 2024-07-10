@@ -9,12 +9,12 @@ string average_binary(int n, int m) {
         return "-1";
     }
     
-    long long sum = 0;
+    int sum = 0;
     for (int i = n; i <= m; i++) {
         sum += i;
     }
     
-    int avg = (int)((double)sum / (m - n + 1) + 0.5);
+    int avg = n + (m - n) / 2;
     
     string binary_avg = "";
     while (avg > 0) {
