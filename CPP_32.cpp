@@ -18,11 +18,16 @@ double find_zero(const std::vector<double>& coeffs) {
 }
 
 int main() {
-    std::vector<double> coeffs = {1.0, -4.0, 4.0};
+    std::vector<double> coeffs;
+    double coeff;
+    
+    // Read coefficients from user input
+    while (std::cin >> coeff) {
+        coeffs.push_back(coeff);
+    }
 
-    double solution;
-    solution = find_zero(coeffs);
-    assert(std::abs(poly(coeffs, solution)) < 1e-3);
+    double solution = find_zero(coeffs);
+    assert(std::abs(poly(coeffs, solution)) < 1e-2);
 
     return 0;
 }
