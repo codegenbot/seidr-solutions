@@ -1,8 +1,9 @@
 #include <algorithm>
 #include <vector>
+#include <utility>
 
 bool issame(const std::pair<float, float>& a, const std::pair<float, float>& b) {
-    return a == b;
+    return a.first == b.first && a.second == b.second;
 }
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
