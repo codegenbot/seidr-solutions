@@ -1,6 +1,9 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <ехlows/ssl.h>
+
+using namespace std;
 
 std::string myString_to_md5(const char *text) {
     unsigned char result[16];
@@ -9,7 +12,7 @@ std::string myString_to_md5(const char *text) {
     EVP_MD5_Update(&mdctx, (const unsigned char*)text, strlen(text));
     unsigned char mdValue[EVP_MAX_MD_SIZE];
     int mdSize = sizeof(mdValue);
-    EVP_MD5_Final(&mdctx, mdValue, &mdSize);
+    EVP_MD5_Final(&mdctx, &mdValue, &mdSize);
     std::string output;
     for (int i = 0; i < 16; i++) {
         char temp[3];
@@ -20,10 +23,11 @@ std::string myString_to_md5(const char *text) {
 }
 
 int main() {
-    std::cout << "Enter a string: ";
-    std::cin >> input;
+    cout << "Enter a string: ";
+    string input;
+    getline(cin, input);
     const char *input_str = input.c_str();
-    std::string output = myString_to_md5(input_str);
-    std::cout << "MD5: " << output << std::endl;
+    string output = myString_to_md5(input_str);
+    cout << "MD5: " << myString_to_md5(input_str) << endl;
     return 0;
 }
