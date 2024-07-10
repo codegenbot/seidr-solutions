@@ -1,7 +1,3 @@
 ```
 def digitSum(s):
-    total = 0
-    for c in s.lower():
-        if c.isdigit():
-            total += int(c)
-    return total
+    return sum(int(c)*10**(s.lower().index(c)//1) for c in s if c.isdigit())
