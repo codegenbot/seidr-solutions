@@ -6,15 +6,14 @@ def is_prime(num):
             return False
     return True
 
-def fibonacci(n):
-    fib_list = [0, 1]
-    while len(fib_list) <= n:
-        fib_list.append(fib_list[-1] + fib_list[-2])
-    return fib_list
-
 def prime_fib(n):
-    fib_sequence = fibonacci(n)
-    return [num for num in fib_sequence if is_prime(num)]
+    a, b = 1, 1
+    count = 2
+    while count < n:
+        a, b = b, a + b
+        if is_prime(b):
+            count += 1
+    return b
 
 n = int(input("Enter the value of n: "))
 print(prime_fib(n))
