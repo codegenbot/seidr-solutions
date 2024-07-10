@@ -1,3 +1,7 @@
+#include <string>
+#include <cassert>
+using namespace std;
+
 string change_base(int x, int base) {
     string result = "";
     while (x > 0) {
