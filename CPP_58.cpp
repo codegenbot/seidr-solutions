@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -18,8 +17,11 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 std::vector<int> common(std::vector<int> v1, std::vector<int> v2) {
     std::vector<int> result;
     for (int i : v1) {
-        if (std::find(v2.begin(), v2.end(), i) != v2.end()) {
-            result.push_back(i);
+        for (int j : v2) {
+            if (i == j) {
+                result.push_back(i);
+                break;
+            }
         }
     }
     return result;
