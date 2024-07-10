@@ -1,16 +1,11 @@
-string encrypt(string s){
+string encrypt(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        char ch = s[i];
-        if(ch >= 'a' && ch <= 'm'){
-            result += (ch - ('a' - 1)) % 26 + 'a';
+    for (char c : s) {
+        if (isalpha(c)) {
+            char base = isupper(c) ? 'A' : 'a';
+            c = ((c - base + 2 * 26) % 26) + base;
         }
-        else if(ch >= 'n' && ch <= 'z'){
-            result += (ch - ('n' - 2)) % 26 + 'a';
-        }
-        else{
-            result += ch;
-        }
+        result += c;
     }
     return result;
 }
