@@ -1,16 +1,18 @@
 ```
 def fib(n):
-    if n <= 0:
-        return "Input should be positive integer"
-    elif n == 1:
-        return 0
-    elif n == 2:
-        return 1
+    if n <= 1:
+        return n
     else:
-        a, b = 0, 1
-        for _ in range(2, n):
-            a, b = b, a + b
-        return b
+        return fib(n-1) + fib(n-2)
 
-n = int(input("Enter the number: "))
+while True:
+    try:
+        n = int(input("Enter the number: "))
+        if n < 0:
+            print("Please enter a non-negative integer.")
+        else:
+            break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
 print(fib(n))
