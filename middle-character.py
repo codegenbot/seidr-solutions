@@ -1,6 +1,7 @@
-def middle_character(s):
+```
+def `````````````````````
     s_len = len(s)
     if s_len % 2 == 1:
         return s[s_len//2]
     elif s_len % 2 == 0:
-        return s[s_len//2-1:s_len//2+1][0] + s[s_len//2-1:slen//2+1][1]
+        return s[s_len//2-1:s_len//2+1]`````````````
