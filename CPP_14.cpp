@@ -7,13 +7,12 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-    return 0;
-}
-
-vector<string> all_prefixes(string str) {
-    vector<string> result;
-    for (int i = 1; i <= str.length(); ++i) {
-        result.push_back(str.substr(0, i));
+    
+    vector<string> result = all_prefixes("test");
+    
+    for (const string &str : result) {
+        cout << str << endl;
     }
-    return result;
+    
+    return 0;
 }
