@@ -1,3 +1,4 @@
+````
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,3 +16,4 @@ std::vector<int> maximum(std::vector<int> arr,int k){
     }
     return result;
 }
+```
