@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> l_copy = l;
     for (int i = 0; i < l.size(); i++) {
@@ -11,10 +13,6 @@ std::vector<int> sort_third(std::vector<int> l) {
         }
     }
     return l_copy;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
