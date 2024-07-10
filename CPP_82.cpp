@@ -26,7 +26,7 @@ int main()
     std::string last_part = (len % 10) + '0';
     if(len >= 10)
         last_part = (len/10) + '0' + last_part;
-    last_part.insert(0, std::to_string(len).begin(), std::to_string(len).end());
+    last_part = std::to_string(len).substr(0, 2);
     if(flag && prime_length(std::to_string(len))) {  
         std::cout << "The length of the string is prime." << std::endl;
     } else {
