@@ -3,10 +3,10 @@
 
 bool is_nested(std::string str) {
     int count = 0;
-    for (char c : str) {
-        if (c == '[') {
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '[') {
             count++;
-        } else if (c == ']') {
+        } else if (str[i] == ']') {
             if (count > 0) {
                 count--;
             } else {
@@ -18,13 +18,12 @@ bool is_nested(std::string str) {
 }
 
 int main() {
-    std::string str;
+    std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    if (is_nested(str)) {
+    std::getline(std::cin, input);
+    if(is_nested(input)) {
         std::cout << "The string is nested." << std::endl;
     } else {
         std::cout << "The string is not nested." << std::endl;
     }
-    return 0;
 }
