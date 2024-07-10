@@ -13,8 +13,7 @@ int bowlingScore(std::string input) {
             }
             firstInFrame = true;
             strikeOrSpare = false;
-        } 
-        else if (c == 'X') {
+        } else if (c == 'X') {
             score += 10;
             int extraPins = 0;
             if (!firstInFrame && !strikeOrSpare) {
@@ -27,11 +26,9 @@ int bowlingScore(std::string input) {
             }
             firstInFrame = true;
             strikeOrSpare = false;
-        } 
-        else if (c == '-') {
+        } else if (c == '-') {
             firstInFrame = true;
-        } 
-        else {
+        } else {
             int pins = c - '0';
             score += pins;
             if (!firstInFrame) {
