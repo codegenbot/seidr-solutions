@@ -18,8 +18,8 @@ double poly(const std::vector<double>& coeffs, double x){
 }
 
 int main(){
-    std::vector<double> coeffs = {2, -3, 1}; // example coefficients of polynomial 2x^2 - 3x + 1
-    std::vector<double> xs = {1, 2}; // example roots a = 1, b = 2
+    std::vector<double> coeffs = {2, -3, 1}; 
+    std::vector<double> xs = {1, 2}; 
     double solution = find_zero(xs);
     assert (std::abs(poly(coeffs, solution)) < 1e-3);
     
