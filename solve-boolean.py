@@ -1,4 +1,3 @@
-```
 def solve_boolean(input_str):
     tokens = input_str.split("|")
     for token in tokens:
