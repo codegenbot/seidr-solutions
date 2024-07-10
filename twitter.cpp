@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
 
@@ -10,15 +10,15 @@ std::string validateTweet(const std::string& tweet) {
 
 int main() {
     while (true) { 
-        std::cout << "Enter a tweet: ";
         std::string line;
+        std::cout << "Enter a tweet: ";
         getline(std::cin, line);
-        std::string output = validateTweet(line); 
-        if(output == "You didn't type anything") {
+        if(line.empty()) {
+            std::cout << "You didn't type anything" << std::endl;
+        } else {
+            std::string output = validateTweet(line); 
             std::cout << output << std::endl;
-            return 0; 
         }
-        std::cout << output << std::endl;
     }   
     return 0;
 }
