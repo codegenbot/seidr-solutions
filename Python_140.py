@@ -6,6 +6,8 @@ def fix_spaces(text):
         if char == ' ':
             if char == ' ' and not in_word:
                 new_text += ' '
+            elif not in_word:
+                new_text += ' '
             else:
                 if count <= 2:
                     new_text += '_'
