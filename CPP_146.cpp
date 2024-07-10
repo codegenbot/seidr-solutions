@@ -11,7 +11,7 @@ int main() {
     while (true) {
         getline(std::cin, num);
         if (num == "stop") break;
-        nums.push_back(std::to_string(stoi(num.substr(0, num.size() - 1).c_str()))); 
+        nums.push_back(num.substr(0, num.size() - 1)); // remove newline character
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
 }
