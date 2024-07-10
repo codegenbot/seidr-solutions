@@ -1,26 +1,28 @@
-vector<int> issame(vector<int>& a, vector<int> b){
-    if(a.size() != b.size()) return 0;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return 0;
+bool issame(vector<int> a, vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
     }
-    return 1;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> parse_music(string music_string);
 
 int main() {
-    string music_string;
-    cin >> music_string;
-
-    vector<int> notes = parse_music(music_string);
-    vector<int> reference = {1, 2, 3, 4};
-
-    if(issame(notes, reference)) {
-        cout << "Music is correct" << endl;
-    } else {
-        cout << "Music is incorrect" << endl;
-    }
-
+    string input_music;
+    cin >> input_music;
+    vector<int> parsed_result = parse_music(input_music);
+    
+    vector<int> b = {1, 2, 3, 4};
+    
+    bool result = issame(parsed_result, b);
+    
+    cout << std::boolalpha << result << endl;
+    
     return 0;
 }
 
