@@ -1,15 +1,7 @@
-```
-def basement(arr):
+def basement(lst):
     total = 0
-    for i, num in enumerate(arr):
-        total += num
+    for i in range(len(lst)):
+        total += lst[i]
         if total < 0:
             return i
     return -1
-
-# Example usage:
-print(basement([1, -1]))  # Output: 0
-print(basement([1, -100]))  # Output: 0
-print(basement([2, -1, 100]))  # Output: 0
-print(basement([2, -95, 100]))  # Output: 0
-print(basement([2, -30, 5]))  # Output: 0
