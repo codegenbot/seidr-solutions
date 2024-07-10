@@ -1,11 +1,9 @@
-int main {
-    string s, c;
-    cout << "Enter a string: ";
-    cin >> s;
-    cout << "Enter a character to delete: ";
-    cin >> c;
-    vector<string> output = reverse_delete(s, c);
-    for (string str : output) {
-        cout << str << endl;
-    }
+int main 
+{
+    int x;
+    std::cin >> x;
+    if(x > 10) 
+        std::cout << "Greater than 10";
+    else 
+        std::cout << "Less than or equal to 10";
 }
