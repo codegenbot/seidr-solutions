@@ -1,7 +1,9 @@
+#include <cassert>
 #include <iostream>
 #include <map>
-#include <cassert>
 #include <string>
+
+using namespace std;
 
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> result;
@@ -28,6 +30,6 @@ std::map<char, int> histogram(std::string test) {
 }
 
 int main() {
-    // Add your test cases here without using assert
+    assert(histogram("a") == std::map<char, int>{{'a', 1}});
     return 0;
 }
