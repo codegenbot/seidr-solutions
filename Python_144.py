@@ -1,6 +1,6 @@
 ```
-x = "{}".format('"{}"'.format(input("Enter the fraction x (in the format 'a/b'): ")))
-n = "{}".format('"{}"'.format(input("Enter the fraction n (in the format 'c/d': ")))
+x = '"{}"'.format(input("Enter the fraction x (in the format 'a/b'): "))
+n = '"{}"'.format(input("Enter the fraction n (in the format 'c/d'): "))
 
 import math
 
