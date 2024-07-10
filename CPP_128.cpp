@@ -11,3 +11,4 @@ int prod_signs(const vector<int>& arr) {
         sum_of_magnitudes += abs(num);
     }
     return sign_product * sum_of_magnitudes;
+}
