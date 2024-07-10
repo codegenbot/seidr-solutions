@@ -1,15 +1,7 @@
-string getMiddleCharacter(string s) {
-    int n = s.size();
-    if(n % 2 == 0) {
-        return s.substr(n/2-1, 2);
+string findMiddleCharacter(string s) {
+    if (s.size() % 2 == 0) {
+        return s.substr(s.size() / 2 - 1, 2);
     } else {
-        return s.substr(n/2, 1);
+        return s.substr(s.size() / 2, 1);
     }
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << getMiddleCharacter(s) << endl;
-    return 0;
 }
