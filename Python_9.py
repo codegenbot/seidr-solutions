@@ -1,3 +1,5 @@
+from typing import List
+
 def rolling_max(numbers: List[int]) -> List[int]:
     if not numbers:
         return []
@@ -9,6 +11,6 @@ def rolling_max(numbers: List[int]) -> List[int]:
         rolling_max_list.append(max_num)
     return rolling_max_list
 
-numbers = list(map(int, input().split()))
+numbers = [int(input()) for _ in range(len(numbers))]
 result = rolling_max(numbers)
 print(*result)
