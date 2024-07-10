@@ -1,4 +1,6 @@
 def find_zero(xs: list):
-    n = len(xs) // 2
-    a, b = xs[0], xs[1]
+    if len(xs) % 2 != 0:
+        return None
+    a = max([abs(coeff) for coeff in xs])
+    b = -a
     return -b / a
