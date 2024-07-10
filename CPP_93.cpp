@@ -1,8 +1,13 @@
-string encode(string message){
+#include <iostream>
+#include <string>
+#include <cctype>
+#include <cassert>
+
+std::string encode(std::string message) {
     for (char &c : message) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+        if (std::isalpha(c)) {
+            c = std::islower(c) ? std::toupper(c) : std::tolower(c);
+            if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
                 c = c + 2;
             }
         }
