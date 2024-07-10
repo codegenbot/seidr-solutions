@@ -42,5 +42,7 @@ int main() {
     }
     std::cout << std::endl;
 
+    std::vector<int>({1, 4, 5}) == remove_duplicates({1, 2, 3, 2, 4, 3, 5});
+
     return 0;
 }
