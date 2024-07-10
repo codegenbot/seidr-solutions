@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include <algorithm>
+using namespace std;
 
 int mastermind(string code, string guess) {
     int white = 0;
@@ -18,5 +18,4 @@ int mastermind(string code, string guess) {
             code_chars.erase(it);
         }
     }
-    return {white, black};
-}
+    return black;
