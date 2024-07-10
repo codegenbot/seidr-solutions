@@ -1,4 +1,8 @@
 def solution(lst):
-    odd_sum = sum(i for i in lst if i % 2 != 0)
-    even_count = len([i for i in lst if i % 2 == 0])
-    return f"Sum of odd numbers is {odd_sum} and the number of even numbers is {even_count}"
+    total = 0
+    odd_count = 0
+    for i in lst:
+        if i % 2 != 0:
+            total += i
+            odd_count += 1
+    return f"The average of the odd numbers is {total / odd_count}"
