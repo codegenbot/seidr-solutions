@@ -1,5 +1,5 @@
 bool issame(vector<float> a, vector<float> b) {
-    return (a[0] == b[0] && a[1] == b[1]);
+    return a[0] == b[0] && a[1] == b[1];
 }
 
 pair<float, float> find_closest_elements(vector<float> numbers) {
@@ -12,5 +12,5 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
             closest_pair = {numbers[i], numbers[i + 1]};
         }
     }
-    return {closest_pair.first, closest_pair.second};
+    return closest_pair;
 }
