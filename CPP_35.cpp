@@ -1,21 +1,19 @@
-#include <iostream>
 #include <algorithm>
+#include <vector>
 
-int getMax(int n) {
-    int max = 0;
+int main() {
+    std::vector<int> arr;
+    int n;
+
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    int arr[n]; // Declare an array of size n
+    arr.resize(n);
 
-    for (int i = 0; i < n; i++) {
-        int x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
-        if(x > max)
-            max = x;
-        arr[i] = x; // Fill the array
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < n; ++i) {
+        std::cin >> arr[i];
     }
 
-    return *std::max_element(arr, arr+n); 
+    return *std::max_element(arr.begin(), arr.end());
 }
