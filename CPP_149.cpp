@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -30,6 +29,6 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> input) {
     return input;
 }
 
-int driver() {
-    return issame(sorted_list_sum(std::vector<std::string> {"aaaa", "bbbb", "dd", "cc"}), std::vector<std::string> {"cc", "dd", "aaaa", "bbbb"});
+int main() {
+    return issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"});
 }
