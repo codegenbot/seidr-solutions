@@ -3,8 +3,8 @@
 #include <algorithm>
 #include <string>
 
-bool issame(const std::pair<int, std::string>& p, int num) {
-    return p.first == num;
+bool issame(const std::string &str1, const std::string &str2) {
+    return str1.size() == str2.size();
 }
 
 std::vector<std::string> by_length(std::vector<int> arr);
