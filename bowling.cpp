@@ -1,36 +1,33 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-
-int roll(std::istringstream& input) {
-    int pin = 0; 
+int roll(int frame, std::string& input) {
+    int pin = 10; // number of pins left to knock down
     int rolls = 0;
     
-    while (input >> pin && pin > 0) { 
-        if(pin == 10) break; 
-        if(input.peek() == '/') {
-            if (input >> pin && pin > 0) break;
+    while (pin > 0 && rolls < 2) { 
+        if(pin <= 1) break; 
+        size_t pos = input.find_first_of("0123456789");
+        if(pos != std::string::npos) {
+            pin = std::stoi(input.substr(0, pos));
+            input.erase(0, pos);
+        } else {
+            return -1;
         }
-        rolls++; 
+        rolls++;
     }
     
-    return rolls;
+    return (frame == 0) ? pin : (10 + frame); 
 }
 
 int bowlingScore(const std::string& input) {
     int score = 0;
-    for (char c : input) {
-        if (c == '/') {
-            score += roll(std::istringstream(input.substr(input.find('/')+1)));
-            input.erase(0, input.find('/') + 1);
-        } else if ('1' <= c && c <= '9') {
-            score += std::stoi(input.substr(0, 1)) * 10;
-            input.erase(0, 1);
+    for(char c : input) {
+        if(c == '/') {
+            score += roll(rollCount);
+            rollCount = 0;
+        } else if('1' <= c && c <= '9') {
+            rollCount *= 10 + (c - '0');
         }
     }
-    if (!input.empty()) 
-        score += roll(std::istringstream(input));
-    
+    score += roll(rollCount);
     return score;
 }
 
