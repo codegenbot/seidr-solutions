@@ -4,6 +4,10 @@
 
 bool pairs_sum_to_zero(std::vector<int> l);
 
+int main() {
+    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
+}
+
 bool pairs_sum_to_zero(std::vector<int> l) {
     for (int i = 0; i < l.size(); ++i) {
         for (int j = i + 1; j < l.size(); ++j) {
@@ -13,8 +17,4 @@ bool pairs_sum_to_zero(std::vector<int> l) {
         }
     }
     return false;
-}
-
-int main() {
-    assert (pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
 }
