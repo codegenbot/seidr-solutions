@@ -1,13 +1,10 @@
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
-    vector<float> numbers;
-    for(int i=0; i<3; i++){
-        float num;
-        cout << "Enter number "<<i+1<<": ";
-        cin >> num;
-        numbers.push_back(num);
+    vector<float> odd_sum;
+    for (int i = 0; i < 5; ++i) {
+        cin >> lst[i];
     }
-    for (float num : numbers) {
+    for (float num : lst) {
         if (num > 0 && floor(num) == num) { 
             sum += pow(num, 2);
         }
