@@ -10,6 +10,10 @@ def parse_music(music_string: str) -> List[int]:
             result.append(note_lengths[music_string[i:i+2]])
             i += 2
         else:
-            result.append(note_lengths[music_string[i]])
+            result.append(note_lengths.get(music_string[i], 4))  
             i += 1
     return result
+
+
+music = input("Enter a music string (o, o|, .|): ")
+print(parse_music(music))
