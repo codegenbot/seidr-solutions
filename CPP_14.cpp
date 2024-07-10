@@ -11,13 +11,12 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> all_prefixes(const std::string& input) {
-    std::vector<std::string> result;
+std::vector<char> all_prefixes(const std::string& input) {
+    std::vector<char> result;
     for (int i = 0; i <= input.size(); ++i) {
-        if(i > 0)
-            result.push_back(input.substr(0, i));
+        result.push_back(input[i]);
     }
-    return result;
+    return {std::string(&result[0], &result[0] + result.size())};
 }
 
 int mainFunc() {
@@ -28,16 +27,16 @@ int mainFunc() {
     if (input.empty()) {
         std::cout << "Invalid input. Please enter a non-empty string." << std::endl;
     } else {
-        std::vector<std::string> result = all_prefixes(input);
-        if (!issame(result)) {
+        std::vector<char> result = all_prefixes(input);
+        if (!issame({{""}}, {std::vector<std::string>(result.begin(), result.end())})) {
             std::cout << "The prefixes are not the same." << std::endl;
         } else {
             std::cout << "The prefixes are the same." << std::endl;
         }
     }
 
-    std::vector<std::string> www = all_prefixes("WWW");
-    if (!issame(www)) {
+    std::vector<char> www = all_prefixes("WWW");
+    if (!issame({{""}}, {std::vector<std::string>(www.begin(), www.end())})) {
         std::cout << "The prefixes are not the same." << std::endl;
     } else {
         std::cout << "The prefixes are the same." << std::endl;
