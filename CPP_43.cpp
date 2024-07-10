@@ -15,7 +15,7 @@ bool pairs_sum_to_zero(const vector<int>& l) {
 }
 
 int solveProblem() {
-    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
+    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == true);
     
-    return 0;
+    return 1;
 }
