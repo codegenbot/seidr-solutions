@@ -7,7 +7,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
+std::vector<std::string> reverse_delete(std::string s, std::string c, std::vector<std::string> b) {
     std::string result = "";
     for (char ch : s) {
         if (c.find(ch) == std::string::npos) {
@@ -20,6 +20,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), std::vector<std::string>{"mm", "False"}));
+    assert(issame(reverse_delete("mamma", "mia", {"mm", "False"}), std::vector<std::string>{"mm", "False"}));
     return 0;
 }
