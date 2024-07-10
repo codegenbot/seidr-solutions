@@ -1,6 +1,5 @@
-def sort_even(l):
-    evens = sorted([x for x in l if x % 2 == 0])
+def sort_even(l: list):
+    evens = [x for x in l if x % 2 == 0]
     odds = [x for x in l if x % 2 != 0]
-    
-    return [x if i < len(evens) else y 
-            for i, (x, y) in enumerate(zip(odds, evens))]
+    sorted_evens = sorted(evens)
+    return [x if i % 2 != 0 else y for i, (x, y) in enumerate(zip(odds, sorted_evens))]
