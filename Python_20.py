@@ -1,9 +1,5 @@
-numbers = input("Enter a series of space-separated numbers: ").split()
-try:
-    numbers = list(map(float, [x for x in numbers if x.replace('.', '', 1).replace('-', '', 1).isdigit()]))
-except ValueError as e:
-    print("Invalid input. Please enter only numeric values.")
-else:
+```
+def find_closest_elements(numbers):
     min_diff = float("inf")
     closest_pair = ()
 
@@ -14,4 +10,14 @@ else:
                 min_diff = diff
                 closest_pair = (numbers[i], numbers[j])
 
-    print(closest_pair)
+    return closest_pair
+
+if __name__ == "__main__":
+    try:
+        numbers = input("Enter a series of space-separated numbers: ").split()
+        numbers = list(map(float, [x for x in numbers if x.replace('.', '', 1).replace('-', '', 1).isdigit()]))
+        result = find_closest_elements(numbers)
+    except ValueError as e:
+        print("Invalid input. Please enter only numeric values.")
+    else:
+        print(result)
