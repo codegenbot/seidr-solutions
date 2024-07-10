@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -14,17 +14,15 @@ bool has_close_elements(vector<float> a, float threshold) {
 
 int main() {
     vector<float> a;
-    int n;
     float threshold;
 
-    cout << "Enter the number of elements: ";
-    cin >> n;
-
-    a.resize(n);
-
-    cout << "Enter the elements of the vector (space-separated): ";
-    for(int i = 0; i < n; i++) { 
-        cin >> a[i];
+    cout << "Enter the elements of the vector (space-separated, type 'stop' when done): ";
+    string input;
+    float x;
+    while (true) { 
+        cin >> x; 
+        if(input == "stop") break;
+        a.push_back(x);
     }
     cin.ignore(); 
 
