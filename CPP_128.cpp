@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -6,9 +7,8 @@ int prod_signs(int* arr, int n) {
     bool isNegative = false;
     long long sum = 0;
     for (int i = 0; i < n; ++i) {
-        if(arr[i] < 0){
-            isNegative = !isNegative;
-        }
+        if (arr[i] < 0)
+            isNegative ^= true;
         sum += std::abs(arr[i]);
     }
     return (isNegative ? -sum : sum);
