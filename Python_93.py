@@ -13,17 +13,17 @@ def encode(message):
             else:
                 if char in ['a', 'e', 'i', 'o', 'u']:
                     if char == 'a':
-                        result += 'b'
+                        result += 'B'
                     elif char == 'e':
-                        result += 'g'
+                        result += 'G'
                     elif char == 'i':
-                        result += 'k'
+                        result += 'K'
                     elif char == 'o':
-                        result += 'q'
+                        result += 'Q'
                     else:
                         result += chr(ord(char) + 1)
                 else:
-                    result += chr(ord(char) + 1).lower()
+                    result += chr(ord(char) + 1).upper()
         else:
             result += char
     return result
