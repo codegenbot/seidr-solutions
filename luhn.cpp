@@ -14,5 +14,7 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
+    vector<int> digits;
+    // Add test cases or read input from user here
     return 0;
 }
