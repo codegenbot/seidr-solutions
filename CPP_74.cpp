@@ -20,7 +20,9 @@ bool issame(const vector<string>& lst1, const vector<string>& lst2) {
 
     vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
-    int main() {
-        // Main function code here
-        return 0;
+    vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+        if (countChars(lst1) < countChars(lst2)) {
+            return lst1;
+        }
+        return lst2;
     }
