@@ -26,17 +26,18 @@ int main_func() {
     if (cin.fail()) { 
         cin.clear();
         cin >> ws;
-        str = "";
         try {
-            b = stod(str);
+            std::stringstream ss; // use stringstream for this
+            ss << b;
+            str = ss.str();
+            b = stod(str);  // now str is a valid double string that can be converted back to a double
             cout << "The result is: " << compare_one(a, b) << endl;
         } catch (invalid_argument& e) {
             int temp = stoi(str); 
             cout << "The result is: " << compare_one(a, temp) << endl;
         }
     } else {
-        str = std::to_string(b);
-        cout << "The result is: " << compare_one(a, stod(str)) << endl;
+        cout << "The result is: " << compare_one(a, b) << endl;
     }
 
     return 0;
