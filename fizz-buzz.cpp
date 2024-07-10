@@ -1,17 +1,19 @@
+```cpp
 #include <string>
 #include <iostream>
 
-int main() {
-    int x; 
-    std::cin >> x;
+std::string fizzBuzz(int x) {
     if (x % 15 == 0)
-        std::cout << "FizzBuzz";
+        return "FizzBuzz";
     else if (x % 5 == 0)
-        (x % 3) ? std::cout << "Buzz" : std::cout << "FizzBuzz";
+        return x % 3 ? "Buzz" : "FizzBuzz";
     else if (x % 3 == 0)
-        std::cout << "Fizz";
+        return "Fizz";
     else
-        std::cout << x;
-    std::cout << std::endl;
+        return std::to_string(x);
+}
+
+int main() {
+    std::cout << fizzBuzz(30) << std::endl;
     return 0;
 }
