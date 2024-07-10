@@ -8,10 +8,14 @@ def parse_music(music_string: str) -> List[int]:
     i = 0
     while i < len(music_string):
         if music_string[i:i+2] in note_lengths:
-            result.append(note_lengths[music_string[i:i+2]])
-            i += 2
-        elif str(i) in note_lengths:
-            result.append(note_lengths[str(i)])
+            if music_string[i:i+2].endswith("|"):
+                result.append(note_lengths[music_string[i]])
+                i += 2
+            else:
+                result.append(note_lengths[music_string[i:i+2]])
+                i += 2
+        elif music_string[i] in note_lengths:
+            result.append(note_lengths[str(music_string[i])])
             i += 1
         else:
             break
