@@ -1,6 +1,8 @@
 #include <vector>
 #include <algorithm>
 
+bool move_one_ball(std::vector<int>& arr);
+
 bool move_one_ball(std::vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
