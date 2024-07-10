@@ -20,10 +20,10 @@ int main() {
     int n;
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
-        std::string temp;
         std::cout << "Enter word " << i + 1 << ": ";
-        std::getline(std::cin, temp);
-        words.push_back(std::move(temp));
+        std::string str;
+        std::getline(std::cin, str);
+        words.push_back(str);
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
     return 0;
