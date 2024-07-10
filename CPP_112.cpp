@@ -16,10 +16,10 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    std::vector<std::string> result = reverse_delete("mamma", "mia");
-    std::vector<std::string> expected = {"", "True"};
+    auto result = reverse_delete("mamma", "mia");
+    auto expected = std::vector<std::string>{"", "True"};
 
     std::cout << "Test Result: " << (result == expected ? "Pass" : "Fail") << std::endl;
-    
+
     return 0;
 }

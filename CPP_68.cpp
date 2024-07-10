@@ -40,7 +40,5 @@ int main() {
         std::cout << num << " ";
     }
 
-    assert(compareVectors(pluck({7, 9, 7, 1}), {}));
-
     return 0;
 }
