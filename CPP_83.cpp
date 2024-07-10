@@ -10,17 +10,11 @@ int starts_one_ends(int n) {
         if (i == 1 || i % 10 == 1) {
             count++;
         }
-        bool flag = true;
-        string str = to_string(i);
+        string str;
         for (int j = 0; j < n; j++) {
-            if (str[j] != '1') {
-                flag = false;
-                break;
-            }
+            str += '1'; // insert '1' for each digit
         }
-        if (!flag) {
-            continue;
-        }
+        if (stoi(str) != i) continue;
         count++;
     }
     return count;
