@@ -25,16 +25,9 @@ int main() {
     
     auto output = filter_by_substring(input, sub);
     
-    for (size_t i = 0; i < output.size(); ++i) {
-        if (output[i].size() != 1) {
-            std::cerr << "Test failed. Expected: {\"grunt\"}, {\"prune\"}. Got: " << output << std::endl;
-            return 1;
-        }
-    }
+    if (!(output == std::vector<std::vector<std::string>> {{{"run"}} ,{{}} ,{{"prune"}} ,{{}} }))
+        return 1;
     
-    // If you reach this point, the test passed
-    std::cout << "Test passed." << std::endl;
-
     input = {{"apple", "banana"}, {"orange", "grape"}, {"kiwi", "mango"}};
     sub = "an";
     auto output2 = filter_by_substring(input, sub);
