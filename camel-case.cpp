@@ -1,17 +1,23 @@
+Here is the solution:
+
+#include <vector>
+#include <iostream>
 #include <string>
+
 using namespace std;
 
-string camelCase(string s) {
+string toCamelCase(string str) {
     string result = "";
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '-') {
-            i++; // skip the '-'
-            while (i < s.length() && s[i] == ' ') {
-                i++; // skip the spaces
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == '-') {
+            if (result != "") {
+                result += (char) toupper(str[i + 1]);
+            } else {
+                result += str.substr(i + 1, 1);
             }
-            result += toupper(s[i]);
-        } else if (s[i] != ' ') {
-            result += tolower(s[i]);
+            while (i + 1 < str.length() && str[i + 1] == '-') {
+                i++;
+            }
         }
     }
     return result;
@@ -20,7 +26,7 @@ string camelCase(string s) {
 int main() {
     string input;
     cout << "Enter a string: ";
-    getline(cin, input);
-    cout << "CamelCase: " << camelCase(input) << endl;
+    cin >> input;
+    cout << toCamelCase(input) << endl;
     return 0;
 }
