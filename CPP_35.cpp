@@ -1,4 +1,6 @@
 #include <algorithm>
 #include <cmath>
 
-return *std::max_element(l.begin(), l.end());
+int maxAbsVal(vector<int> l) {
+    return abs(*max_element(l.begin(), l.end()));
+}
