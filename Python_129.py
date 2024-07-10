@@ -15,4 +15,4 @@ def minPathSum(grid):
     for i in range(n):
         for j in range(n):
             dfs(i, j, 0)
-    return minPathSum()
+    return min_path_sum
