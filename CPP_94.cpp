@@ -1,19 +1,18 @@
-int main()
-{
+int main() {
     vector<int> lst;
     int n;
-    cout << "Enter number of elements in list: ";
+    cout << "Enter number of elements: ";
     cin >> n;
-    for(int i = 0; i < n; i++)
-    {
+    cout << "Enter " << n << " elements: ";
+    for(int i = 0; i < n; i++) {
         int num;
-        cout << "Enter element " << (i+1) << ": ";
         cin >> num;
         lst.push_back(num);
     }
-    cout << "Max prime number is : " << skjkasdkd(lst) << endl;
+    cout << "Maximum prime number is " << skjkasdkd(lst) << endl;
     return 0;
 }
+
 int skjkasdkd(vector<int> lst){
     int max_prime = 0;
     for(int num : lst){
