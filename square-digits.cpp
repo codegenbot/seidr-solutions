@@ -1,15 +1,11 @@
 #include <string>
 using namespace std;
 
-class Solution {
-public:
-    string squareDigits(string input) {
-        string output = "";
-        for (char c : input) {
-            int digit = c - '0';
-            int squared = digit * digit;
-            output += to_string(squared);
-        }
-        return output;
+string squareDigits(string input) {
+    string result = "";
+    for(char c : input){
+        int num = (int)(c - '0'); // convert char to integer
+        result += to_string(num * num); // square each digit and concatenate
     }
-};
+    return result;
+}
