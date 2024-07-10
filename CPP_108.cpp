@@ -1,35 +1,31 @@
+```cpp
 int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         if (num > 0) {
             bool has_five_or_eight = false;
-            std::string str = std::to_string(num);
-            for (char c : str) {
-                int digit = c - '0';
+            while (num != 0) {
+                int digit = num % 10;
                 if (digit == 5 || digit == 8) {
                     has_five_or_eight = true;
-                    break;
                 }
+                num /= 10;
             }
-            if (!has_five_or_eight) {
-                count++;
-            }
+            count += !has_five_or_eight;
         } else if (num < 0) {
             bool has_negative_digit = false, has_five_or_eight = false;
-            std::string str = std::to_string(num);
-            for (char c : str) {
-                int digit = c - '0';
+            int abs_num = abs(num);
+            while (abs_num != 0) {
+                int digit = abs_num % 10;
                 if (digit >= 5) {
                     has_negative_digit = true;
                 }
                 if (digit == 5 || digit == 8) {
                     has_five_or_eight = true;
-                    break;
                 }
+                abs_num /= 10;
             }
-            if (!has_negative_digit || has_five_or_eight) {
-                count++;
-            }
+            count += !has_negative_digit && !has_five_or_eight;
         }
     }
     return count;
