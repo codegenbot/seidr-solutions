@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -28,7 +27,7 @@ std::string kebabToCamel(const std::string& str) {
         if (i > 0) {
             char firstChar = std::toupper(words[i][0]);
             result += firstChar;
-            result += std::string(1, words[i].erase(0, 1)).toLowerCase();
+            result += words[i].erase(0, 1).lower();
         } else {
             result += words[i];
         }
