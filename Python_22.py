@@ -1,16 +1,19 @@
 import re
 
 
-def filter_integers() -> None:
+def filter_integers(input_str=None) -> None:
     while True:
-        print("Please enter a comma-separated list of values (separated by commas):")
-        user_input = input()
+        if input_str is None:
+            print(
+                "Please enter a comma-separated list of values (separated by commas):"
+            )
+            input_str = input()
 
-        if not user_input and "exit" in user_input.lower():
+        if not input_str and "exit" in input_str.lower():
             break
-        elif not user_input:
+        elif not input_str:
             print("Please enter some values. You can press Enter to exit.")
-        elif not re.match(r"^[0-9]+(,[0-9]+)*$", user_input):
+        elif not re.match(r"^[0-9]+(,[0-9]+)*$", input_str):
             print(
                 "Invalid input. Please enter a valid list of comma-separated integers."
             )
@@ -20,7 +23,7 @@ def filter_integers() -> None:
     try:
         user_values = [
             int(val.replace(" ", "").strip())
-            for val in user_input.split(",")
+            for val in input_str.split(",")
             if re.match(r"^\d+$", val.replace(" ", "")) or int(val) == 0
         ]
 
@@ -38,7 +41,7 @@ def filter_integers() -> None:
 
             print(f"The integers from the input are: {user_values}")
             if len(user_values) == 1:
-                print(f"Average Value is Not Applicable")
+                print("Average Value is Not Applicable")
             else:
                 print(f"Average Value: {avg_value:.2f}")
             print(f"Minimum Value: {min_value}")
