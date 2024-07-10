@@ -11,5 +11,5 @@ def search(lst):
     for k, v in freq_dict.items():
         if k >= v and k > 0:
             max_num = k
-            break
-    return None
+            return max_num
+    return -1
