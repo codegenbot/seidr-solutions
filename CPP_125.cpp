@@ -12,9 +12,10 @@ vector<string> split_words(string txt) {
     while ((pos = txt.find_first_of(" ,")) != string::npos) {
         if (pos == 0) {
             if (txt.find(',') == string::npos)
-                return {to_string(txt.length() - to_string((int)(txt[0] - 'a')) % 26)};
-            pos++;
+                return {to_string(txt.length() - to_string((char)(97 + txt[0] % 26)).size())};
+            pos = txt.find(',');
         }
+        
         result.push_back(txt.substr(prevPos, pos - prevPos));
         prevPos = pos + 1;
     }
@@ -30,8 +31,8 @@ int main() {
     cout << "Enter a string: ";
     getline(cin, txt);
     vector<string> res = split_words(txt);
-    for (const auto& s : res) {
-        cout << s << endl;
+    for (const auto& str : res) {
+        cout << str << endl;
     }
     return 0;
 }
