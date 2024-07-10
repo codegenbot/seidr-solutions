@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -5,7 +6,7 @@
 #include <cassert>
 using namespace std;
 
-bool issame(const string a, const string b) {
+bool issame(string a, string b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++) {
@@ -25,13 +26,8 @@ string to_string(int i) {
     oss << i;
     return oss.str();
 }
-string to_string(long double x) {
-    ostringstream oss;
-    oss << fixed << setprecision(2) << x; 
-    return oss.str();
-}
 
-string reverse_delete(const string s1, const string s2) {
+string reverse_delete(string s1, string s2) {
     int len1 = s1.length();
     int len2 = s2.length();
     for(int i = 0; i < len2; i++) {
@@ -51,11 +47,12 @@ int main() {
     cin >> num1;
     cout << "Enter second number: ";
     cin >> num2;
+
     if(num1 > num2)
         cout << "First number is greater." << endl;
     else
         cout << "Second number is greater." << endl;
 
-    assert(to_string(reverse_delete("mama", "ma")) == reverse_delete("mama", "ma"));
+    assert(issame(to_string(reverse_delete("mama", "ma")), reverse_delete("mama", "ma")));
     return 0;
 }

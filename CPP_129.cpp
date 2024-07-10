@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -59,9 +58,9 @@ int main() {
         if(same) {
             cout << "The minimum path is: ";
             for (int i : output) {
-                cout << i;
+                std::cout << i << " ";
             }
-            cout << endl;
+            std::cout << endl;
         } else {
             cout << "No paths found with length " << target << "." << endl;
         }

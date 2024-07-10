@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -23,11 +23,9 @@ int main() {
         std::cout << "Enter word " << i + 1 << ": ";
         std::string s;
         std::cin >> s;
+        std::cin.ignore(); // ignore trailing spaces
         words.push_back(s);
     }
-    if(words.empty()) {
-        std::cout << "No words entered." << std::endl;
-    } else {
-        std::cout << "The maximum length word is: " << find_max(words) << std::endl;
-    }
+    std::cout << "The maximum length word is: " << find_max(words) << std::endl;
+    return 0;
 }

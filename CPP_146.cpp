@@ -20,7 +20,8 @@ int main() {
                 std::cerr << "Invalid input! Please enter a string.\n";
                 std::cin.clear();
                 std::cin.ignore();
-                std::cin.getline(num, 1024);
+                num.resize(std::min(size_t(10), num.size()) + 1);
+                std::getline(std::cin, num);
             }
         }
         nums.push_back(num);
