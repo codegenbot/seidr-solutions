@@ -1,15 +1,15 @@
+Here is the completed code:
+
 string get_closest_vowel(string word) {
-    int n = word.length();
-    for(int i=n-1; i>=0; i--) {
-        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u' ||
-           word[i] == 'A' || word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || word[i] == 'U') {
-            for(int j=i+1; j<n; j++) {
-                if(word[j] == 'a' || word[j] == 'e' || word[j] == 'i' || word[j] == 'o' || word[j] == 'u' ||
-                   word[j] == 'A' || word[j] == 'E' || word[j] == 'I' || word[j] == 'O' || word[j] == 'U') {
-                    return string(1, word[i]);
-                }
-            }
+    int left = 0;
+    for (int i = word.length() - 1; i >= 0; --i) {
+        if (!isalpha(word[i])) continue;
+        if (isvowel(word[i])) {
+            while (left < i && !isalpha(word[left]) && isalnum(word[left]))
+                ++left;
+            return string(1, tolower(word[i]));
         }
+        ++left;
     }
     return "";
 }
