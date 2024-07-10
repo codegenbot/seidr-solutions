@@ -2,12 +2,11 @@
 
 bool iscuber(int a){
     int i = 1;
-    while (true) {
+    while (i <= sqrt(double(a))) {
         int cubed = pow(i, 3);
-        if (cubed > a)
-            return false;
-        else if (cubed == a)
+        if (cubed == a)
             return true;
         i++;
     }
+    return false;
 }

@@ -15,7 +15,7 @@ string anti_shuffle(string s) {
                 i++;
             }
             for (char c : word) {
-                result += min_element(word.begin(), word.end()) -> first;
+                result += *min_element(word.begin(), word.end());
                 word.erase(min_element(word.begin(), word.end()));
             }
             if (!word.empty()) {
