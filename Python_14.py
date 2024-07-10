@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def get_all_prefixes(s: str) -> List[str]:
@@ -8,7 +7,7 @@ def all_prefixes() -> None:
     while True:
         s = input("Please enter a string: ")
         try:
-            result = "\n".join(get_all_prefixs(s))
+            result = "\n".join(get_all_prefixes(s))
             print(result)
             break
         except TypeError:
