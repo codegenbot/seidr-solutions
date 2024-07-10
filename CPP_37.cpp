@@ -3,8 +3,6 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b);
-
 void sort_even(std::vector<float>& vec) {
     std::sort(vec.begin(), vec.end(), [](float a, float b) {
         return (static_cast<int>(a) % 2 == 0) && (static_cast<int>(b) % 2 == 0) && a < b;
