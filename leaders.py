@@ -1,7 +1,10 @@
+Here is the Python solution for the problem:
+
 def leaders(a):
-    n = len(a)
-    result = [a[n - 1]]
-    for i in range(n - 2, -1, -1):
-        if a[i] >= a[i + 1]:
-            result.insert(0, a[i])
-    return result
+    return [a[i] for i in range(len(a)-1,-1,-1) if all(x <= a[i] for x in a[i+1:])]
+
+print(leaders([0]))
+print(leaders([1, 0]))
+print(leaders([1, 451]))
+print(leaders([2, 1000, 0]))
+print(leaders([2, 0, 1000]))
