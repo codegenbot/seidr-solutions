@@ -1,6 +1,8 @@
 #include <vector>
 
-int luhn(std::vector<int> card) {
+using namespace std;
+
+int luhn(vector<int> card) {
     int sum = 0;
     bool doubleNext = false;
 
@@ -20,4 +22,3 @@ int luhn(std::vector<int> card) {
     }
 
     return sum;
-}
