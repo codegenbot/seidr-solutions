@@ -14,9 +14,12 @@ def bowling_score(game):
             score += first_roll
             if first_roll == 10:
                 roll += 1
-                next_frame = game.split('/')[game.split('/').index(frame)+1].split()[0]
-                score += sum(map(int, [next_frame] + next_frame.split()))
+                next_frame = game.split('/')[game.split('/').index(frame)+1].split()
+                if len(next_frame) > 1:
+                    score += sum(map(int,next_frame[:2]))
+                else:
+                    score += int(next_frame[0])
             else:
-                score += sum(game.split('/')[game.split('/').index(frame)+1].split()[:2])
-                roll += 2
-    return score if roll == 10 else 100
+                score += sum(map(int,frame[1:]))
+            roll += 1
+    return score
