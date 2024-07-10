@@ -20,7 +20,7 @@ def filter_integers() -> None:
         min_value = min(user_values)
 
         print(f"The integers from the input are: {user_values}")
-        print(f"Average Value: {avg_value}")
+        print(f"Average Value: {avg_value:.2f}")
         print(f"Minimum Value: {min_value}")
     except ValueError:
         print("Invalid input. Please enter a valid list of comma-separated integers.")
