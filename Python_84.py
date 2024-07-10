@@ -1,2 +1,5 @@
 def solve(N):
-    return format(N, 'b')[2:]
+    if N > 1:
+        return bin(N)[2:]
+    else:
+        return "0"
