@@ -1,9 +1,13 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 bool issame(int x, int y) {
     return x == y;
+}
+
+bool isSameVector(std::vector<int> v1, std::vector<int> v2) {
+    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
 }
 
 std::vector<int> remove_duplicates(std::vector<int> v) {
@@ -11,7 +15,7 @@ std::vector<int> remove_duplicates(std::vector<int> v) {
     for (int i = 0; i < v.size(); i++) {
         bool found = false;
         for (int j = 0; j < result.size(); j++) {
-            if (v[i] == result[j]) {
+            if (issame(v[i], result[j])) {
                 found = true;
                 break;
             }
@@ -23,7 +27,7 @@ std::vector<int> remove_duplicates(std::vector<int> v) {
     return result;
 }
 
-int mainFunction() {
+int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
