@@ -7,7 +7,7 @@ int fibfib(int n) {
     } else if (n == 2) {
         return 1;
     } else {
-        int a = 0, b = 0, c = 1, d;
+        int a = 0, b = 0, c = 1, d = 0;
         for (int i = 3; i <= n; ++i) {
             d = a + b + c;
             a = b;
