@@ -1,3 +1,4 @@
+```
 def main():
     print("Welcome to the word length calculator!")
     while True:
@@ -26,25 +27,20 @@ def main():
                 return
             elif not input_val:
                 print(sorted_list_sum)
-                return
             else:
-                while True:
+                if input_val.isdigit():
                     try:
-                        if input_val.isdigit():
-                            if int(input_val) % 2 == 0:
-                                print(f"The sum of even length words is {sorted_list_sum}.")
-                            else:
-                                print(
-                                    f"The sum of odd length words is {sum(len(word) for word in lst if len(word) % 2 != 0)}."
-                                )
-                            return
-                        elif input_val.lower() == "q":
-                            print("Goodbye!")
-                            return
+                        num = int(input_val)
+                        if num % 2 == 0:
+                            print(f"The sum of even length words is {sorted_list_sum}.")
                         else:
-                            print("Invalid input. Please enter a number or 'q'.")
+                            print(
+                                f"The sum of odd length words is {sum(len(word) for word in lst if len(word) % 2 != 0)}."
+                            )
                     except ValueError:
                         print("Invalid input. Please enter a number or 'q'.")
+                else:
+                    print("Invalid input. Please enter a number or 'q'.")
 
 
 if __name__ == "__main__":
