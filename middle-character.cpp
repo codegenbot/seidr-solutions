@@ -4,11 +4,10 @@
 using namespace std;
 
 string middleCharacter(string s) {
-    if (s.empty()) {
-        return "Invalid input";
-    }
     int n = s.size();
-    if (n % 2 == 0) {
+    if (n == 0) {
+        return "Empty string";
+    } else if (n % 2 == 0) {
         return s.substr(n / 2 - 1, 2);
     } else {
         return s.substr(n / 2, 1);
