@@ -1,2 +1,11 @@
-def shopping_list(price_vector, discount_vector):
-    return sum(p - (p * d / 100) for p, d in zip(price_vector, discount_vector))
+def shopping_list():
+    n = int(input())
+    prices = list(map(float, input().split()))
+    discounts = list(map(float, input().split()))
+    total_price = 0
+    for i in range(n):
+        total_price += (1 - discounts[i] / 100) * prices[i]
+    return round(total_price, 6)
+
+
+print(shopping_list())
