@@ -3,22 +3,20 @@ int main() {
     for (int i = 0; i < 16; ++i) {
         cin >> digits[i];
     }
-    
+
     int sum = 0;
     for (int i = 0; i < 16; ++i) {
+        int num = digits[i];
         if (i % 2 == 1) {
-            int doubled = digits[i] * 2;
-            if (doubled > 9) {
-                sum += doubled - 9;
-            } else {
-                sum += doubled;
+            num *= 2;
+            if (num > 9) {
+                num -= 9;
             }
-        } else {
-            sum += digits[i];
         }
+        sum += num;
     }
-    
+
     cout << sum << endl;
-    
+
     return 0;
 }
