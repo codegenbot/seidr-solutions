@@ -11,12 +11,17 @@ vector<int> leaders(vector<int>& arr) {
     if (n == 0)
         return result;
         
-    result.push_back(arr[n - 1]);
+    int current_leader = arr[n - 1];
+    result.push_back(current_leader);
     
     for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] >= result.back())
-            result.push_front(arr[i]);
+        if (arr[i] >= current_leader) {
+            current_leader = arr[i];
+            result.push_back(current_leader);
+        }
     }
+    
+    reverse(result.begin(), result.end());
     
     return result;
 }

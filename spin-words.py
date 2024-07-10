@@ -1,11 +1,10 @@
+```
 def spin_words(s):
     words = s.split()
     result = []
-    for i, word in enumerate(words):
+    for word in words:
         if len(word) >= 5:
-            result.append(word[::-1])
+            result.append(' '.join(word[::-1].split()))
         else:
             result.append(word)
-        if i < len(words)-1: 
-            result.append(' ')
-    return ''.join(result)
+    return ' '.join(result)
