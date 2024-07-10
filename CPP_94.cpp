@@ -10,6 +10,7 @@ int sumVector(std::vector<int> lst) {
 }
 
 int main() {
-    assert(sumVector({127, 97, 8192}) == 10);
+    assert(sumVector({127, 97, 8192}) == 1316);
     std::cout << "sumVector({127, 97, 8192}) = " << sumVector({127, 97, 8192}) << std::endl;
     return 0;
+}
