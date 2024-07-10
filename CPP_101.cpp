@@ -1,14 +1,15 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <sstream>
 #include <cassert>
 
-std::vector<std::string> words_string(std::string s) {
-    std::vector<std::string> words;
-    std::stringstream ss(s);
-    std::string word;
-    while (std::getline(ss, word, ' ')) {
+using namespace std;
+
+vector<string> words_string(string s){
+    vector<string> words;
+    stringstream ss(s);
+    string word;
+    while (getline(ss, word, ' ')) {
         if (!word.empty()) {
             words.push_back(word);
         }
@@ -16,8 +17,8 @@ std::vector<std::string> words_string(std::string s) {
     return words;
 }
 
-int main() {
-    assert(words_string("ahmed     , gamal") == std::vector<std::string>{"ahmed", "gamal"});
-    
+int main(){
+    assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+
     return 0;
 }
