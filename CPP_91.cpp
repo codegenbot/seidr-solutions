@@ -8,20 +8,15 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     getline(std::cin, input);
-    int result = 0; 
-    for (char c : input) { 
-        if (std::tolower(c) == 'i') {
-            result++; 
-        }
-    }
+    int result = is_bored(input);
     std::cout << "Count of 'I' at the beginning: " << result << std::endl;
     return 0;
 }
 
 int is_bored(std::string str) {
-    int count = 0; 
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == 'I') {
+    int count = 0;
+    for (char c : str) {
+        if (c == 'I') {
             count++;
         }
     }
