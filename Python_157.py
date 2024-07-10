@@ -1,1 +1,3 @@
-a, b, c = map(int, input().split())
+a = int(input())
+b = int(input())
+c = int(input())
