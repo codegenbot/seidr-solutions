@@ -11,13 +11,10 @@ double sum_squares(int n) {
     return sum;
 }
 
-std::ios_base::sync_with_stdio(false);
-
 int main() {
-    std::ios_base::sync_with_stdio(false);
     int n;
     while (!(std::cin >> n)) {
-        std::cout << "Invalid input. Please enter a non-negative integer.\n";
+        std::cout << "Invalid input. Please enter a non-negative integer: ";
         std::cin.clear(); 
         while (std::cin.get() != '\n') 
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
@@ -27,8 +24,7 @@ int main() {
         std::cout << "Invalid input. Please enter a non-negative integer.\n";
     } else {
         double result = sum_squares(n);
-        std::cout << "Sum of squares: " << result << std::endl;
-        
+        std::cout << "Sum of squares: " << result << "\n"; 
         assert(sum_squares(1) == 1);
         assert(sum_squares(2) == 5);
         assert(sum_squares(3) == 14);
