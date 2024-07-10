@@ -31,7 +31,6 @@ int main() {
     std::cin >> n;
 
     std::vector<int> game(n);
-    std::cout << "Enter the game numbers: ";
     for (int i = 0; i < n; i++) {
         std::cin >> game[i];
     }

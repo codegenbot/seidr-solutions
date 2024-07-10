@@ -16,12 +16,12 @@ bool issame(string a, string b) {
     return true;
 }
 
-(int main() {
+int main() {
     int num;
     cin >> num;
     string str1, str2;
     for (int i = 0; i < num; i++) {
-        cin >> str1 >> str2;
+        getline(cin, str1); getline(cin, str2);
         if (issame(str1, str2)) {
             cout << "The strings are the same." << endl;
         } else {
@@ -29,5 +29,4 @@ bool issame(string a, string b) {
         }
     }
     
-    return 0;
-})
+}

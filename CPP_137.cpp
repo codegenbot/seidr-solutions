@@ -18,8 +18,7 @@ int main_func() {
     cin >> a;
 
     double b;
-    string str;
-    cout << "Enter a floating point number or a string: ";
+    cout << "Enter a floating point number: ";
     cin >> b; 
 
     if (cin.fail()) { 
