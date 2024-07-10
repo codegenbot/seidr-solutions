@@ -1,6 +1,6 @@
 def match_parens(lst):
+    stack = []
     for s in lst:
-        stack = []
         for char in s:
             if char == "(":
                 stack.append(char)
@@ -10,4 +10,6 @@ def match_parens(lst):
                 stack.pop()
         if stack:
             return "No"
-    return "Yes"
+    if not stack:
+        return "Yes"
+    return "No"
