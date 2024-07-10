@@ -1,7 +1,5 @@
 #include <vector>
 
-std::vector<int> intersperse(const std::vector<int>& vec, int val);
-
 std::vector<int> intersperse(const std::vector<int>& vec, int val){
     std::vector<int> result;
     for(const auto& num : vec){

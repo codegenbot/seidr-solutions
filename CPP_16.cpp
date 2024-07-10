@@ -1,5 +1,10 @@
-transform(str.begin(), str.end(), str.begin(), ::tolower);
-    sort(str.begin(), str.end());
-    auto it = unique(str.begin(), str.end());
-    return distance(str.begin(), it);
+#include <algorithm>
+#include <iostream>
+
+int count_distinct_characters(const std::string& str) {
+    std::string temp = str;
+    std::transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+    std::sort(temp.begin(), temp.end());
+    auto it = std::unique(temp.begin(), temp.end());
+    return std::distance(temp.begin(), it);
 }
