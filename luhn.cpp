@@ -19,4 +19,3 @@ int luhnAlgorithm(vector<int> cardNumber) {
     }
     
     return sum;
-}
