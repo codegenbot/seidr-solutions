@@ -12,4 +12,3 @@ int main() {
         std::cout << (x % 5 == 0 ? "Buzz" : std::to_string(x));
     std::cout << std::endl;
     return 0;
-}
