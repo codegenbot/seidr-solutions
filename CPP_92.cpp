@@ -1,8 +1,7 @@
-Here is the completed code:
-
-bool any_int(float a, float b, float c) {
-    int ai = (int)a;
-    int bi = (int)b;
-    int ci = (int)c;
-    return (ai == ai + bi + ci) || (bi == ai + bi + ci) || (ci == ai + bi + ci);
+bool any_int(float a, float b, float c){
+    if (abs(a - (b + c)) < 0.0001 && isfinite(a) && isfinite(b) && isfinite(c)) {
+        return true;
+    } else {
+        return false;
+    }
 }
