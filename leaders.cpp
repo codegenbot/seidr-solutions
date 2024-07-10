@@ -12,7 +12,10 @@ vector<int> leaders(vector<int>& arr) {
                 break;
             }
         }
-        if (isLeader) result.push_back(arr[i]);
+        if (isLeader) {
+            result.push_back(arr[i]);
+        }
     }
+    reverse(result.begin(), result.end());
     return result;
 }
