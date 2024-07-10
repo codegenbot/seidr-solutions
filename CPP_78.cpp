@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
 int hex_key(string num) {
     int count = 0;
