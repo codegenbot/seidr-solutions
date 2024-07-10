@@ -3,29 +3,28 @@
 
 using namespace std;
 
-double vectorDistance(int n, const vector<float>& v1, const vector<float>& v2) {
-    double distance = 0;
-    for (int i = 0; i < n; ++i) {
-        float diff = v1[i] - v2[i];
-        distance += diff * diff;
+double vectorDistance(vector<float> v1, vector<float> v2) {
+    double sum = 0;
+    for (int i = 0; i < v1.size(); i++) {
+        sum += pow(v1[i] - v2[i], 2);
     }
-    return sqrt(distance);
+    return sqrt(sum);
 }
 
 int main() {
     int n;
     cin >> n;
-
     vector<float> v1(n), v2(n);
 
-    for (int i = 0; i < n; ++i) {
-        float x;
-        cin >> x;
-        v1[i] = v2[i] = x;
+    for (int i = 0; i < n; i++) {
+        cin >> v1[i];
     }
 
-    double result = vectorDistance(n, v1, v2);
-    cout << fixed << setprecision(10) << result << endl;
+    for (int i = 0; i < n; i++) {
+        cin >> v2[i];
+    }
+
+    cout << fixed << setprecision(10) << vectorDistance(v1, v2);
 
     return 0;
 }
