@@ -1,5 +1,6 @@
+#include <iostream>
 #include <map>
-#include <string>
+#include <cctype>
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
@@ -7,15 +8,16 @@ bool check_dict_case(map<string, string> dict) {
     bool allLower = true;
     bool allUpper = true;
 
-    for (auto &pair : dict) {
-        if (!islower(pair.first[0]) && !isupper(pair.first[0])) {
-            allLower = false;
-            allUpper = false;
+    for (auto& pair : dict) {
+        string key = pair.first;
+        if (!allLower && !allUpper)
             break;
-        } else if (islower(pair.first[0])) {
-            allUpper = false;
-        } else {
+
+        if (!islower(key[0])) {
             allLower = false;
+        }
+        if (!isupper(key[0])) {
+            allUpper = false;
         }
     }
 
@@ -24,6 +26,19 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     assert(check_dict_case({}) == false);
-    // Add your test cases here
+    map<string, string> dict;
+    cout << "Enter key-value pairs (separated by space), enter 'stop' to finish: ";
+    string input;
+    while (true) {
+        cin >> input;
+        if (input == "stop") break;
+        size_t space = input.find(' ');
+        if (space == string::npos) continue;
+        string key = input.substr(0, space);
+        string value = input.substr(space + 1);
+        dict[key] = value;
+    }
+    bool result = check_dict_case(dict);
+    cout << "Dictionary case: " << (result ? "consistent" : "inconsistent") << endl;
     return 0;
 }
