@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <utility>
@@ -20,4 +21,20 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
             closest_pair = make_pair(numbers[i], numbers[i + 1]);
         }
     }
-    return {make_pair(closest_pair.first, closest_pair.second)};
+    return {{closest_pair.first, closest_pair.second}};
+}
+
+int run() {
+    vector<float> numbers = {1.1, 2.2, 3.1, 4.1, 5.1};
+    cout << "Closest elements: ";
+    for (const auto& pair : find_closest_elements(numbers)) {
+        cout << "(" << pair.first << ", " << pair.second << ") ";
+    }
+    cout << endl;
+    return 0;
+}
+
+int main() {
+    run();
+    return 0;
+}
