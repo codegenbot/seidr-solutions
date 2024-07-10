@@ -15,7 +15,7 @@ std::string file_name_check(std::string file_name) {
         }
     }
     
-    if (digitCount > 3 || dotCount != 1 || dotIndex == 0 || dotIndex == file_name.length() - 1) {
+    if (digitCount > 3 || dotCount != 1 || dotIndex == 0 || dotIndex == file_name.length() - 1 || dotIndex == -1) {
         return "No";
     }
     
@@ -25,15 +25,4 @@ std::string file_name_check(std::string file_name) {
     }
     
     return "Yes";
-}
-
-int main() {
-    assert(file_name_check("file.txt") == "Yes");
-    assert(file_name_check("file.exe") == "Yes");
-    assert(file_name_check("file.dll") == "Yes");
-    assert(file_name_check("file.txt1") == "No");
-    assert(file_name_check("file.") == "No");
-    assert(file_name_check("file") == "No");
-
-    return 0;
 }
