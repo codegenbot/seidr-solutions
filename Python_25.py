@@ -3,14 +3,28 @@ from typing import List
 
 def main():
     n = [None] * 4
+    all_inputs_entered = False
+    max_attempts = 5
     for i in range(4):
+        attempts = 0
         while True:
-            num = int(input(f"Enter an integer ({i+1}/4): "))
-            if num not in n:
-                n[i] = num
-                break
-            else:
-                print("Duplicate input. Please enter unique numbers.")
+            try:
+                num = int(input(f"Enter an integer ({i+1}/4): "))
+                if num not in n:
+                    n[i] = num
+                    break
+                else:
+                    print("Duplicate input. Please enter unique numbers.")
+            except ValueError:
+                print("Invalid input. Please enter a valid integer.")
+            attempts += 1
+            if attempts >= max_attempts:
+                print(
+                    "No valid input received after multiple attempts. Exiting program."
+                )
+                return
+        if all(x is not None for x in n):
+            all_inputs_entered = True
 
     factors1 = []
     i = 2
@@ -41,12 +55,15 @@ def main():
         else:
             break
 
-    if not common_factors:
-        print(f"No common factor found between {n}.")
-    else:
+    if common_factors:
         print(
             f"{', '.join(map(str, set(common_factors)))} are the common factors between {n}."
         )
+    else:
+        print(f"No common factor found between {n}.")
+
+    if not common_factors:
+        print(f"No common factor found between {n}.")
 
 
 if __name__ == "__main__":
