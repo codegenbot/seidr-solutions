@@ -6,7 +6,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> sum_product(std::vector<int> nums) {
+std::vector<int> sum_product(std::vector<int> nums){
     int sum = 0;
     int product = 1;
 
@@ -15,7 +15,7 @@ std::vector<int> sum_product(std::vector<int> nums) {
         product *= num;
     }
 
-    return std::vector<int>{sum, product};
+    return {sum, product};
 }
 
 int main() {
