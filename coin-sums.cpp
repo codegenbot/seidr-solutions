@@ -1,7 +1,9 @@
 ```cpp
+#include <iostream>
+
 int main() {
     int cents;
-    cin >> cents;
+    std::cin >> cents;
 
     int quarters = cents / 25; 
     cents %= 25;
@@ -14,15 +16,15 @@ int main() {
 
     int pennies = cents;
 
-    cout << quarters << " quarter" << (quarters > 1 ? "s" : "") << endl;
+    std::cout << quarters << " quarter" << (quarters > 1 ? "s" : "") << std::endl;
     if (dimes > 0) {
-        cout << dimes << " dime" << (dimes > 1 ? "s" : "") << endl;
+        std::cout << dimes << " dime" << (dimes > 1 ? "s" : "") << std::endl;
     }
     if (nickles > 0) {
-        cout << nickles << " nickel" << (nickles > 1 ? "s" : "") << endl;
+        std::cout << nickles << " nickel" << (nickles > 1 ? "s" : "") << std::endl;
     }
     if (pennies > 0) {
-        cout << pennies << " penny" << (pennies > 1 ? "s" : "") << endl;
+        std::cout << pennies << " penny" << (pennies > 1 ? "s" : "") << std::endl;
     }
 
     return 0;
