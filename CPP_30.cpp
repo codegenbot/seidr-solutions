@@ -1,14 +1,14 @@
 #include <iostream>
 #include <vector>
 
-bool same_vectors(std::vector<float> a, std::vector<float> b) {
+bool sameVectors(std::vector<float> a, std::vector<float> b) {
     if (a.size() != 1 || b.size() != 1) {
         return false;
     }
     return a[0] == b[0];
 }
 
-float get_positive(float num) {
+float getPositive(float num) {
     return (num > 0.0f) ? num : -num;
 }
 
@@ -25,8 +25,8 @@ int main() {
         return 1;
     }
 
-    if (same_vectors({num1}, {num2})) {
-        float result = get_positive(num1);
+    if (sameVectors({num1}, {num2})) {
+        float result = getPositive(num1);
         std::cout << "The positive of the numbers is: " << result << std::endl;
     } else {
         std::cout << "The numbers are not same." << std::endl;
