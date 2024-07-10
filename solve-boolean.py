@@ -1,10 +1,9 @@
-```
 def solve_boolean(s):
-    if s == 'T':
+    if s == "T":
         return True
-    elif s == 'F':
+    elif s == "F":
         return False
-    elif '&' in s and '|' in s:
-        raise ValueError('Invalid input')
+    elif "&" in s:
+        return eval(s.replace("&", " and "))
     else:
-        return eval(s.replace('T', 'True').replace('F', 'False'))
+        return eval(s.replace("|", " or "))
