@@ -2,7 +2,6 @@
 #include <vector>
 #include <assert.h>
 
-// Rename the duplicate main function
 int calculateSum() {
     assert(sumVector({127, 97, 8192}) == 1216);
     return 0;
