@@ -1,5 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
+#include <iostream>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -26,6 +27,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         return atof(str.c_str()) > f ? a : b;
     }
     else {
-        return boost::any();
+        return "None";
     }
 }
