@@ -1,13 +1,22 @@
-```
 def int_to_mini_roman(number):
-    roman = {
-        1000: 'm', 900: 'cm', 500: 'd', 400: 'cd',
-        100: 'c', 90: 'xc', 50: 'l', 40: 'xl',
-        10: 'x', 9: 'ix', 5: 'v', 4: 'iv', 1: 'i'
+    roman = ""
+    roman_map = {
+        1: "i",
+        4: "iv",
+        5: "v",
+        9: "ix",
+        10: "x",
+        40: "xl",
+        50: "l",
+        90: "xc",
+        100: "c",
+        400: "cd",
+        500: "d",
+        900: "cm",
+        1000: "m",
     }
-    result = ''
-    for value, roman_num in roman.items():
+    for value in sorted(roman_map.keys(), reverse=True):
         while number >= value:
-            result += roman_num
+            roman += roman_map[value]
             number -= value
-    return result.lower()
+    return roman.lower()
