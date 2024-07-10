@@ -1,3 +1,4 @@
+```cpp
 bool issame(vector<int> a,vector<int>b) {
     return (a == b);
 }
@@ -10,3 +11,4 @@ vector<any> filter_integers(list<any> values) {
         }
     }
     return result;
+}
