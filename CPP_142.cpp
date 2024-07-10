@@ -10,16 +10,19 @@ int sum_squares(int n) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
+    int test_cases[1] = {{17}};
+    for (int i = 0; i < 1; ++i) {
+        if(sum_squares(test_cases[i]) != -1448) {
+            std::cout << "Invalid input. Please enter a non-negative integer." << std::endl;
+        } else {
+            int n;
+            std::cin >> n;
 
-    if(n < 0) {
-        std::cout << "Invalid input. Please enter a non-negative integer." << std::endl;
-    } else {
-        int result = sum_squares(n);
-        // You can add assert statement here to test the function with specific inputs
-        // assert (sum_squares(-1) == 1 && sum_squares(5) == 55 && ...);
-
-        std::cout << "Sum of squares: " << result << std::endl;
+            if(n < 0) {
+                std::cout << "Invalid input. Please enter a non-negative integer." << std::endl;
+            } else {
+                std::cout << sum_squares(n) << std::endl;
+            }
+        }
     }
 }
