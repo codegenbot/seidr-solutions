@@ -1,0 +1,1 @@
+return !isalpha(txt.back()) && txt.size() > 0 && txt[txt.size() - 2] == ' ';
