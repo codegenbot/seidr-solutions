@@ -15,10 +15,7 @@ int main()
 {
     std::string input;
     std::cout << "Enter a string: ";
-    char temp[256];
-    cin.getline(temp, 256);
-    input = temp; // convert char array to string
-    
+    std::cin >> input;
     if (prime_length(input)) {
         std::cout << "The length of the string is prime." << std::endl;
     } else {

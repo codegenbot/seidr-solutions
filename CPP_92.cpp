@@ -1,9 +1,13 @@
 #include <iostream>
 #include <assert.h>
+#include <cmath>
 
 bool any_int(float a, float b, float c) {
-    if ((int)a + (int)b == (int)c || (int)a - (int)b == (int)c ||
-        (int)b - (int)a == (int)c || (int)a + (int)b == (int)c)
+    int ai = round(a);
+    int bi = round(b);
+    int ci = round(c);
+
+    if ((ai == bi + ci) || (ai == bi - ci) || (ai == ci + bi) || (ai == ci - bi))
         return true;
     else
         return false;
