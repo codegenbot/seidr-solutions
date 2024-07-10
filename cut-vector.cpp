@@ -1,55 +1,42 @@
+```
 #include <iostream>
 #include <vector>
-#include <limits>
+#include <numeric>
 
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
+    int min_diff = numeric_limits<int>::max();
+    pair<vector<int>, vector<int>> result;
     
-    if (n == 1)
-        return {{vec[0]}}, {};
-
-    for (int i = 1; i < n; ++i) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j < i; ++j)
-            left_sum += vec[j+1];
-        
-        for (int j = i; j < n; ++j)
-            right_sum += vec[j+1];
+    for (int i = 1; i < vec.size(); ++i) {
+        int left_sum = accumulate(vec.begin(), vec.begin() + i, 0);
+        int right_sum = accumulate(vec.begin() + i, vec.end(), 0);
         
         if (left_sum == right_sum) {
-            return {vector<int>(vec.begin(), vec.begin() + i + 1)}, vector<int>(vec.begin() + i + 1, vec.end());
+            return {{vec[0]}, vector<int>(vec.begin() + 1, vec.end())};
         }
         
         int diff = abs(left_sum - right_sum);
         
-        if (diff < numeric_limits<int>::max()) {
-            int prev_diff = diff;
-            diff = left_sum - right_sum;
-            
-            if (left_sum <= right_sum) {
-                if (prev_diff > diff)
-                    return {vector<int>(vec.begin(), vec.begin() + i + 1)}, vector<int>(vec.begin() + i + 1, vec.end());
-            } else {
-                if (diff < prev_diff)
-                    return {vector<int>(vec.begin(), vec.begin() + i + 1)}, vector<int>(vec.begin() + i + 1, vec.end());
-            }
+        if (diff < min_diff) {
+            min_diff = diff;
+            result.first = vector<int>(vec.begin(), vec.begin() + i);
+            result.second = vector<int>(vec.begin() + i, vec.end());
         }
     }
     
-    return {{vec[0]}}, vector<int>(vec.begin() + 1, vec.end());
+    return result;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(n+2);
-    for (int i = 1; i <= n + 1; ++i)
+    vector<int> vec(n+1);
+    for (int i = 0; i <= n; ++i)
         cin >> vec[i];
     
-    pair<vector<int>, vector<int>> res = cutVector(vector<int>(vec.begin() + 1, vec.end()));
+    pair<vector<int>, vector<int>> res = cutVector(vec);
     
     cout << "[";
     for (int num : res.first) {
