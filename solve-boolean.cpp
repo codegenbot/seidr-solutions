@@ -1,22 +1,44 @@
-string solveBoolean(string expression) {
+#include <vector>
+#include <iostream>
+#include <string>
+
+bool solveBoolean(string expression) {
     stack<char> s;
     for (int i = 0; i < expression.size(); i++) {
-        if (expression[i] == '&') {
+        char c = expression[i];
+        if (c == '&') {
             while (!s.empty() && s.top() == '&') {
                 s.pop();
             }
-            s.push('&');
-        } else if (expression[i] == '|') {
+            s.push(c);
+        } else if (c == '|') {
+            while (!s.empty() && s.top() == '|') {
+                s.pop();
+            }
+            s.push(c);
+        } else if (c == 'T' || c == 't') {
             while (!s.empty()) {
                 s.pop();
             }
-            s.push('|');
-        } else if (expression[i] == 'T' || expression[i] == 'F') {
+            return true;
+        } else if (c == 'F' || c == 'f') {
             while (!s.empty()) {
                 s.pop();
             }
-            s.push(expression[i]);
+            return false;
+        } else {
+            s.push(c);
         }
     }
-    return (s.top() == '&') ? "False" : "True";
+    while (!s.empty()) {
+        s.pop();
+    }
+    return false;
+}
+
+int main() {
+    string expression;
+    cin >> expression;
+    cout << (solveBoolean(expression) ? "True" : "False") << endl;
+    return 0;
 }
