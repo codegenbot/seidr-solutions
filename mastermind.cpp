@@ -18,16 +18,10 @@ int mastermind(std::string code, std::string guess) {
     // Count white pegs
     std::vector<char> codeCopy(code.begin(), code.end());
     for (int i = 0; i < 4; ++i) {
-        bool found = false;
-        for (char c : codeCopy) {
-            if (c == guess[i]) {
-                found = true;
-                codeCopy.erase(std::remove(&*codeCopy.begin(), &*codeCopy.end(), guess[i]), codeCopy.end());
-                break;
-            }
-        }
-        if (found) {
+        if (&*std::find_first_of(&*codeCopy.begin(), &*codeCopy.end(), guess[i]) != &*codeCopy.end()) {
             whitePegs++;
+            auto it = std::remove(&*codeCopy.begin(), &*codeCopy.end(), guess[i]);
+            codeCopy.erase(it, codeCopy.end());
         }
     }
 
