@@ -19,7 +19,7 @@ int main() {
         std::cin >> arr[i];
     }
 
-    int max_value = *std::max_element(arr, arr+n);
+    int max_value = maxElementFinder(n, arr);
 
     std::cout << "Maximum element: " << max_value << std::endl;
 
