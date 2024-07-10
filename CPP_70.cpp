@@ -18,6 +18,6 @@ vector<int> strange_sort_list(vector<int> lst){
 }
 
 int main() {
-    // Main function implementation
+    // Your main function code here
     return 0;
 }
