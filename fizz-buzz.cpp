@@ -1,5 +1,7 @@
-namespace std;
+#include <string>
+
 std::string fizzBuzz(int x) {
+    std::string result;
     if (x % 15 == 0)
         return "FizzBuzz";
     else if (x % 3 == 0)
@@ -8,4 +10,3 @@ std::string fizzBuzz(int x) {
         return "Buzz";
     else
         return std::to_string(x);
-}
