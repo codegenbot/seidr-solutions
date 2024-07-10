@@ -15,12 +15,12 @@ string string_to_md5(const string &text) {
     unsigned char digest[EVP_MAX_MD_SIZE];
     unsigned int digest_len;
 
-    OpenSSL_add_all_algorithms();
+    OpenSSL_add_all_algorithms(); // Initialize OpenSSL library
 
     md = EVP_md5();
     mdctx = EVP_MD_CTX_new();
 
-    EVP_DigestInit_ex(mdctx, md, NULL);
+    EVP_DigestInit_ex(mdctx, md, NULL); // Use EVP_DigestInit_ex instead of EVP_DigestInit
     EVP_DigestUpdate(mdctx, text.c_str(), text.length());
     EVP_DigestFinal_ex(mdctx, digest, &digest_len);
 
