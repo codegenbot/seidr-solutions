@@ -1,4 +1,3 @@
-#include <vector>
 #include <string>
 using namespace std;
 
@@ -28,4 +27,8 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
     }
 
     return indices;
+}
+
+int main() {
+    return 0;
 }
