@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -11,7 +12,7 @@ double compare_one(int a, double b) {
     }
 }
 
-int main() {
+int main_func() {
     int a;
     cout << "Enter an integer: ";
     cin >> a;
@@ -20,13 +21,9 @@ int main() {
     cout << "Enter a floating point number or a string: ";
     cin >> str; 
 
-    if (str.find('.') != string::npos) { 
-        double b = stod(str);
-        cout << "The result is: " << compare_one(a, b) << endl;
-    } else {
-        int b = stoi(str);
-        cout << "The result is: " << compare_one(a, b) << endl;
-    }
+    double b = stod(str); // Always treat the input as a floating point number
+
+    cout << "The result is: " << compare_one(a, b) << endl;
 
     return 0;
 }
