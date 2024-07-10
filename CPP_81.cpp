@@ -19,8 +19,6 @@ int main() {
     int credits = 0;
     double gpa = 0.7;
 
-    std::vector<std::string> input1({"E", "D-"});
-    
     if (numerical_letter_grade(credits, gpa) == "F" || numerical_letter_grade(credits, gpa) == "D-") {
         assert(true);
     }
