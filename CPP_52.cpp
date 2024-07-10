@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -25,9 +26,9 @@ int main() {
     numbers.resize(num); 
 
     for (int i = 0; i < num; i++) {
-        int temp; 
+        string temp; 
         cin >> temp; 
-        numbers.push_back(temp);
+        numbers.push_back(stoi(temp));
     }
 
     bool result = below_threshold(numbers, 5);
