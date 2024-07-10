@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
 
-int sumVector(std::vector<int> lst) {
-    int total = 0;
-    for(int i : lst){
-        total += i;
+int sumVector(const std::vector<int>& vec) {
+    int sum = 0;
+    for (int num : vec) {
+        sum += num;
     }
-    return total;
+    return sum;
 }
 
 int main() {
