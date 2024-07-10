@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
@@ -11,7 +12,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 deepest = level
         elif char == ')':
             level -= 1
-        if level == 0 and deepest > 0:
+        if level == 0:
             result.append(deepest)
             deepest = 0
     return result
