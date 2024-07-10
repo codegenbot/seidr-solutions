@@ -1,4 +1,3 @@
-
 bool correct_bracketing(const string& brackets) {
     int count = 0;
     for (char c : brackets) {
