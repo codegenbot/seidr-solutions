@@ -34,9 +34,11 @@ string reverse_delete(const string s1, const string s2) {
             s1 = s1.substr(0, pos) + s1.substr(pos + 1);
         }
     }
-    std::string reversed = s1; 
-    std::reverse(reversed.begin(),reversed.end());
-    return reversed;
+
+    vector<char> vec(s1.begin(), s1.end());
+    reverse(vec.begin(), vec.end());
+
+    return string(vec.begin(), vec.end());
 }
 
 int main() {
