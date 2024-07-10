@@ -1,36 +1,41 @@
-if(a.type() == typeid(int) && b.type() == typeid(int)){
-    if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
-        return a;
-    } else if(boost::any_cast<int>(a) < boost::any_cast<int>(b)){
-        return b;
+#include <iostream>
+#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+boost::any compare_one(boost::any a, boost::any b){
+    if(a.type() == typeid(int) && b.type() == typeid(int)){
+        return boost::any_cast<int>(a) > boost::any_cast<int>(b) ? a : b;
+    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
+        return boost::any_cast<float>(a) > boost::any_cast<float>(b) ? a : b;
+    } else if(a.type() == typeid(string) && b.type() == typeid(string)){
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+
+        if(strA.find(",") != string::npos){
+            replace(strA.begin(), strA.end(), ',', '.');
+        }
+
+        if(strB.find(",") != string::npos){
+            replace(strB.begin(), strB.end(), ',', '.');
+        }
+
+        float numA = stof(strA);
+        float numB = stof(strB);
+        
+        return numA > numB ? a : (numA < numB ? b : "None");
     } else {
         return "None";
     }
-} else if(a.type() == typeid(float) && b.type() == typeid(float)){
-    if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
-        return a;
-    } else if(boost::any_cast<float>(a) < boost::any_cast<float>(b)){
-        return b;
-    } else {
-        return "None";
-    }
-} else if(a.type() == typeid(string) && b.type() == typeid(string)){
-    float num1, num2;
-    if(((string)boost::any_cast<string>(a)).find(",") != string::npos){
-        replace(((string&)boost::any_cast<string>(a)).begin(), ((string&)boost::any_cast<string>(a)).end(), ',', '.');
-    }
-    if(((string)boost::any_cast<string>(b)).find(",") != string::npos){
-        replace(((string&)boost::any_cast<string>(b)).begin(), ((string&)boost::any_cast<string>(b)).end(), ',', '.');
-    }
-    num1 = stof(boost::any_cast<string>(a));
-    num2 = stof(boost::any_cast<string>(b));
-    if(num1 > num2){
-        return a;
-    } else if(num1 < num2){
-        return b;
-    } else {
-        return "None";
-    }
-} else {
-    return "None";
+}
+
+int main(){
+    assert(boost::any_cast<string>(compare_one(string("1"), string("1"))) == "None");
+
+    // Add more test cases here if needed
+
+    cout << "All test cases pass";
+    return 0;
 }
