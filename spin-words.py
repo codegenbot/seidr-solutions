@@ -1,12 +1,9 @@
-def spin_words(s):
-    words = s.split()
+def spin_words(sentence):
+    words = sentence.split()
     result = []
     for word in words:
         if len(word) >= 5:
-            if word[0].lower() in 'aeiou':
-                result.append(word[::-1])
-            else:
-                result.append(word[-1] + word[:-1][::-1])
+            result.append(word[::-1].strip())  
         else:
-            result.append(word)
+            result.append(word.strip())
     return " ".join(result)
