@@ -1,3 +1,7 @@
+#include <string>
+
+struct PegCounts { int white; int black; };
+
 PegCounts mastermind(std::string code, std::string guess) {
     PegCounts result = {0, 0};
     std::string remainingGuess = guess;
@@ -35,4 +39,3 @@ PegCounts mastermind(std::string code, std::string guess) {
     }
 
     return result;
-}
