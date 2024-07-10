@@ -11,15 +11,12 @@ int mastermind(string code, string guess) {
     for (char c : code) {
         int count = 0;
         for (char d : guess) {
-            if (c == d) {
-                count++;
+            if (c == d && c != code[guess.find(c)]) {
+                white++;
+                break;
             }
         }
-        if (count > 1 || count == 1 && code.find(c) != string::npos) {
-            continue;
-        }
-        white += count - black;
     }
 
-    return white + black;
+    return black + white;
 }
