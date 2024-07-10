@@ -1,9 +1,8 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
-bool same(int a, int b) {
+bool same(const std::vector<int>& a, const std::vector<int>& b) {
     if (a == b)
         return true;
     else
@@ -20,7 +19,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return result;
 }
 
-int originalMain() {
+int main() {
     std::vector<int> input = {1, 2, 3, -23, 243, -400, 0};
     int k = 4;
     if (!input.empty()) {
@@ -31,9 +30,5 @@ int originalMain() {
     } else {
         std::cout << "No elements left" << std::endl;
     }
-}
-
-int main() {
-    originalMain();
     return 0;
 }
