@@ -37,6 +37,6 @@ int main() {
     }
     
     std::string grade = numerical_letter_grade(credits, gpa);
-    assert(std::set<std::string>({grade}) == std::set<std::string>({"A", "B+"}));
+    assert({grade} == {"A", "B+"});
     return 0;
 }
