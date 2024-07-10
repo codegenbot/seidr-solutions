@@ -20,6 +20,7 @@ string rounded_avg(int n,int m){
     return res;
 }
 
-void main() {
+int main() {
     cout << rounded_avg(5, 5) << endl;
+    return 0;
 }
