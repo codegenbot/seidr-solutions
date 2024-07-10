@@ -9,16 +9,17 @@ vector<string> split_words(string txt) {
         }
     }
 
-    if (prev_pos < txt.length()) {
+    if (prev_pos < txt.size()) {
         result.push_back(txt.substr(prev_pos));
     } else if (txt.empty()) {
         int count = 0;
         for (char c : txt) {
-            if ((int)c >= 97 && (int)c <= 122 && (count++ % 2 == 1)) {
-                result.push_back(to_string(count));
-                break;
+            if ((int)c >= (int)'a' && (int)c <= (int)'z') {
+                if ((int)c % 2 == 1)
+                    count++;
             }
         }
+        result.push_back(to_string(count));
     }
 
     return result;
