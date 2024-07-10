@@ -6,5 +6,3 @@ def string_to_md5():
         if not text:
             break
         print(hashlib.md5(text.encode()).hexdigest())
-
-string_to_md5()
