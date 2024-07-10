@@ -9,9 +9,9 @@ bool is_nested(std::string str) {
             count++;
         } else if (c == ']' && count > 0) {
             count--;
-        } else if (c == ']' && count <= 0) {
-            return false;
+        } else if (c == ']' && count == 0) {
+            return false; // Unmatched closing bracket
         }
     }
-    return count == 0;
+    return count == 0; // Check if all brackets are matched
 }
