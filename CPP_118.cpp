@@ -1,31 +1,15 @@
 string get_closest_vowel(string word) {
-    int i = word.size() - 1; // start from the end of the string
-    while (i >= 0 && !isVowel(word[i])) { // move to the left until find a vowel or reach the beginning
-        i--;
+    int n = word.length();
+    for(int i=n-1; i>=0; i--) {
+        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u' ||
+           word[i] == 'A' || word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || word[i] == 'U') {
+            for(int j=i+1; j<n; j++) {
+                if(word[j] == 'a' || word[j] == 'e' || word[j] == 'i' || word[j] == 'o' || word[j] == 'u' ||
+                   word[j] == 'A' || word[j] == 'E' || word[j] == 'I' || word[j] == 'O' || word[j] == 'U') {
+                    return string(1, word[i]);
+                }
+            }
+        }
     }
-    if (i < 0) return ""; // no vowel found
-    int j = i - 1; // start from the right of the found vowel
-    while (j >= 0 && !isConsonant(word[j])) { // move to the left until find a consonant or reach the beginning
-        j--;
-    }
-    if (j < 0) return ""; // no consonant found on the left
-    int k = i - 1; // start from the right of the found vowel
-    while (k > j && !isConsonant(word[k])) { // move to the left until find a consonant or reach the beginning
-        k--;
-    }
-    while (k >= 0 && !isVowel(word[k])) { // move to the left until find a vowel or reach the beginning
-        k--;
-    }
-    if (k < 0) return ""; // no vowel found on the right
-    return word.substr(k + 1, i - k - 1); // return the closest vowel
-}
-
-bool isVowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
-}
-
-bool isConsonant(char c) {
-    c = tolower(c);
-    return !isVowel(c);
+    return "";
 }
