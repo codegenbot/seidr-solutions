@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <limits>
 
 int main() {
     std::vector<std::string> nums;
@@ -10,18 +9,10 @@ int main() {
     std::cin >> n;
     for (int i = 0; i < n; i++) {
         std::string num = "";
-        while (true) {
+        while(true) {
             std::cout << "Enter element: ";
-            if (!(std::cin >> std::ws)) {
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
-                std::getline(std::cin, num);
+            while(std::getline(std::cin, num)) {
                 break;
-            } else {
-                std::cerr << "Invalid input! Please enter a string.\n";
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
-                std::getline(std::cin, num);
             }
         }
         nums.push_back(num);
