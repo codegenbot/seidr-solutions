@@ -7,11 +7,11 @@ vector<int> sorted_indices;
     sort(sorted_indices.begin(), sorted_indices.end(), [&](int a, int b) {
         return l[a] < l[b];
     });
-    
-    vector<int> result = l;
+
+    vector<int> l_prime = l;
     for (int i = 0; i < sorted_indices.size(); ++i) {
-        result[sorted_indices[i]] = l[sorted_indices[i]];
+        l_prime[sorted_indices[i]] = l[sorted_indices[i]];
     }
-    
-    return result;
+
+    return l_prime;
 }
