@@ -1,33 +1,34 @@
-Here is the solution:
-
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string sentence) {
-    std::vector<std::string> words;
+string spinWords(string str) {
+    string result = "";
     int start = 0;
-    for (int i = 0; i <= sentence.size(); i++) {
-        if (i == sentence.size() || sentence[i] == ' ') {
-            string word = sentence.substr(start, i - start);
-            if (word.size() >= 5) {
-                std::reverse(word.begin(), word.end());
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
+            if (word.length() >= 5) {
+                result += reversed(word) + " ";
+            } else {
+                result += word + " ";
             }
-            words.push_back(word);
             start = i + 1;
         }
     }
-    for (int i = 0; i < words.size(); i++) {
-        if (i > 0)
-            sentence += " ";
-        sentence += words[i];
-    }
-    return sentence;
+    return result.trim();
 }
 
-int main() {
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    return 0;
+string reversed(string s) {
+    string reversed = "";
+    for (int i = s.length() - 1; i >= 0; i--) {
+        reversed += s[i];
+    }
+    return reversed;
+}
+
+// function to trim the leading and trailing spaces
+string trim(const string& str) {
+    size_t start = str.find_first_not_of(' ');
+    size_t end = str.find_last_not_of(' ');
+    return str.substr(start, (end - start + 1));
 }
