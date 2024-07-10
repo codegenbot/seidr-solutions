@@ -1,18 +1,17 @@
-int main() {
-    string text;
-    getline(cin,text);
-    for(int i=0; i<text.length(); i++) {
-        if(text[i] == ' ') {
-            if(i+1 < text.length() && text[i+1] == ' ' && text.find(' ',i+2) - i <= 2) {
-                continue;
-            } else if(i>0 && text[i-1] == ' ' && text[i] == ' ' && text[i+1] == ' ') {
-                text.replace(i,3,"-");
-                i+=2;
-                continue;
+#include <string>
+
+std::string fix_spaces(std::string text){ 
+    std::string result = "";
+    for(int i=0; i<text.length(); i++){
+        if(text[i] == ' '){
+            if(i+1 < text.length() && text[i+1] == ' '){
+                if(result.length() > 0 || i > 0) result += "-";
+            }else{
+                result += '_';
             }
-            text.replace(i,1,"_");
+        }else{
+            result += text[i];
         }
     }
-    cout<<text<<endl;
-    return 0;
+    return result;
 }
