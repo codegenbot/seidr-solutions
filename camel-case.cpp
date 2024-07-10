@@ -1,7 +1,5 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
-#include <cctype>
 
 std::string camelCase(const std::string& s) {
     std::string result;
@@ -24,10 +22,8 @@ std::string camelCase(const std::string& s) {
 int main() {
     std::string s;
     while (std::cin >> s) {
-        auto newEnd = std::remove(s.begin(), s.end(), ' ');
-        s.erase(newEnd, s.end());
-        newEnd = std::remove(s.begin(), s.end(), '-');
-        s.erase(newEnd, s.end());
+        auto newEnd = s.erase(std::remove(s.begin(), s.end(), ' '), s.end());
+        newEnd = s.erase(std::remove(s.begin(), newEnd, '-'), newEnd);
         std::cout << camelCase(s) << '\n';
     }
     return 0;
