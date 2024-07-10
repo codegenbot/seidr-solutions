@@ -17,14 +17,12 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst;
     float num;
-    long long odd_sum = 0;
+    int odd_sum = 0; 
     while(std::cin >> num) {
         lst.push_back(num);
-    }
-    for (float n : lst) {
-        if (n > 0 && floor(n) == n) { 
-            if (fmod(n, 2.0) != 0.0) { 
-                odd_sum += pow(n, 2);
+        if (num > 0 && floor(num) == num) { 
+            if (fmod(num, 2.0) != 0.0) { 
+                odd_sum += pow(num, 2); 
             }
         }
     }
