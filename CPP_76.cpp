@@ -5,7 +5,7 @@
 
 bool is_simple_power(int x, int n);
 
-bool is_simple_power(int x, int int) {
+bool is_simple_power(int x, int n) {
     double y = pow(n, log(x) / log(n));
     return (y == x);
 }
@@ -15,14 +15,14 @@ int main() {
     int tempX;
     std::cin >> tempX;
 
-    int n; 
+    std::string sTempN; 
     std::cout << "Enter another number: ";
-    std::cin >> n;
+    std::getline(std::cin, sTempN);
 
-    if(is_simple_power(tempX, n))  
-        std::cout << tempX << " is a simple power of " << n << std::endl;
+    if(is_simple_power(tempX, stoi(sTempN)))  
+        std::cout << tempX << " is a simple power of " << sTempN << std::endl;
     else
-        std::cout << tempX << " is not a simple power of " << n << std::endl;
+        std::cout << tempX << " is not a simple power of " << sTempN << std::endl;
 
     return 0;
 }
