@@ -1,18 +1,18 @@
-#include <string>
 #include <vector>
+#include <cassert>
 
-std::string match_parens(std::vector<const char*> lst) {
+std::string match_parens(std::vector<std::string> lst) {
     int open = 0, close = 0;
-    for (const char* s : lst) {
-        for (char c : std::string(s)) {
+    for (const std::string& s : lst) {
+        for (char c : s) {
             if (c == '(') open++;
-            else close++;
+            else if (c == ')') close++;
         }
     }
     return (open == close) ? "Yes" : "No";
 }
 
 int main() {
-    assert(match_parens({"("}, {")"}}) == "Yes");
+    assert(match_parens({{"("}, {")"}}) == "Yes");
     return 0;
 }

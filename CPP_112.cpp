@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -35,22 +34,19 @@ vector<string> reverse_delete(string s, string c) {
     result.push_back(temp);
     string rev = temp;
     reverse(rev.begin(), rev.end());
-    if (temp == rev) {
-        result.push_back("True");
-    } else {
-        result.push_back("False");
-    }
+    result.push_back((temp == rev) ? "True" : "False");
     return result;
+
 }
 
 int main() {
     string s, c;
     cout << "Enter a string: ";
     cin >> s;
-    cout << "Enter a character to delete: ";
+    cout << "Enter a character to remove: ";
     cin >> c;
-    vector<string> output = reverse_delete(s, c);
-    for (string str : output) {
+    vector<string> result = reverse_delete(s, c);
+    for (string str : result) {
         cout << str << endl;
     }
     return 0;
