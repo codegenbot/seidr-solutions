@@ -3,9 +3,7 @@
 #include <string>
 #include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
-}
+using namespace std;
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::string result = "";
@@ -23,7 +21,7 @@ int main() {
     std::vector<std::string> result = reverse_delete("mamma", "mia");
     std::vector<std::string> expected = {"", "True"};
 
-    std::cout << "Test Result: " << (issame(result, expected) ? "Pass" : "Fail") << std::endl;
+    std::cout << "Test Result: " << (result == expected ? "Pass" : "Fail") << std::endl;
     
     return 0;
 }
