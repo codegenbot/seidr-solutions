@@ -23,6 +23,6 @@ std::vector<float> get_positive(std::vector<float> l){
     return result;
 }
 
-assert(issame(get_positive({}), std::vector<float>{}));
+assert(issame(get_positive(std::vector<float>{}), std::vector<float>{}));
 
 return 0;
