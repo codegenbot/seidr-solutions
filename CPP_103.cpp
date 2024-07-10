@@ -26,5 +26,5 @@ string average_binary(int n, int m) {
 }
 
 string rounded_avg(int n, int m) {
-    return average_binary(n, m - 1);
+    return average_binary(n, m);
 }
