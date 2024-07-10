@@ -3,7 +3,5 @@ def intersperse(a, b):
         return [b]
     result = [b]
     for item in a:
-        result.append(item)
-        result.append(b)
-    result.append(b)
+        result.extend([item, b])
     return result

@@ -8,9 +8,11 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
 
 if __name__ == "__main__":
     while True:
-        print("Enter comma-separated integers: ")
+        print("Enter comma-separated integers (or 'q' to quit): ")
         numbers = input()
-        if not numbers: 
+        if numbers.lower() == 'q':
+            break
+        elif not numbers: 
             print("No input entered.")
         else: 
             while True:
