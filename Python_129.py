@@ -1,14 +1,11 @@
-Here's the modified code:
-
-```
-def minPathSum(grid): 
+def minPathSum(grid):
     n = len(grid)
     m = [[0] * n for _ in range(n)]
+    min_path_sum = None 
 
     def dfs(i, j, path_sum, visited):
         nonlocal min_path_sum 
         if (i, j) == (n - 1, n - 1):
-            nonlocal min_path_sum 
             if min_path_sum is None or path_sum + grid[i][j] < min_path_sum:
                 min_path_sum = path_sum + grid[i][j]
         visited.add((i, j))
@@ -18,7 +15,6 @@ def minPathSum(grid):
                 dfs(ni, nj, path_sum + grid[i][j], visited)
         return
 
-    min_path_sum = None 
     for i in range(n):
         for j in range(n):
             dfs(i, j, grid[i][j], set())
