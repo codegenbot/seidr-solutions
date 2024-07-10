@@ -22,17 +22,29 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int val;
-        cin >> val;
-        input.push_back(val);
+    vector<int> input_vector;
+    cout << "Enter numbers (space separated): ";
+    string temp_str;
+    getline(cin, temp_str);
+    size_t pos = 0;
+    while ((pos = temp_str.find(" ")) != string::npos) {
+        string num_str = temp_str.substr(0, pos);
+        int num = stoi(num_str);
+        input_vector.push_back(num);
+        temp_str.erase(0, pos + 1);
     }
-    vector<int> output = strange_sort_vector(input);
-    for (int num : output) {
-        cout << num << " ";
+    if (!temp_str.empty()) {
+        int num = stoi(temp_str);
+        input_vector.push_back(num);
     }
+
+    vector<int> sorted_vector = strange_sort_vector(input_vector);
+
+    cout << "Sorted Vector: ";
+    for (int i : sorted_vector) {
+        cout << i << " ";
+    }
+    cout << endl;
+
     return 0;
 }
