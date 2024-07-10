@@ -1,4 +1,3 @@
-```c
 #include <string>
 #include <iostream>
 
@@ -44,8 +43,8 @@ PegCounts mastermind(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "ABCD";
-    std::string guess = "BCDE";
+    std::string code = "XXXX";
+    std::string guess = "XXXX";
     PegCounts result = mastermind(code, guess);
     std::cout << "White pegs: " << result.white << ", Black pegs: " << result.black << std::endl;
     return 0;
