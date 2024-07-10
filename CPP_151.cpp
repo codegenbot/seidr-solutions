@@ -1,8 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-long long double_the_difference(std::vector<float> lst) {
+```cpp
+long long double_the_difference(vector<float> lst){
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && modf(num, &num) == 0.0) {
@@ -10,21 +7,27 @@ long long double_the_difference(std::vector<float> lst) {
         }
     }
     return sum;
+
 }
 
 int main() {
-    std::vector<float> lst; 
+    float num;
+    
+    cout << "Enter numbers (enter 'stop' to finish):" << endl;
+    vector<float> lst; 
     int odd_sum = 0;
     
-    cin >> lst.size();
-    for (int i = 0; i < lst.size(); i++) {
-        float x;
-        cin >> x;
-        lst.push_back(x);
+    while(1) {
+        cin >> num;
+        
+        if(std::to_string(num) == "stop") break;
+
+        if(num > 0 && modf(num, &num) == 0.0) {
+            long long sum = double_the_difference(lst);
+            odd_sum = sum;
+        }
+        lst.push_back(num);    
     }
-    
-    long long result = double_the_difference(lst);
-    cout << result;
-    
-    return 0;
+
+    cout << "Sum of squared values: " << odd_sum << endl;
 }

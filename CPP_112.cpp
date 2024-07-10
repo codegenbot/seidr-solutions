@@ -1,7 +1,3 @@
-#include <vector>
-#include <set>
-#include <string>
-
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     
@@ -15,23 +11,24 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         }
     }
     
+    int i = 0, j = temp.length() - 1;
     bool is_palindrome = true;
-    int i = 0, length = temp.length();
-    while (i < length / 2) {
-        if (temp[i] != temp[length - i - 1]) {
+    
+    while (i < j) {
+        if (temp[i] != temp[j]) {
             is_palindrome = false;
             break;
         }
         i++;
+        j--;
     }
     
     result.push_back(temp);
-    result.push_back((is_palindrome) ? "True" : "False");
+    if (is_palindrome) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
     
     return result;
-}
-
-int main() {
-    std::vector<std::string> result = reverse_delete("mamma", "mia");
-    return 0;
 }

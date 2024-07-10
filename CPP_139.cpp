@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <limits>
 #include <string>
@@ -12,12 +13,12 @@ long long special_factorial(long long n) {
     return result;
 }
 
-int main() {
-    long long result;
-    std::string input;
+int main() 
+{
     cout << "Enter a number: ";
+    string input;
     getline(cin, input);
-    result = stoll(input); // or use stol for long
+    long long result = stoll(input); // or use stol for long
     if(result < 0) {
         cout << "Error! Please enter a positive integer." << endl;
     } else {
