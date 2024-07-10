@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <boost/any.hpp>
 #include <boost/variant.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
