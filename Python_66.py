@@ -1,11 +1,12 @@
 def digitSum(s):
+    s = s.lower()
     total = 0
     for c in s:
         if c.isdigit():
             if (total % 2) == 0:
                 total += int(c)
             else:
-                total += ord(c)
+                total += int(c) * 2 - 5 if int(c) > 4 else int(c) * 2
         else:
-            total += ord(c)
+            continue  # Ignore non-digit characters, don't skip iterations
     return total
