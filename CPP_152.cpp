@@ -11,11 +11,9 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
             result.push_back(0);
         } else {
             int diff = abs(game[i] - guess[i]);
-            if (!issame({1,2,3}, {1,2,4})) {
-                for (int j : {1,2,3}) {
-                    result.push_back(diff);
-                }
-            }
+            if (game[i] > guess[i])
+                diff++;
+            result.push_back(diff);
         }
     }
     return result;
