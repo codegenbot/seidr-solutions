@@ -5,7 +5,7 @@ float get_positive(float num) {
     return (num > 0.0f) ? num : -num;
 }
 
-bool same_vectors(std::vector<float> a, std::vector<float> b) {
+bool are_vectors_same(std::vector<float> a, std::vector<float> b) {
     if (a.size() != 1 || b.size() != 1) {
         return false;
     }
@@ -25,9 +25,7 @@ int main() {
         return 1;
     }
 
-    bool are_same = same_vectors({num1}, {num2});
-    
-    if (are_same) {
+    if (are_vectors_same({num1}, {num2})) {
         float result = get_positive(num1);
         std::cout << "The positive of the numbers is: " << result << std::endl;
     } else {
