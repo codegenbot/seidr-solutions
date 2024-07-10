@@ -1,6 +1,4 @@
-def digitSum(n=""):
-    if isinstance(n, int) or n == "":
-        return sum(int(digit) for digit in str(abs(n)))
-    else:
+def digitSum(n=""): 
+    if not n:  
         n = int(input("Enter a number: "))
-        return sum(int(digit) for digit in str(abs(n)))
+    return sum(int(digit) for digit in str(abs(int(n))))
