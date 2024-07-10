@@ -1,4 +1,3 @@
-```
 def solution(lst):
     if len(lst) > 0:
         odd_sum = 0
