@@ -13,5 +13,7 @@ int closest_integer(const std::string& value) {
 }
 
 int main() {
-    assert(closest_integer("0") == 0);
+    std::string value;
+    std::cin >> value;
+    std::cout << closest_integer(value) << std::endl;
 }
