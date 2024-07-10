@@ -1,4 +1,3 @@
-```
 def modp(n: int, p: int):
     n = abs(n)
     p = abs(p)
@@ -15,3 +14,8 @@ def modp(n: int, p: int):
             res = t; p = n; n = r
         i = t
     return res if n >= 0 else p - (p - 1) if n % p != 0 else n
+
+n = int(input("Enter the value of n: "))
+p = int(input("Enter the value of p: "))
+
+print(modp(n, p))
