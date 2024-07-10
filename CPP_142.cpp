@@ -9,7 +9,7 @@ double sum_squares(int n) {
     return sum;
 }
 
-int main() {
+int main_function() {
     int n;
     std::cin >> n;
 
