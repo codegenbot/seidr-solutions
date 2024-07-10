@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -32,7 +33,7 @@ int main_func() {
             cout << "The result is: " << compare_one(a, b) << endl;
         }
     } else {
-        double b = stod(s); 
+        double b = (double)s; 
         cout << "The result is: " << compare_one(a, b) << endl;
     }
 
