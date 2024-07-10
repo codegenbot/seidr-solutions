@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <random>
@@ -12,10 +11,10 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 }
 
-std::vector make_a_pile(int n) {
+std::vector<int> make_a_pile(int n) {
     std::random_device rd;
     std::mt19937 mt(rd());
-    std::vector pile;
+    std::vector<int> pile;
     for (int i = 1; i <= n; i++) {
         pile.push_back(i);
     }
