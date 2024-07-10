@@ -1,35 +1,63 @@
-vector<int> minPath(vector<vector<int>> grid, int k){
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
+    vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     vector<int> path;
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if(visited[i][j]) continue;
-            vector<int> lst;
-            dfs(grid, i, j, k, visited, lst);
-            if(lst.size() == k){
-                path = lst;
-                break;
+    
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (!visited[i][j]) {
+                vector<int> tempPath;
+                dfs(grid, visited, directions, i, j, k, &tempPath);
+                path = minPath(path, tempPath);
             }
         }
-        if(path.size() == k) break;
     }
+    
     return path;
 }
 
-void dfs(vector<vector<int>>& grid, int i, int j, int k, vector<vector<bool>>& visited, vector<int>& lst){
-    int n = grid.size();
-    if(k == 0) return;
-    visited[i][j] = true;
-    lst.push_back(grid[i][j]);
-    for(int x = max(0, i-1); x <= min(n-1, i+1); x++){
-        for(int y = max(0, j-1); y <= min(n-1, j+1); y++){
-            if(x == i && y == j) continue;
-            if(!visited[x][y]){
-                dfs(grid, x, y, k-1, visited, lst);
-                if(lst.size() == k) return;
+vector<int> minPath(vector<int>& a, vector<int>& b) {
+    int i = 0;
+    while (i < a.size() && i < b.size()) {
+        if (a[i] < b[i]) return a;
+        else if (a[i] > b[i]) return b;
+        ++i;
+    }
+    return a.size() <= b.size() ? a : b;
+}
+
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, vector<pair<int, int>>& directions, int i, int j, int k, vector<int>* path) {
+    if (k == 0) {
+        (*path).insert((*path).end(), grid[i].begin(), grid[i].end());
+        return;
+    }
+    
+    for (auto& dir : directions) {
+        int ni = i + dir.first, nj = j + dir.second;
+        if (ni >= 0 && ni < visited.size() && nj >= 0 && nj < visited[0].size()) {
+            if (!visited[ni][nj]) {
+                visited[ni][nj] = true;
+                dfs(grid, visited, directions, ni, nj, k - 1, path);
+                visited[ni][nj] = false;
             }
         }
     }
-    visited[i][j] = false;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    
+    for (auto val : result) {
+        cout << val << " ";
+    }
+    cout << endl;
+    
+    return 0;
 }
