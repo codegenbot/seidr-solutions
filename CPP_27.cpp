@@ -1,5 +1,5 @@
 ```c++
-#include <cassert>
+#include <cstdlib>
 #include <string>
 
 void driver();
