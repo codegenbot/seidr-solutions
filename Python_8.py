@@ -1,1 +1,1 @@
-numbers = [int(num) for num in input().strip().split()]
+numbers = list(map(int, input().strip().split()))
