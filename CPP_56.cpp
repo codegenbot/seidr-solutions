@@ -7,17 +7,15 @@ bool correct_bracketing(const std::string& brackets) {
         if (c == '<') {
             angle_brackets++;
         } else if (c == '>') {
-            if (angle_brackets <= 0) {
+            if (--angle_brackets < 0) {
                 return false;
             }
-            angle_brackets--;
         } else if (c == '[') {
             square_brackets++;
         } else if (c == ']') {
-            if (square_brackets <= 0) {
+            if (--square_brackets < 0) {
                 return false;
             }
-            square_brackets--;
         }
     }
     return angle_brackets == 0 && square_brackets == 0;
