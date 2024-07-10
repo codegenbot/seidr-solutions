@@ -32,14 +32,12 @@ int main() {
     int b = 15;
     std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << std::endl;
 
-    std::string text = "HelloWorldHello";
-    std::string target = "Hello";
-    std::vector<int> indices = indicesOfSubstring(text, target);
-
-    for (int i : indices) {
-        std::cout << i << " ";
+    std::string text = "banana";
+    std::string target = "an";
+    std::vector<int> result = indicesOfSubstring(text, target);
+    for (int i : result) {
+        std::cout << "Target appears at index " << i << std::endl;
     }
-    std::cout << std::endl;
 
     return 0;
 }
