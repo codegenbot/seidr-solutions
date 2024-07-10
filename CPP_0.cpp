@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -12,7 +14,11 @@ bool has_close_elements(vector<float> a, float threshold) {
 }
 
 int main() {
-    vector<float> a; 
+    vector<float> a;
+    int n;
+    cout << "Enter the initial size: ";
+    cin >> n;
+    a.resize(n);
     float threshold;
 
     cout << "Enter the elements of the vector (space-separated, type 'stop' when done): ";
@@ -22,7 +28,7 @@ int main() {
         cin >> input; 
         if(input == "stop") break;
         a.push_back(stof(input)); 
-        cin >> std::ws; 
+        cin >> std::ws; // Add this line to ignore whitespace characters
     } 
 
     cout << "Enter the threshold: ";
