@@ -2,7 +2,10 @@
 #include <string>
 #include <cmath>
 
-int do_algebra(vector<string> operator_, vector<int> operand) {
+std::vector<std::string> operator_;
+std::vector<int> operand;
+
+int do_algebra(std::vector<std::string> operator_, std::vector<int> operand) {
     int result = 0;
     for (int i = 0; i < operator_.size(); i++) {
         if (operator_[i] == "+") {
@@ -42,3 +45,4 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
         }
     }
     return result;
+}
