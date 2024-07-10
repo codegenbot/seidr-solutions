@@ -1,4 +1,8 @@
-Here is the Python solution:
-
-def leaders(input_vector):
-    return [x for i, x in enumerate(reversed(input_vector)) if all(y <= x for y in input_vector[i+1:])]
+def leaders(input):
+    output = []
+    max_right = input[-1]
+    for i in range(len(input) - 1, -1, -1):
+        if input[i] >= max_right:
+            output.append(input[i])
+            max_right = input[i]
+    return output[::-1]
