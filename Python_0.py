@@ -1,4 +1,11 @@
-numbers = [float(x.strip().replace(",", ".")) for x in input("Enter numbers (comma-separated): ").strip().split(",")]
+```
+numbers = []
+while True:
+    temp_input = input("Enter numbers (comma-separated): ").strip()
+    if temp_input:
+        numbers = [float(x.strip().replace(",", ".")) for x in temp_input.split(",")]
+        break
+
 threshold = float(input("Enter threshold: "))
 
 def has_close_elements(numbers, threshold):
