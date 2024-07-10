@@ -1,18 +1,16 @@
-def bowling_score(bowling_string):
+```
+def bowling_score(frames):
     score = 0
-    rolls = [
-        list(map(int, list(x))) for x in re.findall("(\d{1,3})/?|[X]", bowling_string)
-    ]
-
-    for i in range(len(rolls)):
-        if len(rolls[i]) == 2:
-            if sum(rolls[i]) == 10:
-                score += 10 + sum(rolls[i + 1 : i + 2] or [0])
-                i += 1
+    roll = 0
+    for frame in frames:
+        if '/' in frame:
+            first_roll = int(frame.split('/')[0])
+            second_roll = 10 - first_roll
+            if roll < 1:
+                score += 10 + (second_roll if first_roll == 10 else 0)
             else:
-                score += sum(rolls[i])
-        elif rolls[i][0] == X:
-            score += 10 + sum(rolls[i + 1 :] or [0])
+                score += first_roll + (second_roll if first_roll < 10 else 0)
         else:
-            score += sum(rolls[i])
+            score += int(frame) * 2
+        roll = (roll + 1) % 2
     return score
