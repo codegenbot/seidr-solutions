@@ -6,11 +6,11 @@ def sum_of_odd_numbers_in_every_other_element():
             )
             if input_str.lower() == "q":
                 break
-            numbers = [int(num) for num in input_str.split()]
+            numbers = list(map(int, input_str.split()))
             if not numbers:
                 raise ValueError
-        except Exception as e:
-            print(f"Error: {e}. Please try again.")
+        except ValueError:
+            print("Invalid input. Please try again.")
             continue
 
     return sum(i for i in numbers[1::2] if i % 2 != 0)
@@ -19,8 +19,11 @@ def sum_of_odd_numbers_in_every_other_element():
 def main():
     while True:
         result = sum_of_odd_numbers_in_every_other_element()
-        print(f"The sum of odd numbers is {result}")
-        cont = input("Do you want to continue? (yes/no): ")
+        while True:
+            cont = input("Do you want to continue? (yes/no): ")
+            if cont.lower() in ["yes", "no"]:
+                break
+            print("Invalid input. Please try again.")
         if cont.lower() != "yes":
             break
 
