@@ -6,8 +6,6 @@ def file_name_check(file_name):
         return 'No'
     if file_name[:file_name.index('.')] and not file_name[:file_name.index('.')].isalpha():
         return 'No'
-    ext = file_name[file_name.index('.') + 1:]
-    valid_extensions = ['txt', 'exe', 'dll']
-    if ext not in valid_extensions:
+    if file_name[file_name.index('.')+1:].lower() not in ['txt', 'exe', 'dll']:
         return 'No'
     return 'Yes'
