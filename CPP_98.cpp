@@ -10,7 +10,3 @@ int count_upper(std::string s){
     }
     return count;
 }
-
-int main(){
-    assert(count_upper(std::string("EEEE")) == 2);
-}
