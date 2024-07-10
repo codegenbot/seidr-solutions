@@ -1,6 +1,7 @@
 ```
-#include <string>
 #include <vector>
+#include <algorithm>
+#include <string>
 
 std::string words_in_sentence(std::string sentence) {
     std::vector<int> lengths;
