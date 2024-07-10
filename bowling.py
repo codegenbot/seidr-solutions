@@ -9,34 +9,23 @@ def bowling_score(bowls):
                 if bowls[i + 1] == "X":
                     score += 10
                 else:
-                    score += 10 + int(bowls[i + 1])
-                if i == 8 and len(bowls) == 20:
+                    score += get_frame_score(bowls[i + 1])
+                if i == 8 and len(frames) == 10:
                     if bowls[i + 2] == "X":
                         score += 10
-                    elif bowls[i + 2] == "/":
-                        score += 10
-                    elif bowls[i + 2] != "-":
-                        score += int(bowls[i + 2])
-            elif i == 9:
-                if len(bowls) == 21:
-                    if bowls[i + 1] == "X":
-                        score += 10
-                    elif bowls[i + 1] == "/":
-                        score += 10
-                    elif bowls[i + 1] != "-":
-                        score += int(bowls[i + 1])
-                    if bowls[i + 2] == "X":
-                        score += 10
-                    elif bowls[i + 2] != "-":
-                        score += int(bowls[i + 2])
-        elif frames[i] == "-":
-            pass
+                    else:
+                        score += get_frame_score(bowls[i + 2])
         else:
-            if i < 9:
-                score += int(frames[i])
-            elif i == 9:
-                for bowl in frames[i]:
-                    if bowl != "-":
-                        score += int(bowl)
+            score += get_frame_score(frames[i])
 
     return score
+
+
+def get_frame_score(frame):
+    frame_score = 0
+    for bowl in frame:
+        if bowl == "X":
+            frame_score += 10
+        elif bowl != "-":
+            frame_score += int(bowl)
+    return frame_score
