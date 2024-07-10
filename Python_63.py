@@ -1,1 +1,2 @@
-print(fib(int(input("Enter the number: ")))))
+n = int(input("Enter the number: "))
+print(fib(n))
