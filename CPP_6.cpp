@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool areSame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -30,6 +30,7 @@ std::vector<int> parse_nested_parens(const std::string& s) {
 }
 
 int main() {
-    assert(issame(parse_nested_parens("(()(())((()))"), {4, 3, 2, 1, 0, -1, -2, -3, -4}));
+    std::vector<int> expected = {4, 3, 2, 1, 0, -1, -2, -3, -4};
+    assert(areSame(parse_nested_parens("(()(())((()))"), expected));
     return 0;
 }
