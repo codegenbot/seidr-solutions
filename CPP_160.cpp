@@ -4,7 +4,7 @@
 #include <cctype>
 #include <cstdlib>  
 #include <cmath>    
-#include <cstring>  
+#include <cstring>
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = 0;
@@ -27,12 +27,12 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
         }
     }
     
-    long long result1 = eval(expression.c_str());
+    result = eval(expression.c_str());
     
-    return int(result1);
+    return result;
 }
 
-long long eval(const char *p, long long y = 0) {
+long long eval(const char *p, long long y = LLONG_MIN) {
     while (*p) {
         if (isdigit(*p)) {
             p += 1;
