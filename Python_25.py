@@ -1,7 +1,8 @@
+Here is the corrected code:
+
 from typing import List
 
-
-def factorize() -> None:
+def factorize()-> None:
     n = int(input("Enter a number: "))
     i = 2
     while i * i <= n:
@@ -16,7 +17,6 @@ def factorize() -> None:
     if n > 1:
         print(f"{n} is a prime number.")
     return
-
 
 if __name__ == "__main__":
     factorize()
