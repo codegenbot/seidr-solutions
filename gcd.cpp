@@ -18,7 +18,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         size_t found = static_cast<size_t>(text.find(target, index));
         if (found != std::string::npos) {
             result.push_back(static_cast<int>(found));
-            index = found + 1; 
+            index = found + 1; // Keep searching from the next position
         } else {
             break;
         }
