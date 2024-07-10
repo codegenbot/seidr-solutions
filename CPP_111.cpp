@@ -1,6 +1,7 @@
 #include <map>
 #include <string>
 #include <cassert>
+using namespace std;
 
 std::map<char, int> histogram(std::string s) {
     std::map<char, int> hist;
