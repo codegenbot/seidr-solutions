@@ -5,7 +5,7 @@
 #include <algorithm>
 using namespace std;
 
-bool issame(string a, string b) {
+bool issame(const string a, const string b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++) {
@@ -26,16 +26,16 @@ string to_string(int i) {
     return oss.str();
 }
 
-string reverse_delete(string s1, string s2) {
-    int len1 = s1.size(); // remove const here
-    int len2 = s2.size();
+string reverse_delete(const string s1, const string s2) {
+    int len1 = s1.length();
+    int len2 = s2.length();
     for(int i = 0; i < len2; i++) {
         auto pos = s1.find(s2[i]);
-        if(pos != std::string::npos) { // remove const here
+        if(pos != string::npos) {
             s1 = s1.substr(0, pos) + s1.substr(pos + 1);
         }
     }
-    reverse(s1.begin(), s1.end());
+    std::reverse(s1.begin(), s1.end());
     return s1;
 }
 
