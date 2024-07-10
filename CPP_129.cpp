@@ -1,7 +1,7 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
