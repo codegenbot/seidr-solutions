@@ -1,26 +1,39 @@
 def bowling_score(bowls):
     score = 0
-    frames = bowls.replace("-", "0").replace("X", "10").split("/")
-    
-    for i in range(len(frames)):
-        if frames[i] == "X":
-            score += 10
-            if i < 9:
-                if frames[i + 1][0] == "X":
-                    score += 10
-                else:
-                    score += int(frames[i + 1][0])
-                if len(frames[i + 1]) > 1 and frames[i + 1][1] == "X":
-                    score += 10
-                elif len(frames[i + 1]) > 1 and frames[i + 1][1] != "0":
-                    score += int(frames[i + 1][1])
-        else:
-            frame_score = sum([int(b) for b in frames[i]])
-            if frames[i] == "0":
-                pass
-            elif len(frames[i]) == 2 and '/' in frames[i]:
+    frames = bowls.split("/")
+
+    for i, frame in enumerate(frames):
+        for bowl in frame:
+            if bowl == "X":
                 score += 10
+            elif bowl == "-":
+                pass
             else:
-                score += frame_score
+                score += int(bowl)
+
+        if len(frame) == 1 and i < 9:  # Strike in frame
+            next_frame = frames[i + 1]
+            for next_bowl in next_frame:
+                if next_bowl == "X":
+                    score += 10
+                elif next_bowl == "-":
+                    pass
+                else:
+                    score += int(next_bowl)
+
+                if (
+                    next_frame.index(next_bowl) == 1
+                ):  # Check if just 2 bowls have been bowled in next frame
+                    break
+
+        elif len(frame) == 2 and i < 9:  # Spare in frame
+            if len(frames) > i + 1:
+                next_bowl = frames[i + 1][0]
+                if next_bowl == "X":
+                    score += 10
+                elif next_bowl == "-":
+                    pass
+                else:
+                    score += int(next_bowl)
 
     return score
