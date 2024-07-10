@@ -1,12 +1,9 @@
-#include <vector>
-using namespace std;
-
-int luhn(vector<int> num) {
+int luhn(const vector<int>& digits) {
     int sum = 0;
     bool doubleNext = false;
 
-    for (int i = num.size() - 1; i >= 0; --i) {
-        int digit = num[i];
+    for (int i = 0; i < digits.size(); i++) {
+        int digit = digits[i];
         if (doubleNext) {
             digit *= 2;
             if (digit > 9) {
