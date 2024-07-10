@@ -1,3 +1,4 @@
+```
 import re
 
 
@@ -6,7 +7,9 @@ def filter_integers() -> None:
         print("Please enter a comma-separated list of values (separated by commas):")
         user_input = input()
 
-        if not user_input:
+        if not user_input and "exit" in user_input.lower():
+            break
+        elif not user_input:
             print("Please enter some values. You can press Enter to exit.")
         elif not re.match(r"^[0-9]+(,[0-9]+)*$", user_input):
             print(
@@ -27,22 +30,19 @@ def filter_integers() -> None:
         elif len(user_values) < 2:
             print(f"The integers from the input are: {user_values}")
             if len(user_values) > 1:
-                avg_value = sum(user_values) / len(user_values)
-                print(f"Average Value: {avg_value:.2f}")
+                print("Average Value is Not Applicable")
             else:
                 print(f"Minimum Value: {user_values[0]}")
         else:
-            print(f"The integers from the input are: {user_values}")
-            if len(user_values) > 1:
-                avg_value = sum(user_values) / len(user_values)
-                print(f"Average Value: {avg_value:.2f}")
+            avg_value = sum(user_values) / len(user_values)
             min_value = min(user_values)
 
+            print(f"The integers from the input are: {user_values}")
             if len(user_values) == 1:
-                print(f"Minimum Value: {user_values[0]}")
+                print("Average Value is Not Applicable")
             else:
-                print(f"Minimum Value: {min_value}")
-
+                print(f"Average Value: {avg_value:.2f}")
+            print(f"Minimum Value: {min_value}")
     except ZeroDivisionError:
         print("Invalid input. Please enter a valid list of comma-separated integers.")
 
