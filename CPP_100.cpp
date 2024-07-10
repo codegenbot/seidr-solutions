@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b);  // Function declaration
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> make_a_pile(int n){
     vector<int> stones;
@@ -17,8 +17,7 @@ vector<int> make_a_pile(int n){
     return stones;
 }
 
-bool issame(vector<int> a, vector<int> b){  // Function definition
-    // Compare a and b here
+bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
