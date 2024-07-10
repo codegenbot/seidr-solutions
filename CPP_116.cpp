@@ -1,14 +1,10 @@
 vector<int> sort_array(vector<int> arr) {
     vector<int> result = arr;
     sort(result.begin(), result.end(), [](int a, int b) {
-        int ones_a = __builtin_popcount(a);
-        int ones_b = __builtin_popcount(b);
-
-        if (ones_a == ones_b) {
+        if (count(binary(a).begin(), binary(a).end(), '1') == count(binary(b).begin(), binary(b).end(), '1')) {
             return a < b;
-        } else {
-            return ones_a < ones_b;
         }
+        return count(binary(a).begin(), binary(a).end(), '1') < count(binary(b).begin(), binary(b).end(), '1');
     });
     return result;
 }
