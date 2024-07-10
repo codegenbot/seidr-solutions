@@ -1,9 +1,9 @@
 #include <vector>
 #include <algorithm>
 
-bool minPath(vector<vector<int>>& grid) {
+int minPath(vector<vector<int>>& grid) {
     int m = grid.size();
-    if (m == 0) return true;
+    if (m == 0) return 1;
     int n = grid[0].size();
 
     for (int i = 0; i < m; i++) {
@@ -19,11 +19,11 @@ bool minPath(vector<vector<int>>& grid) {
 
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            if (grid[i][j] == 1) return false;
+            if (grid[i][j] == 1) return 0;
         }
     }
 
-    return true;
+    return 1;
 }
 
 bool issame(vector<int> a, vector<int> b) {

@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,9 +9,13 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     for (int i = 0; i < a.size(); i++) {
         bool found = false;
         for (const auto& str : b) {
-            if (std::string(a[i]) == str) { 
-                found = true;
-                break;
+            if (!str.empty()) {
+                if (!b[0].compare(0, str.find(str[0]), str)) { 
+                    found = true;
+                    break;
+                }
+            } else {
+                return false;
             }
         }
         if (!found) return false;
@@ -36,5 +41,11 @@ int main() {
         throw std::runtime_error("Invalid GPA");
     }
     
+    try {
+        assert(numerical_letter_grade(0, 0.7) == "F"); 
+    } catch (const std::runtime_error& e) {
+        std::cerr << e.what() << std::endl;
+    }
+
     return 0;
 }
