@@ -4,23 +4,10 @@
 
 using namespace std;
 
-bool isValidInput(const string& str) {
-    if (str.length() != 4) return false;
-    for (char c : str) {
-        if (c < 'A' || c > 'F') return false;
-    }
-    return true;
-}
-
 int main() {
     string code, guess;
     cin >> code >> guess;
-
-    if (!isValidInput(code) || !isValidInput(guess)) {
-        cout << "Invalid input format." << endl;
-        return 1;
-    }
-
+    
     map<char, int> codeFreq, guessFreq;
     
     codeFreq.clear();
@@ -29,11 +16,13 @@ int main() {
     int whitePegs = 0, blackPegs = 0;
 
     for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-        } else {
-            codeFreq[code[i]]++;
-            guessFreq[guess[i]]++;
+        if ((code[i] >= 'A' && code[i] <= 'F') && (guess[i] >= 'A' && guess[i] <= 'F')) {
+            if (code[i] == guess[i]) {
+                blackPegs++;
+            } else {
+                codeFreq[code[i]]++;
+                guessFreq[guess[i]]++;
+            }
         }
     }
 
