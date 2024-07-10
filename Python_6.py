@@ -19,4 +19,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
 
 input_string = input("Enter the nested parens string within quotes: ")
 result = parse_nested_parens(input_string)
-print(result)
+if type(result) == list:
+    print(result)
+else:
+    print(result)
