@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
 double sum_squares(const std::vector<float>& lst);
 
-int main() {
+int myMain() {
     std::vector<float> lst;
     int n;
     std::cout << "Enter number of elements: ";

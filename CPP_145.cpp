@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <cassert>
 
@@ -23,11 +24,4 @@ vector<int> order_by_points(vector<int> nums) {
     }
 
     return result;
-}
-
-int main() {
-    vector<int> nums = {0,6,6,-76,-21,23,4};
-    vector<int> result = order_by_points(nums);
-    assert(result == vector<int>({ -76, -21, 0, 4, 23, 6, 6 }));
-    return 0;
 }
