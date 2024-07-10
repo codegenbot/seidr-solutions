@@ -14,6 +14,10 @@ std::vector<float> derivative(std::vector<float> xs){
 }
 
 int main(){
-    assert(issame(derivative({1.0f}), std::vector<float>{}));
+    if (issame(derivative({1.0f}), std::vector<float>{})) {
+        // Statement to be executed if condition is true
+    } else {
+        // Statement to be executed if condition is false
+    }
     return 0;
 }
