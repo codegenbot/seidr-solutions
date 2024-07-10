@@ -1,4 +1,4 @@
-```python
+```
 def fix_spaces(text):
     new_text = ""
     in_word = False
@@ -8,9 +8,9 @@ def fix_spaces(text):
                 in_word = True
             new_text += char
         elif char == " ":
-            if not in_word:
-                new_text += " "
-            else:
+            if in_word:
                 new_text += "_ "
-            in_word = False
+                in_word = False
+            else:
+                new_text += " "
     return new_text.strip()
