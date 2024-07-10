@@ -1,6 +1,5 @@
-```cpp
 #include <string>
-#include <cassert>
+#include <cassert> 
 using namespace std;
 
 string circular_shift(int x, int shift) {
@@ -11,9 +10,5 @@ string circular_shift(int x, int shift) {
     else {
         string result = str.substr(shift % n) + str.substr(0, shift % n);
         return result;
-}
-
-int main() { 
-    assert(circular_shift(11, 2) == "1111");
-    return 0;
+    }
 }
