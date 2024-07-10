@@ -1,10 +1,14 @@
+```
 def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
-    if '&' in expression or '|' in expression:
-        left, op, right = expression.split()
-        return solve_boolean(left) and op == '&' or solve_boolean(left) or op == '|'
-    else:
-        return solve_boolean(expression)
+    stack = []
+    for char in reversed(expression):
+        if char in ['&', '|']:
+            b1, b2 = stack.pop(), stack.pop()
+            stack.append(b1 and b2) if char == '&' else stack.append(b1 or b2)
+        elif char in ['T', 'F']:
+            stack.append(char == 'T')
+    return stack[0]
