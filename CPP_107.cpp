@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -37,5 +36,5 @@ int reverse(int n) {
         rev.push_back((char)(remainder + '0'));
         n /= 10;
     }
-    return stoi(rev);
+    return std::stoi(rev);
 }
