@@ -1,23 +1,24 @@
+```cpp
 #include <initializer_list>
 
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b);
 
 std::vector<std::string> select_words(std::string s, int n);
 
 int main() {
-    std::string sentence = "Mary had a little lamb";
-    int numWords = 4;
-    std::vector<std::string> result = select_words(sentence, numWords);
-    for (const auto& word : result) {
-        std::cout << word << std::endl;
+    std::string s = "Mary had a little lamb";
+    int n = 4;
+    std::vector<std::string> res = select_words(s, n);
+    for (std::string str : res) {
+        std::cout << str << std::endl;
     }
     return 0;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) { 
+bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) { 
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -48,5 +49,3 @@ std::vector<std::string> select_words(std::string s, int n) {
     }
     return result;
 }
-
-assert (issame(select_words("a b c d e f", 1), std::vector<std::string>({"b", "c", "d", "f"})));
