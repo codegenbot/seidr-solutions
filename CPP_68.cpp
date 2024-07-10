@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -24,11 +24,10 @@ vector<int> pluck(const vector<int>& n) {
 }
 
 void testMain() {
+    vector<int> v1 = {7, 9, 7, 1};
     vector<int> v2;
-    int size;
-    cin >> size;
 
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < 4; i++) {
         int x;
         cin >> x;
         if(x == 7 || x == 9)
@@ -38,7 +37,6 @@ void testMain() {
 
     }
 
-    vector<int> v1 = {7, 9, 7, 1};
     if (issame(pluck(v1), pluck(v2)))  
         cout << "Arrays are same" << endl;
     else   
