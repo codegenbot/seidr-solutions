@@ -27,8 +27,8 @@ vector<string> select_words(string s, int n) {
 int main() {
     string s = "Mary had a little lamb";
     int n = 4;
-    vector<string> result = select_words(s, n);
-    for (string str : result) {
+    vector<string> res = select_words(s, n);
+    for (string str : res) {
         cout << str << endl;
     }
     return 0;
