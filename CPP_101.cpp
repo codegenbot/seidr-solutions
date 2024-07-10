@@ -1,43 +1,34 @@
-```cpp
+```
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
         return false;
     
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
+        if (std::string(a[i]) == "" || std::string(b[i]) == "") {
+            if ((a[i] != b[i]))
+                return false;
+        } else {
+            if (a[i] != b[i])
+                return false;
+        }
     }
     
     return true;
-
-}
-
-vector<string> words_string(string s) {
-    vector<string> result;
-    string word = "";
-    for (char c : s) {
-        if (c == ',' || c == ' ') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
-        } else {
-            word += c;
-        }
-    }
-    if (!word.empty()) {
-        result.push_back(word);
-    }
-    return result;
-
 }
 
 int main() {
-    string words = "ahmed     , gamal";
-    vector<string> expected = {"ahmed", "gamal"};
-    assert(issame(words_string(words), expected));
-    return 0;
+    std::vector<std::string> words_string;
+    std::cout << "Enter words (space separated): ";
+    std::string input;
+    getline(std::cin, input);
+    std::istringstream iss(input);
+    for (std::string s; iss >> s;) {
+        words_string.push_back(s);
+    }
+    
+    std::vector<std::string> b = {"ahmed", "gamal"};
+    assert(issame(words_string, b));
 }
