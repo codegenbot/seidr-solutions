@@ -7,7 +7,7 @@ int main() {
 
     if (input.empty()) {
         std::cout << "Invalid input" << std::endl;
-        return 1; // Exit program with error code 1
+        return 1;
     }
 
     std::string output = "";
