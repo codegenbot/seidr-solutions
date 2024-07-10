@@ -6,6 +6,6 @@ def basement(input_vector):
         total_sum += num
         if total_sum < 0:
             seen_negative = True
-        elif seen_negative:
+        elif seen_negative and total_sum > 0:
             return i
     return -1
