@@ -1,19 +1,12 @@
-def bowling_score(score_card):
+```
+def bowling_score(frames):
     score = 0
-    roll = []
-    for char in score_card:
-        if char.isdigit():
-            roll.append(int(char))
+    roll = [int(x) for x in frames.replace('/', '00').replace('X', '33')]
+    for i in range(10):
+        if roll[i*2] == 10:
+            score += 30
+        elif roll[i*2:i*2+3].count('3') > 0:
+            score += 30
         else:
-            if len(roll) < 2:
-                return "Invalid score card"
-            if sum(roll) < 10:
-                score += sum(roll)
-            else:
-                score += 10
-            roll = []
-    if len(roll) > 0 and sum(roll) == 10:
-        score += sum(roll)
-    elif len(roll) > 0:
-        return "Invalid score card"
+            score += sum(roll[i*2:i*2+2])
     return score
