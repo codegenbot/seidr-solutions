@@ -1,4 +1,3 @@
-int skjkasdkd(vector<int> lst);
 int skjkasdkd(vector<int> lst){
     int max_prime = 0;
     for(int num : lst){
@@ -23,4 +22,5 @@ int sumOfDigits(int n) {
         n /= 10;
     }
     return sum;
-}
+
+int skjkasdkd(vector<int> lst);
