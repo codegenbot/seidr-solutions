@@ -1,13 +1,11 @@
+#include <cctype>
 #include <iostream>
 #include <string>
-#include <cctype> // Include for tolower function
+#include <algorithm>
 
-int vowels_count(std::string s){
-    int count = 0;
-    for(char c : s){
-        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'){
-            count++;
-        }
-    }
-    return count;
+int vowels_count(std::string s) {
+    return std::count_if(s.begin(), s.end(), [](char c) {
+        char low = std::tolower(c);
+        return low == 'a' || low == 'e' || low == 'i' || low == 'o' || low == 'u';
+    });
 }
