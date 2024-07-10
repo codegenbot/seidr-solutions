@@ -29,7 +29,7 @@ int main() {
     std::cin >> n >> m;
     std::cout << solve(n, m) << std::endl;
     
-    assert(solve(5, 5) == solve(5, 5));
+    assert(solve(5, 5) == "101");
     
     return 0;
-}
+} 
