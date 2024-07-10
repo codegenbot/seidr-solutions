@@ -1,6 +1,13 @@
+```cpp
 #include <algorithm>
-#include <cassert>
+#include <initializer_list>
+#include <cassert> 
 using namespace std;
+
+int main() {
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
+    return 0;
+}
 
 string anti_shuffle(string sStr) {
     string result = "";
@@ -16,18 +23,11 @@ string anti_shuffle(string sStr) {
             }
             vector<char> temp(word.begin(), word.end());
             sort(temp.begin(), temp.end());
-            string sortWord;
             for (char c : temp) {
-                sortWord += c;
+                result += c;
             }
-            result = result + sortWord;
             i = j - 1;
         }
     }
     return result;
-}
-
-int main() {
-    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
-    return 0;
 }
