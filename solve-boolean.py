@@ -1,15 +1,15 @@
-def solve_boolean(boolean_expression):
-    if boolean_expression == "T":
-        return True
-    elif boolean_expression == "F":
-        return False
-    elif boolean_expression == "|":
-        return False  # This is not a valid boolean expression, so we default to False
-    elif boolean_expression == "&":
-        return False  # This is not a valid boolean expression, so we default to False
-    else:
-        first, operator, second = boolean_expression.split()
-        if operator == "|":
-            return solve_boolean(first) or solve_boolean(second)
-        elif operator == "&":
-            return solve_boolean(first) and solve_boolean(second)
+```
+def solve(input_str):
+    def evaluate_bool_expr(expr):
+        if expr == 'T':
+            return True
+        elif expr == 'F':
+            return False
+        elif '&' in expr:
+            return all(evaluate_bool_expr(sub_expr) for sub_expr in expr.split('&'))
+        elif '|' in expr:
+            return any(evaluate_bool_expr(sub_expr) for sub_expr in expr.split('|'))
+        else:
+            return eval(expr)
+
+    return str(evaluate_bool_expr(input_str)).lower()
