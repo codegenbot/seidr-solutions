@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -13,11 +13,4 @@ int solve(std::string s) {
     return count;
 }
 
-int main() {
-    std::cout << "Enter a string: ";
-    std::string s;
-    std::getline(std::cin, s);
-    int result = solve(s); 
-    std::cout << "Result: " << result << std::endl;
-    return 0;
-}
+int main(){}

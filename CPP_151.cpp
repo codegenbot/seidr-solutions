@@ -1,22 +1,29 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-void calculate_odd_sum() {
-    std::vector<int> lst;
-    int odd_sum = 0;
-    int num, result = 0;
+int double_the_difference(const std::vector<int>& lst) {
+    int result = 0;
+    for (const auto& num : lst) {
+        if (num % 2 != 0) {
+            result += num * num; // calculate the square of each odd number
+        }
+    }
+    return result;
+}
+
+int main() {
+    std::vector<int> lst; 
+    int odd_sum = 0; 
+
     while(std::cin >> num) {
         lst.push_back(num); 
         if (num % 2 != 0) {
             odd_sum += num;
         }
     }
-    result = double_the_difference(lst); 
+    int result = double_the_difference(lst); 
     std::cout << "The sum of squares of odd numbers is: " << result << std::endl;
-    assert(double_the_difference(lst) == odd_sum);
-}
+    assert(result == odd_sum);
 
-int main() {
-    calculate_odd_sum();
     return 0;
-}
