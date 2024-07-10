@@ -1,4 +1,7 @@
-```cpp
+#include <algorithm>
+#include <map>
+#include <string>
+
 int main() {
     using namespace std;
 
