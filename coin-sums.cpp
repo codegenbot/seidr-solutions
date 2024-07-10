@@ -24,7 +24,7 @@ int main() {
         cents -= 5;
     }
 
-    int p = cents;
+    int p = cents; // calculate the number of pennies
 
     cout << q << endl;
     cout << d << endl;
