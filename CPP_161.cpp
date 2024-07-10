@@ -1,10 +1,18 @@
-int solve(std::string s) {
-    for (int i = 0; i < s.length(); i++) {
-        if (std::isupper(s[i])) { 
-            s[i] = std::tolower(s[i]);
+```cpp
+#include <cassert>
+#include <string>
+
+int solve(const std::string& color) {
+    int result = 0;
+    for (char c : color) {
+        if (c == '#') {
+            continue;
+        }
+        if (isdigit(c)) {
+            result++;
         }
     }
-    return s.length();
+    return result;
 }
 
 int testMain() {
