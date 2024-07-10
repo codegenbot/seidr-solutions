@@ -34,9 +34,7 @@ if __name__ == "__main__":
                             if int(input_val) % 2 == 0:
                                 print(f"The sum of even length words is {sorted_list_sum}.")
                             else:
-                                print(
-                                    f"The sum of odd length words is {sum(len(word) for word in lst if len(word) % 2 != 0)}."
-                                )
+                                print(f"The sum of odd length words is {sum(len(word) for word in lst if len(word) % 2 != 0)}.")
                             return
                         elif input_val.lower() == "q":
                             print("Goodbye!")
@@ -45,6 +43,3 @@ if __name__ == "__main__":
                             print("Invalid input. Please enter a number or 'q'.")
                     except ValueError:
                         print("Invalid input. Please enter a number or 'q'.")
-        }
-    ) 
-    if __name__ == "__main__":
