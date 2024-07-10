@@ -3,6 +3,10 @@
 #include <numeric>
 #include <cassert>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
 std::vector<int> order_by_points(const std::vector<int>& nums) {
     std::vector<int> sorted_nums = nums; // Make a copy before sorting
     std::sort(sorted_nums.begin(), sorted_nums.end(), [&](int a, int b) {
@@ -14,10 +18,6 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
         return sum_a < sum_b;
     });
     return sorted_nums;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
 }
 
 int main() {
