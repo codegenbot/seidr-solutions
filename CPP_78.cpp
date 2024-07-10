@@ -5,8 +5,12 @@ int hex_key(string num) {
     for (char c : num) {
         if (c >= 'A' && c <= 'F') 
             c = c - 'A' + 10; // convert A-F to 10-15
-        if (stoi(string(1, c)) > 1 && isPrime(stoi(string(1, c)))) 
+        else if (isdigit(c)) 
+            c -= '0';
+        
+        if (stoi(string(1, c)) > 1 && isPrime(stoi(string(1, c)))) {
             count++;
+        }
     }
     return count;
 }
