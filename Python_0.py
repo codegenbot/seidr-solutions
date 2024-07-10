@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def has_close_elements() -> None:
@@ -13,6 +12,6 @@ def has_close_elements() -> None:
                 if abs(numbers[i] - numbers[j]) <= threshold:
                     print(True)
                     return
-                print(False)
+        print(False)
     except ValueError:
         print("Invalid input. Please enter a list of floats.")
