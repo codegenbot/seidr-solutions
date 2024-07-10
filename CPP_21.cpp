@@ -23,14 +23,3 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 
     return rescaled_numbers;
 }
-
-int main() {
-    vector<float> input_numbers = {12.5, 21.3, 15.7, 8.2, 10.9};
-    vector<float> rescaled_output = rescale_to_unit(input_numbers);
-    
-    for (float num : rescaled_output) {
-        cout << num << " ";
-    }
-    
-    return 0;
-}
