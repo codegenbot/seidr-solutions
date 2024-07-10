@@ -10,11 +10,9 @@ bool solveBoolean(string s) {
             break;
         }
         else if (s[i] == '&') {
-            while(i+1<s.length() && s[i+1] != '|') i++;
             if (!res) return false;
         }
         else if (s[i] == '|') {
-            while(i+1<s.length() && s[i+1] != '&' && s[i+1] != 'f') i++;
             if (res) return true;
         }
     }
@@ -22,5 +20,9 @@ bool solveBoolean(string s) {
 }
 
 int main() {
+    string s;
+    cout << "Enter Boolean expression (T/F/&) : ";
+    cin >> s;
+    cout << "Result: " << solveBoolean(s) << endl;
     return 0;
 }
