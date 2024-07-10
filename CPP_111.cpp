@@ -1,30 +1,31 @@
+```
 #include <map>
 #include <string>
 
-std::map<char,int> histogram(const std::string& str) {
-    std::map<char,int> result;
-    for(char c: str) {
-        if(result.find(c) != result.end()) 
-            result[c]++;
-        else 
-            result[c] = 1;
+std::map<char, int> histogram(std::string s) {
+    std::map<char, int> freqMap;
+    for (char c : s) {
+        if (freqMap.find(c) == freqMap.end()) {
+            freqMap[c] = 1;
+        } else {
+            freqMap[c]++;
+        }
     }
-    return result;
+    return freqMap;
 }
 
-bool issame(std::map<char,int> a, std::map<char,int> b){
-    for(auto x: a) {
-        if(b.find(x.first)!=b.end() && b[x.first] != x.second) 
+bool std::issameMap(std::map<char, int> a, std::map<char, int> b) {
+    if (a.size() != b.size())
+        return false;
+
+    for (auto it = a.begin(); it != a.end();++it)
+        if (it->second != b.at(it->first))
             return false;
-    }
-    for(auto x: b) {
-        if(a.find(x.first)!=a.end() && a[x.first] != x.second) 
-            return false;
-    }
+
     return true;
 }
 
 int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
+    assert(issameMap(histogram("aa"), std::map<char, int>{{'a', 1}}));
     return 0;
 }
