@@ -1,3 +1,6 @@
 ```
 def dice_game(n, m):
-    return sum(1 for i in range(m+1) for j in range(i+m+1, n+m+2)) / (n * m)
+    total_outcomes = n * m
+    same_roll_outcomes = min(n, m)
+    peters_highest_outcomes = total_outcomes - same_roll_outcomes
+    return peters_highest_outcomes / total_outcomes
