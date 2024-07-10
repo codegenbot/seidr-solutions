@@ -6,6 +6,11 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
 
 
 if __name__ == "__main__":
-    numbers = input("Enter numbers (comma-separated): ").split(",")
-    numbers = [int(num.strip()) for num in numbers]
+    while True:
+        numbers = input("Enter numbers (comma-separated): ").strip()
+        try:
+            numbers = [int(num) for num in numbers.split(",")]
+            break
+        except ValueError:
+            print("Invalid input. Please enter a comma-separated list of integers.")
     print(remove_duplicates(numbers))
