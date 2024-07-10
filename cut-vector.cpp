@@ -1,33 +1,47 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 
+using namespace std;
+
 int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+    vector<int> nums;
+    int num;
+    
+    ifstream inputFile("input.txt"); // Assuming input is provided in a file called "input.txt"
+    
+    while (inputFile >> num) {
+        nums.push_back(num);
     }
 
-    int diff = INT_MAX;
-    int cutIndex = -1;
-    for (int i = 1; i < n; ++i) {
-        int leftSum = std::accumulate(nums.begin(), nums.begin() + i, 0);
-        int rightSum = std::accumulate(nums.begin() + i, nums.end(), 0);
-        int currentDiff = std::abs(leftSum - rightSum);
-        if (currentDiff < diff) {
-            diff = currentDiff;
-            cutIndex = i;
+    int n = nums.size();
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
+    }
+
+    int half_sum = sum / 2;
+    int prefix_sum = 0;
+    int cut_idx = -1;
+
+    for (int i = 0; i < n; i++) {
+        prefix_sum += nums[i];
+        if (prefix_sum >= half_sum) {
+            cut_idx = i;
+            break;
         }
     }
 
-    for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << std::endl;
+    vector<int> subvec1(nums.begin(), nums.begin() + cut_idx + 1);
+    vector<int> subvec2(nums.begin() + cut_idx + 1, nums.end());
+
+    for (int num : subvec1) {
+        cout << num << endl;
     }
-    std::cout << std::endl;
-    for (int i = cutIndex; i < n; ++i) {
-        std::cout << nums[i] << std::endl;
+    for (int num : subvec2) {
+        cout << num << endl;
     }
 
+    inputFile.close();
     return 0;
 }
