@@ -1,4 +1,4 @@
-```Python
+```
 from typing import List
 
 
@@ -19,6 +19,9 @@ if __name__ == "__main__":
             n = int(input())
         except ValueError:
             print("Invalid input. Please enter a number.")
+            continue
+        if not 0 < n:
+            print("Invalid input. Please enter a positive number.")
             continue
         if n == 0:
             break
