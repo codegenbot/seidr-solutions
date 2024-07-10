@@ -1,6 +1,3 @@
-Here is your modified code:
-
-```cpp
 #include <vector>
 #include <string>
 
@@ -15,7 +12,6 @@ int gcd(int a, int b) {
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> result;
-    using std::initializer_list;
     size_t index = 0;
 
     while (index <= text.length() - target.length()) {
