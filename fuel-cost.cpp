@@ -1,14 +1,14 @@
-```cpp
+```c++
 #include <vector>
 #include <cmath>
 
-int calculateFuelCost(vector<int>& vec) {
+int calculateFuelCost(std::vector<int>& vec) {
     int sum = 0;
     for (int num : vec) {
-        double result = static_cast<double>(num) / 3;
-        result = std::floor(result); 
+        int result = (num / 3);
+        result = static_cast<int>(std::floor((double)result)); 
         result -= 2; 
-        sum += static_cast<int>(result);
+        sum += result;
     }
     return sum;
 }
