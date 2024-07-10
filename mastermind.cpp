@@ -10,7 +10,7 @@ int main() {
 
     int whitePegs = 0, blackPegs = 0;
 
-    while (cin >> code >> guess) {
+    while (!code.empty() && !guess.empty()) {
         map<char, int> codeFreq, guessFreq;
         codeFreq.clear();
         guessFreq.clear();
