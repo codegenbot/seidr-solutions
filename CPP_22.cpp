@@ -4,15 +4,15 @@
 #include <boost/any.hpp>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b);
-std::vector<int> filter_integers(std::list<std::any> values);
+bool issame(vector<int> a, vector<int> b);
+vector<int> filter_integers(list<any> values);
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-std::vector<int> filter_integers(std::list<std::any> values){
-    std::vector<int> result;
+vector<int> filter_integers(list<any> values){
+    vector<int> result;
     for (auto val : values) {
         if (val.type() == typeid(int)) {
             result.push_back(boost::any_cast<int>(val));
@@ -22,11 +22,11 @@ std::vector<int> filter_integers(std::list<std::any> values){
 }
 
 int main() {
-    std::list<std::any> values = {1, 2, 3, "hello", 4, 5};
-    std::vector<int> filtered = filter_integers(values);
+    list<any> values = {5, "hello", 10, 20, 'a'};
+    vector<int> filtered_values = filter_integers(values);
     
-    for (auto num: filtered) {
-        std::cout << num << " ";
+    for (int val : filtered_values) {
+        std::cout << val << " ";
     }
     
     return 0;
