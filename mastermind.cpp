@@ -1,3 +1,4 @@
+```c++
 #include <string>
 
 struct PegCounts { int white; int black; };
