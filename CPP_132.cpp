@@ -1,6 +1,6 @@
 ```cpp
-#include <string>
 #include <iostream>
+#include <string>
 
 bool is_nested(std::string str) {
     int count = 0;
@@ -16,13 +16,12 @@ bool is_nested(std::string str) {
         }
     }
     return count > 0;
-
 }
 
 int main() {
     std::string str;
     std::cout << "Enter a string: ";
-    std::cin >> str; 
+    std::cin >> str;
     if (is_nested(str)) {
         std::cout << "The string is nested." << std::endl;
     } else {
