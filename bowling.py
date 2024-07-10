@@ -1,4 +1,3 @@
-```
 def bowling_score(game):
     score = 0
     roll = 0
@@ -31,9 +30,7 @@ def bowling_score(game):
             score += int(frame)
             roll += 1
     if roll < 10:
-        remaining_frames = 10 - roll
-        while remaining_frames > 0 and roll < 10:
+        while roll < 10:
             score += 10
             roll += 1
-            remaining_frames -= 1
     return score
