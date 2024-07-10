@@ -1,7 +1,7 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -17,7 +17,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     }
 
     std::sort(result.begin(), result.end(),
-              [](const string& a, const string& b) {
+              [](const std::string& a, const std::string& b) {
                   if (a.size() != b.size()) {
                       return a.size() < b.size();
                   } else {
