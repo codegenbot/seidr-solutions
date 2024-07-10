@@ -1,3 +1,4 @@
+```
 def sum_of_odd_numbers_in_every_other_element():
     while True:
         try:
@@ -8,4 +9,5 @@ def sum_of_odd_numbers_in_every_other_element():
         except ValueError:
             print("Invalid input. Please try again.")
 
-print(sum_of_odd_numbers_in_every_other_element())
+result = sum_of_odd_numbers_in_every_other_element()
+print(result)
