@@ -1,8 +1,13 @@
 def fruit_distribution(s, n):
     """
-    Given a string of words where the first word is 'apples', the second word represents the number of apples,
-    and the third word is either 'oranges' or 'and'. If the third word is 'oranges', then it's followed by a number.
-    Return the number of people that can be formed with the given fruits, where each person needs one apple and one orange.
+    This function calculates the remaining number of fruits that can be distributed after some have been given away.
+    
+    Parameters:
+    s (str): A string containing information about apples and oranges distribution.
+    n (int): The total number of fruits available.
+
+    Returns:
+    int: The number of remaining fruits that can be distributed.
     """
     s = " ".join(s).replace("apples and", "apples ").replace("oranges", " oranges").split()
     apples = int(s[s.index("apples") + 1 :].replace("and", "").replace("apples", ""))
