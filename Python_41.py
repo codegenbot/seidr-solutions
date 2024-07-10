@@ -1,9 +1,9 @@
-```Python
-def car_race_collision(n: int, a1: int, a2: int):
+def calculate_collision_point(a: int):
+    n = int(input("Enter the number of cars: "))
+    a1 = int(input("Enter the speed of car 1: "))
+    a2 = int(input("Enter the speed of car 2: "))
+    
     if a1 > a2:
         return (n - 1) * a2
     else:
         return (n - 1) * a1
-
-# Example usage
-print(car_race_collision(10, 3, 4))  # Output: 36
