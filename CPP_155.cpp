@@ -1,10 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cstdlib>  // Include cstdlib for abs function
+#include <cstdlib>
 #include <cassert>
-
-using namespace std;
 
 std::vector<int> even_odd_count(int num) {
     std::vector<int> counts(2, 0);
@@ -24,7 +22,7 @@ int main() {
     assert(even_odd_count(123456) == std::vector<int>{3, 3});
     assert(even_odd_count(-87654) == std::vector<int>{2, 3});
 
-    cout << "All test cases passed successfully." << endl;
+    std::cout << "All test cases passed successfully." << std::endl;
 
     return 0;
 }
