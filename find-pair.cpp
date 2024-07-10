@@ -12,15 +12,13 @@ int main() {
     int target;
     std::cin >> target;
     
-    std::map<int, std::vector<int>> mp;
+    std::map<int, int> mp;
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
         if (mp.find(complement) != mp.end()) {
-            for (int j : mp[complement]) {
-                std::cout << complement << " " << nums[i] << std::endl;
-            }
+            std::cout << complement << " " << nums[i] << std::endl;
         }
-        mp[nums[i]].push_back(nums[i]);
+        mp[nums[i]] = i;
     }
     
     return 0;
