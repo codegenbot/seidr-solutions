@@ -10,7 +10,7 @@ int main() {
     std::vector<int> indices;
     
     if (target.empty()) {
-        for (int i = 0; i <= text.length() - target.length(); ++i) {
+        for (int i = 0; i < text.length() - target.length() + 1; ++i) {
             bool match = true;
             for (int j = 0; j < target.length(); ++j) {
                 if (text[i + j] != target[j]) {
@@ -26,8 +26,7 @@ int main() {
         size_t pos = text.find(target, 0);
         while (pos != std::string::npos) {
             indices.push_back(static_cast<int>(pos));
-            pos = text.find(target, pos);
-            pos += 1;
+            pos = text.find(target, pos + 1);
         }
     }
     
