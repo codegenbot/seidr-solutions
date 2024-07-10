@@ -3,17 +3,16 @@ from typing import List, Tuple
 
 
 def rolling_max(numbers: List[int]) -> List[int]:
-    result = []
+    max_numbers = []
     window = deque()
 
-    for i, num in enumerate(numbers):
-        while window and numbers[window[-1]] <= num:
+    for num in numbers:
+        while window and window[-1] < num:
             window.pop()
-        window.append(i)
+        window.append(num)
+        max_numbers.append(window[0])
 
-        if window[0] == i - len(window):
+        if numbers.index(num) >= 3:
             window.popleft()
 
-        result.append(numbers[window[0]])
-
-    return result
+    return max_numbers
