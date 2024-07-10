@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 
-int luhn(std::vector<unsigned int> cc) {
+int luhn(vector<unsigned int> cc) {
     int sum = 0;
     bool doubleNext = false;
 
