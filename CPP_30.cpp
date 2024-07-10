@@ -25,20 +25,38 @@ int main() {
                 std::cout << "Invalid input." << std::endl;
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                return 1;
+            } else {
+                v1.push_back(num);
+                break;  // Exit the loop once valid input is given
             }
-            v1.push_back(num);
         }
     }
 
-    // Read input for v2
-    v2 = v1;  // Since both are the same set, just copy v1 to v2
+    // Check for same
+    for(int i = 0; i < n; i++) {
+        float num;
+        while(true) {
+            std::cout << "Enter value " << (i+1) << ": ";
+            if (!(std::cin >> num)) {
+                std::cout << "Invalid input." << std::endl;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            } else {
+                v2.push_back(num);
+                break;  // Exit the loop once valid input is given
+            }
+        }
+    }
 
-    bool are_same = (v1 == v2);
+    bool are_same = issame(v1, v2);
 
     // Print output
     if (are_same) {
-        float result = *std::max_element(v1.begin(), v1.end());
+        float result = 0.0f;
+        for(float num : v1) {
+            if(result < 0.0f || num > result)
+                result = num;
+        }
         std::cout << "The positive of the numbers is: " << result << std::endl;
     } else {
         std::cout << "The numbers are not same." << std::endl;
