@@ -5,7 +5,6 @@ using namespace std;
 int main() {
     string input;
     getline(cin, input);
-    
     string word, result;
     istringstream iss(input);
     while (iss >> word) {
@@ -14,9 +13,7 @@ int main() {
         }
         result += word + " ";
     }
-    
-    result.pop_back(); // Remove extra space at the end
+    result.pop_back();
     cout << result << endl;
-    
     return 0;
 }
