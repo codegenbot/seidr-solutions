@@ -9,13 +9,13 @@ def decode_cyclic(s: str):
     groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
     return "".join(groups)
 
+def main():
+    task = input()
+    s = input()
+    if task == 'encode':
+        result = encode_cyclic(s)
+    elif task == 'decode':
+        result = decode_cyclic(s)
+    print(result)
 
-task = input()
-if task == 'encode':
-    input_str = input()
-    result = encode_cyclic(input_str)
-    print(result)
-elif task == 'decode':
-    input_str = input()
-    result = decode_cyclic(input_str)
-    print(result)
+main()
