@@ -1,18 +1,23 @@
 #include <string>
 #include <iostream>
-#include <cmath>
+#include <cassert>
 
 std::string solve(int n, int m) {
     if (n > m) {
         return "-1";
     }
     
-    long long sum = (long long)(m + n) * (m - n + 1) / 2;
+    int sum = 0;
+    for (int i = n; i <= m; i++) {
+        sum += i;
+    }
+    
+    int avg = round(static_cast<double>(sum) / (m - n + 1));
     
     std::string binary = "";
-    while (sum > 0) {
-        binary = std::to_string(sum % 2) + binary;
-        sum /= 2;
+    while (avg > 0) {
+        binary = std::to_string(avg % 2) + binary;
+        avg /= 2;
     }
     
     return binary;
@@ -21,6 +26,8 @@ std::string solve(int n, int m) {
 int main() {
     int n, m;
     std::cin >> n >> m;
-    std::cout << solve(n, m) << std::endl;
+    std::string rounded_avg = solve(n, m);
+    assert(rounded_avg == solve(n, m));
+    std::cout << rounded_avg << std::endl;
     return 0;
 }
