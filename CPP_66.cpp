@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -19,7 +19,6 @@ int digitSum(std::string s) {
         }
     }
     return sum;
-
 }
 
 int main() {
