@@ -32,6 +32,6 @@ int main() {
     int credits1 = 3;
     double gpa1 = 3.4; 
     std::string grade = numerical_letter_grade(credits1, gpa1);
-    assert (issame(std::vector<std::string>({}), std::vector<std::string>({grade})));
+    assert (issame({grade}, {"E", "D-"})); 
     return 0;
 }
