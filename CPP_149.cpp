@@ -1,24 +1,20 @@
-#include <initializer_list>
-
-#include <vector>
+```
 #include <algorithm>
 #include <string>
+#include <vector>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        throw std::runtime_error("Vectors are not the same size");
-    }
+#include <initializer_list>
+#include <stdexcept>
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        std::vector<std::string> temp = {a[i], b[i]};
-        std::sort(temp.begin(), temp.end());
-        if (temp[0] != temp[1]) {
-            throw std::runtime_error("Vectors are not the same");
-        }
+        if (a[i] + b[i] != sorted_list_sum({a[i], b[i]})[0]) return false;
     }
     return true;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> v) {
-    std::sort(v.begin(), v.end());
+vector<string> sorted_list_sum(vector<string> v) {
+    sort(v.begin(), v.end());
     return v;
 }
