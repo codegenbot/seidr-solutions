@@ -1,31 +1,27 @@
-Here is the solution:
+#include <string>
+using namespace std;
 
-string spinWords(string s) {
+string spinWords(string str) {
     string result = "";
-    for (const auto& word : split(s)) {
-        if (word.length() >= 5)
-            result += std::to_string(word).erase(0, 1) + " ";
-        else
+    int i = 0;
+    while(i <= str.length()) {
+        if(str.substr(i).find(" ") != string::npos || i >= str.length()) {
+            string word = str.substr(i);
+            if(word.length() >= 5)
+                reverse(word.begin(), word.end());
             result += word + " ";
-    }
-    return result.substr(0, result.size() - 1);
-}
-
-string split(const string& s) {
-    vector<string> words;
-    for (const auto& c : s) {
-        if (c == ' ') {
-            words.push_back("");
-            continue;
+            i += word.length() + 1;
         }
-        words.back() += c;
     }
-    return join(words);
+    return result.substr(0, result.length()-1);
 }
 
-string join(vector<string>& words) {
-    string result = "";
-    for (const auto& word : words)
-        result += word + " ";
-    return result.substr(0, result.size() - 1);
+int main() {
+    // Test cases
+    cout << spinWords("a") << endl; // a
+    cout << spinWords("this is a test") << endl; // this is a test
+    cout << spinWords("this is another test") << endl; // this is rehtona test
+    cout << spinWords("hi") << endl; // hi
+    
+    return 0;
 }
