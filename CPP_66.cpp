@@ -8,6 +8,8 @@ int digitSum(const std::string& s){
             sum += c - 'A' + 1;
         } else if(std::islower(c)){
             sum += c - 'a' + 1;
+        } else if(std::isdigit(c)){
+            sum += c - '0';
         }
     }
     return sum;
