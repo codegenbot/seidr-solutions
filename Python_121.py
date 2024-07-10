@@ -1,9 +1,10 @@
-def sum_odd(lst):
-    total = 0
-    for num in lst:
-        if num % 2 != 0:
-            total += num
-    if len(lst) == 0:
-        return None
+```
+def solution(lst):
+    if len(lst) > 0:
+        odd_sum = 0
+        for num in lst:
+            if num % 2 != 0:
+                odd_sum += num
+        return odd_sum
     else:
-        return total
+        return None
