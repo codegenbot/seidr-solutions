@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -19,9 +18,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(temp_str)
                 temp_str = ''
             else:
-                return []  # unmatched closing parenthesis
-
-    if stack:  # unmatched opening parenthesis
-        return []
+                if stack:  # Check if there are unmatched '(' left.
+                    temp_str += char
+                else:  # If not, add the last string to the result.
+                    result.append(temp_str)
     
-    return [temp_str] if not stack else result
+    return result
