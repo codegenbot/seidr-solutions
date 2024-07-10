@@ -1,1 +1,2 @@
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
+```cpp
+return strongest_extension;
