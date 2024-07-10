@@ -7,15 +7,15 @@ vector<int> leaders(vector<int>& vec) {
     int max_right = vec.back();
     for(int i=n-1; i>=0; i--){
         if(vec[i] >= max_right){
-            res.push_back(vec[i]);
             max_right = vec[i];
+            res.push_back(max_right);
         }
     }
+    reverse(res.begin(), res.end());
     return res;
 }
 
 int main() {
-    vector<int> vec = {16, 17, 4, 3, 5, 2};
-    for(int i: leaders(vec)) cout << i << " ";
+    leaders({12, 10, 8, 6, 4, 2});
     return 0;
 }
