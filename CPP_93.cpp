@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+#include <cassert>
+
+std::string encode(std::string message) {
+    for (char &c : message) {
+        if (std::isalpha(c)) {
+            c = std::islower(c) ? std::toupper(c) : std::tolower(c);
+            if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+                c = c + 2;
+            }
+        }
+    }
+    return message;
+}
