@@ -1,5 +1,5 @@
 #include <map>
 
 bool issame(std::map<char, int> a, std::map<char, int> b) {
-    // Your code here
+    return a == b;
 }
