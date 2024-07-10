@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -9,13 +10,10 @@ def all_prefixes() -> None:
     while True:
         try:
             s = input("Please enter a string: ")
-            if not s:
-                s = "default_string"  # default value
-            print("\n".join(get_all_prefixes(s)))
-            break
-        except Exception as e:
-            print(f"Unexpected error occurred: {e}")
-
-
-if __name__ == "__main__":
-    all_prefixes()
+            if not s.strip():
+                print("Error: Please provide a non-empty string.")
+            else:
+                break
+        except ValueError as e:
+            print(f"Invalid input. Please enter a string.")
+    print("\n".join(get_all_prefixes(s)))
