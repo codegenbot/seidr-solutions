@@ -1,4 +1,3 @@
-
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
