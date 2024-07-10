@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <assert.h>
 
@@ -13,7 +13,7 @@ bool any_int(float a, float b, float c) {
         return false;
 }
 
-int testMain() {
+int main() {
     assert(any_int(3.01f, 4.0f, 7.0f) == false);
     std::cout << "Code runs correctly." << std::endl;
     return 0;
