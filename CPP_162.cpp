@@ -1,11 +1,10 @@
-#include "cryptopp/md5.h"
+#include <cryptopp/cryptlib.h>
 #include <string>
 
 std::string cppString_to_md5(std::string text) {
     CryptoPP::MD5 hash;
     unsigned char result[CryptoPP::MD5::DIGEST_SIZE];
-    CryptoPP::byte* byteText = (CryptoPP::byte*)text.c_str();
-    hash.Update(byteText, text.size());
+    hash.Update((const byte*)text.c_str(), text.size());
     hash.Final(result);
     std::string output;
     for (int i = 0; i < CryptoPP::MD5::DIGEST_SIZE; i++) {
