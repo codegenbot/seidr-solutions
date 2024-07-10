@@ -1,17 +1,15 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
-int CompareOne(int a, double b) {
-    if (b > a) {
-        return b;
-    } else if (a == b) {
-        return 0;
-    } else {
-        return a;
+auto CompareOne(int a, double b) {
+    if (cin.fail()) {  
+        string str;
+        cin >> str;      
+        return str;
     }
+    return (b > a) ? b : a;
 }
 
 int main() {
@@ -22,11 +20,14 @@ int main() {
     double b;
     cout << "Enter a floating point number or a string: ";
     cin >> b;
-    if (!cin) {
+    
+    if (!cin) { 
         cin.clear();
         cin.ignore(10000, '\n');
         cout << "The result is: " << a << endl;
     } else {
+        // Process double value (b)
+        // or handle string input as needed
         cout << "The result is: " << CompareOne(a, b) << endl;
     }
 
