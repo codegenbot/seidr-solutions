@@ -12,9 +12,9 @@ namespace Contest {
         }
         return sum;
     }
-}
 
-int main() {
-    assert(Contest::solutions({3, 13, 2, 9}) == 13);
-    return 0;
+    int main() {
+        assert(Contest::solutions({3, 13, 2, 9}) == 13);
+        return 0;
+    }
 }
