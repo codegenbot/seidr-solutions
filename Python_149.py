@@ -27,15 +27,7 @@ def main():
             elif not input_val:
                 print(sorted_list_sum)
             else:
-                if input_val.isdigit():
-                    if int(input_val) % 2 == 0:
-                        print(f"The sum of even length words is {sorted_list_sum}.")
-                    else:
-                        print(
-                            f"The sum of odd length words is {sum(len(word) for word in lst if len(word) % 2 != 0)}."
-                        )
-                else:
-                    print("Invalid input. Please enter a number or 'q'.")
+                print("Invalid input. Please enter a number or 'q'.")
         except ValueError:
             print("Invalid input. Please enter a number or 'q'.")
 
