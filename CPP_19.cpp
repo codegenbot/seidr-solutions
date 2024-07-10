@@ -1,3 +1,10 @@
+#include <map>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <cassert>
+
 map<string, int> number_map = {
     {"zero", 0},
     {"one", 1},
