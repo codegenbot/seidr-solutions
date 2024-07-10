@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 bool is_sorted(vector<int> lst){
@@ -6,22 +7,12 @@ bool is_sorted(vector<int> lst){
         if(lst[i-1] > lst[i]){
             return false;
         }
-        else{
-            bool duplicateFound = false;
-            for (int j = 0; j < lst.size(); j++) {
-                if (j != i && lst[j] == lst[i]) {
-                    duplicateFound = true;
-                    break;
-                }
-            }
-            if(duplicateFound){
-                return false;
-            }
+        else if(count(lst.begin(), lst.end(), lst[i]) > 1){
+            return false;
         }
     }
     return true;
 
 int main() {
-    vector<int> lst = {1, 2, 3, 4};
-    assert(is_sorted(lst) == true);
+    cout << (is_sorted({1, 2, 3, 4}) ? "true" : "false") << endl;
 }
