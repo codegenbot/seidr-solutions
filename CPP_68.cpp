@@ -1,8 +1,8 @@
 #include <vector>
 
-vector<int> pluck(vector<int> arr);
 bool issame(vector<int> a, vector<int> b);
 
+vector<int> pluck(vector<int> arr);
 vector<int> pluck(vector<int> arr){
     vector<int> result;
     int smallest_even = -1;
@@ -21,13 +21,4 @@ vector<int> pluck(vector<int> arr){
     }
     
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b){
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
 }
