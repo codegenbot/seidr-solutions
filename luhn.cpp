@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 
-int luhnAlgorithm(std::vector<int> cardNumber) {
+int luhnAlgorithm(vector<int> cardNumber) {
     int sum = 0;
     bool doubleNext = false;
     
