@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 
-bool areMapsEqual(std::map<char, int> a, std::map<char, int> b) {
+bool issame(std::map<char, int> a, std::map<char, int> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
