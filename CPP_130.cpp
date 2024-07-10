@@ -4,9 +4,8 @@
 
 using namespace std;
 
-vector<int> tri(int n); 
-
-bool issame(const vector<int>& a, const vector<int>& b); 
+vector<int> tri(int n);
+bool issame(const vector<int>& a, const vector<int>& b);
 
 bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
