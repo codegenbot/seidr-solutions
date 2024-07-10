@@ -8,12 +8,11 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> incr_list(const std::vector<int>& l) {
-    std::vector<int> result = l;
-    for (auto& num : result) {
+std::vector<int> incr_list(std::vector<int> l) {
+    for (auto& num : l) {
         num++;
     }
-    return result;
+    return l;
 }
 
 int main() {
