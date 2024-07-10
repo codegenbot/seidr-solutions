@@ -2,9 +2,9 @@
 #include <map>
 #include <sstream>
 #include <cassert>
-#include <string> 
+#include <string> // Add this include for std::string
 
-bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
+bool issame(const std::map<std::char, int>& a, const std::map<std::char, int>& b) { // Use std::map and std::char
     return a == b;
 }
 
