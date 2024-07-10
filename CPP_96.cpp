@@ -26,8 +26,3 @@ void test_primes() {
     
     assert(computed_primes == expected_primes);
 }
-
-int main() {
-    test_primes();
-    return 0;
-}
