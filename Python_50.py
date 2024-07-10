@@ -1,4 +1,4 @@
-```python
+````
 def decode_shift():
     while True:
         s = input("Enter a string to shift (or 'q' to quit): ")
@@ -16,3 +16,4 @@ def decode_shift():
             else:
                 result += char
         print(result)
+```
