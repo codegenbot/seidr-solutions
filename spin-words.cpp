@@ -19,7 +19,6 @@ string spinWords(string str) {
             } else {
                 result += word;
             }
-            
             start = i + 1;
         }
     }
