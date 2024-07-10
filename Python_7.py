@@ -8,7 +8,6 @@ def filter_by_substring():
             continue
         break
 
-    strings = []
     while True:
         input_str = input("Enter strings (comma-separated): ")
         substring = input("Enter a substring: ")
@@ -32,8 +31,8 @@ def filter_by_substring():
 
     result = [s for s in strings if re.compile(substring).search(s)]
     if expected_output.lower() == "true values":
-        print(result[:min(num_to_display, len(result))])
+        print(result[:num_to_display])
     elif expected_output.lower() == "false values":
-        print([s for s in strings if not re.compile(substring).search(s)][:min(num_to_display, len(strings)-len(result))])
+        print([s for s in strings if not re.compile(substring).search(s)][:num_to_display])
     else:
-        print(result + [s for s in strings if not re.compile(substring).search(s)][:min(num_to_display, len(strings)-len(result))])
+        print(result + [s for s in strings if not re.compile(substring).search(s)][:num_to_display])

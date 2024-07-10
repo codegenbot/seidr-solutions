@@ -54,8 +54,6 @@ int main() {
     assert(issame(std::vector<std::pair<std::string, std::string>>{{"aaaa", "bbbb"}, {"dd", "cc"}},
                   std::vector<std::pair<std::string, std::string>>{{"cc", "dd"}, {"aaaa", "bbbb"}})); 
 
-    std::vector<std::pair<std::string, std::string>> v1(std::make_move_iterator({{"aaaa", "bbbb"}, {"cccc", "ddd"}}.begin()), 
-        std::make_move_iterator({{"aaaa", "bbbb"}, {"cccc", "ddd"}}.end());
-    std::vector<std::pair<std::string, std::string>> v2(std::make_move_iterator({{"cc", "dd"}, {"aaaa", "bbbb"}}).begin(),
-        std::make_move_iterator({{"cc", "dd"}, {"aaaa", "bbbb"}}).end());
+    std::vector<std::pair<std::string, std::string>> v1(std::make_move_iterator(v1.begin()), std::make_move_iterator(v1.end()));
+    std::vector<std::pair<std::string, std::string>> v2(std::make_move_iterator(v2.begin()), std::make_move_iterator(v2.end()));
 }
