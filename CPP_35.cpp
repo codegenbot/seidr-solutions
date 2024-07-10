@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <algorithm>
 
@@ -18,5 +17,5 @@ int getMax(int n) {
         arr[i] = x; // Fill the array
     }
 
-    return *std::max_element(arr, arr+n); 
+    return max; 
 }
