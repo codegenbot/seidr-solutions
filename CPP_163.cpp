@@ -13,7 +13,7 @@ std::vector<int> generate_integers(int start, int end) {
     return result;
 }
 
-int main() {
+int main(){
     std::vector<int> vec1 = generate_integers(1, 5);
     std::vector<int> vec2 = generate_integers(1, 5);
 
