@@ -9,7 +9,13 @@ int main() {
 
     vector<float> result = sort_even(v);
 
-    for (float x : result) cout << x << " ";
+    cout << "Sorted even numbers: ";
+    for (float x : result) {
+        if (!issame(result, v)) break;
+        cout << x << " ";
+    }
+    cout << endl;
+
     return 0;
 }
 
