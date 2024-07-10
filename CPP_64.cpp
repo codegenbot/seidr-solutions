@@ -1,6 +1,13 @@
 ```cpp
 #include <string>
 
+int main() {
+    std::string s;
+    getline(std::cin, s);
+    int result = vowels_count(s);
+    return 0;
+}
+
 int vowels_count(std::string s) {
     int count = 0;
     for (char c : s) {
@@ -10,11 +17,4 @@ int vowels_count(std::string s) {
         }
     }
     return count;
-}
-
-int main() {
-    std::string input;
-    std::cin >> input;
-    int result = vowels_count(input);
-    return result;
 }
