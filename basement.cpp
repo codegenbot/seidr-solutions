@@ -6,5 +6,5 @@ int basement(const std::vector<int>& arr) {
         sum += arr[i];
         if (sum < 0) return i;
     }
-    return -1; // not found
+    return -1; // or throw an exception, depending on the desired behavior
 }
