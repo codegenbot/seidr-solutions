@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Any
 
 def filter_integers() -> List[int]:
     values = []
@@ -10,4 +10,4 @@ def filter_integers() -> List[int]:
             values.append(int(value))
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
-    return values
+    return [value for value in values]
