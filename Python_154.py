@@ -1,6 +1,2 @@
 def cycpattern_check(a, b):
-    return len(a) == len(b) and set(a) == set(b) and (a + a).find(b) != -1
-
-# Example usage
-result = cycpattern_check("winemtt", "tinem")
-print(result)
+    return len(a) == len(b) and (b in 2 * a or a in 2 * b)
