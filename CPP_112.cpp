@@ -1,11 +1,9 @@
-#include <string>
 #include <vector>
+#include <string>
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
