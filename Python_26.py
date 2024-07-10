@@ -1,7 +1,16 @@
-```Python
+```
 from typing import List
-from collections import OrderedDict
 
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return list(OrderedDict.fromkeys(numbers))
+    seen = set()
+    result = []
+    for num in sorted(numbers):
+        if num not in seen:
+            seen.add(num)
+            result.append(num)
+    return result
+
+
+numbers = [1, 2, 3, 2, 4]
+print(remove_duplicates(numbers))
