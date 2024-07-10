@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     if not expression:
         return False
@@ -8,14 +9,14 @@ def solve_boolean(expression):
             stack.append(True)
         elif char.upper() == 'F':
             stack.append(False)
-        else:
-            operand2 = stack.pop()
-            operand1 = stack.pop()
-            if char == '&':
-                stack.append(operand1 and operand2)
-            elif char == '|':
-                stack.append(operand1 or operand2)
 
-    if len(stack) > 1:
-        return stack[0]
-    return stack[0]
+    result = stack[0]
+    for i in range(1, len(expression)):
+        operator = expression[i].upper()
+        operand2 = stack.pop()
+        if operator == '&':
+            result = result and operand2
+        else:
+            result = result or operand2
+
+    return result
