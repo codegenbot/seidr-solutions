@@ -2,9 +2,9 @@
 #include <vector>
 #include <string>
 #include <limits>
+#include <cstring>
+#include <cstdlib>
 #include <cmath>
-
-using namespace std;
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = 0;
@@ -95,7 +95,7 @@ long long eval(const char *p, long long y) {
             if (x != 0)
                 y /= x;
             else
-                return LLONG_MAX;
+                return std::numeric_limits<long long>::max();
             continue;
         }
         else if (*p == '^') {
