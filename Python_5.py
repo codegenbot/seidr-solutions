@@ -5,5 +5,4 @@ def intersperse(a, b):
     for item in a:
         result.append(item)
         result.append(b)
-    result.append(b)
     return result
