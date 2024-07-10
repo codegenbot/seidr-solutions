@@ -11,11 +11,15 @@ int count_nums(vector<int> nums) {
                 count++;
             }
         } else {
-            num = -num;
+            num = -num; // convert to positive
             int sum = 0;
+            bool is_negative = true;
             while (num > 0) {
-                sum += num % 10;
+                if (!is_negative) {
+                    sum += num % 10;
+                }
                 num /= 10;
+                is_negative = !is_negative; // toggle negative flag
             }
             if (sum > 0) {
                 count++;
