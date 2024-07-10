@@ -8,10 +8,13 @@ def string_to_md5(text):
 if __name__ == "__main__":
     try:
         while True:
-            user_input = input().strip()
+            try:
+                user_input = input().strip()
+            except EOFError:
+                break
             if not user_input:
                 break
             result = string_to_md5(user_input)
             print("MD5 hash of the input string is:", result)
-    except (KeyboardInterrupt, EOFError):
+    except KeyboardInterrupt:
         pass
