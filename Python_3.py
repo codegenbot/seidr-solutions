@@ -1,9 +1,9 @@
 from typing import List
 
+
 def below_zero(operations: List[int]) -> bool:
-    balance = 0
+    max_temp = float("inf")
     for operation in operations:
-        balance += operation
-        if balance < 0:
-            return True
-    return False
+        if operation < max_temp:
+            max_temp = operation
+    return max_temp < 0
