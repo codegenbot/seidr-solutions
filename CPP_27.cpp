@@ -1,12 +1,8 @@
-string result = "";
-    for(char c : str){
-        if(islower(c)){
-            result += toupper(c);
-        } else if(isupper(c)){
-            result += tolower(c);
-        } else {
-            result += c;
-        }
+for (char &c : str) {
+    if (islower(c)) {
+        c = toupper(c);
+    } else if (isupper(c)) {
+        c = tolower(c);
     }
-    return result;
 }
+return str;
