@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
 #include <cctype>
+
 using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
