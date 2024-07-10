@@ -1,4 +1,4 @@
-````
+```
 def cut_vector(lst):
     if len(set(lst)) == 1:
         return [lst], []
@@ -17,4 +17,3 @@ def cut_vector(lst):
             split_idx = i
 
     return lst[:split_idx], lst[split_idx:]
-```
