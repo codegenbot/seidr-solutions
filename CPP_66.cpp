@@ -1,8 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
 #include <algorithm>
-#include <cassert>
 
 int digitSum(std::string s) {
     int sum = 0;
@@ -19,6 +19,7 @@ int digitSum(std::string s) {
         }
     }
     return sum;
+
 }
 
 int main() {
