@@ -5,7 +5,8 @@
 int bowlingScore(const std::string& input) {
     int score = 0;
     int rollCount = 0;
-    for (auto& c : input) {
+    const auto chars = input; // Convert the string to a character array
+    for (char c : chars) {
         if (c == '/') {
             if (rollCount > 1)
                 score += 10 + rollCount - 2;
