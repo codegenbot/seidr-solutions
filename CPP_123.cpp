@@ -23,7 +23,3 @@ vector<int> get_odd_collatz(int n) {
     sort(result.begin(), result.end());
     return result;
 }
-
-int main() {
-    // your code here...
-}
