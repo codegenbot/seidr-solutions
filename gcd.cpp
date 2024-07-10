@@ -3,10 +3,10 @@ using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    int len = target.length();
-    for (int i = 0; i <= text.length() - len; i++) {
+    int targetLen = target.length();
+    for (int i = 0; i <= text.length() - targetLen; i++) {
         bool found = true;
-        for (int j = 0; j < len; j++) {
+        for (int j = 0; j < targetLen; j++) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
@@ -26,3 +26,4 @@ int gcd(int a, int b) {
         a = temp;
     }
     return a;
+}
