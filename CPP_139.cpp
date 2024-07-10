@@ -1,6 +1,7 @@
-```cpp
+```
 #include <iostream>
 #include <limits>
+#include <string>
 
 using namespace std;
 
@@ -12,15 +13,15 @@ long long special_factorial(long long n) {
     return result;
 }
 
-int main() {
-    long long result;
-    string input;
+int main() 
+{
     cout << "Enter a number: ";
+    string input;
     getline(cin, input);
-    result = stol(input); 
+    long long result = stoll(input); // or use stol for long
     if(result < 0) {
         cout << "Error! Please enter a positive integer." << endl;
     } else {
-        cout << "The special factorial of " << to_string(result) << " is: " << special_factorial(result) << endl;
+        cout << "The special factorial of " << result << " is: " << special_factorial(result) << endl;
     }
 }
