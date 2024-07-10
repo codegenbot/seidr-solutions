@@ -5,7 +5,6 @@
 #include <cassert>
 
 bool issame(vector<int> a, vector<int> b);
-
 vector<int> filter_integers(list<any> values);
 
 bool issame(vector<int> a, vector<int> b) {
@@ -23,12 +22,12 @@ vector<int> filter_integers(list<any> values){
 }
 
 int main() {
-    std::list<std::any> values = {1, 2, 3, "hello", 4};
-    std::vector<int> filtered_values = filter_integers(values);
-
+    list<any> values = {5, "hello", 10, 20, 'a'};
+    vector<int> filtered_values = filter_integers(values);
+    
     for (int val : filtered_values) {
         std::cout << val << " ";
     }
-
+    
     return 0;
 }
