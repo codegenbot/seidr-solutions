@@ -15,4 +15,4 @@ def indices_of_substring(text, target):
     return result
 
 print(gcd(int(input("Enter first integer: ")), int(input("Enter second integer: "))))
-print(indices_of_substring(input("Enter the text: "), input("Enter the target: ")))
+print(indices_of_substring(input("Enter the text: "), input("Enter the target string: ")))
