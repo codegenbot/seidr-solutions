@@ -4,39 +4,61 @@
 
 bool solveBoolean(std::string s) {
     bool result = true;
-    int i = 0;
+    std::string boolStr;
 
-    while (i < s.size()) {
-        if (s[i] == '|') {
-            if (s[++i] == 'T' || s[i] == 'F')
-                return true; // || with T or F is always true
-            else if (s[i] != '|')
-                return false; // invalid expression
-            while (i < s.size() && s[i] != '|') {
-                i++;
-            }
-        } else if (s[i] == '&') {
-            bool subResult = true;
-            while (i < s.size()) {
-                switch (s[i]) {
-                    case 'T':
-                        i++;
-                        break;
-                    case 'F':
-                        return false; // & with F is always false
-                    case '|':
-                        if (subResult)
-                            return true; // && with T and | is always true
-                        else
-                            return false; // && with F and | is always false
-                }
-            }
+    for (char c : s) {
+        if (c == '|') {
+            boolStr.push_back('|');
+        } else if (c == '&') {
+            boolStr.push_back('&');
+        } else if (c == 'T') {
+            boolStr.push_back('T');
         } else {
-            i++;
+            boolStr.push_back('F');
         }
     }
 
-    return result;
+    bool temp = true;
+    int i = 0;
+    while (i < boolStr.size()) {
+        switch (boolStr[i]) {
+            case '|': {
+                bool subResult = true;
+                for (; i < boolStr.size(); ) {
+                    char c = boolStr[i];
+                    i++;
+                    if (c == 'F')
+                        subResult = false;
+                    else if (c != 'T' && c != '|')
+                        return false; 
+                }
+                temp = subResult;
+                break; }
+            case '&': {
+                bool subResult = true;
+                for (; i < boolStr.size(); ) {
+                    char c = boolStr[i];
+                    i++;
+                    if ((c == 'F' && !subResult) || (c != 'T'))
+                        return false; 
+                    if (c == 'F')
+                        subResult = false;
+                }
+                temp = subResult;
+                break; }
+            case 'T':
+                i++;
+                break;
+            case 'F':
+                if (temp)
+                    temp = false;
+                else
+                    return false;
+                i++;
+                break;
+        }
+    }
+    return temp;
 }
 
 int main() {
