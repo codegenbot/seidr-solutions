@@ -6,8 +6,10 @@ string fizzBuzz(int x) {
         return "FizzBuzz";
     else if (x % 3 != 0 && x % 5 != 0)
         return x % 3 != 0 ? "Fizz" : "";
+    else if (x % 5 == 0)
+        return "Buzz";
     else
-        return x % 5 == 0 ? "Buzz" : to_string(x);
+        return to_string(x);
 }
 
 int main() {
