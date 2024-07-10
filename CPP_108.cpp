@@ -22,7 +22,7 @@ int count_nums(std::vector<int> nums) {
 
 }
 
-int main() {
+int original_main() {
     int n;
     std::cin >> n;
     std::vector<int> nums;
@@ -39,4 +39,7 @@ int main() {
     }
     std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
     return 0;
+
 }
+
+original_main();
