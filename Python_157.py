@@ -1,10 +1,4 @@
-try:
-    a_value = int(input("Enter first integer: "))
-    b_value = int(input("Enter second integer: "))
-    c_value = int(input("Enter third integer: "))
-except ValueError:
-    print("Invalid input. Please enter integers only.")
-    exit()
+a_value, b_value, c_value = map(int, input("Enter three integers separated by space: ").split())
 
 def is_pythagorean_triplet(a, b, c):
     max_val = max(a, b, c)
