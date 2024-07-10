@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <map>
 #include <algorithm>
 
@@ -8,25 +7,17 @@ bool issame(vector<string> a, vector<string> b);
 
 vector<string> by_length(vector<int> arr);
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 int main() {
-    // Main function implementation
+    vector<int> input = {3, 1, 7, 9, 2, 4, 5, 6, 8};
+    vector<string> output = by_length(input);
+    for (const string& str : output) {
+        cout << str << " ";
+    }
+    cout << endl;
+    return 0;
 }
 
-vector<string> by_length(vector<int> arr){
+vector<string> by_length(vector<int> arr) {
     vector<string> result;
     map<int, string> num_to_name = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
