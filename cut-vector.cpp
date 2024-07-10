@@ -1,50 +1,29 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = -1;
+vector<int> cutVector(vector<int>& nums) {
+    int minDiff = INT_MAX;
+    int splitIndex = 0;
     
-    for (int i = 0; i < v.size() - 1; ++i) {
-        int sum1 = 0, sum2 = 0;
-        for (int j = 0; j <= i; ++j) {
-            sum1 += v[j];
-        }
-        for (int j = i + 1; j < v.size(); ++j) {
-            sum2 += v[j];
+    for(int i = 1; i <= nums.size(); i++) {
+        int leftSum = 0, rightSum = 0;
+        
+        if(i < nums.size()) {
+            leftSum = accumulate(nums.begin(), nums.begin() + i, 0);
+            rightSum = accumulate(nums.begin() + i, nums.end(), 0);
+        } else {
+            leftSum = accumulate(nums.begin(), nums.end(), 0);
         }
         
-        int diff = abs(sum1 - sum2);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        int diff = abs(leftSum - rightSum);
+        if(diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + cut_index + 1);
-    vector<int> right(v.begin() + cut_index, v.end());
-    return {left, right};
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> v[i];
-    }
+    vector<int> leftVec(nums.begin(), nums.begin() + splitIndex);
+    vector<int> rightVec(splitIndex == 0 ? nums : nums.begin() + splitIndex);
     
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "First half: ";
-    for (int num : result.first) {
-        cout << num << " ";
-    }
-    cout << endl;
-    cout << "Second half: ";
-    for (int num : result.second) {
-        cout << num << " ";
-    }
-    cout << endl;
-    
-    return 0;
+    return {leftVec, rightVec};
 }
