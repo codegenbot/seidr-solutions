@@ -31,12 +31,17 @@ vector<int> order_by_points(vector<int> nums) {
 }
 
 int main() {
-    vector<int> numbers = {2, 4, -5};
-    vector<int> expected_result = {-5, 2, 4};
-    if (issame(order_by_points(numbers), expected_result)) {
-        std::cout << "The order of numbers by their digital sum is correct.\n";
+    vector<int> nums = {11111, 22222, 33333};
+    vector<int> output = order_by_points(nums);
+    
+    if (!issame({1,2,3},output)) {
+        cout << "Failed: ";
+        for (int num : output) {
+            cout << num << ' ';
+        }
+        cout << endl;
     } else {
-        std::cout << "There is an error in the order of numbers by their digital sum.\n";
+        cout << "Passed" << endl;
     }
     
     return 0;
