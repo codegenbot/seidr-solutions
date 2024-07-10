@@ -1,13 +1,30 @@
-def cut_vector(vector):
-    if len(vector) == 1:
-        return [vector], []
-
+```
+def cut_vector(lst):
+    avg = sum(lst) / len(lst)
     min_diff = float('inf')
-    for i in range(len(vector)):
-        left_sum = sum(vector[:i])
-        right_sum = sum(vector[i:])
-        if abs(left_sum - right_sum) < min_diff:
-            min_diff = abs(left_sum - right_sum)
+    cut_index = 0
+
+    for i in range(len(lst)):
+        left_sum = sum(lst[:i])
+        right_sum = sum(lst[i:])
+
+        if left_sum >= avg and right_sum <= avg:
+            return (lst[:i], lst[i:])
+        elif abs(left_sum - avg) < min_diff or abs(right_sum - avg) < min_diff:
+            min_diff = abs(left_sum - avg)
             cut_index = i
 
-    return [vector[:cut_index]], [vector[cut_index:]]
+    left_sum = sum(lst[:cut_index])
+    right_sum = sum(lst[cut_index:])
+
+    if left_sum >= avg and right_sum <= avg:
+        return (lst[:cut_index], lst[cut_index:])
+    else:
+        return (lst[:cut_index], lst[cut_index:])
+
+
+print(cut_vector([1]))
+print(cut_vector([1, 10]))
+print(cut_vector([1, 100]))
+print(cut_vector([1, 1000]))
+print(cut_vector([1, 10000]))
