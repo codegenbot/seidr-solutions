@@ -5,10 +5,8 @@
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        std::string a_str = a[i];
-        std::string b_str = b[i];
-        int num1 = std::stoi(a_str);
-        int num2 = std::stoi(b_str);
+        int num1 = std::stoi(a[i]);
+        int num2 = std::stoi(b[i]);
         if (!issorted({num1})) return false;
         if (!issorted({num2})) return false;
     }
@@ -25,12 +23,20 @@ bool issorted(std::vector<int> v) {
 std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v) {
     std::vector<int> result;
     for (const auto& pair : v) {
-        int num = std::stoi(pair.first) + std::stoi(pair.second);
+        int num = 0;
+        for (char c : pair.first) {
+            num = num * 10 + (c - '0');
+        }
+        num += 0; // to avoid division by zero in the next loop
+        std::string str2(pair.second); 
+        for (char c : str2) {
+            num = num * 10 + (c - '0');
+        }
         if (!num) return {}; 
         result.push_back(num);
     }
     std::sort(result.begin(), result.end());
-    return result;
+    return (result.size() > 0 ? result : {}); 
 }
 
 int main() { 
