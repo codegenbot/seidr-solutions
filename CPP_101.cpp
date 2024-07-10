@@ -1,9 +1,23 @@
+```cpp
 #include <vector>
 #include <string>
 
-std::vector<std::string> words_string(const std::string& s) {
-    std::vector<std::string> result;
-    std::string word = "";
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
+        return false;
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    
+    return true;
+
+}
+
+vector<string> words_string(string s) {
+    vector<string> result;
+    string word = "";
     for (char c : s) {
         if (c == ',' || c == ' ') {
             if (!word.empty()) {
@@ -21,21 +35,7 @@ std::vector<std::string> words_string(const std::string& s) {
 
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size())
-        return false;
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    
-    return true;
-
-}
-
 int main() {
-    std::vector<std::string> expected = {"ahmed", "gamal"};
-    assert(issame(words_string("ahmed     , gamal"), {expected[0], expected[1]}));
+    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
 }
