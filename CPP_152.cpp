@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -13,46 +13,41 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 bool issame(vector<int> game, vector<int> guess) {
-    if(game == guess)
-        return true;
-    else
-        return false;
+    bool same = true;
+    for (int i = 0; i < game.size(); i++) {
+        if (game[i] != guess[i]) {
+            same = false;
+            break;
+        }
+    }
+    return same;
 }
 
 int main() {
-    vector<int> game;
     int n;
-    cout << "Enter the number of elements: ";
     cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        int x;
-        cout << "Enter element " << i+1 << ": ";
+    vector<int> game(n);
+    for (auto &x : game) {
         cin >> x;
-        game.push_back(x);
+    }
+    vector<int> guess(n);
+    for (auto &x : guess) {
+        cin >> x;
     }
     
-    vector<int> guess;
-    cout << "\nEnter the number of elements: ";
-    cin >> n;
+    vector<int> result = compare(game, guess);
+    bool same = issame(game, guess);
     
-    for(int i = 0; i < n; i++) {
-        int x;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> x;
-        guess.push_back(x);
+    cout << "Result: ";
+    for (int i = 0; i < n; i++) {
+        cout << result[i] << " ";
     }
+    cout << endl;
     
-    vector<int> res = compare(game, guess);
-    
-    if(issame(game, guess)) {
-        cout << "\nGuess is same as game.\n";
+    if (same) {
+        cout << "Guess is the same as game." << endl;
     } else {
-        cout << "\nGame and Guess are different.\n";
-    }
-    
-    for(int i = 0; i < n; i++) {
-        cout << "Difference at position " << i+1 << ": " << res[i] << endl;
+        cout << "Guess is not the same as game." << endl;
     }
     
     return 0;
