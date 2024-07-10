@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -17,10 +16,10 @@ int main() {
     std::cout << "Enter the proportion of snow melting per hour: ";
     std::cin >> proportionOfSnowMeltingPerHour;
 
-    double totalSnow = initialSnow;  // Declare and initialize totalSnow
+    double totalSnow = 0;  // Declare and initialize totalSnow
 
+    totalSnow += initialSnow;
     for (int i = 0; i < hours; i++) {
-        std::cout << "Before calculation: initialSnow=" << initialSnow << ", rateOfSnowFall=" << rateOfSnowFall << ", proportionOfSnowMeltingPerHour=" << proportionOfSnowMeltingPerHour << std::endl;
         totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
     }
     
