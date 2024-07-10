@@ -8,10 +8,5 @@ def check(encoded_s):
     else:
         print("Encoded string is not valid.")
 
-while True:
-    try:
-        encoded = input("Enter a string: ")
-        check(encode(encoded))
-        break
-    except ValueError:
-        print("Invalid input. Please enter a string.")
+encoded = "hello"  
+check(encode(encoded))
