@@ -1,22 +1,19 @@
 ```c++
-#include <iostream>
+#include <stdio.h>
 using namespace std;
 
-long long special_factorial(int n){
+long long special_factorial(int n) {
     long long result = 1;
-    for(int i = 1; i <= n; i++){
-        result *= i;
-        for(int j = 2; j <= i; j++){
-            result *= j;
-        }
+    for (int i = 1; i <= n; ++i) {
+        result *= 1LL * i;
     }
     return result;
 }
 
-int main(){
+int main() {
     int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    cout << "Brazilian Factorial of " << n << " is: " << special_factorial(n) << endl;
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+    printf("The special factorial of %d is: %lld\n", n, special_factorial(n));
     return 0;
 }
