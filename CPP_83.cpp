@@ -1,4 +1,3 @@
-```
 #include <iostream>
 
 using namespace std;
@@ -13,9 +12,6 @@ int starts_one_ends(int n) {
     return count;
 }
 
-void main() {
-    int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
-    cout << "Count of numbers that start or end with 1: " << starts_one_ends(n) << endl;
-}
+cout << "Enter a positive integer: ";
+cin >> n;
+cout << "Count of numbers that start or end with 1: " << starts_one_ends(n) << endl;
