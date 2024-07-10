@@ -1,15 +1,19 @@
-int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
+#include <iostream>
 
-    string text, target;
-    cin >> text >> target;
-    vector<int> indices = findIndicesOfSubstring(text, target);
-    for (int idx : indices) {
-        cout << idx << " ";
+int gcd(int a, int b) {
+    if (b == 0) {
+        return a;
+    } else {
+        return gcd(b, a % b);
     }
-    cout << endl;
+}
+
+int main() {
+    int num1, num2;
+    std::cin >> num1 >> num2;
+
+    int result = gcd(num1, num2);
+    std::cout << result << std::endl;
 
     return 0;
 }

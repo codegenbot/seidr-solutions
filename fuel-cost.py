@@ -1,2 +1,2 @@
-total = sum(int(int(x) - 2) // 3 for x in input().split())
+total = sum(map(lambda x: (int(x) - 2) // 3, input().split()))
 print(total)
