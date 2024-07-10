@@ -1,4 +1,4 @@
-```
+```c
 #include <cmath>
 #include <iostream>
 
@@ -10,7 +10,7 @@ double sum_squares(int n) {
     return sum;
 }
 
-int main() { 
+int main() {
     int n;
     std::cin >> n;
 
@@ -20,5 +20,4 @@ int main() {
         double result = sum_squares(n);
         std::cout << "Sum of squares: " << result << std::endl;
     }
-    return 0; 
 }
