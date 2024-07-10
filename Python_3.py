@@ -5,6 +5,6 @@ def below_zero(operations):
             count += 1
     return count
 
-operations = list(map(int, input().strip().split()))
+operations = list(map(int, input().strip().split(',')))
 result = below_zero(operations)
 print(result)
