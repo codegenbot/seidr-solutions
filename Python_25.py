@@ -1,6 +1,5 @@
-Here's the corrected code:
+Here's the modified code:
 
-```
 from typing import List
 
 def factorize() -> None:
