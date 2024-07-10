@@ -1,33 +1,56 @@
-Here is the solution:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int start = 0;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(start, i - start);
-            if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::string word;
+    
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
             result += word + " ";
-            start = i + 1;
+            word.clear();
+        } else {
+            word += str[i];
         }
     }
-    return result;
+    
+    result += word;
+    
+    std::string newResult = "";
+    int j = 0;
+    
+    while (j < result.length()) {
+        if (result[j] == ' ') {
+            j++;
+            continue;
+        }
+        
+        int k = j;
+        while (k < result.length() && result[k] != ' ') {
+            k++;
+        }
+        
+        std::string temp = result.substr(j, k - j);
+        
+        if (temp.length() >= 5) {
+            for (int i = temp.length() - 1; i >= 0; i--) {
+                newResult += temp[i];
+            }
+        } else {
+            newResult += temp;
+        }
+        
+        j = k + 1;
+    }
+    
+    return newResult;
 }
 
 int main() {
-    // Your test cases here
-    cout << spinWords("a") << endl; // Should print: a
-    cout << spinWords("this is a test") << endl; // Should print: this is a test
-    cout << spinWords("this is another test") << endl; // Should print: this is rehtona test
-    cout << spinWords("hi") << endl; // Should print: hi
-
+    std::cout << spinWords("a") << std::endl;
+    std::cout << spinWords("this is a test") << std::endl;
+    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("hi") << std::endl;
+    
     return 0;
 }
