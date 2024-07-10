@@ -1,3 +1,5 @@
+Here is the solution:
+
 #include <vector>
 #include <iostream>
 #include <string>
@@ -6,33 +8,38 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int start = 0;
-    
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(start, i - start);
-            
+    string word = "";
+
+    for (char c : str) {
+        if (c == ' ') {
             if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            
-            result += word + " ";
-            start = i + 1;
+                for (int i = word.length() - 1; i >= 0; --i)
+                    result += word[i];
+            } else
+                result += word;
+            word = "";
+        } else {
+            word += c;
         }
     }
-    
+
+    if (word.length() >= 5)
+        for (int i = word.length() - 1; i >= 0; --i)
+            result += word[i];
+    else
+        result += word;
+
     return result;
 }
 
 int main() {
-    // Read input from user
     string str;
-    cout << "Enter a string of one or more words (separated by spaces):" << endl;
-    getline(cin, str);
-    
-    // Call the function and print the output
-    string output = spinWords(str);
-    cout << "Output: " << output << endl;
-    
+    while (true) {
+        cout << "Enter a string: ";
+        cin >> str;
+        if (str == "exit")
+            break;
+        cout << spinWords(str) << endl;
+    }
     return 0;
 }
