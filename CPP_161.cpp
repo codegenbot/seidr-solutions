@@ -7,5 +7,6 @@ string solve(string s){
             result += s[i];
         }
     }
-    return (result.find_first_of("abcdefghijklmnopqrstuvwxyz") == string::npos) ? string(result.rbegin(), result.rend()) : result;
+    return (result.find_first_of("abcdefghijklmnopqrstuvwxyz") == string::npos) ? 
+           reverse(result.begin(), result.end()).str() : result;
 }
