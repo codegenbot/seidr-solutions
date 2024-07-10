@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
-#include <algorithm>
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(vector<float> a, vector<float>b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -17,10 +17,10 @@ vector<float> get_positive(vector<float> l) {
 
 int main() {
     assert(issame(get_positive({}), {})); 
-    vector<float> input = {1.5, -2.3, 4.7, -5.6};
+    vector<float> input = {1, -2, 3, -4, 5};
     vector<float> output = get_positive(input);
     for (float num : output) {
-        std::cout << num << " ";
+        cout << num << " ";
     }
     return 0;
 }
