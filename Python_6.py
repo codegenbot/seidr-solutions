@@ -25,8 +25,11 @@ def parse_nested_parens(paren_string: str) -> list:
             temp_value += char
 
     if current_group and current_group != '------':
-        group_value = int(temp_value) 
-        result.append(group_value)
+        if temp_value:
+            group_value = int(temp_value) 
+            result.append(group_value)
+        else:
+            return []
     else:
         return []
 

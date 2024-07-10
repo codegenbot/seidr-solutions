@@ -5,8 +5,10 @@
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        int num = stoi(a[i] + " " + b[i]);
-        if (num != stoi(sortListSum({{a[i], b[i]}})[0])) return false;
+        int num1 = stoi(a[i]);
+        int num2 = stoi(b[i]);
+        int total = num1 + num2;
+        if (total != stoi(sortListSum({{a[i], b[i]}})[0])) return false;
     }
     return true;
 }
@@ -14,7 +16,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v) {
     std::vector<int> result;
     for (const auto& pair : v) {
-        int num = stoi(pair.first + pair.second);
+        int num = stoi(pair.first + " " + pair.second);
         if (!num) return {};
         result.push_back(num);
     }
