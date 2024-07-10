@@ -17,7 +17,7 @@ int prod_signs(const std::vector<int>& arr) {
         } else if (num < 0) {
             product *= -1;
         } else {
-            product = 0;
+            product *= 0;
         }
         
         sum += std::abs(num);
