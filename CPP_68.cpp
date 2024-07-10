@@ -40,9 +40,7 @@ int main() {
 
     }
 
-    v1.reserve(size); // Move this line here
-
-    if (issame(pluck(v1), v2))  
+    if (issame(pluck(v1), v1))  
         cout << "Arrays are same" << endl;
     else   
         cout << "Arrays are not same" << endl;
