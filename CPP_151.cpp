@@ -1,21 +1,27 @@
+```cpp
 #include <vector>
 #include <cmath>
 
-double long_the_difference(std::vector<double> lst) {
-    double sum = 0;
-    for (double num : lst) {
-        if (num > 0 && floor(num) == num) { 
-            if (fmod(num, 2.0) != 0.0) { 
-                sum += pow(num, 2);
+long long double_the_difference(std::vector<float> lst) {
+    long long sum = 0;
+    for (float num : lst) {
+        if (num > 0 && std::floor(num) == num) { 
+            if (std::fmod(num, 2.0) != 0.0) { 
+                sum += std::pow(num, 2);
             }
         }
     }
     return sum;
 }
 
+int calculate_odd_sum() {
+    std::vector<float> lst = {1, 2, 3, 4};
+    long long odd_sum = double_the_difference(lst);
+    return odd_sum;
+}
+
 int main() {
-    std::vector<double> lst = {...}; // your code here
-    double odd_sum = long_the_difference(lst);
-    assert(long_the_difference(lst) == odd_sum );
+    int result = calculate_odd_sum();
+    assert(double_the_difference({1, 2, 3, 4}) == result);
     return 0;
 }
