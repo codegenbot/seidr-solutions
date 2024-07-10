@@ -1,11 +1,11 @@
 ```
 def minPath(grid, k):
     N = len(grid)
+    for i in range(N):
+        for j in range(N):
+            if grid[i][j] < 1:
+                raise ValueError("Grid values must be greater than or equal to 1")
     visited = [[False for _ in range(N)] for _ in range(N)]
-    
-    if max(map(max, grid)) < k:
-        return []
-    
     queue = [(0, 0, [grid[0][0]])]
     res = []
     
