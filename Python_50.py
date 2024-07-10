@@ -1,6 +1,4 @@
-import sys
-
-user_input = input("Enter the encoded alphabetic string (without spaces or special characters): ").strip().lower()
+user_input = input().strip().lower()
 
 if not user_input.isalpha():
     print("Invalid input. Please enter an alphabetic string.")
