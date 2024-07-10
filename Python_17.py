@@ -3,7 +3,6 @@ music_input = '\n'.join(iter(input, ''))
 
 # Define the function with correct signature
 def parse_music(music_data):
-    # Add your logic here to process the music_data
     processed_data = music_data.split('\n')
     return processed_data
 
