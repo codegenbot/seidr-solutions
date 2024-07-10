@@ -2,11 +2,26 @@ def histogram(test):
     if not test:
         return {}
 
-    letters = test.split()
-    max_count = max(len(letter) for letter in set(letters))
+    letter_count = {}
+    max_count = 0
+    most_frequent_letters = []
 
-    result = {letter: len(list(group)) for letter, group in itertools.groupby(letters)}
+    for letter in test.split():
+        if letter not in letter_count:
+            letter_count[letter] = 1
+            max_count = 1
+            most_frequent_letters = [letter]
+        elif letter_count[letter] < max_count + 1:
+            letter_count[letter] += 1
+            if letter_count[letter] == max_count + 1:
+                most_frequent_letters.append(letter)
+        else:
+            if letter_count[letter] > max_count:
+                max_count = letter_count[letter]
+                most_frequent_letters = [letter]
 
-    most_common = [k for k, v in result.items() if v == max_count]
-
-    return {letter: max_count for letter in most_common}
+    return {
+        letter: count
+        for letter, count in letter_count.items()
+        if count in (max_count,) or count == 1
+    }
