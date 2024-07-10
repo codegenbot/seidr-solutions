@@ -2,7 +2,7 @@ Here is the completed code:
 
 def find_zero(xs: list):
     n = len(xs)
-    if n % 2 != 0:
+    if n % 2 == 1:
         raise ValueError("xs must have even number of coefficients")
-    x_coefficient = -xs[-1] / xs[1]
-    return round(x_coefficient, 2)
+    highest_coefficient_index = n // 2
+    return -xs[highest_coefficient_index] / xs[0]
