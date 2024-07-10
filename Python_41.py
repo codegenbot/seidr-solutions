@@ -1,6 +1,10 @@
+import math
+
 def car_race_collision():
-    num_cars = int(input("Enter the number of cars: "))
-    
-    total_combinations = math.comb(num_cars, 2)
-    
-    return total_combinations
+    num_cars=None
+    if num_cars is None:
+        try:
+            num_cars = int(input("Enter the number of cars: "))
+        except ValueError:
+            num_cars = 1
+    return math.comb(num_cars, 2)
