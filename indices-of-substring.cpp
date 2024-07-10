@@ -1,6 +1,9 @@
+```cpp
+#include <iostream>
+using namespace std;
+
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 using namespace std;
 
@@ -36,3 +39,4 @@ int main() {
         cout << i << endl;
     }
     return 0;
+}
