@@ -5,15 +5,16 @@ def main():
     print("Enter two integers separated by a space. Enter 'stop' to exit.")
     while True:
         try:
-            a, b = map(int, input().split())
-            if a == -1 or b == -1:
+            user_input = input().split()
+            if user_input[0] == 'stop':
                 break
-            result = add(a, b)
+            if len(user_input) != 2:
+                raise ValueError
+            num1, num2 = map(int, user_input)
+            result = add(num1, num2)
             print(result)
         except ValueError:
             print("Error: Invalid input")
-        except EOFError:
-            break
 
 if __name__ == "__main__":
     main()
