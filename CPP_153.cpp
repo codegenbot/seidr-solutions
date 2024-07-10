@@ -1,4 +1,14 @@
-int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cctype>
+
+int main() {
+    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;
+    return 0;
+}
+
+int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest_strength = 0;
     std::string strongest_extension;
 

@@ -1,9 +1,18 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
 
 vector<int> eat(int number, int need, int remaining) {
     int total = number + need;
-    int left = min(remaining, need);
-    return {total, max(0, remaining - left)};
+    if (total > remaining) {
+        return {total, 0};
+    } else {
+        return {total, remaining - need};
+    }
 }
