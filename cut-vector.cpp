@@ -1,66 +1,60 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    pair<vector<int>, vector<int>> res;
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int minDiff = INT_MAX;
+    pair<int, int> splitIndex;
     
-    for (int i = 1; i <= n/2; i++) {
-        int sum1 = 0, sum2 = 0;
-        for (int j = 0; j < i; j++) {
-            sum1 += v[j];
-        }
-        for (int j = i; j < n; j++) {
-            sum2 += v[j];
+    for (int i = 0; i < vec.size() - 1; i++) {
+        int leftSum = 0, rightSum = 0;
+        
+        for (int j = 0; j <= i; j++) {
+            leftSum += vec[j];
         }
         
-        if (sum1 == sum2) {
-            res.first = vector<int>(v.begin(), v.begin() + i);
-            res.second = vector<int>(v.begin() + i, v.end());
-            return res;
+        for (int k = i + 1; k < vec.size(); k++) {
+            rightSum += vec[k];
+        }
+        
+        int diff = abs(leftSum - rightSum);
+        
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = make_pair(i, i);
         }
     }
     
-    int min_diff = INT_MAX, cut_index = 0;
-    for (int i = 1; i <= n/2; i++) {
-        int sum1 = 0, sum2 = 0;
-        for (int j = 0; j < i; j++) {
-            sum1 += v[j];
-        }
-        for (int j = i; j < n; j++) {
-            sum2 += v[j];
-        }
-        
-        if (abs(sum1 - sum2) < min_diff) {
-            min_diff = abs(sum1 - sum2);
-            cut_index = i;
-        }
+    vector<int> leftVec(splitIndex.first + 1);
+    for (int i = 0; i <= splitIndex.first; i++) {
+        leftVec[i] = vec[i];
     }
     
-    res.first = vector<int>(v.begin(), v.begin() + cut_index);
-    res.second = vector<int>(v.begin() + cut_index, v.end());
-    return res;
+    vector<int> rightVec;
+    for (int i = splitIndex.second + 1; i < vec.size(); i++) {
+        rightVec.push_back(vec[i]);
+    }
+    
+    return make_pair(leftVec, rightVec);
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
+    vector<int> vec(n);
     for (int i = 0; i < n; i++) {
-        cin >> v[i];
+        cin >> vec[i];
     }
     
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << "First subvector: ";
-    for (int x : res.first) {
-        cout << x << " ";
+    pair<vector<int>, vector<int>> result = cutVector(vec);
+    cout << "[";
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i] << " ";
     }
-    cout << endl;
-    cout << "Second subvector: ";
-    for (int x : res.second) {
-        cout << x << " ";
+    cout << "] [";
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i] << " ";
     }
-    cout << endl;
+    cout << "]" << endl;
     
     return 0;
 }
