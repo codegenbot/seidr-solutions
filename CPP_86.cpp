@@ -2,30 +2,32 @@
 #include <algorithm>
 #include <vector>
 #include <string> 
-#include <sstream>
-
 using namespace std;
 
 string anti_shuffle(string sStr) {
-    stringstream ss;
+    vector<string> words;
     string word;
     for (char c : sStr) {
         if (c == ' ') {
-            ss << word << " ";
-            word = "";
+            if (!word.empty()) { 
+                words.push_back(word);
+                word = "";
+            }
         } else {
             word += c;
         }
     }
-    ss << word;
-
-    string result;
-    while(getline(ss, word)) {
-        sort(word.begin(), word.end());
-        result += word + " ";
+    if (!word.empty()) { 
+        words.push_back(word);
     }
 
-    return result.substr(0, result.length() - 1); 
+    string result;
+    for (string w : words) {
+        sort(w.begin(), w.end());
+        result += w + " ";
+    }
+
+    return result.substr(0, result.size() - 1); // remove the extra space at the end
 }
 
 int main() {
