@@ -1,5 +1,4 @@
-#include <iostream>
-#include <sstream>
+#include <bits/stdc++.h>
 using namespace std;
 
 string string_sequence(int n) {
@@ -11,6 +10,6 @@ string string_sequence(int n) {
 }
 
 int main() {
-    cout << string_sequence(10);
+    assert(string_sequence(10) == "0 1 2 3 4 5 6 7 8 9 10");
     return 0;
 }
