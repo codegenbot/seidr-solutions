@@ -7,19 +7,20 @@
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (std::find(b.begin(), b.end(), a[i]) == b.end()) return false;
+        auto it = std::find_if(b.begin(), b.end(), [&](const auto& str) { return str == std::to_string(a[i]); });
+        if (it == b.end()) return false;
     }
     return true;
 }
 
 std::string numerical_letter_grade(int credits, double gpa) {
-    if (gpa >= 3.7) return std::string("A");
-    else if (gpa >= 3.4) return std::string("B+");
-    else if (gpa >= 3.1) return std::string("B");
-    else if (gpa >= 2.8) return std::string("C+");
-    else if (gpa >= 2.5) return std::string("C");
-    else if (gpa >= 2.2) return std::string("D+");
-    else return std::string("F");
+    if (gpa >= 3.7) return "A";
+    else if (gpa >= 3.4) return "B+";
+    else if (gpa >= 3.1) return "B";
+    else if (gpa >= 2.8) return "C+";
+    else if (gpa >= 2.5) return "C";
+    else if (gpa >= 2.2) return "D+";
+    else return "F";
 }
 
 int main() {
