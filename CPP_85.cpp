@@ -1,5 +1,4 @@
 #include <vector>
-#include <initializer_list>
 using namespace std;
 
 int add(vector<int> lst){
@@ -12,6 +11,6 @@ int add(vector<int> lst){
 }
 
 int main() {
-    vector<int> lst = {4, 4, 6, 8};
+    vector<int> lst = vector<int>( {4, 4, 6, 8} );
     int result = add(lst);
 }
