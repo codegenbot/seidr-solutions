@@ -1,9 +1,16 @@
-string longest(vector<string> strings){
-    if(strings.empty()) return "";
-    string longest = strings[0];
-    for(string s : strings){
-        if(s.length() > longest.length()) longest = s;
-        else if(s.length() == longest.length()) longest = s;
+#include <algorithm>
+
+string longest(vector<string> strings) {
+    if (strings.empty()) {
+        return "";
     }
-    return longest;
+    string result = strings[0];
+    for (const auto& s : strings) {
+        if (s.length() > result.length()) {
+            result = s;
+        } else if (s.length() == result.length()) {
+            result = s;
+        }
+    }
+    return result;
 }
