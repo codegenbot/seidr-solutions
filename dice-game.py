@@ -1,2 +1,2 @@
 def roll_higher(n, m):
-    return (m - 1) / n * (n - 1) / (n * m)
+    return (1 - 1/m) ** n
