@@ -5,6 +5,15 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return (a == b);
 }
 
+float get_positive(const std::vector<float>& v) {
+    float result = 0.0f;
+    for(float num : v) {
+        if(result < 0.0f || num > result)
+            result = num;
+    }
+    return result;
+}
+
 int main() {
     std::vector<float> v1, v2;
     int n;
@@ -42,15 +51,11 @@ int main() {
         }
     }
 
-    bool are_same = (v1 == v2);
+    bool are_same = issame(v1, v2);
 
     // Print output
     if (are_same) {
-        float result = 0.0f;
-        for(float num : v1) {
-            if(result < 0.0f || num > result)
-                result = num;
-        }
+        float result = get_positive(v1);
         std::cout << "The positive of the numbers is: " << result << std::endl;
     } else {
         std::cout << "The numbers are not same." << std::endl;
