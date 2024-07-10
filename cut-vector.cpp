@@ -1,30 +1,36 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
+#include <climits>
+#include <cstdlib>
+using namespace std;
 
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int num;
-    while (std::cin >> num) {
+    while (cin >> num) {
         nums.push_back(num);
     }
     
-    int minDiff = INT_MAX;
-    int cutIndex = 0;
+    int n = nums.size();
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
+    }
     
-    for (int i = 1; i < nums.size(); ++i) {
-        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    int prefix_sum = 0;
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+    for (int i = 0; i < n; i++) {
+        prefix_sum += nums[i];
+        int suffix_sum = sum - prefix_sum;
+        int diff = std::abs(prefix_sum - suffix_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << std::endl;
-    }
-    std::cout << 0 << std::endl;
-    for (int i = cutIndex; i < nums.size(); ++i) {
+    for (int i = 0; i <= cut_index; i++) {
         std::cout << nums[i] << std::endl;
     }
     std::cout << 0 << std::endl;
