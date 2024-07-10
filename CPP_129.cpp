@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,7 +12,12 @@ bool issame(vector<int> a, vector<vector<int>> b) {
     return true;
 }
 
-std::string to_string(int x) { return std::to_string(x); }
+string to_string(int x) {
+    if(x > INT_MAX || x < INT_MIN) 
+        return "Out of range";
+    else
+        return std::to_string(x);
+}
 
 vector<int> minPath(vector<vector<int>> input, int target) {
     vector<int> path;
@@ -66,4 +70,6 @@ void minPathTest() {
     cout << outputStr << endl;
 }
 
-void minPathTest();
+int main() {
+    minPathTest();
+}

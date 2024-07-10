@@ -1,8 +1,10 @@
-#include <bits/stdc++.h>
+```cpp
+#include <iostream>
+#include <vector>
 
-bool issame(std::vector<int> game, std::vector<int> guess) {
-    for (int i = 0; i < game.size(); i++) {
-        if (game[i] != guess[i]) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -22,7 +24,7 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     return result;
 }
 
-int main2() {
+int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;

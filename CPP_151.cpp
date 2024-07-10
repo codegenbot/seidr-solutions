@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,15 +15,16 @@ int double_the_difference(const std::vector<int>& nums) {
 int main() {
     std::vector<int> lst;
     int num;
-    int odd_sum = 0; 
     while(std::cin >> num) {
+        if (std::cin.fail()) {
+            // Handle invalid input error
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            break;
+        }
         lst.push_back(num);
     }
-    for(int i : lst) {
-        if(i % 2 != 0) {
-            odd_sum += i * i;
-        }
-    }
-    std::cout << "The sum of squares of odd numbers is: " << odd_sum << std::endl;
+    int result = double_the_difference(lst);
+    std::cout << "The sum of squares of odd numbers is: " << result << std::endl;
     return 0;
 }
