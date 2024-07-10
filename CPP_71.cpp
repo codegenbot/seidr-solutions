@@ -11,11 +11,9 @@ float triangle_area(int a, int b, int c) {
 int main() {
     std::cout << "Enter sides of triangle: ";
     int side1, side2, side3;
-    std::string s1 = std::to_string(side1);
-    std::string s2 = std::to_string(side2);
-    std::string s3 = std::to_string(side3);
-
     std::cin >> side1 >> side2 >> side3;
+
+    std::cout << "The input is: " << std::to_string(side1) << ", " << std::to_string(side2) << ", " << std::to_string(side3);
 
     int a = side1;
     int b = side2;

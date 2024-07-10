@@ -14,6 +14,7 @@ int is_bored(const std::string& S){
         pos = S.find(" ", pos);
     }
     return count;
+
 }
 
 int main() {
