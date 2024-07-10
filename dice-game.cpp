@@ -1,17 +1,24 @@
+#include <vector>
 #include <iostream>
-using namespace std;
 
 double probability(int n, int m) {
-    double total = 1.0;
-    for (int i = 1; i <= m && i < n; i++) {
-        total += 1.0 / min(n, m);
+    double total = (double)n * m;
+    double peterWins = 0;
+
+    for(int i = 1; i <= n; i++) {
+        for(int j = 1; j < i; j++) {
+            if(j <= m) {
+                peterWins += 1.0;
+            }
+        }
     }
-    return total / min(n, m);
+
+    return peterWins / total;
 }
 
 int main() {
     int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(4) << probability(n, m) << endl;
+    std::cin >> n >> m;
+    std::cout << fixed << setprecision(4) << probability(n, m) << '\n';
     return 0;
 }
