@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <new>
+#include <stdexcept>
 
 bool solveBoolean(std::string s) {
     bool result = true;
