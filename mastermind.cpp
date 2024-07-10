@@ -2,35 +2,47 @@
 #include <iostream>
 #include <string>
 
-int countBlackPegs(const std::string& code, const std::string& guess) {
+int mastermind(std::string code, std::string guess) {
     int blackPegs = 0;
+    int whitePegs = 0;
+
+    // Count black pegs
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            ++blackPegs;
+            blackPegs++;
+            code[i] = ' ';
+            guess[i] = ' ';
         }
     }
-    return blackPegs;
-}
 
-int countWhitePegs(const std::string& code, const std::string& guess) {
-    int whitePegs = 0;
-    for (char c : guess) {
-        int count = 0;
-        for (char cc : code) {
-            if (c == cc) {
-                ++count;
+    // Count white pegs
+    std::vector<char> codeCopy(code.begin(), code.end());
+    for (int i = 0; i < 4; ++i) {
+        bool found = false;
+        for (int j = 0; j < 4; ++j) {
+            if (codeCopy[j] == guess[i]) {
+                found = true;
+                codeCopy[j] = ' ';
+                break;
             }
         }
-        whitePegs += count - countBlackPegs(code, guess);
+        if (found) whitePegs++;
     }
-    return whitePegs;
+
+    return blackPegs << 2 | whitePegs;
 }
 
 int main() {
     std::string code, guess;
-    std::cin >> code >> guess;
-    int blackPegs = countBlackPegs(code, guess);
-    int whitePegs = countWhitePegs(code, guess);
-    std::cout << whitePegs << '\n' << blackPegs << '\n';
+    // Read input from user
+    std::cout << "Enter the Mastermind code: ";
+    std::cin >> code;
+    std::cout << "Enter a guess: ";
+    std::cin >> guess;
+
+    int result = mastermind(code, guess);
+    std::cout << result / 4 << "\n";
+    std::cout << result % 4 << "\n";
+
     return 0;
 }
