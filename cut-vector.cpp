@@ -1,50 +1,65 @@
-#include <iostream>
 #include <vector>
+#include <climits>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    vector<vector<int>> res(2);
-
-    for(int i=0; i<n; i++){
-        res[0].push_back(nums[i]);
-    }
-    
-    for(int i=0; i<n-1; i++){
-        if(nums[i] == nums[i+1]){
-            res[0].push_back(nums[i]);
-        } else {
-            int diff = abs(nums[i] - nums[i+1]);
-            for(int j=i; j<n-1; j++){
-                if(abs(nums[j] - nums[j+1]) < diff){
-                    i=j;
-                    diff=abs(nums[j]-nums[j+1]);
-                }
-            }
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+    for (int i = 0; i < v.size() - 1; i++) {
+        int diff = abs(v[i] - v[i + 1]);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
-
-    res[1].clear();
-    for(int j=i+1; j<n;j++){
-        res[1].push_back(nums[j]);
+    vector<int> left = {v[0]};
+    vector<int> right = v;
+    for (int i = 0; i < cutIndex; i++) {
+        left.push_back(v[i]);
     }
-    
-    if(res[0].size() == 1) {
-        res[0].push_back(nums[n-1]);
-        res[1] = vector<int>(1, nums[n-1]);
+    for (int i = cutIndex + 1; i < v.size(); i++) {
+        right.pop_back();
     }
+    return {left, right};
+}
 
-    return res;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+    for (int i = 0; i < v.size() - 1; i++) {
+        int diff = abs(v[i] - v[i + 1]);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            cutIndex = i;
+        }
+    }
+    vector<int> left = {v[0]};
+    vector<int> right = v;
+    for (int i = 0; i < cutIndex; i++) {
+        left.push_back(v[i]);
+    }
+    for (int i = cutIndex + 1; i < v.size(); i++) {
+        right.pop_back();
+    }
+    return {left, right};
 }
 
 int main() {
-    vector<int> nums = {1, 0};
-    vector<vector<int>> result = cutVector(nums);
-    for(int i=0; i<2; i++){
-        for(int j=0; j<result[i].size();j++){
-            cout<<result[i][j]<<" ";
-        }
-        cout<<endl;
+    vector<int> input;
+    cout << "Enter space-separated integers: ";
+    int val;
+    while (cin >> val) {
+        input.push_back(val);
+    }
+    pair<vector<int>, vector<int>> result = cutVector(input);
+    cout << "Left: ";
+    for (auto num : result.first) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Right: ";
+    for (auto num : result.second) {
+        cout << num << " ";
     }
     return 0;
 }
