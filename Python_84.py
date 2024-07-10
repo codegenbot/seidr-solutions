@@ -1,2 +1,2 @@
-def solve(N): 
-return "1"
+def solve(N):
+    return "1"
