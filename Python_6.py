@@ -1,2 +1,4 @@
 def parse_nested_parens(paren_string: str) -> List[int]:
-    return [max([paren_string.count('(') - paren_string[:i].count(')') for i in range(len(paren_string) + 1 if paren_string[i] == '(']) for paren_string in paren_string.split()]
+    return [
+        max([paren_string.count("(" * i) for i in range(1, len(paren_string) // 2)])
+    ]
