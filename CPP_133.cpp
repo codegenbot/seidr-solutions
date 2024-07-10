@@ -1,8 +1,11 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <cmath>
-#include <iostream>
 
-int mainFunc() {
+double sum_squares(const std::vector<float>& lst);
+
+int myMain() {
     std::vector<float> lst;
     int n;
     std::cout << "Enter number of elements: ";
@@ -15,7 +18,7 @@ int mainFunc() {
         lst.push_back(x);
     }
 
-    int total = sum_squares(lst);
+    int total = (int)sum_squares(lst);
     std::cout << "Sum of squares: " << total << std::endl;
 
     return 0;
