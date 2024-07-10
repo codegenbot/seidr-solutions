@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 bool is_nested(std::string str) {
@@ -11,4 +10,3 @@ bool is_nested(std::string str) {
         }
     }
     return close > 0 && open == 0;
-}
