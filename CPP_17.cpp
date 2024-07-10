@@ -4,9 +4,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+using namespace std;
 
 std::vector<int> parse_music(std::string music_string) {
     std::vector<int> beats;
@@ -19,11 +17,15 @@ std::vector<int> parse_music(std::string music_string) {
             beats.push_back(1);
             i += 3;
         } else {
-            beats.push_back(4);
+            beats.push_back(3);
             i += 2;
         }
     }
     return beats;
 }
 
-assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
+int main() {
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 3, 2, 3, 2}));
+    
+    return 0;
+}
