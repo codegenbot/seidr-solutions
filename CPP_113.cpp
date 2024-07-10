@@ -1,19 +1,22 @@
 #include <iostream>
-#include <string>
 #include <vector>
-#include <algorithm>
+#include <string>
+#include <cassert>
 
-int odd_count(const std::vector<std::string>& strs) {
+int countOddElements(const std::vector<std::string>& strings) {
     int count = 0;
-    for(const std::string& str : strs) {
-        for(char c : str) {
-            count += (c - '0') % 2 != 0;
+    for (const std::string& str : strings) {
+        for (char c : str) {
+            if (c >= '0' && c <= '9' && (c - '0') % 2 != 0) {
+                count++;
+            }
         }
     }
     return count;
 }
 
 int main() {
-    assert(odd_count({"271", "137", "314"}) == 4);
+    assert(countOddElements({"271", "137", "314"}) == 3);
+    
     return 0;
 }
