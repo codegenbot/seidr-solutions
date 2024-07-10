@@ -5,8 +5,6 @@ def sum_squares():
         while True:
             try:
                 num = float(numbers[i])
-                if not isinstance(num, (int, float)):
-                    raise ValueError("Invalid input. Only numbers are allowed.")
                 break
             except ValueError as e:
                 print(e)
