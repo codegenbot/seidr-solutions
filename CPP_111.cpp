@@ -1,8 +1,6 @@
 #include <map>
 #include <unordered_map>
 
-unordered_map<char, int> histogram(string test);
-
 unordered_map<char, int> histogram(string test) {
     unordered_map<char, int> freq;
     for (char c : test) {
