@@ -1,11 +1,8 @@
-#include <string>
-
 string squareDigits(string input) {
-    string output = "";
+    string result = "";
     for (char c : input) {
-        int digit = c - '0';
-        long long square = (long long)digit * digit;
-        output += to_string(square);
+        int num = c - '0';
+        result += to_string(num * num);
     }
-    return output;
+    return result;
 }
