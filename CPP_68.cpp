@@ -1,8 +1,9 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+bool compareVectors(const std::vector<int>& a, const std::vector<int>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> pluck(std::vector<int> arr){
@@ -25,9 +26,7 @@ std::vector<int> pluck(std::vector<int> arr){
     return result;
 }
 
-std::vector<int> test_input = {1, 3, 5, 2, 4, 6};
-std::vector<int> expected_output = {2, 3};
-
-std::vector<int> result = pluck(test_input);
-
-assert(issame(result, expected_output));
+int main() {
+    assert(compareVectors(pluck({1, 3, 5, 2, 4, 6}), std::vector<int>{2, 3}));
+    assert(compareVectors(pluck({7, 9, 7, 1}), std::vector<int>{}));
+}
