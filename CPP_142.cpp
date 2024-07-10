@@ -1,3 +1,4 @@
+```
 #include <cmath>
 #include <iostream>
 
@@ -18,10 +19,5 @@ int main() {
     } else {
         int result = sum_squares(n);
         std::cout << "Sum of squares: " << result << std::endl;
-        
-        // Test the function with different inputs
-        for(int i = 0; i <= 5; ++i) {
-            std::cout << "Sum of squares for " << i << ": " << sum_squares(i) << std::endl;
-        }
     }
 }
