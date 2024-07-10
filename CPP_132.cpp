@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 
@@ -14,11 +15,12 @@ bool is_nested(std::string str) {
             }
         }
     }
-    return count > 0;
+    return count == 0;
 
 }
 
-int main() {
+int main()
+{
     std::string str;
     std::cout << "Enter a string: ";
     std::getline(std::cin, str); 
