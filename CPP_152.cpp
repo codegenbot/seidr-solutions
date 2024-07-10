@@ -4,6 +4,7 @@
 #endif
 
 #include <vector>
+
 #include <algorithm>
 
 bool issame(std::vector<int> game, std::vector<int> guess) {

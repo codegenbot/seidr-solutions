@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -12,7 +13,7 @@ void bf(string n) {
 int main() {
     int num;
     cin >> num;
-    string s = to_string(num);
-    bf(s);  
+    string str = to_string(num);
+    bf(str);  
     return 0;
 }
