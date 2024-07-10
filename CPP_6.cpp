@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
@@ -32,7 +32,7 @@ std::vector<int> parse_nested_parens(const std::string& s) {
 
 int main() {
     std::vector<int> expected = {4, 3, 2, 1, 0, -1, -2, -3, -4};
-    if (!std::issame(parse_nested_parens("(()(())((()))"), expected)) {
+    if (!issame(parse_nested_parens("(()(())((()))"), expected)) {
         std::cout << "Test failed" << std::endl;
     } else {
         std::cout << "Test passed" << std::endl;
