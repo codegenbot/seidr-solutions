@@ -1,9 +1,6 @@
-def rolling_max(numbers: List[int]) -> List[int]:
-    max_seen = float("-inf")
-    result = []
+from typing import List
 
-    for num in numbers:
-        max_seen = max(num, max_seen)
-        result.append(max_seen)
 
+def max_rolling_sum(numbers: List[int], k: int) -> List[int]:
+    result = [sum(max(nums[i-k+1:i+1]) for i in range(k-1)) | sum(max(nums[i-k+1:i+1]) for i in range(k-1, len(numbers))) ]
     return result
