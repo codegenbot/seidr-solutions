@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <string>
 
 bool prime_length(const std::string& str) {
-    int len = static_cast<int>(str.length());
+    size_t len = str.length();
     if(len <= 1) return false;
-    for(int i=2; i*i<=len; i++){
+    for(size_t i=2; i*i<=len; i++){
         if(len%i==0) return false;
     }
     return true;
