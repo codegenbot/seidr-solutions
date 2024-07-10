@@ -3,7 +3,7 @@ def solution(lst):
 
 
 def main():
-    n = int(input("Expected input: "))
+    n = int(input("Expected number of inputs: "))
     while True:
         try:
             lst = list(
