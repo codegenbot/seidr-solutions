@@ -2,8 +2,6 @@
 from typing import List, Tuple
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
-    if len(numbers) < 2:
-        return None
     numbers.sort()
     min_diff = float("inf")
     closest_pair = (None, None)
