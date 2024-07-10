@@ -1,65 +1,64 @@
 #include <iostream>
 #include <vector>
-#include <queue>
-#include <algorithm>
+#include <string>
 
 using namespace std;
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
-    vector<vector<int>> visited(n, vector<int>(n));
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
-    vector<int> res;
-
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (!visited[i][j]) {
-                pq.push({grid[i][j], {i, j}});
-                visited[i][j] = 1;
-            }
-        }
+bool issame(vector<int> a, vector<vector<int>> b) {
+    if (a.size() != b[0].size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[1][i]) return false;
     }
+    return true;
+}
 
-    while (!pq.empty()) {
-        int val = pq.top().first;
-        pair<int, int> pos = pq.top().second;
-        pq.pop();
-
-        res.push_back(val);
-
-        if (k > 0) {
-            --k;
-
-            // Check all neighbors
-            for (int i = -1; i <= 1; ++i) {
-                for (int j = -1; j <= 1; ++j) {
-                    int ni = pos.first + i;
-                    int nj = pos.second + j;
-
-                    if (ni >= 0 && ni < n && nj >= 0 && nj < n && !visited[ni][nj]) {
-                        visited[ni][nj] = 1;
-                        pq.push({grid[ni][nj], {ni, nj}});
-                    }
+vector<int> minPath(vector<vector<int>> input, int target) {
+    vector<int> path;
+    int i = 0;
+    while(i < target) {
+        if (i >= input[1].size()) {
+            path.push_back(input[1][0]);
+            i -= input[1][0];
+        } else {
+            for (int j = 0; j < input.size(); j++) {
+                if (i >= input[j][0]) {
+                    path.push_back(input[j][0]);
+                    i -= input[j][0];
                 }
             }
-        } else {
             break;
         }
     }
-
-    return res;
+    return path;
 }
 
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
+void minPathTest() {
+    vector<vector<int>> input;
+    input.push_back({1, 3});
+    input.push_back({3, 2});
+    int target = 10;
 
-    vector<int> result = minPath(grid, k);
-
-    for (int i : result) {
-        cout << i << " ";
+    if (minPath(input, target).empty()) {
+        cout << "No paths found with length " << target << "." << endl;
+        return; 
     }
-    cout << endl;
-
-    return 0;
+    
+    string outputStr = "";
+    for (int i : minPath(input, target)) {
+        while(i > 0) {
+            if(i >= input[1].size()) {
+                i -= input[1][0];
+                outputStr += to_string(i) + " ";
+            } else {
+                int j = 0;
+                while(j < input.size() && i >= input[j][0]) {
+                    i -= input[j][0];
+                    outputStr += std::to_string(i) + " ";
+                    j++;
+                }
+                break;
+            }
+        }
+    }
+    cout << outputStr << endl;
 }
