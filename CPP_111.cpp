@@ -1,3 +1,8 @@
+```c++
+#include <map>
+#include <string>
+#include <assert.h>
+
 std::map<char, int> histogram(std::string s) {
     std::map<char, int> freqMap;
     for (char c : s) {
