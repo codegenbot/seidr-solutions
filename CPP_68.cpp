@@ -26,8 +26,11 @@ std::vector<int> pluck(const std::vector<int>& n) {
 
 }
 
-int main() {
-    if (issame(pluck({7, 9, 7, 1}), pluck({1})))  
+int main1() {
+    std::vector<int> v1 = {7, 9, 7, 1};
+    std::vector<int> v2 = {1};
+
+    if (issame(pluck(v1), pluck(v2)))  
         std::cout << "Arrays are same" << std::endl;
     else   
         std::cout << "Arrays are not same" << std::endl;
