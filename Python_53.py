@@ -1,4 +1,6 @@
-```
+Here is the modified code:
+
+```python
 def add(x: int, y: int):
     return x + y
 
