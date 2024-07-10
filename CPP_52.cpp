@@ -14,20 +14,20 @@ bool below_threshold(vector<int> numbers, int threshold) {
 int main() {
     int num = 0;
 
-    std::cout << "Enter the number of elements: ";
-    std::cin >> num;
+    cout << "Enter the number of elements: ";
+    cin >> num;
 
     while(num <= 0){
-        std::cout << "Invalid input. Please enter a positive integer.\n";
-        std::cout << "Enter the number of elements: ";
-        std::cin >> num;
+        cout << "Invalid input. Please enter a positive integer.\n";
+        cout << "Enter the number of elements: ";
+        cin >> num;
     }
 
     numbers.resize(num); 
 
     for (int i = 0; i < num; i++) {
         int temp; 
-        std::cin >> temp; 
+        cin >> temp; 
         numbers.push_back(temp);
     }
     
