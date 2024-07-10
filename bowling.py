@@ -7,21 +7,17 @@ def bowling_score(bowls):
         if rolls[i] == "X":
             score += 10
             if frame < 10:
-                if rolls[i+1] == "X":
-                    score += 10
-                    if i + 2 < len(rolls):
-                        score += int(rolls[i + 2])
-                else:
-                    score += sum(map(int, rolls[i + 1 : i + 3]))
+                score += sum(map(int, rolls[i + 1 : i + 3]))
+                if i + 2 < len(rolls) and rolls[i + 2] == "/":
+                    score += 10 - int(rolls[i + 1])
             frame += 1
         elif rolls[i] == "/":
-            score += 10 - int(rolls[i - 1])
+            if i > 0:
+                score += 10 - int(rolls[i - 1])
+            else:
+                score += 10
             if frame < 10:
-                score += (
-                    int(rolls[i + 1])
-                    if rolls[i + 1].isdigit()
-                    else 10 - int(rolls[i - 1])
-                )
+                score += int(rolls[i + 1]) if rolls[i + 1].isdigit() else (10 - int(rolls[i]))
             frame += 1
         elif rolls[i] == "-":
             pass
@@ -32,7 +28,6 @@ def bowling_score(bowls):
             frame += 1
 
     return score
-
 
 bowls = input()
 print(bowling_score(bowls))
