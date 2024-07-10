@@ -1,1 +1,18 @@
-print(fib(int(input("Enter the number: ")))))
+```
+n = int(input("Enter the number: "))
+
+def fib(n):
+    if n <= 1:
+        return [1]
+    elif n == 2:
+        return [1, 1]
+    else:
+        fib_sequence = [1, 1]
+        a, b = 1, 1
+        for _ in range(2, n + 1):
+            a, b = b, a + b
+            if len(fib_sequence) == n: 
+                return fib_sequence
+        return fib_sequence
+
+print(fib(n))
