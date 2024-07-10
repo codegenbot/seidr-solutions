@@ -1,3 +1,2 @@
-```
-def add(lst):
-    return sum(i for i in lst[1::2] if i % 2 == 0)
+def add_even_numbers(lst):
+    return sum(i for i in lst if isinstance(i, int) and i % 2 == 0)
