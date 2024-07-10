@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -18,7 +19,7 @@ std::pair<int, int> even_odd_palindrome(int n) {
     return std::make_pair(even, odd);
 }
 
-std::pair<int, int> userInput() {
+std::pair<int, int> user_input() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
@@ -30,9 +31,11 @@ std::pair<int, int> userInput() {
 }
 
 int reverse(int n) {
-    std::string str = std::to_string(n);
-    std::string reversed = "";
-    for (auto it = str.rbegin(); it != str.rend(); ++it)
-        reversed += *it;
-    return std::stoi(reversed);
+    std::string rev = "";
+    while (n != 0) {
+        int remainder = n % 10;
+        rev.push_back((char)(remainder + '0'));
+        n /= 10;
+    }
+    return stoi(rev);
 }
