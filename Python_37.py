@@ -1,6 +1,4 @@
-from itertools import zip_longest
-
-
+```
 def sort_even(l: list):
     even = sorted([x for x in l if x % 2 == 0])
     odd = sorted([x for x in l if x % 2 != 0])
@@ -9,9 +7,4 @@ def sort_even(l: list):
     even += [0] * (max_len - len(even))
     odd += [0] * (max_len - len(odd))
 
-    return tuple(
-        i if i[0] % 2 == 0 else j
-        for i, j in zip(
-            even + [0] * (max_len - len(even)), odd + [0] * (max_len - len(odd))
-        )
-    )
+    return tuple(zip_longest(even, odd, fillvalue=0))
