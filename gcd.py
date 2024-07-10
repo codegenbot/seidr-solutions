@@ -6,26 +6,21 @@ else:
     a, b = map(int, values)
     print(gcd(a, b))
 
-text, *_ = input("Enter text and target string (separated by space): ").split(
-    maxsplit=1
-)
-target = text[0]
+text = input("Enter text: ")
+target = input("Enter target string: ")
 print(*indices_of_substring(text, target))
-
-
 def gcd(a, b):
     while b:
         a, b = b, a % b
-    return a
-
+    return abs(a)
 
 def indices_of_substring(text, target):
-    indices = []
-    start_index = 0
-    while True:
-        index = text.find(target, start_index)
-        if index == -1:
+    result = []
+    start = 0
+    while start < len(text):
+        pos = text.find(target, start)
+        if pos == -1:
             break
-        indices.append(index)
-        start_index = index + 1
-    return indices
+        result.append(pos)
+        start = pos + 1
+    return result
