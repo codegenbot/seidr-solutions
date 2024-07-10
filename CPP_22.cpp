@@ -2,6 +2,18 @@
 #include <list>
 #include <boost/any.hpp>
 
+// Define your issame function
+bool issame(vector<int> a, vector<int> b) {
+    // Your logic here to compare the two vectors
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// Define your filter_integers function
 vector<int> filter_integers(list<boost::any> values) {
     vector<int> result;
     for (const auto& value : values) {
@@ -10,15 +22,6 @@ vector<int> filter_integers(list<boost::any> values) {
         }
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
 
 int main() {
