@@ -15,4 +15,3 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (found) result.push_back(i);
     }
     return result;
-}
