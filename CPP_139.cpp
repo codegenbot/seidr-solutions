@@ -1,3 +1,4 @@
+```cpp
 #include <stdio.h>
 using namespace std;
 
@@ -9,11 +10,9 @@ long long special_factorial(int n) {
     return result;
 }
 
-int main(); 
-{
+int main() {
     int n;
     printf("Enter a positive integer: ");
     scanf("%d", &n);
     printf("The special factorial of %d is: %lld\n", n, special_factorial(n));
-    return 0;
-}
+    return 0; }
