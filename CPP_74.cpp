@@ -1,8 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -24,7 +22,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     else return vector<string>();
 }
 
-int main() {
+void runUserInput() {
     vector<string> user_input; 
     for(int i = 0; i < 5; ++i){
         string input;
@@ -32,9 +30,13 @@ int main() {
         user_input.push_back(input);
     }
     
-    if (is_same(total_match(user_input, {}), {})) {
+    if (is_same(total_match(user_input, vector<string>(5)), vector<string>(5))) {
         cout << "The two lists are the same." << endl;
     } else {
         cout << "Error: The two lists are not the same." << endl;
     } 
+}
+
+int main() {
+    runUserInput();
 }
