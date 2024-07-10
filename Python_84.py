@@ -1,7 +1,8 @@
 ```
 def solve(N):
-    if N != 0 and (N & (N - 1) == 0):
-        result = str(int(bin(sum(int(i) for i in str(bin(N)[2:]))), 2))
-        return result
-    else:
-        return "Input is not a power of 2."
+    while N % 2 == 0:
+        N //= 2
+    if N != 1:
+        return "Not a power of 2"
+    result = str(int(bin(sum(int(i) for i in str(bin(N)[2:]))), 2))
+    return result
