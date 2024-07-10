@@ -1,4 +1,6 @@
 ```cpp
+#include <initializer_list>
+
 #include <vector>
 #include <string>
 
@@ -47,3 +49,5 @@ std::vector<std::string> select_words(std::string s, int n) {
     }
     return result;
 }
+
+assert (issame(select_words("a b c d e f", 1), std::vector<std::string>({"b", "c", "d", "f"})));
