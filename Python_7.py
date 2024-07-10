@@ -1,3 +1,4 @@
+strings = []
 try:
     while True:
         try:
