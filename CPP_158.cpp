@@ -1,7 +1,20 @@
+Here is the modified code:
+
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
+
+std::string find_max(const std::vector<std::string>& words) {
+    return *std::max_element(words.begin(), words.end(),
+        [](const std::string& a, const std::string& b) {
+            if (a.length() == b.length()) {
+                return a < b;
+            }
+            return a.length() > b.length();
+        });
+}
 
 int main() {
     int n;
@@ -14,12 +27,5 @@ int main() {
         str.erase(0, str.find_first_not_of(' ')).erase(str.find_last_not_of(' ') + 1);
         words.push_back(str); 
     }
-    std::cout << "The maximum length word is: " << *std::max_element(words.begin(), words.end(),
-        [](const std::string& a, const std::string& b) {
-            if (a.length() == b.length()) {
-                return a < b;
-            }
-            return a.length() > b.length();
-        }) << std::endl;
-    return 0;
+    std::cout << "The maximum length word is: " << find_max(words) << std::endl;
 }
