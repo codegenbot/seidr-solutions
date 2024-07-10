@@ -24,12 +24,8 @@ int main()
     std::vector<std::string> words;
     for (int i = 0; i < n; ++i) {
         std::string str;
-        while(getline(std::cin, str)) { 
-            if (!str.empty()) { // Check for empty strings
-                str.erase(0, str.find_first_not_of(' ')); 
-            }
-            words.push_back(str); 
-        }
+        std::cin >> str; 
+        words.push_back(str); 
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
 }
