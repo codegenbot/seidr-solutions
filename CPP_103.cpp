@@ -1,8 +1,6 @@
-```cpp
-#include <iostream>
 #include <string>
 
-std::string rounded_avg(int n,int m){
+std::string rounded_avg(int n, int m) {
     if(n > m) return "-1";
     long sum = 0;
     for(long i=n; i<=m; i++){
@@ -17,14 +15,4 @@ std::string rounded_avg(int n,int m){
     }
     reverse(res.begin(), res.end());
     return res;
-}
-
-int main() {
-    int n, m;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
-    std::cout << "Enter the value of m: ";
-    std::cin >> m;
-    std::cout << "The rounded average is: " << rounded_avg(n,m) << std::endl;
-    return 0;
 }
