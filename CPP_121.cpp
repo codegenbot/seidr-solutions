@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
 
 namespace Contest {
     int solutions(const std::vector<int>& lst) {
@@ -13,7 +14,7 @@ namespace Contest {
     }
 }
 
-int main() {
+int main(){
     assert(Contest::solutions({3, 13, 2, 9}) == 22);
     return 0;
 }
