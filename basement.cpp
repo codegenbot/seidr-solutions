@@ -1,12 +1,15 @@
-#include <vector>
-using namespace std;
+Here is the solution:
 
-int basement(vector<int>& numbers) {
-    int sum = 0;
-    for (int i = 0; i < numbers.size(); i++) {
-        sum += numbers[i];
+#include <vector>
+
+int firstNegative(vector<int> arr) {
+    for (int i = 0; i < arr.size(); i++) {
+        int sum = 0;
+        for (int j = 0; j <= i; j++) {
+            sum += arr[j];
+        }
         if (sum < 0)
             return i;
     }
-    return -1; // or any other value to indicate not found
+    return -1; // not found
 }
