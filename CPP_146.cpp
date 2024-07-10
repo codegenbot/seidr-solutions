@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,7 +12,7 @@ int specialFilter(std::vector<int> nums) {
     return count;
 
 int main() {
-    std::vector<int> nums;
+    std::vector<std::string> nums;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -19,7 +20,7 @@ int main() {
         std::cout << "Enter element " << i + 1 << ": ";
         int temp;
         std::cin >> temp;
-        nums.push_back(temp);
+        nums.push_back(std::to_string(temp));
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
 }
