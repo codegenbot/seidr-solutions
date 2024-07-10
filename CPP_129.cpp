@@ -52,7 +52,8 @@ std::vector<int> minPath(std::vector<std::vector<int>>& myVector, int target) {
 
 int main() {
     std::vector<std::vector<int>> input = {{1, 3}, {3, 2}};
-    std::vector<int> output = minPath(input, 10);
+    std::vector<int> output;
+    output = minPath(input, 10);
     bool same = issame(output, {1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
     
     return 0;
