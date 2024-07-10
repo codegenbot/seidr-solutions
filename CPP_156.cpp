@@ -2,7 +2,7 @@
 #include <iostream>
 #include <sstream>
 
-const char* miniRoman(int num) {
+std::string miniRoman(int num) {
     if (num == 9)
         return "IX";
     if (num >= 4) {
