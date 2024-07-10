@@ -1,6 +1,6 @@
 #include <vector>
 
-namespace {
+namespace MyNamespace {
     vector<int> indicesOfSubstring(string text, string target) {
         vector<int> res;
         int n = text.size();
