@@ -20,11 +20,9 @@ bool is_nested(const std::string str) {
 }
 
 int main() {
-    char input[256];
+    std::string str;
     std::cout << "Enter a string: ";
-    std::cin.get(input, sizeof(input));
-    input[sizeof(input) - 1] = '\0';
-    std::string str(input);
+    std::getline(std::cin, str);
     if (is_nested(str)) {
         std::cout << "The string is nested." << std::endl;
     } else {
