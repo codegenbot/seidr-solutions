@@ -1,4 +1,3 @@
-```
 struct PegCounts {
     int white;
     int black;
@@ -25,7 +24,7 @@ PegCounts mastermind(string code, string guess) {
             }
         }
         if (count > 0) {
-            result.white += count - 1; // subtract one, as the correct position is already counted
+            result.white += count - 1; 
         }
     }
 
