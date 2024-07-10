@@ -1,4 +1,3 @@
-```
 def main():
     lst = input("Enter words (separated by space): ").lower().replace(" ", "").split()
     if len(lst) > 0:
