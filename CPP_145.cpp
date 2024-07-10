@@ -1,40 +1,12 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
-class stdVectorInt {
+class std::vector<int> {
 public:
     bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-        return a == b;
+        return *this == a && *this == b;
     }
 };
-
-stdVectorInt::issame;
-
-int main() {
-    int n; 
-    std::cin >> n;
-    std::vector<int> nums(n);
-    for (auto& num : nums) 
-        std::cin >> num;
-    
-    std::sort(nums.begin(), nums.end());
-    
-    stdVectorInt obj;
-    bool same = obj.issame(nums, nums);
-    if (same)
-        std::cout << "The sorted array is the same as the original one.\n";
-    else
-        std::cout << "The sorted array is different from the original one.\n";
-
-    std::vector<int> result = order_by_points(nums);
-
-    for (const auto& num : result) 
-        std::cout << num << " ";
-    std::cout << "\n";
-    
-    return 0;
-}
 
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
@@ -53,4 +25,11 @@ std::vector<int> order_by_points(std::vector<int> nums) {
         result.push_back(nums[pair.second]);
     }
     return result;
+}
+
+int main() {
+    std::vector<int> nums = {1, 2, 3};
+    std::vector<int> res = order_by_points(nums);
+    // Check the result
+    return 0;
 }
