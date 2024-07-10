@@ -8,20 +8,15 @@ int count_nums(vector<int> nums) {
                 sum += temp % 10;
                 temp /= 10;
             }
-            if (sum > 0) {
-                count++;
-            }
+            if (sum > 0) count++;
         } else {
             int sum = 0, sign = 1;
             int temp = -num;
             while (temp != 0) {
-                sum += temp % 10 * sign;
+                sum += abs(temp % 10);
                 temp /= 10;
-                sign = -sign;
             }
-            if (sum > 0) {
-                count++;
-            }
+            if (sign * sum > 0) count++;
         }
     }
     return count;
