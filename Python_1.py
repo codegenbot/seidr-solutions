@@ -13,17 +13,15 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             stack.append(char)
             temp_str += char
         elif char == ')':
-            if not stack or stack[-1] != '(':
-                return []
-            stack.pop()
-            temp_str += char
-            if not stack:
+            if stack and stack[-1] == '(':
+                stack.pop()
+                temp_str += char
                 result.append(temp_str)
                 temp_str = ''
+            else:
+                return ['Program did not receive expected input']
     
-    if stack and stack[0] == '(':
-        return []
-    if temp_str:
-        result.append(temp_str)
+    if stack:  # Check for unmatched '('
+        return ['Program did not receive expected input']
     
     return result
