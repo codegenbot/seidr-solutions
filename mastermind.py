@@ -1,13 +1,13 @@
 def mastermind(code, guess):
-    code_counts = {c: code.count(c) for c in set(code)}
-    guess_counts = {c: guess.count(c) for c in set(guess)}
-
-    white = 0
     black = 0
-    for c1, c2 in zip(code, guess):
-        if c1 == c2:
+    white = 0
+
+    for c in code:
+        if c == guess[guess.index(c)]:
             black += 1
-        elif code_counts[c1] > 0 and code_counts[c1] > guess_counts[c1]:
+            guess = guess.replace(c, '', 1)
+        elif guess.count(c) > 0:
             white += 1
+            guess = guess.replace(c, '', guess.count(c))
 
     return str(white), str(black)
