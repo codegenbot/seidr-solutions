@@ -1,15 +1,12 @@
-```cpp
 #include <string>
+using namespace std;
 
-int main() {
-    std::cout << squareDigits("123") << std::endl;
-    return 0;
-}
-
-std::string squareDigits(std::string input) {
-    std::string output = "";
+string squareDigits(string input) {
+    string output = "";
     for (char c : input) { 
-        output += c; 
+        int digit = (c - '0') * (c - '0'); 
+        char sq_digit = (digit + '0');
+        output += sq_digit;
     }
     return output;
 }
