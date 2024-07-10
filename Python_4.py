@@ -1,1 +1,1 @@
-print(mean_absolute_deviation(numbers))
+print(mean_absolute_deviation([1,2,3]))
