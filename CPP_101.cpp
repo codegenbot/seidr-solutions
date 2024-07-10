@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
-#include <cassert> // Added missing header
+#include <cassert>
 
 using namespace std;
 
@@ -17,7 +17,7 @@ vector<string> words_string(string s){
     return words;
 }
 
-int contest_main(){
+int main(){
     assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
 
     return 0;
