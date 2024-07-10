@@ -8,6 +8,7 @@ using namespace std;
 int main() {
     vector<int> nums = {3, 1, 4, 1, 5, 9, 2, 6, 5};
     int totalSum = accumulate(nums.begin(), nums.end(), 0);
+    int target = totalSum / 2;
 
     int prefixSum = 0;
     int index = -1;
