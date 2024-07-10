@@ -2,13 +2,7 @@
 def prod_signs(arr):
     if not arr:
         return None
-    sign = 1
-    magnitude_sum = 0
+    sign_product = 1
     for num in arr:
-        if num < 0:
-            sign *= -1
-        elif num > 0:
-            magnitude_sum += abs(num)
-        else:
-            magnitude_sum += abs(num)
-    return sign * magnitude_sum
+        sign_product *= -1 if num < 0 else 1 if num == 0 else 1
+    return sum(abs(num) for num in arr) * sign_product
