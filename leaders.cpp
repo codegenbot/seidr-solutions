@@ -1,15 +1,15 @@
 std::vector<int> leaders(std::vector<int>& arr) {
-    if (arr.size() == 0) return {};
+    std::vector<int> res;
+    int n = arr.size();
+    if(n == 0) return res;
 
-    int maxRight = arr.back();
-    std::vector<int> leaders;
-
-    for(int i = arr.size()-2; i >= 0; --i){
-        if(arr[i] >= maxRight){
-            leaders.push_back(arr[i]);
-            maxRight = arr[i];
+    int leader = -1;
+    for(int i=n-1; i>=0; --i){
+        if(arr[i] >= leader){
+            leader = arr[i];
+            res.push_back(leader);
         }
     }
 
-    return leaders;
+    return res;
 }
