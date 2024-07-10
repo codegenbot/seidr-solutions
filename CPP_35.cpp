@@ -1,3 +1,6 @@
+#include <iostream>
+#include <algorithm>
+
 int getMax(int n) {
     int max = 0;
     cout << "Enter the number of elements: ";
