@@ -14,7 +14,7 @@ string average_binary(int n, int m) {
         sum += i;
     }
     
-    int avg = n + (m - n) / 2;
+    int avg = n + ((m - n) / 2);
     
     string binary_avg = "";
     while (avg > 0) {
@@ -26,5 +26,10 @@ string average_binary(int n, int m) {
 }
 
 string rounded_avg(int n, int m) {
-    return average_binary(n, m);
+    string binary_avg = average_binary(n, m);
+    while (binary_avg.length() < 8) {
+        binary_avg = "0" + binary_avg;
+    }
+    
+    return binary_avg;
 }
