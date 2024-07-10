@@ -40,7 +40,7 @@ std::string Join(const std::vector<std::string>& vec, char delimiter) {
 
 int main() {
     std::vector<std::string> my_result = select_words("a b c d e f", 1);
-    if (!issame(std::vector<std::string>(my_result.begin(), my_result.end()), select_words("a b c d e f", 1))) 
-        std::cout << "{" + Join(select_words("a b c d e f", 1), ", ") + "}" << std::endl;
+    if (!issame(std::vector<std::string>(my_result.begin(), my_result.end()), my_result)) 
+        std::cout << "{" + Join(my_result, ", ") + "}" << std::endl;
     return 0;
 }

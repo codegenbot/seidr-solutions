@@ -20,19 +20,35 @@ std::string numerical_letter_grade(int credits, double gpa) {
     else return "F";
 }
 
-int main() {
-    int credits = 0;
-    double gpa = 0.7;
+std::string check_gpa(double gpa) {
+    if (gpa < 0 || gpa > 4.0) throw std::runtime_error("Invalid GPA");
+    if (gpa >= 3.7) return "A";
+    else if (gpa >= 3.4) return "B+";
+    else if (gpa >= 3.1) return "B";
+    else if (gpa >= 2.8) return "C+";
+    else if (gpa >= 2.5) return "C";
+    else if (gpa >= 2.2) return "D+";
+    else return "F";
+}
 
-    if (numerical_letter_grade(credits, gpa) == "F" || numerical_letter_grade(credits, gpa) == "D+") {
-        throw std::runtime_error("Invalid GPA");
-    }
+int main() {
+    double gpa;
+    std::cout << "Enter your GPA: ";
+    std::cin >> gpa;
 
     try {
-        assert(numerical_letter_grade(credits, gpa) == "F"); 
+        std::string grade = check_gpa(gpa);
+        if (grade == "F" || grade == "D+") {
+            throw std::runtime_error("Invalid GPA");
+        }
+        std::cout << "Your letter grade is: " << grade << std::endl;
     } catch (const std::runtime_error& e) {
         std::cerr << e.what() << std::endl;
     }
 
+    if (!issame(std::to_string(numerical_letter_grade(0, 0.7)), "F")) {
+        assert(false);
+    }
+    
     return 0;
 }
