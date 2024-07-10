@@ -1,8 +1,9 @@
-#include <map>
-#include <string>
+```cpp
+#include <unordered_map>
+#include <cassert>
 
-std::map<char, int> histogram(std::string s) {
-    std::map<char, int> freqMap;
+std::unordered_map<char, int> histogram(std::string s) {
+    std::unordered_map<char, int> freqMap;
     for (char c : s) {
         if (freqMap.find(c) == freqMap.end()) {
             freqMap[c] = 1;
@@ -13,28 +14,11 @@ std::map<char, int> histogram(std::string s) {
     return freqMap;
 }
 
-namespace std {
-std::pair<bool, bool> issameMap(std::map<char, int> a, std::map<char, int> b) {
-    if (a.size() != b.size())
-        return {false, false};
-
-    for (auto it = a.begin(); it != a.end();++it)
-        if (it->second != b.at(it->first))
-            return {false, false};
-
-    return {true, true};
-}
+bool issame(const std::unordered_map<char, int>& a, const std::unordered_map<char, int>& b) {
+    return a == b;
 }
 
-std::string s1 = "aa";
-std::string s2 = "a";
-auto hist1 = histogram(s1);
-auto hist2 = histogram(s2);
-
-auto sameMap = issameMap(hist1, hist2);
-
-if (sameMap.first) {
-    std::cout << "Histograms are the same.\n";
-} else {
-    std::cout << "Histograms are different.\n";
+int main() {
+    assert(issame(histogram("a"), std::unordered_map<char, int>{{'a', 1}}));
+    return 0;
 }
