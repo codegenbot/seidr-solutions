@@ -10,13 +10,17 @@ string anti_shuffle(string sStr) {
     string word;
     for (char c : sStr) {
         if (c == ' ') {
-            words.push_back(word);
-            word = "";
+            if (!word.empty()) { 
+                words.push_back(word);
+                word = "";
+            }
         } else {
             word += c;
         }
     }
-    words.push_back(word);
+    if (!word.empty()) { 
+        words.push_back(word);
+    }
 
     string result;
     for (string w : words) {

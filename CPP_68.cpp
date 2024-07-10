@@ -28,8 +28,7 @@ int main() {
     int size;
     cin >> size;
 
-    vector<int> v1;
-    v1.reserve(size);
+    vector<int> v1; // Initialize the vector here
 
     for (int i = 0; i < size; i++) {
         int x;
@@ -40,6 +39,8 @@ int main() {
             v1.push_back(0); 
 
     }
+
+    v1.reserve(size); // Move this line here
 
     if (issame(pluck(v1), v2))  
         cout << "Arrays are same" << endl;

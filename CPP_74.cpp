@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,7 +13,7 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-int total_match(vector<string> input, vector<string> matches) {
+int total_match(const vector<string>& input, const vector<string>& matches) {
     int count = 0;
     for (const string& str : input) {
         if (find(matches.begin(), matches.end(), str) != matches.end()) {
