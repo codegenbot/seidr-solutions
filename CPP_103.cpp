@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 string rounded_avg(int n, int m) {
@@ -18,3 +19,4 @@ string rounded_avg(int n, int m) {
         }
     }
     return result;
+}
