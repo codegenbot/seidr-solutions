@@ -1,5 +1,5 @@
 a = list(map(int, input().split()))
 min_diff = min(abs(sum(a[:i]) - sum(a[i:])) for i in range(1, len(a)))
-split_index = next(i for i in range(1, len(a)) if abs(sum(a[:i]) - sum(a[i:])) == min_diff)
+split_index = min(range(1, len(a)), key=lambda i: abs(sum(a[:i]) - sum(a[i:])))
 print(*a[:split_index], sep="\n")
 print(*a[split_index:], sep="\n")
