@@ -1,6 +1,12 @@
 def decode_cyclic(s: str):
-    groups = [s[i : i + 3] if i + 3 <= len(s) else s[i:] for i in range(0, len(s), 3)]
-    groups = [
-        (group[-1] + group[:-1]) if len(group) == 3 else group[0] for group in groups
-    ]
-    return "".join(groups)
+    """
+    takes as input string encoded with encode_cyclic function. Returns decoded string.
+    """
+    result = []
+    group = ""
+    for char in s:
+        group += char
+        if len(group) == 3:
+            result.append(group[1:] + group[0])
+            group = ""
+    return "".join(result + [group[1:] + group[0]] if group else [group])
