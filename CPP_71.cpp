@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <cassert>
@@ -13,8 +12,8 @@ float triangle_area(int a, int b, int c) {
 }
 
 int main() {
-    int a, b, c; 
-    std::cin >> static_cast<float>(a) >> static_cast<float>(b) >> static_cast<float>(c); 
+    float a, b, c; 
+    std::cin >> a >> b >> c; 
     assert(std::abs(triangle_area(a, b, c) + 1)<0.01);
     float result = triangle_area(a, b, c);
     std::cout << "The area of the triangle is: " << static_cast<int>(result) << std::endl;
