@@ -11,17 +11,23 @@ bool isValidInput(const string& input) {
 int main() {
     string code, guess;
 
-    do {
+    cin.ignore();
+    getline(cin, code);
+
+    while (!isValidInput(code)) {
         cout << "Enter the code (4 characters from A to F): ";
         cin.ignore();
         getline(cin, code);
-    } while (!isValidInput(code));
+    }
 
-    do {
+    cin.ignore();
+    getline(cin, guess);
+
+    while (!isValidInput(guess)) {
         cout << "Enter your guess (4 characters from A to F): ";
         cin.ignore();
         getline(cin, guess);
-    } while (!isValidInput(guess));
+    }
 
     map<char, int> codeFreq, guessFreq;
 
