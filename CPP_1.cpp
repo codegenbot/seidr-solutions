@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
 vector<string> separate_paren_groups(vector<string> a, vector<string> b) {
     vector<string> result;
     string current_group;
