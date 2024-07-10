@@ -24,4 +24,3 @@ int main() {
 
     std::cout << "The product of signs is: " << (result > 0) ? std::to_string(result) : "-" << std::endl;
     return 0;
-}
