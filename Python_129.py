@@ -1,4 +1,4 @@
-def minPath(grid, k):
+def minPath(grid, k): 
     N = len(grid)
     res = []
 
