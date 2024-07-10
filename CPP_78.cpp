@@ -1,6 +1,3 @@
-#include <string>
-#include <cassert>
-
 int hex_key(string num) {
     int count = 0;
     for (char c : num) {
@@ -11,9 +8,3 @@ int hex_key(string num) {
         }
     }
     return count;
-}
-
-int main() {
-    assert(hex_key("") == 0);
-    // Rest of your code
-}
