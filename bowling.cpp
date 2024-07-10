@@ -4,43 +4,49 @@
 
 int bowlingScore(std::string s) {
     int score = 0;
-    int currentFrame = 1;
+    int roll = 0;
+    bool previousStrike = false;
 
     for (char c : s) {
-        if (c == 'X') { // Strike
-            score += 10 + (currentFrame < 3 ? 10 : 0);
-            if (currentFrame <= 2) currentFrame = min(currentFrame+1, 3); 
-        } else if (c == '/') { // Spare
-            score += 10;
-            currentFrame++;
+        if (c == 'X') {
+            if (previousStrike || frameTotal >= 10) {
+                score += 10;
+            } else {
+                score += 10 + nextTwoRolls();
+            }
+            previousStrike = true;
+            roll++;
+        } else if (c == '/') {
+            int thisRoll = 10 - roll;
+            score += thisRoll;
+            previousStrike = false;
+            roll++;
         } else {
             int pins = c - '0';
-            if (currentFrame < 3) {
-                if (pins + myRolls(s, currentFrame) >= 10) {
-                    score += 10; // Spare
-                } else {
-                    score += pins + myRolls(s, currentFrame);
-                }
-                currentFrame++;
-            } else {
-                score += pins;
-                currentFrame++;
+            frameTotal += pins;
+            if (!previousStrike && frameTotal >= 10) {
+                score += 10;
             }
+            previousStrike = false;
+            roll++;
         }
     }
 
     return score;
 }
 
-int myRolls(std::string s, int frame) {
-    int rolls = 0;
-    for (int i = 0; i < frame*2+1; i++) {
-        if (i >= s.length()) break;
-        if (s[i] == 'X') rolls += 10;
-        else if (s[i] == '/') return 10-rolls;
-        else rolls += s[i]-'0';
+int nextTwoRolls() {
+    int total = 0;
+    for (char c : s.substr(roll, 2)) {
+        if (c == 'X') {
+            total += 10 + nextTwoRolls();
+        } else if (c == '/') {
+            total += 10 - roll;
+        } else {
+            total += c - '0' + (nextRoll() ? c - '0' : 0);
+        }
     }
-    return 0;
+    return total;
 }
 
 int main() {
