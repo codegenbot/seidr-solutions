@@ -3,9 +3,9 @@
 
 using namespace std;
 
-string compare_one(string a, string b) {
+string compareOne(string a, string b) {
     if (a == "None" || b == "None")
-        return a;
+        return "None";
 
     double num1 = stod(a);
     double num2 = stod(b);
@@ -20,10 +20,17 @@ string compare_one(string a, string b) {
 
 int main() {
     string a, b;
-    cout << "Enter the first number: ";
+    cout << "Enter first number: ";
     cin >> a;
-    cout << "Enter the second number: ";
+    cout << "Enter second number: ";
     cin >> b;
-    cout << compare_one(a, b) << endl;
+
+    string result = compareOne(a, b);
+
+    if (result == "None")
+        cout << "Numbers are equal." << endl;
+    else
+        cout << "The bigger one is: " << result << endl;
+
     return 0;
 }
