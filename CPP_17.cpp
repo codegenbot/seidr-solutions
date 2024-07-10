@@ -1,4 +1,5 @@
 #include <vector>
+using namespace std;
 
 vector<int> parse_music(string music_string);
 
