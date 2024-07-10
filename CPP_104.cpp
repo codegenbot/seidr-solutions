@@ -9,9 +9,9 @@ vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
-        int temp = num;
+        int temp = abs(num); // Added abs() to handle negative numbers
         while (temp > 0) {
-            if (temp % 2 == 0) {
+            if (temp % 10 % 2 == 0) { // Updated logic to check if digit is even
                 hasEvenDigit = true;
                 break;
             }
@@ -30,7 +30,3 @@ void test_unique_digits() {
     vector<int> result = unique_digits({135, 103, 31});
     assert(result == expected);
 }
-
-// Removed the second definition of the main() function
-
-// End of code
