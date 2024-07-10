@@ -2,6 +2,10 @@
 #include <unordered_map>
 
 int fib(int n) {
+    if (n < 0) {
+        return -1; // Error code for invalid input
+    }
+
     if (n <= 1) {
         return n;
     }
