@@ -3,7 +3,7 @@ import hashlib
 def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest() if text else None
 
-user_input = input("Enter a string to generate MD5 hash: ")
+user_input = input("Enter a string to generate MD5 hash: ").strip()
 if not user_input:
     print("No input provided")
 else:
