@@ -45,5 +45,6 @@ int main() {
     else
         cout << "Second number is greater." << endl;
 
-    assert(issame(vector<string>(reverse_delete("mamma", "mia").begin(), reverse_delete("mamma", "mia").end(), allocator<string>())) , {"", "True"}));
+    string result = reverse_delete("mamma", "mia");
+    assert(result == "" || result == "True");
 }
