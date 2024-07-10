@@ -1,3 +1,2 @@
-```
-def digitSum(s):
-    return sum(ord(c) for c in s if 'A' <= c <= 'Z')
+def digitSum(n):
+    return sum(int(digit) for digit in str(n))
