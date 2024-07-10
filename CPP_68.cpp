@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -20,7 +20,7 @@ std::vector<int> pluck(const std::vector<int>& n) {
 
 }
 
-int main() {
+int mainHelper() {
     std::vector<int> v1 = {7, 9, 7, 1};
     std::vector<int> v2 = {1};
 
