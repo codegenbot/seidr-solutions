@@ -1,4 +1,4 @@
-```
+"""
 def dice_game(n, m):
     total_outcomes = n * m
     peters_win_count = 0
