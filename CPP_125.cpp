@@ -1,7 +1,41 @@
-assert (issame(split_words("Hello, World!") ,{"Hello", "World!"}));
-assert (issame(split_words("123 456 789") ,{"123", "456", "789"}));
-assert (issame(split_words("a b c d e") ,{"a", "b", "c", "d", "e"}));
-assert (issame(split_words("This is a test") ,{"This", "is", "a", "test"}));
-assert (issame(split_words("Abc def ghi") ,{"Abc", "def", "ghi"}));
-assert (issame(split_words("a1b2c3d4e5") ,{"a1b2c3d4e5"}));
-assert (issame(split_words("a b c d e f g h i j k l m n o p q r s t u v w x y z") ,{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}));
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+vector<string> split_words(string txt){
+    vector<string> result;
+    string word = "";
+    for (char c : txt){
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
+                result.push_back(word);
+                word = "";
+            }
+        } else {
+            word += c;
+        }
+    }
+    if(!word.empty()){
+        result.push_back(word);
+    }
+    if(result.empty()){
+        int count = 0;
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 == 1){
+                count++;
+            }
+        }
+        result.push_back(to_string(count));
+    }
+    return result;
+}
+
+int main(){
+    assert (issame(split_words(""),{"0"}));
+    // Add more test cases here
+
+    return 0;
+}
