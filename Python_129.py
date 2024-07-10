@@ -1,6 +1,4 @@
-Here is the corrected code:
-
-```
+````
 def minPath(grid, k):
     N = len(grid)
     def dfs(i, j, path):
