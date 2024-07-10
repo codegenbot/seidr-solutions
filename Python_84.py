@@ -1,5 +1,2 @@
 def solve(N):
-    if N > 1:
-        return "1"
-    else:
-        pass
+    return "1" * N if N > 0 else ""
