@@ -16,3 +16,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if stack:
                 groups.append('(' + group + ')')
     return groups
+```
