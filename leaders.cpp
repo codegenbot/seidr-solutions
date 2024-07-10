@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 using namespace std;
 
@@ -11,16 +12,16 @@ int main() {
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> res;
-
-    if(n == 0)
-        return res;
-
-    res.push_back(arr[n-1]);
+    
+    int maxRight = arr[n-1];
+    res.push_back(maxRight);
 
     for(int i=n-2; i>=0; i--){
-        if(res.back() < arr[i])
+        if(arr[i] >= maxRight){
             res.push_back(arr[i]);
+            maxRight = arr[i];
+        }
     }
-
+    
     return res;
 }
