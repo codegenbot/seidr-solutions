@@ -1,5 +1,6 @@
-#include <algorithm>
+#include <iostream>
 #include <string>
+#include <algorithm>
 
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
@@ -8,10 +9,9 @@ bool correct_bracketing(const std::string& brackets) {
             count++;
         } else if (c == ')') {
             if (count == 0) {
-                count = -1;
-            } else {
-                count--;
+                return false;
             }
+            count--;
         }
     });
     return count == 0;
