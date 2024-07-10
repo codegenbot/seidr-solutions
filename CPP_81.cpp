@@ -8,7 +8,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 std::vector<std::string> numerical_letter_grade(const std::vector<double>& grades){
-    std::vector<std::string> result = {"E", "D-"};
+    std::vector<std::string> result = {"E", "D-"}; // Example result
     return result;
 }
 
