@@ -1,4 +1,6 @@
-#include <initializer_list>
+```cpp
+#include <algorithm>
+#include <vector>
 
 bool sameVectors(std::vector<int> a, std::vector<int> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
@@ -13,7 +15,8 @@ std::vector<int> orderPoints(std::vector<int> nums) {
             sumOfDigits += num % 10;
             num /= 10;
         }
-        pairs.push_back(std::make_pair(sumOfDigits, i));
+        pairs.push_back({sumOfDigits, i});
+
     }
 
     std::sort(pairs.begin(), pairs.end());
