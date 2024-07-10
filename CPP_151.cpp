@@ -1,3 +1,4 @@
+```cpp
 long long double_the_difference(vector<float> lst){
     long long sum = 0;
     for (float num : lst) {
@@ -14,7 +15,7 @@ int main() {
     
     cout << "Enter numbers (enter 'stop' to finish):" << endl;
     vector<float> lst; 
-    long long odd_sum = 0;
+    int odd_sum = 0;
     
     while(1) {
         cin >> num;
@@ -22,11 +23,7 @@ int main() {
         if(std::to_string(num) == "stop") break;
 
         if(num > 0 && modf(num, &num) == 0.0) {
-            for (float n : lst) {
-                if (n > 0 && modf(n, &n) == 0.0) {
-                    odd_sum = double_the_difference(lst);
-                }
-            }
+            odd_sum = double_the_difference(lst);
         }
         lst.push_back(num);    
     }
