@@ -1,23 +1,22 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
+using namespace std;
+
+vector<int> parse_music(string music_string);
+
+bool issame(vector<int>& a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
     return true;
 }
 
-std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> result;
+vector<int> parse_music(string music_string) {
+    vector<int> result;
     int beats = 0;
     for (char c : music_string) {
         if (c == 'o') {
@@ -36,15 +35,16 @@ std::vector<int> parse_music(std::string music_string) {
 }
 
 int main() {
-    std::string music = "o|o.|o";
-    std::vector<int> parsed_music = parse_music(music);
+    string music_string;
+    cin >> music_string;
 
-    std::vector<int> expected_result = {4, 1, 4};
+    vector<int> notes = parse_music(music_string);
+    vector<int> reference = {1, 2, 3, 4};
 
-    if (issame(parsed_music, expected_result)) {
-        std::cout << "Success" << std::endl;
+    if (issame(notes, reference)) {
+        cout << "Music is correct" << endl;
     } else {
-        std::cout << "Failure" << std::endl;
+        cout << "Music is incorrect" << endl;
     }
 
     return 0;
