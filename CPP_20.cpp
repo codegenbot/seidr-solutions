@@ -11,10 +11,7 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
     std::vector<std::pair<float, float>> closest_pairs;
     for (size_t i = 0; i < numbers.size() - 1; ++i) {
         if (issame(numbers[i], numbers[i + 1])) {
-            for (size_t j = i; j < numbers.size() && issame(numbers[i], numbers[j]); ++j) {
-                closest_pairs.push_back({numbers[i], numbers[j]});
-            }
-            break;
+            closest_pairs.push_back({numbers[i], numbers[i + 1]});
         }
     }
     return closest_pairs;
@@ -27,7 +24,26 @@ int main() {
         numbers.push_back(num);
     }
     
-    std::vector<std::pair<float, float>> closest_pairs = find_closest_elements(numbers);
+    if (!numbers.empty()) {
+        for (size_t i = 0; i < numbers.size() - 1; ++i) {
+            bool is_match = false;
+            for (size_t j = i + 1; j < numbers.size(); ++j) {
+                if (issame(numbers[i], numbers[j])) {
+                    is_match = true;
+                    break;
+                }
+            }
+            if (!is_match) {
+                closest_pairs.push_back({numbers[i], numbers[i]});
+            } else {
+                for (size_t k = i; k < j; ++k) {
+                    closest_pairs.push_back({numbers[k], numbers[k]});
+                }
+                i = j - 1;
+            }
+        }
+    }
+    
     if (!closest_pairs.empty()) {
         for (const auto& pair : closest_pairs) {
             std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
