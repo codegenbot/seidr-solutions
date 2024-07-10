@@ -28,4 +28,4 @@ std::vector<int> pluck(std::vector<int> arr) {
 
 assert(compareVectors(pluck({1, 3, 5, 2, 4, 6}), std::vector<int>{2, 3}));
 assert(compareVectors(pluck({7, 9, 2, 4, 6}), std::vector<int>{2, 2}));
-assert(compareVectors(pluck({7, 9, 7, 1}), std::vector<int>{});
+assert(compareVectors(pluck({7, 9, 7, 1}), std::vector<int>{}));
