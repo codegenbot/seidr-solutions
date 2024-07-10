@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <string>
+#include <cassert>
 using namespace std;
 
 string anti_shuffle(string sStr) {
@@ -9,11 +9,15 @@ string anti_shuffle(string sStr) {
             result += " ";
         } else {
             string word;
-            for (int j = i; j < sStr.length() && sStr[j] != ' '; j++) {
+            int j = i;
+            while (j < sStr.length() && sStr[j] != ' ') {
                 word += sStr[j];
+                j++;
             }
             sort(word.begin(), word.end());
-            result += word;
+            for (char c : word) {
+                result += c;
+            }
             i = j - 1;
         }
     }
@@ -21,9 +25,6 @@ string anti_shuffle(string sStr) {
 }
 
 int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << "Anti-shuffled sentence: " << anti_shuffle(str) << endl;
+    assert(anti_shuffle("Hi. My name is Mister Robot. How are you?") == ".Hi My aemn is Meirst .Rboot How aer ?ouy");
     return 0;
 }
