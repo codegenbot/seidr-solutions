@@ -1,4 +1,4 @@
-```Python
+```
 import re
 
 def filter_by_substring():
@@ -29,13 +29,10 @@ def filter_by_substring():
         except ValueError:
             print("Invalid input. Please try again.")
 
-    if substring:
-        result = [s for s in strings if re.compile(substring).search(s)]
-        if expected_output.lower() == "true values":
-            print(result[:num_to_display])
-        elif expected_output.lower() == "false values":
-            print([s for s in strings if not re.compile(substring).search(s)][:num_to_display])
-        else:
-            print(result + [s for s in strings if not re.compile(substring).search(s)][:num_to_display])
+    result = [s for s in strings if re.compile(substring).search(s)]
+    if expected_output.lower() == "true values":
+        print(result[:num_to_display])
+    elif expected_output.lower() == "false values":
+        print([s for s in strings if not re.compile(substring).search(s)][:num_to_display])
     else:
-        print("Please enter a substring first.")
+        print(result + [s for s in strings if not re.compile(substring).search(s)][:num_to_display])
