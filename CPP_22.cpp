@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -38,6 +39,6 @@ int main() {
     }
     std::cout << std::endl;
 
-    assert(issame({1, 1, 1}, {1, 1, 1}));
+    assert(std::vector<int>({{1, 1, 1}}) == std::vector<int>({{1, 1, 1}}));
     return 0;
 }
