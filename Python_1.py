@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```
 from typing import List
 
@@ -21,10 +19,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(temp_str)
                 temp_str = ''
     
-    if stack:
-        for _ in range(stack.count('(')):
-            temp_str += ')'
-            result.append(temp_str)
-            temp_str = ''
-
-    return result
+    return [temp_str] if stack else result
