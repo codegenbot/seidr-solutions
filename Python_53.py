@@ -10,7 +10,7 @@ def main():
             x, y = map(int, inputs.split())
             result = add((x, y))
             print(result)
-        except ValueError:
+        except (ValueError, EOFError):
             print("Error: Invalid input")
 
 if __name__ == "__main__":
