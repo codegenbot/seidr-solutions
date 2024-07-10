@@ -1,6 +1,6 @@
 #include <vector>
 #include <cassert>
-#include <cmath> // Include cmath for abs function
+#include <cmath>
 
 float max_element(const vector<float>& l){
     float max_val = l[0];
@@ -13,6 +13,6 @@ float max_element(const vector<float>& l){
 }
 
 int main() {
-    assert(abs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4); // Use correct syntax to create vector
+    assert(abs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
     return 0;
 }
