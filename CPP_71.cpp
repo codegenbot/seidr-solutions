@@ -1,17 +1,18 @@
+```cpp
 #include <iostream>
 #include <cmath>
 #include <cassert>
+#include <string>
 
-float triangle_area(int a, int b, int c) {
+float triangle_area(int a, int int b, int c) {
     float s = (a + b + c) / 2;
     return sqrt(s * (s - a) * (s - b) * (s - c));
 }
 
-int main 
-{
+int main {
     std::cout << "Enter sides of triangle: ";
     std::cin >> std::ws;  
-    char s1[4], s2[4], s3[4];
+    std::string s1, s2, s3;
     std::cin >> s1 >> s2 >> s3;
 
     int a = std::stoi(s1);
