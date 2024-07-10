@@ -1,26 +1,34 @@
-string file_name_check(string file_name){
-    int dot_count = 0;
-    int digit_count = 0;
-    bool valid_start = false;
+bool has_digits = false;
+int dot_count = 0;
 
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] == '.')
-            dot_count++;
-        else if(isdigit(file_name[i]))
-            digit_count++;
-        else if(isalpha(file_name[i])){
-            valid_start = true;
-            break;
-        }
-    }
-
-    if(digit_count > 3 || dot_count != 1 || !valid_start)
-        return "No";
-    else{
-        string extension = file_name.substr(file_name.find('.')+1);
-        if(extension == "txt" || extension == "exe" || extension == "dll")
-            return "Yes";
-        else
-            return "No";
+for (char c : file_name) {
+    if (c == '.') {
+        dot_count++;
+    } else if (isdigit(c)) {
+        has_digits = true;
     }
 }
+
+if (dot_count != 1 || has_digits > 3) {
+    return "No";
+}
+
+size_t pos = file_name.find('.');
+string prefix = file_name.substr(0, pos);
+string suffix = file_name.substr(pos + 1);
+
+if (!isalpha(prefix[0]) || prefix.empty()) {
+    return "No";
+}
+
+string valid_suffixes[] = {"txt", "exe", "dll"};
+bool is_valid_suffix = false;
+
+for (const string& s : valid_suffixes) {
+    if (suffix == s) {
+        is_valid_suffix = true;
+        break;
+    }
+}
+
+return is_valid_suffix ? "Yes" : "No";
