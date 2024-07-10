@@ -1,5 +1,5 @@
 bool issame(pair<float, float> a, pair<float, float> b) {
-    return a.first == b.first && a.second == b.second;
+    return (a.first == b.first && a.second == b.second) || (a.first == b.second && a.second == b.first);
 }
 
 pair<float, float> find_closest_elements(vector<float> numbers) {
@@ -12,7 +12,7 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
             result = {numbers[i], numbers[i + 1]};
         }
     }
-    return result;
+    return {result.first, result.second};
 }
 
 assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
