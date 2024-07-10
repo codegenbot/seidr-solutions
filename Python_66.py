@@ -1,3 +1,4 @@
-```
+import re
+
 def digitSum(n):
-    return sum(int(digit) for digit in str(n).replace(' ', '').lower() if digit.isdigit())
+    return sum(int(digit) for digit in re.findall('\d', str(n)))
