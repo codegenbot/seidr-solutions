@@ -1,12 +1,23 @@
+```cpp
 #include <vector>
+#include <initializer_list>
+
+bool issame(vector<int> game, vector<int> guess) {
+    for (int i = 0; i < game.size(); i++) {
+        if (game[i] != guess[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<int> compare(vector<int> game, vector<int> guess) {
-    vector<int> result;
+    vector<int> result(game.size());
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
-            result.push_back(0);
+            result[i] = 0;
         } else {
-            result.push_back(abs(game[i] - guess[i]));
+            result[i] = abs(game[i] - guess[i]);
         }
     }
     return result;
