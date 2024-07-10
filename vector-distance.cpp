@@ -7,7 +7,7 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
-    
+
     double temp;
     vector<double> vec1, vec2;
 
