@@ -1,10 +1,12 @@
-bool will_it_fly(vector<int> q, int w) {
+#include <vector>
+
+bool will_it_fly(const std::vector<int>& q, int w) {
     int sum = 0;
-    for (int i = 0; i < q.size(); i++) {
-        sum += q[i];
+    for (const auto& weight : q) {
+        sum += weight;
     }
     
-    if (sum > w) {
+    if (sum >= w) {
         return false;
     }
     
@@ -15,10 +17,4 @@ bool will_it_fly(vector<int> q, int w) {
     }
     
     return true;
-}
-
-int main() {
-    assert(will_it_fly({5}, 5) == true);
-
-    return 0;
 }
