@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(string& a, const string& b) {
+bool issame(const string& a, const string& b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++) {
@@ -13,6 +13,12 @@ bool issame(string& a, const string& b) {
             return false;
     }
     return true;
+}
+
+string reverse(const std::string& s) {
+    std::string t = s;  
+    std::reverse(t.begin(),t.end());
+    return t;
 }
 
 string reverse_delete(const string& s1, const string& s2) {
@@ -24,9 +30,7 @@ string reverse_delete(const string& s1, const string& s2) {
             s1 = s1.substr(0, pos) + s1.substr(pos + 1);
         }
     }
-    string reversed = s1; 
-    reverse(reversed.begin(),reversed.end());
-    return reversed;
+    return reverse(s1);
 }
 
 int main() {
@@ -41,6 +45,9 @@ int main() {
     else
         cout << "Second number is greater." << endl;
 
-    assert(issame(to_string(num1) + to_string(num2), reverse_delete("mama", "ma")));
+    string s1 = to_string(num1) + to_string(num2);
+    string s2 = "mama";
+    string reversed = reverse_delete(s2, s1); 
+    assert(issame(s1, reversed));
     return 0;
 }
