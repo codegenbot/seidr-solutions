@@ -1,7 +1,4 @@
-```cpp
-#include <string>
-using namespace std;
-
+```c++
 std::string solve(std::string s) {
     std::string result = "";
     for (char c : s) {
@@ -11,8 +8,5 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? std::string(s).reverse() : result;
-}
-
-int main() {
+    return !result.empty() ? result : std::string(s).reverse();
 }
