@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-#include <cctype>
+#include <cctype> // for isupper(), islower()
 
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = -1;
