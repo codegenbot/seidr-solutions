@@ -1,4 +1,6 @@
-```
+Here is the modified code without unnecessary empty strings:
+
+```python
 def parse_music(music_string: str) -> list:
     music_list = []
     i = 0
