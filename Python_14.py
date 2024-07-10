@@ -18,12 +18,12 @@ def all_prefixes() -> None:
 
     while True:
         try:
-            n = int(input("Please enter the number of prefixes: "))
-            if n <= 0:
+            num = int(input("Please enter the number of prefixes: "))
+            if num <= 0:
                 print("Error: Number of prefixes must be positive.")
             else:
                 break
         except ValueError as e:
             print(f"Invalid input. Please enter an integer.")
 
-    print("\n".join(get_all_prefixs(s)))
+    print("\n".join(get_all_prefixes(s)[:num]))
