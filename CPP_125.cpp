@@ -1,3 +1,3 @@
 int main() {
-    assert(issame(split_words(""), const vector<string>&));
+    assert(issame(split_words(""), vector<string>({"0"})));
 }
