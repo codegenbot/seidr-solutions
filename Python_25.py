@@ -1,4 +1,3 @@
-```Python
 from typing import List
 import math
 
@@ -6,43 +5,61 @@ import math
 def main():
     while True:
         try:
-            n = int(input("Enter an integer: "))
-            if n < 1:
+            n1 = int(input("Enter the first integer: "))
+            if n1 < 1:
                 print("Please enter a positive integer.")
                 continue
             break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
-    factors = []
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-            count = 0
-            while n % i == 0:
-                n //= i
-                count += 1
-            factors.extend([i] * count)
-    if n > 1:
-        factors.append(n)
-
     while True:
         try:
-            k = int(input(f"What is the {len(factors)+1} prime factor? "))
-            if k < 2 or k in factors:
-                print("Invalid input. Please enter a new, distinct prime factor.")
+            n2 = int(input("Enter another integer: "))
+            if n2 < 1:
+                print("Please enter a positive integer.")
                 continue
             break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
-    if k not in factors:
-        print(f"{k} is not a divisor of {factors[0]}")
+    factors1 = []
+    i = 2
+    while i * i <= n1:
+        if n1 % i:
+            i += 1
+        else:
+            n1 //= i
+            count = 0
+            while n1 % i == 0:
+                n1 //= i
+                count += 1
+            factors1.extend([i] * count)
+    if n1 > 1:
+        factors1.append(n1)
+
+    factors2 = []
+    i = 2
+    while i * i <= n2:
+        if n2 % i:
+            i += 1
+        else:
+            n2 //= i
+            count = 0
+            while n2 % i == 0:
+                n2 //= i
+                count += 1
+            factors2.extend([i] * count)
+    if n2 > 1:
+        factors2.append(n2)
+
+    common_factors = list(set(factors1) & set(factors2))
+    if common_factors:
+        print(
+            f"{', '.join(map(str, common_factors))} are the common factors between {n1} and {n2}."
+        )
     else:
-        print(f"{k} is a divisor of {factors[0]}")
+        print(f"{n2} is not a divisor of {factors1[0]}")
 
 
 if __name__ == "__main__":
