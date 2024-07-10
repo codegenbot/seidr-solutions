@@ -1,3 +1,4 @@
+```
 def fruit_distribution(s, n):
     s = s.lower()
     if not s:
@@ -15,14 +16,9 @@ def fruit_distribution(s, n):
                     break
                 fruit += words[j] + " "
             fruit = fruit.strip()
+            total_count = 0
             if fruit:
-                if fruit in fruits:
-                    total_count = fruits[fruit]
-                    new_count = min(count, n - total_count)
-                    fruits[fruit] = total_count + new_count
-                    if fruits[fruit] > n:
-                        fruits[fruit] = n
-                else:
-                    fruits[fruit] = count
+                total_count = min(count, n - total_count)
+                fruits[fruit] = total_count
         i += 1
     return len(fruits)
