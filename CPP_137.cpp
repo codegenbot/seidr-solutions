@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <algorithm>
@@ -13,8 +14,8 @@ boost::any compare_one(boost::any a, boost::any b) {
         std::string strA = boost::any_cast<std::string>(a);
         std::string strB = boost::any_cast<std::string>(b);
 
-        double numA = stod(strA);
-        double numB = stod(strB);
+        double numA = std::stod(strA);
+        double numB = std::stod(strB);
 
         if (numA > numB) {
             return a;
@@ -29,7 +30,7 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(std::string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
         std::string str = boost::any_cast<std::string>(a);
 
-        double num = stod(str);
+        double num = std::stod(str);
 
         if (num > boost::any_cast<double>(b)) {
             return a;
@@ -45,7 +46,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         double numA = boost::any_cast<double>(a);
         std::string strB = boost::any_cast<std::string>(b);
 
-        double numB = stod(strB);
+        double numB = std::stod(strB);
 
         if (numA > numB) {
             return a;
