@@ -1,5 +1,5 @@
 def simplify(x, n):
     a, b = map(int, x.split("/"))
     c, d = map(int, n.split("/"))
-    g = abs((a*d) // (b*c))
-    return f"{a//g}/{b//g}" if g != 1 else f"{a}/{b}"
+    gcd = lambda a, b: a if not b else gcd(b, a % b)
+    return gcd(a, b) == gcd(c, d)
