@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -26,8 +25,8 @@ if __name__ == "__main__":
         for _ in range(n):
             while True:
                 user_input = input()
-                if user_input.isdigit():
-                    print("Please provide a string instead of a number.")
+                if not user_input.replace("-", "").isalnum():
+                    print("Please provide a string instead of something else.")
                 else:
                     strings.append(user_input)
                     break
