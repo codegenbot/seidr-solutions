@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int solution(std::initializer_list<int> lst) {
