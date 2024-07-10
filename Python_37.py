@@ -1,4 +1,8 @@
-def sort_even(l: list):
-    even_indices = [i for i, _ in enumerate(l) if i % 2 == 0]
-    return [x if i % 2 != 0 else sorted([l[j] for j in even_indices])[k]
-           for k, (i, x) in enumerate(sorted((i, x) for i, x in zip(even_indices, l))) if i % 2 == 0]
+def sort_even(lst):
+    even_numbers = sorted([x for x in lst if x % 2 == 0])
+    odd_numbers = sorted([x for x in lst if x % 2 != 0])
+
+    return [
+        x if i < len(even_numbers) else y
+        for i, (x, y) in enumerate(zip(even_numbers, odd_numbers))
+    ]
