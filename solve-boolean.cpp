@@ -50,13 +50,9 @@ bool solveBoolean(std::string s) {
 }
 
 int main() {
-    std::string input;
-
-    std::cout << "Enter a boolean expression: ";
+    std::string s = "TF|&";
     
-    std::getline(std::cin, input); // Read the entire line at once
-
-    bool result = solveBoolean(input);
+    bool result = solveBoolean(s);
 
     if (result) {
         std::cout << "The resulting Boolean is true." << std::endl;
