@@ -3,30 +3,21 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
 bool issame(float a, float b) {
-    if (abs(a - b) < 1e-9)
-        return true;
-    else
-        return false;
+    return std::abs(a - b) < 0.001;
 }
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
-    sort(numbers.begin(), numbers.end());
-    vector<pair<float, float>> closest_pairs;
-    
-    for (int i = 0; i < numbers.size() - 1; i++) {
-        if (!issame(numbers[i], numbers[i + 1])) {
-            pair<float, float> p = make_pair(numbers[i], numbers[i + 1]);
-            closest_pairs.push_back(p);
+    std::vector<std::pair<float, float>> closest_pairs;
+    for (size_t i = 0; i < numbers.size() - 1; ++i) {
+        if (issame(numbers[i], numbers[i + 1])) {
+            closest_pairs.push_back({numbers[i], numbers[i]});
         }
     }
-    
     return closest_pairs;
 }
 
-int main() { 
+int main() {
     std::vector<float> numbers;
     float num;
     while (std::cin >> num) {
