@@ -3,7 +3,7 @@ def mastermind(code, guess):
     white = [0]*6 
     code_counts = [0]*6 
 
-    for i in range(6):
+    for i in range(4):
         if code[i] == guess[i]:
             black += 1
         else:
