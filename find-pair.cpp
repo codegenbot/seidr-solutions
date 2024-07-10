@@ -27,11 +27,8 @@ int main() {
     }
     int target;
     cin >> target;
-
     vector<int> result = findPair(nums, target);
-
     cout << result[0] << endl;
     cout << result[1] << endl;
-
     return 0;
 }
