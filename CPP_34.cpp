@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -36,11 +37,9 @@ int main() {
         input.push_back(x);
     }
     
-    auto unique_end = input.erase(std::unique(input.begin(), input.end()), 
-                                   input.end());
+    auto unique_end = distinct(input.begin(), input.end());
     std::vector<int> output(input.begin(), unique_end);
-    std::sort(output.begin(), output.end());
-    
+
     for (int i : output) {
         std::cout << i << " ";
     }
