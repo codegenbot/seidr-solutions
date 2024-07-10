@@ -1,7 +1,6 @@
+#include <cassert>
 #include <vector>
 #include <string>
-#include <cassert>
-
 using namespace std;
 
 bool isSame(const vector<string>& a, const vector<string>& b) {
