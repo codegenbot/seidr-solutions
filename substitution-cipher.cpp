@@ -3,21 +3,22 @@ using namespace std;
 
 int main() {
     string cipher1, cipher2, message;
-    cin >> cipher1 >> cipher2 >> message;
-    
+    getline(cin, cipher1);
+    getline(cin, cipher2);
+    getline(cin, message);
+
     for (char &c : message) {
-        size_t pos = cipher1.find(c);
-        if (pos != string::npos) {
-            c = cipher2[pos];
-        } else {
-            pos = cipher2.find(c);
-            if (pos != string::npos) {
-                c = cipher1[pos];
+        bool found = false;
+        for (int i = 0; i < cipher1.length(); ++i) {
+            if (c == cipher1[i]) {
+                c = cipher2[i];
+                found = true;
+                break; // Add break statement here
             }
         }
     }
-    
+
     cout << message;
-    
+
     return 0;
 }

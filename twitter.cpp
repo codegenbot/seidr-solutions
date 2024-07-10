@@ -4,7 +4,6 @@
 int main() {
     std::string tweet;
     std::getline(std::cin, tweet);
-    tweet.erase(tweet.find_last_not_of(" \t\n\r\f\v") + 1);
 
     if (tweet.empty()) {
         std::cout << "You didn't type anything" << std::endl;
