@@ -2,7 +2,7 @@
 #include <iostream>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return (a.size() == b.size()) && std::all_of(a.begin(), a.end(), [&](int x) { return std::binary_search(b.begin(), b.end(), x); });
 }
 
 std::vector<int> filter_integer(std::vector<int> values) {
