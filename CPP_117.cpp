@@ -16,11 +16,14 @@ std::vector<std::string> select_words(std::string input, int k) {
     std::istringstream iss(input);
     std::vector<std::string> words;
 
-    for (int k = 0; ; k++) {
-        if (!std::getline(iss, words[k], ' ")) break;
+    for (std::string s; std::getline(iss, s, ' ');) {
+        if (words.size() < k) {
+            words.push_back(s);
+        }
+        else {
+            break;
+        }
     }
-
-    std::sort(words.begin(), words.end());
 
     return words;
 }
