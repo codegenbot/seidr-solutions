@@ -16,25 +16,12 @@ def main():
     while True:
         try:
             n2 = int(input("Enter another integer: "))
-            if n2 >= 1:
-                break
-            print("Please enter a positive integer.")
+            if n1 == n2 or n2 <= 0:
+                print(f"{n1} is the common factor between {n1} and {n2}.")
+                return
+            break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
-
-    while True:
-        if not (n1 > 0 and n2 > 0):
-            print("Please enter positive integers.")
-            try:
-                n1 = int(input("Enter the first integer: "))
-                if n1 < 1:
-                    print("Please enter a positive integer.")
-                    continue
-                break
-            except ValueError:
-                print("Invalid input. Please enter a valid integer.")
-        else:
-            break
 
     factors1 = []
     i = 2
@@ -67,13 +54,12 @@ def main():
         factors2.append(n2)
 
     common_factors = list(set(factors1) & set(factors2))
-
-    if not common_factors:
-        print(f"No common factor found between {n1} and {n2}.")
-    else:
+    if common_factors:
         print(
             f"{', '.join(map(str, common_factors))} are the common factors between {n1} and {n2}."
         )
+    else:
+        print(f"No common factor found between {n1} and {n2}.")
 
 
 if __name__ == "__main__":
