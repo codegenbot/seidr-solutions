@@ -1,5 +1,8 @@
 ```cpp
-int smallest_change(vector<int> arr) {
+#include <iostream>
+#include <vector>
+
+int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     int left = 0, right = n - 1;
     int changes = 0;
@@ -20,7 +23,6 @@ int smallest_change(vector<int> arr) {
     }
 
     return changes;
-
 }
 
 int main() {
