@@ -10,4 +10,5 @@ for _ in range(num_bounces):
     start_height *= 2
     distance_per_bounce = (1 + bounciness_index) ** -1
     total_distance += distance_per_bounce * start_height
-print(int(total_distance))
+
+print(str(int(total_distance)))
