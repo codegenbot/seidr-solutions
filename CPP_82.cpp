@@ -25,7 +25,7 @@ int main()
     int len = input.length(); 
     std::string lenStr = "";
     while(len > 0) {
-        lenStr.insert(0, (len % 10) + '0');
+        lenStr.insert(0, std::to_string(len % 10));
         len /= 10;
     }
     bool result = flag && prime_length(lenStr);
