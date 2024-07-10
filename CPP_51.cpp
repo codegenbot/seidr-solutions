@@ -1,19 +1,15 @@
+```cpp
 #include <string>
-using namespace std;
+#include <cctype>
 
-string remove_vowels(string text){
-    string result = "";
-    for(char c : text){
-        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'
-           && tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i'
-           && tolower(c) != 'o' && tolower(c) != 'u'){
-            result += c;
+std::string remove_vowels(std::string text) {
+    for (auto it = text.begin(); it != text.end();) {
+        if (std::toupper(*it) == 'A' || std::toupper(*it) == 'E' 
+            || std::toupper(*it) == 'I' || std::toupper(*it) == 'O' || std::toupper(*it) == 'U') {
+            it = text.erase(it, it+1);
+        } else {
+            ++it;
         }
     }
-    return result;
-}
-
-int main() {
-    assert (remove_vowels("ybcd") == "ybcd");
-    return 0;
+    return text;
 }
