@@ -1,5 +1,4 @@
-#include <iostream>
-
+```cpp
 int main() {
     int cents;
     std::cin >> cents;
