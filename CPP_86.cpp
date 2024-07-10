@@ -1,5 +1,5 @@
+```cpp
 #include <algorithm>
-#include <vector>
 #include <cassert> 
 using namespace std;
 
@@ -29,3 +29,4 @@ string anti_shuffle(string sStr) {
         }
     }
     return result;
+}
