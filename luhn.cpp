@@ -1,7 +1,7 @@
 #include <vector>
 #include <cstdint>
 
-int luhn(std::vector<int16_t> cc) {
+int luhn(vector<int16_t> cc) {
     int sum = 0;
     bool doubleNext = false;
 
