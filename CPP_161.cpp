@@ -1,8 +1,3 @@
-```cpp
-#include <string>
-#include <cctype>
-#include <cassert>
-
 int solve(std::string s) {
     for (int i = 0; i < s.length(); i++) {
         if (std::isupper(s[i])) { 
@@ -13,6 +8,6 @@ int solve(std::string s) {
 }
 
 int main() {
-    assert(solve("ccc") == 3);
+    assert(solve("#ccc") == 4);
     return 0;
 }
