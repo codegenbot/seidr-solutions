@@ -1,11 +1,10 @@
-import sys
-
-def parse_music(music_data: str):
-    lines = []
-    for line in music_data.splitlines():
-        lines.append(line)
-    return lines
+def parse_music(music_data):
+    notes = music_data.split()
+    result = []
+    for note in notes:
+        if note.isdigit():
+            result.append(int(note))
+    return result
 
 music_data = input()
-
 print(parse_music(music_data))
