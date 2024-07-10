@@ -1,5 +1,5 @@
-#include <vector>
-using namespace std;
+#include <vector> // Include vector library
+using namespace std; // Specify std namespace
 
 float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
     float total = 0.0;
