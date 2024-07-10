@@ -4,10 +4,6 @@
 using namespace std;
 
 float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
-    if (prices.size() != discounts.size()) {
-        return -1;
-    }
-
     float total = 0.0;
     for (int i = 0; i < prices.size(); ++i) {
         total += prices[i] * (1.0 - discounts[i] / 100.0);
@@ -17,15 +13,25 @@ float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
 
 int main() {
     int n;
-    cin >> n;
+    if (!(cin >> n)) {
+        cerr << "Error reading the number of items" << endl;
+        return 1;
+    }
+
     vector<float> prices(n);
     for (int i = 0; i < n; ++i) {
-        cin >> prices[i];
+        if (!(cin >> prices[i])) {
+            cerr << "Error reading price for item " << i + 1 << endl;
+            return 1;
+        }
     }
 
     vector<float> discounts(n);
     for (int i = 0; i < n; ++i) {
-        cin >> discounts[i];
+        if (!(cin >> discounts[i])) {
+            cerr << "Error reading discount percentage for item " << i + 1 << endl;
+            return 1;
+        }
     }
 
     float total_price = calculateTotalPrice(prices, discounts);
