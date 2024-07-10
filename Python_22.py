@@ -1,4 +1,3 @@
-```
 import re
 
 
@@ -18,8 +17,8 @@ def filter_integers() -> None:
 
     try:
         user_values = [
-            int(val) for val in user_input.split(",")
-            if val.strip() and re.match(r"^\d+$", val)
+            int(val)
+            for val in filter(lambda x: len(x.strip()) > 0, user_input.split(","))
         ]
 
         if not user_values:
@@ -28,6 +27,13 @@ def filter_integers() -> None:
             print(f"The integers from the input are: {user_values}")
             print(f"Minimum Value: {user_values[0]}")
         else:
+            while True:
+                response = input("Calculate average and minimum? (yes/no): ")
+                if response.lower() != "yes":
+                    print("Program terminated.")
+                    return None
+                break
+
             avg_value = sum(user_values) / len(user_values)
             min_value = min(user_values)
 
@@ -36,6 +42,3 @@ def filter_integers() -> None:
             print(f"Minimum Value: {min_value}")
     except (ValueError, ZeroDivisionError):
         print("Invalid input. Please enter a valid list of comma-separated integers.")
-
-
-filter_integers()
