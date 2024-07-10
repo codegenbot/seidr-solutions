@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
 #include <string>
 #include <cctype>
 #include <cstdlib>  
 #include <cmath>    
-#include <cstring>  
+#include <cstring>
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = 0;
@@ -27,12 +26,13 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
         }
     }
     
-    result = eval(expression.c_str());
+    long long y = 0;
+    result = eval(expression.c_str(), y);
     
     return result;
 }
 
-long long eval(const char *p, long long y = LLONG_MIN) {
+long long eval(const char *p, long long y) {
     while (*p) {
         if (isdigit(*p)) {
             p += 1;
