@@ -1,28 +1,39 @@
-bool issame(vector<string> lst1, vector<string> lst2) {
-    if (lst1.size() != lst2.size()) {
-        return false;
-    }
-    for (int i = 0; i < lst1.size(); i++) {
-        if (lst1[i] != lst2[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
     for (const string& s : lst) {
-        int sum = 0;
-        for (char c : s) {
-            sum += (c - '0');
-        }
-        if (sum % 2 == 0) {
+        if (s.length() % 2 == 0) {
             result.push_back(s);
         }
     }
 
-    sort(result.begin(), result.end());
+    sort(result.begin(), result.end(),
+         [](const string& a, const string& b) {
+             int sumA = 0, sumB = 0;
+             for (char c : a) {
+                 if (isalpha(c)) {
+                     sumA += issame(tolower(c)) ? 1 : 3;
+                 }
+             }
+             for (char c : b) {
+                 if (isalpha(c)) {
+                     sumB += issame(tolower(c)) ? 1 : 3;
+                 }
+             }
+             return tie(sumA, a) < tie(sumB, b);
+         });
 
     return result;
+}
+
+bool issame(char c) {
+    switch (c) {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+            return true;
+        default:
+            return false;
+    }
 }
