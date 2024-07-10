@@ -1,10 +1,14 @@
 #include <string>
+#include <algorithm>
 
 int solve(std::string s) {
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] >= 'A' && s[i] <= 'Z') {
-            s[i] += ('a' - 'A');
-        }
+    for (char &c : s) {
+        c = std::tolower(c);
     }
     return s.length();
+}
+
+int main() {
+    assert(solve("#ccc") == 3);
+    return 0;
 }
