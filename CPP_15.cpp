@@ -5,7 +5,7 @@ std::string string_sequence(int n){
     for(int i = 0; i <= n; i++){
         result += std::to_string(i) + " ";
     }
-    result.pop_back(); // Remove the extra space at the end
+    result.pop_back();
     return result;
 }
 
