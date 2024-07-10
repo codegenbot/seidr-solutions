@@ -14,5 +14,5 @@ int getMax(int n) {
             max = x;
     }
 
-    return *std::max_element(&x, &x+n);
+    return max;
 }
