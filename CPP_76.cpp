@@ -5,18 +5,20 @@
 
 bool is_simple_power(int x, int n) {
     if (n == 0) return false; 
-    std::string strY = std::to_string(round(pow(n, log(x) / log(n)))); // Round the result to ensure a valid comparison
-    return (strY == std::to_string(x));
+    double y = pow(n, log(x) / log(n));
+    return std::abs(y - x) < 1e-9; 
 }
 
 int main() {
     std::cout << "Enter a number: ";
-    int tempX;
-    std::cin >> tempX;
+    std::string tempXStr;
+    std::cin >> tempXStr;
+    int tempX = std::stoi(tempXStr);
 
     std::cout << "Enter another number: ";
-    int nTemp;
-    std::cin >> nTemp;
+    std::string nTempStr;
+    std::cin >> nTempStr;
+    int nTemp = std::stoi(nTempStr);
 
     if (nTemp != 0) {
         if(is_simple_power(tempX, nTemp))  

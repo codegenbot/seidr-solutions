@@ -1,17 +1,18 @@
 #include <string>
 #include <algorithm>
 #include <iostream>
-#include <ostream>
 
 int is_bored(const std::string& S){
     int count = 0;
-    for(size_t i = 0; i < S.length(); ++i) {
-        if(S[i] == 'I' && i == 0) {
+    size_t pos = 0;
+    while (pos != S.size()) {
+        if (S.substr(0, 1).compare("I") == 0) {
             count++;
+            break;
         }
+        pos++;
     }
     return count;
-}
 
 int main() {
     std::string input; 
