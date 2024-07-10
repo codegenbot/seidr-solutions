@@ -1,6 +1,4 @@
-#include <cmath>
-
-bool isPower(int x, int n) {
+bool is_simple_power(int x, int n) {
     if (x <= 0 || n <= 0) {
         return false;
     }
