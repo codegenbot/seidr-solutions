@@ -1,30 +1,11 @@
-#include <vector>
-using namespace std;
-
-int firstNegative(vector<int> arr) {
-    for (int i = 0; i < arr.size(); i++) {
+int basement(std::vector<int> nums) {
+    for (int i = 0; i < nums.size(); ++i) {
         int sum = 0;
-        for (int j = 0; j <= i; j++) {
-            sum += arr[j];
-        }
-        if (sum < 0) {
-            return i;
+        for (int j = 0; j <= i; ++j) {
+            sum += nums[j];
+            if (sum < 0)
+                return i;
         }
     }
     return -1;
-}
-
-int main() {
-    // Read the size of the array
-    int n;
-    cin >> n;
-
-    vector<int> arr(n);
-    for(int i = 0; i < n; i++){
-        cin >> arr[i];
-    }
-
-    cout << firstNegative(arr);
-
-    return 0;
 }
