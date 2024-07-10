@@ -1,5 +1,2 @@
 def solve_boolean(expression):
-    while "|" in expression:
-        left, right = expression.split("|", 1)
-        expression = "(" + str(bool(left) or bool(right)) + ")"
-    return eval(" " + ("T" if expression == "True" else "False") + " ")
+    return eval(''.join(['T' if c == 'T' else 'False' for c in expression]).replace('&', lambda s: ' and' if s == 'True' else ' and False'))
