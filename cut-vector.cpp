@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <climits>
 
 int main() {
     std::vector<int> nums;
@@ -14,21 +13,21 @@ int main() {
     int cutIndex = 0;
     
     for (int i = 1; i < nums.size(); ++i) {
-        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
+        int diff = abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
-
+    
     for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << '\n';
+        std::cout << nums[i] << std::endl;
     }
-    std::cout << 0 << '\n';
+    std::cout << 0 << std::endl;
     for (int i = cutIndex; i < nums.size(); ++i) {
-        std::cout << nums[i] << '\n';
+        std::cout << nums[i] << std::endl;
     }
-    std::cout << 0 << '\n';
+    std::cout << 0 << std::endl;
     
     return 0;
 }
