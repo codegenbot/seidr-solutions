@@ -13,11 +13,11 @@ std::string find_max(const std::vector<std::string>& words) {
         });
 }
 
-void startProgram() {
-    std::vector<std::string> words;
+int main() {
     int n;
     std::cout << "Enter the number of words: ";
     std::cin >> n;
+    std::vector<std::string> words;
     for (int i = 0; i < n; ++i) {
         std::string str;
         getline(std::cin, str); 
@@ -30,10 +30,5 @@ void startProgram() {
         }
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
-    return 0;
-}
-
-int main() {
-    startProgram();
     return 0;
 }
