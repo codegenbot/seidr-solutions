@@ -23,11 +23,10 @@ def prime_fib(n: int):
             count += 1
     return num
 
-while True:
+if __name__ == '__main__':
     n = int(input("Enter the value of n: "))
-    if n > 0:
+    if n <= 0:
+        print("The input value should be greater than 0.")
+    else:
         result = prime_fib(n)
         print(result)
-        break
-    else:
-        print("The input value should be greater than 0.")
