@@ -23,7 +23,7 @@ def max_fill(grid, capacity):
                 left -= grid[row][col]
 
         total_left, total_right = 0, 0
-        for col in range(min(len(min_col), cols)):
+        for col in range(min(row+1, cols)):  
             if min_col[col] > 0:
                 if grid[row][col] > 0:
                     total_left += grid[row][col]
