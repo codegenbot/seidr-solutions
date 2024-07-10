@@ -1,7 +1,10 @@
 def find_zero(xs: list):
-    n = len(xs) // 2
-    a, b = xs[n], max(xs[:n] + xs[n + 1:])
+    n = len(xs) - 1
+    a = xs[0]
+    b = xs[n]
     return -a / b
 
-xs = list(map(int, input().split()))
-print(find_zero(xs))
+input_list = list(map(float, input("Enter comma-separated numbers: ").split(','))
+
+result = find_zero(input_list)
+print(result)
