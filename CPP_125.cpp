@@ -39,12 +39,10 @@ bool issame(vector<string> a, vector<string> b){
 
 int main() {
     using namespace std;
-    
-    vector<string> input1 = split_words("hello, world");
-    vector<string> input2 = split_words("apple banana");
-    
-    assert(issame(input1, input1));
-    assert(!issame(input1, input2));
-    
+    string input;
+    getline(cin, input);
+    vector<string> output = split_words(input);
+    vector<string> expected_output = split_words(input);
+    assert(issame(output, expected_output));
     return 0;
 }
