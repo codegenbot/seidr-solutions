@@ -9,6 +9,6 @@ def make_palindrome(s: str) -> str:
             return s + s[:i][::-1]
     return s + s[:-1][::-1]
 
-input_str = input("Enter a string: ")
+input_str = input("Enter a string: ").strip()
 result = make_palindrome(input_str)
 print(result)
