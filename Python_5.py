@@ -8,7 +8,7 @@ def intersperse(a, b):
             result.append(b)
     else:
         for _ in range(len([b])):
-            result.extend([a, b])
+            result.extend([a])
     return result
 
 list1 = [2]
