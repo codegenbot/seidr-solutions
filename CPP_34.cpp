@@ -10,7 +10,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> removeDuplicates(const std::vector<int>& l) {
     std::vector<int> result = l;
     std::sort(result.begin(), result.end());
-    result.erase(std::removeDuplicates(result.begin(), result.end()), result.end());
+    result.erase(std::unique(result.begin(), result.end()), result.end());
     return result;
 }
 
