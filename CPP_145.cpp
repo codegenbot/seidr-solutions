@@ -14,7 +14,7 @@ int sum_of_digits(int num) {
     return sum;
 }
 
-vector<int> order_by_points(const vector<int>& nums) {
+vector<int> order_by_points(vector<int> nums) {
     vector<int> sorted_nums = nums; 
     sort(sorted_nums.begin(), sorted_nums.end(), [&](int a, int b) {
         int sum_a = sum_of_digits(a);
@@ -25,9 +25,4 @@ vector<int> order_by_points(const vector<int>& nums) {
         return sum_a < sum_b;
     });
     return sorted_nums;
-}
-
-int main() {
-    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
-    return 0;
 }
