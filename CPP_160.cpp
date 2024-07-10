@@ -1,20 +1,28 @@
 #include <vector>
-#include <cmath>
+#include <string>
+#include <cstdio>
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
-    int result = operand[0];
+    string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
-        if (operator_[i] == "+") {
-            result += operand[i + 1];
-        } else if (operator_[i] == "-") {
-            result -= operand[i + 1];
-        } else if (operator_[i] == "*") {
-            result *= operand[i + 1];
-        } else if (operator_[i] == "//") {
-            result = static_cast<int>(result / double(operand[i + 1]));
-        } else if (operator_[i] == "**") {
-            result = pow(result, double(operand[i + 1]));
+        if (i == 0)
+            expression += to_string(operand[i]);
+        else {
+            expression += " ";
+            expression += operator_[i];
+            expression += " ";
+            expression += to_string(operand[i]);
         }
     }
+
+    int result = 0;
+    for(int i=1; i<operator_.size(); i++) {
+        if(operator_[i-1] == "//") {
+            result /= operand[i];
+        } else if(operator_[i-1] == "*") {
+            result *= operand[i];
+        }
+    }
+
     return result;
 }
