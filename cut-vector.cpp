@@ -1,24 +1,27 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
 
 using namespace std;
 
 int main() {
     vector<int> nums = {3, 1, 4, 1, 5, 9, 2, 6, 5};
-    int target = accumulate(nums.begin(), nums.end(), 0) / 2;
+    int totalSum = 0;
+    for (int num : nums) {
+        totalSum += num;
+    }
+    int target = totalSum;
 
     int prefixSum = 0;
     int index = -1;
 
     for (int i = 0; i < nums.size(); ++i) {
         prefixSum += nums[i];
-        if (prefixSum == target) {
+        if (prefixSum == target / 2) {
             index = i;
             break;
         }
-        int diff1 = abs(prefixSum - target);
-        int diff2 = abs(target - (prefixSum - nums[i]));
+        int diff1 = abs(prefixSum - target / 2);
+        int diff2 = abs(target - 2 * prefixSum);
         if (diff1 < diff2) {
             index = i;
             break;
