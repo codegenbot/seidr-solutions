@@ -2,19 +2,16 @@
 #include <list>
 #include <boost/any.hpp>
 
-using namespace std;
-using namespace boost;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
 
-vector<int> filter_integers(list<any> values) {
-    vector<int> result;
+std::vector<int> filter_integers(std::list<boost::any> values) {
+    std::vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value)) {
-            result.push_back(any_cast<int>(value));
+        if (boost::any_cast<int>(value)) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
-}
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
 }
