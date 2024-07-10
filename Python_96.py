@@ -11,6 +11,4 @@ def count_up_to(n):
     for i in range(2, n+1): 
         if is_prime(i):
             result.append(i)
-            if i >= n:  # Stop generating prime numbers when we reach or exceed `n`
-                break
-    return result
+    return result[:n]
