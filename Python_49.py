@@ -3,8 +3,8 @@ import random
 
 
 def modp():
-    n = int(input("Enter a number: "))
-    p = int(input("Enter another number: "))
+    p = int(input("Enter a number: "))
+    n = int(input("Enter another number: "))
     if pow(2, n - 1, p) == 1:
         return False
     for _ in range(p - 2):
