@@ -1,4 +1,4 @@
-```python
+```
 def digitSum(s):
     total = 0
     for i, c in enumerate(s):
