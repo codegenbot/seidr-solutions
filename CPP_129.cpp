@@ -41,27 +41,27 @@ void minPathTest() {
     }
     
     for (int i : minPath(input, target)) {
-        string pathStr = "";
+        vector<int> output;
         while(i > 0) {
             if(i >= input[1].size()) {
                 i -= input[1][0];
-                pathStr += std::to_string(input[1][0]) + " "; 
+                output.push_back(input[1][0]);
             } else {
                 int j = 0;
                 while(j < input.size() && i >= input[j][0]) {
                     i -= input[j][0];
-                    pathStr += std::to_string(input[j][0]) + " "; 
+                    output.push_back(input[j][0]);
                     j++;
                 }
                 break;
             }
         }
-        bool same = issame({1, 3, 1, 3, 1, 3, 1, 3, 1, 3}, vector<int>(pathStr.begin(), pathStr.end()));
-        if(same) {
-            cout << pathStr << endl;
-        } else {
-            cout << "No paths found with length " << target << "." << endl;
+        string tempStr = "";
+        for (int i : output) {
+            if (!tempStr.empty()) tempStr += " "; 
+            tempStr += std::to_string(i) + " "; 
         }
+        cout << tempStr << endl;
     }
 }
 
