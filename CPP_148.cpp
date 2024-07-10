@@ -1,7 +1,9 @@
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-vector<string> bf(string planet1, string planet2);
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -37,7 +39,6 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    vector<string> planets = bf("Earth", "Mars");
-    assert(issame(planets, {"Venus"}));
+    assert(issame(bf("Jupiter", "Makemake"), vector<string>{}));
     return 0;
 }
