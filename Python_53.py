@@ -7,6 +7,6 @@ while True:
         y = int(input("Enter second number: ").strip())
         break
     except ValueError:
-        print("Please enter a valid integer.")
+        print("Invalid input. Please enter a valid integer.")
 
 print(add(x, y))
