@@ -1,25 +1,20 @@
-```cpp
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
     bool res = true;
     for (int i = 0; i < s.length(); ++i) {
-        if (s[i] == 'f') {
+        if (s[i] == 'T') {
+            res = true;
+        }
+        else if (s[i] == 'F') {
             res = false;
-            break;
         }
         else if (s[i] == '&') {
-            while (i + 1 < s.length() && s[i+1] != '|') {
-                if (!res) return false;
-                i++;
-            }
+            if (!res) return false;
         }
         else if (s[i] == '|') {
-            while (i + 1 < s.length() && s[i+1] != '&' && s[i+1] != 'f') {
-                if (res) return true;
-                i++;
-            }
+            if (res) return true;
         }
     }
     return res;
