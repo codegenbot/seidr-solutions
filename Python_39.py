@@ -1,8 +1,3 @@
-import sys
-sys.stdin = open(0).buffer
-
-n = int(input("Enter the value of n: "))
-
 import math
 
 def is_prime(num):
@@ -28,5 +23,6 @@ def prime_fib(n: int):
             count += 1
     return num
 
+n = int(input("Enter the value of n: "))
 result = prime_fib(n)
 print(result)
