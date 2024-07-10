@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <openssl/evp.h>
+#include <openssl/md5.h>
 
 using namespace std;
 
@@ -29,11 +30,4 @@ string string_to_md5(const string &text) {
     }
 
     return string(mdString);
-}
-
-int main() {
-    string input;
-    getline(cin, input);
-    cout << string_to_md5(input) << endl;
-    return 0;
 }
