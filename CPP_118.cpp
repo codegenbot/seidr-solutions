@@ -1,15 +1,27 @@
-Here is the completed code:
-
 string get_closest_vowel(string word) {
-    int left = 0;
-    for (int i = word.length() - 1; i >= 0; --i) {
+    int n = word.size();
+    for (int i = 2; i < n; ++i) {
         if (!isalpha(word[i])) continue;
-        if (isvowel(word[i])) {
-            while (left < i && !isalpha(word[left]) && isalnum(word[left]))
-                ++left;
-            return string(1, tolower(word[i]));
+        bool left_consonant = true;
+        for (int j = 1; j < i; ++j) {
+            if (!isalpha(word[j])) continue;
+            if (!isupper(word[j]) && !islower(word[j] - 'a' + 'A')) left_consonant = false;
+            break;
         }
-        ++left;
+        bool right_consonant = true;
+        for (int j = i; j < n; ++j) {
+            if (!isalpha(word[j])) continue;
+            if (!isupper(word[j]) && !islower(word[j] - 'a' + 'A')) right_consonant = false;
+            break;
+        }
+        if (left_consonant && right_consonant) {
+            for (char c : {"A", "E", "I", "O", "U", "a", "e", "i", "o", "u"}) {
+                int index = i - 1;
+                while (index >= 0 && !isalpha(word[index])) --index;
+                if (word.substr(index + 1, i - index - 1).find(c) != string::npos)
+                    return c;
+            }
+        }
     }
     return "";
 }
