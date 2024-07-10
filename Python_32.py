@@ -1,3 +1,4 @@
+```
 def find_zero(xs):
     n = len(xs)
     total_sum = sum(xs)
@@ -10,7 +11,6 @@ def find_zero(xs):
             if subset_sum == 0:
                 zero_combinations += 1
         return zero_combinations
-
 
 xs = [int(x) for x in input("Enter the coefficients: ").split()]
 if len(xs) % 2 != 0:
