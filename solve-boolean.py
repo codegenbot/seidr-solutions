@@ -1,17 +1,14 @@
-def solve(input_str):
-    if input_str == "t":
+def solve_boolean(expression):
+    if expression == "T":
         return True
-    elif input_str == "f":
+    elif expression == "F":
         return False
-    elif "&" in input_str and "|" in input_str:
+    elif "&" in expression and "|" in expression:
         raise ValueError("Invalid expression")
-    elif "&" in input_str:
-        ops = input_str.split("&")
-        return (
-            not (eval(ops[0]) if ops[0] else False) and eval(ops[1])
-            if len(ops) > 1
-            else True
-        )
-    elif "|" in input_str:
-        ops = input_str.split("|")
-        return eval(ops[0]) or eval(ops[1])
+    result = expression[0]
+    for op, bit in zip({"&", "|"}[expression[1] == "&"], expression[2:].split()):
+        if bit == "T":
+            result = (result, True)[op == "&"]
+        else:
+            result = (result, False)[op == "&"]
+    return result
