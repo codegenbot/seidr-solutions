@@ -1,4 +1,9 @@
 def solve(N):
-    binary = str(bin(N)[2:])
-    ones_count = sum(int(i) for i in binary)
-    return bin(ones_count)[2:].zfill(len(binary)).replace("0b", "")
+    N = bin(N)[2:]
+    result = ""
+    for i in N:
+        if i == '1':
+            result += "0"
+        else:
+            result += "1"
+    return result
