@@ -7,7 +7,6 @@ std::vector<int> intersperse(const std::vector<int>& vec, int val){
         result.push_back(num);
         result.push_back(val);
     }
-    result.pop_back(); // remove extra val at the end
     return result;
 }
 

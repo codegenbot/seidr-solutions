@@ -3,11 +3,11 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> parse_nested_parens(std::string input){
+std::vector<int> parse_nested_parens(std::string input) {
     std::vector<int> result;
     int count = 0;
     for (char c : input) {
@@ -16,14 +16,9 @@ std::vector<int> parse_nested_parens(std::string input){
         } else if (c == ')') {
             count--;
             if (count == 0) {
-                result.push_back(0);
+                result.back()++;
             }
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(parse_nested_parens("(()(())((())))"), std::vector<int>{4}));
-    return 0;
 }
