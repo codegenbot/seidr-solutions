@@ -11,7 +11,7 @@ bool is_nested(std::string str) {
                    (c == '}' && !brackets.empty() && brackets.top() == '{') ||
                    (c == ')' && !brackets.empty() && brackets.top() == '(')) {
             brackets.pop();
-        } else if (c == ']' || c == '}' || c == ')') {
+        } else if ((c == ']' || c == '}' || c == ')') && brackets.empty()) {
             return false;
         }
     }
