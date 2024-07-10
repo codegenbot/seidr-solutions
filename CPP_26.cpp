@@ -1,9 +1,9 @@
-using namespace std;
-
 #include <vector>
 #include <algorithm>
+using namespace std;
 
 vector<int> remove_duplicates(vector<int> numbers);
+bool issame(std::vector<int> a, std::vector<int> b);
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
