@@ -17,3 +17,8 @@ vector<string> by_length(const vector<int>& nums) {
     }
     return words;
 }
+
+int main() {
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
+    return 0;
+}
