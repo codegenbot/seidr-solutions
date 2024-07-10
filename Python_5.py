@@ -1,3 +1,7 @@
 def intersperse(a, b):
-    result = [x for t in ((y,) for y in a) + ((b),) * (len(a) - 1) for x in t]
-    return result if isinstance(b, int) else result[1:]
+    result = [b]
+    for item in a:
+        result.extend([item, b])
+    if b:  
+        result.append(b)
+    return result
