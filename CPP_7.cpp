@@ -1,10 +1,4 @@
-#include <vector>
-#include <string>
-#include <cassert>
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> result;
