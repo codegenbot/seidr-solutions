@@ -1,17 +1,20 @@
+// Include the necessary header files
+#include <iostream>
+#include <vector>
 #include <algorithm>
-#include <string>
-#include <cassert>
 
 int count_distinct_characters(const std::string& str) {
-    std::string temp = str;
-    transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
-    sort(temp.begin(), temp.end());
-    temp.erase(unique(temp.begin(), temp.end()), temp.end());
-    return temp.size();
+    std::vector<char> distinct_chars;
+    for (char c : str) {
+        char lowercase_c = std::tolower(c);
+        if (std::find(distinct_chars.begin(), distinct_chars.end(), lowercase_c) == distinct_chars.end()) {
+            distinct_chars.push_back(lowercase_c);
+        }
+    }
+    return distinct_chars.size();
 }
 
 int main() {
-    std::string test_input = "Hello World";
-    int expected_result = 8;
-    assert(count_distinct_characters(test_input) == expected_result);
+    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
+    return 0;
 }
