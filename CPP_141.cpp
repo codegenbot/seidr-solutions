@@ -1,7 +1,7 @@
 #include <string>
 #include <cassert>
 
-int countDigits(std::string s) {
+int countDigits(string s) {
     int count = 0;
     for (char c : s) {
         if (isdigit(c)) {
@@ -11,14 +11,14 @@ int countDigits(std::string s) {
     return count;
 }
 
-std::string file_name_check(std::string file_name){
+string file_name_check(string file_name){
     int dotPos = file_name.find('.');
-    if (dotPos == std::string::npos || dotPos == 0 || dotPos == file_name.size()-1) {
+    if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.size()-1) {
         return "No";
     }
 
-    std::string nameBeforeDot = file_name.substr(0, dotPos);
-    std::string extension = file_name.substr(dotPos + 1);
+    string nameBeforeDot = file_name.substr(0, dotPos);
+    string extension = file_name.substr(dotPos + 1);
 
     if (countDigits(nameBeforeDot) > 3) {
         return "No";
