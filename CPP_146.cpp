@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -10,11 +11,7 @@ int main() {
     while (true) {
         getline(std::cin, num);
         if (num == "stop") break;
-        size_t pos = num.find('\n');
-        if (pos != std::string::npos) {
-            num.erase(pos);
-        }
-        nums.push_back(num);
+        nums.push_back(num.substr(0, num.size() - 1)); // remove newline character
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
 }
