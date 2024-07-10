@@ -27,7 +27,6 @@ int main() {
     for (auto it = codeFreq.begin(); it != codeFreq.end(); ++it) {
         whitePegs += min(it->second, guessFreq[it->first]);
     }
-
     for (int i = 0; i < 4; ++i) {
         if (code[i] != guess[i] && codeFreq[code[i]] > 0 && guessFreq[guess[i]] > 0) {
             whitePegs++;
