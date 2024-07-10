@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -9,10 +9,11 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 int main() {
     int n1, n2;
+    std::vector<int> v1; 
+    std::vector<int> v2;
+
     std::cout << "Enter number of elements in the first vector: ";
     std::cin >> n1;
-
-    std::vector<int> v1(n1);
     for (int i = 0; i < n1; i++) {
         int x;
         std::cout << "Enter element " << i + 1 << ": ";
@@ -22,8 +23,6 @@ int main() {
 
     std::cout << "\nEnter number of elements in the second vector: ";
     std::cin >> n2;
-
-    std::vector<int> v2(n2);
     for (int i = 0; i < n2; i++) {
         int x;
         std::cout << "Enter element " << i + 1 << ": ";
@@ -36,5 +35,4 @@ int main() {
     } else {
         std::cout << "The vectors are not the same.";
     }
-    
 }
