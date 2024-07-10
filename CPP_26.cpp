@@ -7,7 +7,7 @@ bool issame(int x, int y) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> v) {
-    std::vector<int> result(std::max_element(v.begin(), v.end()) - v.begin() + 1);
+    std::vector<int> result;
     for (int x : v) { 
         bool found = false;
         for (int y : result) { 
