@@ -31,7 +31,7 @@ int main() {
     vector<vector<string>> input = {{"grunt"}, {"trumpet"}, {"prune"}, {"gruesome"}};
     string sub = "run";
     vector<vector<string>> expected = {{{"grunt"}}, {{"prune"}}};
-    
+
     if (!issame(filter_by_substring(input, sub), expected)) {
         std::cerr << "Error: Filtered result does not match expected output." << std::endl;
         return 1;
