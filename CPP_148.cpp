@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -19,10 +18,9 @@ bool issame(vector<string> a) {
     return true;
 }
 
-int original_main() {
+int main() {
     int num;
     cin >> num;
-    vector<string> strings;
     for (int i = 0; i < num; i++) {
         string str1, str2;
         cin >> str1 >> str2;
