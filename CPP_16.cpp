@@ -1,9 +1,15 @@
-#include <string>
-#include <set>
+vector<char> characters;
 
-using namespace std;
-
-int count_distinct_characters(string str) {
-    set<char> distinct_chars(str);
-    return distinct_chars.size();
+for (char c : str) {
+    int index = 0;
+    for (; index < characters.size(); ++index) {
+        if (tolower(c) == tolower(characters[index])) {
+            break;
+        }
+    }
+    if (index == characters.size()) {
+        characters.push_back(c);
+    }
 }
+
+return characters.size();
