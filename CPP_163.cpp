@@ -18,6 +18,6 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main(){
-    assert(issame(generate_integers(17, 89), {})); // Test the generated integers
+    assert(issame(generate_integers(17, 89), {}));
     return 0;
 }
