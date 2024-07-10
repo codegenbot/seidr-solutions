@@ -10,8 +10,6 @@ def mastermind(code, guess):
             code_count[code[i]] -= 1
             guess_count[guess[i]] -= 1
 
-    white = sum(
-        count for char, count in code_count.items() if count > guess_count.get(char, 0)
-    )
+    white = sum(count for count in (code_count.get(char, 0) for char in set(guess)) if count > 0 and code_count.get(char, 0) > 0)
 
     return str(black) + "\n" + str(white)
