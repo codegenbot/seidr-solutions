@@ -1,4 +1,4 @@
-num_strings = int(input("Enter the number of strings: ").strip())
+num_strings = int(input().strip())
 strings = [input().strip() for _ in range(num_strings)]
 substring = input().strip()
 
