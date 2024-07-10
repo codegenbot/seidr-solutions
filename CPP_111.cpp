@@ -1,6 +1,14 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    map<char, int> count;
+#include <iostream>
+#include <map>
+#include <algorithm>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+std::map<char, int> histogram(std::string test) {
+    std::map<char, int> result;
+    std::map<char, int> count;
 
     for (char c : test) {
         if (c != ' ') {
@@ -9,11 +17,11 @@ map<char, int> histogram(string test) {
     }
 
     int maxCount = 0;
-    for (const auto& pair : count) {
-        maxCount = max(maxCount, pair.second);
+    for (const auto &pair : count) {
+        maxCount = std::max(maxCount, pair.second);
     }
 
-    for (const auto& pair : count) {
+    for (const auto &pair : count) {
         if (pair.second == maxCount) {
             result[pair.first] = pair.second;
         }
