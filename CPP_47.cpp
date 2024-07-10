@@ -6,7 +6,9 @@
 using namespace std;
 
 double median(const vector<int>& l) {
-    assert(!l.empty());
+    if (l.empty()) {
+        return 0.0;
+    }
     vector<int> sortedList = l;
     sort(sortedList.begin(), sortedList.end());
     int n = sortedList.size();
