@@ -1,3 +1,4 @@
+```
 from typing import List
 import math
 
@@ -8,20 +9,12 @@ def main():
             n1 = int(input("Enter the first integer: "))
             if n1 < 1:
                 print("Please enter a positive integer.")
-                for _ in range(2):
-                    try:
-                        n1 = int(input("Enter the first integer: "))
-                        if n1 < 1:
-                            print("Please enter a positive integer.")
-                        else:
-                            break
-                    except ValueError:
-                        print("Invalid input. Please enter a valid integer.")
-                else:
-                    continue
+                continue
+            n2 = int(input("Enter another integer: "))
+            n3 = int(input("Enter another integer: "))
             break
         except ValueError:
-            print("Invalid input. Please enter a valid integer.")
+            print("Invalid input. Please enter three valid integers.")
 
     factors1 = []
     i = 2
@@ -37,20 +30,6 @@ def main():
             factors1.extend([i] * count)
     if n1 > 1:
         factors1.append(n1)
-
-    while True:
-        try:
-            n2 = int(input("Enter another integer: "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
-
-    while True:
-        try:
-            n3 = int(input("Enter another integer: "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
 
     common_factors = []
     i = 2
