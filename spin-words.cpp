@@ -1,23 +1,32 @@
+Here's the solution:
+
 #include <vector>
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::vector<std::string> words;
+using namespace std;
+
+string spinWords(string input) {
+    string output = "";
     int start = 0;
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i] == ' ') {
-            string word = str.substr(start, i - start);
+    for (int i = 0; i <= input.length(); i++) {
+        if (i == input.length() || input[i] == ' ') {
+            string word = input.substr(start, i - start);
             if (word.length() >= 5) {
-                std::reverse(word.begin(), word.end());
+                reverse(word.begin(), word.end());
             }
-            words.push_back(word);
+            output += word + " ";
             start = i + 1;
         }
     }
-    for(int i = 0; i < words.size(); i++) {
-        str = str.replace(start, start + words[i].length(), words[i]);
-        start += words[i].length() + 1;
-    }
-    return str;
+    return output;
+}
+
+int main() {
+    // Your code to read the input and print the output goes here
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    cout << spinWords(input) << endl;
+    return 0;
 }
