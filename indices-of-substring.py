@@ -6,8 +6,9 @@ def indices_of_substring(text, target):
         if index == -1:
             break
         indices.append(index)
-        start = index + 1   # Update this line to start = index + 1
+        start = index + 1
     return indices
+
 
 text = input().strip()
 target = input().strip()
