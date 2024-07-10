@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -53,11 +52,15 @@ int main() {
         std::cin >> grades[i];
     }
 
-    std::cout << "Letter grades: ";
-    for (const auto& grade : numerical_letter_grade(grades)) {
-        std::cout << grade << " ";
+    if(issame(numerical_letter_grade(grades), {"A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "E"})) {
+        std::cout << "Letter grades: ";
+        for (const auto& grade : numerical_letter_grade(grades)) {
+            std::cout << grade << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "Invalid input. Please check your grades." << std::endl;
     }
-    std::cout << std::endl;
 
     return 0;
 }
