@@ -18,7 +18,7 @@ int fibfib(int n) {
 }
 
 int main() {
-    int result = fibfib(14);
-    std::cout << result << std::endl;
+    int n = 14;
+    std::cout << fibfib(n) << std::endl;
     return 0;
 }
