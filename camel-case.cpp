@@ -7,24 +7,19 @@ std::string camelCase(std::string str) {
         if (str[i] == '-') {
             i++;
             while (i < str.length() && str[i] == '-') i++;
-            if (i < str.length()) {
-                result += toupper(str[i]);
-                i++;
-            }
-        } else if (!result.empty() && isalpha(str[i])) {
-            result[0] = tolower(result[0]);
-            result.insert(0, 1);
-        } else {
-            result += tolower(str[i]);
+            result += toupper(str[i]);
+        } else if (str[i] != ' ') {
+            if (!result.empty()) result[0] = tolower(result[0]);
+            result += str[i];
         }
     }
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
+    std::string input;
+    while (std::cin >> input) {
+        std::cout << camelCase(input) << std::endl;
     }
     return 0;
 }
