@@ -1,16 +1,24 @@
-vector<int> indices;
-    for (int i = 0; i < l.size(); i++) {
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+std::vector<int> sort_third(const std::vector<int>& l) {
+    std::vector<int> l_copy = l;
+    for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
-            indices.push_back(i);
+            std::sort(l_copy.begin() + i, l_copy.begin() + i + 3);
         }
     }
-    vector<int> sorted_indices;
-    for (int index : indices) {
-        sorted_indices.push_back(l[index]);
-    }
-    sort(sorted_indices.begin(), sorted_indices.end());
-    for (int i = 0; i < indices.size(); i++) {
-        l[indices[i]] = sorted_indices[i];
-    }
-    return l;
+    return l_copy;
+}
+
+int main() {
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+    
+    return 0;
 }
