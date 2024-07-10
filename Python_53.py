@@ -5,7 +5,6 @@ def add(a: int, b: int) -> int:
 if __name__ == "__main__":
     while True:
         try:
-            # Task description
             print("Enter two integers to add:")
             a = int(input("Enter the first number: "))
             b = int(input("Enter the second number: "))
@@ -14,6 +13,5 @@ if __name__ == "__main__":
             break
         except ValueError:
             print("Please enter integers only. Please re-enter the numbers.")
-            continue
         except KeyboardInterrupt:
             print("\nProgram interrupted. Exiting.")
