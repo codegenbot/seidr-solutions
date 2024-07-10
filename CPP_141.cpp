@@ -1,22 +1,32 @@
-std::string file_name_check(std::string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
-    bool valid_prefix = true;
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
 
-    for(int i = 0; i < file_name.size(); i++){
+int main() {
+    string file_name;
+    cout << "Enter a file name: ";
+    getline(cin, file_name);
+    cout << "The result is: " << file_name_check(file_name) << endl;
+
+}
+
+string file_name_check(string file_name){
+    int count = 0;
+    bool foundDot = false;
+    for(int i=0; i<file_name.size(); i++){
         if(isdigit(file_name[i])){
-            digit_count++;
+            count++;
+            if(count > 3) return "No";
         }
         else if(file_name[i] == '.'){
-            found_dot = true;
+            foundDot = true;
         }
-        else{
-            if(!found_dot)
-                valid_prefix = isalpha(file_name[i]);
-            else
-                break;
+        else if(foundDot && (file_name.substr(i).find_first_of(std::string({"txt", "exe", "dll"})) != std::string::npos)){
+            return "Yes";
         }
     }
-
-    return (found_dot) ? "Yes" : "No";
+    if(count > 3 || !foundDot) return "No";
+    if(file_name[0] < 'a' || (file_name[0] > 'z' && file_name[0] < 'A') || (file_name[0] > 'Z')) return "No";
+    return "Yes";
 }
