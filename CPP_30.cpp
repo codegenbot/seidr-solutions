@@ -1,5 +1,3 @@
-#include <iostream>
-
 float get_positive(float num1, float num2) {
     if(num1 == num2)
         return (num1 > 0.0f) ? num1 : -num1;
@@ -7,12 +5,12 @@ float get_positive(float num1, float num2) {
         return 0.0f;
 }
 
-bool issame_two(float num1, float num2) {
-    return num1 == num2;
-}
-
-bool issame_four(float num1, float num2, float num3, float num4) {
-    return (issame_two(num1, num2) && issame_two(num1, num3) && issame_two(num1, num4));
+bool issame(std::vector<float> nums) {
+    for(int i = 1; i < nums.size(); i++) {
+        if(nums[0] != nums[i])
+            return false;
+    }
+    return true;
 }
 
 int main() {
@@ -38,10 +36,10 @@ int main() {
         return 1;
     }
 
-    bool are_same = issame_four(num1, num2, num3, num4);
+    bool are_same = issame({num1, num2, num3, num4});
     
     if (are_same) {
-        float result = get_positive(std::max({num1, num2}), std::min({num1, num2}));
+        float result = get_positive(std::max(num1, num2), std::min(num1, num2));
         std::cout << "The positive of the numbers is: " << result << std::endl;
     } else {
         std::cout << "The numbers are not same." << std::endl;
