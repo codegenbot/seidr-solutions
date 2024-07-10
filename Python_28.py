@@ -1,5 +1,3 @@
-```
-# Add a comment or any blank line here
 from typing import List
 
 
