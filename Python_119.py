@@ -1,3 +1,2 @@
-# Fix input reading
-n = int(input())
+n = int(input().strip())
 input_list = [input().strip() for _ in range(n)]
