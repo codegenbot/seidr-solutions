@@ -29,6 +29,6 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
 int main() {
     int result = gcd(12, 15);
-    std::vector<int> indices = indicesOfSubstring("hello", "ll");
+    std::vector<int> indices = indicesOfSubstring(std::string("hello"), std::string("ll"));
     return 0;
 }
