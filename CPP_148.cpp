@@ -3,6 +3,13 @@
 
 using namespace std;
 
+void badFunction(string n) {
+    if (n.empty())
+        cout << "Error: Input string is empty." << endl;
+    else
+        cout << "Input string is valid." << endl;
+}
+
 int main() {
     int num;
     cin >> num;
@@ -11,6 +18,10 @@ int main() {
     } else {
         cout << "Error: Input number should be positive." << endl;
     }
+    
+    string str;
+    cin >> str;
+    badFunction(str);
     
     return 0;
 }
