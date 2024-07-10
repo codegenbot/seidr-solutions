@@ -3,15 +3,18 @@ def add(a: int, b: int) -> int:
 
 while True:
     try:
-        a = int(input("Enter the first number: "))
-        b = int(input("Enter the second number: "))
-    except ValueError:
-        print("Please enter integers only. Please re-enter the numbers.")
-        continue
-    except KeyboardInterrupt:
-        print("\nProgram interrupted. Exiting.")
-        break
-    else:
+        while True:
+            try:
+                a = int(input("Enter the first number: "))
+                b = int(input("Enter the second number: "))
+                break
+            except ValueError:
+                print("Please enter integers only.")
+
         result = add(a, b)
         print(result)
+        break
+        
+    except KeyboardInterrupt:
+        print("\nProgram interrupted. Exiting.")
         break
