@@ -1,5 +1,4 @@
-import re
-
+```
 def filter_integers() -> None:
     while True:
         user_input = input("Please enter a comma-separated list of values (separated by commas), or type 'exit' to quit: ").replace(" ", "")
