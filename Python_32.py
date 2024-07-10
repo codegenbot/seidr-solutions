@@ -7,6 +7,7 @@ def find_zero(xs: list):
     else:
         return 1.0
 
+
 # Input
 xs = [float(x) for x in input().split()]
 
