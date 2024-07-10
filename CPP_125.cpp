@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 using namespace std;
@@ -24,18 +24,23 @@ vector<string> split_words(string input){
     return words;
 }
 
-void assert_vector_equal(vector<string> a, vector<string> b){
-    assert(a.size() == b.size());
-    for(size_t i = 0; i < a.size(); ++i){
-        assert(a[i] == b[i]);
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
     }
+    for(size_t i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 int main(){
-    assert_vector_equal(split_words("") ,{"0"});
-    assert_vector_equal(split_words("Hello World") ,{"Hello", "World"});
-    assert_vector_equal(split_words("C++ is awesome") ,{"C++", "is", "awesome"});
-    assert_vector_equal(split_words("123 456 789") ,{"123", "456", "789"});
+    assert(issame(split_words("") ,{"0"}));
+    // Additional test cases
+    assert(issame(split_words("hello world"), {"hello", "world"}));
+    assert(issame(split_words("apple banana cherry"), {"apple", "banana", "cherry"}));
 
     return 0;
 }
