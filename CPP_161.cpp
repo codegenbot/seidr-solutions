@@ -15,7 +15,7 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return !result.empty() ? result : string(s.rbegin(),s.end());
+    return !result.empty() ? result : "";
 }
 
 int main() {
