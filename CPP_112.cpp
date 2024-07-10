@@ -1,25 +1,34 @@
-```cpp
-#include <vector>
-#include <string>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-std::vector<std::string> reverse_delete(std::string s, std::string t) {
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
-    for(int i = 0; i < s.size(); i++) {
-        if(std::find(t.begin(), t.end(), s[i]) != t.end()) continue;
-        result.push_back(s.substr(i, 1));
+    
+    std::set<char> c_set(c.begin(), c.end());
+    
+    std::string temp = "";
+    
+    for (char ch : s) {
+        if (c_set.find(ch) == c_set.end()) {
+            temp += ch;
+        }
     }
+    
+    int i = 0, j = temp.length() - 1;
+    bool is_palindrome = true;
+    
+    while (i < j) {
+        if (temp[i] != temp[j]) {
+            is_palindrome = false;
+            break;
+        }
+        i++;
+        j--;
+    }
+    
+    result.push_back(temp);
+    if (is_palindrome) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
+    
     return result;
-}
-
-int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {{"ma","True"}}));
-    return 0;
 }
