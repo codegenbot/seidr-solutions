@@ -1,15 +1,16 @@
+#include <memory>
 #include <vector>
-#include <string>
 #include <set>
+#include <string>
 
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
+    std::vector<std::string> result;
     
     // Create a set of characters in string c for efficient lookups
-    set<char> c_set(c.begin(), c.end());
+    std::set<char> c_set(c.begin(), c.end());
     
     // Initialize an empty string to store the result
-    string temp = "";
+    std::string temp = "";
     
     // Iterate over each character in string s
     for (char ch : s) {
@@ -30,11 +31,11 @@ vector<string> reverse_delete(string s, string c) {
     
     // Add the result string and "True"/"False" to the vector
     result.push_back(temp);
-    result.push_back(is_palindrome ? "True" : "False");
+    result.push_back((is_palindrome) ? "True" : "False");
     
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return (a == b);
 }
