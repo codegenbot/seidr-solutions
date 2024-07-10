@@ -28,7 +28,7 @@ int main() {
     int size;
     cin >> size;
 
-    vector<int> v1; // Initialize the vector here
+    vector<int> v1(v2); // Initialize the vector here
 
     for (int i = 0; i < size; i++) {
         int x;
@@ -40,10 +40,7 @@ int main() {
 
     }
 
-    v2.resize(size);
-    vector<int> v3(v2); // Initialize v2 with 'size' default values
-
-    if (issame(pluck(v1), v3))  
+    if (issame(pluck(v1), v1))  
         cout << "Arrays are same" << endl;
     else   
         cout << "Arrays are not same" << endl;
