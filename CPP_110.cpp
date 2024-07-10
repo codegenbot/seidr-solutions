@@ -1,16 +1,20 @@
+#include <vector>
+#include <algorithm>
+using namespace std;
+
 int exchange(vector<int> lst1, vector<int> lst2) {
-    for (int i = 0; i < lst1.size(); i++) {
-        if (lst1[i] % 2 != 0) {
+    for (int num : lst1) {
+        if (num % 2 != 0) {
             bool found = false;
-            for (int j = 0; j < lst2.size(); j++) {
-                if (lst2[j] % 2 == 0) {
-                    swap(lst1[i], lst2[j]);
+            for (int num2 : lst2) {
+                if (num2 % 2 == 0) {
+                    swap(lst1[stoi(to_string(num))], lst2[stoi(to_string(num2))]);
                     found = true;
                     break;
                 }
             }
-            if (!found) return 0;
+            if (!found) return 0; // Changed "NO" to 0
         }
     }
-    return 1;
+    return 1; // Changed "YES" to 1
 }
