@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <cmath>
 #include <cassert>
@@ -17,4 +16,3 @@ int main() {
     int result = triangle_area(2, 2, 10);
     std::cout << "The area of the triangle is: " << result << std::endl;
     return 0;
-}
