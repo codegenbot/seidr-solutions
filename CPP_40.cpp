@@ -1,7 +1,8 @@
-#include <cassert>
 #include <vector>
+#include <cassert>
+using namespace std;
 
-bool triples_sum_to_zero(const std::vector<int>& nums) {
+bool triples_sum_to_zero(const vector<int>& nums) {
     for (int i = 0; i < nums.size(); ++i) {
         for (int j = i + 1; j < nums.size(); ++j) {
             for (int k = j + 1; k < nums.size(); ++k) {
