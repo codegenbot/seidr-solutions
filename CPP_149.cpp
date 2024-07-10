@@ -7,9 +7,10 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     for (int i = 0; i < a.size(); i++) {
         std::string a_str = a[i];
         std::string b_str = b[i];
-        std::string concatenated_str = a_str + b_str;
-        int num = std::stoi(concatenated_str);
-        if (!issorted({num})) return false;
+        int num1 = std::stoi(a_str);
+        int num2 = std::stoi(b_str);
+        if (!issorted({num1})) return false;
+        if (!issorted({num2})) return false;
     }
     return true;
 }
@@ -33,6 +34,8 @@ std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v)
 
 }
 
-int main() {
-    assert(issame({{"aaaa", "bbbb"}, {"cccc", "ddd"}}, {{"cccc", "ddd"}, {"aaaa", "bbbb"}}));
+int main() { 
+    assert(issame({{"aaaa", "bbbb"}, {"cccc", "ddd"}}, {{"cccc", "ddd"}, {"aaaa", "bbbb"}})); 
+    assert(issame(std::vector<std::string>{{"aaaa", "bbbb"}, {"dd", "cc"}},
+                  std::vector<std::string>{{"cc", "dd"}, {"aaaa", "bbbb"}})); 
 }
