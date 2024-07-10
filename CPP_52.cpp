@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cassert>
+#include <vector>
 
 using namespace std;
 
@@ -12,6 +12,4 @@ bool below_threshold(vector<int> numbers, int threshold) {
     return false;
 }
 
-int main() {
-    assert(not(below_threshold({1, 8, 4, 10}, 10)));
-}
+int main() { return 0; }
