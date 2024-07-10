@@ -10,18 +10,18 @@ long long double_the_difference(std::vector<float> lst){
         }
     }
     return sum;
-
 }
 
 int main() {
     std::vector<float> lst;
-    float input;
-    while(std::cin >> input){
-        lst.push_back(input);
+    float temp;
+    std::cout << "Enter numbers (enter 'stop' to stop input): ";
+    while(std::cin >> temp) {
+        if(temp == 'stop') break;
+        lst.push_back(temp);
     }
-
+    
     long long odd_sum = double_the_difference(lst);
 
-    // assert statements to verify the output
     return 0;
 }
