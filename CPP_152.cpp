@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-bool issame(vector<int> game, vector<int> guess) {
+bool std::issame(std::vector<int> game, std::vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {
         if (game[i] != guess[i]) {
             return false;
@@ -11,8 +10,8 @@ bool issame(vector<int> game, vector<int> guess) {
     return true;
 }
 
-vector<int> compare(vector<int> game, vector<int> guess) {
-    vector<int> result(game.size());
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+    std::vector<int> result(game.size());
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
             result[i] = 0;
