@@ -7,21 +7,39 @@ bool solveBoolean(std::string s) {
     int i = 0;
 
     while (i < s.size()) {
-        char c = s[i];
-
-        if (c == 'T')
-            i++;
-        else if (c == 'F')
-            return false; // F is always false
-        else if (c == '|') {
-            result = true;
-            i++;
-        }
-        else if (c == '&') {
-            while (i < s.size() && s[i] != '|') {
-                if (s[i] == 'F')
-                    return false; // & with F is always false
-                i++;
+        if (s[i] == '|') {
+            if (s[++i] == 'T' || s[i] == 'F')
+                return true; // || with T or F is always true
+            else if (s[i] != '|')
+                return false; // invalid expression
+        } else if (s[i] == '&') {
+            bool subResult = true;
+            while (i < s.size()) {
+                switch (s[i]) {
+                    case 'T':
+                        i++;
+                        break;
+                    case 'F':
+                        return false; // & with F is always false
+                    case '|':
+                        if (subResult)
+                            return true; // && with T and | is always true
+                        else
+                            return false; // && with F and | is always false
+                }
+            }
+        } else {
+            switch (s[i]) {
+                case 'T':
+                    i++;
+                    break;
+                case 'F':
+                    return false; // & or | with F is always false
+                case '|':
+                    if (result)
+                        return true; // || with T is always true
+                    else
+                        return false; // || with F is always false
             }
         }
     }
