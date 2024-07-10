@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -12,6 +13,6 @@ int main() {
     std::cout << ".\n" << (n > m ? ((double)n / (n + m)) : 0.0) << std::endl;
 }
 
-double probability(int, int) {
-    return (int)0.0;
+double probability(int n, int m) {
+    return (n > m ? ((double)n / (n + m)) : 0.0);
 }
