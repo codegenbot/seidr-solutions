@@ -1,6 +1,7 @@
 #include <vector>
 #include <set>
 #include <string>
+#include <initializer_list>
 
 std::pair<std::string, std::string> reverse_delete(std::string s, std::string c) {
     std::set<char> c_set(c.begin(), c.end());
