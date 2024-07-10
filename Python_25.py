@@ -8,7 +8,7 @@ def factorize(n: int) -> List[int]:
         except ValueError:
             print("Invalid input. Please enter an integer.")
     i = 2
-    factors = [n]
+    factors = []
     while i * i <= n:
         if n % i:
             i += 1
@@ -19,4 +19,7 @@ def factorize(n: int) -> List[int]:
                 count += 1
             for _ in range(count):
                 factors.append(i)
-    return factors
+    if n > 1:
+        factors.append(n)
+    print("The factors are: ")
+    print(factors)
