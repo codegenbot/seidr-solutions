@@ -1,10 +1,8 @@
+```cpp
 int add_elements(std::vector<int> arr, int k) {
-    if(k > arr.size()) {
-        k = arr.size();
-    }
     int sum = 0;
-    for (int i = 0; i < k; i++) {
-        if (std::to_string(arr[i]).size() <= 2) { 
+    for (int i = 0; i < std::min(k, arr.size()); i++) { 
+        if (arr[i] < 10) { 
             sum += arr[i];
         }
     }
