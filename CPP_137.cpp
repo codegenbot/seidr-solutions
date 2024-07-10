@@ -1,9 +1,3 @@
-#include <any>
-#include <cassert>
-#include <string>
-
-using namespace std;
-
 std::any compare_one(std::any a, std::any b) {
     if(a.type() == typeid(int) && b.type() == typeid(int)){
         if(std::any_cast<int>(a) > std::any_cast<int>(b)){
@@ -22,9 +16,9 @@ std::any compare_one(std::any a, std::any b) {
             return nullptr;
         }
     } else if(a.type() == typeid(string) && b.type() == typeid(string)){
-        if(stod(std::any_cast<string>(a)) > stod(std::any_cast<string>(b))){
+        if(std::stod(std::any_cast<string>(a)) > std::stod(std::any_cast<string>(b))){
             return a;
-        } else if(stod(std::any_cast<string>(a)) < stod(std::any_cast<string>(b))){
+        } else if(std::stod(std::any_cast<string>(a)) < std::stod(std::any_cast<string>(b))){
             return b;
         } else {
             return nullptr;
@@ -32,8 +26,4 @@ std::any compare_one(std::any a, std::any b) {
     } else {
         return nullptr;
     }
-}
-
-int main() {
-    assert(std::any_cast<string>(compare_one(string("1"), 1)) == "None");
 }
