@@ -1,7 +1,7 @@
 def bowling_score(bowls):
     score = 0
     frames = bowls.split("/")
-
+    
     for i in range(len(frames)):
         if frames[i] == "X":
             score += 10
@@ -28,12 +28,12 @@ def bowling_score(bowls):
                         score += 10
                     elif bowls[20] != "-":
                         score += int(bowls[20])
-
+                    
         else:
             for bowl in frames[i]:
                 if bowl == "-":
                     pass
                 else:
                     score += int(bowl)
-
+                
     return score
