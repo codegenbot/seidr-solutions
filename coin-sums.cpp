@@ -12,8 +12,8 @@ int main() {
     uint64_t remaining = cents;
 
     for (int i = 3; i >= 0; i--) {
-        result[i] += remaining / coins[i];
-        remaining %= coins[i];
+        result[i] += remaining / static_cast<uint64_t>(coins[i]);
+        remaining %= static_cast<uint64_t>(coins[i]);
     }
 
     cout << result[0] << endl;
