@@ -21,4 +21,20 @@ int count_nums(std::vector<int> nums) {
 
 }
 
-std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> nums;
+    while (n--) {
+        int num; 
+        while (!(std::cin >> num) || std::cin.peek() == '\n') {
+            if (std::cin.fail()) {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            }
+        }
+        nums.push_back(num);
+    }
+    std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
+    return 0;
+}
