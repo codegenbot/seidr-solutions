@@ -1,10 +1,7 @@
+```cpp
 #include <string>
 
 std::string string_xor(std::string a, std::string b) {
-    if (a.length() != b.length()) {
-        throw std::runtime_error("Input strings are not the same length");
-    }
-
     std::string result = "";
     for (int i = 0; i < a.length(); i++) {
         if ((a[i] - '0') ^ (b[i] - '0')) {
