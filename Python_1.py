@@ -1,4 +1,5 @@
-def solve_task() -> str:
+```
+def solve_task():
     while True:
         try:
             num1 = int(input("Enter first number: "))
