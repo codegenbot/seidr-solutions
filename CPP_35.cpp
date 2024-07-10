@@ -1,4 +1,6 @@
 #include <algorithm>
 #include <cmath>
 
-return *max_element(l.begin(), l.end()) / abs(*max_element(l.begin(), l.end()));
+int maxAbsolute(int* l, int n) {
+    assert(n > 0);
+    return *std::max_element(l, l+n);
