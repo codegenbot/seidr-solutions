@@ -1,10 +1,9 @@
-```cpp
 #include <initializer_list>
 
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
+bool issame(std::vector<std::string> a, std::vector<std::string>& b);
 
 std::vector<std::string> select_words(std::string s, int n);
 
@@ -18,7 +17,7 @@ int main() {
     return 0;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) { 
+bool issame(std::vector<std::string> a, std::vector<std::string>& b) { 
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
