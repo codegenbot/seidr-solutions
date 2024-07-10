@@ -1,8 +1,8 @@
 #include <vector>
 #include <cassert>
 
-vector<int> factorize(int n){
-    vector<int> factors;
+std::vector<int> factorize(int n){
+    std::vector<int> factors;
     for(int i=2; i*i<=n; i++){
         while(n%i == 0){
             factors.push_back(i);
