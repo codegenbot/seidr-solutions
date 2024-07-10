@@ -28,6 +28,8 @@ int main() {
     int size;
     cin >> size;
 
+    v2.resize(size);
+
     for (int i = 0; i < size; i++) {
         int x;
         cin >> x;
@@ -38,7 +40,7 @@ int main() {
 
     }
 
-    vector<int> v1({7, 9, 7, 1});
+    vector<int> v1 = {7, 9, 7, 1};
     if (issame(pluck(v1), v2))  
         cout << "Arrays are same" << endl;
     else   
