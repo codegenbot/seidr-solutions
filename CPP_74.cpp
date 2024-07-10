@@ -1,9 +1,14 @@
+```
 #include <vector>
 #include <string>
 #include <initializer_list>
 #include <cassert>
 
 using namespace std;
+
+bool is_same(vector<string> a, vector<string> b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+}
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0;
@@ -20,6 +25,5 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    assert(total_match({"this"}, {}) == {});
-    return 0;
+     assert (is_same(total_match({"this"}, {}), {}));
 }
