@@ -1,2 +1,5 @@
 def is_simple_power(x, n):
-    return int(n**0.5)**n == x
+    if x < 1:
+        return False
+    root = round(x ** (1 / n))
+    return root ** n == x
