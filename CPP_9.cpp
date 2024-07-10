@@ -15,3 +15,10 @@ namespace cpp9 {
         return result;
     }
 }
+
+int main() {
+    std::vector<int> nums = {1, 3, 5, 2, 7, 4, 8};
+    std::vector<int> max_values = cpp9::rolling_max(nums);
+
+    return 0;
+}
