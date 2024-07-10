@@ -10,7 +10,7 @@ double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proport
         }
         
         if (proportionMeltingPerHour > 0.0) {
-            snow -= std::fixed << std::setprecision(6) << snow * proportionMeltingPerHour;
+            snow -= std::nearbyint(snow * proportionMeltingPerHour);
         }
     }
     
@@ -25,7 +25,7 @@ int main() {
 
     double result = snowDay(hours, initialSnow, rateOfSnowfall, proportionMeltingPerHour);
 
-    std::cout << std::fixed << std::setprecision(6) << result << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << result << std::endl;
 
     return 0;
 }
