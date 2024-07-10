@@ -1,11 +1,9 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+```cpp
+bool issame(vector<int> a,vector<int>b){
+    return a==b;
 }
 
-std::vector<int> largest_smallest_integers(std::vector<int> lst) {
+vector<int> largest_smallest_integers(vector<int> lst){
     int max_negative = 0;
     int min_positive = INT_MAX;
 
