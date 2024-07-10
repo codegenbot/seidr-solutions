@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
@@ -23,3 +24,4 @@ int main() {
         std::cout << "No elements left" << std::endl;
     }
     return 0;
+}
