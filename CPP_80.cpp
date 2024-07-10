@@ -10,4 +10,3 @@ bool is_happy(string s) {
         if (!unique) return false;
     }
     return true;
-}
