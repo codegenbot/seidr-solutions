@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -26,6 +25,11 @@ string to_string(int i) {
     oss << i;
     return oss.str();
 }
+string to_string(long double x) {
+    ostringstream oss;
+    oss << fixed << setprecision(2) << x; 
+    return oss.str();
+}
 
 string reverse_delete(const string s1, const string s2) {
     int len1 = s1.length();
@@ -47,12 +51,11 @@ int main() {
     cin >> num1;
     cout << "Enter second number: ";
     cin >> num2;
-
     if(num1 > num2)
         cout << "First number is greater." << endl;
     else
         cout << "Second number is greater." << endl;
 
-    assert(issame(to_string(reverse_delete("mama", "ma")), reverse_delete("mama", "ma")));
+    assert(to_string(reverse_delete("mama", "ma")) == reverse_delete("mama", "ma"));
     return 0;
 }
