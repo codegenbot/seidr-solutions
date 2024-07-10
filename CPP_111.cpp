@@ -1,15 +1,10 @@
-#include <map>
-#include <cassert>
+#include <unordered_map>
+#include <string>
 
-bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
-    if (a.size() != b.size()) return false;
-    for (const auto& p : a) {
-        if (b.find(p.first) == b.end() || b.at(p.first) != p.second) return false;
+bool issame(std::unordered_map<char, int> a, std::unordered_map<char, int> b) {
+    if(a.size() != b.size()) return false;
+    for(auto p : a) {
+        if(b.find(p.first) == b.end() || b.at(p.first) != p.second) return false;
     }
     return true;
-
-}
-
-int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
 }
