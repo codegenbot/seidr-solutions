@@ -6,6 +6,8 @@ namespace std {
     using ::std::string;
 }
 
+using namespace std;
+
 string longest(vector<string> strings){
     if(strings.empty()) return "";
     string result = strings[0];
