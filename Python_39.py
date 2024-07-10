@@ -1,17 +1,17 @@
 ```
 def prime_fib(n: int):
-    def is_prime(num: int) -> bool:
-        if num < 2:
-            return False
-        for i in range(2, int(num**0.5) + 1):
-            if num % i == 0:
-                return False
-        return True
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, (a + b)
+    while True:
+        a, b = b, (a + b)
+        if is_prime(b):
+            return b
 
-    fib_sequence = [0, 1]
-    while len(fib_sequence) <= n:
-        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
-    
-    for num in fib_sequence:
-        if is_prime(num):
-            return num
+def is_prime(num: int):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
