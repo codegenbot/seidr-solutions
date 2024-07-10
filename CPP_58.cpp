@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
-
-using namespace std;
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
