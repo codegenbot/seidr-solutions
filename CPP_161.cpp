@@ -19,6 +19,6 @@ int solve(std::string s) {
 }
 
 int main() {
+    assert(solve("aAeEiIoUu") == 5); 
     std::cout << solve("aAeEiIoUu") << std::endl;
-    return 0;
 }
