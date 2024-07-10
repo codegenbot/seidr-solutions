@@ -1,15 +1,9 @@
 #include <vector>
-#include <cassert>
-#include <algorithm>
-#include <cmath>
+using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
 
-std::vector<int> compare(const std::vector<int>& game, const std::vector<int>& guess) {
-    std::vector<int> result(game.size());
-    std::transform(game.begin(), game.end(), guess.begin(), result.begin(),
-               [](int a, int b) { return std::abs(a - b); });
-    return result;
+int main() {
+    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), {2, 0, 0, 1}));
+    return 0;
 }
