@@ -20,5 +20,8 @@ bool correct_bracketing(const std::string& brackets) {
 int main() {
     std::string brackets;
     std::cin >> brackets;
+    
     std::cout << correct_bracketing(brackets);
+
+    return 0;
 }
