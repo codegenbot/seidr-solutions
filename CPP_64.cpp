@@ -1,9 +1,9 @@
+```cpp
 #include <string>
-#include <iostream>
 
 int main() {
     std::string s;
-    std::getline(std::cin, s);
+    getline(std::cin, s);
     int result = vowels_count(s);
     return 0;
 }
