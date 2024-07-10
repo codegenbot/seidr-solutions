@@ -1,6 +1,10 @@
+#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+
+bool issame(char a, char b) {
+    return a == b;
+}
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> result;
@@ -28,8 +32,4 @@ std::vector<std::string> split_words(std::string txt) {
         result[0] = std::to_string(count);
     }
     return result;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Add your implementation here
 }
