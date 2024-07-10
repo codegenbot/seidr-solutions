@@ -1,10 +1,10 @@
-#include <string>
+Here is the solution:
 
-string squareDigits(string input) {
-    string output = "";
-    for (char c : input) {
-        int digit = c - '0';
-        output += to_string(digit * digit);
+int squareDigits(int n) {
+    string str = to_string(n);
+    for (int i = 0; i < str.length(); i++) {
+        int digit = str[i] - '0';
+        str.replace(i, 1, to_string(digit * digit));
     }
-    return output;
+    return stoi(str);
 }
