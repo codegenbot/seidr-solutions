@@ -1,9 +1,8 @@
 Here is the completed code:
 
 bool any_int(float a, float b, float c) {
-    int ai = a;
-    int bi = b;
-    int ci = c;
-    
-    return (ai == bi + ci) || (bi == ai + ci) || (ci == ai + bi);
+    if (round(a) == a && round(b) == b && round(c) == c) {
+        return abs(a - b + c) < 1e-9;
+    }
+    return a == b + c || a == c + b || b == a + c || b == c + a || c == a + b || c == b + a;
 }
