@@ -1,31 +1,33 @@
+```cpp
+#include <iostream>
 #include <string>
-#include <vector>
 
-std::string words_in_sentence(std::string sentence){
-    std::string result = "";
-    for (const auto& word : split(sentence, ' ')){
-        if(is_prime(word.length())){
-            result += word + " ";
+int main() {
+    std::string words_in_sentence(std::string sentence){
+        std::string result = "";
+        for (int i = 0; i < sentence.size(); i++) {
+            if (sentence[i] != ' ') {
+                int len = 1;
+                while(i+1 < sentence.size() && sentence[i+1] != ' ') {
+                    i++;
+                    len++;
+                }
+                std::string word = sentence.substr(i-len+1, len);
+                bool is_prime = true;
+                for(int j = 2; j <= sqrt(len); j++) {
+                    if(len % j == 0) {
+                        is_prime = false;
+                        break;
+                    }
+                }
+                if(is_prime)
+                    result += word + " ";
+            }
         }
+        return result.substr(0, result.size()-1);
     }
-    return result.substr(0, result.size() - 1);
-}
 
-std::vector<std::string> split(const std::string& str, char c) {
-    std::vector<std::string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(c)) != std::string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
-    }
-    tokens.push_back(str);
-    return tokens;
-}
+    std::cout << words_in_sentence("here is") << std::endl;
 
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
+    return 0;
 }
