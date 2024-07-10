@@ -1,4 +1,5 @@
 import math
+import sys
 
 def is_prime(num):
     if num < 2:
@@ -24,6 +25,6 @@ def prime_fib(n: int):
                 count += 1
     return num
 
-n = int(input())
+n = int(sys.stdin.readline().strip())
 result = prime_fib(n)
 print(result)
