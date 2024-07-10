@@ -1,9 +1,8 @@
-while True:
-    try:
-        a = int(input("Enter the first integer: "))
-        b = int(input("Enter the second integer: "))
+try:
+    while True:
+        a, b = map(int, input().split())
+        if a == 0 and b == 0:
+            break
         print(a + b)
-    except ValueError:
-        print("Invalid input. Please enter integers only.")
-    except EOFError:
-        break
+except:
+    pass
