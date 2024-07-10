@@ -1,17 +1,21 @@
 n = int(input())
-a = [int(input()) for _ in range(n)]
+arr = [int(input()) for _ in range(n)]
 
-total_sum = sum(a)
-half_sum = total_sum // 2
+total_sum = sum(arr)
+left_sum = 0
+min_diff = total_sum
+cut_index = -1
 
-prefix_sum = 0
 for i in range(n):
-    prefix_sum += a[i]
-    if prefix_sum >= half_sum:
-        if prefix_sum == half_sum or prefix_sum - half_sum < total_sum - prefix_sum:
-            print(*a[: i + 1], sep="\n")
-            print(*a[i + 1 :], sep="\n")
-        else:
-            print(*a[:i], sep="\n")
-            print(*a[i:], sep="\n")
-        break
+    left_sum += arr[i]
+    right_sum = total_sum - left_sum
+    diff = abs(left_sum - right_sum)
+    if diff < min_diff:
+        min_diff = diff
+        cut_index = i
+
+output1 = arr[: cut_index + 1]
+output2 = arr[cut_index + 1 :]
+
+print(*output1)
+print(*output2)
