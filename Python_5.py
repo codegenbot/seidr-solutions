@@ -1,3 +1,4 @@
+```
 def intersperse(a, b):
     result = []
     if hasattr(a, '__iter__'):
@@ -6,9 +7,8 @@ def intersperse(a, b):
             result.append(next(iter(a)))
             result.append(b)
     else:
-        for _ in range(len(list(b))):
-            result.append(a)
-            result.append(b)
+        for _ in range(len([b])):
+            result.extend([a, b])
     return result
 
 list1 = [2]
