@@ -22,7 +22,7 @@ vector<int> order_by_points(vector<int> nums) {
 
     }
 
-    std::sort(pairs.begin(), pairs.end());
+    sort(pairs.begin(), pairs.end());
 
     vector<int> result;
     for (const auto& pair : pairs) {
