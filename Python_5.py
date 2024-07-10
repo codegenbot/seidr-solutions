@@ -1,9 +1,9 @@
 def intersperse(a, b):
-    if not a:
-        return [b]
     result = [b]
-    for item in a:
-        result.append(item)
+    if a:
+        for item in a:
+            result.extend([item, b])
         result.append(b)
-    result.append(b)
+    else:
+        return [b]
     return result
