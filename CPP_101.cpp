@@ -1,5 +1,7 @@
+```
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 std::vector<std::string> words_string(const std::string& s) {
     std::vector<std::string> result;
@@ -21,17 +23,15 @@ std::vector<std::string> words_string(const std::string& s) {
 
 }
 
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    std::vector<std::string> result = words_string(input);
-    bool same = issame(result, {"apple", "banana", "cherry"});
-    if (same) {
-        std::cout << "The strings are the same.\n";
-    } else {
-        std::cout << "The strings are not the same.\n";
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size())
+        return false;
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
     }
-    return 0;
+    
+    return true;
 
 }
