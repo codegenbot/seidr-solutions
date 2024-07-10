@@ -1,10 +1,13 @@
-int vowels_count(string s){
+int vowels_count(string s) {
     int count = 0;
-    for(int i=0; i<s.length(); i++){
-        if((s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') ||
-           (i+1==s.length() && s[i] == 'y')){
+    for (char c : s) {
+        if ((c == 'a') || (c == 'e') || (c == 'i') || (c == 'o') || (c == 'u')) {
             count++;
         }
+    }
+    // Check if the last character is 'y'
+    if (!s.empty() && s.back() == 'y') {
+        count++;
     }
     return count;
 }
