@@ -1,35 +1,26 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 1;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '/') {
-            if (currentFrame <= 9 && s[i+1] != 'X') {
-                score += 10 - (s[i-1] - '0');
+    int roll = 0;
+    for (char c : s) {
+        if (c == '/') {
+            if (roll < 2) {
+                score += 10 - (10 - (roll == 1 ? 10 : 20));
             }
-            currentFrame++;
-        } else if (isdigit(s[i])) {
-            int strike = s[i] - '0';
-            if (strike == 10) {
-                score += strike;
-                for (int j = i+1; j < s.length(); j++) {
-                    if (s[j] == '/') break;
-                    if (s[j] == 'X') {
-                        score += 10;
-                        i = j;
-                        break;
-                    }
+            roll = 0;
+        } else if (isdigit(c)) {
+            int val = c - '0';
+            if (roll == 0) {
+                if (val < 10) {
+                    score += val;
+                } else {
+                    score += 10 + val - 10;
                 }
             } else {
-                score += strike;
-            }
-        } else if (s[i] == 'X') {
-            score += 10;
-            for (int j = i+1; j < s.length(); j++) {
-                if (s[j] == '/') break;
-                if (s[j] == 'X') {
-                    score += 10;
-                    i = j;
-                    break;
+                roll++;
+                if (val < 10) {
+                    score += val;
+                } else {
+                    score += 10 + val - 10;
                 }
             }
         }
