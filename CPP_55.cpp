@@ -20,10 +20,3 @@ int fib(int n) {
     memo[n] = result;
     return result;
 }
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::cout << fib(n) << std::endl;
-    return 0;
-}
