@@ -1,4 +1,3 @@
-```
 def parse_music(music_string: str) -> list:
     music_list = []
     i = 0
@@ -13,10 +12,6 @@ def parse_music(music_string: str) -> list:
             music_list.append(1)
             i += 3
         else:
-            if i < len(music_string) - 1 and music_string[i:i+2] == '||':
-                music_list.append(0.5)
-                i += 2
-            else:
-                music_list.append(1)
-                i += 1
+            music_list.append(1)
+            i += 1
     return music_list
