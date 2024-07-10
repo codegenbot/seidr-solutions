@@ -1,6 +1,6 @@
-using namespace std;
+#include <vector>
 
-int basement(vector<int>& nums) {
+int basement(std::vector<int>& nums) {
     int sum = 0;
     int index = -1; 
     for (int i = 0; i < nums.size(); i++) {
@@ -10,4 +10,5 @@ int basement(vector<int>& nums) {
             break;
         }
     }
-    return index == -1 ? -1 : index;
+    return index == -1 ? -1 : index; 
+}
