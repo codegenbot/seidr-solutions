@@ -1,26 +1,22 @@
-int main() {
-    return 0;
-}
+#include <stdio.h>
+#include <string>
+using namespace std;
 
 bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) {
-        return false;
-    }
-    int i = 0;
-    bool isWord = false;
-    while (i < txt.length()) {
-        if (!isalpha(txt[i])) {
-            isWord = true;
+    if (txt.length() == 0) return false;
+    string lastChar = txt.substr(txt.length() - 1, 1);
+    for (int i = 0; i < txt.length(); i++) {
+        if (txt[i] == ' ') {
+            if (i + 1 == txt.length()) continue;
+            else if (txt.substr(i + 1).find(lastChar) != string::npos) return false;
             break;
         }
-        i++;
     }
-    if (!isWord) {
-        return false;
+    for (char c = 'a'; c <= 'z'; c++) {
+        if (c == lastChar[0]) return true;
     }
-    char lastChar = txt.back();
-    if (!isalpha(lastChar)) {
-        return false;
+    for (char c = 'A'; c <= 'Z'; c++) {
+        if (c == lastChar[0]) return true;
     }
-    return true;
+    return false;
 }
