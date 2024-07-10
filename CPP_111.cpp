@@ -13,17 +13,18 @@ std::map<char, int> histogram(std::string s) {
     return freqMap;
 }
 
-bool sameMaps(std::map<char,int> a, std::map<char,int> b){
+bool histogramCheck(std::map<char,int> a, std::map<char,int> b){
     if(a.size() != b.size())
         return false;
 
-    for(auto it=a.begin();it!=a.end();++it)
-        if(it->second != b.at(it->first))
+    for(auto it = a.begin(); it != a.end(); ++it) {
+        if(b.find(it->first) == b.end() || b.at(it->first) != it->second)
             return false;
-
+    }
     return true;
 }
 
 int main() {
-    assert(sameMaps(histogram("aa"), histogram("aaa")));
+    assert(histogramCheck(histogram("a"), { {'a', 1} }));
+    return 0;
 }
