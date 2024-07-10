@@ -1,3 +1,4 @@
+```
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -37,6 +38,7 @@ vector<string> reverse_delete(string s, string c) {
     reverse(rev.begin(), rev.end());
     result.push_back((temp == rev) ? "True" : "False");
     return result;
+
 }
 
 int main() {
