@@ -16,6 +16,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     
         if open_count == 0:
             result.append(current_group)
-            current_group = "" if open_count == 0 else current_group
+            current_group = ""
             
     return result
