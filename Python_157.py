@@ -1,3 +1,4 @@
+print("Enter three space-separated integers:")
 a, b, c = map(int, input().split())
 
 def is_pythagorean_triplet(a, b, c):
