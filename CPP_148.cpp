@@ -25,7 +25,10 @@ vector<string> bf(string planet1, string planet2) {
         result.push_back(planets[i]);
     }
     
-    assert(result == vector<string>{"Mars"}); // Test case moved here
-    
-    return result;
+    assert(result == vector<string>{"Mars", "Jupiter", "Saturn"});
+}
+
+int main() {
+    bf("Mars", "Saturn");
+    return 0;
 }
