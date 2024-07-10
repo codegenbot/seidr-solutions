@@ -5,7 +5,7 @@ bool isPrime(int num) {
     if (num <= 1) {
         return false;
     }
-    for (int i = 2; i <= sqrt(num); i++) {
+    for (int i = 2; i <= sqrt(num); ++i) {
         if (num % i == 0) {
             return false;
         }
@@ -18,26 +18,22 @@ int prime_fib(int n) {
         return -1;
     }
 
-    int a = 1, b = 1;
-    for (int i = 3; i <= n; i++) {
-        int c = a + b;
-        a = b;
-        b = c;
+    if (n == 1) {
+        return 2;
     }
 
-    while (true) {
-        if (isPrime(b)) {
-            return b;
-        }
-        b = a + b;
-        a = b - a;
+    int prev = 1, curr = 1, next;
+    for (int i = 3; i <= n; ++i) {
+        next = prev + curr;
+        prev = curr;
+        curr = next;
     }
-}
 
-int main() {
-    int n;
-    std::cout << "Enter the value of n: ";
-    std::cin >> n;
-    std::cout << prime_fib(n) << std::endl;
-    return 0;
+    while (!isPrime(curr)) {
+        next = prev + curr;
+        prev = curr;
+        curr = next;
+    }
+
+    return curr;
 }
