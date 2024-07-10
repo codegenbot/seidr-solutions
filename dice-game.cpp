@@ -1,10 +1,11 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = 0;
-    for (int i = 1; i <= min(n-1,m); i++) {
-        if(i<n && i<=m)total+=1.0/min(n,m);
+    double total = 1.0;
+    for (int i = 1; i <= min(m, n - 1); i++) {
+        total += 1.0 / n;
     }
     return total;
 }
