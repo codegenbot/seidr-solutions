@@ -1,12 +1,10 @@
 strings = []
-try:
-    while True:
-        string = input().strip()
-        if string == "----":
-            break
-        strings.append(string)
-except EOFError:
-    pass
+print("Enter multiple strings followed by '----' in a separate line:")
+while True:
+    string = input().strip()
+    if string == "----":
+        break
+    strings.append(string)
 
 substring = input().strip()
 
