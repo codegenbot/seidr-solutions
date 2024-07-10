@@ -1,2 +1,3 @@
 def sort_third(l: list):
-    return [sorted(l[i:i+3]) for i in range(0, len(l), 3) for j in l[i:i+3]]
+    chunks = [sorted(l[i:i+3]) if i + 3 <= len(l) else l[i:] for i in range(0, len(l), 3)]
+    return [item for sublist in chunks for item in sublist]
