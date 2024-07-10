@@ -1,8 +1,7 @@
+```
 def intersperse(a, b):
-    if not a:
-        return [b]
-    result = [a[0]]
-    for item in a[1:]:
-        result.extend([item, b])
-    result.append(b)
+    result = [b]
+    for x in a:
+        result.extend([x])
+        result.append(b)
     return result
