@@ -7,4 +7,4 @@ def mastermind(code, guess):
         else:
             white[code.find(guess[i])] -= 1
 
-    return str(black) + "\n" + " ".join(map(str, white))
+    return str(black) + "\n" + ' '.join(map(str, white))
