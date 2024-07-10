@@ -4,7 +4,7 @@
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
     }
     return true;
@@ -31,16 +31,15 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> num;
 
-    std::vector<int> sequence = get_odd_collatz(num);
+    std::vector<int> output = get_odd_collatz(num);
 
-    if (issame({num}, sequence)) {
-        std::cout << "The sequence of odd numbers for the Collatz Conjecture is: ";
-        for (int i : sequence) {
+    if (issame({1}, output)) {
+        std::cout << "The sequence is 1" << std::endl;
+    } else {
+        for (int i : output) {
             std::cout << i << " ";
         }
         std::cout << std::endl;
-    } else {
-        std::cout << "No odd numbers were found in the sequence." << std::endl;
     }
 
     return 0;
