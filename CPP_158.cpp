@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -25,6 +25,9 @@ int main() {
         std::cin >> s;
         words.push_back(s);
     }
-    std::cout << "The maximum length word is: " << find_max(words) << std::endl;
-    return 0;
+    if(words.empty()) {
+        std::cout << "No words entered." << std::endl;
+    } else {
+        std::cout << "The maximum length word is: " << find_max(words) << std::endl;
+    }
 }
