@@ -1,14 +1,14 @@
+Here is the completed code:
+
+```cpp
 int next_smallest(vector<int> lst) {
+    if (lst.size() < 2) return -1; // return None or any other value you want to represent 'None'
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    
-    if (sorted.size() < 2)
-        return -1; // None
-    
-    for (int i = 0; i < sorted.size(); i++) {
-        if (i == 0 || sorted[i] != sorted[0])
-            return sorted[i];
+    for (int i = 0; i < sorted.size() - 1; ++i) {
+        if (sorted[i] != sorted[i + 1]) {
+            return sorted[i + 1];
+        }
     }
-    
-    return -1; // None
+    return -1; // return None or any other value you want to represent 'None'
 }
