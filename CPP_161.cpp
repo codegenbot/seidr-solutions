@@ -9,8 +9,7 @@ int solve(std::string s) {
     }
     std::string v;
     for (char c : s) {
-        if (std::tolower(c) == 'a' || std::tolower(c) == 'e' || 
-            std::tolower(c) == 'i' || std::tolower(c) == 'o' || std::tolower(c) == 'u') {
+        if (std::isalpha(std::tolower(c))) {
             v += std::tolower(c);
         }
     }
