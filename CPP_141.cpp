@@ -7,6 +7,7 @@ int main() {
     cout << "Enter a file name: ";
     getline(cin, file_name);
     cout << "The result is: " << file_name_check(file_name) << endl;
+
 }
 
 string file_name_check(string file_name){
@@ -20,13 +21,13 @@ string file_name_check(string file_name){
         else if(file_name[i] == '.'){
             foundDot = true;
         }
+        else if(foundDot){
+            std::string suffix = file_name.substr(i).substr(1);
+            if(suffix == "txt" || suffix == "exe" || suffix == "dll") 
+                return "Yes";
+        }
     }
     if(count > 3 || !foundDot) return "No";
     if(file_name[0] < 'a' || (file_name[0] > 'z' && file_name[0] < 'A') || (file_name[0] > 'Z')) return "No";
-    if(foundDot) {
-        std::string suffix = file_name.substr(file_name.find_last_of(".") + 1);
-        if(suffix == "txt" || suffix == "exe" || suffix == "dll") 
-            return "Yes";
-    }
     return "Yes";
 }
