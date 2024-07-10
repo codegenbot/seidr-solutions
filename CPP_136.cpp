@@ -14,6 +14,6 @@ std::pair<int, int> largest_smallest_integers(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), std::pair<int, int>(-100, 1)));
+    assert(issame(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), std::make_pair(-100, 1)));
     return 0;
 }
