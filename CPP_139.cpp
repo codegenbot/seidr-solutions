@@ -13,8 +13,7 @@ long long special_factorial(long long n) {
     return result;
 }
 
-int main() 
-{
+int main() {
     cout << "Enter a number: ";
     string input;
     getline(cin, input);
