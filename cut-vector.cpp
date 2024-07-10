@@ -1,27 +1,55 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res(2);
-    for (int i = 0; i < n; ++i) {
-        if (i == 0 || v[i] == v[0]) {
-            res[0].clear(); res[1].clear();
-            res[0].insert(res[0].end(), v.begin(), v.begin() + i);
-            res[1].insert(res[1].begin(), v.begin() + i, v.end());
-        } else if (i == n - 1 || v[i] == v[n - 1]) {
-            res[0].clear(); res[1].clear();
-            res[0].insert(res[0].end(), v.begin(), v.begin() + i);
-            res[1].insert(res[1].begin(), v.begin() + i, v.end());
-        } else if (abs(v[i] - v[0]) <= abs(v[n - 1] - v[i])) {
-            res[0].clear(); res[1].clear();
-            res[0].insert(res[0].end(), v.begin(), v.begin() + i);
-            res[1].insert(res[1].begin(), v.begin() + i, v.end());
-        } else {
-            res[0].clear(); res[1].clear();
-            res[0].insert(res[0].end(), v.begin(), v.begin() + (n - 1));
-            res[1].insert(res[1].begin(), v.begin() + (n - 1), v.end());
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int minDiff = INT_MAX;
+    pair<int, int> splitIndex;
+    
+    for (int i = 1; i < v.size(); i++) {
+        int leftSum = 0;
+        int rightSum = 0;
+        
+        for (int j = 0; j < i; j++) {
+            leftSum += v[j];
+        }
+        
+        for (int j = i; j < v.size(); j++) {
+            rightSum += v[j];
+        }
+        
+        if (leftSum == rightSum) {
+            return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
+        } else if (abs(leftSum - rightSum) < minDiff) {
+            minDiff = abs(leftSum - rightSum);
+            splitIndex = {i, i};
         }
     }
-    return res;
+    
+    return {{0, splitIndex.first}, {splitIndex.second, v.size() - 1}};
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    
+    cout << "[";
+    for (int i = 0; i < result.first.size(); i++) {
+        if (i > 0) {
+            cout << ", ";
+        }
+        cout << result.first[i];
+    }
+    cout << "] [" << result.second[0];
+    for (int i = 1; i < result.second.size(); i++) {
+        cout << ", " << result.second[i];
+    }
+    cout << "]" << endl;
+    
+    return 0;
 }
