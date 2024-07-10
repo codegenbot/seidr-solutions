@@ -2,10 +2,6 @@
 #include <unordered_map>
 
 int fib(int n) {
-    if (n < 0) {
-        return -1; // Error code for invalid input
-    }
-
     if (n <= 1) {
         return n;
     }
@@ -19,4 +15,16 @@ int fib(int n) {
     int result = fib(n - 1) + fib(n - 2);
     memo[n] = result;
     return result;
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the value of n: ";
+    std::cin >> n;
+
+    int fibonacci = fib(n);
+
+    std::cout << "Fibonacci number at position " << n << " is: " << fibonacci << std::endl;
+
+    return 0;
 }
