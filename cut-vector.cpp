@@ -1,11 +1,9 @@
-#include <iostream>
 #include <vector>
 #include <limits>
 
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int min_diff = numeric_limits<int>::max();
     pair<vector<int>, vector<int>> result;
     
     for (int i = 1; i < vec.size(); ++i) {
@@ -23,8 +21,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
         
         int diff = abs(left_sum - right_sum);
         
-        if (diff < min_diff) {
-            min_diff = diff;
+        if (diff < numeric_limits<int>::max()) {
             result.first = vector<int>(vec.begin(), vec.begin() + i);
             result.second = vector<int>(vec.begin() + i, vec.end());
         }
