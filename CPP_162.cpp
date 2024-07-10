@@ -1,5 +1,3 @@
-#include <iostream>
-#include <string>
 #include <cryptopp/md5.h>
 
 std::string cppString_to_md5(std::string text) {
@@ -12,12 +10,4 @@ std::string cppString_to_md5(std::string text) {
         output += std::to_string((int)result[i]);
     }
     return output;
-}
-
-int main() {
-    std::cout << "Enter a string: ";
-    std::string text;
-    std::cin >> text;
-    std::cout << "MD5 of the input string is: " << cppString_to_md5(text) << std::endl;
-    return 0;
 }
