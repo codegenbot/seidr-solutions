@@ -1,6 +1,12 @@
-int main() {
-    vector<int> vec = {1, 6};
-    int result = fuelCost(vec);
-    cout << "The total cost is: " << result << endl;
-    return 0;
+#include <vector>
+using namespace std;
+
+int fuelCost(vector<int> arr) {
+    int sum = 0;
+    for (int x : arr) {
+        int result = static_cast<int>(x / 3.0);
+        result = result - 2;
+        sum += result;
+    }
+    return sum;
 }
