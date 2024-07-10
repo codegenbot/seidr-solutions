@@ -15,7 +15,7 @@ int main() {
 
     int whitePegs = 0, blackPegs = 0;
 
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < min(code.size(), guess.size()); ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
@@ -26,13 +26,6 @@ int main() {
 
     for (auto it = codeFreq.begin(); it != codeFreq.end(); ++it) {
         whitePegs += min(it->second, guessFreq[it->first]);
-    }
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i] && codeFreq[code[i]] > 0 && guessFreq[guess[i]] > 0) {
-            whitePegs++;
-            codeFreq[code[i]]--;
-            guessFreq[guess[i]]--;
-        }
     }
 
     cout << whitePegs << endl << blackPegs << endl;
