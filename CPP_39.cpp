@@ -1,3 +1,18 @@
+#include <iostream>
+#include <cmath>
+
+bool isPrime(int num) {
+    if (num <= 1) {
+        return false;
+    }
+    for (int i = 2; i <= sqrt(num); i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int prime_fib(int n) {
     if (n == 1) {
         return 2;
@@ -13,11 +28,8 @@ int prime_fib(int n) {
             prev = curr;
             curr = next;
         }
-        if (i == n) {
-            return next;
-        }
         prev = curr;
         curr = next;
     }
-    return -1;
+    return next;
 }
