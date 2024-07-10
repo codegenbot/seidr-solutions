@@ -17,13 +17,7 @@ int bowlingScore(std::string input) {
             strikeOrSpare = false;
         } else if (c == 'X') {
             score += 10;
-            if(input.length() >= 3){
-                if(input[1] == '|'){
-                    score+=10;
-                }else{
-                    score += 10 + (input[1] - '0' + input[2] - '0');
-                }
-            }
+            score += 10 + (input[1] == '|' ? 0 : input[1] - '0' + input[2] - '0');
             firstInFrame = true;
             strikeOrSpare = false;
         } else if (c == '-') {
@@ -43,4 +37,3 @@ int bowlingScore(std::string input) {
         }
     }
     return score;
-}
