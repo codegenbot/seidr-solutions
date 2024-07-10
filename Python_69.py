@@ -1,3 +1,5 @@
+Here is the modified code:
+
 def search(lst):
     freq = {}
     for i in lst:
@@ -13,6 +15,5 @@ def search(lst):
             break
     return max_freq if max_freq != -1 else -1
 
-
 # Testing the function
-print(search([3, 4, 5, 2, 1, 5, 2, 4, 6, 7]))
+print(search([3,4,5,2,1,5,2,4,6,7]))
