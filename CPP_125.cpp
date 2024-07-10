@@ -7,35 +7,20 @@ using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    string word = "";
+    size_t pos = 0, prevPos = 0;
     
-    for (char c : txt) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
-        } else if (c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
-        } else {
-            word += c;
+    while ((pos = txt.find_first_of(" ,")) != string::npos) {
+        if (pos == 0) {
+            if (txt.find(',') == string::npos)
+                return {to_string(txt.length() - to_string((int)(txt[0] - 'a')) % 26)};
+            pos++;
         }
+        result.push_back(txt.substr(prevPos, pos - prevPos));
+        prevPos = pos + 1;
     }
     
-    if (!word.empty()) {
-        result.push_back(word);
-    } else {
-        int count = 0;
-        for (char c = 'a'; c <= 'z'; ++c) {
-            if (count % 2 == 1) {
-                result.push_back(to_string(c));
-            }
-            ++count;
-        }
-    }
+    if (prevPos < txt.size())
+        result.push_back(txt.substr(prevPos));
     
     return result;
 }
@@ -44,8 +29,8 @@ int main() {
     string txt;
     cout << "Enter a string: ";
     getline(cin, txt);
-    vector<string> result = split_words(txt);
-    for (string s : result) {
+    vector<string> res = split_words(txt);
+    for (const auto& s : res) {
         cout << s << endl;
     }
     return 0;
