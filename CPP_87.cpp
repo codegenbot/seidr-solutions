@@ -19,8 +19,3 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     sort(result.begin(), result.end(), compare_vectors);
     return result;
 }
-
-int main() {
-    // Main function implementation
-    return 0;
-}
