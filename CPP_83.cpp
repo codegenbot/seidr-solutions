@@ -4,15 +4,10 @@ using namespace std;
 
 int starts_one_ends(int n) {
     int count = 0;
-    for (int i = 1; i <= 9; i++) {
-        if (i == 1 || i % 10 == 1) {
+    for (long long i = 1; i <= (long long)pow(10, n - 1); i++) {
+        string str = to_string(i);
+        if ((str[0] == '1' || str.back() == '1') && str.size() == n) {
             count++;
-        }
-        for (int j = 0; j < n - 1; j++) {
-            int num = i * pow(10, j);
-            if ((num % 10 == 1 && i != 1) || (i % 10 == 1)) {
-                count++;
-            }
         }
     }
     return count;
