@@ -10,7 +10,7 @@ std::string string_to_md5(const std::string& input) {
     EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
     const EVP_MD *md = EVP_md5();
     unsigned char md5_hash[EVP_MD_size(md)];
-    unsigned int hash_len;
+    int hash_len;
 
     OpenSSL_add_all_algorithms();
 
@@ -25,7 +25,7 @@ std::string string_to_md5(const std::string& input) {
 
     std::stringstream ss;
     ss << std::hex << std::setfill('0');
-    for (unsigned int i = 0; i < hash_len; i++) {
+    for (int i = 0; i < hash_len; i++) {
         ss << std::setw(2) << static_cast<int>(md5_hash[i]);
     }
 
