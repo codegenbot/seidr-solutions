@@ -1,4 +1,3 @@
-```c++
 #include <string>
 using namespace std;
 
@@ -31,6 +30,6 @@ int mastermind(string code, string guess) {
             if(!found)
                 white++;
         }
-    
+   
     return black + white;
 }
