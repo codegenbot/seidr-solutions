@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
@@ -20,6 +19,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         return "Invalid nested parens string"
     return depths
 
-input_string = sys.stdin.read().strip()
+input_string = input("Enter the nested parens string: ").strip()
 result = parse_nested_parens(input_string)
 print(result)
