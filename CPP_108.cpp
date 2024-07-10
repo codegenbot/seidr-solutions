@@ -43,12 +43,12 @@ int main() {
         int num;
         std::cin >> num;
         while(std::cin.peek() == ' ') { 
-            std::cin.ignore(); // remove space from the input stream
+            std::cin.get();
         }
-        if(num == 0) { 
-            break; 
-        } else {
+        if(num != 0) { 
             nums.push_back(num); 
+        } else {
+            break; 
         }
     }
     if (!nums.empty()) {  
