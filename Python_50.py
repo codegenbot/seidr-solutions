@@ -1,4 +1,4 @@
-```
+```python
 if __name__ == '__main__':
     while True:
         s = input("Enter a string to shift (or 'q' to quit): ")
