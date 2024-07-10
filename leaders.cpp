@@ -4,14 +4,17 @@
 
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
+
     int n = nums.size();
-    
+    leaders.push_back(nums[n - 1]);
+
     for (int i = n - 1; i >= 0; --i) {
         if (i == n - 1 || nums[i] >= leaders.back()) {
             leaders.push_back(nums[i]);
         }
     }
-    leaders.pop_back(); // Remove duplicate of rightmost element
+    
+    leaders.pop_back();
 
     return leaders;
 }
