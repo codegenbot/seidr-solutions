@@ -6,11 +6,5 @@ string find_max(vector<string> words){
             }
             return a.size() > b.size();
         });
-    for (string word : words) {
-        if (word.size() == max_word.size() && count(word.begin(), word.end(), word[0]) == word.size()) {
-            max_word = word;
-            break;
-        }
-    }
     return max_word;
 }
