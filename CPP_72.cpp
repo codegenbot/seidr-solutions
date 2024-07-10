@@ -26,10 +26,6 @@ bool will_it_fly(vector<int> q, int w) {
 int main() {
     vector<int> q = {1, 2, 3};
     int w = 6;
-    if (!will_it_fly(q, w)) {
-        cout << "The quadcopter will not fly." << endl;
-    } else {
-        cout << "The quadcopter will fly." << endl;
-    }
+    cout << will_it_fly(q, w) << endl;
     return 0;
 }
