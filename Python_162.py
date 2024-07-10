@@ -1,13 +1,13 @@
-```python
+```
 import hashlib
 
 def string_to_md5():
     while True:
         text = input("Enter some text: ")
-        if not text.isalnum() or " " in text:
-            print("Invalid input. Please enter only alphanumeric characters and spaces.")
-        else:
+        if text.isprintable():  
             return hashlib.md5(text.encode('utf-8')).hexdigest()
+        else:
+            print("Invalid input. Please enter printable characters.")
 
 result = string_to_md5()
 print(result)
