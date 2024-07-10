@@ -1,4 +1,6 @@
-def fruit_distribution(s, n):
+def fruit_distribution(s="Enter the string: ", n=0):
+    s = input(s)
+    n = int(input("Enter the number of fruits to consider: "))
     s = s.lower()
     fruits = s.split("and")
     for i in range(len(fruits)):
@@ -11,5 +13,3 @@ def fruit_distribution(s, n):
         )
         / n
     )
-
-print(fruit_distribution("1 apples and 100 oranges", 120))
