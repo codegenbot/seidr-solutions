@@ -1,18 +1,14 @@
-#include <vector>
-#include <algorithm>
-
+```cpp
 bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
 
-std::vector<float> sort_even(std::vector<float> l){
-    if(l.size() <= 0) {
-        return l; // or throw an exception here, depending on your needs
-    }
-    std::vector<float> result(l.size());
+vector<float> sort_even(vector<float> l){
+    if(l.size() <= 0) return l; // Added error handling for cases where l.size() is 0 or less.
+    vector<float> result(l.size());
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){
-            std::vector<float> temp;
+            vector<float> temp;
             for(auto j: l | std::views::slices(0, l.size(), 2)){
                 temp.push_back(j);
             }
