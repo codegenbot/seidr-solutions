@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -25,17 +24,14 @@ bool issame(vector<string> a) {
 int main() {
     int num;
     cin >> num;
-
     for (int i = 0; i < num; i++) {
         string str1, str2;
         cin >> str1 >> str2;
-        
         if (str1 == str2) { 
             cout << "The strings are the same." << endl;
         } else {
             cout << "The strings are not the same." << endl;
         }
     }
-
     return 0;
 }
