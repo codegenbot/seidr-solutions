@@ -1,10 +1,11 @@
 #include <string>
+#include <iostream>
 
-int strLength(const char* str) {
-    return std::string(str).length();
+int strLength(const std::string& str) {
+    return str.length();
 }
 
 int main() {
-    assert(strLength("asdasnakj") == 13);
+    assert(strLength(std::string("asdasnakj")) == 13);
     return 0;
 }
