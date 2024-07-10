@@ -1,6 +1,7 @@
-def increment_list_elements(l):
-    return [x + 1 for x in l]
+def check(func):
+    sample_list = [1, 2, 3]
+    result = func(sample_list)
+    assert result == [2, 3, 4]
+    print("Function call is correct")
 
-
-incr_list = [1, 2, 3, 4, 5]
-print(increment_list_elements(incr_list))
+check(increment_list_elements)
