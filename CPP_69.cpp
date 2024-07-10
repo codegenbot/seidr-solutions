@@ -1,7 +1,14 @@
-int result = -1;
+int search(vector<int> lst) {
+    int result = -1;
     for (int num : lst) {
-        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
-            result = max(result, num);
+        int freq = 0;
+        for (int elem : lst) {
+            if (elem == num) {
+                freq++;
+            }
+        }
+        if (freq >= num && num > result) {
+            result = num;
         }
     }
     return result;
