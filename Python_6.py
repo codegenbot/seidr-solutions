@@ -1,16 +1,24 @@
 def parse_nested_parens(paren_string: str) -> list:
-    stack = []
+    if not paren_string:
+        return []
+
     groups = []
+    temp_group = ''
+    stack = []
     
     for char in paren_string:
         if char == '(':
             stack.append(char)
+            temp_group += '('
         elif char == ')':
-            if stack:
-                temp_group = ''
-                while stack[-1] != '(':
+            if stack and stack[-1] == '(':
+                while stack and stack[-1] != '(':
                     temp_group += stack.pop()
-                stack.pop()  # Remove the '('
-                groups.append(int(temp_group.replace('(','-').replace(')', '')))
-    
+                stack.pop()  # pop the leading '('
+                temp_group += ')'
+            else:
+                temp_group += ')'
+        elif char.isdigit():
+            temp_group += char
+
     return [int(x) for x in str(groups).replace('(','-').replace(')', '').split() if x.isdigit()]
