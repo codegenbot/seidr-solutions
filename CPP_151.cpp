@@ -1,7 +1,7 @@
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
     vector<float> numbers;
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 10; ++i) {
         float num;
         cin >> num;
         numbers.push_back(num);
