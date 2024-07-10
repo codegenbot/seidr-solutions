@@ -25,7 +25,10 @@ std::string camelCase(const std::string& input) {
 int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input); 
+    char c;
+    while ((c = getchar()) != '\n') {
+        input += c; 
+    }
     std::cout << camelCase(input) << std::endl;
 
     return 0;
