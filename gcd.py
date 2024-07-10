@@ -1,4 +1,3 @@
-```
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -13,7 +12,7 @@ def find_indices(text, target):
         if pos == -1:
             break
         indices.append(i + pos)
-        i += pos + len(target)  # Adjust this line to make sure we start looking from the correct position after a match
+        i += pos + len(target)
     return indices
 
 
