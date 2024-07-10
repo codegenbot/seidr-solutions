@@ -1,9 +1,11 @@
+#include<stdio.h>
+#include<vector>
+#include<string>
+using namespace std;
 int skjkasdkd(vector<int> lst){
-    int max_prime = 0;
+    int max_prime = -1;
     for (int num : lst) {
-        if (num <= 1) {
-            continue;
-        }
+        if (num <= 1) continue;
         bool is_prime = true;
         for (int i = 2; i * i <= num; ++i) {
             if (num % i == 0) {
@@ -15,10 +17,11 @@ int skjkasdkd(vector<int> lst){
             max_prime = num;
         }
     }
-    int sum_of_digits = 0;
+    if (max_prime == -1) return 0;
+    int sum_digits = 0;
     while (max_prime > 0) {
-        sum_of_digits += max_prime % 10;
+        sum_digits += max_prime % 10;
         max_prime /= 10;
     }
-    return sum_of_digits;
+    return sum_digits;
 }
