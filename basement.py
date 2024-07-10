@@ -1,3 +1,4 @@
+```
 def basement(nums):
     total = 0
     first_negative = -1
