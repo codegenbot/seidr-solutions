@@ -1,8 +1,11 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <cctype>
 
-std::string solve(std::string s) {
+using namespace std;
+
+string solve(string s) {
     for(char &c : s){
         if(isalpha(c)){
             c = islower(c) ? toupper(c) : tolower(c);
@@ -15,8 +18,9 @@ std::string solve(std::string s) {
 }
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    std::cout << solve(input) << std::endl;
+    string input;
+    cin >> input;
+    cout << solve(input) << endl;
+
     return 0;
 }
