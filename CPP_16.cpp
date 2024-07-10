@@ -5,27 +5,17 @@
 using namespace std;
 
 int count_distinct_characters(string str) {
-    string temp;
-    for(int i=0; i<str.length();i++){
-        if(str[i]>='a' && str[i]<='z'){
-            temp.push_back(tolower(str[i]));
-        }
-        else if(str[i]>='A' && str[i]<='Z'){
-            temp.push_backtolower(str[i]);
-        }
+    string temp = "";
+    for (char c : str) {
+        if (tolower(c) > 96 && tolower(c) < 123 || tolower(c) > 64 && tolower(c) < 91)
+            temp += tolower(c);
     }
-    vector<char> vec;
-    for(int i=0; i<temp.length();i++){
-        bool flag = false;
-        for(int j=0; j<vec.size();j++){
-            if(temp[i]==vec[j]){
-                flag = true;
-                break;
-            }
-        }
-        if(flag==false){
-            vec.push_back(temp[i]);
-        }
+    vector<char> v(temp.begin(), temp.end());
+    sort(v.begin(), v.end());
+    int count = 0;
+    for (int i = 0; i < v.size(); i++) {
+        if (i == 0 || v[i] != v[i - 1])
+            count++;
     }
-    return vec.size();
+    return count;
 }
