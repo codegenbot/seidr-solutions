@@ -1,6 +1,3 @@
-try:
-    values = list(map(int, input().split()))
-    result = sum(val * val for val in values)
-    print(result)
-except EOFError:
-    pass
+values = list(map(int, raw_input("Enter space-separated integers: ").split()))
+result = sum(val * val for val in values)
+print(result)
