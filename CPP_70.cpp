@@ -32,8 +32,7 @@ int main() {
     int num;
     std::cout << "Enter an integer: ";
     std::cin >> num;
-    std::vector<int> input;
-    input.push_back(num);
+    std::vector<int> input = {num};
     std::vector<int> output = strange_sort_list(input);
     std::cout << "Output: ";
     for (auto i : output) {
