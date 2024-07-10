@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-int calculateBowlingScore(string input) {
+int calculateBowlingScore(std::string input) {
     int score = 0;
     int frame = 0;
     int ball = 0;
@@ -37,7 +37,7 @@ int calculateBowlingScore(string input) {
 }
 
 int main() {
-    string input;
+    std::string input;
     cin >> input;
     std::cout << calculateBowlingScore(input) << std::endl;
     return 0;
