@@ -1,14 +1,13 @@
-#include <unordered_set>
+#include <vector>
 
 bool triples_sum_to_zero(const std::vector<int>& nums) {
     for (int i = 0; i < nums.size(); ++i) {
-        std::unordered_set<int> seen;
         for (int j = i + 1; j < nums.size(); ++j) {
-            int third = -(nums[i] + nums[j]);
-            if (seen.count(third)) {
-                return true;
+            for (int k = j + 1; k < nums.size(); ++k) {
+                if (nums[i] + nums[j] + nums[k] == 0) {
+                    return true;
+                }
             }
-            seen.insert(nums[j]);
         }
     }
     return false;

@@ -7,7 +7,7 @@ using namespace std;
 
 double median(const vector<int>& l) {
     if (l.empty()) {
-        return 0.0; // Return default value for empty list
+        return 0.0;
     }
     vector<int> sortedList = l;
     sort(sortedList.begin(), sortedList.end());
