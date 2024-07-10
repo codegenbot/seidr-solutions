@@ -5,12 +5,12 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int n = text.length();
-    int m = target.length();
+    int lastSeen = -1; // Last seen position of the target
 
-    for (int i = 0; i < n - m + 1; ++i) {
-        if (text.substr(i, m) == target) {
-            result.push_back(i);
+    for (int i = 0; i < text.length(); ++i) {
+        if (text.substr(i-target.length(), target.length()) == target) { 
+            lastSeen = i; 
+            result.push_back(lastSeen - (target.length() - 1)); 
         }
     }
 
@@ -31,3 +31,4 @@ int main() {
     cout << endl;
 
     return 0;
+}
