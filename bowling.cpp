@@ -13,28 +13,32 @@ int score(string s) {
             total += 10;
 
             if (frame < 10) {
-                total += (s[i + 1] == 'X' ? 10 : (s[i + 1] == '/' ? 10 - (s[i - 1] - '0') : s[i + 1] - '0'));
-                total += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : s[i + 2] - '0'));
+                total += s[i + 1] == 'X' ? 10 : (s[i + 1] == '/' ? 10 - (s[i - 1] - '0') : s[i + 1] - '0');
+                total += s[i + 2] == '/' ? 10 : (s[i + 2] == 'X' ? 10 : s[i + 2] - '0');
+                total += (s[i + 1] == 'X' && s[i + 2] == 'X') ? 10 : (s[i + 1] == '/' && s[i + 2] != 'X') ? s[i + 2] - '0' : 0;
             }
 
             isStrike = true;
             frame++;
         } else if (s[i] == '/') {
             total += 10 - (s[i - 1] - '0');
-
+            
             if (frame < 10) {
-                total += (s[i + 1] == 'X' ? 10 : s[i + 1] - '0');
+                total += s[i + 1] == 'X' ? 10 : s[i + 1] - '0';
             }
 
             isSpare = true;
             frame++;
         } else {
             total += s[i] - '0';
-
+            
             if (isSpare) {
                 total += s[i] - '0';
             } else if (isStrike) {
                 total += (s[i] - '0');
+                if (s[i] != 'X') {
+                    total += (s[i] - '0');
+                }
             }
 
             isSpare = false;
@@ -44,7 +48,7 @@ int score(string s) {
                 if (isSpare) {
                     total += s[i + 1] - '0';
                 } else if (isStrike) {
-                    total += (s[i + 1] == 'X' ? 10 : s[i + 1] - '0');
+                    total += s[i + 1] == 'X' ? 10 : s[i + 1] - '0';
                 }
             }
 
