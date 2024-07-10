@@ -1,9 +1,15 @@
 def digitSum(s):
     s = s.lower()
     total = 0
+    is_odd = False
     for c in s:
         if c.isdigit() or c.isspace():  
             if c.isspace():  
                 continue
-            total += int(c) if c != '1' and c != '3' and c != '4' and c != '7' else (int(c) * 2) - 5
+            d = int(c)
+            if is_odd:
+                total += d * 2 - 5 if d > 4 else d * 2
+            else:
+                total += d
+            is_odd = not is_odd
     return total
