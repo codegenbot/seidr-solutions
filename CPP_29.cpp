@@ -16,17 +16,3 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     }
     return result;
 }
-
-int main() {
-    std::vector<std::string> strings = {"apple", "banana", "apricot", "avocado"};
-    std::string prefix = "ap";
-    std::vector<std::string> filtered_strings = filter_by_prefix(strings, prefix);
-
-    assert(issame(filtered_strings, std::vector<std::string>{"apple", "apricot"}));
-
-    for (const auto& str : filtered_strings) {
-        std::cout << str << " ";
-    }
-    
-    return 0;
-}
