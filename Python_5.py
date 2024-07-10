@@ -1,4 +1,6 @@
 ```
+from typing import List
+
 def intersperse(numbers: List[int], delimeter: int) -> List[int]:
     if len(numbers) == 0:
         return numbers
