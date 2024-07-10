@@ -1,21 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b);
-vector<int> make_a_pile(int n);
-
-void cpp100() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-
-    vector<int> pile = make_a_pile(n);
-    if(issame(pile, make_a_pile(n))){
-        cout << "The piles are the same." << endl;
-    } else {
-        cout << "The piles are not the same." << endl;
-    }
-}
+using namespace std;
 
 bool issame(vector<int> a, vector<int> b){
     if(a.size()!=b.size()) return false;
@@ -23,14 +10,28 @@ bool issame(vector<int> a, vector<int> b){
         if(a[i]!=b[i])return false;
     }
     return true;
-
 }
 
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    for (int i = 1; i <= n; i++) {
-        pile.push_back(i);
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> temp;
+    for(int i=0; i<n; i++){
+        temp.push_back(i+1);
     }
-    std::random_shuffle(pile.begin(), pile.end());
-    return pile;
+    random_shuffle(temp.begin(),temp.end());
+    return temp;
+}
+
+void cpp100() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    std::vector<int> pile = make_a_pile(n);
+    std::vector<int> pile2 = make_a_pile(n);
+
+    if(issame(pile, pile2)){
+        cout << "The piles are the same." << endl;
+    } else {
+        cout << "The piles are not the same." << endl;
+    }
 }
