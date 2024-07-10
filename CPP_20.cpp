@@ -13,9 +13,6 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-#include <algorithm>
-#include <vector>
-
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
     float min_diff = numeric_limits<float>::max();
