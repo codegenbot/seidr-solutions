@@ -1,13 +1,10 @@
 n = int(input())
-v1 = list(map(float, input().split()))
+v1 = [float(f"{input()}.0000") for _ in range(n)]
 m = int(input())
-v2 = list(map(float, input().split()))
+v2 = [float(f"{input()}.0000") for _ in range(m)]
 
 from math import sqrt
 
-dist = 0
-for a, b in zip(v1, v2):
-    dist += (a - b) ** 2
-dist = sqrt(dist)
+dist = sqrt(sum((a - b) ** 2 for a, b in zip(v1, v2)))
 
 print("%.6f" % dist)
