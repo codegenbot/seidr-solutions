@@ -22,7 +22,10 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    assert(is_same(strange_sort_list({111111}), {111111}));
+    std::vector<int> sorted_list = strange_sort_list({111111});
+    std::vector<int> expected = {111111};
+    
+    assert(is_same(sorted_list, expected));
     
     return 0;
 }
