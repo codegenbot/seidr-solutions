@@ -7,6 +7,8 @@ combined_text = ''
 try:
     while True:
         line = input()
+        if not line:
+            break
         combined_text += line + '\n'
 except EOFError:
     pass
