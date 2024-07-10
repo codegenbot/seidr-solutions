@@ -5,6 +5,5 @@ v2 = list(map(float, input().split()))
 
 from math import sqrt
 
-dist = sqrt(sum((a - b) ** 2 for a, b in zip(v1, v2)))
-
+dist = sum((a - b) ** 2 for a, b in zip(v1, v2)) ** 0.5
 print("%.6f" % dist)
