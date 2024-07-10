@@ -6,32 +6,28 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     vector<vector<int>> res(2);
 
-    for(int i=0; i<n-1; i++){
-        if(nums[i] == nums[i+1]){
-            res[0].push_back(nums[i]);
-            res[1].clear();
-            res[1].push_back(nums[i+1]);
-            break;
-        } else {
-            int diff = abs(nums[i] - nums[i+1]);
-            for(int j=i; j<n-1; j++){
-                if(abs(nums[j] - nums[j+1]) < diff){
-                    i=j;
-                    diff=abs(nums[j]-nums[j+1]);
-                }
-            }
-            res[0].push_back(nums[i]);
-            res[1].clear();
-            for(int j=i+1; j<n;j++){
-                res[1].push_back(nums[j]);
-            }
+    if (n == 0)
+        return res;
+
+    int min_diff = INT_MAX, prev_diff = INT_MAX;
+    int idx = 0, prev_idx = 0;
+
+    for (int i = 1; i < n; i++) {
+        int diff = abs(nums[i] - nums[i-1]);
+        if (diff < prev_diff) {
+            min_diff = diff;
+            idx = i;
+            prev_idx = i-1;
+            prev_diff = diff;
         }
     }
 
-    if(res[0].size() == 0) {
-        res[0].push_back(nums[0]);
-        res[1] = nums;
-    }
+    res[0].clear();
+    for (int i = 0; i <= prev_idx; i++)
+        res[0].push_back(nums[i]);
+    res[1].clear();
+    for (int i = prev_idx + 1; i < n; i++)
+        res[1].push_back(nums[i]);
 
     return res;
 }
