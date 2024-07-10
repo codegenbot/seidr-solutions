@@ -1,6 +1,6 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
+#include <algorithm>
 
 bool compareVectors(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
@@ -27,8 +27,6 @@ std::vector<int> pluck(std::vector<int> arr){
 }
 
 int main() {
-    std::vector<int> test_input = {1, 3, 5, 2, 4, 6};
-    std::vector<int> result = pluck(test_input);
-    
-    assert(compareVectors(result, std::vector<int>{2, 3}));
+    assert(compareVectors(pluck({1, 3, 5, 2, 4, 6}), std::vector<int>{2, 3}));
+    assert(compareVectors(pluck({7, 9, 7, 1}), std::vector<int>{}));
 }
