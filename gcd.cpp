@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 
@@ -10,7 +11,7 @@ int gcd(int a, int b) {
     return a;
 }
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     std::vector<int> result;
     int index = 0;
 
@@ -29,6 +30,6 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
 int main() {
     int result = gcd(12, 15);
-    std::vector<int> indices = indicesOfSubstring("hello", "ll");
+    std::vector<int> indices = indicesOfSubstring(std::string("hello"), std::string("ll"));
     return 0;
 }
