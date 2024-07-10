@@ -1,18 +1,22 @@
 #include <iostream>
-using namespace std;
+#include <cmath>
+#include <cassert>
 
 float triangle_area(float a, float b, float c) {
     float s = (a + b + c) / 2;
-    return sqrt(s * (s - a) * (s - b) * (s - c));
+    return std::sqrt(s * (s - a) * (s - b) * (s - c));
 }
 
 int main() {
-    cout << "Enter sides of triangle: ";
+    std::cout << "Enter sides of triangle: ";
     float side1, side2, side3;
-    cin >> side1 >> side2 >> side3;
+    std::cin >> side1 >> side2 >> side3;
 
-    assert(abs(triangle_area(side1, side2, side3)) < 0.01);
+    if (!std::abs(triangle_area(side1, side2, side3)) < 0.01) {
+        std::cerr << "Invalid input. Please check the sides of the triangle." << std::endl;
+        return 1;
+    }
     float result = triangle_area(side1, side2, side3);
-    cout << "The area of the triangle is: " << result << endl;
+    std::cout << "The area of the triangle is: " << result << std::endl;
     return 0;
 }

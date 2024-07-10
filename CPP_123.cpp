@@ -3,11 +3,8 @@
 
 using namespace std;
 
-vector<int> get_odd_collatz(int) {
-    vector<int> result;
-    int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
+vector<int> get_odd_collatz(int n) {
+    vector<int> result(1); // Add reserve(1) here
     while (n != 1) {
         if (n % 2 == 0) {
             int temp = n / 2; 
@@ -23,11 +20,13 @@ vector<int> get_odd_collatz(int) {
 }
 
 int main() {
-    vector<int> res = get_odd_collatz(0);
+    int n;
+    cout << "Enter a positive integer: ";
+    cin >> n;
+    vector<int> res = get_odd_collatz(n);
     cout << "The Collatz sequence of odd numbers is: ";
     for (int i : res) {
         cout << i << " ";
     }
     cout << endl;
-    return 0;
 }
