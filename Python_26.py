@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -10,10 +11,12 @@ if __name__ == "__main__":
         print("Enter comma-separated integers: ")
         numbers = input()
         if numbers.strip() != "":  
-            try:
-                numbers = [int(num) for num in numbers.split(",")]
-                print(remove_duplicates(numbers))
-            except ValueError:
-                print("Invalid input. Please enter comma-separated integers.")
+            while True:
+                try:
+                    numbers = [int(num) for num in numbers.split(",")]
+                    print(remove_duplicates(numbers))
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter comma-separated integers.")
         else:
             print("No input entered.")
