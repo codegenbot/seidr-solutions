@@ -1,3 +1,2 @@
-```
 def solve(N):
-    return "1" if N > 1 else ""
+    print(bin(sum(int(i) for i in str(bin(N)[2:]))) if N > 0 else "")
