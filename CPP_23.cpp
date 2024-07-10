@@ -1,3 +1,3 @@
-int customStrLen(string str){ 
-    return str.length(); 
+int customStrLen(string str){
+    return str.length();
 }
