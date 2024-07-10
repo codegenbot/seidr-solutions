@@ -1,30 +1,22 @@
+#include <stdio.h>
 #include <vector>
 #include <string>
-
 using namespace std;
 
 vector<int> parse_music(string music_string) {
-    vector<int> beats;
-    string note;
-    int duration = 0;
-
+    vector<int> result;
     for (char c : music_string) {
-        if (c == 'o' || c == 'o|') {
-            duration = 4;
-        } else if (c == '.') {
-            duration = 1;
+        if (c == 'o') {
+            result.push_back(4);
         } else if (c == '|') {
-            duration /= 2;
-        }
-
-        note += c;
-
-        if (note == "o" || note == "o|" || note == ".|") {
-            beats.push_back(duration);
-            note = "";
-            duration = 0;
+            if (result.back() > 0) {
+                result.back() /= 2;
+            }
+        } else if (c == '.') {
+            if (result.back() > 0) {
+                result.back()--;
+            }
         }
     }
-
-    return beats;
+    return result;
 }
