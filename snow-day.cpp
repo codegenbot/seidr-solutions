@@ -1,7 +1,7 @@
 #include <iostream>
-#include <iomanip>
-
 using namespace std;
+
+#include <iomanip>
 
 double calculateSnow(int hours, float initialSnow, float snowFallRate, float meltingRate) {
     double totalSnow = 0;
