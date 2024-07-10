@@ -1,23 +1,17 @@
+```
 def decode_cyclic(s: str):
     result = ""
+    if len(s) < 3:
+        return s
     while len(s) > 2:
         for i in range(0, len(s), 3):
-            if s[i+1] == 'x':
-                if len(s[i+2]) < 2:
-                    result += s[i]+s[i+1]+s[i+2]
-                else:
-                    result += s[i]+s[i+1]+s[i+2][0:2]
-            elif i != len(s)-1 and s[i] == s[i+3]:
-                if len(s[i+2]) < 2:
-                    result += (s[i]+s[i+2])*((len(s)+2)//3)
-                else:
-                    result += ((s[i]+s[i+2][0:2]))*((len(s)+2)//3)
+            if i == len(s)-1: 
+                result += s[i]+s[i+1:i]
+            elif i == len(s)-3:
+                result += s[i]+s[i+1]+s[i+2][1:] + s[i:]
             else:
-                if i == len(s)-1:
-                    result += s[i]
+                if len(s[i+2]) == 1:
+                    result += s[i]+s[i+2]+s[i+1]
                 else:
-                    if len(s[i+2]) < 2:
-                        result += s[i]+s[i+1]+s[i+2]
-                    else:
-                        result += s[i]+s[i+1]+s[i+2][0:2]
-    return result
+                    result += s[i]+s[i+1]+s[i+2][0]+s[i+2][1:]
+    return result + s
