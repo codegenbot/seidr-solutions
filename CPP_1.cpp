@@ -1,3 +1,8 @@
+
+bool issame(const string& a, const string& b) {
+    return a == b;
+}
+
 vector<string> separate_paren_groups(const string& paren_string) {
     vector<string> groups;
     string group;
@@ -22,15 +27,4 @@ vector<string> separate_paren_groups(const string& paren_string) {
 
     return groups;
 }
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
+```
