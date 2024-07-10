@@ -1,1 +1,2 @@
-n, *input_list = map(int, input("Enter space-separated integers: ").split())
+import sys
+n, *input_list = map(int, sys.stdin.readline().strip().split())
