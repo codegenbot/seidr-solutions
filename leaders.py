@@ -1,13 +1,6 @@
-```Python
 def leaders(arr):
-    leaders_list = []
-    max_num = arr[-1]
-    for i in reversed(range(len(arr))):
-        if arr[i] >= max_num:
-            leaders_list.append(arr[i])
-            max_num = arr[i]
-    return list(reversed(leaders_list))
-
+    leaders = [max(arr[i:]) for i in range(len(arr))]
+    return [num for num in reversed(leaders) if all(num >= x for x in arr[reversed(leaders).index(num)+1:])]
 print(leaders([0]))
 print(leaders([1, 0]))
 print(leaders([1, 451]))
