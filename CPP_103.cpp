@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
-#include <cmath>
 #include <cassert>
+#include <cmath>
 
 std::string solve(int n, int m) {
     if (n > m) {
@@ -27,8 +27,8 @@ std::string solve(int n, int m) {
 int main() {
     int n, m;
     std::cin >> n >> m;
-    std::string rounded_avg = solve(n, m);
-    std::cout << rounded_avg << std::endl;
-    assert (rounded_avg == "101");
+    std::cout << solve(n, m) << std::endl;
     return 0;
 }
+
+assert(solve(5, 5) == "101");
