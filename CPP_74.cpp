@@ -1,5 +1,13 @@
 bool issame(const vector<string>& lst1, const vector<string>& lst2) {
-        return lst1 == lst2;
+        if (lst1.size() != lst2.size()) {
+            return false;
+        }
+        for (int i = 0; i < lst1.size(); ++i) {
+            if (lst1[i] != lst2[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     int countChars(const vector<string>& lst1) {
@@ -12,9 +20,7 @@ bool issame(const vector<string>& lst1, const vector<string>& lst2) {
 
     vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
-    vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-        if (countChars(lst1) < countChars(lst2)) {
-            return lst1;
-        }
-        return lst2;
+    int main() {
+        // Main function code here
+        return 0;
     }
