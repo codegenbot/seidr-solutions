@@ -2,10 +2,20 @@
 def find_pair():
     num_cases = int(input())
     for _ in range(num_cases):
-        nums = set(map(int, input().split()))
+        nums = sorted(map(int, input().split()))
         target = int(input())
-        for num in nums:
-            complement = target - num
-            if complement in nums:
-                print(*[num, complement])
-        print(-1)
+        if max(nums) < abs(target): 
+            print(-1)
+        else:
+            left, right = 0, len(nums) - 1
+            while left < right:
+                total = nums[left] + nums[right]
+                if total == target:
+                    print(*[nums[left], nums[right]])
+                    break
+                elif total < target:
+                    left += 1
+                else:
+                    right -= 1
+            else:
+                print(-1)
