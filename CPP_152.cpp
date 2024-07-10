@@ -1,29 +1,20 @@
 #include <vector>
+#include <algorithm>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-vector<int> compare(vector<int> game, vector<int> guess) {
-    vector<int> result;
-    int black = 0;
-    int white = 0;
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+    std::vector<int> result;
     for (int i = 0; i < game.size(); i++) {
-        if (game[i] == guess[i]) {
-            black++;
-        } else if (find(game.begin(), game.end(), guess[i]) != game.end()) {
-            white++;
+        if (guess[i] == game[i]) {
+            result.push_back(2);
+        } else if (std::count(game.begin(), game.end(), guess[i]) > 0) {
+            result.push_back(1);
+        } else {
+            result.push_back(0);
         }
     }
-    result.push_back(black);
-    result.push_back(white);
     return result;
 }
