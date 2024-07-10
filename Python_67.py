@@ -1,3 +1,4 @@
+```
 def fruit_distribution(s, n):
     s = s.lower()
     if not s:
@@ -9,11 +10,11 @@ def fruit_distribution(s, n):
         if words[i].isdigit():
             count = int(words[i])
             i += 1
-            fruit = ""
+            fruit = ''
             for j in range(i, len(words)):
                 if not words[j].isalnum():
                     break
-                fruit += words[j] + " "
+                fruit += words[j] + ' '
             fruit = fruit.strip()
             total_count = 0
             if fruit:
