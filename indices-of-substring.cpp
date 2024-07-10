@@ -1,15 +1,13 @@
 #include <vector>
-using namespace std;
+#include <string>
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int n = text.length();
-    int m = target.length();
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> result;
+    size_t pos = 0;
 
-    for(int i=0; i<=n-m; i++) {
-        if(text.substr(i,m) == target) {
-            result.push_back(i);
-        }
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        result.push_back(pos);
+        pos += 1; // to find the next occurrence
     }
 
     return result;
