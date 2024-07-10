@@ -1,29 +1,20 @@
 #include <boost/any.hpp>
+#include <string>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = boost::any_cast<int>(a);
-        int y = boost::any_cast<int>(b);
-        if (x > y) {
-            return a;
-        } else if (x < y) {
-            return b;
+    if (is_any_of<string>(a)) {
+        if (is_any_of<string>(b)) {
+            return (get<string>(a) == get<string>(b)) ? any("") : max(a, b);
         } else {
-            return boost::any(typeid(int));
+            return max(a, boost::any(get<double>(b)));
         }
-    } 
-    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double x = boost::any_cast<double>(a);
-        double y = boost::any_cast<double>(b);
-        if (x > y) {
-            return a;
-        } else if (x < y) {
-            return b;
+    } else {
+        if (is_any_of<string>(b)) {
+            return max(boost::any(get<double>(a)), b);
         } else {
-            return boost::any(typeid(double));
+            return (get<double>(a) > get<double>(b)) ? a : ((get<double>(a) == get<double>(b))) ? any("") : b;
         }
-    } 
-    else {
-        return boost::any(typeid(int));
     }
 }
