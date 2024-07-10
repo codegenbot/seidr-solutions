@@ -1,19 +1,18 @@
 #include <vector>
 #include <algorithm>
-#include <cmath>
-#include <cassert>
 
 using namespace std;
 
 double median(const vector<int>& l) {
     if (l.empty()) {
-        return 0.0; // Return default value for empty list
+        return 0.0;
     }
     vector<int> sortedList = l;
     sort(sortedList.begin(), sortedList.end());
     int n = sortedList.size();
-    if (n == 1) {
-        return sortedList[0];
+    if (n % 2 == 0) {
+        return (double)(sortedList[n / 2 - 1] + sortedList[n / 2]) / 2.0;
+    } else {
+        return sortedList[n / 2];
     }
-    return n % 2 == 0 ? (double)(sortedList[n / 2 - 1] + sortedList[n / 2]) / 2.0 : sortedList[n / 2];
 }
