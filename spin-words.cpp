@@ -1,29 +1,33 @@
-Here is the completed code:
-
-#include <vector>
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string input) {
-    string output = "";
-    size_t pos = 0;
-    while ((pos = input.find(" ")) != string::npos) {
-        string word = input.substr(0, pos);
-        if (word.length() >= 5)
-            reverse(word.begin(), word.end());
-        output += word + " ";
-        input.erase(0, pos + 1);
+std::string spinWords(std::string str) {
+    std::string result = "";
+    size_t start = 0;
+    
+    while (start < str.length()) {
+        size_t end = str.find(' ', start);
+        if (end == std::string::npos) {
+            end = str.length();
+        }
+        
+        std::string word = str.substr(start, end - start);
+        
+        if (word.length() >= 5) {
+            std::reverse(word.begin(), word.end());
+        }
+        
+        result += word + " ";
+        start = end + 1;
     }
-    output += input;
-    return output;
+    
+    return result.substr(0, result.length()-1); // remove the extra space at the end
 }
 
 int main() {
-    cout << spinWords("a") << endl; // a
-    cout << spinWords("this is a test") << endl; // this is a test
-    cout << spinWords("this is another test") << endl; // this is rehtona test
-    cout << spinWords("hi") << endl; // hi
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << spinWords(str) << std::endl;
+    }
     return 0;
 }
