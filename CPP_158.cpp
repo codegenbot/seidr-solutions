@@ -1,3 +1,4 @@
+```cpp
 #include<iostream>
 
 #include <iostream>
@@ -24,13 +25,10 @@ int main()
     for (int i = 0; i < n; ++i) {
         std::string str;
         std::getline(std::cin, str); 
+        str.erase(0, str.find_first_not_of(' ')); 
         if (!str.empty()) { 
-            str.erase(0, str.find_first_not_of(' ')); 
-            words.push_back(str); 
+            words.emplace_back(str); 
         }
     }
-    if(words.size() > 0)
-        std::cout << "The maximum length word is: " << find_max(words) << std::endl;
-    else
-        std::cout << "No words entered." << std::endl;
+    std::cout << "The maximum length word is: " << find_max(words) << std::endl;
 }
