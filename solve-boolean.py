@@ -1,8 +1,8 @@
-```
 def solve_boolean(expression):
     if not expression:
         return False
-
+    if len(stack) > 1:
+        return stack[0] 
     stack = []
     for char in expression:
         if char.upper() == 'T':
