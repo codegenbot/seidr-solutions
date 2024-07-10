@@ -22,11 +22,14 @@ int main() {
     std::cin >> n;
 
     for (int i = 0; i < n; ++i) {
-        std::string word;
+        char buffer[256]; // define a buffer
         std::cout << "Enter word " << (i + 1) << ": ";
-        std::cin.ignore(std::numeric_limits<int>::max(), '\n');
-        std::getline(std::cin, word); 
-        words.push_back(word);
+        int ch;
+        do {
+            ch = getchar();
+        } while(ch != '\n');
+        std::cin.getline(buffer, sizeof(buffer)); 
+        words.push_back(std::string(buffer));
     }
 
     findMaxWord(words);
