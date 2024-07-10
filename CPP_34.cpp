@@ -29,8 +29,8 @@ It distinct(It first, It last) {
 
 int main_test() { 
     std::vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    auto output = distinct(input.begin(), input.end());
-    for (int i : std::vector<int>(output, distinct(input.end()))) {
+    auto output(distinct(input.begin(), input.end()));
+    for (auto i : std::unique(output.begin(), output.end())) {
         std::cout << i << " ";
     }
 }
