@@ -1,6 +1,3 @@
-Here's the completed code:
-
-bool is_simple_power(int x, int n) {
-    double y = pow(n, log(x) / log(n));
-    return (y == x);
+bool is_simple_power(int x, int n){
+    return round(pow(n, (int)log(x)/log(n))) == x;
 }
