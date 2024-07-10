@@ -1,6 +1,6 @@
 #include <vector>
 
-std::vector<int> make_a_pile(int n){
+std::vector<int> stones(int n){
     std::vector<int> stones;
     stones.push_back(n);
     for(int i = 1; i < n; ++i){
@@ -12,8 +12,4 @@ std::vector<int> make_a_pile(int n){
         stones.push_back(n);
     }
     return stones;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
 }
