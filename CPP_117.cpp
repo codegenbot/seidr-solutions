@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <sstream>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -12,19 +11,17 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> select_words(std::string input, int k) {
+std::vector<my_string> select_words(std::string input, int k) {
     std::istringstream iss(input);
-    std::vector<std::string> words;
-    std::string word;
-    
+    std::vector<my_string> words;
+    my_string word;
     while (iss >> word) {
-        if (word[0] == '#') break; // stop reading when a '#' is encountered
         words.push_back(word);
     }
     
     std::sort(words.begin(), words.end());
     
-    std::vector<std::string> result;
+    std::vector<my_string> result;
     for (int i = 0; i < k && i < words.size(); ++i) {
         result.push_back(words[i]);
     }
@@ -33,13 +30,13 @@ std::vector<std::string> select_words(std::string input, int k) {
 }
 
 int main() {
-    std::vector<std::string> result = select_words("a b c d e f #", 1);
-    assert(issame({{"b"}}, "b"); 
-    std::cout << "{" + Join(result, ", ") + "}" << std::endl;
+    my_string my_result[] = {"b"};
+    if (!issame({{"b"}}, my_result)) 
+    std::cout << "{" + Join(select_words("a b c d e f", 1), ", ") + "}" << std::endl;
     return 0;
 }
 
-std::string Join(const std::vector<std::string>& vec, char delimiter) {
+my_string Join(const std::vector<my_string>& vec, char delimiter) {
     std::stringstream ss;
     for (const auto& s : vec) {
         ss << s << delimiter;
