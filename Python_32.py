@@ -1,8 +1,10 @@
-Here is the completed code:
+Here is the solution:
 
 def find_zero(xs: list):
-    n = len(xs)
-    if n % 2 == 1:
+    if len(xs) % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
-    highest_coefficient_index = n // 2
-    return -xs[highest_coefficient_index] / xs[0]
+    max_abs_coeff = max(abs(x) for x in xs)
+    if max_abs_coeff == abs(xs[0]):
+        return -xs[0] / xs[1]
+    else:
+        return -xs[-1] / xs[-2]
