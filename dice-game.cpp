@@ -1,19 +1,9 @@
-#include <iostream>
+double probability(int n, int m) {
+    double total = (double)n * m;
+    double p = 0;
 
-int main() {
-    int n, m;
-    std::cout << "Enter number of sides for Peter's die: ";
-    std::cin >> n;
-    std::cout << "Enter number of sides for Colin's die: ";
-    std::cin >> m;
-
-    double result = 0.0;
-    
-    for (int i = 1; i < n; ++i) {
-        result += (double(1)/n) * (double(1)/m);
+    for (int i = 1; i <= n - 1; i++) {
+        p += (1.0 / n) * (1.0 / m);
     }
 
-    std::cout << "Probability that Peter rolls strictly higher than Colin: " << 1 - result << std::endl;
-
-    return 0;
-}
+    return 1 - p;
