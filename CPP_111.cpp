@@ -1,57 +1,23 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    if (test.empty()) return result;
+#include <map>
+#include <string>
 
-    string words[256]; 
-    int wordCount = 0;
-    for (char c : test) {
-        if (c == ' ') {
-            wordCount++;
+std::map<char, int> histogram(std::string s) {
+    std::map<char, int> freqMap;
+    for (char c : s) {
+        if (freqMap.find(c) == freqMap.end()) {
+            freqMap[c] = 1;
         } else {
-            if (wordCount >= sizeof(words) / sizeof(string)) {
-                return result; 
-            }
-            words[wordCount] += c;
+            freqMap[c]++;
         }
     }
+    return freqMap;
+}
 
-    for (int i = 0; i <= wordCount; i++) {
-        int count = 1;
-        for (int j = i + 1; j <= wordCount; j++) {
-            if (words[i] == words[j]) {
-                count++;
-            } else {
-                break;
-            }
-        }
-        result[words[i][0]] = count;
-    }
+bool issame(std::map<char,int> a,std::map<char,int> b){
+    return a == b;
+}
 
-    map<char, int> sameWords;
-    for (auto p : result) {
-        bool flag = false;
-        for (auto q : result) {
-            if (p.first == q.first && p.second == q.second) {
-                sameWords[p.first] = p.second;
-                flag = true;
-                break;
-            }
-        }
-        if (!flag) {
-            sameWords[p.first] = p.second;
-        }
-    }
-
-    bool compareMaps(map<char,int> a,map<char,int> b){
-        return a == b;
-    }
-
-    map<char, int> result2 = histogram("a");
-    if (compareMaps(result, result2)) {
-        cout << "The histograms are the same.\n";
-    } else {
-        cout << "The histograms are not the same.\n";
-    }
-    
-    return sameWords;
+int main() {
+    assert(issame(histogram("a"), { {'a', 1} }));
+    return 0;
 }
