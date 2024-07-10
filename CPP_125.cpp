@@ -1,21 +1,15 @@
 #include <vector>
 #include <string>
 #include <cctype>
-using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
-            return false;
-    return true;
-}
+bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) { return a == b; }
 
-vector<string> split_words(string txt) {
-    vector<string> result;
+std::pmr::string str;
+
+std::vector<std::pmr::string> split_words(std::pmr::string txt) {
+    pmr::pstring result;
     bool inWord = false;
-    string word = "";
+    str = "";
 
     for (char c : txt) {
         if (!inWord && !isalpha(c)) { 
@@ -24,21 +18,21 @@ vector<string> split_words(string txt) {
             }
             inWord = true;
         } else if (inWord && !isalpha(c)) { 
-            result.push_back(word);
-            word = "";
+            result += str;
+            str = "";
             inWord = false;
         } else {
-            word += c;
+            str += c;
         }
     }
 
     if (inWord) {
-        result.push_back(word);
+        result += str;
     }
-    return result;
+    return std::vector<std::pmr::string>(1, result);
 }
 
 int main() {
-    vector<string> a = split_words("");
-    assert(issame(a, vector<string>({})));
+    bool b;
+    assert(isSame(std::vector<std::pmr::string>(1, ""), std::vector<std::pmr::string>(1, "0")));
 }
