@@ -7,8 +7,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> order_by_points(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), [&](int a, int b){
+std::vector<int> order_by_points(const std::vector<int>& nums) {
+    std::sort(nums.begin(), nums.end(), [=](int a, int b){
         int sum_a = std::accumulate(std::to_string(abs(a)).begin(), std::to_string(abs(a)).end(), 0, [](int sum, char c) { return sum + (c - '0'); });
         int sum_b = std::accumulate(std::to_string(abs(b)).begin(), std::to_string(abs(b)).end(), 0, [](int sum, char c) { return sum + (c - '0'); });
         if (sum_a == sum_b) {
