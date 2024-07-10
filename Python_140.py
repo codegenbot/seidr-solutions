@@ -1,5 +1,5 @@
 ````
-def fix_spaces(text):
+"""def fix_spaces(text):
     new_text = ''
     in_word = False
     for char in text:
