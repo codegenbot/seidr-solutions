@@ -5,7 +5,7 @@
 #include <sstream>
 #include <cassert>
 
-map<string, int> number_map = {
+std::map<std::string, int> number_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -18,26 +18,34 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
-    map<int, string> reverse_map;
+std::string sort_numbers(std::string numbers);
+
+std::string sort_numbers(std::string numbers){
+    std::map<int, std::string> reverse_map;
     for (const auto& pair : number_map) {
         reverse_map[pair.second] = pair.first;
     }
 
-    vector<int> sorted_numbers;
-    stringstream ss(numbers);
-    string token;
+    std::vector<int> sorted_numbers;
+    std::stringstream ss(numbers);
+    std::string token;
     while (ss >> token) {
         sorted_numbers.push_back(number_map[token]);
     }
 
-    sort(sorted_numbers.begin(), sorted_numbers.end());
+    std::sort(sorted_numbers.begin(), sorted_numbers.end());
 
-    string result;
+    std::string result;
     for (const auto& num : sorted_numbers) {
         result += reverse_map[num] + " ";
     }
 
-    result.pop_back(); // Remove the extra space at the end
+    result.pop_back();
     return result;
+}
+
+int main(){
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    
+    return 0;
 }
