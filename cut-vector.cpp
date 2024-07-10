@@ -2,31 +2,34 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
-using namespace std;
+#include <climits>
 
 int main() {
-    vector<int> nums;
-    int num;
-    while (cin >> num) {
-        nums.push_back(num);
+    int n;
+    std::cin >> n;
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> nums[i];
     }
 
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    for (int i = 1; i < nums.size(); ++i) {
-        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+    int diff = INT_MAX;
+    int cutIndex = -1;
+    for (int i = 1; i < n; ++i) {
+        int leftSum = std::accumulate(nums.begin(), nums.begin() + i, 0);
+        int rightSum = std::accumulate(nums.begin() + i, nums.end(), 0);
+        int currentDiff = std::abs(leftSum - rightSum);
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            cutIndex = i;
         }
     }
 
-    for (int i = 0; i < cut_index; ++i) {
-        cout << nums[i] << '\n';
+    for (int i = 0; i < cutIndex; ++i) {
+        std::cout << nums[i] << std::endl;
     }
-    cout << '\n';
-    for (int i = cut_index; i < nums.size(); ++i) {
-        cout << nums[i] << '\n';
+    std::cout << std::endl;
+    for (int i = cutIndex; i < n; ++i) {
+        std::cout << nums[i] << std::endl;
     }
 
     return 0;
