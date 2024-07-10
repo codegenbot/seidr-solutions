@@ -1,5 +1,5 @@
-bool issame(float a, float b) {
-    return (fabs(a - b) < 0.00001);
+bool issame(const vector<float>& numbers1, const vector<float>& numbers2) {
+    return numbers1 == numbers2;
 }
 
 vector<float> rescale_to_unit(const vector<float>& numbers) {
