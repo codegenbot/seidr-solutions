@@ -1,33 +1,40 @@
-bool issame(vector<int> a, vector<int> b){
+#include <iostream>
+#include <vector>
+#include <string>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
+    
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
+    
     return true;
 }
 
-vector<int> parse_music(string music_string);
+std::vector<int> parse_music(std::string music_string);
 
 int main() {
-    string input_music;
-    cin >> input_music;
-    vector<int> parsed_result = parse_music(input_music);
+    std::string music = "o|o.|o";
+    std::vector<int> parsed_music = parse_music(music);
     
-    vector<int> b = {1, 2, 3, 4};
+    std::vector<int> expected_result = {4, 1, 4};
     
-    bool result = issame(parsed_result, b);
-    
-    cout << std::boolalpha << result << endl;
+    if (issame(parsed_music, expected_result)) {
+        std::cout << "Success" << std::endl;
+    } else {
+        std::cout << "Failure" << std::endl;
+    }
     
     return 0;
 }
 
-vector<int> parse_music(string music_string){
-    vector<int> result;
+std::vector<int> parse_music(std::string music_string){
+    std::vector<int> result;
     int beats = 0;
     for (char c : music_string) {
         if (c == 'o') {
