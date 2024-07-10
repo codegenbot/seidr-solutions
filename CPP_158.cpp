@@ -24,11 +24,11 @@ int main()
     std::vector<std::string> words;
     for (int i = 0; i < n; ++i) {
         std::string str;
-        std::cin.ignore(); 
         std::getline(std::cin, str); 
         str.erase(0, str.find_first_not_of(' ')); 
+        str.pop_back(); // remove trailing spaces
         if (!str.empty()) { 
-            words.push_back(str); 
+            words.emplace_back(str); 
         }
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
