@@ -21,10 +21,6 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     return result;
 }
 
-bool is_same(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 int main() {
     assert(is_same(strange_sort_list({111111}), {111111}));
     return 0;
