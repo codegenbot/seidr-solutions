@@ -1,11 +1,10 @@
 #include <iostream>
 #include <map>
+#include <algorithm>
 #include <string>
 
-using namespace std;
-
-bool issame(std::map<std::map<char, int>::key_type, std::map<char, int>::mapped_type> a, std::map<std::map<char, int>::key_type, std::map<char, int>::mapped_type> b) {
-    return a == b;
+bool issame(std::map<char, int> a, std::map<char, int> b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::map<char, int> histogram(std::string test) {
@@ -34,6 +33,7 @@ std::map<char, int> histogram(std::string test) {
 
 int main() {
     std::map<char, int> test1 = histogram("a");
+
     for (const auto& pair : test1) {
         std::cout << pair.first << " " << pair.second << std::endl;
     }
