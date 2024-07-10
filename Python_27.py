@@ -1,9 +1,4 @@
-def swapcase_string(string):
-    return string.swapcase()
-
-# Input
-input_string = input("Enter a string: ")
-
-# Output
-output_string = swapcase_string(input_string)
-print(output_string)
+def toggle_case(string):
+    return "".join(
+        [char.lower() if char.isupper() else char.upper() for char in string]
+    )
