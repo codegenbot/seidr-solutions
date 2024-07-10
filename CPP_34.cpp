@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <algorithm>
 #include <vector>
 
@@ -14,5 +14,5 @@ int main_test() {
     }
     std::cout << std::endl;
 
-    assert(isSame(std::vector<int>(input.begin(), uniqueOutput), {0, 2, 3, 5, 9, 123}));
+    assert(std::isSame({0, 2, 3, 5, 9, 123}, std::vector<int>(input.begin(), uniqueOutput)));
 }
