@@ -1,14 +1,9 @@
-string remove_vowels(string text){
-    string result = "";
-    for (char c : text) {
-        if (!isalpha(c)) {
-            result += c;
-        } else {
-            char lower = tolower(c);
-            if (lower != 'a' && lower != 'e' && lower != 'i' && lower != 'o' && lower != 'u') {
-                result += c;
-            }
-        }
+string::iterator it = text.begin();
+for (; it != text.end(); ++it) {
+    if (*it == 'a' || *it == 'e' || *it == 'i' || *it == 'o' || *it == 'u' ||
+        tolower(*it) == 'a' || tolower(*it) == 'e' || tolower(*it) == 'i' || tolower(*it) == 'o' || tolower(*it) == 'u') {
+        text.erase(it);
+        --it;
     }
-    return result;
 }
+return text;
