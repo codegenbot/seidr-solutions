@@ -15,7 +15,7 @@ def bowling_score(bowls):
                 elif len(frames[i + 1]) > 1 and frames[i + 1][1] != "0":
                     score += int(frames[i + 1][1])
         else:
-            frame_score = sum([int(b) for b in frames[i])
+            frame_score = sum([int(b) for b in frames[i]])
             if frames[i] == "0":
                 pass
             elif len(frames[i]) == 2 and '/' in frames[i]:
