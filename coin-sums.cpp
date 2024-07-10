@@ -16,39 +16,10 @@ int main() {
 
     int pennies = cents;
 
-    if (quarters > 0) {
-        std::cout << quarters;
-        if (quarters > 1) {
-            std::cout << "s";
-        }
-        std::cout << " coin" << (quarters > 1 ? "s" : "") << " of kind quarter, ";
-    }
-
-    if (dimes > 0) {
-        std::cout << dimes;
-        if (dimes > 1) {
-            std::cout << "s";
-        }
-        std::cout << " coin" << (dimes > 1 ? "s" : "") << " of kind dime, ";
-    }
-
-    if (nickles > 0) {
-        std::cout << nickles;
-        if (nickles > 1) {
-            std::cout << "s";
-        }
-        std::cout << " coin" << (nickles > 1 ? "s" : "") << " of kind nickel, ";
-    }
-
-    if (pennies > 0) {
-        std::cout << pennies;
-        if (pennies > 1) {
-            std::cout << "s";
-        }
-        std::cout << " coin" << (pennies > 1 ? "s" : "") << " of kind penny";
-    }
-
-    std::cout << std::endl;
+    std::cout << "Quarters: " << quarters << std::endl;
+    std::cout << "Dimes: " << dimes << std::endl;
+    std::cout << "Nickels: " << nickles << std::endl;
+    std::cout << "Pennies: " << pennies << std::endl;
 
     return 0;
 }
