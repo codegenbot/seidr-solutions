@@ -41,7 +41,11 @@ int main() {
 
     bool result = issame(music_beats, example);
 
-    cout << (result ? "true" : "false") << endl;
+    if (result) {
+        cout << "true" << endl;
+    } else {
+        cout << "false" << endl;
+    }
 
     return 0;
 }
