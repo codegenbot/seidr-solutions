@@ -13,15 +13,17 @@ std::map<char, int> histogram(std::string s) {
     return freqMap;
 }
 
-bool issame(std::map<char, int> a, std::map<char, int> b) {
+namespace std {
+std::pair<bool, bool> issameMap(std::map<char, int> a, std::map<char, int> b) {
     if (a.size() != b.size())
-        return false;
+        return {false, false};
 
     for (auto it = a.begin(); it != a.end();++it)
-        if (it->second != b.find(it->first)->second)
-            return false;
+        if (it->second != b.at(it->first))
+            return {false, false};
 
-    return true;
+    return {true, true};
+}
 }
 
 std::string s1 = "aa";
@@ -29,7 +31,7 @@ std::string s2 = "a";
 auto hist1 = histogram(s1);
 auto hist2 = histogram(s2);
 
-bool sameMap = issame(hist1, hist2);
+bool sameMap = std::get<0>(issameMap(hist1, hist2)) && std::get<1>(issameMap(hist1, hist2));
 
 if (sameMap) {
     std::cout << "Histograms are the same.\n";
