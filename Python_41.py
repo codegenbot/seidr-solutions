@@ -1,5 +1,6 @@
 def car_race_collision(n: int):
-    collisions = [
-        i + j for i in range(1, n // 2 + 1) for j in range(i, (n - i) // 2 + 1)
-    ]
-    return str(collisions.count(n))
+    if not isinstance(n, int) or n < 1:
+        return "Invalid input. Please enter a positive integer."
+    for i in range(1, n + 1):
+        if (i * (i * 2 + 1)) // 2 == n:
+            return i
