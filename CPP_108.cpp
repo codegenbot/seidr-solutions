@@ -25,7 +25,7 @@ int count_nums(std::vector<int> nums) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> nums(std::vector<int>::size_type());
+    std::vector<int> nums(std::atoi("10000000")); // set a large initial size
     while (n--) {
         int num; 
         while (!(std::cin >> num)) {
