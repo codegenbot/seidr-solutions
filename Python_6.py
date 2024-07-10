@@ -5,8 +5,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     current_depth = 0
     if any(char not in ["(", ")"] for char in paren_string):
         return "Invalid nested parens string"
-    if paren_string.count("(") != paren_string.count(")"):
-        return "Invalid nested parens string"
     for char in paren_string:
         if char == "(":
             current_depth += 1
@@ -19,6 +17,8 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         return "Invalid nested parens string"
     return depths
 
-input_string = input("Enter the nested parens string: ")
+input_string = input().strip()
+while not input_string or input_string.count("(") != input_string.count(")"):
+    input_string = input("Please enter a valid nested parens string: ")
 result = parse_nested_parens(input_string)
 print(result)
