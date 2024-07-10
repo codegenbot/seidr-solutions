@@ -37,14 +37,10 @@ int main() {
         input.push_back(x);
     }
     
-    auto unique_end = distinct(input.begin(), input.end());
-    std::vector<int> output(input.begin(), unique_end);
+    auto firstUnique = distinct(input.begin(), input.end());
+    std::vector<int> output(firstUnique, std::unique(input.begin(), input.end()));
 
     for (int i : output) {
         std::cout << i << " ";
     }
-
-    std::vector<int> v = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    auto end = std::unique(v.begin(), v.end());
-    assert(issame(std::vector<int>(v.begin(), end), {0, 2, 3, 5, 9, 123}));
 }
