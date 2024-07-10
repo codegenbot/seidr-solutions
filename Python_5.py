@@ -1,5 +1,4 @@
-from typing import List
-
+Here is the modified code:
 
 def intersperse(list1: List[int], list2: List[int]) -> List[int]:
     result = []
@@ -12,5 +11,6 @@ def intersperse(list1: List[int], list2: List[int]) -> List[int]:
             result.append(num)
             
     if list2:
-        result.extend(list2)        
+        result.extend([i for i in list2])
+        
     return result
