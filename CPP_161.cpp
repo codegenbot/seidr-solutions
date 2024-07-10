@@ -1,12 +1,11 @@
 string solve(string s) {
-    string res = "";
+    string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            res += (c >= 'a' && c <= 'z') ? char(c - ('a' - 'A')) : char(c + ('a' - 'A'));
+            result += tolower(c) == 'a' ? toupper(c) : tolower(c);
         } else {
-            res += c;
+            result += c;
         }
     }
-    reverse(res.begin(), res.end());
-    return res;
+    return result.empty() ? string(s).reverse() : result;
 }
