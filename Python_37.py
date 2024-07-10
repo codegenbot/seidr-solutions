@@ -14,6 +14,5 @@ def sort_even(l: list):
             odd_index += 1
 
     result.extend(evens[even_index:])
-    if odds:  
-        result.extend(odds)
+    result.extend(odds)
     return tuple(result)
