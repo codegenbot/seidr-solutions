@@ -1,5 +1,3 @@
-Here is the corrected Python code for the `encode` function:
-
 ```
 def encode(message):
     result = ""
