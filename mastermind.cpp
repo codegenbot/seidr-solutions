@@ -1,3 +1,7 @@
+#include <string>
+
+struct PegCounts { int white; int black; };
+
 PegCounts mastermind(std::string code, std::string guess) {
     PegCounts result = {0, 0};
     std::string remainingGuess = guess;
@@ -6,7 +10,7 @@ PegCounts mastermind(std::string code, std::string guess) {
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             result.black++;
-            remainingGuess[i] = ' ';
+            remainingGuess[i] = ' '; // Update the corresponding index in remainingGuess as well
         }
     }
 
