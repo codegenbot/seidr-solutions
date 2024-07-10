@@ -14,7 +14,7 @@ bool below_threshold(vector<int> numbers, int threshold) {
 }
 
 int main() {    
-    vector<int> numbers = {1, 2, 3}; 
+    vector<int> numbers({}); 
     int threshold = 5; 
 
     bool result = below_threshold(numbers, threshold);
