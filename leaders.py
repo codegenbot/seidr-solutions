@@ -1,7 +1,9 @@
-Here is the solution:
+def leaders(arr):
+    n = len(arr)
+    result = [arr[n - 1]]
 
-def leaders(a):
-    return [a[i] for i in range(len(a)-1, -1, -1) if all(x <= a[i] for x in a[i+1:])]
+    for i in range(n - 2, -1, -1):
+        if arr[i] >= arr[i + 1]:
+            result.insert(0, arr[i])
 
-input()
-print(leaders(input().split()))
+    return result
