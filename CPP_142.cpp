@@ -1,3 +1,4 @@
+```
 #include <cmath>
 #include <iostream>
 
@@ -12,5 +13,10 @@ int sum_squares(int n) {
 int main() {
     int n;
     std::cin >> n;
-    std::cout << sum_squares(n) << std::endl;
+    if(n < 0) {
+        std::cout << "Invalid input. Please enter a non-negative integer." << std::endl;
+    } else {
+        assert(sum_squares(4) == 30); //{-1, -3, 17, ...}
+        std::cout << sum_squares(n) << std::endl;
+    }
 }
