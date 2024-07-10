@@ -9,7 +9,7 @@ int basement(const std::vector<int>& nums) {
             return i;
         }
     }
-    return -1; // If no negative sum found
+    return -1;
 }
 
 int main() {
