@@ -5,30 +5,24 @@ std::string camelCase(std::string str) {
     std::string result = "";
     for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || str[i] == '-') {
-            if (result.length() > 0) {
+            if (result != "") {
                 result[0] = toupper(result[0]);
             }
-            if (i < str.length()) {
-                result += toupper(str.substr(i));
-                i += str.substr(i).find(' ') - 1;
-            } else {
-                break;
+            int j = i + 1;
+            while (j <= str.length() && str[j] != '-') {
+                result += tolower(str[j++]);
             }
         } else {
-            if (result.length() > 0 && str[i] != '-') {
-                result += tolower(str[i]);
-            } else {
-                result += str[i];
-            }
+            result += str[i];
         }
     }
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << "The camelCase equivalent is: " << camelCase(input) << std::endl;
     return 0;
 }
