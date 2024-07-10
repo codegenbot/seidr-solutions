@@ -9,10 +9,10 @@ std::string solve(int N) {
         sum += N % 2;
         N /= 2;
     }
-    return std::bitset<8>(sum).to_string().substr(8 - sum);
+    return bitset<8>(sum).to_string().substr(8 - sum);
 }
 
 int main() {
-    assert(solve(963) == "10010");
+    assert (solve(963) == "10010");
     return 0;
 }
