@@ -1,34 +1,35 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<int> res;
-    for (int i = 0; i < k; i++) {
-        int maxRow = 0, maxValue = 0;
-        for (int j = 0; j < grid.size(); j++) {
-            if (grid[j][0] > maxValue) {
-                maxRow = j;
-                maxValue = grid[j][0];
+vector<int> minPath(vector<vector<int>> grid, int k){
+    int n = grid.size();
+    vector<vector<bool>> visited(n, vector<bool>(n));
+    vector<int> path;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(visited[i][j]) continue;
+            vector<int> lst;
+            dfs(grid, i, j, k, visited, lst);
+            if(lst.size() == k){
+                path = lst;
+                break;
             }
         }
-        res.push_back(maxValue);
-        for (int j = 0; j < grid.size(); j++) {
-            if (j != maxRow) {
-                swap(grid[j][0], grid[maxRow][0]);
-                swap(maxRow, j);
-            }
-        }
+        if(path.size() == k) break;
     }
-    return res;
+    return path;
 }
 
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (int i : result) {
-        cout << i << " ";
+void dfs(vector<vector<int>>& grid, int i, int j, int k, vector<vector<bool>>& visited, vector<int>& lst){
+    int n = grid.size();
+    if(k == 0) return;
+    visited[i][j] = true;
+    lst.push_back(grid[i][j]);
+    for(int x = max(0, i-1); x <= min(n-1, i+1); x++){
+        for(int y = max(0, j-1); y <= min(n-1, j+1); y++){
+            if(x == i && y == j) continue;
+            if(!visited[x][y]){
+                dfs(grid, x, y, k-1, visited, lst);
+                if(lst.size() == k) return;
+            }
+        }
     }
-    return 0;
+    visited[i][j] = false;
 }
