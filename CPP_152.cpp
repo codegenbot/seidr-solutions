@@ -22,39 +22,29 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 int main() {
-    vector<int> game;
-    cout << "Enter the number of games: ";
+    vector<int> game, guess;
+    cout << "Enter the number of rounds: ";
     int n;
     cin >> n;
     for (int i = 0; i < n; i++) {
-        cout << "Enter score for game " << i + 1 << ": ";
-        int score;
-        cin >> score;
-        game.push_back(score);
-    }
-    
-    vector<int> guess;
-    cout << "Enter the number of guesses: ";
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        cout << "Enter score for guess " << i + 1 << ": ";
-        int score;
-        cin >> score;
-        guess.push_back(score);
+        cout << "Enter score for round " << i + 1 << ": ";
+        int x, y;
+        cin >> x >> y;
+        game.push_back(x);
+        guess.push_back(y);
     }
     
     vector<int> diff = compare(game, guess);
-    bool same = issame(game, guess);
-    
-    if (same) {
-        cout << "The games and guesses are the same." << endl;
+
+    if (issame(game, guess)) {
+        cout << "The scores are the same." << endl;
     } else {
-        cout << "The games and guesses are different." << endl;
-        
-        for (int i = 0; i < game.size(); i++) {
-            cout << "The difference between the " << i + 1 << " game and guess is: " << diff[i] << endl;
+        cout << "The different between scores is: ";
+        for (int i = 0; i < n; i++) {
+            cout << diff[i] << " ";
         }
+        cout << endl;
     }
-    
+
     return 0;
 }
