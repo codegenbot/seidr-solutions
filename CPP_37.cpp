@@ -5,21 +5,32 @@ int main() {
     int n;
     cin >> n;
     vector<float> v(n);
-    for (float &x : v) cin >> x;
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+    
+    vector<float> result = sort_even(v);
+    for (float f : result) {
+        cout << f << " ";
+    }
+    return 0;
+}
 
-    bool check = true;
-    for (int i = 0; i < n - 1; i++) {
-        if (v[i] > v[i + 1]) {
-            check = false;
-            break;
+vector<float> sort_even(vector<float> l) {
+    vector<float> result(l.size());
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            vector<float> temp;
+            for (int j = 0; j < l.size(); j++) {
+                if (j % 2 == 0) {
+                    temp.push_back(l[j]);
+                }
+            }
+            sort(temp.begin(), temp.end());
+            result[i] = temp[0];
+        } else {
+            result[i] = l[i];
         }
     }
-
-    if (check) {
-        cout << "The array is sorted in ascending order." << endl;
-    } else {
-        cout << "The array is not sorted in ascending order." << endl;
-    }
-
-    return 0;
+    return result;
 }
