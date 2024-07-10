@@ -19,10 +19,11 @@ int main() {
     std::cout << "Enter the number of words: ";
     int n;
     std::cin >> n;
-    words.resize(n);
     for (int i = 0; i < n; ++i) {
+        std::string temp;
         std::cout << "Enter word " << i + 1 << ": ";
-        std::getline(std::cin, words[i]);
+        std::getline(std::cin, temp);
+        words.push_back(std::move(temp));
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
     return 0;
