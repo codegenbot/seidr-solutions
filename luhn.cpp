@@ -16,3 +16,18 @@ int luhn(vector<int> digits) {
     }
     return sum;
 }
+
+int main() {
+    // Read input from user
+    int n;
+    cin >> n;
+    vector<int> digits(16);
+    for(int i = 0; i < n; i++) {
+        cin >> digits[i];
+    }
+
+    // Call the luhn function and print the output
+    cout << luhn(digits) << endl;
+
+    return 0;
+}
