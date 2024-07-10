@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 struct PegCounts { int white; int black; };
 
 PegCounts mastermind(string code, string guess) {
@@ -16,6 +13,7 @@ PegCounts mastermind(string code, string guess) {
     }
 
     // Count white pegs
+    int whiteCount = 0;
     for (int i = 0; i < 4; ++i) {
         int count = 0;
         for (int j = 0; j < 4; ++j) {
@@ -24,9 +22,10 @@ PegCounts mastermind(string code, string guess) {
             }
         }
         if (count > 0) {
-            result.white += count - 1; // subtract one, as the correct position is already counted
+            whiteCount += count - 1; // subtract one, as the correct position is already counted
         }
     }
 
+    result.white = whiteCount;
     return result;
 }
