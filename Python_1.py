@@ -1,22 +1,22 @@
-```
-def solve_task() -> str:
-    while True:
-        try:
-            num1 = int(input("Enter first number: "))
-            num2 = int(input("Enter second number: "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter numeric values.")
+def separate_paren_groups(expression):
+    result = []
+    temp_group = ""
     
-    result = num1 + num2
+    in_group = False
     
-    while True:
-        response = input("Are you sure? (y/N): ").lower()
-        if response in ["y", "n"]:
-            if response == "y":
-                return f"Result: {result}" if result != 0 else "No operation performed"
-            elif response == "n":
-                print("Operation cancelled!")
-                return None
+    for char in expression:
+        if char == '(':
+            in_group = True
+            temp_group += char
+        elif char == ')':
+            in_group = False
+            temp_group += char
+            result.append(temp_group)
+            temp_group = ""
         else:
-            print("Invalid input. Please enter y or N.")
+            if not in_group:
+                result.append(char)
+            else:
+                temp_group += char
+    
+    return result
