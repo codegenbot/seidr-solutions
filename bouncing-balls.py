@@ -1,5 +1,5 @@
-```
 import math
+
 
 def bouncing_balls():
     h1 = float(input())
@@ -12,5 +12,6 @@ def bouncing_balls():
         total_distance += (h1 + abs(h2 - h1)) * 2
         prev_height = max(0, prev_height * bounciness_index)
     return round(total_distance, 4)
+
 
 print(round(bouncing_balls(), 4))

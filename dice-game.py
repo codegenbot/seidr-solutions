@@ -1,4 +1,3 @@
+"""
 def roll_higher(n, m):
-    total_outcomes = n * m
-    higher_cases = sum(1 for _ in range(n) if _ > int(m/2))
-    return higher_cases / total_outcomes
+    return sum(1 for i in range(m-1) for j in range(i+1, n)) / (n * m)
