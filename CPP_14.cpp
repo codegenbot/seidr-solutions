@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <string>
@@ -17,4 +18,12 @@ std::vector<std::string> all_prefixes(const std::string& s) {
         result.push_back(s.substr(0, i));
     }
     return result;
+}
+
+int main() {
+    std::vector<std::string> v = {"W", "W", "W"};
+    if (!issame(all_prefixes("WWW"), v)) {
+        return 1; 
+    } 
+    return 0;
 }
