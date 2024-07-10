@@ -1,10 +1,11 @@
 #include <vector>
 #include <string>
-#include <algorithm>
 
-int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
+using namespace std;
+
+int Strongest_Extension(string class_name,vector<string> extensions){
     int strongest_strength = 0;
-    std::string strongest_extension;
+    string strongest_extension;
 
     for(auto extension : extensions){
         int cap = 0;
@@ -24,10 +25,4 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
     }
 
     return class_name + "." + strongest_extension;
-}
-
-int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
-    // You can put your test cases here
-    return 0;
 }
