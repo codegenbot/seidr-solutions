@@ -29,4 +29,3 @@ int main() {
         std::cout << "The entered string is not the same as expected." << std::endl;
     else
         std::cout << "The entered string is the same as expected." << std::endl;
-}
