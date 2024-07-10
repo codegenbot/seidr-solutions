@@ -28,8 +28,8 @@ int main() {
     }
     vector<int> result = leaders(input);
     cout << "Leaders are: ";
-    for(auto x : result) {
-        cout << x << " ";
+    for(auto i : result) {
+        cout << i << " ";
     }
     cout << endl;
 }
