@@ -1,13 +1,38 @@
-#include<string>
+#include <vector>
+#include <string>
+#include <cctype>
 
-bool issame(const vector<string>& v1, const vector<string>& v2) {
-    if (v1.size() != v2.size()) 
-        return false;
-        
-    for(size_t i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i])
-            return false;
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
+std::vector<std::string> split_words(string txt) {
+    vector<string> result;
+    bool inWord = false;
+    string word = "";
+
+    for (char c : txt) {
+        if (!inWord && !isalpha(c)) { // Check for alpha characters
+            // Check for commas
+            if (c == ',') {
+                continue;
+            }
+            inWord = true;
+        } else if (inWord && !isalpha(c)) { // isalpha checks for alphanumeric characters
+            result.push_back(word);
+            word = "";
+            inWord = false;
+        } else {
+            word += c;
+        }
     }
-    
-    return true;
+
+    if (inWord) {
+        result.push_back(word);
+    }
+    return result;
+}
+
+int main() {
+    assert(issame(split_words(""), {"0"}));
 }
