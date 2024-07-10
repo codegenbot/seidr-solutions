@@ -8,7 +8,7 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
     if (class_name.empty() || extensions.empty()) return "";
 
     std::string strongest_extension = "";
-    size_t max_strength = SIZE_MAX;
+    size_t min_strength = SIZE_MAX;
 
     for (const std::string& ext : extensions) {
         if (ext.empty()) continue;
@@ -28,15 +28,15 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
         }
 
         if (valid_extension) {
-            size_t strength = std::max(cap_count, sm_count) - std::min(cap_count, sm_count);
-            if (strength < max_strength || (strength == max_strength && ext.size() > strongest_extension.size())) {
-                max_strength = strength;
+            size_t strength = std::abs(static_cast<int>(cap_count) - static_cast<int>(sm_count));
+            if (strength < min_strength || (strength == min_strength && ext.size() < strongest_extension.size())) {
+                min_strength = strength;
                 strongest_extension = ext;
             }
         }
     }
 
-    if (max_strength == SIZE_MAX) {
+    if (min_strength == SIZE_MAX) {
         return "";
     }
 
