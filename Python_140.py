@@ -17,4 +17,4 @@ while True:
         print(result)
         break
     except (ValueError, EOFError):
-        print("Please enter valid input. Try again!")
+        print("Please enter valid input. Try again!"
