@@ -18,8 +18,13 @@ bool issame(vector<int> a, vector<int> b) {
 vector<int> common(vector<int> a, vector<int> b) {
     vector<int> result;
     for (int i = 0; i < a.size(); i++) {
-        if (issame({a[i], a[(i+1)%4], a[(i+2)%4], a[(i+3)%4]}, {b[0], b[1], b[2], b[3]})) {
-            result.push_back(a[i]);
+        int val1 = a[(i+3)%4];
+        int val2 = a[(i+1)%4];
+        for(int j=0; j<4; j++){
+            if(val1 == b[j] && val2==b[(j+1)%4]){
+                result.push_back(a[i]);
+                break;
+            }
         }
     }
     return result;
