@@ -1,3 +1,5 @@
+#include <algorithm>
+
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
@@ -31,11 +33,8 @@ vector<string> reverse_delete(string s, string c) {
         right--;
     }
     
-    vector<string> final_result = {temp};
-    if (is_palindrome) {
-        final_result.push_back("True");
-    } else {
-        final_result.push_back("False");
-    }
-    return final_result;
+    vector<string> output;
+    output.push_back(temp);
+    output.push_back(is_palindrome ? "True" : "False");
+    return output;
 }
