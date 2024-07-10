@@ -1,10 +1,14 @@
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    result = [0, 0, 0, 0]
+    min_count = float('inf')
+    counts = [0, 0, 0, 0]
 
-    for coin in coins:
-        count = cents // coin
-        result[coins.index(coin)] = count
-        cents %= coin
+    for i in range(len(coins)):
+        count = cents // coins[i]
+        if count > 0:
+            remaining_cents = cents - coins[i] * count
+            new_counts = list(counts)
+            new_counts[i] = count
+            min_count = min(min_count, coin_sums(remaining_cents) + tuple(new_counts))
 
-    return result[3], result[2], result[1], result[0]
+    return (*min_count[:3], int(min_count[3]))
