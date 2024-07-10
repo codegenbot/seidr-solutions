@@ -1,11 +1,9 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
-    // function implementation
-}
+bool issame(vector<int> a, vector<int> b);
 
-vector<int> pluck(vector<int> arr) {
+vector<int> pluck(vector<int> arr){
     vector<int> result;
     int smallest_value = -1;
     int smallest_index = -1;
@@ -23,4 +21,8 @@ vector<int> pluck(vector<int> arr) {
     }
     
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    // function implementation
 }
