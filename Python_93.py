@@ -4,15 +4,10 @@ def encode(message):
         if char.isalpha():
             ascii_offset = 97 if char.islower() else 65 
             if char.lower() in 'aeiou':
-                if char.islower():
-                    result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
-                else:
-                    result += chr((ord(char) - (ascii_offset-32) + 3) % 26 + (ascii_offset-32))
+                result += chr((ord(char.lower()) - ascii_offset + 3) % 26 + ascii_offset)
             else:
-                if char.islower():
-                    result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
-                else:
-                    result += char
+                result += chr((ord(char.lower()) - (97 if char.islower() else 65 ) + 3) % 26 + 
+                             (97 if char.islower() else 65))
         else:
             result += char
     return result
