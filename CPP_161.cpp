@@ -7,11 +7,11 @@ int solve(std::string s) {
     if (s.empty()) {
         return 0;
     }
-    std::string v;
+    std::vector<std::string> v;
     for (char c : s) {
         if (std::tolower(c) == 'a' || std::tolower(c) == 'e' || 
             std::tolower(c) == 'i' || std::tolower(c) == 'o' || std::tolower(c) == 'u') {
-            v += std::tolower(c);
+            v.push_back(std::string(1, c));
         }
     }
     return v.size();
