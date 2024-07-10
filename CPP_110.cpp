@@ -1,9 +1,34 @@
-string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
-    for (int num : lst1) {
-        if (num % 2 != 0) {
-            oddCount++;
+#include <initializer_list>
+#include <cassert>
+#include <vector>
+#include <ostream>
+#include <iostream>
+
+std::string exchange(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return "NO";
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] > b[i]) {
+            return "YES";
         }
     }
-    return oddCount == 0 ? "YES" : "NO";
+    return "NO";
+}
+
+int main_entry() {
+    assert(exchange({100, 200}, {200, 200}) == "NO");
+    std::vector<int> a;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        int x;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> x;
+        a.push_back(x);
+    }
+    std::vector<int> b(a);
+    std::cout << "Result: " << exchange(a, b) << std::endl;
+    return 0;
 }
