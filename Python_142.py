@@ -1,10 +1,10 @@
 def sum_squares(lst):
-    return sum(
-        (
-            x ** (4 if i % 12 == 0 else 3)
-            if ((i + 1) % 3 == 0 and (i + 1) % 4 != 0)
-            or ((i + 1) % 4 == 0 and (i + 1) % 3 != 0)
-            else x
-        )
-        for i, x in enumerate(lst)
-    )
+    total = 0
+    for i in range(len(lst)):
+        if i % 3 == 0 and i % 4 != 0:
+            total += lst[i] ** 2
+        elif i % 4 == 0 and i % 3 != 0:
+            total += lst[i] ** 3
+        else:
+            total += lst[i]
+    return total
