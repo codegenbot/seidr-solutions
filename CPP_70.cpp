@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -22,29 +23,22 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input_vector;
-    cout << "Enter numbers (space separated): ";
-    string temp_str;
-    getline(cin, temp_str);
-    size_t pos = 0;
-    while ((pos = temp_str.find(" ")) != string::npos) {
-        string num_str = temp_str.substr(0, pos);
-        int num = stoi(num_str);
-        input_vector.push_back(num);
-        temp_str.erase(0, pos + 1);
+    vector<int> inputVector;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    cout << "Enter the elements:" << endl;
+    for(int i=0; i<n; i++) {
+        int temp;
+        cin >> temp;
+        inputVector.push_back(temp);
     }
-    if (!temp_str.empty()) {
-        int num = stoi(temp_str);
-        input_vector.push_back(num);
+    
+    vector<int> outputVector = strange_sort_vector(inputVector);
+    
+    cout << "The sorted vector is: ";
+    for(auto x : outputVector) {
+        cout << x << " ";
     }
-
-    vector<int> sorted_vector = strange_sort_vector(input_vector);
-
-    cout << "Sorted Vector: ";
-    for (int i : sorted_vector) {
-        cout << i << " ";
-    }
-    cout << endl;
-
     return 0;
 }
