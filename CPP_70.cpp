@@ -17,36 +17,35 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 int main() {
     int n1, n2;
+    
     std::cout << "Enter the size of first vector: ";
     std::cin >> n1;
     
-    std::cout << "Enter element 1 to " << n1 << ": " << std::endl; // let user know how many elements are expected
+    n1 = 0; // initialize n1
+    n2 = 0; // initialize n2
 
-    std::vector<int> a;
-    a.reserve(n1); 
+    std::cout << "Enter element 1 to " << n1 << ": " << std::endl; 
 
     for(int i = 0; i < n1; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         int temp; 
         std::cin >> temp;
-        a.push_back(temp);
+        n1++;
     }
     
     std::cout << "Enter the size of second vector: ";
     std::cin >> n2;
 
-    std::cout << "Enter element 1 to " << n2 << ": " << std::endl; // let user know how many elements are expected
+    std::cout << "Enter element 1 to " << n2 << ": " << std::endl; 
 
-    std::vector<int> b;
-    b.reserve(n2);
-    
     for(int i = 0; i < n2; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         int temp; 
         std::cin >> temp;
-        b.push_back(temp);
+        n2++;
     }
-    if(issame(a, b)) {
+    
+    if(issame(std::vector<int>(n1), std::vector<int>(n2))) {
         std::cout << "The two vectors are the same." << std::endl;
     } else {
         std::cout << "The two vectors are not the same." << std::endl;
