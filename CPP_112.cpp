@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -35,9 +34,7 @@ string reverse_delete(const string s1, const string s2) {
             s1 = s1.substr(0, pos) + s1.substr(pos + 1);
         }
     }
-    string temp = s1;
-    reverse(temp.begin(), temp.end());
-    s1 = temp;
+    reverse(s1.begin(), s1.end());
     return s1;
 }
 
