@@ -5,6 +5,7 @@
 namespace custom {
     using std::vector;
     using std::sort;
+    using std::unique;
 }
 
 bool issame(const custom::vector<int>& a, const custom::vector<int>& b) {
