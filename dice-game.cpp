@@ -1,4 +1,4 @@
-\#include <iostream>
+#include <iostream>
 
 int main() {
     int n, m;
@@ -14,7 +14,7 @@ int main() {
             }
         }
     }
-    probability /= (n * m);
+    probability /= (n * m); 
 
     std::cout << probability << std::endl;
     
