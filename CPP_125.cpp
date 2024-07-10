@@ -1,9 +1,3 @@
-#include <vector>
-#include <string>
-#include <cctype>
-
-using namespace std;
-
 vector<string> split_words(string txt) {
     vector<string> result;
     bool inWord = false;
@@ -27,15 +21,6 @@ vector<string> split_words(string txt) {
 
     if (inWord) {
         result.push_back(word);
-    } else if (txt.length() == 0) {
-        int count = 0;
-        for (char c : txt) {
-            if (islower(c)) {
-                count++;
-            }
-        }
-        result.push_back(to_string(count));
     }
-
     return result;
 }
