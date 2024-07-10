@@ -1,12 +1,12 @@
-int is_bored(string S){
+#include <string>
+
+int is_bored(std::string S){
     int count = 0;
-    string delimiter = ".?!";
-    size_t pos = 0;
-    while ((pos = S.find_first_of(delimiter, pos)) != string::npos) {
-        if (S[pos-2] == ' ' && S[pos-1] == 'I') {
+    int n = S.length();
+    for(int i=0; i<n; ++i){
+        if(S[i] == 'I' && (i == 0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')){
             count++;
         }
-        pos++;
     }
     return count;
 }
