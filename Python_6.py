@@ -1,3 +1,4 @@
+import ast
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
@@ -17,9 +18,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         return "Invalid nested parens string"
     return depths
 
-input_string = input("Enter the nested parens string within quotes: ")
+input_string = ast.literal_eval(input("Enter the nested parens string within quotes: "))
 result = parse_nested_parens(input_string)
-if type(result) == list:
-    print(result)
-else:
-    print(result)
+print(result)
