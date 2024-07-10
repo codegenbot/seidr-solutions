@@ -1,14 +1,21 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
 int main() {
-    string s;
-    cin >> s;
+    std::string s;
+    std::cin >> s;
+
     if (s == "t") {
-        cout << "True";
-    } else {
-        cout << "False";
+        std::cout << "True";
+    } 
+    else if (s == "f") {
+        std::cout << "False";
     }
+    else {
+        char op = s[1];
+        bool result = s[0] == 't' && op == '&' || s[0] == 'f' && op == '|';
+        std::cout << (result ? "True" : "False");
+    }
+
     return 0;
 }
