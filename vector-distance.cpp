@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <iomanip>
 
 using namespace std;
 
@@ -13,6 +12,7 @@ int main() {
         cin >> vec1[i];
     }
 
+    cin.ignore(); // Ignore the newline character
     cin >> n;
     vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
@@ -25,7 +25,7 @@ int main() {
     }
 
     float result = sqrt(sum);
-    cout << fixed << setprecision(14) << result << endl;
+    cout << result << endl;
 
     return 0;
 }
