@@ -1,38 +1,22 @@
-int bowlingScore(string str) {
+int bowlingScore(string s) {
     int score = 0;
-    int frame = 1;
-    for (char c : str) {
-        if (c == 'X') {
-            score += 10 + (frame < 10 ? getBonus(frame, str) : 0);
-            frame++;
-        } else if (c == '/') {
-            int pins = 10 - (str[str.find('/')] - '0' + str[str.find('/', str.find('/'))] - '0');
-            score += 10 - pins;
-            frame++;
-        } else {
-            int pins = c - '0';
-            if (frame < 9 && str[str.find('.') - 1] == '/') {
-                pins += getBonus(frame, str);
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == '/') {
+            int firstRoll = stoi(s.substr(0, i));
+            int secondRoll = stoi(s.substr(i + 1));
+            if (firstRoll + secondRoll >= 10) {
+                score += 10;
+            } else {
+                score += firstRoll + secondRoll;
             }
-            score += pins;
-            if (pins < 10) {
-                frame++;
+        } else {
+            int roll = stoi(s.substr(i, 2));
+            if (roll == 10) {
+                score += roll;
+            } else {
+                score += roll;
             }
         }
     }
     return score;
-}
-
-int getBonus(int frame, string str) {
-    int bonus = 0;
-    for (int i = str.find('.') + 1; i < str.size(); i++) {
-        if (str[i] == 'X') {
-            bonus += 10;
-            break;
-        } else if (str[i] == '/') {
-            bonus += 10 - (str[str.find('/', i)] - '0' + str[str.find('/', i, str.find('/', i))] - '0');
-            break;
-        }
-    }
-    return bonus;
 }
