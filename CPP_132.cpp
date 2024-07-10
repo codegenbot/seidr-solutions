@@ -9,14 +9,9 @@ bool is_nested(std::string str) {
             count++;
         } else if (c == ']' && count > 0) {
             count--;
+        } else if (c == ']' && count == 0) {
+            return false; // Unmatched closing bracket
         }
     }
-    return count == 0;
-}
-
-int main() {
-    assert(is_nested("[][][][]") == true);
-    assert(is_nested("][][") == false);
-    assert(is_nested("]]]]]]]]") == false);
-    return 0;
+    return count == 0; // Check if all brackets are matched
 }
