@@ -1,6 +1,6 @@
 from typing import List
 
-numbers = input("Enter numbers (comma-separated): ").strip().split(",")
+numbers = input("Enter numbers (comma-separated): ").strip().replace(" ", "").split(",")
 threshold = float(input("Enter threshold: "))
 
 def has_close_elements(numbers: list[float], threshold: float) -> bool:
