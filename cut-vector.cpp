@@ -1,34 +1,43 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums, int target) {
-    int prefixSum = 0;
-    int index = -1;
+int main() {
+    vector<int> nums;
+    int num;
 
-    for (int i = 0; i < nums.size(); ++i) {
-        prefixSum += nums[i];
-        if (prefixSum == target) {
-            index = i;
-            break;
+    while (cin >> num) {
+        nums.push_back(num);
+    }
+    
+    if (nums.size() > 1) {
+        int sum = accumulate(nums.begin(), nums.end(), 0);
+        int target = sum / 2;
+        int prefixSum = 0;
+        int index = 0;
+        int minDiff = INT_MAX;
+        int cutIndex = 0;
+
+        for (int i = 0; i < nums.size(); ++i) {
+            prefixSum += nums[i];
+            int diff = abs(2 * prefixSum - sum);
+            if (diff < minDiff) {
+                minDiff = diff;
+                cutIndex = i;
+            }
         }
-        int diff1 = abs(prefixSum - target);
-        int diff2 = abs(target - (prefixSum - nums[i]));
-        if (diff1 < diff2) {
-            index = i;
-            break;
+
+        for (int i = 0; i <= cutIndex; ++i) {
+            cout << nums[i] << endl;
+        }
+        cout << "---" << endl;
+        for (int i = cutIndex + 1; i < nums.size(); ++i) {
+            cout << nums[i] << endl;
         }
     }
 
-    vector<int> firstVector;
-    for (int i = 0; i <= index; ++i) {
-        firstVector.push_back(nums[i]);
-    }
-
-    vector<int> secondVector;
-    for (int i = index + 1; i < nums.size(); ++i) {
-        secondVector.push_back(nums[i]);
-    }
-
-    return firstVector;
-    return secondVector;
+    return 0;
 }
