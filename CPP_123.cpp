@@ -4,31 +4,16 @@
 using namespace std;
 
 vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+    vector<int> result(1); // Add reserve(1) here
     while (n != 1) {
-        if (n > 0 && n % 2 == 0) {
-            n /= 2;
-        } else if (n < 0) { 
-            n = -n;
-            while (n != 1) {
-                if (n % 2 == 0) {
-                    n /= 2;
-                } else {
-                    n = 3 * n + 1;
-                }
-                if (n % 2 != 0) {
-                    result.push_back(n);
-                }
-            }
-        } else { 
-            if (n % 2 == 0) {
-                n = 3 * n + 1;
-            } else {
-                n = 3 * n + 1;
-            }
-            if (n % 2 != 0) {
-                result.push_back(n);
-            }
+        if (n % 2 == 0) {
+            int temp = n / 2; 
+            n = temp;
+        } else {
+            n = 3 * n + 1;
+        }
+        if (n % 2 != 0) { 
+            result.push_back(n);
         }
     }
     return result;
@@ -44,5 +29,4 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-    return 0;
 }
