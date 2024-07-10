@@ -1,5 +1,8 @@
-```
+Here is the completed code:
+
+```python
 import re
+
 def filter_by_substring():
     while True:
         expected_output = input("Is your expected output 'True values', 'False values', or 'all'? ")
