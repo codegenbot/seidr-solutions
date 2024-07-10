@@ -1,15 +1,14 @@
 def filter_strings(strings, substring):
     return [s for s in strings if substring in s]
 
-
 strings = []
 while True:
-    user_input = input()
-    if user_input == "":
+    line = input().strip()
+    if not line:
         break
-    strings.append(user_input)
+    strings.append(line)
 
 substring = input().strip()
 
 filtered_strings = filter_strings(strings, substring)
-print(str(filtered_strings))
+print(filtered_strings)
