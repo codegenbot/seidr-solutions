@@ -1,5 +1,8 @@
+#include <vector>
+#include <climits>
+
 int search(const vector<int>& lst) {
-    int result = -1;
+    int maxFreq = INT_MIN;
     for (int num : lst) {
         int freq = 0;
         for (int n : lst) {
@@ -7,9 +10,9 @@ int search(const vector<int>& lst) {
                 freq++;
             }
         }
-        if (num > 0 && num <= freq) {
-            result = max(result, num);
+        if (num > freq && freq > maxFreq) {
+            maxFreq = freq;
         }
     }
-    return result;
+    return maxFreq > 0 ? maxFreq : INT_MIN;
 }
