@@ -1,16 +1,35 @@
-string file_name_check(string file_name){
-    int dot_index = file_name.find('.');
-    if (dot_index == string::npos) {
+int count_digits(const string& str) {
+    int count = 0;
+    for (char c : str) {
+        if (isdigit(c)) {
+            count++;
+        }
+    }
+    return count;
+}
+
+string file_name_check(string file_name) {
+    int digit_count = count_digits(file_name);
+    if (digit_count > 3) {
         return "No";
     }
-    string before_dot = file_name.substr(0, dot_index);
-    string after_dot = file_name.substr(dot_index + 1);
 
-    bool is_valid = true;
-    is_valid &= count(before_dot.begin(), before_dot.end(), '0'-'9') <= 3;
-    is_valid &= count(after_dot.begin(), after_dot.end(), '0'-'9') == 0;
-    is_valid &= (before_dot[0] >= 'a' && before_dot[0] <= 'z') || (before_dot[0] >= 'A' && before_dot[0] <= 'Z');
-    is_valid &= (after_dot == "txt" || after_dot == "exe" || after_dot == "dll");
+    size_t dot_pos = file_name.find('.');
+    if (dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
+        return "No";
+    }
 
-    return is_valid ? "Yes" : "No";
+    string before_dot = file_name.substr(0, dot_pos);
+    string after_dot = file_name.substr(dot_pos + 1);
+
+    if (!all_of(before_dot.begin(), before_dot.end(), ::isalpha)) {
+        return "No";
+    }
+
+    vector<string> allowed_extensions = {"txt", "exe", "dll"};
+    if (find(allowed_extensions.begin(), allowed_extensions.end(), after_dot) == allowed_extensions.end()) {
+        return "No";
+    }
+
+    return "Yes";
 }
