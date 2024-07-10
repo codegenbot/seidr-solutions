@@ -1,20 +1,26 @@
-int bowlingScore(string frames) {
+int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (frames[i] == 'X') {
-            score += 30;
-        } else if (frames[i] == '/') {
-            score += 10 + score % 10;
+    int roll = 0;
+    vector<int> rolls;
+
+    for (char c : s) {
+        if (c == '/') {
+            score += min(10, roll);
+            roll = 0;
+        } else if (c == 'X') {
+            score += 10;
+            roll = 0;
         } else {
-            int frameScore = 0;
-            for (int j = i; j < i+2; j++) {
-                if (j >= frames.length()) break;
-                if (frames[j] == 'X') frameScore += 30;
-                else if (frames[j] == '/') frameScore += 10;
-                else frameScore += frames[j] - '0';
-            }
-            score += frameScore;
+            int val = c - '0';
+            roll += val;
         }
     }
+
+    if (roll > 0) {
+        score += min(10, roll);
+    } else if (roll == 10) {
+        score += 10;
+    }
+
     return score;
 }
