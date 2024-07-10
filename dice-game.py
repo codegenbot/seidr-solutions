@@ -1,3 +1,8 @@
-```
 def roll_higher(n, m):
-    return sum(1 for i in range(m-1) for j in range(i+1, n)) / (n * m)
+    total_outcomes = n * m
+    favorable_outcomes = 0
+    
+    for i in range(1, min(n,m)+1):
+        favorable_outcomes += n - i
+    
+    return favorable_outcomes / total_outcomes
