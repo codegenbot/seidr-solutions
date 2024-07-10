@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 
-int luhnAlgorithm(vector<int> cardNumber) {
+int luhnCheck(const vector<int>& cardNumber) {
     int sum = 0;
     bool doubleNext = false;
     
@@ -10,7 +10,9 @@ int luhnAlgorithm(vector<int> cardNumber) {
         
         if (doubleNext) {
             digit *= 2;
-            if (digit > 9) digit -= 9;
+            if (digit > 9) {
+                digit -= 9;
+            }
         }
         
         sum += digit;
@@ -18,4 +20,15 @@ int luhnAlgorithm(vector<int> cardNumber) {
     }
     
     return sum;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> cardNumber(n);
+    for(int i=0; i<n; ++i) {
+        cin >> cardNumber[i];
+    }
+    cout << luhnCheck(cardNumber) << endl;
+    return 0;
 }
