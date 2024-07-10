@@ -23,16 +23,14 @@ int main() {
     cout << "Enter a floating point number or a string: ";
     getline(cin, str);
 
-    double b = 0.0; // Initialize b to default value
+    double b = 0.0; 
 
     if (istringstream(str) >> b) {
         // If the input is a valid float
         cout << "The result is: " << CompareOne(a, b) << endl;
     } else {
-        // If the input is not a valid float, assume it's a string
-        if (!str.empty()) { 
-            cout << "The result is: " << a << endl;
-        }
+        // Input is not a valid float
+        cout << "Invalid floating point number. Please enter again." << endl;
     }
 
     return 0;
