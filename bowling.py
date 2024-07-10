@@ -1,13 +1,23 @@
-```
-def bowling_score(gutter_ball):
-    frames = gutter_ball.split('/')
+Here is the solution:
+
+def bowling_score(games):
     score = 0
-    for i in range(len(frames)):
-        if len(frames[i]) == 1: 
-            score += 10 - int(frames[i])
-        elif len(frames[i]) > 1:
-            score += (int(frames[i][0]) + int(frames[i][1]))*2
+    rolls = [int(x) for x in games.replace('/', '')]
+    roll_index = 0
+    
+    for frame in range(10):
+        if rolls[roll_index] == 10:
+            score += rolls[roll_index]
+            roll_index += 1
+        elif rolls[roll_index] + rolls[roll_index+1] >= 10:
+            score += 10
+            roll_index += 2
         else:
-            if i < 9:
-                score += 10
+            score += rolls[roll_index]
+            if rolls[roll_index+1] == 10:
+                roll_index += 2
+            else:
+                score += rolls[roll_index+1]
+                roll_index += 2
+    
     return score
