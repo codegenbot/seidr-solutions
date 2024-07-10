@@ -16,13 +16,16 @@ def filter_integers() -> None:
     try:
         user_values = [int(val) for val in user_input.split(",")]
 
-        avg_value = sum(user_values) / len(user_values)
-        min_value = min(user_values)
+        if len(user_values) > 0:
+            avg_value = sum(user_values) / len(user_values)
+            min_value = min(user_values)
 
-        print(f"The integers from the input are: {user_values}")
-        print(f"Average Value: {avg_value:.2f}")
-        print(f"Minimum Value: {min_value}")
-    except ValueError:
+            print(f"The integers from the input are: {user_values}")
+            print(f"Average Value: {avg_value}")
+            print(f"Minimum Value: {min_value}")
+        else:
+            print("No values entered. Cannot calculate average and minimum.")
+    except (ValueError, ZeroDivisionError):
         print("Invalid input. Please enter a valid list of comma-separated integers.")
 
 
