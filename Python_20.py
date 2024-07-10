@@ -10,7 +10,10 @@ def check(lst):
 while True:
     try:
         lst = list(map(int, input().split()))
-        break
+        if len(lst) == 0: 
+            print("Please enter some numbers.")
+        else: 
+            break
     except ValueError:
         print("Invalid input. Please enter integers separated by space.")
 
