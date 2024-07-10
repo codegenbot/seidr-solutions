@@ -9,4 +9,3 @@ def fibfib(n: int):
             result.append(a)
         return str(result)
     else:
-        pass  # or your intended logic here
