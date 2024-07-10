@@ -1,51 +1,124 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
-    int pos = -1;
-
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int diff = abs(vec[i] - vec[i + 1]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            pos = i;
+    pair<int, int> split_index;
+    for (int i = 1; i < v.size(); i++) {
+        int left_sum = 0, right_sum = 0;
+        for (int j = 0; j < i; j++) {
+            left_sum += v[j];
+        }
+        for (int j = i; j < v.size(); j++) {
+            right_sum += v[j];
+        }
+        if (left_sum == right_sum) {
+            return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
+        } else if (abs(left_sum - right_sum) < min_diff) {
+            min_diff = abs(left_sum - right_sum);
+            split_index = {i, i};
         }
     }
-
-    std::vector<int> left_vec, right_vec;
-
-    for (int i = 0; i < pos; i++) {
-        left_vec.push_back(vec[i]);
-    }
-
-    for (int i = pos + 1; i < vec.size(); i++) {
-        right_vec.push_back(vec[i]);
-    }
-
-    return std::make_pair(left_vec, right_vec);
+    int index = split_index.first;
+    return {{v.begin(), v.begin() + index}, {v.begin() + index, v.end()}};
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-
-    std::vector<int> vec(n);
-    for (auto& x : vec) {
-        std::cin >> x;
+    // Test cases
+    vector<int> input1 = {1};
+    pair<vector<int>, vector<int>> output1 = cutVector(input1);
+    cout << "Input: ";
+    for (int num : input1) {
+        cout << num << " ";
     }
-
-    auto res = cutVector(vec);
-
-    for (const auto& x : res.first) {
-        std::cout << x << " ";
+    cout << endl;
+    cout << "Output:" << endl;
+    cout << "Left subvector: ";
+    for (int num : output1.first) {
+        cout << num << " ";
     }
-    std::cout << "\n";
-
-    for (const auto& x : res.second) {
-        std::cout << x << " ";
+    cout << endl;
+    cout << "Right subvector: ";
+    for (int num : output1.second) {
+        cout << num << " ";
     }
-    std::cout << "\n";
+    cout << endl;
+
+    vector<int> input2 = {1, 10};
+    pair<vector<int>, vector<int>> output2 = cutVector(input2);
+    cout << "Input: ";
+    for (int num : input2) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Output:" << endl;
+    cout << "Left subvector: ";
+    for (int num : output2.first) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Right subvector: ";
+    for (int num : output2.second) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    vector<int> input3 = {1, 100};
+    pair<vector<int>, vector<int>> output3 = cutVector(input3);
+    cout << "Input: ";
+    for (int num : input3) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Output:" << endl;
+    cout << "Left subvector: ";
+    for (int num : output3.first) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Right subvector: ";
+    for (int num : output3.second) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    vector<int> input4 = {1, 1000};
+    pair<vector<int>, vector<int>> output4 = cutVector(input4);
+    cout << "Input: ";
+    for (int num : input4) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Output:" << endl;
+    cout << "Left subvector: ";
+    for (int num : output4.first) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Right subvector: ";
+    for (int num : output4.second) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    vector<int> input5 = {1, 10000};
+    pair<vector<int>, vector<int>> output5 = cutVector(input5);
+    cout << "Input: ";
+    for (int num : input5) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Output:" << endl;
+    cout << "Left subvector: ";
+    for (int num : output5.first) {
+        cout << num << " ";
+    }
+    cout << endl;
+    cout << "Right subvector: ";
+    for (int num : output5.second) {
+        cout << num << " ";
+    }
+    cout << endl;
 
     return 0;
 }
