@@ -22,15 +22,21 @@ int main() {
         if (c == 'T' || c == 'F') {
             operand = (c == 'T');
         } else if (c == '|' || c == '&') {
-            if (c == '|') {
-                op = c;
-            }
+            op = c;
         } else {
-            result = evaluate(op, result, operand);
+            if (op == '|') {
+                result = result || operand;
+            } else if (op == '&') {
+                result = result && operand;
+            }
         }
     }
 
-    result = evaluate(op, result, operand);
+    if (op == '|') {
+        result = result || operand;
+    } else if (op == '&') {
+        result = result && operand;
+    }
 
     if (result) {
         std::cout << "True" << std::endl;
