@@ -1,3 +1,4 @@
+```
 def modp(n: int, p: int) -> int:
     if not isinstance(n, int) or not isinstance(p, int):
         return None
@@ -5,6 +6,8 @@ def modp(n: int, p: int) -> int:
         return None
     else:
         result = 1
-        for _ in range(0, p):  
-            result = (result * n) % p
+        for _ in range(p.bit_length().bit_length()):
+            if (p >> _) & 1:
+                result = (result * n) % p
+            n = (n * n) % p
         return result
