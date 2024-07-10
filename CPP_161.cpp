@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 
@@ -17,9 +17,6 @@ int main() {
     std::string s;
     std::getline(std::cin, s);
     int result = solve(s); 
-    if (result > 0) {
-        std::cout << "Result: " << result << std::endl;
-    } else {
-        std::cout << "No vowels found." << std::endl;
-    }
+    std::cout << "Result: " << result << std::endl;
+    return 0;
 }
