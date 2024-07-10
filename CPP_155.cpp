@@ -1,6 +1,10 @@
 #include <vector>
 #include <cassert>
 
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
 std::vector<int> even_odd_count(int num) {
     int even = 0, odd = 0;
     while(num != 0) {
@@ -13,9 +17,6 @@ std::vector<int> even_odd_count(int num) {
     return {even, odd};
 }
 
-int main() {
-    assert(even_odd_count(0) == std::vector<int>{1, 0});
-    assert(even_odd_count(123456) == std::vector<int>{3, 3});
-    assert(even_odd_count(-87654) == std::vector<int>{2, 3});
-    return 0;
-}
+assert(issame(even_odd_count(0) , {1, 0}));
+assert(issame(even_odd_count(123456), {3, 3}));
+assert(issame(even_odd_count(-87654), {2, 3}));
