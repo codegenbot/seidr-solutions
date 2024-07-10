@@ -1,8 +1,3 @@
-#include <vector>
-#include <iostream>
-
-using namespace std;
-
 int main() {
     int cents;
     cin >> cents;
@@ -10,14 +5,10 @@ int main() {
     vector<int> coins = {25, 10, 5, 1};
     vector<int> result(4, 0);
 
-    while (cents > 0) {
-        for (int i = 3; i >= 0; i--) {
-            if (coins[i] <= cents) {
-                int count = cents / coins[i];
-                result[i] = count;
-                cents -= count * coins[i];
-            }
-        }
+    for (int i = 0; i < 4; i++) {
+        int numCoins = cents / coins[i];
+        result[i] = numCoins;
+        cents -= numCoins * coins[i];
     }
 
     cout << result[0] << endl;
