@@ -2,16 +2,10 @@
 
 int main() {
     string S;
-    cout << "Enter a sentence: ";
-    getline(cin, S);
-    
-    int count = is_bored(S);
-    
-    if(count > 0)
-        cout << "The input contains " << count << " occurrences of 'I'." << endl;
-    else
-        cout << "The input does not contain any occurrence of 'I'." << endl;
-    
+    cout << "Enter a string: ";
+    cin >> S;
+    int result = is_bored(S);
+    cout << "Number of times 'I' appears at the start of sentences: " << result << endl;
     return 0;
 }
 
