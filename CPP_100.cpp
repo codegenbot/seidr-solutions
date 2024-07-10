@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <random>
-#include <iostream>
+#include <ostream>
 
 using namespace std;
 
@@ -11,7 +11,6 @@ bool issame(vector<int> a, vector<int> b){
         if(a[i]!=b[i])return false;
     }
     return true;
-
 }
 
 std::vector<int> make_a_pile(int n) {
@@ -31,8 +30,8 @@ void problem100(int n) {
     cin >> input;
 
     if(issame({1}, make_a_pile(input))){
-        cout << "The piles are the same." << endl;
+        cout << "The piles are the same." << std::endl;
     } else {
-        cout << "The piles are not the same." << endl;
+        cout << "The piles are not the same." << std::endl;
     }
 }
