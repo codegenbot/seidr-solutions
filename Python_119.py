@@ -1,6 +1,6 @@
 def match_parens(lst):
+    stack = []
     for s in lst:
-        stack = []
         for char in s:
             if char == "(":
                 stack.append(char)
