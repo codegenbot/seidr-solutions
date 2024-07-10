@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,17 +18,17 @@ int main() {
     std::vector<std::string> words;
     int n;
     std::cout << "Enter the number of words: ";
-    std::cin >> std::ws; // clear the newline left in the stream buffer
+    std::cin >> std::ws; 
     std::cin >> n;
 
-    std::cin.ignore(); // ignore newline left in the stream buffer
+    std::cin.ignore(); 
 
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
+        std::cin.ignore(); 
         std::getline(std::cin, word); 
         words.push_back(word);
-        std::cin.ignore(); // Add this line to ignore any remaining newline characters.
     }
 
     findMaxWord(words);
