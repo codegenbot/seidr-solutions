@@ -1,33 +1,29 @@
+```
+#include <vector>
 #include <algorithm>
+
 using namespace std;
 
-std::string sort_numbers(const std::string& numbers) {
-    map<string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                    {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                    {"eight", 8}, {"nine", 9}};
-    vector<string> num_list;
+string sortNumbers(string numbers) {
+    vector<string> numVec;
     string temp;
-
-    for (char &c : numbers) {
-        if (isalpha(c)) {
-            temp += c;
-            continue;
-        }
+    
+    for (char c : numbers) {
+        if (isdigit(c)) continue;
         if (!temp.empty()) {
-            num_list.push_back(temp);
+            numVec.push_back(temp);
             temp = "";
         }
+        temp += to_string(c == ' ' ? 0 : (c - '0' + 1));
     }
-    if (!temp.empty())
-        num_list.push_back(temp);
+    if (!temp.empty()) numVec.push_back(temp);
 
-    sort(num_list.begin(), num_list.end(),
-         [&number_map](const string &a, const string &b) {
-             return number_map.at(a) < number_map.at(b);
-         });
-
+    sort(numVec.begin(), numVec.end());
+    
     string result;
-    for (const string &s : num_list)
-        result += s + " ";
+    for (string str : numVec) {
+        result += str;
+        result += " ";
+    }
     return result.substr(0, result.size() - 1);
 }
