@@ -26,8 +26,8 @@ bool is_multiply_prime(int a) {
         }
     }
     for (int i = 0; i < primes.size(); i++) {
-        for (int j = i; j < primes.size(); j++) {
-            for (int k = j; k < primes.size(); k++) {
+        for (int j = i + 1; j < primes.size(); j++) {
+            for (int k = j + 1; k < primes.size(); k++) {
                 if (primes[i] * primes[j] * primes[k] == a) {
                     return true;
                 }
