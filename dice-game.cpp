@@ -2,13 +2,11 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    double count = 0;
+    double p = 0;
     for (int i = 1; i <= n; i++) {
-        for (int j = 1; j < m && j <= i; j++) {
-            count++;
-        }
+        p += (n - i + 1.0) / (n * 1.0) * (m - i + 1.0) / (m * 1.0);
     }
-    return count / (double)(n * m);
+    return p;
 }
 
 int main() {
