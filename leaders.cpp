@@ -1,7 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <climits>
 #include <algorithm>
+#include <iostream>
 using namespace std;
 
 vector<int> findLeaders(const vector<int>& nums) {
@@ -23,19 +23,15 @@ vector<int> findLeaders(const vector<int>& nums) {
 int main() {
     vector<int> nums;
     int num;
-    
-    cout << "Enter positive integers (0 to end input):" << endl;
-    while (cin >> num && num != 0) {
+    while (cin >> num) {
         nums.push_back(num);
     }
-    
+
     vector<int> result = findLeaders(nums);
-    
-    cout << "Leaders in the vector are:";
+
     for (int leader : result) {
-        cout << " " << leader;
+        cout << leader << " ";
     }
-    cout << endl;
-    
+
     return 0;
 }
