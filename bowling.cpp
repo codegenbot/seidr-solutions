@@ -1,4 +1,4 @@
-```cpp
+```
 int bowlingScore(std::string input) {
     int score = 0;
     bool firstInFrame = true;
@@ -16,14 +16,10 @@ int bowlingScore(std::string input) {
             strikeOrSpare = false;
         } else if (c == 'X') {
             score += 10;
-            int extraPins = 0;
             if (!firstInFrame && !strikeOrSpare) {
-                for (int i = 2; i < input.size(); ++i) {
-                    if (input[i] != '|') {
-                        extraPins = input[i] - '0';
-                        break;
-                    }
-                }
+                int next1 = c + 1 < input.length() ? input[c+1] - '0' : 0;
+                int next2 = c + 2 < input.length() ? input[c+2] - '0' : 0;
+                score += next1 + next2;
             }
             firstInFrame = true;
             strikeOrSpare = false;
