@@ -1,9 +1,8 @@
 def filter_strings(strings, substring):
     return [s for s in strings if substring in s]
 
-# Define 'strings' and 'substring'
-strings = ['apple', 'banana', 'orange']
-substring = 'an'
+strings = raw_input("Enter a list of strings (separated by space): ").split()
+substring = raw_input("Enter the substring to filter on: ")
 
-# Call the function with the correct name
 filtered_strings = filter_strings(strings, substring)
+print(filtered_strings)
