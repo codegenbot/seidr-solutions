@@ -1,7 +1,5 @@
-```cpp
-#include <vector>
-#include <string>
 #include <iostream>
+#include <string>
 
 int bowlingScore(std::string s) {
     int score = 0;
