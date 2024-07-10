@@ -8,7 +8,7 @@ bool is_equal_to_sum_even(int n) {
     }
     
     while (n > 0) {
-        if (position % 2 == 0 && n % 2 == 0) {
+        if (position % 2 == 0) {
             sum += n % 10;
         }
         n /= 10;
