@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -22,9 +21,8 @@ int prod_signs(std::vector<int> arr) {
 
 }
 
-int main() {
-    std::vector<int> arr = {-1, 2, 3};
-    int result = prod_signs(arr);
-    std::cout << "Product of signs and sum: " << result << std::endl;
-    return 0;
-}
+//int main() {
+//    int result = prod_signs(std::vector<int>({-1, 2, 3})); 
+//    std::cout << "Product of signs and sum: " << result << std::endl;
+//    return 0;
+//}
