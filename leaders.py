@@ -1,12 +1,9 @@
-Here is the Python solution for the problem:
+Here is the completed Python code:
 
-def leaders(input):
-    result = [input[-1]]
-    max_right = input[-1]
-    
-    for i in range(len(input) - 2, -1, -1):
-        if input[i] >= max_right:
-            result.append(input[i])
-            max_right = input[i]
-    
-    return list(reversed(result))
+def leaders(a):
+    return [a[i] for i in range(len(a)-1, -1, -1) if all(a[i] >= a[j] for j in range(i+1, len(a)))]
+
+input_str = input()
+input_list = list(map(int, input_str.split()))
+output_list = leaders(input_list)
+print(' '.join(str(x) for x in output_list))
