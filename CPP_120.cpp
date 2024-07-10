@@ -1,4 +1,4 @@
-Here is the completed code:
+Here is the solution:
 
 vector<int> maximum(vector<int> arr, int k) {
     vector<int> result;
