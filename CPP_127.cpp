@@ -1,9 +1,15 @@
-int isPrime(int n) {
-    if (n <= 1) return 0;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+using namespace std;
+
+bool isPrimeNumber(int n) {
+    if (n <= 1) return false;
     for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return 0;
+        if (n % i == 0) return false;
     }
-    return 1;
+    return true;
 }
 
 string intersection(vector<int> interval1, vector<int> interval2) {
@@ -21,7 +27,7 @@ string intersection(vector<int> interval1, vector<int> interval2) {
 
     int intersectionLength = intersectionEnd - intersectionStart;
 
-    if (isPrime(intersectionLength)) {
+    if (isPrimeNumber(intersectionLength)) {
         return "YES";
     } else {
         return "NO";
