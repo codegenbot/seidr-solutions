@@ -2,46 +2,40 @@
 import re
 
 
-def filter_integers(input_str=None) -> None:
+def filter_integers() -> None:
     while True:
-        input_str = input(
+        user_input = input(
             "Please enter a comma-separated list of values (separated by commas), or type 'exit' to quit: "
         )
 
-        if input_str.lower() == "exit":
+        if user_input.lower() == "exit":
             break
 
-        if not re.match(r"^[0-9]+(,[0-9]+)*$", input_str):
-            print(
-                "Invalid input. Please enter a valid list of comma-separated integers."
-            )
-        else:
-            break
+        try:
+            values = [
+                int(val)
+                for val in user_input.replace(" ", "").split(",")
+                if re.match(r"^\d+$", val)
+            ]
 
-    try:
-        user_values = [
-            int(val.replace(" ", "").strip())
-            for val in input_str.split(",")
-            if re.match(r"^\d+$", val.replace(" ", "")) or int(val) == 0
-        ]
-
-        if not user_values:
-            print("No values entered. Cannot calculate average and minimum.")
-        elif len(user_values) < 2:
-            print(f"The integers from the input are: {user_values}")
-            if len(user_values) > 1:
-                print("Average Value is Not Applicable")
+            if not values:
+                print("No values entered. Cannot calculate average and minimum.")
+            elif len(values) < 2:
+                print(f"The integers from the input are: {values}")
+                if len(values) == 1:
+                    print("Average Value is Not Applicable")
+                    print(f"Minimum Value: {values[0]}")
+                else:
+                    print(f"Minimum Value: {min(values)}")
             else:
-                print(f"Minimum Value: {user_values[0]}")
-        else:
-            avg_value = sum(user_values) / len(user_values)
-            min_value = min(user_values)
+                avg_value = sum(values) / len(values)
+                min_value = min(values)
 
-            print(f"The integers from the input are: {user_values}")
-            if len(user_values) == 1:
-                print("Average Value is Not Applicable")
-            else:
+                print(f"The integers from the input are: {values}")
                 print(f"Average Value: {avg_value:.2f}")
-            print(f"Minimum Value: {min_value}")
-    except ZeroDivisionError:
-        print("Invalid input. Please enter a valid list of comma-separated integers.")
+                print(f"Minimum Value: {min_value}")
+        except ValueError as e:
+            print(f"{e}. Please enter valid integers.")
+
+
+filter_integers()
