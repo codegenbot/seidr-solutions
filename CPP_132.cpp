@@ -6,7 +6,7 @@ bool is_nested(const std::string& str) {
     bool result = false;
     int level = 0;
 
-    for (char c : str) {
+    for (auto c : str) {
         if (c == '(') {
             level++;
         } else if (c == ')') {
@@ -14,14 +14,9 @@ bool is_nested(const std::string& str) {
                 level--;
             }
         }
-
-        if (level > 1) {
-            result = true;
-            break;
-        }
     }
 
-    return result;
+    return level != 0; 
 }
 
 int main() {
