@@ -1,10 +1,11 @@
 #include <cmath>
 #include <iostream>
+#include <vector>
 
-double sum_squares(int n) {
+double sum_squares(const std::vector<int>& numbers) {
     double sum = 0.0;
-    for (int i = 1; i <= n; ++i) {
-        sum += pow(i, 2);
+    for (int number : numbers) {
+        sum += pow(number, 2);
     }
     return sum;
 }
@@ -16,7 +17,14 @@ int main() {
     if(n < 0) {
         std::cout << "Invalid input. Please enter a non-negative integer." << std::endl;
     } else {
-        double result = sum_squares(n);
+        std::vector<int> numbers;
+        for (int i = 1; i <= n; ++i) {
+            int num;
+            std::cin >> num;
+            numbers.push_back(num);
+        }
+        
+        double result = sum_squares(numbers);
         std::cout << "Sum of squares: " << result << std::endl;
     }
 }
