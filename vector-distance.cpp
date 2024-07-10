@@ -11,12 +11,20 @@ double calculateDistance(const std::vector<float>& vector1, const std::vector<fl
 }
 
 int main() {
-    std::vector<float> v1(3);
+    std::vector<float> v1;
+    v1.push_back(0.0f);
+    v1.push_back(0.0f);
+    v1.push_back(0.0f);
+
     v1[0] = 1.0f;
     v1[1] = 2.0f;
     v1[2] = 3.0f;
 
-    std::vector<float> v2(3);
+    std::vector<float> v2;
+    v2.push_back(0.0f);
+    v2.push_back(0.0f);
+    v2.push_back(0.0f);
+
     v2[0] = 4.0f;
     v2[1] = 5.0f;
     v2[2] = 6.0f;
