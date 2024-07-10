@@ -17,7 +17,7 @@ int main() {
         if (result == -1) {
             cout << "There is no " << n << "th prime Fibonacci number." << endl;
         } else {
-            cout << "The " << to_string(n) << "th prime Fibonacci number is: " << result << endl;
+            cout << "The " << n << "th prime Fibonacci number is: " << result << endl;
         }
     }
 }
