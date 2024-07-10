@@ -2,36 +2,47 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
+    int n = v.size();
+    pair<vector<int>, vector<int>> res;
     
-    for (int i = 1; i <= v.size(); i++) {
-        int left_sum = 0, right_sum = 0;
+    for(int i=1; i<n; i++){
+        int diff1 = abs(v[0] - v[i]);
+        int diff2 = abs(v[i] - v[n-1]);
         
-        if (i == 1) {
-            left_sum = accumulate(v.begin(), v.end(), 0);
-            right_sum = 0;
-        } else if (i == v.size()) {
-            left_sum = 0;
-            right_sum = accumulate(v.begin() + i - 1, v.end(), 0);
-        } else {
-            left_sum = accumulate(v.begin(), v.begin() + i - 1, 0);
-            right_sum = accumulate(v.begin() + i, v.end(), 0);
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        if(diff1 <= diff2){
+            res.first = vector<int>(v.begin(), v.begin() + i);
+            res.second = vector<int>(v.begin() + i, v.end());
+            return res;
         }
     }
     
-    vector<int> left_vec = v.begin();
-    if (cut_index > 1) {
-        for (int i = 0; i < cut_index - 1; i++)
-            left_vec++;
+    // If no cut is possible then the whole array will be in one group
+    res.first = vector<int>(v.begin(), v.end());
+    res.second = vector<int>();
+    
+    return res;
+}
+
+int main(){
+    int n;
+    cin >> n;
+    
+    vector<int> v(n);
+    for(int i=0; i<n; i++){
+        cin >> v[i];
     }
     
-    vector<int> right_vec = left_vec + cut_index;
-    return {vector<int>(left_vec, right_vec), {}};
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    
+    cout << "{";
+    for(auto x: result.first)cout << x << " ";
+    cout << "}";
+    
+    cout << endl;
+    
+    cout << "{";
+    for(auto x: result.second)cout << x << " ";
+    cout << "}";
+    
+    return 0;
 }
