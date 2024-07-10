@@ -1,7 +1,14 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
+
+int max_fill(vector<vector<int>>& grid, int capacity);
+
+int main() {
+    assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
+}
 
 int max_fill(vector<vector<int>>& grid, int capacity) {
     int rows = grid.size();
@@ -17,9 +24,4 @@ int max_fill(vector<vector<int>>& grid, int capacity) {
         buckets_needed++;
     }
     return buckets_needed;
-}
-
-int main() {
-    cout << max_fill({{1,1,1,1}, {1,1,1,1}}, 9) << endl;
-    return 0;
 }
