@@ -1,29 +1,30 @@
+#include <vector>
 #include <iostream>
+
 using namespace std;
 
-double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proportionOfMeltingPerHour) {
-    double snow = initialSnow;
+float snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionMelting) {
+    float totalSnow = 0;
+    
     for (int i = 0; i < hours; i++) {
-        snow += rateOfSnowfall;
-        snow -= snow * proportionOfMeltingPerHour;
+        totalSnow += rateOfSnowFall;
+        
+        if (totalSnow > initialSnow) {
+            totalSnow -= initialSnow * proportionMelting;
+        }
     }
-    return snow;
+    
+    return totalSnow;
 }
 
 int main() {
     int hours;
-    cout << "Enter the number of hours: ";
     cin >> hours;
+    float initialSnow, rateOfSnowFall, proportionMelting;
+    cin >> initialSnow >> rateOfSnowFall >> proportionMelting;
 
-    float initialSnow, rateOfSnowfall, proportionOfMeltingPerHour;
-    cout << "Enter the initial amount of snow on the ground (in meters): ";
-    cin >> initialSnow;
-    cout << "Enter the rate of snow fall (in meters per hour): ";
-    cin >> rateOfSnowfall;
-    cout << "Enter the proportion of snow melting per hour: ";
-    cin >> proportionOfMeltingPerHour;
+    cout << fixed << setprecision(10);
+    cout << snowDay(hours, initialSnow, rateOfSnowFall, proportionMelting) << endl;
 
-    double result = snowDay(hours, initialSnow, rateOfSnowfall, proportionOfMeltingPerHour);
-    cout << fixed << setprecision(9) << result << endl;
     return 0;
 }
