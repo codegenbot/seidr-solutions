@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -9,9 +8,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
             temp.push_back(i);
     }
     
-    sort(temp.begin(), temp.end());
+    std::sort(temp.begin(), temp.end());
     
-    reverse(temp.begin(), temp.end());
+    std::reverse(temp.begin(), temp.end());
     
     std::vector<std::string> result;
     for (int i : temp) {
