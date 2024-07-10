@@ -8,6 +8,7 @@ std::string camelCase(const std::string& s) {
     for (char c : s) {
         if (c == '-') {
             first = false;
+            result += ' ';
         } else if (!first) {
             result += toupper(c);
         } else {
