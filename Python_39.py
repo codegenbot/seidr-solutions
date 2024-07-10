@@ -16,14 +16,12 @@ def prime_fib(n: int):
             return fibonacci(n - 1) + fibonacci(n - 2)
 
     count = 0
-    num = 1
-    while True:
-        num += 1
+    num = 3
+    while count < n:
         if is_prime(num) and num == fibonacci(num):
             count += 1
-            if count == n:
-                break
-    return num
+        num += 1
+    return num - 1
 
 def main():
     while True:
@@ -31,7 +29,7 @@ def main():
         if n > 0:
             result = prime_fib(n)
             print(result)
-            break
+            return
         else:
             print("The input value should be greater than 0.")
 
