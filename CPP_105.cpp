@@ -5,7 +5,7 @@
 #include <cassert>
 #include <iostream>
 
-bool std::issame(std::vector<std::string> a, std::vector<std::string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
 std::vector<std::string> by_length(std::vector<int> arr);
 
@@ -42,11 +42,11 @@ std::vector<std::string> by_length(std::vector<int> arr){
     return result;
 }
 
-bool std::issame(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
 int main(){
-    assert(std::issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
+    assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
     return 0;
 }
