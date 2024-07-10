@@ -5,19 +5,33 @@
 
 using namespace std;
 
-std::vector<int> order_by_points(const std::vector<int>& nums) {
-    auto int_to_str = [](int num) {
-        return to_string(abs(num));
-    };
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
-    std::vector<int> sorted_nums = nums; 
-    std::sort(sorted_nums.begin(), sorted_nums.end(), [&](int a, int b) {
-        int sum_a = std::accumulate(int_to_str(a).begin(), int_to_str(a).end(), 0, [](int acc, char c) { return acc + c - '0'; });
-        int sum_b = std::accumulate(int_to_str(b).begin(), int_to_str(b).end(), 0, [](int acc, char c) { return acc + c - '0'; });
+int sum_of_digits(int num) {
+    int sum = 0;
+    while (num != 0) {
+        sum += abs(num) % 10;
+        num /= 10;
+    }
+    return sum;
+}
+
+vector<int> order_by_points(const vector<int>& nums) {
+    vector<int> sorted_nums = nums; 
+    sort(sorted_nums.begin(), sorted_nums.end(), [&](int a, int b) {
+        int sum_a = sum_of_digits(a);
+        int sum_b = sum_of_digits(b);
         if (sum_a == sum_b) {
             return a < b;
         }
         return sum_a < sum_b;
     });
     return sorted_nums;
+}
+
+int main() {
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
