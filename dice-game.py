@@ -1,7 +1,4 @@
 def dice_game(n, m):
-    if n > m:
-        return 1 - ((n - m) / (n * m))
-    elif n < m:
-        return 1 - ((m - n) / (m * n))
-    else:
-        return 0
+    total_cases = n * m
+    peter_wins = sum(1 for i in range(m) for j in range(i+1, n))
+    return peter_wins / total_cases
