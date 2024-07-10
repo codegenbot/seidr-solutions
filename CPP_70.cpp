@@ -21,7 +21,7 @@ int main() {
     std::cout << "Enter the size of first vector: ";
     std::cin >> n1;
     
-    std::vector<int> a(n1);  a.resize(n1);
+    std::vector<int> a(n1);  // Initialize vector with 'n1' number of default-initialized elements.
     
     std::cout << "Enter element 1 to " << n1 << ": " << std::endl; 
 
@@ -35,7 +35,7 @@ int main() {
     std::cout << "Enter the size of second vector: ";
     std::cin >> n2;
 
-    std::vector<int> b(n2);  b.resize(n2);
+    std::vector<int> b(n2);  // Initialize vector with 'n2' number of default-initialized elements.
     
     std::cout << "Enter element 1 to " << n2 << ": " << std::endl; 
 
