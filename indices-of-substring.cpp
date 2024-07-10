@@ -1,4 +1,3 @@
-```c
 #include <vector>
 #include <string>  
 using namespace std;
@@ -21,7 +20,7 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text = "example";
+    string text = "example";  // or any other test input
     string target = "ex";
     vector<int> result = indicesOfSubstring(text, target);
     return 0;
