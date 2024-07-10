@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <cmath>
@@ -17,8 +16,6 @@ long long double_the_difference(std::initializer_list<double> lst) {
 }
 
 int main() {
-    std::initializer_list<double> lst = {1.5, 3.25, 4.75};
-    long long odd_sum = double_the_difference(lst);
-    assert(double_the_difference(lst) == odd_sum );
+    long long odd_sum = double_the_difference({1.5, 3.25, 4.75});
+    assert(odd_sum == double_the_difference({1.5, 3.25, 4.75}) );
     return 0;
-}
