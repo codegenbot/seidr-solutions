@@ -28,5 +28,7 @@ int main() {
     int n, m;
     std::cin >> n >> m;
     std::cout << solve(n, m) << std::endl;
+    
+    assert(solve(5, 5) == "101"); // Added to test the function
     return 0;
 }
