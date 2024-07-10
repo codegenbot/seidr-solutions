@@ -1,8 +1,19 @@
+````
+#include <iostream>
 #include <vector>
-bool issame(vector<int> a, vector<int> b);
+#include <algorithm>
 
-vector<int> maximum(vector<int> arr, int k) {
-    vector<int> result(arr.begin(), arr.begin() + k);
-    sort(result.begin(), result.end());
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+std::vector<int> maximum(std::vector<int> arr,int k){
+    vector<int> result;
+    for(int i = 0; i < k; i++){
+        int max_val = *max_element(arr.begin(), arr.end());
+        result.push_back(max_val);
+        arr.erase(remove(arr.begin(), arr.end(), max_val), arr.end());
+    }
     return result;
 }
+```
