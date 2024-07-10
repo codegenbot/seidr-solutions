@@ -1,7 +1,11 @@
+Here's the solution:
+
 bool is_sorted(vector<int> lst){
     for(int i = 0; i < lst.size() - 1; i++){
-        if(lst[i] >= lst[i+1]) return false;
+        if(lst[i] >= lst[i + 1]){
+            if(count(lst.begin(), lst.end(), lst[i]) > 1)
+                return false;
+        }
     }
-    auto last = unique(lst.begin(), lst.end());
-    return (last == lst.end()) || (distance(last, lst.end()) > 1);
+    return true;
 }
