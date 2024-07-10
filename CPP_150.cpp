@@ -1,13 +1,12 @@
 #include <iostream>
 #include <cmath>
-#include <vector>
 
 int x_or_y(int n, int x, int y) {
     if (n == 1) {
         return y;
     }
     if (n < 2) {
-        return x;
+        return y;
     }
 
     for (int i = 2; i*i <= n; ++i) {
@@ -18,9 +17,8 @@ int x_or_y(int n, int x, int y) {
     return x;
 }
 
-int solve_problem() {
+void solve_problem() {
     int n, x, y;
     std::cin >> n >> x >> y;
     std::cout << x_or_y(n, x, y) << std::endl;
-    return 0;
 }
