@@ -1,19 +1,19 @@
-#include <iostream>
 #include <vector>
 
-long long double_the_difference(std::vector<float> lst){
+long long double_the_difference(std::vector<int> lst) {
     long long sum = 0;
-    for (float num : lst) {
-        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
-            sum += (long long)num * num;
+    for (int num : lst) {
+        if (num > 0 && num == static_cast<int>(num) && static_cast<int>(num) % 2 != 0) {
+            sum += static_cast<long long>(num) * num;
         }
     }
     return sum;
 }
 
 int main() {
-    std::vector<float> lst = {1.0, 2.0, 3.0};
+    std::vector<int> lst = {1, 2, 3, 4, 5};
     long long odd_sum = double_the_difference(lst);
-    assert(double_the_difference(lst) == odd_sum);
+    assert(odd_sum == double_the_difference(lst));
+    
     return 0;
 }
