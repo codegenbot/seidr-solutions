@@ -1,8 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <cctype>
-#include <algorithm>
 
 std::string camelCase(const std::string& s) {
     std::string result;
@@ -25,8 +23,8 @@ std::string camelCase(const std::string& s) {
 int main() {
     std::string s;
     while (std::cin >> s) {
-        s.erase(std::remove_if(s.begin(), s.end(), ::isspace), s.end()); // remove spaces
-        s.erase(std::remove_if(s.begin(), s.end(), ::isalnum), s.begin());  // remove hyphens
+        s.erase(std::remove(s.begin(), s.end(), ' '), s.end()) - s.begin();
+        s.erase(std::remove(s.begin(), s.end(), '-'), s.end()) - s.begin();
         std::cout << camelCase(s) << '\n';
     }
     return 0;
