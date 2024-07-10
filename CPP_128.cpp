@@ -1,5 +1,5 @@
-#include <initializer_list>
 #include <vector>
+#include <initializer_list>
 
 int prod_signs(const vector<int>& arr) {
     if (arr.empty()) return -32768;
@@ -12,4 +12,3 @@ int prod_signs(const vector<int>& arr) {
         sum_of_magnitudes += abs(num);
     }
     return sign_product * sum_of_magnitudes;
-}
