@@ -1,4 +1,2 @@
-import sys
-num_elements = int(sys.stdin.readline().rstrip())
-values = list(map(int, sys.stdin.readline().rstrip().split()))[:num_elements]
+values = list(map(int, input().strip().split()))
 print(sum(values))
