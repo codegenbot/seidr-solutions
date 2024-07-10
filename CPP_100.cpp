@@ -3,13 +3,12 @@ vector<int> make_a_pile(int n) {
     int stones = n;
     while (stones > 0) {
         if (n % 2 == 1) {
-            pile.push_back(stones);
-            stones = stones + 1;
+            pile.push_back(2 * stones + 1);
         } else {
-            pile.push_back(stones);
-            stones = stones + 2;
+            pile.push_back(2 * stones);
         }
         n--;
+        stones /= 2;
     }
     return pile;
 }
