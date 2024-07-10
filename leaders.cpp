@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -9,15 +8,12 @@ std::vector<int> leaders(std::vector<int>& arr) {
     
     if(n == 1) return arr;
     
-    res.push_back(arr[n-1]);
-    
     for(int i=n-2; i>=0; --i){
         while(i > 0 && arr[i] <= arr[i+1]) i--;
         res.push_back(arr[i]);
     }
     
-    std::reverse(res.begin(), res.end());
-    
+    res.push_back(arr[0]);
     return res;
 }
 
