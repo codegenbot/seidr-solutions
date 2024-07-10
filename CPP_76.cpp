@@ -1,6 +1,6 @@
+```cpp
 #include <cmath>
 #include <iostream>
-#include <string>
 
 bool is_simple_power(int x, int n) {
     if (n == 0) return false; 
@@ -8,7 +8,7 @@ bool is_simple_power(int x, int n) {
     return std::abs(y - x) < 1e-9;
 }
 
-void main() {
+int main() {
     int tempX, n;
     std::cout << "Enter a number: ";
     std::cin >> tempX;
@@ -18,9 +18,9 @@ void main() {
 
     if (n != 0) {
         if(is_simple_power(tempX, n))  
-            std::cout << tempX << " is a simple power of " << n << std::endl;
+            std::cout << std::to_string(tempX) << " is a simple power of " << std::to_string(n) << std::endl;
         else
-            std::cout << "Error: " << tempX << " is not a simple power of " << n << std::endl;
+            std::cout << "Error: " << std::to_string(tempX) << " is not a simple power of " << std::to_string(n) << std::endl;
     } 
     else {
         std::cout << "n cannot be zero." << std::endl;
