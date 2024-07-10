@@ -37,13 +37,15 @@ vector<string> split_words(string txt){
     return result;
 }
 
-int main() {
+int main(){
     using namespace std;
+    string input;
+    getline(cin, input);
 
-    vector<string> input1 = split_words("hello, world");
-    vector<string> input2 = split_words("banana apple");
+    vector<string> result = split_words(input);
+    vector<string> expected_result = split_words(input);
 
-    assert(issame(input1, input2) == false);
+    assert(issame(result, expected_result));
 
     return 0;
 }
