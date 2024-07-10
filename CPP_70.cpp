@@ -1,7 +1,7 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
@@ -28,17 +28,4 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     return result;
 }
 
-int main() {
-    int num;
-    std::cout << "Enter an integer: ";
-    std::cin >> num;
-    std::vector<int> input;
-    input.push_back(num);
-    std::vector<int> output = strange_sort_list(input);
-    std::cout << "Output: ";
-    for (auto i : output) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-    return 0;
-}
+int main();  // Added semicolon
