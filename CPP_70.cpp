@@ -16,12 +16,3 @@ vector<int> strange_sort_list(vector<int> lst){
     }
     return result;
 }
-
-int main() {
-    vector<int> input = {4, 2, 7, 1, 5, 3};
-    vector<int> output = strange_sort_list(input);
-    for (int num : output) {
-        cout << num << " ";
-    }
-    return 0;
-}
