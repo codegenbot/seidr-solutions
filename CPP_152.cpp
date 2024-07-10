@@ -2,15 +2,13 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
 std::vector<int> compare(std::vector<int> a, std::vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
     return {a.size(), b.size()};
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool sameSize(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -21,6 +19,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+    assert(sameSize(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
     return 0;
 }
