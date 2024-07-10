@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -23,6 +22,7 @@ int driver() {
             std::cout << "Error: Input is empty. Please enter a valid string." << std::endl;
         } else {
             std::cout << "Flipped case: " << flip_case(inputStr) << std::endl;
+            inputStr.clear();  // Add this line to delete the string object correctly
         }
     }
     return 0;
