@@ -1,35 +1,23 @@
-map<string, int> numeral_map = {
-    {"zero", 0},
-    {"one", 1},
-    {"two", 2},
-    {"three", 3},
-    {"four", 4},
-    {"five", 5},
-    {"six", 6},
-    {"seven", 7},
-    {"eight", 8},
-    {"nine", 9}
-};
+map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
+multimap<int, string> rev_num_map;
+string result = "";
+string curr_num = "";
 
-string sort_numbers(string numbers) {
-    map<int, string> sorted_numbers;
-    string current_num;
-    string result;
-
-    for (int i = 0; i < numbers.size(); ++i) {
-        if (numbers[i] == ' ') {
-            sorted_numbers[numeral_map[current_num]] = current_num;
-            current_num = "";
-        } else {
-            current_num += numbers[i];
-        }
+for (int i = 0; i < numbers.size(); i++) {
+    if (numbers[i] == ' ') {
+        rev_num_map.insert({num_map[curr_num], curr_num});
+        curr_num = "";
+    } else {
+        curr_num += numbers[i];
     }
+}
 
-    sorted_numbers[numeral_map[current_num]] = current_num;
+rev_num_map.insert({num_map[curr_num], curr_num});
 
-    for (const auto& num : sorted_numbers) {
-        result += num.second + " ";
-    }
+for (auto it = rev_num_map.begin(); it != rev_num_map.end(); it++) {
+    result += it->second + " ";
+}
 
-    return result;
+result.pop_back(); // Remove the extra space at the end
+return result;
 }
