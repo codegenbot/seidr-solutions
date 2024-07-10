@@ -1,8 +1,7 @@
 Here's the modified code:
 
-```c++
+```cpp
 #include <iostream>
-#include <vector>
 #include <string>
 using namespace std;
 
@@ -12,8 +11,10 @@ vector<int> indicesOfSubstring(string text, string target) {
     for(int i = 0; i <= text.length() - targetLength; i++) {
         if(text.substr(i, targetLength) == target) {
             result.push_back(i);
+            // Check for overlap
             while(i + targetLength < text.length() && text.substr(i, targetLength) == target) {
                 i++;
+                targetLength = target.length();
             }
         }
     }
@@ -36,5 +37,5 @@ int main() {
     cin >> text >> target;
     vector<int> result = indicesOfSubstring(text, target);
     for(int i : result)
-        cout << i << " ";
+        cout << " " << i;
 }
