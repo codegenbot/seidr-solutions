@@ -1,20 +1,21 @@
-pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
-    sort(v.begin(), v.end());
-    
+#include <pair> 
+
+std::pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int n = v.size();
-    if (n % 2 == 0) {
-        int mid = n / 2;
-        return {{v.begin(), v.begin() + mid}, {v.begin() + mid, v.end()}};
-    } else {
-        int min_diff = INT_MAX; 
-        for (int i = 1; i < n; ++i) {
-            int diff = v[i - 1] - v[i];
-            if (diff < min_diff) {
-                min_diff = diff;
-                break; 
-            }
+    long long total_sum = accumulate(v.begin(), v.end(), 0LL);
+    
+    pair<long long, long long> prefix_sum = {{0LL}, {accumulate(v.begin(), v.end(), 0LL)}};
+    
+    int min_diff = INT_MAX;
+    vector<int> left, right;
+    
+    for (int i = 0; i < n; ++i) {
+        if (prefix_sum.second - prefix_sum.first >= total_sum / 2) {
+            min_diff = min(min_diff, abs(total_sum - 2 * prefix_sum.second));
+            left = {v.begin(), v.begin() + i};
+            right = {v.end() - (n - i - 1), v.end()};
         }
-        int mid_idx = find(v.begin(), v.end(), v[0] + min_diff) - v.begin();
-        return {{v.begin(), v.begin() + mid_idx}, {v.begin() + mid_idx, v.end()}};
     }
+    
+    return {make_pair(left, vector<int>()), make_pair(right, vector<int>())};
 }
