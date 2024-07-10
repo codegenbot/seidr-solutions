@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
 #include <string>
 #include <cctype>
 #include <cstdlib>  
-#include <cmath>   
-#include <cstring>
+#include <cmath>    
+#include <cstring>  
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = 0;
@@ -71,7 +70,7 @@ long long eval(const char *p, long long y) {
             while (isdigit(*p)) {
                 p++;
             }
-            int x = atoi(p - 1);
+            int x = atoi(p - strlen(p));
             y *= x;
             p = p + strlen(p);
             continue;
@@ -81,7 +80,7 @@ long long eval(const char *p, long long y) {
             while (isdigit(*p)) {
                 p++;
             }
-            int x = atoi(p - 1);
+            int x = atoi(p - strlen(p));
             if (x != 0)
                 y /= x;
             else
@@ -94,7 +93,7 @@ long long eval(const char *p, long long y) {
             while (isdigit(*p)) {
                 p++;
             }
-            int x = atoi(p - 1);
+            int x = atoi(p - strlen(p));
             y = pow(y, x);
             p = p + strlen(p);
             continue;
