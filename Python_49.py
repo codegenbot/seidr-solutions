@@ -4,5 +4,5 @@ def modp(n: int, p: int):
     elif p == 2:
         return n % p
     else:
-        result = n if pow(n, (p-1), p) == 1 else (n * pow(n, p-2, p)) % p
+        result = pow(n, (p-1), p)
         return result
