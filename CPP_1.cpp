@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert> 
-
+#include <cassert>
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -29,7 +28,7 @@ vector<string> separate_paren_groups(string paren_string) {
     return groups;
 }
 
-bool are_equal_vectors(vector<string> a, vector<string> b) { 
+bool areSame(vector<string> a, vector<string> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -42,7 +41,8 @@ bool are_equal_vectors(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(are_equal_vectors(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    assert(areSame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    // Additional test cases can be added here
 
     return 0;
 }
