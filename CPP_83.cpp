@@ -1,13 +1,12 @@
 #include <iostream>
 #include <cmath>
-#include <string>
 
 using namespace std;
 
 int starts_one_ends(int n) {
     int count = 0;
-    for (int i = 1; i <= pow(10, n-1); i++) {
-        if (i == 1 || to_string(i)[to_string(i).length()-1] == '1') {
+    for (long long i = 1; i <= pow(10, n-1); i++) {
+        if ((i == 1 || to_string(i).back() == '1') && to_string(i).find('1') == 0 || to_string(i).find('1') == to_string(i).size()-1) {
             count++;
         }
     }
