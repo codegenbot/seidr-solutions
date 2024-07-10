@@ -1,3 +1,4 @@
+```c
 #include <string>
 #include <iostream>
 
@@ -5,12 +6,10 @@ struct PegCounts { int white; int black; };
 
 PegCounts mastermind(std::string& code, std::string& guess) {
     PegCounts result = {0, 0};
-
-    // Count black pegs
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             result.black++;
-            guess[i] = ' ';  // replace character in guess string with space
+            guess[i] = ' ';
         }
     }
 
