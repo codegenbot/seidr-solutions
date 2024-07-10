@@ -6,5 +6,5 @@ def check_numbers(numbers, threshold):
     return False
 
 numbers = [12, 5, 20, 30, 8]  # Example list of numbers
-result = check_numbers(numbers=numbers, threshold=10)  # Corrected function call
+result = check_numbers(numbers, threshold=10)
 print(result)
