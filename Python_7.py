@@ -1,10 +1,9 @@
-num_strings = int(input().strip())
-strings = [input().strip() for _ in range(num_strings)]
-substring = input().strip()
+num_strings = int(input("Enter the number of strings: "))
+strings = [input() for _ in range(num_strings)]
+substring = input()
 
 def filter_strings(strings, substring):
     return [string for string in strings if substring in string]
 
 filtered_strings = filter_strings(strings, substring)
-for s in filtered_strings:
-    print(s)
+print(filtered_strings)

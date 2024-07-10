@@ -1,1 +1,2 @@
-values = list(map(int, input().strip().split()))
+values = []
+values += list(map(int, user_input.split()))
