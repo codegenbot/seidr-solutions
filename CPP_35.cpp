@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <algorithm>
 
@@ -7,13 +8,11 @@ int main() {
     std::cin >> n;
 
     std::vector<int> vec;
-    vec.reserve(n);  
+    vec.resize(n);
 
     for(int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
-        int value;
-        std::cin >> value;
-        vec.push_back(value);
+        std::cin >> vec[i];
     }
 
     int max_value = *std::max_element(vec.begin(), vec.end()); 
