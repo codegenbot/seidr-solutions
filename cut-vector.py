@@ -1,8 +1,9 @@
 a = list(map(int, input().split()))
-if len(a) > 0:
-    min_diff = min(abs(sum(a[:i]) - sum(a[i:])) for i in range(1, len(a)))
-    split_index = next(
-        i for i in range(1, len(a)) if abs(sum(a[:i]) - sum(a[i:])) == min_diff
-    )
-    print(*a[:split_index], sep="\n")
-    print(*a[split_index:], sep="\n")
+min_diff = float('inf')
+for i in range(1, len(a)):
+    diff = abs(sum(a[:i]) - sum(a[i:]))
+    if diff < min_diff:
+        min_diff = diff
+        split_index = i
+print(*a[:split_index], sep="\n")
+print(*a[split_index:], sep="\n")
