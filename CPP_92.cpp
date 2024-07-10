@@ -1,8 +1,10 @@
-Here is the completed code:
-
 bool any_int(float a, float b, float c) {
-    if (abs(a - (b + c)) < 0.01 && abs(b - (a + c)) < 0.01 && abs(c - (a + b)) < 0.01) {
+    int ai = (int)a;
+    int bi = (int)b;
+    int ci = (int)c;
+
+    if(ai == bi + ci || ai == ci + bi || bi == ai + ci)
         return true;
-    }
-    return false;
+    else
+        return false;
 }
