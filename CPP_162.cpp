@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <openssl/md5.h>
 
@@ -13,6 +14,7 @@ string string_to_md5(string text) {
     size_t len = text.size();
     MD5_Update(&ctx, str, len);
     MD5_Final((unsigned char*)md5, &ctx); 
+
     string output;
     for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
         sprintf((char*)(output.c_str() + output.size()), "%02x", md5[i]);
