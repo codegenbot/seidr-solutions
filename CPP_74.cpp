@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool is_same(vector<string> a, vector<string> b) {
+bool check_if_same(vector<string> a, vector<string> b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
@@ -30,7 +30,7 @@ void runUserInput() {
         user_input.push_back(input);
     }
     
-    if (is_same(total_match(user_input, vector<string>(5)), vector<string>(5))) {
+    if (check_if_same(total_match(user_input, vector<string>(5)), vector<string>(5))) {
         cout << "The two lists are the same." << endl;
     } else {
         cout << "Error: The two lists are not the same." << endl;
