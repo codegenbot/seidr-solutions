@@ -1,11 +1,6 @@
-Here is the solution:
-
-def leaders(arr):
-    n = len(arr)
-    result = [arr[n-1]]
-    
-    for i in range(n-2, -1, -1):
-        if arr[i] >= arr[i+1]:
-            result.insert(0, arr[i])
-            
-    return result
+def leaders(input_vector):
+    return [
+        x
+        for i, x in enumerate(reversed(input_vector))
+        if all(x >= y for j, y in enumerate(input_vector[i + 1 :], start=i + 1))
+    ]
