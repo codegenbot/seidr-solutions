@@ -1,3 +1,4 @@
+```cpp
 std::string toCamelCase(const std::string& input) {
     std::string output;
     bool capitalizeNext = true;
