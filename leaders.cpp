@@ -1,5 +1,7 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <iostream>
+
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -8,19 +10,15 @@ vector<int> leaders(vector<int>& arr) {
     
     if (n == 0)
         return result;
-    
-    int lastLeaderIndex = n - 1; // The rightmost element is always a leader.
+        
+    result.push_back(arr[n - 1]);
     
     for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] >= arr[lastLeaderIndex]) {
-            lastLeaderIndex = i;
-        }
+        if (arr[i] > result.back())
+            result.push_back(arr[i]);
     }
     
-    while(lastLeaderIndex >= 0) {
-        result.push_back(arr[lastLeaderIndex]);
-        lastLeaderIndex--;
-    }
+    reverse(result.begin(), result.end());
     
     return result;
 }
@@ -29,7 +27,7 @@ int main() {
     vector<int> arr = {12, 10, 8, 6};
     vector<int> result = leaders(arr);
     for (int i : result) {
-        std::cout << i << " ";
+        cout << i << " ";
     }
     return 0;
 }
