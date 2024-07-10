@@ -1,5 +1,8 @@
-int largestNegInt(int maxNeg = 0, int minPos = INT_MAX), int smallestPosInt(int) {
-    for (int num : lst) {
+int largestNegInt(int smallestPosInt) {
+    int maxNeg = 0;
+    int minPos = smallestPosInt;
+
+    for (int num : {1, -2, 3, -4, 5}) {
         if (num < 0 && num > maxNeg) {
             maxNeg = num;
         }
@@ -8,5 +11,5 @@ int largestNegInt(int maxNeg = 0, int minPos = INT_MAX), int smallestPosInt(int)
         }
     }
 
-    return {maxNeg >= 0 ? 0 : maxNeg, minPos <= 0 ? 0 : minPos};
+    return {(maxNeg >= 0 ? 0 : maxNeg), (minPos <= 0 ? 0 : minPos)};
 }
