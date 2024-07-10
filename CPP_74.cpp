@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <iostream>
@@ -22,18 +23,16 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     else return vector<string>();
 }
 
-int main() {
-    vector<string> user_input; 
-    for(int i = 0; i < 5; ++i){
-        string input;
-        cin >> input;
-        user_input.push_back(input);
-        
-    }
-    if (check_if_same(total_match(user_input, vector<string>(1)), user_input)) {
-        cout << "The two lists are the same." << endl;
-    } else {
-        cout << "Error: The two lists are not the same." << endl;
-    }
-    return 0;
+vector<string> user_input; 
+for(int i = 0; i < 5; ++i){
+    string input;
+    cin >> input;
+    user_input.push_back(input);
+    
 }
+if (check_if_same(total_match(user_input, vector<string>(1)), user_input)) {
+    cout << "The two lists are the same." << endl;
+} else {
+    cout << "Error: The two lists are not the same." << endl;
+}
+return 0;
