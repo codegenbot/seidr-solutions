@@ -4,14 +4,15 @@ using namespace std;
 
 int starts_one_ends(int n) {
     int count = 0;
-    for (long long i = 1; i <= 9; i++) {
-        if (i == 1 || to_string(i).substr(0, 1) == "1" || to_string(i).substr(to_string(i).length() - 1, 1) == "1") {
+    for (int i = 1; i <= 9; i++) {
+        if (i == 1 || i % 10 == 1) {
             count++;
         }
-    }
-    for (long long i = 10; i <= n; i++) {
-        if (i % 10 == 1 || to_string(i).substr(0, 1) == "1" || to_string(i).substr(to_string(i).length() - 1, 1) == "1") {
-            count++;
+        for (int j = 1; j < n - 1; j++) {
+            int num = i * pow(10, j - 1) + j % 10;
+            if (num >= 1 && num <= 9) {
+                count++;
+            }
         }
     }
     return count;
