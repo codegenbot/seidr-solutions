@@ -1,10 +1,14 @@
-import sys
-
 def filter_strings(strings, substring):
     return [s for s in strings if substring in s]
 
-strings = sys.stdin.readline().strip().split()
-substring = sys.stdin.readline().strip()
+strings = []
+try:
+    while True:
+        strings.append(input())
+except EOFError:
+    pass
+
+substring = input().strip()
 
 filtered_strings = filter_strings(strings, substring)
-print(filtered_strings)
+print(str(filtered_strings))
