@@ -30,8 +30,8 @@ namespace myspace {
         std::cout << "Enter the number of elements: ";
         std::cin >> n;
 
-        std::vector<int> game(n);
-        std::vector<int> guess(n);
+        std::vector<int> game(n, 0); // initialize with default value here
+        std::vector<int> guess(n, 0); // or assign values before checking for equality
 
         for (int i = 0; i < n; i++) {
             std::cout << "Enter element " << i + 1 << ": ";
