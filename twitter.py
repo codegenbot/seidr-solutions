@@ -1,3 +1,4 @@
+import re
 def validate_tweet(tweet):
     tweet = re.sub(r'[^a-zA-Z0-9\s]', '', tweet).strip()
     if len(tweet) > 140:
