@@ -1,6 +1,8 @@
+#include <string>
+
 int hex_key(string num) {
-    if(num.empty()) {
-        cout << "Error: Input string is empty." << endl;
+    if (num.empty()) {
+        cout << "Error: Input string cannot be empty." << endl;
         return -1;
     }
     int count = 0;
