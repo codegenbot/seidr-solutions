@@ -1,10 +1,24 @@
-```
 def solve_boolean(expression):
-    if expression == "T":
-        return True
-    elif expression == "F":
-        return False
-    elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid expression")
-    else:
-        return eval("".join(map({"&": "and", "|": "or"}.get, expression.replace("T", "True").replace("F", "False"))))
+    def and_operator(s):
+        if not s:
+            return True
+        first, rest = s[0], s[1:]
+        if first == 'T':
+            return and_operator(rest)
+        elif first == 'F':
+            return False
+        else:  
+            return all(c == 'T' for c in s) if first == '&' else any(c == 'T' for c in s)
+
+    def or_operator(s):
+        if not s:
+            return False
+        first, rest = s[0], s[1:]
+        if first == 'T':
+            return True
+        elif first == 'F':
+            return or_operator(rest)
+        else:  
+            return all(c == 'T' for c in s) if first == '&' else any(c == 'T' for c in s)
+
+    return and_operator(expression) if '&' in expression else or_operator(expression)
