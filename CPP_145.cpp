@@ -9,10 +9,10 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 class stdVectorInt {
 public:
-    stdVectorInt() {}
+    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+        return a == b;
+    }
 };
-
-stdVectorInt obj;
 
 int main() {
     int n; 
@@ -23,7 +23,8 @@ int main() {
     
     std::sort(nums.begin(), nums.end());
     
-    bool same = issame(nums, nums);
+    stdVectorInt obj;
+    bool same = obj.issame(nums, nums);
     if (same)
         std::cout << "The sorted array is the same as the original one.\n";
     else
