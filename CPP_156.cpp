@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -18,9 +19,9 @@ string int_to_mini_roman(int number) {
 }
 
 int main() {
-    int n;
-    cout << "Enter an integer: ";
-    cin >> n;
-    cout << "The Roman numeral is: " << int_to_mini_roman(n);
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << "Roman numeral: " << int_to_mini_roman(num) << endl;
     return 0;
 }
