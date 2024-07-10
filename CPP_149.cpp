@@ -1,8 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a) {
+    std::vector<std::string> b;
     if (a.size() != b.size()) {
         return false;
     }
@@ -30,14 +30,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> input) {
     return input;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b, std::vector<std::string> c) {
-    if (a.size() != b.size() || a.size() != c.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (!issame(a[i], b[i], c[i])) {
-            return false;
-        }
-    }
-    return true;
+int main() {
+    std::vector<std::string> b = {"cc", "dd", "aaaa", "bbbb"};
+    return !issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), b);
 }
