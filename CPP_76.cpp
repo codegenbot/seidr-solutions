@@ -15,14 +15,19 @@ int main() {
     int tempX;
     std::cin >> tempX;
 
-    std::string sTempN; 
     std::cout << "Enter another number: ";
-    std::getline(std::cin, sTempN);
+    int nTemp;
+    std::cin >> nTemp;
 
-    if(is_simple_power(tempX, stoi(sTempN)))  
-        std::cout << tempX << " is a simple power of " << sTempN << std::endl;
+    // Convert integer to string
+    std::string strN = std::to_string(nTemp);
+
+    std::cout << strN << std::endl;
+
+    if(is_simple_power(tempX, nTemp))  
+        std::cout << tempX << " is a simple power of " << nTemp << std::endl;
     else
-        std::cout << tempX << " is not a simple power of " << sTempN << std::endl;
+        std::cout << tempX << " is not a simple power of " << nTemp << std::endl;
 
     return 0;
 }
