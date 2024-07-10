@@ -1,4 +1,4 @@
-```c++
+```
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -11,7 +11,7 @@ string rounded_avg(int n,int m){
     for(int i=n; i<=m; i++) sum += i;
     double avg = (double)sum / (m - n + 1);
     avg = floor(avg + 0.5);
-    string res = ""; // Initialize 'res' with an empty string
+    string res = "";
     while(avg > 0){
         if(avg == (int)avg) res.push_back('1');
         else res.push_back('0');
@@ -22,6 +22,11 @@ string rounded_avg(int n,int m){
 }
 
 int main() {
-    cout << rounded_avg(5, 5) << endl;
-    return 0;
+    int n, m;
+    cout << "Enter the first number: ";
+    cin >> n;
+    cout << "Enter the second number: ";
+    cin >> m;
+    cout << rounded_avg(n,m) << endl;
+    return 0; 
 }
