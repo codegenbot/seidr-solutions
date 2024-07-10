@@ -1,8 +1,6 @@
 #include <vector>
 #include <cassert>
 
-using namespace Contest;
-
 namespace Contest {
     int solutions(const std::vector<int>& lst) {
         int sum = 0;
