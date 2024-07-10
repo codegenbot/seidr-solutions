@@ -4,27 +4,27 @@
 
 using namespace std;
 
-any compare_one(any a, any b) {
+std::any compare_one(std::any a, std::any b) {
     if(a.type() == typeid(int) && b.type() == typeid(int)){
-        if(any_cast<int>(a) > any_cast<int>(b)){
+        if(std::any_cast<int>(a) > std::any_cast<int>(b)){
             return a;
-        } else if(any_cast<int>(a) < any_cast<int>(b)){
+        } else if(std::any_cast<int>(a) < std::any_cast<int>(b)){
             return b;
         } else {
             return nullptr;
         }
     } else if(a.type() == typeid(float) && b.type() == typeid(float)){
-        if(any_cast<float>(a) > any_cast<float>(b)){
+        if(std::any_cast<float>(a) > std::any_cast<float>(b)){
             return a;
-        } else if(any_cast<float>(a) < any_cast<float>(b)){
+        } else if(std::any_cast<float>(a) < std::any_cast<float>(b)){
             return b;
         } else {
             return nullptr;
         }
     } else if(a.type() == typeid(string) && b.type() == typeid(string)){
-        if(stod(any_cast<string>(a)) > stod(any_cast<string>(b))){
+        if(stod(std::any_cast<string>(a)) > stod(std::any_cast<string>(b))){
             return a;
-        } else if(stod(any_cast<string>(a)) < stod(any_cast<string>(b))){
+        } else if(stod(std::any_cast<string>(a)) < stod(std::any_cast<string>(b))){
             return b;
         } else {
             return nullptr;
@@ -35,5 +35,5 @@ any compare_one(any a, any b) {
 }
 
 int main() {
-    assert(any_cast<string>(compare_one(string("1"), 1)) == "None");
+    assert(std::any_cast<string>(compare_one(string("1"), 1)) == "None");
 }
