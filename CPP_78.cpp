@@ -1,3 +1,4 @@
+```cpp
 using namespace std;
 
 int hex_key(string num) {
