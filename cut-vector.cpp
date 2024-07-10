@@ -1,6 +1,5 @@
-#include <vector>
 #include <iostream>
-#include <ostream>
+#include <vector>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& nums) {
@@ -14,19 +13,18 @@ vector<vector<int>> cutVector(vector<int>& nums) {
             res[1].push_back(nums[i+1]);
             break;
         } else {
-            int minDiff = INT_MAX;
-            int pos = -1;
+            int diff = INT_MAX;
+            int cutIndex = i;
             
             for(int j=i; j<n-1; j++){
-                if(abs(nums[j] - nums[j+1]) < minDiff){
-                    minDiff = abs(nums[j]-nums[j+1]);
-                    pos = j;
+                if(abs(nums[j] - nums[j+1]) < diff){
+                    cutIndex = j;
+                    diff = abs(nums[cutIndex]-nums[cutIndex+1]);
                 }
             }
-            
             res[0].push_back(nums[i]);
             res[1].clear();
-            for(int j=pos+1; j<n;j++){
+            for(int j=cutIndex+1; j<n;j++){
                 res[1].push_back(nums[j]);
             }
         }
