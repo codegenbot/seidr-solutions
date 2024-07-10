@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 long long double_the_difference(std::vector<long long> lst) {
     long long sum = 0;
@@ -17,12 +18,14 @@ long long double_the_difference(std::vector<long long> lst) {
 
 int main() {
     std::vector<long long> lst;
-    long long int num;
+    long double num;
+    long long odd_sum = 0; 
     while(std::cin >> num) {
         lst.push_back(num);
     }
     
-    long long main_result = double_the_difference(lst); 
+    int main_result = double_the_difference(lst); 
+    assert(main_result == double_the_difference(lst));
     std::cout << "The sum of the squares of the odd numbers is: " << main_result << std::endl;
     return 0;
 }
