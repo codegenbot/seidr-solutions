@@ -1,7 +1,7 @@
 if __name__ == "__main__":
     try:
-        n = int(input("Enter a positive integer greater than 1: "))
-        if n <= 1 or not isinstance(n, int):
+        n = int(input())
+        if n <= 1:
             print("Please enter a positive integer greater than 1.")
         else:
             result = factorize(n)
