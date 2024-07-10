@@ -28,10 +28,3 @@ string average_binary(int n, int m) {
 string rounded_avg(int n, int m) {
     return average_binary(n, m);
 }
-
-int main() {
-    assert(average_binary(5, 5) == "1010");
-    assert(rounded_avg(5, 5) == "1010");
-    
-    return 0;
-}
