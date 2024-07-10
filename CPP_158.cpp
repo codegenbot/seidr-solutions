@@ -16,10 +16,9 @@ void findMaxWord(std::vector<std::string>& words) {
 }
 
 int main() {
-    std::vector<std::string> words;
     int n;
+    std::vector<std::string> words;
     std::cout << "Enter the number of words: ";
-    std::cin >> std::ws; 
     std::cin >> n;
 
     for (int i = 0; i < n; ++i) {
