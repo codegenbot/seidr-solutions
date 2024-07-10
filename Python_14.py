@@ -1,10 +1,8 @@
 from typing import List
 
 def all_prefixes(string: str) -> List[str]:
-    return [string[: i + 1] for i in range(len(string))]
+    return [string[: i + 1] for i in range(len(string)]
 
-try:
-    input_string = input("Enter a string: ")
-    print(all_prefixes(input_string))
-except EOFError:
-    print("No input provided.")
+input_string = input("Enter a string: ").strip()
+
+print(all_prefixes(input_string))
