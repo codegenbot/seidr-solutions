@@ -1,22 +1,18 @@
 def add(x, y):
     return x + y
 
-
 def main():
     print("Enter two integers separated by a space. Enter 'stop' to exit.")
     while True:
         try:
             inputs = input().strip()
-            if inputs == "stop":
+            if inputs == 'stop':
                 break
             x, y = map(int, inputs.split())
-            if len(inputs.split()) != 2:
-                raise ValueError
             result = add(x, y)
             print(result)
-        except ValueError:
+        except:
             print("Error: Invalid input")
-
 
 if __name__ == "__main__":
     main()
