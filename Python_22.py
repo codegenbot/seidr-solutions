@@ -1,5 +1,5 @@
+```
 import re
-
 
 def filter_integers() -> None:
     while True:
@@ -7,20 +7,20 @@ def filter_integers() -> None:
         user_input = input()
 
         if not re.match(r"^[0-9]+(,[0-9]+)*$", user_input):
-            print(
-                "Invalid input. Please enter a valid list of comma-separated integers."
-            )
-            continue
-
-        try:
-            user_values = [int(val) for val in user_input.split(",")]
-
-            print("The integers from the input are:", user_values)
+            print("Invalid input. Please enter a valid list of comma-separated integers.")
+        else:
             break
-        except ValueError:
-            print(
-                "Invalid input. Please enter a valid list of comma-separated integers."
-            )
 
+    try:
+        user_values = [int(val) for val in user_input.split(",")]
+
+        avg_value = sum(user_values) / len(user_values)
+        min_value = min(user_values)
+
+        print(f"The integers from the input are: {user_values}")
+        print(f"Average Value: {avg_value}")
+        print(f"Minimum Value: {min_value}")
+    except ValueError:
+        print("Invalid input. Please enter a valid list of comma-separated integers.")
 
 filter_integers()
