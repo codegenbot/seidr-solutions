@@ -1,28 +1,26 @@
-```
 def minPath(grid, k):
     N = len(grid)
+    res = []
     
-    def dfs(x, y, path, dist):
+    def dfs(x, y, path):
         if len(path) == k:
-            return path
+            return [path]
         
+        paths = []
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nx, ny = x + dx, y + dy
             if 0 <= nx < N and 0 <= ny < N:
                 new_path = path + [grid[nx][ny]]
-                found_path = dfs(nx, ny, new_path, dist + abs(dx) + abs(dy))
-                if found_path:
-                    return found_path
+                paths.extend(dfs(nx, ny, new_path))
         
-        return None
+        return paths
     
-    queue = [(0, 0, [], 0)]
+    queue = [(0, 0)]
     
     while queue:
-        x, y, path, dist = queue.pop(0)
-        
-        found_path = dfs(x, y, path, dist)
-        if found_path:
-            return found_path
+        x, y = queue.pop(0)
+        paths = dfs(x, y, [])
+        for path in paths:
+            res.append(path)
     
-    return []
+    return [path[0] for path in res if len(path) == k]
