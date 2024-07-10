@@ -1,6 +1,5 @@
-#include <stack>
 #include <string>
-
+using namespace std;
 bool solveBoolean(string expression) {
     stack<char> operators;
     stack<bool> values;
@@ -29,8 +28,7 @@ bool solveBoolean(string expression) {
             values.pop();
         } else {
             operators.pop();
-            result |= values.top();
-            values.pop();
+            result |= values.pop();
         }
     }
 
