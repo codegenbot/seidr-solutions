@@ -1,116 +1,18 @@
-Here is the completed code:
-
-```cpp
 string get_closest_vowel(string word) {
     int n = word.size();
     for (int i = n - 1; i > 0; --i) {
         if (!isalpha(word[i])) continue;
-        if (ispunct(word[i]) || !islower(word[i])) continue;
-        if (word[i] == 'y' && (i % 2 != 0 || word[i-1] == 'q')) continue;
+        if (ispunct(word[i]) || isdigit(word[i])) continue;
+        if (word[i] == 'Y' && i > 1 && isupper(word[i-1]) && islower(word[i-2]))
+            return "Y";
+        if (ispunct(word[i])) break;
         for (int j = i - 1; j >= 0; --j) {
-            if (!isalpha(word[j])) break;
-            if (ispunct(word[j]) || !islower(word[j])) break;
-            if (word[j] == 'y' && (j % 2 != 0 || word[j+1] == 'q')) break;
-            if (ispunct(word[j]) || !isalpha(word[j-1])) continue;
-            if (ispunct(word[j-1]) || !isalpha(word[j-2])) continue;
-            if (ispunct(word[j-1]) && isalpha(word[j-2])) continue;
-            if (ispunct(word[j-2]) || !isalpha(word[j-3])) continue;
-            if (ispunct(word[j-2]) && isalpha(word[j-3])) continue;
-            if (ispunct(word[j-3]) || !isalpha(word[j-4])) continue;
-            if (ispunct(word[j-3]) && isalpha(word[j-4])) continue;
-            if (ispunct(word[j-4]) || !isalpha(word[j-5])) continue;
-            if (ispunct(word[j-4]) && isalpha(word[j-5])) continue;
-            if (ispunct(word[j-5]) || !isalpha(word[j-6])) continue;
-            if (ispunct(word[j-5]) && isalpha(word[j-6])) continue;
-            if (ispunct(word[j-6]) || !isalpha(word[j-7])) continue;
-            if (ispunct(word[j-5]) && isalpha(word[j-6])) continue;
-            if (ispunct(word[j-4]) && isalpha(word[j-5])) continue;
-            if (ispunct(word[j-3]) && isalpha(word[j-4])) continue;
-            if (ispunct(word[j-2]) && isalpha(word[j-3])) continue;
-            if (ispunct(word[j-1]) && isalpha(word[j-2])) continue;
-            if (!ispunct(word[j-1])) break;
+            if (!isalpha(word[j])) continue;
+            if (ispunct(word[j]) || isdigit(word[j])) continue;
+            if (word[j] == 'Y' && j > 0 && isupper(word[j-1]))
+                return "Y";
+            if (ispunct(word[j])) break;
         }
-        if (ispunct(word[i-1])) continue;
-        if (ispunct(word[i])) continue;
-        for (int k = 0; k < i; ++k) {
-            if (!isalpha(word[k])) continue;
-            if (ispunct(word[k]) || !isalpha(word[k+1])) break;
-            if (ispunct(word[k+1]) || !isalpha(word[k+2])) break;
-            if (ispunct(word[k+2]) || !isalpha(word[k+3])) break;
-            if (ispunct(word[k+3]) || !isalpha(word[k+4])) break;
-            if (ispunct(word[k+4]) || !isalpha(word[k+5])) break;
-            if (ispunct(word[k+5]) || !isalpha(word[k+6])) break;
-            if (ispunct(word[k+6]) || !isalpha(word[k+7])) break;
-            if (ispunct(word[k+7]) || !isalpha(word[k+8])) break;
-            if (ispunct(word[k+8]) || !isalpha(word[k+9])) break;
-            if (ispunct(word[k+9]) || !isalpha(word[k+10])) break;
-            if (ispunct(word[k+10]) || !isalpha(word[k+11])) break;
-            if (ispunct(word[k+11]) || !isalpha(word[k+12])) break;
-            if (ispunct(word[k+12]) || !isalpha(word[k+13])) break;
-            if (ispunct(word[k+13]) || !isalpha(word[k+14])) break;
-            if (ispunct(word[k+14]) || !isalpha(word[k+15])) break;
-            if (ispunct(word[k+15]) || !isalpha(word[k+16])) break;
-            if (ispunct(word[k+16]) || !isalpha(word[k+17])) break;
-            if (ispunct(word[k+17]) || !isalpha(word[k+18])) break;
-            if (ispunct(word[k+18]) || !isalpha(word[k+19])) break;
-            if (ispunct(word[k+19]) || !isalpha(word[k+20])) break;
-            if (ispunct(word[k+20]) || !isalpha(word[k+21])) break;
-            if (ispunct(word[k+21]) || !isalpha(word[k+22])) break;
-            if (ispunct(word[k+22]) || !isalpha(word[k+23])) break;
-            if (ispunct(word[k+23]) || !isalpha(word[k+24])) break;
-            if (ispunct(word[k+24]) || !isalpha(word[k+25])) break;
-            if (ispunct(word[k+25]) || !isalpha(word[k+26])) break;
-            if (ispunct(word[k+26]) || !isalpha(word[k+27])) break;
-            if (ispunct(word[k+27]) || !isalpha(word[k+28])) break;
-            if (ispunct(word[k+28]) || !isalpha(word[k+29])) break;
-            if (ispunct(word[k+29]) || !isalpha(word[k+30])) break;
-            if (ispunct(word[k+30]) || !isalpha(word[k+31])) break;
-            if (ispunct(word[k+31]) || !isalpha(word[k+32])) break;
-            if (ispunct(word[k+32]) || !isalpha(word[k+33])) break;
-            if (ispunct(word[k+33]) || !isalpha(word[k+34])) break;
-            if (ispunct(word[k+34]) || !isalpha(word[k+35])) break;
-            if (ispunct(word[k+35]) || !isalpha(word[k+36])) break;
-            if (ispunct(word[k+36]) || !isalpha(word[k+37])) break;
-            if (ispunct(word[k+37]) || !isalpha(word[k+38])) break;
-            if (ispunct(word[k+38]) || !isalpha(word[k+39])) break;
-            if (ispunct(word[k+39]) || !isalpha(word[k+40])) break;
-            if (ispunct(word[k+40]) || !isalpha(word[k+41])) break;
-            if (ispunct(word[k+41]) || !isalpha(word[k+42])) break;
-            if (ispunct(word[k+42]) || !isalpha(word[k+43])) break;
-            if (ispunct(word[k+43]) || !isalpha(word[k+44])) break;
-            if (ispunct(word[k+44]) || !isalpha(word[k+45])) break;
-            if (ispunct(word[k+45]) || !isalpha(word[k+46])) break;
-            if (ispunct(word[k+46]) || !isalpha(word[k+47])) break;
-            if (ispunct(word[k+47]) || !isalpha(word[k+48])) break;
-            if (ispunct(word[k+48]) || !isalpha(word[k+49])) break;
-            if (ispunct(word[k+49]) || !isalpha(word[k+50])) break;
-            if (ispunct(word[k+50]) || !isalpha(word[k+51])) break;
-            if (ispunct(word[k+51]) || !isalpha(word[k+52])) break;
-            if (ispunct(word[k+52]) || !isalpha(word[k+53])) break;
-            if (ispunct(word[k+53]) || !isalpha(word[k+54])) break;
-            if (ispunct(word[k+54]) || !isalpha(word[k+55])) break;
-            if (ispunct(word[k+55]) || !isalpha(word[k+56])) break;
-            if (ispunct(word[k+56]) || !isalpha(word[k+57])) break;
-            if (ispunct(word[k+57]) || !isalpha(word[k+58])) break;
-            if (ispunct(word[k+58]) || !isalpha(word[k+59])) break;
-            if (ispunct(word[k+59]) || !isalpha(word[k+60])) break;
-            if (ispunct(word[k+60]) || !isalpha(word[k+61])) break;
-            if (ispunct(word[k+61]) || !isalpha(word[k+62])) break;
-            if (ispunct(word[k+62]) || !isalpha(word[k+63])) break;
-            if (ispunct(word[k+63]) || !isalpha(word[k+64])) break;
-            if (ispunct(word[k+64]) || !isalpha(word[k+65])) break;
-            if (ispunct(word[k+65]) || !isalpha(word[k+66])) break;
-            if (ispunct(word[k+66]) || !isalpha(word[k+67])) break;
-            if (ispunct(word[k+67]) || !isalpha(word[k+68])) break;
-            if (ispunct(word[k+68]) || !isalpha(word[k+69])) break;
-            if (ispunct(word[k+69]) || !isalpha(word[k+70])) break;
-            if (ispunct(word[k+70]) || !isalpha(word[k+71])) break;
-            if (ispunct(word[k+71]) || !isalpha(word[k+72])) break;
-            if (ispunct(word[k+72]) || !isalpha(word[k+73])) break;
-            if (ispunct(word[k+73]) || !isalpha(word[k+74])) break;
-            if (ispunct(word[k+74]) || !isalpha(word[k+75])) break;
-            if (ispunct(word[k+75]) || !isalpha(word[k+76])) break;
-            if (ispunct(word[k+76]) || !isalpha(word[k+77])) break;
-            if (ispunct(word[k+77]) || !isalpha(word[k+78])) break;
-            if (ispunct(word[k+78]) || !isalpha(word[k+79])) break;
-            if (ispunt
+    }
+    return "";
+}
