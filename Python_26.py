@@ -6,5 +6,6 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
 
 
 if __name__ == "__main__":
-    numbers = [1, 2, 2, 3, 4, 4, 5]
+    numbers = input("Enter numbers (space-separated): ").split()
+    numbers = [int(num) for num in numbers]
     print(remove_duplicates(numbers))
