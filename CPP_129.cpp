@@ -2,37 +2,29 @@
 #include <vector>
 using namespace std;
 
-vector<int> minPath(vector<vector<int>>& grid, int k) {
-    int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i == 0 && j == 0) {
-                dp[i][j] = grid[i][j];
-            } else if (i > 0) {
-                dp[i][j] = min({dp[i-1][j], dp[i][j-1]});
-            } else {
-                dp[i][j] = min({dp[i][j-1]});
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    vector<int> res;
+    for (int i = 0; i < k; i++) {
+        int maxRow = 0, maxValue = 0;
+        for (int j = 0; j < grid.size(); j++) {
+            if (grid[j][0] > maxValue) {
+                maxRow = j;
+                maxValue = grid[j][0];
+            }
+        }
+        res.push_back(maxValue);
+        for (int j = 0; j < grid.size(); j++) {
+            if (j != maxRow) {
+                swap(grid[j][0], grid[maxRow][0]);
+                swap(maxRow, j);
             }
         }
     }
-
-    vector<int> res;
-    int i = n - 1, j = n - 1;
-    while (k--) {
-        res.push_back(grid[i][j]);
-        if (i > 0 && dp[i-1][j] < dp[i][j-1]) {
-            i--;
-        } else {
-            j--;
-        }
-    }
-
     return res;
 }
 
 int main() {
-    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     int k = 3;
     vector<int> result = minPath(grid, k);
     for (int i : result) {
