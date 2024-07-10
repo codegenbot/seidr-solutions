@@ -7,19 +7,20 @@ using namespace std;
 string spinWords(string str) {
     string result = "";
     int i = 0;
-    while (i < str.length()) {
+    while(i < str.length()) {
         if (str[i] == ' ') {
             result += str[i];
             i++;
         } else if (i + str.length() - i - 1 >= 5) {
-            for (int j = i; j >= max(0, i-5); j--) {
+            for (int j = i; j >= std::max(0, i-5); j--) {
                 result += str[j];
             }
-            i += strlen(result) + 1;
+            i += str.find(' ') == string::npos ? str.length() : str.find(' ');
         } else {
-            for (; i < min(i+6, str.length()); i++) {
+            for (; i < std::min((int)str.length(), i+6); i++) {
                 result += str[i];
             }
+            i++;
         }
     }
     return result;
