@@ -16,5 +16,9 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, c
     return result;
 }
 
-assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), 
-               std::vector<std::string>{"xxx", "xxxAAA", "xxx"});
+int main() {
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"),
+                 std::vector<std::string>{"xxx", "xxxAAA", "xxx"}));
+    
+    return 0;
+}
