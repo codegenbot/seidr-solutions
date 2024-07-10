@@ -1,17 +1,23 @@
-```c++
+```cpp
 #include <iostream>
 #include <vector>
 
 int main() {
+    std::vector<int> nums;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    std::vector<int> nums(n); // Create vector with initial size 'n'
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        int temp;
-        std::cin >> temp;
-        nums[i] = temp;
+        while (true) {
+            std::cout << "Enter element " << i + 1 << ": ";
+            if (!(std::cin >> nums[i])) {
+                std::cerr << "Invalid input! Please enter a number.\n";
+                std::cin.clear();
+                std::cin.ignore(INT_MAX, '\n');
+            } else {
+                break;
+            }
+        }
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
 }
