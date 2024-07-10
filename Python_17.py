@@ -1,4 +1,4 @@
-```
+```python
 from typing import List
 
 
@@ -10,9 +10,7 @@ def parse_music(music_string: str) -> List[int]:
         if music_string[i:i+2] in note_lengths:
             result.append(note_lengths[music_string[i:i+2]])
             i += 2
-        elif str(i) in note_lengths:
-            result.append(note_lengths[str(i)])
+        elif music_string[i] in note_lengths:
+            result.append(note_lengths[music_string[i]])
             i += 1
-        else:
-            break
     return result
