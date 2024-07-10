@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```python
 from typing import Tuple
 
 def find_closest_elements() -> Tuple[float, float]:
@@ -19,7 +22,8 @@ def find_closest_elements() -> Tuple[float, float]:
                     closest_pair = (numbers[i], numbers[i + 1])
 
             return closest_pair
-            break
 
         except ValueError:
             print("Invalid input. Please enter valid decimal or integer values.")
+
+print(find_closest_elements())
