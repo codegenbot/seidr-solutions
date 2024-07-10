@@ -1,17 +1,19 @@
 #include <vector>
-#include <algorithm>
 #include <string>
 
-struct Result {
-    std::string str;
-    int sum;
-};
-
-Result sorted_list_sum(const std::vector<std::string>& list) {
-    std::sort(list.begin(), list.end());
-    int sum = 0;
-    for (const auto& str : list) {
-        sum += str.length();
+bool same(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    return Result{ "", sum };
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[b.size()-1-i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    assert(same({{"aaaa", "bbbb"}, {"cc", "dd"}} , {{"cc", "dd"}, {"aaaa", "bbbb"}}));
+    return 0;
 }
