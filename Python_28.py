@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -10,8 +11,12 @@ def concatenate(strings: List[str]) -> str:
 
 if __name__ == "__main__":
     while True:
-        print("Enter number of strings (0 to quit): ")
-        n = int(input())
+        try:
+            print("Enter number of strings (0 to quit): ")
+            n = int(input())
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+            continue
         if n == 0:
             break
         strings = []
@@ -19,5 +24,4 @@ if __name__ == "__main__":
             user_input = input()
             strings.append(user_input)
         print(concatenate(strings))
-        input()
     print(concatenate(["hello", "world"]))
