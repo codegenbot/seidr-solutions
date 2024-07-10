@@ -7,13 +7,12 @@ def gcd(a, b):
 def find_indices(text, target):
     indices = []
     pos = 0
-    target_length = len(target)
     while pos < len(text):
         pos = text.find(target, pos)
         if pos == -1: 
             break
         indices.append(pos)
-        pos += target_length + 1
+        pos += len(target) + 1
     return indices
 
 
