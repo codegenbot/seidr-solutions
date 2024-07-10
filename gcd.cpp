@@ -3,20 +3,14 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int start = 0, end = 0;
+    int n = text.length();
+    int m = target.length();
     
-    while (end < text.size()) {
-        if (text.substr(start, target.size()).compare(target) == 0) {
-            result.push_back(start);
-            start += target.size();
-        } else if (start >= end + target.size()) {
-            end++;
-            start = end;
-        } else {
-            start++;
+    for(int i=0; i<=n-m; i++){
+        if(text.substr(i,m).compare(target) == 0){
+            result.push_back(i);
         }
     }
-    
     return result;
 }
 
