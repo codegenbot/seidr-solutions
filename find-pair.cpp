@@ -3,29 +3,37 @@ using namespace std;
 
 vector<int> findPair(vector<int>& nums, int target) {
     unordered_map<int, int> numMap;
-    vector<int> result = {-1, -1};
-
+    vector<int> result;
+    
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            return {complement, nums[i]};
+            result.push_back(nums[i]);
+            result.push_back(complement);
+            return result;
         }
         numMap[nums[i]] = i;
     }
-
+    
     return result;
 }
 
 int main() {
     int n;
     cin >> n;
-
+    
+    vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        int num1, num2;
-        cin >> num1;
-        cin >> num2;
-        cout << findPair({num1, num2}, num1 + num2).at(0) << " " << findPair({num1, num2}, num1 + num2).at(1) << endl;
+        cin >> nums[i];
     }
+    
+    int target;
+    cin >> target;
+    
+    vector<int> result = findPair(nums, target);
+    
+    cout << result[0] << endl;
+    cout << result[1] << endl;
 
     return 0;
 }
