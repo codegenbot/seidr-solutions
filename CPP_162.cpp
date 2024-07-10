@@ -1,4 +1,4 @@
-#include "path/to/CryptoPP/include/cryptopp/md5.h"
+#include "cryptopp/md5.h"
 #include <cryptopp/sha.h>
 #include <cryptopp/hmac.h>
 #include <cryptopp/aes.h>
