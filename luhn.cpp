@@ -14,3 +14,4 @@ int luhn(vector<int> digits) {
         sum += i;
     }
     return sum;
+}
