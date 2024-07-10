@@ -18,6 +18,10 @@ vector<int> strange_sort_list(vector<int> lst){
 }
 
 int main() {
-    // Your main function code here
+    vector<int> input = {5, 2, 8, 3, 1, 6};
+    vector<int> output = strange_sort_list(input);
+    for (int num : output) {
+        cout << num << " ";
+    }
     return 0;
 }
