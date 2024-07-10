@@ -1,3 +1,6 @@
+```
+from typing import List
+
 def separate_paren_groups(paren_string: str) -> list[str]:
     result = []
     stack = []
@@ -17,6 +20,6 @@ def separate_paren_groups(paren_string: str) -> list[str]:
                     groups = ''
             else:
                 return []
-    if stack:  # Check for leftover unmatched parentheses
-        return []
+    elif not stack:  
+        return []  # Add this check for a closing parenthesis with no opening counterpart.
     return result
