@@ -1,3 +1,4 @@
+```cpp
 bool isPrime(int n) {
     if (n <= 1)
         return false;
@@ -7,7 +8,7 @@ bool isPrime(int n) {
     return true;
 }
 
-bool prime_length(string str){
-    int len = str.length();
-    return isPrime(len);
+bool prime_length(string str) {
+    int length = str.length();
+    return isPrime(length);
 }
