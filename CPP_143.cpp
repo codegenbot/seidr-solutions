@@ -1,4 +1,5 @@
 #include <string>
+#include <cmath>
 
 string words_in_sentence(string sentence){
     string result = "";
