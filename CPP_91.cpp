@@ -1,25 +1,26 @@
 ```cpp
 #include <string>
 #include <algorithm>
+#include <sstream>
 
 int is_bored(const std::string& S){
     int count = 0;
-    size_t pos = 0;
-    while ((pos = S.find(" ", pos)) != std::string::npos) {
+    std::istringstream iss(S);
+    int pos;
+    while ((pos = getline(iss, S, ' ').good())) {
         if (S.substr(0, pos).compare("I") == 0) {
             count++;
             break;
         }
-        pos = S.find(" ", pos);
+        pos = getline(iss, S, ' ');
     }
     return count;
 }
 
 int main() {
-    char buffer[1024]; 
     std::cout << "Enter a string: ";
-    fgets(buffer, sizeof(buffer), stdin); 
-    std::string input(buffer); 
+    std::string input;
+    std::getline(std::cin, input);
     int result = is_bored(input);
     std::cout << "Count of 'I' at the beginning: " << result << std::endl;
     return 0;
