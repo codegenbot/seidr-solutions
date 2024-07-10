@@ -1,4 +1,4 @@
-```#include <string>
+#include <string>
 #include <vector>
 #include <algorithm>
 
@@ -19,4 +19,4 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
         }
     }
     return {white, black};
-}``
+}
