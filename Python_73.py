@@ -1,6 +1,8 @@
+```
 def smallest_change(n=None):
     if n is None:
         n = int(input("Enter the number of integers: "))
+    
     arr = list(map(int, input(f"Enter {n} space-separated integers: ").split()))
 
     while len(arr) != n:
