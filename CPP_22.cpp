@@ -1,7 +1,9 @@
+#include <boost/any_cast.hpp>
+
 vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value).type() == typeid(int)) {
+        if (boost::any_cast<int>(value, boost::bad_any_cast_exception())) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
