@@ -1,4 +1,4 @@
-from typing import List
+from typing import None
 
 def factorize() -> None:
     n = int(input("Enter a number: "))
@@ -14,3 +14,5 @@ def factorize() -> None:
             print(f"{i} is a factor with multiplicity {count}.")
     if n > 1:
         print(f"{n} is a prime number.")
+
+factorize()
