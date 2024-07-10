@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -44,7 +43,7 @@ int minPath(vector<vector<int>>& edges, int n) {
 int main() {
     vector<vector<int>> edges = {{1, 3, 10}, {3, 2, 3}};
     int n = 4;
-    cout << minPath({{1, 3, 10}, {3, 2, 3}}, 4) << endl;
+    assert(issame(minPath(vector<vector<int>>{{1, 3}, {3, 2}}, 4), vector<int>({1, 3, 1, 3, 1, 3, 1, 3, 1, 3})));
     
-    return 0;
+    return minPath(edges, n);
 }
