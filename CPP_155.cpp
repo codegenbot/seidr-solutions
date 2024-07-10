@@ -17,8 +17,6 @@ std::vector<int> even_odd_count(int num) {
     return {even, odd};
 }
 
-void test_even_odd_count() {
-    assert(issame(even_odd_count(0) , {1, 0}));
-    assert(issame(even_odd_count(123456), {3, 3}));
-    assert(issame(even_odd_count(-87654), {2, 3}));
-}
+assert(issame(even_odd_count(0) , {1, 0}));
+assert(issame(even_odd_count(123456), {3, 3}));
+assert(issame(even_odd_count(-87654), {2, 3}));
