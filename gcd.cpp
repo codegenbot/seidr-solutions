@@ -15,10 +15,11 @@ int gcd(int a, int b) {
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> result;
-    int index = 0;
+    using std::initializer_list;
+    size_t index = 0;
 
-    while (index <= static_cast<int>(text.length() - target.length())) {
-        size_t found = text.find(target, index);
+    while (index <= text.length() - target.length()) {
+        size_t found = static_cast<size_t>(text.find(target, index));
         if (found != std::string::npos) {
             result.push_back(static_cast<int>(found));
             index = found + 1;
