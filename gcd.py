@@ -4,6 +4,7 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
+
 def find_indices(text, target):
     indices = []
     i = 0
@@ -14,6 +15,7 @@ def find_indices(text, target):
         indices.append(i + pos)
         i += pos + len(target)
     return indices
+
 
 print(gcd(1, 1))
 print(find_indices("abcdefabc", "abc"))
