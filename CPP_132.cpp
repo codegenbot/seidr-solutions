@@ -9,7 +9,7 @@ bool is_nested(std::string str) {
             brackets.push(c);
         } else if ((c == ']' && !brackets.empty() && brackets.top() == '[') ||
                    (c == '}' && !brackets.empty() && brackets.top() == '{') ||
-                   (c == ')' && !brackets.empty() && brackets.top() == '(')) {
+                   (c == ')' && !brackets.empty() && brackets.top() == '(' && !brackets.empty())) {
             brackets.pop();
         } else {
             return false;
