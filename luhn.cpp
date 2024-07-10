@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -14,5 +15,16 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
+    vector<int> digits;
+    // Add test cases or read input from user here
+    int cardNumber;
+    while (true) {
+        cout << "Enter a credit card number: ";
+        cin >> cardNumber;
+        if (cardNumber == -1) break;
+        digits.push_back(cardNumber % 10);
+        cardNumber /= 10;
+    }
+    cout << "Luhn's algorithm result: " << luhn(digits) << endl;
     return 0;
 }
