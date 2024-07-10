@@ -9,7 +9,7 @@ int main() {
     int n;
     cin >> n;
     
-    for(int i = 0; i < n; i++) {
+    for(int i=0; i<n; i++) {
         int val;
         cin >> val;
         input.push_back(val);
@@ -17,8 +17,8 @@ int main() {
     
     vector<int> output = strange_sort_vector(input);
     
-    for(int i = 0; i < output.size(); i++) {
-        cout << output[i] << " ";
+    for (int num : output) {
+        cout << num << " ";
     }
     
     return 0;
