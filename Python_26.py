@@ -2,4 +2,4 @@
 from typing import List
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return sorted(list(set(numbers)))
+    return [i for i in set(map(int, numbers))]
