@@ -1,12 +1,16 @@
-#include <bits/stdc++.h>
+```c++
+#include <vector>
+#include <iostream>
 
-std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-    std::vector<int> result;
+using namespace std;
+
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
     int n = text.length();
     int m = target.length();
 
     for (int i = 0; i <= n - m; ++i) {
-        if (text.find(target, i) != std::string::npos) {
+        if (text.find(target) != n - m) {
             result.push_back(i);
             // start searching from the next character
             i = text.find(target, i + 1);
@@ -21,6 +25,11 @@ int main() {
     cin >> text;
     string target;
     cin >> target;
+
+    if (text.empty() || target.empty()) {
+        cout << "Error: Input strings are empty." << endl;
+        return 1;
+    }
 
     vector<int> indices = indicesOfSubstring(text, target);
 
