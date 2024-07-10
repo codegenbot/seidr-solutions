@@ -9,7 +9,7 @@ int main() {
         std::cin >> nums[i];
     }
     std::cin >> target;
-
+    
     std::map<int, int> hash;
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
@@ -19,6 +19,6 @@ int main() {
         }
         hash[nums[i]] = i;
     }
-
+    
     return 0;
 }
