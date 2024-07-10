@@ -1,4 +1,5 @@
 #include <string>
+#include <algorithm>
 
 string file_name_check(string file_name){
     int dot_index = file_name.find('.');
