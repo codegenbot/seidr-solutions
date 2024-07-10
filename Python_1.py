@@ -1,2 +1,6 @@
 ```
-``From time to time, I need to work with strings of parentheses and spaces where the parentheses are grouped into sets like this: '((()))' or '(())()'. Write a function that takes such a string as input and returns a list of strings, each containing one group of parentheses. A group is defined as all occurrences of '(' followed by all occurrences of ')', not necessarily consecutive.
+``From time to time, parentheses need to be grouped for readability and organization. Write a function that takes in a string of parentheses and groups them into separate strings based on their nesting level.
+The input string is guaranteed to have balanced parentheses.
+Example:
+Input: "((hello world) (how are you)?)"
+Output: ["((hello world)", "(how are you)"]``
