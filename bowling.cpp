@@ -1,32 +1,45 @@
 #include <iostream>
-#include <vector>
-#include <sstream>
+#include <string>
 
-int bowlingScore(const std::string& rolls) {
+int bowling(std::string input) {
     int score = 0;
-    bool firstRollInFrame = true;
+    int roll = 0;
+    bool lastRoll = false;
 
-    for (const auto& roll : rolls) {
-        if (roll == '/') {
-            if (firstRollInFrame) {
-                firstRollInFrame = false;
+    for (int i = 0; i < input.length(); i += 2) {
+        std::string rollString = input.substr(i, 1);
+        int strikeOrSpare = rollString[0] - '0';
+        
+        if (strikeOrSpare == 10) {
+            score += strikeOrSpare;
+            if (!lastRoll) {
+                i++;
+                i++;
+                roll = 2;
             } else {
-                score += 10;
+                lastRoll = true;
             }
-        } else if (isdigit(roll)) {
-            int currentRoll = roll - '0';
-            if (firstRollInFrame) {
-                firstRollInFrame = false;
-                score += currentRoll;
+        } 
+        else if (i + 1 < input.length()) {
+            std::string spare = input.substr(i, 2);
+            int strikeOrSpareInSpare = spare[0] - '0';
+            strikeOrSpareInSpare += spare[1] - '0';
+            score += strikeOrSpare;
+            if (!lastRoll) {
+                i++;
+                i++;
+                roll = 3;
             } else {
-                if (currentRoll == 10) {
-                    score += 10;
-                } else {
-                    score += currentRoll;
-                }
+                lastRoll = true;
             }
+        } 
+        else {
+            rollString = input.substr(i, 1);
+            int strikeOrSpareInStrike = rollString[0] - '0';
+            score += strikeOrSpare + strikeOrSpareInStrike;
         }
+
+        score += roll;
     }
 
     return score;
-}
