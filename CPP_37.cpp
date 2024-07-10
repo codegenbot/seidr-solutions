@@ -1,15 +1,19 @@
-bool issame(vector<float> a, vector<float> b) {
+#include <vector>
+#include <algorithm>
+
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
-vector<float> sort_even(vector<float> l){
+std::vector<float> sort_even(std::vector<float> l){
     if(l.size() <= 0) {
-        return l;
+        // Handle the error case where l.size() is 0 or less
+        throw std::runtime_error("Vector size must be greater than 0");
     }
-    vector<float> result(l.size());
+    std::vector<float> result(l.size());
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){
-            vector<float> temp;
+            std::vector<float> temp;
             for(auto j: l | std::views::slices(0, l.size(), 2)){
                 temp.push_back(j);
             }
