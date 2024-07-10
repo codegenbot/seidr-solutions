@@ -11,11 +11,8 @@ int main() {
     vector<int> result(4, 0);
 
     for (int i = 0; i < 4; i++) {
-        while (cents >= coins[i]) {
-            int count = cents / coins[i];
-            cents -= count * coins[i];
-            result[i] = count;
-        }
+        result[i] = min(result[i], cents / coins[i]);
+        cents -= result[i] * coins[i];
     }
 
     cout << result[0] << endl;
