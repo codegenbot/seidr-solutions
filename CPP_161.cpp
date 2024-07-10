@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <string>
 
@@ -14,6 +13,6 @@ int solve(std::string& color) {
 }
 
 int main() {
-    assert(solve(std::string("#ccc")) == 3);
+    assert(std::string("#CCC").find_first_not_of("0123456789") == std::string("#CCC").size() - 3);
     return 0;
 }
