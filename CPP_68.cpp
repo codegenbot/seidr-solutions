@@ -6,7 +6,7 @@ bool compareVectors(const std::vector<int>& a, const std::vector<int>& b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> pluck(std::vector<int> arr) {
+std::vector<int> pluck(const std::vector<int>& arr) {
     std::vector<int> result;
     int smallest_even = -1;
     int smallest_index = -1;
