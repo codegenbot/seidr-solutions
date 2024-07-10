@@ -5,4 +5,4 @@ def all_prefixes() -> List[str]:
     if not s:
         print("Error: Please provide valid input.")
         return []
-    return [s[: i + 1] for i in range(len(s))]
+    return [s[:i+1] for i in range(len(s))]
