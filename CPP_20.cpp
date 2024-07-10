@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -20,11 +19,11 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
 }
 
 int main() {
-    std::vector<float> numbers;
     if (!numbers.empty()) { 
-        return 0; 
+        return 0; // Exit if the vector is not empty
     }
 
+    std::vector<float> numbers;
     float num;
     while (std::cin >> num) {
         numbers.push_back(num);
