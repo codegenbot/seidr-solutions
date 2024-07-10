@@ -8,5 +8,5 @@ def fizz_buzz(n: int):
         elif i % 5 == 0:
             output.append("buzz")
         else:
-            output.append(i)
+            output.append(str(i))
     return "\n".join(map(str, output))
