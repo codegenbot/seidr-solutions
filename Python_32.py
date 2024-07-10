@@ -1,6 +1,6 @@
-```
 import math
-def find_zero(xs: list):
+
+def find_zero(xs):
     if len(xs) % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
     a = xs[-1]
@@ -8,3 +8,7 @@ def find_zero(xs: list):
     c = sum([coeff for i, coeff in enumerate(xs) if i % 2 == 0])
     d = math.sqrt(b**2 - 4 * a * c)
     return (-b + d) / (2 * a)
+
+xs = input("Enter the coefficients: ").split()
+xs = [int(x) for x in xs]
+print(find_zero(xs))
