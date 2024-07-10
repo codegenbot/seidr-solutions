@@ -1,21 +1,22 @@
 #include <vector>
-#include <algorithm>
 
 bool issame(vector<float> a, vector<float>b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<float> get_positive(vector<float> l) {
-    vector<float> result;
+bool check_positive(vector<float> l) {
     for (float num : l) {
-        if (num > 0) {
-            result.push_back(num);
+        if (num <= 0) {
+            return false;
         }
     }
-    return result;
+    return true;
 }
 
 int main() {
-    assert(issame(get_positive({}), {})); 
+    assert(issame(get_positive({}), {})); // Check the output with empty input
+    vector<float> test = {1.0, -2.0, 3.0};
+    assert(check_positive(test));
+    
     return 0;
 }
