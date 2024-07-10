@@ -2,6 +2,7 @@
 #include <iomanip>
 using namespace std;
 
+double totalSnow = 0.0;
 int main() {
     int hours;
     cout << "Enter the number of hours: ";
@@ -19,7 +20,7 @@ int main() {
     cout << "Enter the proportion of snow melting per hour: ";
     cin >> proportionOfSnowMeltingPerHour;
 
-    double totalSnow = 0.0;  
+    totalSnow = initialSnow;  
 
     for (int i = 0; i < hours; i++) {
         double newSnow = rateOfSnowFall;
