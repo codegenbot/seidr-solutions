@@ -1,3 +1,4 @@
+```
 def add(x: int, y: int):
     return x + y
 
@@ -12,10 +13,10 @@ while True:
                 break
             except ValueError:
                 print("Invalid input. Please enter an integer.")
-
+                
         response = input("Do you want to calculate the sum again? (yes/no): ")
         if response.lower() != "yes":
             exit()
-    except EOFError:
-        print("Goodbye!")
+    except Exception as e:
+        print(f"Error: {e}. Goodbye!")
         exit()
