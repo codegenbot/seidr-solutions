@@ -1,11 +1,16 @@
-int totalFuelCost(vector<int> prices) {
-    int sum = 0;
-    for (int price : prices) {
-        if (price < 1) {
-            return -1; // error: all prices must be positive integers
+#include <vector>
+using namespace std;
+
+int calculateFuelCost(vector<int> numbers) {
+    int total = 0;
+    for (int number : numbers) {
+        if (number % 3 == 0) {
+            int result = (number / 3);
+            total += --result;
+        } else {
+            int result = ((number + 2) / 3) - 1;
+            total += result;
         }
-        int newPrice = (price / 3) - 2;
-        sum += newPrice;
     }
-    return sum;
+    return total;
 }
