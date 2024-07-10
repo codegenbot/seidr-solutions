@@ -1,21 +1,35 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
 
 bool will_it_fly(vector<int> q, int w) {
-    std::string str = "";
+    string str = "";
     for (int i : q) {
-        str += std::to_string(i);
+        str += to_string(i);
     }
-    if (str != std::string(str.rbegin(), str.rend()).s) return false;
+    if (str != reverse(str).s) return false;
     int sum = 0;
     for (int i : q) sum += i;
     return sum <= w;
 }
 
 int main() {
-    bool result = will_it_fly({1, 2, 3}, 5);
-    std::cout << "Will it fly? " << (result ? "Yes" : "No") << std::endl;
+    bool will_it_fly(vector<int>, int);
+    vector<int> q;
+    int w;
+    cout << "Enter the number of quarters: ";
+    cin >> w;
+    cout << "Enter the quarters: ";
+    for (int i = 0; i < w; i++) {
+        int quarter;
+        cin >> quarter;
+        q.push_back(quarter);
+    }
+    if (will_it_fly(q, w)) {
+        cout << "The plane will fly." << endl;
+    } else {
+        cout << "The plane won't fly." << endl;
+    }
     return 0;
 }
