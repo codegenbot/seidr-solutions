@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     i = 0
@@ -8,8 +9,8 @@ def bowling_score(frames):
                 i += 2
             else:  
                 if frames[i] == 'X':
-                    if i+2 >= len(frames) or (frames[i+1] in ['X', '/']):
-                        score += 10 + (10 - int(frames[i+1]))
+                    if i+2 >= len(frames) or frames[i+2] in ['X', '/']:
+                        score += 10 + (10 - int(frames[i+1])) if i+1 < len(frames) and frames[i+1].isdigit() else 25
                     else:
                         score += 10 + int(frames[i+2:i+4])
                     i += 3
@@ -20,8 +21,8 @@ def bowling_score(frames):
             if i+2 < len(frames) and (frames[i+1] in ['X', '/']):
                 score += 30
             else:
-                if i+3 >= len(frames) or (frames[i+2] in ['X', '/']):
-                    score += 10 + (10 - int(frames[i+1]))
+                if i+3 >= len(frames) or frames[i+2] in ['X', '/']:
+                    score += 10 + (10 - int(frames[i+1])) if i+1 < len(frames) and frames[i+1].isdigit() else 25
                 else:
                     score += 10 + int(frames[i+2:i+4])
             i += 3
@@ -30,5 +31,5 @@ def bowling_score(frames):
             i += 2
     return score
 
-frames = "7/5, 3/10, X,X,X, 8/3, X,X, X,X, 4/6, 2/X"
+frames = "7-5/7/8-3/X-2/4-X/0-4/1-X/9-3/X-6/X-8/X-10"
 print(bowling_score(frames))
