@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <string>
 
 int prod_signs(int* arr, int n) {
     if (n == 0) return -32768;
@@ -16,11 +16,13 @@ int prod_signs(int* arr, int n) {
 int main() {
     int n; 
     std::cin >> n;
-    std::vector<int> arr(n);
+    std::string* arr = new std::string[n];
     for (int i = 0; i < n; ++i)
         std::cin >> arr[i];
 
-    int result = prod_signs(&arr[0], n);
+    int result = prod_signs(new int[arr.size()], arr.size());
+    delete[] arr;
+
     std::cout << "The product of signs is: " << result << '\n';
     return 0;
 }
