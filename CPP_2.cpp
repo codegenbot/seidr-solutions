@@ -1,2 +1,3 @@
-return number - floor(number);
+int int_part = (int)number;
+    return number - int_part;
 }
