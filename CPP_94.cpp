@@ -1,17 +1,17 @@
 #include <vector>
-#include <initializer_list>
-#include <ostream>
+#include <iostream>
 
-int sum(std::initializer_list<int> vec) {
-    int total = 0;
+int sumVector(const std::vector<int>& vec) {
+    int sum = 0;
     for (const auto& num : vec) {
-        total += num;
+        sum += num;
     }
-    return total;
+    return sum;
 }
 
 int main() {
-    assert(sum({127, 97, 8192}) == 1226);
-    std::cout << "The sum is: " << sum({127, 97, 8192}) << std::endl; 
+    std::vector<int> lst({127, 97, 8192}); 
+    int result = sumVector(lst); 
+    std::cout << "The sum is: " << result << std::endl; 
     return 0;
 }
