@@ -5,6 +5,7 @@ double probability(int n, int m) {
     double total = (double)n * m;
     double p = 0;
 
+    // Calculate the probability that Peter rolls higher than Colin
     for (int i = 1; i <= min(n, m); i++) {
         p += (n-i)/(double)(n*m);
     }
