@@ -1,10 +1,16 @@
-#include <vector>
 #include <algorithm>
-#include <cassert>
-using namespace std;
+#include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
