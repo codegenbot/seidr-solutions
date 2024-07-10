@@ -1,38 +1,12 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
-    int splitIndex = 0;
-    
-    for (int i = 1; i <= v.size(); i++) {
-        int sumLeft = 0, sumRight = 0;
-        
-        for (int j = 0; j < i; j++) {
-            sumLeft += v[j];
-        }
-        
-        for (int j = i; j < v.size(); j++) {
-            sumRight += v[j];
-        }
-        
-        int diff = abs(sumLeft - sumRight);
-        
-        if (diff <= minDiff) {
-            minDiff = diff;
-            splitIndex = i;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    for (int i = 0; i < n - 1; ++i) {
+        if (abs(v[i] - v[i + 1]) <= abs(v[0] - v[n - 1])) {
+            return {{v.begin(), v.begin() + i + 1}, {v.begin() + i, v.end()}};
         }
     }
-    
-    vector<int> left, right;
-    
-    for (int i = 0; i < splitIndex; i++) {
-        left.push_back(v[i]);
-    }
-    
-    for (int i = splitIndex; i < v.size(); i++) {
-        right.push_back(v[i]);
-    }
-    
-    return {left, right};
+    return {{v.begin(), v.end()}, {}};
 }
