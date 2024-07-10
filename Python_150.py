@@ -1,5 +1,4 @@
-```
-def count_up_to(n):
+def x_or_y(n, x, y):
     def is_prime(num):
         if num < 2:
             return False
@@ -7,11 +6,7 @@ def count_up_to(n):
             if num % i == 0:
                 return False
         return True
-
-    result = []
-    for i in range(2, n+1): 
-        if is_prime(i):
-            result.append(i)
-        else:
-            break
-    return result
+    if is_prime(n):
+        return x
+    else:
+        return y
