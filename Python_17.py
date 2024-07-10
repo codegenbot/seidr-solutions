@@ -1,12 +1,9 @@
-# Read input until EOF is reached
+import sys
+
 print("Enter music data:")
-music_input = ''.join(iter(input, ''))
+music_input = sys.stdin.read()
 
-# Define the function with correct signature
-def parse_music(music_data):
-    processed_data = music_data.strip().split('\n')
-    return processed_data
+def parse_music(music_data: str):
+    return music_data.split('\n')
 
-# Print the output of the function in a formatted way
-for item in parse_music(music_input):
-    print(item)
+print(parse_music(music_input))
