@@ -25,9 +25,12 @@ int count_nums(std::vector<int> nums) {
 int main() {
     int n;
     std::cin >> n;
+    if(n > 1000000) { 
+        std::cout << "Exceeded max limit, cannot continue." << std::endl;
+        return -1; 
+    }
     std::vector<int> nums;
-    nums.reserve(n); // Add this line to reserve space for n elements.
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i <= n && i <= 1000000; i++) {
         int num;
         std::cin >> num; 
         nums.push_back(num); 
