@@ -8,7 +8,25 @@ def sum_of_odd_numbers_in_every_other_element():
                 break
             numbers = list(map(int, input_str.split()))
             if not numbers:
-                raise ValueError("No valid numbers entered.")
-            return sum(i for i in numbers[1::2] if i % 2 != 0)
-        except ValueError as e:
-            print(f"Invalid input: {e}. Please try again.")
+                raise ValueError
+        except ValueError:
+            print("Invalid input. Please try again.")
+            continue
+
+    return sum(i for i in numbers[1::2] if i % 2 != 0)
+
+
+def main():
+    while True:
+        result = sum_of_odd_numbers_in_every_other_element()
+        while True:
+            cont = input("Do you want to continue? (yes/no): ")
+            if cont.lower() in ["yes", "no"]:
+                break
+            print("Invalid input. Please try again.")
+        if cont.lower() != "yes":
+            break
+
+
+if __name__ == "__main__":
+    main()
