@@ -2,13 +2,13 @@ Here is the solution:
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
-    
-    for (const string& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
+
+    for (const string& s : lst) {
+        if (s.length() % 2 == 0) {
+            result.push_back(s);
         }
     }
-    
+
     sort(result.begin(), result.end(),
          [](const string& a, const string& b) {
              if (a.length() != b.length()) {
@@ -17,6 +17,6 @@ vector<string> sorted_list_sum(vector<string> lst) {
                  return a < b;
              }
          });
-    
+
     return result;
 }
