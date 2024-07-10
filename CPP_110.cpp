@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
-std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
+int exchange(std::vector<int> lst1, std::vector<int> lst2) {
     int oddCount1 = 0;
     for (int num : lst1)
         if (num % 2 != 0)
@@ -13,10 +12,5 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
         if (num % 2 != 0)
             oddCount2++;
     
-    return (oddCount1 == 0 && oddCount2 == 0) ? "YES" : "NO";
-}
-
-int main() {
-    assert(exchange({100, 200}, {200, 200}) == "YES");  
-    return 0;
+    return (oddCount1 == 0 && oddCount2 == 0);
 }
