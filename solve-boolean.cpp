@@ -1,37 +1,50 @@
+```c++
 #include <iostream>
 #include <string>
 
 bool solveBoolean(std::string s) {
     bool result = true;
-    std::string temp;
-    for (char c : s) {
-        if (c == 'T' || c == 'F') {
-            temp += c;
-        } else if (c == '|') {
-            if (!result) {
-                return false;
-            }
-            while (temp.back() != '|') {
-                if (temp.back() == '&') {
-                    return false; // invalid expression
-                }
-                temp.pop_back();
-            }
-            result = false;
-            temp.pop_back(); // remove the last character, which is '|'
-        } else if (c == '&') {
-            if (!result) {
-                return false;
-            }
-            while (temp.back() != '&') {
-                if (temp.back() == 'F')
+    int i = 0;
+    while (i < s.size()) {
+        switch (s[i]) {
+            case 'T':
+                i++;
+                break;
+            case 'F':
+                if (result)
+                    result = false;
+                else
                     return false;
-                if (temp.back() == '|')
-                    return false; // invalid expression
-                temp.pop_back();
-            }
-            result = true;
-            temp.pop_back(); // remove the last character, which is '&'
+                i++;
+                break;
+            case '|': {
+                bool subResult = true;
+                while (i < s.size() && s[i] == '|') {
+                    i++;
+                }
+                for (; i < s.size(); ) {
+                    char c = s[i];
+                    i++;
+                    if (c == 'F')
+                        subResult = false;
+                    else if (c != '&')
+                        return false; // invalid expression
+                }
+                result = subResult;
+                break; }
+            case '&': {
+                bool subResult = true;
+                int j = 0;
+                for (; i < s.size(); ) {
+                    char c = s[i];
+                    i++;
+                    if (c != 'T' && c != 'F')
+                        return false; // invalid expression
+                    if ((j % 2) != 0)
+                        subResult = false; 
+                }
+                result = subResult;
+                break; }
         }
     }
     return result;
@@ -39,8 +52,12 @@ bool solveBoolean(std::string s) {
 
 int main() {
     std::string input;
+    // Ask user for input
     std::cout << "Enter a boolean expression: ";
-    std::cin >> input;
+    char c;
+    while ((c = std::cin.get()) != '\n') {
+        input += c;
+    }
     
     bool result = solveBoolean(input);
     
