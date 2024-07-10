@@ -1,7 +1,7 @@
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return result;
+Here is the solution:
 
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     int minEven = INT_MAX;
     int minIndex = -1;
 
@@ -12,8 +12,12 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
 
-    if (minIndex != -1) {
-        result.push_back({minEven, minIndex});
+    if (minEven != INT_MAX) {
+        result.push_back(minEven);
+        result.push_back(minIndex);
+    } else {
+        result.push_back(0);
+        result.push_back(-1); // or any other value to indicate no even node
     }
 
     return result;
