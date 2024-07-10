@@ -1,9 +1,8 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issam(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -29,7 +28,7 @@ int main() {
         v2.push_back(x);
     }
 
-    if(issam(v1, v2)) {
+    if(issame(v1, v2)) {
         std::cout << "The vectors are the same.";
     } else {
         std::cout << "The vectors are not the same.";
