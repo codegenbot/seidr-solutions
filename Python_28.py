@@ -2,7 +2,9 @@ from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    output = ""
+    result = ""
     for string in strings:
-        output += string
-    return output
+        if len(result) > 0:
+            result += " "
+        result += string
+    return result
