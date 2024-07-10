@@ -17,12 +17,12 @@ int main() {
     float threshold;
 
     cout << "Enter the elements of the vector (space-separated, type 'stop' when done): ";
-    string input;
-    float x;
+    string s;
     while (true) { 
-        cin >> input; 
-        if(input == "stop") break;
-        a.push_back(stof(input)); // convert string to float
+        cin >> s; 
+        if(s == "stop") break;
+        float x = stof(s); // Convert string to float and store in x
+        a.push_back(x);
         cin >> std::ws; // Add this line to ignore whitespace characters
     } 
 
