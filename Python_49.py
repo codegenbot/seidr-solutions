@@ -6,4 +6,4 @@ def modp(n: int, p: int):
             res = pow(n, p - 1, p)
         else: 
             res = pow(n, (p-1)//2, p)
-        return n * res * res % p
+        return (n * res * res) % p
