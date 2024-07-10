@@ -24,9 +24,8 @@ int main()
     }
     int len = input.length(); // Calculate length as integer
     std::string len_str;
-    len_str += (len % 10) + '0'; // For single-digit numbers
-    len_str += (len / 10) + '0'; // For multi-digit numbers
-    if (flag && prime_length(len_str)) {  
+    len_str += std::to_string(len % 10) + std::to_string(len / 10);
+    if (flag && prime_length(std::to_string(len))) {  
         std::cout << "The length of the string is prime." << std::endl;
     } else {
         std::cout << "The length of the string is not prime." << std::endl;
