@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 std::string camelCase(const std::string& input) {
     std::string output;
     bool firstWord = true;
@@ -19,13 +16,4 @@ std::string camelCase(const std::string& input) {
     }
 
     return output;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input; 
-    std::cout << camelCase(input) << std::endl;
-
-    return 0;
 }
