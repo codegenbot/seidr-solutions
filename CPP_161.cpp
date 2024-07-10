@@ -1,9 +1,6 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
-#include <cctype>
-
-using namespace std;
 
 string solve(string s) {
     for(char &c : s){
@@ -18,9 +15,8 @@ string solve(string s) {
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << solve(input) << endl;
-
+    string s;
+    cin >> s;
+    cout << solve(s) << endl;
     return 0;
 }
