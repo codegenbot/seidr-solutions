@@ -1,6 +1,12 @@
-def process_numbers(numbers, delimiter):
+def combine_with_delimeter(numbers, delimeter):
     result = []
-    for num in numbers:
-        result.extend([num, delimiter])
-    result.pop()
+    for i in range(len(numbers)):
+        result.append(numbers[i])
+        if i < len(numbers) - 1:
+            result.append(delimeter)
     return result
+
+numbers = [1, 2, 3, 4, 5]
+delimeter = ","
+output = combine_with_delimeter(numbers, delimeter)
+print(output)
