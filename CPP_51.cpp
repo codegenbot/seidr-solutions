@@ -1,15 +1,13 @@
 ```cpp
 #include <string>
-#include <cctype>
+#include <algorithm>
 
 std::string remove_vowels(std::string text) {
-    for (auto it = text.begin(); it != text.end();) {
-        if (std::toupper(*it) == 'A' || std::toupper(*it) == 'E' 
-            || std::toupper(*it) == 'I' || std::toupper(*it) == 'O' || std::toupper(*it) == 'U') {
-            it = text.erase(it, it+1);
-        } else {
-            ++it;
+    std::string result = "";
+    for(char c : text){
+        if(toupper(c) != 'A' && toupper(c) != 'E' && toupper(c) != 'I' && toupper(c) != 'O' && toupper(c) != 'U'){
+            result += c;
         }
     }
-    return text;
+    return result;
 }
