@@ -1,5 +1,7 @@
 ```
+import re
+
 def digitSum(n=""):
-    if not n:  
+    if not n:
         n = input("Enter a number: ")
-    return sum(int(digit) for digit in str(n) if digit.isdigit())
+    return sum(int(digit) for digit in re.sub('[^0-9]', '', str(n)))
