@@ -1,4 +1,4 @@
-Here is the modified code:
+Here is the corrected code:
 
 def decode_shift(s: str):
     return "".join([chr(((ord(ch.lower()) - 5 - ord("a")) % 26) + ord("a")) if 'a' <= ch.lower() <= 'z' else ch.lower() if 'a' <= ch.lower() <= 'z' else ch for ch in s]).upper()
