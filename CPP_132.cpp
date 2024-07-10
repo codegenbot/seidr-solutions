@@ -1,19 +1,20 @@
 #include <iostream>
 #include <string>
-#include <stack>
 
 bool is_nested(std::string str) {
-    std::stack<char> brackets;
+    int count = 0;
     for (char c : str) {
         if (c == '[' || c == '{' || c == '(') {
-            brackets.push(c);
-        } else if ((c == ']' && !brackets.empty() && brackets.top() == '[') ||
-                   (c == '}' && !brackets.empty() && brackets.top() == '{') ||
-                   (c == ')' && !brackets.empty() && brackets.top() == '(')) {
-            brackets.pop();
-        } else {
+            count++;
+        } else if (c == ']' && count > 0) {
+            count--;
+        } else if (c == '}' && count > 0) {
+            count--;
+        } else if (c == ')' && count > 0) {
+            count--;
+        } else if (c == ']' || c == '}' || c == ')') {
             return false;
         }
     }
-    return brackets.empty();
+    return count == 0;
 }
