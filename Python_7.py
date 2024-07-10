@@ -1,14 +1,16 @@
+import sys
+
 strings = []
 try:
     while True:
-        string = input().strip()
+        string = sys.stdin.readline().rstrip()
         if string == "----":
             break
         strings.append(string)
 except EOFError:
     pass
 
-substring = input().strip()
+substring = sys.stdin.readline().rstrip()
 
 def filter_strings(strings, substring):
     return [string for string in strings if substring in string]
