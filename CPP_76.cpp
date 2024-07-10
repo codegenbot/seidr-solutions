@@ -1,9 +1,9 @@
-if(x == 1) return true;
-    for(int i = 2; i <= sqrt(x); i++){
+if (x == 1) return true;
+    for (int i = 2; i * i <= x; i++) {
         int p = i;
-        while(p <= x){
+        while (p <= x) {
+            if (p == x) return true;
             p *= i;
-            if(p == x && p % i == 0) return true;
         }
     }
     return false;
