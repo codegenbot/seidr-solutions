@@ -3,27 +3,21 @@ using namespace std;
 
 int main() {
     double startHeight;
+    cin >> startHeight;
     double firstBounceHeight;
-    int numBounces;
-
-    cin >> startHeight >> firstBounceHeight >> numBounces;
-
-    // Calculate bounciness index
+    cin >> firstBounceHeight;
     double bouncinessIndex = firstBounceHeight / startHeight;
 
-    // Initialize total distance traveled
+    int numBounces;
+    cin >> numBounces;
+
     double totalDistance = 0.0;
-
     for (int i = 1; i <= numBounces; ++i) {
-        // Calculate height after the bounce
-        double currentHeight = startHeight * pow(bouncinessIndex, i);
-
-        // Add to total distance traveled
-        totalDistance += 2.0 * (startHeight - currentHeight);
+        totalDistance += pow(2, -bouncinessIndex * i);
     }
 
-    cout << fixed << setprecision(4);
-    cout << totalDistance;
+    cout.precision(6); // Set the precision to display 6 decimal places
+    cout << fixed << setprecision(6) << totalDistance;
 
     return 0;
 }
