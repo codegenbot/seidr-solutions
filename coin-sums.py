@@ -6,4 +6,4 @@ def coin_sums(cents):
         while cents >= coins[i]:
             counts[i] += 1
             cents -= coins[i]
-    return tuple(counts[:])
+    return (cents // 25), (cents % 25) // 10, (cents % 10) // 5, cents % 5
