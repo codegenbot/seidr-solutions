@@ -1,7 +1,12 @@
 #include <algorithm>
-#include <vector>
+#include <cmath>
 
 int main() {
-    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    int n;
+    std::cin >> n;
+    std::vector<int> l(n);
+    for(int i=0; i<n; i++)
+        std::cin >> l[i];
+    
     return *std::max_element(l.begin(), l.end());
 }
