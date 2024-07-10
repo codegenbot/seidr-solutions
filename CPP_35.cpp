@@ -1,6 +1,6 @@
 #include <vector>
 #include <cassert>
-#include <cmath> // Include cmath for abs function
+#include <cmath>
 
 float max_element(const vector<float>& l){
     float max_val = l[0];
