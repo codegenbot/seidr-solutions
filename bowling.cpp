@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 int bowlingScore(std::string input) {
@@ -16,7 +15,8 @@ int bowlingScore(std::string input) {
             }
             firstInFrame = true;
             strikeOrSpare = false;
-        } else if (c == 'X') {
+        } 
+        else if (c == 'X') {
             score += 10;
             if (!firstInFrame && !strikeOrSpare) {
                 int next1 = c + 1 < input.length() ? input[c+1] - '0' : 0;
@@ -25,9 +25,11 @@ int bowlingScore(std::string input) {
             }
             firstInFrame = true;
             strikeOrSpare = false;
-        } else if (c == '-') {
+        } 
+        else if (c == '-') {
             firstInFrame = true;
-        } else {
+        } 
+        else {
             int pins = c - '0';
             score += pins;
             if (!firstInFrame) {
