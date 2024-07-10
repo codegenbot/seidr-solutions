@@ -13,10 +13,10 @@ long long double_the_difference(std::vector<float> lst){
 
 int main() {
     std::vector<float> lst; 
-    float num;
-    while(std::cin >> num){
-        lst.push_back(num);
-    }
-    assert (double_the_difference(lst) == 0 );
+    float n;
+    while (std::cin >> n) {
+        lst.push_back(n);
+    }  
+    assert (double_the_difference(lst) == odd_sum );
     return 0;
 }
