@@ -1,10 +1,14 @@
-vector<int> intersperse(vector<int> numbers, int delimeter){
-    vector<int> result;
-    for(int i = 0; i < numbers.size(); ++i){
-        result.push_back(numbers[i]);
-        if(i < numbers.size() - 1){
-            result.push_back(delimeter);
-        }
+#include <vector>
+
+using namespace std;
+
+std::vector<int> intersperse(const std::vector<int>& vec, int val);
+
+std::vector<int> intersperse(const std::vector<int>& vec, int val){
+    std::vector<int> result;
+    for(const auto& num : vec){
+        result.push_back(num);
+        result.push_back(val);
     }
     return result;
 }
