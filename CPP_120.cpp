@@ -1,6 +1,8 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 bool same(int a, int b) {
     if (a == b)
@@ -8,9 +10,6 @@ bool same(int a, int b) {
     else
         return false;
 }
-
-template<typename T>
-constexpr typename std::iterator_traits<T>::size_type size(const T& x) {return std::distance(x.begin(),x.end());}
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
@@ -22,7 +21,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return result;
 }
 
-int main() {
+int originalMain() {
     std::vector<int> input = {1, 2, 3, -23, 243, -400, 0};
     int k = 4;
     if (!input.empty()) {
@@ -33,4 +32,8 @@ int main() {
     } else {
         std::cout << "No elements left" << std::endl;
     }
+}
+int main() {
+    originalMain();
+    return 0;
 }
