@@ -1,3 +1,1 @@
-import sys
-
-n = int(sys.stdin.readline())
+n = list(map(int, input().split()))
