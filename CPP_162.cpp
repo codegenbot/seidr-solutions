@@ -1,4 +1,5 @@
 #include <string>
+#include <openssl/md5.h>
 
 std::string myString_to_md5(std::string text) {
     unsigned char result[16];
