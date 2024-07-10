@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -15,7 +16,9 @@ std::vector<std::string> select_words(std::string input, int k) {
     std::istringstream iss(input);
     std::vector<std::string> words;
     std::string word;
+    
     while (iss >> word) {
+        if (word[0] == '#') break; // stop reading when a '#' is encountered
         words.push_back(word);
     }
     
@@ -30,8 +33,8 @@ std::vector<std::string> select_words(std::string input, int k) {
 }
 
 int main() {
-    std::vector<std::string> result = select_words("a b c d e f", 1);
-    if (!issame({{"b"}}, {"b"}) ) 
+    std::vector<std::string> result = select_words("a b c d e f #", 1);
+    assert(issame({{"b"}}, "b"); 
     std::cout << "{" + Join(result, ", ") + "}" << std::endl;
     return 0;
 }
