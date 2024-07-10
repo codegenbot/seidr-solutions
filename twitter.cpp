@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <limits>
 
 using namespace std;
 
@@ -15,10 +16,10 @@ string validateTweet(string tweet) {
 
 int main() {
     string input;
-    while (!(cin >> ws && cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'))) {
+    while (!(cin >> ws && cin.ignore(numeric_limits<streamsize>::max(), '\n'))) {
         return "You didn't type anything";
     }
-    string tweet = ws + input.substr(0, 140); 
+    string tweet = ws + input.substr(0, 140);
     cout << validateTweet(tweet) << endl;
     return 0;
 }
