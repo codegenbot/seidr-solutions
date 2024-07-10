@@ -11,6 +11,6 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main() {
-    std::cout << specialFilter({1,11,12,13}) << std::endl; // Test the function
+    std::cout << specialFilter({1,11,12,13}) << std::endl; 
     return 0;
 }

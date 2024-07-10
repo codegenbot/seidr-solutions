@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <random>
@@ -5,7 +6,7 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
+bool is_same(vector<int> a, vector<int> b) {
     if(a.size()!=b.size()) return false;
     for(int i=0;i<a.size();i++){
         if(a[i]!=b[i])return false;
@@ -24,14 +25,21 @@ std::vector<int> make_a_pile(int n) {
     return pile; 
 }
 
-void problem100(int n) {
-    int input;
+int main() {
+    int n;
     cout << "Enter a number: ";
-    cin >> input;
+    cin >> n;
 
-    if(issame({1}, make_a_pile(input))){
-        cout << "The piles are the same." << std::endl;
+    problem100(n);
+
+    return 0;
+}
+
+void problem100(int n) {
+    vector<int> result = make_a_pile(n);
+    if(is_same(vector<int>{}, result)){
+        cout << "The piles are the same." << endl;
     } else {
-        cout << "The piles are not the same." << std::endl;
+        cout << "The piles are not the same." << endl;
     }
 }

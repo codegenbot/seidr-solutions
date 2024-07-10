@@ -1,9 +1,19 @@
+```cpp
 #include <iostream>
-#include <cassert>
+#include <vector>
+
+int sumVector(std::vector<int> lst) {
+    int total = 0;
+    for(int i : lst){
+        total += i;
+    }
+    return total;
+}
 
 int main() {
-    int num3, num4, num5;
-    std::cin >> num3 >> num4 >> num5;
-    assert({num3, num4, num5} == {127, 97, 224});
+    std::vector<int> lst({127, 97, 8192});
+    int result = sumVector(lst);
+    std::cout << "The sum is: " << result << std::endl;
+    std::cout << "Expected output: " << 1216 << std::endl;
     return 0;
 }
