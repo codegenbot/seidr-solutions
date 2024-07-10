@@ -1,5 +1,4 @@
-```
 def luhn(card):
-    card = [int(i) for i in str(card)] 
-    result = sum([x if i % 2 == 0 else x * 2 - x // 10 * 9 for i, x in enumerate(card)])
+    card = [int(i) for i in card.replace(' ', '')]
+    result = sum([x if (i % 2 == 0) else x * 2 - (x > 9)*9 for i, x in enumerate(map(int, card))])
     return str(result)
