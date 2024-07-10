@@ -1,3 +1,2 @@
-```
 def get_positive(l: list):
-    return [i for i in l if i > 0]
+    return [x for x in l if isinstance(x, int) and x > 0]
