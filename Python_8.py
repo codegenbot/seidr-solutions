@@ -1,6 +1,7 @@
+```
+from typing import List, Tuple
+
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    if not numbers:
-        return (0, 1)  
     if not all(isinstance(x, int) for x in numbers):
         return "Error: Input must be a list of integers"
     total_sum = 0
