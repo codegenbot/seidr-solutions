@@ -1,24 +1,12 @@
-#include <vector>
-#include <algorithm>
-#include <iostream>
-#include <cmath>
-
-using namespace std;
-
 std::vector<int> factorize(int n) {
     std::vector<int> factors;
-    if (n == 0) {
-        factors.push_back(0);
-        return factors;
-    }
-    if (n == 1) {
-        factors.push_back(1);
-        return factors;
-    }
+    
     if (n < 0) {
         factors.push_back(-1);
         n = abs(n);
     }
+    
+    // Factorize the absolute value of n
     for (int i = 2; i * i <= n; ++i) {
         while (n % i == 0 && n > 1) {
             factors.push_back(i);
@@ -28,6 +16,8 @@ std::vector<int> factorize(int n) {
     if (n > 1) {
         factors.push_back(n);
     }
+    
+    // Multiply factors by -1 if n was negative
     if (factors.size() == 1 && factors[0] == n) {
         factors.clear();
     }
