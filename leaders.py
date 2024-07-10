@@ -1,6 +1,7 @@
 ```
 def leaders(arr):
-    return [arr[i] for i in range(len(arr)-1, -1, -1) if all(x <= arr[i] for x in arr[i+1:])]
+    leaders = [arr[i] for i in range(len(arr)-1, -1, -1) if all(x <= arr[i] for x in arr[i+1:])]
+    return leaders
 
 print(leaders([0]))
 print(leaders([1, 0]))
