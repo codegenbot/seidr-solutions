@@ -4,7 +4,6 @@ int largest_prime_factor(int n) {
     while (factor * factor <= n) {
         if (n % factor == 0) {
             n /= factor;
-            largest_factor = factor;
             while (n % factor == 0) {
                 n /= factor;
             }
