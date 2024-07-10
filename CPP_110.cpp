@@ -1,18 +1,15 @@
-#include <iostream>
-#include <vector>
 #include <string>
-#include <cassert>
 
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
-    int oddCount = 0;
-    for (int num : lst1) {
+    int oddCount1 = 0;
+    for (int num : lst1)
         if (num % 2 != 0)
-            oddCount++;
-    }
-    return oddCount == 0 ? "YES" : "NO";
-}
-
-int main() {
-    assert(exchange({100, 200}, {200, 200}) == "YES");
-    return 0;
+            oddCount1++;
+    
+    int oddCount2 = 0;
+    for (int num : lst2)
+        if (num % 2 != 0)
+            oddCount2++;
+    
+    return (oddCount1 == 0 && oddCount2 == 0) ? "YES" : "NO";
 }
