@@ -5,7 +5,8 @@ melting_rate = float(input("Enter proportion of snow melting per hour (0 to 1): 
 
 total_snow = snow_on_ground
 for _ in range(hours):
-    total_snow += rate_of_snowfall 
-    total_snow -= total_snow * melting_rate  
+    melted = total_snow * melting_rate
+    total_snow -= melted
+    total_snow += rate_of_snowfall
 
 print(total_snow)
