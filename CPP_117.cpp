@@ -16,7 +16,7 @@ std::vector<std::string> select_words(std::string input, int k) {
     std::istringstream iss(input);
     std::vector<std::string> words;
     std::string word;
-    while (std::getline(iss, word)) {
+    while (iss >> word) {
         words.push_back(word);
     }
     

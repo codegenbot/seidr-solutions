@@ -15,25 +15,28 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
+string to_string(char c) {
+    ostringstream oss;
+    oss << c;
+    return oss.str();
+}
 string to_string(int i) {
     ostringstream oss;
     oss << i;
     return oss.str();
 }
 
-vector<string> reverse_delete(string s1, string s2) {
-    vector<string> result;
+string reverse_delete(string s1, string s2) {
     int len1 = s1.length();
     int len2 = s2.length();
     for(int i = 0; i < len2; i++) {
-        auto pos = s1.find(to_string(s2[i]).c_str());
+        auto pos = s1.find(s2[i]);
         if(pos != string::npos) {
             s1 = s1.substr(0, pos) + s1.substr(pos + 1);
-            result.push_back(s1);
         }
     }
-    reverse(result.begin(), result.end());
-    return result;
+    reverse(s1.begin(), s1.end());
+    return s1;
 }
 
 int main() {
@@ -47,5 +50,5 @@ int main() {
     else
         cout << "Second number is greater." << endl;
 
-    assert(issame(reverse_delete("mamma", "mia").begin(), reverse_delete("mamma", "mia").end()) , {"", "True"}));
+    assert(issame(vector<string>(reverse_delete("mamma", "mia").begin(), reverse_delete("mamma", "mia").end()), {"", "True"}));
 }

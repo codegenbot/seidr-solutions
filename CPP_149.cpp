@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -8,10 +9,8 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> list) {
     for (const auto& str : list) {
         sum += str.length();
     }
-    return list; 
-
+    return {list}; 
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
-}
