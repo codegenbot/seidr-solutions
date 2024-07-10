@@ -1,13 +1,18 @@
-Here is the Python solution for the problem:
-
 def solve_boolean(expression):
-    if expression == 'T':
+    if expression == "T":
         return True
-    elif expression == 'F':
+    elif expression == "F":
         return False
-    elif '&' in expression:
-        a, b = expression.split('&')
-        return bool(a) and bool(b)
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid expression")
     else:
-        a, b = expression.split('|')
-        return bool(a) or bool(b)
+        for i in range(len(expression) - 1):
+            if expression[i] in ["&", "|"] and (
+                expression[i - 1] not in ["T", "F"]
+                or expression[i + 1] not in ["T", "F"]
+            ):
+                return False
+        if "&" in expression:
+            return all(c == "T" for c in expression)
+        else:
+            return any(c == "T" for c in expression)
