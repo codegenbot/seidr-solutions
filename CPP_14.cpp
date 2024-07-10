@@ -4,7 +4,7 @@
 #include <string>
 
 bool issame(const std::vector<std::string>& vec) {
-    if (vec.size() != 1 || vec[0].empty()) {
+    if (vec.size() == 0 || (!vec[0].empty() && vec[0] != "*")) {
         return false;
     }
     for (const auto& s : vec) {
@@ -39,4 +39,7 @@ int main() {
         }
     }
 
-//    assert(issame({{"W", "WW", "WWW"}}));
+//    assert(issame({{"W", "WW", "WWW"} }));
+
+    return 0;
+}
