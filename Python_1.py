@@ -1,3 +1,4 @@
+```python
 def solve_task():
     while True:
         try:
@@ -6,7 +7,6 @@ def solve_task():
             break
         except ValueError:
             print("Invalid input. Please enter numeric values.")
-    
     result = num1 + num2
     
     while True:
