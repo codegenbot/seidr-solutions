@@ -4,14 +4,14 @@ def add(pair):
 def main():
     while True:
         try:
-            inputs = input().strip().split()
+            inputs = input().strip()
             if not inputs:
                 break
-            x, y = map(int, inputs)
+            x, y = map(int, inputs.split())
             result = add((x, y))
             print(result)
-        except (ValueError, EOFError):
-            break
+        except ValueError:
+            print("Error: Invalid input")
 
 if __name__ == "__main__":
     main()
