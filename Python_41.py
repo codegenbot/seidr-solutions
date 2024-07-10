@@ -1,4 +1,7 @@
-def car_race_collision():
-    n = int(input("Enter the number of cars: "))
-    collision_count = (n * (n - 1)) // 2
-    print(f"After {n} rounds, there will be a total of {collision_count} collisions.")
+def car_race_collision(n: int):
+    if n == 1:
+        return 0
+    elif n % 2 == 0:
+        return (n // 2) ** 2 + n * ((n // 2) - 1)
+    else:
+        return (n // 2) ** 2 + (n // 2) + 1
