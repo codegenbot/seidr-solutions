@@ -11,3 +11,5 @@ def sort_even(l: list):
             even_index += 1
         else:
             result.append(odds[(i-1)//2])
+            
+    return result
