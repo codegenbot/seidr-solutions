@@ -1,4 +1,4 @@
-"""
+```
 def dice_game(n, m):
     total_outcomes = n * m
     peters_win_count = 0
@@ -7,5 +7,5 @@ def dice_game(n, m):
             if i > j:
                 peters_win_count += 1
             elif i < j:
-                pass
+                peters_win_count += 1
     return peters_win_count / total_outcomes
