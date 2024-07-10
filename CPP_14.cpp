@@ -1,10 +1,6 @@
-```cpp
-#include <initializer_list>
-#include <vector>
-#include <string>
-#include <iostream>
+using namespace std;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -12,10 +8,9 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> all_prefixes(const std::string& s) {
-    std::vector<std::string> result;
+vector<string> all_prefixes(const string& s) {
+    vector<string> result;
     for (int i = 0; i <= s.size(); i++) {
         result.push_back(s.substr(0, i));
     }
     return result;
-}

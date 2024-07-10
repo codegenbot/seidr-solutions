@@ -1,37 +1,35 @@
 #include <vector>
 #include <string>
 
-std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std::vector<std::string>>& input, const std::string& sub) {
+std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std::vector<std::string>>& input, const std::vector<std::string>& sub) {
     std::vector<std::vector<std::string>> result;
     for (const auto& vec : input) {
         bool found = false;
-        std::vector<std::string> temp;
         for (const auto& str : vec) {
-            if (str.find(sub) != std::string::npos) {
+            if (std::any_of(sub.begin(), sub.end(), [&](const auto& s){ return str.find(s) != std::string::npos; })) {
                 found = true;
-                temp.push_back(str);
+                result.push_back({sub});
                 break;
             }
         }
         if (!found) {
-            temp.clear();
+            result.push_back({});
         }
-        result.push_back(temp);
     }
     return result;
 }
 
 int main() {
     std::vector<std::vector<std::string>> input = {{"grunt"}, {"trumpet"}, {"prune"}, {"gruesome"}};
-    const std::string sub = "run";
+    const std::vector<std::string> sub = {"run"};
     
     auto output = filter_by_substring(input, sub);
     
-    if (!(output == std::vector<std::vector<std::string>> {{{"run"}} ,{{}} ,{{"prune"}} ,{{}} }))
+    if (!(output == std::vector<std::vector<std::string>>{{sub} ,{std::vector<std::string>()} ,{std::vector<std::string>()} ,{std::vector<std::string>()}}))
         return 1;
     
     input = {{"apple", "banana"}, {"orange", "grape"}, {"kiwi", "mango"}};
-    sub = "an";
+    sub = {"an"};
     auto output2 = filter_by_substring(input, sub);
     
     for (const auto& vec : output2) {
