@@ -1,16 +1,21 @@
+#include <iostream>
 #include <vector>
-#include <numeric>
 
-int max_fill(vector<vector<int>> grid, int capacity) {
+int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     int total_water = 0;
     for (const auto& row : grid) {
-        total_water += std::accumulate(row.begin(), row.end(), 0);
+        for (int water : row) {
+            if (water == 1) {
+                total_water++;
+            }
+        }
     }
-    
-    int result = total_water / capacity;
-    if (total_water % capacity != 0) {
-        result++;
-    }
-    
-    return result;
+
+    return total_water / capacity + (total_water % capacity != 0);
+}
+
+int main() {
+    std::vector<std::vector<int>> grid = {{1,1,1,1}, {1,1,1,1}};
+    assert(max_fill(grid, 9) == 2);
+    return 0;
 }
