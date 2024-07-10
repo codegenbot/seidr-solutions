@@ -1,5 +1,4 @@
-Here is the fixed code:
-
+```
 def fibfib(n: int):
     if n <= 1:
         return "Fibonacci sequence for even numbers only"
