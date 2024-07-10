@@ -1,5 +1,6 @@
-#include <iostream>
+#include <cassert>
 #include <string>
+
 using namespace std;
 
 int hex_key(string num) {
@@ -12,7 +13,6 @@ int hex_key(string num) {
         }
     }
     return count;
-
 }
 
 int main() {
