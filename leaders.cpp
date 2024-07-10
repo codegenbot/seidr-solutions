@@ -13,12 +13,10 @@ vector<int> leaders(vector<int>& arr) {
     vector<int> res;
     
     int maxR = arr[n-1];
-    res.push_back(maxR);
-
-    for(int i=n-2; i>=0; i--){
+    for(int i=n-1; i>=0; i--){
         if(arr[i] >= maxR){
+            res.push_back(arr[i]);
             maxR = arr[i];
-            res.push_back(maxR);
         }
     }
     
