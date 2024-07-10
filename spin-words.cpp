@@ -16,14 +16,13 @@ string spinWords(string str) {
                 result += str[j];
             }
             i++;
-            while (i < str.length() && str[i] == ' ') {
-                i++;
-            }
         } else {
-            for (int j = i; j < min(i+6, str.length()); j++) {
-                result += str[j];
+            int k = min(i+6, str.length());
+            for (; i < k; i++) {
+                result += str[i];
             }
-            i = j;
+            result += ' ';
+            i++;
         }
     }
     return result;
