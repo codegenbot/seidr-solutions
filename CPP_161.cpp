@@ -1,11 +1,12 @@
+```c
 #include <cassert>
 #include <string>
 #include <vector>
 #include <iostream>
 
-int solve(std::string s) {
+std::string solve(std::string s) {
     if (s.empty()) {
-        return 1;
+        return "a";
     }
     int v = 0;
     for (char c : s) {
@@ -14,11 +15,11 @@ int solve(std::string s) {
             v++;
         }
     }
-    return static_cast<int>(v);
+    return (v > 0 ? "a" : "");
 }
 
 int main() {
-    assert(solve("aAeEiIoUu") == 5); 
-    std::cout << (std::string)1 << std::endl;
+    assert(solve("aAeEiIoUu") == "a");
+    std::cout << solve("#ccc").size() << std::endl;
     return 0;
 }
