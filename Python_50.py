@@ -1,3 +1,10 @@
-```Python
 def decode_shift(s: str):
-    return "".join([chr(((ord(ch) - ord("a") + 26) % 26) + ord("a")) for ch in s])
+    n = int(input("Enter the shift value (1-25): "))
+    result = ""
+    for ch in s:
+        if ch.isalpha():
+            ascii_offset = ord('a') if ch.islower() else ord('A')
+            result += chr(((ord(ch) - ascii_offset - n) % 26) + ascii_offset)
+        else:
+            result += ch
+    return result
