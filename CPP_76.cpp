@@ -15,13 +15,19 @@ int main() {
     std::cin >> tempX;
 
     std::cout << "Enter another number: ";
-    std::cin >> input;
+    std::cin >> input; 
 
-    if (input != "0") {
-        if(is_simple_power(tempX, std::stoi(input)))  
-            std::cout << tempX << " is a simple power of " << input << std::endl;
-        else
-            std::cout << "Error: " << tempX << " is not a simple power of " << input << std::endl;
+    if (input != "0") { 
+        int nTemp = stoi(input);
+        if (nTemp != 0) {
+            if(is_simple_power(tempX, nTemp))  
+                std::cout << tempX << " is a simple power of " << nTemp << std::endl;
+            else
+                std::cout << "Error: " << tempX << " is not a simple power of " << nTemp << std::endl;
+        } 
+        else {
+            std::cout << "n cannot be zero." << std::endl;
+        }
     } 
     else {
         std::cout << "n cannot be zero." << std::endl;
