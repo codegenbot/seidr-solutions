@@ -1,18 +1,29 @@
 #include <vector>
-#include <string>
+using namespace std;
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
-    int start = 0;
-    
-    while (start < text.size()) {
-        size_t pos = text.find(target, start);
-        
-        if (pos == std::string::npos) break;
-        
-        result.push_back(pos);
-        start = pos + 1;
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    for (int i = 0; i <= text.size() - target.size(); i++) {
+        bool found = true;
+        for (int j = 0; j < target.size(); j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
+        }
+        if (found) {
+            indices.push_back(i);
+        }
     }
-    
-    return result;
+    return indices;
+}
+
+int main() {
+    string text, target;
+    cin >> text >> target;
+    vector<int> result = findIndices(text, target);
+    for (int i : result) {
+        cout << i << " ";
+    }
+    return 0;
 }
