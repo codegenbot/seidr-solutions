@@ -1,6 +1,3 @@
-#include <vector>
-#include <cmath>
-
 int mainFunc() {
     vector<float> lst;
     int n;
@@ -21,7 +18,7 @@ int mainFunc() {
 double sum_squares(const vector<float>& lst){
     double total = 0.0;
     for(float x : lst){
-        total += std::ceil(x) * std::ceil(x);
+        total += x * x; 
     }
     return total;
 }
