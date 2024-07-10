@@ -1,17 +1,28 @@
+```cpp
 #include <string>
-#include <cryptopp/sha.h>
+#include <algorithm>
+#include <cctype>
 
 std::string myString_to_md5(std::string text) {
-    SHA256 sha;
-    byte hash[SHA256::DIGEST_SIZE];
-    string result;
+    unsigned char result[16];
+    EVP_MD_CTX mdctx;
+    EVP_MD* md = NULL;
+    unsigned char d[EVP_MAX_BLOCK_LENGTH];
 
-    sha.ComputeHash((const byte*)text.c_str(), text.size(), hash);
-    for (int i = 0; i < SHA256::DIGEST_SIZE; i++) {
-        char buffer[3];
-        sprintf(buffer, "%02x", hash[i]);
-        result += buffer;
+    if (1 == EVP_DigestInit_ex(&mdctx, EVP_md_md5(), 0)) {
+        EVP_DigestUpdate(&mdctx, text.c_str(), text.size());
+        EVP_DigestFinal_ex(&mdctx, result, &d);
     }
+    std::string output;
+    for (int i = 0; i < 16; i++) {
+        char temp[3];
+        sprintf(temp, "%02x", result[i]);
+        output += temp;
+    }
+    return output;
+}
 
-    return result;
+int main() {
+    std::cout << myString_to_md5("password") << std::endl;
+    return 0;
 }
