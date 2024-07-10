@@ -7,10 +7,7 @@ int bowlingScore(const std::string& input) {
     int rollCount = 0;
     for (char c : input) {
         if (c == '/') {
-            if (rollCount > 1)
-                score += 10 + rollCount - 2;
-            else
-                score += rollCount * 10;
+            score += rollCount * 10;
             rollCount = 0;
         } else if ('1' <= c && c <= '9') {
             rollCount *= 10 + (c - '0');
@@ -22,9 +19,9 @@ int bowlingScore(const std::string& input) {
 
 int main() {
     std::string input;
-    std::cout << "Enter the string representing the individual bowls in a 10-frame round of 10 pin bowling: ";
+    std::cout << "Enter the bowling scores in the format XX/XX/...: ";
     std::cin >> input;
-    int result = bowlingScore(input);
-    std::cout << "The total score is: " << result << std::endl;
-    return result;
+    int score = bowlingScore(input);
+    std::cout << "The total score is: " << score << std::endl;
+    return 0;
 }
