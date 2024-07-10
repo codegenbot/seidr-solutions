@@ -23,11 +23,43 @@ def main():
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
-    is_divisible = any(n2 % i == 0 for i in range(1, n1 + 1))
-    if is_divisible:
-        print(f"{n2} is divisible by {n1}")
+    factors1 = []
+    i = 2
+    while i * i <= n1:
+        if n1 % i:
+            i += 1
+        else:
+            n1 //= i
+            count = 0
+            while n1 % i == 0:
+                n1 //= i
+                count += 1
+            factors1.extend([i] * count)
+    if n1 > 1:
+        factors1.append(n1)
+
+    factors2 = []
+    i = 2
+    while i * i <= n2:
+        if n2 % i:
+            i += 1
+        else:
+            n2 //= i
+            count = 0
+            while n2 % i == 0:
+                n2 //= i
+                count += 1
+            factors2.extend([i] * count)
+    if n2 > 1:
+        factors2.append(n2)
+
+    common_factors = list(set(factors1) & set(factors2))
+    if common_factors:
+        print(
+            f"{', '.join(map(str, common_factors))} are the common factors between {n1} and {n2}."
+        )
     else:
-        print(f"{n2} is not divisible by {n1}")
+        print(f"No common factor found between {n1} and {n2}.")
 
 
 if __name__ == "__main__":
