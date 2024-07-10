@@ -8,9 +8,3 @@ def correct_bracketing(brackets: str):
                 return False
             stack.pop()
     return len(stack) == 0
-
-brackets = input("Enter a string of brackets (e.g., '<>'): ")
-
-result = correct_bracketing(brackets)
-
-print(result)
