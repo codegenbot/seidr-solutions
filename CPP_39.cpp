@@ -1,10 +1,11 @@
 #include <iostream>
+#include <vector>
 
-bool isPrime(int num) {
+bool is_prime(int num) {
     if (num <= 1) {
         return false;
     }
-    for (int i = 2; i * i <= num; i++) {
+    for (int i = 2; i * i <= num; ++i) {
         if (num % i == 0) {
             return false;
         }
@@ -13,24 +14,17 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
-    if (n <= 0) {
-        return -1;
-    }
-
-    int a = 1, b = 1, c;
-    for (int i = 3; i <= n; i++) {
-        c = a + b;
-        a = b;
-        b = c;
-    }
-
+    std::vector<int> fib = {0, 1};
+    int i = 2;
     while (true) {
-        if (isPrime(c)) {
-            return c;
+        fib.push_back(fib[i - 1] + fib[i - 2]);
+        if (is_prime(fib[i])) {
+            n--;
+            if (n == 0) {
+                return fib[i];
+            }
         }
-        c = a + b;
-        a = b;
-        b = c;
+        i++;
     }
 }
 
