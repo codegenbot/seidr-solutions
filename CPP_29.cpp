@@ -1,8 +1,6 @@
 #include <vector>
 #include <string>
-#include <cassert> // Add this line to include the <cassert> header file
-
-using namespace std;
+#include <cassert>
 
 vector<string> filter_by_prefix(const vector<string>& vec, const string& prefix) {
     vector<string> result;
