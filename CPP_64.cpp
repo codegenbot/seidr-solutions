@@ -1,19 +1,9 @@
-int vowels_count(string s) {
+int vowels_count(string s){
     int count = 0;
-    for (char c : s) {
-        switch (tolower(c)) {
-            case 'a':
-            case 'e':
-            case 'i':
-            case 'o':
-            case 'u':
-                count++;
-                break;
-            case 'y': {
-                if (s.find('y') == s.size() - 1)
-                    count++;
-                break;
-            }
+    for(char c: s){
+        if(strchr("aeiouAEIOUyY", tolower(c)) != nullptr) {
+            if(c == 'y' && s.back() != 'y') continue; // Ignore 'y's that are not at the end of the word
+            count++;
         }
     }
     return count;
