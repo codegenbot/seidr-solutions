@@ -1,22 +1,31 @@
+#include<stdio.h>
+#include<string>
+using namespace std;
+
 string words_in_sentence(string sentence){
     string result = "";
-    for(int i=0; i<sentence.size(); i++){
-        int len = 1;
-        while(i+len <= sentence.size() && isalpha(sentence[i+len-1])){
-            len++;
+    int count = 0;
+    for(int i=2; i<=10000; i++){
+        bool isPrime = true;
+        for(int j=2; j*j <= i; j++){
+            if(i%j == 0){
+                isPrime = false;
+                break;
+            }
         }
-        if(isprime(len)){
-            result += sentence.substr(i, len) + " ";
+        if(isPrime){
+            int wordLength = 0;
+            string word;
+            while(count < sentence.find(" ")){
+                word += sentence[count];
+                count++;
+                wordLength++;
+            }
+            if(wordLength == i && !word.empty()){
+                result += word + " ";
+            }
+            count++;
         }
-        i += len - 1;
     }
-    return result;
-}
-
-bool isprime(int n){
-    if(n <= 1) return false;
-    for(int i=2; i*i<=n; i++){
-        if(n%i==0) return false;
-    }
-    return true;
+    return result.substr(0, result.size()-1);
 }
