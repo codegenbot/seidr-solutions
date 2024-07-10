@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 #include <string>
 
@@ -19,7 +18,7 @@ bool sameMap(std::map<char, int> a, std::map<char, int> b) {
         return false;
 
     for (auto it = a.begin(); it != a.end();++it)
-        if (it->second != b.at(it->first))
+        if (it->second != b.find(it->first)->second)
             return false;
 
     return true;
