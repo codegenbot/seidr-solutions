@@ -1,3 +1,5 @@
+#include <iostream>
+
 int main() {
     int cents;
     std::cin >> cents;
@@ -6,17 +8,17 @@ int main() {
     
     // Calculate Quarters
     quarters = cents / 25;
-    cents %= 25; 
-   
-    // Calculate remaining amount with dimes
+    cents %= 25;
+
+    // Calculate Dimes
     dimes = cents / 10;
     cents %= 10;
 
-    // Calculate remaining amount with nickles
+    // Calculate Nickles
     nickles = cents / 5;
     cents %= 5;
 
-    // Pennies are the remaining cents
+    // Calculate Pennies
     pennies = cents;
 
     std::cout << quarters << " quarter" << (quarters > 1 ? "s" : "") << std::endl;
