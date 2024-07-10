@@ -1,21 +1,40 @@
-```cpp
-int odd_sum = 0;
+#include <vector>
+using namespace std;
 
-double double_the_difference(vector<int> lst) {
+double double_the_difference(vector<double> lst) {
     int sum = 0;
-    for (int i : lst) {
-        if (i % 2 != 0)
-            sum += i;
+    for (double x : lst) {
+        int diff = abs((int)x - 5);
+        if (diff % 2 != 0) {
+            sum += diff;
+        }
     }
     return static_cast<double>(sum);
 }
 
 int main() {
-    for (std::string line; std::getline(std::cin, line); ) {
+    double odd_sum = 0;
+    vector<double> lst;
+
+    for (string line; getline(cin, line); ) {
         if (!line.empty()) {
-            double val = std::stod(line);
-            odd_sum += double_the_difference({static_cast<int>(val)});
+            double val = stod(line);
+            int diff = abs((int)val - 5);
+            if (diff % 2 != 0) {
+                odd_sum += val;
+            }
+            lst.push_back(val);
         }
     }
+
+    for (double x : lst) {
+        if (abs((int)x - 5) % 2 != 0) {
+            cout << x << " ";
+        }
+    }
+    cout << endl;
+
+    assert(double_the_difference(lst) == odd_sum);
+
     return 0;
 }
