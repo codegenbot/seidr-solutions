@@ -1,9 +1,9 @@
 Here is the modified code:
 
-```python
+```
 from typing import Tuple
 
-def find_closest_elements() -> Tuple[float, float]:
+def find_closed_elements() -> Tuple[float, float]:
     while True:
         try:
             numbers = [float(num) for num in input("Enter space-separated numbers: ").split()]
@@ -26,4 +26,4 @@ def find_closest_elements() -> Tuple[float, float]:
         except ValueError:
             print("Invalid input. Please enter valid decimal or integer values.")
 
-print(find_closest_elements())
+print(find_close_elements())
