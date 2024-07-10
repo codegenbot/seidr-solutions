@@ -1,10 +1,6 @@
-def filter_strings(strings, substring):
-    return [s for s in strings if substring in s]
-
-num_strings = int(input())
-strings = [input() for _ in range(num_strings)]
+num_strings = int(input().strip())
+strings = [input().strip() for _ in range(num_strings)]
 substring = input().strip()
 
 filtered_strings = filter_strings(strings, substring)
-for s in filtered_strings:
-    print(s)
+print(filtered_strings)
