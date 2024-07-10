@@ -7,32 +7,51 @@ using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0, prevPos = 0;
-
-    while ((pos = txt.find_first_of(" ,")) != string::npos) {
-        if (pos == 0) {
-            if (txt.find(',') == string::npos)
-                return {to_string(count_lowercase(txt))};
-            else
-                pos = txt.find(',');
+    size_t pos = 0, prev_pos = 0;
+    
+    while (pos != string::npos) {
+        pos = txt.find(' ', prev_pos);
+        if (pos == string::npos) {
+            pos = txt.find(',');
+            if (pos == string::npos) {
+                int count = 0;
+                for (char c : txt) {
+                    if ((c >= 'a' && c <= 'z') && (count % 2 != 0)) {
+                        count++;
+                    }
+                }
+                result.push_back(to_string(count));
+                return result;
+            }
         }
-        result.push_back(txt.substr(prevPos, pos - prevPos));
-        prevPos = pos + 1;
+        
+        string word = txt.substr(prev_pos, pos - prev_pos);
+        result.push_back(word);
+        prev_pos = pos + 1;
     }
-
-    result.push_back(txt.substr(prevPos));
-
+    
     return result;
 }
 
-int count_lowercase(string str) {
-    int count = 0;
-    for (char c : str) {
-        if (islower(c)) {
-            count++;
-            if (count % 2 == 0)
-                break;
-        }
+int main() {
+    // Test cases
+    cout << "{";
+    for (string s : split_words("Hello world!")) {
+        cout << "\"" << s << "\", ";
     }
-    return count;
+    cout << "}" << endl;
+
+    cout << "{";
+    for (string s : split_words("Hello,world!")) {
+        cout << "\"" << s << "\", ";
+    }
+    cout << "}" << endl;
+
+    cout << "{";
+    for (string s : split_words("abcdef")) {
+        cout << "\"" << s << "\", ";
+    }
+    cout << "}" << endl;
+    
+    return 0;
 }
