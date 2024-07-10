@@ -1,5 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
+
+bool std::issame(std::vector<int> a, std::vector<int> b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+}
 
 std::vector<int> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
@@ -14,7 +19,7 @@ std::vector<int> even_odd_palindrome(int n) {
     return {even, odd};
 }
 
-int userInput() {
+std::vector<int> std::userInput() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
