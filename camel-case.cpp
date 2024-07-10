@@ -3,13 +3,15 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    for (char c : str) {
-        if (c == '-') {
-            result += c + ((result.length() > 0) ? "" : " ");
-        } else if (c == ' ') {
-            continue;
-        } else {
-            result += toupper(c);
+    for (int i = 0; i <= str.size(); i++) {
+        if (i == str.size() || str[i] == '-') {
+            if (result.empty()) {
+                continue;
+            }
+            result[0] = toupper(result[0]);
+            break;
+        } else if (str[i] != '-') {
+            result += tolower(str[i]);
         }
     }
     return result;
