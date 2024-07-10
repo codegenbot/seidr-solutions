@@ -7,4 +7,4 @@ def sort_third(l: list):
     sorted_l3 = sorted(l3)[::-1]
 
     return [x if i % 3 != 0 else (x if i % 3 == 1 else next(y for y in l3[::-1] if y > x))
-            for i, x in enumerate(sorted_l1 + [l2[0]] + sorted_l3)]
+            for i, x in enumerate(sorted(l1 + [l2[0]] + sorted_l3)]
