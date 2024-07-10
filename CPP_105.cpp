@@ -2,16 +2,10 @@
 #include <string>
 #include <map>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
+#include <cassert>
 
-using namespace std;
-
-bool compare_vectors(const vector<string>& v1, const vector<string>& v2) {
-    return v1 == v2;
-}
-
-std::vector<std::string> by_length(std::vector<int> arr){
+std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<std::string> result;
     std::vector<int> sorted_arr;
 
@@ -22,7 +16,6 @@ std::vector<std::string> by_length(std::vector<int> arr){
     }
 
     std::sort(sorted_arr.begin(), sorted_arr.end());
-
     std::reverse(sorted_arr.begin(), sorted_arr.end());
 
     std::map<int, std::string> num_to_name = {
@@ -45,6 +38,7 @@ std::vector<std::string> by_length(std::vector<int> arr){
 }
 
 int main() {
-    assert(compare_vectors(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
+    assert(by_length({9, 4, 8}) == std::vector<std::string>{"Nine", "Eight", "Four"});
+
     return 0;
 }
