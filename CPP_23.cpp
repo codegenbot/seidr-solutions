@@ -1,3 +1,3 @@
 #include <string>
 #include <cstring>
-return str.length();
+return std::strlen(str.c_str());
