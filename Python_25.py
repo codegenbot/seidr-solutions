@@ -1,4 +1,5 @@
-def factorize(n: int) -> List[int]:
+```
+def factorize(n: int) -> list[int]:
     i = 2
     factors = []
     while i * i <= n:
