@@ -3,14 +3,12 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size())
-        return false;
+int issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return 0;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
+        if (a[i] != b[i]) return 0;
     }
-    return true;
+    return 1;
 }
 
 vector<int> sort_vector(vector<int> arr) {
@@ -25,9 +23,10 @@ vector<int> sort_vector(vector<int> arr) {
                  return ones_a < ones_b;
          });
     return result;
+
 }
 
 int main() {
-    assert (issame(sort_vector({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
+    assert(issame(sort_vector({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
     return 0;
 }
