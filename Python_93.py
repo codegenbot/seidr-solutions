@@ -1,3 +1,4 @@
+```
 def encode(s):
     return s.upper()
 
@@ -9,9 +10,8 @@ def check(encoded_s):
 
 while True:
     try:
-        user_input = input("Enter a string: ")
-        encoded_string = encode(user_input)
-        check(encoded_string)
+        encoded = input("Enter a string: ")
+        check(encode(encoded))
         break
-    except ValueError as e:
-        print(f"Invalid input. Please enter a string. {e}")
+    except ValueError:
+        print("Invalid input. Please enter a string.")
