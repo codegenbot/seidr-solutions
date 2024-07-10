@@ -1,36 +1,32 @@
+#include <iostream>
 #include <vector>
-#include <stack>
+using namespace std;
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if(v1.size() != v2.size()) return false;
-    for(int i = 0; i < v1.size(); ++i) {
-        if(v1[i] != v2[i]) return false;
+bool issame(vector<vector<int>>& v) {
+    for (int i = 0; i < v.size(); i++) {
+        for (int j = 0; j < v[i].size(); j++) {
+            if (v[i][j] != -1)
+                return false;
+        }
     }
     return true;
 }
 
-std::vector<int> parse_nested_parens(const std::string& s) {
-    std::stack<char> parentheses;
-    std::vector<int> result;
-
-    for(int i = 0; i < s.size(); ++i) {
-        if(s[i] == '(') {
-            while(parentheses.size() && parentheses.top() == ')') {
-                parentheses.pop();
-            }
-            if(!parentheses.empty()) {
-                result.push_back(std::stoi(s.substr(i+1)));
-                break;
-            }
-        } else if(s[i] == ')') {
-            parentheses.push(s[i]);
+vector<vector<int>> parse_nested_parens(string s) {
+    vector<vector<int>> res;
+    int count = 0;
+    for (char c : s) {
+        if (c == '(') {
+            res.push_back({});
+            count++;
+        } else if (c == ')') {
+            count--;
         }
     }
-
-    return result;
+    return res;
 }
 
 int main() {
-    assert(issame(parse_nested_parens("(()(())((()))"), vector<int>({4, 3, 2, 1, 0, -1, -2, -3, -4})));
+    assert(issame(parse_nested_parens("(()(())((()))"), {4, 3, 2, 1, 0, -1, -2, -3, -4}));
     return 0;
 }
