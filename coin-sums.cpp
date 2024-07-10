@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -6,7 +7,7 @@ int main() {
     int cents;
     cin >> cents;
 
-    vector<int> coins = {25, 10, 5, 1}; // values of quarters, dimes, nickels, pennies in cents
+    vector<int> coins = {25, 10, 5, 1};
 
     int quarter = cents / 25;
     cents %= 25;
