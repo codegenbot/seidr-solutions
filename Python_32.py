@@ -1,3 +1,3 @@
+user_input = input("Enter space-separated integers: ")
 values = []
-user_input = input()
 values += list(map(int, user_input.split()))
