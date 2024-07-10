@@ -1,3 +1,5 @@
+#include <iostream>
+
 float get_positive(float num1, float num2) {
     if(num1 == num2)
         return (num1 > 0.0f) ? num1 : -num1;
@@ -6,7 +8,7 @@ float get_positive(float num1, float num2) {
 }
 
 bool issame(float a, float b, float c, float d) {
-    return (std::abs(a - b) < 0.001 && std::abs(b - c) < 0.001 && std::abs(c - d) < 0.001);
+    return (a == b && b == c && c == d);
 }
 
 int main() {
@@ -35,10 +37,11 @@ int main() {
     bool are_same = issame(num1, num2, num3, num4);
     
     if (are_same) {
-        float result = get_positive(num1, num2);
+        float result = get_positive(std::max(num1, num2), std::min(num1, num2));
         std::cout << "The positive of the numbers is: " << result << std::endl;
     } else {
         std::cout << "The numbers are not same." << std::endl;
     }
     
     return 0;
+}
