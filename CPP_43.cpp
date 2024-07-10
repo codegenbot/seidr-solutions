@@ -16,11 +16,12 @@ bool pairs_sum_to_zero(const std::vector<int>& l) {
 int main() {
     std::vector<int> input;
     int num;
-    while (std::cin >> num) {
+    while(std::cin >> num) {
         input.push_back(num);
     }
-
-    std::cout << std::boolalpha << pairs_sum_to_zero(input) << std::endl;
     
+    bool result = pairs_sum_to_zero(input);
+    std::cout << std::boolalpha << result << std::endl;
+
     return 0;
 }
