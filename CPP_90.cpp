@@ -1,11 +1,20 @@
+```cpp
+#include <vector>
+#include <algorithm>
+
 int next_smallest(vector<int> lst) {
-    if(lst.size() < 2) return -1; // Return None in Python terms
-    vector<int> sorted_lst = lst;
-    sort(sorted_lst.begin(), sorted_lst.end());
-    for(int i = 0; i < sorted_lst.size() - 1; i++) {
-        if(sorted_lst[i] != sorted_lst[i+1]) {
-            return sorted_lst[i+1];
+    if (lst.size() < 2) return -1; 
+    sort(lst.begin(), lst.end());
+    for (int i = 1; i < lst.size(); ++i) {
+        if (lst[i] != lst[0]) {
+            return lst[i];
         }
     }
-    return -1; // Return None in Python terms
+    return -1; 
+}
+
+int main() {
+    vector<int> lst = {-35, 34, 12, -45};
+    int result = next_smallest(lst);
+    return 0;
 }
