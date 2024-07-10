@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void badFunction(string n) {
+void bf(string n) {
     if (n.empty())
         cout << "Error: Input string is empty." << endl;
     else
@@ -14,13 +14,10 @@ int main() {
     int num;
     cin >> num;
     if (num > 0) {
-        // No need for assert here
+        // Use the bf function with a single argument as intended.
+        bf(to_string(num));
     } else {
         cout << "Error: Input number should be positive." << endl;
     }
-    
-    // Call the function as needed
-    badFunction("Jupiter");
-    
     return 0;
 }

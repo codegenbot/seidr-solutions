@@ -38,7 +38,7 @@ bool issame(vector<string> a, vector<string> b, vector<string> c) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (!issame(a[i], b[i], c[i])) {
+        if (!issame(vector<string>({a[i]}), vector<string>({b[i]}), vector<string>(({c[i]})))) {
             return false;
         }
     }

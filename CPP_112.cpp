@@ -2,11 +2,10 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
-bool issame(const string& a, const string& b) {
+bool issame(string& a, const string& b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++) {
