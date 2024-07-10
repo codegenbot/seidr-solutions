@@ -1,4 +1,3 @@
-```python
 n = int(input("Enter a number: "))
 try:
     product = 1
