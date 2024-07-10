@@ -1,17 +1,19 @@
-int do_algebra(vector<string> operator_, vector<int> operand) {
-    string expression = "";
-    for (int i = 0; i < operator_.size(); i++) {
-        expression += to_string(operand[i]);
-        expression += operator_[i];
-    }
-    expression += to_string(operand.back());
-    
-    int result = eval(expression.c_str());
-    
-    return result;
-}
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+#include<string>
+using namespace std;
+#include<algorithm>
+#include<stdlib.h>
 
-long long eval(const char* pexpr) {
-    long long v = strtoll(pexpr, NULL, 10);
-    return v;
+int do_algebra(vector<string> operato, vector<int> operand){
+    int result = operand[0];
+    for(int i=1; i<operand.size(); i++){
+        if(operato[i-1] == "+")result += operand[i];
+        else if(operato[i-1] == "-")result -= operand[i];
+        else if(operato[i-1] == "*")result *= operand[i];
+        else if(operato[i-1] == "//")result = result / operand[i];
+        else if(operato[i-1] == "**")result = pow(result, operand[i]);
+    }
+    return result;
 }
