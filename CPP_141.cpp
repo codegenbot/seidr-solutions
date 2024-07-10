@@ -1,22 +1,37 @@
-int count_digits(const string& s) {
-    int count = 0;
-    for (char c : s) {
-        if (isdigit(c)) {
-            count++;
+Here is the completed code:
+
+```cpp
+bool has_digit = false;
+int dot_count = 0;
+
+for (char c : file_name) {
+    if (isdigit(c)) {
+        if (!has_digit) {
+            has_digit = true;
+        } else {
+            return "No";
+        }
+    } else if (c == '.') {
+        dot_count++;
+        if (dot_count > 1) {
+            return "No";
         }
     }
-    return count;
 }
 
-string file_name_check(string file_name) {
-    int digit_count = count_digits(file_name);
-    if (digit_count > 3 || file_name.find('.') == string::npos || 
-        (file_name.find('.') != string::npos && !isalpha(file_name.substr(0, file_name.find('.'))) ||
-         (file_name.find('.') != string::npos && 
-          (file_name.substr(file_name.find('.') + 1) != "txt" &&
-           file_name.substr(file_name.find('.') + 1) != "exe" &&
-           file_name.substr(file_name.find('.') + 1) != "dll"))) {
+if (file_name.find('.') != string::npos) {
+    string suffix = file_name.substr(file_name.find('.') + 1);
+    if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
         return "No";
     }
-    return "Yes";
+} else {
+    if (!isalpha(file_name[0])) {
+        return "No";
+    }
 }
+
+if (has_digit || dot_count > 1) {
+    return "No";
+}
+
+return "Yes";
