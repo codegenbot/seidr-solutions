@@ -21,7 +21,7 @@ int luhn(vector<int> cardNumber) {
 }
 
 int main() {
-    vector<int> cardNumber = {4,3,2,1,8,7,6,5,4,3,2,1,8,7,6,5};
+    vector<int> cardNumber = {4,5,3,9,2,6,5,3,8,7,9,1,1,7,3,3};  
     int result = luhn(cardNumber);
     cout << "The Luhn verification sum is: " << result << endl;
     return 0;
