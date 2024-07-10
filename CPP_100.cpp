@@ -1,12 +1,12 @@
-#include <iostream>
+```cpp
 #include <vector>
 #include <algorithm>
 #include <random>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size()!=b.size()) return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i])return false;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 
@@ -20,7 +20,7 @@ int make_a_pile(int n) {
         pile.push_back(i);
     }
     std::shuffle(pile.begin(), pile.end(), mt);
-    return pile[0]; 
+    return pile[0];
 }
 
 int main() {
@@ -28,8 +28,8 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> n;
 
-    std::vector<int> pile = make_a_pile(n);
-    if(issame({1}, {pile})){
+    int pile = make_a_pile(n);
+    if (issame({1}, {pile})) {
         std::cout << "The piles are the same." << std::endl;
     } else {
         std::cout << "The piles are not the same." << std::endl;
