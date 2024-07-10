@@ -9,7 +9,8 @@ def minPath(grid, k):
     while q:
         x, y, path = q.pop(0)
 
-        if len(path) > k: 
+        if len(path) == k:
+            res = path
             break
 
         for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
