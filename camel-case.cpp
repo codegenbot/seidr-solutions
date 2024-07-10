@@ -9,16 +9,19 @@ std::string camelCase(std::string s) {
     std::string result = "";
     bool firstWord = true;
 
-    while (std::getline(ss, token, '-')) {
-        if (!firstWord)
+    while (getline(ss, token, '-')) {
+        if (!firstWord) {
             result += char(toupper(token[0]));
-        else
-            result += token;
-        result += token.substr(1) + " ";
+            token.erase(0, 1);
+        }
+        result += token;
+        if (!ss.eof()) {
+            result += " ";
+        }
         firstWord = false;
     }
 
-    return result.substr(0, result.length() - 1);
+    return result;
 }
 
 int main() {
