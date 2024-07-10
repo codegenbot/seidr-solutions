@@ -15,17 +15,8 @@ int mastermind(string code, string guess) {
                 count++;
             }
         }
-        if (count > 1 && c != code[0] && c != code[1] && c != code[2] && c != code[3]) {
-            white += count - 1;
-        } else if (count == 1) {
-            for (int i = 0; i < 4; ++i) {
-                if (c == code[i]) {
-                    black++;
-                    break;
-                }
-            }
-        }
+        white += min(count, 1);
     }
 
-    return black + white;
+    return black + white - black;
 }
