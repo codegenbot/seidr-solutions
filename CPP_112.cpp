@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -30,7 +31,7 @@ string reverse_delete(const string& s1, const string& s2) {
     return reversed;
 }
 
-int mainFunc() {
+int main() {
     int num1, num2;
     cout << "Enter first number: ";
     cin >> num1;
@@ -42,6 +43,6 @@ int mainFunc() {
     else
         cout << "Second number is greater." << endl;
 
-    cout << (issame(to_string(num1) + to_string(num2), reverse_delete("mama", "ma")) ? "True" : "False") << endl;
+    assert(issame(to_string(num1) + to_string(num2), reverse_delete("mama", "ma")));
     return 0;
 }
