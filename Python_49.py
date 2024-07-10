@@ -1,17 +1,17 @@
 ```
 def modp(n: int, p: int):
-    n = abs(n)
-    p = abs(p)
-    if n < 1:
+    if n < 1 or p < 2:
         return 0
-    res, i = 1, 0
-    while p > 1:
-        q = p // n
-        r = p % n
-        t = res - q * i
-        if (r < n): 
-            res = i
-        else: 
-            res = t; p = n; n = r
-        i = t
-    return res if n >= 0 else p - (p - 1) if n % p != 0 else n
+
+    t = 0; newt = 1
+    r = p; newr = n
+    while r > 1:
+        quotient = r // newr
+        remainder = r % newr
+        term = newt - quotient * t
+        if remainder < newr:
+            newt, newr = t, newr
+        else:
+            newt, newr = term, remainder
+        t, newr = term, newr
+    return newt % p
