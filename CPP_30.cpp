@@ -7,11 +7,15 @@ float get_positive(float num1, float num2) {
         return 0.0f;
 }
 
-bool is_same(float a, float b, float c, float d) {
-    return (a == b && b == c && c == d);
+bool issame_two(float num1, float num2) {
+    return num1 == num2;
 }
 
-int main_function() {
+bool issame_four(float num1, float num2, float num3, float num4) {
+    return (issame_two(num1, num2) && issame_two(num1, num3) && issame_two(num1, num4));
+}
+
+int main() {
     float num1, num2, num3, num4;
     std::cout << "Enter the first number: ";
     if (!(std::cin >> num1)) {
@@ -34,10 +38,10 @@ int main_function() {
         return 1;
     }
 
-    bool are_same = is_same(num1, num2, num3, num4);
+    bool are_same = issame_four(num1, num2, num3, num4);
     
     if (are_same) {
-        float result = get_positive(std::max(num1, num2), std::min(num1, num2));
+        float result = get_positive(std::max({num1, num2}), std::min({num1, num2}));
         std::cout << "The positive of the numbers is: " << result << std::endl;
     } else {
         std::cout << "The numbers are not same." << std::endl;
