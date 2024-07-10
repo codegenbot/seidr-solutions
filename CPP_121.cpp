@@ -1,11 +1,13 @@
 #include <vector>
 #include <cassert>
-using namespace std;
+
+using namespace Contest;
 
 namespace Contest {
-    int solutions(const vector<int>& lst) {
+    int solutions(const std::vector<int>& lst) {
         int sum = 0;
-        for (size_t i = 0; i < lst.size(); i += 1) {
+        size_t i;
+        for (i = 0; i < lst.size(); i += 1) {
             if (i % 2 == 0 && lst[i] % 2 != 0) {
                 sum += lst[i];
             }
@@ -15,6 +17,6 @@ namespace Contest {
 }
 
 int main() {
-    assert(Contest::solutions({3, 13, 2, 9}) == 22);
+    assert(solutions({3, 13, 2, 9}) == 22);
     return 0;
 }
