@@ -1,8 +1,9 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
-auto sort_third = [](const std::vector<int>& vec) {
+auto sort_third = [](std::vector<int>& vec) {
     std::sort(vec.begin(), vec.end());
 };
 
@@ -16,7 +17,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame({5, 6, 3, 4, 8, 9, 2, 1}, {1, 2, 3, 4, 5, 6, 8, 9}));
+    assert(issame({5, 6, 3, 4, 8, 9, 2, 1}, {1, 2, 3, 4, 5, 6, 8, 9});
 
     return 0;
 }
