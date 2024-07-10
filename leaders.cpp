@@ -2,7 +2,7 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
+    vector<int> res;
     int n = arr.size();
     for (int i = n - 1; i >= 0; i--) {
         bool isLeader = true;
@@ -12,10 +12,7 @@ vector<int> leaders(vector<int>& arr) {
                 break;
             }
         }
-        if (isLeader) {
-            result.push_back(arr[i]);
-        }
+        if (isLeader) res.push_back(arr[i]);
     }
-    reverse(result.begin(), result.end());
-    return result;
+    return res;
 }
