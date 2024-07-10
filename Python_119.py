@@ -8,4 +8,4 @@ def match_parens(lst):
                 if open_count <= 0:
                     return "No"
                 open_count -= 1
-    return "Yes" if open_count == 0 else "No"
+    return "No" if open_count != 0 else "Yes"
