@@ -1,24 +1,21 @@
-```cpp
 #include <cmath>
 #include <iostream>
 #include <string>
 
 bool is_simple_power(int x, int n) {
     if (n == 0) return false; 
-    double y = pow(n, log(x) / log(n));
-    return std::abs(y - x) < 1e-9; 
+    std::string strY = std::to_string(round(pow(n, log(x) / log(n)))); // Round the result to ensure a valid comparison
+    return (strY == std::to_string(x));
 }
 
 int main() {
     std::cout << "Enter a number: ";
-    std::string tempXStr;
-    std::cin >> tempXStr;
-    int tempX = std::stoi(tempXStr);
+    int tempX;
+    std::cin >> tempX;
 
     std::cout << "Enter another number: ";
-    std::string nTempStr;
-    std::cin >> nTempStr;
-    int nTemp = std::stoi(nTempStr);
+    int nTemp;
+    std::cin >> nTemp;
 
     if (nTemp != 0) {
         if(is_simple_power(tempX, nTemp))  
