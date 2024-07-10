@@ -8,21 +8,21 @@ def separate_paren_groups(expression):
         if char == '(':
             if not in_group:
                 result.append("(")
-                temp_group = "("
                 in_group = True
             else:
                 temp_group += char
         elif char == ')':
             if in_group:
                 temp_group += char
-                if temp_group == ")(":
-                    result[-1] = temp_group[1:-1]
+                if temp_group.count('(') == 1 and temp_group.count(')') > 0:
+                    result[-1] = temp_group
                     in_group = False
                     temp_group = ""
                 else:
                     temp_group = ""
             else:
-                result.append(char)
+                result.append(")")
+                in_group = False
         else:
             if in_group:
                 temp_group += char
