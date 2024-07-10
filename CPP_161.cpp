@@ -22,6 +22,7 @@ int main() {
             break;
         s += c;
     }
-    std::cout << "Result: " << solve(s) << std::endl;
+    std::string result = solve(s);
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
