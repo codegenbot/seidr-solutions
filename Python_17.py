@@ -1,7 +1,8 @@
-from typing import List
-
-
+```
 def parse_music(music_string: str) -> List[int]:
+    if set(music_string) - {'o', '|', '.', '.|'}:
+        return ["Invalid input. Please enter a string containing 'o', '|', '.' and '.|'"]
+    
     note_lengths = {"o": 4, "|": 2, ".|": 1}
     result = []
     i = 0

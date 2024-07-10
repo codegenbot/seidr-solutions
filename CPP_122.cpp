@@ -1,10 +1,12 @@
 #include <vector>
-namespace std;
-int add_elements(std::vector<int> arr, int k) {
+#include <algorithm>
+#include <string>
+
+int add_elements(const std::vector<std::string>& str_arr) {
     int sum = 0;
-    for (int i = 0; i < k; i++) {
-        if (to_string(arr[i]).size() <= 2) {
-            sum += arr[i];
+    for (const auto& str : str_arr) {
+        if (str.size() <= 2) { 
+            sum += std::stoi(str);
         }
     }
     return sum;
