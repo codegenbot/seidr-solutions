@@ -1,3 +1,4 @@
+```
 def is_simple_power(x, n):
     if x < 0:
         return False
