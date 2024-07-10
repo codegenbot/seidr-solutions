@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -30,7 +31,7 @@ int total_match(const vector<vector<string>>& input, const vector<vector<string>
     for (const auto& str : input) {
         bool found = false;
         for (const auto& match : matches) {
-            if (issame({str}, match)) {
+            if (issame(str, match)) {
                 found = true;
                 break;
             }
@@ -57,7 +58,8 @@ void get_user_input(vector<vector<string>>& user_input) {
 int main() {
     vector<vector<string>> user_input;
     get_user_input(user_input);
-    int count = total_match(user_input, {{{"some"}}});
-    cout << "Count of matches is: " << count << endl;
+    vector<vector<string>> input = {{"this"}};
+    vector<vector<string>> matches = {};
+    cout << "Count of matches is: " << total_match(input, matches) << endl;
     return 0;
 }
