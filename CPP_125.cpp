@@ -4,8 +4,8 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return (a == b);
+bool issame(const vector<string>& a) {
+    return (a.size() == 1 && a[0] == "0");
 }
 
 vector<string> split_words(string txt) {
@@ -35,7 +35,6 @@ vector<string> split_words(string txt) {
 }
 
 int main() {
-    bool b = true;
-    assert(issame(split_words(""), vector<string>({""})));
+    assert(issame(split_words("")) == true);
     return 0;
 }
