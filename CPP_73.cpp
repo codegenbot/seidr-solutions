@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
     std::vector<std::vector<int>> dp(n, std::vector<int>(n));
@@ -17,7 +13,7 @@ int smallest_change(std::vector<int> arr) {
             if (arr[i] == arr[j]) {
                 dp[i][j] = dp[i + 1][j - 1];
             } else {
-                dp[i][j] = 1 + std::min({dp[i + 1][j], dp[i][j - 1]});
+                dp[i][j] = 1 + std::min({dp[i + 1][j], dp[i][j - 1]}, std::vector<int>(2));
             }
         }
     }
