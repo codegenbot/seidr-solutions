@@ -1,5 +1,11 @@
-string txt;
-cout << "Enter a string: ";
-getline(cin, txt);
+Here is the completed code:
 
-return (!txt.empty() && !isalnum(txt.back()));
+```cpp
+bool check_if_last_char_is_a_letter(string txt) {
+    if (txt.empty()) return false;
+    char last_char = txt.back();
+    for (int i = 0; i < txt.size() - 1; ++i) {
+        if (txt[i] == ' ' && txt[i + 1] == last_char) return false;
+    }
+    return isalpha(last_char);
+}
