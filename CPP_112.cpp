@@ -20,6 +20,11 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         end--;
     }
     result.push_back(temp);
-    result.push_back((is_palindrome ? "True" : "False"));
+    result.push_back(std::to_string(is_palindrome));
     return result;
+}
+
+int main() {
+    assert(reverse_delete("mamma", "mia") == std::vector<std::string> { "", "True" });
+    // Other test cases
 }
