@@ -1,30 +1,23 @@
 #include <boost/any.hpp>
 #include <string>
+#include <algorithm>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
-    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return b;
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        return max((float)a.convert_to<float>(), stof(b.convert_to<string>().erase(0, 1).erase(b.convert_to<string>().size() - 1)));
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = any_cast<string>(a);
-        string strB = any_cast<string>(b);
-        double numA = stod(strA);
-        double numB = stod(strB);
-        if (numA > numB)
-            return a;
-        else if (numA < numB)
-            return b;
-        else
-            return boost::any("None");
-    } else {
-        if (any_cast<int>(a) > any_cast<int>(b))
-            return a;
-        else if (any_cast<int>(a) < any_cast<int>(b))
-            return b;
-        else
-            return boost::any("None");
+        return (stof(a.convert_to<string>().erase(0, 1).erase(a.convert_to<string>().size() - 1)) > stof(b.convert_to<string>().erase(0, 1).erase(b.convert_to<string>().size() - 1))) ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return max((int)a.convert_to<int>(), stof(b.convert_to<string>().erase(0, 1).erase(b.convert_to<string>().size() - 1)));
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        return max(stof(a.convert_to<string>().erase(0, 1).erase(a.convert_to<string>().size() - 1)), (int)b.convert_to<int>());
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return max((float)a.convert_to<float>(), (int)b.convert_to<int>());
+    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return boost::any("None");
     }
 }
