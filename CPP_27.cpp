@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -24,6 +25,7 @@ int driver() {
             std::cout << "Flipped case: " << flip_case(inputStr) << std::endl;
         }
     }
+    return 0;
 }
 
 int main(int argc, const char* argv[]) {
