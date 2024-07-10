@@ -2,24 +2,21 @@
 using namespace std;
 
 double diceGame(int n, int m) {
-    double probability = 0;
-    
-    if(n > m) {
-        for(int i=m+1; i<=n; i++) {
-            probability += (double)(i)/m;
-        }
-    } else if(m > n) {
-        for(int i=n+1; i<=m; i++) {
-            probability += (double)(i-1)/n;
+    double total = (double)n * m;
+    double p = 0;
+
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= m && j < i; ++j) {
+            p += 1.0 / total;
         }
     }
-    
-    return probability;
+
+    return p;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(5) << diceGame(n, m) << endl;
+    cout << fixed << setprecision(2) << diceGame(n, m) << endl;
     return 0;
 }
