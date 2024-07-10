@@ -4,8 +4,10 @@ bool issame(int a, int b){
     return a == b;
 }
 
-std::vector<int> pluck(std::vector<int> arr){
-    std::vector<int> result;
+vector<int> pluck(vector<int> arr);
+
+vector<int> pluck(vector<int> arr){
+    vector<int> result;
     int smallest_even = -1;
     int smallest_index = -1;
     
