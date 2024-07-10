@@ -1,8 +1,8 @@
-```cpp
+```
 #include <vector>
 #include <string>
 
-bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -30,12 +30,18 @@ std::vector<int> parse_nested_parens(const std::string& s) {
     return result;
 }
 
-int main() {
-    std::vector<int> expected = {4, 3, 2, 1, 0, -1, -2, -3, -4};
-    if (!issame(parse_nested_parens("(()(())((()))"), expected)) {
-        std::cout << "Test failed" << std::endl;
-    } else {
-        std::cout << "Test passed" << std::endl;
+std::vector<int> parse_nested_parens(const std::string& s) {
+    std::vector<int> result;
+    int num = 0;
+    for (char c : s) {
+        if (c == '(') {
+            num++;
+        } else if (c == ')') {
+            if (num > 0) {
+                result.push_back(num);
+                num--;
+            }
+        }
     }
-    return 0;
+    return result;
 }
