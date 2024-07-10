@@ -1,1 +1,1 @@
-check(lst=lst, double_the_difference=double_the_difference)
+check(lst=lst, double_the_difference=lambda: sum(i**2 for i in lst if isinstance(i, int) and i >= 0)*2)
