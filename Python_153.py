@@ -7,5 +7,5 @@ def Strongest_Extension(class_name, extensions):
             return -num_lowercase
         return num_uppercase - num_lowercase
 
-    strongest_extension = max(extensions, key=lambda x: (strength(x), extensions.index(x)))
+    strongest_extension = max(extensions, key=lambda x: (strength(x), -extensions.index(x)))
     return f"{class_name}.{strongest_extension}"
