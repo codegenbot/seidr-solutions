@@ -12,12 +12,6 @@ bool issame(vector<int> a, vector<vector<int>> b) {
     return true;
 }
 
-string to_string(int x) {
-    ostringstream oss;
-    oss << x;
-    return oss.str();
-}
-
 vector<int> minPath(vector<vector<int>> input, int target) {
     vector<int> path;
     int i = 0;
@@ -59,7 +53,7 @@ void minPathTest() {
                 int j = 0;
                 while(j < input.size() && i >= input[j][0]) {
                     i -= input[j][0];
-                    outputStr += to_string(i) + " ";
+                    outputStr += std::to_string(i) + " ";
                     j++;
                 }
                 break;
