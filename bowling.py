@@ -1,26 +1,25 @@
-Here is the Python solution for the bowling problem:
-
-```
-def bowling(s):
-    score = 0
-    frame = 1
-    for i in range(0, len(s), 2):
-        if s[i].isdigit() and s[i+1].isdigit():
-            pins = int(s[i]) * 10 + int(s[i+1])
-            if frame < 10:
-                score += min(pins, 10)
+def bowling_score(frames):
+    scores = [0]
+    current_frame_score = 0
+    for frame in frames.split("/"):
+        if len(frame) == 1:
+            if int(frame) == 10:
+                current_frame_score += 10 + max(
+                    int(frames[frames.index(frame) - 1]) for r in range(i - 1, i + 2)
+                )
             else:
-                score += pins
-            if frame == 9 and (s[i] == 'X' or s[i] == '/'):
-                if i+2 < len(s) and s[i+1].isdigit() and s[i+2].isdigit():
-                    score += min(int(s[i+1]) * 10 + int(s[i+2]), 10)
-            frame += (pins >= 10)
-        elif s[i] == 'X':
-            score += 10
-            if frame < 9:
-                score += min(10, int(s[i+1]) * 10 + int(s[i+2]))
-            frame += 1
-        else:
-            score += 10 + int(s[i+1]) * 10
-            frame += 1
-    return score
+                current_frame_score += int(frame)
+            scores[-1] = current_frame_score
+        elif len(frame) > 1:
+            if sum(map(int, frame)) == 10:
+                strikes = 0
+                for f in frames.split("/"):
+                    if len(f) == 1 and int(f) == 10:
+                        strikes += 1
+                    else:
+                        break
+                current_frame_score += 10 + (strikes * 10)
+            else:
+                current_frame_score += sum(map(int, frame))
+        scores.append(current_frame_score)
+    return max(scores)
