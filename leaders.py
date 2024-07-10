@@ -1,5 +1,5 @@
-def `leaders`(arr):
-    return [max(arr[i:]) for i in range(len(arr))]
+def leaders(arr):
+    return [max(arr[i:]) for i in range(len(arr)-1)] + [max(arr)]
 
 print(leaders([0]))
 print(leaders([1, 0]))
