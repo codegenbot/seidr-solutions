@@ -1,22 +1,21 @@
-Here is the completed code:
+bool has_digit = false;
+int dot_count = 0;
 
-string file_name_check(string file_name){
-    bool valid = true;
-    int digit_count = 0;
-    for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-            if(digit_count > 3) return "No";
-        }
-        else if(file_name[i] == '.'){
-            string ext = file_name.substr(i+1);
-            if(ext != "txt" && ext != "exe" && ext != "dll") return "No";
-            break;
-        }
+for(char c : file_name){
+    if(isdigit(c)){
+        if(has_digit) return "No";
+        has_digit = true;
+    } else if(c == '.'){
+        dot_count++;
+        if(dot_count > 1) return "No";
     }
-    if(digit_count > 3 || file_name.find('.') == string::npos) return "No";
-    for(int i=0; i<file_name.length(); i++){
-        if(isalpha(file_name[i]) && i == 0) continue;
-        else if(!isalnum(file_name[i])) return "No";
-    }
-    return valid ? "Yes" : "No";
+}
+
+if(!has_digit || dot_count != 1) return "No";
+
+string extension = file_name.substr(file_name.find('.') + 1);
+vector<string> valid_extensions = {"txt", "exe", "dll"};
+if(find(valid_extensions.begin(), valid_extensions.end(), extension) == valid_extensions.end())
+    return "No";
+
+return "Yes";
