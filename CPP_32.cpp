@@ -25,12 +25,15 @@ double poly(vector<double> coeffs, double x) {
 }
 
 int main() {
-    vector<double> coeffs({1.0, -7.0, 12.0, -6.0});
-    double solution = find_zero(coeffs);
-    if (abs(poly(coeffs, solution)) > 1e-3) {
-        cout << "The zero of the polynomial is not accurate." << endl;
-    } else {
-        cout << "The zero of the polynomial is: " << solution << endl;
+    vector<double> coeffs;
+    cout << "Enter the coefficients of the polynomial: ";
+    int n;
+    cin >> n;
+    coeffs.resize(n);
+    for (int i = 0; i < n; i++) {
+        cin >> coeffs[i];
     }
+    double x = find_zero(coeffs);
+    cout << "The zero of the polynomial is: " << x << endl;
     return 0;
 }
