@@ -1,6 +1,12 @@
+```c++
+#include <string>
 using namespace std;
 
-#include <string>
+int main() {
+    string input = "Hello World!";
+    cout << solve(input) << endl;
+    return 0;
+}
 
 std::string solve(std::string s) {
     std::string result = "";
