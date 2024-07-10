@@ -1,5 +1,6 @@
-```
+```Python
 from typing import List
+
 def find_closest_elements():
     while True:
         try:
