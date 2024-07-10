@@ -1,9 +1,14 @@
-```cpp
 #include <iostream>
-
 double diceGame(int n, int m) {
     double sum = 0;
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= std::min(n,m); i++) {
+        if(i > m - i){
+            sum += 2 * ((n - i + 1) / (double)n) * ((m - i + 1) / (double)m);
+        } else{
+            sum += ((n - i + 1) / (double)n) * ((m - i + 1) / (double)m);
+        }
+    }
+    for (int i = m+1; i <= n; i++) {
         if(i > m){
             sum += (n - i + 1) / (double)n * (m - i + 1) / (double)m;
         }
@@ -13,11 +18,8 @@ double diceGame(int n, int m) {
 
 int main() {
     int n, m;
-    std::cout << "Enter the number of sides for Peter's die: ";
-    std::cin >> n;
-    std::cout << "Enter the number of sides for Colin's die: ";
-    std::cin >> m;
+    std::cin >> n >> m;
     double result = diceGame(n, m);
-    std::cout << "The probability that Peter rolls strictly higher than Colin is: " << result << std::endl;
+    std::cout << "Probability: " << result << std::endl;
     return 0;
 }
