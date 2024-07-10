@@ -1,9 +1,4 @@
-Here is the modified code:
-
-```cpp
-#include <string>
-
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -14,14 +9,9 @@ int mastermind(std::string code, std::string guess) {
     }
 
     for(int i=0; i<6; i++) {
-        int count = 0;
-        for(int j=0; j<4; j++) {
-            if(guess[j] == (char)(i+65) && code.find((char)(i+65)) != std::string::npos) {
-                count++;
-            }
-        }
-        white += std::min(count, black);
+        int count = std::count(code.begin(), code.end(), (char)(i+65));
+        white += min(count, black);
     }
 
-    return black;
+    return black + (4 - black);
 }
