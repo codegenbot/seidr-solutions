@@ -2,39 +2,26 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-string spinWords(string str) {
-    string result = "";
-    int wordLength = 0;
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (wordLength >= 5) {
-                for (int j = wordLength - 1; j >= 0; j--) {
-                    result += str[i - wordLength + j];
-                }
-            } else {
-                result += str.substr(i - wordLength, wordLength);
-            }
-            wordLength = 0;
-        } else {
-            wordLength++;
+std::string spinWords(std::string str) {
+    std::string result = "";
+    std::string word;
+    
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i + 1] == ' ') {
+            word = str.substr(i - (word.empty() ? 0 : 1), i - (word.empty() ? 0 : 1) < 5 ? 5 : i - (word.empty() ? 0 : 1));
+            if (word.length() >= 5)
+                std::reverse(word.begin(), word.end());
+            result += word + " ";
         }
     }
-    if (wordLength >= 5) {
-        for (int i = wordLength - 1; i >= 0; i--) {
-            result += str[wordLength - i - 1];
-        }
-    } else {
-        result = str;
-    }
-    return result;
+    
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << spinWords(str) << std::endl;
+    }
     return 0;
 }
