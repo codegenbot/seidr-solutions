@@ -1,9 +1,12 @@
 #include <cassert>
 
 bool issame(vector<string> a,vector<string>b){
-    if(a.size() != b.size())return false;
+    if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])return false;
+        int sum1 = 0, sum2 = 0;
+        for(char c : a[i]) sum1 += c-'0';
+        for(char c : b[i]) sum2 += c-'0';
+        if(sum1 != sum2) return false;
     }
     return true;
 }
@@ -27,5 +30,20 @@ vector<string> sorted_list_sum(vector<string> lst) {
              }
          });
     
-    return lst;
+    vector<string> result;
+    for(string str : lst){
+        int sum = 0;
+        for(char c : str) sum += c-'0';
+        if(sum == 0) continue;
+        bool isSame = false;
+        for(int i = 0; i < lst.size(); i++){
+            if(issame({str}, {lst[i]})){
+                isSame = true;
+                break;
+            }
+        }
+        if(!isSame) result.push_back(str);
+    }
+    
+    return result;
 }
