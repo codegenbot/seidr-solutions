@@ -1,5 +1,11 @@
 def eat(number, need, remaining):
-    if need > remaining:
-        return [number, 0]
+    if remaining >= need:
+        return number + (need - remaining)
     else:
-        return [number + (need - number), max(0, remaining - (need - number))]
+        return number + remaining
+
+number = int(input("Enter the initial quantity: "))
+need = int(input("Enter the total needed: "))
+remaining = int(input("Enter the remaining quantity: "))
+
+print(eat(number, need, remaining))
