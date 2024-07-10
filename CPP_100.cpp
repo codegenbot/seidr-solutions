@@ -7,16 +7,6 @@ bool issame(vector<int> a, vector<int> b){
         if(a[i]!=b[i])return false;
     }
     return true;
-
-}
-
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    for (int i = 1; i <= n; i++) {
-        pile.push_back(i);
-    }
-    std::random_shuffle(pile.begin(), pile.end());
-    return pile;
 }
 
 void cpp100() {
@@ -25,10 +15,20 @@ void cpp100() {
     cin >> n;
     
     vector<int> pile = make_a_pile(n);
-    if(issame(pile, make_a_pile(n))){
+    vector<int> pile2 = make_a_pile(n);
+    if(issame(pile, pile2)){
         cout << "The piles are the same." << endl;
     } else {
         cout << "The piles are not the same." << endl;
     }
     
+}
+
+vector<int> make_a_pile(int n) {
+    vector<int> temp;
+    for(int i=0; i<n; i++){
+        temp.push_back(i+1);
+    }
+    random_shuffle(temp.begin(),temp.end());
+    return temp;
 }
