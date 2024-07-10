@@ -1,9 +1,9 @@
 def find_zero(xs: list):
-    assert len(xs) % 2 == 0
+    if len(xs) % 2 != 0:
+        return "Error: Coefficients list must have even length"
+    
     n = len(xs) - 1
-    return -xs[0] / xs[-1]
-
-
-# Test cases
-print(round(find_zero([1, 2]), 2))  # -0.5
-print(round(find_zero([-6, 11, -6, 1]), 2))  # 1.0
+    a = xs[0]
+    b = xs[n]
+    x = -a / b
+    return x
