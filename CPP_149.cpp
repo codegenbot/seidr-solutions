@@ -1,10 +1,9 @@
 #include <vector>
-#include <string>
 #include <algorithm>
+#include <string>
+#include <cassert>
 
 using namespace std;
-
-bool issame(vector<string> a, vector<string> b);
 
 bool issame(vector<string> a, vector<string> b) {
     a.erase(remove_if(a.begin(), a.end(), [](const string& s) { return s.length() % 2 != 0; }), a.end());
@@ -22,4 +21,9 @@ bool issame(vector<string> a, vector<string> b) {
         return x.length() < y.length();
     });
     return a == b;
+}
+
+int main() {
+    assert(issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"}));
+    return 0;
 }
