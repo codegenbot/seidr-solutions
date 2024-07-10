@@ -4,5 +4,5 @@ def make_palindrome(s: str):
             return s[:i][::-1] + s
     return s + s[::-1]
 
-result = make_palindrome(input("Enter a string: ").strip())
+result = make_palindrome(input("Enter a string: "))
 print(result)
