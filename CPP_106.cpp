@@ -27,3 +27,14 @@ vector<int> f(int n) {
 bool isSame(vector<int> a, vector<int> b) {
     return a == b;
 }
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> result = f(n);
+    for (int i = 0; i < n; ++i) {
+        cout << result[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}

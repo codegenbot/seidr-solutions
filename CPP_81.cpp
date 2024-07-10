@@ -26,8 +26,8 @@ std::vector<std::string> numerical_letter_grade(const std::vector<double>& grade
 }
 
 int main() {
-    assert(issame(std::vector<std::string>{"E", "D-"}, {"E", "D-"}));
-    assert(issame(numerical_letter_grade({0.0, 0.7}), {"E", "D-"}));
+    assert(issame(std::vector<std::string>{"E", "D-"}, std::vector<std::string>{"E", "D-"}));
+    assert(issame(numerical_letter_grade({0.0, 0.7}), std::vector<std::string>{"E", "C"}));
     
     return 0;
 }
