@@ -11,4 +11,6 @@ def coin_sums(cents):
 
     return result
 
-print(*coin_sums(int(input())))
+
+cents = int(input())
+print(*coin_sums(cents))
