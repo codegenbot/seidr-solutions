@@ -1,9 +1,10 @@
-string toLower = "";
-for (char c : text) {
-    if (c >= 'A' && c <= 'Z') {
-        toLower += (c + 32);
-    } else {
-        toLower += c;
+bool is_palindrome(string text){
+    int i = 0, j = text.length() - 1;
+    while (i < j) {
+        if (text[i] != text[j])
+            return false;
+        i++;
+        j--;
     }
+    return true;
 }
-return toLower == reverse(toLower).substr(0, toLower.length());
