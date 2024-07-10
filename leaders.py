@@ -1,7 +1,7 @@
 def leaders(arr):
-    leader = [
-        arr[i]
-        for i in range(len(arr) - 1, -1, -1)
-        if all(x <= arr[i] for x in arr[i + 1 :])
-    ]
-    return leader
+    n = len(arr)
+    leaders_arr = [arr[n - 1]]
+    for i in range(n - 2, -1, -1):
+        if arr[i] >= arr[i + 1]:
+            leaders_arr.insert(0, arr[i])
+    return leaders_arr
