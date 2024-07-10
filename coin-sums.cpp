@@ -11,14 +11,15 @@ int main() {
     vector<int> result(4, 0);
 
     for (int i = 0; i < 4; i++) {
-        result[i] = min(result[i], cents / coins[i]);
-        cents -= result[i] * coins[i];
+        int count = cents / coins[i];
+        result[i] = count;
+        cents -= count * coins[i];
     }
 
-    cout << result[3] << " pennies\n";
-    cout << result[2] << " nickels, " << (result[1] * 5) % 10 << " pennies\n";
-    cout << result[1] << " dimes, " << (result[0] * 25) % 20 << " pennies and " << ((result[0] * 25) % 100 - ((result[0] * 25) % 20)) / 10 << " dimes\n";
-    cout << result[0] << " quarters, with " << cents << " remaining.\n";
+    cout << result[0] << endl;
+    cout << result[1] << endl;
+    cout << result[2] << endl;
+    cout << result[3] << endl;
 
     return 0;
 }
