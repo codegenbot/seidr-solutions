@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```
 def intersperse(a, b):
     result = []
     for i in range(len(a) + (1 if isinstance(b, int) else 0)):
