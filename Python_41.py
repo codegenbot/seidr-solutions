@@ -1,3 +1,5 @@
+import math
+
 def car_race_collision(num_cars=None):
     if num_cars is None:
         try:
