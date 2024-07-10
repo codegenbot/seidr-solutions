@@ -20,7 +20,8 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> num;
 
-    std::cout << "Is the sum of even numbers equal to the entered number? " << is_equal_to_sum_even(num) << std::endl;
+    std::cout << "Is the sum of even numbers equal to the entered number? "
+              << is_equal_to_sum_even(num) << std::endl;
     
     return 0;
 }
