@@ -1,6 +1,6 @@
-```
 def choose_num(x, y):
-    for i in range(max(x, y), min(x, y), -1):
-        if i % 2 == 0:
-            return i
-    return -1
+    max_even = -1
+    for i in range(max(x, y), min(x, y) + 1):
+        if i % 2 == 0 and i > max_even:
+            max_even = i
+    return max_even
