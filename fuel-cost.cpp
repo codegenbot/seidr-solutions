@@ -1,25 +1,13 @@
 #include <vector>
-using namespace std;
 
-int fuelCost(vector<int> numbers) {
-    int sum = 0;
-    for (int num : numbers) {
-        int result = (num / 3);
-        result = (result > 0 ? result - 1 : 0); // round down to the nearest integer
-        sum += result; 
-    }
-    return sum;
-}
-
-int main() {
-    vector<int> testCases = {{1}, {6}, {1, 7}, {1, 8}, {1, 9}, {1, 10}};
-    for (vector<int> testCase : testCases) {
-        cout << "Input: ";
-        for (int num : testCase) {
-            cout << num << " ";
+int calculateFuelCost(std::vector<int> numbers) {
+    int total = 0;
+    for (int number : numbers) {
+        int result = static_cast<int>(std::floor((double)number / 3)) - 2;
+        if (result < 0) {
+            result = 0;
         }
-        cout << endl;
-        cout << "Output: " << fuelCost(testCase) << endl;
+        total += result;
     }
-    return 0;
+    return total;
 }
