@@ -4,10 +4,6 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a == b);
-}
-
 std::vector<std::string> by_length(std::vector<int> arr){
     std::vector<std::string> result;
     std::vector<int> filtered_arr;
@@ -19,6 +15,7 @@ std::vector<std::string> by_length(std::vector<int> arr){
     }
 
     std::sort(filtered_arr.begin(), filtered_arr.end());
+
     std::reverse(filtered_arr.begin(), filtered_arr.end());
 
     std::map<int, std::string> num_to_name = {
@@ -31,4 +28,8 @@ std::vector<std::string> by_length(std::vector<int> arr){
     }
 
     return result;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    // Your implementation of issame function here
 }
