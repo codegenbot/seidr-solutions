@@ -1,1 +1,1 @@
-music_data = input("Enter notes in the format 'note:duration' separated by spaces: ").split()
+music_data = input("Enter notes separated by space, with each note in the format 'note:duration': ").split() if all(':' in note for note in (music_data := input().split())) else print("Invalid input format.")
