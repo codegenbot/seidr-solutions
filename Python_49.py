@@ -1,4 +1,3 @@
-```
 def main():
     while True:
         num = input("Enter a number: ")
@@ -27,4 +26,4 @@ def is_prime(n):
 
 
 def modp(num, p):
-    return pow(int(num), p, int(p))
+    return pow(num, p, p)
