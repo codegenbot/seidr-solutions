@@ -1,6 +1,6 @@
-```cpp
-#include <iostream>
+```
 #include <string>
+#include <iostream>
 
 bool is_nested(std::string str) {
     int open = 0, close = 0;
@@ -16,7 +16,7 @@ bool is_nested(std::string str) {
 
 int main() {
     std::string user_input;
-    // Get the input from the user
+    std::cout << "Enter a string: ";
     std::cin >> user_input;
 
     if (is_nested(user_input)) {
