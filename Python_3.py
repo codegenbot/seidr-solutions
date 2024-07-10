@@ -1,3 +1,4 @@
+import sys
 operations = list(map(int, input().strip().split(',')))
 
 def below_zero(operations):
