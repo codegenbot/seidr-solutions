@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
 bool same(int a, int b) {
     if (a == b)
@@ -19,7 +20,7 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
     return result;
 }
 
-int main() {
+int originalMain() {
     std::vector<int> input = {1, 2, 3, -23, 243, -400, 0};
     int k = 4;
     if (!input.empty()) {
@@ -31,3 +32,6 @@ int main() {
         std::cout << "No elements left" << std::endl;
     }
 }
+int main() {
+    originalMain();
+    return 0;
