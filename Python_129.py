@@ -1,18 +1,25 @@
 ```
 def minPath(grid, k):
     n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
+    m = [[i*j for j in range(1, n+1)] for i in range(1, n+1)]
+    
+    visited = set()
+    stack = [(0, 0, [m[0][0]])]
     res = []
-    for _ in range(k):
-        t = {}
-        for i in range(n):
-            for j in range(n):
-                if (i, j) not in res:
-                    t[m[i][j]] = m[i][j]
-        min_val = min(t)
-        res.append(min_val)
-        for i in range(n):
-            for j in range(n):
-                if m[i][j] == min_val:
-                    m[i][j] = n * n
+    
+    while stack:
+        x, y, path = stack.pop()
+        
+        if len(path) == k:
+            if not res or tuple(sorted(path)) < tuple(sorted(res)):
+                res = path
+            continue
+        
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nx, ny = x + dx, y + dy
+            
+            if 0 <= nx < n and 0 <= ny < n and m[nx][ny] not in visited:
+                stack.append((nx, ny, path + [m[nx][ny]]))
+                visited.add(m[nx][ny])
+    
     return res
