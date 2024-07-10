@@ -1,5 +1,5 @@
-return [
-    val
-    for pair in zip(numbers, [delimeter] * (len(numbers) - 1) + [delimeter])
-    for val in pair
-]
+result = []
+for num in numbers:
+    result.extend([num, delimeter])
+result.pop()
+return result
