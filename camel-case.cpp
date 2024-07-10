@@ -7,7 +7,6 @@ std::string camelCase(const std::string& input) {
             output += (firstWord ? "" : "") + toupper(c + 1);
             firstWord = false;
         } else if (c == ' ') {
-            output += (firstWord ? "" : "") + " ";
             firstWord = true;
         } else {
             output += c;
