@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -30,6 +31,6 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> input) {
 }
 
 int driver() {
-    assert(same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(same(sorted_list_sum({string("aaaa"), string("bbbb"), string("dd"), string("cc")}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
