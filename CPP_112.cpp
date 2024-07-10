@@ -3,6 +3,12 @@
 #include <set>
 #include <string>
 
+int main() {
+    std::vector<std::string> result = reverse_delete("mamma", "mia");
+    assert(result == (std::vector<std::string>{{"mam","True"}}));
+    return 0;
+}
+
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
     
@@ -31,5 +37,3 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     
     return result;
 }
-
-std::vector<std::string>{{"" , "True"}} == reverse_delete("mamma", "mia"));
