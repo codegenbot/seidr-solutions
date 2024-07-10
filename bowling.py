@@ -17,7 +17,7 @@ def bowling_score(game):
                 next_frame = game.split('/')[game.split('/').index(frame)+1].split()
                 score += sum(map(int, [next_frame[0]] + next_frame[1:]))
             else:
-                if len(game.split('/')[game.split('/').index(frame)+1]) > 1 and int(game.split('/')[game.split('/').index(frame)+1][0]) + int(game.split(['/frame]+1][1]) < 10:
+                if len(game.split('/')[game.split('/').index(frame)+1]) > 1 and int(game.split('/')[game.split('/').index(frame)+1][0]) + int(game.split('[game.split('/').index(frame)+1][1]) < 10:
                     score += first_roll + int(game.split('/')[game.split('/').index(frame)+1][1])
                 else:
                     next_rolls = map(int, game.split('/')[game.split('/').index(frame)+1].split()[:2])
