@@ -1,28 +1,15 @@
-#include <algorithm>
-#include <vector>
-#include <iostream>
-
-using namespace std;
-
 int getMax(int n) {
-    vector<int> l;
-    int numElements;
-
+    int max = 0;
     cout << "Enter the number of elements: ";
-    cin >> numElements;
+    cin >> n;
 
-    for (int i = 0; i < numElements; i++) {
+    for (int i = 0; i < n; i++) {
         int x;
         cout << "Enter element " << i + 1 << ": ";
         cin >> x;
-        l.push_back(x);
+        if(x > max)
+            max = x;
     }
 
-    return *max_element(l.begin(), l.end());
-}
-
-int main() {
-    assert(abs(getMax(0) - 124) < 1e-4);
-
-    return 0;
+    return max;
 }
