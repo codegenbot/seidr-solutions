@@ -44,7 +44,7 @@ long long eval(const char *p, long long y) {
                 p++;
             }
             if (*p == 'y') {
-                y += x;
+                y = x;
                 p++;
                 continue;
             }
@@ -58,9 +58,7 @@ long long eval(const char *p, long long y) {
             p++;
             if (*p == 'y') {
                 y++;
-                while (isdigit(*p)) {
-                    p++;
-                }
+                p += 2;
                 continue;
             }
             p++;
@@ -70,9 +68,7 @@ long long eval(const char *p, long long y) {
             p++;
             if (*p == 'y') {
                 y--;
-                while (isdigit(*p)) {
-                    p++;
-                }
+                p += 2;
                 continue;
             }
             p++;
