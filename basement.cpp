@@ -6,14 +6,14 @@ int basement(const std::vector<int>& nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
         if (nums[i] > std::numeric_limits<int>::max() - sum || nums[i] < std::numeric_limits<int>::min()) {
-            return -1;
+            return -1; // Input value exceeds integer data type range
         }
         sum += nums[i];
         if (sum < 0) {
             return i;
         }
     }
-    return -1;
+    return -1; // If no negative sum found
 }
 
 int main() {
