@@ -15,15 +15,12 @@ std::string numerical_letter_grade(int credits, double gpa) {
     else return "F";
 }
 
-int main() {
+int solveProblem() {
     int credits = 0;
     double gpa = 0.7;
-
     std::pair<std::string, std::string> input1({"E", "D-"});
     
-    if (numerical_letter_grade(credits, gpa) == "F" || numerical_letter_grade(credits, gpa) == "D-") {
-        assert(true);
-    }
-    
+    assert(numerical_letter_grade(credits, gpa) == "F" || numerical_letter_grade(3, 2.2) == "D-");
+
     return 0;
 }
