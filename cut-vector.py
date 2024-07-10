@@ -1,10 +1,9 @@
 ```
 def cut_vector(lst):
     total_sum = sum(lst)
-    
     min_diff = float("inf")
     split_idx = 0
-    
+
     for i in range(1, len(lst)):
         diff = abs(total_sum - 2 * sum(lst[:i]))
         
