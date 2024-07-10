@@ -13,3 +13,4 @@ int main() {
     cin >> num;
     bf(num);
     return 0;
+}

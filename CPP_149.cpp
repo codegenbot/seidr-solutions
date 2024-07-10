@@ -1,7 +1,8 @@
 #include <vector>
+#include <algorithm>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool same(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,11 +14,12 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 }
 
-bool same(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return issame(a, b) && issame(b, a);
+std::vector<std::string> sorted_list_sum(std::vector<std::string> input) {
+    std::sort(input.begin(), input.end());
+    return input;
 }
 
-int main() {
-    assert(same({{"aaaa", "bbbb"}, {"cc", "dd"}}, {{"cc", "dd"}, {"aaaa", "bbbb"}}));
+int driver() {
+    assert(same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) , {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }

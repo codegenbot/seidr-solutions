@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool std::issame(std::vector<int> game, std::vector<int> guess) {
+bool issame(std::vector<int> game, std::vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {
         if (game[i] != guess[i]) {
             return false;
@@ -29,18 +29,18 @@ int main() {
     std::cin >> n;
 
     std::vector<int> game(n);
-    std::cout << "Enter the game numbers: ";
     for (int i = 0; i < n; i++) {
+        std::cout << "Enter game number: ";
         std::cin >> game[i];
     }
 
     std::vector<int> guess(n);
-    std::cout << "Enter your guess: ";
     for (int i = 0; i < n; i++) {
+        std::cout << "Enter your guess: ";
         std::cin >> guess[i];
     }
 
-    if (std::issame(game, guess)) {
+    if (issame(game, guess)) {
         std::cout << "Congratulations! You guessed correctly." << std::endl;
     } else {
         std::vector<int> result = compare(game, guess);
