@@ -1,12 +1,6 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+string bows;
+    cin >> bows;
+    cout << score(bows) << endl;
 
-int score(string s);
-
-int main() {
-    string s;
-    cin >> s;
-    cout << score(s);
     return 0;
 }
