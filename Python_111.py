@@ -1,14 +1,15 @@
-```
 def histogram(test):
     if not test:
         return {}
-    d = {}
-    max_count = 0
-    for word in test.split():
-        if word[0] in d:
-            d[word[0]] += 1
+
+    counts = {}
+    for char in test.split():
+        if char in counts:
+            counts[char] += 1
         else:
-            d[word[0]] = 1
-        if d[word[0]] > max_count:
-            max_count = d[word[0]]
-    return {k: v for k, v in d.items() if v == max_count}
+            counts[char] = 1
+
+    max_count = max(counts.values())
+    most_repeated_chars = [char for char, count in counts.items() if count == max_count]
+
+    return {char: max_count for char in most_repeated_chars}
