@@ -1,7 +1,9 @@
 def find_zero(xs: list):
+    xs = list(map(float, input().split()))
     n = len(xs) - 1
-    return -xs[n - 1] / xs[n]
-
-input_list = list(map(int, input().split()))
-result = find_zero(input_list)
-result
+    a = xs[-1]
+    b = xs[-2]
+    if n == 2:
+        return -b / a
+    else:
+        return 1.0
