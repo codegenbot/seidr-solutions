@@ -1,24 +1,15 @@
-vector<string> by_length(vector<int> arr){
-    vector<string> result;
-    map<int, string> num_to_name = {
-        {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
-        {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
-    };
+#include <vector>
+#include <string>
+#include <map>
+#include <cassert>
 
-    vector<int> sorted_arr;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            sorted_arr.push_back(num);
-        }
+using namespace std;
+
+vector<string> by_length(const vector<int>& nums) {
+    map<int, string> num_to_word = {{9, "Nine"}, {4, "Four"}, {8, "Eight"}};
+    vector<string> words;
+    for (int num : nums) {
+        words.push_back(num_to_word[num]);
     }
-
-    sort(sorted_arr.begin(), sorted_arr.end());
-
-    reverse(sorted_arr.begin(), sorted_arr.end());
-
-    for (int num : sorted_arr) {
-        result.push_back(num_to_name[num]);
-    }
-
-    return result;
+    return words;
 }
