@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -60,5 +59,5 @@ int main() {
     int num; 
     std::cout << "Enter a number: ";
     std::cin >> num;
-    std::cout << "The Roman numeral is: " << int_to_roman(num) << std::endl << std::flush;
+    std::cout << "The Roman numeral is: " << int_to_roman(num) << std::endl;
 }
