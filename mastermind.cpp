@@ -13,7 +13,7 @@ int mastermind(string code, string guess) {
     for (int i = 0; i < 6; ++i) {
         int count = 0;
         for (int j = 0; j < 4; ++j) {
-            if (guess[j] == ('A' + i) && code[j] != guess[j]) {
+            if (guess[j] == 'A' + i && code[j] != guess[j]) {
                 count++;
             }
         }
