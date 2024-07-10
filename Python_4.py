@@ -1,11 +1,12 @@
-```python
+```
 from typing import List
 
-def mean_absolute_deviation(numbers: List[float]) -> float:
-    from statistics import mean as stat_mean
-    from statistics import stdev as stat_stdev
 
-    m = stat_mean(numbers)
-    deviations = [abs(num - m) for num in numbers]
-    
-    return sum(deviations) / len(deviations)
+def mean_absolute_deviation(numbers: List[float]) -> float:
+    if len(numbers) == 0:
+        return 0
+    mean = sum(numbers) / len(numbers)
+    if len(numbers) > 1:
+        return sum(abs(n - mean) for n in numbers) / len(numbers)
+    else:
+        return abs(numbers[0] - mean)
