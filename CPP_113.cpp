@@ -1,42 +1,27 @@
+
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
-bool issame(vector<string> a, vector<string> b);
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
+using namespace std;
 
 vector<string> odd_count(vector<string> lst) {
-    vector<string> result;
-    int n = 1;
-    for (string s : lst) {
-        int count = 0;
-        for (char c : s) {
-            if ((c - '0') % 2 != 0) {
-                count++;
-            }
+    vector<string> odd_strings;
+    for (const auto &str : lst) {
+        int odd_count = count_if(str.begin(), str.end(), [](char c) { return c % 2 != 0; });
+        if (odd_count % 2 != 0) {
+            odd_strings.push_back(str);
         }
-        result.push_back("the number of odd elements " + to_string(count) + " in the string " + s + " of the input.");
-        n++;
     }
-    return result;
+    return odd_strings;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    assert(issame(odd_count({"271", "137", "314"}), {
-        "the number of odd elements 2 in the string 271 of the input.",
-        "the number of odd elements 2 in the string 137 of the input.",
-        "the number of odd elements 2 in the string 314 of the input."
-    }));
+    assert(issame(odd_count({"271", "137", "314"}), {"137", "314"}));
     return 0;
 }
