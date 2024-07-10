@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,16 +15,20 @@ int add_elements(std::vector<int> arr, int k) {
 int main() {
     std::vector<int> arr;
     int k;
+
     std::cout << "Enter the number of elements: ";
     std::cin >> k;
+    
     arr.resize(k);
     
-    for (int i = 0; i < k; i++) { 
-        std::cout << "Enter element " << i + 1 << ": ";
+    std::cout << "Enter the elements: ";
+    for (int i = 0; i < k; i++) {
         std::cin >> arr[i];
     }
-    int output = add_elements(arr, k);
-    std::cout << "Sum of elements less than 10: " << output << std::endl;
-    
+
+    int result = add_elements(arr, k);
+
+    std::cout << "Sum of elements less than 10 is: " << result << std::endl;
+
     return 0;
 }
