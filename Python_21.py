@@ -3,6 +3,6 @@ def calculate_normalized_numbers(numbers):
     max_num = max(numbers)
     return [(x - min_num) / (max_num - min_num) for x in numbers]
 
-input_numbers = [1, 2, 3, 4, 5]  # Example list of numbers
+input_numbers = [1, 2, 3, 4, 5]
 result = calculate_normalized_numbers(input_numbers)
 result
