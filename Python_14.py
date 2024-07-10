@@ -1,9 +1,8 @@
-```
 from typing import List
 
 
 def get_all_prefixes(s: str) -> List[str]:
-    return [s[:i+1] for i in range(len(s))]
+    return [s[:i] for i in range(len(s))]
 
 
 def all_prefixes() -> None:
@@ -16,4 +15,15 @@ def all_prefixes() -> None:
                 break
         except ValueError as e:
             print(f"Invalid input. Please enter a string.")
-    print("\n".join(get_all_prefixes(s)))
+
+    while True:
+        try:
+            n = int(input("Please enter the number of prefixes: "))
+            if n <= 0:
+                print("Error: Number of prefixes must be positive.")
+            else:
+                break
+        except ValueError as e:
+            print(f"Invalid input. Please enter an integer.")
+
+    print("\n".join(get_all_prefixes(s)[:n]))
