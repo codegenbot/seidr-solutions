@@ -1,6 +1,6 @@
-#include <iostream>
 #include <string>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -31,6 +31,7 @@ vector<int> findSubstringIndices(string text, string target) {
 }
 
 int main() {
+    // Example usage
     int a = 12;
     int b = 18;
     cout << gcd(a, b) << endl;

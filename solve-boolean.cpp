@@ -6,10 +6,8 @@ bool evaluate(char op, bool operand1, bool operand2) {
         return operand1 || operand2;
     } else if (op == '&') {
         return operand1 && operand2;
-    } else {
-        // Handle cases where op is not recognized, return false by default
-        return false;
     }
+    return false; // Default case
 }
 
 int main() {
@@ -17,9 +15,9 @@ int main() {
     std::cin >> s;
 
     bool result = true;
-    char op = '&'; 
+    char op = '&';
     bool operand = true;
-    
+
     for (char c : s) {
         if (c == 'T' || c == 'F') {
             operand = (c == 'T');
@@ -29,6 +27,8 @@ int main() {
             result = evaluate(op, result, operand);
         }
     }
+
+    result = evaluate(op, result, operand);
 
     if (result) {
         std::cout << "True" << std::endl;
