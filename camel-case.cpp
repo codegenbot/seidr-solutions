@@ -7,23 +7,28 @@ std::string toCamelCase(const std::string& s) {
 
     for (char c : s) {
         if (c == '-') {
-            capitalize = true;
+            if (!result.empty()) {
+                if (capitalize) {
+                    result += toupper(result.back());
+                    capitalize = false;
+                }
+                result.push_back(' ');
+            }
         } else if (capitalize) {
             if (!result.empty()) {
                 result += ' ';
             }
             result += toupper(c);
             capitalize = false;
-        } else if (c != ' ') {
-            if (c >= 'a' && c <= 'z') {
-                result += char(c - ('a' - 'A'));
-            } else {
-                result += c;
-            }
-            capitalize = false;
         } else {
+            result += tolower(c);
             capitalize = true;
         }
+    }
+
+    // Remove trailing space
+    if (!result.empty()) {
+        result.pop_back();
     }
 
     return result;
