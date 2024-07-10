@@ -1,19 +1,18 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-
+#include <cmath>
 using namespace std;
 
 int main() {
     vector<int> nums;
-    int n;
-    while (cin >> n) {
-        nums.push_back(n);
+    int input;
+    while (cin >> input) {
+        nums.push_back(input);
     }
     
     int sum = 0;
     for (int num : nums) {
-        sum += (num / 3) - 2;
+        sum += floor(num / 3) - 2;
     }
     
     cout << sum << endl;
