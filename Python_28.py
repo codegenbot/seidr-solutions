@@ -1,8 +1,9 @@
+```
 from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
     result = ""
-    for s in strings:
-        result += s
-    return result if strings else ""
+    for string in strings:
+        result += string
+    return result if result else "No strings provided"
