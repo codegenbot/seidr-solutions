@@ -1,26 +1,25 @@
-```
-from typing import List
-
-def separate_paren_groups(paren_string: str) -> List[str]:
+def separate_paren_groups(expression):
     result = []
-    stack = []
-    groups = []
-    
-    for char in paren_string:
-        if char == ' ':
-            continue
-        if char == '(':
-            stack.append(char)
-            groups.append('(')
-        elif char == ')':
-            stack.pop()
-            groups.append(')')
-        
-        if not stack:
-            result.append(''.join(groups))
-            groups = []
-    
-    if groups:
-        result.append(''.join(groups))
-    
-    return [group for group in result if group]
+    temp_group = ""
+    in_group = False
+    unmatched_open = 0
+
+    for char in expression:
+        if char == "(":
+            in_group = True
+            temp_group += char
+        elif char == ")":
+            if in_group:
+                temp_group += char
+                if temp_group.count("(") == temp_group.count(")"):
+                    result.append(temp_group)
+                    temp_group = ""
+                    in_group = False
+            else:
+                unmatched_open += 1
+
+    while unmatched_open > 0:
+        result.append("(" + str(unmatched_open) + ")")
+        unmatched_open -= 1
+
+    return [x for x in result if x]
