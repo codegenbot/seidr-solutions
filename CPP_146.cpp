@@ -5,7 +5,7 @@
 int specialFilter(const std::vector<std::string>&);
 
 int main() {
-    std::vector<std::string> nums;
+    std::vector<std::string> nums(1000000);
     std::cout << "Enter the numbers (enter 'stop' to finish): ";
     std::string num;
     while (true) {

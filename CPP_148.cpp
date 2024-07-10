@@ -25,9 +25,9 @@ int main() {
     int num;
     cin >> num;
     for (int i = 0; i < num; i++) {
-        string str1, str2;
-        cin >> str1 >> str2;
-        if (str1 == str2) { 
+        vector<string> a(2);
+        cin >> a[0] >> a[1];
+        if (issame({a[0], a[1]})) {
             cout << "The strings are the same." << endl;
         } else {
             cout << "The strings are not the same." << endl;
