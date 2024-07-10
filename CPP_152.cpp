@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <initializer_list>
 
 bool issame(vector<int> game, vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {
@@ -21,4 +19,3 @@ vector<int> compare(vector<int> game, vector<int> guess) {
         }
     }
     return result;
-}
