@@ -1,8 +1,12 @@
 string flip_case(string str){
     string result = "";
-    for(char c : str){
-        if(islower(c)) result += toupper(c);
-        else result += tolower(c);
+    for(int i=0; i<str.length(); i++){
+        if(isupper(str[i]))
+            result += tolower(str[i]);
+        else if(islower(str[i]))
+            result += toupper(str[i]);
+        else
+            result += str[i];
     }
     return result;
 }
