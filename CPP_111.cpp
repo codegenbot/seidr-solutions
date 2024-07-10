@@ -3,6 +3,8 @@
 #include <sstream>
 #include <cassert>
 
+using namespace std;
+
 bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
 }
