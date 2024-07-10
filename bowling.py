@@ -10,11 +10,9 @@ def bowling_score(s):
                 score += int(s[i])
                 if s[i+1] == 'X':
                     if frame < 10:
-                        score += max(10 - (frame * 2), 0)
+                        score += 10
                 elif s[i+1] == '/':
                     score += 10 - (10 - int(s[i]))
         else:
             score += 10
-        if s[i+1] == 'X' or (s[i].isdigit() and s[i+1] in ['/', 'X']):
-            frame += 1
     return score
