@@ -1,17 +1,26 @@
+#include <iostream>
 #include <vector>
-using namespace std;
-
-float max_element(vector<float> l){
-    float max = l[0];
-    for (int i = 1; i < l.size(); i++) {
-        if (l[i] > max) {
-            max = l[i];
-        }
-    }
-    return max;
-}
+#include <algorithm>
+#include <cmath>
 
 int main() {
-    assert(abs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124)<1e-4);
+    std::vector<int> l;
+    int num;
+    
+    for(int i = 0; i < 5; i++) {
+        std::cout << "Enter number: ";
+        std::cin >> num;
+        l.push_back(num);
+    }
+    
+    if(l.size() > 0) {
+        int max_num = *std::max_element(l.begin(), l.end());
+        
+        if(std::abs(max_num) == max_num)
+            std::cout << "The maximum positive number is: " << max_num << std::endl;
+        else
+            std::cout << "The maximum negative number is: " << max_num << std::endl;
+    }
+    
     return 0;
 }
