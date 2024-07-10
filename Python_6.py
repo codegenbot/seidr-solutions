@@ -1,4 +1,4 @@
-```python
+```
 def parse_nested_parens(paren_string: str) -> list:
     if not paren_string:
         return []
@@ -27,9 +27,8 @@ def parse_nested_parens(paren_string: str) -> list:
                 continue
             temp_group += char
     
-    if stack:  # remove any remaining open parentheses
-        while stack:
-            temp_group += stack.pop()
+    while stack:  # remove any remaining open parentheses
+        temp_group += stack.pop()
 
     groups.append(int(temp_group)) if temp_group.isdigit() else []
     
