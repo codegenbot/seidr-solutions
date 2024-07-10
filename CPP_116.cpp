@@ -2,12 +2,11 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size())
+    if(a.size() != b.size())
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (count(bite(a[i])) != count(bite(b[i])))
+    for(int i = 0; i < a.size(); i++) 
+        if(count(bite(a[i])) != count(bite(b[i])))
             return false;
-    }
     return true;
 }
 
