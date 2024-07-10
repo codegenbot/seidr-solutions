@@ -6,13 +6,13 @@ bool is_simple_power(int x, int n) {
         return false;
     }
     
-    double result = log(x) / log(n);
+    double res = log(x) / log(n);
     
-    return (result == (int)result);
+    return (res == (int)res);
 }
 
 int main() {
-    assert(is_simple_power(1, 12)==true);
+    assert (is_simple_power(1, 12)==true);
     
     return 0;
 }
