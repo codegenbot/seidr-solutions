@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
 #include <cmath>
-#include <iomanip>
+#include <iomanip> 
 using namespace std;
 
 int main() {
@@ -20,4 +20,4 @@ int main() {
     cout << fixed << setprecision(5);
     cout << totalDistance << endl;
 
-    return 0;
+    return 0; }
