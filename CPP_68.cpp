@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <limits.h>
 
@@ -27,7 +26,7 @@ vector<int> pluck(vector<int> arr) {
 }
 
 int main() {
-    vector<int> result = pluck({7, 9, 7, 1});
-    assert(issame(result , {}));
-    return 0;
+    vector<int> input = {7, 9, 7, 1};
+    assert(issame(vector<int>(), pluck(input)) == true); 
+    return 0;    
 }
