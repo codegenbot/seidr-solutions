@@ -1,6 +1,5 @@
 #include <map>
 #include <string>
-#include <cctype>
 
 std::map<std::string, std::string> dict;
 
