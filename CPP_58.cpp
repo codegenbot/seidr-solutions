@@ -4,9 +4,11 @@
 #include <algorithm>
 
 namespace std {
+
     bool issame(const vector<int>& a, const vector<int>& b) {
         return equal(a.begin(), a.end(), b.begin());
     }
+
 }
 
 int main() {
@@ -38,4 +40,5 @@ int main() {
     } else {
         std::cout << "The vectors are not the same.";
     }
+    
 }
