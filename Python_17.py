@@ -31,7 +31,3 @@ def parse_music(music_string: str) -> list:
                 music_list.append(1)
                 i += 1
     return music_list
-
-if __name__ == "__main__":
-    music_string = "...||..|o..."
-    print(parse_music(music_string))
