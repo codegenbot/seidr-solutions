@@ -1,13 +1,11 @@
 #include <iostream>
-#include <cassert>
-#include <string>
 #include <cctype>
 
-int digitSum(const std::string& s) {
+int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
         if (std::isupper(c)) {
-            sum += c;
+            sum += (int)c;
         }
     }
     return sum;
@@ -15,6 +13,4 @@ int digitSum(const std::string& s) {
 
 int main() {
     assert(digitSum("You arE Very Smart") == 327);
-
-    return 0;
 }
