@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 int odd_count(const std::vector<std::string>& vec) {
     int count = 0;
@@ -15,5 +16,10 @@ int odd_count(const std::vector<std::string>& vec) {
 }
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
+
+int main() {
+    assert(issame({"271", "137", "314"}, {"271", "137", "314"}));
+    return 0;
 }
