@@ -29,6 +29,13 @@ int main() {
         cin >> temp; 
         numbers.push_back(temp);
     }
+
+    bool result = below_threshold(numbers, 5);
+    if (result) {
+        cout << "At least one number is below the threshold." << endl;
+    } else {
+        cout << "No numbers are below the threshold." << endl;
+    }
     
     return 0;
 }
