@@ -1,3 +1,3 @@
 values = list(map(int, input().strip().split()))
-result = sum(val * val for val in values)
+result = sum(val**2 for val in values)
 print(result)
