@@ -1,40 +1,41 @@
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int targetLen = target.length();
-    for (int i = 0; i <= text.length() - targetLen; i++) {
-        bool found = true;
-        for (int j = 0; j < targetLen; j++) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            indices.push_back(i);
-        }
-    }
-    return indices;
-}
+#include <vector>
+#include <iostream>
+#include <string>
 
-int main() {
-    int num1, num2;
-    cin >> num1 >> num2;
-    cout << gcd(num1, num2) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = findIndices(text, target);
-    for (auto i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
-
+// Function to calculate GCD
 int gcd(int a, int b) {
-    if(b == 0)
+    if (b == 0)
         return a;
     else
         return gcd(b, a % b);
+}
+
+// Function to find indices of substring
+vector<int> indicesOfSubstring(const string& text, const string& target) {
+    vector<int> result;
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != string::npos) {
+        result.push_back(pos);
+        pos += target.length();
+    }
+    return result;
+}
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+
+    // Calculate GCD
+    cout << gcd(a, b) << endl;
+
+    // Find indices of substring
+    string text, target;
+    getline(cin, text);
+    getline(cin, target);
+
+    vector<int> result = indicesOfSubstring(text, target);
+    for (int num : result) {
+        cout << num << endl;
+    }
+    return 0;
 }
