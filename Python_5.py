@@ -1,8 +1,10 @@
+Here is the corrected Python code:
+
 ```Python
 from typing import List
 
-def intersperse(numbers: List[int], delimeter: str) -> List[str]:
-    result = [str(numbers[0])]
+def intersperse(numbers: List[int], delimiter: int) -> List[int]:
+    result = [numbers[0]]
     for i in range(1, len(numbers)):
-        result.extend([str(result[-1]), str(delimeter), str(numbers[i])])
+        result.extend([result[-1], delimiter, numbers[i]])
     return result
