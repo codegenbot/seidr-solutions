@@ -13,7 +13,7 @@ def main():
             continue
 
     sorted_list_sum = sum(len(word) for word in lst if len(word) % 2 == 0)
-
+    
     while True:
         try:
             input_val = input("Press Enter to calculate the sum or type 'q' to quit: ")
