@@ -1,17 +1,15 @@
-Here is the solution to the problem:
-
-```cpp
 string find_max(vector<string> words){
-    string res = "";
-    int max_uniq = 0;
-    for(auto word : words){
-        unordered_set<char> uniq(word.begin(),word.end());
-        if(uniq.size() > max_uniq){
-            res = word;
-            max_uniq = uniq.size();
+    string result = words[0];
+    int max_unique_chars = 0;
+
+    for(string word : words) {
+        set<char> unique_chars(word.begin(), word.end());
+        int current_unique_chars = unique_chars.size();
+        if(current_unique_chars > max_unique_chars) {
+            max_unique_chars = current_unique_chars;
+            result = word;
         }
-        else if(uniq.size() == max_uniq)
-            res = (res < word) ? word : res;
     }
-    return res;
+
+    return result;
 }
