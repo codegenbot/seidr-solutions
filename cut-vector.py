@@ -7,5 +7,5 @@ if len(a) > 1:
     print(*a[:split_index], sep="\n")
     print(*a[split_index:], sep="\n")
 else:
-    print(*a, sep="\n")
-    print()
+    print(a)
+    print([])
