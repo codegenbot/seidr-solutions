@@ -1,6 +1,5 @@
-```
-def smallest_change():
-    arr = list(map(int, input().split()))
+```python
+def smallest_change(arr):
     n = len(arr)
     arr.sort()
     left, right = 0, n - 1
@@ -18,5 +17,3 @@ def smallest_change():
             left, right = left + 1, right - 1
     
     return changes
-
-print(smallest_change())
