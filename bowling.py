@@ -10,18 +10,18 @@ def bowling(score):
                 if next_frame == "X":
                     total_score += 10
                 else:
-                    total_score += int(next_frame[0])
-                    if len(next_frame) > 1 and next_frame[1] == "X":
-                        total_score += 10
-                    elif len(next_frame) > 1:
-                        total_score += int(next_frame[1])
+                    for char in next_frame:
+                        if char == "X":
+                            total_score += 10
+                        else:
+                            total_score += int(char)
         else:
-            for p in frame:
-                if p.isdigit():
-                    total_score += int(p)
+            if frame[1] == "":
+                total_score += 10
+            else:
+                total_score += sum(int(p) for p in frame)
         frame_index += 1
     return total_score
-
 
 score = input()
 print(bowling(score))
