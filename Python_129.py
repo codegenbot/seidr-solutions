@@ -4,12 +4,12 @@ def minPath(grid, k):
 
     def dfs(i, j, path, visited):
         if len(path) > k:
-            return
+            return []
         if (i, j) in visited:
-            return
-        visited.add((i, j))
+            return []
         if len(path) == k:
             return [path]
+        visited.add((i, j))
         paths = []
         for x, y in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
             if 0 <= x < n and 0 <= y < n and (x, y) not in visited:
