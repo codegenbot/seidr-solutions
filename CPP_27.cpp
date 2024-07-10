@@ -1,8 +1,4 @@
-```cpp
-#include <iostream>
-#include <string>
-
-std::string flip_case(const std::string& str) {
+std::string flip_case(std::string str) {
     std::string result;
     for (char c : str) {
         if (c >= 'a' && c <= 'z') {
@@ -25,9 +21,9 @@ int driver() {
             std::cout << "Flipped case: " << flip_case(inputStr) << std::endl;
         }
     }
+    return 0;
 }
 
 int main(int argc, const char* argv[]) {
     driver();
-    return 0;
 }
