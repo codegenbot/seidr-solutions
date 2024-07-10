@@ -1,6 +1,11 @@
-def intersperse(numbers: List[int], delimeter: int) -> List[int]:
+def process_numbers(numbers, delimiter):
     result = []
     for num in numbers:
-        result.extend([num, delimeter])
-    result.pop()  # Remove the extra delimeter at the end
+        result.extend([num, delimiter])
+    result.pop() if result else None
     return result
+
+numbers = [1, 2, 3, 4, 5]
+delimiter = ","
+output = process_numbers(numbers, delimiter)
+print(output)
