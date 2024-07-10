@@ -5,4 +5,6 @@ def dice_game(n, m):
         for j in range(1, m+1):
             if i > j:
                 peters_highest_count += 1
-    return peters_highest_count / total_outcomes
+            elif i < j:
+                peters_highest_count += 1
+    return (peters_highest_count + total_outcomes - peters_highest_count) / total_outcomes
