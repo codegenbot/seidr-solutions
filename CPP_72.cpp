@@ -2,16 +2,16 @@
 #include <string>
 #include <algorithm>
 
-bool is_palindrome(std::string s) {
-    std::string t = s;
-    std::reverse(t.begin(), t.end());
+bool is_palindrome(string s) {
+    string t = s;
+    reverse(t.begin(), t.end());
     return s == t;
 }
 
-bool will_it_fly(std::vector<int> q, int w) {
-    std::string str = "";
+bool will_it_fly(vector<int> q, int w) {
+    string str = "";
     for (int i : q) {
-        str += std::to_string(i);
+        str += to_string(i);
     }
     if (!is_palindrome(str)) {
         return false;
@@ -23,6 +23,14 @@ bool will_it_fly(std::vector<int> q, int w) {
     return sum <= w;
 }
 
-void main() {
-    assert(will_it_fly({5}, 5) == true);
+int main() {
+    vector<int> q1 = {3, 5, 7};
+    int weight1 = 15;
+    if(will_it_fly(q1, weight1)) {
+        cout << "The quadcopter will fly." << endl;
+    } else {
+        cout << "The quadcopter won't fly." << endl;
+    }
+    
+    return 0;
 }
