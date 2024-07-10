@@ -6,12 +6,6 @@ def solve_boolean(expression):
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
     else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result &= (True if next_char == 'T' else False)
-            elif char == '|':
-                result |= (True if next_char == 'T' else False)
-            next_char = char
-
-        return result
+        ops = {'&': lambda x, y: x and y,
+               '|': lambda x, y: x or y}
+        return eval(' '.join(map(str, [ops[op](x, y) if op in expression else x for x, op, y in zip(expression[::2], expression[1::3], expression[2::4])]))
