@@ -1,14 +1,9 @@
-```
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
     if not strings:
         return ''
-    try:
-        result = ', '.join(map(str, strings))
-    except Exception as e:
-        print(f"Error: {e}")
-        result = "Invalid input"
+    result = ', '.join(map(str, [s for s in strings if isinstance(s, str)]))
     return result
 
 print(concatenate([]))
