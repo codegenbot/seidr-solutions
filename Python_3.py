@@ -1,9 +1,7 @@
-from typing import List
-
-
-def below_zero(operations: List[int]) -> bool:
-    max_temp = float("-inf")
+```
+def below_zero(operations: list[int]) -> bool:
+    min_temp = float("inf")
     for operation in operations:
-        if operation < max_temp:
-            max_temp = operation
-    return max_temp < 0
+        if operation < min_temp:
+            min_temp = operation
+    return min_temp < 0
