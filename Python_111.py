@@ -9,5 +9,5 @@ def histogram(test):
         else:
             freq[char] = 1
     max_count = max(freq.values())
-    most_frequent = {k: v for k, v in freq.items() if v == max_count}
-    return most_frequent
+    result = {k: v for k, v in freq.items() if v == max_count}
+    return result
