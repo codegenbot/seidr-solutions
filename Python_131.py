@@ -1,4 +1,3 @@
-```
 try:
     n = int(input("Enter a number: "))
 except ValueError:
