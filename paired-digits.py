@@ -1,4 +1,7 @@
-Here is a Python function to solve this problem:
-
 def paired_digits(digits):
-    return sum(int(digit) for digit in digits if digit * 2 in digits)
+    return sum(int(digit) for digit in digits if digit == next_iter_digit)
+
+
+def next_iter_digit(digits):
+    for i in range(len(digits)):
+        yield str(int(digits[i]))
