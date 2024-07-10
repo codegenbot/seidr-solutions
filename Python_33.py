@@ -1,3 +1,4 @@
+```
 def sort_third(l: list):
     return [
         i if i % 3 != 0 else j
