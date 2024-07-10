@@ -5,7 +5,7 @@ def decode_cyclic(s: str):
         if char == "x":
             if temp:
                 result.append(temp)
-                temp = ""
+            temp = ""
         else:
             temp += char
     if temp:
