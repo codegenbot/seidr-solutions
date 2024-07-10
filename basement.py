@@ -3,5 +3,7 @@ def basement(nums):
     for i, num in enumerate(nums):
         total += num
         if total < 0:
-            return i + 1
+            continue
+        if total == -1:
+            return i
     return -1
