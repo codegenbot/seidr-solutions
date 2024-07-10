@@ -1,6 +1,3 @@
-n = int(input("Enter an integer: "))
-
-
 def digitSum(n):
     return sum(
         int(digit) for digit in str(n).replace(" ", "").lower() if digit.isdigit()
