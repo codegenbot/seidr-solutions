@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <sstream>
 #include <unordered_map>
@@ -28,10 +29,18 @@ std::string int_to_mini_romank(int num) {
     return result;
 }
 
-int main() {
+int main()
+{
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
-    std::string result = int_to_mini_romank(num);
-    std::cout << "Roman numeral representation: " << result << std::endl;
-    return 0;
+    if(num < 1 || num > 3999)
+    {
+        std::cout << "Error: Please enter a number between 1 and 3999.\n";
+    }
+    else
+    {
+        std::string result = int_to_mini_romank(num);
+        std::cout << "Roman numeral representation: " << result << "\n";
+    }
+}
