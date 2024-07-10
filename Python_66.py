@@ -1,3 +1,4 @@
+```
 def digitSum(s):
     s = s.lower()
     total = sum(int(c) for c in s if c.isdigit())
