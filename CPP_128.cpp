@@ -1,7 +1,3 @@
-```c++
-#include <vector>
-#include <algorithm>
-
 int prod_signs(std::vector<int> arr) {
     if (arr.empty()) return -32768;
     int sign = 1;
@@ -11,4 +7,3 @@ int prod_signs(std::vector<int> arr) {
         sum += abs(num);
     }
     return (sign > 0) ? sum : -sum;
-}
