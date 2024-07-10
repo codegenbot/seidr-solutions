@@ -1,38 +1,17 @@
-```
-import math
+def find_closest_elements(arr):
+    arr.sort()
+    closest_pair = (abs(arr[0] - arr[1]), (arr[0], arr[1]))
+    for i in range(1, len(arr) - 1):
+        if abs(arr[i] - arr[i+1]) < closest_pair[0]:
+            closest_pair = (abs(arr[i] - arr[i+1]), (arr[i], arr[i+1]))
+    return closest_pair[1]
 
-def find_closest_elements(numbers):
-    min_diff = float("inf")
-    closest_pair = ()
+def check(lst):
+    result = []
+    for i in range(len(lst) - 1):
+        closest_pair = (abs(lst[i] - lst[i+1]), (lst[i], lst[i+1]))
+        result.append(closest_pair)
+    return min(result)
 
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            diff = abs(numbers[i] - numbers[j])
-            if diff < min_diff:
-                min_diff = diff
-                closest_pair = (numbers[i], numbers[j])
-
-    return closest_pair
-
-if __name__ == "__main__":
-    while True:
-        try:
-            numbers = input("Enter a series of space-separated numbers: ").split()
-            numbers = [float(x) for x in numbers if x.replace('.', '', 1).replace('-', '', 1).isdigit()]
-            if not numbers:
-                print("No numbers entered. Please enter some.")
-                continue
-            break
-        except ValueError as e:
-            print("Invalid input. Please enter only numeric values.")
-    result = find_closest_elements(numbers)
-    print(result)
-
-    for x in numbers:
-        if x.replace('.', '', 1).replace('-', '', 1).isdigit():
-            numbers = [float(x)]
-            break
-    else:
-        print("No numbers entered. Please enter some.")
-        result = find_closest_elements([])
-        print(result)
+arr = list(map(int, input().split()))
+print(check(find_closest_elements(arr)))
