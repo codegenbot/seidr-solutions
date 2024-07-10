@@ -1,3 +1,4 @@
+```
 from decimal import Decimal, getcontext
 
 getcontext().prec = 28 
@@ -22,6 +23,6 @@ total_hours = int(input("Enter number of hours: "))
 total_snow = initial_snow
 for _ in range(total_hours): 
     total_snow += rate_of_snowfall
-    total_snow -= Decimal(melting_rate) * total_snow
+    total_snow -= Decimal(str(melting_rate * float(total_snow)))
 
 print(float(total_snow))
