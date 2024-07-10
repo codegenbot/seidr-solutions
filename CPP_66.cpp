@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -23,5 +22,6 @@ int digitSum(std::string s) {
 
 int main() {
     assert(digitSum("You arE Very Smart") == 327);
+    std::cout << digitSum("Hello World!") << std::endl;
     return 0;
 }
