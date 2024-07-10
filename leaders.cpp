@@ -1,28 +1,30 @@
-```cpp
 #include <vector>
 #include <iostream>
-#include <algorithm>
-
-std::vector<int> leaders(std::vector<int>& arr);
 
 int main() {
     std::vector<int> arr = {16, 17, 4, 3, 5, 2};
-    for(auto x : leaders(arr)) std::cout << x << " ";
+    std::cout << "Leaders: ";
+    for (auto leader : leaders(arr)) {
+        std::cout << leader << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> res;
-    
-    if(n == 1) return arr;
-    
-    res.push_back(arr[n-1]);
-    
-    for(int i=n-2; i>=0; --i){
-        while(i > 0 && arr[i] <= arr[i+1]) i--;
-        res.push_back(arr[i]);
+
+    for(int i=n-1; i>=0; --i){
+        bool isLeader = true;
+        for(int j=i-1; j>=0; --j){
+            if(arr[j] >= arr[i]){
+                isLeader = false;
+                break;
+            }
+        }
+        if(isLeader) res.push_back(arr[i]);
     }
-    
+
     return res;
 }
