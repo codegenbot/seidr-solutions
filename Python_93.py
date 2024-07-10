@@ -1,5 +1,6 @@
-Here is the corrected code:
+I removed the leading backticks (`) from the code, which are meant for marking the code block but are not part of the Python syntax. Here is the corrected code:
 
+```Python
 def encode(message):
     result = ""
     for char in message:
