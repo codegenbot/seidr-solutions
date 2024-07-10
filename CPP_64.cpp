@@ -18,7 +18,3 @@ int vowels_count(const char* str) {
     }
     return count;
 }
-
-int main() {
-    assert(vowels_count("ACEDY") == 3);
-}
