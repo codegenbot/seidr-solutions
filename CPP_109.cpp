@@ -3,8 +3,8 @@
 
 bool move_one_ball(std::vector<int> arr) {
     int max = *std::max_element(arr.begin(), arr.end());
-    for (int i = 0; i <= arr.size(); i++) {
-        if (i >= arr.size() || arr[i] != max - i) {
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] != max - i) {
             return false;
         }
     }
@@ -13,11 +13,9 @@ bool move_one_ball(std::vector<int> arr) {
 
 int main() {
     assert(move_one_ball({}) == true);
-    std::vector<int> arr1 = {0, 1, 2, 3};
-    assert(move_one_ball(arr1) == true);
-    
-    arr1.push_back(4);
-    assert(move_one_ball(arr1) == false);
-    
+    std::vector<int> test1 = {1, 2, 3};
+    assert(move_one_ball(test1) == false);
+    std::vector<int> test2 = {0, 1, 2};
+    assert(move_one_ball(test2) == true);
     return 0;
 }
