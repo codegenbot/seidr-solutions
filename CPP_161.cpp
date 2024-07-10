@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -11,7 +10,7 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return s; // Fix: Always return the original input string
+    return !result.empty() ? result : s;
 }
 
 int main() {
