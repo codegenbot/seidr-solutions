@@ -1,23 +1,29 @@
-vector<string> groups;
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+vector<string> separate_paren_groups(vector<string> a, vector<string> b) {
+    vector<string> result;
     string current_group;
-    int count = 0;
-    
+    int open_braces = 0;
+
     for (char c : paren_string) {
         if (c == '(') {
-            count++;
-            if (count > 1) {
+            if (open_braces > 0) {
                 current_group += c;
             }
+            open_braces++;
         } else if (c == ')') {
-            count--;
-            if (count > 0) {
+            open_braces--;
+            if (open_braces > 0) {
                 current_group += c;
-            } else if (count == 0) {
-                groups.push_back(current_group);
+            } else if (open_braces == 0) {
+                result.push_back(current_group);
                 current_group = "";
             }
         }
     }
-    
-    return groups;
+
+    return result;
 }
