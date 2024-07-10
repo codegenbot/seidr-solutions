@@ -10,7 +10,7 @@ std::vector<int> remove_duplicates(std::vector<int> v) {
     std::vector<int> result;
     for (int i = 0; i < v.size(); i++) {
         bool found = false;
-        for (int j = 0; j < result.size(); j++) {
+        for (int j = 0; j < result.size(); j++) { 
             if (v[i] == result[j]) {
                 found = true;
                 break;
@@ -28,17 +28,17 @@ int mainFunction() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> v(n);
+    std::vector<int> v;
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         int x;
         std::cin >> x;
-        v[i] = x;
+        v.push_back(x);
     }
 
     std::cout << "Duplicates removed: ";
-    for (int i = 0; i < n; i++) {
-        std::cout << v[i] << " ";
+    for (int i = 0; i < remove_duplicates(v).size(); i++) {
+        std::cout << remove_duplicates(v)[i] << " ";
     }
     std::cout << std::endl;
 
