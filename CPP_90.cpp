@@ -1,9 +1,13 @@
-vector<int> next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return vector<int>();
-    sort(lst.begin(), lst.end());
+#include <vector>
+#include <algorithm>
+
+std::vector<int> next_smallest(const std::vector<int>& lst) {
+    if (lst.size() < 2) return {};
+    std::sort(lst.begin(), lst.end());
     for (int i = 0; i < lst.size() - 1; ++i) {
         if (lst[i] != lst[i + 1]) {
-            return vector<int>{lst[i + 1]};
+            return {lst[i + 1]};
         }
     }
-    return vector<int>();
+    return {};
+}
