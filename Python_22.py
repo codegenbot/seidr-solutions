@@ -17,9 +17,9 @@ def filter_integers() -> None:
 
     try:
         user_values = [
-            int(val)
+            int(val.replace(" ", "").strip())
             for val in user_input.split(",")
-            if val.strip() and re.match(r"^\d+$", val)
+            if re.match(r"^\d+$", val.replace(" ", "")) or int(val) == 0
         ]
 
         if not user_values:
@@ -34,7 +34,7 @@ def filter_integers() -> None:
             print(f"The integers from the input are: {user_values}")
             print(f"Average Value: {avg_value:.2f}")
             print(f"Minimum Value: {min_value}")
-    except (ValueError, ZeroDivisionError):
+    except ZeroDivisionError:
         print("Invalid input. Please enter a valid list of comma-separated integers.")
 
 
