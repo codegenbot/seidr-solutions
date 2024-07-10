@@ -6,22 +6,23 @@
 
 using namespace std;
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
-    return a == b;
-}
+bool issame(vector<string> a, vector<string> b);
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> words, std::string substring) {
-    std::vector<std::string> result;
-    for(const auto &word : words) {
-        if(word.find(substring) != std::string::npos) {
+vector<string> filter_by_substring(vector<string> words, string sub) {
+    vector<string> result;
+    for (const auto &word : words) {
+        if (word.find(sub) != string::npos) {
             result.push_back(word);
         }
     }
     return result;
 }
 
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 int main() {
     assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    
     return 0;
 }
