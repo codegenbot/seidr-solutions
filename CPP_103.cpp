@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
-#include <cmath>
 #include <cassert>
+#include <cmath>
 
 std::string solve(int n, int m) {
     if (n > m) {
@@ -13,7 +13,7 @@ std::string solve(int n, int m) {
         sum += i;
     }
     
-    int avg = round((double)sum / (m - n + 1));
+    int avg = std::round((double)sum / (m - n + 1));
     
     std::string binary = "";
     while (avg > 0) {
@@ -28,7 +28,7 @@ int main() {
     int n, m;
     std::cin >> n >> m;
     std::cout << solve(n, m) << std::endl;
-    
-    assert(solve(5, 5) == "101"); // Added to test the function
     return 0;
 }
+
+assert(solve(5, 5) == "101");
