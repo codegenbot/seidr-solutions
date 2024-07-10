@@ -1,29 +1,36 @@
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <stack>
+#include <string>
 
-bool issame(vector<vector<int>>& v) {
-    for (int i = 0; i < v.size(); i++) {
-        for (int j = 0; j < v[i].size(); j++) {
-            if (v[i][j] != -1)
-                return false;
+std::vector<int> parse_nested_parens(const std::string& str) {
+    std::vector<int> result;
+    std::stack<char> parentheses;
+    
+    for (char c : str) {
+        if (c == '(') {
+            parentheses.push(c);
+        } else if (c == ')') {
+            while (!parentheses.empty() && parentheses.top() != '(') {
+                result.push_back(int(parentheses.pop()) - 4);
+            }
+            if (!parentheses.empty()) {
+                parentheses.pop(); // Remove the '('
+            }
         }
     }
-    return true;
+    
+    return result;
 }
 
-vector<vector<int>> parse_nested_parens(string s) {
-    vector<vector<int>> res;
-    int count = 0;
-    for (char c : s) {
-        if (c == '(') {
-            res.push_back({});
-            count++;
-        } else if (c == ')') {
-            count--;
-        }
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    if (v1.size() != v2.size())
+        return false;
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i])
+            return false;
     }
-    return res;
+    return true;
 }
 
 int main() {
