@@ -29,7 +29,7 @@ string reverse_delete(string s1, string s2) {
     int len1 = s1.length();
     int len2 = s2.length();
     for(int i = 0; i < len2; i++) {
-        auto pos = s1.find(std::string(1, s2[i]));
+        auto pos = s1.find(s2[i]);
         if(pos != string::npos) {
             s1 = s1.substr(0, pos) + s1.substr(pos + 1);
         }
@@ -49,5 +49,5 @@ int main() {
     else
         cout << "Second number is greater." << endl;
 
-    assert(issame(vector<string>(reverse_delete("mamma", "mia").begin(), reverse_delete("mamma", "mia").end())) , {"", "True"}));
+    assert(issame(vector<char>(reverse_delete("mamma", "mia").begin(), reverse_delete("mamma", "mia").end()), vector<char>()));
 }
