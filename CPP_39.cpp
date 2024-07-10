@@ -15,10 +15,7 @@ int main() {
     ostringstream oss; 
     oss << "The " << n << "th prime Fibonacci number is: " << result; 
     string str = oss.str(); 
-    oss << "Enter the number: " << n; 
-    oss.seekp(0); // Reset stream position
-    string errorStr = oss.str();
-    cout << (result == -1 ? errorStr : str);
+    cout << str; 
 }
 
 bool isPrime(int num) {
