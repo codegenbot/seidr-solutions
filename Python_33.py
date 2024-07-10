@@ -1,3 +1,4 @@
 def sort_third(l: list):
-    return sorted([i for subl in l for i in [subl] if isinstance(subl, list)] + 
-                  [x for x in l if not isinstance(x, list)], key=lambda x: (0 if isinstance(x, list) else 1, len(x) if isinstance(x, list) else x))
+    return sorted([i for sub in l if isinstance(sub, list) for i in [sub] ] +
+                  sorted([x for x in (item for sublist in l for item in sublist)
+                         if not isinstance(x, list)]))
