@@ -1,7 +1,3 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
 bool issame(const vector<int>& v1, const vector<int>& v2) {
     return v1.size() == v2.size() && equal(v1.begin(), v1.end(), v2.begin());
 }
