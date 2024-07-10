@@ -15,10 +15,9 @@ long long special_factorial(long long n) {
 int main() {
     long long result;
     cout << "Enter a number: ";
-    cin >> ws; 
-    cin >> result;
+    cin >> ws >> result;
     if(result < 0) {
-        cerr << "Error! Please enter a positive integer." << endl;
+        cout << "Error! Please enter a non-negative integer." << endl;
     } else {
         cout << "The special factorial of " << result << " is: " << special_factorial(result) << endl;
     }
