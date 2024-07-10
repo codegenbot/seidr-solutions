@@ -20,9 +20,9 @@ int main() {
     std::cin >> tempN;
     
     if(is_simple_power(tempX, tempN))
-        std::cout << tempX << " is a simple power of " << tempN << std::endl;
+        std::cout << (tempX == pow(tempN, log(tempX) / log(tempN)) ? std::to_string(tempX) + " is a simple power of " + std::to_string(tempN) : std::to_string(tempX) + " is not a simple power of " + std::to_string(tempN)) << std::endl;
     else
-        std::cout << tempX << " is not a simple power of " << tempN << std::endl;
+        std::cout << (tempX == pow(tempN, log(tempX) / log(tempN)) ? std::to_string(tempX) + " is a simple power of " + std::to_string(tempN) : std::to_string(tempX) + " is not a simple power of " + std::to_string(tempN)) << std::endl;
 
     return 0;
 }
