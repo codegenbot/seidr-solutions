@@ -1,4 +1,3 @@
-```
 def digits(n):
     total = 0
     has_odd = False
