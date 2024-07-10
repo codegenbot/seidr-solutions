@@ -1,5 +1,4 @@
 from typing import List
-
 def factorize(n: int) -> None:
     i = 2
     while i * i <= n:
