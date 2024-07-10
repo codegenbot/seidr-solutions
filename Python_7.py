@@ -1,11 +1,8 @@
 ```
 import re
-
 def filter_by_substring(strings, substring):
     while True:
-        expected_output = input(
-            "Is your expected output 'True values', 'False values', or 'all'? "
-        )
+        expected_output = input("Is your expected output 'True values', 'False values', or 'all'? ")
         if expected_output.lower() in ["true values", "false values", "all"]:
             break
         else:
@@ -19,9 +16,7 @@ def filter_by_substring(strings, substring):
 
     while True:
         try:
-            num_to_display = int(
-                input(f"Enter the number of results to display (1-{len(strings)}): ")
-            )
+            num_to_display = int(input(f"Enter the number of results to display (1-{len(strings)}): "))
             if 1 <= num_to_display <= len(strings):
                 break
             else:
