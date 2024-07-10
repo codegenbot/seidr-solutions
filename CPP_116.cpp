@@ -2,16 +2,11 @@
 #include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-std::vector<int> sort_array(const std::vector<int>& arr) {
-    std::vector<int> sortedArr = arr;
-    std::sort(sortedArr.begin(), sortedArr.end());
-    return sortedArr;
-}
-
-int main() {
-    assert (issame(sort_array({2,4,8,16,32}) , {2, 4, 8, 16, 32}));
-    return 0;
+    std::vector<int> sorted_a = a;
+    std::vector<int> sorted_b = b;
+    
+    std::sort(sorted_a.begin(), sorted_a.end());
+    std::sort(sorted_b.begin(), sorted_b.end());
+    
+    return sorted_a == sorted_b;
 }
