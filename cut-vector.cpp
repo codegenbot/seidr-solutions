@@ -1,36 +1,19 @@
-#include <iostream>
-#include <vector>
-#include <limits>
-using namespace std;
-
-vector<vector<int>> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    vector<vector<int>> res(2);
-    int minDiff = numeric_limits<int>::max();
-    int idx1, idx2;
-
-    for(int i=0; i<n-1; i++){
-        if(abs(nums[i] - nums[i+1]) < minDiff){
-            minDiff = abs(nums[i]-nums[i+1]);
-            idx1 = i;
-            idx2 = i+1;
-        }
-    }
-
-    res[0].assign(nums.begin(), nums.begin() + idx1);
-    res[1].assign(nums.begin() + idx2, nums.end());
-
-    return res;
+```cpp
+int min_idx = -1;
+for(int i=0; i<n-1; i++){
+    int diff = nums[i+1] - nums[i];
+    if(diff == 0 && (min_idx == -1 || i < min_idx)) min_idx = i;
+    else if(diff > 0 && (min_idx == -1 || i < min_idx)) min_idx = i;
 }
-
-int main() {
-    vector<int> nums = {1, 0};
-    vector<vector<int>> result = cutVector(nums);
-    for(int i=0; i<2; i++){
-        for(int j=0; j<result[i].size();j++){
-            cout<<result[i][j]<<" ";
-        }
-        cout<<endl;
-    }
-    return 0;
+if(min_idx == -1) {
+    res[0].clear();
+    for(int i=0; i<n; i++)
+        res[0].push_back(nums[i]);
+} else {
+    res[0].clear();
+    for(int i=0; i<=min_idx; i++)
+        res[0].push_back(nums[i]);
+    res[1].clear();
+    for(int i=min_idx+1; i<n; i++)
+        res[1].push_back(nums[i]);
 }
