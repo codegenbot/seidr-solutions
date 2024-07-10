@@ -4,11 +4,11 @@ def mastermind(code, guess):
     white_pegs = 0
     code_count = [0] * 6
     for c in code:
-        code_count[ord(c) - ord("B")] += 1
+        code_count[ord(c) - ord("A")] += 1
 
     guess_count = [0] * 6
     for g in guess:
-        guess_count[ord(g) - ord("B")] += 1
+        guess_count[ord(g) - ord("A")] += 1
 
     for i in range(6):
         if code[i] == guess[i]:
