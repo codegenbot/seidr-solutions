@@ -1,9 +1,22 @@
 #include <vector>
+#include <cassert>
 
 bool issame(std::vector<float> a, std::vector<float> b){
-    // function body remains the same
+    return a.size() == b.size();
 }
 
 std::vector<float> get_positive(std::vector<float> l){
-    // function body remains the same
+    std::vector<float> result;
+    for(float num : l){
+        if(num > 0){
+            result.push_back(num);
+        }
+    }
+    return result;
+}
+
+int main(){
+    assert(issame(get_positive({}), {}));
+
+    return 0;
 }
