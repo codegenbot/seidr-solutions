@@ -6,10 +6,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 vector<int> parse_nested_parens(string paren_string);
 
-int main() {
-    // Your main function code here
-}
-
 vector<int> parse_nested_parens(string paren_string){
     vector<int> result;
     int max_depth = 0;
