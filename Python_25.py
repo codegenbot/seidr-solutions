@@ -1,8 +1,8 @@
-try:
-    n = int(input())
-    if n <= 1:
-        raise ValueError
-except ValueError:
-    print("Please enter a valid positive integer greater than 1.")
-except Exception:
-    print("An unexpected error occurred.")
+while True:
+    try:
+        n = int(input("Enter a positive integer greater than 1: "))
+        if n <= 1:
+            raise ValueError
+        break
+    except ValueError:
+        print("Invalid input. Please enter a positive integer greater than 1.")
