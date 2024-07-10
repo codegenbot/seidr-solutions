@@ -2,13 +2,15 @@ def check_numbers(numbers, threshold):
     count = len([num for num in numbers if num > threshold])
     return count
 
+
 numbers = []
 while True:
-    num = input("Enter a number (or 'STOP' to end): ")
+    num = input("Enter a number (or 'STOP' to end): ").strip()
     if num == "STOP":
         break
-    numbers.append(int(num))
+    if num.isnumeric():  # Add this line to handle "STOP" without error
+        numbers.append(int(num))
 
-threshold = int(input("Enter a threshold number: "))
+threshold = int(input("Enter a threshold number: ").strip())
 output = check_numbers(numbers, threshold)
 print(output)
