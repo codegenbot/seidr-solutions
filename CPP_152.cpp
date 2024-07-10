@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -21,8 +22,6 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
 }
 
 int main() {
-    std::vector<int> game = {1,2,3,5};
-    std::vector<int> guess = {-1,2,3,4};
-    assert (compare(game,guess) == {2,0,0,1});
+    assert (compare({1,2,3,5},{-1,2,3,4}) == {2,0,0,1});
     return 0;
 }
