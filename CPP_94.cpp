@@ -1,10 +1,9 @@
-```
 #include <iostream>
+#include <cassert>
 
 int main() {
-    int num1 = 127;
-    int num2 = 97;
-    int sum = num1 + num2;
-    std::cout << "The sum is: " << sum << std::endl; 
+    int a, b, c;
+    std::cin >> a >> b >> c;
+    assert({a, b, c} == {127, 97, 224});
     return 0;
 }
