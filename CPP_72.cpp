@@ -1,11 +1,22 @@
-bool will_it_fly(vector<int> q, int w) {
-    bool balanced = true;
-    for (int i = 0; i < q.size() / 2; i++) {
-        if (q[i] != q[q.size() - i - 1]) {
-            balanced = false;
-            break;
-        }
-    }
+#include <vector>
+#include <string>
+#include <algorithm>
 
-    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
+    for (int i : q) {
+        str += std::to_string(i);
+    }
+    return is_palindrome(str) && std::accumulate(q.begin(), q.end(), 0) <= w;
+}
+
+bool is_palindrome(std::string s) {
+    int left = 0, right = s.length() - 1;
+    while (left < right) {
+        if (s[left] != s[right])
+            return false;
+        left++;
+        right--;
+    }
+    return true;
 }
