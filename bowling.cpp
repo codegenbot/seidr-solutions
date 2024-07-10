@@ -1,27 +1,36 @@
 int score(string s) {
     int total = 0;
-    int frame = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            total += 10;
-            if (s[i + 2] == 'X') {
-                total += 10 + (s[i + 4] == 'X' ? 10 : s[i + 4] - '0');
-            } else {
-                total += (s[i + 2] == '/' ? 10 : s[i + 2] - '0') + (s[i + 4] == '/' ? 10 : s[i + 4] == 'X' ? 10 : s[i + 4] - '0');
+    int frame = 1;
+    int ball = 0;
+    vector<int> scores;
+    for (char c : s) {
+        if (c == 'X') {
+            scores.push_back(10);
+            if (frame < 10) {
+                scores.push_back(0);
             }
             frame++;
-        } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0');
-            total += (s[i + 1] == 'X' ? 10 : s[i + 1] - '0');
-            frame++;
+        } else if (c == '/') {
+            scores.push_back(10 - scores.back());
+        } else if (c == '-') {
+            scores.push_back(0);
         } else {
-            total += s[i] - '0';
-            if (s[i + 1] == '/') {
-                total += 10 - (s[i] - '0');
-            }
-            frame++;
+            scores.push_back(c - '0');
         }
-        if (frame == 10) break;
+    }
+    for (int i = 0; i < scores.size(); i++) {
+        if (frame <= 10) {
+            total += scores[i];
+            if (scores[i] == 10 && frame < 10) {
+                total += scores[i + 1] + scores[i + 2];
+            } else if (ball % 2 == 1 || scores[i - 1] + scores[i] == 10) {
+                total += scores[i + 1];
+            }
+            ball++;
+            if (ball % 2 == 0) {
+                frame++;
+            }
+        }
     }
     return total;
 }
