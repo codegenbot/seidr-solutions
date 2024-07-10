@@ -1,9 +1,9 @@
-#include <string>
 #include <vector>
+#include <string>
 
-int Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
+int Strongest_Extension(string class_name,vector<string> extensions){
     int max_strength = 0;
-    std::string strongest_extension;
+    string strongest_extension;
 
     for(auto extension : extensions){
         int cap = 0, sm = 0;
