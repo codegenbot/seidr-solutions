@@ -36,4 +36,5 @@ int bowlingScore(std::string input) {
             firstInFrame = false;
         }
     }
-    return score; }
+    return score;
+}
