@@ -14,17 +14,19 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
         result.push_back(min_val);
-        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
+        auto it = std::remove(lst.begin(), lst.end(), min_val);
+        lst.erase(it, lst.end());
         if (!lst.empty()) {
             int max_val = *std::max_element(lst.begin(), lst.end());
             result.push_back(max_val);
-            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
+            it = std::remove(lst.begin(), lst.end(), max_val);
+            lst.erase(it, lst.end());
         }
     }
     return result;
 }
 
 int main() {
-    assert(issame(strange_sort_vector({111111}), {111111}));
+    assert(issame(strange_sort_vector({1, 2, 3}), {1, 3, 2}));
     return 0;
 }
