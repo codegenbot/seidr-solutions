@@ -1,8 +1,12 @@
-int fuelCost(vector<int> vec) {
+int fuelCost(vector<int> v) {
     int sum = 0;
-    for (int num : vec) {
-        int result = static_cast<int>(num / 3.0);
-        result -= 2;
+    for (int i : v) {
+        int result = (i / 3);
+        if (result < 1) {
+            result = 0;
+        } else {
+            result--;
+        }
         sum += result;
     }
     return sum;
