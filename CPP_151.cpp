@@ -1,4 +1,4 @@
-```cpp
+```
 long long double_the_difference(vector<float> lst){
     long long sum = 0;
     for (float num : lst) {
@@ -11,12 +11,13 @@ long long double_the_difference(vector<float> lst){
 }
 
 int main() {
-    vector<float> lst;
-    long long odd_sum = 0;
+    int odd_sum = 0;
+    float num;
     
     cout << "Enter numbers (enter 'stop' to finish):" << endl;
+    vector<float> lst;
+    
     while(1) {
-        float num;
         cin >> num;
         
         if(std::to_string(num) == "stop") break;
