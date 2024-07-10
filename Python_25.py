@@ -20,5 +20,3 @@ def factorize() -> None:
                 print(f"{n} is a prime number.")
         except ValueError:
             print("Invalid input. Please enter an integer.")
-
-factorize()
