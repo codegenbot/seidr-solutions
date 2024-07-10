@@ -40,9 +40,15 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
             i += m - 1; // Skip the matched portion
-        } else if (i + m >= n || text[i + lps[m - 1]] != target[lps[m - 1]]) {
-            while (i + lps[m-1] <= n && text[i+lps[m-1]] != target[lps[m-1]]) {
-                i += lps[m - 1]; // Modified this line
+        } else {
+            int j = min(i + lps[m - 1], n - 1); 
+            while (j >= i && text[j - m + 1] != target[0]) { 
+                j -= 1; 
+            }
+            if (j - m + 1 >= i) {
+                i = j;
+            } else {
+                break;
             }
         }
     }
