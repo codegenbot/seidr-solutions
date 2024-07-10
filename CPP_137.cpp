@@ -1,3 +1,9 @@
+#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace boost;
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (is_any_of<a,string>().type() == typeid(string)) {
         string str1 = any_cast<string>(a);
@@ -7,16 +13,17 @@ boost::any compare_one(boost::any a, boost::any b) {
             double num2 = stod(str2);
             if (num1 > num2) return a;
             else if (num1 < num2) return b;
-            else return boost::any((void*)0);
-        } else if (!str1.empty()) return a;
+            else return boost::any("None");
+        } 
+        else if (!str1.empty()) return a;
         else if (!str2.empty()) return b;
     }
     else {
-        double num1 = boost::any_cast<double>(a);
-        double num2 = boost::any_cast<double>(b);
+        double num1 = any_cast<double>(a);
+        double num2 = any_cast<double>(b);
         if (num1 > num2) return a;
         else if (num1 < num2) return b;
-        else return boost::any((void*)0);
+        else return boost::any("None");
     }
-    return boost::any((void*)0);
+    return boost::any("None");
 }
