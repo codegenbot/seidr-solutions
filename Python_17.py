@@ -2,7 +2,7 @@ from typing import List
 
 
 def parse_music(music_string: str) -> List[int]:
-    note_lengths = {"o": 4, "o|": 2, ".|": 1, "o": 4, ".": 1}
+    note_lengths = {"o": 4, "o|": 2, ".|": 1, ".": 1}
     result = []
     i = 0
     while i < len(music_string):
