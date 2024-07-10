@@ -1,8 +1,7 @@
-string squareDigits(string input) {
-    string result = "";
+std::string squareDigits(std::string input) {
+    std::string output;
     for (char c : input) {
-        int digit = c - '0'; 
-        result += to_string(digit * digit); 
+        int digit = c - '0';
+        output += to_string(digit * digit);
     }
-    return result;
-}
+    return output;
