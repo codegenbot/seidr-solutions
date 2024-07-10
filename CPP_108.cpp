@@ -1,11 +1,11 @@
 #include <vector>
-#include <cstdlib> // Include the header for abs function
+#include <cmath>
 
 int count_nums(std::vector<int> n){
     int count = 0;
     for (int num : n) {
         int sum = 0;
-        int temp = std::abs(num); // Use std::abs instead of abs
+        int temp = std::abs(num);
         while (temp != 0) {
             sum += temp % 10;
             temp /= 10;
@@ -18,8 +18,8 @@ int count_nums(std::vector<int> n){
 }
 
 int main() {
-    // Test the count_nums function
     std::vector<int> numbers = {123, -456, 789};
     int result = count_nums(numbers);
+
     return 0;
 }
