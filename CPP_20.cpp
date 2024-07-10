@@ -1,23 +1,45 @@
-#include <algorithm>
+```cpp
+#include <iostream>
 #include <vector>
-#include <utility>
+#include <algorithm>
 
-bool issame(vector<pair<float, float>> a, vector<pair<float, float>> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (abs(a[i].first - a[i].second) != abs(b[i].first - b[i].second)) {
-            return false;
-        }
-    }
-    return true;
+using namespace std;
+
+bool issame(float a, float b) {
+    if (abs(a - b) < 1e-9)
+        return true;
+    else
+        return false;
 }
 
-vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
+std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
-    pair<float, float> closest_pair = make_pair(numbers[0], numbers[1]);
-    for (int i = 1; i < numbers.size() - 1; ++i) {
-        if (abs(numbers[i] - numbers[i + 1]) < abs(closest_pair.first - closest_pair.second)) {
-            closest_pair = make_pair(numbers[i], numbers[i + 1]);
+    vector<pair<float, float>> closest_pairs;
+    
+    for (int i = 0; i < numbers.size() - 1; i++) {
+        if (!issame(numbers[i], numbers[i + 1])) {
+            pair<float, float> p = make_pair(numbers[i], numbers[i + 1]);
+            closest_pairs.push_back(p);
         }
     }
-    return {make_pair(closest_pair.first, closest_pair.second)};
+    
+    return closest_pairs;
+}
+
+int main 
+{ 
+    std::vector<float> numbers;
+    float num;
+    while (std::cin >> num) {
+        numbers.push_back(num);
+    }
+    
+    std::vector<std::pair<float, float>> closest_pairs = find_closest_elements(numbers);
+    if (!closest_pairs.empty()) {
+        for (const auto& pair : closest_pairs) {
+            std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
+        }
+    } else {
+        std::cout << "No elements found." << std::endl;
+    }
+}
