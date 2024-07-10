@@ -1,10 +1,9 @@
-Here is the corrected code:
-
 ```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -25,10 +24,6 @@ std::vector<int> order_by_points(std::vector<int> nums) {
         result.push_back(nums[pair.second]);
     }
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
 }
 
 int main() {
