@@ -9,6 +9,9 @@ def fibfib(n: int):
             result.append(str(a))
         return ' -> '.join(map(str, result))
     else:
-        elif n > 1:
-            if n <= 2: return "0"
-            return str(fibfib(n-1) + fibfib(n-2))
+        a, b = 0, 1
+        fib_values = []
+        while b <= n:
+            fib_values.append(str(b))
+            a, b = b, a+b
+        return ' -> '.join(fib_values)
