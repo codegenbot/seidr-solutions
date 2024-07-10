@@ -4,20 +4,16 @@
 #include <cassert>
 
 std::string string_to_md5(const std::string& input) {
-    EVP_MD_CTX *mdctx;
-    const EVP_MD *md;
-    unsigned char hash[EVP_MAX_MD_SIZE];
-    unsigned int hash_len;
-
-    md = EVP_md5();
-    mdctx = EVP_MD_CTX_new();
-    EVP_DigestInit_ex(mdctx, md, NULL);
-    EVP_DigestUpdate(mdctx, input.c_str(), input.size());
-    EVP_DigestFinal_ex(mdctx, hash, &hash_len);
-    EVP_MD_CTX_free(mdctx);
+    unsigned char hash[MD5_DIGEST_LENGTH];
+    EVP_MD_CTX context;
+    EVP_MD_CTX_init(&context);
+    EVP_DigestInit_ex(&context, EVP_md5(), NULL);
+    EVP_DigestUpdate(&context, input.c_str(), input.size());
+    EVP_DigestFinal_ex(&context, hash, NULL);
+    EVP_MD_CTX_cleanup(&context);
 
     std::string md5_hash;
-    for (unsigned int i = 0; i < hash_len; i++) {
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         md5_hash += char(hash[i]);
     }
 
