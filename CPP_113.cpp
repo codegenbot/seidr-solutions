@@ -2,11 +2,10 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <memory_resource>
 
-std::vector<std::pmr::string> odd_count(std::vector<std::pmr::string> lst){
-    std::vector<std::pmr::string> result;
-    for (std::pmr::string s : lst) {
+std::vector<std::string> odd_count(std::vector<std::string> lst){
+    std::vector<std::string> result;
+    for (std::string s : lst) {
         int odd_count = 0;
         for (char c : s) {
             if ((c - '0') % 2 != 0) {
@@ -18,7 +17,7 @@ std::vector<std::pmr::string> odd_count(std::vector<std::pmr::string> lst){
     return result;
 }
 
-bool issame(std::vector<std::pmr::string> a, std::vector<std::pmr::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
