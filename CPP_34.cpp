@@ -11,6 +11,6 @@ int main(){
     std::sort(l.begin(), l.end());
     std::vector<int>::iterator it = std::unique(l.begin(), l.end());
     l.erase(it, l.end());
-    assert (issame(l, {0, 2, 3, 5, 9, 123}));
+    assert(issame(l, {0, 2, 3, 5, 9, 123}));
     return 0;
 }
