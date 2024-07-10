@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -19,7 +18,7 @@ std::string flip_case(std::string str) {
 int driver() {  
     std::string inputStr;
     while (std::getline(std::cin, inputStr)) {  
-        if (inputStr.empty()) {
+        if(inputStr.empty()) {
             std::cout << "Error: Input is empty. Please enter a valid string." << std::endl;
         } else {
             std::cout << "Flipped case: " << flip_case(inputStr) << std::endl;
@@ -30,7 +29,6 @@ int driver() {
 
 int main(int argc, const char* argv[]) {
     driver();
-    if (flip_case("These violent delights have violent ends") != "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS")
-        return 1;
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     return 0;
 }
