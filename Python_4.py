@@ -11,7 +11,6 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     else:
         return abs(numbers[0] - mean)
 
-
 numbers = []
 while True:
     try:
