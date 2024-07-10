@@ -3,17 +3,16 @@ using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
     int min_diff = INT_MAX;
-    int index = 0;
-    for (int i = 1; i < nums.size(); i++) {
-        int diff = abs(nums[i] - nums[i-1]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            index = i;
+    int cut_index = -1;
+    for (int i = 0; i < nums.size() - 1; i++) {
+        if (abs(nums[i] - nums[i + 1]) <= min_diff) {
+            min_diff = abs(nums[i] - nums[i + 1]);
+            cut_index = i;
         }
     }
-    vector<int> left(nums.begin(), nums.begin() + index);
-    vector<int> right(nums.begin() + index, nums.end());
-    return {left, right};
+    vector<int> left = vector<int>(nums.begin(), nums.begin() + cut_index);
+    vector<int> right = vector<int>(nums.begin() + cut_index, nums.end());
+    return make_pair(left, right);
 }
 
 int main() {
@@ -24,14 +23,11 @@ int main() {
         cin >> nums[i];
     }
     pair<vector<int>, vector<int>> result = cutVector(nums);
-    cout << "Left: ";
+    cout << "1 ";
     for (int num : result.first) {
         cout << num << " ";
     }
     cout << endl;
-    cout << "Right: ";
-    for (int num : result.second) {
-        cout << num << " ";
-    }
+    cout << "0" << endl;
     return 0;
 }
