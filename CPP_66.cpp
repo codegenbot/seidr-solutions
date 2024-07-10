@@ -30,8 +30,7 @@ int main() {
     std::cout << "Please enter a string: ";
     std::string s;
     std::cin >> s;
-    //assert(digitSum(s) == 327);
     int result = digitSum(s);
-    std::cout << "The sum is: " << result << std::endl;
+    std::cout << "The digit sum is: " << result << std::endl;
     return 0;
 }
