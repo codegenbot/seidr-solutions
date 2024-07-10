@@ -1,12 +1,4 @@
-Here is the completed code:
-
 def max_fill(grid, capacity):
-    rows = len(grid)
-    cols = len(grid[0])
-    
     total_water = sum(sum(row) for row in grid)
-    remaining_water = total_water
-    
-    times_to_lower = -(-remaining_water // capacity)
-    
-    return times_to_lower
+    bucket_trips = math.ceil(total_water / float(capacity))
+    return int(bucket_trips)
