@@ -1,9 +1,6 @@
 #include <vector>
-#include <limits> 
 #include <numeric>
-#include <cmath>
-
-using namespace std;
+#include <utility>
 
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int minDiff = numeric_limits<int>::max();
@@ -18,7 +15,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
         
         rightSum = accumulate(v.begin() + i, v.end(), 0);
         
-        int diff = std::abs(leftSum - rightSum);
+        int diff = abs(leftSum - rightSum);
         
         if(diff < minDiff) {
             minDiff = diff;
