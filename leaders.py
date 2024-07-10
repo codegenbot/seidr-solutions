@@ -1,4 +1,8 @@
-Here is the Python solution:
+Here is the solution in Python:
 
 def leaders(arr):
-    return [x for x in arr if all(x >= y for y in arr[arr.index(x)+1:])]
+    leaders_list = [arr[-1]]
+    for i in range(len(arr) - 2, -1, -1):
+        if arr[i] >= arr[i+1]:
+            leaders_list.append(arr[i])
+    return list(reversed(leaders_list))
