@@ -1,13 +1,15 @@
-```
-using namespace std;
+````
+#include <vector>
+#include <cmath>
 
-int fuelCost(vector<int> v) {
+int calculateFuelCost(std::vector<int>& vec) {
     int sum = 0;
-    for(int i : v) {
-        int num = (i / 3); 
-        num = floor(num); 
-        num -= 2; 
-        sum += num; 
+    for (int num : vec) {
+        int result = (num / 3);
+        result = static_cast<int>(std::floor((double)result)); 
+        result -= 2; 
+        sum += result;
     }
     return sum;
 }
+```
