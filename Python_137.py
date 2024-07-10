@@ -6,5 +6,9 @@ def compare_one(a, b):
         return b if float(b.replace(',', '.')) > a else None
     elif isinstance(a, str) and isinstance(b, str):
         return a if float(a.replace(',', '.')) > float(b.replace(',', '.')) else None
+    elif a > b:
+        return a
+    elif b > a:
+        return b
     else:
-        return a if a > b else None
+        return None
