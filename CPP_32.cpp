@@ -13,21 +13,16 @@ double poly(const std::vector<double>& coeffs, double x) {
 
 double find_zero(const std::vector<double>& coeffs) {
     double a = coeffs[0];
-    double b = coeffs[1];
+    double b = coeffs[0];
     return -b / a;
 }
 
 int main() {
-    std::vector<double> coeffs;
-    double coeff;
-    
-    // Read coefficients from user input
-    while (std::cin >> coeff) {
-        coeffs.push_back(coeff);
-    }
+    std::vector<double> coeff = {1.0, -4.0, 4.0};
 
-    double solution = find_zero(coeffs);
-    assert(std::abs(poly(coeffs, solution)) < 1e-2);
+    double solution;
+    solution = find_zero(coeff);
+    assert(std::abs(poly(coeff, solution)) < 1e-2);
 
     return 0;
 }
