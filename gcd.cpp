@@ -1,39 +1,28 @@
 int gcd(int a, int b) {
-    if (b == 0) {
-        return a;
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-    return gcd(b, a % b);
+    return a;
 }
 
-vector<int> indicesOfSubstring(string text, string target) {
+vector<int> indices_of_substring(const string& text, const string& target) {
     vector<int> indices;
-    int textLen = text.length();
-    int targetLen = target.length();
+    int m = target.size();
+    int n = text.size();
 
-    for (int i = 0; i <= textLen - targetLen; ++i) {
-        if (text.substr(i, targetLen) == target) {
-            for (int j = 0; j < targetLen; ++j) {
-                indices.push_back(i + j);
+    for (int i = 0; i <= n - m; ++i) {
+        int j;
+        for (j = 0; j < m; ++j) {
+            if (text[i+j] != target[j]) {
+                break;
             }
+        }
+        if (j == m) {
+            indices.push_back(i);
         }
     }
 
     return indices;
-}
-
-int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
-    // Uncomment to test indicesOfSubstring function
-    // string text, target;
-    // cin >> text >> target;
-    // vector<int> result = indicesOfSubstring(text, target);
-    // for (int i = 0; i < result.size(); ++i) {
-    //     cout << result[i] << " ";
-    // }
-    // cout << endl;
-
-    return 0;
 }
