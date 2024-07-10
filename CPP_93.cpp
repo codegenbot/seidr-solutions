@@ -1,27 +1,29 @@
-#include <iostream>
 #include <string>
+#include <algorithm>
+#include <cctype>
 
 using namespace std;
 
 string encode(string message){
-    for(int i=0; i<message.size(); i++){
-        if(isalpha(message[i])){
-            if(islower(message[i])){
-                message[i] = toupper(message[i]);
+    transform(message.begin(), message.end(), message.begin(), [](char c) {
+        if(isalpha(c)){
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+               c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+                return char(int(c) + 2);
             } else {
-                message[i] = tolower(message[i]);
-            }
-            if(message[i]=='A' || message[i]=='E' || message[i]=='I' || message[i]=='O' || message[i]=='U'){
-                message[i] += 2;
+                if(islower(c)){
+                    return toupper(c);
+                } else {
+                    return tolower(c);
+                }
             }
         }
-    }
+        return c;
+    });
     return message;
 }
 
 int main(){
-    // Test the encode function
-    assert(encode("I DoNt KnOw WhAt tO WrItE") == "K DqNt KnQw WkCt Tq WrKtG");
-
+    assert (encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
     return 0;
 }
