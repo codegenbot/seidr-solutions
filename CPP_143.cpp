@@ -1,34 +1,31 @@
-#include <vector>
-#include <algorithm>
+#include<stdio.h>
+#include<string>
+using namespace std;
 
-string words_in_sentence(string sentence) {
-    vector<string> words = split(sentence, ' ');
-    string result;
-    
-    for (const auto& word : words) {
-        if (is_prime(word.length())) {
-            result += word + " ";
+string words_in_sentence(string sentence){
+    string result = "";
+    int count = 0;
+    for(int i=2; i<=10000; i++){
+        bool isPrime = true;
+        for(int j=2; j*j <= i; j++){
+            if(i%j == 0){
+                isPrime = false;
+                break;
+            }
+        }
+        if(isPrime){
+            int wordLength = 0;
+            string word;
+            while(count < sentence.find(" ")){
+                word += sentence[count];
+                count++;
+                wordLength++;
+            }
+            if(wordLength == i && !word.empty()){
+                result += word + " ";
+            }
+            count++;
         }
     }
-    
-    return result.substr(0, result.size() - 1);
-}
-
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; ++i) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
-
-vector<string> split(const string& s, char c) {
-    vector<string> result;
-    size_t pos = 0;
-    while ((pos = s.find(c)) != string::npos) {
-        result.push_back(s.substr(0, pos));
-        s.erase(0, pos + 1);
-    }
-    result.push_back(s);
-    return result;
+    return result.substr(0, result.size()-1);
 }
