@@ -1,30 +1,26 @@
-string file_name_check(string file_name){
-    int dot_count = 0;
-    int digit_count = 0;
-    bool valid = true;
+Here is the completed code:
 
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] == '.'){
-            dot_count++;
-            if(dot_count > 1) return "No";
-        }
-        else if(isdigit(file_name[i])){
-            digit_count++;
-            if(digit_count > 3) return "No";
-        }
-        else if(!isalpha(file_name[i]) && file_name[i] != '.') {
-            valid = false;
-            break;
+string file_name_check(string file_name) {
+    int digitCount = 0;
+    bool hasDot = false;
+    string beforeDot;
+
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digitCount++;
+        } else if (c == '.') {
+            hasDot = true;
+        } else if (!hasDot) {
+            beforeDot += c;
         }
     }
 
-    int pos = file_name.find('.');
-    if(pos == -1 || !valid) return "No";
-
-    string extension = file_name.substr(pos+1);
-    if(extension.compare("txt") && extension.compare("exe") && extension.compare("dll")) {
-        return "No";
-    }
-
-    return "Yes";
+    return (digitCount <= 3 && hasDot && !beforeDot.empty() && (beforeDot[0] >= 'a' && beforeDot[0] <= 'z') || (beforeDot[0] >= 'A' && beforeDot[0] <= 'Z')) &&
+           (hasDot ? file_name.find('.') + 1 < file_name.size() : true) &&
+           (file_name.find('.') == string::npos ?
+            (file_name.substr(file_name.find_last_of('.') + 1).compare("txt") == 0 ||
+             file_name.substr(file_name.find_last_of('.') + 1).compare("exe") == 0 ||
+             file_name.substr(file_name.find_last_of('.') + 1).compare("dll") == 0) :
+            false)
+        ? "Yes" : "No";
 }
