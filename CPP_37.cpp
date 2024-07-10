@@ -33,7 +33,7 @@ void sort_even(vector<float>& l) {
     }
 }
 
-int main() {
+int main(){
     vector<float> l = {4, 2, 6, 1, 3, 5};
     vector<float> sorted_l = {1, 2, 3, 4, 5, 6};
 
