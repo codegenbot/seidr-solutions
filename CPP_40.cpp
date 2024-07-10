@@ -9,7 +9,7 @@ bool triples_sum_to_zero(const std::vector<int>& nums) {
         int left = i + 1;
         int right = nums.size() - 1;
         
-        while (left < right && i+1 < nums.size()) {
+        while (left < right) {
             int sum = sorted_nums[i] + sorted_nums[left] + sorted_nums[right];
             
             if (sum == 0) {
