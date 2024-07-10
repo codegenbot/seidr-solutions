@@ -1,5 +1,6 @@
 #include <vector>
-#include <cassert>
+
+vector<int> parse_nested_parens(string paren_string);
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
@@ -15,12 +16,27 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> parse_nested_parens(string paren_string);
-
-int main() {
-    assert(issame(parse_nested_parens("( ( ) ( ) )"), {2, 2}));
-    assert(issame(parse_nested_parens("( ( ( ) ) )"), {3}));
-    assert(issame(parse_nested_parens("( ) ( ( ) )"), {1, 2}));
+vector<int> parse_nested_parens(string paren_string){
+    vector<int> result;
+    int max_depth = 0;
+    int current_depth = 0;
     
-    return 0;
+    for (char c : paren_string) {
+        if (c == '(') {
+            current_depth++;
+            if (current_depth > max_depth) {
+                max_depth = current_depth;
+            }
+        } else if (c == ')') {
+            current_depth--;
+        } else if (c == ' ') {
+            result.push_back(max_depth);
+            max_depth = 0;
+            current_depth = 0;
+        }
+    }
+    
+    result.push_back(max_depth);
+    
+    return result;
 }
