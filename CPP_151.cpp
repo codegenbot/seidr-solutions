@@ -25,7 +25,7 @@ int main(){
     float result = double_the_difference(lst);
     std::cout << "Result: " << result << std::endl;
 
-    assert(double_the_difference(lst) == result);
-    
+    assert(result == std::fabs(9.0 - 6.0) * 2);
+
     return 0;
 }
