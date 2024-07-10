@@ -1,6 +1,6 @@
 #include <vector>
 
-bool _issame(std::vector<int> a, std::vector<int> b){
+bool is_same(std::vector<int> a, std::vector<int> b){
     if(a.size()!=b.size()) return false;
     for(int i=0;i<a.size();i++){
         if(a[i]!=b[i])return false;
@@ -25,13 +25,13 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-int _main() {
+int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
     
     std::vector<int> pile = make_a_pile(n);
-    if(_issame(pile, make_a_pile(n))){
+    if(is_same(pile, make_a_pile(n))){
         std::cout << "The piles are the same." << std::endl;
     } else {
         std::cout << "The piles are not the same." << std::endl;
