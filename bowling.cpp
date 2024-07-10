@@ -1,49 +1,26 @@
-int bowlingScore(string frames) {
+int bowlingScore(string s) {
     int score = 0;
-    int currentFrameRolls = 0;
-
-    for (int i = 0; i < frames.size(); ++i) {
-        if (frames[i] == 'X') { // strike
-            score += 10 + getExtraFrames(frames, i);
-            currentFrameRolls = 2;
-        } else if (frames[i] == '/') { // spare
-            score += 5 + getExtraFrames(frames, i+1);
-            currentFrameRolls = 2;
-        } else { // normal roll
-            int rollsThisFrame = frames[i] - '0';
-            score += rollsThisFrame;
-            currentFrameRolls++;
-            if (currentFrameRolls == 2) {
-                if (i + 2 < frames.size() && frames[i+1] != '/') {
-                    score += frames[i+1] - '0';
-                }
-            }
+    int roll = 0;
+    vector<int> rolls(2);
+    
+    for (char c : s) {
+        if (c >= '0' && c <= '9') {
+            roll = roll * 10 + (c - '0');
+        } else if (c == '/') {
+            score += rolls[0] + rolls[1];
+            rolls.clear();
+            roll = 0;
+        } else if (c == 'X') {
+            score += 10 + rolls[0];
+            rolls.clear();
+            roll = 0;
         }
+        
+        rolls.push_back(roll);
+        roll = 0;
     }
-
+    
+    score += rolls[0] + rolls[1];
+    
     return score;
-}
-
-int getExtraFrames(string frames, int start) {
-    int extraRolls = 0;
-    for (int i = start; i < frames.size(); ++i) {
-        if (frames[i] == 'X') { // strike
-            extraRolls += 10 + getExtraFrames(frames, i+1);
-            break;
-        } else if (frames[i] == '/') { // spare
-            extraRolls += 5 + getExtraFrames(frames, i+2);
-            break;
-        } else {
-            int rollsThisFrame = frames[i] - '0';
-            extraRolls += rollsThisFrame;
-            if (i+1 < frames.size() && frames[i+1] != '/') {
-                extraRolls++;
-            }
-            if (extraRolls >= 3) {
-                break;
-            }
-        }
-    }
-
-    return extraRolls;
 }
