@@ -9,9 +9,3 @@ bool issame(vector<int> a, vector<int> b) {
     sort(b.begin(), b.end());
     return a == b;
 }
-
-vector<int> solve(vector<int> l) {
-    sort(l.begin(), l.end());
-    l.erase(unique(l.begin(), l.end()), l.end());
-    return l;
-}
