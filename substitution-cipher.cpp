@@ -6,9 +6,12 @@ int main() {
     cin >> cipher1 >> cipher2 >> message;
     
     for (char &c : message) {
-        for (int i = 0; i < message.length(); ++i) { // Update loop condition
+        for (int i = 0; i < cipher1.length(); ++i) {
             if (c == cipher1[i]) {
                 c = cipher2[i];
+                break;
+            } else if (c == cipher2[i]) {
+                c = cipher1[i];
                 break;
             }
         }
