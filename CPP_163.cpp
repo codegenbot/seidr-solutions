@@ -1,6 +1,6 @@
 #include <vector>
 
-vector<int> issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     vector<int> result;
     for (int i = a; i <= b; ++i) {
         if (i % 2 == 0) {
