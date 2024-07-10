@@ -1,10 +1,6 @@
-x, y = map(int, input().strip().split())
+def add(x, y):
+    return x + y
 
-def add(a, b):
-    return a + b
-
-try:
-    result = add(x, y)
-    print(result)
-except ValueError:
-    print("Please provide two integers separated by a space.")
+x, y = map(int, input("Enter two numbers separated by space: ").strip().split())
+result = add(x, y)
+print(result)
