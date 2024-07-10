@@ -4,9 +4,14 @@ def fix_spaces(text):
     for char in text:
         if char == " ":
             if not in_word:
-                new_text += "_"
-            else:
-                new_text += char
+                if len(new_text) > 0 and len(new_text) <= 2:
+                    new_text += "_ "
+                elif len(new_text) > 2:
+                    in_word = True
+                else:
+                    new_text += " "
+            elif in_word:  
+                new_text += " "
             in_word = False
         elif char != "\n" and char != " ":
             new_text += char
