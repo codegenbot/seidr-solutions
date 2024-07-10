@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -6,35 +5,36 @@ struct PegCounts { int white; int black; };
 
 PegCounts mastermind(std::string code, std::string guess) {
     PegCounts result = {0, 0};
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
+    std::string remainingGuess = guess;
+
+    // Count black pegs
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
             result.black++;
-            code[i] = ' ';
-            guess[i] = ' ';
+            remainingGuess[i] = ' ';
         }
     }
 
-    int codeCount[6] = {0}, guessCount[6] = {0};
-    for(int i=0; i<4; i++) {
-        if(code[i] != ' ') {
-            codeCount[code[i]-'A']++;
-        }
-        if(guess[i] != ' ') {
-            guessCount[guess[i]-'B']++;
+    // Count white pegs
+    int codeCount[6] = {0}; 
+    for (char c : code) {
+        codeCount[c - 'A']++;
+    }
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != guess[i]) {
+            codeCount[guess[i] - 'A']--;
+            if (codeCount[guess[i] - 'A'] == 0) {
+                codeCount[guess[i] - 'A'] = -1;
+            }
         }
     }
-
-    for(int i=0; i<6; i++) {
-        if(codeCount[i] > 0) {
-            result.white += codeCount[i];
-        }
-    }
-
-    for(int i=0; i<4; i++) {
-        if(guess[i] != ' ') {
-            if(guessCount[guess[i]-'B'] > 0) {
+    for (int i = 0; i < 4; ++i) {
+        if (remainingGuess[i] != ' ') {
+            if (codeCount[code[i] - 'A'] > 0) {
+                result.white++;
+                codeCount[code[i] - 'A']--;
+            } else if (codeCount[guess[i] - 'A'] == -1) {
                 result.black++;
-                guessCount[guess[i]-'B']--;
             }
         }
     }
@@ -44,9 +44,12 @@ PegCounts mastermind(std::string code, std::string guess) {
 
 int main() {
     std::string code = "ABCD";
-    std::string guess = "";
     for(int i=0; i<4; i++) {
-        guess += 'B'; // or any other valid character
+        code += (i % 2 + 1) + 'A';
+    }
+    std::string guess;
+    for(int i=0; i<4; i++) {
+        guess += (i % 2) + 'B'; 
     }
     PegCounts result = mastermind(code, guess);
     std::cout << "White pegs: " << result.white << ", Black pegs: " << result.black << std::endl;
