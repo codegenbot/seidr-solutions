@@ -1,5 +1,5 @@
-```
-def parse_music(music_string: str) -> list:
+def parse_music() -> list:
+    music_string = input("Enter your music string: ")
     music_list = []
     i = 0
     while i < len(music_string):
