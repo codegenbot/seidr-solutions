@@ -5,10 +5,6 @@
 
 vector<string> split_words(string txt);
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
@@ -37,11 +33,15 @@ vector<string> split_words(string txt){
     return result;
 }
 
-int main() {
-    vector<string> input = split_words("hello, world");
-    vector<string> output = {"hello", "world"};
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
 
-    assert(issame(input, output));
+int main() {
+    vector<string> input1 = split_words("hello, world");
+    vector<string> input2 = split_words("cppcontest");
     
+    assert(issame(input1, input2) == false);
+
     return 0;
 }
