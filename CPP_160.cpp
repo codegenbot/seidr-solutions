@@ -4,7 +4,7 @@
 #include <cctype>
 #include <cstdlib>  
 #include <cmath>    
-#include <cstring>
+#include <cstring>  
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = 0;
