@@ -1,9 +1,10 @@
+```cpp
 using namespace std;
-std::pair<std::vector<int>, std::vector<int>> cutVector(vector<int>& v) {
+pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int n = v.size();
     long long total_sum = accumulate(v.begin(), v.end(), 0LL);
 
-    std::pair<long long, long long> prefix_sum({0LL}, accumulate(v.begin(), v.end(), 0LL));
+    pair<long long, long long> prefix_sum({0LL}, accumulate(v.begin(), v.end(), 0LL));
 
     int min_diff = INT_MAX;
     vector<int> left, right;
