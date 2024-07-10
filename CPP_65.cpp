@@ -1,10 +1,10 @@
-string num = to_string(x);
-    int len = num.length();
-    shift %= len;
+string circular_shift(int x, int shift) {
+    string num = to_string(x);
+    int n = num.size();
+    shift = shift % n;
     if (shift == 0) {
         return num;
-    } else {
-        string result = num.substr(len - shift) + num.substr(0, len - shift);
-        return result;
     }
+    string result = num.substr(n - shift) + num.substr(0, n - shift);
+    return result;
 }
