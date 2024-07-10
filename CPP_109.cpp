@@ -1,5 +1,7 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
+
+bool move_one_ball(std::vector<int>& arr);
 
 bool move_one_ball(std::vector<int>& arr) {
     int n = arr.size();
