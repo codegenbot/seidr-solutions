@@ -1,12 +1,7 @@
 #include <vector>
-#include <algorithm>
 
-bool issame(vector<float> a, vector<float> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(std::abs(a[i] - b[i]) > 1e-9) return false;
-    }
-    return true;
+bool issame(vector<float> a,vector<float>b){
+    // Your logic here
 }
 
 vector<float> get_positive(vector<float> l){
@@ -16,4 +11,12 @@ vector<float> get_positive(vector<float> l){
             result.push_back(i);
     }
     return result;
+}
+
+int main() {
+    vector<float> result = get_positive({1, -2, 3});
+    for (float i : result) {
+        cout << i << " ";
+    }
+    return 0;
 }
