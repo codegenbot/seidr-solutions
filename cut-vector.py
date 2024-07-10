@@ -15,7 +15,7 @@ def cut_vector(vector):
         elif abs(left_sum - right_sum) == min_diff:
             split_indices.append(i)
 
-    if len(vector) > 1: 
-        return vector[:1], vector[1:]
+    if split_indices:
+        return tuple(map(lambda x: vector[:x+1], split_indices)) + (vector[split_indices[-1]:],)
     else:
-        return [0], []
+        return [0], vector

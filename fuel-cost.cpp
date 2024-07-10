@@ -1,9 +1,3 @@
-```c++
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Werror"
-#include <vector>
-#include <cmath>
-
 int calculateFuelCost(std::vector<int>& vec) {
     int sum = 0;
     for (int num : vec) {
@@ -13,5 +7,3 @@ int calculateFuelCost(std::vector<int>& vec) {
         sum += result;
     }
     return sum;
-}
-#pragma GCC diagnostic pop
