@@ -13,18 +13,15 @@ int main() {
 
     do {
         cout << "Enter the code (4 characters from A to F): ";
-        cin >> code;
+        cin.ignore();
+        getline(cin, code);
     } while (!isValidInput(code));
 
     do {
         cout << "Enter your guess (4 characters from A to F): ";
-        cin >> guess;
+        cin.ignore();
+        getline(cin, guess);
     } while (!isValidInput(guess));
-
-    if (cin.fail()) {
-        cerr << "Input reading failed. Exiting program." << endl;
-        return 1;
-    }
 
     map<char, int> codeFreq, guessFreq;
 
