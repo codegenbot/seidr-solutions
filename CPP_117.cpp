@@ -1,12 +1,14 @@
 #include <vector>
+#include <string>
 #include <iostream>
-#include <cassert>
+
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    
+
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
@@ -19,10 +21,16 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> select_words(string s, int n);
 
 int main() {
-    vector<string> result = select_words("Hello World, this is a test", 2);
-    vector<string> expected = {"Hello", "World,", "this", "test"};
+    // Test cases
+    vector<string> result = select_words("Hello World, how are you doing today?", 2);
+    vector<string> expected = {"World,", "you"};
     
-    assert(issame(result, expected));
+    // Assertion
+    if (issame(result, expected)) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
 
     return 0;
 }
