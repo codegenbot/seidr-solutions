@@ -11,7 +11,7 @@ string string_to_md5(string text) {
 
     unsigned char md5[16];
     EVP_MD_CTX mdctx;
-    EVP_MD *md = EVP_sha1();
+    EVP_MD *md = EVP_md5();
     const unsigned char* input = (const unsigned char*)text.c_str();
     size_t len = text.size();
 
