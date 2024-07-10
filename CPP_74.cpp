@@ -1,5 +1,13 @@
 #include <vector>
 
+int countChars(const vector<string>& lst) {
+    int count = 0;
+    for (const string& str : lst) {
+        count += str.size();
+    }
+    return count;
+}
+
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
@@ -10,14 +18,6 @@ bool issame(vector<string> a, vector<string> b) {
         }
     }
     return true;
-}
-
-int countChars(const vector<string>& lst) {
-    int count = 0;
-    for (const string& str : lst) {
-        count += str.size();
-    }
-    return count;
 }
 
 vector<string> total_match(const vector<string>& lst1, const vector<string>& lst2) {
