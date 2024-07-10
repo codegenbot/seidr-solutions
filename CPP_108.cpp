@@ -1,4 +1,5 @@
 #include <vector>
+using namespace std;
 
 int count_nums(vector<int> nums) {
     int count = 0;
@@ -34,4 +35,10 @@ int count_nums(vector<int> nums) {
         }
     }
     return count;
+}
+
+int main() {
+    assert(count_nums({1}) == 1);
+    // Add more test cases or actual code here
+    return 0;
 }
