@@ -1,14 +1,15 @@
 def cut_vector(lst):
+    total_sum = sum(lst)
     min_diff = float("inf")
     split_idx = 0
 
     for i in range(1, len(lst)):
-        diff = abs(sum(lst[:i]) - sum(lst[i:]))
+        left_sum = sum(lst[:i])
+        right_sum = total_sum - left_sum
+        diff = abs(left_sum - right_sum)
 
-        if (diff == 0 and i > 1) or (diff < min_diff):
+        if (left_sum == right_sum) or (diff < min_diff):
             min_diff = diff
             split_idx = i
 
     return lst[:split_idx], lst[split_idx:]
-
-print(cut_vector([2, 1897, 2594]))
