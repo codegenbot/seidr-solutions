@@ -1,1 +1,1 @@
-values = list(map(int, input("Enter the values in the list separated by spaces: ").split()))
+values = list(map(int, input("Enter space-separated values: ").split()))
