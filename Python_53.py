@@ -1,4 +1,5 @@
 try:
+    print("Enter two integers separated by a space:")
     a, b = map(int, input().split())
     result = a + b
     print(result)
