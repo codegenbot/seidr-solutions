@@ -1,4 +1,3 @@
-```
 from typing import Tuple
 
 def find_closest_elements() -> Tuple[float, float]:
@@ -7,9 +6,6 @@ def find_closest_elements() -> Tuple[float, float]:
             numbers = [float(num) for num in input("Enter space-separated numbers: ").split()]
             if not numbers:  
                 print("Please enter some numbers.")
-                continue
-            elif len(numbers) < 2:
-                print("Please enter at least two numbers.")
                 continue
 
             numbers.sort()
@@ -23,8 +19,7 @@ def find_closest_elements() -> Tuple[float, float]:
                     closest_pair = (numbers[i], numbers[i + 1])
 
             return closest_pair
+            break
 
         except ValueError:
             print("Invalid input. Please enter valid decimal or integer values.")
-
-print(find_closest_elements())
