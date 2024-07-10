@@ -15,12 +15,12 @@ vector<int> computeLPSArray(string target) {
     int length = 0;
 
     for (int i = 1; i < m; i++) {
-        while (length > 0 && i < length) {
-            if (target[i] != target[length]) {
-                length = lps[length - 1];
-            } else {
-                length++;
-            }
+        while (length > 0 && target[i] != target[length]) {
+            length = lps[length - 1];
+        }
+
+        if (target[i] == target[length]) {
+            length++;
         }
 
         lps[i] = length;
@@ -37,10 +37,9 @@ vector<int> indicesOfSubstring(string text, string target) {
     vector<int> lps = computeLPSArray(target);
 
     for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
-            result.push_back(i);
-            i += m - 1; // Skip the matched portion
-        }
+        int j;
+        for (j = 0; j < m && text[i + j] == target[j]; j++)
+            if (j == m - 1) result.push_back(i);
     }
 
     return result;
