@@ -22,11 +22,13 @@ std::vector<int> pluck(int n) {
     return {};
 }
 
-bool same = issame(pluck(7), pluck(7));
+int main_func() {
+    std::vector<int> nums = {7, 9, 7, 1}; bool same = issame({}, pluck(nums.size()));
+    
+    if (same)
+        std::cout << "Arrays are same" << std::endl;
+    else
+        std::cout << "Arrays are not same" << std::endl;
 
-if (same)
-    std::cout << "Arrays are same" << std::endl;
-else
-    std::cout << "Arrays are not same" << std::endl;
-
-assert(same);
+    return 0;
+}

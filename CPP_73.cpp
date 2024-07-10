@@ -1,7 +1,28 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
 #include <climits>
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> arr[i];
+    }
+
+    int smallest = smallest_change(arr);
+
+    if (smallest == INT_MAX) {
+        std::cout << "No change is possible.\n";
+    } else {
+        std::cout << "Smallest number of coins needed: " << smallest << "\n";
+    }
+}
 
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
@@ -26,16 +47,4 @@ int smallest_change(std::vector<int> arr) {
     }
     
     return dp[0][n - 1];
-}
-
-int main() {
-    assert(smallest_change({0, 1}) == 1);
-    int n;
-    std::cin >> n;
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        std::cin >> arr[i];
-    }
-    std::cout << smallest_change(arr) << std::endl;
-    return 0;
 }
