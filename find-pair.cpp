@@ -3,25 +3,26 @@
 #include <map>
 
 int main() {
+    using namespace std;
+
     int n;
-    std::cin >> n;
-    std::vector<int> nums(n);
+    cin >> n;
+    vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
     int target;
-    std::cin >> target;
-    
-    std::map<int, int> mp;
+    cin >> target;
+
+    map<int, int> mp;
     for (int i = 0; i < n; ++i) {
-        int complement = target - nums[i];
-        if (mp.find(complement) != mp.end()) {
-            std::cout << complement << std::endl;
-            std::cout << nums[i] << std::endl;
+        if (mp.find(target - nums[i]) != mp.end()) {
+            cout << nums[i] << endl;
+            cout << target - nums[i] << endl;
             break;
         }
         mp[nums[i]] = i;
     }
-    
+
     return 0;
 }
