@@ -4,9 +4,9 @@ def minPath(grid, k):
 
     def dfs(i, j, path, visited):
         if len(path) > k:
-            return
+            return []
         if (i, j) in visited:
-            return
+            return []
         if len(path) == k:
             return [path]
         visited.add((i, j))
@@ -16,4 +16,4 @@ def minPath(grid, k):
                 paths.extend(dfs(x, y, path + [grid[x][y]], visited.copy()))
         return min(paths, key=len)
 
-    return dfs(0, 0, [grid[0][0]], {(0, 0)})
+    return dfs(0, 0, [grid[0][0]], set())
