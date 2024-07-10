@@ -1,5 +1,5 @@
 namespace std {
-    using ::std::string;
+using ::std::string;
 }
 
 string longest(vector<string> strings){
