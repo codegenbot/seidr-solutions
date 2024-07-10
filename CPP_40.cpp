@@ -16,7 +16,11 @@ bool triples_sum_to_zero(const std::vector<int>& l) {
     return false;
 }
 
-int main() {
+void test_triples_sum_to_zero() {
     assert(triples_sum_to_zero({100, 3, 5, -100}) == false);
+}
+
+int main() {
+    test_triples_sum_to_zero();
     return 0;
 }
