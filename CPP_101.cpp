@@ -1,11 +1,11 @@
+#include <cassert>
 #include <vector>
 #include <string>
 #include <sstream>
-#include <cassert>
 
 using namespace std;
 
-vector<string> words_string(string s){
+vector<string> words_string(string s) {
     vector<string> words;
     stringstream ss(s);
     string word;
@@ -17,7 +17,8 @@ vector<string> words_string(string s){
     return words;
 }
 
-int main(){
+int main() {
     assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
+    
     return 0;
 }
