@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -21,6 +20,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     groups = ''
             else:
                 return []
-    if groups:  
+    if groups:  # Check for unmatched '('
         return [groups]
     return result
