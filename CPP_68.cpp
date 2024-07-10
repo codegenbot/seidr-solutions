@@ -29,7 +29,7 @@ std::vector<int> pluck(const std::vector<int>& arr) {
 void tests() {
     assert(compareVectors(pluck({1, 3, 5, 2, 4, 6}), std::vector<int>{2, 3}));
     assert(compareVectors(pluck({7, 9, 2, 4, 6}), std::vector<int>{2, 2}));
-    assert(pluck({7, 9, 7, 1}).empty());
+    assert(compareVectors(pluck({7, 9, 7, 1}), std::vector<int>{}); // Updated test
 }
 
 int main() {
