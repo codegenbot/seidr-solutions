@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 bool is_nested(std::string str) {
@@ -9,10 +10,10 @@ bool is_nested(std::string str) {
             else close++;
         }
     }
-    return open != 0 || close > 0;
+    return close == 0;
 }
 
-int main() {
+int main() { 
     std::string input;
     std::cout << "Enter your string: ";
     std::cin >> input;
