@@ -1,6 +1,9 @@
+Here is the modified code:
+
 ```cpp
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 bool sameVectors(std::vector<int> a, std::vector<int> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
