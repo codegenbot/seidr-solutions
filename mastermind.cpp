@@ -1,5 +1,6 @@
-#include <vector>
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -33,3 +34,4 @@ int main() {
     cout << white << endl;
     cout << black << endl;
     return 0;
+}
