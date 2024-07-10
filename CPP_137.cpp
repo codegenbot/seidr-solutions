@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
-#include <boost/any.hpp>
-#include <boost/convert.hpp>
+#include <limits>
 
 using namespace std;
 
@@ -21,15 +20,11 @@ int main() {
         else
             cout << "The result is: " << a << endl;
     } else {
-        try {
-            int b = stoi(str);
-            if(b > a) 
-                cout << "The result is: " << b << endl;
-            else
-                cout << "The result is: " << a << endl;
-        } catch (invalid_argument& e) {
-            cout << "Invalid input. Please enter an integer or floating point number." << endl;
-        }
+        int b = stoi(str);
+        if(static_cast<double>(b) > a) 
+            cout << "The result is: " << b << endl;
+        else
+            cout << "The result is: " << a << endl;
     }
 
     return 0;
