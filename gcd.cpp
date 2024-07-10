@@ -1,37 +1,41 @@
 #include <vector>
-#include <iostream>
-#include <string>
+using namespace std;
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> result;
-    int start = 0;
-    while (start < text.size()) {
-        size_t pos = text.find(target, start);
-        if (pos == std::string::npos) break;
-        result.push_back(pos);
-        start = pos + 1;
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.length();
+    int m = target.length();
+
+    for(int i = 0; i <= n - m; i++){
+        if(text.substr(i,m) == target){
+            result.push_back(i);
+        }
     }
+
     return result;
 }
 
 int gcd(int a, int b) {
-    if (b == 0) return a;
-    return gcd(b, a % b);
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
 
 int main() {
     int a, b;
-    std::cin >> a >> b;
-    std::cout << gcd(a, b) << "\n";
-    
-    std::string text, target;
-    std::cin >> text >> target;
-    std::cout << "[";
-    for (const auto& i : indicesOfSubstring(text, target)) {
-        std::cout << i;
-        if (i < text.size() - target.size()) std::cout << ", ";
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
+
+    string text, target;
+    cin >> text >> target;
+    vector<int> result = indicesOfSubstring(text, target);
+    for(int i: result){
+        cout << i << " ";
     }
-    std::cout << "]\n";
+    cout << endl;
 
     return 0;
 }
