@@ -5,7 +5,13 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-n = int(input())
-m = int(input())
+def indices_of_substring(text, target):
+    result = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            result.append(i)
+    return result
 
-print(gcd(n, m))
+# test the functions
+print(gcd(int(input()), int(input())))
+print(indices_of_substring(input(), input()))
