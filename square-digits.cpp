@@ -1,9 +1,6 @@
-Here is the solution:
-
-string squareDigits(long int n) {
-    string s = to_string(n);
+string squareDigits(string n) {
     string res = "";
-    for (char c : s) {
+    for (char c : n) {
         int digit = c - '0';
         res += to_string(digit * digit);
     }
