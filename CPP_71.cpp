@@ -13,8 +13,8 @@ float triangle_area(float a, float b, float c) {
 }
 
 int main() {
-    assert(std::abs(triangle_area(2, 2, 10) +1)<0.01);
-    float result = triangle_area(2, 2, 10);
-    std::cout << "The area of the triangle is: " << (double)result << std::endl;
+    assert(std::abs(triangle_area(std::stof(std::cin.get()), std::stof(std::cin.get()), std::stof(std::cin.get())) + 1)<0.01);
+    float result = triangle_area(std::stof(std::cin.get()), std::stof(std::cin.get()), std::stof(std::cin.get()));
+    std::cout << "The area of the triangle is: " << static_cast<int>(result) << std::endl;
     return 0;
 }
