@@ -1,17 +1,16 @@
+```Python
 from typing import List, Tuple
 
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    if not numbers:
+        return 0, 1
+
     total_sum = 0
     product = 1
 
-    for num in numbers:
-        total_sum += num
-        product *= num
+    for number in numbers:
+        total_sum += number
+        product *= number
 
-    return total_sum, product if product != 0 else 1
-
-
-numbers = [int(x) for x in input("Enter numbers (space separated): ").split()]
-total_sum, product = sum_product(numbers)
-print(f"Sum: {total_sum}, Product: {product}")
+    return total_sum, product
