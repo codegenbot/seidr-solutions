@@ -9,16 +9,3 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
-
-    int main() {
-        std::vector<int> nums;
-        int n;
-        std::cout << "Enter the number of elements: ";
-        std::cin >> n;
-        for (int i = 0; i < n; i++) {
-            std::cout << "Enter element " << i + 1 << ": ";
-            std::cin >> nums.push_back(i);
-        }
-        std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
-        return 0;
-    }
