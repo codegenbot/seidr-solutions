@@ -1,8 +1,8 @@
 #include <vector>
 #include <iostream>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && std::all_of(a.begin(), a.end(), [&](int x) { return std::binary_search(b.begin(), b.end(), x); });
+bool same(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 std::vector<int> filter_integer(std::vector<int> values) {
@@ -23,7 +23,7 @@ int main() {
     std::vector<int> vector1 = {num1};
     std::vector<int> vector2 = {num2};
 
-    if(issame(vector1, vector2)) {
+    if(same(vector1, vector2)) {
         std::cout << "Vectors are same." << std::endl; 
     }
     else {
@@ -37,6 +37,6 @@ int main() {
     }
     std::cout << std::endl;
 
-    assert(issame({3, 3, 3}, {3, 3, 3}));
+    assert(same({3, 3, 3}, {3, 3, 3}));
     return 0;
 }
