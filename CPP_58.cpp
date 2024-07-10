@@ -1,22 +1,39 @@
+```cpp
+#include <set>
 #include <vector>
-using namespace std;
 
-bool issame(vector<int> a,vector<int>b) {
-    if(a.size() != b.size()) return false;
-    for(int i =0 ;i<a.size();i++){
-        if(a[i] != b[i])return false;
-    }
-    return true;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-vector<int> common(vector<int> l1, vector<int> l2) {
+int main() {
+    vector<int> l1 = {1, 2, 3};
+    vector<int> l2 = {2, 3, 4};
+
+    bool same = issame(l1, l2);
+    
+    vector<int> common = common(l1, l2);
+
+    if (same) {
+        cout << "Lists are the same." << endl;
+    } else {
+        cout << "Common elements: ";
+        for(int i : common) {
+            cout << i << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+vector<int> common(vector<int> l1, vector<int> b) {
     set<int> s1(l1.begin(), l1.end());
-    set<int> s2(l2.begin(), l2.end());
+    set<int> s2(b.begin(), b.end());
 
     set<int> intersection;
     set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-                      inserter(intersection, intersection.begin()));
+        inserter(intersection, intersection.begin()));
 
-    vector<int> result(intersection.begin(), intersection.end());
-    return result;
+    return vector<int>(intersection.begin(), intersection.end());
 }
