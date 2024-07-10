@@ -1,22 +1,17 @@
 string find_max(vector<string> words){
-    string max_word = *words.begin();
-    int max_unique_chars = 0;
-
-    for(const auto& word : words){
-        int unique_chars = 0;
-        set<char> s(word.begin(), word.end());
-
-        if(s.size() > max_unique_chars){
-            max_word = word;
-            max_unique_chars = s.size();
+    string result = *min_element(words.begin(), words.end(), 
+        [&](const string& s1, const string& s2) {
+            if (s1.size() == s2.size())
+                return s1 < s2;
+            return s1.size() > s2.size();
+        });
+    for (string str : words) {
+        set<char> uniqueChars(str.begin(), str.end());
+        if (uniqueChars.size() > result.size()) {
+            result = str;
+        } else if (uniqueChars.size() == result.size()) {
+            result = min(result, str);
         }
-        else if(s.size() == max_unique_chars)
-            minmax_element(words.begin(), words.end(),
-                [&s, &max_word](const string& a, const string& b) {
-                    return a < b;
-                }) -> first == &words.at(0);
-
     }
-
-    return max_word;
+    return result;
 }
