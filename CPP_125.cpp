@@ -35,7 +35,4 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-int main() {
-    assert(static_cast<bool>(issame(split_words(""))));
-    return 0;
-}
+assert(static_cast<bool>(issame(split_words(""))));
