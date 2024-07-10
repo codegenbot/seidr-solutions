@@ -1,2 +1,2 @@
-def all_prefixes(string: str) -> List[str]:
-    return [string[:i] for i in range(1, len(string) + 1)]
+def all_prefixes(s: str) -> list:
+    return [s[:i] for i in range(1, len(s) + 1)]
