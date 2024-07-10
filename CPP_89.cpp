@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 string encrypt(string s) {
     string result = "";
     for (char c : s) {
@@ -8,4 +12,9 @@ string encrypt(string s) {
         result += c;
     }
     return result;
+}
+
+int main() {
+    assert(encrypt("a") == "e");
+    return 0;
 }
