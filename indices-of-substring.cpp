@@ -1,5 +1,7 @@
 ```
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     std::vector<int> result;
@@ -17,9 +19,9 @@ std::vector<int> indicesOfSubstring(std::string text, std::string target) {
 
 int main() {
     std::string text;
-    cin >> text;
+    std::cin >> text;
     std::string target;
-    cin >> target;
+    std::cin >> target;
 
     std::vector<int> indices = indicesOfSubstring(text, target);
 
