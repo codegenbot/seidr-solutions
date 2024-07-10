@@ -20,11 +20,11 @@ int main() {
     string input;
     float x;
     while (true) { 
-        cin >> x; 
-        if(stoi(to_string(x)) == "stop") break;
-        a.push_back((float)x);
-    }
-    cin.ignore(); 
+        cin >> input; 
+        if(input == "stop") break;
+        a.push_back(stof(input)); // convert string to float
+        cin >> std::ws; // Add this line to ignore whitespace characters
+    } 
 
     cout << "Enter the threshold: ";
     cin >> threshold;
