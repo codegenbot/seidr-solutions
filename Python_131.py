@@ -1,4 +1,4 @@
-```python
+```
 def digits(n):
     max_product = 1
     while n:
