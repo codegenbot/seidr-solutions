@@ -30,5 +30,6 @@ int sumOfDigits(int n) {
 }
 
 int main() {
-    assert(skkasdkd({127, 97, 8192}) == 10);
+    assert (skjkasdkd({127, 97, 8192}) == 10);
+    return 0;
 }
