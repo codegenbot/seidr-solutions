@@ -27,4 +27,4 @@ def is_prime(n):
 
 
 def modp(num, p):
-    return num ** p % p
+    return (pow(num, p) % p)
