@@ -1,11 +1,8 @@
-def basement(vector):
-    for i in range(len(vector)):
-        sum_val = sum(vector[:i+1])
-        if sum_val < 0:
-            return i
+Here is the Python solution:
 
-print(basement([1, -1])) # Expected output: 0
-print(basement([1, -100])) # Expected output: 0
-print(basement([2, -1, 100])) # Expected output: 0
-print(basement([2, -95, 100])) # Expected output: 0
-print(basement([2, -30, 5])) # Expected output: 0
+def basement_index(nums):
+    for i, num in enumerate(nums):
+        running_sum = sum(nums[:i+1])
+        if running_sum < 0:
+            return i
+    return -1
