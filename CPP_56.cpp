@@ -1,12 +1,16 @@
-int stack_size = 0;
-for(int i=0; i<brackets.size();i++){
-    if(brackets[i] == '<'){
-        stack_size++;
+#include <string>
+using namespace std;
+
+bool correct_bracketing(string brackets) {
+    int opening = 0;
+    for (char bracket : brackets) {
+        if (bracket == '<') {
+            opening++;
+        } else if (bracket == '>') {
+            if (opening == 0)
+                return false;
+            opening--;
+        }
     }
-    else if(brackets[i] == '>'){
-        if(stack_size <= 0)
-            return false;
-        stack_size--;
-    }
+    return opening == 0;
 }
-return stack_size == 0;
