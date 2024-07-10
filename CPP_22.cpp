@@ -7,12 +7,8 @@ std::vector<int> filter_integers(std::list<bool> values) {
     for (const auto& value : values) {
         if (value) {
             int val = 0;
-            try {
-                std::cin >> val;
-                result.push_back(val);
-            } catch (...) {
-                // handle exception
-            }
+            std::cin >> val;
+            result.push_back(val);
         }
     }
     return result;
