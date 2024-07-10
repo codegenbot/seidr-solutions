@@ -4,6 +4,10 @@
 #include <iterator>
 #include <cassert>
 
+namespace std {
+    using ::vector;
+}
+
 std::vector<int> common(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
     std::sort(a.begin(), a.end());
