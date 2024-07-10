@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <algorithm>
+
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -8,6 +13,17 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
         }
     }
     return true;
+}
+
+std::vector<float> sort_even(std::vector<float> vec) {
+    std::vector<float> even_sorted;
+    for (const auto& num : vec) {
+        if (static_cast<int>(num) % 2 == 0) {
+            even_sorted.push_back(num);
+        }
+    }
+    std::sort(even_sorted.begin(), even_sorted.end());
+    return even_sorted;
 }
 
 int main() {
