@@ -37,6 +37,6 @@ int main() {
     }
     std::cout << std::endl;
 
-    assert(same({3, 3, 3}, {3, 3, 3}));
+    assert(same({1, 1, 1}, {1, 1, 1}));
     return 0;
 }
