@@ -1,23 +1,25 @@
+#include <string>
+using namespace std;
+
 int mastermind(string code, string guess) {
-    int blackPegs = 0;
-    int whitePegs = 0;
-
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-        }
-    }
-
-    for (char c : code) {
-        bool found = false;
-        for (int j = 0; j < 4; ++j) {
-            if (guess[j] == c && !found) {
-                found = true;
-            } else if (guess[j] == c) {
-                whitePegs++;
+    int white = 0;
+    int black = 0;
+    
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
+            black++;
+        } else {
+            bool found = false;
+            for(int j=0; j<4; j++) {
+                if(guess[j] == code[i] && i != j) {
+                    found = true;
+                    break;
+                }
             }
+            if(!found)
+                white++;
         }
     }
-
-    return blackPegs, whitePegs;
+    
+    return black + white;
 }
