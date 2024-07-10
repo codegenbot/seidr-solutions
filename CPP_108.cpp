@@ -31,6 +31,7 @@ int main() {
         std::cin >> nums[i]; 
     }
     if (nums.empty()) {  
+        std::cout << "No numbers were read." << std::endl;
         return 0;
     }
     std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
