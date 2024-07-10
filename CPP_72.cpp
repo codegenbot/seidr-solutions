@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-bool isPalindrome(string s) {
+bool isPalindrome(std::string s) {
     int left = 0, right = s.length() - 1;
     while (left < right) {
         if (s[left] != s[right]) return false;
@@ -12,10 +13,10 @@ bool isPalindrome(string s) {
     return true;
 }
 
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
     if (!isPalindrome(str)) return false;
     int sum = 0;
