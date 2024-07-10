@@ -7,28 +7,18 @@ std::string toCamelCase(const std::string& s) {
 
     for (char c : s) {
         if (c == '-') {
-            if (!result.empty()) {
-                if (capitalize) {
-                    result += toupper(result.back());
-                    capitalize = false;
-                }
-                result.push_back(' ');
-            }
+            capitalize = true;
         } else if (capitalize) {
             if (!result.empty()) {
                 result += ' ';
             }
             result += toupper(c);
             capitalize = false;
+        } else if (c == ' ') {
+            capitalize = true;
         } else {
             result += tolower(c);
-            capitalize = true;
         }
-    }
-
-    // Remove trailing space
-    if (!result.empty()) {
-        result.pop_back();
     }
 
     return result;
