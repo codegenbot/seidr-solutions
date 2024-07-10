@@ -1,14 +1,11 @@
-```cpp
-#include <vector>
-#include <set>
-#include <string>
+using namespace std;
 
-std::vector<std::string> reverse_delete(std::string s, std::string c) {
-    std::vector<std::string> result;
+std::vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
     
-    std::set<char> c_set(c.begin(), c.end());
+    set<char> c_set(c.begin(), c.end());
     
-    std::string temp = "";
+    string temp = "";
     
     for (char ch : s) {
         if (c_set.find(ch) == c_set.end()) {
@@ -32,14 +29,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-bool std::operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    return (a == b);
 }
