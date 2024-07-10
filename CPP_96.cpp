@@ -1,5 +1,5 @@
 #include <vector>
-#include <cmath>
+#include <algorithm>
 
 std::vector<int> count_up_to(int n) {
     std::vector<int> result;
