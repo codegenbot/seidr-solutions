@@ -1,43 +1,58 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
-std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
-    std::vector<int> result;
+using namespace std;
+
+vector<int> compare(vector<int> game, vector<int> guess) {
+    vector<int> result;
     for (int i = 0; i < game.size(); i++) {
-        if (game[i] == guess[i]) {
-            result.push_back(1);
-        } else {
-            result.push_back(0);
-        }
+        int diff = abs(guess[i] - game[i]);
+        result.push_back(diff);
     }
     return result;
 }
 
-bool issame(std::vector<int> game, std::vector<int>) {
-    for (int i = 0; i < game.size(); i++) {
-        if (game[i] != i) {
-            return false;
-        }
-    }
-    return true;
+bool issame(vector<int> game, vector<int> guess) {
+    if(game == guess)
+        return true;
+    else
+        return false;
 }
 
 int main() {
-    std::vector<int> game = {1, 2, 3};
-    std::vector<int> guess = {1, 3, 2};
+    vector<int> game;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
     
-    std::vector<int> result = compare(game, guess);
+    for(int i = 0; i < n; i++) {
+        int x;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> x;
+        game.push_back(x);
+    }
     
-    if (issame(game, guess)) {
-        for (int i : result) {
-            std::cout << i;
-        }
-        std::cout << std::endl;
+    vector<int> guess;
+    cout << "\nEnter the number of elements: ";
+    cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        int x;
+        cout << "Enter element " << i+1 << ": ";
+        cin >> x;
+        guess.push_back(x);
+    }
+    
+    vector<int> res = compare(game, guess);
+    
+    if(issame(game, guess)) {
+        cout << "\nGuess is same as game.\n";
     } else {
-        for (int i : result) {
-            std::cout << i;
-        }
-        std::cout << std::endl;
+        cout << "\nGame and Guess are different.\n";
+    }
+    
+    for(int i = 0; i < n; i++) {
+        cout << "Difference at position " << i+1 << ": " << res[i] << endl;
     }
     
     return 0;
