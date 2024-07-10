@@ -1,11 +1,12 @@
 int luhn(std::vector<int> card) {
+    std::reverse(card.begin(), card.end()); // Reverse the card
     int sum = 0;
     bool doubleNext = false;
 
     for (int i = card.size() - 1; i >= 0; --i) {
         int digit = card[i];
 
-        if (doubleNext && i % 2 == 1) {
+        if (doubleNext) {
             digit *= 2;
             if (digit > 9) {
                 digit -= 9;
