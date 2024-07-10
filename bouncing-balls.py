@@ -5,9 +5,9 @@ num_bounces = int(input())
 
 total_distance = 0
 for _ in range(num_bounces):
-    start_height *= 2
-    distance = start_height + first_bounce_height
+    start_height *= 2 
+    distance = start_height + first_bounce_height 
     total_distance += distance
-    first_bounce_height = start_height
+    first_bounce_height = start_height 
 
 print(str(int(total_distance)))
