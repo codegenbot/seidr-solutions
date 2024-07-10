@@ -3,10 +3,18 @@ from typing import List
 
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return [num for num in set(numbers)]
+    return list(dict.fromkeys(numbers))
 
 
 if __name__ == "__main__":
-    numbers = input("Enter numbers (comma-separated): ").split(",")
-    numbers = [int(num.strip()) for num in numbers]
-    print(remove_duplicates(numbers))
+    while True:
+        numbers = input("Enter numbers (comma-separated): ").strip()
+        if numbers:
+            try:
+                numbers = [int(num) for num in numbers.split(",")]
+                print(remove_duplicates(numbers))
+                break
+            except ValueError:
+                print("Invalid input. Please enter comma-separated integers.")
+        else:
+            print("Invalid input. Please enter some values.")
