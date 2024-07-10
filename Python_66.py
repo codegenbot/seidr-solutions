@@ -1,3 +1,5 @@
+Here's the corrected code:
+
 def digitSum(s):
     s = s.lower()
     total = 0
