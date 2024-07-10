@@ -1,4 +1,3 @@
-```
 print("Fibonacci Number Calculator")
 n = int(input("Enter the number: "))
 print(fibfib(n))
