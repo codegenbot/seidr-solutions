@@ -15,7 +15,7 @@ int starts_one_ends(int n) {
                 start_with_one = true;
             }
             char c = (i % 2 == 0 ? '0' : '1');
-            str += c;
+            str += (c == '0' ? '1' : '0');
         }
 
         for (int j = n - 1; j >= 0; j--) {
@@ -23,7 +23,7 @@ int starts_one_ends(int n) {
                 end_with_one = true;
             }
             char c = (i % 2 == 0 ? '0' : '1');
-            str += c;
+            str += (c == '0' ? '1' : '0');
         }
 
         if ((start_with_one || i == 1) && (end_with_one || i == pow(10, n-1))) {
