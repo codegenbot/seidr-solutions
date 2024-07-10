@@ -1,3 +1,6 @@
+#include <string>
+#include <openssl/ssl.h>
+#include <openssl/evp.h>
 #include <openssl/errqueue.h>
 
 using namespace std;
