@@ -1,26 +1,21 @@
+#include <vector>
+using namespace std;
+
 int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
-    vector<int> rolls;
-
     for (char c : s) {
-        if (c == '/') {
-            score += min(10, roll);
-            roll = 0;
-        } else if (c == 'X') {
-            score += 10;
+        if (c == 'X') {
+            score += 30;
+            roll++;
+        } else if (c == '/') {
+            score += 10 + (roll - 1) * 10;
             roll = 0;
         } else {
-            int val = c - '0';
-            roll += val;
+            int currentRoll = stoi(string(1, c));
+            score += currentRoll;
+            if (roll < 2) roll++;
         }
     }
-
-    if (roll > 0) {
-        score += min(10, roll);
-    } else if (roll == 10) {
-        score += 10;
-    }
-
     return score;
 }
