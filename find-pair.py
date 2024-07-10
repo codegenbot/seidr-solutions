@@ -1,4 +1,3 @@
-```
 def find_pair():
     num_cases = int(input())
     for _ in range(num_cases):
@@ -16,3 +15,7 @@ def find_pair():
                 left += 1
             else:
                 right -= 1
+
+
+if __name__ == "__main__":
+    find_pair()
