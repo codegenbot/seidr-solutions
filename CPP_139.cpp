@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-#include <string>
+#include <limits>
 
 using namespace std;
 
@@ -16,6 +16,5 @@ int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    string str = to_string(n);
-    cout << "The special factorial of " << str << " is: " << special_factorial(stoi(str)) << endl;
+    cout << "The special factorial of " << n << " is: " << special_factorial(n) << endl;
 }
