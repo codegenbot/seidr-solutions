@@ -1,3 +1,7 @@
+```
+#include <string>
+using namespace std;
+
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
@@ -32,10 +36,6 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-#include <string>
-using namespace std;
-
-bool issame(vector<string> a,vector<string>b){
+bool issame(vector<string> a, vector<string>b){
     return a == b;
 }
-```
