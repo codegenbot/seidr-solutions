@@ -1,6 +1,7 @@
-#include <initializer_list>
+```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     int oddCount = 0;
