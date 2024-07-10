@@ -30,7 +30,7 @@ int calculateBowlingScore(string input) {
             // No pins knocked down, continue to the next ball
         } else {
             frames[frame] += c - '0';
-        
+            
             if (ball % 2 == 1 || c == '9') {
                 frame++;
             }
