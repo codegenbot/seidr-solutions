@@ -9,10 +9,12 @@ std::string int_to_roman(int num) {
     if (num > 3999) {
         return "";
     }
-    std::ostringstream oss;
+    std::ostringstream oss("");
     int thousands = num / 1000;
     for (int i = 0; i < thousands; i++) {
-        oss << "M";
+        for (int i2 = 0; i2 < thousands; i2++) {
+            oss << "M";
+        }
     }
     num %= 1000;
     int hundreds = num / 100;
