@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 std::string solve(int n, int m) {
     if (n > m) {
@@ -27,6 +28,5 @@ int main() {
     int n, m;
     std::cin >> n >> m;
     std::cout << solve(n, m) << std::endl;
-  
     return 0;
 }
