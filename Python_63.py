@@ -1,7 +1,6 @@
-```
 n = int(input("Enter the number: "))
 
-def fibfib(n):
+def fib(n):
     if n <= 1:
         return [1]
     elif n == 2:
@@ -14,4 +13,4 @@ def fibfib(n):
             fib_sequence.append(b)
         return fib_sequence
 
-print(fibfib(n))
+print(fib(n))
