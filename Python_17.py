@@ -1,6 +1,5 @@
 import sys
 
-print("Enter music data:")
 music_input = sys.stdin.readline().strip()
 
 def parse_music(music_data: str):
