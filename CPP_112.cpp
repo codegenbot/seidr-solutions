@@ -1,4 +1,3 @@
-```
 vector<string> result;
 for (char ch : s) {
     bool found = false;
