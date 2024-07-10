@@ -13,18 +13,20 @@ bool is_simple_power(int x, int n) {
 int main() {
     std::string xStr;
     std::cout << "Enter a number: ";
-    std::getline(std::cin, xStr);
-    int x = std::stoi(xStr);
+    int tempX;
+    std::cin >> tempX;
+    xStr = std::to_string(tempX);
 
     std::string nStr;
     std::cout << "Enter another number: ";
-    std::getline(std::cin, nStr);
-    int n = std::stoi(nStr);
+    int tempN;
+    std::cin >> tempN;
+    nStr = std::to_string(tempN);
     
-    if(is_simple_power(x, n))
-        std::cout << (x == y ? x << " is a simple power of " << n : x << " is not a simple power of " << n) << std::endl;
+    if(is_simple_power(std::stoi(xStr), std::stoi(nStr)))
+        std::cout << (std::stoi(xStr) == pow(std::stod(nStr), log(std::stod(xStr)) / log(std::stod(nStr))) ? xStr + " is a simple power of " + nStr : xStr + " is not a simple power of " + nStr) << std::endl;
     else
-        std::cout << (x == y ? x << " is a simple power of " << n : x << " is not a simple power of " << n) << std::endl;
+        std::cout << (std::stoi(xStr) == pow(std::stod(nStr), log(std::stod(xStr)) / log(std::stod(nStr))) ? xStr + " is a simple power of " + nStr : xStr + " is not a simple power of " + nStr) << std::endl;
 
     return 0;
 }
