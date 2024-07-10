@@ -1,9 +1,12 @@
+```cpp
+#include <vector>
+#include <cmath>
+
 int calculateFuelCost(std::vector<int>& vec) {
     int sum = 0;
     for (int num : vec) {
-        int result = static_cast<int>(floor((double)num / 3));
-        result -= 2; 
-        sum += result;
+        double result = static_cast<double>(num) / 3;
+        sum += std::floor(result) - 2;
     }
     return sum;
 }
