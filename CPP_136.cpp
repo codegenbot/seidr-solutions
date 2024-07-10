@@ -18,11 +18,6 @@ namespace MyNamespace {
             }
         }
 
-        return {{std::max(max_negative, (int)0), std::min(min_positive, (int)1)}};
+        return {{std::max(max_negative, 0), std::min(min_positive, 1)}};
     }
-}
-
-int main() {
-    assert(MyNamespace::isSame({std::max(-6, 0), std::min(1, -100)}, {-3, 1}));
-    return 0;
 }
