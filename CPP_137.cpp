@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -22,16 +23,10 @@ int main() {
 
     if (str.find('.') != string::npos) { 
         double b = stod(str);
-        if(b > a)
-            cout << "The result is: " << b << endl;
-        else
-            cout << "The result is: " << a << endl;
+        cout << "The result is: " << compare_one(a, b) << endl;
     } else {
         int b = stoi(str);
-        if(b > a)
-            cout << "The result is: " << b << endl;
-        else
-            cout << "The result is: " << a << endl;
+        cout << "The result is: " << compare_one(a, static_cast<double>(b)) << endl;
     }
 
     return 0;

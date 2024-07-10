@@ -17,6 +17,7 @@ int main() {
         std::cout << "Invalid input. Please enter a non-negative integer.\n";
     } else {
         double result = sum_squares(n);
-        std::cout << "Sum of squares: " << result << std::endl;
+        std::cout << "Sum of squares: " << std::to_string(result) << std::endl;
     }
+    assert(sum_squares(-1) == -1 + 1 + 289 - 1 - 225 + 169 - 1 + 196 - 196 - 144 - 25);
 }

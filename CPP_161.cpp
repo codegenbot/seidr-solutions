@@ -17,9 +17,10 @@ int main() {
     std::cout << "Enter a string: ";
     std::string s;
     std::getline(std::cin, s);
-    if (s.back() == '\n') {
-        s.pop_back();
+    std::string result = solve(std::move(s));
+    if (!result.empty()) {
+        std::cout << "Result: " << result << std::endl;
+    } else {
+        std::cout << "Result: " << s << std::endl; 
     }
-    std::string result = solve(s);
-    std::cout << "Result: " << result << std::endl;
 }

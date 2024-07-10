@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -20,5 +21,6 @@ int main() {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
+    assert(num > 0); 
     std::cout << "The mini Roman numeral is: " << int_to_mini_roman(num) << std::endl;
 }
