@@ -1,4 +1,3 @@
-```
 #include <cassert>
 #include <string>
 
@@ -11,7 +10,7 @@ int solve(std::string s) {
     return s.length();
 }
 
-int testMain() {
-    assert(solve("#ccc") == 3);
+int main() {
+    assert(solve("#ccc") == 3); // Change this to a valid assertion
     return 0;
 }
