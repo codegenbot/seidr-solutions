@@ -1,6 +1,8 @@
 def increment_list_elements(l):
     return [x + 1 for x in l]
 
+def check(func):
+    # Add your implementation
+    pass
 
-incr_list = [1, 2, 3, 4, 5]
-print(increment_list_elements(incr_list))
+check(increment_list_elements)
