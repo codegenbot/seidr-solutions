@@ -4,7 +4,9 @@ import re
 
 def filter_integers() -> None:
     while True:
-        user_input = input("Please enter a comma-separated list of values (separated by commas), or type 'exit' to quit: ").replace(" ", "")
+        user_input = input(
+            "Please enter a comma-separated list of values (separated by commas), or type 'exit' to quit: "
+        )
 
         if user_input.lower() == "exit":
             break
@@ -12,7 +14,7 @@ def filter_integers() -> None:
         try:
             values = [
                 int(val)
-                for val in user_input.split(",")
+                for val in user_input.replace(" ", "").split(",")
                 if re.match(r"^\d+$", val)
             ]
 
@@ -32,8 +34,8 @@ def filter_integers() -> None:
                 print(f"The integers from the input are: {values}")
                 print(f"Average Value: {avg_value:.2f}")
                 print(f"Minimum Value: {min_value}")
-        except ValueError:
-            print("Invalid input. Please enter a valid list of comma-separated integers.")
+        except ValueError as e:
+            print(f"{e}. Please enter valid integers.")
 
 
 filter_integers()
