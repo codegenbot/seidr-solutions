@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,10 +13,10 @@ bool issame(vector<string> a,vector<string>b){
     return true;
 }
 
-vector<const char*> all_prefixes(const string& input) {
-    vector<const char*> result;
+vector<string> all_prefixes(const string& input) {
+    vector<string> result;
     for (int i = 0; i <= input.size(); ++i) {
-        result.push_back(input.substr(0, i+1).c_str()); 
+        result.push_back(input.substr(0, i+1)); 
     }
     return result;
 }
@@ -29,15 +30,18 @@ int mainFunc() {
         cout << "Invalid input. Please enter a non-empty string." << endl;
     } else {
         vector<string> result = all_prefixes(input);
-        if (!issame(vector<string>(result.begin(), result.end()))) {
+        if (!issame(result)) {
             cout << "The prefixes are not the same." << endl;
         } else {
             cout << "The prefixes are the same." << endl;
         }
     }
 
-    vector<const char*> www = all_prefixes("WWW");
-    if (!issame(vector<string>(www.begin(), www.end()), www)) {
+    vector<string> www;
+    for(auto s : all_prefixes("WWW")) {
+        www.push_back(s);
+    }
+    if (!issame(www, {"W", "WW", "WWW"})) {
         cout << "The prefixes are not the same." << endl;
     } else {
         cout << "The prefixes are the same." << endl;
