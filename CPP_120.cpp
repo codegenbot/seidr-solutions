@@ -1,6 +1,6 @@
+```cpp
 #include <algorithm>
 #include <vector>
-#include <iostream>
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
@@ -24,3 +24,4 @@ int main() {
         std::cout << "No elements left" << std::endl;
     }
     return 0;
+}
