@@ -1,4 +1,5 @@
 #include <vector>
+#include <functional>
 
 using namespace std;
 
@@ -7,8 +8,8 @@ vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<vector<int>> dp(n, vector<int>(n, 1e9));
     vector<vector<bool>> visited(n, vector<bool>(n, false));
 
-    function<void(int, int)> dfs = [&](int i, int j) {
-        if (visited[i][j]) return;
+    auto dfs = [&](int i, int j) -> vector<int> { 
+        if (visited[i][j]) return {};
         visited[i][j] = true;
 
         for (int x : {i-1, i+1}) {

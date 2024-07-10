@@ -1,12 +1,12 @@
-```cpp
 #include <initializer_list>
-#include <vector>
+#include <cassert>
+#include <cmath>
 
-int solution(std::initializer_list<int> lst) {
+int solutions(std::initializer_list<int> lst) {
     int sum = 0;
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst.begin()[i] % 2 != 0) {
-            sum += lst.begin()[i];
+    for (auto i : lst) {
+        if (i % 2 != 0) {
+            sum += i;
         }
     }
     return sum;
