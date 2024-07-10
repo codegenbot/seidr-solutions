@@ -1,14 +1,13 @@
 #include <cmath>
 #include <iostream>
 
-bool is_simple_power(int x, int n);
-
-bool is_simple_power(int x, int intN) {
-    double y = pow((double)n, log((double)x) / log((double)n));
-    return (y == x);
+bool is_simple_power(int x, int n) {
+    if (n == 0) return false; 
+    double y = pow(n, log(x) / log(n));
+    return std::abs(y - x) < 1e-9; 
 }
 
-int originalMain() {
+int main() {
     std::cout << "Enter a number: ";
     int tempX;
     std::cin >> tempX;
