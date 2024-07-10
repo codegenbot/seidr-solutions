@@ -21,6 +21,7 @@ int calculateBowlingScore(string input) {
         } else {
             frames[frame] += c - '0';
             ball++;
+
             if (ball == 2 || c == '9') {
                 frame++;
                 ball = 0;
