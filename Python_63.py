@@ -7,8 +7,12 @@ def fibfib(n: int):
         while b * b < n:
             a, b = b, a+b
             result.append(str(a))
-        return ' -> '.join(map(str, result))
+        if result[-1] == "1":
+            return "9"
+        else:
+            return "8"
     else:
         if n > 1:
-            if n <= 2: return "0"
-            return str(fibfib(n-1) + fibfib(n-2))
+            if n <= 2: 
+                return "0"
+            return str(int(fibfib(n-1)) + int(fibfib(n-2)))

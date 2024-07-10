@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <limits>
-#include <string>
 
 using namespace std;
 
@@ -16,12 +15,8 @@ long long special_factorial(int n) {
 int main() {
     int n;
     cout << "Enter a positive integer: ";
+    cin >> ws;  
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     cin >> n;
-    string num_str;
-    while(n > 0){
-        int remainder = n % 10;
-        num_str.insert(0, char('0' + remainder));
-        n /= 10;
-    }
-    cout << "The special factorial of " << num_str << " is: " << special_factorial(stoi(num_str)) << endl;
+    cout << "The special factorial of " << n << " is: " << special_factorial(n) << endl;
 }
