@@ -1,8 +1,3 @@
-```cpp
-#include <vector>
-#include <iostream>
-#include <string>
-
 std::string kebabToCamel(const std::string& str) {
     std::vector<std::string> words;
     std::string word = "";
@@ -34,14 +29,4 @@ std::string kebabToCamel(const std::string& str) {
     }
 
     return result;
-}
-
-int main() {
-    // Test cases
-    std::cout << kebabToCamel("nospaceordash") << std::endl; 
-    std::cout << kebabToCamel("two-words") << std::endl; 
-    std::cout << kebabToCamel("two words") << std::endl; 
-    std::cout << kebabToCamel("all separate words") << std::endl; 
-
-    return 0;
 }
