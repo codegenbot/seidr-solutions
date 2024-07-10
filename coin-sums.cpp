@@ -1,30 +1,31 @@
 #include <iostream>
-#include <string>
+#include <cmath>
+using namespace std;
 
 int main() {
     int cents;
-    std::cin >> cents;
+    cin >> cents;
 
-    int quarters = cents / 25;
+    double quarters = (double)cents / 25; 
     cents %= 25;
 
-    int dimes = cents / 10;
+    double dimes = (double)cents / 10;
     cents %= 10;
 
-    int nickles = cents / 5;
+    double nickles = (double)cents / 5;
     cents %= 5;
 
-    int pennies = cents;
+    int pennies = (int)cents; 
 
-    std::cout << quarters << (quarters > 1 ? " quarter" + std::to_string(quarters) + "s" : " quarter") << std::endl;
+    cout << floor(quarters) << " quarter" << (floor(quarters) > 1 ? "s" : "") << endl;
     if (dimes > 0) {
-        std::cout << dimes << (dimes > 1 ? " dime" + std::to_string(dimes) + "s" : " dime") << std::endl;
+        cout << floor(dimes) << " dime" << (floor(dimes) > 1 ? "s" : "") << endl;
     }
     if (nickles > 0) {
-        std::cout << nickles << (nickles > 1 ? " nickel" + std::to_string(nickles) + "s" : " nickel") << std::endl;
+        cout << floor(nickles) << " nickel" << (floor(nickles) > 1 ? "s" : "") << endl;
     }
     if (pennies > 0) {
-        std::cout << pennies << (pennies > 1 ? " penny" + std::to_string(pennies) + "s" : " penny") << std::endl;
+        cout << pennies << " penny" << (pennies > 1 ? "s" : "") << endl;
     }
 
     return 0;
