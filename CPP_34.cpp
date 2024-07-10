@@ -1,32 +1,34 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-std::vector<int> distinct(std::vector<int>::iterator first, std::vector<int>::iterator last) {
-    if (first == last)
-        return {};
+namespace std {
+    template<typename It>
+    It distinct(It first, It last) {
+        if (first == last)
+            return first;
 
-    std::set<int> result;
-    for (; first != last; ++first) {
-        bool duplicate = false;
-        for (const auto& value : result) {
-            if (*first == value) {
-                duplicate = true;
-                break;
+        std::set<typename std::iterator_traits<It>::value_type> result;
+        for (; first != last; ++first) {
+            bool duplicate = false;
+            for (const auto& value : result) {
+                if (*first == value) {
+                    duplicate = true;
+                    break;
+                }
             }
+            if (!duplicate)
+                result.insert(*first);
         }
-        if (!duplicate)
-            result.insert(*first);
-    }
 
-    std::vector<int> output(result.begin(), result.end());
-    return output;
+        return result.begin();
+    }
 }
 
 int main_test() { 
     std::vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    auto output = distinct(input.begin(), input.end());
+    std::vector<int> uniqueInput(input.begin(), input.end());
+    auto output = std::distinct(uniqueInput.begin(), uniqueInput.end());
     for (auto i : output) {
         std::cout << i << " ";
     }
