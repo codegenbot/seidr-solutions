@@ -1,12 +1,12 @@
 #include <map>
 #include <cassert>
 
-std::map<char, int> histogram(const std::string& str) {
-    std::map<char, int> freq;
-    for (char c : str) {
-        freq[c]++;
+std::map<char, int> histogram(const std::string& s) {
+    std::map<char, int> hist;
+    for (char c : s) {
+        hist[c]++;
     }
-    return freq;
+    return hist;
 }
 
 bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
