@@ -3,10 +3,6 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
 vector<int> pluck(const vector<int>& n) {
     vector<int> result;
 
@@ -22,28 +18,14 @@ vector<int> pluck(const vector<int>& n) {
 
 }
 
-void testMain() {
+int main() {
     vector<int> v1 = {7, 9, 7, 1};
     vector<int> v2;
 
-    for (int i = 0; i < 4; i++) {
-        int x;
-        cin >> x;
-        if(x == 7 || x == 9)
-            v2.push_back(1); 
-        else if(x == 1)
-            v2.push_back(0); 
-
-    }
-
-    if (issame(pluck(v1), pluck(v2)))  
+    if (pluck(v1) == pluck({7, 9, 7, 1}))  
         cout << "Arrays are same" << endl;
     else   
         cout << "Arrays are not same" << endl;
 
-}
-
-int main() {
-    testMain();
     return 0;
 }
