@@ -1,9 +1,9 @@
 vector<int> unique_numbers;
-unordered_map<int, int> num_count;
+unordered_map<int, int> freq;
 for (int num : numbers) {
-    num_count[num]++;
+    freq[num]++;
 }
-for (auto it : num_count) {
+for (auto it : freq) {
     if (it.second == 1) {
         unique_numbers.push_back(it.first);
     }
