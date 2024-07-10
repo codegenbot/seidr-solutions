@@ -12,11 +12,12 @@ def bowling_score(bowls):
             score += 10 + (10 if bowls[i + 2] == "X" else int(bowls[i + 2]))
             i += 2
         else:
-            score += int(bowls[i]) + int(bowls[i + 1])
+            first_bowl = 0 if bowls[i] == "-" else int(bowls[i])
+            second_bowl = 0 if bowls[i + 1] == "-" else int(bowls[i + 1])
+            score += first_bowl + second_bowl
             i += 2
         frame += 1
     return score
-
 
 bowls = input()
 print(bowling_score(bowls))
