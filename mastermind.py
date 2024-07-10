@@ -1,11 +1,6 @@
+Here is the solution:
+
 def mastermind(code, guess):
-    white_pegs = 0
-    black_pegs = 0
-
-    for i in range(4):
-        if code[i] == guess[i]:
-            black_pegs += 1
-        elif str(code[i]) in str(guess):
-            white_pegs += 1
-
-    return black_pegs, white_pegs
+    white = sum(1 for a, b in zip(guess, code) if a == b and a != 'B')
+    black = sum(1 for a, b in itertools.groupby(guess) if list(a)[0] == list(b)[0])
+    return str(white), str(black)
