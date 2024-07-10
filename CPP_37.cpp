@@ -21,7 +21,7 @@ std::vector<float> sort_even(const std::vector<float>& numbers) {
     return even_numbers;
 }
 
-int original_main() {
+int main() {
     int n;
     std::vector<float> numbers;
     std::cout << "Enter the number of elements: ";
