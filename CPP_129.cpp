@@ -28,7 +28,7 @@ vector<int> minPath(vector<vector<int>> input, int target) {
     return path;
 }
 
-int minPathTest() {
+int main() {
     vector<vector<int>> input;
     input.push_back({1, 3});
     input.push_back({3, 2});
@@ -59,16 +59,12 @@ int minPathTest() {
         if(same) {
             cout << "The minimum path is: ";
             for (int i : output) {
-                string str = to_string(i); // convert int to string
-                cout << str << " "; // print the string
+                string str = to_string(i); 
+                cout << str << " "; 
             }
             cout << endl;
         } else {
             cout << "No paths found with length " << target << "." << endl;
         }
     }
-}
-
-int main() {
-    minPathTest();
 }
