@@ -1,4 +1,11 @@
-```cpp
+```c++
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+bool will_it_fly(vector<int> q, int w);
+
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
     for (int i : q) {
@@ -13,5 +20,16 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    assert(will_it_fly({5}, 5) == true);
+    int n, w;
+    cin >> n >> w;
+    vector<int> q(n);
+    for (auto &i:q) {
+        cin >> i;
+    }
+    if (will_it_fly(q,w)) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
+    }
+    return 0;
 }
