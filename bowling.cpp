@@ -6,11 +6,10 @@ int bowlingScore(string input) {
             score += 30;
             i++;
         } else if(input[i] == '/') {
-            score += 10 + (input.substr(i+1,1) == "/" ? 0 : stoi(input.substr(i+1,1)));
+            score += 10 + (input.substr(i+1, 1) == "/" ? 0 : stoi(input.substr(i+1, 1)));
             i += 3;
         } else {
-            string roll = input.substr(i,2);
-            int currentRoll = (roll[0] == 'X') ? 10 : ((roll[1] == '/') ? 10 - stoi(roll.substr(0,1)) : stoi(roll));
+            int currentRoll = (input.substr(0, 1) == 'X') ? 10 : ((input.substr(1, 1) == '/') ? 10 - stoi(input.substr(0,1)) : stoi(input.substr(0,2)));
             if(currentRoll < 10) {
                 score += currentRoll;
             } else {
