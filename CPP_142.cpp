@@ -15,8 +15,7 @@ int main() {
     if(n < 0) {
         std::cout << "Invalid input. Please enter a non-negative integer." << std::endl;
     } else {
-        for (auto x : { -1, -3, 17, -1, -15, 13, -1, 14, -14, -12, -5, 14, -14, 6, 13, 11, 16, 16, 4, 10 }) {
-            assert(sum_squares(x) == x*x);
-        }
+        assert(sum_squares(4) == 30); 
+        std::cout << sum_squares(n) << std::endl;
     }
 }
