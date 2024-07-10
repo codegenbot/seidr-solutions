@@ -1,3 +1,4 @@
+#include <stack>
 #include <string>
 
 bool solveBoolean(string boolExp) {
