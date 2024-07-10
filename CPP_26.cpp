@@ -1,12 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
-}
-
 vector<int> remove_duplicates(vector<int> numbers) {
     vector<int> uniqueNumbers;
     for (int num : numbers) {
