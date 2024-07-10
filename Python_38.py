@@ -1,3 +1,9 @@
 def decode_cyclic(s: str):
-    rotated_groups = [s[(i-1) % len(s)] for i in range(len(s))]
-    return "".join(rotated_groups)
+    k = len(s) // 2
+    return "".join(s[i] for i in range(0, len(s), k))
+
+# Get input from the user
+user_input = input("Enter a string: ")
+# Call the function with user input
+result = decode_cyclic(user_input)
+print(result)
