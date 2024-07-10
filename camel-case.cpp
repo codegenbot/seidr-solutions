@@ -3,22 +3,35 @@
 #include <string>
 
 std::string camelCase(std::string s) {
-    std::stringstream ss(s);
-    std::string word;
     std::string result = "";
     bool firstWord = true;
-
-    while (ss >> word) {
-        if (!firstWord)
-            result += char(toupper(word[0]));
-        else
-            result += word;
-
-        for (int i = 1; i < word.size(); ++i) {
-            result += tolower(word[i]);
+    for (char c : s) {
+        if (c == '-') {
+            if (!firstWord) {
+                result += char(toupper(c));
+            }
+            firstWord = false;
+        } else if (c == ' ') {
+            if (!firstWord) {
+                result += char(toupper(c));
+            }
+            firstWord = true;
+        } else {
+            if (firstWord) {
+                result += c;
+            } else {
+                result += char(tolower(c));
+            }
+            firstWord = false;
         }
-        firstWord = false;
     }
+    // Append the remaining characters
+    if (!firstWord) {
+        while (result.size() > 0 && !isupper(result.back())) {
+            result.pop_back();
+        }
+    }
+    result += c;
 
     return result;
 }
