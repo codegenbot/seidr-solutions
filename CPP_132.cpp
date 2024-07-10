@@ -15,8 +15,12 @@ bool is_nested(std::string str) {
 }
 
 int main() {
-    assert(is_nested("[][][][]") == true);
-    assert(is_nested("][][") == false);
-    assert(is_nested("]]]]]]]]") == false);
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+
+    bool result = is_nested(input);
+    std::cout << "Is the string nested: " << (result ? "true" : "false") << std::endl;
+
     return 0;
 }
