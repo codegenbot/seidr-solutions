@@ -1,29 +1,28 @@
 #include <iostream>
-#include <variant>
+#include <any>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
-using namespace std;
+std::any compare_one(const std::any& a, const std::any& b){
+    if(a.type() == typeid(int) && b.type() == typeid(int)){
+        return std::any_cast<int>(a) > std::any_cast<int>(b) ? a : b;
+    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
+        return std::any_cast<float>(a) > std::any_cast<float>(b) ? a : b;
+    } else if(a.type() == typeid(std::string) && b.type() == typeid(std::string)){
+        std::string strA = std::any_cast<std::string>(a);
+        std::string strB = std::any_cast<std::string>(b);
 
-std::variant<int, float, string> compare_one(std::variant<int, float, string> a, std::variant<int, float, string> b){
-    if(a.index() == 0 && b.index() == 0){
-        return get<int>(a) > get<int>(b) ? a : b;
-    } else if(a.index() == 1 && b.index() == 1){
-        return get<float>(a) > get<float>(b) ? a : b;
-    } else if(a.index() == 2 && b.index() == 2){
-        string strA = get<string>(a);
-        string strB = get<string>(b);
-
-        if(strA.find(",") != string::npos){
-            replace(strA.begin(), strA.end(), ',', '.');
+        if(strA.find(",") != std::string::npos){
+            std::replace(strA.begin(), strA.end(), ',', '.');
         }
 
-        if(strB.find(",") != string::npos){
-            replace(strB.begin(), strB.end(), ',', '.');
+        if(strB.find(",") != std::string::npos){
+            std::replace(strB.begin(), strB.end(), ',', '.');
         }
 
-        float numA = stof(strA);
-        float numB = stof(strB);
+        float numA = std::stof(strA);
+        float numB = std::stof(strB);
         
         return numA > numB ? a : (numA < numB ? b : "None");
     } else {
@@ -32,10 +31,10 @@ std::variant<int, float, string> compare_one(std::variant<int, float, string> a,
 }
 
 int main(){
-    assert(get<string>(compare_one("1"s, "1"s)) == "None");
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))) == "None");
 
     // Add more test cases here if needed
 
-    cout << "All test cases pass";
+    std::cout << "All test cases pass";
     return 0;
 }
