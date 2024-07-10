@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cassert>
 
 int solve(std::string s) {
     std::vector<char> v;
@@ -16,6 +17,10 @@ int solve(std::string s) {
 
 int main() {
     assert(solve("aAeEiIoUu") == 6);
-    std::cout << solve("#ccc") << std::endl;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    int result = solve(input);
+    std::cout << "Number of vowels in the entered string is: " << result << std::endl;
     return 0;
 }

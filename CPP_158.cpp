@@ -1,8 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <new>
 
 std::string find_max(const std::vector<std::string>& words) {
     return *std::max_element(words.begin(), words.end(),
@@ -14,7 +14,8 @@ std::string find_max(const std::vector<std::string>& words) {
         });
 }
 
-int main() {
+int main() 
+{
     int n;
     std::cout << "Enter the number of words: ";
     std::cin >> n;
@@ -22,7 +23,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string str;
         getline(std::cin, str); 
-        str.erase(0, str.find_first_not_of(' ')).erase(str.find_last_not_of(' ') + 1);
+        str = str.substr(str.find_first_not_of(' '), std::string::npos);
         words.push_back(str); 
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;

@@ -1,6 +1,6 @@
 #include <cassert>
 #include <string>
-#include <iostream>
+#include <ostream>
 
 std::string int_to_roman(int number) {
     std::string roman = "";
