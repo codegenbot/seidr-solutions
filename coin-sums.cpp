@@ -15,10 +15,10 @@ int main() {
 
     int pennies = cents;
 
-    std::cout << quarters << endl;
-    std::cout << dimes << endl;
-    std::cout << nickles << endl;
-    std::cout << pennies << endl;
+    std::cout << quarters << "\n";
+    std::cout << dimes << "\n";
+    std::cout << nickles << "\n";
+    std::cout << pennies << "\n";
 
     return 0;
 }
