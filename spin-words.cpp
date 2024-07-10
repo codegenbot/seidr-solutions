@@ -1,9 +1,7 @@
-#include <initializer_list>
-
 #include <vector>
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <initializer_list>
 
 using namespace std;
 
@@ -29,3 +27,4 @@ int main() {
         cout << "Spin Words: " << spinWords(str) << endl;
     }
     return 0;
+}
