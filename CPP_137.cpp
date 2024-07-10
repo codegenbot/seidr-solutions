@@ -1,16 +1,18 @@
 #include <boost/any.hpp>
 #include <string>
 #include <algorithm>
+#include <boost/convertible_to.hpp>
+#include <iostream>
 
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max((int)a.convertible_to<int>(), (float)b.convertable_to<float>());
+        return max((int)a.convertible_to<int>(), (float)b.convertible_to<float>());
     }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
         string str = (string)a.convertible_to<string>();
-        float f = (float)b.convertable_to<float>();
+        float f = (float)b.convertible_to<float>();
         return (f > stof(str)) ? boost::any(f) : boost::any(str);
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
