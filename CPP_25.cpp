@@ -1,21 +1,20 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
-std::vector<int> factorize(int n) {
+std::vector<int> factorize(int num) {
     std::vector<int> factors;
-    for (int i = 2; i <= n; ++i) {
-        while (n % i == 0) {
+    
+    for(int i = 2; i <= num; ++i) {
+        while(num % i == 0) {
             factors.push_back(i);
-            n /= i;
+            num /= i;
         }
     }
+    
     return factors;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
     return a == b;
 }
 
