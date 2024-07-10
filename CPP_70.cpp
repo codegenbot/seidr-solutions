@@ -22,22 +22,14 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    vector<int> input;
-    int num;
-    cout << "Enter the number of elements: ";
-    cin >> num;
-    for (int i = 0; i < num; i++) {
-        cout << "Enter element " << i+1 << ": ";
-        cin >> num;
-        input.push_back(num);
+    vector<int> lst;
+    while (true) {
+        int x;
+        cin >> x;
+        if (x == -1) break;
+        lst.push_back(x);
     }
-    
-    vector<int> output = strange_sort_vector(input);
-    
-    cout << "Sorted list: ";
-    for (int i = 0; i < output.size(); i++) {
-        cout << output[i] << " ";
-    }
-    
+    vector<int> sorted = strange_sort_vector(lst);
+    for (int i : sorted) cout << i << " ";
     return 0;
 }
