@@ -1,5 +1,3 @@
-#include <string>
-
 bool is_nested(std::string str) {
     int open = 0, close = 0;
     for (char c : str) {
@@ -9,10 +7,4 @@ bool is_nested(std::string str) {
             else close++;
         }
     }
-    return close > 0 && open == 0;
-}
-
-int main() {
-    assert(is_nested("]]]]]]]])" == false);
-    return 0;
-}
+    return close > 0;
