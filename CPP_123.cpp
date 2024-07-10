@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -17,7 +17,6 @@ vector<int> get_odd_collatz(int n) {
             result.push_back(n);
         }
     }
-    sort(result.begin(), result.end());
     return result;
 }
 
