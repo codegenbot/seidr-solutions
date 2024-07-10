@@ -5,8 +5,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
-
 vector<string> by_length(vector<int> arr){
     vector<string> result;
     vector<int> valid_nums;
