@@ -1,4 +1,5 @@
 def rounded_avg(n, m):
     if n > m:
         return -1
-    return bin(min(n, m))[2:]
+    avg = round((n + m) / 2.0)
+    return format(avg, 'b')
