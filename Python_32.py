@@ -1,13 +1,11 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    a = xs[0]
-    b = xs[1]
-    c = xs[2]
-    d = xs[3]
-    delta = b**2 - 3 * a * c
-    x1 = (-b + math.sqrt(delta)) / (3 * a)
-    x2 = (-b - math.sqrt(delta)) / (3 * a)
-    if poly(xs, x1) == 0:
-        return round(x1, 2)
-    else:
-        return round(x2, 2)
+    if n % 2 != 0:
+        raise ValueError("Number of coefficients should be even")
+
+    for i in range(n, -1, -1):
+        if xs[i] != 0:
+            leading_coeff = xs[i]
+            break
+
+    return -xs[0] / leading_coeff
