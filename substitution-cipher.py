@@ -1,14 +1,11 @@
+```
 def substitution_cipher(cipher1, cipher2, message):
     cipher = {}
-    seen1 = set()
-    seen2 = set()
-    for i in range(min(len(cipher1), len(cipher2))):
-        if cipher1[i] not in seen1:
-            seen1.add(cipher1[i])
-            cipher[cipher1[i]] = cipher2[i]
-        if cipher2[i] not in seen2:
-            seen2.add(cipher2[i])
-            cipher[cipher2[i]] = cipher1[i]
+    for a, b in zip(cipher1, cipher2):
+        if a not in cipher:
+            cipher[a] = b
+        if b not in cipher:
+            cipher[b] = a
 
     result = ''
     for char in message:
