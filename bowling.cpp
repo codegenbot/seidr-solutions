@@ -1,21 +1,24 @@
-int bowlingScore(string frames) {
+int bowlingScore(string s) {
     int score = 0;
-    int currentFrameRolls = 0;
+    int currentRoll = 0;
+    bool firstRoll = true;
 
-    for (int i = 0; i < frames.size(); ++i) {
-        if (frames[i] == 'X') { // strike
-            score += 10 + getExtraFrames(frames, i);
-            currentFrameRolls = 2;
-        } else if (frames[i] == '/') { // spare
-            score += 5 + getExtraFrames(frames, i+1);
-            currentFrameRolls = 2;
-        } else { // normal roll
-            int rollsThisFrame = frames[i] - '0';
-            score += rollsThisFrame;
-            currentFrameRolls++;
-            if (currentFrameRolls == 2) {
-                if (i + 2 < frames.size() && frames[i+1] != '/') {
-                    score += frames[i+1] - '0';
+    for (char c : s) {
+        if (c == 'X') { // strike
+            score += 10 + nextTwoRolls(s);
+            currentRoll = 0;
+            firstRoll = true;
+        } else if (c == '/') { // spare
+            score += 10 - currentRoll;
+            currentRoll = 0;
+            firstRoll = false;
+        } else {
+            currentRoll++;
+            if (!firstRoll) {
+                if (currentRoll == 2) {
+                    score += 10 - currentRoll;
+                    currentRoll = 0;
+                    firstRoll = true;
                 }
             }
         }
@@ -24,26 +27,26 @@ int bowlingScore(string frames) {
     return score;
 }
 
-int getExtraFrames(string frames, int start) {
-    int extraRolls = 0;
-    for (int i = start; i < frames.size(); ++i) {
-        if (frames[i] == 'X') { // strike
-            extraRolls += 10 + getExtraFrames(frames, i+1);
-            break;
-        } else if (frames[i] == '/') { // spare
-            extraRolls += 5 + getExtraFrames(frames, i+2);
-            break;
-        } else {
-            int rollsThisFrame = frames[i] - '0';
-            extraRolls += rollsThisFrame;
-            if (i+1 < frames.size() && frames[i+1] != '/') {
-                extraRolls++;
-            }
-            if (extraRolls >= 3) {
-                break;
-            }
-        }
-    }
+int nextTwoRolls(string s) {
+    int i = s.size() - 1;
+    while (i >= 0 && !isdigit(s[i])) i--;
+    if (i < 0) return 10;
 
-    return extraRolls;
+    string str = "";
+    while (i >= 0 && isdigit(s[i])) {
+        str.push_back(s[i]);
+        i--;
+    }
+    reverse(str.begin(), str.end());
+    int val1 = stoi(str);
+    str.clear();
+    i--;
+    while (i >= 0 && isdigit(s[i])) {
+        str.push_back(s[i]);
+        i--;
+    }
+    reverse(str.begin(), str.end());
+    int val2 = stoi(str);
+
+    return val1 + val2;
 }
