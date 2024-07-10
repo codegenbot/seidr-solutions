@@ -11,15 +11,8 @@ def bowling_score(bowls):
             score += 10 - int(bowls[bowl_index - 1])
             score += get_spare_bonus(bowls, bowl_index)
             bowl_index += 1
-        else:
-            if bowls[bowl_index] in ['-', 'F']:
-                score += 0
-            else:
-                score += int(bowls[bowl_index])
+        elif bowls[bowl_index] != "-":
+            score += int(bowls[bowl_index])
         bowl_index += 1
         frame += 1
     return score
-
-
-bowls = input()
-print(bowling_score(bowls))
