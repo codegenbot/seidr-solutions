@@ -13,12 +13,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         
         if char == ")" and open_count > 0:
             open_count -= 1
-        
+    
         if open_count == 0:
             result.append(current_group)
-            current_group = ""
+            current_group = "" if open_count == 0 else current_group
             
     return result
-
-input_string = "((hello)(world))"
-print(separate_paren_groups(input_string))
