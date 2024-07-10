@@ -1,3 +1,4 @@
+```
 def main():
     while True:
         try:
@@ -11,8 +12,8 @@ def main():
         sorted_list_sum = sum(len(word) for word in lst if len(word) % 2 == 0)
         while True:
             try:
-                input_val = int(input("Press Enter to calculate the sum or type 'q' to quit: "))
-                if input_val == 113:
+                input_val = input("Press Enter to calculate the sum or type 'q' to quit: ")
+                if input_val.lower() == 'q':
                     break
                 print(sorted_list_sum)
             except ValueError:
