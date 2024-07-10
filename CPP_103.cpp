@@ -14,7 +14,7 @@ string average_binary(int n, int m) {
         sum += i;
     }
     
-    int avg = n + ((m - n) / 2);
+    int avg = n + (m - n) / 2;
     
     string binary_avg = "";
     while (avg > 0) {
