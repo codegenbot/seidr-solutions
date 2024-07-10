@@ -2,6 +2,6 @@ def middle_character(s):
     length = len(s)
     mid = length // 2
     if length % 2 == 0:
-        return s[mid-1:mid+1]
+        return s[mid-1:mid+1].translate(str.maketrans('', '', '0123456789!@#$%^&*()_+-=[]{}|;:",.<>/? ').strip()
     else:
-        return s[mid].__str__()
+        return s[mid].translate(str.maketrans('', '', '0123456789!@#$%^&*()_+-=[]{}|;:",.<>/? ').strip()
