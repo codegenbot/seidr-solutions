@@ -1,12 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-
-namespace std {
-    using ::std::string;
-}
-
-using namespace std;
 
 string longest(vector<string> strings){
     if(strings.empty()) return "";
@@ -15,4 +8,3 @@ string longest(vector<string> strings){
         if(s.length() > result.length()) result = s;
     }
     return result;
-}
