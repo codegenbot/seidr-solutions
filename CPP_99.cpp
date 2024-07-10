@@ -1,3 +1,8 @@
+```c++
+#include <string>
+
+using namespace std;
+
 int closest_integer(const char* value) {
     std::string strValue = value; 
     double num = stod(strValue); 
