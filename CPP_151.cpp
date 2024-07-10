@@ -1,13 +1,14 @@
+```cpp
 #include <vector>
 #include <cassert>
 #include <iostream>
 
-using namespace std;
+std::vector<double> lst;
 
-double double_the_difference(vector<double> lst) {
+double double_the_difference(std::initializer_list<double> lst) {
     int sum = 0;
     for (double x : lst) {
-        int diff = abs((int)x - 5);
+        int diff = std::abs((int)x - 5);
         if (diff % 2 != 0) {
             sum += diff;
         }
@@ -16,25 +17,23 @@ double double_the_difference(vector<double> lst) {
 }
 
 int main() {
-    vector<double> lst;
-
-    for (string line; getline(cin, line); ) {
+    for (std::string line; std::getline(std::cin, line); ) {
         if (!line.empty()) {
-            double val = stod(line);
-            int diff = abs((int)val - 5);
+            double val = std::stod(line);
+            int diff = std::abs((int)val - 5);
             if (diff % 2 != 0) {
                 lst.push_back(val);
             }
         }
     }
 
-    cout << "The numbers that are different from 5 by an odd number: ";
+    std::cout << "The numbers that are different from 5 by an odd number: ";
     for (double x : lst) {
-        if (abs((int)x - 5) % 2 != 0) {
-            cout << x << " ";
+        if (std::abs((int)x - 5) % 2 != 0) {
+            std::cout << x << " ";
         }
     }
-    cout << endl;
+    std::cout << std::endl;
 
     assert(double_the_difference(lst) == 0);
 
