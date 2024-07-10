@@ -1,10 +1,11 @@
+```
 #include <vector>
 #include <string>
 #include <initializer_list>
 #include <cassert>
 using namespace std;
 
-bool same(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -29,7 +30,3 @@ vector<int> parse_nested_parens(const string& paren_string) {
     }
     return result;
 }
-
-int main() {
-    assert(same(parse_nested_parens("(()(())((()))")), vector<int>({0, 1, 2, 1, 0, -1, -2, -3, -4})));
-    return 0;
