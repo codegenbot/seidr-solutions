@@ -1,8 +1,9 @@
+```
 def car_race_collision(n: int = 0, a1: int = 0, a2: int = 0):
     if a1 <= 0 and a2 <= 0:
         return 0
     else:
-        total_distance = n * max(a1, a2)
+        total_distance = (n * max(a1, a2))
         for i in range(1, n):
             total_distance += max(a1, a2)
             if a1 > a2:
