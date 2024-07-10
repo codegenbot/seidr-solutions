@@ -3,19 +3,20 @@ using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    int targetLen = target.length();
-    for (int i = 0; i <= text.length() - targetLen; i++) {
-        bool found = true;
-        for (int j = 0; j < targetLen; j++) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
+    int n = text.size();
+    int m = target.size();
+
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target) {
+            indices.push_back(i);
+            // Check for overlapping occurrences
+            while (i + m < n && text.substr(i, m) == target) {
+                i++;
+                indices.push_back(i);
             }
         }
-        if (found) {
-            indices.push_back(i);
-        }
     }
+
     return indices;
 }
 
@@ -24,17 +25,4 @@ int gcd(int a, int b) {
         return a;
     else
         return gcd(b, a % b);
-}
-
-int main() {
-    int num1, num2;
-    cin >> num1 >> num2;
-    cout << gcd(num1, num2) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> result = findIndices(text, target);
-    for (int i : result)
-        cout << i << " ";
-    return 0;
 }
