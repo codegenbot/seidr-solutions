@@ -14,4 +14,6 @@ def find_zero(xs: list):
             continue
         return -xs[0] / xs[i]
 
-    raise ValueError("No zero found in the coefficients")
+
+user_input = list(map(float, input().split()))
+print(find_zero(user_input))
