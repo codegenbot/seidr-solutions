@@ -1,7 +1,6 @@
 #include <cassert>
 #include <string>
-#include <any>
-#include <iostream>
+#include <boost/any.hpp>
 
 std::string compare_one(std::string str, int num) {
     if (num == 1) {
@@ -11,6 +10,6 @@ std::string compare_one(std::string str, int num) {
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
+    assert(boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
     return 0;
 }
