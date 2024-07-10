@@ -1,4 +1,5 @@
-```
+Here is the solution:
+
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -10,7 +11,9 @@ def solve_boolean(expression):
         result = True
         for char in expression:
             if char == '&':
-                result = result and (expression[expression.index(char) + 1] == 'T')
+                result &= True
             elif char == '|':
-                result = result or (expression[expression.index(char) + 1] == 'T')
+                result |= True
+            elif char in ['T', 'F']:
+                result = (result and char == 'T') or (not result and char == 'F')
         return result
