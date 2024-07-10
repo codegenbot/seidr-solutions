@@ -1,8 +1,9 @@
-```
 def separate_paren_groups(expression):
     result = []
     temp_group = ""
     in_group = False
+    unmatched_open = 0
+    unmatched_close = 0
 
     for char in expression:
         if char == "(":
@@ -14,21 +15,18 @@ def separate_paren_groups(expression):
         elif char == ")":
             if in_group:
                 temp_group += char
-                if temp_group.count("(") == 1 and temp_group.count(")") > 0:
-                    result[-1] = temp_group
+                if temp_group.count("(") == temp_group.count(")"):
+                    result.append(temp_group)
                     in_group = False
                     temp_group = ""
-                else:
-                    temp_group = ""
             else:
-                result.append(")")
-                in_group = False
-        else:
-            if in_group:
-                temp_group += char
-            else:
-                result.append(char)
+                unmatched_close += 1
 
-    if in_group:
-        result.append(temp_group + ")")
+    while unmatched_open > 0 or unmatched_close > 0:
+        if expression[expression.index(")") - 1] == "(":
+            unmatched_open -= 1
+        else:
+            unmatched_close -= 1
+        result.append(expression.pop(0))
+
     return [x for x in result if x]
