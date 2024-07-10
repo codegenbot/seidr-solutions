@@ -1,5 +1,2 @@
-int main() {
-    assert(!below_threshold({1, 8, 4, 10}, 10)); // Sample test case
-    assert(below_threshold({2, 5, 7, 9}, 10)); // Additional test case
-    return 0;
-}
+// Add the following code to the existing main() function
+assert(below_threshold({1, 8, 4, 10}, 11)); // Adding another test case
