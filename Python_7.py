@@ -9,26 +9,24 @@ def filter_by_substring():
             continue
         break
 
+    strings = []
     while True:
-        input_str = input("Enter strings (comma-separated): ")
-        substring = input("Enter a substring: ")
+        input_str = input("Enter strings (comma-separated), or 'done' to finish: ")
+        if input_str.lower() == 'done':
+            break
+        strings.extend([s.strip() for s in input_str.split(",")])
 
-        if not input_str or not substring:
-            print("Please provide both strings and a substring.")
-            continue
+    substring = input("Enter a substring: ")
 
-        strings = [s.strip() for s in input_str.split(",")]
-        while True:
-            try:
-                num_to_display = int(input(f"Enter the number of results to display (1-{len(strings)}): "))
-                if 1 <= num_to_display <= len(strings):
-                    break
-                else:
-                    print("Please enter a number between 1 and {}".format(len(strings)))
-            except ValueError:
-                print("Invalid input. Please try again.")
-
-        break
+    while True:
+        try:
+            num_to_display = int(input(f"Enter the number of results to display (1-{len(strings)}): "))
+            if 1 <= num_to_display <= len(strings):
+                break
+            else:
+                print("Please enter a number between 1 and {}".format(len(strings)))
+        except ValueError:
+            print("Invalid input. Please try again.")
 
     result = [s for s in strings if re.compile(substring).search(s)]
     if expected_output.lower() == "true values":
