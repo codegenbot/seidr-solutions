@@ -13,8 +13,11 @@ bool operator==(const std::vector<std::string>& a, const std::vector<std::string
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
 
+    // Remove characters from string 's' that are in the set 'c'
+    if(s.empty() || c.empty())
+        return {{"", (s.empty()) ? "True" : "False"}};
+    
     std::set<char> c_set(c.begin(), c.end());
-
     std::string temp = "";
     for (char ch : s) {
         if (c_set.find(ch) == c_set.end()) {
@@ -22,6 +25,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         }
     }
 
+    // Check if the resulting string is a palindrome
     bool is_palindrome = true;
     int i = 0, length = temp.length();
     while (i < length / 2) {
