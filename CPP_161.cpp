@@ -1,8 +1,13 @@
+```cpp
+#include <iostream>
+#include <string>
+
+int solve(std::string) { return 0; } 
+
 int main() {
-    cout << "Enter a string: ";
+    std::cout << "Enter a string: ";
     std::string s;
-    getline(cin, s);  
+    std::getline(std::cin, s);  
     std::cout << solve(s) << std::endl;  
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  
     return 0;
 }
