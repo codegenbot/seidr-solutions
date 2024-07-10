@@ -13,7 +13,5 @@ def encode(message):
                 new_char = new_char.upper()
         else:
             new_char = char
-        
         encoded_message += new_char
-    
     return encoded_message
