@@ -8,7 +8,11 @@ int starts_one_ends(int n) {
         if (i == 1 || i % 10 == 1) {
             count++;
         }
-        if (i > 9 && (i / 10 == 1 || i % 10 == 1)) {
+        for (int j = 0; j < n - 1; j++) {
+            if ((i * 10 + j + 1) / 10 != 1 && (i * 10 + j + 1) % 10 != 1) {
+                break;
+            }
+        } else {
             count++;
         }
     }
@@ -19,6 +23,6 @@ int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    cout << "Count of numbers that start or end with 1 is: " << starts_one_ends(n) << endl;
+    cout << "The count of the numbers of " << n << "-digit positive integers that start or end with 1 is: " << starts_one_ends(n) << endl;
     return 0;
 }
