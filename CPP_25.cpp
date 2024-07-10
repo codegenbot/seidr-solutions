@@ -20,7 +20,7 @@ std::vector<int> factorize(int n) {
         n = abs(n);
     }
     for (int i = 2; i * i <= n; ++i) {
-        while (n % i == 0) {
+        while (n % i == 0 && n > 1) {
             factors.push_back(i);
             n /= i;
         }
