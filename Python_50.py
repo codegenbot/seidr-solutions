@@ -1,3 +1,11 @@
-```
 def decode_shift(s: str):
-    return "".join([chr(((ord(ch) - ord("a") + 26) % 26) + ord("a")) for ch in s])
+    result = ""
+    for ch in s:
+        if ch.isalpha():
+            if ch.islower():
+                result += chr(((ord(ch) - 97) % 26) + ord("a"))
+            else:
+                result += chr(((ord(ch) - 65) % 26) + ord("A"))
+        else:
+            result += ch
+    return result
