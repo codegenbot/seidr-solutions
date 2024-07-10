@@ -1,4 +1,5 @@
 def modp(n: int, p: int):
     n = abs(n)
     p = abs(p)
-    return n % p if n >= 0 else p - ((-n) % p)
+    result = n % p
+    return result if result >= 0 else p + result
