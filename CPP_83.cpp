@@ -6,7 +6,7 @@ using namespace std;
 int startsOneEnds(int n) {
     int count = 0;
     for (int i = 1; i <= 9; i++) {
-        if (i == 1 || i == stoi(to_string(n).back()) - '0') {
+        if (i == 1 || i == stoi(to_string(n).back() - '0')) {
             count++;
             for (int j = 1; j < n; j++) {
                 cout << i;
