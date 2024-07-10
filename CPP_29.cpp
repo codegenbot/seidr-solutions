@@ -25,7 +25,7 @@ int main() {
     for (const auto& word : filtered) {
         std::cout << word << " ";
     }
-    
+
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
 
     return 0;
