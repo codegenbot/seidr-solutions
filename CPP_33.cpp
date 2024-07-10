@@ -32,11 +32,9 @@ vector<int> sort_third(vector<int> l) {
                         i++;
                 }
                 j++;
-                if(j >= multiplesOfThree.size())
-                    break;
             }
         } else {
-            result.push_back(others[(i % 3) % others.size()]);
+            result.push_back(others[(i+1) % others.size()]);
             i++;
         }
     }
