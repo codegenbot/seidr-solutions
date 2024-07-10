@@ -13,7 +13,15 @@ def main():
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
-    n2 = int(input("Enter another integer: "))
+    n2 = -1
+    while True:
+        try:
+            n2 = int(input("Enter another integer: "))
+            if n2 < 1:
+                print("Please enter a positive integer.")
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
 
     factors1 = []
     i = 2
@@ -51,7 +59,7 @@ def main():
             f"{', '.join(map(str, common_factors))} are the common factors between {n1} and {n2}."
         )
     else:
-        print(f"{n2} is not a divisor of {factors1[0]}")
+        print(f"No common factor found between {n1} and {n2}.")
 
 
 if __name__ == "__main__":
