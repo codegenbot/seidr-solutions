@@ -1,8 +1,8 @@
 #include <vector>
-#include <string>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
-    return (a == b);
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
