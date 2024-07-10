@@ -1,24 +1,22 @@
-```cpp
 #include <algorithm>
+#include <string> 
 using namespace std;
 
-std::string anti_shuffle(std::string s) {
-    std::string result = "";
-    for (const auto& word : split(s, " ")) {
-        string temp = word;
-        sort(temp.begin(), temp.end());
-        result += temp + " ";
+string anti_shuffle(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ') {
+            result += " ";
+            continue;
+        }
+        string word = "";
+        for (int j = i; j < s.length() && s[j] != ' '; j++) {
+            word += s[j];
+        }
+        for (char c : word) {
+            result += min_element(word.begin(), word.end()) -> first;
+        }
+        i += word.length() - 1;
     }
-    return result.substr(0, result.size() - 1);
-}
-
-std::string split(const std::string& str, const std::string& delimiter) {
-    size_t pos = 0;
-    vector<string> tokens;
-    while ((pos = str.find(delimiter)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + delimiter.length());
-    }
-    tokens.push_back(str);
-    return tokens.size() > 1 ? tokens : vector<string>();
+    return result;
 }
