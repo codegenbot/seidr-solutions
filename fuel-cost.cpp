@@ -1,11 +1,8 @@
-int totalFuelCost(vector<int> prices) {
+int fuelCost(vector<int> vec) {
     int sum = 0;
-    for (int price : prices) {
-        if (price < 1) {
-            return -1; // error: all prices must be positive integers
-        }
-        int newPrice = (price / 3) - 2;
-        sum += newPrice;
+    for (int i : vec) {
+        int x = i / 3;
+        sum += min(x, 1) - 2;
     }
     return sum;
 }
