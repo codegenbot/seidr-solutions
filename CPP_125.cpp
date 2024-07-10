@@ -3,22 +3,20 @@
 #include <string>
 #include <cctype>
 
-bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
+bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b);
 
-std::vector<std::string> split_words(string txt) {
-    vector<string> result;
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> result;
     bool inWord = false;
-    string word = "";
+    std::string word = "";
 
     for (char c : txt) {
-        if (!inWord && !isalpha(c)) { 
+        if (!inWord && !std::isalpha(c)) { 
             if (c == ',') {
                 continue;
             }
             inWord = true;
-        } else if (inWord && !isalpha(c)) { 
+        } else if (inWord && !std::isalpha(c)) { 
             result.push_back(word);
             word = "";
             inWord = false;
@@ -34,5 +32,4 @@ std::vector<std::string> split_words(string txt) {
 }
 
 int main() {
-    assert(split_words("") == std::vector<string>({""}));
-}
+    assert(split_words("") == std::vector<std::string>({"",}));
