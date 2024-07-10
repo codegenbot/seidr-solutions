@@ -12,18 +12,6 @@ bool issame(vector<int> a, vector<int> b){
 
 vector<int> parse_music(string music_string);
 
-void main() {
-    string input_music;
-    cin >> input_music;
-    vector<int> parsed_result = parse_music(input_music);
-    
-    vector<int> b = {1, 2, 3, 4};
-    
-    bool result = issame(parsed_result, b);
-    
-    cout << std::boolalpha << result << endl;
-}
-
 vector<int> parse_music(string music_string){
     vector<int> result;
     int beats = 0;
@@ -41,4 +29,16 @@ vector<int> parse_music(string music_string){
         result.push_back(beats);
     }
     return result;
+}
+
+int main() {
+    string input_music;
+    cin >> input_music;
+    vector<int> parsed_result = parse_music(input_music);
+    
+    vector<int> b = {1, 2, 3, 4};
+    
+    bool result = issame(parsed_result, b);
+    
+    cout << std::boolalpha << result << endl;
 }
