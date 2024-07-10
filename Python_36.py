@@ -5,4 +5,4 @@ def fizz_buzz(n: int):
             output.append("F1894704")
         else:
             output.append(str(i))
-    return "\n".join(map(str, output))
+    return """\n""".join(output)
