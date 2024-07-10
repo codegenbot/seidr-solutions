@@ -1,14 +1,14 @@
+#include <vector>
+using namespace std;
+
 vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
-    int max = numbers[0];
-    result.push_back(max);
-    
-    for (int i = 1; i < numbers.size(); i++) {
-        if (numbers[i] > max) {
-            max = numbers[i];
+    int maxSoFar = numbers[0];
+    for (int num : numbers) {
+        if (num > maxSoFar) {
+            maxSoFar = num;
         }
-        result.push_back(max);
+        result.push_back(maxSoFar);
     }
-    
     return result;
 }
