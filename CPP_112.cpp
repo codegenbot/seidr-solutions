@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -26,7 +25,7 @@ string to_string(int i) {
     return oss.str();
 }
 
-string reverse_delete(const string s1, const string s2) {
+string reverse_delete(string s1, string s2) {
     int len1 = s1.length();
     int len2 = s2.length();
     for(int i = 0; i < len2; i++) {
@@ -35,7 +34,7 @@ string reverse_delete(const string s1, const string s2) {
             s1 = s1.substr(0, pos) + s1.substr(pos + 1);
         }
     }
-    std::reverse(s1.rbegin(), s1.rend());
+    reverse(s1.begin(), s1.end());
     return s1;
 }
 
@@ -50,6 +49,6 @@ int main() {
     else
         cout << "Second number is greater." << endl;
 
-    assert(to_string(reverse_delete("mama", "ma")) == reverse_delete("mama", "ma"));
+    assert(reverse_delete("mama", "ma") == to_string(reverse_delete("mama", "ma")));
     return 0;
 }
