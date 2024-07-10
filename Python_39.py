@@ -4,6 +4,7 @@ def prime_fib(n: int):
     while True:
         if is_prime(b):
             if count == n:
-                return b
+                print(b)
+                return 
             count += 1
         a, b = b, a + b
