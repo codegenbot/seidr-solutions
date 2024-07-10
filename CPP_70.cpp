@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -20,25 +19,4 @@ vector<int> strange_sort_vector(vector<int> lst) {
     }
     
     return result;
-}
-
-int main() {
-    vector<int> inputVector;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    cout << "Enter the elements:" << endl;
-    for(int i=0; i<n; i++) {
-        int temp;
-        cin >> temp;
-        inputVector.push_back(temp);
-    }
-    
-    vector<int> outputVector = strange_sort_vector(inputVector);
-    
-    cout << "The sorted vector is: ";
-    for(auto x : outputVector) {
-        cout << x << " ";
-    }
-    return 0;
 }
