@@ -1,34 +1,47 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
-using namespace std;
+std::vector<std::string> select_words(std::string s, int n);
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
-    for (char c : s) {
-        if (c == ' ') {
-            if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
-                result.push_back(word);
+int main() {
+    std::string s = "Mary had a little lamb";
+    int n = 4;
+    std::vector<std::string> res = select_words(s, n);
+    for (std::string str : res) {
+        std::cout << str << std::endl;
+    }
+    return 0;
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> words;
+    std::string word;
+    for(char c : s) {
+        if(c == ' ') {
+            if(!word.empty()) {
+                words.push_back(word);
+                word.clear();
             }
-            word = "";
         } else {
             word += c;
         }
     }
-    if (!word.empty() && count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + count(word.begin(), word.end(), 'u') <= n) {
-        result.push_back(word);
+    if(!word.empty()) {
+        words.push_back(word);
+    }
+    
+    std::vector<std::string> result;
+    for(int i = 0; i < n && i < words.size(); i++) {
+        result.push_back(words[i]);
     }
     return result;
-}
-
-int main() {
-    string s = "Mary had a little lamb";
-    int n = 4;
-    vector<string> res = select_words(s, n);
-    for (string str : res) {
-        cout << str << endl;
-    }
 }
