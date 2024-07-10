@@ -1,6 +1,6 @@
 while True:
     try:
-        n = int(input())
+        n = int(input("Please enter a number: "))
         print(n)
         break
     except ValueError:

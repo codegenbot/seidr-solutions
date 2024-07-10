@@ -8,7 +8,9 @@ while True:
     except ValueError:
         print("Please enter integers only. Please re-enter the numbers.")
         continue
-        input()
+    except EOFError:
+        print("\nEnd of input received. Exiting.")
+        break
     except KeyboardInterrupt:
         print("\nProgram interrupted. Exiting.")
         break
