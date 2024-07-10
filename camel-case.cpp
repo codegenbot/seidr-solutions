@@ -20,7 +20,7 @@ std::string camelCase(std::string str) {
             firstWord = true;
         } else {
             if (!firstWord) {
-                result += toupper(c);
+                result += c;
             } else {
                 result += tolower(c);
             }
