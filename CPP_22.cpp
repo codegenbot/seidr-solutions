@@ -1,7 +1,7 @@
 #include <vector>
 #include <iostream>
 
-bool same(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const int& a, const int& b) {
     return a == b;
 }
 
@@ -23,7 +23,7 @@ int main() {
     std::vector<int> vector1 = {num1};
     std::vector<int> vector2 = {num2};
 
-    if(same(vector1, vector2)) {
+    if(issame(num1, num2)) {
         std::cout << "Vectors are same." << std::endl; 
     }
     else {
@@ -37,6 +37,6 @@ int main() {
     }
     std::cout << std::endl;
 
-    assert(same({1, 1, 1}, {1, 1, 1}));
+    assert(issame(3, 3));
     return 0;
 }

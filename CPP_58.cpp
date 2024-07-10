@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <set>
@@ -11,10 +10,14 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s2(l2.begin(), l2.end());
 
     vector<int> result;
-    auto range = set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-                                    std::back_inserter(result));
+    for (int i : set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
+                                    std::back_inserter(result))) {
+        // Make sure the result does not contain duplicate elements
+        if (find(result.begin(), end(result), i) == end(result))
+            result.push_back(i);
+    }
     
-    return vector<int>(range, end(result)); 
+    return vector<int>(result.begin(), result.end());
 }
 
 int main() {
