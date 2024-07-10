@@ -1,13 +1,13 @@
+```
 #include <iostream>
 #include <vector>
 
-int prod_signs(int* arr, int n) {
-    if (n == 0) return -32768;
+int prod_signs(const std::vector<int>& arr) {
     int sign = 1;
     long long sum = 0;
-    for (int i = 0; i < n; ++i) {
-        sign *= (arr[i] > 0 ? 1 : (arr[i] < 0 ? -1 : 0));
-        sum += std::abs(arr[i]);
+    for (const auto& i : arr) {
+        sign *= (i > 0 ? 1 : (i < 0 ? -1 : 1));
+        sum += std::abs(i);
     }
     return (sign > 0) ? sum : -sum;
 }
@@ -15,12 +15,11 @@ int prod_signs(int* arr, int n) {
 int main() {
     int n; 
     std::cin >> n;
-    int* arr = new int[n];
-    for (int i = 0; i < n; ++i)
-        std::cin >> arr[i];
+    std::vector<int> arr(n);
+    for (auto& i : arr)
+        std::cin >> i;
 
-    int result = prod_signs(arr, n);
-    delete[] arr;
+    int result = prod_signs(arr);
 
     std::cout << "The product of signs is: " << result << '\n';
     return 0;
