@@ -1,3 +1,9 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
@@ -10,5 +16,12 @@ int mastermind(string code, string guess) {
         }
     }
     
-    return black + white;
+    return make_pair(white, black).second;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    cout << mastermind(code, guess) << endl;
+    return 0;
 }
