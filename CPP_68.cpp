@@ -1,5 +1,6 @@
 ```cpp
 #include <vector>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -36,7 +37,7 @@ std::vector<int> pluck(std::vector<std::vector<int>> arr) {
 }
 
 int main() {
-    std::vector<std::vector<int>> arr = {{7}, {9}, {7}, {1}};
+    std::vector<std::vector<int>> arr = {{int{7}}, {int{9}}, {int{7}}, {int{1}}};
     std::vector<int> result = pluck(arr);
     assert(issame(result, {}));
     return 0;
