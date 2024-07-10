@@ -1,49 +1,26 @@
-```cpp
-#include <iostream>
-#include <vector>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-
-}
-
 int main() {
     int n1, n2;
     
     std::cout << "Enter the size of first vector: ";
     std::cin >> n1;
     
-    std::vector<int> a(n1, 0);
-    
-    std::cout << "Enter element 1 to " << n1 << ": " << std::endl; 
-
+    std::vector<int> a(n1);  
+    std::cout << "Enter elements for vector 1: " << std::endl; 
     for(int i = 0; i < n1; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
         int temp; 
         std::cin >> temp;
-        a[i] = temp;
+        a[i] = temp;  
     }
     
     std::cout << "Enter the size of second vector: ";
     std::cin >> n2;
 
-    std::vector<int> b(n2, 0);
-    
-    std::cout << "Enter element 1 to " << n2 << ": " << std::endl; 
-
+    std::vector<int> b(n2);  
+    std::cout << "Enter elements for vector 2: " << std::endl; 
     for(int i = 0; i < n2; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
         int temp; 
         std::cin >> temp;
-        b[i] = temp;
+        b[i] = temp;  
     }
     
     if(issame(a, b)) {
