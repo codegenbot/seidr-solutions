@@ -11,11 +11,11 @@ def is_prime(num):
 def prime_fib(n):
     a, b = 1, 1
     count = 2
-    while count < n:
+    while count <= n:
         a, b = b, a + b
         if is_prime(b):
             count += 1
-    print(b)
+    return b
 
-n = int(input())
-prime_fib(n)
+n = int(input("Enter the value of n: "))
+print(prime_fib(n))
