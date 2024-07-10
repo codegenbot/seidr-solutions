@@ -16,6 +16,5 @@ int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    cout << "The special factorial of " << to_string(n) << " is: " << special_factorial(n) << endl;
-    return 0;
+    cout << "The special factorial of " << n << " is: " << special_factorial(n) << endl;
 }
