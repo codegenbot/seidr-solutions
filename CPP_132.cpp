@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <functional>
 
 bool is_nested(const std::string str);
 
@@ -20,7 +20,7 @@ bool is_nested(const std::string str) {
     bool result = false;
     int level = 0;
 
-    for (char c : input) { 
+    for (char c : std::string(str).erase(std::remove_if([&c](char x){ return std::toupper(x) == c; }), str.begin()), str.end())) { 
         if (c == '(') {
             level++;
         } else if (c == ')') {
