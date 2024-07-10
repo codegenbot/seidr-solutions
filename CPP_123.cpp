@@ -1,6 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
+#include <iterator>
 
 using namespace std;
 
@@ -8,7 +9,7 @@ vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
-            n = n / 2;
+            n /= 2;
         } else {
             n = 3 * n + 1;
         }
@@ -21,13 +22,9 @@ vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
-    vector<int> result = get_odd_collatz(n);
-    for (int num : result) {
-        cout << num << " ";
-    }
+    cout << "The Collatz Conjecture sequence for 123 is: ";
+    copy(get_odd_collatz(123).begin(), get_odd_collatz(123).end(), 
+         ostream_iterator<int>(cout, " "), (void)0);
     cout << endl;
     return 0;
 }
