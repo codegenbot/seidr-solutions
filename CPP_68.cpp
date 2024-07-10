@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <initializer_list>
+#include <limits.h>
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
@@ -28,6 +28,6 @@ vector<int> pluck(vector<int> arr) {
 
 int main() {
     vector<int> result = pluck({7, 9, 7, 1});
-    assert(issame(result , {}));
+    assert(issame(result, {}));
     return 0;
 }
