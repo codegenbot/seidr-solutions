@@ -3,16 +3,11 @@
 
 using namespace std;
 
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    for (int i = 0; i < n; i++) {
-        pile.push_back(8 + i * 2);
+vector<int> make_a_pile(int n, int start=8, int step=2) {
+    if (n == 0) {
+        return {};
     }
+    vector<int> pile = make_a_pile(n - 1, start, step);
+    pile.push_back(start + (n - 1) * step);
     return pile;
-}
-
-int main() {
-    assert(make_a_pile(8) == vector<int>{8, 10, 12, 14, 16, 18, 20, 22});
-
-    return 0;
 }
