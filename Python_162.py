@@ -1,4 +1,5 @@
-```
+Here is the corrected Python script:
+
 import hashlib
 
 def string_to_md5():
