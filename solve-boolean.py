@@ -1,7 +1,10 @@
-```
 def solve_boolean(expression):
+    if expression[0].upper() != 'T':
+        return False
+    if len(expression) > 1:
+        pass
     stack = []
-    for char in expression:
+    for char in expression[1:]:
         if char.upper() == 'T':
             stack.append(True)
         elif char.upper() == 'F':
