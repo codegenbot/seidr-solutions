@@ -2,6 +2,7 @@
 #include <vector>
 #include <numeric>
 #include <climits>
+#include <cstdlib>
 
 using namespace std;
 
@@ -26,15 +27,12 @@ int main() {
         }
     }
 
-    vector<int> subVector1(nums.begin(), nums.begin() + index + 1);
-    vector<int> subVector2(nums.begin() + index + 1, nums.end());
-
-    for (int num : subVector1) {
-        cout << num << endl;
+    for (int i = 0; i <= index; ++i) {
+        cout << nums[i] << endl;
     }
     cout << "---" << endl;
-    for (int num : subVector2) {
-        cout << num << endl;
+    for (int i = index + 1; i < nums.size(); ++i) {
+        cout << nums[i] << endl;
     }
 
     return 0;
