@@ -29,12 +29,15 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int>(n); // Correct initialization
+    std::vector<int> game(n);
+    std::fill_n(game.begin(), n, 0); // Fill the vector with zeros
+
     for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> game[i];
     }
 
-    std::vector<int>(n); // Correct initialization
+    std::vector<int> guess(n);
     std::cout << "Enter your guess: ";
     for (int i = 0; i < n; i++) {
         std::cin >> guess[i];
