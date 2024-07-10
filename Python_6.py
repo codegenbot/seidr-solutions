@@ -12,9 +12,14 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             current_depth -= 1
         if current_depth < 0:
             return "Invalid nested parens string"
-    depths.append(current_depth)
+        depths.append(current_depth)
     if current_depth != 0:
         return "Invalid nested parens string"
+    return depths
 
-input_string = "((())())"
-print(parse_nested_parens(input_string))
+input_string = input("Enter the nested parens string within quotes: ")
+result = parse_nested_parens(input_string)
+if type(result) == list:
+    print(result)
+else:
+    print(result)
