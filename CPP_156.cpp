@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <string>
 
 std::string int_to_mini_roman(int number) {
     std::vector<std::pair<int, std::string>> romanMap = {{1000, "M"}, {900, "CM"}, {500, "D"},
@@ -22,3 +22,4 @@ int main() {
     std::cin >> num;
     std::cout << "The mini Roman numeral is: " << int_to_mini_roman(num) << std::endl;
     return 0;
+}
