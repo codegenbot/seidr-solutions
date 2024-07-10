@@ -1,8 +1,8 @@
-int largestNegInt(int smallestPosInt) {
+int largestSmallestIntegers(vector<int> lst) {
     int maxNeg = 0;
-    int minPos = smallestPosInt;
+    int minPos = INT_MAX;
 
-    for (int num : {1, -2, 3, -4, 5}) {
+    for (int num : lst) {
         if (num < 0 && num > maxNeg) {
             maxNeg = num;
         }
@@ -11,5 +11,9 @@ int largestNegInt(int smallestPosInt) {
         }
     }
 
-    return {(maxNeg >= 0 ? 0 : maxNeg), (minPos <= 0 ? 0 : minPos)};
+    return (maxNeg >= 0 ? 0 : maxNeg), (minPos <= 0 ? 0 : minPos);
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
