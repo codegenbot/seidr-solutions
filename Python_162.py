@@ -1,5 +1,4 @@
-```python
-``` 
+```
 import hashlib
 
 def string_to_md5():
@@ -12,4 +11,3 @@ def string_to_md5():
 
 result = string_to_md5()
 print(result)
-```
