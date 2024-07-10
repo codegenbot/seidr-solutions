@@ -1,13 +1,6 @@
 #include <map>
 #include <string>
 
-namespace std {
-template<typename K, typename V>
-bool operator==(const pair<K, V>& left, const pair<K, V>& right) {
-    return left.first == right.first && left.second == right.second;
-}
-}
-
 std::map<char, int> histogram(std::string s) {
     std::map<char, int> freqMap;
     for (char c : s) {
@@ -20,12 +13,7 @@ std::map<char, int> histogram(std::string s) {
     return freqMap;
 }
 
-int main() {
-    assert(issameMap(histogram("a"), std::map<char, int>{{'a', 1}}));
-    return 0;
-}
-
-bool issameMap(std::map<char, int> a, std::map<char, int> b) {
+bool issame(std::map<char, int> a, std::map<char, int> b) {
     if (a.size() != b.size())
         return false;
 
@@ -34,4 +22,17 @@ bool issameMap(std::map<char, int> a, std::map<char, int> b) {
             return false;
 
     return true;
+}
+
+std::string s1 = "aa";
+std::string s2 = "a";
+auto hist1 = histogram(s1);
+auto hist2 = histogram(s2);
+
+bool sameMap = issame(hist1, hist2);
+
+if (sameMap) {
+    std::cout << "Histograms are the same.\n";
+} else {
+    std::cout << "Histograms are different.\n";
 }
