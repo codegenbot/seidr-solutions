@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <string>
 
@@ -14,6 +13,7 @@ int hex_key(string num) {
         }
     }
     return count;
+
 }
 
 int main() {
