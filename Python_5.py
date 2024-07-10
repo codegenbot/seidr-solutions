@@ -1,7 +1,4 @@
 ```
-list1 = [1, 3]
-list2 = [2, 4]
-
 def solve(list1, list2):
     result = []
     while any(x for x in (list1, list2)):
@@ -14,4 +11,4 @@ def solve(list1, list2):
             break
     return result
 
-print(solve(list1, list2))
+print(solve([1, 2], [3, 4]))
