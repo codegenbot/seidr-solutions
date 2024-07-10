@@ -6,9 +6,8 @@
 
         total_distance = 0
         for _ in range(num_bounces):
-            height = start_height * 2
-            distance = (height + first_bounce_height) * 2
+            distance = (start_height + first_bounce_height) * 2
             total_distance += distance
-            start_height = height
-        
+            start_height = first_bounce_height
+            first_bounce_height = start_height * 0.5
         return str(int(total_distance))
