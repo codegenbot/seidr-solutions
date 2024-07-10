@@ -18,16 +18,14 @@ int main() {
 
 vector<float> sort_even(vector<float> l) {
     vector<float> result(l.size());
+    int j = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            vector<float> temp;
-            for (int j = 0; j < l.size(); j++) {
-                if (j % 2 == 0) {
-                    temp.push_back(l[j]);
-                }
+            while(j < l.size() && i % 2 != j % 2) {
+                j++;
             }
-            sort(temp.begin(), temp.end());
-            result[i] = temp[0];
+            result[i] = l[j];
+            j++;
         } else {
             result[i] = l[i];
         }
