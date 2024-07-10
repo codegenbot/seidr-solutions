@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -16,8 +17,7 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
     return closest_pairs;
 }
 
-int main() 
-{ 
+int main() { 
     std::vector<float> numbers;
     float num;
     while (std::cin >> num) {
