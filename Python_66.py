@@ -1,12 +1,17 @@
-```Python
 def digitSum(s):
     s = s.lower()
     total = 0
+    is_odd = False
     for c in s:
-        if not c.isdigit() and c != '-':  
-            continue
+        if not c.isdigit() and c != ' ':  
+            print("Error: Invalid input. Please enter a string with digits only.")
+            return -1 
         d = int(c)
-        total += d
+        if is_odd:
+            total += d if d < 5 else d * 2 - 5
+        else:
+            total += d
+        is_odd = not is_odd
     return total
 
 input_string = input("Enter a string: ")
