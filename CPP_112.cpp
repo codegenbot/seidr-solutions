@@ -13,20 +13,16 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 string reverse_delete(string s1, string s2) {
-    string result;
-    for(int i = 0; i < s1.length(); i++) {
-        bool found = false;
-        for(int j = 0; j < s2.length(); j++) {
-            if(s1[i] == s2[j]) {
-                found = true;
-                break;
-            }
-        }
-        if(!found) {
-            result += s1[i];
+    int len1 = s1.length();
+    int len2 = s2.length();
+    for(int i = 0; i < len2; i++) {
+        auto pos = s1.find(string(1, s2[i]));
+        if(pos != string::npos) {
+            s1 = s1.substr(0, pos) + s1.substr(pos + 1);
         }
     }
-    return result;
+    reverse(s1.begin(), s1.end());
+    return s1;
 }
 
 int main() {

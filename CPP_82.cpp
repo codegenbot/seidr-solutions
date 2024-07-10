@@ -22,7 +22,11 @@ int main()
     for(auto c : input){
         flag &= std::isdigit(c); 
     }
-    if (flag && prime_length(std::to_string(input.length()))) {  
+    int len = input.length(); // Calculate length as integer
+    std::string len_str;
+    len_str += std::to_string(len % 10); // For single-digit numbers
+    len_str += std::to_string(len / 10); // For multi-digit numbers
+    if (flag && prime_length(std::to_string(len))) {  
         std::cout << "The length of the string is prime." << std::endl;
     } else {
         std::cout << "The length of the string is not prime." << std::endl;
