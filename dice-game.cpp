@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 
 int main() {
@@ -8,8 +7,9 @@ int main() {
     std::cout << "Enter the number of sides for Colin's die: ";
     std::cin >> m;
     double p = 0.0;
-    if(n > m) {
-        p += (1.0 - (double)m / n) * ((n-1) / n);
+    for (int i = 1; i <= n - 1; i++) {
+        if(i > m)
+            p += (1.0 / n) * (1.0 / m);
     }
     std::cout << "The probability that Peter rolls strictly higher than Colin is: " << 1 - p << std::endl;
     return 0;
