@@ -1,6 +1,8 @@
 #include<iostream>
 #include<vector>
 
+using namespace std;
+
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
@@ -28,17 +30,13 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
-};
+}
 
 int main() {
-    string planet1, planet2;
-    cin >> planet1 >> planet2;
-
-    vector<string> result = bf(planet1, planet2);
-
-    for (const string& planet : result) {
+    vector<string> planets_between = bf("Mars", "Uranus");
+    for (const auto& planet : planets_between) {
         cout << planet << " ";
     }
-
+    cout << endl;
     return 0;
-}
+};
