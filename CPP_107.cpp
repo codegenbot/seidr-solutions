@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -39,4 +40,5 @@ int main() {
 
     cout << "Number of even palindromes: " << result[0] << endl;
     cout << "Number of odd palindromes: " << result[1] << endl;
+
 }
