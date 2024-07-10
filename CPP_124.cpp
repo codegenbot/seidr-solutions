@@ -16,7 +16,7 @@ bool valid_date(std::string date) {
     return true;
 }
 
-int main() {
+int contest_main() {
     std::string date;
     std::cout << "Enter a date in the format MM-DD-YYYY: ";
     std::cin >> date;
