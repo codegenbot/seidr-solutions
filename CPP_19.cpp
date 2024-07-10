@@ -25,8 +25,8 @@ string sort_numbers(string numbers) {
     });
 
     string result = "";
-    for (auto &str : numVec) {
-        result += str + " ";
+    for (auto &num : numVec) {
+        result += num + " ";
     }
     return result;
 }
