@@ -38,6 +38,9 @@ def filter_by_substring():
         elif expected_output.lower() == "false values":
             print(false_values[:num_to_display])
         else:
-            print(true_values[:num_to_display] + false_values[:num_to_display])
+            if len(true_values) > 0:
+                print(true_values[:num_to_display])
+            if len(false_values) > 0:
+                print(false_values[:num_to_display])
     else:
         print("Please enter a substring first.")
