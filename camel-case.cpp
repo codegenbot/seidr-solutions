@@ -1,4 +1,8 @@
-```
+```cpp
+#include <vector>
+#include <iostream>
+#include <string>
+
 std::string toCamelCase(const std::string& s) {
     std::string result;
     bool capitalize = true;
@@ -7,17 +11,29 @@ std::string toCamelCase(const std::string& s) {
         if (c == '-') {
             capitalize = true;
         } else if (capitalize) {
-            if (!result.empty()) {
-                result += ' ';
-            }
             result += toupper(c);
             capitalize = false;
         } else if (c == ' ') {
             capitalize = true;
         } else {
-            result += tolower(c);
+            if(capitalize){
+                result += tolower(c);
+            }else{
+                result += toupper(c);
+            }
+            capitalize = false;
         }
     }
 
     return result;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+
+    std::cout << "Camel case: " << toCamelCase(input) << std::endl;
+
+    return 0;
 }
