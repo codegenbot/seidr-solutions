@@ -1,3 +1,4 @@
+```Python
 from typing import List
 import math
 
@@ -8,8 +9,18 @@ def main():
             n1 = int(input("Enter the first integer: "))
             if n1 < 1:
                 print("Please enter a positive integer.")
-            else:
-                break
+                for _ in range(2):
+                    try:
+                        n1 = int(input("Enter the first integer: "))
+                        if n1 < 1:
+                            print("Please enter a positive integer.")
+                        else:
+                            break
+                    except ValueError:
+                        print("Invalid input. Please enter a valid integer.")
+                else:
+                    continue
+            break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
@@ -31,7 +42,6 @@ def main():
     if n1 > 1:
         factors1.append(n1)
 
-    n2 = None
     while True:
         try:
             n2 = int(input("Enter another integer: "))
@@ -39,7 +49,6 @@ def main():
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
-    n3 = None
     while True:
         try:
             n3 = int(input("Enter another integer: "))
@@ -80,7 +89,6 @@ def main():
     if n3 > 1 and not (n1 % n3 == 0 or n2 % n3 == 0):
         common_factors.append(n3)
 
-    n4 = None
     while True:
         try:
             n4 = int(input("Enter another integer: "))
@@ -92,7 +100,7 @@ def main():
         common_factors.append(n1)
     if n2 > 1 and not (n1 % n2 == 0 or n3 % n2 == 0 or n4 % n2 == 0):
         common_factors.append(n2)
-    if n3 > 1 and not (n1 % n3 == 0 or n2 % n3 == 0 or n4 % n3 == 0):
+    if n3 > 1 and not (n1 % n3 == 0 or n2 % n3 == 0):
         common_factors.append(n3)
     if n4 > 1 and not (n1 % n4 == 0 or n2 % n4 == 0 or n3 % n4 == 0):
         common_factors.append(n4)
