@@ -7,10 +7,11 @@ int specialFilter(const std::vector<std::string>&);
 int main() {
     std::vector<std::string> nums;
     std::cout << "Enter the numbers (enter 'stop' to finish): ";
+    std::string num;
     while (true) {
-        std::string num;
-        std::cin >> num;
+        getline(std::cin, num);
         if (num == "stop") break;
+        num.erase(num.find('\n'), num.length());
         nums.push_back(num);
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
