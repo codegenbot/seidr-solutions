@@ -8,14 +8,22 @@ int mastermind(string code, string guess) {
         }
     }
 
+    map<char, int> codeCount;
+    map<char, int> guessCount;
+
+    for (char c : code) {
+        codeCount[c]++;
+    }
+
     for (char c : guess) {
-        int count = 0;
-        for (char d : code) {
-            if (c == d && c != code[count % 4]) {
-                white++;
-                break;
-            }
-            count++;
+        guessCount[c]++;
+    }
+
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != guess[i]) {
+            int codeCount = codeCount[code[i]];
+            int guessCount = guessCount[code[i]];
+            white += min(codeCount, guessCount);
         }
     }
 
