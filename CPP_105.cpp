@@ -2,9 +2,8 @@
 #include <string>
 #include <map>
 #include <algorithm>
-#include <cassert>
 #include <iostream>
-
+#include <cassert>
 using namespace std;
 
 std::vector<std::string> by_length(std::vector<int> arr){
@@ -38,9 +37,4 @@ std::vector<std::string> by_length(std::vector<int> arr){
     }
 
     return result;
-}
-
-int main() {
-    assert(by_length({9, 4, 8}) == std::vector<std::string>{"Nine", "Four", "Eight"});
-    return 0;
 }
