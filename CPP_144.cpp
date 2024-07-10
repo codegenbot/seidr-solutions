@@ -1,27 +1,21 @@
 #include <string>
-#include <sstream>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = 0, b = 0, c = 0, d = 0;
-    stringstream s1(x), s2(n);
-    s1 >> a >> c;
-    s2 >> b >> d;
-    
-    if(c != d)
-        return false;
-    else{
-        int g = gcd(abs(a*d), abs(b*c));
-        return (a/g) == (b/d);
-    }
-}
+    int a = stoi(strtok((x.substr(1)).c_str(), "/"));
+    int b = stoi(x.substr(0, 1));
+    int c = stoi(strtok((n.substr(1)).c_str(), "/"));
+    int d = stoi(n.substr(0, 1));
 
-int gcd(int a, int b){
-    while(b != 0){
-        int temp = b;
-        b = a % b;
-        a = temp;
+    long long numerator = (long long)a * d;
+    long long denominator = (long long)b * c;
+
+    if (numerator % denominator != 0) {
+        return false;
     }
-    return a;
+
+    return true;
 }
