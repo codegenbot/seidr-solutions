@@ -5,7 +5,7 @@ int main() {
     int numBounces;
     
     std::cin >> h0 >> h1 >> numBounces;
-        
+    
     bouncinessIndex = h1 / h0;
     
     double totalDistance = h0 + h1;
