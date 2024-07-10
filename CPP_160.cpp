@@ -1,10 +1,77 @@
-```cpp
 #include <vector>
 #include <string>
 #include <limits>
 #include <cstring>
 #include <cstdlib>
 #include <cmath>
+
+long long eval(const char *p) {
+    long long y = 0;
+    return eval(p, y);
+}
+
+long long eval(const char *p, long long y) {
+    while (*p) {
+        if (isdigit(*p)) {
+            p++;
+            int x = 0;
+            while (isdigit(*p)) {
+                x = x * 10 + (*p - '0');
+                p++;
+            }
+            y = x;
+        } else if (*p == ' ') {
+            p++;
+            continue;
+        } else if (*p == '+') {
+            p++;
+            if (*p == 'y') {
+                y++;
+                p += 2;
+                continue;
+            }
+            p++;
+            continue;
+        } else if (*p == '-') {
+            p++;
+            if (*p == 'y') {
+                y--;
+                p += 2;
+                continue;
+            }
+            p++;
+            continue;
+        } else if (*p == '*') {
+            p++;
+            int x = 0;
+            while (isdigit(*p)) {
+                x = x * 10 + (*p - '0');
+                p++;
+            }
+            y *= x;
+        } else if (*p == '/') {
+            p++;
+            int x = 0;
+            while (isdigit(*p)) {
+                x = x * 10 + (*p - '0');
+                p++;
+            }
+            if (x != 0)
+                y /= x;
+            else
+                return std::numeric_limits<long long>::max();
+        } else if (*p == '^') {
+            p++;
+            int x = 0;
+            while (isdigit(*p)) {
+                x = x * 10 + (*p - '0');
+                p++;
+            }
+            y = pow(y, x);
+        }
+    }
+    return y;
+}
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = 0;
@@ -30,82 +97,4 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
     result = eval(expression.c_str());
     
     return result;
-}
-
-long long eval(const char *p) {
-    return eval(p, 0);
-}
-
-long long eval(const char *p, long long y) {
-    while (*p) {
-        if (isdigit(*p)) {
-            int x = 0;
-            while (isdigit(*p)) {
-                x = x * 10 + (*p - '0');
-                p++;
-            }
-            if (*p == 'y') {
-                y += x;
-                while (*p && *p != '\n' && *p != '\r') p++;
-                continue;
-            }
-            else
-                y = x;
-        }
-        else if (*p == ' ') {
-            p++;
-            continue;
-        }
-        else if (*p == '+') {
-            p++;
-            if (*p == 'y') {
-                y++;
-                while (*p && *p != '\n' && *p != '\r') p++;
-                continue;
-            }
-            else
-                p++;
-        }
-        else if (*p == '-') {
-            p++;
-            if (*p == 'y') {
-                y--;
-                while (*p && *p != '\n' && *p != '\r') p++;
-                continue;
-            }
-            else
-                p++;
-        }
-        else if (*p == '*') {
-            p++;
-            int x = 0;
-            while (isdigit(*p)) {
-                x = x * 10 + (*p - '0');
-                p++;
-            }
-            y *= x;
-        }
-        else if (*p == '/') {
-            p++;
-            int x = 0;
-            while (isdigit(*p)) {
-                x = x * 10 + (*p - '0');
-                p++;
-            }
-            if (x != 0)
-                y /= x;
-            else
-                return std::numeric_limits<long long>::max();
-        }
-        else if (*p == '^') {
-            p++;
-            int x = 0;
-            while (isdigit(*p)) {
-                x = x * 10 + (*p - '0');
-                p++;
-            }
-            y = pow(y, x);
-        }
-    }
-    return y;
 }
