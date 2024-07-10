@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 int prod_signs(std::vector<int> arr) {
     int product = 1;
-    int sum = 0;
+    long long sum = 0;
 
     for (int num : arr) {
         if (num == 0) {
@@ -14,12 +13,16 @@ int prod_signs(std::vector<int> arr) {
         sum += abs(num);
     }
 
+    if (arr.empty()) { 
+        return 0; 
+    }
+
     return product * sum;
 
 }
 
 int main() {
-    int result = prod_signs({1, 2, 3}); 
+    int result = prod_signs(std::vector<int>({-1, 2, 3})); 
     std::cout << "Product of signs and sum: " << result << std::endl;
     return 0;
 }
