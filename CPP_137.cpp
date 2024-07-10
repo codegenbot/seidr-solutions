@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <algorithm>
 
@@ -16,12 +15,7 @@ std::string compare_one(std::any a, std::any b) {
     }
     double num1 = std::any_cast<double>(a);
     double num2 = std::any_cast<double>(b);
-    if (num1 > num2) return "First";
-    else if (num1 < num2) return "Second";
-    else return "Equal";
-}
-
-int main() {
-    std::cout << compare_one("10.5", "20.3") << std::endl;
-    return 0;
+    if (num1 > num2) return std::to_string(num1);
+    else if (num1 < num2) return std::to_string(num2);
+    return "None";
 }
