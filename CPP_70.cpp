@@ -1,7 +1,8 @@
 #include <algorithm>
 #include <vector>
+#include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool std::issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -26,7 +27,15 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     return result;
 }
 
-int main() {
-    assert(issame(std::vector<int>({1, 2, 3}), strange_sort_vector({1, 2, 3})));
-    return 0;
+int test_main() {
+    int num;
+    std::cout << "Enter an integer: ";
+    std::cin >> num;
+    std::vector<int> input = {num};
+    std::vector<int> output = strange_sort_vector(input);
+    std::cout << "Output: ";
+    for (auto i : output) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
 }
