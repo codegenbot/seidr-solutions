@@ -10,8 +10,7 @@ string string_to_md5(string text) {
     MD5_Init(&ctx);
     const char* ptr = text.c_str();
     while (*ptr) {
-        MD5_Update(&ctx, ptr, 1);
-        ptr++;
+        MD5_Update(&ctx, ptr++, 1);
     }
     MD5_Final(md, &ctx);
 
@@ -19,7 +18,7 @@ string string_to_md5(string text) {
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         char buffer[3];
         sprintf(buffer, "%02x", md[i]);
-        result += string(buffer);
+        result += buffer;
     }
 
     return result;
