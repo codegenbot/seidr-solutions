@@ -1,7 +1,7 @@
 ```cpp
-#define __cpp_initializer_lists 201304L
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
 bool issame(std::vector<int> game, std::vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {
@@ -13,12 +13,12 @@ bool issame(std::vector<int> game, std::vector<int> guess) {
 }
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
-    std::vector<int> result({0});
+    std::vector<int> result(game.size());
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
-            result.push_back(0);
+            result[i] = 0;
         } else {
-            result.push_back(abs(game[i] - guess[i]));
+            result[i] = abs(game[i] - guess[i]);
         }
     }
     return result;
