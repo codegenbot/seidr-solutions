@@ -1,10 +1,10 @@
 #include <vector>
 #include <algorithm>
 
-bool operator==(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if (v1.size() != v2.size()) return false;
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) return false;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -27,6 +27,16 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 }
 
 int main() {
-    assert(strange_sort_vector({1, 2, 3}) == {1, 3, 2});
-    return 0;
-}
+    assert(issame(strange_sort_vector({1, 2, 3}), {1, 3, 2}));
+    int main() {
+        std::vector<int> input;
+        int num;
+        while (std::cin >> num) {
+            input.push_back(num);
+        }
+        std::cout << "Sorted vector: ";
+        for (int i : strange_sort_vector(input)) {
+            std::cout << i << " ";
+        }
+        std::cout << std::endl;
+    }
