@@ -11,13 +11,15 @@ std::string validateTweet(const std::string& tweet) {
 
 int main() {
     std::string tweet;
-    while (tweet.empty()) { 
-        if (!std::getline(std::cin, tweet)) { // check for invalid input
+    while (true) { 
+        std::cout << "Enter a tweet: ";
+        if(std::getline(std::cin, tweet)) break; 
+        else{
+            std::cout << "Invalid input. Please try again." << std::endl;
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        std::cout << "Enter a tweet: ";
-    }
+    }   
     std::string output = validateTweet(tweet); 
     std::cout << output << std::endl;
     return 0;
