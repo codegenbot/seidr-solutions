@@ -1,2 +1,2 @@
 
-discounts[i] /= 100.0; // remove this line
+discounts[i] /= 100.0;  
