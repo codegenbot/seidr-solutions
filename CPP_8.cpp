@@ -27,19 +27,16 @@ std::vector<int> sum_product(std::vector<int> nums){
     return {sum, product};
 }
 
-int main() {
-    int n;
-    std::cin >> n;
-    
-    std::vector<int> nums(n);
-    for(int i=0; i<n; i++){
-        std::cin >> nums[i];
-    }
-    
-    std::vector<int> result = sum_product(nums);
-    
-    std::cout << "Sum: " << result[0] << std::endl;
-    std::cout << "Product: " << result[1] << std::endl;
+int n;
+std::cin >> n;
 
-    return 0;
+std::vector<int> nums(n);
+for(int i=0; i<n; i++){
+    std::cin >> nums[i];
 }
+
+std::vector<int> result = sum_product(nums);
+
+std::cout << "Sum: " << result[0] << std::endl;
+std::cout << "Product: " << result[1] << std::endl;
+
