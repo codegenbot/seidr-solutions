@@ -1,6 +1,3 @@
+```
 def double_the_difference(lst):
-    total = 0
-    for num in lst:
-        if isinstance(num, int) and num >= 0:
-            total += num * num
-    return total
+    return sum(i ** 2 for i in filter(lambda x: isinstance(x, int) and x >= 0 and x % 2 != 0, lst))
