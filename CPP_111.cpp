@@ -1,35 +1,45 @@
-map<char,int> histogram(string test){
-    map<char,int> result;
-    int max_count = 0;
+#include<stdio.h>
+#include<string>
+#include<map>
+using namespace std;
 
-    for (string word : split(test, ' ')) {
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    if (test.empty()) return result;
+
+    string words[1000]; // Assuming maximum 1000 words
+    size_t pos = 0;
+    string word;
+    while ((pos = test.find(' ')) != string::npos) {
+        word = test.substr(0, pos);
+        test.erase(0, pos + 1);
+        words[int(test.length() / 10)] = word; // Assuming maximum 10 words per line
+    }
+    if (!test.empty()) words[int(test.length() / 10)] = test;
+
+    for (auto &word : words) {
+        int count = 0;
         for (char c : word) {
-            if (result.find(c) == result.end()) {
-                result[c] = 1;
-            } else {
+            if (c == ' ')
+                continue;
+            if (result.find(c) != result.end())
                 result[c]++;
-            }
-            max_count = max(max_count, result[c]);
+            else
+                result[c] = 1;
+            count++;
         }
     }
 
-    map<char,int> max_result;
-
-    for (auto& pair : result) {
-        if (pair.second == max_count) {
-            max_result[pair.first] = pair.second;
-        }
+    map<char, int> maxCountMap;
+    int maxCount = 0;
+    for (auto &pair : result) {
+        if (pair.second > maxCount)
+            maxCountMap.clear();
+        if (pair.second == maxCount)
+            maxCountMap[pair.first] = pair.second;
+        else
+            maxCount = pair.second, maxCountMap.clear(), maxCountMap[pair.first] = pair.second;
     }
 
-    return max_result;
-}
-
-vector<string> split(string str, char delimiter) {
-    vector<string> tokens;
-    string token;
-    istringstream tokenStream(str);
-    while (getline(tokenStream, token, delimiter)) {
-        tokens.push_back(token);
-    }
-    return tokens;
+    return maxCountMap;
 }
