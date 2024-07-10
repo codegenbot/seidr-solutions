@@ -13,7 +13,7 @@ string concatenate(const vector<string>& strings){
     return result;
 }
 
-int main(){
+int main() {
     assert (concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
     return 0;
 }
