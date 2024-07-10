@@ -1,7 +1,7 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
-#include <stack>
 
 bool solveBoolean(string expression) {
     stack<char> operation;
@@ -54,7 +54,7 @@ bool solveBoolean(string expression) {
         }
     }
 
-    return (operands.top().compare("T") == 0) ? true : false;
+    return (operands.top().equals("T")) ? true : false;
 }
 
 int main() {
