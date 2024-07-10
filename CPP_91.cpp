@@ -18,7 +18,7 @@ int is_bored(std::string S){
 
 int main() {
     std::cout << "Enter a string: ";
-    std::string input("");
+    std::string input;
     std::getline(std::cin, input);
     int result = is_bored(input);
     std::cout << "Count of 'I' at the beginning: " << result << std::endl;
