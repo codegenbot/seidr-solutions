@@ -2,15 +2,17 @@ from typing import List
 import math
 
 
-def get_integer(prompt):
+def main():
     while True:
         try:
-            return int(input(prompt))
+            n1 = int(input("Enter the first integer: "))
+            if n1 < 1:
+                print("Please enter a positive integer.")
+                continue
+            break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
-
-def find_common_factors(n1, n2):
     factors1 = []
     i = 2
     while i * i <= n1:
@@ -26,43 +28,36 @@ def find_common_factors(n1, n2):
     if n1 > 1:
         factors1.append(n1)
 
-    factors2 = []
+    while True:
+        try:
+            n2 = int(input("Enter another integer: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+
+    common_factors = []
     i = 2
-    while i * i <= n2:
-        if n2 % i:
-            i += 1
-        else:
-            n2 //= i
+    while i * i <= min(n1, n2):
+        if n1 % i == 0 and n2 % i == 0:
             count = 0
-            while n2 % i == 0:
+            while n1 % i == 0 and n2 % i == 0:
+                n1 //= i
                 n2 //= i
                 count += 1
-            factors2.extend([i] * count)
-    if n2 > 1:
-        factors2.append(n2)
-
-    return list(set(factors1) & set(factors2))
-
-
-def main():
-    n1 = get_integer("Enter the first integer: ")
-    while n1 < 1:
-        print("Please enter a positive integer.")
-        n1 = get_integer("Enter the first integer: ")
-
-    n2 = get_integer("Enter another integer: ")
-    while not (n2 > 0 and n1 != n2):
-        if n1 == n2:
-            print(f"{n1} is the common factor between {n1} and {n2}.")
-            return
+            common_factors.extend([i] * count)
+        elif n1 % i or n2 % i:
+            i += 1
         else:
-            print("Please enter a positive integer.")
-            n2 = get_integer("Enter another integer: ")
+            break
 
-    common_factors = find_common_factors(n1, n2)
+    if n1 > 1 and not n2 % n1 == 0:
+        common_factors.append(n1)
+    if n2 > 1 and not n1 % n2 == 0:
+        common_factors.append(n2)
+
     if common_factors:
         print(
-            f"{', '.join(map(str, common_factors))} are the common factors between {n1} and {n2}."
+            f"{', '.join(map(str, set(common_factors)))} are the common factors between {n1} and {n2}."
         )
     else:
         print(f"No common factor found between {n1} and {n2}.")
