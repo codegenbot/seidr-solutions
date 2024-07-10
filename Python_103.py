@@ -7,3 +7,5 @@ def rounded_avg(n, m):
         bin_str = str(avg % 2) + bin_str
         avg //= 2
     return "0b" + bin_str.zfill(8)
+
+print(rounded_avg(5, 3))
