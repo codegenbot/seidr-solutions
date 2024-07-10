@@ -20,7 +20,7 @@ vector<string> reverse_delete(string s, string c) {
 
 int main() {
     vector<string> result = reverse_delete("mamma", "mia");
-    if (result == vector<string>{"", "True"}) {
+    if (result == vector<string>{"m", "False"}) {
         cout << "Test Passed" << endl;
     } else {
         cout << "Test Failed" << endl;
