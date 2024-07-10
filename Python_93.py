@@ -1,26 +1,13 @@
+```Python
 def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
             if char.isupper():
-                if char.lower() in ['a', 'e', 'i', 'o', 'u']:
-                    if char == 'A':
-                        result += 'c'
-                    elif char == 'E':
-                        result += 'g'
-                    elif char == 'I':
-                        result += 'k'
-                    elif char == 'O':
-                        result += 'q'
-                    else:
-                        result += 's'
+                if char == 'X' or char == 'x':
+                    result += 'A'
                 else:
-                    if char == 'X' or char == 'x':
-                        result += 'A'
-                    elif char == 'Y' or char == 'y':
-                        result += 'B'
-                    else:
-                        result += chr(ord(char) + 1)
+                    result += chr(ord(char) + 1)
             else:
                 if char in ['a', 'e', 'i', 'o', 'u']:
                     if char == 'a':
