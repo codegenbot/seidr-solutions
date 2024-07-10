@@ -1,6 +1,6 @@
 #include <string>
 
-int count_upper(std::string s){
+int count_upper(const string& s){
     int count = 0;
     for(int i = 0; i < s.size(); i += 2){
         if(s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U'){
@@ -9,5 +9,3 @@ int count_upper(std::string s){
     }
     return count;
 }
-
-assert(count_upper("EEEE") == 2);
