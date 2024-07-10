@@ -1,18 +1,10 @@
-#include <vector>
 #include <cassert>
 
-using namespace std;
-
-bool triples_sum_to_zero(const vector<int>& l) {
-    int n = l.size();
-    if (n < 3) {
-        return false;
-    }
-
-    for (int i = 0; i < n - 2; i++) {
-        for (int j = i + 1; j < n - 1; j++) {
-            for (int k = j + 1; k < n; k++) {
-                if (l[i] + l[j] + l[k] == 0) {
+bool triples_sum_to_zero(const vector<int>& nums) {
+    for (int i = 0; i < nums.size(); ++i) {
+        for (int j = i + 1; j < nums.size(); ++j) {
+            for (int k = j + 1; k < nums.size(); ++k) {
+                if (nums[i] + nums[j] + nums[k] == 0) {
                     return true;
                 }
             }
@@ -23,5 +15,9 @@ bool triples_sum_to_zero(const vector<int>& l) {
 
 int main() {
     assert(triples_sum_to_zero({100, 3, 5, -100}) == false);
+    assert(triples_sum_to_zero({-1, 0, 1}) == true);
+    assert(triples_sum_to_zero({1, 2, 3, -6, 4, 5}) == true);
+    assert(triples_sum_to_zero({1, 2, 3, 4, 5}) == false);
+    
     return 0;
 }
