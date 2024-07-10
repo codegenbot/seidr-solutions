@@ -18,7 +18,6 @@ vector<string> sorted_list_sum(vector<string> inputList) {
 }
 
 int main() {
-    vector<string> inputList = {"aaaa", "bbbb", "dd", "cc"};
-    assert(areSame(sorted_list_sum(inputList), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(areSame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
