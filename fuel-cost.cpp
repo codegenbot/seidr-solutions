@@ -1,32 +1,31 @@
-Here is the solution:
+Here is the completed code:
 
-int calculate(int n) {
-    return (n / 3 - 2);
+#include <vector>
+using namespace std;
+
+int calculateFuelCost(vector<int> costs) {
+    int sum = 0;
+    for (int cost : costs) {
+        int newCost = (cost / 3);
+        if (newCost >= 1) {
+            newCost = newCost - 2;
+        } else {
+            newCost = 0;
+        }
+        sum += newCost;
+    }
+    return sum;
 }
 
 int main() {
+    vector<int> costs;
     int n;
     cin >> n;
-    
-    vector<int> vec;
-    for(int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        
-        if(x > 0) {
-            vec.push_back(calculate(x));
-        } else {
-            cout << "Invalid input. Please enter positive integer." << endl;
-            return 1;
-        }
+    for (int i = 0; i < n; i++) {
+        int cost;
+        cin >> cost;
+        costs.push_back(cost);
     }
-    
-    int sum = 0;
-    for(int i = 0; i < vec.size(); i++) {
-        sum += vec[i];
-    }
-    
-    cout << sum << endl;
-    
+    cout << calculateFuelCost(costs) << endl;
     return 0;
 }
