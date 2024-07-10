@@ -19,13 +19,12 @@ int main() {
     std::vector<std::string> words;
     int n;
     std::cout << "Enter the number of words: ";
-    std::cin >> std::ws; 
     std::cin >> n;
 
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
-        std::cin >> std::ws;
+        std::cin.ignore(32767, '\n'); 
         std::getline(std::cin, word); 
         words.push_back(word);
     }
