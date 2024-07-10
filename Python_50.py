@@ -1,3 +1,4 @@
+```
 def shift_string():
     result = ""
 
@@ -16,11 +17,9 @@ def shift_string():
                 else:
                     ascii_offset = 65 if char.isupper() else 97
                     if char.isupper():
-                        result += chr(
-                            (ord(char) - ascii_offset + n) % 26 + ascii_offset
-                        ).upper()
+                        result += chr((ord(char) - ascii_offset + n) % 26 + ascii_offset).upper()
                     else:
-                        result += chr(
-                            (ord(char) - ascii_offset + n) % 26 + ascii_offset
-                        ).lower()
+                        result += chr((ord(char) - ascii_offset + n) % 26 + ascii_offset).lower()
             print(result)
+
+    shift_string()
