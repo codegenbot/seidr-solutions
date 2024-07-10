@@ -1,19 +1,19 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <algorithm>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
-    int input;
-    while (cin >> input) {
-        nums.push_back(input);
+    int n;
+    while (cin >> n) {
+        nums.push_back(n);
     }
     
     int sum = 0;
     for (int num : nums) {
-        sum += floor(num / 3) - 2;
+        sum += max(num / 3 - 2, 0);
     }
     
     cout << sum << endl;
