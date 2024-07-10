@@ -1,18 +1,53 @@
-// Declaration of the function by_length
-vector<string> by_length(vector<int> arr);
+#include <vector>
+#include <string>
+#include <map>
+#include <algorithm>
+#include <cassert>
+#include <iostream>
 
-// Definition of the function issame with corrected order in expected output
-bool issame(vector<string> a, vector<string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
+
+std::vector<std::string> by_length(std::vector<int> arr);
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
-// Implement the by_length function
-vector<string> by_length(vector<int> arr){
-    // Existing implementation remains unchanged
+std::vector<std::string> by_length(std::vector<int> arr){
+    std::vector<std::string> result;
+    std::vector<int> sorted_arr;
+
+    for (int num : arr) {
+        if (num >= 1 && num <= 9) {
+            sorted_arr.push_back(num);
+        }
+    }
+
+    std::sort(sorted_arr.begin(), sorted_arr.end());
+
+    std::reverse(sorted_arr.begin(), sorted_arr.end());
+
+    std::map<int, std::string> num_to_name = {
+        {1, "One"},
+        {2, "Two"},
+        {3, "Three"},
+        {4, "Four"},
+        {5, "Five"},
+        {6, "Six"},
+        {7, "Seven"},
+        {8, "Eight"},
+        {9, "Nine"}
+    };
+
+    for (int num : sorted_arr) {
+        result.push_back(num_to_name[num]);
+    }
+
+    return result;
 }
 
-// The main function with corrected assertion
-int main() {
+
+int main(){
     assert(issame(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
     return 0;
 }
