@@ -1,9 +1,14 @@
 def main():
-    lst = [input("Enter words (separated by space): ").lower().split()]
-    if len(lst) > 0:
-        print(sorted_list_sum(lst[0]))
-    else:
-        print("Please enter at least one word.")
+    while True:
+        try:
+            lst = [input("Enter words (separated by space): ").lower().split()]
+            break
+        except ValueError:
+            print(
+                "Invalid input. Please enter valid words separated by a single space."
+            )
+
+    print(sorted_list_sum(lst[0]))
 
 
 def sorted_list_sum(lst):
