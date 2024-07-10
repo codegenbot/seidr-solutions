@@ -1,6 +1,6 @@
 def below_zero(operations):
     return sum(1 for num in operations if num < 0)
 
-operations = list(map(int, input().split()))
+operations = list(map(int, input("Enter the list of numbers separated by space: ").split()))
 result = below_zero(operations)
 print(result)
