@@ -3,6 +3,6 @@ def intersperse(a, b):
         return [b]
     result = [b]
     for item in a:
-        result.append(item)
-        result.append(b)
+        result += [b, item]
+    result.append(b)
     return result
