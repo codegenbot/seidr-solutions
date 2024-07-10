@@ -4,11 +4,11 @@
 using namespace std;
 
 bool evaluateBooleanExpression(const string& expression) {
-    if (expression == "T") {
+    if (expression == "t") {
         return true;
-    } else if (expression == "F") {
+    } else if (expression == "f") {
         return false;
-    } else if (expression == "T&F" || expression == "F&T" || expression == "F&F") {
+    } else if (expression == "t&f" || expression == "f&t" || expression == "f&f") {
         return false;
     } else {
         return true;
