@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 
 int count_nums(std::vector<int> nums) {
     int count = 0;
@@ -15,7 +16,7 @@ int count_nums(std::vector<int> nums) {
                 count++;
             }
         } else {
-            if (std::abs(num) < INT_MAX / 9) {
+            if(std::abs(num) < std::numeric_limits<int>::max() / 9) {
                 int absNum = std::abs(num);
                 sum = 0;
                 while (absNum > 0) {
