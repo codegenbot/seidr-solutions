@@ -1,3 +1,4 @@
+```
 def gcd(a, b):
     while b:
         a, b = b, a % b
@@ -12,8 +13,10 @@ def indices_of_substring(text, target):
     return result
 
 
-a, b = map(int, input("Enter two integers (separated by space): ").split())
-print(gcd(a, b))
+a = int(input())
+b = int(input())
+text = input()
+target = input()
 
-text, target = input("Enter text and target string (separated by space): ").split()
+print(gcd(a, b))
 print(*indices_of_substring(text, target))
