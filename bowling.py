@@ -1,19 +1,13 @@
-def bowling_score(score_card):
+```
+def bowling_score(gutter_ball):
+    frames = gutter_ball.split('/')
     score = 0
-    roll = []
-    for char in score_card:
-        if char.isdigit():
-            roll.append(int(char))
+    for i in range(len(frames)):
+        if len(frames[i]) == 1: 
+            score += 10 - int(frames[i])
+        elif len(frames[i]) > 1:
+            score += (int(frames[i][0]) + int(frames[i][1]))*2
         else:
-            if len(roll) < 2:
-                return "Invalid score card"
-            if sum(roll) < 10:
-                score += sum(roll)
-            else:
+            if i < 9:
                 score += 10
-            roll = []
-    if len(roll) > 0 and sum(roll) == 10:
-        score += sum(roll)
-    elif len(roll) > 0:
-        return "Invalid score card"
     return score
