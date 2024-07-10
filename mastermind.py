@@ -1,1 +1,1 @@
-f"{str(black)}\n{str(white)}"
+f"{str(black)}\n{str(white]}"
