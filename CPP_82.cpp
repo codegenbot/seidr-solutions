@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -18,14 +17,17 @@ int main()
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input); 
+    std::string lenStr = "";
+    for(int i=input.length(); i>0; --i) {
+        int digit = i % 10;
+        lenStr += '0' + digit;
+        i /= 10;
+    }
     bool flag = true;
-    for(auto c : input){
+    for(auto c : lenStr){
         flag &= std::isdigit(c); 
     }
-    int len = input.length(); 
-    std::string lenStr = std::to_string(len);
-    bool result = flag && prime_length(lenStr);
-    if(result) {  
+    if(flag && prime_length(lenStr)) {  
         std::cout << "The length of the string is prime." << std::endl;
     } else {
         std::cout << "The length of the string is not prime." << std::endl;
