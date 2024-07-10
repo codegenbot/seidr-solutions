@@ -8,7 +8,10 @@ def concatenate(strings: List[str]) -> str:
     return result
 
 if __name__ == '__main__':
-    user_input = input().split()
-    print(concatenate(user_input))
-
-print(concatenate(['hello', 'world']))
+    n = int(input("Enter number of strings: "))
+    strings = []
+    for _ in range(n):
+        user_input = input()
+        strings.append(user_input)
+    print(concatenate(strings))
+    print(concatenate(['hello', 'world']))
