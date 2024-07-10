@@ -1,6 +1,5 @@
-```
 def smallest_change():
-    arr = list(map(int, input().split()))
+    arr = list(map(int, input("Enter number of coins and their denominations separated by space: ").split()))
     changes = 0
     for i in range(len(arr) - 1):
         if arr[i] > arr[i + 1]:
