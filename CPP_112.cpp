@@ -1,8 +1,13 @@
 #include <string>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-std::pair<std::string, std::string> solve(const std::string& s, const std::string& c) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
+
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::string result = "";
     for (char ch : s) {
         if (c.find(ch) == std::string::npos) {
@@ -12,4 +17,9 @@ std::pair<std::string, std::string> solve(const std::string& s, const std::strin
     std::string result_reverse = result;
     std::reverse(result_reverse.begin(), result_reverse.end());
     return {result, result == result_reverse ? "True" : "False"};
+}
+
+int main() {
+    assert(issame(reverse_delete("mamma", "mia"), std::vector<std::string>{"", "True"}));
+    return 0;
 }
