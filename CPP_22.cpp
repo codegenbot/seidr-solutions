@@ -7,7 +7,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> filter_integer(std::vector<int> values) {
-    std::vector<int> result = std::vector<int>(); // Initialize result vector
+    std::vector<int> result = std::vector<int>(1); // Initialize result vector with a size 1
     for (int value : values) {
         if(value != 0) {
             if(result.empty()) {
