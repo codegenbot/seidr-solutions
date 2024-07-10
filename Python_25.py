@@ -13,13 +13,12 @@ def main():
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
-    while True:
+    n2 = -1
+    while n2 < 1:
         try:
             n2 = int(input("Enter another integer: "))
             if n2 < 1:
                 print("Please enter a positive integer.")
-                continue
-            break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
