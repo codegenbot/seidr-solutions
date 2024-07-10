@@ -9,5 +9,5 @@ int next_smallest(vector<int> lst) {
             return lst[i];
         }
     }
-    return -1; 
+    return -1;
 }
