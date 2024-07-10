@@ -6,7 +6,7 @@
 std::vector<int> remove_duplicates(const std::vector<int>& numbers) {
     std::vector<int> temp = numbers;
     sort(temp.begin(), temp.end());
-    temp.erase(std::unique(temp.begin(), temp.end()), temp.end());
+    temp.erase(unique(temp.begin(), temp.end()), temp.end());
     return temp;
 }
 
