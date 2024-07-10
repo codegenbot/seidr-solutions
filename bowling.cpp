@@ -1,47 +1,49 @@
-int bowlingScore(string input) {
+int bowlingScore(string frames) {
     int score = 0;
-    bool firstInFrame = true;
-    vector<int> frameScores;
+    int currentFrameRolls = 0;
 
-    for (char c : input) {
-        if (c == '/') {
-            continue;
-        }
-        if (isdigit(c)) {
-            int pins = c - '0';
-            if (firstInFrame) {
-                frameScores.push_back(pins);
-                firstInFrame = false;
-            } else {
-                if (frameScores.back() + pins > 10) {
-                    score += 10 - (10 - frameScores.back() - pins);
-                    frameScores.pop_back();
-                } else {
-                    frameScores.back() += pins;
+    for (int i = 0; i < frames.size(); ++i) {
+        if (frames[i] == 'X') { // strike
+            score += 10 + getExtraFrames(frames, i);
+            currentFrameRolls = 2;
+        } else if (frames[i] == '/') { // spare
+            score += 5 + getExtraFrames(frames, i+1);
+            currentFrameRolls = 2;
+        } else { // normal roll
+            int rollsThisFrame = frames[i] - '0';
+            score += rollsThisFrame;
+            currentFrameRolls++;
+            if (currentFrameRolls == 2) {
+                if (i + 2 < frames.size() && frames[i+1] != '/') {
+                    score += frames[i+1] - '0';
                 }
             }
-        } else if (c == 'X') {
-            score += 10;
-            firstInFrame = true;
-        } else if (c == '-') {
-            firstInFrame = true;
-        } else {
-            int pins = 2 * (c - '0');
-            score += pins;
-            firstInFrame = false;
-        }
-    }
-
-    for (int i = 0; i < frameScores.size(); ++i) {
-        if (frameScores[i] == 10) {
-            continue;
-        } else if (frameScores[i] + frameScores[i+1] > 10) {
-            score += 10 - (10 - frameScores[i] - frameScores[i+1]);
-            i++;
-        } else {
-            score += frameScores[i];
         }
     }
 
     return score;
+}
+
+int getExtraFrames(string frames, int start) {
+    int extraRolls = 0;
+    for (int i = start; i < frames.size(); ++i) {
+        if (frames[i] == 'X') { // strike
+            extraRolls += 10 + getExtraFrames(frames, i+1);
+            break;
+        } else if (frames[i] == '/') { // spare
+            extraRolls += 5 + getExtraFrames(frames, i+2);
+            break;
+        } else {
+            int rollsThisFrame = frames[i] - '0';
+            extraRolls += rollsThisFrame;
+            if (i+1 < frames.size() && frames[i+1] != '/') {
+                extraRolls++;
+            }
+            if (extraRolls >= 3) {
+                break;
+            }
+        }
+    }
+
+    return extraRolls;
 }
