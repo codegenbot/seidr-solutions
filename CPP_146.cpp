@@ -12,8 +12,6 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main() {
-    std::vector<int> nums = {1,11,12,13};
-    int result = specialFilter(nums);
-    std::cout << "Number of numbers meeting the criteria: " << result << std::endl; 
+    std::cout << specialFilter({1,11,12,13}) << std::endl; 
     return 0;
 }
