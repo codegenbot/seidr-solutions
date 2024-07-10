@@ -1,4 +1,9 @@
-int skjkasdkd(vector<int> lst){
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
     for (int num : lst) {
         if (num < 2) continue;
@@ -21,4 +26,9 @@ int skjkasdkd(vector<int> lst){
     }
     
     return sumDigits;
+}
+
+int main() {
+    assert(skjkasdkd({127, 97, 8192}) == 10);
+    return 0;
 }
