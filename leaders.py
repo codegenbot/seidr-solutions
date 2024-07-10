@@ -1,11 +1,6 @@
-Here is the Python solution:
-
-def leaders(arr):
-    n = len(arr)
-    leaders_list = [arr[n-1]]
-    
-    for i in range(n-2, -1, -1):
-        if arr[i] >= arr[i+1]:
-            leaders_list.insert(0, arr[i])
-            
-    return leaders_list
+def leaders(integers):
+    return [
+        integers[i]
+        for i in range(len(integers) - 1, -1, -1)
+        if all(integers[i] >= integers[j] for j in range(i + 1, len(integers)))
+    ]
