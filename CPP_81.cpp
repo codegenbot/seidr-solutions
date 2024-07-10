@@ -7,7 +7,7 @@
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        auto it = std::find(b.begin(), b.end(), a[i]);
+        auto it = std::find_if(b.begin(), b.end(), [&](const auto& str) { return str == std::to_string(a[i]); });
         if (it == b.end()) return false;
     }
     return true;

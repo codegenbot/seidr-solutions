@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -25,7 +24,7 @@ int count_nums(std::vector<int> nums) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> nums(std::vector<int>::size_type());
+    std::vector<int> nums(n);
     while (n--) {
         int num; 
         while (!(std::cin >> num)) {

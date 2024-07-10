@@ -26,7 +26,11 @@ int main() {
     std::cout << "Enter elements for vector 1: " << std::endl; 
     for(int i = 0; i < n1; i++) {
         int temp; 
-        std::cin >> temp;
+        while (!(std::cin >> temp)) {
+            std::cout << "Invalid input. Please enter an integer." << std::endl;
+            std::cin.clear(); // Clear error flags
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the rest of the line
+        }
         a.push_back(temp);
     }
     
@@ -38,7 +42,11 @@ int main() {
     std::cout << "Enter elements for vector 2: " << std::endl; 
     for(int i = 0; i < n2; i++) {
         int temp; 
-        std::cin >> temp;
+        while (!(std::cin >> temp)) {
+            std::cout << "Invalid input. Please enter an integer." << std::endl;
+            std::cin.clear(); // Clear error flags
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore the rest of the line
+        }
         b.push_back(temp);
     }
     
