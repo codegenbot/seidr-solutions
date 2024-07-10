@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath>
+#include <iomanip>
 
 int main() {
     double h0, h1, bouncinessIndex;
@@ -9,9 +9,13 @@ int main() {
     
     bouncinessIndex = h1 / h0;
     
-    double totalDistance = h0 * (1 + bouncinessIndex * (1 - std::pow(bouncinessIndex, numBounces))) / (1 - bouncinessIndex);
+    double totalDistance = h0 + h1;
+    for (int i = 2; i <= numBounces; ++i) {
+        totalDistance += (1 + bouncinessIndex) * h1;
+        h1 *= bouncinessIndex;
+    }
     
-    std::cout << totalDistance << '\n';
+    std::cout << std::fixed << std::setprecision(14) << totalDistance << '\n';
     
     return 0;
 }
