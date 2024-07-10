@@ -1,6 +1,5 @@
-Here is the solution:
+Here is the completed code:
 
 def find_zero(xs: list):
-    a = xs[0]
-    b = xs[1] if len(xs) > 1 else None
-    return -b / (2 * a) if a and b else None
+    degree = len(xs) // 2
+    return -xs[degree-1] / xs[degree]
