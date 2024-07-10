@@ -16,6 +16,15 @@ def minPathSum(grid, k):
 
     return min(dfs(i, j, [grid[i][j]]) for i in range(N) for j in range(N))
 
-grid = [[1,2],[3,4]]
-k = 2
+n = int(input("Enter the number of rows: "))
+m = int(input("Enter the number of columns: "))
+
+grid = [[0]*m for _ in range(n)]
+
+for i in range(n):
+    for j in range(m):
+        grid[i][j] = int(input(f"Enter the value for row {i+1}, column {j+1}: "))
+
+k = int(input("Enter the number of cells to sum: "))
+
 print(minPathSum(grid, k))
