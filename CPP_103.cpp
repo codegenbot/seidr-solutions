@@ -29,4 +29,4 @@ int main() {
     std::cout << solve(n, m) << std::endl;
     
     return 0;
-}
+}   
