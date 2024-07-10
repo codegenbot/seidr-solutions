@@ -1,5 +1,9 @@
-string encrypt(string s) {
-    string result = "";
+#include <iostream>
+#include <string>
+using namespace std;
+
+std::string encrypt(std::string s) {
+    std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             char base = isupper(c) ? 'A' : 'a';
@@ -8,4 +12,9 @@ string encrypt(string s) {
         result += c;
     }
     return result;
+}
+
+int main() {
+    assert(encrypt("a") == "e");
+    return 0;
 }
