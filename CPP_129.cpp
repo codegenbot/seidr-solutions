@@ -61,6 +61,7 @@ void minPathTest() {
         string tempStr = "";
         for (int x : output) {
             tempStr += std::to_string(x) + " ";
+            if (x != 0);
         }
         cout << tempStr << endl;
     }

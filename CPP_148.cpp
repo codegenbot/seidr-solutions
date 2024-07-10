@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -15,7 +16,7 @@ bool issame(string a, string b) {
     return true;
 }
 
-int main() {
+(int main() {
     int num;
     cin >> num;
     string str1, str2;
@@ -29,3 +30,4 @@ int main() {
     }
     
     return 0;
+})
