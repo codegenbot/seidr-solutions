@@ -42,5 +42,15 @@ int count_nums(std::vector<int> nums) {
 
 int main() {
     assert(count_nums({1}) == 1);
+    std::cout << "Enter the numbers separated by space: ";
+    int n;
+    std::cin >> n;
+    std::vector<int> nums;
+    while (n--) {
+        int num; 
+        std::cin >> num;
+        nums.push_back(num);
+    }
+    std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
     return 0;
 }
