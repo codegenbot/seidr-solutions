@@ -3,17 +3,19 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> sort_third(const std::vector<int>& l) {
-    std::vector<int> result = l;
+using namespace std;
+
+vector<int> sort_third(vector<int> l) {
+    vector<int> result = l;
     for (int i = 0; i < l.size(); ++i) {
         if ((i + 1) % 3 == 0) {
-            std::sort(result.begin() + i - 2, result.begin() + i + 1);
+            sort(result.begin() + i - 2, result.begin() + i + 1);
         }
     }
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
