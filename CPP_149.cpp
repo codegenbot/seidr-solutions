@@ -4,9 +4,9 @@ vector<string> sorted_list_sum(vector<string> lst) {
         if (it->length() % 2 != 0) {
             lst.erase(it);
             it = lst.begin();
-            continue;
+        } else {
+            ++it;
         }
-        ++it;
     }
     sort(lst.begin(), lst.end(),
          [](const string& a, const string& b) {
@@ -16,8 +16,4 @@ vector<string> sorted_list_sum(vector<string> lst) {
              return a.length() < b.length();
          });
     return lst;
-}
-
-bool issame(vector<string> a, vector<string> b) {
-    // Your logic to check if two lists are same
 }
