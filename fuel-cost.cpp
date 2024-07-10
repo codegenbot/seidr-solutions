@@ -7,4 +7,3 @@ int calculateFuelCost(vector<int> numbers) {
         sum += result;
     }
     return sum;
-}
