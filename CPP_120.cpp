@@ -14,8 +14,8 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
 
 int main() {
     std::vector<int> input = {1, 2, 3, -23, 243, -400, 0};
-    int k = k - 1;
-    if (maximum(input, k).size() != 0) {
+    int k = 4;
+    if (!input.empty()) {
         for (int i : maximum(input, k)) {
             std::cout << i << " ";
         }
