@@ -1,46 +1,11 @@
-def is_prime(n):
-    if n < 2:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
-
-
-def modp(num, p):
-    if num < p:
-        return num
-    res = 1
-    while num > 1:
-        if num & 1:
-            res = (res * num) % p
-        num //= 2
-    return res
-
-
-def main():
-    while True:
-        num = input("Enter a number: ")
-        p = input("Enter the prime number: ")
-
-        while True:
-            try:
-                num = int(num)
-                p = int(p)
-                break
-            except ValueError:
-                print("Invalid input. Please enter numbers.")
-                num = input("Enter a number: ")
-                p = input("Enter the prime number: ")
-
-        if is_prime(p):
-            n = num**p
-            result = modp(n, p)
-            print(f"{num} to the power of {p} mod {p} is {result}")
+```
+while True:
+    def modp(num, p):
+        if num < p:
+            print(f"Number {num} is less than the prime number {p}. Please enter a valid input.")
         else:
-            print("The given prime number is not valid. Please enter a prime number.")
-    pass
-
-
-if __name__ == "__main__":
-    main()
+            # your original code or any other operation
+            pass
+    num = int(input("Enter a number: "))
+    p = int(input("Enter a prime number: "))
+    modp(num, p)
