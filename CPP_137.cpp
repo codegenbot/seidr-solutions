@@ -38,6 +38,6 @@ boost::any compare_one(boost::any a, boost::any b) {
         return num1 > num2 ? a : b;
     }
     else {
-        return boost::any(); 
+        return boost::any();
     }
 }
