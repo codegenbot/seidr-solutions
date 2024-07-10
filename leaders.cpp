@@ -2,21 +2,22 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> res;
+    vector<int> result;
     int n = arr.size();
-    int maxRightSoFar = arr[n-1];
-    for(int i=n-2; i>=0; --i){
-        if(arr[i] >= maxRightSoFar){
-            maxRightSoFar = arr[i];
-            res.push_back(arr[i]);
+    int max_right = arr[n-1];
+    for(int i=n-1; i>=0; i--){
+        if(arr[i] >= max_right){
+            result.push_back(arr[i]);
+            max_right = arr[i];
         }
     }
-    return res;
+    reverse(result.begin(), result.end());
+    return result;
 }
 
 int main() {
-    vector<int> test = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
-    vector<int> result = leaders(test);
-    for(int i : result) cout << i << " ";
+    vector<int> arr = {1, 3, 4, 2};
+    vector<int> result = leaders(arr);
+    // do something with result
     return 0;
 }
