@@ -1,8 +1,9 @@
 for (char &c : str) {
-    if (islower(c)) {
-        c = toupper(c);
-    } else if (isupper(c)) {
-        c = tolower(c);
+        if (islower(c)) {
+            c = toupper(c);
+        } else if (isupper(c)) {
+            c = tolower(c);
+        }
     }
+    return str;
 }
-return str;
