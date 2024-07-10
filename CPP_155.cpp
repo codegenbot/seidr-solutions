@@ -4,6 +4,10 @@
 #include <cstdlib>
 #include <cassert>
 
+bool assert_equal(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<int> even_odd_count(int num) {
     std::vector<int> counts(2, 0);
     std::string numStr = std::to_string(abs(num));
@@ -18,9 +22,9 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(even_odd_count(0) == std::vector<int>{1, 0});
-    assert(even_odd_count(123456) == std::vector<int>{3, 3});
-    assert(even_odd_count(-87654) == std::vector<int>{2, 3});
+    assert(assert_equal(even_odd_count(0), std::vector<int>{1, 0}));
+    assert(assert_equal(even_odd_count(123456), std::vector<int>{3, 3}));
+    assert(assert_equal(even_odd_count(-87654), std::vector<int>{2, 3}));
 
     std::cout << "All test cases passed successfully." << std::endl;
 
