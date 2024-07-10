@@ -18,19 +18,16 @@ int main_func() {
     cin >> a;
 
     double b;
-    string str;
-    cout << "Enter a floating point number or a string: ";
-    cin >> str; 
+    cout << "Enter a floating point number: ";
+    cin >> b; 
 
-    if (str.find('.') != string::npos) { 
-        // If the input contains a '.', treat it as a floating point number
-        b = stod(str);
+    if (cin.fail()) { 
+        cin.clear();
+        cin >> ws;
+        cout << "The result is: " << compare_one(a, 0) << endl;
     } else {
-        // Otherwise, treat it as an integer
-        b = stoi(str);
+        cout << "The result is: " << compare_one(a, b) << endl;
     }
-
-    cout << "The result is: " << compare_one(a, b) << endl;
 
     return 0;
 }
