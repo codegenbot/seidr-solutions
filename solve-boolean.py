@@ -1,17 +1,14 @@
+```
 def solve_boolean(expression):
-    result = True
-    temp = True
-
-    for char in expression:
-        if char == 't':
-            temp = True
-        elif char == 'f':
-            temp = False
-        else:
-            if char == '&':
-                result = result and temp
-            elif char == '|':
-                result = result or temp
-            temp = True  # Reset temp for the next operation
-
-    return result
+    if not expression:
+        return False
+    if '&&' in expression or '||' in expression:
+        left = expression[:expression.index('&') | expression.index('|')]
+        right = expression[expression.index('&') + 1:]
+        return (solve_boolean(left) and solve_boolean(right)) if '&' in expression else (solve_boolean(left) or solve_boolean(right))
+    elif expression == 'T':
+        return True
+    elif expression == 'F':
+        return False
+    else:
+        return bool(expression)
