@@ -1,7 +1,7 @@
 ```Python
 def fibfib(n: int):
     if n <= 1:
-        return "Fibonacci sequence for even numbers only"
+        return 
     else:
         a, b = 0, 1
         result = [a]
