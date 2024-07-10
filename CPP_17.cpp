@@ -1,22 +1,13 @@
-#include <iostream>
 #include <vector>
+#include <string>
+#include <iostream>
 #include <assert.h>
 
-using namespace std;
+bool issame(std::vector<int> a, std::vector<int> b);
 
-vector<int> parse_music(string music_string);
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-vector<int> parse_music(string music_string){
-    vector<int> beats;
-    string note;
+std::vector<int> parse_music(std::string music_string) {
+    std::vector<int> beats;
+    std::string note;
     for (char c : music_string) {
         if (c == 'o') {
             note += c;
@@ -35,10 +26,25 @@ vector<int> parse_music(string music_string){
     return beats;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main() {
-    vector<int> test1 = {1, 2, 1};
-    vector<int> test2 = parse_music("o|.o");
-    assert(issame(test1, test2));
+    std::vector<int> a = {1, 2, 3};
+    std::vector<int> b = {1, 2, 3};
+    std::vector<int> c = {1, 2, 4};
+
+    assert(issame(a, b));
+    assert(!issame(a, c));
 
     return 0;
 }
