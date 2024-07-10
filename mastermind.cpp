@@ -3,19 +3,19 @@
 #include <algorithm>
 using namespace std;
 bool isValidInput(const string& input) {
-    return input.length() == 4 && input.find_first_not_of("ABCDEF") == string::npos && input.find(' ') == string::npos;
+    return input.length() == 4 && input.find_first_not_of("ABCDEF") == string::npos;
 }
 int main() {
     string code, guess;
     do {
         cout << "Enter the code (4 characters from A to F): ";
         cin >> code;
-        cin.ignore();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     } while (!isValidInput(code));
     do {
         cout << "Enter your guess (4 characters from A to F): ";
         cin >> guess;
-        cin.ignore();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     } while (!isValidInput(guess));
     map<char, int> codeFreq, guessFreq;
     int whitePegs = 0, blackPegs = 0;
