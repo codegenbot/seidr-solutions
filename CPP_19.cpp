@@ -1,10 +1,4 @@
-```
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
-string sortNumbers(string numbers) {
+string sortNumber(string numbers) {
     vector<string> numVec;
     string temp;
     
