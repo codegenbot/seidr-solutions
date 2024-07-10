@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 
 std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::vector<std::string>>& input, const std::string& sub) {
     std::vector<std::vector<std::string>> result;
@@ -17,3 +16,4 @@ std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::vecto
         }
     }
     return result;
+}
