@@ -1,4 +1,3 @@
-#include <stack>
 #include <string>
 
 bool solveBoolean(string expression) {
@@ -29,8 +28,7 @@ bool solveBoolean(string expression) {
             values.pop();
         } else {
             operators.pop();
-            result |= values.top();
-            values.pop();
+            result |= values.pop();
         }
     }
 
