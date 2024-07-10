@@ -1,3 +1,4 @@
+```
 def check(lst):
     if len(set(lst)) == 1:
         return "All elements are equal"
@@ -6,5 +7,11 @@ def check(lst):
     else:
         return "Some elements are equal and some are not"
 
-lst = list(map(int, input().split()))
+while True:
+    try:
+        lst = list(map(int, input().split()))
+        break
+    except ValueError:
+        print("Invalid input. Please enter integers separated by space.")
+
 print(check(lst))
