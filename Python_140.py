@@ -1,19 +1,20 @@
+```
 def fix_spaces(text):
-    new_text = ""
+    new_text = ''
     count = 0
     in_word = False
     for char in text:
-        if char == " ":
+        if char == ' ':
             if not in_word:
-                new_text += " "
+                new_text += ' '
             else:
                 if count <= 2:
-                    new_text += "_"
+                    new_text += '_'
                 else:
-                    new_text += "-"
+                    new_text += '-'
                 count = 0
             in_word = False
-        elif char != "\n" and char != " ":
+        elif char != '\n' and char != ' ':
             new_text += char
             in_word = True
             count += 1
