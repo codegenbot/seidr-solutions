@@ -1,5 +1,3 @@
-Here is the completed code:
-
 bool iscuber(int a){
     int i = 1;
     while (pow(i, 3) <= a) {
@@ -9,3 +7,5 @@ bool iscuber(int a){
     }
     return false;
 }
+
+Completed code:
