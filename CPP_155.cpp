@@ -16,12 +16,12 @@ std::vector<int> even_odd_count(int num) {
     return counts;
 }
 
-bool are_same(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
 int main() {
-    assert(are_same(even_odd_count(0), {1, 0}));
-
+    assert(issame(even_odd_count(0), {1, 0}));
+    
     return 0;
 }
