@@ -1,16 +1,14 @@
+#include <string>
+using namespace std;
+
 bool cycpattern_check(string a, string b) {
-    for (int i = 0; i < a.size(); i++) {
-        for (int j = 0; j <= a.size() - b.size(); j++) {
-            bool found = true;
-            int k = 0;
-            while (k < b.size()) {
-                if (a[j + k] != b[k]) {
-                    found = false;
-                    break;
-                }
-                k++;
-            }
-            if (found) return true;
+    for (int i = 0; i < a.length(); i++) {
+        string temp = a.substr(i);
+        int j = 0;
+        while (j < temp.length()) {
+            if (temp.substr(j).compare(b) == 0)
+                return true;
+            j++;
         }
     }
     return false;
