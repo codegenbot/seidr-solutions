@@ -1,12 +1,18 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
-
+#include <string>
+#include <cassert> // Include <cassert> for using assert macro
 using namespace std;
 
-string match_parens(const vector<string>& lst){
+string match_parens(vector<string> lst);
+
+int main() {
+    assert(match_parens({")", "("}) == "Yes");
+}
+
+string match_parens(vector<string> lst){
     int open = 0, close = 0;
-    for (const string& s : lst) {
+    for (string s : lst) {
         for (char c : s) {
             if (c == '(') {
                 open++;
@@ -20,9 +26,4 @@ string match_parens(const vector<string>& lst){
         }
     }
     return (open == 0 && close <= 1) ? "Yes" : "No";
-}
-
-int main() {
-    assert(match_parens({")", "("}) == "Yes");
-    return 0;
 }
