@@ -1,8 +1,7 @@
 from typing import List
 
-
 def concatenate(strings: List[str]) -> str:
-    result = ""
+    total_string = ''
     for string in strings:
-        result += string
-    return result if result else "No strings provided"
+        total_string += string
+    return total_string
