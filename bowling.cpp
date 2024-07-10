@@ -1,29 +1,41 @@
 #include <iostream>
 #include <string>
 
+int roll(int frame) {
+    int pin = 10; // number of pins left to knock down
+    int rolls = 0;
+    
+    while (pin > 0 && rolls < 2) { 
+        if (pin <= 1) break; 
+        if(std::cin >> pin) {
+            rolls++; 
+        } else {
+            return -1; 
+        }
+    }
+    
+    return (frame == 0) ? pin : (10 + frame); 
+}
+
 int bowlingScore(const std::string& input) {
     int score = 0;
     int rollCount = 0;
     for (char c : input) {
         if (c == '/') {
-            if (rollCount > 1)
-                score += 10 + rollCount - 2;
-            else
-                score += rollCount * 10;
+            score += roll(rollCount);
             rollCount = 0;
         } else if ('1' <= c && c <= '9') {
             rollCount *= 10 + (c - '0');
         }
     }
-    score += rollCount;
+    score += roll(rollCount);
     return score;
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter the string representing the individual bowls in a 10-frame round of 10 pin bowling: ";
-    std::cin >> input;
+    std::cout << "Enter your bowling scores: ";
+    std::string input; 
+    std::getline(std::cin, input);
     int result = bowlingScore(input);
-    std::cout << "The total score is: " << result << std::endl;
     return 0;
 }
