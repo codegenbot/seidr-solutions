@@ -14,7 +14,7 @@ int main() {
             if (!(std::cin >> std::ws)) {
                 std::cerr << "Invalid input! Please enter a string.\n";
                 std::cin.clear();
-                std::cin.ignore(1024, '\n');
+                std::cin.ignore();
             } else {
                 break;
             }
