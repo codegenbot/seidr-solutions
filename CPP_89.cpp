@@ -1,15 +1,18 @@
-string encrypt(string s) {
+string encrypt(string s){
     string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            char base = tolower(c);
-            if (base >= 'a' && base <= 'c') {
-                base = ('n' - 2);
-            } else if (base > 'c' && base <= 'z') {
-                base = (base + 2 - 'z');
-            }
-            result += (isupper(c) ? toupper(base) : tolower(base));
-        } else {
+    for(int i=0; i<s.length(); i++){
+        char c = s[i];
+        if(c >= 'a' && c <= 'z'){
+            c = (c - 'a' + 26) % 26;
+            if(c < 2) c += 26;
+            result += (char)(c + 'a');
+        }
+        else if(c >= 'A' && c <= 'Z'){
+            c = (c - 'A' + 26) % 26;
+            if(c < 2) c += 26;
+            result += (char)(c + 'A');
+        }
+        else{
             result += c;
         }
     }
