@@ -4,7 +4,7 @@
 
 bool issame(vector<string> a, vector<string> b);
 
-vector<string> solve(string txt) {
+vector<string> split_text(const string& txt) {
     vector<string> words;
     string word = "";
     for (char c : txt) {
