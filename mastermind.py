@@ -10,10 +10,10 @@ def mastermind(code, guess):
     for g in guess:
         guess_count[ord(g) - ord("B")] += 1
 
-    for i in range(6):
-        if code[i] == guess[i]:
+    for i, (c, g) in enumerate(zip(code, guess)):
+        if c == g:
             black_pegs += 1
-        elif guess_count[i] > 0 and code_count[i] > 0:
+        elif guess_count[ord(g) - ord("B")] > 0:
             white_pegs += 1
 
     return str(black_pegs), str(white_pegs)
