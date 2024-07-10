@@ -24,7 +24,7 @@ int main() {
     assert(even_odd_count(123456) == std::vector<int>{3, 3});
     assert(even_odd_count(-87654) == std::vector<int>{2, 3});
 
-    cout << "All test cases passed successfully." << endl;
+    std::cout << "All test cases passed successfully." << std::endl;
 
     return 0;
 }
