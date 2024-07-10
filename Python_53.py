@@ -1,3 +1,2 @@
-x, y = map(int, input().split())
-result = x + y
-print(result)
+def add(a: int, b: int) -> int:
+    return a + b
