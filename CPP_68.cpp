@@ -1,17 +1,28 @@
-Here is the solution:
+Here is the completed code:
 
-vector<int> pluck(vector<int> arr) {
-    if (arr.empty()) return {};
+```cpp
+#include<vector>
+using namespace std;
 
-    int min_even = INT_MAX;
-    int index = -1;
-
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < min_even) {
-            min_even = arr[i];
-            index = i;
+vector<vector<int>> pluck(vector<int> arr) {
+    vector<int> result;
+    
+    if(arr.empty()) {
+        return {{}};
+    }
+    
+    int min_even_value = INT_MAX;
+    int min_index = -1;
+    
+    for(int i = 0; i < arr.size(); i++) {
+        if(arr[i] % 2 == 0 && arr[i] < min_even_value) {
+            min_even_value = arr[i];
+            min_index = i;
         }
     }
-
-    return {{min_even, index}};
+    
+    result.push_back(min_even_value);
+    result.push_back(min_index);
+    
+    return {result};
 }
