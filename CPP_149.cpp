@@ -16,21 +16,11 @@ bool same(std::vector<std::string> a, std::vector<std::string> b) {
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> input) {
     std::sort(input.begin(), input.end());
-    for (int i = 0; i < input.size(); i++) {
-        if (input[i].size() > 1) {
-            char firstChar = input[i][0];
-            for (int j = i + 1; j < input.size(); j++) {
-                if (input[j][0] == firstChar) {
-                    input.erase(input.begin() + j);
-                    j--;
-                }
-            }
-        }
-    }
     return input;
 }
 
 int driver() {
-    assert(same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) , {"cc", "dd", "aaaa", "bbbb"}));
+    std::vector<std::string> input = std::vector<std::string>({"aaaa", "bbbb", "dd", "cc"});
+    assert(same(sorted_list_sum(input), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
