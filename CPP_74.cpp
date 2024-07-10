@@ -1,11 +1,12 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
 bool check_if_same(vector<string> a, vector<string> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    return equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -30,10 +31,9 @@ int main() {
         user_input.push_back(input);
         
     }
-    if (check_if_same(total_match(user_input, vector<string>() {{""}})), vector<string>(5))) {
+    if (check_if_same(total_match(user_input, vector<string>(5)), vector<string>(5))) {
         cout << "The two lists are the same." << endl;
     } else {
         cout << "Error: The two lists are not the same." << endl;
     }
-    return 0;
 }
