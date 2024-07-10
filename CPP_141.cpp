@@ -26,7 +26,7 @@ string file_name_check(string file_name){
     } else {
         string after_dot = file_name.substr(file_name.find('.') + 1);
         if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll"){
-            return "No";
+            return "Yes";
         }
     }
 
