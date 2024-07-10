@@ -1,25 +1,15 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 bool issame(int x, int y) {
     return x == y;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> v) {
-    std::vector<int> result;
-    for (int x : v) { 
-        bool found = false;
-        for (int y : result) { 
-            if (x == y) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            result.push_back(x);
-        }
-    }
+    std::set<int> s(v.begin(), v.end());
+    std::vector<int> result(s.begin(), s.end());
     return result;
 }
 
