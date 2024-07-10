@@ -7,12 +7,12 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
     for (int i = 0; i < numbers.size() - 1; ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
             float diff = numbers[j] - numbers[i];
-            if (abs(diff) < min_diff) {
-                min_diff = abs(diff);
+            if (abs(diff) < abs(min_diff)) {
+                min_diff = diff;
                 closest = make_pair(numbers[i], numbers[j]);
             }
         }
     }
 
-    return vector<pair<float, float>>{closest};
+    return {closest};
 }
