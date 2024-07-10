@@ -27,9 +27,14 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string sa = boost::any_cast<std::string>(a);
         std::string sb = boost::any_cast<std::string>(b);
-        return stod(sa) > stod(sb) ? a : b;
+        if (stod(sa) > stod(sb))
+            return a;
+        else if (stod(sa) < stod(sb))
+            return b;
+        else
+            return typeid(std::string);
     }
     else {
-        return any("None");
+        return typeid(std::string);
     }
 }
