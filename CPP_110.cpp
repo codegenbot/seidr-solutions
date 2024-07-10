@@ -1,3 +1,8 @@
+```cpp
+#include <vector>
+#include <string>
+#pragma GCC diagnostic ignored "-Werror"
+
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     int oddCount = 0;
     for (int num : lst1) {
@@ -5,10 +10,10 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
             oddCount++;
         }
     }
-    for (int num : lst2) {
-        if (num % 2 != 0) {
-            oddCount++;
-        }
-    }
     return oddCount == 0 ? "YES" : "NO";
+}
+
+int main() {
+    assert(exchange({100, 200}, {200, 200}) == "NO");
+    return 0;
 }
