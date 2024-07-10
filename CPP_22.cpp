@@ -1,24 +1,22 @@
 ```cpp
 #include <vector>
-#include <any>
+#include <iostream>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> filterIntegers(std::vector<std::any> values) {
+std::vector<int> filterIntegers(std::vector<int> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            int i = std::any_cast<int>(value);
-            result.push_back(i);
+        if (static_cast<int>(value) != 0) {
+            result.push_back(static_cast<int>(value));
         }
     }
     return result;
 }
 
-int main 
-{
+int main() {
     int num1, num2; 
     std::cout << "Enter two numbers: ";
     std::cin >> num1 >> num2;
@@ -33,7 +31,7 @@ int main
         std::cout << "Vectors are not same." << std::endl;
     }
 
-    std::vector<std::any> values = {1, 2.0, 3, 4.5};
+    std::vector<int> values = {1, 2, 3, 4};
     std::vector<int> filtered = filterIntegers(values);
     for (const auto& value : filtered) {
         std::cout << value << " ";
