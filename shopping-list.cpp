@@ -25,7 +25,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> discounts[i];
     }
-    #include <iomanip>
     std::cout << fixed << setprecision(1) << shoppingList(&prices[0], &discounts[0], n) << endl;
     return 0;
 }
