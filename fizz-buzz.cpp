@@ -8,7 +8,7 @@ int main() {
     } else if (x % 5 == 0) {
         cout << "Buzz";
     } else {
-        cout << to_string(x);
+        cout << x;
     }
     return 0;
 }
