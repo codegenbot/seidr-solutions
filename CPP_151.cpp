@@ -1,21 +1,13 @@
-#include <vector>
-#include <cmath>
+Here's the completed code:
 
-double long_the_difference(std::vector<double> lst) {
-    double sum = 0;
-    for (double num : lst) {
-        if (num > 0 && floor(num) == num) { 
-            if (fmod(num, 2.0) != 0.0) { 
+long long double_the_difference(vector<float> lst) {
+    long long sum = 0;
+    for (float num : lst) {
+        if (num > 0 && floor(num) == num) { // Check if number is positive and integer
+            if (fmod(num, 2.0) != 0.0) { // Check if number is odd
                 sum += pow(num, 2);
             }
         }
     }
     return sum;
-}
-
-int main() {
-    std::vector<double> lst = {...}; // your code here
-    double odd_sum = long_the_difference(lst);
-    assert(long_the_difference(lst) == odd_sum );
-    return 0;
 }
