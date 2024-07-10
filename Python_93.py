@@ -8,5 +8,5 @@ def encode(message):
             else:
                 encoded_message += char.swapcase()
         else:
-            encoded_message += char
+            encoded_message += ' '
     return encoded_message
