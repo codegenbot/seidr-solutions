@@ -20,6 +20,6 @@ def separate_paren_groups(paren_string: str) -> list[str]:
                     groups = ''
             else:
                 return []
-    elif not stack:  
+    elif stack: 
         return []  # Add this check for a closing parenthesis with no opening counterpart.
     return result
