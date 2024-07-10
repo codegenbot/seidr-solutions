@@ -1,10 +1,13 @@
 sort(numbers.begin(), numbers.end());
-float min_diff = numbers[1] - numbers[0];
-int min_idx = 0;
-for (int i = 1; i < numbers.size() - 1; ++i) {
-    if (numbers[i + 1] - numbers[i] < min_diff) {
-        min_diff = numbers[i + 1] - numbers[i];
-        min_idx = i;
+    float min_diff = numbers[1] - numbers[0];
+    int min_idx1 = 0, min_idx2 = 1;
+    for (int i = 1; i < numbers.size() - 1; ++i) {
+        float diff = numbers[i + 1] - numbers[i];
+        if (diff < min_diff) {
+            min_diff = diff;
+            min_idx1 = i;
+            min_idx2 = i + 1;
+        }
     }
+    return {numbers[min_idx1], numbers[min_idx2]};
 }
-return {numbers[min_idx], numbers[min_idx + 1]};
