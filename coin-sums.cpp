@@ -8,20 +8,20 @@ int main() {
     
     // Calculate Quarters
     while (cents >= 25) {
-        quarters = cents / 25;
-        cents %= 25; 
+        quarters++;
+        cents -= 25;
     }
     
     // Calculate Dimes
     while (cents >= 10) {
-        dimes = cents / 10;
-        cents %= 10; 
+        dimes++;
+        cents -= 10;
     }
     
     // Calculate Nickles
     while (cents >= 5) {
-        nickles = cents / 5;
-        cents %= 5; 
+        nickles++;
+        cents -= 5;
     }
     
     // Calculate Pennies
