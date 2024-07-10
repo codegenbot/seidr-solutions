@@ -17,3 +17,11 @@ vector<string> reverse_delete(string s, string c) {
     reverse(reversed.begin(), reversed.end());
     return {result, result == reversed ? "True" : "False"};
 }
+
+int main() {
+    vector<string> output = reverse_delete("hello", "eo");
+    for (const string& str : output) {
+        cout << str << " ";
+    }
+    return 0;
+}

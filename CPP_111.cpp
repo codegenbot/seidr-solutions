@@ -17,12 +17,12 @@ std::map<char,int> histogram(std::string test) {
     }
 
     int maxCount = 0;
-    for (const auto &pair : count) {
+    for (const std::pair<char, int> &pair : count) {
         maxCount = std::max(maxCount, pair.second);
     }
 
     std::map<char,int> result;
-    for (const auto &pair : count) {
+    for (const std::pair<char, int> &pair : count) {
         if (pair.second == maxCount) {
             result[pair.first] = pair.second;
         }
