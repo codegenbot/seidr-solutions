@@ -1,9 +1,6 @@
 def max_fill(grid, capacity):
-    rows = len(grid)
-    cols = len(grid[0])
-    filled = 0
-    for col in range(cols):
-        for row in range(rows):
-            filled += grid[row][col]
-    
-    return math.ceil(filled / capacity)
+    total_count = 0
+    for row in grid:
+        row_count = sum(row)
+        total_count += math.ceil(row_count / capacity)
+    return total_count
