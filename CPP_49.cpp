@@ -1,8 +1,6 @@
-#include <iostream>
-
 int modp(int n, int p) {
-    std::cin >> n >> p;
-    
+    std::cin >> n >> p; // Read input from user
+
     if (p == 1) return 0;
 
     int result = 1;
@@ -16,10 +14,4 @@ int modp(int n, int p) {
     }
 
     return result;
-}
-
-int main() {
-    int n, p;
-    std::cout << modp(n, p);
-    return 0;
 }
