@@ -3,6 +3,7 @@
 #include <iostream>
 
 using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
@@ -33,9 +34,9 @@ boost::any compare_one(boost::any a, boost::any b) {
         else if (stod(sa) < stod(sb))
             return b;
         else
-            return boost::any(typeid(string), "None");
+            return any(to_string("None"));
     }
     else {
-        return boost::any(typeid(string), "None");
+        return any(to_string("None"));
     }
 }
