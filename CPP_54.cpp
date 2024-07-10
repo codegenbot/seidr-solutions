@@ -18,7 +18,7 @@ int main() {
     if (same_chars(str1, str2)) {
         std::cout << "Both strings have the same characters." << std::endl;
     } else {
-        std::cout << "Strings do not have the same characters." << std::endl;
+        std::cout << "Strings have different characters." << std::endl;
     }
 
     return 0;
