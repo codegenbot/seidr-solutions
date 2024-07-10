@@ -1,13 +1,19 @@
-int is_bored(string S){
+#include <string>
+
+int count_bored_instances(string S){
     int count = 0;
-    bool isI = false;
-    for (int i = 0; i < S.length(); ++i) {
-        if (S[i] == 'I' && (i == 0 || S[i - 1] == '.' || S[i - 1] == '!' || S[i - 1] == '?')) {
-            isI = true;
-        } else if ((S[i] == '.' || S[i] == '!' || S[i] == '?') && isI) {
+    string delimiter = ".?!";
+    size_t pos = 0;
+    while ((pos = S.find_first_of(delimiter, pos)) != string::npos) {
+        if (S[pos-2] == ' ' && S[pos-1] == 'I') {
             count++;
-            isI = false;
         }
+        pos++;
     }
     return count;
+}
+
+int main() {
+    assert(count_bored_instances("You and I are going for a walk") == 0);
+    return 0;
 }
