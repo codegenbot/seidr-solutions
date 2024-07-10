@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 int calculateBowlingScore(std::string input) {
     int score = 0;
