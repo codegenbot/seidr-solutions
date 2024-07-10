@@ -1,12 +1,6 @@
-```c++
 #include <string>
 
-struct MastermindResult {
-    int blackPegs;
-    int whitePegs;
-};
-
-MastermindResult mastermind(string code, string guess) {
+int mastermind(string code, string guess) {
     int blackPegs = 0;
     int whitePegs = 0;
 
@@ -27,5 +21,5 @@ MastermindResult mastermind(string code, string guess) {
         }
     }
 
-    return {blackPegs, whitePegs};
+    return std::make_pair(blackPegs, whitePegs);
 }
