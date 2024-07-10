@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 
 namespace myspace {
     bool issame(std::vector<int> a, std::vector<int> b) {
@@ -30,35 +31,11 @@ namespace myspace {
         std::cout << "Enter the number of elements: ";
         std::cin >> n;
 
-        // Initialize game and guess vectors with default values (0)
-        std::vector<int> game(n);
-        std::vector<int> guess(n);
-
         for (int i = 0; i < n; i++) {
-            std::cout << "Enter element " << i + 1 << ": ";
-            std::cin >> game[i];
+            game[i] = rand() % 100 + 1;
+            guess[i] = rand() % 100 + 1;
         }
 
-        std::cout << "Enter your guess: ";
-        for (int i = 0; i < n; i++) {
-            std::cin >> guess[i];
-        }
-
-        if (issame(game, guess)) {
-            std::cout << "Congratulations! You guessed correctly." << std::endl;
-        } else {
-            std::vector<int> result = compareGameGuess(game, guess);
-            std::cout << "Incorrect. The correct numbers are: ";
-            for (int i = 0; i < n; i++) {
-                if (result[i] == 0) {
-                    std::cout << game[i] << " ";
-                } else {
-                    std::cout << abs(game[i] - guess[i]) << " ";
-                }
-            }
-            std::cout << std::endl;
-        }
-
-        return 0;
+        // Rest of your code...
     }
 }
