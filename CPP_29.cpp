@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
@@ -18,6 +18,5 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, c
 
 int main() {
     assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), 
-           {"xxx", "xxxAAA", "xxx"}));
-    return 0;
+                   std::vector<std::string>{"xxx", "xxxAAA", "xxx"}));
 }
