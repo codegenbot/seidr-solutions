@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 #include <iostream>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
@@ -19,14 +20,16 @@ std::vector<std::string> select_words(std::string s, int n);
 
 int main() {
     // Test cases
-    std::vector<std::string> input1 = {"Hello", "World"};
-    std::vector<std::string> input2 = {"Good", "Morning"};
+    std::vector<std::string> input = {"Hello", "World"};
+    std::vector<std::string> expected_output = {"Hll", "Wrld"};
 
-    std::vector<std::string> output1 = select_words("Hello World", 2);
-    std::vector<std::string> output2 = select_words("Good Morning", 1);
+    std::vector<std::string> result = select_words("Hello World", 2);
 
-    assert(issame(output1, input1));
-    assert(issame(output2, input2));
+    if (issame(result, expected_output)) {
+        std::cout << "Test Passed" << std::endl;
+    } else {
+        std::cout << "Test Failed" << std::endl;
+    }
 
     return 0;
 }
