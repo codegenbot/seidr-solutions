@@ -4,19 +4,17 @@
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    MD5_CTX md5context;
-    unsigned char result[16];
-    MD5_Init(&md5context);
-    const char* ptr = text.c_str();
+    unsigned char md[16];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const unsigned char* txt = text.c_str();
     size_t len = text.length();
-
-    MD5_Update(&md5context, ptr, len);
-
-    MD5_Final(result,&md5context);
+    MD5_Update(&ctx, txt, len);
+    MD5_Final(md, &ctx);
 
     stringstream ss;
-    for(int i=0; i<16; ++i) {
-        ss << setfill('0') << setw(2) << hex << (int)result[i];
+    for (int i = 0; i < 16; i++) {
+        ss << setfill(2) << setw(2) << hex << (int)md[i];
     }
 
     return ss.str();
