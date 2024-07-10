@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -31,11 +30,11 @@ int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-    vector<int> res = get_odd_collatz(n);
-    if(issame({1}, res)) {
-        cout << "The sequence is Collatz Conjecture sequence." << endl;
+    vector<int> collatz = get_odd_collatz(n);
+    if (issame({n}, collatz)) {
+        cout << "The sequence is Collatz." << endl;
     } else {
-        cout << "The sequence is not Collatz Conjecture sequence." << endl;
+        cout << "The sequence is not Collatz." << endl;
     }
     return 0;
 }
