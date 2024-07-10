@@ -1,7 +1,10 @@
-```
 def decode_cyclic(s: str):
-    if len(s) > 1 and s[0] == "x":
-        return s[1:] + s[0]
+    if s[0] == "x":
+        result = s[1:] + s[0]
+        i = 1
+        while i < len(result) and result[i] == result[0]:
+            i += 1
+        return result[:i]
     result = ""
     temp = ""
     for char in s:
