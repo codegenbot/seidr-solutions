@@ -1,4 +1,3 @@
-```python
 from typing import List
 
 
@@ -12,4 +11,4 @@ def parse_music(music_string: str) -> List[int]:
             i += 2
         else:
             break
-    return [x for x in map(int, result)]
+    return result
