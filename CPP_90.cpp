@@ -1,11 +1,7 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
 int main() {
     int next_smallest(vector<int> lst) {
-        if (lst.empty()) return -1; 
+        if (lst.empty()) return -1; // or any other value that represents None
         vector<int> sorted = lst;
         sort(sorted.begin(), sorted.end());
         for (int i = 0; i < sorted.size() - 1; i++) {
@@ -13,18 +9,6 @@ int main() {
                 return sorted[i + 1];
             }
         }
-        return -1; 
+        return -1; // or any other value that represents None
     }
-
-    int main() {
-        vector<int> lst;
-        cout << "Enter numbers separated by space: ";
-        for(int i = 0; i < 5; i++) {
-            int x;
-            cin >> x;
-            lst.push_back(x);
-        }
-        cout << "Next smallest number is: " << next_smallest(lst) << endl;
-    }
-
 }
