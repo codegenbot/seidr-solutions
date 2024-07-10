@@ -1,5 +1,5 @@
-def find_unique_numbers(numbers):
-    return [num for num in numbers if numbers.count(num) == 1]
+def find_unique_numbers(numbers_list):
+    return [num for num in numbers_list if numbers_list.count(num) == 1]
 
 def check(find_unique_numbers):
     numbers = [1, 2, 2, 3, 4, 4]
