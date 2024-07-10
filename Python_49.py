@@ -1,4 +1,7 @@
-```
+```python
+import random
+
+
 def modp(n: int, p: int):
     if pow(2, n - 1, p) == 1:
         return False
