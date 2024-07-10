@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cassert>
 
@@ -15,5 +16,9 @@ std::string match_parens(std::vector<std::string> lst) {
 int main() {
     assert(match_parens({{"("}, {")"}}) == "Yes");
     assert(match_parens({{"("}, {"))"}) == "No");
+    std::vector<std::string> lst1 = {{"("}};
+    std::vector<std::string> lst2 = {")", "("};
+    std::cout << match_parens(lst1) << "\n"; 
+    std::cout << match_parens(lst2) << "\n"; 
     return 0;
 }
