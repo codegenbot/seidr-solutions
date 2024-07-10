@@ -1,12 +1,16 @@
 #include <vector>
+#include <algorithm>
 
-int can_arrange(std::vector<int> arr){
+void can_arrange(std::vector<int>& arr) {
     int largestIndex = -1;
     for(int i = arr.size() - 1; i >= 0; i--){
-        if(arr[i] > arr[i-1]){
+        if(arr[i] < arr[i-1]){
             largestIndex = i;
             break;
         }
     }
-    return largestIndex;
+    if (largestIndex != -1) {
+        std::swap(arr[largestIndex-1], arr[largestIndex]);
+        std::reverse(arr.begin() + largestIndex, arr.end());
+    }
 }
