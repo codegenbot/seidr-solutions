@@ -1,11 +1,9 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
 
-int main() {
-    std::vector<std::string> words = {"play", "play", "play"};
+std::string find_max(std::vector<std::string> words) {
     std::string max_word = *max_element(words.begin(), words.end(),
         [](const std::string& a, const std::string& b) {
             if (a.length() == b.length()) {
@@ -13,6 +11,11 @@ int main() {
             }
             return a.length() > b.length();
         });
-    std::cout << max_word << std::endl;
+    return max_word;
+}
+
+int main() {
+    std::vector<std::string> words = {"play", "play", "play"};
+    std::cout << find_max(words) << std::endl;
     return 0;
 }
