@@ -1,11 +1,11 @@
-```
-def double_the_difference(lst):
-    sum_of_squares = sum(i ** 2 for i in lst)
-    twice_sum = 2 * sum(lst)
-    return sum_of_squares - twice_sum
+def double_the_difference(x):
+    if len(x) < 2:
+        return 0
+    return (max(x) - min(x)) * 2
 
-def check(lst1, func, lst2=None):
-    result = func(lst1)
-    print(f"The difference between the sum of squares and twice the sum is {result}.")
 
-print(check([1, 2, 3], lambda lst: double_the_difference(lst)))
+def check(lst, func):
+    return func(sum(lst))
+
+
+print(check([1, 2, 3], lambda x: double_the_difference(x)))

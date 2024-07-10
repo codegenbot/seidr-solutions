@@ -23,6 +23,14 @@ def fruit_distribution(s, n):
                 n -= distributed
             count -= distributed
         else:
-            fruit = words[i]
+            while i < len(words) and not words[i].isdigit():
+                fruit = words[i]
+                i += 1
+            if i >= len(words):
+                break
+            count = int(words[i])
             i += 1
+            distributed = min(count, n)
+            fruits[fruit] = fruits.get(fruit, 0) + distributed
+            n -= distributed
     return sum(fruits.values())
