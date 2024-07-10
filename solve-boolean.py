@@ -1,5 +1,4 @@
-```
-def solve_boolean(expression):
+```def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
@@ -12,4 +11,4 @@ def solve_boolean(expression):
         return solve_boolean(left) or solve_boolean(right)
 
 expression = input()
-print(solve_boolean(expression))
+print(solve_boolean(expression))```
