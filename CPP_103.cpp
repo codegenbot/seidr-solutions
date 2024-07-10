@@ -1,4 +1,4 @@
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
 string rounded_avg(int n,int m){
