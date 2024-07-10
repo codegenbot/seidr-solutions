@@ -15,15 +15,23 @@ PegCounts mastermind(string code, string guess) {
     }
 
     // Count white pegs
+    int count[6] = {0};
     for (int i = 0; i < 4; ++i) {
-        int count = 0;
-        for (int j = 0; j < 4; ++j) {
-            if (code[j] == remainingGuess[i]) {
-                count++;
+        if (remainingGuess[i] != ' ') {
+            for (int j = 0; j < 4; ++j) {
+                if (code[j] == remainingGuess[i]) {
+                    count[code.find(remainingGuess[i])]++;
+                }
             }
         }
-        if (count > 0) {
-            result.white += count - 1; 
+    }
+
+    for (int i = 0; i < 6; ++i) {
+        if (count[i] > 0) {
+            result.white += count[i];
+            while (count[i]-- > 0) {
+                remainingGuess.replace(remainingGuess.find(char(i + 96)), 1, " ");
+            }
         }
     }
 
