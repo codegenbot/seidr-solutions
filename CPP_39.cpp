@@ -2,7 +2,7 @@
 #include <cmath>
 
 bool isPrime(int num) {
-    if (num < 2) {
+    if (num <= 1) {
         return false;
     }
     for (int i = 2; i <= sqrt(num); i++) {
@@ -14,22 +14,31 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
+    if (n <= 0) {
+        return -1;
+    }
     if (n == 1) {
         return 2;
     }
-    if (n == 2) {
-        return 3;
-    }
-    int prev = 1, curr = 1, next;
-    for (int i = 3; i <= n; i++) {
-        next = prev + curr;
-        while (!isPrime(next)) {
-            next = prev + curr;
-            prev = curr;
-            curr = next;
+
+    int first = 1, second = 1, fib = 0;
+    int count = 2;
+
+    while (count < n) {
+        fib = first + second;
+        first = second;
+        second = fib;
+        if (isPrime(fib)) {
+            count++;
         }
-        prev = curr;
-        curr = next;
     }
-    return next;
+
+    return fib;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::cout << prime_fib(n) << std::endl;
+    return 0;
 }
