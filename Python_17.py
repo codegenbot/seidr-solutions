@@ -1,4 +1,5 @@
-Here is the modified code:
+from typing import List
+
 
 def parse_music(music_string: str) -> List[int]:
     note_lengths = {"o": 4, "|": 2, ".|": 1}
@@ -13,5 +14,5 @@ def parse_music(music_string: str) -> List[int]:
                 found = True
                 break
         if not found: 
-            i += 1 
+            i += 1
     return result
