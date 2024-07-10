@@ -1,7 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
 #include <map>
 #include <sstream>
 #include <cassert>
+#include <string>
 
 bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
@@ -33,8 +34,8 @@ std::map<char, int> histogram(std::string test) {
     return maxChars;
 }
 
-int main() {
+bool main() {
     assert(issame(histogram("a"), {{'a', 1}}));
 
-    return 0;
+    return true;
 }
