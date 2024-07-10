@@ -1,4 +1,4 @@
-```cpp
+#include <pmr>
 #include <initializer_list>
 #include <algorithm>
 #include <vector>
@@ -7,7 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> orderPoints(std::vector<int> nums) {
+std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
@@ -30,27 +30,23 @@ std::vector<int> orderPoints(std::vector<int> nums) {
     return result;
 }
 
-int main() {
-    std::vector<int> nums = {0,6,6,-76,-21,23,4};
-    std::cout << "[";
-    for(int i=0; i<nums.size();i++) {
-        std::cout << nums[i];
-        if(i < nums.size()-1) {
-            std::cout << ", ";
-        }
+std::cout << "[";
+for(int i=0; i<nums.size();i++) {
+    std::cout << nums[i];
+    if(i < nums.size()-1) {
+        std::cout << ", ";
     }
-    std::cout << "]\n";
-    
-    std::vector<int> result = orderPoints(nums);
-    std::cout << "[";
-    for(int i=0; i<result.size();i++) {
-        std::cout << result[i];
-        if(i < result.size()-1) {
-            std::cout << ", ";
-        }
-    }
-    std::cout << "]\n";
-    
-    assert (issame(orderPoints({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6});
-    return 0;
 }
+std::cout << "]\n";
+    
+std::vector<int> result = order_by_points(nums);
+std::cout << "[";
+for(int i=0; i<result.size();i++) {
+    std::cout << result[i];
+    if(i < result.size()-1) {
+        std::cout << ", ";
+    }
+}
+std::cout << "]\n";
+    
+assert (issame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6});
