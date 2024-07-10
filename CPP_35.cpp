@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,17 +5,14 @@
 
 int main() {
     std::vector<int> l;
-    int num;
-    
-    while (std::cin >> num) {
-        l.push_back(num);
-    }
-    
-    if (!l.empty()) {
-        std::cout << *std::max_element(l.begin(), l.end()) << std::endl;
-    } else {
-        std::cout << "No numbers to find the maximum of." << std::endl;
+    int maxVal = 0;
+
+    // Read input from user...
+    for (int i; std::cin >> i;) {
+        l.push_back(i);
+        if (i > maxVal) maxVal = i;
     }
 
-    return 0;
+    // Return the maximum value in the vector
+    return maxVal;
 }
