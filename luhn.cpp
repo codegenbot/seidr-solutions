@@ -6,6 +6,7 @@ int main() {
     int n;
     cin >> n;
     vector<int> digits(n);
+    
     for (int i = 0; i < n; ++i) {
         cin >> digits[i];
     }
@@ -15,7 +16,7 @@ int main() {
         int doubled = digits[i] * 2;
         sum += (doubled > 9) ? (doubled - 9) : doubled;
     }
-
+    
     for (int i = n - 2; i >= 0; i -= 2) {
         sum += digits[i];
     }
