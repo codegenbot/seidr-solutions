@@ -1,14 +1,14 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<string> sorted_list_sum(std::vector<string> lst) {
-    std::vector<string> result;
+vector<string> sorted_list_sum(vector<string> lst) {
+    vector<string> result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
