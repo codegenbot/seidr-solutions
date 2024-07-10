@@ -1,4 +1,3 @@
-```
 from re import reversed
 
 def make_palindrome(string: str) -> str:
