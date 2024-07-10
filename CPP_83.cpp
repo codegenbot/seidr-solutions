@@ -1,7 +1,6 @@
-```cpp
+```
 #include <iostream>
 #include <cmath>
-#include <string>
 
 using namespace std;
 
@@ -11,7 +10,7 @@ int starts_one_ends(int n) {
         string str;
         str.reserve(n);
         for (char c : to_string(i)) {
-            str.push_back((c - '0' + 1) % 2 == 0 ? '0' : '1');
+            str.push_back((c - '0' == 1) ? '1' : '0');
         }
         if ((i == 1 || str[0] == '1' || str.back() == '1') && (str[0] == '1' || str[str.size()-1] == '1')) {
             count++;
