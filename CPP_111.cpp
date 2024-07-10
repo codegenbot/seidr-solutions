@@ -3,13 +3,13 @@
 #include <algorithm>
 #include <string>
 
-bool issame(std::map<char,int> a, std::map<char,int> b) {
+bool issame(std::map<char, int> a, std::map<char, int> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::map<char,int> histogram(std::string test) {
-    std::map<char,int> result;
-    std::map<char,int> count;
+std::map<char, int> histogram(std::string test) {
+    std::map<char, int> result;
+    std::map<char, int> count;
 
     for (char c : test) {
         if (c != ' ') {
@@ -31,8 +31,12 @@ std::map<char,int> histogram(std::string test) {
     return result;
 }
 
-std::map<char,int> test1 = histogram("a");
+int main() {
+    std::map<char, int> test1 = histogram("a");
 
-for (const auto& pair : test1) {
-    std::cout << pair.first << " " << pair.second << std::endl;
+    for (const auto& pair : test1) {
+        std::cout << pair.first << " " << pair.second << std::endl;
+    }
+    
+    return 0;
 }
