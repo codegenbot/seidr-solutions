@@ -27,6 +27,6 @@ string calculate_binary(int n, int m) {
 }
 
 int main() {
-    assert(calculate_binary(5, 5) == "101");
+    assert (calculate_binary(5, 5) == "101");
     return 0;
 }
