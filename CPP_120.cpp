@@ -1,6 +1,14 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
+#include <initializer_list>
+
+bool same(int a, int b) {
+    if (a == b)
+        return true;
+    else
+        return false;
+}
 
 std::vector<int> maximum(std::vector<int> arr, int k) {
     std::vector<int> result;
