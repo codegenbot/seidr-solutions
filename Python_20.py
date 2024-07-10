@@ -1,11 +1,10 @@
-Here is the modified code:
-
-print("Enter space-separated numbers: ")
+```
+from typing import Tuple
 
 def find_closest_elements() -> Tuple[float, float]:
     while True:
         try:
-            numbers = [float(num) for num in input().split()]
+            numbers = [float(num) for num in input("Enter space-separated numbers: ").split()]
             numbers.sort()
             min_diff = float("inf")
             closest_pair = (None, None)
@@ -22,3 +21,4 @@ def find_closest_elements() -> Tuple[float, float]:
             print("Invalid input. Please enter valid decimal or integer values.")
 
 print(find_closest_elements())
+input("Press Enter when ready: ")
