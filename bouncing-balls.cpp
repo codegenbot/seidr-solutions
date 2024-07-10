@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
-#include <cmath> 
+#include <cmath>
 #include <iomanip>
-
 using namespace std;
 
 int main() {
@@ -12,16 +12,13 @@ int main() {
 
     double bouncinessIndex = heightAfterFirstBounce / startHeight;
 
-    double totalDistance = 0.0;
-    for (int i = 1; i <= numBounces; i++) {
-        totalDistance += pow(2, -bouncinessIndex) * (2 * (heightAfterFirstBounce - startHeight));
-        startHeight = heightAfterFirstBounce;
-        heightAfterFirstBounce /= bouncinessIndex; // update the ball's height for the next bounce
+    double distanceTravelled = 0.0; // initialize distance traveled
+    for (int i = 1; i <= numBounces; ++i) {
+        distanceTravelled += (startHeight * pow(2, 0.5)) * pow(0.5, i - bouncinessIndex);
     }
 
-    cout << fixed; 
-    cout << setprecision(10);
-    cout << totalDistance << endl;
+    cout << fixed << setprecision(10); // adjust precision
+    cout << distanceTravelled << endl;
 
     return 0;
 }
