@@ -13,14 +13,14 @@ def bowling_score(bowls):
             frame += 1
         elif rolls[i] == "/":
             score += 10 - int(rolls[i - 1])
-            if frame < 10 and i < len(rolls) - 2 and rolls[i + 2] == "/":
-                score += 10 - int(rolls[i - 1])
+            if frame < 10 and i + 1 < len(rolls):
+                score += int(rolls[i + 1]) if rolls[i + 1].isdigit() else (10 - int(rolls[i - 1]))
             frame += 1
         elif rolls[i] == "-":
             pass
         else:
             score += int(rolls[i])
-            if frame < 10 and i < len(rolls) - 2 and rolls[i + 2] == "/":
+            if frame < 10 and i < len(rolls) - 1 and rolls[i + 1] == "/":
                 score += 10 - int(rolls[i])
             frame += 1
 
