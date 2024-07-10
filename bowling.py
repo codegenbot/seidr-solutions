@@ -13,6 +13,10 @@ while i < len(rolls) and frame <= 10:
         if rolls[i].isdigit():
             score += int(rolls[i])
 
+    if rolls[i] in ['X', '/']:
+        if rolls[i] == 'X':
+            frame += 1
+
     i += 1
 
 print("The score of the round is:", score)
