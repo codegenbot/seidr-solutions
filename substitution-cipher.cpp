@@ -16,8 +16,8 @@ int main() {
             idx = cipher2.find(c);
             if (idx != string::npos) {
                 c = cipher1[idx];
-            } else {
-                // Do nothing as the character is not found in either cipher
+            } else { 
+                // Do nothing for characters not found in either cipher
             }
         }
     }
