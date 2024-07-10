@@ -1,13 +1,12 @@
-```
 def solve_boolean(expression):
     result = True
-    for i in range(len(expression)):
-        if expression[i] == 'T':
+    for i, char in enumerate(expression):
+        if char == 'T':
             pass
-        elif expression[i] == 'F':
+        elif char == 'F':
             return False
-        elif expression[i] == '&':
-            result = all(expression[j] == 'T' for j in range(i+1, len(expression)))
-        elif expression[i] == '|':
-            result = any(expression[j] == 'F' for j in range(0, i))
+        elif char == '&':
+            result &= all(c == 'T' for c in expression[i+1:])
+        elif char == '|':
+            result |= any(c == 'F' for c in expression[:i])
     return result
