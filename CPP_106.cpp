@@ -4,24 +4,12 @@
 
 using namespace std;
 
+vector<int> f(int n);
+
 bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<int> f(int n);
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
-
-std::vector<int> f(int n){
-    std::vector<int> result(n);
+vector<int> f(int n){
+    vector<int> result(n);
     for(int i = 0; i < n; i++){
         if(i % 2 == 0){
             int factorial = 1;
@@ -40,10 +28,23 @@ std::vector<int> f(int n){
     return result;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b);
+{
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
 int main(){
     int n;
     std::cin >> n;
-    std::vector<int> result = f(n);
+    vector<int> result = f(n);
     // additional code using the result
     return 0;
 }
