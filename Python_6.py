@@ -16,3 +16,10 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     if current_depth != 0:
         return "Invalid nested parens string"
     return depths
+
+input_string = "((())())\n((())\n())"
+result = parse_nested_parens(input_string)
+if type(result) == list:
+    print(result)
+else:
+    print(result)
