@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 int specialFilter(std::vector<int> nums){
     int count = 0;
@@ -11,7 +12,17 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main(){
-    assert(specialFilter({}) == 0);
-    // Add more tests or your program logic here
+    std::vector<int> input;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i = 0; i < n; i++){
+        int num;
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> num;
+        input.push_back(num);
+    }
+    int output = specialFilter(input);
+    std::cout << "Number of elements that satisfy the condition: " << output << std::endl;
     return 0;
 }
