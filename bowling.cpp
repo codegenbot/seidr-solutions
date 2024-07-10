@@ -1,37 +1,36 @@
-int bowlingScore(string str) {
+int bowlingScore(string s) {
     int score = 0;
-    vector<int> rolls;
-
-    for (char c : str) {
-        if (c == '/') {
-            if (rolls.back() == 10) {
-                score += 30;
-                rolls.pop_back();
+    int frame = 0;
+    while (frame < 10) {
+        if (s[2 * frame] == '/' || s[2 * frame + 1] == 'X') {
+            // Strike
+            if (s[2 * frame] == '/') score += 10;
+            else score += 10 + sumIntegers(s.substr(2 * frame + 2, 2));
+            frame++;
+        } else if ((s[2 * frame] - '0' + s[2 * frame + 1] - '0') >= 10) {
+            // Spare
+            score += 10;
+            frame++;
+        } else {
+            // Normal roll
+            int firstRoll = (s[2 * frame] - '0') * 10 + (s[2 * frame + 1] - '0');
+            int secondRoll = (s[2 * frame + 3] - '0') * 10 + (s[2 * frame + 4] - '0');
+            score += firstRoll;
+            if (firstRoll + secondRoll < 10) {
+                frame++;
             } else {
-                score += 10 + rolls.back();
-                rolls.pop_back();
-            }
-        } else if (isdigit(c)) {
-            int roll = c - '0';
-            if (roll + rolls.back() <= 10) {
-                rolls.push_back(roll);
-            } else {
-                while (rolls.back() + roll > 10) {
-                    rolls.back() = 10;
-                    score += 10;
-                    if (rolls.size() == 1) break;
-                    rolls.pop_back();
-                }
-                rolls.push_back(roll - 10);
-                if (rolls.size() == 1) score += roll - 10;
+                score += secondRoll;
+                frame++;
             }
         }
     }
-
-    while (!rolls.empty()) {
-        score += rolls.back();
-        rolls.pop_back();
-    }
-
     return score;
+}
+
+int sumIntegers(string s) {
+    int result = 0;
+    for (char c : s) {
+        result = result * 10 + (c - '0');
+    }
+    return result;
 }
