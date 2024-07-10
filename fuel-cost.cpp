@@ -6,7 +6,8 @@ using namespace std;
 int fuelCost(vector<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
-        int result = static_cast<int>(floor(double(num) / 3)) - 2; // round down to the nearest integer
+        int result = (num / 3);
+        result = (result > 0 ? result - 1 : 0); 
         sum += result; 
     }
     return sum;
