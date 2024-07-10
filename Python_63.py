@@ -1,6 +1,3 @@
-Here is the modified code:
-
-print("Fibonacci Number Calculator")
 n = int(input("Enter the number: "))
 
 def fibfib(n):
