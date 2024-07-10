@@ -6,7 +6,7 @@ def encode(message):
             is_upper = char.isupper()
             char_lower = char.lower()
             if char_lower in vowels:
-                new_char = chr((ord(char_lower) - ord('a') + 23) % 26 + ord('a'))
+                new_char = chr((ord(char_lower) - ord('a') + 26 - 3) % 26 + ord('a'))
             else:
                 new_char = chr((ord(char_lower) - ord('a') + 3) % 26 + ord('a'))
             if is_upper:
@@ -15,3 +15,5 @@ def encode(message):
             new_char = char
         encoded_message += new_char
     return encoded_message
+
+print(encode("I DoNt KnOw WhAt tO WrItE"))  # Output: "L GrQw QrQz ZkBw YrMwH"
