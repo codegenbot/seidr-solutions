@@ -24,10 +24,9 @@ int main()
     std::vector<std::string> words;
     for (int i = 0; i < n; ++i) {
         std::string str;
-        while(getline(std::cin, str)) { 
-            if (!str.empty()) { // Check for empty strings
-                str.erase(0, 1); // Remove leading space/newline
-            }
+        std::getline(std::cin, str); 
+        str.erase(0, str.find_first_not_of(' ')); 
+        if (!str.empty() && !str.empty()) { 
             words.push_back(str); 
         }
     }
