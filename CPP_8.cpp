@@ -2,17 +2,17 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> sum_product(const std::vector<int>& nums){
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+std::vector<int> sum_product(const std::vector<int>& nums) {
     std::vector<int> result(2, 1);
-    for(auto num : nums){
+    for (auto num : nums) {
         result[0] += num;
         result[1] *= num;
     }
     return result;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
 }
 
 int main() {
