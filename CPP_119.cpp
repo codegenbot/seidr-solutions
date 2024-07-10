@@ -1,4 +1,9 @@
-bool match_parens(vector<string> lst) {
+#include <vector>
+#include <string>
+
+using namespace std;
+
+string match_parens(vector<string> lst) {
     int openCount = 0;
     for (string str : lst) {
         for (char c : str) {
@@ -8,10 +13,10 @@ bool match_parens(vector<string> lst) {
                 if (openCount > 0) {
                     openCount--;
                 } else {
-                    return false;
+                    return "No";
                 }
             }
         }
     }
-    return openCount == 0;
+    return (openCount == 0) ? "Yes" : "No";
 }
