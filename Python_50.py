@@ -1,7 +1,11 @@
+```
 def decode_shift():
-    s = input("Enter your string: ")
+    s = input().upper()
     if not s.isalpha():
         return "Error: Input contains non-alphabetic characters."
+    for ch in s:
+        if not ch.isalpha():
+            return "Error: Input contains non-alphabetic characters."
     result = ""
     for ch in s:
         if ch.islower():
