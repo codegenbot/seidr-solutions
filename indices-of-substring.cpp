@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 
@@ -10,10 +9,9 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     for (int i = 0; i <= n - m; ++i) {
-        if (text.find(target) != n - m) {
-            result.push_back(i);
-            // start searching from the next character
-            i = text.find(target, i + 1);
+        if ((pos = text.find(target, i)) != string::npos) {
+            result.push_back(pos);
+            i = pos + m - 1;
         }
     }
 
@@ -25,14 +23,6 @@ int main() {
     cin >> text;
     string target;
     cin >> target;
-
-    if (text.empty()) {
-        cout << "Error: The input text is empty." << endl;
-        return -1;
-    } else if (target.empty()) {
-        cout << "Error: The target string is empty." << endl;
-        return -1;
-    }
 
     vector<int> indices = indicesOfSubstring(text, target);
 
