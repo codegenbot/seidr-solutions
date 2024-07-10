@@ -1,10 +1,12 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+class std::vector<int> {
+public:
+    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+        return *this == a && *this == b;
+    }
+};
 
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
@@ -23,4 +25,11 @@ std::vector<int> order_by_points(std::vector<int> nums) {
         result.push_back(nums[pair.second]);
     }
     return result;
+}
+
+int main() {
+    std::vector<int> nums = {1, 2, 3};
+    std::vector<int> res = order_by_points(nums);
+    // Check the result
+    return 0;
 }
