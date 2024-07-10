@@ -15,19 +15,20 @@ int smallest_change(std::vector<int> arr) {
     
     int smallest = INT_MAX;
 
-    std::vector<int> dp(arr.size(), 0);
+    std::vector<int> dp(1);
+    dp[0] = 0;  
     for (auto coin : arr) {
-        dp[coin]++;
+        dp.push_back(INT_MAX);
     }
     for (int length = 2; length <= n; length++) {
         for (int i = 0; i < n - length + 1; i++) {
                 int j = i + length - 1;
                 
                 if (arr[i] == arr[j]) {
-                    dp[arr[i]] = dp[dp.size()-2];
+                    dp[dp.size()-1] = dp[dp.size()-2];
                 } else {
-                    int min_left = (i < n-length) ? dp[dp.size()-2] : INT_MAX;
-                    int min_right = (j > length-1) ? dp[dp.size()-2] : INT_MAX;
+                    int min_left = (i < n-length) ? dp[dp.size()-length] : INT_MAX;
+                    int min_right = (j > length-1) ? dp[0] : INT_MAX;
                     dp.push_back( 1 + (arr[i] == arr[j]) ? dp[dp.size()-2] : std::min(min_left, min_right));
                 }
             }

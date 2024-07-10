@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-
+```
 int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -37,7 +35,4 @@ int count_nums(std::vector<int> nums) {
     }
     return count;
 
-int main() {
-    assert(count_nums({1}) == 1);
-    return 0;
 }

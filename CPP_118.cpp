@@ -1,4 +1,7 @@
+#include <string>
+
 using namespace std; 
+
 std::string get_closest_vowel(std::string word) {
     int n = word.size();
     for (int i = n - 1; i > 0; --i) {
