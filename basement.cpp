@@ -8,5 +8,5 @@ int basement(vector<int>& v) {
         if (sum < 0)
             return i;
     }
-    return -1; // or any other value that indicates no such index exists
+    return -1; // or throw an exception, depending on your needs
 }
