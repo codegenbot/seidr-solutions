@@ -1,50 +1,47 @@
-#include <string>
-#include <stack>
 #include <iostream>
+#include <string>
 
 bool solveBoolean(std::string s) {
     bool result = true;
-    std::stack<char> stack;
-
-    for (int i = 0; i < s.size(); i++) {
+    int i = 0;
+    while (i < s.size()) {
         switch (s[i]) {
             case 'T':
-                if (!stack.empty() && stack.top() == '|') {
-                    while (!stack.empty() && stack.top() != '&') {
-                        stack.pop();
-                    }
-                    if (!stack.empty() && stack.top() == '&') {
-                        stack.pop();
-                        result = true;
-                    } else {
-                        return false;
-                    }
-                }
                 i++;
                 break;
             case 'F':
-                if (!stack.empty() && stack.top() == '|') {
-                    while (!stack.empty() && stack.top() != '&') {
-                        stack.pop();
-                    }
-                    if (!stack.empty() && stack.top() == '&') {
-                        stack.pop();
-                        result = false;
-                    } else {
-                        return false;
-                    }
-                }
+                if (result)
+                    result = false;
+                else
+                    return false;
                 i++;
                 break;
-            case '|':
-                stack.push('|');
-                break;
-            case '&':
-                stack.push('&');
-                break;
+            case '|': {
+                bool subResult = true;
+                while (i < s.size() && s[i] == '|') {
+                    i++;
+                }
+                for (; i < s.size() && s[i] != '&'; i++) {
+                    if (s[i] == 'F')
+                        subResult = false;
+                }
+                result = subResult;
+                break; }
+            case '&': {
+                bool subResult = true;
+                while (i < s.size() && s[i] == '&') {
+                    i++;
+                }
+                for (; i < s.size(); i++) {
+                    if (s[i] != 'T' && s[i] != 'F')
+                        return false;  // Incorrect input
+                    if (s[i] == 'F')
+                        subResult = false;
+                }
+                result = subResult;
+                break; }
         }
     }
-
     return result;
 }
 
