@@ -1,7 +1,6 @@
 #include <vector>
 #include <set>
 #include <string>
-#include <initializer_list>
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
@@ -30,3 +29,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     result.push_back((is_palindrome) ? "True" : "False");
     
     return result;
+}
+
+assert ((reverse_delete("mamma", "mia")) == (std::vector<std::string>{{"","True"}}));
