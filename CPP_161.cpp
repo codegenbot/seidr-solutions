@@ -1,11 +1,17 @@
+#include <iostream>
 #include <string>
-#include <cctype>
 
-int solve(std::string s) {
+std::string solve(std::string s) {
     for (int i = 0; i < s.length(); i++) {
-        if (std::isupper(s[i])) { 
-            s[i] += std::tolower(s[i]) - std::toupper(s[i]); 
+        if (s[i] >= 'A' && s[i] <= 'Z') {
+            s[i] += ('a' - 'A');
         }
     }
-    return s.length();
+    return s;
+}
+
+int main() {
+    assert(solve("#ccc") == "#CCC");
+    std::cout << "Test passed." << std::endl;
+    return 0;
 }
