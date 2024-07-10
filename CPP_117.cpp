@@ -14,7 +14,13 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 std::vector<std::string> select_words(std::string input, int k) {
     std::istringstream iss(input);
-    std::vector<std::string> words((std::istreambuf_iterator<char>(iss)), std::istreambuf_iterator<char>());
+    std::getline(iss, input); // remove leading and trailing whitespace
+    std::vector<std::string> words;
+
+    std::string word;
+    while (std::getline(iss, word)) { 
+        words.push_back(word);
+    }
 
     std::sort(words.begin(), words.end());
 
