@@ -1,2 +1,4 @@
 def solution(lst=None):
-    pass
+    if not lst:
+        lst = []
+    # ...
