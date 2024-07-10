@@ -2,15 +2,14 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> topKElements(const std::vector<int>& arr, int k) {
+std::vector<int> topKElements(std::vector<int> arr, int k) {
     if (k == 0) return {};
-    std::vector<int> sortedArr = arr;
-    std::sort(sortedArr.begin(), sortedArr.end(), std::greater<int>());
-    return std::vector<int>(sortedArr.begin(), sortedArr.begin() + k);
+    std::sort(arr.begin(), arr.end(), std::greater<int>());
+    return std::vector<int>(arr.begin(), arr.begin() + k);
 }
 
 int main() {
