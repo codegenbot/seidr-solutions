@@ -7,5 +7,5 @@ bool isValidTriangle(double a, double b, double c) {
 }
 
 int main() {
-    assert(!isValidTriangle(3.01, 4, 7));
+    assert(isValidTriangle(3.01, 4, 7));
 }
