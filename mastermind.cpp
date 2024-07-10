@@ -19,13 +19,19 @@ int main() {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeFreq[code[i]]++;
-            guessFreq[guess[i]]++;
+            if (code[i] >= 'A' && code[i] <= 'F' && guess[i] >= 'A' && guess[i] <= 'F') {
+                codeFreq[code[i]]++;
+                guessFreq[guess[i]]++;
+                
+                if (codeFreq[code[i]] <= guessFreq[guess[i]]) {
+                    whitePegs++;
+                }
+            }
         }
     }
 
     for (auto it = codeFreq.begin(); it != codeFreq.end(); ++it) {
-        whitePegs += min(it->second, guessFreq[it->first]);
+        whitePegs += std::min(it->second, guessFreq[it->first]);
     }
 
     cout << whitePegs << endl << blackPegs << endl;
