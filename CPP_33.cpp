@@ -36,7 +36,12 @@ vector<int> sort_third(vector<int> l) {
                     break;
             }
         } else {
-            result.push_back(others[(i % 3) % others.size()]);
+            if(others.size() > 1) {
+                result.push_back(others[0]);
+                others.erase(others.begin());
+            } else {
+                result.push_back(others[0]);
+            }
             i++;
         }
     }
