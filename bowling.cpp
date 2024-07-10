@@ -35,6 +35,9 @@ int score(string s) {
                 total += s[i] - '0';
             } else if (isStrike) {
                 total += (s[i] - '0') * 2;
+                if (isStrike) {
+                    total += (s[i] - '0');
+                }
             }
 
             isSpare = false;
