@@ -1,8 +1,6 @@
 def digits(n):
-    product = 1
-    has_odd_digit = False
+    even_product = 1
     for digit in str(n):
-        if int(digit) % 2 != 0:
-            product *= int(digit)
-            has_odd_digit = True
-    return product if has_odd_digit else 1
+        if int(digit) % 2 == 0:
+            even_product *= int(digit)
+    return even_product
