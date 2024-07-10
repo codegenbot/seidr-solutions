@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+#include <deque>
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -14,12 +14,12 @@ int gcd(int a, int b) {
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> result;
-    size_t index = 0;
+    int index = 0;
 
     while (index <= text.length() - target.length()) {
         size_t found = text.find(target, index);
         if (found != std::string::npos) {
-            result.emplace_back(found);  // Correct usage of push_back
+            result.push_back(found);
             index = found + 1;
         } else {
             break;
@@ -35,7 +35,6 @@ int main() {
     std::cin >> a >> b;
     std::cout << gcd(a, b) << "\n";
     
-    // Example usage for indicesOfSubstring function
     std::string text = "banana";
     std::string target = "ana";
     std::vector<int> result = indicesOfSubstring(text, target);
