@@ -1,3 +1,4 @@
+#include <iostream>
 #include <cassert>
 
 int sum_to_n(int n) {
@@ -5,6 +6,9 @@ int sum_to_n(int n) {
 }
 
 int main() {
-    assert(sum_to_n(100) == 5050);
+    int n;
+    std::cout << "Enter a number: ";
+    std::cin >> n;
+    std::cout << "Sum from 1 to " << n << " is: " << sum_to_n(n) << std::endl;
     return 0;
 }
