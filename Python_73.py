@@ -1,7 +1,10 @@
-```
 def smallest_change():
     arr = list(map(int, input().split()))
     n = len(arr)
+    
+    while len(arr) != n:
+        arr = list(map(int, input().split()))
+
     arr.sort()
     left, right = 0, n - 1
     changes = 0
