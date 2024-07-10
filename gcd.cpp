@@ -1,6 +1,6 @@
 #include <vector>
 
-namespace Problem {
+namespace {
     vector<int> indicesOfSubstring(string text, string target) {
         vector<int> res;
         int n = text.size();
