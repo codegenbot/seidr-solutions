@@ -21,7 +21,6 @@ def minPath(grid, k):
     for i in range(n):
         for j in range(n):
             visited.add((i, j))
-            path = [m[i][j]]
-            res.append((path, dfs(i, j, path)))
-
-    return min(res, key=lambda x: x[0])[0]
+            path = dfs(i, j, [m[i][j]])
+            if path:
+                return path
