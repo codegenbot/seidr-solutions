@@ -1,3 +1,4 @@
+```cpp
 #include <cctype>
 using namespace std;
 
