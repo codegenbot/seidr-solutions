@@ -1,20 +1,14 @@
-Here is the solution:
-
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& v) {
-    vector<int> res;
-    int n = v.size();
-    for (int i = 0; i < n; ++i) {
-        bool leader = true;
-        for (int j = i + 1; j < n; ++j) {
-            if (v[j] >= v[i]) {
-                leader = false;
-                break;
-            }
+vector<int> leaders(vector<int>& arr) {
+    vector<int> result;
+    int rightmost = arr.back();
+    for (int i = arr.size() - 2; i >= 0; --i) {
+        if (arr[i] >= rightmost) {
+            rightmost = arr[i];
+            result.push_back(rightmost);
         }
-        if (leader) res.push_back(v[i]);
     }
-    return res;
+    return result;
 }
