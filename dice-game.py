@@ -1,2 +1,2 @@
-def solution(n, m):
-    return (n - m) / (n + m) if n != m else 0.5
+def roll_dice(n, m):
+    return (m - 1) / n
