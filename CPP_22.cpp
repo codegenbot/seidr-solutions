@@ -1,10 +1,8 @@
-#include <vector>
-
-vector<int> filter_integers(std::list<boost::any> values) {
+vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value, false)) {
-            result.push_back(boost::any_cast<int>(value));
+        if (any_cast<int>(value).second) {
+            result.push_back(any_cast<int>(value).first);
         }
     }
     return result;
