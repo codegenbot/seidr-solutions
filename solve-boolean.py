@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == "T":
         return True
@@ -6,7 +5,7 @@ def solve_boolean(expression):
         return False
     elif "&" in expression and "|" in expression:
         raise ValueError("Invalid input")
-    elif "(" not in expression and ")" not in expression:  
+    elif "(" not in expression and ")" not in expression:
         if "&" in expression:
             left, right = expression.split("&")
             return not (solve_boolean(left) and solve_boolean(right))
@@ -22,7 +21,7 @@ def solve_boolean(expression):
                 while stack[-1] != "(":
                     pass
                 stack.pop()
-            elif not stack:  
+            elif not stack:
                 if "&" in expression and "|" in expression:
                     raise ValueError("Invalid input")
                 if "&" in expression:
