@@ -2,8 +2,10 @@
 #include <vector>
 #include <assert.h>
 
+namespace std {
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
+}
 }
 
 std::vector<int> remove_duplicates(std::vector<int> v) {
