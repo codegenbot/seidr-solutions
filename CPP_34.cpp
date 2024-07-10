@@ -1,6 +1,7 @@
-```c++
+```cpp
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 bool isSame(std::vector<int> a, std::vector<int> b) {
     return (a == b);
@@ -14,5 +15,5 @@ int main_test() {
     }
     std::cout << std::endl;
 
-    assert(std::isSame({0, 2, 3, 5, 9, 123}, std::vector<int>(input.begin(), uniqueOutput)));
+    assert(isSame(std::vector<int>(input.begin(), uniqueOutput), {0, 2, 3, 5, 9, 123}));
 }
