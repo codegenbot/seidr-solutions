@@ -27,6 +27,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), {}));
+    assert(issame(total_match({"this"}, {}), std::vector<std::string>{}));
     return 0;
 }
