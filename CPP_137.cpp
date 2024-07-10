@@ -37,7 +37,8 @@ boost::any compare_one(boost::any a, boost::any b) {
         double num2 = boost::get<double>(b);
         return num1 > num2 ? a : b;
     }
-    else {
+    else 
+    {
         return boost::any();
     }
 }
