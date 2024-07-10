@@ -19,10 +19,10 @@ int main() {
     cout << "Enter the proportion of snow melting per hour: ";
     cin >> proportionOfSnowMeltingPerHour;
 
-    double totalSnow = initialSnow;  
+    double totalSnow = 0.0;  
 
     for (int i = 0; i < hours; i++) {
-        double newSnow = totalSnow + rateOfSnowFall;
+        double newSnow = rateOfSnowFall;
         totalSnow += newSnow - proportionOfSnowMeltingPerHour * totalSnow;
     }
     
