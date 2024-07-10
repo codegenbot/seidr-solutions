@@ -1,14 +1,11 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
-#include <cassert>
-using namespace std;
 
-bool same(vector<int> a, vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -16,22 +13,23 @@ bool same(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> parse_nested_parens(const string& paren_string) {
-    vector<int> result;
-    int max_depth = 0;
-    for (char c : paren_string) {
+std::vector<int> parse_nested_parens(const std::string& s) {
+    std::vector<int> result;
+    int num = 0;
+    for (char c : s) {
         if (c == '(') {
-            max_depth++;
+            num++;
         } else if (c == ')') {
-            max_depth--;
+            if (num > 0) {
+                result.push_back(num);
+                num--;
+            }
         }
-        result.push_back(max_depth);
     }
     return result;
-
 }
 
 int main() {
-    assert(same(parse_nested_parens("(()(())((()))"), vector<int>({0, 1, 2, 1, 0, -1, -2, -3, -4})));
+    assert(same(parse_nested_parens("(()(())((()))"), {4, 3, 2, 1, 0, -1, -2, -3, -4}));
     return 0;
 }
