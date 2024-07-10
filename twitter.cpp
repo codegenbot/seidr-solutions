@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include <sstream>
 
 std::string validateTweet(const std::string& tweet) {
     if (tweet.empty()) return "You didn't type anything";
@@ -12,13 +13,7 @@ int main() {
     std::string tweet;
     while (true) { 
         std::cout << "Enter a tweet: ";
-        std::string line;
-        getline(std::cin, line);
-        if(line.empty()) {
-            std::cout << "You didn't type anything" << std::endl;
-            return 0;
-        }
-        tweet = line;
+        std::getline(std::cin, tweet); // Correct input reading
         break; 
     }   
     std::string output = validateTweet(tweet); 
