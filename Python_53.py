@@ -1,14 +1,14 @@
-def add(x, y):
-    return x + y
+def add(pair):
+    return sum(pair)
 
 def main():
     while True:
         try:
-            x = int(input().strip())
+            inputs = input().strip().split()
+            x, y = map(int, inputs)
             if x == 0:
                 break
-            y = int(input().strip())
-            result = add(x, y)
+            result = add((x, y))
             print(result)
         except ValueError:
             print("Error: Invalid input")
