@@ -19,6 +19,6 @@ std::vector<int> get_odd_collatz(int n) {
 }
 
 int main() {
-    // Main function can be implemented for testing or further functionality
+    // Main function for testing if needed
     return 0;
 }
