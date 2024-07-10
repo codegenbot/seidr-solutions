@@ -3,5 +3,9 @@ prices = list(map(float, input().split()))
 m = int(input())
 discounts = list(map(float, input().split()))
 
-total_price = sum([(1 - discounts[i] / 100) * prices[i] for i in range(n)])
+total_price = sum(
+    [(price - price * discount / 100) for price, discount in zip(prices, discounts)]
+)
+
+total_price = round(total_price, 2)  # Round to two decimal places
 print(total_price)
