@@ -1,4 +1,4 @@
 def sort_third(l: list):
-    third_elements = [i for i in l if i % 3 == 0]
-    not_third_elements = sorted([i for i in l if i % 3 != 0])
-    return not_third_elements + third_elements
+    return sorted([i for i in l if i % 3 != 0]) + [
+        x[-1] for x in [[i for i in range(0, len(l), 3)]]
+    ]
