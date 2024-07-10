@@ -1,18 +1,51 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<int> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    int minDiff = INT_MAX;
-    int cutIndex = 0;
-    
-    for (int i = 1; i < n; ++i) {
-        int diff = abs(nums[i] - nums[i-1]);
-        if (diff <= minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
+    int min_diff = INT_MAX;
+    int pos = -1;
+
+    for (int i = 0; i < vec.size() - 1; i++) {
+        int diff = abs(vec[i] - vec[i + 1]);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            pos = i;
         }
     }
-    
-    return {nums.substr(0, cutIndex).c_str(), nums.substr(cutIndex+1).c_str()};
+
+    std::vector<int> left_vec, right_vec;
+
+    for (int i = 0; i < pos; i++) {
+        left_vec.push_back(vec[i]);
+    }
+
+    for (int i = pos + 1; i < vec.size(); i++) {
+        right_vec.push_back(vec[i]);
+    }
+
+    return std::make_pair(left_vec, right_vec);
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+
+    std::vector<int> vec(n);
+    for (auto& x : vec) {
+        std::cin >> x;
+    }
+
+    auto res = cutVector(vec);
+
+    for (const auto& x : res.first) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
+
+    for (const auto& x : res.second) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
+
+    return 0;
 }
