@@ -24,6 +24,5 @@ def bowling_score(frames):
                 frames[i] = "0"
     return score
 
-
 frames = input()
 print(bowling_score(frames))
