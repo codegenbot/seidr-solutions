@@ -17,8 +17,14 @@ namespace contest {
     }
 
     std::vector<int> even_odd_palindrome(int n) {
-        // Implement the logic for generating a palindrome based on n
-        return {}; // Placeholder return
+        std::vector<int> result;
+        for (int i = n % 2; i >= 0; --i) {
+            result.push_back(i);
+        }
+        for (int i = 1; i <= n; ++i) {
+            result.push_back(i);
+        }
+        return result;
     }
 }
 
