@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -33,4 +32,10 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     
     return true;
 
+}
+
+int main() {
+    std::vector<std::string> expected = {"ahmed", "gamal"};
+    assert(issame({expected[0], expected[1]}, words_string("ahmed     , gamal")));
+    return 0;
 }
