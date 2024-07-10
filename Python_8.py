@@ -1,13 +1,9 @@
-def calculate_total_and_product():
-    total = 0
-    product = 1
-    while True:
-        try:
-            num = int(input("Enter a number (or 'stop' to finish): "))
-            if num == "stop":
-                break
-            total += num
-            product *= num
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-    return total, product
+def calculate_score(exam1: int, exam2: int) -> Tuple[int, str]:
+    total_score = exam1 + exam2
+    average = (
+        total_score / 2
+        if total_score > 0
+        else "Error: Both exams must have a score greater than zero"
+    )
+
+    return (total_score, average)
