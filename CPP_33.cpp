@@ -2,16 +2,16 @@
 #include <algorithm>
 #include <cassert>
 
-template <typename T>
-auto sort_third = [](std::vector<T> &vec) {
-    std::sort(vec.begin(), vec.end());
-};
+template<typename T>
+void sort_third(std::vector<T>& vec) {
+    std::sort(vec.begin(), vec.end(), std::greater<T>());
+}
 
-bool issame(const std::vector<int> &a, const std::vector<int> &b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     std::vector<int> a_sorted = a;
     std::vector<int> b_sorted = b;
-    sort_third<int>(a_sorted);
-    sort_third<int>(b_sorted);
+    sort_third(a_sorted);
+    sort_third(b_sorted);
 
     return a_sorted == b_sorted;
 }
