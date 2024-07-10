@@ -1,7 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <sstream>
+typedef std::string my_string;
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
@@ -38,7 +40,8 @@ std::string Join(const std::vector<std::string>& vec, char delimiter) {
 }
 
 int main() {
-    if (!issame({{"a"}}, select_words("a b c d e f", 1))) 
+    my_string my_result[] = {"b"};
+    if (!issame(std::vector<my_string>(std::begin(my_result), std::end(my_result)), select_words("a b c d e f", 1))) 
         std::cout << "{" + Join(select_words("a b c d e f", 1), ", ") + "}" << std::endl;
     return 0;
 }
