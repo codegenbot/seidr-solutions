@@ -1,6 +1,6 @@
 ```
 def basement(vector):
-    total = 0  
+    total = 0
     becomes_negative_at = -1
     for i, num in enumerate(vector):
         total += num
