@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -14,14 +13,9 @@ int vowels_count(std::string s) {
 }
 
 int main() {
-    std::string s = "";
-    char temp[1000]; 
-    while(std::cin.getline(temp, 1000)) { 
-        if (!s.empty()) {
-            s += "\n";
-        }
-        s += temp; 
-    }
+    std::string s;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, s);
     if(s.empty()) {
         std::cout << "Error: Input string is empty." << std::endl;
     } else {
@@ -29,4 +23,3 @@ int main() {
         std::cout << "Number of vowels: " << result << std::endl;
     }
     return 0;
-}
