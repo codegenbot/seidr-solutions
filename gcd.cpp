@@ -1,4 +1,3 @@
-````
 #include <vector>
 #include <string>
 
@@ -12,17 +11,6 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            int j = i + 1;
-            while (j < n && text.substr(j, m).find(target) != string::npos) {
-                j += m;
-            }
-            for (; j <= n; j += m) {
-                if (text.substr(j, m) == target) {
-                    result.push_back(j);
-                } else {
-                    break;
-                }
-            }
         }
     }
 
@@ -35,4 +23,3 @@ long long gcd(long long a, long long b) {
     else
         return gcd(b, a % b);
 }
-```
