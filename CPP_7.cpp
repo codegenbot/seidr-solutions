@@ -5,11 +5,13 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
     std::vector<std::vector<std::string>> result;
     for (const auto& vec : input) {
         bool found = false;
-        for (const auto& str : vec) {
-            if (str.find(sub) != std::string::npos) {
-                found = true;
-                result.push_back({{sub}});
-                break;
+        if (!vec.empty()) { // Check if the vector is not empty
+            for (const auto& str : vec) {
+                if (str.find(sub) != std::string::npos) {
+                    found = true;
+                    result.push_back({{sub}});
+                    break;
+                }
             }
         }
     }
@@ -20,25 +22,9 @@ int main() {
     std::vector<std::string> expected = {"grunt", "prune"};
     auto output = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
     
-    for (size_t i = 0; i < output.size(); ++i) {
-        if (output[i].size() != expected[i].size()) {
-            std::cerr << "Test failed. Expected: " << expected << ". Got: " << output << std::endl;
-            return 1;
-        }
-        for (size_t j = 0; j < output[i].size(); ++j) {
-            if (output[i][j] != expected[i][j]) {
-                std::cerr << "Test failed. Expected: " << expected << ". Got: " << output << std::endl;
-                return 1;
-            }
-        }
-    }
-    
-    auto expected = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    for (size_t i = 0; i < expected.size(); ++i) {
-        if (expected[i].size() != 1) {
-            std::cerr << "Test failed. Expected: " << expected << ". Got: " << output << std::endl;
-            return 1;
-        }
+    if (std::vector<std::string>({{"grunt", "prune"}}) != output) {
+        std::cerr << "Test failed. Expected: " << expected << ". Got: " << output << std::endl;
+        return 1;
     }
     
     // If you reach this point, the test passed
