@@ -1,7 +1,12 @@
 def find_zero(xs: list):
-    n = len(xs) // 2
-    a, b = xs[n], max(xs[:n] + xs[n + 1:])
+    n = len(xs) - 1
+    a = xs[0]
+    b = xs[n]
     return -a / b
 
-xs = list(map(int, input().split()))
-print(find_zero(xs))
+# Read input from user
+xs = list(map(float, input().split()))
+
+# Call the function with the input
+result = find_zero(xs)
+print(result)
