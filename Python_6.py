@@ -1,3 +1,4 @@
+print("Hello")
 def parse_nested_parens(paren_string: str) -> list:
     if not paren_string:
         return []
@@ -8,21 +9,23 @@ def parse_nested_parens(paren_string: str) -> list:
     
     for char in paren_string:
         if char == '(':
+            stack.append(char)
+            temp_group += '('
+        elif char == ')':
             if stack and stack[-1] == '(':
+                while stack and stack[-1] != '(':
+                    temp_group += stack.pop()
+                stack.pop()  # pop the leading '('
                 temp_group += ')'
             else:
-                stack.append(char)
-                temp_group += '('
-        elif char == ')':
-            while stack and stack[-1] != '(':
-                temp_group += stack.pop()
-            stack.pop()  # pop the leading '('
-            temp_group += ')'
+                temp_group += ')'
         elif char.isdigit():
             temp_group += char
 
-    if stack:  
+    if stack:  # remove any remaining open parentheses
         while stack:
             temp_group += stack.pop()
 
-    return [int(temp_group)] if temp_group.isdigit() else []
+    groups.append(int(temp_group)) if temp_group.isdigit() else []
+    
+    return groups if len(groups) > 1 or (len(groups) == 1 and not temp_group) else [groups[0]]
