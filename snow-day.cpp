@@ -5,7 +5,10 @@ int main() {
 
     for (int i = 0; i < hours; ++i) {
         snow_on_ground += snow_fall_rate;
-        snow_on_ground = max(0.0f, snow_on_ground - snow_melt_rate * snow_on_ground);
+        snow_on_ground -= snow_on_ground * snow_melt_rate;
+        if (snow_on_ground < 0) {
+            snow_on_ground = 0;
+        }
     }
 
     cout << snow_on_ground << endl;
