@@ -1,8 +1,10 @@
-def sort_third(l: list):
-    result = sorted([i for i in l if i % 3 != 0])
-    if len(l) % 3 == 1:
-        return [l[-1]] + result
-    elif len(l) % 3 == 2:
-        return [l[-2], l[-1]] + result
+def sort_and_distribute(lst):
+    odd_list = [i for i in lst if i % 3 != 0]
+    sorted_odd = sorted(odd_list)
+    
+    if len(lst) % 3 == 1:
+        return [sorted_odd[0]] * (len(lst) // 3 + 1)
+    elif len(lst) % 3 == 2:
+        return sorted_odd[:len(lst)//3] + [sorted_odd[-1]]
     else:
-        return sorted(result + l[:len(l)//3])
+        return sorted_odd * (len(lst) // 3)
