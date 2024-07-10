@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -6,8 +7,17 @@ bool is_sorted(vector<int> lst){
         if(lst[i-1] > lst[i]){
             return false;
         }
-        else if(find(lst.begin(), lst.end(), lst[i]) != lst.end()){
-            return false;
+        else{
+            bool found = false;
+            for (int j = 0; j < i; j++) {
+                if (lst[j] == lst[i]) {
+                    found = true;
+                    break;
+                }
+            }
+            if(found){
+                return false;
+            }
         }
     }
     return true;
