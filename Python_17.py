@@ -15,5 +15,5 @@ def parse_music(music_string: str) -> List[int]:
                 found = True
                 break
         if not found: 
-            i += 1 
+            i += 1
     return result
