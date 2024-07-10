@@ -7,7 +7,8 @@ def filter_integers() -> List[int]:
         if value.lower() == 'stop':
             break
         try:
-            values.append(int(value))
+            int_value = int(value)
+            values.append(int_value)
         except ValueError as e:
             print(f"Invalid input. Please enter a valid integer: {str(e)}")
     return values
