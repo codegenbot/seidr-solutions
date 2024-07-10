@@ -1,56 +1,47 @@
-int bowlingScore(string s) {
+int bowlingScore(string input) {
     int score = 0;
-    int frame = 1;
-    for(int i=0; i<s.size(); i++) {
-        if(s[i] == 'X') {
-            score += 10 + (i<18 ? bowlingStrike(frame) : 0);
-            frame++;
-        } else if(s[i] == '/') {
-            score += 10 - bowlingKnockdown(i+1);
-            frame++;
-        } else {
-            int knockdown = bowlingKnockdown(i+1);
-            if(knockdown < 10) {
-                score += knockdown;
-                frame++;
+    bool firstInFrame = true;
+    vector<int> frameScores;
+
+    for (char c : input) {
+        if (c == '/') {
+            continue;
+        }
+        if (isdigit(c)) {
+            int pins = c - '0';
+            if (firstInFrame) {
+                frameScores.push_back(pins);
+                firstInFrame = false;
             } else {
-                score += knockdown;
-                i++; // skip the second number
+                if (frameScores.back() + pins > 10) {
+                    score += 10 - (10 - frameScores.back() - pins);
+                    frameScores.pop_back();
+                } else {
+                    frameScores.back() += pins;
+                }
             }
-        }
-    }
-    return score;
-}
-
-int bowlingStrike(int frame) {
-    int score = 0;
-    for(int i=frame; i<=3 && i<=9; i++) {
-        if(i == frame) {
+        } else if (c == 'X') {
             score += 10;
+            firstInFrame = true;
+        } else if (c == '-') {
+            firstInFrame = true;
         } else {
-            score += bowlingKnockdown(frame);
+            int pins = 2 * (c - '0');
+            score += pins;
+            firstInFrame = false;
         }
     }
-    return score;
-}
 
-int bowlingKnockdown(int pin) {
-    switch(pin) {
-        case 1:
-        case 2:
-        case 3:
-            return 0;
-        case 4:
-            return 4;
-        case 5:
-            return 5;
-        case 6:
-            return 6;
-        case 7:
-            return 7;
-        case 8:
-            return 8;
-        case 9:
-            return 9;
+    for (int i = 0; i < frameScores.size(); ++i) {
+        if (frameScores[i] == 10) {
+            continue;
+        } else if (frameScores[i] + frameScores[i+1] > 10) {
+            score += 10 - (10 - frameScores[i] - frameScores[i+1]);
+            i++;
+        } else {
+            score += frameScores[i];
+        }
     }
+
+    return score;
 }
