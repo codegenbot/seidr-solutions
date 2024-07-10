@@ -1,7 +1,5 @@
 def car_race_collision(n: int):
-    if n == 1:
-        return 0
-    elif n % 2 == 0:
-        return (n // 2) ** 2 + n * ((n // 2) - 1)
-    else:
-        return (n // 2) ** 2 + (n // 2) + 1
+    speed1 = [int(i) for i in input("Enter speeds of cars in km/h (space separated): ").split()]
+    speed2 = [int(i) for i in input("Enter speeds of trucks in km/h (space separated): ").split()]
+    collision_speed = min(max(speed1), max(speed2))
+    return str(collision_speed)
