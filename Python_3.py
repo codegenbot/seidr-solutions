@@ -1,4 +1,3 @@
-```
 def below_zero(operations: list[int]) -> bool:
     min_temp = float("inf")
     for operation in operations:
