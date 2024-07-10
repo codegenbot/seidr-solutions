@@ -1,59 +1,22 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
+#include <assert.h>
 
-using namespace std;
-
-bool issame(const vector<int>& x, const vector<int>& y) {
-    return x == y;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return issame(const_cast<const std::vector<int>&>(a), const_cast<const std::vector<int>&>(b));
+std::vector<int> remove_duplicates(std::vector<int> v) {
+    std::vector<int> unique_v;
+    for (int i : v) {
+        if (std::find_if(unique_v.begin(), unique_v.end(),
+                         [i](const int& x) { return x == i; }) == unique_v.end())
+            unique_v.push_back(i);
+    }
+    return unique_v;
 }
 
-vector<int> remove_duplicates(vector<int> v) {
-    vector<int> result;
-    for (int x : v) { 
-        bool found = false;
-        if (result.empty()) {
-            result.push_back(x);
-        } else {
-            for (int i = 0; i < result.size(); i++) { 
-                if (x == result[i]) {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                result.push_back(x);
-            }
-        }
-    }
-    return result;
-}
-
-int mainFunction() {
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-
-    vector<int> v;
-    for (int i = 0; i < n; i++) {
-        cout << "Enter element " << i + 1 << ": ";
-        int x;
-        cin >> x;
-        v.push_back(x);
-    }
-
-    // sort the vector before removing duplicates
-    sort(v.begin(), v.end());
-
-    cout << "Duplicates removed: ";
-    for (int i = 0; i < remove_duplicates(v).size(); i++) {
-        cout << remove_duplicates(v)[i] << " ";
-    }
-    cout << endl;
-
+int main() {
+    assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), std::vector<int>({1, 4, 5})));
     return 0;
 }
