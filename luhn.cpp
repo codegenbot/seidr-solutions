@@ -1,12 +1,17 @@
-```cpp
-int luhn(vector<unsigned int> cc) {
+#include <vector>
+#include <cstdint>
+
+int luhn(std::vector<uint16_t> cc) {
     int sum = 0;
     bool doubleNext = false;
 
     for (int i = cc.size() - 1; i >= 0; --i) {
-        int digit = cc[i] * (doubleNext ? 2 : 1);
-        if (digit > 9) {
-            digit -= 9;
+        uint16_t digit = cc[i];
+        if (doubleNext) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
         }
         sum += digit;
         doubleNext = !doubleNext;
