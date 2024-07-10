@@ -1,58 +1,43 @@
-#include <string>
-#include <algorithm>
 #include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
+#include <string>
+#include <iostream>
 
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any(b);
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return b;
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
     }
     else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        string strA = boost::lexical_cast<string>(a.convert_to<int>());
-        string strB = boost::lexical_cast<string>(b);
-        if (stod(strA) < stod(strB))
-            return b;
-        else
-            return "None";
+        string str = (string)b.convert_to<string>();
+        size_t pos = str.find(',');
+        if (pos != string::npos)
+            str.erase(pos, 1);
+        return max((float)a.convert_to<float>(), stof(str));
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        size_t pos_a = (string)a.convert_to<string>().find(',');
+        size_t pos_b = (string)b.convert_to<string>().find(',');
+
+        if (pos_a != string::npos)
+            (string)a.convert_to<string>().erase(pos_a, 1);
+        if (pos_b != string::npos)
+            (string)b.convert_to<string>().erase(pos_b, 1);
+
+        return max(stof((string)a.convert_to<string>()), stof((string)b.convert_to<string>()));
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        size_t pos = (string)b.convert_to<string>().find(',');
+        if (pos != string::npos)
+            (string)b.convert_to<string>().erase(pos, 1);
+        return max((int)a.convert_to<int>(), stof((string)b.convert_to<string>()));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string strA = a.convert_to<string>();
-        string strB = boost::lexical_cast<string>(b.convert_to<int>());
-        if (stod(strA) < stod(strB))
-            return a;
-        else
-            return "None";
+        size_t pos = (string)a.convert_to<string>().find(',');
+        if (pos != string::npos)
+            (string)a.convert_to<string>().erase(pos, 1);
+        return max(stof((string)a.convert_to<string>()), (int)b.convert_to<int>());
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string strA = a;
-        string strB = boost::lexical_cast<string>(b.convert_to<float>());
-        if (stod(strA) < stod(strB))
-            return a;
-        else
-            return "None";
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int A = boost::any_cast<int>(a);
-        int B = boost::any_cast<int>(b);
-        if (A < B)
-            return a;
-        else
-            return "None";
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float A = boost::any_cast<float>(a);
-        float B = boost::any_cast<float>(b);
-        if (A < B)
-            return a;
-        else
-            return "None";
-    }
-    else {
+    else
         return "None";
-    }
 }
