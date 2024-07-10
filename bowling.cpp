@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int bowlingScore(std::string input) {
@@ -7,7 +8,7 @@ int bowlingScore(std::string input) {
         if (c == 'X') {
             score += 10;
             if (!firstInFrame) {
-                score += 10 + (input.find(c) == input.find(' ') ? 0 : input[input.find(c) + 1] - '0' + input[input.find(c) + 2] - '0');
+                score += 10 + (input[input.find(c) + 1] == '/' ? 0 : input[input.find(c) + 1] - '0' + input[input.find(c) + 2] - '0');
             }
         } else if (c == '/') {
             score += 10 - score;
