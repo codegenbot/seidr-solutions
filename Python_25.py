@@ -14,11 +14,13 @@ def main():
             print("Invalid input. Please enter a valid integer.")
 
     n2 = -1
-    while n2 < 1:
+    while True:
         try:
             n2 = int(input("Enter another integer: "))
             if n2 < 1:
                 print("Please enter a positive integer.")
+            else:
+                break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
