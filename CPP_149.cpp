@@ -1,39 +1,27 @@
-vector<string> sorted_list_sum(vector<string> lst) {
+#include <vector>
+#include <algorithm>
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
+
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     vector<string> result;
-    for (const string& s : lst) {
-        if (s.length() % 2 == 0) {
-            result.push_back(s);
+
+    for (const auto& str : lst) {
+        if (str.length() % 2 == 0) {
+            result.push_back(str);
         }
     }
 
     sort(result.begin(), result.end(),
          [](const string& a, const string& b) {
-             int sumA = 0, sumB = 0;
-             for (char c : a) {
-                 if (isalpha(c)) {
-                     sumA += issame(tolower(c)) ? 1 : 3;
-                 }
+             if (a.length() == b.length()) {
+                 return a < b;
+             } else {
+                 return a.length() < b.length();
              }
-             for (char c : b) {
-                 if (isalpha(c)) {
-                     sumB += issame(tolower(c)) ? 1 : 3;
-                 }
-             }
-             return tie(sumA, a) < tie(sumB, b);
          });
 
     return result;
-}
-
-bool issame(char c) {
-    switch (c) {
-        case 'a':
-        case 'e':
-        case 'i':
-        case 'o':
-        case 'u':
-            return true;
-        default:
-            return false;
-    }
 }
