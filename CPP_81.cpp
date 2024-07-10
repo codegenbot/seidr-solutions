@@ -9,7 +9,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     for (int i = 0; i < a.size(); i++) {
         bool found = false;
         for (const auto& str : b) {
-            if (std::string(a[i]) == str) { 
+            if (str == a[i]) {
                 found = true;
                 break;
             }
