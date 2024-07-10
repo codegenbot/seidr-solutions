@@ -11,7 +11,7 @@ It distinct(It first, It last) {
     if (first == last)
         return first;
 
-    std::vector<typename std::iterator_traits<It>::value_type> result;
+    vector<typename std::iterator_traits<It>::value_type> result;
     for (; first != last; ++first) {
         bool duplicate = false;
         for (const auto& value : result) {
@@ -28,18 +28,10 @@ It distinct(It first, It last) {
 }
 
 int main() {
-    std::vector<int> input;
-    int n;
-    std::cin >> n;
-    for(int i = 0; i < n; i++) {
-        int x;
-        std::cin >> x;
-        input.push_back(x);
-    }
-    
-    auto firstUnique = distinct(input.begin(), input.end());
-    std::vector<int> output(firstUnique, std::unique(input.begin(), input.end()));
-
-    for (int i : output) {
+    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    auto output(distinct(input.begin(), input.end()));
+    auto end = std::unique(output.begin(), output.end());
+    for (int i : vector<int>(output.begin(), end)) {
         std::cout << i << " ";
     }
+}
