@@ -4,8 +4,12 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return (a == b);
+bool same(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 vector<string> split_words(string txt) {
@@ -34,8 +38,8 @@ vector<string> split_words(string txt) {
     return result;
 }
 
-int main() {
+int my_main() {
     bool b = true;
-    assert(issame(split_words(""), vector<string>({""})));
+    assert(same(split_words(""), vector<string>({""})));
     return 0;
 }
