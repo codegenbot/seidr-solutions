@@ -13,9 +13,9 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
         return b;
     }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str1 = boost::any_cast<std::string>(a);
-        std::string str2 = boost::any_cast<std::string>(b);
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string str1 = boost::any_cast<string>(a);
+        string str2 = boost::any_cast<string>(b);
 
         if (str1 == "None" || str2 == "None")
             return a;
