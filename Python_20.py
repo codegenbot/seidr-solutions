@@ -1,12 +1,11 @@
+```
 def check(lst):
-    lst.sort()
-    result = float('inf')
-    if len(lst) >= 2:
-        for i in range(len(lst) - 1):
-            if lst[i] != lst[i+1]:
-                diff = abs(lst[i] - lst[i+1])
-                result = min(result, diff)
-    return result
+    if len(set(lst)) == 1:
+        return "All elements are equal"
+    elif len(lst) == len(set(lst)):
+        return "All elements are unique"
+    else:
+        return "Some elements are equal and some are not"
 
-arr = list(map(int, input().split()))
-print(check(arr))
+lst = list(map(int, input().split()))
+print(check(lst))
