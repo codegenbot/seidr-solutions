@@ -1,14 +1,15 @@
+Here is the completed code:
+
 int skjkasdkd(vector<int> lst){
-    int maxPrime = 0;
+    int max_prime = 0;
     for(int i : lst){
-        if(isPrime(i)){
-            if(i > maxPrime) maxPrime = i;
-        }
+        if(isPrime(i) && i > max_prime)
+            max_prime = i;
     }
     int sum = 0;
-    while(maxPrime > 0){
-        sum += maxPrime % 10;
-        maxPrime /= 10;
+    while(max_prime > 0){
+        sum += max_prime % 10;
+        max_prime /= 10;
     }
     return sum;
 }
