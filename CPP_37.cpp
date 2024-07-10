@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -17,14 +18,14 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if ((a[i] - b[i]) > 1e-9 || (a[i] - b[i]) < -1e-9) {
+        if (std::abs(a[i] - b[i]) > 1e-9) {
             return false;
         }
     }
     return true;
 }
 
-int main() {
+void main() {
     std::vector<int> numbers = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     std::vector<int> even_numbers = sort_even(numbers);
     assert(issame(even_numbers, {2, 4, 8, 12}));
