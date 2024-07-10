@@ -1,7 +1,9 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
 #include <algorithm>
+#include <cassert>
 
 int digitSum(std::string s) {
     int sum = 0;
@@ -9,11 +11,8 @@ int digitSum(std::string s) {
         if (isupper(c)) {
             sum += c - 'A' + 1; 
         } else if (islower(c)) {
-            std::string temp = s;
-            while(std::next_permutation(std::begin(temp), std::end(temp))) {
-                for(char d : temp) {
-                    sum += d - 'A' + 1;
-                }
+            for(char d : s) {
+                sum += d - 'a' + 1;
             }
         }
     }
@@ -22,6 +21,6 @@ int digitSum(std::string s) {
 
 int main() {
     assert(digitSum("You arE Very Smart") == 327);
-    std::cout << digitSum("Hello World!") << std::endl;
+    std::cout << digitSum("You arE Very Smart") << std::endl;
     return 0;
 }
