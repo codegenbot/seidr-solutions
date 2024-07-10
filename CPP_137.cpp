@@ -29,28 +29,15 @@ boost::any compare_one(boost::any a, boost::any b) {
         string x = boost::any_cast<string>(a);
         string y = boost::any_cast<string>(b);
         return (stod(x) > stod(y)) ? a : ((stod(y) > stod(x)) ? b : boost::any("None"));
+    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        int x = boost::any_cast<int>(a);
+        int y = boost::any_cast<int>(b);
+        return (x > y) ? a : ((y > x) ? b : boost::any("None"));
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float x = boost::any_cast<float>(a);
+        float y = boost::any_cast<float>(b);
+        return (x > y) ? a : ((y > x) ? b : boost::any("None"));
     } else {
         return "Invalid input";
     }
-}
-
-int main() {
-    int x, y;
-    cout << "Enter the first number: ";
-    cin >> x;
-    cout << "Enter the second number: ";
-    cin >> y;
-
-    boost::any a = typeid(int);
-    boost::any b = typeid(float);
-
-    boost::any result = compare_one(a, b);
-
-    if (boost::any_cast<string>(result) == "None") {
-        cout << "The numbers are equal." << endl;
-    } else {
-        cout << "The first number is greater." << endl;
-    }
-
-    return 0;
 }
