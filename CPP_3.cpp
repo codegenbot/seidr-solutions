@@ -1,9 +1,9 @@
-int sum = 0;
-for(int op : operations){
-    sum += op;
-    if(sum < 0){
-        return true;
+int balance = 0;
+    for (int op : operations) {
+        balance += op;
+        if (balance < 0) {
+            return true;
+        }
     }
-}
-return false;
+    return false;
 }
