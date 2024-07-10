@@ -4,47 +4,48 @@ int main() {
     int cents;
     std::cin >> cents;
 
-    int quarters = 0, dimes = 0, nickles = 0, pennies = 0;
-    
     // Calculate Quarters
+    int quarters = 0;
     while (cents >= 25) {
-        quarters++;
         cents -= 25;
+        quarters++;
     }
 
     // Calculate Dimes
+    int dimes = 0;
     while (cents >= 10) {
-        dimes++;
         cents -= 10;
+        dimes++;
     }
 
     // Calculate Nickles
+    int nickles = 0;
     while (cents >= 5) {
-        nickles++;
         cents -= 5;
+        nickles++;
     }
 
     // Calculate Pennies
-    pennies = cents;
+    int pennies = cents;
 
     std::cout << quarters << " quarter" << (quarters > 1 ? "s" : "") << std::endl;
     if (dimes > 0) {
         if (dimes > 1) {
-            std::cout << dimes << " dimes" << std::endl;
+            std::cout << dimes << " dime" << (dimes > 1 ? "s" : "") << std::endl;
         } else {
             std::cout << dimes << " dime" << std::endl;
         }
     }
     if (nickles > 0) {
         if (nickles > 1) {
-            std::cout << nickles << " nickels" << std::endl;
+            std::cout << nickles << " nickel" << (nickles > 1 ? "s" : "") << std::endl;
         } else {
             std::cout << nickles << " nickel" << std::endl;
         }
     }
     if (pennies > 0) {
         if (pennies > 1) {
-            std::cout << pennies << " pennies" << std::endl;
+            std::cout << pennies << " penny" << (pennies > 1 ? "s" : "") << std::endl;
         } else {
             std::cout << pennies << " penny" << std::endl;
         }
