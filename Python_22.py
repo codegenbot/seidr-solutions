@@ -2,21 +2,17 @@ import re
 
 
 def filter_integers(input_str=None) -> None:
-    while True:
-        if input_str is None:
-            print(
-                "Please enter a comma-separated list of values (separated by commas):"
-            )
-            input_str = input()
+    input_str = input(
+        "Please enter a comma-separated list of values (separated by commas), or type 'exit' to quit: "
+    )
 
-        if not input_str and "exit" in input_str.lower():
-            break
-        elif not input_str:
-            print("Please enter some values. You can press Enter to exit.")
-        elif not re.match(r"^[0-9]+(,[0-9]+)*$", input_str):
+    while True:
+        if not re.match(r"^[0-9]+(,[0-9]+)*$", input_str):
             print(
                 "Invalid input. Please enter a valid list of comma-separated integers."
             )
+        elif "exit" in input_str.lower():
+            break
         else:
             break
 
