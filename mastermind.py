@@ -1,11 +1,4 @@
 def mastermind(code, guess):
-    code = [c for c in code]
-    guess = [c for c in guess]
-    white_pegs = 0
-    black_pegs = 0
-    for i in range(4):
-        if code[i] == guess[i]:
-            black_pegs += 1
-        elif guess.count(code[i]) > 0:
-            white_pegs += 1
-    return str(white_pegs), str(black_pegs)
+    correct_colors = sum([1 for c in zip(code, guess) if c[0] == c[1]])
+    correct_places = sum([1 for i in range(4) if code[i] == guess[i]])
+    return 4 - correct_places, correct_colors - correct_places
