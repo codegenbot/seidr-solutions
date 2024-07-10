@@ -13,13 +13,6 @@ int main() {
     int side1, side2, side3;
     std::cin >> side1 >> side2 >> side3;
 
-    std::cout << "The input is: " << std::to_string(side1) << ", " << std::to_string(side2) << ", " << std::to_string(side3);
-
-    int a = side1;
-    int b = side2;
-    int c = side3;
-
-    assert(std::abs(triangle_area(a, b, c)) < 0.01);
-    float result = triangle_area(a, b, c);
+    float result = triangle_area(side1, side2, side3);
     std::cout << "The area of the triangle is: " << static_cast<int>(result) << std::endl;
 }
