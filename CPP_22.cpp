@@ -8,13 +8,13 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 std::vector<int> filter_integer(std::vector<int> values) {
     std::vector<int> result; 
+    bool isFirst = true;
     for (int value : values) {
-        if(value != 0) {
-            if(result.empty()) {
-                result.push_back(value); 
-            } else {
-                result.push_back(value);
-            }
+        if(value != 0 && !isFirst) {
+            result.push_back(value);
+        } else if(value != 0) {
+            result.push_back(value);
+            isFirst = false;
         }
     }
     return result;
