@@ -1,19 +1,11 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size())
-        return false;
-    
-    for (int i = 0; i < a.size(); i++) {
-        if (std::string(a[i]) == "" || std::string(b[i]) == "") {
-            if ((a[i] != b[i]))
-                return false;
-        } else {
-            if (a[i] != b[i])
-                return false;
-        }
+bool issame(const std::vector<std::string>& vec) {
+    for (int i = 0; i < vec.size(); i++) {
+        if (std::string(vec[i]) == "")
+            return false;
     }
     
     return true;
@@ -29,6 +21,5 @@ int main() {
         words_string.push_back(s);
     }
     
-    std::vector<std::string> b = {"ahmed", "gamal"};
-    assert(issame(words_string, b));
+    assert(issame(words_string));
 }
