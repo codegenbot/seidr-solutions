@@ -1,6 +1,5 @@
 ```cpp
 #include <vector>
-#include <algorithm>
 
 int count_nums(std::vector<int> v) {
     int count = 0;
@@ -11,7 +10,7 @@ int count_nums(std::vector<int> v) {
                 sum += abs(num % 10);
                 num /= 10;
             }
-            if (sum > 1) {
+            if (sum > 0) {
                 count++;
             }
         } else {
@@ -21,7 +20,7 @@ int count_nums(std::vector<int> v) {
                 sum += abs(n % 10);
                 n /= 10;
             }
-            if ((is_negative && sum >= 2) || (!is_negative && sum > 1)) {
+            if ((is_negative && sum > 0) || (!is_negative && sum >= 1)) {
                 count++;
             }
         }
