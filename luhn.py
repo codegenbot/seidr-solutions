@@ -1,4 +1,3 @@
-````
 def luhn(card_num):
     card_num = [int(x) for x in str(card_num).replace(" ", "")]
     return sum(
@@ -7,4 +6,3 @@ def luhn(card_num):
             for i, x in enumerate(card_num)
         ]
     )
-```
