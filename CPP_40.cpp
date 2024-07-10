@@ -5,7 +5,7 @@ bool triples_sum_to_zero(const std::vector<int>& nums) {
     std::vector<int> sorted_nums(nums);
     std::sort(sorted_nums.begin(), sorted_nums.end());
     
-    for (int i = 0; i < nums.size(); ++i) {
+    for (int i = 0; i < nums.size() - 2; ++i) {
         int left = i + 1;
         int right = nums.size() - 1;
         
@@ -21,6 +21,5 @@ bool triples_sum_to_zero(const std::vector<int>& nums) {
             }
         }
     }
-    return false;
     return false;
 }
