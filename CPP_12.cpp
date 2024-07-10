@@ -1,7 +1,3 @@
-```cpp
-#include <vector>
-#include <string>
-
 namespace std {
     using ::std::string;
 }
