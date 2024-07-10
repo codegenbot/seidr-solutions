@@ -9,10 +9,13 @@ int smallest_change(vector<int> arr) {
     while (left < right) {
         if (str[left] != str[right]) {
             changes++;
-            if (str[left] == str[right-1]) {
+            if (str[left] == str[right - 1]) {
                 right--;
-            } else {
+            } else if (str[right] == str[left + 1]) {
                 left++;
+            } else {
+                changes += 2;
+                break;
             }
         } else {
             left++;
