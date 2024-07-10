@@ -1,24 +1,21 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) {
+bool issame(const std::vector<std::string>& vec) {
+    if (vec.size() != 1 || vec[0].empty()) {
         return false;
     }
-    for(int i = 0; i < a.size(); i++) {
-        if(!issame(a[i], b[i])) {
+    for (const auto& s : vec) {
+        if (s != vec[0]) {
             return false;
         }
     }
     return true;
 }
 
-vector<string> all_prefixes(string str) {
-    vector<string> result;
+std::vector<std::string> all_prefixes(const std::string& str) {
+    std::vector<std::string> result;
     for (int i = 1; i <= str.length(); ++i) {
         result.push_back(str.substr(0, i));
     }
@@ -26,19 +23,19 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    string s1, s2;
-    cout << "Enter the first string: ";
-    cin >> s1;
-    cout << "Enter the second string: ";
-    cin >> s2;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
 
-    vector<string> v1 = all_prefixes(s1);
-    vector<string> v2 = all_prefixes(s2);
-
-    if(issame(v1, v2)) {
-        cout << "The two strings are the same." << endl;
+    if (input.empty()) {
+        std::cout << "Invalid input. Please enter a non-empty string." << std::endl;
     } else {
-        cout << "The two strings are not the same." << endl;
+        std::vector<std::string> result = all_prefixes(input);
+        if (issame(result)) {
+            std::cout << "The prefixes are the same." << std::endl;
+        } else {
+            std::cout << "The prefixes are not the same." << std::endl;
+        }
     }
 
     return 0;
