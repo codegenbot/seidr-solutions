@@ -1,6 +1,17 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
-double getProbability(int n, int m) {
-    double total = (double)n * m;
-    return (n - 1) / total;
+double diceGame(int n, int m) {
+    double total = 1.0;
+    for (int i = 1; i <= m && i < n; i++) {
+        total += 1.0 / min(n, m);
+    }
+    return total / min(n, m);
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(5) << diceGame(n, m) << endl;
+    return 0;
 }
