@@ -13,5 +13,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             while stack and stack.pop() != '(':
                 group += ')'
             if stack:
-                groups.append('({})'.format(group))
+                groups.append('(' + group + ')')
     return groups
