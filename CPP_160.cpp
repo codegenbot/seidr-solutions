@@ -22,7 +22,4 @@ int do_algebra(const std::vector<std::string>& operato, const std::vector<int>& 
     return result;
 }
 
-int main() {
-    std::cout << do_algebra({"//", "*"}, {7, 3, 4}) << std::endl;
-    return 0;
-}
+assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
