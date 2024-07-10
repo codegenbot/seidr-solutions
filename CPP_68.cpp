@@ -3,7 +3,7 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(vector<int>& a, vector<int> b) {
     return a == b;
 }
 
@@ -26,7 +26,7 @@ int main() {
     vector<int> v1 = {7, 9, 7, 1};
     vector<int> v2;
 
-    if (issame(pluck(v1), pluck({7, 9, 7, 1})))  
+    if (issame(pluck(v1), pluck({})) )  
         cout << "Arrays are same" << endl;
     else   
         cout << "Arrays are not same" << endl;
