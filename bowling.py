@@ -1,4 +1,3 @@
-```
 def bowling_score(game):
     score = 0
     roll = 0
@@ -8,7 +7,7 @@ def bowling_score(game):
             score += 10
             roll += 1
         elif 'X' in frame:
-            if roll < 2:
+            if roll < 1:
                 score += 10
                 roll += 1
             else:
@@ -32,3 +31,9 @@ def bowling_score(game):
                 score += sum(first_two_rolls)
                 roll += 2
     return score
+
+game = input("Enter the game (10-frame round of 10 pin bowling): ")
+
+score = bowling_score(game)
+
+print(f"The score for the given game is {score}.")
