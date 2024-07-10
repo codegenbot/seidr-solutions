@@ -1,21 +1,16 @@
-```
-from typing import List, Optional
-
-def longest(strings: List[str], n: int) -> Optional[int]:
-    """
-    This function takes a list of strings and an integer as input.
-    It returns the index of the string in the list that has exactly 'n' characters.
-    If no such string exists, it returns None.
-
-    Parameters:
-    strings (List[str]): A list of strings
-    n (int): The length of the desired string
-
-    Returns:
-    Optional[int]: The index of the string with 'n' characters or None if not found
-    """
-
-    for i, s in enumerate(strings):
-        if len(s) == n:
-            return i
-    return None
+````
+def longest_substring(s: str) -> int:
+    """Given a string, find the length of its longest substring with no repeating characters."""
+    if not s:
+        return 0
+    max_len = 0
+    start = 0
+    char_index_map = {}
+    
+    for end in range(len(s)):
+        if s[end] in char_index_map:
+            start = max(start, char_index_map[s[end]] + 1)
+        char_index_map[s[end]] = end
+        max_len = max(max_len, end - start + 1)
+    
+    return max_len
