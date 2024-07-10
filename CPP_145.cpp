@@ -4,15 +4,16 @@
 #include <cassert>
 
 std::vector<int> order_by_points(const std::vector<int>& nums) {
-    std::sort(nums.begin(), nums.end(), [&](const int& a, const int& b) {
-        int sum_a = std::accumulate(std::to_string(abs(a)).begin(), std::to_string(abs(a)).end(), 0, [&](int acc, char c) { return acc + c - '0'; });
-        int sum_b = std::accumulate(std::to_string(abs(b)).begin(), std::to_string(abs(b)).end(), 0, [&](int acc, char c) { return acc + c - '0'; });
+    std::vector<int> sorted_nums = nums; // Make a copy before sorting
+    std::sort(sorted_nums.begin(), sorted_nums.end(), [&](int a, int b) {
+        int sum_a = std::accumulate(std::to_string(abs(a)).begin(), std::to_string(abs(a)).end(), 0, [](int acc, char c) { return acc + c - '0'; });
+        int sum_b = std::accumulate(std::to_string(abs(b)).begin(), std::to_string(abs(b)).end(), 0, [](int acc, char c) { return acc + c - '0'; });
         if (sum_a == sum_b) {
             return a < b;
         }
         return sum_a < sum_b;
     });
-    return nums;
+    return sorted_nums;
 }
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
