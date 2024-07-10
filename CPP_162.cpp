@@ -1,7 +1,7 @@
 ```cpp
 #include <string>
 #include <openssl/ssl.h>
-#include <openssl/evp.h>
+#include <openssl/err.h>
 
 using namespace std;
 
@@ -9,14 +9,14 @@ string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char md5[16];
-    EVP_MD_CTX mdctx;
-    EVP_MD *md = EVP_sha1();
+    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
+    const EVP_MD *md = EVP_sha1();
     const unsigned char* input = (const unsigned char*)text.c_str();
     size_t len = text.size();
 
-    EVP_DigestInit_ex(&mdctx, md, NULL);
-    EVP_DigestUpdate(&mdctx, input, len);
-    EVP_DigestFinal_ex(&mdctx, md5, NULL);
+    EVP_DigestInit_ex(mdctx, md, NULL);
+    EVP_DigestUpdate(mdctx, input, len);
+    EVP_DigestFinal_ex(mdctx, md5, NULL);
 
     string result;
     for (int i = 0; i < 16; ++i) {
@@ -24,6 +24,8 @@ string string_to_md5(string text) {
         sprintf(buffer, "%02x", md5[i]);
         result += buffer;
     }
+
+    EVP_MD_CTX_free(mdctx);
 
     return result;
 }
