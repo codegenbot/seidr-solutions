@@ -28,9 +28,7 @@ vector<string> bf(string planet1, string planet2) {
     return result;
 }
 
-int main() {
-    vector<string> result = bf("Jupiter", "Makemake");
-    assert(result == vector<string>{});
-    
-    return 0;
-}
+vector<string> result = bf("Jupiter", "Makemake");
+assert(result == vector<string>{});
+
+return 0;
