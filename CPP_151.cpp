@@ -14,7 +14,7 @@ double double_the_difference(vector<double> lst) {
     return static_cast<double>(sum);
 }
 
-int main_func() {
+int main() {
     double odd_sum = 0;
     vector<double> lst;
 
