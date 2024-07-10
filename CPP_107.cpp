@@ -18,7 +18,7 @@ std::vector<int> even_odd_palindrome(int n) {
     return {even, odd};
 }
 
-int userInput() {
+int main() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
@@ -37,4 +37,3 @@ int reverse(int n) {
         n /= 10;
     }
     return rev;
-}
