@@ -1,4 +1,4 @@
-rolls = input("Enter the string representing the individual bowls: ")
+rolls = input("Enter the rolls: ")
 score = 0
 frame = 1
 
@@ -9,4 +9,4 @@ for i in range(len(rolls)):
             score += int(rolls[i + 1]) if rolls[i + 1].isdigit() else (10 - int(rolls[i - 1]))
         frame += 1
 
-print("The score of the round is:", score)
+print(score)
