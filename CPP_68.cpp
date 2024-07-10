@@ -41,6 +41,6 @@ int main() {
     }
 
     assert(compareVectors(pluck({7, 9, 7, 1}), {}));
-
+    
     return 0;
 }
