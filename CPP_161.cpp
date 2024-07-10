@@ -13,6 +13,6 @@ int solve(std::string& color) {
 }
 
 int main() {
-    assert(solve("#ccc") == 3);
+    assert(solve(std::string("#ccc")) == 3);
     return 0;
 }
