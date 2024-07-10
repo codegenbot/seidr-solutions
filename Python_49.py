@@ -1,7 +1,7 @@
 def modp(n: int, p: int) -> int:
     if not isinstance(n, int) or not isinstance(p, int):
-        return 
+        return 0
     elif p <= 0:
-        return 
+        return 0
     else:
-        return pow(n, p-1, p) * n % p
+        return pow(n, p, 32)
