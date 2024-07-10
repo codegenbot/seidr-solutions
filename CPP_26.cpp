@@ -1,3 +1,7 @@
+bool issame(vector<int> v1, vector<int> v2) {
+    return v1.size() == v2.size() && equal(v1.begin(), v1.end(), v2.begin());
+}
+
 vector<int> remove_duplicates(vector<int> numbers) {
     vector<int> uniqueNumbers;
     for (int num : numbers) {
@@ -6,10 +10,6 @@ vector<int> remove_duplicates(vector<int> numbers) {
         }
     }
     return uniqueNumbers;
-}
-
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    return v1 == v2;
 }
 
 int main() {
