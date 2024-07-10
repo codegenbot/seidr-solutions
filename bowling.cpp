@@ -1,7 +1,4 @@
 #include <iostream>
-
-int score(string s);
-
 using namespace std;
 
 int score(string s) {
