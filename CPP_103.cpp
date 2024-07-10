@@ -25,4 +25,8 @@ string average_binary(int n, int m) {
     return binary_avg;
 }
 
-cout << average_binary(5, 5);
+int main() {
+    assert(average_binary(5, 5) == "101");
+        
+    return 0;
+}
