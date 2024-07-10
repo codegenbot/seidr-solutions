@@ -1,10 +1,11 @@
 ```
 def solve_boolean(expression):
-    if not expression:
+    if expression[0].upper() != 'T':
         return False
-
+    if len(expression) > 1:
+        return stack[0] 
     stack = []
-    for char in expression:
+    for char in expression[1:]:
         if char.upper() == 'T':
             stack.append(True)
         elif char.upper() == 'F':
@@ -12,8 +13,6 @@ def solve_boolean(expression):
         else:
             operand2 = stack.pop()
             operand1 = stack.pop()
-            if not (operand1 and operand2):
-                return False
             if char == '&':
                 stack.append(operand1 and operand2)
             elif char == '|':
