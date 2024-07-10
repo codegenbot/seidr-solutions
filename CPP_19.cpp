@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -6,7 +5,7 @@ using namespace std;
 
 std::string sort_numbers(std::string numbers) {
     vector<std::string> numVec;
-    string temp;
+    std::string temp;
     
     for (char c : numbers) {
         if (isdigit(c)) continue;
