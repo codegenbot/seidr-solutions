@@ -10,11 +10,11 @@ int main() {
     while (true) {
         getline(std::cin, num);
         if (num == "stop") break;
-        size_t pos = num.find('\n');
-        if (pos != std::string::npos) {
-            num.erase(pos);
+        if(num.length() > 1 && num.length() <= 10) {
+            nums.push_back(num);
+        } else {
+            std::cout << "Invalid input. Please enter a number with length between 1 and 10." << std::endl;
         }
-        nums.push_back(num);
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
 }
