@@ -1,11 +1,9 @@
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("Number of coefficients must be even")
-
-    max_coeff = max(xs, key=abs)
-    if max_coeff == 0:
-        return 0
-
-    for x in range(-1000, 1000):
-        if poly(xs, x) == 0:
-            return x
+    n = len(xs) - 1
+    if n % 2 == 1:
+        n -= 1
+    for i in range(0, n, 2):
+        a, b = xs[i], xs[i + 1]
+        if a * b < 0:
+            return -a / b
+    return None
