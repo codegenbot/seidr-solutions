@@ -1,13 +1,17 @@
-#include <vector>
+#include <iostream>
 using namespace std;
 
 double diceGame(int n, int m) {
-    return (double)(m-1) / (n+m-2);
+    double total = 1.0;
+    for (int i = 1; i <= m && i < n; i++) {
+        total += 1.0 / m;
+    }
+    return total;
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << setprecision(10) << fixed << diceGame(n, m) << endl;
+    cout << fixed << setprecision(2) << diceGame(n, m) << endl;
     return 0;
 }
