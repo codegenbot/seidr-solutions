@@ -8,7 +8,7 @@ def encode(message):
                 next_index = (index + 1) % len(vowels)
                 result += 'aeiouAEIOU'[next_index].upper() if char.isupper() else 'aeiouAEIOU'[next_index].lower()
             else:
-                result += 'x' if char.isalpha() else char
+                result += 'x'
         else:
             result += char
     return result
