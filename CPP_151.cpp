@@ -15,7 +15,7 @@ double double_the_difference(vector<double> lst) {
     return static_cast<double>(sum);
 }
 
-int main() {
+int main1() {
     vector<double> lst;
 
     for (string line; getline(cin, line); ) {
@@ -36,7 +36,7 @@ int main() {
     }
     cout << endl;
 
-    cout << "The sum of the differences is: " << double_the_difference(lst) << endl;
+    assert(double_the_difference(lst) == 0);
 
     return 0;
 }
