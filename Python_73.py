@@ -1,8 +1,15 @@
+```
+import heapq
+
 def smallest_change(arr):
-    n = len(arr)
-    rev_arr = arr[::-1]
-    count = 0
-    for i in range(n):
-        if arr[i] != rev_arr[i]:
-            count += 1
-    return count
+    heap = [-x for x in arr]
+    heapq.heapify(heap)
+    total = 0
+    while heap:
+        coin = -heapq.heappop(heap)
+        if coin > 1:  
+            total += coin
+            heapq.heappush(heap, -(coin-1))
+        else:
+            total += coin
+    return total
