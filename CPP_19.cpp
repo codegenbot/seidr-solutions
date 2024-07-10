@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 string sortNumbers(string numbers) {
     vector<string> numVec;
     string temp;
