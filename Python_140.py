@@ -1,3 +1,4 @@
+```
 import re
 
 
@@ -6,7 +7,7 @@ def fix_spaces(text):
     text = text.strip("_")
     if not text:
         return "N/A"
-    return text
+    return text.lower().replace(" ", "_")
 
 
 while True:
