@@ -1,24 +1,26 @@
-vector<int> indicesOfSubstring(const string& text, const string& target) {
-    vector<int> result;
-    int index = 0;
+#include <vector>
+using namespace std;
+
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    int start = 0;
     
-    while ((index = text.find(target)) != string::npos) {
-        result.push_back(index);
-        if (text.size() > index + target.size()) {
-            text.erase(0, index + target.size());
-        } else {
+    while(start <= text.size() - target.size()) {
+        int index = text.find(target, start);
+        
+        if(index == -1)
             break;
-        }
+        
+        indices.push_back(index);
+        start = index + 1;
     }
     
-    return result;
+    return indices;
 }
 
-int greatestCommonDivisor(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return abs(a);
+int gcd(int a, int b) {
+    if(b == 0)
+        return a;
+    else
+        return gcd(b, a%b);
 }
