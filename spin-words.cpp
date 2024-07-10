@@ -1,20 +1,19 @@
 #include <iostream>
+#include <algorithm>
 #include <string>
-#include <algorithm> // for reverse
-using namespace std;
 
 int main() {
-    string input;
-    getline(cin, input);
-    string word = "";
+    std::string input;
+    getline(std::cin, input);
+    std::string word = "";
     for (int i = 0; i < input.length(); i++) {
-        if (input[i] == ' ') {
+        if (i == input.length() || input[i] == ' ') {
             if (word.length() >= 5) {
-                reverse(word.begin(), word.end());
+                std::reverse(word.begin(), word.end());
             }
-            cout << word;
-            if (i != input.length() - 1) {
-                cout << " ";
+            std::cout << word;
+            if (i != input.length()) {
+                std::cout << " ";
             }
             word = "";
         } else {
