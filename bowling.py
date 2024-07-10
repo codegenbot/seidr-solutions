@@ -1,22 +1,37 @@
 rolls = input("Enter the string representing the individual bowls: ")
-rolls += '00'
-
 score = 0
 frame = 1
 i = 0
 
-while frame <= 10:
+while i < len(rolls) and frame <= 10:
     if rolls[i] == "/":
-        score += 10 - int(rolls[i - 1]) + int(rolls[i + 1])
+        score += (
+            10
+            - int(rolls[i - 1])
+            + (
+                int(rolls[i + 1])
+                if i + 1 < len(rolls) and rolls[i + 1].isdigit()
+                else 0
+            )
+        )
     elif rolls[i] == "X":
-        score += 10 + int(rolls[i + 1]) + (int(rolls[i + 2]) if rolls[i + 1] != 'X' else int(rolls[i + 3]))
+        score += (
+            10
+            + (
+                int(rolls[i + 1])
+                if i + 1 < len(rolls) and rolls[i + 1].isdigit()
+                else 0
+            )
+            + (
+                int(rolls[i + 2])
+                if i + 2 < len(rolls) and rolls[i + 2].isdigit()
+                else 0
+            )
+        )
         frame += 1
     else:
         if rolls[i].isdigit():
             score += int(rolls[i])
-
-    if rolls[i] in ['X', '/']:
-        frame += 1
 
     i += 1
 
