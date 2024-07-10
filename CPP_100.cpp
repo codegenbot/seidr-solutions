@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 vector<int> make_a_pile(int n) {
