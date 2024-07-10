@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int CompareOne(int a, double b) {
+auto compare_one(int a, double b) {
     if (b > a) {
         return b;
     } else if (a == b) {
@@ -14,7 +14,7 @@ int CompareOne(int a, double b) {
     }
 }
 
-int main() {
+int main_func() {
     int a;
     cout << "Enter an integer: ";
     cin >> a;
@@ -22,12 +22,15 @@ int main() {
     double b;
     cout << "Enter a floating point number or a string: ";
     cin >> b;
-    if (!cin) {
+    
+    if (!cin) { 
         cin.clear();
         cin.ignore(10000, '\n');
         cout << "The result is: " << a << endl;
     } else {
-        cout << "The result is: " << CompareOne(a, b) << endl;
+        // Process double value (b)
+        // or handle string input as needed
+        cout << "The result is: " << compare_one(a, b) << endl;
     }
 
     return 0;
