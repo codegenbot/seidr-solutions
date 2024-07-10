@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <cmath> 
@@ -23,18 +23,4 @@ double poly(vector<double> coeffs, double x) {
         result += coeffs[i] * pow(x, i);
     }
     return result;
-}
-
-int main() {
-    vector<double> coeffs;
-    cout << "Enter the coefficients of the polynomial: ";
-    int n;
-    cin >> n;
-    coeffs.resize(n);
-    for (int i = 0; i < n; i++) {
-        cin >> coeffs[i];
-    }
-    double x = find_zero(coeffs);
-    cout << "The zero of the polynomial is: " << x << endl;
-    return 0;
 }
