@@ -1,7 +1,3 @@
-Here is the modified code:
-
-```cpp
-#include <initializer_list>
 #include <vector>
 #include <iostream>
 
@@ -35,7 +31,7 @@ int main() {
     int n;
     std::cout << "Enter the number of stones: ";
     std::cin >> n;
-    std::vector<int> pile = make_a_pile(n);
+    std::vector<int> pile{make_a_pile(n)};
     if(pile.size()==1) {
         std::cout << "The resulting pile is uniform." <<std::endl;
     } else {
@@ -52,3 +48,4 @@ int main() {
         else 
             std::cout << "false" <<std::endl;
     }
+}
