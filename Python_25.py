@@ -1,15 +1,14 @@
-```Python
 from typing import List
 
 
 def main():
-    n = []
-    for _ in range(4):
+    n = [None] * 4
+    for i in range(4):
         while True:
             try:
-                num = int(input("Enter an integer: "))
+                num = int(input(f"Enter an integer ({i+1}/4): "))
                 if num not in n:
-                    n.append(num)
+                    n[i] = num
                     break
                 else:
                     print("Duplicate input. Please enter unique numbers.")
@@ -45,12 +44,15 @@ def main():
         else:
             break
 
-    if not common_factors:
-        print("No common factor found between {}".format(", ".join(map(str, n))))
-    else:
+    if common_factors:
         print(
             f"{', '.join(map(str, set(common_factors)))} are the common factors between {n}."
         )
+    else:
+        print(f"No common factor found between {n}.")
+
+    if not common_factors:
+        print(f"No common factor found between {n}.")
 
 
 if __name__ == "__main__":
