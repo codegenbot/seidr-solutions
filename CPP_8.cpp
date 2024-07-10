@@ -27,7 +27,7 @@ std::vector<int> sum_product(std::vector<int> nums){
     return {sum, product};
 }
 
-int main() {
+int main(){
     int n;
     std::cin >> n;
     
