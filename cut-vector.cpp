@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <numeric>
 
 int main() {
@@ -8,7 +7,7 @@ int main() {
     while (std::cin >> num) {
         nums.push_back(num);
     }
-
+    
     int n = nums.size();
     int diff = INT_MAX;
     int idx = -1;
@@ -27,13 +26,11 @@ int main() {
     for (int i = 0; i < idx; ++i) {
         std::cout << nums[i] << std::endl;
     }
-    
     std::cout << 0 << std::endl;
     
     for (int i = idx; i < n; ++i) {
         std::cout << nums[i] << std::endl;
     }
-    
     std::cout << 0 << std::endl;
     
     return 0;
