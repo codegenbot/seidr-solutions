@@ -1,21 +1,18 @@
-def solve_task(): 
-    while True: 
-        try: 
-            num1 = int(input("Enter first number: ")) 
-            num2 = int(input("Enter second number: ")) 
-            break 
-        except ValueError: 
-            print("Invalid input. Please enter numeric values.") 
+def calculate_average():
+    total = 0
+    count = 0
     
-    result = num1 + num2 
+    while True:
+        try:
+            num = float(input("Enter a number (or 'stop' to finish): "))
+            if num == 'stop':
+                break
+            total += num
+            count += 1
+        except ValueError:
+            print("Invalid input. Please enter numeric values or type 'stop' to finish.")
     
-    while True: 
-        response = input("Are you sure? (y/N): ").lower() 
-        if response in ["y", "n"]: 
-            if response == "y": 
-                return f"Result: {result}" if result != 0 else "No operation performed" 
-            elif response == "n": 
-                print("Operation cancelled!") 
-                return None 
-        else: 
-            print("Invalid input. Please enter y or N.")
+    if count == 0:
+        return "No numbers entered."
+    else:
+        return f"Average: {total / count:.2f}"
