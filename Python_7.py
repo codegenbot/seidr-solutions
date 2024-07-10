@@ -1,10 +1,11 @@
+```
 from typing import List
 
 
-def filter_by_substring():
-    strings = input("Enter a list of strings (separated by space): ").split()
-    substring = input("Enter a substring: ")
+def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+    return [s for s in strings if substring in s and s.strip()]
 
-    result = [s for s in strings if substring in s]
 
-    return result
+strings = [x.strip() for x in input("Enter the list of strings (comma separated): ").strip().split(",")]
+substring = input("Enter the substring to filter by: ").strip()
+print(filter_by_substring(strings, substring))
