@@ -22,7 +22,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     else return vector<string>();
 }
 
-int main() {
+int user_main() {
     vector<string> user_input; 
     for(int i = 0; i < 5; ++i){
         string input;
