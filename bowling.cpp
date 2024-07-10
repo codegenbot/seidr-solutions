@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -28,6 +29,10 @@ int bowlingScore(std::string s) {
 }
 
 int main() {
-    std::cout << bowlingScore("X|9-7/4-6/|25+") << std::endl;
+    std::string input;
+    std::cout << "Enter the bowling score string: ";
+    std::cin >> input;
+    int result = bowlingScore(input);
+    std::cout << "The score is: " << result << std::endl;
     return 0;
 }
