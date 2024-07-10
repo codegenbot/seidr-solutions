@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+
 using namespace std;
 
 double calculateEuclideanDistance(vector<float>& vec1, vector<float>& vec2) {
