@@ -1,6 +1,6 @@
-def find_zero coefficients: list) -> float:
-    n = len(coefficients)
+def find_zero(p: list):
+    n = len(p)
     if n % 2 != 0:
-        raise ValueError("coefficients must have even number of terms")
-    x0 = -coefficients[1] / coefficients[n-1]
-    return x0
+        raise ValueError("p must have even number of coefficients")
+    zero_x = (-p[1] + (p[-1] ** (n // 2))) / (p[-1] * (p[1] ** ((n - 2) // 2)))
+    return round(zero_x, 5)
