@@ -5,7 +5,6 @@ def below_zero(input_operations):
             count += 1
     return count
 
-n = int(input().strip())
-input_operations = list(map(int, input().strip().split()))
+n, *input_operations = map(int, input().split())
 assert len(input_operations) == n
 print(below_zero(input_operations))
