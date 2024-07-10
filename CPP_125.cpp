@@ -2,12 +2,12 @@
 #include <string>
 #include <cctype>
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) { return a == b; }
+bool const issame(const std::vector<std::string>& a, const std::vector<std::string>& b) { return a == b; }
 
 std::pmr::string str;
 
 std::vector<std::pmr::string> split_words(std::pmr::string txt) {
-    pmr::pstring result;
+    std::pmr::pstring result;
     bool inWord = false;
     str = "";
 
@@ -34,5 +34,5 @@ std::vector<std::pmr::string> split_words(std::pmr::string txt) {
 
 int main() {
     bool b;
-    assert(isSame(std::vector<std::pmr::string>(1, ""), std::vector<std::pmr::string>(1, "0")));
+    assert(issame(std::vector<std::pmr::string>({""}), std::vector<std::pmr::string>({"0"})));
 }
