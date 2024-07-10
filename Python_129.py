@@ -1,35 +1,28 @@
 def minPath(grid, k):
-    N = len(grid)
-    visited = [[False] * N for _ in range(N)]
-    path = []
+    n = len(grid)
+    m = [[i * n + j for i in range(n)] for j in range(n)]
 
-    def dfs(i, j, path_length):
-        if path_length == k:
-            nonlocal result
-            return [(i, j), *path]
+    res = []
+    cur_pos = (0, 0)
+    visited = set()
 
-        if path_length > k or visited[i][j]:
-            return None
-
-        visited[i][j] = True
-        path.append(grid[i][j])
-        for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            ni, nj = i + di, j + dj
-            if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]:
-                temp_path = dfs(ni, nj, path_length + 1)
-                if temp_path is not None:
-                    return [(ni, nj), *path, *temp_path]
-
-        visited[i][j] = False
-        return None
-
-    for i in range(N):
-        for j in range(N):
-            res = dfs(i, j, 0)
-            if res is not None:
-                result = res
-                break
-        if result:
+    while len(res) < k:
+        if cur_pos in visited:
             break
+        visited.add(cur_pos)
 
-    return sorted(result[1:])
+        pos_values = [(i, j) for i in range(n) for j in range(n)]
+        pos_values.sort(key=lambda x: m[x[0]][x[1]])
+        pos_values.sort()
+
+        min_value = float("inf")
+        new_cur_pos = None
+        for pos in pos_values:
+            if pos not in visited and m[pos[0]][pos[1]] < min_value:
+                min_value = m[pos[0]][pos[1]]
+                new_cur_pos = pos
+
+        res.append(min_value)
+        cur_pos = new_cur_pos
+
+    return res
