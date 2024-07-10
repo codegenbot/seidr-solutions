@@ -1,6 +1,15 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
+
+int main() {
+    std::string s;
+    // Take input from the user
+    std::cin >> s;
+    bool result = solveBoolean(s);
+    std::cout << (result ? "True" : "False") << std::endl;
+    return 0;
+}
 
 bool solveBoolean(std::string s) {
     bool result = true;
@@ -52,21 +61,4 @@ bool solveBoolean(std::string s) {
         }
     }
     return result;
-}
-
-int main() {
-    std::string input;
-    // Ask user for input
-    std::cout << "Enter a boolean expression: ";
-    std::cin >> input;
-    
-    bool result = solveBoolean(input);
-    
-    if (result) {
-        std::cout << "The resulting Boolean is true." << std::endl;
-    } else {
-        std::cout << "The resulting Boolean is false." << std::endl;
-    }
-    
-    return 0;
 }
