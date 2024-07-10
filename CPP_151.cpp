@@ -20,13 +20,16 @@ std::vector<double> getNumbersDifferentByOdd() {
     return output;
 }
 
-double getOddSum(std::vector<double> numbers) {
+double getOddSum() {
     double sum = 0;
 
-    for (double num : numbers) {
-        int diff = std::abs((int)num - 5);
-        if (diff % 2 != 0) {
-            sum += diff;
+    for (std::string line; std::getline(std::cin, line); ) {
+        if (!line.empty()) {
+            double val = std::stod(line);
+            int diff = std::abs((int)val - 5);
+            if (diff % 2 != 0) {
+                sum += diff;
+            }
         }
     }
 
@@ -35,7 +38,7 @@ double getOddSum(std::vector<double> numbers) {
 
 int main() {
     std::vector<double> output = getNumbersDifferentByOdd();
-    double odd_sum = getOddSum(output);
+    double odd_sum = getOddSum();
 
     std::cout << "The numbers that are different from 5 by an odd number: ";
     for (double x : output) {
