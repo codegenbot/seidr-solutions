@@ -24,6 +24,7 @@ bool isPrime(int n){
 
 int main() {
     std::vector<int> lst = {127, 97, 8192};
+    assert (skjkasdkd(lst) == 10);
     std::cout << "The sum is: " << skjkasdkd(lst) << std::endl;
     return 0;
 }
