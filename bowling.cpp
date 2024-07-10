@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int calculateScore(const string& bowls) {
+int calculateScore(const std::string& bowls) {
     int score = 0;
     int frame = 1;
     int bowlIndex = 0;
@@ -32,8 +32,8 @@ int calculateScore(const string& bowls) {
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << calculateScore(bowls) << endl;
+    std::string bowls;
+    std::cin >> bowls;
+    std::cout << calculateScore(bowls) << std::endl;
     return 0;
 }
