@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <string>
 
 int main() {
     int cents;
@@ -17,17 +16,15 @@ int main() {
     int totalCoins = quarters + dimes + nickles + pennies;
 
     if (totalCoins > 0) {
-        if (quarters > 0) {
-            std::cout << std::to_string(quarters) << " quarter" << (quarters > 1 ? "s, " : ", ");
-        }
+        std::cout << quarters << " quarter" << (quarters > 1 ? "s, " : ", ");
         if (dimes > 0) {
-            std::cout << std::to_string(dimes) << " dime" << (dimes > 1 ? "s, " : ", ");
+            std::cout << (dimes > 1 ? dimes + " dimes, " : "one dime, ");
         }
         if (nickles > 0) {
-            std::cout << std::to_string(nickles) << " nickel" << (nickles > 1 ? "s, " : ", ");
+            std::cout << (nickles > 1 ? nickles + " nickels, " : "one nickel, ");
         }
         if (pennies > 0) {
-            std::cout << std::to_string(pennies) << " penny";
+            std::cout << pennies << " penny" << (pennies > 1 ? "s" : "");
         }
         std::cout << std::endl;
     } else {
