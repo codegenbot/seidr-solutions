@@ -2,17 +2,15 @@
 #include <cmath>
 #include <cassert>
 
-bool is_simple_power(int base, int exponent) {
-    return (pow(base, 1.0/exponent) == int(pow(base, 1.0/exponent)));
+bool is_simple_power(int base, int num) {
+    if (base < 2 || num < 2) return false;
+    double root = std::pow(num, 1.0 / base);
+    return std::abs(std::round(root) - root) < 1e-9;
 }
 
-int main() {
-    assert(is_simple_power(1, 12) == true);
-    assert(is_simple_power(16, 2) == true);
-    assert(is_simple_power(27, 3) == true);
-    assert(is_simple_power(10, 2) == false);
-    
-    std::cout << "All tests passed successfully." << std::endl;
-    
+int main(){
+    int base, num;
+    std::cin >> base >> num;
+    std::cout << std::boolalpha << is_simple_power(base, num) << std::endl;
     return 0;
 }
