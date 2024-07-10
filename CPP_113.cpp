@@ -27,6 +27,7 @@ vector<string> odd_count(vector<string> lst){
     return result;
 }
 
+// Test the function
 assert (issame(odd_count({"271", "137", "314"}) , {
         "the number of odd elements 2n the str2ng 2 of the 2nput.",
         "the number of odd elements 3n the str3ng 3 of the 3nput.",
