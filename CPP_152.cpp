@@ -1,3 +1,4 @@
+````
 #include <vector>
 #include <algorithm>
 
@@ -12,11 +13,14 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
             result.push_back(0);
         } else {
             int diff = abs(game[i] - guess[i]);
-            if (diff == 1) {
-                result.push_back(1);
-            } else {
-                result.push_back(2);
+            // The number of black pegs is the difference between the two numbers
+            int blackPegs = 0;
+            for(int j = 1; j <= diff; j++) {
+                if(diff % j == 0) {
+                    blackPegs++;
+                }
             }
+            result.push_back(blackPegs);
         }
     }
     return result;
