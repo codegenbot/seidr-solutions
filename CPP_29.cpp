@@ -14,5 +14,5 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, c
 
 int main() {
     auto result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx");
-    assert(result == filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"));
+    assert(result == std::vector<std::string>{"xxx", "xxxAAA", "xxx"});
 }
