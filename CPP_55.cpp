@@ -1,9 +1,9 @@
 #include <iostream>
 #include <unordered_map>
 
-int fib(int n) {
-    static std::unordered_map<int, int> memo = {{0, 0}, {1, 1}};
+std::unordered_map<int, int> memo = {{0, 0}, {1, 1}};
 
+int fib(int n) {
     if (memo.find(n) != memo.end()) {
         return memo[n];
     }
@@ -14,7 +14,7 @@ int fib(int n) {
     return result;
 }
 
-int main(){
+int main() {
     int n;
     std::cout << "Enter the value of n: ";
     std::cin >> n;
