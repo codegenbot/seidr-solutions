@@ -1,46 +1,30 @@
-Here is the completed code:
-
 vector<string> by_length(vector<int> arr) {
-    vector<int> temp;
+    vector<int> numArr;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            temp.push_back(i);
+            numArr.push_back(i);
         }
     }
-    sort(temp.begin(), temp.end());
-    reverse(temp.begin(), temp.end());
+
+    sort(numArr.begin(), numArr.end());
+    reverse(numArr.begin(), numArr.end());
+
     vector<string> result;
-    for (int i : temp) {
-        string s = "";
+    for (int i : numArr) {
+        string str = "";
         switch (i) {
-            case 1:
-                s = "One";
-                break;
-            case 2:
-                s = "Two";
-                break;
-            case 3:
-                s = "Three";
-                break;
-            case 4:
-                s = "Four";
-                break;
-            case 5:
-                s = "Five";
-                break;
-            case 6:
-                s = "Six";
-                break;
-            case 7:
-                s = "Seven";
-                break;
-            case 8:
-                s = "Eight";
-                break;
-            case 9:
-                s = "Nine";
-                break;
+            case 1: str = "One"; break;
+            case 2: str = "Two"; break;
+            case 3: str = "Three"; break;
+            case 4: str = "Four"; break;
+            case 5: str = "Five"; break;
+            case 6: str = "Six"; break;
+            case 7: str = "Seven"; break;
+            case 8: str = "Eight"; break;
+            case 9: str = "Nine";
         }
-        result.push_back(s);
+        result.push_back(str);
     }
+
     return result;
+}
