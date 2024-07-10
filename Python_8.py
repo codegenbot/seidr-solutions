@@ -1,1 +1,1 @@
-numbers = list(map(int, input("Enter 5 numbers separated by spaces: ").split()))
+numbers = [int(input(f"Enter number {i + 1}: ")) for i in range(5)]  # Make sure to enter 5 integer numbers when prompted
