@@ -33,7 +33,8 @@ bool issorted(std::vector<int> v) {
 }
 
 std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v) {
-    std::vector<int> result;
+    int size = v.size();
+    std::vector<int> result(size);
     for (const auto& pair : v) {
         int num = 0;
         for (char c : pair.first) {
@@ -42,8 +43,8 @@ std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v)
         for (char c : pair.second) {
             num = num * 10 + (c - '0');
         }
-        if (!num) return result; 
-        result.push_back(num);
+        if (!num) return {}; 
+        result[size--] = num;
     }
     std::sort(result.begin(), result.end());
     return result;
@@ -55,8 +56,6 @@ int main() {
     auto p1 = sortListSum(v1);
     auto p2 = sortListSum(v2); 
     assert(issame(v1, v2)); 
-    for (int i : p1) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;  // Print the result
+    assert(issorted({{p1[0], p2[0]}}, {p1[1], p2[1]})); 
+
 }
