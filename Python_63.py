@@ -1,11 +1,12 @@
 def fibfib(n: int):
     if n <= 1:
-        return 
+        return "0"
     elif n % 2 == 0:  
         a, b = 0, 1
-        result = [a]
+        result = [str(a)]
         while b * b < n:
             a, b = b, a+b
-            result.append(a)
-        return str(result)
+            result.append(str(a))
+        return ' -> '.join(map(str, result))
     else:
+        return ' -> '.join(map(str, fibfib(n)))
