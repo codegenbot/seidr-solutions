@@ -1,21 +1,10 @@
 #include <algorithm>
-#include <iostream>
-#include <vector>
+#include <cassert>
 
-int count_distinct_characters(std::string str) {
-    std::transform(str.begin(), str.end(), str.begin(), ::tolower);
-    std::vector<bool> visited(26, false);
-    int count = 0;
-    for (char c : str) {
-        if (std::isalpha(c) && !visited[c - 'a']) {
-            visited[c - 'a'] = true;
-            count++;
-        }
-    }
-    return count;
-}
-
-int main() {
-    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
-    return 0;
+int count_distinct_characters(const std::string& str) {
+    std::string temp = str;
+    transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+    sort(temp.begin(), temp.end());
+    auto it = unique(temp.begin(), temp.end());
+    return distance(temp.begin(), it);
 }
