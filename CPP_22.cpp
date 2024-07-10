@@ -1,5 +1,11 @@
 #include <vector>
+#include <any>
+#include <list>
+#include <cassert>
 #include <boost/any.hpp>
+
+using namespace std;
+using namespace boost;
 
 bool issame(vector<int> a, vector<int> b);
 
