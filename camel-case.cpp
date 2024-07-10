@@ -17,11 +17,9 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    for (int i = 0; i < n; ++i) {
+    for (;;) {
         std::string str;
-        std::getline(std::cin, str);
+        if (!(std::cin >> str)) break;
         std::cout << camelCase(str) << "\n";
     }
     return 0;
