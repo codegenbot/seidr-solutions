@@ -2,11 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-std::vector<int> even_odd_palindrome(int n) {
+std::pair<int, int> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
     for (int i = 1; i <= n; ++i) {
         std::string num = std::to_string(i);
@@ -23,8 +19,11 @@ std::vector<int> even_odd_palindrome(int n) {
     return {even, odd};
 }
 
+bool issame(std::pair<int, int> a, std::pair<int, int> b){
+    return a == b;
+}
+
 int main() {
-    assert(issame(even_odd_palindrome(1), {0, 1}));
-    
+    assert (issame(even_odd_palindrome(1), {0, 1}));
     return 0;
 }
