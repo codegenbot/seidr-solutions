@@ -3,7 +3,7 @@
 #include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
-    return equal(a.begin(), a.end(), b.begin());
+    return (a == b);
 }
 
 int main() {
