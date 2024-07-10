@@ -1,5 +1,5 @@
 a = list(map(int, input().split()))
-if len(a) < 3:
+if len(a) < 2:
     print(*a, sep="\n")
 else:
     min_diff = min(abs(sum(a[:i]) - sum(a[i:])) for i in range(1, len(a)))
