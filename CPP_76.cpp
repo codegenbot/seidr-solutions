@@ -3,12 +3,14 @@
 
 bool is_simple_power(int x, int n);
 
-bool is_simple_power(int x, int intN) {
-    double y = pow((double)n, log((double)x) / log((double)n));
+bool is_simple_power(int x, int n) {
+    if(n == 0)
+        return false;
+    double y = pow(n, log(x) / log(n));
     return (y == x);
 }
 
-int originalMain() {
+int main() {
     std::cout << "Enter a number: ";
     int tempX;
     std::cin >> tempX;
