@@ -13,7 +13,7 @@ def find_indices(text, target):
         if pos == -1:
             break
         indices.append(i + pos)
-        i += pos + len(target)
+        i += pos + len(target)  # Adjust this line to make sure we start looking from the correct position after a match
     return indices
 
 
@@ -30,4 +30,9 @@ print(gcd(4200, 3528))
 print(find_indices("aaabbbccc aaaa bbbb ccc", "abc"))
 
 print(gcd(820000, 63550))
-print(find_indices("aaaaaa bbb cc ddd eee fff ggg hhh iii jjj kkk lll mmm nnn ooo ppp qqq rrr sss ttt uuu vvv www xxx yyy zzz", "abc"))
+print(
+    find_indices(
+        "aaaaaa bbb cc ddd eee fff ggg hhh iii jjj kkk lll mmm nnn ooo ppp qqq rrr sss ttt uuu vvv www xxx yyy zzz",
+        "abc",
+    )
+)
