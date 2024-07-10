@@ -1,15 +1,22 @@
-```
 #include <algorithm>
 #include <vector>
 #include <utility>
-#include <initializer_list>
 
 bool issame(vector<pair<float, float>> a, vector<pair<float, float>> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
-        if (abs(a[i].first - a[i].second) != abs(b[i].first - b[i].second)) {
-            return false;
+        if ((a[i].first <= a[i].second) && (b[i].first <= b[i].second)) {
+            if ((a[i].first == a[i].second) && (b[i].first == b[i].second)) {
+                if (!(a[i].first == b[i].first)) return false;
+            }
+            else if (!(abs(a[i].first - a[i].second) == abs(b[i].first - b[i].second))) {
+                return false;
+            }
         }
+        else if ((a[i].first > a[i].second) && (b[i].first > b[i].second)) {
+            if (!(a[i].first == b[i].first)) return false;
+        }
+        else return false;
     }
     return true;
 }
@@ -25,8 +32,7 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
     return {{closest_pair.first, closest_pair.second}};
 }
 
-int test() {
-    vector<float> numbers = {1.1, 2.2, 3.1, 4.1, 5.1};
-    assert(find_closest_elements(numbers) == (vector<pair<float, float>>{{2.2, 3.1}}));
+int main() {
+    assert(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}) == {{2.2, 3.1}});
     return 0;
 }
