@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -12,5 +12,3 @@ bool below_threshold(vector<int> numbers, int threshold) {
     }
     return false;
 }
-
-int main() { return 0; }
