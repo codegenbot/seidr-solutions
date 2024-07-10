@@ -14,8 +14,3 @@ std::vector<float> get_positive(const std::vector<float>& l){
     }
     return result;
 }
-
-int main(){
-    assert(issame(get_positive({}), {}));
-    return 0;
-}
