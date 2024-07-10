@@ -5,3 +5,6 @@ def find_zero(xs: list):
     b = xs[1]
     c = xs[2]
     return (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
+
+coefficients = [float(input("Enter coefficient a: ")), float(input("Enter coefficient b: ")), float(input("Enter coefficient c: "))]
+print(find_zero(coefficients))
