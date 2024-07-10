@@ -1,10 +1,12 @@
 #include <vector>
+using namespace std;
 
-int basement(const std::vector<int>& numbers) {
+int basement(vector<int>& numbers) {
     int sum = 0;
-    for (int i = 0; i < numbers.size(); ++i) {
+    for (int i = 0; i < numbers.size(); i++) {
         sum += numbers[i];
-        if (sum < 0) return i;
+        if (sum < 0)
+            return i;
     }
-    return -1; // not found
+    return -1; // or any other value to indicate not found
 }
