@@ -12,10 +12,7 @@ int main() {
     float side1, side2, side3;
     std::cin >> side1 >> side2 >> side3;
 
-    if (!std::abs(triangle_area(side1, side2, side3)) < 0.01) {
-        std::cerr << "Invalid input. Please check the sides of the triangle." << std::endl;
-        return 1;
-    }
+    assert(std::abs(triangle_area(side1, side2, side3)) < 0.01);
     float result = triangle_area(side1, side2, side3);
     std::cout << "The area of the triangle is: " << result << std::endl;
     return 0;
