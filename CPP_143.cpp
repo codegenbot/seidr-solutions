@@ -1,13 +1,19 @@
 #include <string>
+
 using namespace std;
+
+int main() {
+    assert (words_in_sentence("here is") == "is");
+    return 0;
+}
 
 string words_in_sentence(string sentence){
     string result = "";
     int count = 0;
-    for(int i=1; i<=100; i++){
+    for(int i=2; i<=100; i++){
         if(isPrime(i)){
             int pos = 0;
-            while((pos = sentence.find(" ")) != -1 && isPrime(strlen(sentence.substr(0, pos).c_str()))){
+            while((pos = sentence.find(" ")) != -1 && isPrime(atoi(sentence.substr(0, pos).c_str()))){
                 result += sentence.substr(0, pos) + " ";
                 sentence.erase(0, pos+1);
             }
