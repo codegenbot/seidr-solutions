@@ -1,9 +1,5 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-bool issame(const vector<float>& a, const vector<float>& b) {
-    // Implementation of issame function
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
 }
 
 vector<float> sort_even(vector<float> l) {
