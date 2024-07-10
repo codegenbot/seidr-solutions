@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -9,11 +10,13 @@ int main() {
 
     vector<int> coins = {25, 10, 5, 1};
     vector<int> result(4, 0);
+    int remaining = cents;
 
-    for (int i = 0; i < 4; i++) {
-        int count = cents / coins[i];
-        result[i] = count;
-        cents -= count * coins[i];
+    for (int i = 3; i >= 0; i--) {
+        while (remaining >= coins[i]) {
+            result[i]++;
+            remaining -= coins[i];
+        }
     }
 
     cout << result[0] << endl;
