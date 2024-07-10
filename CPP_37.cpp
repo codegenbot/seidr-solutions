@@ -1,25 +1,20 @@
+
 bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
-void sort_even(vector<float> &l) {
-    vector<float> l_copy = l;
-    vector<float> l_sorted;
-    sort(l_copy.begin(), l_copy.end());
+void sort_even(vector<float>& l) {
+    vector<float> tmp;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 2 == 0) {
-            l_sorted.push_back(l_copy[i]);
-        } else {
-            l_sorted.push_back(l[i]);
+            tmp.push_back(l[i]);
         }
     }
-    l = l_sorted;
+    sort(tmp.begin(), tmp.end());
+    for (int i = 0, j = 0; i < l.size(); ++i) {
+        if (i % 2 == 0) {
+            l[i] = tmp[j];
+            ++j;
+        }
+    }
 }
