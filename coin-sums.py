@@ -1,9 +1,14 @@
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    quarters, nickels, dimes, pennies = (
-        divmod(cents, 25),
-        divmod(25 - cents % 25, 5),
-        divmod(5 - cents % 5, 10),
-        (cents % 5,),
-    )
-    return quarters[0], nickels[0], dimes[0], pennies[0]
+    result = [0, 0, 0, 0]
+
+    for coin in reversed(coins):
+        while cents >= coin:
+            cents -= coin
+            result[coins.index(coin)] += 1
+
+    return result
+
+
+cents = int(input())
+print(*coin_sums(cents))

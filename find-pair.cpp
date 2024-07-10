@@ -30,10 +30,10 @@ int main() {
     int target;
     cin >> target;
 
-    vector<int> result = findPair(nums, target);
+    vector<int> res = findPair(nums, target);
 
-    cout << result[0] << endl;
-    cout << result[1] << endl;
+    cout << res[0] << endl;
+    cout << res[1] << endl;
 
     return 0;
 }
