@@ -1,26 +1,29 @@
-Here is the completed code:
+string file_name_check(string file_name){
+    string beforeDot = "";
+    int dotCount = 0;
+    bool hasLetters = false;
 
-string file_name_check(string file_name) {
-    int digitCount = 0;
-    bool hasDot = false;
-    string beforeDot;
-
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            digitCount++;
-        } else if (c == '.') {
-            hasDot = true;
-        } else if (!hasDot) {
-            beforeDot += c;
+    for(int i=0; i<file_name.length(); i++){
+        char c = file_name[i];
+        if(c == '.'){
+            dotCount++;
+            if(dotCount > 1) return "No";
+            beforeDot = file_name.substr(0, i);
+            string afterDot = file_name.substr(i+1);
+            if(afterDot == "txt" || afterDot == "exe" || afterDot == "dll")
+                return "Yes";
+            else
+                return "No";
+        }
+        else if(c >= '0' && c <= '9'){
+            if(hasLetters) return "No";
+            hasLetters = true;
+        }
+        else if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')){
+            if(beforeDot.empty()) beforeDot += c;
         }
     }
 
-    return (digitCount <= 3 && hasDot && !beforeDot.empty() && (beforeDot[0] >= 'a' && beforeDot[0] <= 'z') || (beforeDot[0] >= 'A' && beforeDot[0] <= 'Z')) &&
-           (hasDot ? file_name.find('.') + 1 < file_name.size() : true) &&
-           (file_name.find('.') == string::npos ?
-            (file_name.substr(file_name.find_last_of('.') + 1).compare("txt") == 0 ||
-             file_name.substr(file_name.find_last_of('.') + 1).compare("exe") == 0 ||
-             file_name.substr(file_name.find_last_of('.') + 1).compare("dll") == 0) :
-            false)
-        ? "Yes" : "No";
+    if(dotCount == 1 && !beforeDot.empty() && hasLetters) return "Yes";
+    return "No";
 }
