@@ -53,7 +53,7 @@ bool solveBoolean(string expression) {
         }
     }
 
-    return (operands.top().equals("T")) ? true : false;
+    return (operands.top().compare("T") == 0) ? true : false;
 }
 
 int main() {
