@@ -1,22 +1,14 @@
-using namespace boost;
-
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<string>(a)) {
-        string str1 = any_cast<string>(a);
-        if (is_any_of<string>(b)) {
-            string str2 = any_cast<string>(b);
-            return (stod(str1) > stod(str2)) ? a : ((stod(str1) < stod(str2)) ? b : boost::any("None"));
-        } else {
-            double num2 = any_cast<double>(b);
-            return (stod(str1) > num2) ? a : ((stod(str1) < num2) ? b : boost::any("None"));
-        }
-    } else if (is_any_of<string>(b)) {
-        string str2 = any_cast<string>(b);
-        double num1 = any_cast<double>(a);
-        return (num1 > stod(str2)) ? a : ((num1 < stod(str2)) ? b : boost::any("None"));
-    } else {
-        double num1 = any_cast<double>(a);
-        double num2 = any_cast<double>(b);
-        return (num1 > num2) ? a : ((num1 < num2) ? b : boost::any("None"));
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return boost::any_cast<float>(b) > boost::any_cast<int>(a) ? b : a;
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return boost::any_cast<float>(a) > boost::any_cast<int>(b) ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return boost::any_cast<string>(a) > boost::any_cast<string>(b) ? a : b;
+    } else if (a.type() == typeid(string) && (b.type() == typeid(int) || b.type() == typeid(float))) {
+        return boost::any_cast<string>(a);
+    } else if ((a.type() == typeid(int) || a.type() == typeid(float)) && b.type() == typeid(string)) {
+        return b;
     }
+    return "None";
 }
