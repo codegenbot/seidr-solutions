@@ -1,11 +1,17 @@
-Here is the solution:
+#include <vector>
+#include <iostream>
 
-double diceGame(int n, int m) {
-    double total = (double)n * m;
-    double peterWins = 0;
+double probability(int n, int m) {
+    double p = 1.0;
+    for (int i = 1; i <= m; i++) {
+        p -= (double)i / (n * m);
+    }
+    return p;
+}
 
-    for (int i = m + 1; i <= n; ++i)
-        peterWins += 1.0;
-
-    return peterWins / total;
+int main() {
+    int n, m;
+    std::cin >> n >> m;
+    std::cout << fixed << setprecision(6) << probability(n, m) << '\n';
+    return 0;
 }
