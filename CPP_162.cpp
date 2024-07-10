@@ -1,5 +1,3 @@
-```cpp
-#include <string>
 #include <cryptopp/md5.h>
 
 std::string cppString_to_md5(std::string text) {
