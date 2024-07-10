@@ -2,24 +2,19 @@
 using namespace std;
 
 int main() {
-    double startHeight;
-    cin >> startHeight;
-    
-    double firstBounceHeight;
-    cin >> firstBounceHeight;
-
-    double bouncinessIndex = firstBounceHeight / startHeight;
-
+    double startHeight, firstBounce;
     int numBounces;
-    cin >> numBounces;
 
-    double totalDistance = (1 + 0.5) * bouncinessIndex * startHeight; // 2nd term added based on the bouncing process
-    for (int i = 1; i < numBounces; ++i) {
-        totalDistance += (1 + 0.5) * pow(bouncinessIndex, i+1) * startHeight;
+    cin >> startHeight >> firstBounce >> numBounces;
+
+    double bouncinessIndex = firstBounce / startHeight;
+
+    double totalDistance = 0.0;
+    for (int i = 1; i <= numBounces; i++) {
+        totalDistance += startHeight * (1 - pow(1 - bouncinessIndex, i));
     }
 
-    cout.setprecision(6); // Set precision to display up to six decimal places
-    cout << fixed << totalDistance << endl;
+    cout << fixed << setprecision(5) << totalDistance;
 
     return 0;
 }
