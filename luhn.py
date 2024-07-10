@@ -1,3 +1,4 @@
+```Python
 def luhn(card_num):
     card_num = list(map(int, [int(x) for x in str(card_num).replace(" ", "")]))
     
