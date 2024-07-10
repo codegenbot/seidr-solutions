@@ -2,8 +2,12 @@
 #include <vector>
 #include <algorithm>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<int> maximum(std::vector<int> arr,int k){
-    std::vector<int> result;
+    vector<int> result;
     for(int i = 0; i < k; i++){
         int max_val = *max_element(arr.begin(), arr.end());
         result.push_back(max_val);
