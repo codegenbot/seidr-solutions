@@ -9,4 +9,4 @@ def fibfib(n: int):
             result.append(str(a))
         return ' -> '.join(map(str, result))
     else:
-        return ' -> '.join(map(str, fibfib(n)))
+        print(' -> '.join(map(str, fibfib(n))))
