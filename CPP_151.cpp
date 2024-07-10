@@ -15,7 +15,7 @@ double double_the_difference(vector<double> lst) {
     return static_cast<double>(sum);
 }
 
-int main() {
+int main1() {
     vector<double> lst;
 
     for (string line; getline(cin, line); ) {
