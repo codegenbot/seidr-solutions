@@ -1,11 +1,9 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 #include <stdexcept>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() == 0) return (a == b); 
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         bool found = false;
