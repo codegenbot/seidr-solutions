@@ -1,4 +1,2 @@
-def cycpattern_check(a, b):
-    if len(a) != len(b):
-        return False
-    return b in a + a
+def check_cyclic_pattern(a, b):
+    return len(a) == len(b) and b in a + a
