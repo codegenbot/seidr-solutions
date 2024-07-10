@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm> // Include algorithm header
+#include <algorithm>
 using namespace std;
 
 vector<int> findLeaders(const vector<int>& nums) {
