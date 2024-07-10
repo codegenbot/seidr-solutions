@@ -1,9 +1,3 @@
-```cpp
-#include <iostream>
-#include <cmath>
-#include <iomanip>
-using namespace std;
-
 int main() {
     double startHeight, heightAfterFirstBounce;
     int numBounces;
