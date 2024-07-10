@@ -14,7 +14,7 @@ int main() {
     
     while (iss >> word) {
         if (word.size() >= 5) {
-            reverse(word.rbegin(), word.rend());
+            word = string(word.rbegin(), word.rend());
         }
         result += word + " ";
     }
