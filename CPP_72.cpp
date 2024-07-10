@@ -1,3 +1,4 @@
+```
 #include <cassert>
 #include <string>
 #include <vector>
@@ -18,4 +19,11 @@ bool will_it_fly(std::vector<int> q, int w) {
 
 int main() {
     assert(will_it_fly({5}, 5) == true);
+    std::vector<int> q = {1,2,3};
+    int w = 6;
+    if (will_it_fly(q, w)) {
+        std::cout << "The plane will fly." << std::endl;
+    } else {
+        std::cout << "The plane won't fly." << std::endl;
+    }
 }
