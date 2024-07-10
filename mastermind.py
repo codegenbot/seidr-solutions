@@ -1,11 +1,13 @@
 def mastermind(code, guess):
-    count_black = 0
-    count_white = 0
+    correct_count = 0
+    misplaced_count = 0
+    code_chars = [char for char in code]
+    guess_chars = [char for char in guess]
 
     for i in range(4):
-        if guess[i] == code[i]:
-            count_black += 1
-        elif str(guess[i]) in str(code):
-            count_white += 1
+        if code_chars[i] == guess_chars[i]:
+            correct_count += 1
+        elif guess_chars[i] in code_chars:
+            misplaced_count += 1
 
-    return str(count_black) + "\n" + str(count_white)
+    return str(misplaced_count) + "\n" + str(correct_count)
