@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
 vector<int> get_odd_collatz(int n) {
-    vector<int> result(1); // Add reserve(1) here
+    vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
             int temp = n / 2; 
