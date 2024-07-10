@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
-
 using namespace std;
 
 vector<string> odd_count(vector<string> lst){
