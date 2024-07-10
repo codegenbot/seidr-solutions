@@ -1,4 +1,3 @@
-#include <cassert>
 #include <string>
 #include <vector>
 #include <algorithm>
