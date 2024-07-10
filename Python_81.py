@@ -1,5 +1,5 @@
-```
-def numerical_letter_grade(grades):
+def numerical_letter_grade():
+    grades = [float(i) for i in input("Enter your grades separated by space: ").split()]
     letter_grades = []
     for grade in grades:
         if grade >= 4.0:
