@@ -1,15 +1,15 @@
-def add(pair):
-    return sum(pair)
+def add(x, y):
+    return x + y
 
 def main():
-    print("Enter two integers separated by space on the same line. Enter 'stop' to exit.")
+    print("Enter two integers separated by a space. Enter 'stop' to exit.")
     while True:
         try:
             inputs = input().strip()
             if inputs == 'stop':
                 break
             x, y = map(int, inputs.split())
-            result = add((x, y))
+            result = add(x, y)
             print(result)
         except ValueError:
             print("Error: Invalid input")
