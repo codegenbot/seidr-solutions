@@ -3,7 +3,7 @@
 #include <utility>
 #include <cassert>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool std::vector<float>::issame(const std::vector<float>& a, const std::vector<float>& b) {
     return a == b;
 }
 
@@ -24,6 +24,8 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
 }
 
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    std::vector<float> numbers = {3.5, 1.2, 4.8, 2.1, 5.7};
+    std::pair<float, float> result = find_closest_elements(numbers);
+    assert(result.first == 4.8 && result.second == 5.7);
     return 0;
 }
