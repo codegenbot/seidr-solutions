@@ -16,5 +16,6 @@ std::vector<int> topKElements(const std::vector<int>& arr, int k) {
 
 int main() {
     assert(issame(topKElements({1, 2, 3, -23, 243, -400, 0}, 0), {}));
+    assert(issame(topKElements({1, 2, 3, -23, 243, -400, 0}, 3), {243, 3, 2}));
     return 0;
 }
