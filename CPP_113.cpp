@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b){
+vector<string> issame(vector<string> a, vector<string> b){
     return a == b;
 }
 
