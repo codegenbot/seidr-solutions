@@ -1,14 +1,15 @@
+```
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
-int issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return 0;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return 0;
+        if (a[i] != b[i]) return false;
     }
-    return 1;
+    return true;
 }
 
 vector<int> sort_vector(vector<int> arr) {
@@ -23,7 +24,6 @@ vector<int> sort_vector(vector<int> arr) {
                  return ones_a < ones_b;
          });
     return result;
-
 }
 
 int main() {
