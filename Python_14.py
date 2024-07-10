@@ -9,10 +9,10 @@ def all_prefixes() -> None:
     while True:
         try:
             s = input("Please enter a string: ")
-            if not isinstance(s, str):
-                print("Error: Please provide a string.")
+            if not s.strip():
+                print("Error: Please provide a non-empty string.")
             else:
                 break
-        except Exception as e:
-            print(f"Unexpected error occurred: {e}")
+        except ValueError as e:
+            print(f"Invalid input. Please enter a string.")
     print("\n".join(get_all_prefixes(s)))
