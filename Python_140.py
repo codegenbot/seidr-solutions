@@ -4,13 +4,11 @@ def fix_spaces(text):
     return re.sub(r'\s+', '_', text)
 
 combined_text = ''
-while True:
-    try:
-        line = input().strip()
-        if not line:
-            break
+try:
+    while True:
+        line = input()
         combined_text += line + '\n'
-    except EOFError:
-        break
+except EOFError:
+    pass
 
-print(fix_spaces(combined_text))
+print(fix_spaces(combined_text.strip()) )
