@@ -1,7 +1,5 @@
-Here is the modified code with the necessary `#include` statement:
-
-```cpp
 #include <string>
+using namespace std;
 
 int mastermind(string code, string guess) {
     int white = 0;
