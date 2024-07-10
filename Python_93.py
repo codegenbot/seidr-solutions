@@ -12,9 +12,15 @@ def encode(message):
                 else:
                     result += vowels[next_index].lower()
             else:
-                start_index = 'abcdefghijklmnopqrstuvwxyz'.index(char.lower()) if char.isalpha() and char.lower() < 'm' else 'mnopqrstuvwxyzabcdef'.index(char.lower())
-                next_index = (start_index + 1) % len('abcdefghijklmnopqrstuvwxyz')
-                result += chr(ord('a') + next_index)
+                first_vowel_index = vowels.find(char.lower())
+                if first_vowel_index != -1:
+                    next_vowel_index = (first_vowel_index + 1) % len(vowels)
+                    if char.isupper():
+                        result += vowels[next_vowel_index].upper()
+                    else:
+                        result += vowels[next_vowel_index].lower()
+                else:
+                    result += char
         else:
             result += char
     return result
