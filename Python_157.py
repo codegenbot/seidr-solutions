@@ -1,3 +1,3 @@
-a = int(input("Enter first number: "))
-b = int(input("Enter second number: "))
-c = int(input("Enter third number: "))
+a = int(input("Enter value for a: "))
+b = int(input("Enter value for b: "))
+c = int(input("Enter value for c: "))
