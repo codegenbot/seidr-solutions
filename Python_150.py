@@ -1,4 +1,4 @@
-```
+````
 def x_or_y(n, x, y):
     def is_prime(num):
         if num < 2:
@@ -10,4 +10,5 @@ def x_or_y(n, x, y):
     if is_prime(n):
         return x
     else:
-        return y
+        return y"""
+```
