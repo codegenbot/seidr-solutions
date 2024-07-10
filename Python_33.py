@@ -1,3 +1,2 @@
-def sort_third(l):
-    int_list = sorted([i for sublist in l for i in sublist if isinstance(i, int)])
-    return [sublist[1] for sublist in [[sublist, len(sorted(sublist))] for sublist in l if isinstance(sublist, list)]]
+def sort_third(lst):
+    return sorted([x[2] for x in lst if isinstance(x, list) and len(x) > 2])
