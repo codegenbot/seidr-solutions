@@ -7,7 +7,7 @@ std::string result = "";
 int main() {
     std::string input;
     std::getline(std::cin, input);
-
+    
     std::string word;
 
     std::istringstream iss(input);
@@ -17,9 +17,9 @@ int main() {
         }
         result += word + " ";
     }
-
+    
     result.pop_back(); // remove extra space at the end
     std::cout << result;
-
+    
     return 0;
 }
