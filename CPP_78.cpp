@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 int hex_key(std::string num) {
@@ -6,7 +5,7 @@ int hex_key(std::string num) {
     for (char c : num) {
         if (c >= '2' && c <= '7') {
             count++;
-        } else if (c == 'B' || c == 'D' || c == 'F') {
+        } else if ((c >= 'B' && c <= 'F')) {
             count++;
         }
     }
