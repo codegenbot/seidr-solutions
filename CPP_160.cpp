@@ -2,7 +2,7 @@
 #include <string>
 #include <cstdio>
 
-int do_algebra(vector<string> operator_, vector<int> operand) {
+int do_alpha(vector<string> operator_, vector<int> operand) {
     string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
         if (i == 0)
@@ -16,20 +16,18 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
     }
 
     int result = 0;
-    string op = "";
-    for(int i=0; i<operator_.size(); i++) {
-        if(op == "+") {
-            result += operand[i];
-        } else if(op == "*") {
+    for(int i=1; i<operator_.size(); i++){
+        if(operator_[i-1] == "*"){
             result *= operand[i];
+        } else {
+            result += operand[i];
         }
-        op = operator_[i];
     }
     
     return result;
 }
 
 int main() {
-    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+    assert(do_alpha({"//", "*"}, {7, 3, 4}) == 8);
     return 0;
 }
