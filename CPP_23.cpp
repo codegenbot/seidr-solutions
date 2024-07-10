@@ -1,6 +1,6 @@
 #include <cstring>
 
 int main() {
-    const char* str = "asdasnakj";
-    assert(strlen(str) == 9);
+    assert(strlen("asdasnakj") == 9);
+    return 0;
 }
