@@ -1,12 +1,11 @@
-import ast
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     depths = []
     current_depth = 0
+    if any(char not in ["(", ")"] for char in paren_string):
+        return "Invalid nested parens string"
     for char in paren_string:
-        if char not in ["(", ")"]:
-            continue
         if char == "(":
             current_depth += 1
         elif char == ")":
@@ -18,6 +17,9 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         return "Invalid nested parens string"
     return depths
 
-input_string = ast.literal_eval(input("Enter the nested parens string within quotes: "))
+input_string = input("Enter the nested parens string within quotes: ")
 result = parse_nested_parens(input_string)
-print(result)
+if type(result) == list:
+    print(result)
+else:
+    print(result)
