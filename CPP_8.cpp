@@ -1,31 +1,22 @@
-#include<vector>
-#include<iostream>
-#include<utility>
-#include<assert.h>
-using namespace std;
+#include <vector>
+#include <cassert>
 
-pair<int, int> sum_product(vector<int> numbers){
+std::pair<int, int> sum_product(std::vector<int> numbers) {
     int sum = 0;
     int product = 1;
 
-    for(int num : numbers){
+    for (int num : numbers) {
         sum += num;
         product *= num;
     }
 
-    return make_pair(sum, product);
+    return {sum, product};
 }
 
-int solve_problem(){
-    vector<int> numbers = {1, 2, 3, 4};
-    pair<int, int> result = sum_product(numbers);
-
-    cout << "(" << result.first << ", " << result.second << ")" << endl;
-
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-int main(){
-    assert(sum_product({10}) == make_pair(10, 10));
-    return solve_problem();
+int main() {
+    assert(issame(sum_product({10}), {10, 10}));
 }
