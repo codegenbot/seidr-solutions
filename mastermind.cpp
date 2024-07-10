@@ -8,9 +8,12 @@ int main() {
     string code, guess;
     cin >> code >> guess;
 
-    int whitePegs = 0, blackPegs = 0;
+    int whitePegs, blackPegs;
 
     while (!code.empty() && !guess.empty()) {
+        whitePegs = 0;
+        blackPegs = 0;
+        
         map<char, int> codeFreq, guessFreq;
         codeFreq.clear();
         guessFreq.clear();
@@ -34,9 +37,8 @@ int main() {
 
         cout << whitePegs << endl << blackPegs << endl;
 
-        // Reset values for new iteration
-        whitePegs = 0;
-        blackPegs = 0;
+        // Read new code and guess
+        cin >> code >> guess;
     }
 
     return 0;
