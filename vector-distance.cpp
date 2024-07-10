@@ -1,12 +1,18 @@
 #include <vector>
-#include <iostream>
-
 using namespace std;
 
-double vectorDistance(vector<float> v1, vector<float> v2) {
-    double sum = 0;
-    for (int i = 0; i < v1.size(); i++) {
-        sum += pow(v1[i] - v2[i], 2);
+double vectorDistance(int n) {
+    float v1[n];
+    float v2[n];
+
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> v1[i] >> v2[i];
+    }
+
+    double sum = 0.0;
+    for (int i = 0; i < n; i++) {
+        sum += pow(v2[i] - v1[i], 2);
     }
     return sqrt(sum);
 }
@@ -14,17 +20,14 @@ double vectorDistance(vector<float> v1, vector<float> v2) {
 int main() {
     int n;
     cin >> n;
-    vector<float> v1(n), v2(n);
 
-    for (int i = 0; i < n; i++) {
-        cin >> v1[i];
+    if (n == 1) {
+        float x, y;
+        cin >> x >> y;
+        cout << sqrt(pow(x-y, 2)) << endl;
+    } else {
+        cout << vectorDistance(n) << endl;
     }
-
-    for (int i = 0; i < n; i++) {
-        cin >> v2[i];
-    }
-
-    cout << fixed << setprecision(10) << vectorDistance(v1, v2);
 
     return 0;
 }
