@@ -1,15 +1,16 @@
 #include <iostream>
 #include <algorithm>
+using namespace std;
 
 int getMax(int n) {
     int max = 0;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
 
     for (int i = 0; i < n; i++) {
         int x;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> x;
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> x;
         if(x > max)
             max = x;
     }
