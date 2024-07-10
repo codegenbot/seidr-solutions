@@ -1,8 +1,10 @@
-```
+Here is the corrected code:
+
+```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -23,4 +25,12 @@ std::vector<int> order_by_points(std::vector<int> nums) {
         result.push_back(nums[pair.second]);
     }
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+int main() {
+    assert(issame(order_by_points({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
