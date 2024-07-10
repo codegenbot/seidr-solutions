@@ -9,6 +9,6 @@ def mastermind(code, guess):
             code_counts[guess[c]] -= 1
         elif code_counts.get(guess[c], 0) > 0:
             white += 1
-            code_counts[guess[c]] 
+            code_counts[guess[c]] -= 1
 
     return str(white), str(black)
