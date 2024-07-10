@@ -27,9 +27,22 @@ bool issame(const std::vector<std::string>& a, const std::string& b) {
     return true;
 }
 
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> words;
+    for (const auto& str : s.split(' ')) {
+        words.push_back(str);
+    }
+    if (!words.empty()) {
+        std::random_shuffle(words.begin(), words.end());
+        return std::vector<std::string>(words.begin(), words.begin() + n);
+    } else {
+        return {};
+    }
+}
+
 int main() {
     std::vector<std::string> result = select_words("a b c d e f", 1);
-    assert(issame({result}, "b")); 
+    assert(issame({result[0]}, "b")); 
     std::cout << "{" + Join(result, ", ") + "}" << std::endl;
     return 0;
 }
