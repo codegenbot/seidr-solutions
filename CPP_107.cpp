@@ -19,7 +19,7 @@ std::pair<int, int> even_odd_palindrome(int n) {
     return std::make_pair(even, odd);
 }
 
-std::pair<int, int> userInput() {
+std::pair<int, int> user_input() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
