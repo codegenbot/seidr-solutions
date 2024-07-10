@@ -19,11 +19,9 @@ std::string int_to_roman(int number)
 
     std::string roman = "";
     int thousands = number / 1000;
-    for (int i = 0; i < thousands; i++)
-    {
-        roman.reserve(1000); // Reserve space for at most 1000 characters
-        roman += "M";
-    }
+    for(int i=0;i<thousands;++i)
+    temp+='M';
+    roman+=temp;
 
     int hundreds = (number % 1000) / 100;
     if (hundreds > 0)
