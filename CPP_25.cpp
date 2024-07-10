@@ -28,5 +28,4 @@ int main() {
         cout << result[i];
     }
     cout << "}" << endl;
-    return 0;
 }
