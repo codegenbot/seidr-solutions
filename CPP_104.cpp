@@ -1,11 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 #include <cassert>
 
 using namespace std;
-
-vector<int> unique_digits(vector<int> x);
 
 vector<int> unique_digits(vector<int> x) {
     vector<int> result;
@@ -29,7 +27,7 @@ vector<int> unique_digits(vector<int> x) {
 }
 
 int main() {
-    std::assert(unique_digits({135, 103, 31}) == vector<int>{31, 135});
+    assert(unique_digits({135, 103, 31}) == vector<int>{31, 135});
     cout << "Test Passed!" << endl;
     return 0;
 }
