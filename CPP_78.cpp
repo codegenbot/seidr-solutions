@@ -1,15 +1,12 @@
-```cpp
 using namespace std;
 
 int hex_key(string num) {
     int count = 0;
     for (char c : num) {
-        if (c >= 'A' && c <= 'F') {
-            c = (c - 'A' + 10);
-        }
-        if (stoi(string(1, c)) > 1 && isPrime(stoi(string(1, c)))) {
+        if (c >= 'A' && c <= 'F') 
+            c = c - 'A' + 10; // convert A-F to 10-15
+        if (stoi(string(1, c)) > 1 && isPrime(stoi(string(1, c)))) 
             count++;
-        }
     }
     return count;
 }
