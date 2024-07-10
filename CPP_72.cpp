@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -21,21 +20,18 @@ bool will_it_fly(vector<int> q, int w) {
 int main() {
     vector<int> q;
     int w;
-    
-    cout << "Enter the number of queries: ";
+    cout << "Enter the weights: ";
+    for (int i = 0; i < 5; ++i) {
+        int weight;
+        cin >> weight;
+        q.push_back(weight);
+    }
+    cout << "Enter the maximum weight: ";
     cin >> w;
-    cout << "Enter the queries: ";
-    for(int i=0; i<w; i++) {
-        int x;
-        cin >> x;
-        q.push_back(x);
-    }
-    
-    if(will_it_fly(q, w)) {
-        cout << "The plane will fly." << endl;
+    if (will_it_fly(q, w)) {
+        cout << "The weights will fly." << endl;
     } else {
-        cout << "The plane will not fly." << endl;
+        cout << "The weights won't fly." << endl;
     }
-    
     return 0;
 }
