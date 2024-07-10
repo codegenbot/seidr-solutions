@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool match_parens(std::vector<std::string> lst){
+bool match_parens(vector<string> lst){
     int open = 0, close = 0;
     for(auto s : lst){
         for(char c : s){
@@ -9,7 +9,7 @@ bool match_parens(std::vector<std::string> lst){
             else close++;
         }
     }
-    return (open == close);
+    return (open == close) ? true : false;
 }
 
 int main(){
