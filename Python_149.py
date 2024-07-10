@@ -1,4 +1,4 @@
-```
+```Python
 def main():
     while True:
         try:
@@ -12,15 +12,14 @@ def main():
             continue
 
     if len(lst) > 0:
+        sum_all_words = sum(len(word) for word in lst)
         while True:
             try:
-                even_word_sum = sum(len(word) for word in lst if len(word) % 2 == 0)
                 input_val = int(input("Press Enter to calculate the sum or type 'q' to quit: "))
                 if input_val == 113: 
                     break
-                print(even_word_sum) # directly use even_word_sum here
-            except Exception as e:
-                print(f"Error: {str(e)}")
-                continue
+                print(sum_all_words)
+            except ValueError:
+                print("Invalid Input. Please enter a number or 'q'.")
     else:
         print("Please enter at least one word.")
