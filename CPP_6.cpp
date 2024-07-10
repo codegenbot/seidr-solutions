@@ -1,17 +1,18 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+        if (a[i] != b[i]) return false;
     }
     return true;
+}
+
+int main() {
+    vector<int> result = parse_nested_parens("(()(())((())))");
+    assert(issame(result, {4}));
+    return 0;
 }
 
 vector<int> parse_nested_parens(string paren_string) {
@@ -26,9 +27,4 @@ vector<int> parse_nested_parens(string paren_string) {
         result.push_back(max_depth);
     }
     return result;
-}
-
-int main() {
-    assert(issame(parse_nested_parens("(()(())((())))"), {4, 3, 2, 1, 0, -1, -2, -3, -4}));
-    return 0;
 }
