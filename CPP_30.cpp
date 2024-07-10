@@ -18,11 +18,13 @@ bool issame_four(float num1, float num2, float num3, float num4) {
 
 int main() {
     float num1, num2, num3, num4;
+    
     std::cout << "Enter the first number: ";
     if (!(std::cin >> num1)) {
         std::cout << "Invalid input for the first number." << std::endl;
         return 1;
     }
+    
     while (!(std::cin >> num2) || (num2 != num1)) {
         std::cout << "Invalid input for the second number. Please enter a same value as the first one: ";
         if (!(std::cin >> num2)) {
@@ -30,6 +32,7 @@ int main() {
             return 1;
         }
     }
+    
     while (!(std::cin >> num3) || (num3 != num1)) {
         std::cout << "Invalid input for the third number. Please enter a same value as the first one: ";
         if (!(std::cin >> num3)) {
@@ -37,6 +40,7 @@ int main() {
             return 1;
         }
     }
+    
     while (!(std::cin >> num4) || (num4 != num1)) {
         std::cout << "Invalid input for the fourth number. Please enter a same value as the first one: ";
         if (!(std::cin >> num4)) {
