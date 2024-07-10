@@ -1,15 +1,16 @@
+```
 from typing import List
 
 
 def get_all_prefixes(s: str) -> List[str]:
-    return [s[:i] for i in range(len(s))]
+    return [s[:i+1] for i in range(len(s))]
 
 
 def all_prefixes() -> None:
     while True:
         try:
             s = input("Please enter a string: ")
-            if not s.strip() or not s.isalnum():
+            if not s.strip().isalnum():
                 print("Error: Please provide a non-empty alphanumeric string.")
             else:
                 break
