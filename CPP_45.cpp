@@ -1,2 +1,3 @@
-return (a * h) / 2;
+float area = 0.5 * a * h;
+    return area;
 }
