@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 int sum_of_digits(int num) {
     int sum = 0;
     while (num != 0) {
