@@ -20,9 +20,9 @@ string find_max(const vector<string>& words){
 
 int main() {
     assert(find_max({"play", "play", "play"}) == "play");
-    assert(find_max({"hello", "world", "cpp"}) == "world");
     assert(find_max({"abc", "def", "ghi"}) == "abc");
-    assert(find_max({"programming", "is", "fun"}) == "programming");
+    assert(find_max({"apple", "banana", "cherry"}) == "cherry");
+    assert(find_max({"coding", "is", "fun"}) == "coding");
 
     return 0;
 }
