@@ -1,6 +1,7 @@
-```python
 def fruit_distribution(s, n):
     s = s.lower()
+    if "and" not in s:
+        return 0
     fruits = s.split("and")
     for i in range(len(fruits)):
         if "," in fruits[i]:
