@@ -8,16 +8,16 @@ bool issame(int x, int y) {
 
 std::vector<int> remove_duplicates(std::vector<int> v) {
     std::vector<int> result;
-    for (int i = 0; i < v.size(); i++) {
+    for (int x : v) { 
         bool found = false;
-        for (int j = 0; j < result.size(); j++) { 
-            if (v[i] == result[j]) {
+        for (int y : result) { 
+            if (x == y) {
                 found = true;
                 break;
             }
         }
         if (!found) {
-            result.push_back(v[i]);
+            result.push_back(x);
         }
     }
     return result;
