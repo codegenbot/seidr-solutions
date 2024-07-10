@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -9,7 +10,7 @@ int main()
     return 0;
 }
 
-std::string int_to_roman(int number)
+const char* int_to_roman(int number)
 {
     if (number <= 0)
         return "";
@@ -56,5 +57,5 @@ std::string int_to_roman(int number)
         roman += 'V';
     }
 
-    return roman;
+    return roman.c_str();
 }
