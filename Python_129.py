@@ -4,12 +4,11 @@ def minPath(grid, k):
     def dfs(x, y, path, dist):
         if len(path) == k:
             return True
-
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nx, ny = x + dx, y + dy
-            if 0 <= nx < N and 0 <= ny < N:
+            if 0 <= nx < N and 0 <= ny < N and grid[nx][ny] not in path:
                 new_path = path + [grid[nx][ny]]
-                if dfs(nx, ny, new_path, dist + abs(dx) + abs(dy)):
+                if dfs(nx, ny, new_path, dist):
                     return True
 
         return False
@@ -18,15 +17,6 @@ def minPath(grid, k):
 
     while queue:
         x, y, path, dist = queue.pop(0)
-
-        for i in range(N):
-            for j in range(N):
-                if grid[i][j] not in path:
-                    queue.append((i, j, path + [grid[i][j]], dist))
-                    break
-            else:
-                continue
-            break
 
         if dfs(x, y, path, dist):
             return [[cell for cell in row] for row in grid]
