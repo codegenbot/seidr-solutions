@@ -1,11 +1,7 @@
-def round_half_up(value):
-    if value < 0:
-        if int(value) == value:
-            return int(value)
-        else:
-            return round(value)
-    elif value > 0:
-        if int(value) == value:
-            return int(value)
-        else:
-            return math.ceil(value)
+def find_closest(lst):
+    closest = float("inf")
+    target = int(input("Enter a number: "))
+    for num in lst:
+        if abs(num - target) < abs(closest - target):
+            closest = num
+    return closest
