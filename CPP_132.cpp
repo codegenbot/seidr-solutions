@@ -11,9 +11,12 @@ bool is_nested(std::string str) {
                    (c == '}' && !brackets.empty() && brackets.top() == '{') ||
                    (c == ')' && !brackets.empty() && brackets.top() == '(')) {
             brackets.pop();
-        } else if ((c == ']' || c == '}' || c == ')') && brackets.empty()) {
+        } else if (c == ']' || c == '}' || c == ')') {
             return false;
         }
     }
-    return brackets.empty();
+    if (!brackets.empty()) {
+        return false;
+    }
+    return true;
 }
