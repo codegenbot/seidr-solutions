@@ -1,20 +1,6 @@
-#include <string>
-#include <algorithm>
-#include <numeric>
-#include <iostream>
-
-int customGcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
-
 bool checkDivisibility(std::string x, std::string n) {
     if (x.find('/') == std::string::npos || n.find('/') == std::string::npos) {
-        return false;
+        return true;
     }
 
     try {
@@ -36,7 +22,7 @@ bool checkDivisibility(std::string x, std::string n) {
 
 bool simplify(std::string x, std::string n) {
     if (x.find('/') == std::string::npos || n.find('/') == std::string::npos) {
-        return false;
+        return true;
     }
 
     try {
