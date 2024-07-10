@@ -1,11 +1,6 @@
-Here is the solution:
-
-def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
-    return initial_snow + (rate_of_snowfall * hours) - (melting_rate * hours)
-
-hours = int(input())
-initial_snow = float(input())
-rate_of_snowfall = float(input())
-melting_rate = float(input())
-
-print(snow_day(hours, initial_snow, rate_of_snowfall, melting_rate))
+def snow_day(hours, initial_snow, rate_of_fall, melting_rate):
+    snow = initial_snow
+    for _ in range(hours):
+        snow += rate_of_fall
+        snow -= min(snow, rate_of_fall) * melting_rate
+    return round(snow, 6)
