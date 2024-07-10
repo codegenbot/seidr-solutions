@@ -1,14 +1,15 @@
+```python
 def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
             if char.isupper():
-                if char.lower() == 'x':
+                if ord(char) - 65 <= 22 and (char == 'X' or char == 'x'):
                     result += 'A'
-                elif char.lower() == 'y':
+                elif ord(char) - 65 <= 22 and (char == 'Y' or char == 'y'):
                     result += 'B'
                 else:
-                    result += chr((ord(char.lower()) - 64 + 1) % 26 + 65)
+                    result += chr((ord(char.lower()) - 97 + 1) % 26 + 65).upper()
             else:
                 if char in ['a', 'e', 'i', 'o', 'u']:
                     if char == 'a':
