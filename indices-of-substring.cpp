@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <vector>
 using namespace std;
 
@@ -13,7 +14,7 @@ int main() {
         pos = text.find(target, pos + 1);
     }
     
-    for (int i = 0; i < indices.size(); ++i) {
+    for (int i = 0; i < static_cast<int>(indices.size()); ++i) {
         cout << indices[i] << " ";
     }
     
