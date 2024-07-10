@@ -15,14 +15,13 @@ string int_to_mini_roman(int number) {
             roman += pair.second;
         }
     }
-    return roman;
-
 }
 
 int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    cout << "The Roman numeral for " << num << " is " << int_to_mini_roman(num) << endl;
+    string roman = int_to_mini_roman(num);
+    cout << "The Roman numeral for " << num << " is " << roman << "." << endl;
     return 0;
 }
