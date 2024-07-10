@@ -1,28 +1,20 @@
-string exchange(vector<int> lst1, vector<int> lst2) {
-    int evenCount = 0;
+std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
+    bool foundOdd = false;
     for (int num : lst1) {
-        if (num % 2 == 0)
-            evenCount++;
+        if (num % 2 != 0) {
+            foundOdd = true;
+            break;
+        }
     }
-    
+    if (!foundOdd) return "YES";
     for (int i = 0; i < lst1.size(); i++) {
-        bool foundInSecondList = false;
         for (int j = 0; j < lst2.size(); j++) {
             if (lst1[i] % 2 != 0 && lst2[j] % 2 == 0) {
                 swap(lst1[i], lst2[j]);
-                foundInSecondList = true;
+                foundOdd = false;
                 break;
             }
         }
-        
-        if (!foundInSecondList)
-            return "NO";
     }
-    
-    for (int num : lst1) {
-        if (num % 2 != 0)
-            return "NO";
-    }
-    
-    return "YES";
+    return foundOdd ? "NO" : "YES";
 }
