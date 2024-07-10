@@ -6,7 +6,7 @@
 #include <cassert>
 using namespace std;
 
-bool issame(string a, string b) {
+bool issame(const string& a, const string& b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++) {
@@ -27,7 +27,7 @@ string to_string(int i) {
     return oss.str();
 }
 
-string reverse_delete(string s1, string s2) {
+string reverse_delete(const string s1, const string s2) {
     int len1 = s1.length();
     int len2 = s2.length();
     for(int i = 0; i < len2; i++) {
