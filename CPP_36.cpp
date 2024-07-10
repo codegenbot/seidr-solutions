@@ -1,13 +1,4 @@
-#include <iostream>
-
-int fizz_buzz(int n);
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::cout << fizz_buzz(n) << std::endl;
-    return 0;
-}
+#include <cassert>
 
 int fizz_buzz(int n) {
     int count = 0;
