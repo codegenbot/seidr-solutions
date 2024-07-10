@@ -2,19 +2,16 @@
 #include <iostream>
 
 int main() {
-    int x; // read input from user
+    int x; 
     std::cin >> x;
-    std::cout << fizzBuzz(x) << std::endl;
-    return 0;
-}
-
-std::string fizzBuzz(int x) {
     if (x % 15 == 0)
-        return "FizzBuzz";
+        std::cout << "FizzBuzz";
     else if (x % 5 == 0)
-        return x % 3 ? "Buzz" : "FizzBuzz";
+        (x % 3) ? std::cout << "Buzz" : std::cout << "FizzBuzz";
     else if (x % 3 == 0)
-        return "Fizz";
+        std::cout << "Fizz";
     else
-        return std::to_string(x);
+        std::cout << x;
+    std::cout << std::endl;
+    return 0;
 }
