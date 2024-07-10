@@ -13,8 +13,7 @@ string circular_shift(int x, int shift) {
 }
 
 int main() {
-    cout << circular_shift(12, 1) << endl; // "21"
-    cout << circular_shift(12, 2) << endl; // "12"
-    cout << circular_shift(12345, 3) << endl; // "23451"
+    cout << circular_shift(12, 1) << endl; 
+    cout << circular_shift(12, 2) << endl; 
     return 0;
 }
