@@ -1,12 +1,22 @@
 Here is the solution:
 
-int calculateFuelCost(vector<int> &numbers) {
-    int total = 0;
-    for (int num : numbers) {
-        if (num > 0) {
-            int result = (num / 3) - 2;
-            total += result;
-        }
+int calculate(int n) {
+    return (n / 3) - 2;
+}
+
+int main() {
+    int N;
+    std::cin >> N;
+
+    if(N == 0)
+        return 0;
+
+    int sum = 0;
+    for(int i = 1; i <= N; i++) {
+        sum += calculate(i);
     }
-    return total;
+
+    std::cout << sum << std::endl;
+
+    return 0;
 }
