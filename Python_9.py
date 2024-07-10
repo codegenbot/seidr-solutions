@@ -11,6 +11,13 @@ def rolling_max(numbers: List[int]) -> List[int]:
         rolling_max_list.append(max_num)
     return rolling_max_list
 
-numbers = list(map(int, input().split()))
+numbers = []
+while True:
+    try:
+        n = int(input())
+        numbers.append(n)
+    except:
+        break
+
 result = rolling_max(numbers)
 print(*result)
