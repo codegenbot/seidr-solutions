@@ -1,1 +1,3 @@
-below_zero = lambda ops: len([num for num in ops if num < 0])
+operations = list(map(int, input().split(',')))
+result = below_zero(operations)
+print(result)
