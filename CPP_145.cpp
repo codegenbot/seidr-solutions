@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cassert>
 #include <iostream>
@@ -53,6 +54,6 @@ int mainAgain() {
     }
     cout << "]\n";
     
-    assert (isEqual(vector<int>{-76, -21, 0, 4, 23, 6, 6}, sortAndReturn({0,6,6,-76,-21,23,4})));
+    assert (isEqual(sortAndReturn({0,6,6,-76,-21,23,4}), {-76, -21, 0, 4, 23, 6, 6}));
     return 0;
 }
