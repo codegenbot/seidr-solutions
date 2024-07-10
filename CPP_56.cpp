@@ -21,7 +21,11 @@ int main() {
     std::string brackets;
     std::cin >> brackets;
     
-    std::cout << correct_bracketing(brackets);
+    if (correct_bracketing(brackets)) {
+        std::cout << "Brackets are correctly balanced." << std::endl;
+    } else {
+        std::cout << "Brackets are not correctly balanced." << std::endl;
+    }
 
     return 0;
 }
