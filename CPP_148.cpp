@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
+#include <cctype>
 
 using namespace std;
 
@@ -13,8 +13,7 @@ bool issame(vector<string> a) {
     for (int i = 1; i < a.size(); i++) {
         string temp;
         cin >> temp;
-        transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
-        if (temp != str) {
+        if (temp.lower().substr(0, temp.length()) != str.lower().substr(0, temp.length())) { 
             return false;
         }
     }
@@ -35,3 +34,4 @@ int main() {
         }
     }
     return 0;
+}
