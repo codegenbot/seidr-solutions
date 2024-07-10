@@ -3,7 +3,6 @@ from typing import List
 
 def main():
     n = [None] * 4
-    all_inputs_entered = False
     max_attempts = 5
     for i in range(4):
         attempts = 0
@@ -26,14 +25,9 @@ def main():
                 )
                 return
         if len(n) == 4:
-            all_inputs_entered = True
+            break
 
-    if not all_inputs_entered:
-        print("Program did not receive expected input.")
-        return
-
-    all_inputs_entered = True
-
+    print("Program did not receive expected input.")
     factors1 = []
     i = 2
     while i * i <= n[0]:
