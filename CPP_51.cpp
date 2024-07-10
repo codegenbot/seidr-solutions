@@ -1,10 +1,13 @@
-string remove_vowels(string text){
-    string result = "";
-    for(char c : text){
-        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && 
-           !isupper(c) && !islower(c)){
+```
+string remove_vowels(string text) {
+    string result;
+    for (char c : text) {
+        if (!isalpha(c)) {
             result += c;
+        } else if (!strncasecmp(&c, "aeiouAEIOU", 6)) {
+            continue;
         }
+        result += c;
     }
     return result;
 }
