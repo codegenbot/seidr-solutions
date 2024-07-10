@@ -1,3 +1,4 @@
+```
 def longest():
     strings = input("Enter a series of words (separated by spaces): ")
     strings_list = [s.strip().lower() for s in strings.split()]
