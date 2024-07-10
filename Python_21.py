@@ -1,9 +1,9 @@
 from typing import List
 
 
-def rescale_to_unit(numbers: List[float]) -> List[float]:
-    if not isinstance(numbers, list) or any(not isinstance(n, float) for n in numbers):
-        raise ValueError("Input must be a list of floats")
+def rescale_to_unit(numbers: List[float]) -> str:
+    if not all(isinstance(x, float) for x in numbers):
+        return "Invalid input: The list should contain only floats"
     
     min_val = min(numbers)
     max_val = max(numbers)
