@@ -1,9 +1,14 @@
+```
 from typing import List
 
 
-def filter_integers() -> None:
+def filter_integers(values: List) -> None:
     print("Please enter a comma-separated list of values (separated by commas):")
     user_input = input()
+
+    while not user_input.strip(): 
+        print("Invalid input. Please enter a valid list of comma-separated values.")
+        user_input = input()
 
     try:
         user_values = [val.strip() for val in user_input.split(",")]
@@ -19,5 +24,4 @@ def filter_integers() -> None:
     except ValueError:
         print("Invalid input. Please enter a valid list of comma-separated values.")
 
-
-filter_integers()
+filter_integers([])
