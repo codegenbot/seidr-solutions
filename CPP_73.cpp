@@ -5,17 +5,17 @@
 
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    int m = 1; 
-    for (int i = 0; i < n; i++) {
+    int m = 0; 
+    for (int i = n-1; i >= 0; i--) {
         if (arr[i] != 0) {
             m = i + 1;
             break;
         }
     }
     
-    std::vector<int>(n - m + 1, INT_MAX); // Initialize dp values to INT_MAX
-    for (int i = 0; i < n - m + 1; i++) {
-        dp[i] = INT_MAX; 
+    std::vector<int> dp(n - m); // Initialize dp with correct size
+    for (int i = 0; i < n - m; i++) {
+        dp[i] = INT_MAX; // Initialize dp values to INT_MAX
     }
 
     int smallest = INT_MAX;
