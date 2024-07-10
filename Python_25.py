@@ -15,3 +15,5 @@ def factorize() -> None:
     if n > 1:
         print(f"{n} is a prime number.")
     return
+
+factorize()
