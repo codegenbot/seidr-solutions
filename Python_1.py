@@ -1,4 +1,3 @@
-```
 def separate_paren_groups(expression):
     result = []
     temp_group = ""
