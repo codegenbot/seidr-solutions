@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cassert>
 #include <iostream>
@@ -30,7 +31,6 @@ int main_func() {
         }
     }
 
-    cout << "The numbers that are different from 5 by an odd number: ";
     for (double x : lst) {
         if (abs((int)x - 5) % 2 != 0) {
             cout << x << " ";
