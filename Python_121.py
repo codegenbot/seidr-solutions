@@ -1,7 +1,6 @@
 ```
 def solution(lst):
-    return sum(i for i in lst[1::2] if i % 2 == 0)
-
+    return sum(i for i in sorted(lst)[:len(lst)//2+1] if i % 2 != 0)
 
 def main():
     n = int(input("Enter the number of integers: "))
@@ -10,7 +9,9 @@ def main():
             inputs = input(f"Enter {n} numbers separated by space: ")
             inputs_list = list(map(int, inputs.split()))
             if len(inputs_list) != n:
-                print(f"Invalid input. Please enter {n} valid integers separated by space.")
+                print(
+                    f"Invalid input. Please enter {n} valid integers separated by space."
+                )
                 continue
             break
         except ValueError:
