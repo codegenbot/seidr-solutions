@@ -15,3 +15,5 @@ def encode(message):
             new_char = char
         encoded_message += new_char
     return encoded_message
+
+print(encode("I DoNt KnOw WhAt tO WrItE"))  # Output: "N ItSi QtTd BmFe Yt BnXyJ"
