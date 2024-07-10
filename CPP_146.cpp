@@ -1,8 +1,20 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 
-int specialFilter(std::vector<int> nums);
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::vector<int> nums(n); // Create vector with initial size 'n'
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        int temp;
+        std::cin >> temp;
+        nums[i] = temp;
+    }
+    std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
+}
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -12,17 +24,3 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
-
-int main() {
-    std::vector<int> nums;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        int temp;
-        std::cin >> temp;
-        nums.push_back(temp);
-    }
-    std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
-}

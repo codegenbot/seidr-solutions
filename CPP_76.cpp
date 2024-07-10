@@ -8,7 +8,7 @@ bool is_simple_power(int x, int n) {
     return std::abs(y - x) < 1e-9;
 }
 
-int main() {
+void main() {
     int tempX, n;
     std::cout << "Enter a number: ";
     std::cin >> tempX;
