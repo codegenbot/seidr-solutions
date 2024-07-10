@@ -1,6 +1,5 @@
-```
+```Python
 def main():
-    print("Welcome to the word length calculator!")
     while True:
         try:
             lst = input("Enter words (separated by space): ").lower().replace(" ", "").split()
@@ -16,7 +15,15 @@ def main():
                 input_val = input("Press Enter to calculate the sum or type 'q' to quit: ")
                 if input_val.lower() == 'q':
                     break
-                print(sorted_list_sum)
+                elif input_val.isdigit():
+                    num = int(input_val)
+                    if num % 2 != 0:
+                        print(f"Error: {str(num)} is not an even number.")
+                    else:
+                        sorted_list_sum += num
+                        print(sorted_list_sum)
+                else:
+                    print("Invalid input. Please enter a number or 'q'.")
             except ValueError:
                 print("Invalid input. Please enter a number or 'q'.")
             except Exception as e:
