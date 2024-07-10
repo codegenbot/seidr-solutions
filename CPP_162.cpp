@@ -1,16 +1,27 @@
-```cpp
-#include <openssl/ssl.h>
-#include <openssl/err.h>
+#include <openssl/evp.h>
 
 string string_to_md5(string text) {
     if (text.empty()) return "None";
     
-    unsigned char md5[MD5_DIGEST_LENGTH];
-    MD5((const unsigned char*)text.c_str(), text.length(), md5);
+    unsigned char buffer[1024];
+    EVP_MD_CTX mdctx;
+    EVP_MD *md = EVP_md5();
+    unsigned char result[16];
     
-    stringstream ss;
-    for(int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << setfill('0') << setw(2) << hex << (int)md5[i];
+    OPENSSL_init_crypto(NULL, NULL);
+    
+    EVP_DigestInit_ex(&mdctx, md, NULL);
+    EVP_DigestUpdate(&mdctx, text.c_str(), text.size());
+    EVP_DigestFinal_ex(&mdctx, result, NULL);
+    
+    string output;
+    for (int i = 0; i < 16; i++) {
+        char temp[3];
+        sprintf(temp, "%02x", result[i]);
+        output += temp;
     }
-    return ss.str();
+    
+    OPENSSL_cleanup();
+    
+    return output;
 }
