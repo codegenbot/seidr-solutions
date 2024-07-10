@@ -1,10 +1,6 @@
+```
 def cycpattern_check(a, b):
-    for i in range(len(a) - len(b) + 1):
-        if a[i : i + len(b)] == b:
+    for i in range(len(a)-len(b)+1):
+        if (a * 2).find(a) >= i and (a * 2).find(a) % len(a) < i:
             return True
-
-    for i in range(len(b), len(a)):
-        if a[i - len(b) : i + 1] == b:
-            return True
-
     return False
