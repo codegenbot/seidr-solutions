@@ -1,9 +1,5 @@
-def calculate_averages(scores: List[int]) -> List[float]:
-    averages = []
-    for i in range(0, len(scores), 2):
-        if (i + 1) < len(scores):
-            average = (scores[i] + scores[i+1]) / 2
-        else:
-            average = scores[i]
-        averages.append(format(average, '.2f'))
-    return [float(i) for i in averages]
+def intersperse-separated-values(str_values: List[str], separator: str) -> List[str]:
+    result = [str_values[0]]
+    for i in range(1, len(str_values)):
+        result.extend([result[-1], separator, str_values[i]])
+    return result
