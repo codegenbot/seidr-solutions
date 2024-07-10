@@ -15,4 +15,3 @@ int main() {
     scanf("%d", &n);
     printf("The Brazilian factorial of %d is: %lld\n", n, special_factorial(n));
     return 0;
-}
