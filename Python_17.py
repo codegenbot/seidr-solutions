@@ -1,4 +1,4 @@
-```python:
+```
 from typing import List
 
 
@@ -8,14 +8,14 @@ def parse_music(music_string: str) -> List[int]:
     i = 0
     while i < len(music_string):
         found = False
-        for j in range(1, 4): 
-            if i + j <= len(music_string) and music_string[i:i+j] in note_lengths:
-                result.append(note_lengths[music_string[i:i+j]])
-                i += j
+        for length in sorted(note_lengths.keys(), key=lambda x: -len(x)):
+            if music_string.startswith(length, i):
+                note_type = length
+                while i < len(music_string) and music_string[i] == length[0]:
+                    i += 1 
+                result.append(note_lengths[note_type])
                 found = True
                 break
-        if not found: 
+        if not found:
             i += 1
     return result
-```
-```
