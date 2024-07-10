@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -6,7 +5,8 @@ using namespace std;
 int fuelCost(vector<int> v) {
     int sum = 0;
     for (int x : v) {
-        sum += floor((double)x / 3) - 2;
+        int y = floor((double)x / 3) - 2;
+        sum += y;
     }
     return sum;
 }
