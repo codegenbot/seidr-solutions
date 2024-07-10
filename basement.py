@@ -1,4 +1,3 @@
-```
 def basement(nums):
     total = 0
     for i, _ in enumerate(nums):
