@@ -8,3 +8,4 @@ vector<int> make_a_pile(int n) {
         stones = (stones % 2 == 1) ? stones + 1 : stones + 2;
     }
     return pile;
+}
