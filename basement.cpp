@@ -1,9 +1,13 @@
 #include <iostream>
 #include <vector>
+#include <limits>
 
-long long basement(const std::vector<int>& nums) {
-    long long sum = 0;
+int basement(const std::vector<int>& nums) {
+    int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
+        if (nums[i] > std::numeric_limits<int>::max() - sum || nums[i] < std::numeric_limits<int>::min()) {
+            return -1;
+        }
         sum += nums[i];
         if (sum < 0) {
             return i;
@@ -15,6 +19,10 @@ long long basement(const std::vector<int>& nums) {
 int main() {
     int n;
     std::cin >> n;
+    if (n <= 0) {
+        std::cout << -1 << std::endl;
+        return 0;
+    }
     std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
