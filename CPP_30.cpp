@@ -1,42 +1,13 @@
-#include <vector>
-#include <iostream>
-
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-std::vector<float> get_positive(const std::vector<float>& l) {
-    std::vector<float> result;
-    for (float num : l) {
-        if (num > 0) {
-            result.push_back(num);
-        }
-    }
-    return result;
-}
-
 int main() {
     int n;
     std::cin >> n;
-    std::vector<float> input(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> input[i];
+    
+    int sum = 0;
+    for (int i = 1; i <= n; ++i) {
+        sum += i;
     }
-
-    std::vector<float> positive_nums = get_positive(input);
-
-    for (float num : positive_nums) {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
-
+    
+    std::cout << sum;
+    
     return 0;
 }
