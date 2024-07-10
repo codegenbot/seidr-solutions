@@ -21,9 +21,7 @@ int count_matrices(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter the value of n: ";
     std::cin >> n;
-    int result = count_matrices(n);
-    std::cout << "Number of matrices satisfying the condition: " << result << std::endl;
+    std::cout << count_matrices(n) << std::endl;
     return 0;
 }
