@@ -21,7 +21,7 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> words, std
 }
 
 int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    assert(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") == std::vector<std::string>{"grunt", "prune"});
     
     return 0;
 }
