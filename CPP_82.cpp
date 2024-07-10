@@ -1,4 +1,4 @@
-```
+```c++
 #include <iostream>
 #include <string>
 
@@ -12,7 +12,8 @@ bool prime_length(const std::string& str) {
 
 }
 
-int main() {
+int main() 
+{
     std::string input;
     std::cout << "Enter a string: ";
     std::cin >> input;
