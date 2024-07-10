@@ -1,12 +1,18 @@
 def find_zero(xs: list):
     if len(xs) % 2 != 0:
-        return None
+        raise ValueError("List xs must have an even number of coefficients.")
 
-    degree = len(xs) - 1
-    idx = xs.index(max(xs))
-    f_x = xs[idx]
+    a = max(xs, key=lambda x: abs(x))
+    for i in range(len(xs)):
+        if xs[i] == a:
+            xs[0], xs[i] = xs[i], xs[0]
 
-    if degree % 2 == 0:
-        return -1 if f_x > 0 else 1
-    else:
-        return 1 if f_x > 0 else -1
+    def f(x):
+        return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+
+    x = 0.0
+    while abs(f(x)) > 1e-9:
+        slope = (f(x + 1e-9) - f(x)) / 1e-9
+        x -= f(x) / slope
+
+    return x
