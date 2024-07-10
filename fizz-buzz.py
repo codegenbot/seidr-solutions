@@ -1,11 +1,9 @@
-def fizz_buzz(n):
-    result = ""
-    if n % 15 == 0:
-        result = "FizzBuzz"
-    elif n % 3 == 0:
-        result = "Fizz"
-    elif n % 5 == 0:
-        result = "Buzz"
+def fizz_buzz(x):
+    if x % 15 == 0:
+        return "FizzBuzz"
+    elif x % 3 == 0:
+        return "Fizz"
+    elif x % 5 == 0:
+        return "Buzz"
     else:
-        result = str(n)
-    return result
+        return str(x)
