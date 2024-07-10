@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -16,7 +15,11 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst = {1.5f, 3.25f, 4.75f};
-    long long odd_sum = double_the_difference(lst);
-    assert (double_the_difference({1.5f, 3.25f, 4.75f}) == odd_sum );
+    long long odd_sum;
+    if (lst.empty()) {
+        std::cout << "Error: Input list is empty." << std::endl;
+        return 1;
+    }
+    odd_sum = double_the_difference(lst);
     return 0;
 }
