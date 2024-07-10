@@ -1,13 +1,13 @@
-```cpp
 #include <iostream>
 #include <assert.h>
+#include <string>
 
 bool any_int(float a, float b, float c) {
-    int ai = (int)a;
-    int bi = (int)b;
-    int ci = (int)c;
+    std::string sai = std::to_string((int)a);
+    std::string sbi = std::to_string((int)b);
+    std::string sci = std::to_string((int)c);
 
-    if ((ai == bi + ci) || (ai == bi - ci) || (ai == ci + bi) || (ai == ci - bi))
+    if ((sai == sbi + sci) || (sai == sbi - sci) || (sai == sci + sbi) || (sai == sci - sbi))
         return true;
     else
         return false;
