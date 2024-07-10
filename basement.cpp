@@ -1,12 +1,14 @@
 int basement(vector<int>& nums) {
     int sum = 0;
-    int index = -1; 
+    int minSumIndex = -1; 
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         if (sum < 0) {
-            index = i + 1; 
+            minSumIndex = i + 1; 
             break;
+        } else if (minSumIndex == -1 && sum <= 0) {
+            minSumIndex = i + 1;
         }
     }
-    return index == -1 ? -1 : index; 
+    return minSumIndex == -1 ? -1 : minSumIndex; 
 }
