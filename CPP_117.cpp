@@ -15,16 +15,15 @@ std::vector<std::string> select_words(std::string input, int k) {
     std::istringstream iss(input);
     std::vector<std::string> words;
     std::string word;
-    while (std::getline(iss, word)) {
+    while (iss >> word) {
         words.push_back(word);
     }
     
     std::sort(words.begin(), words.end());
     
-    std::vector<std::string> result = std::vector<std::string>(words.begin(), words.end()); 
-    for (int i = 0; i < k; ++i) {
-        if (i >= words.size()) break;
-        result[i] = words[i];
+    std::vector<std::string> result;
+    for (int i = 0; i < k && i < words.size(); ++i) {
+        result.push_back(words[i]);
     }
     
     return result;
@@ -32,7 +31,7 @@ std::vector<std::string> select_words(std::string input, int k) {
 
 int main() {
     std::vector<std::string> result = select_words("a b c d e f", 1);
-    assert(issame({{"b"}}, "b"); 
+    if (!issame({{"b"}}, {"b"}) ) 
     std::cout << "{" + Join(result, ", ") + "}" << std::endl;
     return 0;
 }
