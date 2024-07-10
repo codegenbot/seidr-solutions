@@ -1,9 +1,5 @@
-def spin_words(sentence):
-    words = sentence.split()
-    result = []
-    for word in words:
-        if len(word) >= 5:
-            result.append(word[::-1])
-        else:
-            result.append(word)
-    return " ".join(result)
+Here's the solution:
+
+def spin_words(s):
+    words = s.split()
+    return ' '.join(word if len(word) <= 4 else word[::-1] for word in words)
