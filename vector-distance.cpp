@@ -1,18 +1,21 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
 int main() {
     int n;
     cin >> n;
+
     vector<float> vec1(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec1[i];
     }
 
     cin >> n;
+    
     vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec2[i];
@@ -24,7 +27,7 @@ int main() {
     }
 
     float result = sqrt(sum);
-    cout << fixed << result << endl;
+    cout << fixed << setprecision(14) << result << endl;
 
     return 0;
 }
