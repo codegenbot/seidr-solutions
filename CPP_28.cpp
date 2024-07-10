@@ -1,3 +1,4 @@
+#include <vector>
 #include <string>
 
 std::string concatenate(vector<std::string> strings) {
