@@ -1,3 +1,4 @@
+```
 def find_max_score(lst):
     max_score = 0
     current_score = 0
