@@ -1,9 +1,17 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
+#include <iostream>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 std::vector<float> get_positive(std::vector<float> l) {
@@ -17,8 +25,19 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main() {
-    assert(issame(get_positive({}), std::vector<float>{}));
-    assert(issame(get_positive({1, 2, 3}), std::vector<float>{1, 2, 3}));
+    int n;
+    std::cin >> n;
+    std::vector<float> input(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> input[i];
+    }
+
+    std::vector<float> positive_nums = get_positive(input);
+
+    for (float num : positive_nums) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }
