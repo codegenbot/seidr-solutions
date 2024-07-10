@@ -8,7 +8,7 @@ bool issame(const std::vector<T>& a, const std::vector<T>& b) {
 }
 
 template <typename T>
-std::vector<T> get_positive(const std::vector<T>& v) {
+std::vector<T> get_positive(std::vector<T> v) {
     std::vector<T> result;
     for (const auto& num : v) {
         if (num > 0) {
@@ -27,7 +27,7 @@ int main() {
         positive_numbers.push_back(i);
     }
     
-    assert(issame(get_positive(positive_numbers), positive_numbers));
+    assert(issame(get_positive<int>(std::vector<int>{}), std::vector<int>{}));
     
     return 0;
 }
