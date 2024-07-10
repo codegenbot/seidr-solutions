@@ -1,5 +1,2 @@
-def find_zero(xs):
-    for i, x in enumerate(xs):
-        if x == 0:
-            return i
-    return -1
+n = int(input("Enter the number of values in the list: "))
+values = list(map(int, input("Enter the values separated by space: ").split()))
