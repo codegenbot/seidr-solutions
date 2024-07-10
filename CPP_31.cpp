@@ -11,15 +11,13 @@ bool is_prime(int n) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
-    
-    if (is_prime(n)) {
-        std::cout << n << " is a prime number." << std::endl;
+    int number;
+    std::cin >> number;
+    if (is_prime(number)) {
+        std::cout << "Prime\n";
     } else {
-        std::cout << n << " is not a prime number." << std::endl;
+        std::cout << "Not Prime\n";
     }
-    
+
     return 0;
 }
