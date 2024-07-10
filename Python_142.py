@@ -1,2 +1,5 @@
-print(sum_squares(1, 2, 3))  
-print(sum_squares(4, 5, 6))
+def sum_squares(a, *args):
+    for arg in (a,) + args:
+        if not isinstance(arg, (int, float)):
+            raise ValueError("Invalid input. Only numbers are allowed.")
+    return sum([i ** 2 for i in (a,) + args])
