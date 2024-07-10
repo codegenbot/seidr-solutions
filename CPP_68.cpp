@@ -1,10 +1,8 @@
 #include <vector>
 #include <cassert>
 
-namespace std {
-    bool issame(std::vector<int> a, std::vector<int> b) {
-        return a == b;
-    }
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
 std::vector<int> pluck(std::vector<int> arr){
@@ -32,4 +30,4 @@ std::vector<int> expected_output = {2, 3};
 
 std::vector<int> result = pluck(test_input);
 
-assert(std::issame(result, expected_output));
+assert(issame(result, expected_output));
