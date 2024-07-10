@@ -1,7 +1,13 @@
 def mastermind(code, guess):
-    code_count = [0] * 6
-    for char in code:
-        code_count[ord(char) - ord("A")] += 1
-    black_pegs = sum(c == g and c != "0" for c, g in zip(code, guess))
-    white_pegs = sum(min(code_count.count(c), guess.count(c)) for c in set(guess))
-    return str(white_pegs), str(black_pegs)
+    code = [c for c in code]
+    guess = [c for c in guess]
+    white_pegs = 0
+    black_pegs = 0
+
+    for i in range(4):
+        if code[i] == guess[i]:
+            black_pegs += 1
+        elif guess.count(code[i]) > 0:
+            white_pegs += 1
+
+    return str(black_pegs) + "\n" + str(white_pegs)
