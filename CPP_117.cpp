@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
+bool issame(const std::vector<std::string>& a, const std::string& b);
 
 std::vector<std::string> select_words(std::string s, int n);
 
@@ -31,10 +31,15 @@ std::vector<std::string> select_words(std::string s, int n) {
     return result;
 }
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b, int n) { 
-    if(a.size() != n || b.size() != n) return false;
-    for(int i = 0; i < n; i++) {
-        if(!issame(a[i], b[i])) return false;
+bool issame(const std::vector<std::string>& a, const std::string& b) { 
+    if(a.size() != 1) return false;
+    for(int i = 0; i < a[0].size(); i++) {
+        if(a[0][i] != b[i]) return false;
     }
     return true;
+}
+
+int main() {
+    assert(issame(select_words("a b c d e f", 1), "b"));
+    return 0;
 }
