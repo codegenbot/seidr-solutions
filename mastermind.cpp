@@ -1,25 +1,26 @@
 #include <iostream>
 #include <map>
 #include <algorithm>
+#include <iomanip>
 
 using namespace std;
 
-bool isValidInput(const string& input) {
-    return input.length() == 4 && input.find_first_not_of("ABCDEF") == string::npos;
+bool isValidInput(const string& str) {
+    if (str.length() != 4) return false;
+    for (char c : str) {
+        if ((c < 'a' || c > 'f') && (c < 'A' || c > 'F')) return false;
+    }
+    return true;
 }
 
 int main() {
     string code, guess;
+    cin >> setw(4) >> code >> guess;
 
-    do {
-        cout << "Enter the code (4 characters from A to F): ";
-        cin >> code;
-    } while (!isValidInput(code));
-
-    do {
-        cout << "Enter your guess (4 characters from A to F): ";
-        cin >> guess;
-    } while (!isValidInput(guess));
+    if (!isValidInput(code) || !isValidInput(guess)) {
+        cout << "Invalid input format." << endl;
+        return 1;
+    }
 
     map<char, int> codeFreq, guessFreq;
     
@@ -29,11 +30,11 @@ int main() {
     int whitePegs = 0, blackPegs = 0;
 
     for (int i = 0; i < 4; ++i) {
-        if (toupper(code[i]) == toupper(guess[i])) {
+        if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeFreq[toupper(code[i])]++;
-            guessFreq[toupper(guess[i])]++;
+            codeFreq[code[i]]++;
+            guessFreq[guess[i]]++;
         }
     }
 
