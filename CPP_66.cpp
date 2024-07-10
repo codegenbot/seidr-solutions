@@ -2,7 +2,6 @@
 #include <string>
 #include <cctype>
 #include <algorithm>
-#include <cassert>
 
 int digitSum(std::string s) {
     int sum = 0;
