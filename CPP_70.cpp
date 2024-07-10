@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool is_same(std::vector<int> a, std::vector<int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
