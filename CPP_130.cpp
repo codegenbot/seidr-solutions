@@ -1,12 +1,13 @@
+#include <iostream>
 #include <vector>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size())
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size())
         return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i])
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
             return false;
     }
     return true;
@@ -19,7 +20,7 @@ int main() {
     return 0;
 }
 
-vector<int> tri(int n){
+vector<int> tri(int n) {
     vector<int> result;
     if (n >= 0) {
         result.push_back(3);
