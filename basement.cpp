@@ -1,9 +1,13 @@
-int basement(vector<int> arr) {
+#include <vector>
+using namespace std;
+
+int findFirstNegativeIndex(const vector<int>& nums) {
     int sum = 0;
-    for(int i = 0; i < arr.size(); i++) {
-        sum += arr[i];
-        if(sum < 0)
-            return i;
+    int index = 0;
+    
+    for (; index < nums.size() && sum >= 0; ++index) {
+        sum += nums[index];
     }
-    return -1;
+    
+    return (sum < 0 ? index - 1 : -1);
 }
