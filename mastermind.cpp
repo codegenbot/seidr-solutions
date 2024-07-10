@@ -1,14 +1,20 @@
 int mastermind(string code, string guess) {
-    int black = 0;
     int white = 0;
-
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
+    int black = 0;
+    
+    // Count the number of correct colors in wrong places
+    for (char c : code) {
+        if (std::count(guess.begin(), guess.end(), c) > 0 && std::count(code.begin(), code.end(), c) > 1) {
             white++;
         }
     }
-
-    return {black, white}[1];
+    
+    // Count the number of correct colors and positions
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            black++;
+        }
+    }
+    
+    return black, white;
 }
