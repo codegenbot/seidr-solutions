@@ -1,6 +1,6 @@
+```cpp
 #include <string>
 #include <vector>
-#include <iostream>
 
 using namespace std;
 
@@ -21,8 +21,7 @@ string int_to_mini_roman(int number) {
             roman += pair.second;
         }
     }
-    return roman;
-
+    return string(roman);
 }
 
 int main() {
