@@ -1,21 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 vector<int> f(int n);
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
+bool issame(const vector<int>& a, const vector<int>& b);
 
 vector<int> f(int n){
     vector<int> result(n);
@@ -35,6 +26,13 @@ vector<int> f(int n){
         }
     }
     return result;
+}
+
+bool issame(const vector<int>& a, const vector<int>& b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    return equal(a.begin(), a.end(), b.begin());
 }
 
 int main(){
