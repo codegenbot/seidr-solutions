@@ -1,8 +1,9 @@
+```
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
-    temp = ''
     result = []
+    temp = ''
     for char in paren_string:
         if char == '(' or char == ')':
             temp += char
