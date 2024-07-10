@@ -6,7 +6,7 @@ using namespace std;
 
 std::string sort_numbers(std::string numbers) {
     vector<std::string> numVec;
-    std::string temp;
+    string temp;
     
     for (char c : numbers) {
         if (isdigit(c)) continue;
