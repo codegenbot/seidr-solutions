@@ -1,13 +1,14 @@
-```
-#include <openssl/evp.h>
+unsigned char buffer[16];
+MD5_CTX ctx;
+MD5_Init(&ctx);
+MD5_Update(&ctx, text.c_str(), text.length());
+MD5_Final(buffer, &ctx);
 
-string string_to_md5(string text) {
-    if (text.empty()) return "None";
-    unsigned char result[MD5_DIGEST_LENGTH];
-    MD5((unsigned char *)text.c_str(), text.size(), result);
-    stringstream ss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ss << hex << setfill('0') << setw(2) << (int)result[i];
-    }
-    return ss.str();
+string result = "";
+for(int i=0; i<16; i++) {
+    stringstream sstream;
+    sstream << setfill('0') << setw(2) << hex << (int)buffer[i];
+    result += sstream.str();
 }
+
+return result;
