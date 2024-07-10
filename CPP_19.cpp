@@ -1,41 +1,52 @@
 #include <iostream>
-#include <map>
 #include <string>
+#include <map>
+#include <cassert>
+using namespace std;
 
-std::string sort_numbers(const std::string& numbers) {
-    std::map<std::string, int> nums = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-    std::map<int, std::string> rev_nums;
-    for (auto it : nums) {
-        rev_nums[it.second] = it.first;
+string sort_numbers(string numbers);
+
+map<string, int> numeral_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
+
+string sort_numbers(string numbers) {
+    map<int, string> reverse_map;
+    string result = "";
+
+    size_t start = 0, end = numbers.find(" ");
+    while (end != string::npos) {
+        string num_str = numbers.substr(start, end - start);
+        reverse_map[numeral_map[num_str]] = num_str;
+        start = end + 1;
+        end = numbers.find(" ", start);
     }
 
-    std::string result = "";
-    int num_count = 0;
-    int i = 0;
-    while (i < numbers.size()) {
-        std::string current_word = "";
-        while (numbers[i] != ' ' && i < numbers.size()) {
-            current_word += numbers[i];
-            ++i;
-        }
-        
-        if (nums.find(current_word) != nums.end()) {
-            int num = nums[current_word];
-            if (num == num_count) {
-                result += rev_nums[num] + " ";
-                ++num_count;
-            } else {
-                break;
-            }
-        }
-        ++i;
+    string num_str = numbers.substr(start);
+    reverse_map[numeral_map[num_str]] = num_str;
+
+    for (const auto& pair : reverse_map) {
+        result += pair.second + " ";
     }
 
+    result.pop_back(); // Remove the extra space at the end
     return result;
 }
 
 int main() {
-    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
-    
+    string numbers;
+    cout << "Enter numbers in words separated by spaces: ";
+    getline(cin, numbers);
+    cout << "Sorted numbers: " << sort_numbers(numbers) << endl;
+
     return 0;
 }
