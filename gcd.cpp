@@ -3,14 +3,19 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int start = 0;
-    while (start < text.length()) {
-        size_t pos = text.find(target, start);
-        if (pos == string::npos)
-            break;
-        result.push_back(pos);
-        start = pos + 1;
+    int n = text.size();
+    int m = target.size();
+
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target) {
+            result.push_back(i);
+            while (i + m < n && text.substr(i, m) == target) {
+                i++;
+                result.push_back(i);
+            }
+        }
     }
+
     return result;
 }
 
@@ -19,17 +24,4 @@ int gcd(int a, int b) {
         return a;
     else
         return gcd(b, a % b);
-}
-
-int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> res = indicesOfSubstring(text, target);
-    for (int i : res)
-        cout << i << " ";
-    return 0;
 }
