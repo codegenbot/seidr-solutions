@@ -1,15 +1,7 @@
-def substitution_cipher(cipher, text):
-    result = ""
-    for char in text:
-        if char in cipher[0]:
-            index = cipher[0].index(char)
-            result += cipher[1][index]
-        else:
-            result += char
-    return result
-
-
-cipher = input().split()
-text = input()
-
-print(substitution_cipher(cipher, text))
+def substitution_cipher(cipher_text1, cipher_text2, text):
+    cipher_dict = {
+        cipher_text1[i]: cipher_text2[i]
+        for i in range(min(len(cipher_text1), len(cipher_text2)))
+    }
+    deciphered_text = "".join([cipher_dict.get(char, char) for char in text])
+    return deciphered_text
