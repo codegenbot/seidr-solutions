@@ -4,6 +4,5 @@ def find_zero():
     a, b = xs[0], max(xs[1:])
     return -a / b
 
-
 result = find_zero()
 print(result)
