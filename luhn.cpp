@@ -21,7 +21,7 @@ int luhn(std::vector<int16_t> cc) {
 }
 
 int main() {
-    std::vector<int16_t> cc = {4,3,2,1,8,6,5,4,9,7,3,6};
+    std::vector<int16_t> cc = {4, 5, 3};
     int result = luhn(cc);
     return 0;
 }
