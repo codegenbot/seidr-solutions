@@ -3,37 +3,10 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int start = 0;
-    
-    while (start < text.length()) {
-        size_t found = text.find(target, start);
-        
-        if (found != string::npos) {
-            result.push_back(found);
-            start = found + 1;
-        } else {
-            break;
-        }
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != string::npos) {
+        result.push_back(pos);
+        pos += 1; // Start searching from the next character
     }
-    
     return result;
-}
-
-int main() {
-    // Read input from user
-    string text;
-    cin >> text;
-
-    // Read the target string
-    string target;
-    cin >> target;
-
-    // Call the function to get the indices
-    vector<int> res = indicesOfSubstring(text, target);
-
-    // Print the output
-    for (int i : res) {
-        cout << i << " ";
-    }
-    return 0;
 }
