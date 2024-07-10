@@ -12,8 +12,7 @@ bool is_sorted(vector<int> lst){
     }
     return true;
 
-int main 
-{
+int main() {
     vector<int> lst = {1, 2, 3, 4};
-    cout << boolalpha << is_sorted(lst);
+    cout << is_sorted(lst);
 }
