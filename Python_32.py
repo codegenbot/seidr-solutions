@@ -1,7 +1,5 @@
-# Task description: solve for x in quadratic equation ax^2 + bx + c = 0
+```
 import math
-
-
 def find_zero(xs: list):
     if len(xs) % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
