@@ -7,9 +7,9 @@ int add(vector<int> lst){
         if(lst[i] % 2 == 0) sum += lst[i];
     }
     return sum;
-
 }
 
-int main() {
+int main(){
     assert (add({4, 4, 6, 8}) == 12);
+    return 0;
 }
