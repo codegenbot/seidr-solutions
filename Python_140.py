@@ -1,14 +1,8 @@
-import re
+import sys
 
 def fix_spaces(text):
-    return re.sub(r'\s+', '_', text)
+    return text.replace(' ', '_')
 
-combined_text = ''
-try:
-    while True:
-        line = input()
-        combined_text += line + '\n'
-except (EOFError, KeyboardInterrupt):
-    pass
+combined_text = ' '.join(line.strip() for line in sys.stdin)
 
-print(fix_spaces(combined_text.strip()) )
+print(fix_spaces(combined_text))
