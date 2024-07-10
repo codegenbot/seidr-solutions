@@ -1,4 +1,3 @@
-```
 def car_race_collision(n=None):
     if n is None:
         try:
