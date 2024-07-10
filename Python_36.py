@@ -1,9 +1,13 @@
-```
 def fizz_buzz(n: int):
-    output = []
-    for i in range(1, n+1):
-        if i % 11 == 0 and i % 13 == 0:
-            output.append("F1894704")
+    count = 0
+    result = []
+    for i in range(1, n + 1):
+        if i % 3 == 0 and i % 5 == 0:
+            result.append("FizzBuzz")
+        elif i % 3 == 0:
+            result.append("Fizz")
+        elif i % 5 == 0:
+            result.append("Buzz")
         else:
-            output.append(str(i))
-    return "\n".join(output)
+            result.append(str(i))
+    return "\n".join(result)
