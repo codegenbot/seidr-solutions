@@ -11,7 +11,11 @@ vector<int> strange_sort_list(vector<int> lst){
     while(left <= right){
         result.push_back(lst[left++]);
         if(left <= right){
-            result.push_back(lst[right--]);
+            if(!issame(lst[left], lst[right])) {
+                result.push_back(lst[right--]);
+            } else {
+                right--;
+            }
         }
     }
     return result;
