@@ -1,2 +1,2 @@
-def sort_third(lst):
-    return sorted([x[2] for x in lst if isinstance(x, list) and len(x) > 2])
+def """sort_third(l):
+    return sorted([sublist[1] for sublist in l if isinstance(sublist, list) and len(sublist)>1])"""
