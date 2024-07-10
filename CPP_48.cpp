@@ -8,5 +8,6 @@ bool is_palindrome(string text){
         start++;
         end--;
     }
+
     return true;
 }
