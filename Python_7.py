@@ -1,4 +1,5 @@
 ```
+import re
 def filter_by_substring(strings, substring):
     while True:
         expected_output = input("Is your expected output 'True values', 'False values', or 'all'? ")
