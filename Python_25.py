@@ -1,5 +1,3 @@
-```
-from typing import List
 def factorize(n: int) -> List[int]:
     i = 2
     factors = []
