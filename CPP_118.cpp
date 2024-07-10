@@ -1,18 +1,9 @@
 string get_closest_vowel(string word) {
-    int n = word.size();
-    for (int i = n - 1; i >= 0; --i) {
-        if (isvowel(word[i])) {
-            bool found_consonant = false;
-            for (int j = i - 1; j >= 0; --j) {
-                if (!isvowel(word[j])) {
-                    found_consonant = true;
-                    break;
-                }
-            }
-            if (found_consonant) {
-                return string(1, word[i]);
-            }
-        }
+    int left = 0, right = word.size() - 1;
+    while (left < right) {
+        if (!isvowel(word[left])) ++left;
+        else if (!isvowel(word[right])) --right;
+        else return word.substr(left + 1, right - left);
     }
     return "";
 }
