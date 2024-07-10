@@ -1,7 +1,9 @@
-#include <string>
+```cpp
 #include <map>
+#include <string>
+#include <cctype>
 
-bool check_dict_case(map<string, string> dict) {
+bool check_dict_case(std::map<std::string, std::string> dict) {
     if (dict.empty()) return false;
 
     bool all_lower = true;
@@ -17,8 +19,4 @@ bool check_dict_case(map<string, string> dict) {
     }
 
     return all_lower || all_upper;
-}
-
-int main() {
-   assert(check_dict_case({}) == false);
 }
