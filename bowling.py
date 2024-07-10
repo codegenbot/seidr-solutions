@@ -1,22 +1,15 @@
 ```
-def bowling_score(frames):
+def bowling_score(bowling):
     score = 0
-    frame = 1
-    for bowl in frames:
-        if bowl == 'X':
-            score += 30
-            frame -= 1
-        elif bowl == '/':
-            strike_score = 10 + self.strike_score(frame)
-            score += strike_score
-            frame -= 1
+    roll = 0
+    for frame in bowling:
+        if '/' in frame:
+            nums = [int(x) for x in frame.split('/')]
+            score += sum(nums)
+            roll += len(nums)
         else:
-            score += int(bowl)
+            score += int(frame)
+            roll += 1
+        if roll == 10:
+            break
     return score
-
-def strike_score(frame):
-    if frame > 2:
-        return 0
-    if frame == 2:
-        return 15
-    return 10
