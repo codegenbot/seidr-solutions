@@ -17,10 +17,11 @@ int main() {
         }
         return result;
     }
-    
+
     string input;
     cout << "Enter a kebab-case string: ";
-    cin >> input;
-    cout << "The camelCase is: " << camelCase(input) << endl;
+    getline(cin, input);
+    cout << "CamelCase: " << camelCase(input) << endl;
+
     return 0;
 }
