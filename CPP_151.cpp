@@ -16,8 +16,8 @@ double double_the_difference(vector<double> lst) {
 }
 
 int main_func() {
+    double odd_sum = 0.0;
     vector<double> lst;
-    double odd_sum = 0;
 
     for (string line; getline(cin, line); ) {
         if (!line.empty()) {
