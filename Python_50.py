@@ -1,10 +1,13 @@
+input_string = input()
+
 def decode_shift(input_string):
     decoded_message = ""
     for char in input_string:
-        decoded_char = chr(ord(char) - 1)  # Change + 1 to - 1 for decoding
+        if char.islower():
+            decoded_char = chr((ord(char) - 1 - ord('a')) % 26 + ord('a'))
+        elif char.isupper():
+            decoded_char = chr((ord(char) - 1 - ord('A')) % 26 + ord('A'))
+        else:
+            decoded_char = char
         decoded_message += decoded_char
     return decoded_message
-
-input_string = input("Please enter a string: ").strip()
-result = decode_shift(input_string)
-print(result)
