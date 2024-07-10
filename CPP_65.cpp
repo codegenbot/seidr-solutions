@@ -9,12 +9,12 @@ string circular_shift(int x, int shift) {
     if (shift >= n)
         return str;
     else {
-        string result = str.substr(shift) + str.substr(0, shift);
+        string result = str.substr(shift % n) + str.substr(0, shift % n);
         return result;
     }
 }
 
 int main() {
-    assert(circular_shift(11, 2) == "1111");
+    assert(circular_shift(11, 2) == "1311");
     return 0;
 }
