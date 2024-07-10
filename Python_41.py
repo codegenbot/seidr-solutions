@@ -1,3 +1,4 @@
+```
 def car_race_collision(n: int = 0, a1: int = 0, a2: int = 0):
     if max(a1, a2) <= 0:
         return n * min(a1, a2)
