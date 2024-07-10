@@ -1,8 +1,8 @@
 def check_numbers(numbers, threshold):
-    count = len([num for num in numbers if int(num) > threshold])
+    count = len([num for num in numbers if num > threshold])
     return count
 
-numbers = input("Enter numbers separated by a space: ").split()
-threshold = int(input("Enter the threshold: "))
+numbers = [int(input()) for _ in range(int(input()))]
+threshold = int(input())
 
 output = check_numbers(numbers, threshold)
