@@ -1,7 +1,8 @@
-```cpp
+```
 #include <algorithm>
 #include <vector>
 #include <utility>
+#include <initializer_list>
 
 bool issame(vector<pair<float, float>> a, vector<pair<float, float>> b) {
     if (a.size() != b.size()) return false;
@@ -24,17 +25,8 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
     return {{closest_pair.first, closest_pair.second}};
 }
 
-int run() {
+int test() {
     vector<float> numbers = {1.1, 2.2, 3.1, 4.1, 5.1};
-    cout << "Closest elements: ";
-    for (const auto& pair : find_closest_elements(numbers)) {
-        cout << "(" << pair.first << ", " << pair.second << ") ";
-    }
-    cout << endl;
-    return 0;
-}
-
-int main() {
-    run();
+    assert(find_closest_elements(numbers) == (vector<pair<float, float>>{{2.2, 3.1}}));
     return 0;
 }
