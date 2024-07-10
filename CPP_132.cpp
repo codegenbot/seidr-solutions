@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <cctype>
 
 bool is_nested(std::string str) {
     int count = 0;
@@ -18,7 +19,7 @@ bool is_nested(std::string str) {
 
 }
 
-int main() 
+int main()
 {
     std::string str;
     std::cout << "Enter a string: ";
@@ -29,3 +30,4 @@ int main()
         std::cout << "The string is not nested." << std::endl;
     }
     return 0;
+}

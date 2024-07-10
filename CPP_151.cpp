@@ -1,10 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <memory>
 
-long long double_the_difference(std::vector<long long> lst) {
+long long double_the_difference(std::vector<long> lst) {
     long long sum = 0;
     for (long long num : lst) {
         if (num > 0 && floor((double)num) == num) { 
@@ -17,7 +15,7 @@ long long double_the_difference(std::vector<long long> lst) {
 }
 
 int main() {
-    std::vector<long long> lst;
+    std::vector<long> lst;
     long long num;
     while(std::cin >> num) {
         lst.push_back(num);
