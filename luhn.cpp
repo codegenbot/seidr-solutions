@@ -4,7 +4,7 @@ using namespace std;
 int luhn(vector<int> digits) {
     int sum = 0;
     for (int i = 0; i < digits.size(); i++) {
-        if ((i % 2) == 1) {
+        if ((i % 2 == 1)) {
             int temp = digits[i] * 2;
             if (temp > 9)
                 temp -= 9;
@@ -16,14 +16,12 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    vector<int> input;
     int n;
     cin >> n;
+    vector<int> digits(n);
     for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        input.push_back(x);
+        cin >> digits[i];
     }
-    cout << luhn(input) << endl;
+    cout << luhn(digits) << endl;
     return 0;
 }
