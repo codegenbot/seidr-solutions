@@ -4,10 +4,8 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
 bool areMapsEqual(std::map<char, int> a, std::map<char, int> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::map<char, int> histogram(std::string test) {
@@ -30,7 +28,7 @@ std::map<char, int> histogram(std::string test) {
             result[pair.first] = pair.second;
         }
     }
-    
+
     return result;
 }
 
