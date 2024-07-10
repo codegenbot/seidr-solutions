@@ -1,8 +1,10 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> select_words(std::string s, int n);
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
+
+std::vector<std::string> select_words(std::string s, int n);
+bool issame(std::vector<std::string> a, std::vector<std::string> b, std::vector<std::string> c);
 
 int main() {
     std::string s = "Mary had a little lamb";
@@ -14,10 +16,10 @@ int main() {
     return 0;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if(a.size() != b.size()) return false;
+bool issame(std::vector<std::string> a, std::vector<std::string> b, std::vector<std::string> c) {
+    if(a.size() != b.size() || a.size() != c.size()) return false;
     for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
+        if(a[i] != b[i] || a[i] != c[i]) return false;
     }
     return true;
 }

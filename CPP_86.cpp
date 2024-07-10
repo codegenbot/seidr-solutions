@@ -18,10 +18,10 @@ string anti_shuffle(string sStr) {
                 word += sStr[j];
                 j++;
             }
-            vector<char>(word.begin(), word.end(), std::allocator<char>()).sort();
             for (char c : word) {
                 result += c;
             }
+            std::sort(word.begin(), word.end());
             i = j - 1;
         }
     }
