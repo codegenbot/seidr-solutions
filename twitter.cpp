@@ -12,20 +12,11 @@ int main() {
         cout << "You didn't type anything" << endl;
     }
     
+    else if(count(tweet.begin(), tweet.end(), ' ') + count(tweet.begin(), tweet.end(), '!') + count(tweet.begin(), tweet.end(), '#') > 140) {
+        cout << "Too many characters" << endl;
+    }
+    
     else {
-        size_t count = 0;
-        for (char c : tweet) {
-            if (!ispunct(c) && !isspace(c)) {
-                ++count;
-            } 
-        }
-        
-        if(count > 140) {
-            cout << "Too many characters" << endl;
-        }
-        
-        else {
-            cout << "Your tweet has " << count << " characters" << endl;
-        }
+        cout << "Your tweet has " << (count(tweet.begin(), tweet.end(), ' ') + count(tweet.begin(), tweet.end(), '!') + count(tweet.begin(), tweet.end(), '#')) << " characters" << endl;
     }
 }
