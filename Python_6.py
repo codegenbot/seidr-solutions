@@ -20,6 +20,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         return "Invalid nested parens string"
     return depths
 
-input_string = sys.stdin.readline().rstrip()  # Read input from console
+input_string = input().strip()  # Read input from user
 result = parse_nested_parens(input_string)
 print(result)
