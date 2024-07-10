@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
 
-void bfs(string n) {
+void bf(string n) {
     if (n.empty())
         cout << "Error: Input string is empty." << endl;
     else
@@ -12,7 +13,6 @@ void bfs(string n) {
 int main() {
     int num;
     cin >> num;
-    string s = to_string(num);
-    bfs(s);  
+    bf(std::to_string(num));  
     return 0;
 }
