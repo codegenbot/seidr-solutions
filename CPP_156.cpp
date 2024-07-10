@@ -1,3 +1,8 @@
+```cpp
+#ifndef __cplusplus
+#define __cplusplus 201703L // C++17
+#endif
+
 #include <string>
 #include <iostream>
 
