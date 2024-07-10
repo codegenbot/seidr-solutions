@@ -13,14 +13,17 @@ int main()
 std::string int_to_roman(int number)
 {
     if (number <= 0)
-        return "Input should be a positive integer";
+        return "";
     else if (number >= 4000)
         return "Input is too large";
 
     std::string roman = "";
     int thousands = number / 1000;
     for (int i = 0; i < thousands; i++)
+    {
+        roman.reserve(1000); // Reserve space for at most 1000 characters
         roman += "M";
+    }
 
     int hundreds = (number % 1000) / 100;
     if (hundreds > 0)
@@ -54,7 +57,7 @@ std::string int_to_roman(int number)
     {
         for (int i = 1; i <= ones; i++)
             roman += "I";
-        return roman;
     }
 
+    return roman;
 }
