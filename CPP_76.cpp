@@ -1,11 +1,13 @@
-Here's the completed code:
+Here's the solution:
 
 bool is_simple_power(int x, int n) {
-    double y = pow(n, 1.0);
-    while(y <= x){
-        if(y == x)
-            return true;
-        y *= n;
-    }
-    return false;
+    if (n == 0)
+        return false;
+    double log_x = log((double)x);
+    double log_n = log((double)n);
+    
+    if (fmod(log_x, log_n) == 0.0)
+        return true;
+    else
+        return false;
 }
