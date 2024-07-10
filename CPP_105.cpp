@@ -1,30 +1,43 @@
 vector<string> by_length(vector<int> arr) {
-    vector<int> numArr;
+    vector<int> numVec;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            numArr.push_back(i);
+            numVec.push_back(i);
         }
     }
-
-    sort(numArr.begin(), numArr.end());
-    reverse(numArr.begin(), numArr.end());
-
+    sort(numVec.begin(), numVec.end());
+    reverse(numVec.begin(), numVec.end());
     vector<string> result;
-    for (int i : numArr) {
-        string str = "";
+    for (int i : numVec) {
         switch (i) {
-            case 1: str = "One"; break;
-            case 2: str = "Two"; break;
-            case 3: str = "Three"; break;
-            case 4: str = "Four"; break;
-            case 5: str = "Five"; break;
-            case 6: str = "Six"; break;
-            case 7: str = "Seven"; break;
-            case 8: str = "Eight"; break;
-            case 9: str = "Nine";
+            case 1:
+                result.push_back("One");
+                break;
+            case 2:
+                result.push_back("Two");
+                break;
+            case 3:
+                result.push_back("Three");
+                break;
+            case 4:
+                result.push_back("Four");
+                break;
+            case 5:
+                result.push_back("Five");
+                break;
+            case 6:
+                result.push_back("Six");
+                break;
+            case 7:
+                result.push_back("Seven");
+                break;
+            case 8:
+                result.push_back("Eight");
+                break;
+            case 9:
+                result.push_back("Nine");
+                break;
         }
-        result.push_back(str);
     }
-
     return result;
 }
