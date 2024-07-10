@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) return false;
@@ -33,7 +32,8 @@ int main() {
     int num;
     std::cout << "Enter an integer: ";
     std::cin >> num;
-    std::vector<int> input = {num};
+    std::vector<int> input;
+    input.push_back(num);
     std::vector<int> output = strange_sort_list(input);
     std::cout << "Output: ";
     for (auto i : output) {
