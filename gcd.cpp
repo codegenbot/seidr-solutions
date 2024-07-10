@@ -28,8 +28,18 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 }
 
 int main() {
-    int result = gcd(12, 15);
-    std::vector<int> indices = indicesOfSubstring("hello", "ll");
-    // Print or use the results as needed...
+    int a = 12;
+    int b = 15;
+    std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << std::endl;
+
+    std::string text = "HelloWorldHello";
+    std::string target = "Hello";
+    std::vector<int> indices = indicesOfSubstring(text, target);
+
+    for (int i : indices) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }

@@ -27,3 +27,4 @@ int main() {
         std::cout << camelCase(s) << '\n';
     }
     return 0;
+}
