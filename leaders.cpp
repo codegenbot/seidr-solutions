@@ -1,14 +1,23 @@
 #include <vector>
-#include <algorithm>
 using namespace std;
 
-vector<int> leaders(vector<int> v) {
-    vector<int> leaders;
-    int n = v.size();
-    for (int i = 0; i < n; i++) {
-        if (i == n - 1 || v[i] >= v[i + 1]) {
-            leaders.push_back(v[i]);
+vector<int> leaders(vector<int>& vec) {
+    vector<int> res;
+    int n = vec.size();
+    if(n == 0) return res;
+    int max_right = vec.back();
+    for(int i=n-2; i>=0; i--){
+        if(vec[i] >= max_right){
+            max_right = vec[i];
+        } else {
+            res.push_back(max_right);
         }
     }
-    return leaders;
+    res.push_back(max_right);
+    return res;
+}
+
+int main() {
+    leaders({1, 3, 4, 2});
+    return 0;
 }
