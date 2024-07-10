@@ -1,20 +1,20 @@
-```
-def separate_paren_groups(paren_string: str) -> list[str]:
+def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
-    current_group = ''
-
+    groups = ''
+    
     for char in paren_string:
         if char == ' ':
             continue
         if char == '(':
             stack.append(char)
-            current_group += char
+            groups += char
         elif char == ')':
-            stack.pop()
-            current_group += char
-            if not stack:
-                result.append(current_group)
-                current_group = ''
-
+            if stack and stack.pop() == '(':
+                groups += char
+                if not stack:
+                    result.append(groups.lstrip('(').rstrip(')'))
+                    groups = ''
+            else:
+                return []
     return result
