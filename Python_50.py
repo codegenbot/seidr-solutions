@@ -1,3 +1,5 @@
+import sys
+
 user_input = input().strip().lower()
 
 if not user_input.isalpha():
