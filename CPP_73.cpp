@@ -1,20 +1,19 @@
-Here is the modified code:
-
+```cpp
 #include <iostream>
 #include <vector>
 #include <climits>
 
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    int m = 1; 
-
+    int m = 1; // All rows will have the same size 'm'
+    
     for (int i = 0; i < n; i++) {
         if (arr[i] != 0) {
             m = i + 1;
             break;
         }
     }
-
+    
     std::vector<int> dp(m);
     int smallest = INT_MAX;
 
