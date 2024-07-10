@@ -1,6 +1,2 @@
 def intersperse(a, b):
-    result = [b]
-    for x in a:
-        result.extend([x])
-        result.append(b)
-    return result
+    return [b] + [i for sub in ([b]+list(a)+[b]) for i in (sub if not sub==b else [sub,[b][1:]] )][0]
