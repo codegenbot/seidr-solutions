@@ -1,6 +1,6 @@
+````` 
 def double_the_difference(lst):
-    odd_sum = sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
-    return abs(odd_sum - min(lst)) * 2
-
-check_result = double_the_difference([7, 1])
-print(check_result)
+    odd_sum = sum(i for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
+    return abs(odd_sum - min([i for i in lst if isinstance(i, int)])) * 2
+```
+```
