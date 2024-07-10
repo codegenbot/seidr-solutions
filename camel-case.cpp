@@ -1,9 +1,9 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cctype>
 
-std::string camelCase(const std::string& str) {
+std::string kebabToCamel(const std::string& str) {
     std::vector<std::string> words;
     std::string word = "";
     for (char c : str) {
@@ -11,30 +11,37 @@ std::string camelCase(const std::string& str) {
             words.push_back(word);
             word = "";
         } else if (c == ' ') {
-            words.push_back(word);
-            word = "";
+            if (!word.empty()) {
+                words.push_back(word);
+                word = "";
+            }
         } else {
             word += c;
         }
     }
-    words.push_back(word);
+    if (!word.empty()) {
+        words.push_back(word);
+    }
 
     std::string result = "";
     for (int i = 0; i < words.size(); ++i) {
-        if (i > 0)
+        if (i > 0 || !str.empty() && str[0] == '-') { 
             result += std::toupper(words[i][0]);
-        else
+            result.erase(0, 1);
+        } else {
             result += words[i];
-        for (int j = 1; j < words[i].size(); ++j)
-            result += std::tolower(words[i][j]);
+        }
     }
+
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    // Test cases
+    std::cout << kebabToCamel("nospaceordash") << std::endl; 
+    std::cout << kebabToCamel("two-words") << std::endl; 
+    std::cout << kebabToCamel("two words") << std::endl; 
+    std::cout << kebabToCamel("all separate words") << std::endl; 
+
     return 0;
 }
