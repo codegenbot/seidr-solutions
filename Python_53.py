@@ -1,15 +1,15 @@
 ```
-def subtract(x: int, y: int):
-    return x - y
+def add(x: int, y: int):
+    return x + y
 
 while True:
     try:
         x = int(input("Enter first number: "))
         y = int(input("Enter second number: "))
-        if y > x:
-            print("The difference is: ", subtract(y, x))
-        else:
-            print("The difference is: ", subtract(x, y))
-        break
+        print("The sum is: ", add(x, y))
     except ValueError:
         print("Invalid input. Please enter an integer.")
+    
+    response = input("Do you want to calculate the sum again? (yes/no): ")
+    if response.lower() != "yes":
+        break
