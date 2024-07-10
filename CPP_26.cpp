@@ -1,15 +1,8 @@
 #include <algorithm>
 #include <vector>
 
-bool areEqualArrays(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (std::find(b.begin(), b.end(), a[i]) == b.end())
-            return false;
-    }
-    return true;
+bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> v) {
@@ -22,7 +15,18 @@ std::vector<int> remove_duplicates(std::vector<int> v) {
     return unique_v;
 }
 
+bool isEqual(std::vector<int> a, std::vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (std::find(b.begin(), b.end(), a[i]) == b.end())
+            return false;
+    }
+    return true;
+}
+
 int main() {
-    assert(areEqualArrays(std::vector<int>({1, 2, 3, 2, 4, 3, 5}), std::vector<int>({1, 4, 5})));
+    assert(isEqual(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
     return 0;
 }
