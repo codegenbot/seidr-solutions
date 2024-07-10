@@ -5,15 +5,20 @@ float get_positive(float num) {
     return (num > 0.0f) ? num : -num;
 }
 
-bool are_vectors_same(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != 1 || b.size() != 1) {
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    return a[0] == b[0];
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
-    float num1, num2;
+    float num1, num2, num3, num4;
     std::cout << "Enter the first number: ";
     if (!(std::cin >> num1)) {
         std::cout << "Invalid input for the first number." << std::endl;
@@ -24,8 +29,20 @@ int main() {
         std::cout << "Invalid input for the second number." << std::endl;
         return 1;
     }
+    std::cout << "Enter the third number: ";
+    if (!(std::cin >> num3)) {
+        std::cout << "Invalid input for the third number." << std::endl;
+        return 1;
+    }
+    std::cout << "Enter the fourth number: ";
+    if (!(std::cin >> num4)) {
+        std::cout << "Invalid input for the fourth number." << std::endl;
+        return 1;
+    }
 
-    if (are_vectors_same({num1}, {num2})) {
+    bool are_same = issame({num1, num2}, {num3, num4});
+    
+    if (are_same) {
         float result = get_positive(num1);
         std::cout << "The positive of the numbers is: " << result << std::endl;
     } else {
