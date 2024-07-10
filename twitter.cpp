@@ -5,14 +5,15 @@ using namespace std;
 
 string validateTweet(string tweet) {
     if(tweet.empty()) return "You didn't type anything";
-    if(input.length() > 140) return "Too many characters";
-    return "Your tweet has " + to_string(input.length()) + " characters";
+    tweet.erase(tweet.find('\n'), 1); 
+    if(tweet.length() > 140) return "Too many characters";
+    return "Your tweet has " + to_string(tweet.length()) + " characters";
 }
 
 int main() {
-    string input;
-    cout << "Enter a tweet: ";
-    getline(cin, input);
-    cout << validateTweet(input) << endl;
+    string tweet;
+    cout << "Enter your tweet: ";
+    getline(cin, tweet);
+    cout << validateTweet(tweet) << endl;
     return 0;
 }
