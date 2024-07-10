@@ -18,11 +18,10 @@ bool issame(string a, string b) {
 int main() {
     int num;
     cin >> num;
-    char str1[100], str2[100]; 
+    vector<string> strings(num);
     for (int i = 0; i < num; i++) {
-        cin >> str1; 
-        str2 = str1;
-        if (issame(str1, string(str1)) && issame(string(str2), str2)) {
+        cin >> strings[i];
+        if (issame(strings[i], strings[i])) {
             cout << "The strings are the same." << endl;
         } else {
             cout << "The strings are not the same." << endl;

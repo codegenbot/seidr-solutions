@@ -1,8 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-
-using namespace std;
 
 bool issame(vector<int> a, vector<vector<int>> b) {
     if (a.size() != b[0].size()) return false;
@@ -11,8 +10,6 @@ bool issame(vector<int> a, vector<vector<int>> b) {
     }
     return true;
 }
-
-string to_string(int x) { return std::to_string(x); }
 
 vector<int> minPath(vector<vector<int>> input, int target) {
     vector<int> path;
@@ -50,12 +47,12 @@ void minPathTest() {
         while(i > 0) {
             if(i >= input[1].size()) {
                 i -= input[1][0];
-                outputStr += to_string(i) + " ";
+                outputStr += std::to_string(i) + ", ";
             } else {
                 int j = 0;
                 while(j < input.size() && i >= input[j][0]) {
                     i -= input[j][0];
-                    outputStr += to_string(i) + " ";
+                    outputStr += std::to_string(i) + ", ";
                     j++;
                 }
                 break;
