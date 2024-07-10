@@ -1,15 +1,10 @@
-#include <vector>
-using namespace std;
-
-int solve(vector<int> v) {
-    int sum = 0;
-    for (int i : v) {
-        int temp = (i / 3);
-        if (temp < 1)
-            temp = 0;
-        else
-            temp -= 2;
-        sum += temp;
+int calculateFuelCost(vector<int> prices) {
+    int totalCost = 0;
+    for (int price : prices) {
+        int cost = (price / 3); // divide by 3
+        cost = std::floor(cost); // round down to nearest integer
+        cost -= 2; // subtract 2
+        totalCost += cost; // add to total cost
     }
-    return sum;
+    return totalCost;
 }
