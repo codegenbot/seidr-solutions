@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -17,9 +17,9 @@ int main() {
     }
 
     for (int i = 0; i < indices.size(); i++) {
-        cout << indices[i];
+        std::cout << indices[i];
         if (i != indices.size() - 1) {
-            cout << " ";
+            std::cout << " ";
         }
     }
 
