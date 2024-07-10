@@ -1,2 +1,3 @@
 def sorted_list_sum(lst):
-    return sum(sorted([word for word in lst if len(word) % 2 == 0], key=lambda x: (len(x), x)))
+    even_words = [word for word in lst if len(word) % 2 == 0]
+    return ''.join(sorted(even_words, key=lambda x: (len(x), x)))
