@@ -1,5 +1,3 @@
-values = []
-for _ in range(3):
-    values.append(int(input().strip()))
+values = list(map(int, input().split()))
 result = sum(val * val for val in values)
 print(result)
