@@ -58,8 +58,8 @@ void minPathTest() {
         }
         string tempStr = "";
         for (int i : output) {
-            if (!tempStr.empty()) tempStr += " "; 
-            tempStr += std::to_string(i) + " "; 
+            tempStr += std::to_string(i) + " ";
+            if(tempStr.length() > 0) tempStr += "\n";
         }
         cout << tempStr << endl;
     }
