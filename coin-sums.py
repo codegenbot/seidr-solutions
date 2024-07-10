@@ -1,14 +1,12 @@
-def coin_sums(cents):
+def coin_sums():
+    cents = int(input())
     coins = [25, 10, 5, 1]
     result = []
 
     for coin in coins:
-        while cents >= coin:
-            cents -= coin
-            result.append(coin)
+        count = cents // coin
+        if count > 0:
+            result.append(count)
+            cents %= coin
 
-    return len(result), result.count(25), result.count(10), result.count(5)
-
-
-cents = int(input())
-print(*coin_sums(cents))
+    return str(result[0]) + "\n" + " ".join(map(str, result[1:]))
