@@ -1,6 +1,3 @@
-import hashlib
-
-
 def string_to_md5():
     while True:
         text = input("Enter some text (or 'q' to quit): ").strip()
@@ -10,6 +7,5 @@ def string_to_md5():
             print("Please enter some text.")
         else:
             return hashlib.md5(text.encode()).hexdigest()
-
 
 print(string_to_md5())
