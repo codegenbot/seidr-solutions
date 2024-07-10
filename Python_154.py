@@ -1,4 +1,8 @@
 def cycpattern_check(a, b):
-    while len(b) > len(a):
-        a += a
-    return (a + a).lower()[:len(a)].find(b.lower()) != -1
+    a = a + a
+    if len(b) > len(a):
+        return False
+    for i in range(len(a)):
+        if a[i : i + len(b)].lower() == b.lower():
+            return True
+    return False
