@@ -1,2 +1,20 @@
-sort(l.begin(), l.end(), [](int a, int b) { return a % 3 == 0 || b % 3 == 0 ? a < b : false; });
-return l;
+vector<int> res = l;
+    vector<int> modThree;
+
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            modThree.push_back(l[i]);
+        }
+    }
+
+    sort(modThree.begin(), modThree.end());
+
+    int j = 0;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            res[i] = modThree[j++];
+        }
+    }
+
+    return res;
+}
