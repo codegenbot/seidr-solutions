@@ -1,4 +1,4 @@
 def convert_case(s):
-    return s.upper()
+    return s.lower()
 
-print(convert_case(input("Enter a string: ")))
+print(convert_case(str(input("Enter a string: ")))
