@@ -5,12 +5,11 @@ vector<int> findLeaders(const vector<int>& nums) {
     
     for (int i = n - 1; i >= 0; i--) {
         if (nums[i] >= maxRight) {
-            leaders.push_back(nums[i]);
             maxRight = nums[i];
+            leaders.push_back(maxRight);
         }
     }
     
     reverse(leaders.begin(), leaders.end());
-    
     return leaders;
 }
