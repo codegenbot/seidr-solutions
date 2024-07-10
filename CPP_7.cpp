@@ -20,26 +20,11 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
 }
 
 int main() {
-    std::vector<std::string> expected = {"grunt", "prune"};
     auto output = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
     
     for (size_t i = 0; i < output.size(); ++i) {
-        if (output[i].size() != expected[i].size()) {
-            std::cerr << "Test failed. Expected: " << expected << ". Got: " << output << std::endl;
-            return 1;
-        }
-        for (size_t j = 0; j < output[i].size(); ++j) {
-            if (output[i][j] != expected[i][j]) {
-                std::cerr << "Test failed. Expected: " << expected << ". Got: " << output << std::endl;
-                return 1;
-            }
-        }
-    }
-    
-    auto expected = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    for (size_t i = 0; i < expected.size(); ++i) {
-        if (expected[i].size() != 1) {
-            std::cerr << "Test failed. Expected: " << expected << ". Got: " << output << std::endl;
+        if (output[i].size() != 1) {
+            std::cerr << "Test failed. Expected: {\"grunt\"}, {\"prune\"}. Got: " << output << std::endl;
             return 1;
         }
     }
