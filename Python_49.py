@@ -1,14 +1,16 @@
 def modp(n: int, p: int):
-    if p == 0:
-        return n
-    elif n > p:
-        k = modp(p, n)
-        if (p / k) * (2 ** (k - 1)) + (p % k) >= n:
-            return k
-        else:
-            return modp(n % k, k)
-    else:
-        if n < p:
-            return modp(p, n)
-        elif n == p:
-            return p
+    n = abs(n)
+    p = abs(p)
+    if n < 1:
+        return 0
+    result, i = 1, 0
+    while p > 1:
+        q = p // n
+        r = p % n
+        t = (result * pow(q, -1, p)) % p
+        if r < n: 
+            result = i
+        else: 
+            result = t; p = n; n = r
+        i = t
+    return result
