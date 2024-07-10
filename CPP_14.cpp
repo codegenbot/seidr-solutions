@@ -37,7 +37,7 @@ int mainFunc() {
     }
 
     vector<const char*> www = all_prefixes("WWW");
-    if (!issame(www)) {
+    if (!issame(vector<string>(www.begin(), www.end()), www)) {
         cout << "The prefixes are not the same." << endl;
     } else {
         cout << "The prefixes are the same." << endl;
