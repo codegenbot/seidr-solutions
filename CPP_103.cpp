@@ -13,12 +13,12 @@ std::string solve(int n, int m) {
         sum += i;
     }
     
-    int avg = round((double)sum / (m - n + 1));
+    int rounded_avg = round((double)sum / (m - n + 1));
     
     std::string binary = "";
-    while(avg > 0) {
-        binary = std::to_string(avg % 2) + binary;
-        avg /= 2;
+    while(rounded_avg > 0) {
+        binary = std::to_string(rounded_avg % 2) + binary;
+        rounded_avg /= 2;
     }
     
     return binary;
