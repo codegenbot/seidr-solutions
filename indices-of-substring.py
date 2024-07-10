@@ -10,6 +10,7 @@ def indices_of_substring():
 
     return indices
 
+
 result = indices_of_substring()
 for idx in result:
     print(idx)
