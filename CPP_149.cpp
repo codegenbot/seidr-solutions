@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool same(vector<string> a, vector<string> b) {
+bool same(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,7 +13,12 @@ bool same(vector<string> a, vector<string> b) {
     return true;
 }
 
-int main() {
-    assert(same({{"aaaa", "bbbb"}, {"cc", "dd"}} , {{"cc", "dd"}, {"aaaa", "bbbb"}}));
+std::vector<std::string> sorted_list_sum(std::vector<std::string> input) {
+    std::sort(input.begin(), input.end());
+    return input;
+}
+
+int driver() {
+    assert(same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) , {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }
