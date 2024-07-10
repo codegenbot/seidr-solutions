@@ -1,7 +1,5 @@
 #include <string>
-#include <openssl/ssl.h>
-#include <openssl/x509v3.h>
-#include <openssl/md5.h>
+#include <openssl/evp.h>
 
 using namespace std;
 
@@ -9,7 +7,14 @@ string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char md5[16];
-    MD5((const unsigned char*)text.c_str(), text.size(), md5);
+    EVP_MD_CTX mdctx;
+    EVP_MD *md = EVP_md_md5();
+    const unsigned char* input = (const unsigned char*)text.c_str();
+    size_t len = text.size();
+
+    EVP_DigestInit_ex(&mdctx, md, NULL);
+    EVP_DigestUpdate(&mdctx, input, len);
+    EVP_DigestFinal_ex(&mdctx, md5, NULL);
 
     string result;
     for (int i = 0; i < 16; ++i) {
