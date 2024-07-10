@@ -1,4 +1,3 @@
-```
 def is_multiply_prime(a):
     def is_prime(n):
         if n < 2:
@@ -9,7 +8,7 @@ def is_multiply_prime(a):
         return True
 
     prime_factors = set()
-    for i in range(2, a + 1):
+    for i in range(2, a+1):
         while a % i == 0:
             prime_factors.add(i)
             a //= i
