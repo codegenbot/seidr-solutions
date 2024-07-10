@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 
 int skjkasdkd(vector<int> lst) {
     int maxPrime = 0;
@@ -31,5 +30,5 @@ int sumOfDigits(int n) {
 }
 
 int main() {
-    assert(skkjasdkd({127, 97, 8192}) == 10);
+    assert(skkasdkd({127, 97, 8192}) == 10);
 }
