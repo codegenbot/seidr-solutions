@@ -1,17 +1,23 @@
-string fix_spaces(string text){
-    string result = "";
-    for(int i=0; i<text.length(); i++){
-        if(text[i] == ' '){
-            if(i+1 < text.length() && text[i+1] == ' '){
-                if(result.length() > 2 || (result.length() == 2 && result[result.length()-1] != '-')){
-                    result += '-';
-                }
-            } else {
-                if(result.length() > 0) result += '_';
+int main() {
+    string text;
+    cin >> text;
+    for(int i = 0; i < text.length(); i++) {
+        if(text[i] == ' ') {
+            bool isConsecutive = true;
+            int j = i + 1;
+            while(j < text.length() && text[j] == ' ') {
+                j++;
             }
-        } else {
-            result += text[i];
+            if(j - i > 2) {
+                for(int k = i; k < j; k++) {
+                    text[k] = '-';
+                }
+                i = j - 1;
+            } else {
+                text[i] = '_';
+            }
         }
     }
-    return result;
+    cout << text << endl;
+    return 0;
 }
