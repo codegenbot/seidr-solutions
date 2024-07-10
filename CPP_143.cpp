@@ -1,11 +1,12 @@
+```cpp
 #include <string>
 #include <vector>
 
 using namespace std;
 
-std::string words_in_sentence(std::string sentence) {
-    vector<std::string> words = split(sentence, ' ');
-    std::string result;
+string words_in_sentence(string sentence) {
+    vector<string> words = split(sentence, ' ');
+    string result;
     
     for (int i = 0; i < words.size(); i++) {
         if (is_prime(words[i].length())) {
@@ -28,9 +29,9 @@ bool is_prime(int n) {
     return true;
 }
 
-std::vector<std::string> split(std::string sentence, char delimiter) {
-    std::vector<std::string> result;
-    std::string temp;
+vector<string> split(string sentence, char delimiter) {
+    vector<string> result;
+    string temp;
 
     for (int i = 0; i < sentence.length(); i++) {
         if (sentence[i] == delimiter) {
