@@ -1,20 +1,13 @@
-```python
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    stack = []
+    current_group = []
     for char in paren_string:
         if char == '(':
-            stack.append(1)
+            current_group.append(int(char))
         elif char == ')':
-            if stack:
-                stack.pop()
-            else:
-                result.append(0)
-        elif stack:
-            level = len(stack)
-            result.append(level)
-            while stack and stack[-1] > 0:
-                stack.pop()
+            if len(current_group) > 1 and current_group[-2] == '(':
+                result.append(len(current_group) - 2)
+            current_group = []
     return result
