@@ -1,5 +1,11 @@
-```cpp
-bool issame(std::vector<std::string> a, std::vector<std::string> b) { return a == b; }
+```c++
+#include <vector>
+#include <string>
+#include <cctype>
+
+bool operator==(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
 
 std::vector<std::string> split_words(string txt) {
     vector<string> result;
@@ -28,6 +34,5 @@ std::vector<std::string> split_words(string txt) {
 }
 
 int main() {
-    bool b;
-    assert(issame(std::vector<std::string>({""}), std::vector<std::string>({"0"})));
+    assert(split_words("") == std::vector<string>({""}));
 }
