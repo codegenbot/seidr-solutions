@@ -13,14 +13,16 @@ int starts_one_ends(int n) {
             if ((i % 2 == 0) && j == 0) {
                 start_with_one = true;
             }
-            str += (i % 2 == 0 ? '1' : '0');
+            char ch = (i % 2 == 0) ? '1' : '0';
+            str += ch;
         }
 
         for (int j = n - 1; j >= 0; j--) {
             if ((i % 2 == 0) && j == n - 1) {
                 end_with_one = true;
             }
-            str += (i % 2 == 0 ? '1' : '0');
+            char ch = (i % 2 == 0) ? '1' : '0';
+            str += ch;
         }
 
         if ((start_with_one || i == 1) && (end_with_one || i == pow(10, n-1))) {
