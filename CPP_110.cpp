@@ -31,4 +31,3 @@ int main() {
     std::vector<int> b(a);
     std::cout << "Result: " << exchange(a, b) << std::endl;
     return 0;
-}
