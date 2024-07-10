@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
+```cpp
 bool below_threshold(vector<int> numbers, int threshold) {
     for (int i = 0; i < numbers.size(); i++) {
         if (numbers[i] < threshold) return true;
@@ -9,26 +6,22 @@ bool below_threshold(vector<int> numbers, int threshold) {
     return false;
 }
 
-int main() {
-    vector<int> numbers;
-    int num = 0;
+vector<int> numbers;
+int num = 0;
 
+cout << "Enter the number of elements: ";
+cin >> num;
+
+while(num <= 0){
+    cout << "Invalid input. Please enter a positive integer.\n";
     cout << "Enter the number of elements: ";
     cin >> num;
+}
 
-    while(num <= 0){
-        cout << "Invalid input. Please enter a positive integer.\n";
-        cout << "Enter the number of elements: ";
-        cin >> num;
-    }
+numbers.resize(num); 
 
-    numbers.resize(num); 
-
-    for (int i = 0; i < num; i++) {
-        int temp; 
-        cin >> temp; 
-        numbers.push_back(temp);
-    }
-    
-    return 0;
+for (int i = 0; i < num; i++) {
+    int temp; 
+    cin >> temp; 
+    numbers.push_back(temp);
 }
