@@ -1,9 +1,11 @@
-#include <boost/any_cast.hpp>
+```
+#include <boost/config.hpp>
+#include <boost/any.hpp>
 
-vector<int> filter_integers(list_any values) {
+vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value)) {
+        if (boost::any_cast<int>(value, true)) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
