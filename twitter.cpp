@@ -1,12 +1,13 @@
-**Code:**
 #include <string>
 #include <iostream>
+#include <conio.h>
 
 int main() {
     std::string tweet;
-    
-    if (!isatty(fileno(stdin))) {
-        std::cout << "Interactive mode detected. Provide input:" << std::endl;
+    bool interactiveMode = !_isatty(_fileno(stdin));
+
+    if (interactiveMode) {
+        std::cout << "Please enter your tweet: ";
     }
 
     getline(std::cin, tweet);
