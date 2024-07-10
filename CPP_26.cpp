@@ -15,4 +15,7 @@ std::vector<int> remove_duplicates(std::vector<int> v) {
     return unique_v;
 }
 
-assert(issame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), std::vector<int>({1, 4, 5})));
+int test_main() {
+    assert(issame(std::vector<int>({1, 2, 3, 2, 4, 3, 5}), std::vector<int>({1, 4, 5})));
+    return 0;
+}
