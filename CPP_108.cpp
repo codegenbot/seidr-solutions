@@ -1,20 +1,36 @@
 #include <vector>
+#include <algorithm>
 
-int count_nums(vector<int> nums) {
+int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        bool has_positive_sum = false;
-        long abs_num = labs(num);
-        while (abs_num > 0) {
-            int digit = abs_num % 10;
-            if (digit != 0 || num < 0 && digit == -1) {
-                has_positive_sum = true;
-                break;
+        if (num > 0) {
+            bool has_five_or_eight = false;
+            while (num != 0) {
+                int digit = num % 10;
+                if (digit == 5 || digit == 8) {
+                    has_five_or_eight = true;
+                }
+                num /= 10;
             }
-            abs_num /= 10;
-        }
-        if (has_positive_sum) {
-            count++;
+            if (!has_five_or_eight) {
+                count++;
+            }
+        } else if (num < 0) {
+            bool has_negative_digit = false, has_five_or_eight = false;
+            while (num != 0) {
+                int digit = abs(num % 10);
+                if (digit == 5 || digit == 8) {
+                    has_five_or_eight = true;
+                }
+                num /= 10;
+                if (!has_negative_digit && digit >= 5) {
+                    has_negative_digit = true;
+                }
+            }
+            if (!has_negative_digit || has_five_or_eight) {
+                count++;
+            }
         }
     }
     return count;
