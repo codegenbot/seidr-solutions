@@ -1,5 +1,5 @@
 #include <vector>
-#include <string>
+#include <algorithm>
 
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
@@ -7,7 +7,7 @@ bool will_it_fly(vector<int> q, int w) {
         str += to_string(i);
     }
     
-    if (str != reverse(str).s) return false; // check if it's balanced
+    if (str != string(str.rbegin(), str.rend()).s) return false; // check if it's balanced
     
     int sum = 0;
     for (int i : q) {
