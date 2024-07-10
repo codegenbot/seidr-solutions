@@ -1,6 +1,6 @@
+```
 def modp(n: int, p: int):
-    if n < 1:
-        return pow(n, p - 1, p)
-    else:
-        return n ** (p-1) % p
-    return n % p
+    return pow(n, p, p)
+
+if __name__ == "__main__":
+    print(modp(int(input("Enter n: ")), int(input("Enter p: "))))

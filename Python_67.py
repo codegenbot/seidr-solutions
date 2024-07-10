@@ -1,6 +1,15 @@
-```
 def fruit_distribution(s, n):
-    words = s.split()
-    apple_count = sum(int(word) for word in words if word.isdigit() and "apples" in " ".join(words))
-    orange_count = sum(int(word) for word in words if word.isdigit() and "oranges" in " ".join(words))
-    return max(0, n - apple_count - orange_count)
+    """
+    This function calculates the remaining number of fruits that can be distributed after some have been given away.
+    
+    Parameters:
+    s (str): A string containing information about apples and oranges distribution.
+    n (int): The total number of fruits available.
+
+    Returns:
+    int: The number of remaining fruits that can be distributed.
+    """
+    s = " ".join(s).replace("apples and", "apples ").replace("oranges", " oranges").split()
+    apples = int(s[s.index("apples") + 1 :].replace("and", "").replace("apples", ""))
+    oranges = int(s[s.index("oranges") + 7 :].replace("and", "").replace("oranges", ""))
+    return n - apples - oranges
