@@ -5,7 +5,7 @@ def main():
     while True:
         try:
             x = int(input().strip())
-            if not x:
+            if x == 0:
                 break
             y = int(input().strip())
             result = add(x, y)
