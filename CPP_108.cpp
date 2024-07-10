@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -24,16 +23,11 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    int n = 0;
+    int n;
     std::cin >> n;
     std::vector<int> nums(n);
     for (int i = 0; i < n; i++) {
-        while (!(std::cin >> nums[i])) {
-            std::cout << "Invalid input. Please enter a non-negative integer: ";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cin >> nums[i]; 
-        }
+        std::cin >> nums[i]; 
     }
     if (nums.empty()) {  // If no numbers were read, there's nothing to count
         std::cout << "No numbers were read." << std::endl;
