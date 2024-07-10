@@ -1,7 +1,6 @@
 def sort_even(l: list):
-    l.sort() 
-    even = [x for x in l if x % 2 == 0]
-    odd = [x for x in l if x % 2 != 0]
+    even = sorted([x for x in l if x % 2 == 0])
+    odd = sorted([x for x in l if x % 2 != 0])
 
     result = []
     i, j = 0, 0
@@ -9,8 +8,13 @@ def sort_even(l: list):
         if i < len(even) and (j >= len(odd) or even[i] <= odd[j]):
             result.append(even[i])
             i += 1
-        else:
+        elif j < len(odd):  
             result.append(odd[j])
             j += 1
+
+    if i < len(even):
+        result.extend(even[i:])
+    if j < len(odd):
+        result.extend(odd[j:])
 
     return tuple(result)
