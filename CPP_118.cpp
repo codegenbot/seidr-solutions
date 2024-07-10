@@ -1,34 +1,22 @@
-#include <algorithm>
-using namespace std;
+Here is the completed code:
 
+```cpp
 string get_closest_vowel(string word) {
-    int right = word.size() - 1;
-    while (right >= 0 && !isVowel(word[right])) {
-        right--;
-    }
-    if (right < 0) return "";
-    
-    int left = right - 1;
-    while (left >= 0 && !isConsonant(word[left])) {
-        left--;
-    }
-    if (left < 0) return "";
-    
-    for (; left <= right; left++) {
-        if (isVowel(word[left])) {
-            return word.substr(left, 1);
+    int n = word.length();
+    for(int i=n-1; i>=1; i--){
+        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || 
+           word[i] == 'o' || word[i] == 'u' || word[i] == 'A' || 
+           word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || 
+           word[i] == 'U'){
+            for(int j=i-1; j>=0; j--){
+                if(word[j] != 'a' && word[j] != 'e' && word[j] != 'i' &&
+                   word[j] != 'o' && word[j] != 'u' && word[j] != 'A' &&
+                   word[j] != 'E' && word[j] != 'I' && word[j] != 'O' &&
+                   word[j] != 'U'){
+                    return string(1, word[i]);
+                }
+            }
         }
     }
-    
     return "";
-}
-
-bool isVowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
-}
-
-bool isConsonant(char c) {
-    c = tolower(c);
-    return !isVowel(c) && (c >= 'b' && c <= 'z');
 }
