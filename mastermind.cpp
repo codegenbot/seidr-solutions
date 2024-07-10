@@ -32,12 +32,11 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    return black + white; // Return the sum of both
+    return black + white; // Return the sum of both.
 }
 
 int main() {
     std::string code, guess;
-    // Ask for input from user
     std::cout << "Enter your Mastermind code: ";
     std::cin >> code;
     std::cout << "Enter your guess: ";
@@ -46,5 +45,5 @@ int main() {
     int result = mastermind(code, guess);
     std::cout << "Number of white pegs and black pegs are " << result << std::endl;
 
-    return 0; // Add this to ensure that the program executes till the end.
+    return 0;
 }
