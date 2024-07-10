@@ -1,19 +1,12 @@
-#include<stdexcept>
+#include <vector>
+#include <algorithm>
 
-vector<float> sortVector(vector<float> l) {
-    vector<float> sortedL = l;
-    std::sort(sortedL.begin(), sortedL.end());
-    return sortedL;
-}
-
-float median(vector<float> l) {
-    vector<float> sortedL = sortVector(l);
-    int n = sortedL.size();
+float median(std::vector<float> l) {
+    std::sort(l.begin(), l.end());
+    int n = l.size();
     if (n % 2 == 0) {
-        float mid1 = sortedL[n / 2 - 1];
-        float mid2 = sortedL[n / 2];
-        return (mid1 + mid2) / 2;
+        return (l[n/2 - 1] + l[n/2]) / 2.0;
     } else {
-        return sortedL[n / 2];
+        return l[n/2];
     }
 }
