@@ -1,5 +1,5 @@
 n, = map(int, input().split())
-arr = [int(input()) for _ in range(n)]
+arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
 left_sum = 0
