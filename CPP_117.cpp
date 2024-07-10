@@ -14,12 +14,12 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 std::vector<std::string> select_words(std::string input, int k) {
     std::istringstream iss(input);
-    std::vector<std::string> words(k); // Initialize the vector with k capacity
+    std::vector<std::string> words;
     int wordCount = 0;
 
     for (std::string s; std::getline(iss, s, ' ');) {
         if (++wordCount <= k) {
-            words[wordCount - 1] = s;
+            words.push_back(s);
         } else break;
     }
 
