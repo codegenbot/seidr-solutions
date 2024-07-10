@@ -1,4 +1,3 @@
-```Python
 def solve_task():
     while True:
         try:
