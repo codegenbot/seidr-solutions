@@ -14,9 +14,14 @@ bool is_nested(const std::string& str) {
                 level--;
             }
         }
+
+        if (level > 1) {
+            result = true;
+            break;
+        }
     }
 
-    return level != 0; 
+    return result;
 }
 
 int main() {
