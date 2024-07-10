@@ -8,7 +8,8 @@ int main() {
 
     for (int i = 0; i < hours; ++i) {
         snow_on_ground += snow_fall_rate;
-        snow_on_ground *= (1.0f - snow_melt_rate); // Consider the proportion of snow melting correctly
+        float snow_melted = snow_on_ground * snow_melt_rate;
+        snow_on_ground = std::max(0.0f, snow_on_ground + snow_fall_rate - snow_melted);
     }
 
     std::cout << snow_on_ground << std::endl;
