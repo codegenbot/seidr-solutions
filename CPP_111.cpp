@@ -1,5 +1,3 @@
-// Replace the existing code with the below corrected version
-
 #include <iostream>
 #include <map>
 #include <sstream>
@@ -33,4 +31,10 @@ std::map<char, int> histogram(std::string test) {
     }
     
     return maxChars;
+}
+
+int main() {
+    assert(issame(histogram("a"), std::map<char, int>{{'a', 1}}));
+    
+    return 0;
 }
