@@ -1,35 +1,37 @@
-```cpp
 #include <vector>
 #include <algorithm>
+#include <random>
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size()!=b.size()) return false;
     for(int i=0;i<a.size();i++){
         if(a[i]!=b[i])return false;
     }
     return true;
+
 }
 
-vector<int> make_a_pile(int n) {
-    vector<int> temp;
-    for(int i=0; i<n; i++){
-        temp.push_back(i+1);
+int make_a_pile(int n) {
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::vector<int> pile;
+    for (int i = 1; i <= n; i++) {
+        pile.push_back(i);
     }
-    random_shuffle(temp.begin(),temp.end());
-    return temp;
+    std::shuffle(pile.begin(), pile.end(), mt);
+    return pile[0]; 
 }
 
 int main() {
     int n;
-    cout << "Enter a number: ";
-    cin >> n;
+    std::cout << "Enter a number: ";
+    std::cin >> n;
     
-    vector<int> pile = make_a_pile(n);
-    vector<int> pile2 = make_a_pile(n);
-    if(issame(pile, pile2)){
-        cout << "The piles are the same." << endl;
+    int pile = make_a_pile(n);
+    if(issame({1}, {pile})){
+        std::cout << "The piles are the same." << std::endl;
     } else {
-        cout << "The piles are not the same." << endl;
+        std::cout << "The piles are not the same." << std::endl;
     }
     
 }
