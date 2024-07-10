@@ -20,25 +20,16 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
 }
 
 int main() {
-    auto output = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    std::vector<std::vector<std::string>> input = {{"grunt"}, {"trumpet"}, {"prune"}, {"gruesome"}};
+    const std::string sub = "run";
     
-    bool resultEqual = true;
-    for (size_t i = 0; i < output.size(); ++i) {
-        if (output[i].size() != 1 || (output[i][0] != "grunt" && output[i][0] != "prune")) {
-            resultEqual = false;
-        }
-    }
+    auto output = filter_by_substring(input, sub);
     
-    if (!resultEqual) {
-        std::cerr << "Test failed. Expected: {\"grunt\"}, {\"prune\"}. Got: " << output << std::endl;
+    if (!(output == std::vector<std::vector<std::string>> {{{"run"}} ,{{}} ,{{"prune"}} ,{{}} }))
         return 1;
-    }
     
-    // If you reach this point, the test passed
-    std::cout << "Test passed." << std::endl;
-
-    std::vector<std::vector<std::string>> input = {{"apple", "banana"}, {"orange", "grape"}, {"kiwi", "mango"}};
-    const std::string sub = "an";
+    input = {{"apple", "banana"}, {"orange", "grape"}, {"kiwi", "mango"}};
+    sub = "an";
     auto output2 = filter_by_substring(input, sub);
     
     for (const auto& vec : output2) {
