@@ -4,6 +4,6 @@ def check_numbers(numbers, threshold):
 
 # Call the function with appropriate arguments
 numbers = [5, 10, 15, 20]
-threshold = 5
+threshold = 10
 output = check_numbers(numbers, threshold)
 print(output)
