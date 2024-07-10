@@ -2,15 +2,9 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
-int max_fill(vector<vector<int>>& grid, int capacity);
-
-int main() {
+int max_fill(const std::vector<std::vector<int>>& grid, int capacity) {
     assert(max_fill({{1,1,1,1}, {1,1,1,1}}, 9) == 2);
-}
 
-int max_fill(vector<vector<int>>& grid, int capacity) {
     int rows = grid.size();
     int cols = grid[0].size();
     int total_water = 0;
