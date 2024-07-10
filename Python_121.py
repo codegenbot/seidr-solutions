@@ -1,3 +1,4 @@
+```
 def sum_of_odd_numbers_in_every_other_element():
     while True:
         try:
@@ -8,11 +9,8 @@ def sum_of_odd_numbers_in_every_other_element():
         except ValueError:
             print("Invalid input. Please try again.")
 
-
 def main():
     result = sum_of_odd_numbers_in_every_other_element()
     print(f"The sum of odd numbers is {result}")
 
-
-if __name__ == "__main__":
-    main()
+main()
