@@ -12,6 +12,11 @@ def factorize(n: int) -> List[int]:
     return factors
 
 if __name__ == "__main__":
-    n = int(input("Enter a number: "))
-    result = factorize(n)
-    print(result)
+    while True:
+        try:
+            n = int(input("Enter a number: "))
+            result = factorize(n)
+            print(result)
+            break
+        except ValueError:
+            print("Please enter a valid integer.")
