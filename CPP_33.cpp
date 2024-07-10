@@ -19,21 +19,31 @@ vector<int> sort_third(vector<int> l) {
     sort(multiplesOfThree.begin(), multiplesOfThree.end());
 
     vector<int> result;
-
-    for(int i = 0; i < l.size(); ) {
-        if(i % 3 == 0 && !multiplesOfThree.empty()) {
-            result.push_back(multiplesOfThree[0]);
-            for(int k = 0; k < 3; k++) {
-                if(i % 3 == 0)
-                    i++;
-                else
-                    result.push_back(others[0]), i++, others.erase(others.begin());
+    int j = 0;
+    for (int i = 0; i < l.size(); ) {
+        if (i % 3 == 0 && !multiplesOfThree.empty()) {
+            int val = multiplesOfThree[j];
+            while (!multiplesOfThree.empty() && j < multiplesOfThree.size()) {
+                result.push_back(val);
+                for(int k = 0; k < 3; k++) {
+                    if(i % 3 == 0)
+                        i++;
+                    else
+                        i++;
+                }
+                j++;
+                if(j >= multiplesOfThree.size())
+                    break;
             }
-        } else if (!others.empty()) {
-            result.push_back(others[0]);
-            i++, others.erase(others.begin());
-        } else
-            break;
+        } else {
+            if(others.size() > 1) {
+                result.push_back(others[0]);
+                others.erase(others.begin());
+            } else {
+                result.push_back(others[0]);
+            }
+            i++;
+        }
     }
 
     return result;
