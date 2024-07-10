@@ -16,11 +16,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     
         if open_count == 0:
             result.append(current_group)
-            current_group = ""
-        elif char == ")" and open_count == 0:
-            current_group = ""
+            current_group = "" if open_count == 0 else current_group
             
     return result
-
-input_string = input("Enter the string with parentheses: ")
-print(separate_paren_groups(input_string))
