@@ -2,9 +2,9 @@
 using namespace std;
 
 string string_sequence(int n) {
-    ostringstream oss;
+    string result = "";
     for (int i = 0; i <= n; ++i) {
-        oss << i << " ";
+        result += to_string(i) + " ";
     }
-    return oss.str();
+    return result;
 }
