@@ -1,29 +1,17 @@
-int bowlingScore(std::string input) {
+#include <iostream>
+#include <string>
+
+int bowlingScore(const std::string& input) {
     int score = 0;
-    int i = 0;
-    while(i < input.length()) {
-        if(input[i] == 'X') {
-            score += 30;
-            i++;
-        } else if(input[i] == '/') {
-            char nextChar = input[i+1];
-            if(nextChar == '/') {
-                score += 10;
-            } else {
-                score += 10 + (nextChar - '0');
-            }
-            i += 2;
-        } else {
-            int currentRoll = (input[i] == 'X') ? 10 : ((input[i+1] == '/') ? 10 - (input[i] - '0') : (input[i] - '0'));
-            if(currentRoll < 10) {
-                score += currentRoll;
-            } else {
-                int first = (input[i] == 'X') ? 10 : (input[i+1] == '/') ? 10 - (input[i] - '0') : (input[i] - '0');
-                int second = (input[i+1] == '/') ? 0 : ((input[i+2] == 'X') ? 10 : (input[i+2] - '0'));
-                score += first + second;
-            }
-            i += 2;
+    int rollCount = 0;
+    for (char c : input) {
+        if (c == '/') {
+            score += rollCount * 10;
+            rollCount = 0;
+        } else if ('1' <= c && c <= '9') {
+            rollCount *= 10 + (c - '0');
         }
     }
+    score += rollCount;
     return score;
 }
