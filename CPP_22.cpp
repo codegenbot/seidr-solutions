@@ -14,7 +14,7 @@ std::vector<int> filter_integer(std::vector<int> values) {
             result.push_back(value);
         } else if(value != 0) {
             result.push_back(value);
-            isFirst = false;
+            isFirst = true; // Reset here to avoid exceeding maximum size.
         }
     }
     return result;

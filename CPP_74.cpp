@@ -1,13 +1,11 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
-#include <cassert>
 
 using namespace std;
 
 bool is_same(vector<string> a, vector<string> b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    return equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
@@ -21,7 +19,7 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     }
     if (sum1 < sum2) return lst1;
     else if (sum1 > sum2) return lst2;
-    else return lst1;
+    else return vector<string>();
 }
 
 int main() {
