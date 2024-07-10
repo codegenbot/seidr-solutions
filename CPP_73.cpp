@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -14,7 +15,7 @@ int smallest_change(std::vector<int> arr) {
     
     int smallest = INT_MAX;
 
-    std::vector<int> dp(n+1, 0);
+    std::vector<int> dp(n+1);
     for (auto coin : arr) {
         dp[coin] = 1;
     }
@@ -43,6 +44,11 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+
+    if(n > INT_MAX) {
+        std::cout << "Error: Number of elements exceeds maximum limit.\n";
+        return 1; 
+    }
 
     std::vector<int> arr(n);
     for (int i = 0; i < n; i++) {
