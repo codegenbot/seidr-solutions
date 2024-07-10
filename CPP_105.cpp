@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <map>
 #include <algorithm>
 
@@ -7,29 +8,22 @@ bool issame(vector<string> a, vector<string> b);
 
 vector<string> by_length(vector<int> arr);
 
-int main() {
-    vector<int> input = {3, 2, 5, 1, 9, 7};
-    vector<string> result = by_length(input);
-
-    for (const string& str : result) {
-        cout << str << " ";
-    }
-
-    return 0;
-}
-
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
 
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
     }
 
     return true;
+}
+
+int main() {
+    // Main function implementation
 }
 
 vector<string> by_length(vector<int> arr){
