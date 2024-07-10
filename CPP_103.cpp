@@ -27,5 +27,6 @@ int main() {
     int n, m;
     std::cin >> n >> m;
     std::cout << solve(n, m) << std::endl;
+
     return 0;
 }
