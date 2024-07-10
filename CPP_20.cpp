@@ -1,9 +1,14 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-std::vector<float> find_closest_elements(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
+vector<float> find_closest_elements(vector<float> numbers) {
+    sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
     int min_index = 0;
     for (int i = 1; i < numbers.size() - 1; ++i) {
@@ -16,10 +21,7 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
     return {numbers[min_index], numbers[min_index + 1]};
 }
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1});
+    return 0;
 }
