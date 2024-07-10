@@ -1,4 +1,3 @@
-```
 def sum_squares():
     numbers = input("Enter numbers (separated by space): ").split()
     for i in range(len(numbers)):
