@@ -1,4 +1,8 @@
-int digitCount = 0;
+#include <string>
+#include <cassert>
+
+std::string file_name_check(std::string file_name) {
+    int digitCount = 0;
     int dotCount = 0;
     int dotIndex = -1;
     
@@ -15,10 +19,21 @@ int digitCount = 0;
         return "No";
     }
     
-    string extension = file_name.substr(dotIndex + 1);
+    std::string extension = file_name.substr(dotIndex + 1);
     if (extension != "txt" && extension != "exe" && extension != "dll") {
         return "No";
     }
     
     return "Yes";
+}
+
+int main() {
+    assert(file_name_check("file.txt") == "Yes");
+    assert(file_name_check("file.exe") == "Yes");
+    assert(file_name_check("file.dll") == "Yes");
+    assert(file_name_check("file.txt1") == "No");
+    assert(file_name_check("file.") == "No");
+    assert(file_name_check("file") == "No");
+
+    return 0;
 }
