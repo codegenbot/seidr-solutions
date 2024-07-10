@@ -1,6 +1,5 @@
-from typing import list
-
-def parse_music(music_string: str) -> list:
+```
+def parse_music(music_string: str) -> list[int]:
     music_list = []
     i = 0
     while i < len(music_string):
