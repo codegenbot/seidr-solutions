@@ -1,7 +1,4 @@
 ```cpp
-#include <iostream>
-#include <vector>
-
 int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -15,7 +12,20 @@ int count_nums(std::vector<int> nums) {
                 count++;
             }
         } else {
-            break; 
+            // Check if absolute value of num is not too large
+            if (std::abs(num) < INT_MAX / 9) {
+                int absNum = std::abs(num);
+                sum = 0;
+                while (absNum > 0) {
+                    sum += absNum % 10;
+                    absNum /= 10;
+                }
+                if (sum > 0) {
+                    count++;
+                }
+            } else {
+                break; 
+            }
         }
     }
     return count;
@@ -28,15 +38,12 @@ int main() {
     std::vector<int> nums;
     for (int i = 0; i < n; i++) {
         int num;
-        if(std::cin >> num) { 
-            while(std::cin.peek() == ' ') { // skip leading spaces
-                std::cin.get();
-            }
-            if(num != 0 && num > 0) { 
-                nums.push_back(num); 
-            } else {
-                break; 
-            }
+        std::cin >> num;
+        while(std::cin.peek() == ' ') { // skip leading spaces
+            std::cin.get();
+        }
+        if(num != 0) { // check if the number is not zero
+            nums.push_back(num); 
         } else {
             break; 
         }
