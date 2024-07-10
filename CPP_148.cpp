@@ -2,18 +2,15 @@
 #include <string>
 using namespace std;
 
-void bf(string n) {
-    if (n.empty())
-        cout << "Error: Input string is empty." << endl;
-    else
-        cout << "Input string is valid." << endl;
-}
-
 int main() {
     int num;
     cin >> num;
     if (num > 0) {
-        bf(to_string(num));
+        string n = to_string(num);
+        if (n.empty())
+            cout << "Error: Input number is empty." << endl;
+        else
+            cout << "Input number is valid." << endl;
     } else {
         cout << "Error: Input number should be positive." << endl;
     }

@@ -40,7 +40,9 @@ int main() {
     std::cin >> n;
     std::vector<int> nums = std::vector<int>();
     for (int i = 0; i < n; i++) {
-        if (!(std::cin >> nums.push_back(i))) break;
+        int val;
+        if (!(std::cin >> val)) break;
+        nums.push_back(val);
     }
     if (!std::cin) { // If there was an input failure, display error message and exit.
         std::cerr << "Error: Invalid input. Please try again.\n";
