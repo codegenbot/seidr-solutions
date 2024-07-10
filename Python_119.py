@@ -1,7 +1,4 @@
-from typing import List
-
-
-def match_parens(lst: List[str]) -> str:
+def match_parens(lst):
     for s in lst:
         stack = []
         for char in s:
@@ -11,6 +8,6 @@ def match_parens(lst: List[str]) -> str:
                 if not stack:
                     return "No"
                 stack.pop()
-        if stack:
+        if stack or stack:  # Update condition to handle extra opening parentheses
             return "No"
     return "Yes"
