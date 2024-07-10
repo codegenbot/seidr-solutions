@@ -1,7 +1,6 @@
 #include <vector>
 #include <cassert>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -16,7 +15,7 @@ double double_the_difference(vector<double> lst) {
     return static_cast<double>(sum);
 }
 
-int main_func() {
+int main() {
     vector<double> lst;
 
     for (string line; getline(cin, line); ) {
@@ -24,9 +23,8 @@ int main_func() {
             double val = stod(line);
             int diff = abs((int)val - 5);
             if (diff % 2 != 0) {
-                // odd_sum += val;
+                lst.push_back(val);
             }
-            lst.push_back(val);
         }
     }
 
