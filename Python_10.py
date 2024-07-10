@@ -6,6 +6,6 @@ def make_palindrome(s):
         if s == reverse_string(s, i):
             return s[:i][::-1] + s
 
-input_string = str(input("Enter a string: "))
+input_string = input("Enter a string: ")
 result = make_palindrome(input_string)
 print(result)
