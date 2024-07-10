@@ -2,9 +2,11 @@
 
 std::string int_to_roman(int number) {
     std::string roman = "";
-    while (number >= 1000) {
-        number -= 1000;
-        roman += "M";
+    if (number > 3999) {
+        while (number >= 1000) {
+            number -= 1000;
+            roman += "M";
+        }
     }
     if (number >= 900) {
         number -= 900;
@@ -15,7 +17,8 @@ std::string int_to_roman(int number) {
     } else if (number >= 400) {
         number -= 400;
         roman += "CD";
-    } else if (number >= 100) {
+    }
+    if (number >= 100) {
         while (number >= 100) {
             number -= 100;
             roman += "C";
@@ -44,8 +47,10 @@ std::string int_to_roman(int number) {
         number -= 4;
         roman += "IV";
     } else {
-        number -= 1;
-        roman += "I";
+        while (number > 0) {
+            number--;
+            roman += "I";
+        }
     }
     return roman;
 }
