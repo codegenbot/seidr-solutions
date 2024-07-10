@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```
 def smallest_change(arr):
     n = len(arr)
