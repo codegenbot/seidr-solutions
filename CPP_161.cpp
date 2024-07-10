@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -13,13 +12,11 @@ int solve(std::string s) {
 }
 
 int main() {
-    std::cout << "Enter a string: ";
     std::string s;
+    std::cout << "Enter a string: ";
     std::getline(std::cin, s);
     int result = solve(s); 
-    if (result > 0) {
-        std::cout << "Result: " << result << std::endl;
-    } else {
-        std::cout << "No vowels found." << std::endl;
-    }
+    std::cout << "Result: " << result << std::endl;
+
+    return 0;
 }
