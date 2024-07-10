@@ -1,7 +1,6 @@
-#include <string>
+Here is the solution:
 
-string fizzBuzz(int x) {
-    string result;
+int fizzBuzz(int x) {
     if (x % 3 == 0 && x % 5 == 0)
         return "FizzBuzz";
     else if (x % 3 == 0)
