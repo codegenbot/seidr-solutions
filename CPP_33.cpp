@@ -1,6 +1,20 @@
-vector<int> l_copy = l;
-    for (int i = 0; i < l.size(); i += 3) {
-        sort(l_copy.begin() + i, l_copy.begin() + i + 3);
+vector<int> res = l;
+    vector<int> modThree;
+
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            modThree.push_back(l[i]);
+        }
     }
-    return l_copy;
+
+    sort(modThree.begin(), modThree.end());
+
+    int j = 0;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            res[i] = modThree[j++];
+        }
+    }
+
+    return res;
 }
