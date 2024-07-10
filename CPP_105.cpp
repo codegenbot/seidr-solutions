@@ -1,60 +1,48 @@
 #include <vector>
 #include <algorithm>
-#include <string>
 
-bool issame(vector<string> a,vector<string>b){
-    if(a.size() != b.size()) return false;
-    for(int i=0;i<a.size();i++){
-        if(a[i] != b[i]) return false;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> temp;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9)
+            temp.push_back(i);
     }
-    return true;
-}
-
-vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            nums.push_back(num);
-        }
-    }
-
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
-
-    vector<string> result;
-    for (int num : nums) {
-        string name = "";
-        switch (num) {
+    
+    sort(temp.begin(), temp.end());
+    
+    reverse(temp.begin(), temp.end());
+    
+    std::vector<std::string> result;
+    for (int i : temp) {
+        switch (i) {
             case 1:
-                name = "One";
+                result.push_back("One");
                 break;
             case 2:
-                name = "Two";
+                result.push_back("Two");
                 break;
             case 3:
-                name = "Three";
+                result.push_back("Three");
                 break;
             case 4:
-                name = "Four";
+                result.push_back("Four");
                 break;
             case 5:
-                name = "Five";
+                result.push_back("Five");
                 break;
             case 6:
-                name = "Six";
+                result.push_back("Six");
                 break;
             case 7:
-                name = "Seven";
+                result.push_back("Seven");
                 break;
             case 8:
-                name = "Eight";
+                result.push_back("Eight");
                 break;
             case 9:
-                name = "Nine";
-                break;
+                result.push_back("Nine");
         }
-        result.push_back(name);
     }
-
+    
     return result;
 }
