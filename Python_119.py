@@ -1,16 +1,16 @@
+```
 def match_parens(lst):
+    stack = []
     for s in lst:
-        count = 0
         for c in s:
             if c == '(':
-                count += 1
+                stack.append(c)
             elif c == ')':
-                if count == 0:
+                if len(stack) == 0:
                     return 'No'
                 else:
-                    count -= 1
-        if count != 0:
-            return 'No'
-    return 'Yes'
-
-print(match_parens(['(())', '(())()']))
+                    stack.pop()
+    if len(stack) == 0:
+        return 'Yes'
+    else:
+        return 'No'
