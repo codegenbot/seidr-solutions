@@ -19,7 +19,7 @@ int luhn(vector<int>& digits) {
 }
 
 int main() {
-    vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 1, 0, 2, 8, 4, 9};
+    vector<int> digits = {3, 4, 5, 1, 7, 2, 8, 6, 1, 6, 9, 3, 9, 8, 0, 2};
     int result = luhn(digits);
     cout << "Luhn check result: " << result << endl;
     return 0;
