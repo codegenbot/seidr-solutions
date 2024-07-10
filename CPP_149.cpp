@@ -2,11 +2,23 @@
 #include <string>
 #include <vector>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::pair<std::string, std::string>> a, std::vector<std::pair<std::string, std::string>> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        int num1 = std::stoi(a[i]);
-        int num2 = std::stoi(b[i]);
+        int num1 = 0;
+        int num2 = 0;
+        for (char c : a[i].first) {
+            num1 = num1 * 10 + (c - '0');
+        }
+        for (char c : a[i].second) {
+            num1 = num1 * 10 + (c - '0');
+        }
+        for (char c : b[i].first) {
+            num2 = num2 * 10 + (c - '0');
+        }
+        for (char c : b[i].second) {
+            num2 = num2 * 10 + (c - '0');
+        }
         if (!issorted({num1})) return false;
         if (!issorted({num2})) return false;
     }
@@ -27,9 +39,7 @@ std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v)
         for (char c : pair.first) {
             num = num * 10 + (c - '0');
         }
-        num += 0; // to avoid division by zero in the next loop
-        std::string str2(pair.second); 
-        for (char c : str2) {
+        for (char c : pair.second) {
             num = num * 10 + (c - '0');
         }
         if (!num) return {}; 
@@ -41,6 +51,6 @@ std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v)
 
 int main() { 
     assert(issame({{"aaaa", "bbbb"}, {"cccc", "ddd"}}, {{"cccc", "ddd"}, {"aaaa", "bbbb"}})); 
-    assert(issame(std::vector<std::string>{{"aaaa", "bbbb"}, {"dd", "cc"}},
-                  std::vector<std::string>{{"cc", "dd"}, {"aaaa", "bbbb"}})); 
+    assert(issame(std::vector<std::pair<std::string, std::string>>{{"aaaa", "bbbb"}, {"dd", "cc"}},
+                  std::vector<std::pair<std::string, std::string>>{{"cc", "dd"}, {"aaaa", "bbbb"}})); 
 }
