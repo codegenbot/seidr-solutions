@@ -1,37 +1,35 @@
-Here is the completed code:
-
-```cpp
-bool has_digit = false;
-int dot_count = 0;
-
-for (char c : file_name) {
-    if (isdigit(c)) {
-        if (!has_digit) {
-            has_digit = true;
-        } else {
-            return "No";
-        }
-    } else if (c == '.') {
-        dot_count++;
-        if (dot_count > 1) {
-            return "No";
+int count_digits(const string& s) {
+    int count = 0;
+    for (char c : s) {
+        if (isdigit(c)) {
+            count++;
         }
     }
+    return count;
 }
 
-if (file_name.find('.') != string::npos) {
-    string suffix = file_name.substr(file_name.find('.') + 1);
-    if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
-        return "No";
-    }
-} else {
-    if (!isalpha(file_name[0])) {
-        return "No";
-    }
-}
+bool file_name_check(string file_name) {
+    int digit_count = count_digits(file_name);
+    bool has_dot = false;
+    string before_dot, after_dot;
 
-if (has_digit || dot_count > 1) {
+    size_t dot_pos = file_name.find('.');
+    if (dot_pos != string::npos) {
+        before_dot = file_name.substr(0, dot_pos);
+        after_dot = file_name.substr(dot_pos + 1);
+        has_dot = true;
+    }
+
+    if (digit_count > 3 || !has_dot || before_dot.empty() || !isalpha(before_dot[0])) {
+        return "No";
+    }
+    
+    string extensions[] = {"txt", "exe", "dll"};
+    for (const auto& ext : extensions) {
+        if (after_dot == ext) {
+            return "Yes";
+        }
+    }
+
     return "No";
 }
-
-return "Yes";
