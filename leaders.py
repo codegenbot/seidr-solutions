@@ -1,4 +1,5 @@
-Here is the Python solution for the problem:
+Here is the Python solution:
 
-def leaders(arr):
-    return [x for i, x in enumerate(reversed(arr)) if all(x >= y for j, y in enumerate(reversed(arr), start=i+1))]
+def leaders(input):
+    return [x for i,x in enumerate(reversed(input)) if x >= all(map(lambda y: int(y), input[i+1:]))] + list(reversed(input))[::-1][::-1]
+print(leaders(list(map(int, input().split()))))
