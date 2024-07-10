@@ -5,11 +5,7 @@ def decode_shift(input_string):
         decoded_message += decoded_char
     return decoded_message
 
-try:
-    input_string = str(input("Please enter a string: ")).strip()
-    if not isinstance(input_string, str):
-        raise ValueError("Invalid input. Please enter a valid string.")
-    result = decode_shift(input_string)
-    print(result)
-except ValueError as e:
-    print(e)
+
+input_string = input("Please enter a string: ").strip()
+result = decode_shift(input_string)
+print(result)
