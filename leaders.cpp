@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
+vector<int> leaders1(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
     
@@ -23,9 +23,27 @@ vector<int> leaders(vector<int>& arr) {
     return result;
 }
 
+vector<int> leaders(vector<int>& arr) {
+    int n = arr.size();
+    vector<int> leaders;
+
+    for(int i=0; i<n; i++) {
+        bool isLeader = true;
+        for(int j=i+1; j<n; j++) {
+            if(arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
+        }
+        if(isLeader) leaders.push_back(arr[i]);
+    }
+
+    return leaders;
+}
+
 int main() {
     vector<int> arr = {12, 10, 8, 6};
-    vector<int> result = leaders(arr);
+    vector<int> result = leaders1(arr);
     for (int i : result) {
         cout << i << " ";
     }
