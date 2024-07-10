@@ -1,8 +1,7 @@
 #include <cassert>
-#include <any>
 #include <string>
 
-std::any compare_one(std::string str, int num) {
+std::string compare_one(std::string str, int num) {
     if (num == 1) {
         return std::string("None");
     }
