@@ -1,6 +1,5 @@
-#include <vector>
 #include <iostream>
-using namespace std;
+#include <vector>
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int min_diff = INT_MAX;
