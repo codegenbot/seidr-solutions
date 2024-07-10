@@ -8,17 +8,14 @@ vector<int> leaders(vector<int>& arr) {
     if (n == 0)
         return result;
         
-    for (int i = n - 1; i >= 0; i--) {
-        bool isLeader = true;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[i] <= arr[j]) {
-                isLeader = false;
-                break;
-            }
-        }
-        if (isLeader)
+    result.push_back(arr[n - 1]);
+    
+    for (int i = n - 2; i >= 0; i--) {
+        if (arr[i] > result.back())
             result.push_back(arr[i]);
     }
+    
+    reverse(result.begin(), result.end());
     
     return result;
 }
