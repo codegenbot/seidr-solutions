@@ -18,7 +18,10 @@ int main() {
         return result;
     }
 
-    cout << camelCase("camel-case example-test-string") << endl;
+    string input;
+    cout << "Enter a kebab-case string: ";
+    getline(cin, input);
+    cout << "CamelCase: " << camelCase(input) << endl;
 
     return 0;
 }
