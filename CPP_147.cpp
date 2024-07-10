@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-int get_matrix_triples(int n) {
+int count_matrices(int n) {
     std::vector<int> a(n);
     int count = 0;
     for (int i = 0; i < n; i++) {
@@ -23,7 +23,9 @@ int main() {
     int n;
     std::cout << "Enter the value of n: ";
     std::cin >> n;
-    int result = get_matrix_triples(n);
+    int result = count_matrices(n);
     std::cout << "Number of matrices satisfying the condition: " << result << std::endl;
     return 0;
 }
+
+assert(count_matrices(100) == 53361);
