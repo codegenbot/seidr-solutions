@@ -1,4 +1,7 @@
-int solutions(vector<int> lst) {
+#include <iostream>
+#include <vector>
+
+int solutions(std::vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i += 2) {
         if (lst[i] % 2 != 0) {
@@ -6,10 +9,10 @@ int solutions(vector<int> lst) {
         }
     }
     return sum;
-
 }
 
 int main() {
-    assert(solutions({3, 13, 2, 9}) == 3);
+    std::vector<int> lst = {1, 3, 4, 5, 6};
+    std::cout << "The sum of odd elements at even positions is: " << solutions(lst) << std::endl;
     return 0;
 }
