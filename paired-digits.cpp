@@ -1,10 +1,9 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
 int main() {
-    string digits;
-    cin >> digits;
+    std::string digits;
+    std::cin >> digits;
     
     int sum = 0;
     for (int i = 0; i < digits.size() - 1; ++i) {
@@ -13,7 +12,7 @@ int main() {
         }
     }
     
-    cout << sum << endl;
+    std::cout << sum << std::endl;
     
     return 0;
 }
