@@ -1,8 +1,8 @@
-```cpp
+```
 #include <iostream>
 using namespace std;
 
-bool isPrime(int num); // Function prototype for isPrime()
+bool isPrime(int num);
 
 int prime_fib(int n);
 
