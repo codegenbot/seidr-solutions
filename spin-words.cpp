@@ -1,24 +1,21 @@
-#include <iostream>
-#include <algorithm>
 #include <string>
-
-int main() {
-    std::string input;
-    getline(std::cin, input);
+std::string spinWords(const std::string &sentence) {
+    std::string result = "";
     std::string word = "";
-    for (int i = 0; i < input.length(); i++) {
-        if (i == input.length() || input[i] == ' ') {
+    for (char c : sentence) {
+        if (c == ' ') {
             if (word.length() >= 5) {
                 std::reverse(word.begin(), word.end());
             }
-            std::cout << word;
-            if (i != input.length()) {
-                std::cout << " ";
-            }
+            result += word + " ";
             word = "";
         } else {
-            word += input[i];
+            word += c;
         }
     }
-    return 0;
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
+    }
+    result += word;
+    return result;
 }
