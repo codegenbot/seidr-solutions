@@ -1,6 +1,14 @@
-def fruit_distribution():
-    s = input("Enter the text: ").lower()
-    n = int(input("Enter the total number of fruits: "))
-    apples = int(s.count("apples") * (s.lower().count("and") // 2))
-    oranges = int((s.count("oranges") - s.lower().count(" and ")) if " or" in s else 0)
+```
+def fruit_distribution(s, n):
+    if not s:
+        return 0
+    
+    s = " ".join(s).replace("apples and", "apples ").replace("oranges", " oranges").split()
+    
+    if "apples" not in s or "oranges" not in s:
+        return 0
+
+    apples = int(s[s.index("apples") + len("apples ") :].replace("and", "").replace("apples ", ""))
+    oranges = int(s[s.index("oranges") + 7 :].replace("and", "").replace("oranges", ""))
+    
     return n - apples - oranges
