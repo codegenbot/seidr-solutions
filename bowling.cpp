@@ -1,23 +1,28 @@
-int bowlingScore(string input) {
+#include <vector>
+#include <string>
+
+int bowlingScore(std::string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (input[i] == 'X') {
-            score += 30;
-        } else if (input[i] == '/') {
-            int nextTwo = stoi(input.substr(i + 1, 2));
-            score += 10 + nextTwo;
-            i++;
+    int roll = 0;
+    bool previousStrike = false;
+
+    for (char c : s) {
+        if (c == 'X') {
+            score += 10 + (previousStrike ? 10 : 0);
+            previousStrike = true;
+            roll++;
+        } else if (c == '/') {
+            int thisRoll = 10 - roll;
+            score += thisRoll;
+            previousStrike = false;
+            roll++;
         } else {
-            int currentRoll = stoi(input.substr(i, 2));
-            if (currentRoll < 10) {
-                score += currentRoll;
-                i++;
-            } else {
-                int first = stoi(input.substr(i, 1));
-                int second = stoi(input.substr(i + 1, 1));
-                score += first + second;
-            }
+            int pins = c - '0';
+            score += pins + (previousStrike ? 10 : 0);
+            previousStrike = false;
+            roll++;
         }
     }
+
     return score;
 }
