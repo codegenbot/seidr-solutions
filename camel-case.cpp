@@ -23,6 +23,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
-    std::cout << "The camelCase equivalent is: " << camelCase(input) << std::endl;
+    std::cout << "The camelCase conversion is: " << camelCase(input) << std::endl;
     return 0;
 }
