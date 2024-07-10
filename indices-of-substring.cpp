@@ -1,32 +1,36 @@
 #include <vector>
-using namespace std;
+#include <string>
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int pos = 0;
-    
-    while (pos <= text.length() - target.length()) {
-        pos = text.find(target, pos);
-        
-        if (pos == string::npos) break;
-        
+std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
+    std::vector<int> result;
+    size_t pos = 0;
+
+    while ((pos = text.find(target, pos)) != std::string::npos) {
         result.push_back(pos);
-        pos += 1;
+        pos += 1; // Look for the next occurrence right after the previous one
     }
-    
+
     return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    string text;
-    cin >> text;
-    
-    vector<int> result = indicesOfSubstring(text, n > 0 ? "" : text.substr(0, n));
-    
-    for (int i: result) {
-        cout << i << " ";
+    int numTextLines, numTargets;
+    std::cin >> numTextLines >> numTargets;
+
+    for (int i = 0; i < numTextLines; ++i) {
+        std::string text;
+        std::cin >> text;
+
+        for (int j = 0; j < numTargets; ++j) {
+            std::string target;
+            std::cin >> target;
+            std::vector<int> indices = indicesOfSubstring(text, target);
+            for (int index : indices) {
+                std::cout << index << " ";
+            }
+            std::cout << "\n";
+        }
     }
+
     return 0;
 }
