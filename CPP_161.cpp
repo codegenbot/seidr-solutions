@@ -1,3 +1,7 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
 string solve(string s) {
     string result = "";
     for (char c : s) {
