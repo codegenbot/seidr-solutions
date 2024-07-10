@@ -1,6 +1,3 @@
 def find_zero(xs: list):
-    n = len(xs) - 1
-    a = xs[-1]
-    b = xs[-2]
-    x = -a / b
-    return x
+    # Find the zero of the polynomial using numpy's roots function
+    return np.roots(xs)[0]
