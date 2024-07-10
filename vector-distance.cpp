@@ -19,11 +19,11 @@ int main() {
     }
 
     double sum = 0;
-    for (int i = 0; i < n - 1; ++i) {
+    for (int i = 0; i < n; ++i) {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
-    double result = sqrt(sum);
+    double result = sqrt(static_cast<double>(sum));
     cout << result << endl;
 
     return 0;
