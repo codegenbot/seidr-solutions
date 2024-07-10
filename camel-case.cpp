@@ -15,17 +15,12 @@ std::string kebabToCamel(const std::string& s) {
     std::string result;
     for (const auto& word : words) {
         if (!result.empty()) {
-            result += std::toupper(word[0]);
-            result.erase(0, 1);
-        } else {
-            if (word.find('-') != std::string::npos) {
-                size_t dashPos = word.find('-');
-                result += std::tolower(word.substr(0, dashPos));
-                result += std::toupper(word.substr(dashPos + 1));
-                word = "";
-            } else {
-                result += word;
+            result += word[0];
+            for (size_t i = 1; i < word.size(); ++i) {
+                result += std::tolower(word[i]);
             }
+        } else {
+            result += word;
         }
     }
 
