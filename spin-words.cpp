@@ -2,56 +2,32 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::vector<std::string> words;
-    std::string word;
+using namespace std;
 
-    // Split the input string into individual words
+string spinWords(string str) {
+    string result = "";
+    int start = 0;
+    
     for (int i = 0; i <= str.length(); i++) {
-        if (str[i] == ' ' || i == str.length()) {
-            if (i != str.length()) {
-                word += str[i];
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
+            
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
             }
-            if (!word.empty()) {
-                words.push_back(word);
-                word.clear();
-            }
-        } else {
-            word += str[i];
+            
+            result += word + " ";
+            start = i + 1;
         }
     }
-
-    // Reverse the words that are 5 or more letters long
-    for (int i = 0; i < words.size(); i++) {
-        if (words[i].length() >= 5) {
-            std::string reversedWord;
-            for (int j = words[i].length() - 1; j >= 0; j--) {
-                reversedWord += words[i][j];
-            }
-            words[i] = reversedWord;
-        }
-    }
-
-    // Join the words back into a single string
-    std::string result;
-    for (int i = 0; i < words.size(); i++) {
-        if (i > 0) {
-            result += ' ';
-        }
-        result += words[i];
-    }
-
+    
     return result;
 }
 
 int main() {
-    // Read input from user
-    std::cout << "Enter a string of one or more words (separated by spaces): ";
-    std::string str;
-    std::cin >> str;
-
-    // Print the output
-    std::cout << "The resulting string is: " << spinWords(str) << std::endl;
-
+    string str;
+    cout << "Enter the input string: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
     return 0;
 }
