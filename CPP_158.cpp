@@ -24,8 +24,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
-        // Ignore only one character
-        std::cin.ignore(1, '\n');
+        std::cin.ignore(); // Corrected line
         std::getline(std::cin, word); 
         words.push_back(word);
     }
