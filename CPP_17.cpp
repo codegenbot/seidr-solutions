@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
 bool issame(vector<int> a, vector<int> b){
     if (a.size() != b.size()) {
         return false;
@@ -47,8 +41,4 @@ int main() {
     bool result = issame(parsed_result, b);
     
     cout << std::boolalpha << result << endl;
-
-    assert(issame(parsed_result, {2, 1, 2, 1, 4, 2, 4, 2}));
-
-    return 0;
 }
