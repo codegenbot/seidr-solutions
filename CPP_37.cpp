@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool isSame(std::vector<float> v1, std::vector<float> v2) {
+bool issame(std::vector<float> v1, std::vector<float> v2) {
     if(v1.size() != v2.size()) return false;
     for(int i = 0; i < v1.size(); i++) {
         if(v1[i] != v2[i]) return false;
@@ -14,9 +14,19 @@ std::vector<float> sortEven(std::vector<float> l) {
     int j = 0;
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            auto it = std::stable_partition(l.begin(), l.end(), [](float x){return x % 2 != 0;});
-            result[i] = *std::min_element(it, l.end());
+            for(float x : l) {
+                if(x % 2 == 0) {
+                    result[j] = x;
+                    j++;
+                }
+            }
+            break;
         } else {
+            result[i] = l[i];
+        }
+    }
+    for(int i = 0; i < l.size(); i++) {
+        if(i % 2 != 0) {
             result[i] = l[i];
         }
     }
@@ -34,7 +44,7 @@ int main_function()
     for(float f : output) {
         std::cout << f << " ";
     }
-    if (!isSame({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})) {
+    if(!issame(sortEven({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}),{-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})) {
         std::cout << "Test failed";
     }
     return 0;
