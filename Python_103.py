@@ -12,4 +12,4 @@ def rounded_avg(n, m):
         bin_str = format(avg, "b")
     return bin_str.zfill(32)
 
-print(rounded_avg(n, m))
+print(rounded_avg(n, m)) """
