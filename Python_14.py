@@ -2,4 +2,8 @@ from typing import List
 
 
 def all_prefixes(string: str) -> List[str]:
-    return ["" if i == 0 else string[:i] for i in range(len(string) + 1)]
+    return [string[:i] for i in range(1, len(string) + 1)] + [string]
+
+
+string = input("Please enter a string: ")
+print(all_prefixes(string))
