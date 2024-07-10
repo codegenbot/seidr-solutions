@@ -1,6 +1,7 @@
 #include <vector>
 #include <numeric>
 #include <climits>
+#include <cmath>
 
 using namespace std;
 
@@ -15,7 +16,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     
     for (int i = 0; i < n; ++i) {
         if (prefix_sum.second - prefix_sum.first >= total_sum / 2) {
-            min_diff = std::min(min_diff, std::abs(total_sum - 2 * prefix_sum.second));
+            min_diff = min(min_diff, std::abs(total_sum - 2 * prefix_sum.second));
             left = vector<int>(v.begin(), v.begin() + i);
             right = vector<int>(v.end() - (n - i - 1), v.end());
         }
