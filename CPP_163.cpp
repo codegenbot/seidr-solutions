@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
@@ -18,7 +18,7 @@ int main() {
     std::vector<int> vec1 = generate_integers(1, 5);
     std::vector<int> vec2 = generate_integers(1, 5);
 
-    bool same = issame(vec1, vec2);
+    bool same = std::issame(vec1, vec2);
 
     std::cout << "Are the vectors the same? " << (same ? "Yes" : "No") << std::endl;
 
