@@ -35,6 +35,3 @@ def filter_integers() -> None:
             print(f"Minimum Value: {min_value}")
     except (ValueError, ZeroDivisionError):
         print("Invalid input. Please enter a valid list of comma-separated integers.")
-
-
-filter_integers()
