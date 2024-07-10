@@ -3,7 +3,7 @@ bool issame(vector<float> a, vector<float> b) {
         return false;
     }
     
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (abs(a[i] - b[i]) > 1e-6) {
             return false;
         }
