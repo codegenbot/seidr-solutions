@@ -1,5 +1,4 @@
-```cpp
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 bool issame(vector<int> game, vector<int> guess) {
