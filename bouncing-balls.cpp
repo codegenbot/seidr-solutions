@@ -8,10 +8,10 @@ int main() {
     
     bouncinessIndex = h1 / h0;
     
-    double totalDistance = h0 + h1;
+    double totalDistance = 2 * h0;
     for (int i = 2; i <= numBounces; ++i) {
-        totalDistance += 2 * h1 * bouncinessIndex;
-        h1 *= bouncinessIndex;
+        totalDistance += h0 * (1 + bouncinessIndex);
+        h0 *= bouncinessIndex;
     }
     
     std::cout << totalDistance << '\n';
