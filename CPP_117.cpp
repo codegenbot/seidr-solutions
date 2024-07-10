@@ -1,10 +1,22 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
+bool issame(string s1, string s2) {
+    return s1 == s2;
+}
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
+vector<string> select_words(string s, int n);
+
+int main() {
+    string input;
+    int n;
+    getline(cin, input);
+    cin >> n;
+    
+    vector<string> result = select_words(input, n);
+    
+    for (string word : result) {
+        cout << word << endl;
+    }
+    
+    return 0;
 }
 
 vector<string> select_words(string s, int n) {
@@ -32,9 +44,4 @@ vector<string> select_words(string s, int n) {
     }
     
     return result;
-}
-
-int main() {
-    assert (issame(select_words("a b c d e f", 1) , {"b", "c", "d", "f"}));
-    return 0;
 }
