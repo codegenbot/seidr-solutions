@@ -13,7 +13,7 @@ int x_or_y(int n, int x, int y) {
     return x;
 }
 
-int main() {
+int solve_problem() {
     int n, x, y;
     std::cin >> n >> x >> y;
     std::cout << x_or_y(n, x, y) << std::endl;
