@@ -18,7 +18,7 @@ def main():
     while True:
         result = sum_of_odd_numbers_in_every_other_element()
         print(f"The sum of odd numbers is {result}")
-        cont = input("Do you want to continue? (yes/no): ")
+        cont = input("Do you want to continue? (yes/no) ")
         if cont.lower() != "yes":
             break
 
