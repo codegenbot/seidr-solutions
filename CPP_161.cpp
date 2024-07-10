@@ -1,7 +1,4 @@
 ```cpp
-#include <iostream>
-#include <string>
-
 int solve(std::string s) {
     int count = 0;
     for (char c : s) {
@@ -12,5 +9,3 @@ int solve(std::string s) {
     }
     return count;
 }
-
-int main(){}

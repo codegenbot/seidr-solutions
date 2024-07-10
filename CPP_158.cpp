@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <limits>
 
 std::string find_max(const std::vector<std::string>& words) {
     return *std::max_element(words.begin(), words.end(),
@@ -22,7 +23,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string str;
         getline(std::cin, str); 
-        str = str.substr(0, str.find('\n')); // Remove newline
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
         words.push_back(str);
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
