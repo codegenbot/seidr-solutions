@@ -5,17 +5,10 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-def indices_of_substring(text, target):
-    result = []
-    start = 0
-    while start < len(text) - len(target) + 1:
-        if text[start:start+len(target)] == target:
-            result.append(start)
-            start += 1
-        else:
-            start += 1
-    return result
+text = input()
+target = input()
 
-# Test cases
-print(gcd(1, 1)) 
-print(indices_of_substring("banana", "ana"))
+result = [i for i in range(len(text)) if text.startswith(target, i)]
+
+print(gcd(int(input()), int(input())))
+print(result)
