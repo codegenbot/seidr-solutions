@@ -4,55 +4,70 @@
 
 bool solveBoolean(std::string s) {
     bool result = true;
+    std::string boolStr;
+    for (char c : s) {
+        if (c == '|') {
+            boolStr += "|";
+        } else if (c == '&') {
+            boolStr += "&";
+        } else if (c == 'T') {
+            boolStr += "T";
+        } else {
+            boolStr += "F";
+        }
+    }
+
+    bool temp = true;
     int i = 0;
-    while (i < s.size()) {
-        switch (s[i]) {
-            case 'T':
-                i++;
-                break;
-            case 'F':
-                if (result)
-                    result = false;
-                else
-                    return false;
-                i++;
-                break;
+    while (i < boolStr.size()) {
+        switch (boolStr[i]) {
             case '|': {
                 bool subResult = true;
-                while (i < s.size() && s[i] == '|') {
-                    i++;
-                }
-                for (; i < s.size(); ) {
-                    char c = s[i];
+                for (; i < boolStr.size(); ) {
+                    char c = boolStr[i];
                     i++;
                     if (c == 'F')
                         subResult = false;
-                    else if (c != '&')
+                    else if (c != 'T' && c != '|')
                         return false; // invalid expression
                 }
-                result = subResult;
+                temp = subResult;
                 break; }
             case '&': {
                 bool subResult = true;
-                for (; i < s.size(); ) {
-                    char c = s[i];
+                for (; i < boolStr.size(); ) {
+                    char c = boolStr[i];
                     i++;
                     if ((c == 'F' && !subResult) || (c != 'T'))
                         return false; 
                     if (c == 'F')
                         subResult = false;
                 }
-                result = subResult;
+                temp = subResult;
                 break; }
+            case 'T':
+                i++;
+                break;
+            case 'F':
+                if (temp)
+                    temp = false;
+                else
+                    return false;
+                i++;
+                break;
         }
     }
-    return result;
+    return temp;
 }
 
 int main() {
-    std::string s = "TF|&";
+    std::string input;
+
+    std::cout << "Enter a boolean expression: ";
     
-    bool result = solveBoolean(s);
+    std::getline(std::cin, input); // Read the entire line at once
+
+    bool result = solveBoolean(input);
 
     if (result) {
         std::cout << "The resulting Boolean is true." << std::endl;
