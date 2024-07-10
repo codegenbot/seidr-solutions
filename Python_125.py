@@ -1,4 +1,3 @@
-```
 def split_words(txt):
     words = txt.split()
     if len(words) > 0 and any(char.isalnum() for char in words[0]):
@@ -10,4 +9,4 @@ def split_words(txt):
                 count_dict[char] += 1
             else:
                 count_dict[char] = 1
-        return len(count_dict)
+        return sum(1 for count in count_dict.values() if count % 2 != 0)
