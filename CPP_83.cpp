@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 int starts_one_ends(int n) {
@@ -8,7 +7,7 @@ int starts_one_ends(int n) {
         if (i == 1 || to_string(i).back() == '1') {
             count++;
             for (long long j = 1; j < i; j++) {
-                if (to_string(j).back() != '1' && to_string(j).front() != '1') break;
+                if (to_string(j).back() != '1' && stoi(to_string(j)) / 10 != 1) break;
             }
         }
     }
