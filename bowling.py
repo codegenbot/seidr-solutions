@@ -19,31 +19,3 @@ def bowling_score(bowls):
         bowl_index += 1
         frame += 1
     return score
-
-
-def get_strike_bonus(bowls, index):
-    bonus = 0
-    if bowls[index + 1] == "X":
-        bonus += 10
-        if bowls[index + 2] == "X":
-            bonus += 10
-        else:
-            bonus += int(bowls[index + 2])
-    else:
-        bonus += int(bowls[index + 1])
-        if bowls[index + 2] == "/":
-            bonus += 10 - int(bowls[index + 1])
-        else:
-            bonus += int(bowls[index + 2])
-    return bonus
-
-
-def get_spare_bonus(bowls, index):
-    if bowls[index + 1] == "X":
-        return 10
-    else:
-        return int(bowls[index + 1])
-
-
-bowls = input()
-print(bowling_score(bowls))
