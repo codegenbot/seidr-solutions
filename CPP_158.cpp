@@ -1,12 +1,8 @@
 string find_max(vector<string> words){
-    string res = "";
-    int max_unique = 0;
-    for(const auto &word : words){
-        set<char> s(word.begin(), word.end());
-        if(s.size() > max_unique){
-            max_unique = s.size();
-            res = word;
-        }
-    }
-    return res;
+    string max_word = *max_element(words.begin(), words.end(),
+        [](const string& a, const string& b) {
+            return std::tie(a.size(), (int)a[0], 0) <
+                   std::tie(b.size(), (int)b[0], 0);
+        });
+    return max_word;
 }
