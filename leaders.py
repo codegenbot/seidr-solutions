@@ -1,7 +1,8 @@
 def leaders(input):
-    input = list(map(int, input.split()))
-    result = [input[-1]]
-    for i in range(len(input) - 2, -1, -1):
-        if input[i] >= input[i + 1]:
-            result.append(input[i])
-    return " ".join(str(x) for x in reversed(result))
+    output = []
+    max_right = input[-1]
+    for i in range(len(input) - 1, -1, -1):
+        if input[i] >= max_right:
+            output.append(input[i])
+            max_right = input[i]
+    return output[::-1]
