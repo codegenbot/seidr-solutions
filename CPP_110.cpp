@@ -1,4 +1,8 @@
-```
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+
 std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     bool foundOdd = false;
     for (int num : lst1) {
@@ -18,4 +22,9 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
         }
     }
     return foundOdd ? "NO" : "YES";
+}
+
+int main() {
+    assert(exchange({100, 200}, {200, 200}) == "YES");
+    return 0;
 }
