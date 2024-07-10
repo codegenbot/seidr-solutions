@@ -9,7 +9,9 @@ int luhn(vector<int> card) {
         } else {
             sum += card[i] * 2;
         }
-        sum += card[i-1];
+        if (i % 2 != 0) {
+            sum += card[i];
+        }
     }
     return sum;
 }
