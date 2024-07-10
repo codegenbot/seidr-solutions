@@ -1,23 +1,15 @@
-int main() {
-    string txt;
-    cin >> txt;
-    cout << (check_if_last_char_is_a_letter(txt) ? "true" : "false");
-    return 0;
-}
-
 bool check_if_last_char_is_a_letter(string txt) {
-    if(txt.length() == 0)
-        return false;
-
+    if (txt.empty()) return false;
     char lastChar = txt.back();
-    if(!isalpha(lastChar))
-        return false;
-
-    for(int i = 0; i < txt.length()-1; i++) {
-        if(isspace(txt[i]) || isalpha(txt[i])) {
-            return true;
+    string word = "";
+    for (char c : txt) {
+        if (c == ' ') {
+            if (!word.empty() && isalpha(lastChar)) return true;
+            word = "";
+        } else {
+            word += c;
         }
     }
-
+    if (!word.empty() && isalpha(lastChar)) return true;
     return false;
 }
