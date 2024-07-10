@@ -28,3 +28,6 @@ def is_prime(n):
 
 def modp(num, p):
     return num ** p % p
+
+if __name__ == "__main__":
+    main()
