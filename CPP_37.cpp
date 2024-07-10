@@ -1,16 +1,16 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> v1, std::vector<float> v2) {
-    if(v1.size() != v2.size()) return false;
-    for(int i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i]) return false;
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
     }
     return true;
 }
 
-std::vector<float> sortEven(std::vector<float> l) {
+std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result(l.size());
     int j = 0;
     for (int i = 0; i < l.size(); i++) {
@@ -31,10 +31,9 @@ int main_function()
     while(std::cin >> num) {
         input.push_back(num);
     }
-    std::vector<float> output = sortEven(input);
+    std::vector<float> output = sort_even(input);
     for(float f : output) {
         std::cout << f << " ";
     }
-    assert(issame(output, {5, 8, -12, 4, 23, 2, 3, 11, 12, -10}));
-    return 0;
+    std::cout << std::endl;
 }

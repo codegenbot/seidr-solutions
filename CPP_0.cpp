@@ -28,7 +28,7 @@ int main() {
         cin >> input; 
         if(input == "stop") break;
         a.push_back(stof(input)); 
-        cin >> std::ws; // Add this line to ignore whitespace characters
+        cin >> ws; // ignore whitespace characters
     } 
 
     cout << "Enter the threshold: ";
