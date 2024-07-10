@@ -11,12 +11,15 @@ def concatenate(strings: List[str]) -> str:
 
 if __name__ == "__main__":
     while True:
-        try:
-            print("Enter number of strings (0 to quit): ")
-            n = int(input())
-        except ValueError:
-            print("Invalid input. Please enter a number.")
-            continue
+        print("Enter number of strings (0 to quit): ")
+        while True:
+            try:
+                n = int(input())
+                if n < 0:
+                    raise ValueError
+                break
+            except ValueError:
+                print("Invalid input. Please enter a positive integer or 0 to quit.")
         if n == 0:
             break
         strings = []
