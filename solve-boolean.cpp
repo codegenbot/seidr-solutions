@@ -1,21 +1,37 @@
-bool solveBoolean(string expr) {
-    stack<char> s;
-    for (int i = 0; i < expr.size(); i++) {
-        if (expr[i] == '|') {
-            bool b1 = s.top() == 'T';
-            s.pop();
-            bool b2 = s.top() == 'T';
-            s.pop();
-            s.push(b1 || b2 ? 'T' : 'F');
-        } else if (expr[i] == '&') {
-            bool b1 = s.top() == 'T';
-            s.pop();
-            bool b2 = s.top() == 'T';
-            s.pop();
-            s.push(b1 && b2 ? 'T' : 'F');
-        } else {
-            s.push(expr[i]);
+#include <string>
+using namespace std;
+
+bool solveBoolean(string expression) {
+    stack<char> opStack;
+    stack<string> valStack;
+
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!opStack.empty() && opStack.top() == '|') {
+                opStack.pop();
+                string b = valStack.top();
+                valStack.pop();
+                string a = valStack.top();
+                valStack.pop();
+                valStack.push((a == "T" && b == "T") ? "F" : "T");
+            }
+            opStack.push('&');
+        } else if (expression[i] == '|') {
+            while (!opStack.empty()) {
+                opStack.pop();
+                string b = valStack.top();
+                valStack.pop();
+                string a = valStack.top();
+                valStack.pop();
+                valStack.push((a == "T" && b == "F") ? "T" : (a == "F" && b == "T") ? "T" : "F");
+            }
+            opStack.push('|');
+        } else if (expression[i] == 't' || expression[i] == 'T') {
+            valStack.push("T");
+        } else if (expression[i] == 'f' || expression[i] == 'F') {
+            valStack.push("F");
         }
     }
-    return s.top() == 'T';
+
+    return valStack.top() == "T";
 }
