@@ -1,3 +1,4 @@
+```python
 import unicodedata
 
 def validate_tweet(tweet):
