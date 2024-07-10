@@ -1,12 +1,4 @@
 #include <algorithm>
 #include <cmath>
 
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> l(n);
-    for(int i=0; i<n; i++)
-        std::cin >> l[i];
-    
-    return *std::max_element(l.begin(), l.end());
-}
+return *max_element(l.begin(), l.end()) - abs(*min_element(l.begin(), l.end()));
