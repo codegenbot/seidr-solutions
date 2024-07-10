@@ -1,11 +1,8 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-float max_element(vector<int> l) {
-    vector<float> v;
-    for (int x : l) {
-        v.push_back((float)x);
-    }
-    return *max_element(v.begin(), v.end());
+int maxValue(std::vector<int> l) {
+    std::vector<float> v = (float)*l;
+    return *std::max_element(v.begin(), v.end());
 }
