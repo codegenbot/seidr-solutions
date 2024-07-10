@@ -1,7 +1,11 @@
-std::map<char, int> histogram(const std::string& str) {
+#include <map>
+#include <string>
+#include <cassert>
+
+std::map<char, int> histogram(const std::string& s) {
     std::map<char, int> hist;
-    for (char ch : str) {
-        hist[ch]++;
+    for (char c : s) {
+        hist[c]++;
     }
     return hist;
 }
