@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 void bf(string n) {
@@ -14,8 +14,7 @@ int main() {
     int num;
     cin >> num;
     if (num > 0) {
-        string str = to_string(num);
-        bf(str); 
+        assert(num > 0);
     } else {
         cout << "Error: Input number should be positive." << endl;
     }
