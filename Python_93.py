@@ -1,3 +1,4 @@
+```Python
 def encode(message):
     result = ""
     for char in message:
@@ -39,11 +40,11 @@ def encode(message):
                         result += 'Golf' if char.isupper() else 'golf'
                     elif char in ['h', 'l']:
                         result += 'Hotel' if char.isupper() else 'hotel'
-                    elif char == 'm':
+                    elif char in ['m']:
                         result += 'Mike' if char.isupper() else 'mike'
-                    elif char == 'n':
+                    elif char in ['n']:
                         result += 'November' if char.isupper() else 'november'
-                    elif char == 'r':
+                    elif char in ['r']:
                         result += 'Romeo' if char.isupper() else 'romeo'
                     elif char in ['s', 'z']:
                         result += 'Sierra' if char.isupper() else 'sierra'
