@@ -17,7 +17,9 @@ int main()
 {
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input); 
+    std::string temp; 
+    std::getline(std::cin, temp); // Read the entire line
+    input = temp;
     bool flag = true;
     for(auto c : input){
         flag &= std::isdigit(c); 
