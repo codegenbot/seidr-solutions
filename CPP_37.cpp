@@ -1,14 +1,42 @@
-vector<float> sorted_even = l;
-    vector<float> even_values;
-    for (int i = 0; i < l.size(); i += 2) {
-        even_values.push_back(l[i]);
+bool issame(vector<float>& a, vector<float>& b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    sort(even_values.begin(), even_values.end());
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void sort_even(vector<float>& l) {
+    vector<float> l_even;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 2 == 0) {
+            l_even.push_back(l[i]);
+        }
+    }
+    sort(l_even.begin(), l_even.end());
     for (int i = 0, j = 0; i < l.size(); ++i) {
         if (i % 2 == 0) {
-            sorted_even[i] = even_values[j];
+            l[i] = l_even[j];
             ++j;
         }
     }
-    return sorted_even;
+}
+
+int main() {
+    vector<float> l = {4, 2, 6, 1, 3, 5};
+    vector<float> sorted_l = {1, 2, 3, 4, 5, 6};
+  
+    sort_even(l);
+  
+    if (issame(l, sorted_l)) {
+        cout << "Results match sorted vector";
+    } else {
+        cout << "Results don't match sorted vector";
+    }
+
+    return 0;
 }
