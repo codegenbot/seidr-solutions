@@ -1,4 +1,12 @@
-float min_num = numbers[0];
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<float> rescale_to_unit(vector<float> numbers) {
+    if (numbers.empty()) return numbers;
+    
+    float min_num = numbers[0];
     float max_num = numbers[0];
     for (float num : numbers) {
         if (num < min_num) {
