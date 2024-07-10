@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <vector>
-#include <limits>
 
 int main() {
     std::vector<int> nums;
@@ -9,14 +8,16 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        int temp;
-        while (!(std::cin >> temp) || temp > std::numeric_limits<int>::max()) {
-            std::cerr << "Invalid input! Please enter a number within the range of an integer.\n";
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+        while (true) {
+            std::cout << "Enter element: ";
+            if (!(std::cin >> nums[i])) {
+                std::cerr << "Invalid input! Please enter a number.\n";
+                std::cin.clear();
+                std::cin.ignore(INT_MAX, '\n');
+            } else {
+                break;
+            }
         }
-        nums.push_back(temp);
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
 }
