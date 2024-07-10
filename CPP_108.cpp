@@ -16,3 +16,10 @@ int count_nums(std::vector<int> n){
     }
     return count;
 }
+
+int main() {
+    std::vector<int> numbers = {123, -456, 789};
+    int result = count_nums(numbers);
+
+    return 0;
+}
