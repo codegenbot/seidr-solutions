@@ -1,6 +1,3 @@
-#include <string>
-using namespace std;
-
 string decimal_to_binary(int decimal){
     string binary = "";
     while(decimal > 0){
