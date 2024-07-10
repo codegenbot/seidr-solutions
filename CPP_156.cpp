@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 #include <sstream>
@@ -6,7 +7,7 @@ std::string miniRoman(int num);
 
 std::string int_to_roman(int num) {
     if (num > 3999) {
-        return "Out of range";
+        return "";
     }
     std::ostringstream oss;
     int thousands = num / 1000;
@@ -64,5 +65,6 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> num;
     std::cout << "The Roman numeral for " << num << " is " << int_to_roman(num) << std::endl;
+    assert(int_to_roman(1000) == "M");
     return 0;
 }
