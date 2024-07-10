@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -6,15 +7,18 @@ def get_all_prefixes(s: str) -> List[str]:
 
 
 def all_prefixes() -> None:
-    while True:
+    num_cases = int(input("Enter the number of test cases: "))
+    while num_cases > 0:
         try:
             s = input("Please enter a string: ")
-            if not s:
-                s = "default_string"  # default value
+            if not s.strip():
+                print("Error: Please provide a non-empty string.")
+                continue
             print("\n".join(get_all_prefixes(s)))
-            break
+            num_cases -= 1
         except Exception as e:
             print(f"Unexpected error occurred: {e}")
+            break
 
 
 if __name__ == "__main__":
