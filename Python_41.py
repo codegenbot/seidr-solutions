@@ -1,4 +1,3 @@
-```
 def car_race_collision(speeds1: list, speeds2: list):
     total_collisions = 0
     for speed1 in speeds1:
