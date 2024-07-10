@@ -1,8 +1,16 @@
+#include <string>
+
 string flip_case(string str){
     string result = "";
-    for(char c : str){
-        if(islower(c)) result += toupper(c);
-        else result += tolower(c);
+    for(int i = 0; i < str.length(); i++){
+        char c = str[i];
+        if(c >= 'a' && c <= 'z'){
+            result += toupper((char)c);
+        } else if(c >= 'A' && c <= 'Z'){
+            result += tolower((char)c);
+        } else {
+            result += c;
+        }
     }
     return result;
 }
