@@ -1,7 +1,5 @@
-```python
-from typing import List
-
-def parse_music(music_string: str) -> List:
+```
+def parse_music(music_string: str) -> list:
     music_list = []
     i = 0
     while i < len(music_string):
@@ -10,8 +8,10 @@ def parse_music(music_string: str) -> List:
             i += 1
         elif i < len(music_string) - 2 and music_string[i:i+2] == 'o|':
             music_list.append(2)
-            i += 2
+            i += 1
         elif i < len(music_string) - 3 and music_string[i:i+3] == '.||':
             music_list.append(1)
-            i += 3
+            i += 1
+        else:
+            i += 1
     return music_list
