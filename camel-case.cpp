@@ -11,7 +11,7 @@ std::string camelCase(const std::string& input) {
             firstWord = false;
         } else if (c == ' ') {
             output += firstWord ? "" : " ";
-            firstWord = true;
+            firstWord = false;
         } else {
             output += c;
             firstWord = true;
