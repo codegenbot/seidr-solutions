@@ -1,25 +1,25 @@
 bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
+
 vector<float> sort_even(vector<float> l) {
-    vector<float> even_values;
-    vector<float> result = l;
-
-    for (int i = 0; i < l.size(); i++) {
+    vector<float> l_odd, l_even;
+    for (int i = 0; i < l.size(); ++i) {
         if (i % 2 == 0) {
-            even_values.push_back(l[i]);
+            l_even.push_back(l[i]);
+        } else {
+            l_odd.push_back(l[i]);
         }
     }
-
-    sort(even_values.begin(), even_values.end());
-
-    int even_index = 0;
-    for (int i = 0; i < l.size(); i++) {
+    sort(l_even.begin(), l_even.end());
+    for (int i = 0, j = 0, k = 0; i < l.size(); ++i) {
         if (i % 2 == 0) {
-            result[i] = even_values[even_index];
-            even_index++;
+            l[i] = l_even[j];
+            ++j;
+        } else {
+            l[i] = l_odd[k];
+            ++k;
         }
     }
-
-    return result;
+    return l;
 }
