@@ -1,4 +1,4 @@
-n, = map(int, input().split())
+n = int(input())
 vec = list(map(int, input().split()))
 
 diff = float("inf")
