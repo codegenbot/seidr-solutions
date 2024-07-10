@@ -1,6 +1,8 @@
-#include <vector>
+Here's the modified code:
+
+```cpp
+#include <iostream>
 #include <string>
-#include <iostream> 
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -9,7 +11,6 @@ vector<int> indicesOfSubstring(string text, string target) {
     for(int i = 0; i <= text.length() - targetLength; i++) {
         if(text.substr(i, targetLength) == target) {
             result.push_back(i);
-            // Check for overlap
             while(i + targetLength < text.length() && text.substr(i, targetLength) == target) {
                 i++;
                 targetLength = target.length();
@@ -29,12 +30,11 @@ int gcd(int a, int b) {
 int main() {
     int num1, num2;
     cin >> num1 >> num2;
-    cout << gcd(num1, num2) << endl;
+    cout << gcd(num1, num2);
 
     string text, target;
     cin >> text >> target;
     vector<int> result = indicesOfSubstring(text, target);
     for(int i : result)
-        cout << i << " ";
-    return 0;
+        cout << " " << i;
 }
