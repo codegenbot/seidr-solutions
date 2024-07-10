@@ -1,3 +1,4 @@
+```python
 def intersperse(a, b):
     result = []
     min_len = min(len(a), len(b))
