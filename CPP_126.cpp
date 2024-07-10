@@ -1,10 +1,8 @@
 #include <vector>
-#include <initializer_list>
-
 using namespace std;
 
 bool is_sorted(vector<int> lst){
-    for(int i = 1; i < lst.size(); i++){
+    for(int i = 1; i <= typename vector<int>::size_type(lst.size()) - 1; i++){
         if(lst[i-1] > lst[i]){
             return false;
         }
