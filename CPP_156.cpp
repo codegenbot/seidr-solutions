@@ -35,4 +35,3 @@ int main() {
     std::string result = int_to_mini_romank(num);
     std::cout << "Roman numeral representation: " << result << std::endl;
     return 0;
-}
