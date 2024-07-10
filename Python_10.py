@@ -2,6 +2,8 @@ def reverse_string(s: str, i: int) -> str:
     return s[i - 1 :: -1]
 
 def make_palindrome(s: str) -> str:
+    if not s:
+        return s
     if s == s[::-1]:
         return s
     for i in range(1, len(s)):
