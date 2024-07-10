@@ -1,1 +1,1 @@
-n = int(input())
+n = list(map(int, input("Enter the values of n separated by spaces: ").split()))
