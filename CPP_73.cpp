@@ -1,11 +1,7 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <climits>
-
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    int m = 1; 
+    int m = n; 
     for (int i = 0; i < n; i++) {
         if (arr[i] != 0) {
             m = i + 1;
@@ -15,7 +11,7 @@ int smallest_change(std::vector<int> arr) {
     
     int smallest = INT_MAX;
 
-    std::vector<int> dp(m);
+    std::vector<int> dp(n - m);
     for (int length = 2; length <= n; length++) {
         for (int i = 0; i < n - length + 1; i++) {
                 int j = i + length - 1;

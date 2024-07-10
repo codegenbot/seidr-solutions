@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <cassert>
-#include <initializer_list>
 
 std::vector<int> numbers;
 
@@ -35,5 +35,13 @@ int main() {
     // test the function
     assert (!below_threshold(numbers, 10));
     
+    bool result = below_threshold(numbers, 5);
+
+    if (result) {
+        std::cout << "At least one number is below threshold.\n";
+    } else {
+        std::cout << "No numbers are below threshold.\n";
+    }
+
     return 0;
 }
