@@ -1,3 +1,4 @@
+```
 n = int(input("Enter the number: "))
 
 def fibfib(n):
