@@ -1,3 +1,4 @@
+```c++
 #include <string>
 #include <iostream>
 
@@ -6,10 +7,10 @@ int main() {
     std::cin >> x;
     if (x % 15 == 0)
         std::cout << "FizzBuzz";
-    else if (x % 3 == 0)
-        (x % 5) ? std::cout << "Fizz" : std::cout << "FizzBuzz";
+    else if (x % 5 == 0)
+        (x % 3) ? std::cout << "Buzz" : std::cout << "FizzBuzz";
     else
-        (x % 5) ? std::cout << "Buzz" : std::cout << x;
+        std::cout << x;
     std::cout << std::endl;
     return 0;
 }
