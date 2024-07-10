@@ -1,30 +1,21 @@
-Here is the completed code:
+bool has_digit = false;
+int dot_count = 0;
 
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
-    bool valid_start = true;
-    string start_part = "";
-    string end_part = "";
-
-    for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-        if(c == '.'){
-            found_dot = true;
-        } else if(isdigit(c)){
-            digit_count++;
-        } else {
-            if(i > 0){
-                start_part += c;
-                valid_start &= isalpha(c);
-            } else {
-                valid_start = false;
-            }
-        } else {
-            end_part += c;
-        }
+for(char c : file_name){
+    if(isdigit(c)){
+        if(has_digit) return "No";
+        has_digit = true;
+    } else if(c == '.'){
+        dot_count++;
+        if(dot_count > 1) return "No";
     }
-
-    return (found_dot && digit_count <= 3 && valid_start && 
-            (end_part == "txt" || end_part == "exe" || end_part == "dll")) ? "Yes" : "No";
 }
+
+if(!has_digit || dot_count != 1) return "No";
+
+string extension = file_name.substr(file_name.find('.') + 1);
+vector<string> valid_extensions = {"txt", "exe", "dll"};
+if(find(valid_extensions.begin(), valid_extensions.end(), extension) == valid_extensions.end())
+    return "No";
+
+return "Yes";
