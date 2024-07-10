@@ -1,4 +1,3 @@
-```
 def fibfib(n: int):
     if n <= 1:
         return 
@@ -10,5 +9,4 @@ def fibfib(n: int):
             result.append(a)
         return str(result)
     else:
-        n = int(input("Enter an integer: "))
-        print(fibfib(n))
+        pass  # or your intended logic here
