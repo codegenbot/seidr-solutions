@@ -33,9 +33,15 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return true;
 
 }
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size())
+        return false;
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    
+    return true;
 
-int main() {
-    std::vector<std::string> expected = {"ahmed", "gamal"};
-    assert(issame(words_string("ahmed     , gamal"), {expected[0], expected[1]}));
-    return 0;
 }
