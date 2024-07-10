@@ -1,5 +1,4 @@
-string longest(vector<string> strings) {
-    if (strings.empty()) {
+if (strings.empty()) {
         return "None";
     }
     
