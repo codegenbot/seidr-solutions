@@ -13,6 +13,8 @@ vector<string> reverse_delete(string s, string c) {
             result += ch;
         }
     }
-    reverse(result.begin(), result.end());
-    return {result, result == s ? "True" : "False"};
+    string reversed = result;
+    reverse(reversed.begin(), reversed.end());
+    string palindromeCheck = result == reversed ? "True" : "False";
+    return {result, palindromeCheck};
 }
