@@ -4,6 +4,8 @@
 #include <string>
 #include <cassert>
 
+using namespace std;
+
 bool issame(std::map<char, int> a, std::map<char, int> b) {
     return a == b;
 }
@@ -34,6 +36,5 @@ std::map<char, int> histogram(std::string test) {
 
 int main() {
     assert(issame(histogram("a"), {{'a', 1}}));
-
     return 0;
 }
