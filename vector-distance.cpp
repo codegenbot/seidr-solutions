@@ -1,5 +1,5 @@
-#include <cmath>
 #include <vector>
+#include <cmath>
 
 double calculateDistance(const std::vector<float>& vector1, const std::vector<float>& vector2) {
     double distance = 0.0;
