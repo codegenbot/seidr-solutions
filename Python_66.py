@@ -1,3 +1,3 @@
 ```
 def digitSum(s):
-    return sum(int(c) for c in s.lower() if c.isdigit())
+    return sum(int(digit) for digit in ''.join(c if c.isdigit() else '' for c in s.lower()).replace(" ", ""))
