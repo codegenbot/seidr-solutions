@@ -1,7 +1,4 @@
-```cpp
 #include <iostream>
-using namespace std;
-
 #include <vector>
 #include <string>
 
@@ -20,11 +17,11 @@ vector<int> indicesOfSubstring(string text, string target) {
                 break;
             }
         }
-        if (found) {
-            result.push_back(i);
-            i += m; // Start searching from the next character
+        if (!found) {
+            i++; 
         } else {
-            i++; // Start searching from the next character
+            result.push_back(i);
+            i += m; 
         }
     }
 
