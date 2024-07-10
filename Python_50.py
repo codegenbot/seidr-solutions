@@ -1,12 +1,11 @@
 def decode_shift(input_string):
-    decoded_message = ""
+    decoded = ""
     for char in input_string:
-        decoded_char = chr(ord(char) + 1)
-        decoded_message += decoded_char
-    return decoded_message
-    
+        decoded += chr(ord(char) - 1)
+    return decoded
+
 try:
-    input_string = input("Please enter a string:").strip()
+    input_string = input("Please enter a string: ").strip()
     result = decode_shift(input_string)
     print(result)
 except:
