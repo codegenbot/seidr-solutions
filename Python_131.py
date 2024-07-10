@@ -1,5 +1,5 @@
-def odd_product():
-    n = int(input("Enter a number: "))
+```
+def digits(n):
     product = 1
     has_odd = False
     for digit in str(n):
@@ -7,3 +7,6 @@ def odd_product():
             has_odd = True
             product *= int(digit)
     return product if has_odd else 1
+
+n = int(input("Enter a number: "))
+print(digits(n))
