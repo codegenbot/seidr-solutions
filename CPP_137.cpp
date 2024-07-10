@@ -1,4 +1,3 @@
-```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <cstdlib>
@@ -13,15 +12,15 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
         return b;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string str1 = boost::any_cast<string>(a);
-        string str2 = boost::any_cast<string>(b);
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string str1 = boost::any_cast<std::string>(a);
+        std::string str2 = boost::any_cast<std::string>(b);
 
         if (str1 == "None" || str2 == "None")
             return a;
 
-        double num1 = stod(str1);
-        double num2 = stod(str2);
+        double num1 = std::stod(str1);
+        double num2 = std::stod(str2);
 
         if (num1 > num2)
             return a;
