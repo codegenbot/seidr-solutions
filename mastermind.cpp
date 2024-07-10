@@ -24,7 +24,11 @@ int countWhitePegs(const std::string& code, const std::string& guess) {
                 found.insert(c);
             }
         }
-        whitePegs += count - found.size();
+        if (found.size() > 1) {
+            whitePegs += found.size() - 1;
+        } else if (found.size() == 1) {
+            whitePegs++;
+        }
     }
     return whitePegs;
 }
