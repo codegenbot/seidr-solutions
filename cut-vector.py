@@ -1,12 +1,10 @@
-def cut_vector(vector):
-    min_diff = float("inf")
-    cut_index = 0
+Here is the Python solution for the problem:
 
-    for i in range(1, len(vector)):
-        diff = abs(sum(vector[:i]) - sum(vector[i:]))
-
-        if diff < min_diff:
-            min_diff = diff
-            cut_index = i
-
-    return vector[:cut_index], vector[cut_index:]
+def cut_vector(nums):
+    left_sum = sum(nums[:i]) for i in range(len(nums)) if nums[i:] == sorted([n1 - n2 for n1, n2 in zip(nums, nums[i:])])]
+    if not left_sum:
+        min_diff = min(abs(n1 - n2) for n1, n2 in zip(nums, nums[1:]))
+        index = np.argmin(abs(np.diff(nums)))
+    else:
+        index = left_sum[0]
+    return nums[:index], nums[index:]
