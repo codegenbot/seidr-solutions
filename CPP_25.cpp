@@ -1,17 +1,14 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
 std::vector<int> factorize(int n) {
     std::vector<int> factors;
-    if (n == 0) {
-        factors.push_back(0);
-        return factors;
-    }
-    if (n == 1) {
-        factors.push_back(1);
+    if (n <= 1) {
+        factors.push_back(n);
         return factors;
     }
     if (n < 0) {
@@ -28,19 +25,4 @@ std::vector<int> factorize(int n) {
         factors.push_back(n);
     }
     return factors;
-}
-
-int main() {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    
-    vector<int> factors = factorize(num);
-    
-    cout << "Factors: ";
-    for (int factor : factors) {
-        cout << factor << " ";
-    }
-    
-    return 0;
 }
