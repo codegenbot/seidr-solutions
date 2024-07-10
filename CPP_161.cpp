@@ -4,6 +4,7 @@
 int solve(std::string s) {
     int count = 0;
     for (char c : s) {
+        c = tolower(c); 
         if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
             count++;
         }
@@ -12,11 +13,10 @@ int solve(std::string s) {
 }
 
 int main() {
-    std::string s;
     std::cout << "Enter a string: ";
+    std::string s;
     std::getline(std::cin, s);
     int result = solve(s); 
     std::cout << "Result: " << result << std::endl;
-
     return 0;
 }
