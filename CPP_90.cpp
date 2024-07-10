@@ -1,4 +1,3 @@
-```cpp
 int main() {
     int next_smallest(vector<int> lst) {
         if (lst.empty()) return -1; // or any other value that represents None
