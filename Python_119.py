@@ -1,3 +1,4 @@
+```
 def match_parens(lst):
     for s in lst:
         stack = []
@@ -12,6 +13,5 @@ def match_parens(lst):
             return 'No'
     return 'Yes'
 
-user_input = input("Enter a list of strings: ")
-lst = [s.strip() for s in user_input.split(',')]
+lst = [s.strip() for s in input("Enter a list of strings: ").split(',')]
 print(match_parens([l for l in lst]))
