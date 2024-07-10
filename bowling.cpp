@@ -1,33 +1,23 @@
-int bowlingScore(const string& input) {
+int bowlingScore(string s) {
     int score = 0;
-    bool firstRollInFrame = true;
-
-    for (char c : input) {
-        if (c == 'X') { // strike
-            score += 10 + getBonusForNextTwo Rolls();
-        } else if (c == '/') { // spare
-            score += 10 + getBonusForNextRoll();
-        } else { // normal roll
-            int currentFrameScore = c - '0';
-            if (!firstRollInFrame) {
-                currentFrameScore += getBonusForCurrentFrame();
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == 'X') {
+            score += 30;
+        } else if (s[i] == '/') {
+            int next = i + 1;
+            while (next < 11 && s[next] != '/') next++;
+            int first = s[i+1] - '0' + s[i+2] - '0';
+            int second = s[next-1] - '0' + s[next-2] - '0';
+            score += first + second;
+        } else {
+            int first = s[i] - '0';
+            int second = s[i+1] - '0';
+            if (first + second >= 10) {
+                score += 10 + 10;
+            } else {
+                score += first + second;
             }
-            score += currentFrameScore;
-            firstRollInFrame = false;
         }
     }
-
     return score;
-}
-
-int getBonusForNextTwoRolls() {
-    // implement this function
-}
-
-int getBonusForNextRoll() {
-    // implement this function
-}
-
-int getBonusForCurrentFrame() {
-    // implement this function
 }
