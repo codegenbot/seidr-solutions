@@ -1,25 +1,35 @@
-#include <iostream>
+#include <vector>
 using namespace std;
 
+vector<int> coinSums(int cents) {
+    vector<int> result(4);
+    
+    for (int i = 0; i < 4; i++) {
+        int val;
+        switch(i) {
+            case 0: val = 1; break;
+            case 1: val = 5; break;
+            case 2: val = 10; break;
+            case 3: val = 25; break;
+        }
+        
+        while (cents >= val) {
+            cents -= val;
+            result[i]++;
+        }
+    }
+    
+    return result;
+}
+
 int main() {
-    int cents;
-    cin >> cents;
-
-    int quarters = cents / 25;
-    cents %= 25;
-
-    int dimes = cents / 10;
-    cents %= 10;
-
-    int nickles = cents / 5;
-    cents %= 5;
-
-    int pennies = cents;
-
-    cout << quarters << endl;
-    cout << dimes << endl;
-    cout << nickles << endl;
-    cout << pennies << endl;
-
+    int n;
+    cin >> n;
+    vector<int> res = coinSums(n);
+    cout << res[0] << endl;
+    cout << res[1] << endl;
+    cout << res[2] << endl;
+    cout << res[3] << endl;
+    
     return 0;
 }
