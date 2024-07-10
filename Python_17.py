@@ -1,12 +1,11 @@
-import sys
-from typing import List
+# Read input line by line until an empty line is encountered
+music_input = '\n'.join(iter(input, ''))
 
-def parse_music(music_string: str) -> List[int]:
-    notes = {"o": 4, "o|": 2, ".|": 1}
-    return [notes[note] for note in music_string]
+# Define the function with correct signature
+def parse_music(music_data):
+    # Add your logic here to process the music_data
+    processed_data = music_data.split('\n')
+    return processed_data
 
-# Read entire input at once
-music_input = sys.stdin.read()
-
-# Call the function with user input and print the output
+# Print the output of the function
 print(parse_music(music_input))
