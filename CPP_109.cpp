@@ -1,16 +1,22 @@
 #include <algorithm>
 
 bool move_one_ball(vector<int> arr) {
-    if (arr.empty()) return true;
-
-    vector<int> arr_copy = arr;
-    sort(arr_copy.begin(), arr_copy.end());
-
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] != arr_copy[(i + arr_copy.size() - arr.size()) % arr_copy.size()]) {
-            return false;
+    int n = arr.size();
+    if (n == 0) return true;
+    
+    vector<int> temp(arr);
+    sort(temp.begin(), temp.end());
+    
+    for (int i = 0; i < n; i++) {
+        bool possible = true;
+        for (int j = 0; j < n - 1; j++) {
+            if (temp[j] >= arr[i]) {
+                possible = false;
+                break;
+            }
         }
+        if (!possible) return false;
     }
-
+    
     return true;
 }
