@@ -1,51 +1,44 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    vector<vector<int>> result;
-    if (n == 1) {
-        return {{v[0]}};
-    }
-    for (int i = 1; i < n; i++) {
-        long long sum1 = 0, sum2 = 0;
-        for (int j = 0; j < i; j++) {
-            sum1 += v[j];
+    pair<vector<int>, vector<int>> res;
+    
+    for (int i = 0; i < n - 1; i++) {
+        int sumLeft = 0, sumRight = 0;
+        for (int j = 0; j <= i; j++) {
+            sumLeft += v[j];
         }
-        for (int j = i; j < n; j++) {
-            sum2 += v[j];
+        for (int j = i + 1; j < n; j++) {
+            sumRight += v[j];
         }
-        if (abs(sum1 - sum2) <= abs(v[i] - sum1)) {
-            result.push_back(vector<int>(v.begin(), v.begin() + i));
-            result.push_back({v[i]});
-            for (int j = i; j < n; j++) {
-                result.back().push_back(v[j]);
-            }
-            return result;
+        
+        if (sumLeft == sumRight) {
+            res.first = vector<int>(v.begin(), v.begin() + i + 1);
+            res.second = vector<int>(v.begin() + i, v.end());
+            return res;
         }
     }
-    long long sum1 = 0, sum2 = 0;
-    for (int i = 0; i < n / 2; i++) {
-        sum1 += v[i];
-    }
-    for (int i = n / 2; i < n; i++) {
-        sum2 += v[i];
-    }
-    if (abs(sum1 - sum2) <= abs(v[n / 2] - sum1)) {
-        result.push_back(vector<int>(v.begin(), v.begin() + n / 2));
-        result.push_back({v[n / 2]});
-        for (int j = n / 2; j < n; j++) {
-            result.back().push_back(v[j]);
+    
+    // If no equal partition found
+    int minDiff = INT_MAX;
+    for (int i = 0; i < n - 1; i++) {
+        int sumLeft = 0, sumRight = 0;
+        for (int j = 0; j <= i; j++) {
+            sumLeft += v[j];
         }
-        return result;
-    } else if (abs(sum1 - sum2) <= abs(sum2)) {
-        result.push_back(vector<int>(v.begin(), v.end()));
-        return {result[0], {}};
-    } else {
-        for (int i = 0; i < n / 2; i++) {
-            result[0].push_back(v[i]);
+        for (int j = i + 1; j < n; j++) {
+            sumRight += v[j];
         }
-        result[1] = vector<int>(v.begin() + n / 2, v.end());
-        return result;
+        
+        int diff = abs(sumLeft - sumRight);
+        if (diff < minDiff) {
+            res.first = vector<int>(v.begin(), v.begin() + i + 1);
+            res.second = vector<int>(v.begin() + i, v.end());
+            minDiff = diff;
+        }
     }
+    
+    return res;
 }
