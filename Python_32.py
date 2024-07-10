@@ -9,6 +9,6 @@ def find_zero(xs):
     d = math.sqrt(b**2 - 4 * a * c)
     return (-b + d) / (2 * a)
 
-xs = input("Enter the coefficients: ").split()
+xs = input("Enter the coefficients: ").split() 
 xs = [int(x) for x in xs]
 print(find_zero(xs))
