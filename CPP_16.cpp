@@ -1,11 +1,14 @@
-transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<bool> visited(26, false);
-    int count = 0;
-    for (char c : str) {
-        if (isalpha(c) && !visited[c - 'a']) {
-            visited[c - 'a'] = true;
-            count++;
-        }
-    }
-    return count;
+#include <algorithm>
+#include <iostream>
+#include <string>
+
+int count_distinct_characters(std::string str) {
+    std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+    std::sort(str.begin(), str.end());
+    return std::unique(str.begin(), str.end()) - str.begin();
+}
+
+int main() {
+    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
+    return 0;
 }
