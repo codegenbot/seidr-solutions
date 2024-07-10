@@ -5,22 +5,8 @@
 bool issame(std::vector<std::pair<std::string, std::string>> a, std::vector<std::pair<std::string, std::string>> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        int num1 = 0;
-        int num2 = 0;
-        for (char c : a[i].first) {
-            num1 = num1 * 10 + (c - '0');
-        }
-        for (char c : a[i].second) {
-            num1 = num1 * 10 + (c - '0');
-        }
-        for (char c : b[i].first) {
-            num2 = num2 * 10 + (c - '0');
-        }
-        for (char c : b[i].second) {
-            num2 = num2 * 10 + (c - '0');
-        }
-        if (!issorted({num1})) return false;
-        if (!issorted({num2})) return false;
+        if (a[i].first > b[i].first || a[i].second > b[i].second) return false;
+        if (a[i].first < b[i].first || a[i].second < b[i].second) return true;
     }
     return true;
 }
@@ -53,9 +39,4 @@ int main() {
     assert(issame({{"aaaa", "bbbb"}, {"cccc", "ddd"}}, {{"cccc", "ddd"}, {"aaaa", "bbbb"}})); 
     assert(issame(std::vector<std::pair<std::string, std::string>>{{"aaaa", "bbbb"}, {"dd", "cc"}},
                   std::vector<std::pair<std::string, std::string>>{{"cc", "dd"}, {"aaaa", "bbbb"}})); 
-
-    std::vector<std::pair<std::string, std::string>> v1(std::make_move_iterator({{"aaaa", "bbbb"}, {"cccc", "ddd"}}.begin()), 
-        std::make_move_iterator({{"aaaa", "bbbb"}, {"cccc", "ddd"}}.end());
-    std::vector<std::pair<std::string, std::string>> v2(std::make_move_iterator({{"cc", "dd"}, {"aaaa", "bbbb"}}).begin(),
-        std::make_move_iterator({{"cc", "dd"}, {"aaaa", "bbbb"}}).end());
 }

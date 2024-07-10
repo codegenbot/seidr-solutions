@@ -1,5 +1,7 @@
 ```
-def fruit_distribution(s, n):
+def fruit_distribution():
+    s = input("Enter the fruits list: ").lower()
+    n = int(input("Enter the number of fruits: "))
     s = s.lower()
     fruits = s.split("and")
     for i in range(len(fruits)):
