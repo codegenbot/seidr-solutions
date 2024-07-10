@@ -5,10 +5,11 @@ vector<int> compare(vector<int> game, vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
             result.push_back(2);
-        } else if ((find(game.begin(), game.end(), guess[i]) != game.end()) ||
-                   (find(guess.begin(), guess.end(), game[i]) != guess.end())) {
+        } 
+        else if ((game[i] > guess[i] && (guess[i]+1) <= game[i]) || (game[i] < guess[i] && (game[i]+1) <= guess[i])) {
             result.push_back(1);
-        } else {
+        }
+        else {
             result.push_back(0);
         }
     }
