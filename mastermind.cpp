@@ -1,48 +1,39 @@
-```c
-#include <string>
-using namespace std;
-
-struct PegCounts {
-    int black;
-    int white;
-};
-
 PegCounts mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
 
-    string tempCode = code;
-    string tempGuess = guess;
+    string usedCode(code);
+    string usedGuess(guess);
 
-    // Count the number of correct colors in wrong positions
     for (int i = 0; i < 4; ++i) {
-        if (tempCode[i] == tempGuess[i]) {
+        if (code[i] == guess[i]) {
             black++;
-            tempCode[i] = ' '; // Mark as used to avoid counting again
-            tempGuess[i] = ' ';
+            usedCode[i] = ' '; // Mark as used to avoid counting again
+            usedGuess[i] = ' ';
         }
     }
 
-    // Count the number of correct colors in correct positions
-    for (int i = 0; i < 4; ++i) {
-        bool correctColor = false;
-        for (int j = 0; j < 4; ++j) {
-            if (tempCode[j] == tempGuess[i]) {
-                correctColor = true;
+    for (char c : usedGuess) {
+        bool found = false;
+        for (int i = 0; i < 4; ++i) {
+            if (code[i] == c && !usedCode[i]) {
+                white++;
+                usedCode[i] = ' '; // Mark as used to avoid counting again
+                found = true;
                 break;
             }
         }
-        if (correctColor) {
-            white++;
+        if (!found) {
+            for (int i = 0; i < 4; ++i) {
+                if (code[i] == c) {
+                    black++;
+                    usedCode[i] = ' '; // Mark as used to avoid counting again
+                    found = true;
+                    break;
+                }
+            }
         }
     }
 
     return {black, white};
-}
-
-int main() {
-    string code = "ABCD";
-    string guess = "ABDE";
-    PegCounts result = mastermind(code, guess);
-    return 0;
 }
