@@ -1,12 +1,6 @@
-```cpp
-#include <vector>
-#include <string>
-using namespace std;
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return (a == b);
+bool issame(vector<vector<string>> v1, vector<vector<string>> v2) {
+    return v1==v2;
 }
-
 vector<string> split_words(string txt) {
     vector<string> result;
     bool inWord = false;
@@ -31,9 +25,4 @@ vector<string> split_words(string txt) {
         result.push_back(word);
     }
     return result;
-}
-
-int main() {
-    assert(issame(split_words(""), vector<string>({"0"})));
-    return 0;
 }
