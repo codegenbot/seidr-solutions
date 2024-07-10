@@ -9,10 +9,11 @@ bool triples_sum_to_zero(const std::vector<int>& l) {
             for (int k = j + 1; k < n; k++) {
                 if (l[i] + l[j] + l[k] == 0) {
                     return true;
+                }
+            }
         }
     }
-}
-return false;
+    return false;
 }
 
 int main() {
