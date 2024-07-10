@@ -1,14 +1,8 @@
-#include <vector>
-#include <algorithm>
-
 int basement(std::vector<int>& nums) {
-    std::vector<size_t>::size_type i = 0;
-    size_t sum = 0;
-    while (i < nums.size()) {
+    int sum = 0;
+    for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
-        if (sum < 0)
-            return i + 1;
-        i++;
+        if (sum < 0) return i + 1;
     }
     return -1;
 }
