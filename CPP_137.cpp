@@ -1,38 +1,36 @@
 #include <iostream>
 #include <string>
-#include <any>
 
 using namespace std;
-using namespace boost;
 
-int CompareOne(double a, any b) {
-    if (any_cast<double>(b) > a) {
-        return any_cast<double>(b);
-    } else if (a == any_cast<double>(b)) {
-        return "None";
+int CompareOne(int a, double b) {
+    if (b > a) {
+        return b;
+    } else if (a == b) {
+        return 0;
     } else {
         return a;
     }
 }
 
 int main() {
-    double a;
-    string b;
+    int a;
     cout << "Enter an integer: ";
     cin >> a;
+
+    double b;
     cout << "Enter a floating point number or a string: ";
     cin >> b;
 
     if (cin.fail()) {
         // If the input is not a valid float, assume it's a string
-        if (b.find('.') != string::npos || b.find('e') != string::npos) {
-            cout << "The result is: " << CompareOne(a, stod(b)) << endl;
-        } else {
-            cout << "The result is: " << CompareOne(a, b) << endl;
-        }
+        string str;
+        cin.clear();
+        cin >> str;
+        cout << "The result is: " << CompareOne(a, stod(str)) << endl;
     } else {
         // If the input is a valid float
-        cout << "The result is: " << CompareOne(a, stod(b)) << endl;
+        cout << "The result is: " << CompareOne(a, b) << endl;
     }
 
     return 0;
