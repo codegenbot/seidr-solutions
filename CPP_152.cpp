@@ -1,35 +1,25 @@
-bool issame(vector<int> a,vector<int>b){
-    return (a==b);
+#include <vector>
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            vector<int> res(a.size());
+            if (a[i] > b[i]) {
+                fill(res.begin(), res.end(), 1);
+            } else {
+                fill(res.begin(), res.end(), 2);
+            }
+            return res;
+        }
+    }
+    return true;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> game(n), guess(n);
-    for(int i=0; i<n; i++){
-        cin >> game[i] >> guess[i];
-    }
-    bool same = issame(game,guess);
-    if(same){
-        cout << "Game and Guess are the same.\n";
-    }else{
-        vector<int> compare_game_guess = compare(game,guess);
-        for(int num : compare_game_guess) {
-            cout << num << " ";
-        }
-        cout << "\n";
-    }
+    assert(issame({1,2,3,5},{-1,2,3,4}) == {2,0,0,1});
     return 0;
-}
-
-vector<int> compare(vector<int> game, vector<int> guess) {
-    vector<int> result;
-    for (int i = 0; i < game.size(); i++) {
-        if (game[i] == guess[i]) {
-            result.push_back(0);
-        } else {
-            result.push_back(abs(guess[i] - game[i]));
-        }
-    }
-    return result;
 }
