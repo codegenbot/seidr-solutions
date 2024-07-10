@@ -14,6 +14,6 @@ bool check_dict_case(const std::map<std::string, int>& dict) {
 }
 
 int main() {
-    // Main function code here
+    // Main function implementation goes here
     return 0;
 }
