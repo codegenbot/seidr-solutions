@@ -4,7 +4,7 @@
 #include <cassert>
 
 int solve(std::string s) {
-    std::vector<char> v;
+    std::vector<char> v(1); 
     for (char c : s) {
         if (std::tolower(c) == 'a' || std::tolower(c) == 'e' || 
             std::tolower(c) == 'i' || std::tolower(c) == 'o' || std::tolower(c) == 'u') {
