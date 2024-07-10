@@ -1,6 +1,6 @@
 ```cpp
 #include <iostream>
-#include <cmath> 
+#include <cmath>
 
 using namespace std;
 
@@ -15,7 +15,7 @@ int main() {
 int starts_one_ends(int n) {
     int count = 0;
     for (long long i = 1; i <= n; i++) {
-        if ((i / pow(10, (log10(i))) % 10 == 1) || (i % 10 == 1))
+        if (i == 1 || to_string(i).back() == '1' || to_string(i).front() == '1')
             count++;
     }
     return count;
