@@ -1,19 +1,24 @@
-int consecutive_spaces = 0;
-    string result = "";
-    for(char c : text){
-        if(c == ' '){
-            consecutive_spaces++;
-            if(consecutive_spaces > 2){
-                result.pop_back();
-                result.pop_back();
-                result += "-";
+string result = "";
+    bool found_space = false;
+    int space_count = 0;
+    
+    for (char c : text) {
+        if (c == ' ') {
+            space_count++;
+            if (space_count > 2) {
+                if (!found_space) {
+                    result += "-";
+                    found_space = true;
+                }
             } else {
                 result += "_";
             }
         } else {
             result += c;
-            consecutive_spaces = 0;
+            found_space = false;
+            space_count = 0;
         }
     }
+    
     return result;
 }
