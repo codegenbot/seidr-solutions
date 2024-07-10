@@ -8,9 +8,6 @@ bool correct_bracketing(const std::string& brackets) {
         } else if (c == '>') {
             count--;
         }
-        if (count < 0) {
-            return false;
-        }
     }
     return count == 0;
 }
