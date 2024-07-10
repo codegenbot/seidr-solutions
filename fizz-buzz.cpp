@@ -1,17 +1,8 @@
-#include <string>
-#include <iostream>
-
 int main() {
-    int x; 
-    std::cin >> x;
-    if (x % 15 == 0)
-        std::cout << "FizzBuzz";
-    else if (x % 5 == 0)
-        (x % 3) ? std::cout << "Buzz" : std::cout << "FizzBuzz";
-    else if (x % 3 == 0)
-        std::cout << "Fizz";
-    else
-        std::cout << x;
-    std::cout << std::endl;
+    std::cout << fizzBuzz(15) << std::endl;
+    std::cout << fizzBuzz(30) << std::endl;
+    std::cout << fizzBuzz(20) << std::endl;
+    std::cout << fizzBuzz(25) << std::endl;
+    std::cout << fizzBuzz(1) << std::endl;
     return 0;
 }

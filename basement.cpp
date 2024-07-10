@@ -8,3 +8,4 @@ int basement(vector<int>& nums) {
         if (sum < 0) return i + 1;
     }
     return -1;
+}
