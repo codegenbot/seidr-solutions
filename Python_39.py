@@ -1,15 +1,11 @@
 ```
 def prime_fib(n: int):
-    a, b = 2, 3
-    count = 1
-    while True:
-        if is_prime(b):
-            if count == n:
-                return b
-            count += 1
-        a, b = b, a + b
-        if b > 1000:
-            break
+    fib = [0, 1]
+    while len(fib) <= n:
+        fib.append(fib[-1] + fib[-2])
+    for num in fib:
+        if is_prime(num):
+            return num
 
 def is_prime(num: int):
     if num < 2:
