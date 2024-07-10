@@ -23,3 +23,4 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 
     return rescaled_numbers;
 }
+```
