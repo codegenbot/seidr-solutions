@@ -2,6 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <iomanip>
+#include <limits>
 
 using namespace std;
 
@@ -13,6 +14,7 @@ int main() {
         cin >> vec1[i];
     }
 
+    cin >> n;
     vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec2[i];
@@ -24,7 +26,9 @@ int main() {
     }
 
     float result = sqrt(sum);
-    cout << fixed << setprecision(14) << result << endl;
+
+    cout << fixed << setprecision(14);
+    cout << nextafterf(result, numeric_limits<float>::max()) << endl;
 
     return 0;
 }
