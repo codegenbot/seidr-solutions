@@ -1,3 +1,4 @@
+```
 n = int(input())
 v1 = [float(f"{input()}.0000") for _ in range(n)]
 m = int(input())
