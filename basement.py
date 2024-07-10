@@ -1,7 +1,7 @@
-def basement(arr):
+def basement(nums):
     total = 0
-    for i in range(len(arr)):
-        total += arr[i]
+    for i in range(len(nums)):
+        total += nums[i]
         if total < 0:
             return i
     return -1
