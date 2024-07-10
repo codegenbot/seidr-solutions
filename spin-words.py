@@ -6,6 +6,6 @@ def spin_words(s):
             result.append(word[::-1])
         else:
             result.append(word)
-        if i < len(words)-1:  
+        if i < len(words)-2: 
             result.append(' ')
-    return ' '.join(result).strip()
+    return ''.join(result).strip()
