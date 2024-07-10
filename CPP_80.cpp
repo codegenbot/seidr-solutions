@@ -1,14 +1,20 @@
-bool is_happy(string s){
-    if(s.length() < 3) return false;
-    for(int i = 0; i <= s.length()-3; i++){
-        string str = s.substr(i, 3);
-        bool unique = true;
-        for(char c : str){
-            if(find(str.begin(), str.end(), c) == str.end())
-                unique = false;
+bool is_happy(string s) {
+    if (s.length() < 3)
+        return false;
+    for (int i = 0; i <= s.length() - 3; i++) {
+        string substr = s.substr(i, 3);
+        bool distinct = true;
+        for (char c : substr) {
+            int count = 0;
+            for (int j = i; j < s.length(); j++)
+                if (s[j] == c)
+                    count++;
+            if (count > 1)
+                distinct = false;
             break;
         }
-        if(unique) return true;
+        if (!distinct)
+            return false;
     }
-    return false;
+    return true;
 }
