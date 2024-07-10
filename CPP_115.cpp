@@ -1,6 +1,6 @@
 #include <cassert>
 
-int calculateNumBuckets(std::vector<std::vector<int>>& grid, int capacity) {
+int calculateNumBuckets(const vector<vector<int>>& grid, int capacity) {
     int rows = grid.size();
     int cols = grid[0].size();
     int total_water = 0;
