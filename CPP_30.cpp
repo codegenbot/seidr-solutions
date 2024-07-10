@@ -1,33 +1,22 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
-template <typename T>
+template<typename T>
 bool issame(const std::vector<T>& a, const std::vector<T>& b) {
     return a == b;
 }
 
-template <typename T>
-std::vector<T> get_positive(std::vector<T> v) {
-    std::vector<T> result;
-    for (const auto& num : v) {
-        if (num > 0) {
-            result.push_back(num);
+template<typename T>
+std::vector<T> get_positive(std::vector<T> vec) {
+    for (auto& elem : vec) {
+        if (elem < 0) {
+            elem *= -1;
         }
     }
-    return result;
+    return vec;
 }
 
 int main() {
-    int n;
-    std::cin >> n;
-    
-    std::vector<int> positive_numbers;
-    for (int i = 1; i <= n; ++i) {
-        positive_numbers.push_back(i);
-    }
-    
-    assert(issame(get_positive<int>(std::vector<int>{}), std::vector<int>{}));
-    
+    assert(issame(get_positive(std::vector<int>{}), std::vector<int>{}));
     return 0;
 }
