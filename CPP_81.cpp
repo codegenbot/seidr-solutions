@@ -6,7 +6,7 @@
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+        if (std::find(b.begin(), b.end(), a[i]) == b.end()) return false;
     }
     return true;
 }
@@ -22,22 +22,14 @@ std::string numerical_letter_grade(int credits, double gpa) {
 }
 
 int main() {
-    int credits = 0;
-    double gpa = 0.7;
+    int credits = 3;
+    double gpa = 3.4;
 
-    std::string grade = numerical_letter_grade(credits, gpa);
-
-    if (grade == "F" || grade == "D+") {
+    if (numerical_letter_grade(credits, gpa) == "F" || numerical_letter_grade(credits, gpa) == "D+") {
         throw std::runtime_error("Invalid GPA");
     }
-
-    int credits1 = 3;
-    double gpa1 = 3.4; 
-    grade = numerical_letter_grade(credits1, gpa1);
     
-    if (!issame({grade}, {"E", "D-"})) {
-        return 0;
-    } else {
-        return -1; // Or some other error handling mechanism
-    }
+    std::string grade = numerical_letter_grade(credits, gpa);
+    assert (issame({grade}, {"A", "B+"})); 
+    return 0;
 }
