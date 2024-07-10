@@ -16,3 +16,15 @@ int fib(int n) {
     memo[n] = result;
     return result;
 }
+
+int main() {
+    int n;
+    std::cout << "Enter the value of n: ";
+    std::cin >> n;
+
+    int fibonacci = fib(n);
+
+    std::cout << "Fibonacci number at position " << n << " is: " << fibonacci << std::endl;
+
+    return 0;
+}

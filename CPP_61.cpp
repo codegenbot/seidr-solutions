@@ -7,10 +7,10 @@ bool correct_bracketing(const std::string& brackets) {
         if (c == '(') {
             count++;
         } else if (c == ')') {
-            count--;
-            if (count < 0) {
+            if (count == 0) {
                 return false;
             }
+            count--;
         }
     }
     return count == 0;
