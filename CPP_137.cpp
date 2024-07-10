@@ -28,11 +28,8 @@ int main_func() {
             double b = stod(s);
             cout << "The result is: " << compare_one(a, b) << endl;
         } catch (invalid_argument& e) {
-            // If input is not a number, assume it's a string
-            if (s == "exit") { 
-                return 0; 
-            }
-            cout << "The result is: " << a << endl;
+            int b = stoi(s); 
+            cout << "The result is: " << compare_one(a, b) << endl;
         }
     } else {
         double b = stod(s); 
