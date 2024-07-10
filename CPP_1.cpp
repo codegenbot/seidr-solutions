@@ -11,14 +11,17 @@ vector<string> separate_paren_groups(string paren_string) {
             depth++;
         } else if (c == ')') {
             depth--;
-            if (depth >= 0) {
+            if (depth > 0) {
                 current_group += c;
-                if (depth == 0) {
-                    result.push_back(current_group);
-                    current_group.clear();
-                }
+            } else {
+                result.push_back(current_group);
+                current_group.clear();
             }
         }
+    }
+
+    if (!current_group.empty()) {
+        result.push_back(current_group);
     }
 
     return result;
