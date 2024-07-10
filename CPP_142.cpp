@@ -11,7 +11,7 @@ double sum_squares(int n) {
     return sum;
 }
 
-int main_function() {
+int main() {
     int n;
     while (!(std::cin >> n)) {
         std::cout << "Invalid input. Please enter a non-negative integer.\n";
@@ -21,10 +21,13 @@ int main_function() {
 
     if(n < 0) {
         std::cout << "Invalid input. Please enter a non-negative integer.\n";
-        return 1;
     } else {
         double result = sum_squares(n);
         std::cout << "Sum of squares: " << std::to_string(result) << std::endl;
+        
+        assert(sum_squares(1) == 1);
+        assert(sum_squares(2) == 5);
+        assert(sum_squares(3) == 14);
         return 0;
     }
 }
