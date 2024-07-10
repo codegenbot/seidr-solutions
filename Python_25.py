@@ -18,5 +18,5 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.append(n)
     elif n <= 1:  
-        return [n]  
+        return [n]
     return factors
