@@ -10,13 +10,9 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s2(l2.begin(), l2.end());
 
     vector<int> result;
-    for (int i : set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-                                    std::back_inserter(result))) {
-        auto it = std::find(std::begin(result), std::end(result), i);
-        if (it != std::end(result))
-            continue;
-        result.push_back(i);
-    }
+    std::copy(std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end()),
+          std::set_union(s1.begin(), s1.end(), s2.begin(), s2.end()),
+          back_inserter(result));
     
     return vector<int>(result.begin(), result.end());
 }
