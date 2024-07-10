@@ -16,4 +16,3 @@ string anti_shuffle(string s){
         result += word;
     }
     return result;
-}
