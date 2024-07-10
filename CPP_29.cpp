@@ -1,12 +1,23 @@
+```cpp
+#include <initializer_list>
+#include <vector>
+#include <string>
+
+bool issame(const std::vector<std::string>& v1, const std::vector<std::string>& v2, const std::string& b) {
+    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
+}
+
 std::vector<std::string> filter_by_prefix(const std::vector<std::string>& vec, const std::string& prefix) {
     std::vector<std::string> result;
     for (const auto& str : vec) {
         if (str.find(prefix) == 0) {
-            bool same = issame({str}, {"xxx"}, "xxx");
-            if (same) {
-                result.push_back(str);
-            }
+            result.push_back(str);
         }
     }
     return result;
+}
+
+int main() {
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAABBA", "xxx"}, "xxx"), filter_by_prefix({"xxx", "xxxAAA", "xxx"}, "xxx"));
+    return 0;
 }
