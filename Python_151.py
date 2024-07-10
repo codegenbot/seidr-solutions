@@ -1,2 +1,8 @@
 def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i > 0)
+    odd_sum = sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
+    return double_the_difference_value(odd_sum)
+
+double_the_difference_value = lambda x: (x[1] - x[0]) * 2
+
+check_result = double_the_difference([7, 1])
+print(check_result)
