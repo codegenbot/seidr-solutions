@@ -4,15 +4,16 @@
 
 using namespace std;
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> incr_list(std::vector<int> l) {
-    for (auto& num : l) {
+std::vector<int> incr_list(const std::vector<int>& l) {
+    std::vector<int> result = l;
+    for (auto& num : result) {
         num++;
     }
-    return l;
+    return result;
 }
 
 int main() {
