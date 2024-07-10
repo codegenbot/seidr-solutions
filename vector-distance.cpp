@@ -6,9 +6,9 @@ double calculateDistance(const std::vector<float>& vector1, const std::vector<fl
     double distance = 0.0;
     for (int i = 0; i < vector1.size(); ++i) {
         float diff = vector1[i] - vector2[i];
-        distance += diff * diff;
+        distance += std::sqrt(diff * diff);
     }
-    return std::sqrt(distance);
+    return distance;
 }
 
 int main() {
