@@ -1,1 +1,1 @@
-std::cout << valid_date("04-2003");
+std::cout << std::boolalpha << valid_date("04-2003") << std::endl;
