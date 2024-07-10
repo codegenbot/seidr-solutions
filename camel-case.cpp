@@ -1,27 +1,26 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string camelCase(const std::string& str) {
-    std::string result = "";
-    for (char c : str) {
-        if (c == '-') {
-            if (!result.empty()) {
-                result[0] -= 32; // convert to upper case
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++; // skip the '-'
+            while (i < s.length() && s[i] == ' ') {
+                i++; // skip the spaces
             }
-            continue;
+            result += toupper(s[i]);
+        } else if (s[i] != ' ') {
+            result += tolower(s[i]);
         }
-        if (c == ' ') {
-            continue;
-        }
-        result += c;
     }
     return result;
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
-    }
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    cout << "CamelCase: " << camelCase(input) << endl;
     return 0;
 }
