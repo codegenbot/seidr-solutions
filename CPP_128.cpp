@@ -4,24 +4,24 @@
 
 int prod_signs(int* arr, int n) {
     if (n == 0) return -32768;
-    bool isNegative = false;
+    int sign = 1;
     long long sum = 0;
     for (int i = 0; i < n; ++i) {
-        if (arr[i] < 0)
-            isNegative ^= true;
+        sign *= (arr[i] > 0 ? 1 : (arr[i] < 0 ? -1 : 0));
         sum += std::abs(arr[i]);
     }
-    return (isNegative ? -sum : sum);
+    return (sign > 0) ? sum : -sum;
 }
 
 int main() {
     int n; 
     std::cin >> n;
-    int* arr = new int[n];
+    int arr[n]; // declare array
     for (int i = 0; i < n; ++i)
         std::cin >> arr[i];
 
     int result = prod_signs(arr, n);
+
     delete[] arr;
 
     std::cout << "The product of signs is: " << result << '\n';
