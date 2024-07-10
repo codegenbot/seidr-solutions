@@ -6,8 +6,8 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for(int i = 0; i <= n - m; i++) {
-        if(text.substr(i, m) == target) {
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target) {
             result.push_back(i);
         }
     }
@@ -17,14 +17,16 @@ vector<int> indicesOfSubstring(string text, string target) {
 
 int main() {
     string text;
-    int num;
-    cin >> text >> num;
-    
-    vector<int> result = indicesOfSubstring(text, to_string(num));
-    
-    for(int i : result) {
-        cout << i << endl;
+    cin >> text;
+    string target;
+    cin >> target;
+
+    vector<int> indices = indicesOfSubstring(text, target);
+
+    for (int i : indices) {
+        cout << i << " ";
     }
-    
+    cout << endl;
+
     return 0;
 }
