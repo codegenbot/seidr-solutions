@@ -1,5 +1,8 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
+
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -37,4 +40,3 @@ vector<string> words_string(string s) {
 int main() {
     assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
     return 0;
-}
