@@ -1,10 +1,3 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
 vector<int> sort_third(vector<int> l) {
     vector<int> multiplesOfThree;
     vector<int> others;
@@ -24,13 +17,14 @@ vector<int> sort_third(vector<int> l) {
         if (i % 3 == 0 && !multiplesOfThree.empty()) {
             int val = multiplesOfThree[j];
             while (!multiplesOfThree.empty() && j < multiplesOfThree.size()) {
-                result.push_back(val);
+                result.reserve(i + 1);
                 for(int k = 0; k < 3; k++) {
                     if(i % 3 == 0)
                         i++;
                     else
                         i++;
                 }
+                result.push_back(val);
                 j++;
                 if(j >= multiplesOfThree.size())
                     break;
@@ -42,38 +36,4 @@ vector<int> sort_third(vector<int> l) {
     }
 
     return result;
-}
-
-int main_driver() {
-    vector<int> l1 = {1, 2, 3};
-    vector<int> l2 = {5, 6, 3, 4, 8, 9, 2};
-
-    cout << "l1: ";
-    for (int i : l1) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    cout << "l2: ";
-    for (int i : l2) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    vector<int> result1 = sort_third(l1);
-    vector<int> result2 = sort_third(l2);
-
-    cout << "result1: ";
-    for (int i : result1) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    cout << "result2: ";
-    for (int i : result2) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
