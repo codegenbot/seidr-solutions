@@ -4,5 +4,5 @@ try:
         if a == 0 and b == 0:
             break
         print(a + b)
-except EOFError:
+except Exception as e:
     pass
