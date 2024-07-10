@@ -1,6 +1,6 @@
 #include <string>
 
-std::string fix_spaces(std::string text) {
+std::string fix_spaces(std::string text){
     int consecutive_spaces = 0;
     std::string result = "";
     for(char c : text){
@@ -22,5 +22,6 @@ std::string fix_spaces(std::string text) {
 }
 
 int main() {
-    // Main function code (if any)
+    // Main function content (if any) can be added here
+    return 0;
 }
