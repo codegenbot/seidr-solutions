@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -24,7 +25,7 @@ int main() {
     }
 
     double result = sqrt(sum);
-    cout << result << endl;
+    cout << fixed << setprecision(14) << result << endl;
 
     return 0;
 }
