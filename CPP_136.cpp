@@ -3,7 +3,7 @@ bool issame(vector<int> a,vector<int>b){
 }
 
 vector<int> largest_smallest_integers(vector<int> lst){
-    int max_negative = INT_MIN;
+    int max_negative = 0;
     int min_positive = INT_MAX;
 
     for(int i : lst) {
@@ -14,5 +14,6 @@ vector<int> largest_smallest_integers(vector<int> lst){
         }
     }
 
-    return {std::max({(max_negative), (min_positive)},0);
+    return {std::max({(max_negative > 0 ? INT_MAX : max_negative), 
+                      (min_positive < 1 ? INT_MIN : min_positive)},0);
 }
