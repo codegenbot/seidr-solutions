@@ -3,22 +3,33 @@ vector<float> sort_even(vector<float> l);
 
 int main() {
     int n;
-    cout << "Enter number of elements: ";
     cin >> n;
-
     vector<float> v(n);
     for (int i = 0; i < n; i++) {
-        cout << "Enter element " << i + 1 << ": ";
         cin >> v[i];
     }
-
     vector<float> result = sort_even(v);
-
-    cout << "Sorted even elements: ";
-    for (float x : result) {
-        cout << x << " ";
+    for (float f : result) {
+        cout << f << " ";
     }
-    cout << endl;
-
     return 0;
+}
+
+vector<float> sort_even(vector<float> l) {
+    vector<float> result(l.size());
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            vector<float> temp;
+            for (int j = 0; j < l.size(); j++) {
+                if (j % 2 == 0) {
+                    temp.push_back(l[j]);
+                }
+            }
+            sort(temp.begin(), temp.end());
+            result[i] = temp[0];
+        } else {
+            result[i] = l[i];
+        }
+    }
+    return result;
 }
