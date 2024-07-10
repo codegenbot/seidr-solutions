@@ -1,10 +1,8 @@
-```cpp
+```
 #include <vector>
 #include <string>
-#include <initializer_list>
-using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -16,8 +14,8 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> all_prefixes(const string& s) {
-    vector<string> result;
+std::vector<std::string> all_prefixes(const std::string& s) {
+    std::vector<std::string> result;
     for (int i = 0; i <= s.size(); i++) {
         result.push_back(s.substr(0, i));
     }
@@ -25,6 +23,6 @@ vector<string> all_prefixes(const string& s) {
 }
 
 int main() {
-    vector<string> b = {"W", "W", "W"};
+    std::vector<std::string> b({"W", "W", "W"});
     assert(issame(all_prefixes("WWW"), b));
 }
