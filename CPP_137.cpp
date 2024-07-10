@@ -8,9 +8,9 @@ auto compare_one(int a, double b) {
     if (b > a) {
         return b;
     } else if (a == b) {
-        return 0;
+        return 0.0; 
     } else {
-        return a;
+        return static_cast<double>(a); 
     }
 }
 
