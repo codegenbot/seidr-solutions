@@ -1,7 +1,7 @@
 #include <initializer_list>
 #include <cassert>
 #include <vector>
-#include <ostream>
+#include <iostream>
 
 std::string exchange(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
