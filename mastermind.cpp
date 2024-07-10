@@ -1,8 +1,8 @@
-#include <string>
 #include <vector>
 #include <algorithm>
+#include <string>
 
-std::pair<int, int> mastermind(std::string code, std::string guess) {
+std::pair<int, int> mastermind(const std::string& code, const std::string& guess) {
     int white = 0;
     int black = 0;
     std::vector<char> code_chars(code.begin(), code.end());
@@ -19,4 +19,15 @@ std::pair<int, int> mastermind(std::string code, std::string guess) {
         }
     }
     return {white, black};
+}
+
+int main() {
+    std::string code, guess;
+    std::cout << "Enter the Mastermind code: ";
+    std::cin >> code;
+    std::cout << "Enter your guess: ";
+    std::cin >> guess;
+    auto result = mastermind(code, guess);
+    std::cout << "White pegs: " << result.first << ", Black pegs: " << result.second << std::endl;
+    return 0;
 }
