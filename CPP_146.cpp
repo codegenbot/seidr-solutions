@@ -2,7 +2,15 @@
 #include <iostream>
 #include <vector>
 
-int specialFilter(const std::vector<std::string>&);
+int specialFilter(const std::vector<std::string>& nums) {
+    int count = 0;
+    for (const auto& num : nums) {
+        if (std::stoi(num).length() % 2 != 0) {
+            ++count;
+        }
+    }
+    return count;
+}
 
 void userInput() {
     std::vector<std::string> nums;
@@ -26,8 +34,4 @@ void userInput() {
         }
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
-}
-
-int main() {
-    userInput();
 }

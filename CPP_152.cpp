@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,7 +11,7 @@ namespace myspace {
         return true;
     }
 
-    std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+    std::vector<int> compareGameGuess(std::vector<int> game, std::vector<int> guess) {
         std::vector<int> result;
         for (int i = 0; i < game.size(); i++) {
             if (game[i] == guess[i]) {
@@ -47,13 +46,13 @@ int main() {
     if (myspace::issame(game, guess)) {
         std::cout << "Congratulations! You guessed correctly." << std::endl;
     } else {
-        std::vector<int> result = myspace::compare(game, guess);
+        std::vector<int> result = myspace::compareGameGuess(game, guess);
         std::cout << "Incorrect. The correct numbers are: ";
         for (int i = 0; i < n; i++) {
             if (result[i] == 0) {
                 std::cout << game[i] << " ";
             } else {
-                std::cout << result[i] << " ";
+                std::cout << abs(game[i] - guess[i]) << " ";
             }
         }
         std::cout << std::endl;
