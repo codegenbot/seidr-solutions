@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     stack = []
     for char in expression:
@@ -14,5 +13,5 @@ def solve_boolean(expression):
         elif char == ')':
             while len(stack) > 0 and stack[-1] != '(':
                 stack.pop()
-            stack.pop()  # Remove the '('
+            stack.pop()  
     return eval('True' + ''.join(stack) + 'False')
