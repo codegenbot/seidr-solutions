@@ -1,21 +1,29 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> &nums) {
+pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
     int n = nums.size();
-    int min_diff = INT_MAX;
-    vector<vector<int>> res(2);
+    pair<vector<int>, vector<int>> res;
     
-    for (int i = 1; i < n; i++) {
-        if (abs(nums[i] - nums[0]) <= min_diff) {
-            min_diff = abs(nums[i] - nums[0]);
-            res[0].clear();
-            res[1].clear();
-            res[0].insert(res[0].begin(), nums.begin() + 1, nums.begin() + i);
-            res[1].insert(res[1].begin(), nums.begin() + i, nums.end());
+    for(int i = 1; i < n; i++) {
+        int leftSum = 0, rightSum = 0;
+        for(int j = 0; j < i; j++) {
+            leftSum += nums[j];
+        }
+        for(int j = i; j < n; j++) {
+            rightSum += nums[j];
+        }
+        
+        if(abs(leftSum - rightSum) <= (n-i)*nums[i-1]) {
+            res.first = vector<int>(nums.begin(), nums.begin() + i);
+            res.second = vector<int>(nums.begin() + i, nums.end());
+            return res;
         }
     }
     
+    // If no cut found
+    res.first = vector<int>(nums.begin(), nums.end());
+    res.second = {};
     return res;
 }
 
@@ -23,19 +31,23 @@ int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    vector<vector<int>> result = cutVector(nums);
-    cout << "First part: ";
-    for (int num : result[0]) {
-        cout << num << " ";
+    
+    pair<vector<int>, vector<int>> res = cutVector(nums);
+    
+    cout << "[";
+    for(auto x : res.first) {
+        cout << x << " ";
     }
-    cout << endl;
-    cout << "Second part: ";
-    for (int num : result[1]) {
-        cout << num << " ";
+    cout << "] [" << endl;
+    
+    cout << "[";
+    for(auto x : res.second) {
+        cout << x << " ";
     }
-    cout << endl;
+    cout << "]" << endl;
+    
     return 0;
 }
