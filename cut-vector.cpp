@@ -1,40 +1,27 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> nums) {
-    int minDiff = INT_MAX;
-    int cutIndex = 0;
-    
-    for (int i = 1; i < nums.size(); i++) {
-        int diff = abs(nums[i] - nums[i-1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res(2);
+    for (int i = 0; i < n; ++i) {
+        if (i == 0 || v[i] == v[0]) {
+            res[0].clear(); res[1].clear();
+            res[0].insert(res[0].end(), v.begin(), v.begin() + i);
+            res[1].insert(res[1].begin(), v.begin() + i, v.end());
+        } else if (i == n - 1 || v[i] == v[n - 1]) {
+            res[0].clear(); res[1].clear();
+            res[0].insert(res[0].end(), v.begin(), v.begin() + i);
+            res[1].insert(res[1].begin(), v.begin() + i, v.end());
+        } else if (abs(v[i] - v[0]) <= abs(v[n - 1] - v[i])) {
+            res[0].clear(); res[1].clear();
+            res[0].insert(res[0].end(), v.begin(), v.begin() + i);
+            res[1].insert(res[1].begin(), v.begin() + i, v.end());
+        } else {
+            res[0].clear(); res[1].clear();
+            res[0].insert(res[0].end(), v.begin(), v.begin() + (n - 1));
+            res[1].insert(res[1].begin(), v.begin() + (n - 1), v.end());
         }
     }
-    
-    return {{nums.begin(), nums.begin() + cutIndex}, {nums.begin() + cutIndex, nums.end()}};
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
-    }
-    
-    vector<vector<int>> result = cutVector(nums);
-    
-    cout << "[";
-    for (int num : result[0]) {
-        cout << num << " ";
-    }
-    cout << "] [" << result[1][0];
-    for (int i = 1; i < result[1].size(); i++) {
-        cout << " " << result[1][i];
-    }
-    cout << "]" << endl;
-    
-    return 0;
+    return res;
 }
