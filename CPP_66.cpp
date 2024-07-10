@@ -1,12 +1,11 @@
-```cpp
+```
 #include <string>
-#include <cctype>
 
 int digitSum(std::string s) {
     int sum = 0;
     for (char c : s) {
-        if (std::isdigit(c)) {
-            sum += (c - '0');
+        if (isupper(c)) {
+            sum += c - 'A' + 1; // Convert uppercase letter to its corresponding integer value
         }
     }
     return sum;
