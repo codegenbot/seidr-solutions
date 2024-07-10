@@ -35,7 +35,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
 
 int main() {
     int n;
-    cin >> n;
+    cin >> (n); // added this line
     vector<int> vec(n+1);
     for (int i = 0; i <= n; ++i)
         cin >> vec[i];
@@ -43,14 +43,14 @@ int main() {
     pair<vector<int>, vector<int>> res = cutVector(vec);
     
     cout << "[";
-    for (auto num : res.first) {
+    for (int num : res.first) {
         cout << num;
         if (&num != &res.first.back())
             cout << " ";
     }
     cout << "] [";
-    
-    for (auto num : res.second) {
+
+    for (int num : res.second) {
         cout << num;
         if (&num != &res.second.back())
             cout << " ";
