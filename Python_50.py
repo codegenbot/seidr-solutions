@@ -1,5 +1,6 @@
-def decode_shift():
-    input_string = input()
+input_string = input()
+
+def decode_shift(input_string):
     decoded_message = ""
     for char in input_string:
         if char.islower():
