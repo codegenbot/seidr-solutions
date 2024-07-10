@@ -48,7 +48,7 @@ int score(string s) {
                 total += scores[i * 2 + 4];
             }
         } else if (scores[i * 2] + scores[i * 2 + 1] == 10) {
-            total += 10 + scores[i * 2 + 2]; if (scores[i * 2 + 2] == 10) { total += scores[i * 2 + 4];}
+            total += 10 + scores[i * 2 + 2]; if (scores[i * 2 + 2] == 10) { total += scores[i * 2 + 4]; }
         } else {
             total += scores[i * 2] + scores[i * 2 + 1];
         }
