@@ -22,6 +22,6 @@ std::string fix_spaces(std::string text) {
 }
 
 int main() {
-    // Main function code can be added here if needed for further functionality
+    // Main function logic can be added here if needed
     return 0;
 }
