@@ -1,6 +1,6 @@
 #include <string>
 
-string compareStrings(string a, string b) {
+string compareStrings(const string& a, const string& b) {
     string result = "";
     for(int i=0; i<a.size(); i++){
         if(a[i] != b[i]){
