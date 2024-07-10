@@ -1,30 +1,27 @@
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
 string sort_numbers(string numbers) {
-    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                {"eight", 8}, {"nine", 9}};
-
-    vector<string> numVector;
-    string temp;
-
-    for (int i = 0; i < numbers.length(); i++) {
-        if (numbers[i] == ' ') {
-            continue;
-        }
-        for (auto it = numMap.begin(); it != numMap.end(); it++) {
-            if (it->first.find(string(1, numbers[i])) != string::npos) {
-                temp = it->first;
-                break;
-            }
-        }
-        numVector.push_back(temp);
+    string result = "";
+    map<string, int> numMap;
+    for (int i = 0; i <= 9; i++) {
+        string str = to_string(i);
+        if (i == 0)
+            str = "zero";
+        else if (i < 3)
+            str = (i == 1 ? "one" : (i == 2 ? "two" : "three"));
+        else if (i < 7)
+            str = (i == 4 ? "four" : (i == 5 ? "five" : (i == 6 ? "six" : "seven")));
+        else
+            str = (i == 8 ? "eight" : "nine");
+        numMap[str] = i;
     }
 
-    sort(numVector.begin(), numVector.end());
-
-    string result;
-    for (auto it = numVector.begin(); it != numVector.end(); it++) {
-        result += *it + " ";
+    for (char c : numbers) {
+        if (c != ' ')
+            result += (numMap.find(to_string(c)))->first + " ";
     }
-
-    return result.substr(0, result.length() - 1);
+    return result.substr(0, result.size() - 1);
 }
