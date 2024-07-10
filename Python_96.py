@@ -9,10 +9,10 @@ def count_up_to(n):
 
     result = []
     prime_count = 0
-    for i in range(2, n+1): 
+    for i in range(2, n + 1):
         if is_prime(i):
             result.append(i)
             prime_count += 1
-            if prime_count >= n:
-                break
+        if prime_count >= n:
+            break
     return result[:n]
