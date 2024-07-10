@@ -4,22 +4,22 @@
 
 using namespace std;
 
-bool isValidInput(const string& input) {
-    return input.length() == 4 && input.find_first_not_of("ABCDEF") == string::npos;
+bool isValidInput(const string& str) {
+    if (str.length() != 4) return false;
+    for (char c : str) {
+        if (c < 'A' || c > 'F') return false;
+    }
+    return true;
 }
 
 int main() {
     string code, guess;
+    cin >> code >> guess;
 
-    do {
-        cout << "Enter the code (4 characters from A to F): ";
-        cin >> code;
-    } while (!isValidInput(code));
-
-    do {
-        cout << "Enter your guess (4 characters from A to F): ";
-        cin >> guess;
-    } while (!isValidInput(guess));
+    if (!isValidInput(code) || !isValidInput(guess)) {
+        cout << "Invalid input format." << endl;
+        return 1;
+    }
 
     map<char, int> codeFreq, guessFreq;
     
@@ -38,7 +38,7 @@ int main() {
     }
 
     for (auto it = codeFreq.begin(); it != codeFreq.end(); ++it) {
-        whitePegs += min(codeFreq[it->first], guessFreq[it->first]);
+        whitePegs += std::min(codeFreq[it->first], guessFreq[it->first]);
     }
 
     cout << whitePegs << endl << blackPegs << endl;
