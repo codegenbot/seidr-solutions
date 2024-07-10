@@ -6,6 +6,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
+std::vector<int> parse_music(std::string music_string);
+
 std::vector<int> parse_music(std::string music_string){
     std::vector<int> result;
     int beats = 0;
