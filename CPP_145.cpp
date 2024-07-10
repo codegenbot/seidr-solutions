@@ -1,3 +1,11 @@
+```cpp
+#include <vector>
+#include <algorithm>
+
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); ++i) {
