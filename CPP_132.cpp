@@ -8,3 +8,4 @@ bool is_nested(std::string str) {
         }
     }
     return close > 0 && open == 0;
+}
