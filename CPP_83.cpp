@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <cmath>
-#include <string>
 
 using namespace std;
 
@@ -11,10 +10,10 @@ int starts_one_ends(int n) {
         if (i == 1 || i % 10 == 1) {
             count++;
         }
-        string str = std::string(n, '1');
         bool flag = true;
-        for (char c : str) {
-            if (c != '1') {
+        string str = to_string(i);
+        for (int j = 0; j < n; j++) {
+            if (str[j] != '1') {
                 flag = false;
                 break;
             }
