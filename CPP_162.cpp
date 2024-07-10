@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <openssl/ssl.h>
 #include <openssl/evp.h>
 
 std::string cppString_to_md5(std::string text) {
@@ -24,4 +25,9 @@ std::string cppString_to_md5(std::string text) {
     EVP_MD_CTX_destroy(ctx);
 
     return result;
+
+}
+
+int main() {
+    std::cout << cppString_to_md5("password") << std::endl;
 }
