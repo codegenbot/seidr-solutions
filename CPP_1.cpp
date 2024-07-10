@@ -1,20 +1,11 @@
-#include <iostream>
-#include <vector>
-
-bool issame(vector<string> a, vector<string> b);
+vector<string> issame(vector<string> a, vector<string> b) {
+    // Add your code here
+}
 
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    string input;
-    cin >> input;
-    
-    vector<string> result = separate_paren_groups(input);
-    
-    for (string group : result) {
-        cout << group << endl;
-    }
-    
+    // Add your code here
     return 0;
 }
 
