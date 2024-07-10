@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -14,7 +14,7 @@ int fuelCost(vector<int> numbers) {
 }
 
 int main() {
-    vector<vector<int>> testCases = {{1}, {6}, {1, 7}, {1, 8}, {1, 9}, {1, 10}};
+    vector<int> testCases = {{1}, {6}, {1, 7}, {1, 8}, {1, 9}, {1, 10}};
     for (const auto& testCase : testCases) {
         cout << "Input: ";
         for (int num : testCase) {
@@ -24,4 +24,3 @@ int main() {
         cout << "Output: " << fuelCost(testCase) << endl;
     }
     return 0;
-}
