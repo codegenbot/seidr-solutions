@@ -7,8 +7,7 @@ def all_prefixes() -> None:
     while True:
         s = input("Please enter a string: ")
         try:
-            result = "\n".join(get_all_prefixes(s))
-            print(result)
+            print("\n".join(get_all_prefixes(s)))
             break
         except TypeError:
             print("Error: Please provide valid string.")
