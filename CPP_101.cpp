@@ -1,4 +1,4 @@
-#include <cassert>
+#include <cassert> // Add missing header file
 #include <vector>
 #include <string>
 #include <sstream>
@@ -23,6 +23,6 @@ void test_words_string() {
 
 int main() {
     test_words_string();
-    
+
     return 0;
 }
