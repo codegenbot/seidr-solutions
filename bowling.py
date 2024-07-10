@@ -1,26 +1,21 @@
 rolls = input("Enter the string representing the individual bowls: ")
 score = 0
 frame = 1
+i = 0
 
-for i in range(len(rolls)):
+while i < len(rolls) and frame <= 10:
     if rolls[i] == "/":
-        if frame < 10 and i + 2 < len(rolls):
-            if rolls[i + 2] == "X":
-                score += 20
-            else:
-                score += 10 - int(rolls[i - 1])
-                score += int(rolls[i + 1]) if rolls[i + 1].isdigit() else (10 - int(rolls[i - 1]))
-        frame += 1
+        score += 10 - int(rolls[i - 1]) + (int(rolls[i + 1]) if i + 1 < len(rolls) and rolls[i + 1].isdigit() else 0)
     elif rolls[i] == "X":
-        if frame < 10 and i + 4 < len(rolls):
-            if rolls[i + 4] == "X":
-                score += 30
-            else:
-                score += 10
-                score += int(rolls[i + 2]) if rolls[i + 2].isdigit() else 10
-                score += int(rolls[i + 3]) if rolls[i + 3].isdigit() else 10
+        score += 10 + (int(rolls[i + 1]) if i + 1 < len(rolls) and rolls[i + 1].isdigit() else 0) + (int(rolls[i + 2]) if i + 2 < len(rolls) and rolls[i + 2].isdigit() else 0)
         frame += 1
-    elif rolls[i].isdigit():
-        score += int(rolls[i])
+    else:
+        if rolls[i].isdigit():
+            score += int(rolls[i])
+
+    if rolls[i] in ['X', '/']:
+        frame += 1
+
+    i += 1
 
 print("The score of the round is:", score)
