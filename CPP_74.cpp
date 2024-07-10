@@ -8,7 +8,7 @@ bool is_same(vector<string> a, vector<string> b) {
     return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
-std::vector<std::string> user_list_comparer(std::vector<std::string> lst1, std::vector<std::string> lst2) {
+vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0;
     for (const string& s : lst1) {
         sum1 += s.length();
@@ -19,7 +19,7 @@ std::vector<std::string> user_list_comparer(std::vector<std::string> lst1, std::
     }
     if (sum1 < sum2) return lst1;
     else if (sum1 > sum2) return lst2;
-    else return {};
+    else return vector<string>();
 }
 
 int main() {
@@ -30,7 +30,7 @@ int main() {
         user_input.push_back(input);
     }
     
-    if (is_same(user_list_comparer(user_input, {}), {})) {
+    if (is_same(total_match(user_input, vector<string>(5)), vector<string>(5))) {
         cout << "The two lists are the same." << endl;
     } else {
         cout << "Error: The two lists are not the same." << endl;
