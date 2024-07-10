@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <string>
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
@@ -59,7 +59,8 @@ int main() {
         if(same) {
             cout << "The minimum path is: ";
             for (int i : output) {
-                cout << i;
+                string str = to_string(i); // convert int to string
+                cout << str << " "; // print the string
             }
             cout << endl;
         } else {
