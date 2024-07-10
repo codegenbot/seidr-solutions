@@ -1,38 +1,44 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
-    int min_diff = INT_MAX;
-    pair<vector<int>, vector<int>> res;
-
-    for (int i = 0; i < n; i++) {
-        vector<int> left(vec.begin(), vec.begin() + i);
-        vector<int> right(vec.begin() + i, vec.end());
-        int diff = absaccumulate(left.begin(), left.end(), 0) - absaccumulate(right.begin(), right.end(), 0);
-        if (diff < min_diff) {
-            res.first = left;
-            res.second = right;
-            min_diff = diff;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int minDiff = INT_MAX;
+    int splitIndex = 0;
+    
+    for (int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[0]);
+        
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
-
-    return res;
+    
+    vector<int> left = {v[0]};
+    vector<int> right = v;
+    
+    for (int i = 1; i <= splitIndex; i++) {
+        left.push_back(v[i]);
+        right.erase(right.begin());
+    }
+    
+    return make_pair(left, right);
 }
 
 int main() {
     int n;
     cin >> n;
-
-    vector<int> vec(n);
-
-    for (int i = 0; i < n; i++) {
-        cin >> vec[i];
+    vector<int> v(n+1);
+    for(int i=0;i<=n;i++){
+        cin>>v[i];
     }
-
-    pair<vector<int>, vector<int>> result = cutVector(vec);
-    cout << accumulate(result.first.begin(), result.first.end(), 0) << endl;
-    cout << accumulate(result.second.begin(), result.second.end(), 0) << endl;
-
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    for(auto x:res.first){
+        cout<<x<<" ";
+    }
+    cout<<endl;
+    for(auto x:res.second){
+        cout<<x<<" ";
+    }
     return 0;
 }
