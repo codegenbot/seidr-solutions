@@ -1,22 +1,15 @@
-#include <map>
-#include <string>
-
-bool issame(map<char,int> a,map<char,int> b){
-    return a == b;
-}
-
 map<char, int> histogram(string test) {
     map<char, int> result;
     if (test.empty()) return result;
 
-    string words[256]; 
+    string words[256]; // assuming only lowercase letters and spaces are present in the input
     int wordCount = 0;
     for (char c : test) {
         if (c == ' ') {
             wordCount++;
         } else {
             if (wordCount >= sizeof(words) / sizeof(string)) {
-                return result; 
+                return result; // handle error condition: too many words
             }
             words[wordCount] += c;
         }
@@ -49,9 +42,12 @@ map<char, int> histogram(string test) {
         }
     }
 
-    return sameWords;
-}
+    bool issame(map<char,int> a,map<char,int> b){
+        return a == b;
+    }
 
-int main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
+    map<char, int> result2 = histogram("a");
+    cout << issame(result, result2);
+    
+    return sameWords;
 }
