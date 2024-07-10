@@ -1,2 +1,2 @@
 def sort_array(array):
-    return sorted(array, reverse=(sum(array[0], array[-1]) % 2 == 0))
+    return sorted(array, reverse=(array[0] + array[-1]) % 2 == 0)
