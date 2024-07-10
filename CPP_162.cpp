@@ -1,5 +1,5 @@
-#include <sstream>
 #include <iomanip>
+#include <sstream>
 
 using namespace std;
 
@@ -18,8 +18,8 @@ string string_to_md5(string text) {
 
     string str;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
-        ostringstream ss;
-        ss << hex << setfill('0') << setw(2) << (int)result[i];
+        stringstream ss;
+        ss << std::hex << std::setfill('0') << std::setw(2) << (int)result[i];
         str += ss.str();
     }
     return str;
