@@ -1,6 +1,13 @@
-def decode_shift(s: str):
-    return "".join([chr(((ord(ch) - 5 - ord('a')) % 26) + ord('a')) if ch.islower() else chr(((ord(ch) - 5 - ord('A')) % 26) + ord('A')) if ch.isupper() else ch for ch in s])
-
-input_string = input("Enter the encoded message: ")
-result = decode_shift(input_string)
-print(result)
+def decode_shift(input_string):
+    decoded_message = ""
+    for char in input_string:
+        decoded_char = chr(ord(char) + 1)
+        decoded_message += decoded_char
+    return decoded_message
+    
+try:
+    input_string = input("Please enter a string:").strip()
+    result = decode_shift(input_string)
+    print(result)
+except:
+    print("Invalid input. Please enter a valid string.")
