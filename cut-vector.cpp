@@ -1,16 +1,15 @@
 #include <iostream>
-#include <fstream>
 #include <vector>
+#include<fstream>
 
 using namespace std;
 
 int main() {
+    ifstream file("input.txt");
     vector<int> nums;
     int num;
     
-    ifstream inFile("input.txt");
-
-    while (inFile >> num) {
+    while (file >> num) {
         nums.push_back(num);
     }
 
