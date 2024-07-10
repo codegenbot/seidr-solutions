@@ -24,7 +24,8 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
-        std::getline(std::cin, word); 
+        std::cin >> word; 
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         words.push_back(word);
     }
 
