@@ -15,7 +15,7 @@ while i < len(rolls):
         if rolls[i].isdigit():
             score += int(rolls[i])
 
-    if rolls[i] == 'X' or rolls[i] == '/':
+    if rolls[i] in ['X', '/']:
         frame += 1
 
     i += 1
