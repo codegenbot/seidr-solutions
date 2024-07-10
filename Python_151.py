@@ -1,5 +1,2 @@
-```
 def double_the_difference(lst):
-    positive_integers = [i for i in lst if isinstance(i, int) and i > 0]
-    result = (max(positive_integers) - min(positive_integers)) * 2
-    return result
+    return sum(i**2 for i in [x for x in lst if isinstance(x, int) and x >= 0])
