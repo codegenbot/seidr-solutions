@@ -1,13 +1,15 @@
 def main():
-    lst = [input("Enter words (separated by space): ").lower().split()]
-    if len(lst) > 0:
-        print(sorted_list_sum([word for word in lst[0] if len(word) % 2 == 0]))
+    words = input("Enter words (separated by space): ").lower().split()
+    if len(words) > 0:
+        print(sorted_list_sum(words))
     else:
         print("Please enter at least one word.")
 
 
 def sorted_list_sum(lst):
-    return sum(len(word) for word in lst)
+    even_words = sorted([word for word in lst if len(word) % 2 == 0])
+
+    return sum(len(word) for word in even_words)
 
 
 if __name__ == "__main__":
