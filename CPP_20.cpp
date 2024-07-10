@@ -1,9 +1,9 @@
-bool issame(vector<float>& a, vector<float>& b){
-    sort(a.begin(), a.end());
-    return a == b;
+bool issame(vector<float>& a, vector<float>& b){ // Add reference symbol &
+    sort(a.begin(), a.end()); 
+    return a == b; 
 }
 
-vector<float> find_closest_elements(vector<float> numbers){
+vector<float> find_closest_elements(vector<float> numbers){ // Add missing return type
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
     int min_index1 = 0, min_index2 = 1;
