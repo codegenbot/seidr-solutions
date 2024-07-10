@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <set>
 #include <string>
@@ -32,15 +31,4 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     result.push_back((is_palindrome) ? "True" : "False");
     
     return result;
-}
-
-bool std::vector<std::string>::operator== (const std::vector<std::string>& b) const {
-    if (size() != b.size()) 
-        return false;
-
-    for (int i = 0; i < size(); i++)
-        if (at(i) != b.at(i))
-            return false;
-
-    return true;
 }
