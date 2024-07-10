@@ -14,6 +14,7 @@ vector<string> bf(string planet1, string planet2) {
             start = i;
         } else if (planets[i] == planet2) {
             end = i;
+            break;  // Add this line to exit the loop once the end planet is found
         }
     }
     
@@ -25,10 +26,5 @@ vector<string> bf(string planet1, string planet2) {
         result.push_back(planets[i]);
     }
     
-    assert(result == vector<string>{"Mars", "Jupiter", "Saturn"});
-}
-
-int main() {
-    bf("Mars", "Saturn");
-    return 0;
+    return result;
 }
