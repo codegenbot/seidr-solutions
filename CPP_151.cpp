@@ -4,19 +4,14 @@
 
 float double_the_difference(std::vector<float>& lst) {
     float odd_sum = 0.0;
-    float even_sum = 0.0;
 
     for (float num : lst) {
-        if (num > 0 && num == (int)num) {
-            if ((int)num % 2 != 0) {
-                odd_sum += num;
-            } else {
-                even_sum += num;
-            }
+        if (num > 0 && num == (int)num && (int)num % 2 != 0) {
+            odd_sum += num;
         }
     }
 
-    return (odd_sum - even_sum) * 2;
+    return odd_sum * 2;
 }
 
 int main() {
