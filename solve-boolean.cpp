@@ -1,28 +1,38 @@
-```cpp
+#include <stack>
 #include <string>
-using namespace std;
 
-bool solveBoolean(string s) {
-    bool res = true;
-    for (int i = 0; i < s.length(); ++i) {
-        if (s[i] == 'f') {
-            res = false;
-            break;
-        }
-        else if (s[i] == '&') {
-            if (!res) return false;
-        }
-        else if (s[i] == '|') {
-            if (res) return true;
+bool solveBoolean(string expression) {
+    stack<char> operators;
+    stack<bool> values;
+
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!operators.empty() && operators.top() == '|') {
+                operators.pop();
+                values.pop();
+            }
+            operators.push('&');
+        } else if (expression[i] == '|') {
+            operators.push('|');
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            values.push(true);
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            values.push(false);
         }
     }
-    return res;
-}
 
-int main() {
-    string s;
-    cout << "Enter Boolean expression (T/F/&) : ";
-    cin >> s;
-    cout << "Result: " << solveBoolean(s) << endl;
-    return 0;
+    bool result = values.top();
+    while (!operators.empty()) {
+        if (operators.top() == '&') {
+            operators.pop();
+            result &= values.top();
+            values.pop();
+        } else {
+            operators.pop();
+            result |= values.top();
+            values.pop();
+        }
+    }
+
+    return result;
 }
