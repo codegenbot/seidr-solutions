@@ -1,6 +1,6 @@
-long long car_race_collision(int n) {
-    if (n < 2) {
+int car_race_collision(int n) {
+    if (n <= 1) {
         return 0;
     }
-    return static_cast<long long>(n) * (n - 1) / 2;
+    return n * (n - 1); // Calculate the total number of collisions
 }
