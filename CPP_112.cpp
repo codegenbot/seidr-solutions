@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 
-std::pair<std::string, std::string> function_name(const std::string& s, const std::string& c) {
+std::pair<std::string, std::string> solve(const std::string& s, const std::string& c) {
     std::string result = "";
     for (char ch : s) {
         if (c.find(ch) == std::string::npos) {
