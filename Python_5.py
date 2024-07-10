@@ -1,7 +1,8 @@
 ```
-def my_function():
-    list1 = [1, 2, 3]
-    list2 = [4, 5, 6]
+list1 = [1, 3]
+list2 = [2, 4]
+
+def solve(list1, list2):
     result = []
     while any(x for x in (list1, list2)):
         if list1 and (not list2 or len(result) % 2 == 0):
@@ -13,4 +14,4 @@ def my_function():
             break
     return result
 
-print(my_function())
+print(solve(list1, list2))
