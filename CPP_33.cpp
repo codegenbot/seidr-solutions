@@ -19,26 +19,29 @@ vector<int> sort_third(vector<int> l) {
     sort(multiplesOfThree.begin(), multiplesOfThree.end());
 
     vector<int> result;
+    int j = 0;
     for (int i = 0; i < l.size(); ) {
         if (i % 3 == 0 && !multiplesOfThree.empty()) {
-            int val = multiplesOfThree[0];
-            while (!multiplesOfThree.empty()) {
+            int val = multiplesOfThree[j];
+            while (!multiplesOfThree.empty() && j < j + 2) {
                 result.push_back(val);
                 for(int k = 0; k < 2; k++) {
-                    i += 3;
-                    if(!multiplesOfThree.empty())
-                        multiplesOfThree.erase(multiplesOfThree.begin());
+                    if(i % 3 == 0)
+                        i += 3;
+                    else
+                        i++;
                 }
+                j++;
+                if(j >= multiplesOfThree.size())
+                    break;
             }
         } else {
             if(others.size() > 1) {
                 result.push_back(others[0]);
                 others.erase(others.begin());
-            } else if (!others.empty()) {
+            } else {
                 result.push_back(others[0]);
-                others.pop_back();
-            } else
-                break;
+            }
             i++;
         }
     }
