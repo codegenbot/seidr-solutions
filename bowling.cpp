@@ -13,7 +13,7 @@ int score(string s) {
             total += 10;
 
             if (frame < 10) {
-                total += (s[i + 1] == 'X' ? 10 : (s[i + 1] == '/' ? 10 - (s[i - 1] - '0') : s[i + 1] - '0'));
+                total += (s[i + 1] == 'X' ? 10 : (s[i + 1] == '/' ? 10 - (s[i] - '0') : s[i + 1] - '0'));
                 total += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : s[i + 2] - '0'));
             }
 
@@ -23,7 +23,7 @@ int score(string s) {
             total += 10 - (s[i - 1] - '0');
 
             if (frame < 10) {
-                total += (s[i + 1] == 'X' ? 10 : s[i + 1] - '0');
+                total += (s[i + 1] == 'X' ? 10 : (s[i + 1] == '/' ? 10 - (s[i] - '0') : s[i + 1] - '0'));
             }
 
             isSpare = true;
@@ -31,8 +31,9 @@ int score(string s) {
         } else {
             total += s[i] - '0';
 
-            total += (isSpare ? s[i] - '0' : 0);
-            total += (isStrike ? (s[i] == 'X' ? 10 : s[i] - '0') : 0);
+            if (isSpare || isStrike) {
+                total += s[i] - '0';
+            }
 
             isSpare = false;
             isStrike = false;
