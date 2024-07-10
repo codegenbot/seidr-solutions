@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 int sum_squares(vector<int> lst) {
@@ -17,4 +19,3 @@ int main() {
     vector<int> numbers = {-1, -3, 17, -1, -15, 13, -1, 14, -14, -12, -5, 14, -14, 6, 13, 11, 16, 16, 4, 10};
     cout << sum_squares(numbers) << endl;
     return 0;
-}

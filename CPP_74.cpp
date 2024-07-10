@@ -1,20 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
-#include <initializer_list>
 using namespace std;
-
-bool issame(const vector<vector<string>>& a, const vector<vector<string>>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (!issame(a[i], b[i])) {
-            return false;
-        }
-    }
-    return true;
-}
 
 bool issame(const vector<string>& a, const vector<string>& b) {
     if (a.size() != b.size()) {
@@ -33,7 +19,7 @@ int total_match(const vector<vector<string>>& input, const vector<vector<string>
     for (const auto& str : input) {
         bool found = false;
         for (const auto& match : matches) {
-            if (issame({str}, match)) {
+            if (issame(str, match)) {
                 found = true;
                 break;
             }
@@ -51,8 +37,7 @@ void get_user_input(vector<vector<string>>& user_input) {
     while (true) {
         cin >> temp;
         if (temp == "stop") break;
-        vector<string> str;
-        str.push_back(temp);
+        vector<string> str = {temp};
         user_input.push_back(str);
     }
 }
