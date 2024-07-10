@@ -1,5 +1,5 @@
-#include <initializer_list>
-
+#include <vector>
+#include <cassert>
 using namespace std;
 
 int add(vector<int> lst){
@@ -12,7 +12,6 @@ int add(vector<int> lst){
 }
 
 int main() {
-    vector<int> vec = {4, 4, 6, 8};
-    assert (add(vec) == 12);
-    
+    assert (add({4, 4, 6, 8}) == 12);
+    return 0;
 }
