@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <set>
 #include <algorithm>
@@ -6,7 +5,7 @@
 bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin(),
                                                   [](const auto& v1, const auto& v2) {
-                                                      return v1 == v2;
+                                                      return std::any_of(v1.begin(), v1.end(), [v2](int x) { return std::find(v2.begin(), v2.end(), x) != v2.end(); });
                                                   });
 }
 
@@ -22,6 +21,7 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     }
 
     return result;
+
 }
 
 int main() {
