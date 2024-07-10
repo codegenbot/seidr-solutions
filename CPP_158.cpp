@@ -22,9 +22,11 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter word " << i + 1 << ": ";
         std::string str;
-        std::getline(std::cin, str);
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        words.push_back(str);
+        if (std::getline(std::cin, str)) {
+            words.push_back(str);
+        } else {
+            break; // Exit the loop if input is not valid
+        }
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
     return 0;
