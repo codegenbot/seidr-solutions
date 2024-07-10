@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
-#include <cassert> 
-#include <sstream> 
-#include <string> // Include for std::to_string
+#include <cassert>
+#include <sstream> // Include for std::to_string
 
 std::string change_base(int x, int base){
     std::string result = "";
@@ -17,7 +16,7 @@ int main(){
     int x = 10;
     std::string result = change_base(x, 10);
 
-    assert(change_base(x, x + 1) == std::to_string(x));
+    assert(change_base(x, x + 1) == std::to_string(static_cast<long long>(x))); // Cast x to long long
     std::cout << result << std::endl;
     return 0;
 }
