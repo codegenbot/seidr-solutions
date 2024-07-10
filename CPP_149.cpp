@@ -25,13 +25,12 @@ bool issorted(std::vector<int> v) {
 std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v) {
     std::vector<int> result;
     for (const auto& pair : v) {
-        int num = std::stoi(pair.first + pair.second);
-        if (!num) return {};
+        int num = std::stoi(pair.first) + std::stoi(pair.second);
+        if (!num) return {}; 
         result.push_back(num);
     }
     std::sort(result.begin(), result.end());
     return result;
-
 }
 
 int main() { 
