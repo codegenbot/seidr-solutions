@@ -1,5 +1,6 @@
 from typing import List, Tuple
 
+
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     total_sum = sum(numbers)
     total_product = 1
@@ -7,6 +8,8 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         total_product *= num
     return total_sum, total_product
 
-numbers = list(map(int, input().split()))
-result = sum_product(numbers)
-print(result)
+
+if __name__ == "__main__":
+    input_numbers = list(map(int, input().split()))
+    result_sum, result_product = sum_product(input_numbers)
+    print(result_sum, result_product)
