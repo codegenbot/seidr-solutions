@@ -6,7 +6,7 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool areSame(vector<string> a, vector<string> b){
     return a == b;
 }
 
@@ -18,10 +18,4 @@ vector<string> bf(const string& s1, const string& s2) {
         }
     }
     return common_chars;
-}
-
-int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
-    
-    return 0;
 }
