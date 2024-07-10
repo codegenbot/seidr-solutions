@@ -22,7 +22,7 @@ int driver() {
         if (inputStr.empty()) {
             std::cout << "Error: Input is empty. Please enter a valid string." << std::endl;
         } else {
-            std::cout << "Flipped case: " << flip_case(inputStr) << std::endl;
+            std::cout << "Flipped case: " << flip_case(inputStr + "\n") << std::endl;
         }
     }
     return 0;

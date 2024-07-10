@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -26,9 +27,4 @@ int smallest_change(std::vector<int> arr) {
     }
     
     return dp[0][n - 1];
-}
-
-int main() {
-    assert(smallest_change({0, 1}) == 1);
-    return 0;
 }

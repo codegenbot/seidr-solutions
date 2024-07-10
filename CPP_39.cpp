@@ -12,12 +12,13 @@ int main() {
     cin >> n;
     if (n <= 0) {
         cout << "Invalid input. Please enter a positive integer." << endl;
+        return 1; // Exit the program with an error code
     } else {
         int result = prime_fib(n);
         if (result == -1) {
             cout << "There is no " << n << "th prime Fibonacci number." << endl;
         } else {
-            cout << "The " << n << "th prime Fibonacci number is: " << result << endl;
+            cout << "The " << n << "th prime Fibonacci number is: " << std::to_string(result) << endl;
         }
     }
 }
