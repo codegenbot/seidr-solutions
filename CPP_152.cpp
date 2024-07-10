@@ -1,35 +1,33 @@
 ```cpp
 #include <vector>
-#include <iostream>
+#include <algorithm>
 
-using namespace std;
-
-bool issame(int i1, int i2) {
-    if(i1 == i2)
+bool issame(int a, int b) {
+    if (a == b)
         return true;
-    else 
+    else
         return false;
 }
 
-vector<int> compare(vector<int> game, vector<int> guess) {
-    vector<int> result;
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+    std::vector<int> result;
     for(int i = 0; i < game.size(); i++) {
         if(game[i] == guess[i]) {
             result.push_back(0);
+        } else if (abs(guess[i] - game[i]) <= 1) {
+            result.push_back(1);
         } else {
-            result.push_back(abs(guess[i] - game[i]));
+            result.push_back(2);
         }
     }
     return result;
 }
 
 int main() {
-    vector<int> g1 = {1, 2, 3};
-    vector<int> g2 = {1, 4, 3};
-    vector<int> res = compare(g1,g2);
-    
-    for(int i = 0; i < res.size(); i++) {
-        cout << res[i] << " ";
+    std::vector<int> game = {1, 2, 3};
+    std::vector<int> guess = {1, 3, 4};
+    for (int i : compare(game, guess)) {
+        assert(i == 0 || i == 1 || i == 2);
     }
     return 0;
 }
