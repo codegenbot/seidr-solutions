@@ -4,15 +4,13 @@ def histogram(test):
         return {}
     
     words = test.split()
-    max_count = 0
+    max_count = len(words)
     result = {}
     
-    for word in words:
-        count = test.count(word)
-        if count > max_count:
-            max_count = count
-            result = {word: count}
-        elif count == max_count:
+    for word in set(words):
+        count = words.count(word)
+        if count > 0 and count <= max_count:
             result[word] = count
+            max_count = count
     
     return result
