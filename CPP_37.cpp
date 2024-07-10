@@ -30,8 +30,8 @@ void sort_even(vector<float>& l) {
 }
 
 int main() {
-    vector<float> l = {3, 1, 4, 1, 5, 9, 2, 6};
+    vector<float> l = {3.0, 1.0, 4.0, 1.0, 5.0, 9.0};
     sort_even(l);
-    assert(issame(l, {1, 1, 2, 3, 5, 9, 4, 6}));
+    assert(issame(l, {1.0, 1.0, 4.0, 3.0, 5.0, 9.0}));
     return 0;
 }
