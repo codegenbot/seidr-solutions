@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -32,6 +33,9 @@ int bowlingScore(const string& input) {
     }
 
     return score;
+
 }
 
-int main() { return bowlingScore("10/8/,7-,5-3,1/2/6/4/-"); }
+int main() { 
+    return bowlingScore("7/6/5/4/3/2//8/5/3//"); 
+}
