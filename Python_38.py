@@ -1,12 +1,7 @@
 def decode_cyclic(s: str):
     result = ""
     if len(s) < 3:
-        if len(s) == 1:
-            result += s
-        elif len(s) == 2:
-            result += s[0] + s[1]
-        else:
-            return s
+        return s
     while len(s) > 2:
         for i in range(0, len(s), 3):
             if i == len(s) - 1:
