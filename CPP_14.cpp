@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,7 +14,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 std::vector<std::string> all_prefixes(const std::string& input) {
     std::vector<std::string> result;
     for (int i = 0; i <= input.size(); ++i) {
-        result.push_back(input.substr(0, i+1)); 
+        result.push_back(input.substr(0, i+1));
     }
     return result;
 }
