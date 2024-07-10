@@ -10,7 +10,6 @@ bool pairs_sum_to_zero(const vector<int>& l) {
     for (int num : l) {
         if (seen.count(-num) || seen.count(num)) return true;
         seen.insert(num);
-        seen.insert(-num);
     }
     return false;
 }
