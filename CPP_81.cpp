@@ -3,6 +3,10 @@
 
 vector<string> numerical_letter_grade(vector<float> grades);
 
+int main() {
+    // Main function code here
+}
+
 vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> letter_grades;
     for (float gpa : grades) {
