@@ -1,6 +1,5 @@
 using namespace std;
 
-#include <vector>
 #include <algorithm>
 
 vector<int> remove_duplicates(vector<int> numbers);
