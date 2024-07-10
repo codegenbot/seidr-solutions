@@ -20,13 +20,13 @@ int main() {
     cout << "Enter the number of elements: ";
     cin >> num;
 
-    numbers.reserve(num); 
+    numbers.resize(num, 0); 
 
     for (int i = 0; i < num; i++) {
         int threshold;
         cout << "Enter element " << i + 1 << ": ";
         cin >> threshold;
-        numbers.push_back(threshold);
+        numbers[i] = threshold;
     }
 
     bool result = below_threshold(numbers, 5);
