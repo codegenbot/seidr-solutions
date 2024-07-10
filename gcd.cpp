@@ -1,17 +1,8 @@
 #include <vector>
 
 namespace {
-    int gcd(int a, int b) {
-        while (b != 0) {
-            int temp = b;
-            b = a % b;
-            a = temp;
-        }
-        return a;
-    }
-
-    std::vector<int> indicesOfSubstring(std::string text, std::string target) {
-        std::vector<int> res;
+    vector<int> indicesOfSubstring(string text, string target) {
+        vector<int> res;
         int n = text.size();
         int m = target.size();
 
@@ -20,5 +11,14 @@ namespace {
                 res.push_back(i);
         }
         return res;
+    }
+
+    int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
     }
 }
