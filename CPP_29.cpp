@@ -16,27 +16,24 @@ int main() {
     std::cout << "Enter the number of strings: ";
     std::cin >> n;
 
-    std::vector<std::string> strings;
+    std::vector<std::string> strings(n);
     for(int i = 0; i < n; i++) {
-        std::string str;
-        std::cout << "Enter string " << (i+1) << ": ";
-        std::cin >> str;
-        strings.push_back(str);
+        std::cout << "Enter string " << i+1 << ": ";
+        std::cin >> strings[i];
     }
 
     std::string prefix;
     std::cout << "Enter the prefix: ";
     std::cin >> prefix;
 
-    std::vector<std::string> filtered_strings = filter_by_prefix(strings, prefix);
+    auto filtered_strings = filter_by_prefix(strings, prefix);
 
     if(filtered_strings.size() == 0) {
         std::cout << "No strings found with the given prefix." << std::endl;
     } else {
-        std::cout << "Strings found with the given prefix: ";
-        for(const auto& str : filtered_strings) {
+        std::cout << "Strings with the given prefix: ";
+        for(const auto& str : filtered_strings)
             std::cout << str << " ";
-        }
         std::cout << std::endl;
     }
 
