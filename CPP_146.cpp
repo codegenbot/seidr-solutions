@@ -11,9 +11,7 @@ int main() {
     while (true) {
         getline(std::cin, num);
         if (num == "stop") break;
-        int n = stoi(num.substr(0, num.size() - 1).c_str());
-        std::string str = std::to_string(n);
-        nums.push_back(str.substr(0, 9)); 
+        nums.push_back(std::string(1, '0').insert(0, std::to_string(stoi(num.substr(0, num.size() - 1).c_str()))).substr(0, 9)); 
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
 }
