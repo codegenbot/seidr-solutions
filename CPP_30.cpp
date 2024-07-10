@@ -14,9 +14,15 @@ vector<float> get_positive(vector<float> l) {
         }
     }
     return result;
+
 }
 
 int main() {
     assert(issame(get_positive({}), {})); 
-    return 0; 
+    vector<float> input = {1, -2, 3, -4, 5};
+    vector<float> output = get_positive(input);
+    for (float num : output) {
+        cout << num << " ";
+    }
+    return 0;
 }
