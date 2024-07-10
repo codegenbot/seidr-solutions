@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -17,10 +18,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 temp_str += char
                 result.append(temp_str)
                 temp_str = ''
-    if stack:
+    elif stack:  # handle unmatched '(' at the end of the string
         while stack:
-            temp_str += '('
-            stack.pop()
+            temp_str += stack.pop() + ')'
         result.append(temp_str)
-    
+
     return result
