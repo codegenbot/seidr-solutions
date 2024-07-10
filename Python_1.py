@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> list[str]:
@@ -20,6 +19,6 @@ def separate_paren_groups(paren_string: str) -> list[str]:
                     groups = ''
             else:
                 return []
-    elif stack: 
-        return []  # Add this check for a closing parenthesis with no opening counterpart.
+    if groups:  
+        result.append(groups)
     return result
