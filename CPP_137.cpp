@@ -19,18 +19,19 @@ int main() {
     cout << "Enter an integer: ";
     cin >> a;
 
-    string str;
+    double b;
     cout << "Enter a floating point number or a string: ";
-    getline(cin, str);
+    cin >> b;
 
-    double b = 0.0; // Initialize b to default value
-
-    if (istringstream(str) >> b) {
+    if (cin.fail()) {
+        // If the input is not a valid float, assume it's a string
+        string str;
+        cin.clear();
+        cin >> str;
+        cout << "The result is: " << CompareOne(a, stod(str)) << endl;
+    } else {
         // If the input is a valid float
         cout << "The result is: " << CompareOne(a, b) << endl;
-    } else {
-        // If the input is not a valid float, assume it's a string
-        cout << "The result is: " << CompareOne(a, stod(str)) << endl;
     }
 
     return 0;
