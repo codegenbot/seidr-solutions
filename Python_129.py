@@ -1,4 +1,3 @@
-```
 def minPathSum(grid, k):
     N = len(grid)
     directions = [(0, 1), (1, 0)]
