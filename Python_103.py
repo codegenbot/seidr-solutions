@@ -1,5 +1,5 @@
 def rounded_avg(n, m):
     if n > m:
         return -1
-    average = round((n + m) / 2)
-    return bin(average)[2:].zfill(4)
+    average = (n + m) // 2
+    return bin(average)[2:].zfill((average.bit_length() + 7) // 8)
