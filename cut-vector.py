@@ -1,24 +1,23 @@
 def cut_vector(vector):
     total_sum = sum(vector)
     left_sum = 0
-    min_diff = float("inf")
+    min_diff = abs(sum(vector[1:]) - vector[0])
     cut_index = -1
 
-    for i in range(len(vector)):
-        left_sum += vector[i]
+    for i in range(1, len(vector)):
+        left_sum += vector[i - 1]
         right_sum = total_sum - left_sum
         diff = abs(left_sum - right_sum)
 
         if diff < min_diff or (
             diff == min_diff
-            and abs(len(vector[:i+1]) - len(vector[i+1:])) < abs(len(subvector1) - len(subvector2))
+            and abs(len(vector) // 2 - (i - 1)) < abs(len(vector) // 2 - cut_index)
         ):
             min_diff = diff
-            cut_index = i
+            cut_index = i - 1
 
-    return vector[:cut_index + 1], vector[cut_index:]
+    return vector[:cut_index + 1], vector[cut_index + 1:]
 
-# Read input from user
 vector = list(map(int, input().split()))
 subvector1, subvector2 = cut_vector(vector)
 print(*subvector1)
