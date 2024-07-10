@@ -3,34 +3,22 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return (a[0] == b[0]) && (a[1] == b[1]);
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int even_odd_palindrome(int n) {
-    int countEven = 0;
-    int countOdd = 0;
-
-    for(int i = 1; i <= n; ++i) {
-        bool isPalindrome = true;
-        int reversedNumber = i;
-
-        while(reversedNumber > 9) {
-            reversedNumber = (reversedNumber % 10) + (reversedNumber / 10) * 10;
-            if(i != reversedNumber)
-                isPalindrome = false;
+    int count_even = 0, count_odd = 0;
+    for(int i = 1; i <= n; i++) {
+        if(isPalindrome(i)) {
+            if(i % 2 == 0) count_even++;
+            else count_odd++;
         }
-
-        if(isPalindrome && i % 2 == 0)
-            ++countEven;
-        else if(isPalindrome)
-            ++countOdd;
     }
-
-    std::vector<int> result(2);
-    result[0] = countEven;
-    result[1] = countOdd;
-
-    return result[0];
+    return {count_even, count_odd};
 }
 
 int main() {
@@ -43,4 +31,14 @@ int main() {
 
     std::cout << "Number of even palindromes: " << result[0] << std::endl;
     std::cout << "Number of odd palindromes: " << result[1] << std::endl;
+}
+
+bool isPalindrome(int n) {
+    int rev = 0, rem, orig = n;
+    while(n > 0) {
+        rem = n % 10;
+        rev = rev * 10 + rem;
+        n /= 10;
+    }
+    return (rev == orig);
 }
