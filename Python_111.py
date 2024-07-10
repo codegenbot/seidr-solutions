@@ -1,4 +1,3 @@
-```
 def histogram(test):
     if not test:
         return {}
