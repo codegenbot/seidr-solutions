@@ -4,13 +4,17 @@
 #include<algorithm>
 using namespace std;
 
-int count_distinct_characters(string str) {
-    transform(str.begin(), str.end(), str.begin(), ::tolower);
-    vector<char> unique_chars;
+int count_distinct_characters(string str) { 
+    vector<char> characters;
     for (char c : str) {
-        if (find(unique_chars.begin(), unique_chars.end(), c) == unique_chars.end()) {
-            unique_chars.push_back(c);
+        characters.push_back(tolower(c));
+    }
+    sort(characters.begin(), characters.end());
+    int distinct_count = 0;
+    for (int i = 0; i < characters.size(); i++) {
+        if (i == 0 || characters[i] != characters[i-1]) {
+            distinct_count++;
         }
     }
-    return static_cast<int>(unique_chars.size());
+    return distinct_count;
 }
