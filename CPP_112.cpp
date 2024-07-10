@@ -16,16 +16,14 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         }
     }
     
-    int i = 0, j = temp.length() - 1;
     bool is_palindrome = true;
-    
-    while (i < j) {
-        if (temp[i] != temp[j]) {
+    int i = 0, length = temp.length();
+    while (i < length / 2) {
+        if (temp[i] != temp[length - i - 1]) {
             is_palindrome = false;
             break;
         }
         i++;
-        j--;
     }
     
     result.push_back(temp);
@@ -34,4 +32,4 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-assert (std::vector<std::string>{{"" , "True"}} == reverse_delete("mamma", "mia"));
+std::vector<std::string>{{"" , "True"}} == reverse_delete("mamma", "mia"));
