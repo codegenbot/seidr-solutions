@@ -25,8 +25,7 @@ double poly(vector<double> coeffs, double x) {
 }
 
 int main(){
-    vector<double> coeffs;
-    coeffs.resize(4);
+    vector<double> coeffs(4);            
     coeffs[0] = 1.0; coeffs[1] = -7.0; coeffs[2] = 12.0; coeffs[3] = -6.0;
     double solution = find_zero(coeffs);
     if (abs(poly(coeffs, solution)) > 1e-3) {
