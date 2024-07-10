@@ -1,14 +1,20 @@
+def luhn(digits):
+    new_digits = []
+    for i in range(len(digits)):
+        if i % 2 != 0:
+            doubled = digits[i] * 2
+            if doubled > 9:
+                new_digits.append(doubled - 9)
+            else:
+                new_digits.append(doubled)
+        else:
+            new_digits.append(digits[i])
+    return sum(new_digits)
+
+
+# Read input
 n = int(input())
 digits = list(map(int, input().split()))
 
-total_sum = 0
-for i in range(n):
-    if i % 2 == 1:
-        double_val = digits[i] * 2
-        if double_val > 9:
-            double_val -= 9
-        total_sum += double_val
-    else:
-        total_sum += digits[i]
-
-print(total_sum)
+# Call function and print result
+print(luhn(digits))
