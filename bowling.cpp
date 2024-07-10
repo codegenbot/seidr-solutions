@@ -1,3 +1,4 @@
+```cpp
 int bowlingScore(std::string input) {
     int score = 0;
     int i = 0;
@@ -17,15 +18,15 @@ int bowlingScore(std::string input) {
             char first = input[i];
             char second = (i+1 < input.length()) ? input[i+1] : '0';
             roll = std::to_string((first == 'X') ? 10 : (second == '/') ? 10 - (first-'0') : (first-'0')) + ((second == '/')?"":"+"+(second-'0'));
-            int currentRoll = stoi(roll);
-            if(currentRoll < 10) {
-                score += currentRoll;
+            if(roll == "10") {
+                score += 10;
+            } else if(roll.find('+') != std::string::npos) {
+                int value = stoi((std::string)roll.erase(roll.find('+'), roll.length()));
+                score += (first - '0') + value;
             } else {
-                int firstVal = (input[i] == 'X') ? 10 : (input[i+1] == '/') ? 10 - (input[i] - '0') : (input[i] - '0');
-                int secondVal = (input[i+1] == '/') ? 0 : ((input[i+2] == 'X') ? 10 : (input[i+2] - '0'));
-                score += firstVal + secondVal;
+                score += stoi(roll);
             }
-            i += roll.length();
+            i += 2;
         }
     }
     return score;
