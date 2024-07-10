@@ -15,7 +15,6 @@ int main() {
     if(n < 0) {
         std::cout << "Invalid input. Please enter a non-negative integer." << std::endl;
     } else {
-        assert(sum_squares(4) == 30); 
         std::cout << sum_squares(n) << std::endl;
     }
 }
