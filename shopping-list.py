@@ -1,5 +1,4 @@
-Here is the solution:
-
+```
 def shopping_list():
     n = int(input())
     prices = list(map(float, input().split()))
