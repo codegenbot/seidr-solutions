@@ -9,4 +9,4 @@ for _ in range(num_bounces):
     total_distance += distance_per_bounce * start_height
     start_height *= 2
 
-print(int(total_distance))
+print(str(int(total_distance)))
