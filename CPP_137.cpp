@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <cstdlib>
@@ -19,8 +20,8 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (str1 == "None" || str2 == "None")
             return a;
 
-        double num1 = std::stod(str1);
-        double num2 = std::stod(str2);
+        double num1 = stod(str1);
+        double num2 = stod(str2);
 
         if (num1 > num2)
             return a;
