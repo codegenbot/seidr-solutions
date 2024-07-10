@@ -1,37 +1,38 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <cstdlib>
 #include <climits>
+#include <cstdlib>
 
 using namespace std;
 
 int main() {
     vector<int> nums = {3, 1, 4, 1, 5, 9, 2, 6, 5};
-    int totalSum = accumulate(nums.begin(), nums.end(), 0);
+    double totalSum = accumulate(nums.begin(), nums.end(), 0.0);
+    double target = totalSum / 2;
 
-    int prefixSum = 0;
+    double prefixSum = 0;
     int index = -1;
-    int closestSum = INT_MAX;
+    double minDiff = INT_MAX;
 
-    for (int i = 0; i < nums.size(); ++i) {
+    for (int i = 0; i < nums.size() - 1; ++i) {
         prefixSum += nums[i];
-        int diff = abs(2 * prefixSum - totalSum);
-        if (diff < closestSum) {
-            closestSum = diff;
+        double diff = abs(2 * prefixSum - totalSum);
+        if (diff < minDiff) {
+            minDiff = diff;
             index = i;
+        }
+        if (minDiff == 0) {
+            break;
         }
     }
 
-    vector<int> subvector1(nums.begin(), nums.begin() + index + 1);
-    vector<int> subvector2(nums.begin() + index + 1, nums.end());
-
-    for (const auto& num : subvector1) {
-        cout << num << endl;
+    for (int i = 0; i <= index; ++i) {
+        cout << nums[i] << endl;
     }
     cout << "---" << endl;
-    for (const auto& num : subvector2) {
-        cout << num << endl;
+    for (int i = index + 1; i < nums.size(); ++i) {
+        cout << nums[i] << endl;
     }
 
     return 0;
