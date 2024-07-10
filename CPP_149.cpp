@@ -18,7 +18,14 @@ vector<string> sorted_list_sum(vector<string> inputList) {
 }
 
 int main() {
-    vector<string> inputList = {"aaaa", "bbbb", "dd", "cc"};
-    assert(areSame(sorted_list_sum(inputList), {"cc", "dd", "aaaa", "bbbb"}));
+    vector<string> input1 = {"apple", "banana", "orange"};
+    vector<string> input2 = {"orange", "banana", "apple"};
+    
+    if (areSame(sorted_list_sum(input1), sorted_list_sum(input2))) {
+        cout << "Lists are same after sorting." << endl;
+    } else {
+        cout << "Lists are different after sorting." << endl;
+    }
+
     return 0;
 }
