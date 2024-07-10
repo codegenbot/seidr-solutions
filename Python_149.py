@@ -18,9 +18,6 @@ if __name__ == "__main__":
 
     sorted_list_sum = sum(len(word) for word in lst if len(word) % 2 == 0)
 
-    def check(sorted_list_sum):
-        pass  # No-op for now
-
     while True:
         try:
             input_val = input("Press Enter to calculate the sum or type 'q' to quit: ")
@@ -35,13 +32,10 @@ if __name__ == "__main__":
                     try:
                         if input_val.isdigit():
                             if int(input_val) % 2 == 0:
-                                check(sorted_list_sum)  
-                                return
+                                print(f"The sum of even length words is {sorted_list_sum}.")
                             else:
-                                print(
-                                    f"The sum of odd length words is {sum(len(word) for word in lst if len(word) % 2 != 0)}."
-                                )
-                                return
+                                print(f"The sum of odd length words is {sum(len(word) for word in lst if len(word) % 2 != 0)}.")
+                            return
                         elif input_val.lower() == "q":
                             print("Goodbye!")
                             return
