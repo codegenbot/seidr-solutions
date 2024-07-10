@@ -1,4 +1,3 @@
-print("Enter space-separated integers:")
-values = list(map(int, input().split()))
+values = list(map(int, input().strip().split()))
 result = sum(val * val for val in values)
 print(result)
