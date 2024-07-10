@@ -22,4 +22,8 @@ def fruit_distribution(s, n):
                     return 1
                 fruits[fruit] = total_count
         i += 1
-    return len(fruits) + 1 if any(count > n for count in fruits.values()) else len(fruits)
+    return (
+        len(fruits) + 1
+        if any(count > n for count in fruits.values())
+        else (len(fruits) if sum(fruits.values()) <= n else len(fruits) - 1)
+    )
