@@ -1,3 +1,4 @@
+```c++
 #include <algorithm>
 #include <vector>
 
@@ -15,5 +16,8 @@ int main() {
         std::cin >> arr[i];
     }
 
-    return *std::max_element(arr.begin(), arr.end());
+    int max = *std::max_element(arr.begin(), arr.end());
+    std::cout << "Maximum element is: " << max << std::endl;
+
+    return 0;
 }
