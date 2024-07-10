@@ -1,18 +1,19 @@
-vector<float> sort_even(vector<float> l){
-    vector<float> l_new;
-    for(int i = 0; i < l.size(); i++){
-        if(i % 2 == 0){
-            vector<float> temp;
-            for(int j = 0; j < l.size(); j++){
-                if(j % 2 == 0){
-                    temp.push_back(l[j]);
-                }
+#include <algorithm>
+
+vector<float> sort_even(vector<float> l) {
+    vector<float> result(l.size());
+    for (int i = 0; i < l.size(); i++) {
+        if (i % 2 == 0) {
+            // even indices: sort the values and put them in result
+            auto it = std::stable_partition(l.begin() + i, l.end(), [](float x) { return x <= l[i]; });
+            int j = 0;
+            for (; it != l.end(); ++it, ++j) {
+                result[2*i+j] = *it;
             }
-            sort(temp.begin(), temp.end());
-            l_new.insert(l_new.end(), temp.begin(), temp.end());
         } else {
-            l_new.push_back(l[i]);
+            // odd indices: just copy the values
+            result[2*i-1] = l[i];
         }
     }
-    return l_new;
+    return result;
 }
