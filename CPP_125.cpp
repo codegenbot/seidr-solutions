@@ -3,47 +3,45 @@
 #include <string>
 #include <cassert>
 
-vector<string> split_words(string txt);
+using namespace std;
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
-vector<string> split_words(string txt){
-    vector<string> result;
+vector<string> split_words(string txt) {
+    vector<string> words;
     string word = "";
-    for(char c : txt){
-        if(c == ' ' || c == ','){
-            if(!word.empty()){
-                result.push_back(word);
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                words.push_back(word);
                 word = "";
             }
         } else {
             word += c;
         }
     }
-    if(!word.empty()){
-        result.push_back(word);
+    if (!word.empty()) {
+        words.push_back(word);
     }
-    if(result.empty()){
+    if (words.empty()) {
         int oddCount = 0;
-        for(char c : txt){
-            if(islower(c) && ((c - 'a') % 2 == 1)){
+        for (char c : txt) {
+            if (islower(c) && (c - 'a') % 2 != 0) {
                 oddCount++;
             }
         }
-        result.push_back(to_string(oddCount));
+        words.push_back(to_string(oddCount));
     }
-    return result;
+    return words;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
-    using namespace std;
-
-    vector<string> input1 = split_words("hello, world");
-    vector<string> input2 = split_words("banana apple");
-
-    assert(issame(input1, input2) == false);
-
+    assert (issame(split_words("") ,{"0"}));
     return 0;
 }
