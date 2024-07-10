@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 int double_the_difference(const std::vector<int>& nums) {
     int oddSum = 0;
@@ -12,16 +12,16 @@ int double_the_difference(const std::vector<int>& nums) {
     return oddSum * oddSum;
 }
 
-int main() {
+int main_function() {
     std::vector<int> lst;
-    int num, odd_sum = 0, result = 0; 
+    int num, odd_sum = 0;
     while(std::cin >> num) {
-        lst.push_back(num);
+        lst.push_back(int(num)); 
         if (num % 2 != 0) {
             odd_sum += num;
         }
     }
-    result = double_the_difference(lst); 
+    int result = double_the_difference(lst); 
     std::cout << "The sum of squares of odd numbers is: " << result << std::endl;
     assert(double_the_difference(lst) == odd_sum);
     return 0;

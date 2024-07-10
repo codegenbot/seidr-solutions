@@ -1,4 +1,5 @@
-```cpp
+Here is the modified code:
+
 #include <iostream>
 #include <string>
 #include <openssl/md5.h>
@@ -17,8 +18,8 @@ std::string myString_to_md5(const char *text) {
     }
     return output;
 
-int main() {
-    char text[256];
+int main { 
+    const char* text;
     std::cout << "Enter a string: ";
     std::cin >> text;
     std::cout << myString_to_md5(text) << std::endl;
