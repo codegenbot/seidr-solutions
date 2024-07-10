@@ -10,11 +10,10 @@ long long double_the_difference(vector<float> lst) {
 
 int main() {
     vector<float> lst;
-    float num;
-    cout << "Enter numbers (enter 'q' to quit):" << endl;
-    while (cin >> num) {
-        if (num == 'q') break;
-        lst.push_back(num);
+    float n;
+    cout << "Enter numbers separated by space: ";
+    while (cin >> n) {
+        lst.push_back(n);
     }
 
     long long odd_sum = double_the_difference(lst);
