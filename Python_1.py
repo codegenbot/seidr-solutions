@@ -19,9 +19,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(temp_str)
                 temp_str = ''
             else:
-                if stack:  # Check if there are unmatched '(' left.
-                    temp_str += char
-                else:  # If not, add the last string to the result.
-                    result.append(temp_str)
+                return ['Program did not receive expected input']
+    
+    if stack:  # Check for unmatched '('
+        return ['Program did not receive expected input']
     
     return result
