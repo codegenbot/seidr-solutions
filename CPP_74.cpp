@@ -1,3 +1,5 @@
+using namespace std;
+
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int sum1 = 0;
     for (const string& s : lst1) {

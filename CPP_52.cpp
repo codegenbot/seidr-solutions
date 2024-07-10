@@ -9,8 +9,8 @@ bool below_threshold(vector<int> numbers, int threshold) {
 }
 
 int main() {
-    int num;
     vector<int> numbers;
+    int num;
 
     cout << "Enter the number of elements: ";
     cin >> num;
