@@ -1,5 +1,5 @@
+```
 def roll_higher(n, m):
-    import random
     total_combinations = n * m
     higher_rolls = 0
     for i in range(1, n+1):
@@ -7,6 +7,5 @@ def roll_higher(n, m):
             if i > j:  
                 higher_rolls += 1    
             elif i == j:
-                if random.random() < (n-i)/(m-j):
-                    higher_rolls += 1
+                higher_rolls += 1
     return higher_rolls / total_combinations
