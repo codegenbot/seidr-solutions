@@ -1,13 +1,14 @@
+```cpp
 #include <vector>
-#include <algorithm>
+#include <string>
 
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
     
-    if (str != string(reverse(str).begin(), reverse(str).end())) return false; // check if it's balanced
+    if (str != std::string(str.rbegin(), str.rend()).s) return false; // check if it's balanced
     
     int sum = 0;
     for (int i : q) {
