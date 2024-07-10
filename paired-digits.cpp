@@ -1,3 +1,6 @@
+#include <string>
+using namespace std;
+
 int pairedDigits(string s) {
     int sum = 0;
     for(int i = 0; i < s.length() - 1; i++) {
@@ -6,4 +9,13 @@ int pairedDigits(string s) {
         }
     }
     return sum;
+}
+
+int main() {
+    string s;
+    cout << "Enter a string of digits: ";
+    cin >> s;
+    int result = pairedDigits(s);
+    cout << "Sum of paired digits is: " << result << endl;
+    return 0;
 }
