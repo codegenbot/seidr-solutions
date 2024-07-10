@@ -19,10 +19,10 @@ vector<vector<int>> cutVector(vector<int>& nums) {
     }
 
     res[0].clear();
-    for (int i = 0; i <= idx; i++)
+    for (int i = 0; i < idx; i++)
         res[0].push_back(nums[i]);
     res[1].clear();
-    for (int i = idx + 1; i < n; i++)
+    for (int i = idx; i < n; i++)
         res[1].push_back(nums[i]);
 
     return res;

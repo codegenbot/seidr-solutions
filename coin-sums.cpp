@@ -11,11 +11,9 @@ int main() {
     vector<int> result(4, 0);
     uint64_t remaining = cents;
 
-    for (int i = 0; i < 4; i++) {
-        while (remaining >= coins[i]) {
-            result[i]++;
-            remaining -= coins[i];
-        }
+    for (int i = 3; i >= 0; i--) {
+        result[i] += remaining / coins[i];
+        remaining %= coins[i];
     }
 
     cout << result[0] << endl;
