@@ -1,15 +1,25 @@
+#include <algorithm>
+using namespace std;
+
 string get_closest_vowel(string word) {
-    int n = word.length();
-    for(int i=n-1; i>=0; i--) {
-        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u' ||
-           word[i] == 'A' || word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || word[i] == 'U') {
-            for(int j=i+1; j<n; j++) {
-                if(word[j] == 'a' || word[j] == 'e' || word[j] == 'i' || word[j] == 'o' || word[j] == 'u' ||
-                   word[j] == 'A' || word[j] == 'E' || word[j] == 'I' || word[j] == 'O' || word[j] == 'U') {
-                    return string(1, word[i]);
-                }
+    for (int i = 0; i < word.size(); ++i) {
+        if (!isalpha(word[i])) continue;
+        bool found = false;
+        for (int j = i + 1; j < word.size(); ++j) {
+            if (!isalpha(word[j])) break;
+            if (ispunct(word[j]) || isupper(word[j]) || islower(word[j]) == 'y') continue;
+            if (ispunct(word[i]) || isupper(word[i]) || islower(word[i]) == 'y' || i == 0) continue;
+            if (ispunct(word[j]) && j > i + 1) continue;
+            if (vowel(word[i]) && vowel(word[j])) {
+                found = true;
+                break;
             }
         }
+        if (found) return word.substr(i, 1);
     }
     return "";
+}
+
+bool vowel(char c) {
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }

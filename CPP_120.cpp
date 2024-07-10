@@ -1,17 +1,11 @@
-Here is the solution:
+Here is the completed code:
 
 vector<int> maximum(vector<int> arr, int k) {
-    priority_queue<int> maxHeap;
-    for (int num : arr) {
-        maxHeap.push(num);
-        if (maxHeap.size() > k) {
-            maxHeap.pop();
-        }
-    }
-    vector<int> result(k);
-    for (int i = k - 1; i >= 0; --i) {
-        result[i] = maxHeap.top();
-        maxHeap.pop();
+    vector<int> result;
+    for (int i = 0; i < k; i++) {
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it);
     }
     return result;
 }
