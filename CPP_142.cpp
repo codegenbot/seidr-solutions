@@ -1,6 +1,7 @@
+```cpp
 #include <cmath>
 #include <iostream>
-#include <vector>
+#include <cassert>
 
 double sum_squares(int n) {
     double sum = 0.0;
@@ -10,7 +11,7 @@ double sum_squares(int n) {
     return sum;
 }
 
-int main() {
+int main_function() {
     int n;
     std::cin >> n;
 
@@ -19,9 +20,8 @@ int main() {
     } else {
         double result = sum_squares(n);
         std::cout << "Sum of squares: " << std::to_string(result) << std::endl;
+        return 0;
     }
-    
-    std::vector<int> test = {-1, -3, 17, -1, -15, 13, -1, 14, -14, -12, -5, 
-                             14, -14, 6, 13, 11, 16, 16, 4, 10};
-    assert(sum_squares(20) == sum(test));
 }
+
+assert(sum_squares(-1) == pow(-1,2) + pow(1,2) + pow(17,2) - pow(1,2) - pow(15,2) + pow(13,2) - pow(1,2) + pow(14,2) - pow(14,2) - pow(12,2) - pow(5,2));
