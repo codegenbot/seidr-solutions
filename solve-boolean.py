@@ -3,12 +3,9 @@ def solve_boolean(expression):
         return True
     elif expression == "F":
         return False
-    elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid expression")
-    result = expression[0]
-    for op, bit in zip({"&", "|"}[expression[1] == "&"], expression[2:].split()):
-        if bit == "T":
-            result = (result, True)[op == "&"]
-        else:
-            result = (result, False)[op == "&"]
-    return result
+    elif "&" in expression:
+        a, b = expression.split("&")
+        return bool(a) and bool(b)
+    elif "|" in expression:
+        a, b = expression.split("|")
+        return bool(a) or bool(b)
