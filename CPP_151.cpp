@@ -14,10 +14,12 @@ int double_the_difference(const std::vector<int>& lst) {
 int main() {
     std::vector<int> lst; 
     int num;
-
-    lst.reserve(100); // Initialize the vector's capacity
+    int odd_sum = 0;
 
     while(std::cin >> num) { 
+        if(lst.size() >= (std::size_t)lst.capacity()) {
+            lst.reserve(lst.size() + 1);
+        }
         lst.push_back(num); 
     }
     int result = double_the_difference(lst); 
