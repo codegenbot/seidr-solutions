@@ -1,25 +1,20 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
 int main() {
     int n;
     cin >> n;
-    
-    if (n <= 0) {
-        cout << "Invalid input for dimension." << endl;
-        return 1;
-    }
 
     vector<double> vec1(n);
-    vector<double> vec2(n);
-
     for (int i = 0; i < n; ++i) {
         cin >> vec1[i];
     }
 
+    vector<double> vec2(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec2[i];
     }
@@ -30,7 +25,8 @@ int main() {
     }
 
     double result = sqrt(sum);
-    cout << result << endl;
+
+    cout << fixed << setprecision(2) << result << endl;
 
     return 0;
 }
