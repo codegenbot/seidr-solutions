@@ -10,13 +10,12 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     
     pair<long long, long long> prefix_sum({0LL}, accumulate(v.begin(), v.end(), 0LL));
     
-    int min_diff = std::abs(INT_MAX);
+    int min_diff = INT_MAX;
     vector<int> left, right;
     
     for (int i = 0; i < n; ++i) {
         if (prefix_sum.second - prefix_sum.first >= total_sum / 2) {
-            int diff = std::abs(total_sum - 2 * prefix_sum.second);
-            min_diff = std::min(min_diff, diff);
+            min_diff = std::min(min_diff, std::abs(total_sum - 2 * prefix_sum.second));
             left = vector<int>(v.begin(), v.begin() + i);
             right = vector<int>(v.end() - (n - i - 1), v.end());
         }
