@@ -16,9 +16,9 @@ int main() {
     long long result;
     cout << "Enter a number: ";
     cin >> result;
-    if(result < 0) {
-        cout << "Error! Please enter a positive integer." << endl;
-    } else {
+    if(result < 0){
+        cout << "Error! You entered a negative number."<<endl;
+    } else{
         cout << "The special factorial of " << result << " is: " << special_factorial(result) << endl;
     }
 }
