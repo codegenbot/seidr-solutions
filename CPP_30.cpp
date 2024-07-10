@@ -1,5 +1,4 @@
 #include <vector>
-#include <cassert>
 #include <iostream>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
@@ -38,8 +37,6 @@ int main() {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-
-    issame(input, positive_nums);
 
     return 0;
 }
