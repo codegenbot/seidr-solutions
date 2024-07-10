@@ -3,12 +3,12 @@
 #include <cassert>
 #include <string>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::std::vector<int> a, std::std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> even_odd_palindrome(int n) {
-    std::vector<int> result(2, 0);
+std::std::vector<int> even_odd_palindrome(int n) {
+    std::std::vector<int> result(2, 0);
     for (int i = 1; i <= n; ++i) {
         std::string num = std::to_string(i);
         std::string rev_num = num;
@@ -24,8 +24,6 @@ std::vector<int> even_odd_palindrome(int n) {
     return result;
 }
 
-int main() {
-    assert(issame(std::vector<int>{0, 1}, even_odd_palindrome(1)));
-    
-    return 0;
-}
+assert(issame(even_odd_palindrome(1), std::std::vector<int>{0, 1}));
+
+return 0;
