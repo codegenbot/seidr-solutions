@@ -1,6 +1,4 @@
-Here is the completed code:
-
-```python
+```
 import re
 
 def filter_by_substring():
