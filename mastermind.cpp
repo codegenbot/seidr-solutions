@@ -1,22 +1,25 @@
-int mastermind(string code, string guess) {
+int getHint(string s1, string s2) {
     int white = 0;
     int black = 0;
-    
-    for(int i = 0; i < 4; i++) {
-        if(code[i] == guess[i]) {
-            black++;
-        }
+
+    map<char, int> s1_count, s2_count;
+
+    for (char c : s1) {
+        s1_count[c]++;
     }
-    
-    for(int i = 0; i < 6; i++) {
-        int count = 0;
-        for(int j = 0; j < 4; j++) {
-            if(guess[j] == char(i + 'A')) {
-                count++;
+    for (char c : s2) {
+        s2_count[c]++;
+    }
+
+    for (int i = 0; i < 4; i++) {
+        if (s1[i] == s2[i]) {
+            black++;
+        } else {
+            if (s1_count[s1[i]] > 0 && s2_count[s1[i]] > 0) {
+                white++;
             }
         }
-        if(count > 1) white += (count - 1);
     }
-    
-    return black + white;
+
+    return to_string(black).append(" " + to_string(white));
 }
