@@ -1,9 +1,16 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
-    for (int num : lst1) {
-        if (num % 2 != 0) {
-            oddCount++;
+    bool possible = false;
+    for (int i : lst1) {
+        if (i % 2 != 0) {
+            for (int j : lst2) {
+                if (j % 2 == 0) {
+                    swap(i, j);
+                    possible = true;
+                    break;
+                }
+            }
+            if (!possible) return "NO";
         }
     }
-    return (oddCount > 0 && all_of(lst2.begin(), lst2.end(), [](int x) { return x % 2 == 0 })) ? "NO" : "YES";
+    return "YES";
 }
