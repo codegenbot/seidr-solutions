@@ -13,7 +13,7 @@ int main() {
     int cutIndex = 0;
     
     for (int i = 1; i < nums.size(); ++i) {
-        int diff = abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
+        int diff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
