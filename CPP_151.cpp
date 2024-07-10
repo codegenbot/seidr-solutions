@@ -25,8 +25,6 @@ float double_the_difference(std::vector<float>& lst) {
 int main() {
     float result = double_the_difference(lst);
     std::cout << "Result: " << result << std::endl;
-    
-    assert(result == result);
 
     return 0;
 }
