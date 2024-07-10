@@ -1,3 +1,4 @@
+```
 def encode(message):
     result = ""
     for char in message:
@@ -13,8 +14,8 @@ def encode(message):
                     result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset).lower()
                 else:
                     result += chr((ord(char) - ascii_offset + 3) % 26 + ascii_offset)
-        elif char == " ": 
+        elif char != " ": 
             result += char
         else: 
-            result += char
+            result += " " if char == " " else ""
     return result
