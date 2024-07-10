@@ -1,12 +1,14 @@
 def fib4(n: int):
     if n == 0:
         return 0
-    if n == 1:
+    elif n == 1:
         return 0
-    if n == 2:
+    elif n == 2:
         return 2
-    a, b, c, d = 0, 0, 2, 0
-    for i in range(3, n + 1):
-        d = a + b + c + d
-        a, b, c = b, c, d
-    return d
+    elif n == 3:
+        return 0
+    else:
+        a, b, c, d = 0, 0, 2, 0
+        for _ in range(4, n+1):
+            a, b, c, d = b, c, d, a + b + c + d
+        return d
