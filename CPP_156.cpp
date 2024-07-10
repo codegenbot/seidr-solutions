@@ -13,6 +13,9 @@ std::string int_to_mini_roman(int number) {
             roman += pair.second;
         }
     }
+    if (number > 0) {
+        return "Input is too large. Please enter a number less than 4000.";
+    }
     return roman;
 }
 
