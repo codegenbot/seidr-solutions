@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <climits>
 
 int main() {
     std::vector<int> nums;
@@ -20,15 +19,15 @@ int main() {
             cutIndex = i;
         }
     }
-
+    
     for (int i = 0; i < cutIndex; ++i) {
-        std::cout << nums[i] << '\n';
+        std::cout << nums[i] << std::endl;
     }
-    std::cout << 0 << '\n';
+    std::cout << 0 << std::endl;
     for (int i = cutIndex; i < nums.size(); ++i) {
-        std::cout << nums[i] << '\n';
+        std::cout << nums[i] << std::endl;
     }
-    std::cout << 0 << '\n';
+    std::cout << 0 << std::endl;
     
     return 0;
 }
