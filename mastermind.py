@@ -1,6 +1,4 @@
-Here is the solution:
-
 def mastermind(code, guess):
     white = sum(c in guess for c in code)
-    black = sum((c1,c2) == (c3,c4) for ((c1,c2), (c3,c4)) in zip(code,guess))
-    return str(white) + "\n" + str(black)
+    black = sum(1 for i in range(len(code)) if code[i] == guess[i])
+    return str(black) + "\n" + str(4 - black)
