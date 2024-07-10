@@ -1,18 +1,18 @@
 int main() {
     string text, target;
-    cin >> target >> text;
-    
+    cin >> text >> target;
+
     vector<int> indices;
-    size_t start = 0;
-    
-    while ((start = text.find(target, start)) != string::npos) {
-        indices.push_back(start);
-        start += 1;
+    size_t pos = 0;
+    while ((pos = text.find(target, pos)) != string::npos) {
+        indices.push_back(pos);
+        pos++;
     }
-    
-    for (int idx : indices) {
-        cout << idx << " ";
+
+    for (int index : indices) {
+        cout << index << " ";
     }
-    
+    cout << endl;
+
     return 0;
 }
