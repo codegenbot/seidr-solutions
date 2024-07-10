@@ -1,9 +1,7 @@
-```cpp
 #include <iostream>
 #include <algorithm>
-#include <vector>
-#include <cassert>
-#include <string> 
+#include <string>
+
 using namespace std;
 
 string anti_shuffle(string sStr) {
@@ -15,12 +13,15 @@ string anti_shuffle(string sStr) {
             string word;
             int j = i;
             while (j < sStr.length() && sStr[j] != ' ') {
-                word += sStr[j];
+                word += STr[j];
                 j++;
             }
-            vector<char>(word.begin(), word.end(), std::allocator<char>()).sort();
             for (char c : word) {
-                result += c;
+                bool seen[c-'a'+1]=false; 
+                for (int k = 0, last = c; k <= c-'a'; k++) 
+                    if (!seen[k]) last=k; else break;
+                while(last-->=k--) seen[last]=true; 
+                result+=c;
             }
             i = j - 1;
         }
