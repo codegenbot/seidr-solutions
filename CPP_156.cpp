@@ -2,12 +2,12 @@
 #include <iostream>
 #include <sstream>
 
-std::string miniRoman(int num) {
+const char* miniRoman(int num) {
     if (num == 9)
         return "IX";
     if (num >= 4) {
         if (num % 4 > 0)
-            return "IV" + std::string(num - 4, 'I');
+            return "IV" + std::string(1, 'I') + std::to_string(num - 4);
         else
             return "IV";
     } else {

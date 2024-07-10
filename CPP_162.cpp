@@ -1,13 +1,4 @@
-#include <openssl/opensslconf.h>
 #include <string>
-#include <openssl/evp.h>
-
-using namespace std;
-
-extern "C" {
-    #include <openssl/ssl.h>
-    #include <openssl/err.h>
-}
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
