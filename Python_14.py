@@ -9,8 +9,8 @@ def all_prefixes() -> None:
     while True:
         try:
             s = input("Please enter a string: ")
-            if not s.strip():
-                print("Error: Please provide a non-empty string.")
+            if not s.strip() or not s.isalnum():
+                print("Error: Please provide a non-empty alphanumeric string.")
             else:
                 break
         except ValueError as e:
