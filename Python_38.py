@@ -6,7 +6,9 @@ def decode_cyclic(s: str):
             result += s[i]
             i += 1
         else:
-            char_val = int(s[i+2:]) + ord(s[i])
-            result += chr(char_val % 128)
+            if i + 2 >= len(s):
+                result += s[i]
+            else:
+                result += chr(int(s[i+2]) + ord(s[i]))
             i += 3
     return result
