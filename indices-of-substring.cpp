@@ -16,14 +16,14 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text, target;
+    string text;
     int numTargets;
-
     cin >> text >> numTargets;
 
     vector<int> indices = indicesOfSubstring(text, "");
 
     for(int i=0; i<numTargets; i++){
+        string target;
         cin >> target;
         cout << "[";
         for(auto idx : indicesOfSubstring(text, target)){
