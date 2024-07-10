@@ -17,3 +17,16 @@ std::vector<std::vector<std::string>> filter_by_substring(std::vector<std::vecto
     }
     return result;
 }
+
+int main() {
+    std::vector<std::vector<std::string>> input = {{"apple", "banana"}, {"orange", "grape"}, {"kiwi", "mango"}};
+    const std::string sub = "an";
+    auto output = filter_by_substring(input, sub);
+    
+    for (const auto& vec : output) {
+        for (const auto& str : vec) {
+            std::cout << str << " ";
+        }
+        std::cout << std::endl;
+    }
+}
