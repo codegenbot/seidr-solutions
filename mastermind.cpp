@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -21,23 +20,25 @@ int mastermind(std::string code, std::string guess) {
         int j = 0;
         while (j < 4) {
             if (code[j] == guess[i]) {
-                white++;
                 code[j] = ' ';  // mark as used
-                break;
+                if (code[j] == guess[i]) {
+                    black++;
+                    break;
+                }
             }
             j++;
         }
     }
 
     for (int i = 0; i < 4; ++i) {
-        int j = 0;
-        while (j < 4) {
-            if (code[j] == guess[i] && code[j] != ' ') {
-                black++;
-                break;
+        int count = 0;
+        for (int j = 0; j < 4; ++j) {
+            if (code[j] == guess[i]) {
+                count++;
+                code[j] = ' ';  // mark as used
             }
-            j++;
         }
+        white += count - 1;
     }
 
     return black;
