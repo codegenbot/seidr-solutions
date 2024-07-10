@@ -3,10 +3,12 @@
 
 float triangle_area(float a, float b, float c) {
     float s = (a + b + c) / 2;
+    if ((a + b <= c) || (a + c <= b) || (b + c <= a))
+        return 0; // invalid input
     return std::sqrt(s * (s - a) * (s - b) * (s - c));
 }
 
-int calculate_triangle_area() {
+int main() {
     std::cout << "Enter sides of triangle: ";
     float side1, side2, side3;
     std::cin >> side1 >> side2 >> side3;
@@ -16,11 +18,9 @@ int calculate_triangle_area() {
         return 1;
     }
     float result = triangle_area(side1, side2, side3);
-    std::cout << "The area of the triangle is: " << result << std::endl;
-    return 0;
-}
-
-int main() {
-    calculate_triangle_area();
+    if (result == 0)
+        std::cout << "The given sides do not form a valid triangle." << std::endl;
+    else
+        std::cout << "The area of the triangle is: " << result << std::endl;
     return 0;
 }

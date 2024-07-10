@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 
 int count_nums(std::vector<int> nums) {
     int count = 0;
@@ -25,19 +26,14 @@ int count_nums(std::vector<int> nums) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> nums;
-    while (n--) {
-        int num; 
-        while (!(std::cin >> num)) {
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        nums[i] = 0; // Initialize each element to 0
+        while (!(std::cin >> nums[i])) {
             std::cout << "Invalid input. Please enter a non-negative integer: ";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cin >> num; // add this line to keep asking for input
-        }
-        if (num >= 0) {
-            nums.push_back(num);
-        } else {
-            break; 
+            std::cin >> nums[i]; 
         }
     }
     if (nums.empty()) {  // If no numbers were read, there's nothing to count
