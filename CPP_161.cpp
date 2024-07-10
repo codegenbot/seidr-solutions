@@ -1,9 +1,16 @@
 ```cpp
-int solve(std::string s) {
-    for (char &c : s) {
-        if (std::isupper(c)) { 
-            c = std::tolower(c);
+int solve(std::string& color) {
+    int result = 0;
+    for (size_t i = 1; i < color.size(); ++i) {
+        if (!std::isdigit(color[i])) {
+            result++;
         }
     }
-    return s.length();
+    return result;
+
+}
+
+int main() {
+    assert(solve("#ccc") == 3);
+    return 0;
 }
