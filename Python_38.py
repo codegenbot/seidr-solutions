@@ -10,15 +10,12 @@ def decode_cyclic(s: str):
     return "".join(groups)
 
 def main():
-    operation = input("Enter 'encode' or 'decode': ")
-    s = input("Enter the string: ")
-
-    if operation == 'encode':
+    task = input()
+    s = input()
+    if task == 'encode':
         result = encode_cyclic(s)
-    elif operation == 'decode':
+    elif task == 'decode':
         result = decode_cyclic(s)
-    
     print(result)
 
-if __name__ == "__main__":
-    main()
+main()
