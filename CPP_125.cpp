@@ -1,3 +1,3 @@
 ```cpp
-inWord = false; 
-return result;
+return result; 
+inWord = false;
