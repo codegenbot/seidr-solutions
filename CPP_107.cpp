@@ -1,33 +1,31 @@
 #include <vector>
-#include <iostream>
+#include <string>
+#include <algorithm>
 
-bool issame(int n){
-    string num = to_string(n);
-    string rev_num = num;
-    reverse(rev_num.begin(), rev_num.end());
-    return num == rev_num;
-}
+using namespace std;
 
 vector<int> even_odd_palindrome(int n){
     vector<int> result(2, 0);
-    for(int i=1; i<=n; ++i){
-        if(issame(i)){
-            if(i % 2 == 0){
-                result[0]++;
+    for (int i = 1; i <= n; ++i) {
+        string s = to_string(i);
+        string rev_s = s;
+        reverse(rev_s.begin(), rev_s.end());
+        if (s == rev_s) {
+            if (i % 2 == 0) {
+                ++result[0];
             } else {
-                result[1]++;
+                ++result[1];
             }
         }
     }
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 int main(){
-    int n;
-    cin >> n;
-    vector<int> result = even_odd_palindrome(n);
-    for(int i=0; i<result.size(); ++i){
-        cout << result[i] << " ";
-    }
+    assert(issame(even_odd_palindrome(1), {0, 1}));
     return 0;
 }
