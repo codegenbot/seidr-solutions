@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iomanip> // Include the <iomanip> header
+#include <iomanip> 
 
 using namespace std;
 
@@ -17,7 +17,7 @@ int main() {
         first_bounce_height *= bounciness_index;
     }
 
-    cout << fixed << setprecision(15) << total_distance << endl; // Set the precision to 15 decimal places
+    cout << fixed << setprecision(15) << total_distance << endl;
 
     return 0;
 }
