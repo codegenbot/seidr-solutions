@@ -9,6 +9,7 @@ int count_upper(std::string s) {
             count++;
     }
     return count;
+
 }
 
 int main() {
