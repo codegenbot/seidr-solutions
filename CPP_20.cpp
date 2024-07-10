@@ -1,8 +1,28 @@
-```c++
-#include <vector>
-#include <algorithm>
 #include <iostream>
-#include <cmath>
+#include <vector>
+#include <utility>
+
+std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
+    std::vector<std::pair<float, float>> closest_pair;
+    
+    for (int i = 0; i < numbers.size() - 1; ++i)
+    {
+        for (int j = i + 1; j < numbers.size(); ++j)
+        {
+            if (closest_pair.empty() || abs(numbers[j] - numbers[i]) < abs(numbers[std::get<1>(closest_pair.back())] - numbers[std::get<0>(closest_pair.back())]))
+            {
+                closest_pair.clear();
+                closest_pair.push_back({numbers[i], numbers[j]});
+            }
+            else if (abs(numbers[j] - numbers[i]) == abs(numbers[std::get<1>(closest_pair.back())] - numbers[std::get<0>(closest_pair.back())]))
+            {
+                closest_pair.push_back({numbers[i], numbers[j]});
+            }
+        }
+    }
+    
+    return closest_pair;
+}
 
 int main() {
     int n;
@@ -32,24 +52,4 @@ int main() {
         }
     }
 
-}
-
-std::vector<std::pair<float, float>> find_closest_elements(const std::vector<float>& numbers) {
-    if (numbers.size() < 2)
-        return {};
-
-    std::pair<float, float> closest_pair = {numbers[0], numbers[1]};
-    float min_distance = std::abs(numbers[0] - numbers[1]);
-
-    for (int i = 0; i < numbers.size(); ++i) {
-        for (int j = i + 1; j < numbers.size(); ++j) {
-            float distance = std::abs(numbers[i] - numbers[j]);
-            if (distance < min_distance) {
-                min_distance = distance;
-                closest_pair = {numbers[i], numbers[j]};
-            }
-        }
-    }
-
-    return {closest_pair};
 }
