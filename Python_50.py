@@ -1,8 +1,7 @@
 def decode_shift():
-    result = ""
-
     if __name__ == "__main__":
         while True:
+            result = ""
             s = input("Enter a string to shift (or 'q' to quit): ")
             if s.lower() == "q":
                 break
