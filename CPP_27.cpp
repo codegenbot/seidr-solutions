@@ -1,12 +1,23 @@
-string filp_case(string str){
-    string result = "";
+```cpp
+#include <iostream>
+#include <string>
+
+std::string filp_case(std::string str){
+    std::string result = "";
     for(int i=0; i<str.length(); i++){
-        if(str[i]>96 && str[i]<123) // lowercase characters
-            result+= toupper(str[i]);
-        else if(str[i]>64 && str[i]<91) // uppercase characters
-            result+= tolower(str[i]);
-        else 
-            result+= str[i];
+        char c = str[i];
+        if(c >= 'a' && c <= 'z')
+            result += toupper(c);
+        else if(c >= 'A' && c <= 'Z')
+            result += tolower(c);
+        else
+            result += c;
     }
     return result;
+}
+
+int main() {
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    std::cout << (filp_case("Hello, World!") == "hELLO, wORLD!" ? "Test Passed" : "Test Failed");
+    return 0;
 }
