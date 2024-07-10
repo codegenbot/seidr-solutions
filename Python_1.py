@@ -1,27 +1,17 @@
 ```
-from typing import List
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    stack = []
     temp_str = ''
-    
     for char in paren_string:
         if char == ' ':
             continue
         if char == '(':
-            stack.append(char)
             temp_str += char
         elif char == ')':
-            if stack and stack[-1] == '(':
-                stack.pop()
+            if temp_str and temp_str[-1] == '(':
                 temp_str += char
-                result.append(temp_str)
+                result.append(temp_str[1:-1])
                 temp_str = ''
             else:
-                return ['Program did not receive expected input']
-    
-    if stack:  # Check for unmatched '('
-        return ['Program did not receive expected input']
-    
-    return result
+                temp_str += char
+    return [temp_str[1:] if temp_str.startswith('(') else temp_str]
