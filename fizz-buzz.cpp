@@ -1,14 +1,23 @@
-#include <string>
+#include <iostream>
+using namespace std;
 
 string fizzBuzz(int x) {
-    string result;
     if (x % 3 == 0 && x % 5 == 0)
-        result = "FizzBuzz";
+        return "FizzBuzz";
     else if (x % 3 == 0)
-        result = "Fizz";
+        return "Fizz";
     else if (x % 5 == 0)
-        result = "Buzz";
+        return "Buzz";
     else
-        result = to_string(x);
-    return result;
+        return to_string(x);
+}
+
+int main() {
+    int x;
+    cout << "Enter an integer: ";
+    cin >> x;
+    for(int i = 1; i <= x; ++i) {
+        cout << fizzBuzz(i) << endl;
+    }
+    return 0;
 }
