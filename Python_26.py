@@ -1,7 +1,5 @@
-from typing import List
-
-
-def remove_duplicates(numbers: List[int]) -> List[int]:
+```
+def remove_duplicates(numbers: list[int]) -> list[int]:
     seen = set()
     result = []
     for num in numbers:
@@ -9,8 +7,3 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
             seen.add(num)
             result.append(num)
     return result
-
-
-if __name__ == "__main__":
-    numbers = list(map(int, input("Enter space separated integers: ").split()))
-    print(remove_duplicates(numbers))
