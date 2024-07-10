@@ -1,3 +1,2 @@
-```
 def car_race_collision(n: int):
-    return n * (n - 1)
+    return len({i for i in range(n)}) - 1
