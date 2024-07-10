@@ -1,5 +1,10 @@
-def intersperse-separated-values(str_values: List[str], separator: str) -> List[str]:
-    result = [str_values[0]]
-    for i in range(1, len(str_values)):
-        result.extend([result[-1], separator, str_values[i]])
+```
+from typing import List
+
+def intersperse(numbers: List[int], delimeter: int) -> List[int]:
+    if len(numbers) == 0:
+        return []
+    result = [numbers[0]]
+    for i in range(1, len(numbers)):
+        result += [delimeter] + [result[-1]] + [numbers[i]]
     return result
