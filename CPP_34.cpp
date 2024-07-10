@@ -30,10 +30,10 @@ It distinct(It first, It last) {
 void solveProblem() {
     std::vector<int> input;
     int n;
-    cin >> n;
+    std::cin >> n;
     for(int i = 0; i < n; i++) {
         int x;
-        cin >> x;
+        std::cin >> x;
         input.push_back(x);
     }
     
@@ -42,10 +42,6 @@ void solveProblem() {
     std::sort(output.begin(), output.end());
     
     for (int i : output) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    
-    assert(std::equal({0, 2, 3, 5, 9, 123}.begin(), {0, 2, 3, 5, 9, 123}.end(), std::vector<int>(std::distinct(input.begin(), input.end()).begin(), std::distinct(input.end())));
-    
-    return;
 }
