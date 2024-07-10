@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -15,9 +16,17 @@ std::string flip_case(const std::string& str) {
     return result;
 }
 
-int main() {
+int driver() {  
     std::string result;
-    while (std::cin >> result) {  
-        std::cout << "Flipped case: " << flip_case(result) << std::endl;
+    while (std::cin >> std::ws >> result) {  
+        if (!result.size()) {
+            std::cout << "Error: Input is empty. Please enter a valid string." << std::endl;
+        } else {
+            std::cout << "Flipped case: " << flip_case(result) << std::endl;
+        }
     }
+}
+
+int main(int argc, const char* argv[]) {
+    driver();
 }
