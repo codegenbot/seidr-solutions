@@ -1,13 +1,4 @@
 ```
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <memory>
-
-bool issam(std::vector<int> a, std::vector<int> b) {
-    return std::equal(a.begin(), a.end(), b.begin());
-}
-
 int main() {
     int n1, n2;
     std::vector<int> v1, v2;
