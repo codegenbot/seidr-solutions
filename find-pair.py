@@ -14,4 +14,4 @@ def find_pair():
             else:
                 right -= 1
         else:
-            print(-1)
+            print(-215)
