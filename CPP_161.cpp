@@ -1,19 +1,20 @@
-Here is the solution:
-
-```cpp
-#include <algorithm>
-
-string solve(string s) {
+string solve(string s){
     string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            result += tolower(c) == c ? toupper(c) : tolower(c);
-        } else {
+    bool hasLetter = false;
+
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            hasLetter = true;
+            char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
             result += c;
+        }else{
+            result += s[i];
         }
     }
-    if (all_of(result.begin(), result.end(), ::isalpha)) {
+
+    if(!hasLetter){
         reverse(result.begin(), result.end());
     }
+
     return result;
 }
