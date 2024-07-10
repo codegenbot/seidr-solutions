@@ -1,7 +1,6 @@
-```
 #include <string>
 
-bool is_nested(string str) {
+bool is_nested(std::string str) {
     int open = 0, close = 0;
     for (char c : str) {
         if (c == '[') open++;
@@ -11,4 +10,9 @@ bool is_nested(string str) {
         }
     }
     return close > 0 && open == 0;
+}
+
+int main() {
+    assert(is_nested("]]]]]]]])" == false);
+    return 0;
 }
