@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -16,14 +15,15 @@ std::string find_max(const std::vector<std::string>& words) {
 
 int main() {
     std::vector<std::string> words;
-    std::cout << "Enter the number of words: ";
     int n;
+    std::cout << "Enter the number of words: ";
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
-        std::cout << "Enter word " << i + 1 << ": ";
         std::string str;
         getline(std::cin, str); 
-        if (!str.empty()) { // Check if string is not empty
+        if (str.find_first_not_of(' ') == std::string::npos) {
+            words.push_back(str);
+        } else {
             str.erase(0, str.find_first_not_of(' ')); 
             str.erase(str.find_last_not_of(' ') + 1);
             words.push_back(str);
