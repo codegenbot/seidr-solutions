@@ -2,31 +2,29 @@ using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
-    bool firstRollInFrame = true;
-    int currentFrame = 1;
-
+    int roll = 0;
     for (char c : s) {
-        if (c == 'X') {
-            score += 10 + (firstRollInFrame ? 10 : 0);
-            firstRollInFrame = false;
-        } else if (c == '/') {
-            score += 10 - currentFrame;
-            firstRollInFrame = true;
-            currentFrame++;
+        if (c == '/') {
+            if (roll < 2) {
+                score += 10 - (10 - (roll == 1));
+            }
+            roll = 0;
+        } else if (c == 'X') {
+            score += 10;
+            roll = 0;
         } else {
-            int pins = c - '0';
-            if (firstRollInFrame) {
-                if (pins + pins <= 10) {
-                    score += pins * 2;
-                } else {
-                    score += 10;
-                }
-                firstRollInFrame = false;
+            int val = c - '0';
+            roll++;
+            if (roll < 2) {
+                score += val;
             } else {
-                score += pins;
+                if (val + roll > 10) {
+                    score += 10;
+                } else {
+                    score += val + roll;
+                }
+                roll = 0;
             }
         }
     }
-
     return score;
-}
