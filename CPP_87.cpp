@@ -1,9 +1,11 @@
-Here is the solution:
+#include <stdio.h>
+#include <vector>
+using namespace std;
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
     vector<vector<int>> result;
     for (int i = 0; i < lst.size(); i++) {
-        if (i == x) {
+        if (x == i) {
             for (int j = lst[i].size() - 1; j >= 0; j--) {
                 result.push_back({i, j});
             }
