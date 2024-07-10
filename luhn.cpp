@@ -1,3 +1,5 @@
+#include <vector>
+
 int luhn(vector<int> cc) {
     int sum = 0;
     bool doubleNext = false;
@@ -15,4 +17,3 @@ int luhn(vector<int> cc) {
     }
 
     return sum;
-}
