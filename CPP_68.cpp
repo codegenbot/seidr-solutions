@@ -22,5 +22,5 @@ int main(){
         return result;
     }
 
-    assert(issame(pluck({7, 9, 7, 1}), {});
+    assert (issame(pluck({7, 9, 7, 1}) , {}));
 }
