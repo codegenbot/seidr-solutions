@@ -1,6 +1,6 @@
 #include <string>
+#include <cctype>
 #include <cassert>
-using namespace std;
 
 string flip_case(string str);
 
