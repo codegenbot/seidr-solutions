@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <climits>
 #include <cmath>
@@ -22,6 +23,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int> v) {
         right.pop_back();
     }
     return {left, right};
+}
 
 int main() {
     return 0;
