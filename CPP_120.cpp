@@ -1,11 +1,8 @@
 #include <vector>
-#include <algorithm>
+bool issame(vector<int> a, vector<int> b);
 
-std::vector<int> maximum(std::vector<int>& arr, int k) {
-    std::sort(arr.begin(), arr.end());
-    return std::vector<int>(arr.begin() + (arr.size() - k), arr.end());
-}
-
-int main() {
-    // Your code
+vector<int> maximum(vector<int> arr, int k) {
+    vector<int> result(arr.begin(), arr.begin() + k);
+    sort(result.begin(), result.end());
+    return result;
 }
