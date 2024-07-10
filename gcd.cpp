@@ -1,8 +1,8 @@
 #include <vector>
 
 namespace {
-    vector<int> indicesOfSubstring(string text, string target) {
-        vector<int> res;
+    std::vector<int> indicesOfSubstring(std::string text, std::string target) {
+        std::vector<int> res;
         int n = text.size();
         int m = target.size();
 
