@@ -1,20 +1,25 @@
-```
 def is_palindrome(string: str) -> bool:
-    if string == string[::-1]:
-        print("Welcome to the 'Is Palindrome' program!")
+    if string.lower() == string[::-1].lower():
         return True
     else:
-        print("This program checks whether a given input string is palindrome.")
         return False
 
+
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        print("The given string is a palindrome. Adding 'madam' to it.")
-        return string + "madam"
+    if is_palindrome(string):
+        return string + " madam"
+    elif len(string) % 2 == 0:
+        middle = string[int(len(string) / 2)]
+        return (
+            string[: int(len(string) / 2)].lower()
+            + middle.lower()
+            + string[int(len(string) / 2) :].lower()
+        )
     else:
-        for i in range(len(string)):
-            if string[:i] + string[i:][::-1] == string[i:][::-1]:
-                print(f"Creating a new palindrome by adding {string[i:][::-1]} at the end of the input string.")
-                return string[:i] + string[i:][::-1] + string[i:][::-1]
-        print("The given string is not a palindrome. Adding 'not a palindrome' to it.")
-        return string + "not a palindrome"
+        middle = string[int(len(string) / 2)]
+        return (
+            string[: int(len(string) / 2)].lower()
+            + middle.lower()
+            + middle.upper()
+            + string[int(len(string) / 2) + 1 :].lower()
+        )
