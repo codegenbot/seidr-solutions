@@ -6,12 +6,11 @@ using namespace std;
 double diceGame(int n, int m) {
     double total = (double)n * m;
     double p = 0.0;
-
-    for (int i = 1; i <= min(n, m); ++i)
-        if (n > i && m == i)
-            p += 1.0;
-
-    return p / total;
+    
+    for (int i = 1; i <= min(n, m)-1; ++i)
+        p += (n - i) / total;
+    
+    return p;
 }
 
 int main() {
