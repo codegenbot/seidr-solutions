@@ -1,7 +1,4 @@
-```cpp
-#include <iostream>
-#include <vector>
-
+```
 int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
@@ -38,17 +35,4 @@ int count_nums(std::vector<int> nums) {
     }
     return count;
 
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> nums;
-    while (n--) {
-        int num; 
-        std::cin >> num;
-        nums.push_back(num);
-    }
-    std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
-    return 0;
 }
