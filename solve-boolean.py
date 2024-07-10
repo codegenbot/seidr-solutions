@@ -4,6 +4,11 @@ def solve_boolean(expression):
     elif expression == 'F':
         return False
     elif '&' in expression:
-        return all(solve_boolean(part) for part in expression.split('&'))
-    else:  
-        return any(solve_boolean(part) for part in expression.split('|'))
+        a, b = expression.split('&')
+        return bool(a) and bool(b)
+    else:
+        if '|' in expression:
+            a, b = expression.split('|')
+            return bool(a) or bool(b)
+        else:
+            return eval('((' + expression + '))')
