@@ -12,8 +12,8 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> temp;
+vector<int> make_a_pile(int n) {
+    vector<int> temp;
     for(int i=0; i<n; i++){
         temp.push_back(i+1);
     }
@@ -25,13 +25,13 @@ void cpp100() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-
-    std::vector<int> pile = make_a_pile(n);
-    std::vector<int> pile2 = make_a_pile(n);
-
+    
+    vector<int> pile = make_a_pile(n);
+    vector<int> pile2 = make_a_pile(n);
     if(issame(pile, pile2)){
         cout << "The piles are the same." << endl;
     } else {
         cout << "The piles are not the same." << endl;
     }
+    
 }
