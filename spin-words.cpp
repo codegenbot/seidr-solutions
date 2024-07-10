@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm> // for reverse
 using namespace std;
+
 int main() {
     string input;
     getline(cin, input);
