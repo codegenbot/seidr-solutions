@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -14,7 +13,7 @@ int prod_signs(int* arr, int n) {
 }
 
 int main() {
-    int n; 
+    int n; // number of elements in the array
     std::cin >> n;
     std::vector<int> arr(n);
     for (int i = 0; i < n; ++i)
