@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <limits>
 #include <string>
@@ -14,10 +13,9 @@ long long special_factorial(int n) {
 }
 
 int main() {
-    string ws;
-    int n;
+    string nStr;
     cout << "Enter a positive integer: ";
-    getline(cin, ws);
-    n = stoi(ws);
+    cin >> nStr;
+    int n = stoi(nStr);
     cout << "The special factorial of " << n << " is: " << special_factorial(n) << endl;
 }
