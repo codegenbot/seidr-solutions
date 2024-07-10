@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -16,7 +18,7 @@ std::vector<int> parse_music(std::string music_string) {
         } else if (music_string[i] == '.' && music_string[i + 1] == '|') {
             beats.push_back(1);
             i += 3;
-        } else if (music_string[i] == 'o') {
+        } else {
             beats.push_back(4);
             i += 2;
         }
@@ -24,7 +26,4 @@ std::vector<int> parse_music(std::string music_string) {
     return beats;
 }
 
-int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
-    return 0;
-}
+assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
