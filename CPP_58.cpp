@@ -23,7 +23,7 @@ int main() {
     auto v1 = common();
     int m;
     std::vector<int> v2;
-    std::cout << "Enter number of elements for second vector: ";
+    std::cout << "Enter number of elements (second vector): ";
     std::cin >> m;
     for (int i = 0; i < m; i++) {
         std::cout << "Enter element: ";
