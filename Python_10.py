@@ -1,6 +1,6 @@
-Here is the modified code:
+Here is the corrected code:
 
-```python
+```
 import re
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
