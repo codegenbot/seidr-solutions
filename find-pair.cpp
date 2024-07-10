@@ -2,8 +2,8 @@
 using namespace std;
 
 vector<int> findPair(vector<int>& nums, int target) {
-    unordered_map<int, int> numMap;
     vector<int> result;
+    unordered_map<int, int> numMap;
 
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
@@ -19,14 +19,14 @@ vector<int> findPair(vector<int>& nums, int target) {
 }
 
 int main() {
-    int n, m1, m2;
+    int n;
     cin >> n;
     vector<int> nums(n);
     for (int i = 0; i < n; i++) {
         cin >> nums[i];
     }
-    cin >> m1 >> m2;
-    target = m1 + m2;
+    int target;
+    cin >> target;
 
     vector<int> result = findPair(nums, target);
 
