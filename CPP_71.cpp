@@ -16,5 +16,4 @@ int main() {
     assert(std::abs(triangle_area(side1, side2, side3)) < 0.01);
     float result = triangle_area(side1, side2, side3);
     std::cout << "The area of the triangle is: " << result << std::endl;
-    std::cout << side1 << " " << side2 << " " << side3 << std::endl;
 }
