@@ -15,9 +15,9 @@ int main() {
     } else {
         int result = prime_fib(n);
         if (result == -1) {
-            cout << "There is no " << std::to_string(n) << "th prime Fibonacci number." << endl;
+            cout << "There is no " << n << "th prime Fibonacci number." << endl;
         } else {
-            cout << "The " << std::to_string(n) << "th prime Fibonacci number is: " << result << endl;
+            cout << "The " << to_string(n) << "th prime Fibonacci number is: " << result << endl;
         }
     }
 }
