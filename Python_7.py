@@ -1,21 +1,21 @@
 from typing import List
 import re
 
-def filter_by_substring():
-    strings = input("Enter strings (space-separated): ")
-    substring = input("Enter a substring: ")
 
-    try:
-        strings = [s.strip() for s in strings.split()]
-    except ValueError:
-        return "Invalid input. Please enter space-separated strings."
-
+def filter_by_substring(strings: List[str], substring: str) -> List[str]:
     if not substring:
         return []
 
     pattern = re.compile(substring)
 
-    result = [s for s in strings if bool(pattern.search(s))]
-    print(result)
+    return [s for s in strings if bool(pattern.search(s))]
 
-filter_by_substring()
+
+if __name__ == "__main__":
+    strings_input = input("Please enter a list of strings separated by commas: ")
+    substring_input = input("Please enter the substring to filter by: ")
+
+    strings_list = [s.strip() for s in strings_input.split(",")]
+    filtered_strings = filter_by_substring(strings_list, substring_input)
+
+    print("Filtered strings: ", filtered_strings)
