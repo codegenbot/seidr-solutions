@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,19 +11,26 @@ bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     return true;
 }
 
-std::vector<int> pluck(int n) {
+std::vector<int> pluck(const std::vector<int>& n) {
     std::vector<int> result;
-    
-    if(n == 7 || n == 9)
-        for(int i : {1,3}) 
-            result.push_back(i); 
-    else if(n == 1)
-        result.push_back(0); 
+
+    for (int x : n) {
+        if(x == 7 || x == 9)
+            result.push_back(1); 
+        else if(x == 1)
+            result.push_back(0); 
+
+    }
+
     return result; 
 
-}bool same = issame(pluck(7), pluck(7)); 
+}
 
-if (same)  
-    std::cout << "Arrays are same" << std::endl;
-else   
-    std::cout << "Arrays are not same" << std::endl;
+int main() {
+    if (issame(pluck({7, 9, 7, 1}), pluck({1})))  
+        std::cout << "Arrays are same" << std::endl;
+    else   
+        std::cout << "Arrays are not same" << std::endl;
+
+    return 0;
+}
