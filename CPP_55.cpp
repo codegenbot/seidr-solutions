@@ -8,13 +8,17 @@ int fib(int n) {
         return memo[n];
     }
 
+    if (n <= 1) {
+        return n;
+    }
+
     int result = fib(n - 1) + fib(n - 2);
     memo[n] = result;
 
     return result;
 }
 
-int main(){
+int solveProblem(){
     int n;
     std::cout << "Enter the value of n: ";
     std::cin >> n;
