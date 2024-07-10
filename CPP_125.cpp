@@ -1,9 +1,11 @@
-```
 #include <vector>
 #include <string>
 #include <cctype>
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) { return a == b; }
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    bool b = true;
+    return a == b;
+}
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> result;
@@ -32,8 +34,6 @@ std::vector<std::string> split_words(std::string txt) {
 }
 
 int main() {
-    std::vector<std::string> a = {""};
-    std::vector<std::string> b = {"0"};
-    bool result = isSame(a, b);
-    assert(result);
+    bool b = true;  // declare and initialize b
+    assert(issame(std::vector<std::string>({"",""}), std::vector<std::string>({"0",""})));
 }
