@@ -1,6 +1,9 @@
 #include <iostream>
 
 int modp(int n, int p) {
+    int n, p;
+    std::cin >> n >> p;
+
     if (p == 1) return 0;
     int result = 1;
     n = n % p;
