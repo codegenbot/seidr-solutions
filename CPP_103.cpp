@@ -1,9 +1,8 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
-#include <algorithm>
 #include <cmath>
-
+#include <algorithm>
 using namespace std;
 
 string rounded_avg(int n,int m){
