@@ -1,8 +1,4 @@
-```
-def odd_product():
-    num = int(input("Enter a number: "))
-    print(digits(num))
-
+```python
 def digits(n):
     product = 1
     has_odd = False
