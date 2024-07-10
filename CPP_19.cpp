@@ -11,19 +11,20 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
+string sort_numbers(string numbers) {
+    map<int, string> reverse_map;
     string result = "";
-    map<int, string> sorted_numbers;
     
     size_t pos = 0;
+    string token;
     while ((pos = numbers.find(" ")) != string::npos) {
-        string token = numbers.substr(0, pos);
-        sorted_numbers[number_map[token]] = token;
+        token = numbers.substr(0, pos);
+        reverse_map[number_map[token]] = token;
         numbers.erase(0, pos + 1);
     }
-    sorted_numbers[number_map[numbers]] = numbers;
+    reverse_map[number_map[numbers]] = numbers;
     
-    for (const auto& pair : sorted_numbers) {
+    for (const auto& pair : reverse_map) {
         result += pair.second + " ";
     }
     
