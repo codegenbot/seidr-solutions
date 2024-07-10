@@ -1,15 +1,14 @@
-
 #include <iostream>
 #include <string>
 
 using namespace std;
 
 bool evaluateBooleanExpression(const string& expression) {
-    if (expression == "t") {
+    if (expression == "T") {
         return true;
-    } else if (expression == "f") {
+    } else if (expression == "F") {
         return false;
-    } else if (expression == "t&f" || expression == "f&t" || expression == "f&f") {
+    } else if (expression == "T&F" || expression == "F&T" || expression == "F&F") {
         return false;
     } else {
         return true;
