@@ -1,17 +1,20 @@
-bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+#include <iostream>
+#include <vector>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 int main() {
-    // Existing code remains the same
-
-    return 0; // Change return value to 0
+    int n;
+    std::cin >> n;
+    
+    int sum = 0;
+    for (int i = 1; i <= n; ++i) {
+        sum += i;
+    }
+    
+    std::cout << sum;
+    
+    return 0;
 }
