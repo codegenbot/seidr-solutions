@@ -9,4 +9,4 @@ bool is_nested(std::string str) {
             else close++;
         }
     }
-    return open != 0;
+    return close > 0;
