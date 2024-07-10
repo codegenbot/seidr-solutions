@@ -1,33 +1,37 @@
-```cpp
 #include <iostream>
+#include <vector>
 #include <string>
 
-int bowlingScore(const std::string& input) {
+using namespace std;
+
+int bowlingScore(const string& input) {
     int score = 0;
-    int rollCount = 0;
+    vector<int> rolls;
+    
     for (char c : input) {
         if (c == '/') {
-            if (rollCount > 1) {
-                score += (10 - rollCount);
+            if (rolls.size() > 0) {
+                int previousRoll = rolls.back();
+                if (previousRoll < 10) {
+                    if (previousRoll + 1 + rolls[rolls.size()-2] <= 10) {
+                        score += 10;
+                    } else {
+                        score += 10 - previousRoll;
+                    }
+                } else {
+                    score += 10;
+                }
             }
-            score += rollCount * 10;
-            rollCount = 0;
-        } else if ('1' <= c && c <= '9') {
-            rollCount *= 10 + (c - '0');
+        } else if (isdigit(c)) {
+            rolls.push_back(c - '0');
         }
     }
-    if (rollCount > 1) {
-        score += (10 - rollCount);
+
+    for (int roll : rolls) {
+        score += roll;
     }
-    score += rollCount;
+
     return score;
 }
 
-int main() {
-    std::string input;
-    std::cout << "Enter the bowling score string: ";
-    std::cin >> input;
-    int score = bowlingScore(input);
-    std::cout << "The total score is: " << score << std::endl;
-    return 0;
-}
+int main() { return bowlingScore("10/8/,7-,5-3,1/2/6/4/-"); }
