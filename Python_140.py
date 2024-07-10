@@ -1,4 +1,6 @@
+```
 import re
+
 
 def fix_spaces(text):
     text = re.sub(r"\s+", "_", text)
@@ -7,6 +9,6 @@ def fix_spaces(text):
         return "N/A"
     return text
 
-text = input("Enter a text: ")
-result = fix_spaces(text)
-print(result)
+
+text = input("Please enter the text: ")
+print(fix_spaces(text))
