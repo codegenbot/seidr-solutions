@@ -1,6 +1,5 @@
-#include <iostream>
 #include <vector>
-#include <string>
+
 using namespace std;
 
 vector<int> even_odd_palindrome(int n) {
@@ -9,7 +8,7 @@ vector<int> even_odd_palindrome(int n) {
         string str = to_string(i);
         bool isPalindrome = true;
         for (int j = 0; j < str.length() / 2; j++) {
-            if (str[j] != str[str.length() - 1 - j]) {
+            if (str[j] != str[str.length() - j - 1]) {
                 isPalindrome = false;
                 break;
             }
@@ -21,13 +20,4 @@ vector<int> even_odd_palindrome(int n) {
         }
     }
     return result;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> res = even_odd_palindrome(n);
-    cout << "Number of even palindromes: " << res[0] << endl;
-    cout << "Number of odd palindromes: " << res[1] << endl;
-    return 0;
 }
