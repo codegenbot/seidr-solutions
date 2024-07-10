@@ -1,10 +1,11 @@
-#include <iostream>
 #include <vector>
+#include <string>
 #include <set>
+#include <cassert>
 
 using namespace std;
 
-string find_max(const vector<string>& words){
+string find_max(vector<string> words){
     string result;
     int max_unique = 0;
     for (const string& word : words) {
@@ -17,7 +18,7 @@ string find_max(const vector<string>& words){
     return result;
 }
 
-int main() {
-    assert(find_max({"play", "play", "play"}) == "play");
+int main(){
+    assert((find_max({"play", "play", "play"}) == "play"));
     return 0;
 }
