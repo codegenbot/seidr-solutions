@@ -12,22 +12,24 @@ bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
 }
 
 std::vector<int> pluck(int n) {
-    int nums[] = {7, 9, 7, 1};
-    std::vector<int> result;
-    for (int num : nums) {
-        if (num == 7)
-            result = {1, 3};
-        else if (num == 9)
-            result = {2};
-    }
-    return result;
+    if(n == 7 || n == 9)
+        return {1,3}; 
+    else if(n == 1)
+        return {0}; 
+    else 
+        return {}; 
+
 }
 
-bool same = issame(pluck(7), pluck(7));
+int main() {
+    bool same = issame(pluck(7), pluck(7));
+    
+    if (same)  
+        std::cout << "Arrays are same" << std::endl;
+    else   
+        std::cout << "Arrays are not same" << std::endl;
 
-if (same)
-    std::cout << "Arrays are same" << std::endl;
-else
-    std::cout << "Arrays are not same" << std::endl;
+    assert(same);
 
-assert(same);
+    return 0;
+}

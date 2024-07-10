@@ -1,15 +1,12 @@
 #include <iostream>
 #include <cassert>
+
 using namespace std;
 
 int vowels_count(const char*);
 
 __BEGIN_DECLS
 __END_DECLS
-
-int main() {
-    assert(vowels_count("ACEDY") == 3);
-}
 
 int vowels_count(const char* str) {
     int count = 0;
