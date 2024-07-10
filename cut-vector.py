@@ -11,9 +11,15 @@ def cut_vector(vector):
 
         if diff < min_diff or (
             diff == min_diff
-            and abs(len(vector) // 2 - i) < abs(len(vector) // 2 - (cut_index + 1))
+            and abs(len(vector[:i+1]) - len(vector[i+1:]) < abs(len(subvector1) - len(subvector2)))
         ):
             min_diff = diff
-            cut_index = i + 1
+            cut_index = i
 
-    return vector[:cut_index], vector[cut_index:]
+    return vector[:cut_index + 1], vector[cut_index:]
+
+# Read input from user
+vector = list(map(int, input().split()))
+subvector1, subvector2 = cut_vector(vector)
+print(*subvector1)
+print(*subvector2)
