@@ -1,12 +1,12 @@
+```cpp
 #include <vector>
-using namespace std;
 
-int luhn(vector<int> digits) {
+int luhnAlgorithm(std::vector<int> cardNumber) {
     int sum = 0;
     bool doubleNext = false;
     
-    for (int i = digits.size() - 1; i >= 0; --i) {
-        int digit = digits[i];
+    for (int i = cardNumber.size() - 1; i >= 0; --i) {
+        int digit = cardNumber[i];
         
         if (doubleNext) {
             digit *= 2;
@@ -20,10 +20,4 @@ int luhn(vector<int> digits) {
     }
     
     return sum;
-}
-
-int main() {
-    vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 5, 9, 8, 4};
-    cout << luhn(digits) << endl;
-    return 0;
 }
