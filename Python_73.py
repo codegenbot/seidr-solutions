@@ -1,12 +1,5 @@
-```
 def smallest_change():
-    while True:
-        try:
-            arr = list(map(int, input("Enter coin amounts separated by spaces: ").split()))
-            if len(arr) > 1 and all(isinstance(x, int) for x in arr):
-                break
-            else:
-                print("Invalid input. Please enter numbers separated by spaces.")
+    arr = list(map(int, input("Enter coin amounts separated by spaces: ").split()))
     changes = 0
     for i in range(len(arr) - 1):
         if arr[i] > arr[i + 1]:
