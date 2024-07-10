@@ -1,32 +1,53 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> &nums) {
-    int n = nums.size();
-    for (int i = 0; i < n; ++i) {
-        if (i == 0 || nums[i] > nums[i - 1]) continue;
-        int leftSum = accumulate(nums.begin(), nums.begin() + i, 0);
-        int rightSum = accumulate(nums.begin() + i, nums.end(), 0);
-        return {{nums.begin(), nums.begin() + i}, {nums.begin() + i, nums.end()}};
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int min_diff = INT_MAX;
+    pair<vector<int>, vector<int>> result;
+    for (int i = 0; i < vec.size(); i++) {
+        int left_sum = 0, right_sum = 0;
+        for (int j = 0; j < i; j++) {
+            left_sum += vec[j];
+        }
+        for (int j = i; j < vec.size(); j++) {
+            right_sum += vec[j];
+        }
+        int diff = abs(left_sum - right_sum);
+        if (diff <= min_diff) {
+            min_diff = diff;
+            result = {{}, {}};
+            for (int j = 0; j < i; j++) {
+                result.first.push_back(vec[j]);
+            }
+            for (int j = i; j < vec.size(); j++) {
+                result.second.push_back(vec[j]);
+            }
+        }
     }
-    return {{nums.begin(), nums.end()}, {}};
+    return result;
 }
 
 int main() {
-    vector<int> nums;
-    int num;
-    cout << "Enter numbers. Enter -1 to stop.\n";
-    while (true) {
-        cin >> num;
-        if (num == -1) break;
-        nums.push_back(num);
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
     }
-    pair<vector<int>, vector<int>> result = cutVector(nums);
-    for (const auto &vec : result) {
-        for (int num : vec) {
-            cout << num << " ";
-        }
-        cout << "\n";
+    
+    pair<vector<int>, vector<int>> res = cutVector(vec);
+    cout << "[";
+    for (int i = 0; i < res.first.size(); i++) {
+        cout << res.first[i] << " ";
     }
+    cout << "] [" << endl;
+    cout << "[";
+    for (int i = 0; i < res.second.size(); i++) {
+        cout << res.second[i] << " ";
+    }
+    cout << "] 0" << endl;
+
     return 0;
 }
