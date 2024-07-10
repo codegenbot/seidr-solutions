@@ -15,3 +15,5 @@ def mastermind(code, guess):
             black_pegs += 1
         elif code[i] != 'O':
             white_pegs += code_count[ord(code[i]) - ord('B')]
+
+    return str(black_pegs), str(white_pegs)
