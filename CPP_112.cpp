@@ -1,11 +1,11 @@
-```cpp
+```
 #include <vector>
 #include <set>
 #include <string>
 
 using namespace std;
 
-vector<string> reverse_delete(string s, string c) {
+std::vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
     // Create a set of characters in string c for efficient lookups
