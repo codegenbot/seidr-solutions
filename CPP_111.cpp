@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 #include <string>
 #include <vector>
@@ -13,7 +12,7 @@ std::map<char, int> histogram(std::string s) {
             freqMap[c]++;
         }
     }
-    return freqMap;
+    return std::map<char, int>(freqMap.begin(), freqMap.end());
 }
 
 bool issameMap(std::map<char, int> a, std::map<char, int> b) {
