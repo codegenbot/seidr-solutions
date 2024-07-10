@@ -1,4 +1,6 @@
 ```cpp
+#include<iostream>
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -23,9 +25,11 @@ int main()
     for (int i = 0; i < n; ++i) {
         std::string str;
         std::getline(std::cin, str); 
-        str.erase(0, str.find_first_not_of(' ')); 
         if (!str.empty()) { 
-            words.push_back(str);
+            str = " " + str; // Add a space at the beginning of the word
+            str.erase(0, str.find_first_not_of(' ')); // Erase leading spaces
+            str.pop_back(); // Remove trailing spaces
+            words.emplace_back(str); 
         }
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
