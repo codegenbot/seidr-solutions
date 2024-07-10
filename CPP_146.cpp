@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -11,6 +12,8 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main() {
-    std::cout << specialFilter({12, 15, 20}) << std::endl; 
+    std::vector<int> nums = {1,11,12,13};
+    int result = specialFilter(nums);
+    std::cout << "Number of numbers meeting the criteria: " << result << std::endl; 
     return 0;
 }
