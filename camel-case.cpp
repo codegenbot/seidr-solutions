@@ -1,38 +1,32 @@
-#include <vector>
+Here is the solution:
+
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string input) {
-    std::string output;
-    bool nextWordIsUpper = false;
+std::string camelCase(const std::string& s) {
+    std::string result;
+    bool capitalize = true;
 
-    for (char c : input) {
+    for (char c : s) {
         if (c == '-') {
-            nextWordIsUpper = true;
-        } else if (c == ' ') {
-            continue;
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
         } else {
-            if (nextWordIsUpper) {
-                output += std::toupper(c);
-                nextWordIsUpper = false;
-            } else {
-                output += c;
-            }
+            result += tolower(c);
         }
     }
 
-    return output;
+    return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
 
-    for(int i=0; i<n; i++) {
-        string s;
-        cin >> s;
-        cout << camelCase(s) << endl;
-    }
+    std::cout << "The camelCase equivalent is: " << camelCase(input) << std::endl;
 
     return 0;
 }
