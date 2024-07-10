@@ -1,4 +1,5 @@
 #include <openssl/evp.h>
+#include <openssl/crypto.h>
 #include <string>
 #include <iostream>
 #include <cassert>
