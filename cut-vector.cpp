@@ -1,25 +1,26 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    vector<vector<int>> res(2);
-    
-    for (int i = 0; i < n; i++) {
-        if (i == 0 || v[i] == v[0]) {
-            res[0].push_back(v[i]);
-        } else {
-            break;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int minDiff = INT_MAX;
+    pair<vector<int>, vector<int>> result;
+    for (int i = 0; i < v.size(); i++) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; j++) {
+            leftSum += v[j];
+        }
+        for (int j = i; j < v.size(); j++) {
+            rightSum += v[j];
+        }
+        if (leftSum == rightSum) {
+            return {{}, {v.begin(), v.end()}};
+        }
+        int diff = abs(leftSum - rightSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            result.first = vector<int>(v.begin(), v.begin() + i);
+            result.second = vector<int>(v.begin() + i, v.end());
         }
     }
-    
-    for (int i = n - 1; i >= 0; i--) {
-        if (i == n - 1 || v[i] == v[n - 1]) {
-            res[1].insert(res[1].begin(), v[i]);
-        } else {
-            break;
-        }
-    }
-    
-    return res;
+    return result;
 }
