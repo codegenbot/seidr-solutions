@@ -16,13 +16,9 @@ vector<int> intersperse(vector<int> numbers, int delimeter){
     return result;
 }
 
-bool issame(vector<int> a,vector<int>b);
-
-bool issame(vector<int> a,vector<int>b){
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
 
 int main() {
-    // Main function implementation here
+    // Your main function code here
     return 0;
 }
