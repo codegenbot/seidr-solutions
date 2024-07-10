@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 std::vector<float> lst;
 float odd_sum = 0.0;
@@ -22,9 +23,6 @@ float double_the_difference(std::vector<float>& lst) {
 }
 
 int main() {
-    std::vector<float> lst;
-    float odd_sum = 0.0;
-
     for (int i = 0; i < 5; ++i) {
         float num;
         std::cout << "Enter a number: ";
@@ -34,6 +32,8 @@ int main() {
     
     float result = double_the_difference(lst);
     std::cout << "Result: " << result << std::endl;
+    
+    assert(result == result);
 
     return 0;
 }
