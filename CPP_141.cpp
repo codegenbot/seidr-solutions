@@ -1,37 +1,25 @@
 Here is the completed code:
 
-```cpp
-bool has_digit = false;
-int dot_count = 0;
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool has_dot = false;
 
-for (char c : file_name) {
-    if (isdigit(c)) {
-        if (!has_digit) {
-            has_digit = true;
-        } else {
-            return "No";
-        }
-    } else if (c == '.') {
-        dot_count++;
-        if (dot_count > 1) {
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digit_count++;
+            if (digit_count > 3) return "No";
+        } else if (c == '.') {
+            has_dot = true;
+        } else if (!has_dot && !isalpha(c)) {
             return "No";
         }
     }
-}
 
-if (file_name.find('.') != string::npos) {
-    string suffix = file_name.substr(file_name.find('.') + 1);
-    if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
+    int dot_index = file_name.find('.');
+    string extension = file_name.substr(dot_index + 1);
+
+    if (extension != "txt" && extension != "exe" && extension != "dll")
         return "No";
-    }
-} else {
-    if (!isalpha(file_name[0])) {
-        return "No";
-    }
-}
 
-if (has_digit || dot_count > 1) {
-    return "No";
+    return "Yes";
 }
-
-return "Yes";
