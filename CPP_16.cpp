@@ -5,17 +5,12 @@
 using namespace std;
 
 int count_distinct_characters(string str) {
-    string temp = "";
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    vector<char> unique_chars;
     for (char c : str) {
-        if (tolower(c) > 96 && tolower(c) < 123 || tolower(c) > 64 && tolower(c) < 91)
-            temp += tolower(c);
+        if (find(unique_chars.begin(), unique_chars.end(), c) == unique_chars.end()) {
+            unique_chars.push_back(c);
+        }
     }
-    vector<char> v(temp.begin(), temp.end());
-    sort(v.begin(), v.end());
-    int count = 0;
-    for (int i = 0; i < v.size(); i++) {
-        if (i == 0 || v[i] != v[i - 1])
-            count++;
-    }
-    return count;
+    return static_cast<int>(unique_chars.size());
 }
