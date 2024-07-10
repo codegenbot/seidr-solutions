@@ -1,6 +1,9 @@
+```
 def leaders(arr):
-    leaders = [arr[-1]]
+    leaders = [arr[len(arr)-1]]
     for i in range(len(arr) - 2, -1, -1):
         if arr[i] >= leaders[-1]:
-            leaders.insert(0, arr[i])
-    return leaders
+            leaders.append(arr[i])
+    return reversed(leaders)
+
+print(leaders([19, 748, 560, 43, 279, 439, 440, 462, 50, 715, 551, 459, 413, 60, 509, 829, 451, 362, 316, 680]))
