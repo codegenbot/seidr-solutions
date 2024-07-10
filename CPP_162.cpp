@@ -1,6 +1,7 @@
+```cpp
 #include <openssl/evp.h>
-#include <string>
 #include <cassert>
+#include <string>
 
 std::stringstream ss;
 
