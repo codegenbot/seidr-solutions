@@ -1,29 +1,23 @@
-string file_name_check(string file_name){
-    string beforeDot = "";
-    int dotCount = 0;
-    bool hasLetters = false;
-
-    for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-        if(c == '.'){
-            dotCount++;
-            if(dotCount > 1) return "No";
-            beforeDot = file_name.substr(0, i);
-            string afterDot = file_name.substr(i+1);
-            if(afterDot == "txt" || afterDot == "exe" || afterDot == "dll")
-                return "Yes";
-            else
-                return "No";
-        }
-        else if(c >= '0' && c <= '9'){
-            if(hasLetters) return "No";
-            hasLetters = true;
-        }
-        else if((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')){
-            if(beforeDot.empty()) beforeDot += c;
+int count_digits(string file_name) {
+    int count = 0;
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            count++;
         }
     }
+    return count;
+}
 
-    if(dotCount == 1 && !beforeDot.empty() && hasLetters) return "Yes";
-    return "No";
+string file_name_check(string file_name) {
+    int digit_count = count_digits(file_name);
+    if (digit_count > 3 || file_name.find('.') == string::npos || 
+        file_name.substr(0, file_name.find('.')).empty() || 
+        (!isalpha(file_name[0])) || 
+        (file_name.find('.') != string::npos && 
+         (file_name.substr(file_name.find('.') + 1).compare("txt") != 0 &&
+          file_name.substr(file_name.find('.') + 1).compare("exe") != 0 &&
+          file_name.substr(file_name.find('.') + 1).compare("dll") != 0))) {
+        return "No";
+    }
+    return "Yes";
 }
