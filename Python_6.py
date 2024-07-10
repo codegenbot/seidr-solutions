@@ -2,14 +2,13 @@ from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    for group in paren_string.split():
-        level = 0
-        deepest = 0
-        for char in group:
-            if char == '(':
-                level += 1
-                deepest = max(deepest, level)
-            elif char == ')':
-                level -= 1
-        result.append(deepest)
+    i = 0
+    stack = []
+    for char in paren_string:
+        if char == '(':
+            stack.append(i)
+        elif char == ')':
+            start = stack.pop()
+            result.append(paren_string[start+1:i].count(')'))
+        i += 1
     return result
