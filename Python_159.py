@@ -1,6 +1,7 @@
-```Python
+```
 def eat(number, need, remaining):
     if number < need:
-        return [0, remaining - need + number]
-    else:
-        return [min(number, need), remaining - min(number, need)]
+        return [0, remaining]
+    need_taken = min(number, need)
+    remaining -= need_taken
+    return [need_taken, remaining]
