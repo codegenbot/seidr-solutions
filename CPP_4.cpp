@@ -1,15 +1,19 @@
-float mean_absolute_deviation(vector<float> numbers) {
-    float sum = 0.0f;
-    for (float num : numbers) {
-        sum += abs(num - mean(numbers));
-    }
-    return sum / numbers.size();
-}
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
 
-float mean(const vector<float>& numbers) {
-    float sum = 0.0f;
+float mean_absolute_deviation(vector<float> numbers) {
+    float mean = 0;
     for (float num : numbers) {
-        sum += num;
+        mean += num;
     }
-    return sum / numbers.size();
+    mean /= numbers.size();
+
+    float mad = 0;
+    for (float num : numbers) {
+        mad += abs(num - mean);
+    }
+    mad /= numbers.size();
+    return mad;
 }
