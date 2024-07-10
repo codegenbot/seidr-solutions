@@ -8,13 +8,13 @@ bool issame(vector<string> a, vector<string> b);
 vector<string> by_length(vector<int> arr);
 
 int main() {
-    // Main function code here
+    // main function implementation
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // issame function implementation here
+    // issame function implementation
 }
 
 vector<string> by_length(vector<int> arr){
-    // Existing by_length function implementation here
+    // by_length function implementation
 }
