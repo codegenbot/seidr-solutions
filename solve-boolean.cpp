@@ -1,19 +1,20 @@
-```cpp
 #include <string>
 using namespace std;
 
 bool solveBoolean(string s) {
     bool res = true;
     for (int i = 0; i < s.length(); ++i) {
-        if (s[i] == 'f') {
+        if (s[i] == 'T') {
+            res = true;
+        }
+        else if (s[i] == 'F') {
             res = false;
-            break;
         }
         else if (s[i] == '&') {
-            if (!res) return false;
+            if (!res) res = false;
         }
         else if (s[i] == '|') {
-            if (res) return true;
+            if (res) res = true;
         }
     }
     return res;
