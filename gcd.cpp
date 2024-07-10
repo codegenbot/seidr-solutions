@@ -16,15 +16,15 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
-        for (const auto& j : target) {
-            if (text[i + j] != j) {
+        for (int j = 0; j < m; ++j) {
+            if (text[i + j] != target[j]) {
                 found = false;
                 break;
             }
         }
         if (found) {
-            for (int j = 0; j < m; ++j) {
-                indices.push_back(i + j);
+            for (const auto& j : target) {
+                indices.push_back(i++);
             }
         }
     }
