@@ -2,9 +2,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
-}
+using namespace std;
 
 std::vector<float> derivative(std::vector<float> xs) {
     std::vector<float> result;

@@ -2,14 +2,8 @@
 #include <cmath>
 #include <cassert>
 
-bool is_simple_power(int x, int n) {
-    if (x <= 0 || n <= 0) {
-        return false;
-    }
-    
-    double result = log(x) / log(n);
-    
-    return (result == (int)result);
+bool is_simple_power(int base, int exponent) {
+    return (pow(base, 1.0/exponent) == int(pow(base, 1.0/exponent)));
 }
 
 int main() {
