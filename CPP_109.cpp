@@ -1,4 +1,8 @@
-int n = arr.size();
+#include <vector>
+#include <cassert>
+
+bool move_one_ball(const std::vector<int>& arr) {
+    int n = arr.size();
     if (n == 0) {
         return true;
     }
