@@ -1,23 +1,22 @@
-int count_digits(string file_name) {
-    int count = 0;
+string file_name_check(string file_name) {
+    int digit_count = 0;
+    bool found_dot = false;
+
     for (char c : file_name) {
-        if (isdigit(c)) {
-            count++;
+        if (c >= '0' && c <= '9') {
+            digit_count++;
+            if (digit_count > 3) return "No";
+        } else if (c == '.') {
+            found_dot = true;
+        } else if (!found_dot && !isalpha(c)) {
+            return "No";
         }
     }
-    return count;
-}
 
-string file_name_check(string file_name) {
-    int digit_count = count_digits(file_name);
-    if (digit_count > 3 || file_name.find('.') == string::npos || 
-        file_name.substr(0, file_name.find('.')).empty() || 
-        (!isalpha(file_name[0])) || 
-        (file_name.find('.') != string::npos && 
-         (file_name.substr(file_name.find('.') + 1).compare("txt") != 0 &&
-          file_name.substr(file_name.find('.') + 1).compare("exe") != 0 &&
-          file_name.substr(file_name.find('.') + 1).compare("dll") != 0))) {
-        return "No";
-    }
+    if (!found_dot || file_name.find('.') == string::npos) return "No";
+
+    string extension = file_name.substr(file_name.find('.') + 1);
+    if (extension != "txt" && extension != "exe" && extension != "dll") return "No";
+
     return "Yes";
 }
