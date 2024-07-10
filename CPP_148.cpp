@@ -3,25 +3,30 @@
 
 using namespace std;
 
-void badFunction(string n) {
-    if (n.empty())
-        cout << "Error: Input string is empty." << endl;
-    else
-        cout << "Input string is valid." << endl;
+bool issame(string a, string b) {
+    if (a.length() != b.length()) {
+        return false;
+    }
+    for (int i = 0; i < a.length(); i++) {
+        if (tolower(a[i]) != tolower(b[i])) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
     int num;
     cin >> num;
-    if (num > 0) {
-        // No need for assert here
-    } else {
-        cout << "Error: Input number should be positive." << endl;
+    string str1, str2;
+    for (int i = 0; i < num; i++) {
+        cin >> str1 >> str2;
+        if (issame(str1, str2)) {
+            cout << "The strings are the same." << endl;
+        } else {
+            cout << "The strings are not the same." << endl;
+        }
     }
-    
-    string str;
-    cin >> str;
-    badFunction(str);
     
     return 0;
 }
