@@ -2,59 +2,40 @@
 #include <iostream>
 #include <string>
 
-std::string int_to_roman(int number);
+std::string int_to_roman(int);
 
-int main()
-{
+int main() {
     std::cout << int_to_roman(2022) << std::endl;
     return 0;
 }
 
-std::string int_to_roman(int number)
-{
-    if (number <= 0)
+std::string int_to_roman(int n) {
+    if (n <= 0)
         return "Input should be a positive integer";
-    else if (number >= 4000)
-        return "Input is too large";
-
-    std::string roman = "";
-    int thousands = number / 1000;
-    for (int i = 0; i < thousands; i++)
-        roman += "M";
-
-    int hundreds = (number % 1000) / 100;
-    if (hundreds > 0)
-    {
-        roman += "D";
-        for (int i = 1; i < hundreds; i++)
-            roman += "C";
-    }
-
-    int tens = (number % 100) / 10;
-    if (tens > 3)
-    {
-        roman += "CM";
-        for (int i = 4; i <= tens; i++)
-            roman += "D";
-    }
+    else if (n >= 4000)
+        return int_to_roman(n / 1000) + "M" + int_to_roman(n % 1000);
+    else if (n >= 900)
+        return "CM" + int_to_roman(n - 900);
+    else if (n == 500)
+        return "D";
+    else if (n >= 400)
+        return "CD" + int_to_roman(n - 400);
+    else if (n >= 100)
+        return int_to_roman(n / 100) + "C" + int_to_roman(n % 100);
+    else if (n == 90)
+        return "XC";
+    else if (n >= 50)
+        return "L" + int_to_roman(n - 50);
+    else if (n == 40)
+        return "XL";
+    else if (n >= 10)
+        return int_to_roman(n / 10) + "X" + int_to_roman(n % 10);
+    else if (n == 9)
+        return "IX";
+    else if (n >= 5)
+        return "V" + int_to_roman(n - 5);
+    else if (n == 4)
+        return "IV";
     else
-    {
-        for (int i = 1; i <= tens; i++)
-            roman += "X";
-    }
-
-    int ones = number % 10;
-    if (ones > 3)
-    {
-        roman += "IV";
-        for (int i = 5; i <= ones; i++)
-            roman += "V";
-    }
-    else
-    {
-        for (int i = 1; i <= ones; i++)
-            roman += "I";
-    }
-
-    return roman;
+        return "I" + int_to_roman(n - 1);
 }
