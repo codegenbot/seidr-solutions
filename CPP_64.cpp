@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cassert>
+
 using namespace std;
 
 int vowels_count(const char*);

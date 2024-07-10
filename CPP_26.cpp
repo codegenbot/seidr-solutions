@@ -2,14 +2,12 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
-bool issame(const vector<int>& x, const vector<int>& y) {
+bool std::issame(const std::vector<int>& x, const std::vector<int>& y) {
     return x == y;
 }
 
-vector<int> remove_duplicates(vector<int> v) {
-    vector<int> result;
+std::vector<int> remove_duplicates(std::vector<int> v) {
+    std::vector<int> result;
     for (int x : v) { 
         bool found = false;
         if (result.empty()) {
@@ -31,25 +29,25 @@ vector<int> remove_duplicates(vector<int> v) {
 
 int mainFunction() {
     int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
 
-    vector<int> v;
+    std::vector<int> v;
     for (int i = 0; i < n; i++) {
-        cout << "Enter element " << i + 1 << ": ";
+        std::cout << "Enter element " << i + 1 << ": ";
         int x;
-        cin >> x;
+        std::cin >> x;
         v.push_back(x);
     }
 
     // sort the vector before removing duplicates
-    sort(v.begin(), v.end());
+    std::sort(v.begin(), v.end());
 
-    cout << "Duplicates removed: ";
+    std::cout << "Duplicates removed: ";
     for (int i = 0; i < remove_duplicates(v).size(); i++) {
-        cout << remove_duplicates(v)[i] << " ";
+        std::cout << remove_duplicates(v)[i] << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     return 0;
 }
