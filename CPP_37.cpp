@@ -1,23 +1,13 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
-std::vector<int> sort_even(const std::vector<int>& numbers) {
-    std::vector<int> result;
-    for (int i : numbers) {
-        if (i % 2 == 0) {
-            result.push_back(i);
-        }
-    }
-    std::sort(result.begin(), result.end());
-    return result;
-}
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if ((a[i] - b[i]) > 1e-9 || (a[i] - b[i]) < -1e-9) {
+        if (std::abs(a[i] - b[i]) > 1e-9) {
             return false;
         }
     }
@@ -26,6 +16,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 
 int main() {
     std::vector<int> numbers = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    std::vector<int> even_numbers = sort_even(numbers);
-    assert(issame(even_numbers, {2, 4, 8, 12}));
+    std::sort(numbers.begin(), numbers.end()); 
+    assert(issame({12, 8, 3, 4, 5, 2, 12, 11, 23, -10}, numbers));
+    return 0;
 }
