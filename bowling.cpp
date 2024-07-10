@@ -1,8 +1,9 @@
 #include <iostream>
+#include <string>
 #include <vector>
 using namespace std;
 
-int calculateBowlingScore(std::string input) {
+int calculateBowlingScore(string input) {
     int score = 0;
     int frame = 0;
     int ball = 0;
@@ -22,7 +23,7 @@ int calculateBowlingScore(std::string input) {
             frames[frame] += c - '0';
             ball++;
 
-            if (ball == 2 || c == '9') {
+            if (ball == 2 || frames[frame] == 10) {
                 frame++;
                 ball = 0;
             }
@@ -37,7 +38,7 @@ int calculateBowlingScore(std::string input) {
 }
 
 int main() {
-    std::string input;
+    string input;
     std::cin >> input;
     std::cout << calculateBowlingScore(input) << std::endl;
     return 0;
