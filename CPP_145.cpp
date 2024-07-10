@@ -1,9 +1,10 @@
 ```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-bool areSameVectors(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return (a == b);
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
