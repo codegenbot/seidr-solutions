@@ -1,4 +1,3 @@
-```
 def find_zero(xs):
     n = len(xs)
     total_sum = sum(xs)
@@ -12,9 +11,11 @@ def find_zero(xs):
                 zero_combinations += 1
         return zero_combinations
 
-xs = []
-while len(xs) != 32: 
-    xs = [int(x) for x in input("Enter the coefficients (32): ").split()]
-if len(xs) % 2 != 0:
-    raise ValueError("xs must have even number of coefficients")
-print(find_zero(xs))
+user_input = input("Enter the coefficients (space separated numbers): ")
+try:
+    xs = [int(x) for x in user_input.split()]
+    if len(xs) % 2 != 0:
+        raise ValueError("xs must have even number of coefficients")
+    print(find_zero(xs))
+except ValueError as e:
+    print(f"Invalid input: {e}")
