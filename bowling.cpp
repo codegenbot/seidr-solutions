@@ -21,7 +21,6 @@ int calculateBowlingScore(string input) {
         } else {
             frames[frame] += c - '0';
             ball++;
-
             if (ball == 2 || c == '9') {
                 frame++;
                 ball = 0;
@@ -39,6 +38,6 @@ int calculateBowlingScore(string input) {
 int main() {
     string input;
     cin >> input;
-    cout << calculateBowlingScore(input) << endl;
+    std::cout << calculateBowlingScore(input) << std::endl;
     return 0;
 }
