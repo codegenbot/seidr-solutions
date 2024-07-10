@@ -1,13 +1,24 @@
-string circular_shift(int x, int shift){
-    string num_str = to_string(x);
-    int n = num_str.size();
+#include <bits/stdc++.h>
+using namespace std;
+
+string circular_shift(int x, int shift);
+
+int main() {
+    assert(circular_shift(11, 101) == "11");
+    return 0;
+}
+
+string circular_shift(int x, int shift) {
+    string numStr = to_string(x);
+    int n = numStr.size();
     shift %= n;
-    
     if (shift == 0) {
-        return num_str;
+        return numStr;
     }
-    
-    string result = num_str.substr(n - shift) + num_str.substr(0, n - shift);
-    
+    if (shift > n) {
+        reverse(numStr.begin(), numStr.end());
+        return numStr;
+    }
+    string result = numStr.substr(n - shift) + numStr.substr(0, n - shift);
     return result;
 }
