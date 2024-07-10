@@ -1,21 +1,15 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<pair<int, int>> pluck(vector<int> arr) {
     vector<pair<int, int>> result;
     if (arr.empty()) return result;
 
-    int minEven = INT_MAX;
-    int minIndex = -1;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < minEven) {
-            minEven = arr[i];
-            minIndex = i;
-        }
-    }
+    auto it = min_element(arr.begin(), arr.end(),
+        [](int a, int b) { return a % 2 && b % 2 ? a > b : a < b; });
 
-    if (minIndex != -1) {
-        result.push_back({minEven, minIndex});
-    } else {
-        result.push_back({0, 0}); // or any other default value
-    }
-
+    result.push_back({*it, distance(arr.begin(), it)});
     return result;
 }
