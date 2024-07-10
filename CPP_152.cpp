@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
             return false;
@@ -28,7 +28,7 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> game(n); // Specify allocator type
+    std::vector<int> game(n, 0);
 
     for (int i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
@@ -41,7 +41,7 @@ int main() {
         std::cin >> guess[i];
     }
 
-    if (issame(game, guess)) {
+    if (isSame(game, guess)) {
         std::cout << "Congratulations! You guessed correctly." << std::endl;
     } else {
         try {
