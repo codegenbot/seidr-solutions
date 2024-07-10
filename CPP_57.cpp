@@ -1,8 +1,6 @@
 #include <vector>
 #include <cassert>
 
-bool monotonic(std::vector<int> l);
-
 bool monotonic(std::vector<int> l) {
     bool increasing = true;
     bool decreasing = true;
@@ -18,7 +16,7 @@ bool monotonic(std::vector<int> l) {
 }
 
 int main() {
-    assert (monotonic({9, 9, 9, 9}) == true);
+    assert(monotonic({9, 9, 9, 9}) == true);
     // Add more test cases if needed
     return 0;
 }
