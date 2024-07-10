@@ -1,21 +1,14 @@
 ```cpp
-#include <string>
-#include <iostream>
-#include <algorithm>
-#include <hash_map>
+#include <cryptopp/md5.h>
 
 std::string cppString_to_md5(std::string text) {
-    std::hash<std::string> string_hash;
-    size_t hash_value = string_hash(text);
-    return std::to_string(hash_value);
-}
-
-int main() {
-    std::cout << "Enter a string: ";
-    std::string input;
-    std::cin >> input;
-
-    std::string result = cppString_to_md5(input);
-    std::cout << "MD5 of the input string is: " << result << std::endl;
-    return 0;
+    CryptoPP::MD5 hash;
+    unsigned char result[CryptoPP::MD5::DIGEST_SIZE];
+    hash.Update((const byte*)text.c_str(), text.size());
+    hash.Final(result);
+    std::string output;
+    for (int i = 0; i < CryptoPP::MD5::DIGEST_SIZE; i++) {
+        output += std::to_string(result[i]);
+    }
+    return output;
 }
