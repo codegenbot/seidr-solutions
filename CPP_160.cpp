@@ -1,43 +1,76 @@
-int do_algebra(vector<string> operato, vector<int> operand) {
+```cpp
+#include <vector>
+#include <string>
+#include <cmath>
+
+int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = 0;
-    for(int i = 0; i < operato.size(); i++) {
-        if(operato[i] == "+") {
+    for (int i = 0; i < operator_.size(); i++) {
+        if (operator_[i] == "+") {
             result += operand[i];
-        } else if(operato[i] == "-") {
+        } else if (operator_[i] == "-") {
             result -= operand[i];
-        } else if(operato[i] == "*") {
-            int temp = 0;
-            for(int j = i; j < operato.size(); j++) {
-                if(operato[j] == "*") {
-                    temp *= operand[j];
-                } else if(operato[j] == "-") {
-                    temp -= operand[j];
-                    break;
-                }
-            }
-            result += temp;
-        } else if(operato[i] == "//") {
-            int temp = 0;
-            for(int j = i; j < operato.size(); j++) {
-                if(operato[j] == "//") {
-                    temp /= operand[j];
-                } else if(operato[j] == "-") {
-                    temp -= operand[j];
-                    break;
-                }
-            }
-            result += temp;
-        } else if(operato[i] == "**") {
+        } else if (operator_[i] == "*") {
             int temp = 1;
-            for(int j = i; j < operato.size(); j++) {
-                if(operato[j] == "**") {
-                    temp = (int)pow(temp, operand[j]);
-                } else if(operato[j] == "-") {
-                    temp = (int)pow(temp, -operand[j]);
-                    break;
+            for (int j = i; j < operator_.size(); j++) {
+                if (operator_[j] == "+") {
+                    temp *= operand[j + 1];
+                } else if (operator_[j] == "-") {
+                    temp -= operand[j + 1];
+                } else if (operator_[j] == "*") {
+                    int k = j;
+                    while (k < operator_.size() && operator_[k] != "+") {
+                        temp *= operand[k + 1];
+                        k++;
+                    }
+                    i = k - 1; // skip the rest of the loop
+                } else if (operator_[j] == "/") {
+                    temp /= operand[j + 1];
+                } else if (operator_[j] == "**") {
+                    temp = pow(temp, operand[j + 1]);
                 }
             }
             result += temp;
+        } else if (operator_[i] == "/") {
+            int temp = operand[i];
+            for (int j = i + 1; j < operator_.size(); j++) {
+                if (operator_[j] == "+") {
+                    temp /= operand[j + 1];
+                } else if (operator_[j] == "-") {
+                    temp -= operand[j + 1];
+                } else if (operator_[j] == "*") {
+                    int k = j;
+                    while (k < operator_.size() && operator_[k] != "+") {
+                        temp /= operand[k + 1];
+                        k++;
+                    }
+                    i = k - 1; // skip the rest of the loop
+                } else if (operator_[j] == "**") {
+                    temp = pow(temp, operand[j + 1]);
+                }
+            }
+            result += temp;
+        } else if (operator_[i] == "**") {
+            int temp = 1;
+            for (int j = i; j < operator_.size(); j++) {
+                if (operator_[j] == "+") {
+                    temp *= operand[j + 1];
+                } else if (operator_[j] == "-") {
+                    temp -= operand[j + 1];
+                } else if (operator_[j] == "*") {
+                    int k = j;
+                    while (k < operator_.size() && operator_[k] != "+") {
+                        temp *= operand[k + 1];
+                        k++;
+                    }
+                    i = k - 1; // skip the rest of the loop
+                } else if (operator_[j] == "/") {
+                    temp /= operand[j + 1];
+                } else if (operator_[j] == "**") {
+                    temp = pow(temp, operand[j + 1]);
+                }
+            }
+            result += pow(operand[0], temp);
         }
     }
     return result;
