@@ -4,7 +4,7 @@
 
 bool check_if_last_char_is_a_letter(const std::string &txt) {
     if(txt.empty()) return false;
-    if(isalpha(txt.back()) && (txt.size() == 1 || txt[txt.size()-2] != ' ')) {
+    if(isalpha(txt.back()) && (txt.size() == 1 || !isspace(txt[txt.size() - 2])) {
         return true;
     }
     return false;
