@@ -1,15 +1,15 @@
-bool issame(string s1, string s2) {
-    sort(s1.begin(), s1.end());
-    sort(s2.begin(), s2.end());
-    return s1 == s2;
+bool issame(const string& str) {
+    return count(str.begin(), str.end(), str[0]) == str.size();
 }
 
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    assert(issame("hello", "olleh") == true);
-    assert(issame("world", "dlrow") == true);
-    assert(issame("abc", "def") == false);
+    assert(issame("aaa") == true);
+    assert(issame("abc") == false);
+    assert(issame("1111") == true);
+    assert(issame("") == true);
+    assert(issame("a") == true);
     return 0;
 }
 
