@@ -2,7 +2,7 @@
 #include <string>
 #include <cctype>
 
-int Strongest_Extension(string class_name,vector<string> extensions){
+int Strongest_Extension(string class_name, vector<string> extensions){
     int max_strength = 0;
     string strongest_extension;
     for(auto extension : extensions){
@@ -23,8 +23,8 @@ int Strongest_Extension(string class_name,vector<string> extensions){
 
 int main() {
     // test your function here
-    string class_name = "MyClass";
-    vector<string> extensions = {"Java", "Python", "C++", "JavaScript"};
+    string class_name = "Test";
+    vector<string> extensions = {"Java", "Python", "C++", "JavaScript", "Swift"};
     cout << Strongest_Extension(class_name, extensions) << endl;
     return 0;
 }
