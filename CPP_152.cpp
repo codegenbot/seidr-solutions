@@ -43,11 +43,11 @@ int main() {
         std::cin >> guess[i];
     }
 
-    if (myspace::issame(game, guess)) {
+    if (issame(game, guess)) {
         std::cout << "Congratulations! You guessed correctly." << std::endl;
     } else {
         try {
-            std::vector<int> result = myspace::compare(game, guess);
+            std::vector<int> result = compare(game, guess);
             std::cout << "Incorrect. The correct numbers are: ";
             for (int i = 0; i < n; i++) {
                 if (result[i] == 0) {
