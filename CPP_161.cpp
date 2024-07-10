@@ -7,5 +7,6 @@ string solve(string s) {
             result += c;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    reverse(result.begin(), result.end());
+    return result;
 }
