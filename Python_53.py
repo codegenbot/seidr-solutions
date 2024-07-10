@@ -10,6 +10,9 @@ while True:
                 y = int(input("Enter second number: "))
                 print("The sum is: ", add(x, y))
                 response = input("Do you want to calculate the sum again? (yes/no): ")
+                if response.strip() == "":
+                    print("Invalid input. Please enter 'yes' or 'no'.")
+                    continue
                 while response.lower() not in ["yes", "no"]:
                     print("Invalid input. Please enter 'yes' or 'no'.")
                     response = input(
