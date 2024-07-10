@@ -11,7 +11,15 @@ int main() {
     while(true) {
         std::string tweet;
         std::cout << "Enter a tweet: ";
-        if (!(std::getline(std::cin, tweet)) || std::cin.fail()) break; 
+        if (!(std::getline(std::cin, tweet))) {
+            if (std::cin.fail()) { 
+                std::cin.clear();
+                std::cin.ignore(32767, '\n'); 
+                std::cout << "Error: Please try again." << std::endl;
+            } else {
+                break; 
+            }
+        }
         std::cout << validateTweet(tweet) << std::endl;
     }
     return 0;
