@@ -1,24 +1,19 @@
-#include <vector>
-#include <numeric>
-
-using namespace std;
-
-pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int>& v) {
     int n = v.size();
-    long long total_sum = accumulate(v.begin(), v.end(), 0LL);
+    long long total_sum = std::accumulate(v.begin(), v.end(), 0LL);
     
-    pair<long long, long long> prefix_sum({0LL}, accumulate(v.begin(), v.end(), 0LL));
+    std::pair<long long, long long> prefix_sum({0LL}, std::accumulate(v.begin(), v.end(), 0LL));
     
     int min_diff = INT_MAX;
-    vector<int> left, right;
+    std::vector<int> left, right;
     
     for (int i = 0; i < n; ++i) {
         if (prefix_sum.second - prefix_sum.first >= total_sum / 2) {
-            min_diff = min(min_diff, abs(total_sum - 2 * prefix_sum.second));
-            left = vector<int>(v.begin(), v.begin() + i);
-            right = vector<int>(v.end() - (n - i - 1), v.end());
+            min_diff = std::min(min_diff, static_cast<int>(std::abs(total_sum - 2 * prefix_sum.second)));
+            left = std::vector<int>(v.begin(), v.begin() + i);
+            right = std::vector<int>(v.end() - (n - i - 1), v.end());
         }
     }
     
-    return make_pair(left, right);
+    return std::make_pair(left, right);
 }

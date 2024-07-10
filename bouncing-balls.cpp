@@ -20,4 +20,5 @@ int main() {
     cout << fixed << setprecision(5);
     cout << totalDistance << endl;
 
-    return 0; }
+    return 0
+}
