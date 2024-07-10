@@ -1,7 +1,3 @@
-```c++
-#include <algorithm>
-#include <vector>
-
 int main() {
     std::vector<int> arr;
     int n;
@@ -16,8 +12,6 @@ int main() {
         std::cin >> arr[i];
     }
 
-    int max = *std::max_element(arr.begin(), arr.end());
-    std::cout << "Maximum element is: " << max << std::endl;
-
-    return 0;
+    int max_val = *std::max_element(arr.begin(), arr.end());
+    return max_val;
 }
