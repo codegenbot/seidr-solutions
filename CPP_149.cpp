@@ -19,3 +19,8 @@ std::vector<std::string> sortListSum(std::vector<std::pair<std::string, std::str
     }
     return result;
 }
+
+int main() {
+    assert(issame(sortListSum({{"aaaa", "bbbb"}, {"dd", "cc"}}), {{"cc", "dd"}, {"aaaa", "bbbb"}}));
+    return 0;
+}
