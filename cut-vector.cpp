@@ -28,13 +28,19 @@ int main() {
     
     cout << "[";
     for (int i = 0; i < result.first.size(); i++) {
-        cout << result.first[i] << " ";
+        cout << result.first[i];
+        if (i < result.first.size() - 1) {
+            cout << " ";
+        }
     }
-    cout << "] [" << "[";
-    for (int i = 0; i < result.second.size() - 1; i++) {
-        cout << result.second[i] << " ";
+    cout << "]\n[";
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i];
+        if (i < result.second.size() - 1) {
+            cout << " ";
+        }
     }
-    cout << result.second.back() << "]\n";
+    cout << "]\n";
     
     return 0;
 }
