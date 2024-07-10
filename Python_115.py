@@ -7,4 +7,4 @@ def max_fill(grid, capacity):
     if remaining_capacity <= 0:
         return 0
     
-    return math.ceil(remaining_capacity / len(grid[0]))
+    return math.ceil(remaining_capacity / 1)
