@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -51,14 +52,8 @@ bool solveBoolean(std::string s) {
 
 int main() {
     std::string input;
-    
-    // Ask user for input
     std::cout << "Enter a boolean expression: ";
-    
-    char c;
-    while ((c = getchar()) != '\n') {
-        input += c;
-    }
+    std::getline(std::cin, input);
     
     bool result = solveBoolean(input);
     
