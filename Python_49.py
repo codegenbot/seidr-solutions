@@ -1,21 +1,14 @@
 def modp(n: int, p: int):
-    n = abs(n)
-    p = abs(p)
-    if n < 1:
-        return 0
-    res, i = 1, 0
-    while p > 1:
-        q = p // n
-        r = p % n
-        t = res - q * i
-        if (r < n): 
-            res = i
-        else: 
-            res = t; p = n; n = r
-        i = t
-    return res if n >= 0 else p - (p - 1) if n % p != 0 else n
-
-n = int(input("Enter the value of n: "))
-p = int(input("Enter the value of p: "))
-
-print(modp(n, p))
+    if p == 0:
+        return n
+    elif n > p:
+        k = modp(p, n)
+        if (p / k) * (2 ** (k - 1)) + (p % k) >= n:
+            return k
+        else:
+            return modp(n % k, k)
+    else:
+        if n < p:
+            return modp(p, n)
+        elif n == p:
+            return p
