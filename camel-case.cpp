@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 #include <vector>
@@ -31,8 +30,9 @@ std::string capitalizeFirst(const std::string& str) {
 
 std::string kebabToCamel(const std::string& str) {
     std::string result;
-    std::vector<std::string> words = split(str, ' ');
+    bool capitalize = true;
 
+    std::vector<std::string> words = split(str, ' ');
     for (const auto& word : words) {
         if (!result.empty()) {
             result += capitalizeFirst(word);
