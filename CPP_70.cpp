@@ -1,10 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
-vector<int> strange_sort_vector(vector<int> lst) {
+vector<int> strange_sort_list(vector<int> lst) {
     vector<int> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
@@ -17,6 +11,5 @@ vector<int> strange_sort_vector(vector<int> lst) {
             lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
         }
     }
-    
     return result;
 }
