@@ -1,8 +1,8 @@
 string make_palindrome(string str){
     string rev_str(str.rbegin(), str.rend());
-    for (int i = str.size(); i >= 0; --i) {
-        if (is_palindrome(str.substr(i))) {
-            return str + rev_str.substr(0, str.size() - i);
+    for (int i = 0; i < str.length(); ++i) {
+        if (str.substr(0, str.length() - i) == rev_str.substr(i)) {
+            return str + rev_str.substr(0, i);
         }
     }
     return str;
