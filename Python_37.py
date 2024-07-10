@@ -13,7 +13,6 @@ def sort_even(l: list):
             j += 1
 
     while j < len(odd):
-        result.append(odd[j])
-        j += 1
+        result.extend([odd[j], *range(odd[j]+1, len(l))]) 
 
     return tuple(result)
