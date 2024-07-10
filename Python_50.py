@@ -1,4 +1,3 @@
-```
 def decode_shift(s: str):
     n = int(input("Enter the shift value (1-25): "))
     while not (1 <= n <= 25) or not isinstance(n, int):
@@ -8,7 +7,11 @@ def decode_shift(s: str):
     for ch in s:
         if ch.isalpha():
             ascii_offset = ord('a') if ch.islower() else ord('A')
-            result += chr(((ord(ch) - ascii_offset - n) % 26) + ascii_offset)
+            shifted_val = (ord(ch) - ascii_offset - n) % 26
+            if ch.islower():
+                result += chr((shifted_val + ord('a')) % 26)
+            else:
+                result += chr((shifted_val + ord('A')) % 26)
         else:
-            continue
+            result += ch
     return result

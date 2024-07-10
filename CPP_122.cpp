@@ -10,3 +10,4 @@ int add_elements(const std::vector<std::string>& str_arr) {
         }
     }
     return sum;
+}
