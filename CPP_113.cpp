@@ -20,7 +20,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    assert(issame(std::vector<std::string>{"271", "137", "314"}, std::vector<std::string>{"271", "137", "314"}));
-    assert(odd_count(std::vector<std::string>{"271", "137", "314"}) == 5);
+    assert(issame({"271", "137", "314"}, {"271", "137", "314"}));
+    assert(odd_count({"271", "137", "314"}) == 5);
     return 0;
 }
