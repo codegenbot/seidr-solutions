@@ -1,3 +1,4 @@
+```c
 #include <string>
 using namespace std;
 
@@ -37,8 +38,8 @@ PegCounts mastermind(string code, string guess) {
 }
 
 int main() {
-    string code = "abcd";
-    string guess = "abcd";
+    string code = "ABCD";
+    string guess = "ABDE";
     PegCounts result = mastermind(code, guess);
     return 0;
 }
