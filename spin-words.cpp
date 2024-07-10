@@ -1,8 +1,4 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
+```cpp
 string spinWords(string str) {
     string result = "";
     int start = 0;
@@ -18,12 +14,4 @@ string spinWords(string str) {
         }
     }
     return result;
-}
-
-int main() {
-    string str;
-    while (cin >> str) {
-        cout << spinWords(str) << endl;
-    }
-    return 0;
 }
