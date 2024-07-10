@@ -13,6 +13,6 @@ string compare_one(const string& s, const any& a) {
 }
 
 int main() {
-    assert(std::any_cast<string>(compare_one("1", std::any(1))) == "None");
+    assert(any_cast<string>(compare_one("1", any(1))) == "None");
     return 0;
 }
