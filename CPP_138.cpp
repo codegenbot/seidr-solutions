@@ -1,19 +1,27 @@
-#include <cassert>
+#include <iostream>
 
-bool is_equal_to_sum_even(int n){
+bool is_equal_to_sum_even(int n) {
+    bool result = false;
     for (int i = 2; i <= n; i += 2) {
         int sum = 0;
         for (int j = 2; j <= n; j += 2) {
-            if (i + j > n) break;
+            if (sum + j > n)
+                break;
             sum += j;
-            if (sum == n) return true;
+            if (sum == n)
+                result = true;
         }
     }
-    return false;
-
+    return result;
 }
 
 int main() {
-    assert(is_equal_to_sum_even(16) == true);
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+
+    std::cout << "Is the sum of even numbers equal to the entered number? "
+              << is_equal_to_sum_even(num) << std::endl;
+    
     return 0;
 }
