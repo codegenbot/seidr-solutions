@@ -9,9 +9,7 @@ int main() {
     double favorable_outcomes = 0.0;
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
-            if (i > j) {
-                favorable_outcomes += 1;
-            }
+            favorable_outcomes += 1;
         }
     }
     double probability = favorable_outcomes / total_outcomes;
