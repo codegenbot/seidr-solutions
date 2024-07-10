@@ -7,7 +7,7 @@ bool monotonic(const vector<int>& l) {
     return increasing || decreasing;
 }
 
+// Example usage in main function
 int main() {
-    assert(monotonic({9, 9, 9, 9}) == true);
-    return 0;
+    assert (monotonic({9, 9, 9, 9}) == true);
 }
