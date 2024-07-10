@@ -1,5 +1,5 @@
 ```
-def solve_boolean(expression):
+def solveBoolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
@@ -10,8 +10,7 @@ def solve_boolean(expression):
         result = True
         for char in expression:
             if char == '&':
-                result &= (expression[0] == 'T')
+                result &= (expression[expression.index(char) + 1] == 'T')
             elif char == '|':
-                result |= (expression[0] == 'T')
-            expression = expression[1:]
+                result |= (expression[expression.index(char) + 1] == 'T')
         return result
