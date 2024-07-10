@@ -1,12 +1,13 @@
+```
 def solve_boolean(expression):
     if not expression:
         return False
 
     stack = []
     for char in expression:
-        if char.upper() == 'T':
+        if char == 't':
             stack.append(True)
-        elif char.upper() == 'F':
+        elif char == 'f':
             stack.append(False)
         else:
             operand2 = stack.pop()
