@@ -1,9 +1,9 @@
-def sum_squares():
-    numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+```
+def sum_squares(lst):
     total = 0
-    for i in range(len(numbers)):
-        if (i + 1) % 3 == 0 and (i + 1) % 4 != 0:
-            total += numbers[i] ** 2
-        elif (i + 1) % 4 == 0 and (i + 1) % 3 != 0:
-            total += numbers[i] ** 3
-    print("The sum of squares is: ", total)
+    for num in lst:
+        if type(num) != int:
+            return "Invalid input: list must contain integers."
+        elif (num % 3 == 0 and num % 4 != 0) or (num % 4 == 0 and num % 3 != 0):
+            total += num ** ((num % 4 == 0) * 2 + 1)
+    return total
