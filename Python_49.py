@@ -9,14 +9,7 @@ def is_prime(n):
 
 
 def modp(num, p):
-    if num < p:
-        return num
-    res = 1
-    while num > 0:
-        if num & 1:
-            res = (res * num) % p
-        num //= 2
-    return res
+    return pow((num % p) + p, 1, p)
 
 
 def main():
