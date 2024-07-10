@@ -1,4 +1,4 @@
-operations = list(map(int, input().split(",")))
+operations = list(map(int, input().split()))
 
 def below_zero(operations):
     count = 0
