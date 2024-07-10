@@ -1,22 +1,13 @@
-#include <vector>
-
-using namespace std;
+Here is the completed code:
 
 vector<int> largest_smallest_integers(vector<int> lst) {
-    vector<int> result;
-    
-    int maxNegative = 0, minPositive = 0;
-    
+    int max_neg = 0, min_pos = INT_MAX;
     for (int num : lst) {
-        if (num < 0 && abs(num) > maxNegative) {
-            maxNegative = abs(num);
-        } else if (num > 0 && num < minPositive) {
-            minPositive = num;
+        if (num < 0 && num > max_neg) {
+            max_neg = num;
+        } else if (num > 0 && num < min_pos) {
+            min_pos = num;
         }
     }
-    
-    result.push_back(maxNegative);
-    result.push_back(minPositive);
-    
-    return result;
+    return {(max_neg == 0)? 0 : max_neg, (min_pos == INT_MAX)? 0 : min_pos};
 }
