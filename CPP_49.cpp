@@ -1,7 +1,6 @@
 #include <iostream>
 
 int modp(int n, int p) {
-    // Read input values n and p
     std::cin >> n >> p;
     
     if (p == 1) return 0;
