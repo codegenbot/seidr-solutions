@@ -1,26 +1,31 @@
 int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
-    for (char c : s) {
-        if (c == '/') {
-            if (roll < 2) {
-                score += 10 - (10 - roll);
+    vector<int> rolls(21);
+    
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '/') {
+            if (roll >= 2) {
+                int bonus = min(rolls[roll - 1], rolls[roll]) + rolls[roll];
+                score += bonus;
+                roll = 0;
+            } else {
+                roll++;
             }
-            roll = 0;
-        } else if (c == 'X') {
-            score += 30;
-            roll = 0;
         } else {
-            int val = c - '0';
-            roll += val;
+            rolls[roll++] = s[i] - 'X';
         }
     }
-    if (roll < 2) {
-        score += 10 - (10 - roll);
-    } else if (roll == 2) {
-        score += 20;
-    } else {
-        score += roll * 10;
+    
+    for (int i = 0; i < 10; i++) {
+        if (rolls[i] == 10) {
+            score += 10 + rolls[i + 1] + rolls[i + 2];
+            i += 2;
+        } else {
+            int bonus = min(rolls[i], rolls[i + 1]) + rolls[i];
+            score += bonus;
+        }
     }
+    
     return score;
 }
