@@ -9,4 +9,4 @@ while True:
         print("The sum is: ", add(x, y))
         break
     except ValueError:
-        print("Invalid input. Please enter an integer.")
+        print("Invalid input. Please enter integers.")
