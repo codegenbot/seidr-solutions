@@ -1,12 +1,13 @@
 def mastermind(code, guess):
-    code_set = set(code)
-    white_pegs = 0
-    black_pegs = 0
+    correct_count = 0
+    misplaced_count = 0
+    code_chars = [char for char in code]
+    guess_chars = [char for char in guess]
 
-    for char in guess:
-        if char in code and char != code[0]:
-            white_pegs += 1
-        elif char == code[0]:
-            black_pegs += 1
+    for i in range(4):
+        if code_chars[i] == guess_chars[i]:
+            correct_count += 1
+        elif guess_chars[i] in code_chars:
+            misplaced_count += 1
 
-    return str(white_pegs) + "\n" + str(black_pegs)
+    return str(misplaced_count) + "\n" + str(correct_count)
