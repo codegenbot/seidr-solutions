@@ -1,6 +1,10 @@
 #include <vector>
 #include <algorithm>
 
+bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b){
+    // Implementation of issame function
+}
+
 std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
     std::vector<std::vector<int>> result;
     for (int i = 0; i < lst.size(); ++i) {
@@ -17,10 +21,6 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
         return a[0] < b[0];
     });
     return result;
-}
-
-bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b){
-    // Implementation of issame function
 }
 
 int main() {
