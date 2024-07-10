@@ -3,31 +3,32 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int start = 0, end = 0;
-    
-    while(end < text.length()) {
-        if(text.substr(start, end - start + 1).compare(target) == 0) {
-            result.push_back(start);
-            start += target.length();
-        } else {
-            start++;
+    int n = text.size();
+    int m = target.size();
+
+    for (int i = 0; i <= n - m; i++) {
+        bool found = true;
+        for (int j = 0; j < m; j++) {
+            if (text[i + j] != target[j]) {
+                found = false;
+                break;
+            }
         }
-        end = min((int)text.find(target, start), text.length());
+        if (found) {
+            result.push_back(i);
+        }
     }
-    
+
     return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    string s;
-    getline(cin, s);
-
-    vector<int> res = indicesOfSubstring(s, s.substr(0, 1));
-    for(int i:res) {
-        cout << i << endl;
+    string text, target;
+    cin >> text >> target;
+    vector<int> res = indicesOfSubstring(text, target);
+    for (int i: res) {
+        cout << i << " ";
     }
-
+    cout << endl;
     return 0;
 }
