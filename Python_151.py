@@ -1,1 +1,1 @@
-check(lst=lst, double_the_difference)
+check(lst=lst, double_the_difference=double_the_difference)
