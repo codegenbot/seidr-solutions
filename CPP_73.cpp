@@ -35,7 +35,10 @@ int smallest_change(std::vector<int> arr) {
         }
     }
     
-    std::vector<std::vector<int>> dp(n, std::vector<int>(m));
+    std::vector<std::vector<int>> dp;
+    for (int i = 0; i < n; i++) {
+        dp.push_back(std::vector<int>(m));
+    }
     
     for (int i = 0; i < n; i++) {
         dp[i][0] = arr[i];
