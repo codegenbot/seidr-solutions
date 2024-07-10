@@ -1,5 +1,12 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 int getMax(int n) {
-    int max = 0;
+    vector<pair<int,int>> l;
     cout << "Enter the number of elements: ";
     cin >> n;
 
@@ -7,9 +14,12 @@ int getMax(int n) {
         int x;
         cout << "Enter element " << i + 1 << ": ";
         cin >> x;
-        if(x > max)
-            max = x;
+        l.push_back({x,0});
     }
 
-    return max;
+    return std::max_element(l.begin(), l.end())->first;
+}
+
+int main() {
+    // Your test code
 }
