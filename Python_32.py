@@ -1,5 +1,5 @@
 def find_zero(xs):
-    result = sum(x * (2 ** i) for i, x in enumerate(reversed(xs)))
-    if result == 0:
-        return 0
-    return result ** (1 / len(xs))
+    for i in range(len(xs)):
+        if sum(x * (2**j) for j, x in enumerate(reversed(list(xs[: i + 1])))) == 0:
+            return xs[i]
+    return 0
