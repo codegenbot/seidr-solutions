@@ -1,4 +1,3 @@
-```
 #include <stdio.h>
 using namespace std;
 
@@ -14,6 +13,6 @@ int main() {
     int n;
     printf("Enter a positive integer: ");
     scanf("%d", &n);
-    printf("The special factorial of %d is: %lld\n", n, special_factorial(n));
+    printf("The Brazilian factorial of %d is: %lld\n", n, special_factorial(n));
     return 0;
 }
