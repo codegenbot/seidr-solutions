@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <algorithm>
 
@@ -6,15 +7,16 @@ int getMax(int n) {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    int* arr = new int[n]; 
+    int arr[n]; // Declare an array of size n
 
     for (int i = 0; i < n; i++) {
+        int x;
         std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> arr[i];
-        if(arr[i] > max)
-            max = arr[i];
+        std::cin >> x;
+        if(x > max)
+            max = x;
+        arr[i] = x; // Fill the array
     }
 
-    delete[] arr;
-    return max;
+    return *std::max_element(arr, arr+n); 
 }
