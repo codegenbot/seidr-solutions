@@ -1,3 +1,4 @@
+```
 def bowling_score(game):
     score = 0
     roll = 0
@@ -7,7 +8,7 @@ def bowling_score(game):
             score += 10
             roll += 1
         elif 'X' in frame:
-            if roll < 1:
+            if roll < 2:
                 score += 10
                 roll += 1
             else:
