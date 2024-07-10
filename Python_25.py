@@ -17,7 +17,8 @@ def factorize(n: int) -> List[int]:
 if __name__ == "__main__":
     while True:
         try:
-            n = int(input("Enter a positive integer greater than 1: "))
+            print("Enter a positive integer greater than 1:")
+            n = int(input())
             if n <= 1:
                 print("Please enter a positive integer greater than 1.")
             else:
