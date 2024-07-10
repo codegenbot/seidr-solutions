@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -15,14 +16,17 @@ int prod_signs(int* arr, int n) {
 int main() {
     int n; 
     std::cin >> n;
-    int arr[n]; // declare array
+    int* arr = new int[n];
     for (int i = 0; i < n; ++i)
         std::cin >> arr[i];
 
     int result = prod_signs(arr, n);
-
     delete[] arr;
 
     std::cout << "The product of signs is: " << result << '\n';
+    
+    int testResult = prod_signs({-1, 1, 1, 0});
+    std::cout << "The product of signs for the test case is: " << testResult << '\n';
+
     return 0;
 }
