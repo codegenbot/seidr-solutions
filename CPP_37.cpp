@@ -1,5 +1,9 @@
-vector<float> issame(vector<float>& l, vector<float> l_copy) {
-    vector<float> sorted_even = l_copy;
+bool issame(const vector<float>& a, const vector<float>& b) {
+    return a == b;
+}
+
+vector<float> sort_even(const vector<float>& l) {
+    vector<float> sorted_even = l;
     vector<float> even_values;
     for (int i = 0; i < l.size(); i += 2) {
         even_values.push_back(l[i]);
@@ -13,11 +17,8 @@ vector<float> issame(vector<float>& l, vector<float> l_copy) {
     }
     return sorted_even;
 }
-int main() {
-    vector<float> l = {5, 3, 8, 6, 1, 18, 2, 10};
-    vector<float> sort_even;
-    sort_even = issame(l, l);
 
-    assert(sort_even == vector<float>({1, 3, 2, 6, 5, 10, 8, 18}));
+int main() {
+    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
