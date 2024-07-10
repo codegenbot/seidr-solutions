@@ -11,9 +11,3 @@ int next_smallest(vector<int> lst) {
     }
     return -1;
 }
-
-int main() {
-    vector<int> lst = {-35, 34, 12, -45};
-    int result = next_smallest(lst);
-    return 0;
-}
