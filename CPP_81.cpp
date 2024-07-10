@@ -12,6 +12,7 @@ std::vector<std::string> numerical_letter_grade(const std::vector<double>& grade
     return result;
 }
 
-main(){
-    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D-"}));
+int main(){
+    std::vector<std::string> expected_result = {"E", "D-"};
+    assert(issame(numerical_letter_grade({0, 0.7}), expected_result));
 }
