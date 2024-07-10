@@ -1,5 +1,5 @@
 ```c++
-int skjkasdkd(vector<int> lst); // declare the function
+int skjkasdkd(vector<int> lst); 
 
 int skjkasdkd(vector<int> lst) {
     int maxPrime = 0;
