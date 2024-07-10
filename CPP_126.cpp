@@ -1,24 +1,22 @@
-Here's the solution:
+Here is the completed code:
 
-bool is_sorted(vector<int> lst) {
-    if (lst.size() <= 1)
-        return true;
-
-    bool sorted = true;
-    int prev = lst[0];
-
-    for (int i = 1; i < lst.size(); ++i) {
-        if (lst[i] < prev) {
-            prev = lst[i];
-        } else if (lst[i] == prev) {
-            if (!sorted)
-                return false;
-            prev = lst[i];
-        } else {
-            sorted = false;
-            break;
+bool is_sorted(vector<int> lst){
+    for(int i=1; i<lst.size(); i++){
+        if(lst[i-1] >= lst[i]){
+            return false;
+        }
+        int count = 0;
+        for(int j=i; j<lst.size(); j++){
+            if(lst[j] == lst[i]){
+                count++;
+            }
+            else{
+                break;
+            }
+        }
+        if(count > 1){
+            return false;
         }
     }
-
-    return sorted;
+    return true;
 }
