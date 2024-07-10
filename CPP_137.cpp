@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
-#include <any>
+#include <boost/any.hpp>
 #include <cassert>
 
 using namespace std;
+using namespace boost;
 
 string compare_one(const string& s, const any& a) {
     if (a.type() == typeid(int)) {
@@ -13,6 +14,6 @@ string compare_one(const string& s, const any& a) {
 }
 
 int main() {
-    assert(std::any_cast<string>(compare_one("1", std::any(1))) == "None");
+    assert(boost::any_cast<string>(compare_one("1", boost::any(1))) == "None");
     return 0;
 }
