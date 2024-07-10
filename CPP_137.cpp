@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <boost/variant.hpp>
@@ -16,4 +17,9 @@ any compare_one(any a, any b) {
         double num = get<double>(b);
         return str > to_string(num) ? a : b;
     }
-    else if (holds_alternative<double>(a) && holds_alternation
+    else if (holds_alternative<double>(a) && holds_alternative<string>(b)) {
+        string str = get<string>(b);
+        double num = get<double>(a);
+        return to_string(num) > str ? a : b;
+    }
+    else if (holds_alternative<string>(a) && holds_alternation
