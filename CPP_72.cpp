@@ -1,11 +1,15 @@
-```c++
+```
 #include <cassert>
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+#include <string>
+#include <vector>
+#include <algorithm>
+
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
-    if (str != string(str.rbegin(), str.rend())) return false;
+    if (str != std::string(str.rbegin(), str.rend())) return false;
     int sum = 0;
     for (int i : q) {
         sum += i;
@@ -13,4 +17,13 @@ bool will_it_fly(vector<int> q, int w) {
     return sum <= w;
 }
 
-assert(will_it_fly({5}, 5) == true);
+int main() {
+    assert(will_it_fly({5}, 5) == true);
+    std::vector<int> q = {1,2,3};
+    int w = 6;
+    if (will_it_fly(q, w)) {
+        std::cout << "The plane will fly." << std::endl;
+    } else {
+        std::cout << "The plane won't fly." << std::endl;
+    }
+}
