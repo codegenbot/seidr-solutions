@@ -11,10 +11,6 @@ def mastermind(code, guess):
             code_count[c1] -= 1
             guess_count[g1] -= 1
 
-    white = sum(
-        count1 - count2
-        for char, (count1, count2) in zip(code_count.items(), guess_count.values())
-        if count1 > 0 and count2 > 0
-    )
+    white = sum(count1 - count2 for char, (count1, count2) in zip(code_count.items(), guess_count.values()) if count1 > 0 and count2 > 0)
 
     return str(black) + "\n" + str(white)
