@@ -14,9 +14,10 @@ double sum_squares(int n) {
 int main() {
     int n;
     while (!(std::cin >> n)) {
-        std::cout << "Invalid input. Please enter a non-negative integer.\n";
+        std::cout << "Invalid input. Please enter a non-negative integer: ";
         std::cin.clear(); 
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+        while (std::cin.get() != '\n') 
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     }
 
     if(n < 0) {
