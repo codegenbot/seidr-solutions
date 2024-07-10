@@ -1,28 +1,48 @@
-string solveBoolean(string boolean) {
+#include <vector>
+#include <iostream>
+#include <string>
+
+bool solveBoolean(string expression) {
     stack<char> s;
-    for (int i = 0; i < boolean.size(); i++) {
-        if (boolean[i] == '&') {
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
             while (!s.empty() && s.top() == '&') {
                 s.pop();
             }
-            if (!s.empty()) {
-                s.push('&');
-            }
-        } else if (boolean[i] == '|') {
-            while (!s.empty() && s.top() == '|') {
+            s.push('&');
+        } else if (expression[i] == '|') {
+            while (!s.empty()) {
                 s.pop();
             }
-            if (!s.empty()) {
-                s.push('|');
-            }
-        } else {
-            s.push(boolean[i]);
+            s.push('|');
+        } else if (expression[i] != '&' && expression[i] != '|') {
+            s.push(expression[i]);
         }
     }
-    string result = "";
+
+    bool result = false;
     while (!s.empty()) {
-        result.push_back(s.top());
+        char c = s.top();
         s.pop();
+        if (c == 't') {
+            result = true;
+        } else if (c == 'f') {
+            return false;
+        }
     }
-    return (result == "T") ? "True" : (result == "F") ? "False" : "Invalid";
+
+    return result;
+}
+
+int main() {
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
+    bool result = solveBoolean(expression);
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    return 0;
 }
