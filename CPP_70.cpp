@@ -9,9 +9,10 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
         }
     }
     return true;
+
 }
 
-int main(int argc, char *argv[]) {
+int main() {
     int n1, m1, n2, m2;
     std::cout << "Enter the size of first vector: ";
     std::cin >> n1 >> m1;
