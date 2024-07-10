@@ -2,11 +2,11 @@
 #include <iostream>
 #include <vector>
 
-int specialFilter(const std::vector<std::string>& v) {
+int specialFilter(const std::vector<std::string>& nums) {
     int count = 0;
-    for (const auto& str : v) {
-        if (std::stoi(str) % 2 == 1) {
-            count++;
+    for (const auto& num : nums) {
+        if (std::stoi(num).length() % 2 != 0) {
+            ++count;
         }
     }
     return count;
