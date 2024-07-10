@@ -24,7 +24,7 @@ std::string file_name_check(std::string file_name) {
     }
     
     std::string extension = file_name.substr(dotIndex + 1);
-    if (!(extension == "txt" || extension == "exe" || extension == "dll") || extension.length() != 3) {
+    if (!((extension == "txt" || extension == "TXT" || extension == "exe" || extension == "EXE" || extension == "dll" || extension == "DLL") && extension.length() == 3)) {
         return "No";
     }
     
