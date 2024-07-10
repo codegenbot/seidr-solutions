@@ -1,9 +1,10 @@
 ```
-def find_average(lst):
-    average = sum(lst) / len(lst)
-    return round(average)
+def closest_integer_to_month(value):
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    month_number = int(input("Enter the number of the month (1-12): "))
+    if month_number < 1 or month_number > 12:
+        return "Invalid input. Please enter a number between 1 and 12."
+    else:
+        return months[month_number - 1]
 
-user_input = input("Please enter a list of numbers separated by spaces: ")
-lst = [float(num) for num in user_input.split()]
-closest_integer = round(find_average(lst))
-print(f"The closest integer to the average is {closest_integer}.")
+print(closest_integer_to_month(input("Enter a value: ")))
