@@ -1,6 +1,5 @@
 #include <openssl/err.h>
 #include <cassert>
-#include <string>
 
 std::string string_to_md5(const std::string& str) {
     EVP_MD_CTX md5;
