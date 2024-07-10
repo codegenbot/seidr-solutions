@@ -1,11 +1,17 @@
+```
 from typing import List
-import re
 
 
-def filter_by_substring(strings: List[str], substring: str) -> List[str]:
-    if not substring:
+def filter_by_substring():
+    strings = input("Enter a list of strings (comma-separated): ")
+    substring = input("Enter a substring: ")
+
+    try:
+        strings = [s.strip() for s in strings.split(',')]
+    except ValueError:
+        return "Invalid input. Please enter a comma-separated list of strings."
+
+    if not strings:
         return []
 
-    pattern = re.compile(substring)
-
-    return [s for s in strings if bool(pattern.search(s))]
+    return [s for s in strings if substring.casefold().strip() in s.casefold()]
