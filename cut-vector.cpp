@@ -25,12 +25,12 @@ int main() {
     }
     
     pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "First subvector: ";
+    cout << "1 ";
     for (int num : result.first) {
         cout << num << " ";
     }
     cout << endl;
-    cout << "Second subvector: ";
+    cout << "0 ";
     for (int num : result.second) {
         cout << num << " ";
     }
