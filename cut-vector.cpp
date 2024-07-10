@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <climits>
+#include <limits>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     vector<vector<int>> res(2);
-    int minDiff = INT_MAX;
+    int minDiff = numeric_limits<int>::max();
     int idx1, idx2;
 
     for(int i=0; i<n-1; i++){
