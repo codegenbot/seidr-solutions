@@ -1,7 +1,10 @@
+#include <boost/any.hpp>
 #include <string>
-#include <any>
+#include <iostream>
 
-std::any compare_one(std::any a, std::any b) {
+using namespace boost;
+
+boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
         return b;
     }
@@ -9,8 +12,8 @@ std::any compare_one(std::any a, std::any b) {
         return b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str1 = a.convert<std::string>();
-        std::string str2 = b.convert<std::string>();
+        std::string str1 = boost::any_cast<std::string>(a);
+        std::string str2 = boost::any_cast<std::string>(b);
 
         if (str1 == "None" || str2 == "None")
             return a;
@@ -23,17 +26,17 @@ std::any compare_one(std::any a, std::any b) {
         else if (num1 < num2)
             return b;
         else
-            return "None";
+            return boost::any("None");
     }
     else {
-        double num1 = a.convert<double>();
-        double num2 = b.convert<double>();
+        double num1 = boost::any_cast<double>(a);
+        double num2 = boost::any_cast<double>(b);
 
         if (num1 > num2)
             return a;
         else if (num1 < num2)
             return b;
         else
-            return "None";
+            return boost::any("None");
     }
 }
