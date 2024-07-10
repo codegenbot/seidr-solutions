@@ -1,7 +1,7 @@
 int calculateFuelCost(std::vector<int> numbers) {
     int total = 0;
     for (int number : numbers) {
-        int result = static_cast<int>(std::ceil((double)number / 3)) - 2;
+        int result = static_cast<int>(std::trunc((double)number / 3)) - 2;
         if (result < 0) {
             result = 0;
         }
