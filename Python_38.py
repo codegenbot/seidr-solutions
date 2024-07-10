@@ -1,22 +1,20 @@
-```
 def encode_cyclic(s: str):
-    result = ""
-    i = 0
-    while i < len(s):
-        if i+2 <= len(s):
-            result += s[i+1:i+3][::-1] + s[i]
-        else:
-            result += s[i:][::-1]
-        i += 3
-    return result
+    if len(s) % 3 != 0:
+        return "Error: Input string length is not divisible by 3."
+    groups = []
+    for i in range(0, len(s), 3):
+        group = s[i : i + 3] if i + 3 <= len(s) else s[i:]
+        groups.append(group[1:] + group[0] if len(group) == 3 else group)
+    return "".join(groups)
+
 
 def decode_cyclic(s: str):
+    if len(s) % 2 != 0:
+        return "Error: Input string length is not divisible by 2."
     result = ""
-    i = 0
-    while i < len(s):
-        if i+2 <= len(s):
-            result += s[i] + s[i+1:i+3][::-1]
+    for i in range(0, len(s), 2):
+        if i + 1 < len(s):
+            result += s[i + 1] + s[i]
         else:
-            result += s[i:]
-        i += 3
+            result += s[i]
     return result
