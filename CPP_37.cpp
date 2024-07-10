@@ -20,7 +20,7 @@ std::vector<float> sort_even(const std::vector<float>& numbers) {
     return even_numbers;
 }
 
-int main() {
+int unique_main() {
     int n;
     std::vector<float> numbers;
     std::cout << "Enter the number of elements: ";
@@ -42,4 +42,8 @@ int main() {
         std::cout << "The expected output is not achieved." << std::endl;
     }
     return 0;
+}
+
+int main() {
+    return unique_main();
 }
