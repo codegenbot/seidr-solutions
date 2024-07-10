@@ -2,65 +2,31 @@
 #include <iostream>
 #include <string>
 
-bool solveBoolean(string expression) {
-    stack<char> operation;
-    stack<string> operands;
-
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '(') {
-            operation.push('(');
-        } else if (expression[i] == ')') {
-            while (operation.top() != '(') {
-                char op = operation.top();
-                operation.pop();
-                string operand1 = operands.top();
-                operands.pop();
-                string operand2;
-                if (!op.equals("&")) {
-                    operand2 = operand1;
-                    operand1 = "";
-                }
-                while (!operation.empty() && operation.top() != '(') {
-                    op = operation.top();
-                    operation.pop();
-                    operand1 += (op == "&" ? " & " : " | ");
-                }
-                operands.push(operand1);
+bool solveBoolean(string s) {
+    stack<char> st;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '&') {
+            while (!st.empty() && st.top() == '&') {
+                st.pop();
             }
-            operation.pop(); // Pop the '('
-        } else if (expression[i] == '&' || expression[i] == '|') {
-            while (!operation.empty() && operation.top() != '(') {
-                char op = operation.top();
-                operation.pop();
-                string operand1 = operands.top();
-                operands.pop();
-                string operand2;
-                if (!op.equals("&")) {
-                    operand2 = operand1;
-                    operand1 = "";
-                }
-                operands.push(operand1);
+            if (st.empty()) return false;
+        } else if (s[i] == '|') {
+            while (!st.empty() && st.top() == '|') {
+                st.pop();
             }
-            operation.push(expression[i]);
+            if (st.empty()) return true;
         } else {
-            string operand = "";
-            while (i < expression.length() && expression[i] != '&' && expression[i] != '|') {
-                operand += expression[i];
-                i++;
-            }
-            i--; // Backtrack
-            operands.push(operand);
+            st.push(s[i]);
         }
     }
-
-    return (operands.top().equals("T")) ? true : false;
+    return !st.empty();
 }
 
 int main() {
-    string expression;
+    string s;
     cout << "Enter a Boolean expression: ";
-    cin >> expression;
-    bool result = solveBoolean(expression);
+    cin >> s;
+    bool result = solveBoolean(s);
     if (result) {
         cout << "True" << endl;
     } else {
