@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -15,7 +14,7 @@ int smallest_change(std::vector<int> arr) {
     
     int smallest = INT_MAX;
 
-    std::vector<int> dp(n+1);
+    std::vector<int> dp(n+1, 0);
     for (auto coin : arr) {
         dp[coin] = 1;
     }
