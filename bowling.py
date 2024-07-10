@@ -1,29 +1,14 @@
 Here is the solution:
 
-def bowling_game(s):
+def bowling_score(frames):
     score = 0
-    frame = 1
-    while frame <= 10:
-        if '/' in s[1:3]:
-            first, second = map(int, re.match('(\d+)/(\d+)', s[:3]).groups())
-            if first == 10:
-                score += 10 + next(int(x) for x in s[4:])
-                frame += 1
-            elif second == 10:
-                score += 10 + next(int(x) for x in s[3:])
-                frame += 1
-            else:
-                score += first + second
-                frame += 1
+    frame_numbers = [int(x) for x in frames.replace('/', '")]
+    
+    for i in range(0, len(frame_numbers), 2):
+        if frame_numbers[i] == 10:
+            score += 10 + frame_numbers[i+1]
+        elif frame_numbers[i] + frame_numbers[i+1] == 10:
+            score += 10
         else:
-            if s[:2] == 'X':
-                score += 10
-                frame += 1
-            elif int(s[:1]) < 10:
-                score += int(s[:1])
-                frame += 1
-            else:
-                score += int(s[:2])
-                frame += 1
-        s = s[3:]
+            score += frame_numbers[i] + frame_numbers[i+1]
     return score
