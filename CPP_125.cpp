@@ -1,49 +1,39 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+Here is the completed code:
 
+```cpp
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
 using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    string temp = "";
+    size_t pos = 0, prev_pos = 0;
     
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!temp.empty()) {
-                result.push_back(temp);
-                temp = "";
+    while (pos != string::npos) {
+        if (txt.find(" ", pos) == string::npos && txt.find(",", pos) == string::npos) {
+            int count = 0;
+            for (char c : txt.substr(pos)) {
+                if (c >= 'a' && c <= 'z') {
+                    count++;
+                    if ((count - 1) % 2 != 0) {
+                        result.push_back(to_string(count));
+                        return result;
+                    }
+                }
             }
-            if (c == ' ') continue;
-            else break;
         } else {
-            temp += c;
-        }
-    }
-    
-    if (!temp.empty()) {
-        result.push_back(temp);
-    } else {
-        int count = 0;
-        for (char c : txt) {
-            if (islower(c)) {
-                count++;
+            pos = txt.find((txt.find(" ", pos) == string::npos ? " " : (txt.find(",", pos) == string::npos ? "," : "")), pos);
+            if (pos != string::npos) {
+                result.push_back(txt.substr(prev_pos, pos - prev_pos));
+                prev_pos = pos + 1;
+            } else {
+                result.push_back(txt.substr(prev_pos));
+                return result;
             }
         }
-        result.push_back(to_string(count));
     }
     
     return result;
-}
-
-int main() {
-    string input;
-    cout << "Enter a string: ";
-    getline(cin, input);
-    vector<string> output = split_words(input);
-    for (string s : output) {
-        cout << s << endl;
-    }
-    return 0;
 }
