@@ -3,8 +3,8 @@
 #include <vector>
 #include <boost/any.hpp>
 
-bool issame(const std::type_info& t1, const std::type_info& t2) {
-    return t1 == t2;
+bool issame(const boost::any& value, const std::type_info& type) {
+    return value.type() == type;
 }
 
 std::vector<int> filter_integers(std::list<boost::any> values);
@@ -24,7 +24,7 @@ int main() {
 std::vector<int> filter_integers(std::list<boost::any> values) {
     std::vector<int> result;
     for (const auto& val : values) {
-        if (val.type() == typeid(int)) {
+        if (issame(val, typeid(int))) {
             result.push_back(boost::any_cast<int>(val));
         }
     }
