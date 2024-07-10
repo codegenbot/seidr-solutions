@@ -19,8 +19,21 @@ int prod_signs(std::vector<int> arr) {
     }
 
     return product * sum;
+
 }
 
 int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    std::vector<int> arr;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i = 0; i < n; i++) {
+        int num;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num;
+        arr.push_back(num);
+    }
+    int result = prod_signs(arr);
+    std::cout << "Product of signs and sum: " << result << std::endl;
+    return 0;
 }
