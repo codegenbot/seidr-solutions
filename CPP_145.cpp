@@ -23,6 +23,5 @@ std::vector<int> order_by_points(std::vector<int> nums) {
 int main() {
     std::vector<int> nums = {1, 2, 3};
     std::vector<int> res = order_by_points(nums);
-    // Check the result
     return 0;
 }
