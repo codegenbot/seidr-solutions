@@ -31,8 +31,14 @@ std::map<char,int> histogram(std::string test) {
     return result;
 }
 
-std::map<char,int> test1 = histogram("a");
+}
 
-for (const auto& pair : test1) {
-    std::cout << pair.first << " " << pair.second << std::endl;
+int main() {
+    std::map<char,int> test1 = histogram("a");
+
+    for (const auto& pair : test1) {
+        std::cout << pair.first << " " << pair.second << std::endl;
+    }
+
+    return 0;
 }
