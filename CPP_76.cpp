@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 #include <iostream>
 
@@ -7,8 +8,7 @@ bool is_simple_power(int x, int n) {
     return std::abs(y - x) < 1e-9; 
 }
 
-int main
-{
+int main() {
     std::cout << "Enter a number: ";
     int tempX;
     std::cin >> tempX;
