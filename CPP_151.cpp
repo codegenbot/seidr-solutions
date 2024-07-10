@@ -1,8 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
@@ -18,14 +16,12 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    float num;
     long long odd_sum = 0; 
+    float num;
     while(std::cin >> num) {
         lst.push_back(num);
     }
-    
-    int main_result = double_the_difference(lst); 
-    assert(main_result == double_the_difference(lst));
-    std::cout << "The sum of the squares of the odd numbers is: " << main_result << std::endl;
+    odd_sum = double_the_difference(lst); 
+    std::cout << "The sum of the squares of the odd numbers is: " << odd_sum << std::endl;
     return 0;
 }

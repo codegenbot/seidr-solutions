@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+using namespace std;
 
 bool issame(vector<int> game, vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {

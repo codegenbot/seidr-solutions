@@ -8,20 +8,19 @@ bool is_simple_power(int x, int n) {
     return std::abs(y - x) < 1e-9;
 }
 
-int main() {
-    int tempX;
-    std::string input;
-    std::cout << "\"Enter a number: \"";
+void main() {
+    int tempX, n;
+    std::cout << "Enter a number: ";
     std::cin >> tempX;
 
-    std::cout << "\"Enter another number: \"";
-    std::cin >> input;
+    std::cout << "Enter another number (n): ";
+    std::cin >> n;
 
-    if (input != "0") {
-        if(is_simple_power(tempX, std::stoi(input)))  
-            std::cout << tempX << " is a simple power of " << input << std::endl;
+    if (n != 0) {
+        if(is_simple_power(tempX, n))  
+            std::cout << tempX << " is a simple power of " << n << std::endl;
         else
-            std::cout << "Error: " << tempX << " is not a simple power of " << input << std::endl;
+            std::cout << "Error: " << tempX << " is not a simple power of " << n << std::endl;
     } 
     else {
         std::cout << "n cannot be zero." << std::endl;
