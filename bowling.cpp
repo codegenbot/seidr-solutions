@@ -1,4 +1,7 @@
+```cpp
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 int bowlingScore(string input) {
@@ -9,20 +12,21 @@ int bowlingScore(string input) {
             score += 30;
             i++;
         } else if(input[i] == '/') {
-            int nextTwo = stoi(string(1, input[i+1]) + string(1, input[i+2]));
+            int nextTwo = stoi(input.substr(i + 1, 2));
             score += 10 + nextTwo;
             i += 3;
         } else {
-            int currentRoll = stoi(string(1, input[i]) + string(1, input[i+1]));
+            int currentRoll = stoi(input.substr(i, 2));
             if(currentRoll < 10) {
                 score += currentRoll;
                 i += 2;
             } else {
-                int first = stoi(string(1, input[i]) + string(0));
-                int second = stoi(string(1, input[i+1]) + string(1, input[i+2]));
+                int first = stoi(input.substr(i, 1));
+                int second = stoi(input.substr(i + 1, 1));
                 score += first + second;
                 i += 2;
             }
         }
     }
+    return score;
 }
