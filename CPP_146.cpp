@@ -11,7 +11,7 @@ int main() {
     while (true) {
         getline(std::cin, num);
         if (num == "stop") break;
-        nums.push_back(num.substr(0, num.size() - 1)); // remove newline character
+        nums.push_back(num); 
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
 }
@@ -19,7 +19,8 @@ int main() {
 int specialFilter(const std::vector<std::string>& nums) {
     int count = 0;
     for (const auto& num : nums) {
-        if (num.length() > 1 && num.length() <= 10 && (num.back() - '0') % 2 != 0 && ((num[8] - '0') / 10) % 10 % 2 != 0) {
+        if (num.length() > 1 && num.length() <= 10 && (stoi(num.back()) % 2 != 0) 
+            && ((stoi(num[8] - '0') / 10) % 10 % 2 != 0)) {
             count++;
         }
     }

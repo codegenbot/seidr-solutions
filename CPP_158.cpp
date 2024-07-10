@@ -23,8 +23,8 @@ int main() {
         std::cout << "Enter word " << i + 1 << ": ";
         std::string str;
         getline(std::cin, str); 
-        str.erase(0, str.find_first_not_of(' ')); 
         words.push_back(str);
+        str.erase(0, str.find_first_not_of(' ')); 
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
     return 0;
