@@ -1,2 +1,4 @@
-def check(lst): 
-    return abs(double_the_difference(lst) - (sum(lst)/len(lst))) <= 0.5 * sum(lst)/len(lst)
+```
+def double_the_difference(lst):
+    even_sum = sum(i ** 2 for i in lst if isinstance(i, int) and i % 2 == 0)
+    return even_sum
