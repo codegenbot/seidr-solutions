@@ -1,4 +1,3 @@
-```
 def digitSum(n=""):
     if not n:  
         n = int(input("Enter a number: "))
