@@ -1,26 +1,41 @@
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
-    set<char> c_set(c.begin(), c.end());
-    
-    string temp = "";
-    
     for (char ch : s) {
-        if (c_set.find(ch) == c_set.end()) {
-            temp += ch;
+        bool deleteChar = false;
+        for (char cc : c) {
+            if (ch == cc) {
+                deleteChar = true;
+                break;
+            }
+        }
+        
+        if (!deleteChar) {
+            result.push_back(string(1, ch));
         }
     }
     
-    bool is_palindrome = true;
-    for (int i = 0; i < temp.length() / 2; i++) {
-        if (temp[i] != temp[temp.length() - i - 1]) {
-            is_palindrome = false;
-            break;
-        }
+    string resultStr = "";
+    for (int i = 0; i < result.size(); i++) {
+        resultStr += result[i];
     }
     
-    result.push_back(temp);
-    result.push_back(is_palindrome ? "True" : "False");
+    string revResultStr = resultStr;
+    reverse(revResultStr.begin(), revResultStr.end());
+    
+    if (resultStr == revResultStr) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
     
     return result;
 }
+
+#include <string>
+using namespace std;
+
+bool issame(vector<string> a,vector<string>b){
+    return a == b;
+}
+```
