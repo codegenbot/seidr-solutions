@@ -2,8 +2,8 @@
 using namespace std;
 
 int main() {
-    string code = "XXXX"; 
-    string guess = "XXXX"; 
+    string code = "XXXX"; // Initialize the Mastermind code
+    string guess = "XXXX"; // Initialize the guess
 
     int result = mastermind(code, guess);
     cout << "Number of white pegs: " << result - 4 << endl;
