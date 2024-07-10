@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <climits>
+#include <limits>
+#include <cmath>
 
 using namespace std;
 
@@ -26,12 +27,15 @@ int main() {
         }
     }
 
-    for (int i = 0; i <= index; ++i) {
-        cout << nums[i] << endl;
+    vector<int> subVector1(nums.begin(), nums.begin() + index + 1);
+    vector<int> subVector2(nums.begin() + index + 1, nums.end());
+
+    for (const auto& num : subVector1) {
+        cout << num << endl;
     }
     cout << "---" << endl;
-    for (int i = index + 1; i < nums.size(); ++i) {
-        cout << nums[i] << endl;
+    for (const auto& num : subVector2) {
+        cout << num << endl;
     }
 
     return 0;
