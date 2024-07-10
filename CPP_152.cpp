@@ -1,6 +1,5 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool issame(std::vector<int> game, std::vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {
@@ -24,7 +23,7 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     return result;
 }
 
-int main() {
+int main2() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -56,4 +55,8 @@ int main() {
     }
 
     return 0;
+}
+
+int main() {
+    return main2();
 }
