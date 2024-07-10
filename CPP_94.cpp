@@ -1,9 +1,16 @@
-#include <iostream>
-#include <cassert>
+#include <vector>
+#include <assert.h>
+
+int sumVector(std::vector<int> lst) {
+    int total = 0;
+    for (int i : lst) {
+        total += i;
+    }
+    return total;
+
+}
 
 int main() {
-    int num3, num4, num5;
-    std::cin >> num3 >> num4 >> num5;
-    assert({num3, num4, num5} == {127, 97, 224});
+    assert(sumVector({127, 97, 8192}) == 1216);
     return 0;
 }
