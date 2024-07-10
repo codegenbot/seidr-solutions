@@ -18,7 +18,7 @@ int main() {
         height = (1 - bouncinessIndex) * startHeight + bouncinessIndex * height; // Calculate the height after this bounce.
     }
 
-    cout << fixed << setprecision(9);
+    cout << fixed << setprecision(10);
     cout << totalDistance << endl;
 
     return 0;
