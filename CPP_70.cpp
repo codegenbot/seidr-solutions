@@ -1,7 +1,8 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
-#include <initializer_list>
+#include <numeric>
 
 bool issame(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) return false;
@@ -40,3 +41,4 @@ int main() {
     }
     cout << endl;
     return 0;
+}
