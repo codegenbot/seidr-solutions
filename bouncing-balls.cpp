@@ -6,11 +6,11 @@ int main() {
 
     std::cin >> h0 >> h1 >> numBounces;
 
-    bouncinessIndex = h1 / h0;
+    bouncinessIndex = static_cast<long double>(h1) / h0;
 
     long double totalDistance = h0 + h1;
     for (int i = 2; i <= numBounces; ++i) {
-        totalDistance += static_cast<long double>((1 + bouncinessIndex) * h1);
+        totalDistance += (1 + bouncinessIndex) * h1;
         h1 *= bouncinessIndex;
     }
 
