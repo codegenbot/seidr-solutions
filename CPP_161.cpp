@@ -3,8 +3,8 @@
 
 int solve(std::string& color) {
     int result = 0;
-    for (auto c : color) { 
-        if (!std::isdigit(c)) {
+    for (size_t i = 1; i < color.size(); ++i) {
+        if (!std::isdigit(color[i])) {
             result++;
         }
     }
@@ -13,6 +13,6 @@ int solve(std::string& color) {
 }
 
 int main() {
-    assert(solve(std::string("#ccc")) == 3);
+    assert(solve("#ccc") == 3);
     return 0;
 }
