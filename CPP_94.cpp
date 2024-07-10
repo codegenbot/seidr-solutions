@@ -1,10 +1,8 @@
 #include <vector>
 #include <initializer_list>
-#include <iostream>
+#include <ostream>
 
-using namespace std;
-
-int sum(initializer_list<int> vec) {
+int sum(std::initializer_list<int> vec) {
     int total = 0;
     for (const auto& num : vec) {
         total += num;
@@ -13,7 +11,7 @@ int sum(initializer_list<int> vec) {
 }
 
 int main() {
-    int result = sum({127, 97, 8192});
-    cout << "The sum is: " << result << endl; 
+    assert(sum({127, 97, 8192}) == 1216);
+    std::cout << "The sum is: " << sum({127, 97, 8192}) << std::endl; 
     return 0;
 }
