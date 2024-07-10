@@ -1,9 +1,9 @@
-```
 def decode_cyclic(s: str):
     result = ""
     i = 0
     while i < len(s):
-        if s[i] == 'x':
+        if i + 2 >= len(s) or s[i+1] != 'x':
+            result += s[i]
             i += 1
         else:
             char_val = int(s[i+2:]) + ord(s[i])
