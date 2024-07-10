@@ -1,60 +1,55 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    int leftSum = 0;
-    int rightSum = accumulate(v.begin(), v.end(), 0);
-    
-    for(int i = 0; i < n; i++) {
-        rightSum -= v[i];
-        if(leftSum == rightSum) {
-            return {{v.begin(), v.begin() + i}, {v.begin() + i, v.end()}};
-        }
-        leftSum += v[i];
-    }
-    
+vector<int> cutVector(vector<int>& vec) {
     int minDiff = INT_MAX;
-    vector<int> left;
-    vector<int> right;
+    int index = -1;
     
-    for(int i = 0; i < n; i++) {
-        if(abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
-            left = {v.begin(), v.begin() + i};
-            right = {v.begin() + i, v.end()};
+    for(int i=0; i<vec.size(); i++) {
+        int sumLeft = 0, sumRight = 0;
+        
+        for(int j=0; j<i; j++) {
+            sumLeft += vec[j];
         }
-        leftSum -= v[i];
-        rightSum += v[i];
+        
+        for(int j=i; j<vec.size(); j++) {
+            sumRight += vec[j];
+        }
+        
+        int diff = abs(sumLeft - sumRight);
+        
+        if(diff < minDiff) {
+            minDiff = diff;
+            index = i;
+        }
     }
+    
+    vector<int> left(vec.begin(), vec.begin() + index);
+    vector<int> right(vec.begin() + index, vec.end());
     
     return {left, right};
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for(int i = 0; i < n; i++) {
-        cin >> v[i];
+    int n; cin >> n;
+    vector<int> vec(n);
+    for(int i=0; i<n; i++) {
+        cin >> vec[i];
     }
     
-    pair<vector<int>, vector<int>> res = cutVector(v);
-    cout << "[";
-    for(int i = 0; i < res.first.size() - 1; i++) {
-        cout << res.first[i] << ", ";
+    auto result = cutVector(vec);
+    
+    cout << "Left: ";
+    for(auto num : result[0]) {
+        cout << num << ' ';
     }
-    if(res.first.size() > 0) {
-        cout << res.first.back();
+    cout << endl;
+    
+    cout << "Right: ";
+    for(auto num : result[1]) {
+        cout << num << ' ';
     }
-    cout << "] [";
-    for(int i = 0; i < res.second.size() - 1; i++) {
-        cout << res.second[i] << ", ";
-    }
-    if(res.second.size() > 0) {
-        cout << res.second.back();
-    }
-    cout << "]\n";
+    cout << endl;
     
     return 0;
 }
