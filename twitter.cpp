@@ -3,7 +3,9 @@
 
 int main() {
     std::string tweet;
-    std::getline(std::cin, tweet);
+    std::cin >> std::ws;
+    getline(std::cin, tweet);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     if (tweet.empty()) {
         std::cout << "You didn't type anything" << std::endl;
