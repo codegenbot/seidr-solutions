@@ -1,21 +1,14 @@
-#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+#include <cassert>
 
-double median(vector<int>& l) {
-    sort(l.begin(), l.end());
-    int n = l.size();
-    return n % 2 == 0 ? (l[n / 2 - 1] + l[n / 2]) / 2.0 : l[n / 2];
-}
+using namespace std;
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> input(n);
-  
-    for(int i = 0; i < n; i++) {
-        cin >> input[i];
-    }
-
-    double result = median(input);
-    cout << result;
-    return 0;
+double median(const vector<int>& l) {
+    assert(!l.empty());
+    vector<int> sortedList = l;
+    sort(sortedList.begin(), sortedList.end());
+    int n = sortedList.size();
+    return n % 2 == 0 ? (sortedList[n / 2 - 1] + sortedList[n / 2]) / 2.0 : sortedList[n / 2];
 }
