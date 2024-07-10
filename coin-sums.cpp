@@ -17,18 +17,17 @@ int main() {
     int totalCoins = quarters + dimes + nickles + pennies;
 
     if (totalCoins > 0) {
-        std::cout << quarters << " quarter" << (quarters > 1 ? "s, " : ", ");
+        if (quarters > 0) {
+            std::cout << std::to_string(quarters) << " quarter" << (quarters > 1 ? "s, " : ", ");
+        }
         if (dimes > 0) {
-            std::string dimeStr = (dimes > 1 ? "s, " : ", ");
-            std::cout << dimes << " dime" << dimeStr;
+            std::cout << std::to_string(dimes) << " dime" << (dimes > 1 ? "s, " : ", ");
         }
         if (nickles > 0) {
-            std::string nickelStr = (nickles > 1 ? "s, " : ", ");
-            std::cout << nickles << " nickel" << nickelStr;
+            std::cout << std::to_string(nickles) << " nickel" << (nickles > 1 ? "s, " : ", ");
         }
         if (pennies > 0) {
-            std::string pennyStr = pennies == 1 ? " penny" : " pennies";
-            std::cout << pennies << pennyStr;
+            std::cout << std::to_string(pennies) << " penny";
         }
         std::cout << std::endl;
     } else {
