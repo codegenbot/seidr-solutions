@@ -1,4 +1,4 @@
-user_input = input("Enter an alphanumeric string: ").strip()
+user_input = input().strip()
 
 if not user_input.isalnum():
     print("Invalid input. Please enter an alphanumeric string.")
