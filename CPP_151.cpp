@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,20 +18,19 @@ std::vector<double> double_the_difference() {
         }
     }
 
-    return output;
+    return {output, odd_sum};
 }
 
 int main() {
-    std::vector<double> result = double_the_difference();
-    
+    std::vector<double> output = double_the_difference();
+
     std::cout << "The numbers that are different from 5 by an odd number: ";
-    for (double x : result) {
+    for (double x : output) {
         if (std::abs((int)x - 5) % 2 != 0) {
             std::cout << x << " ";
         }
     }
     std::cout << std::endl;
-    
-    assert(result.size() == static_cast<int>(odd_sum));  
+
     return 0;
 }
