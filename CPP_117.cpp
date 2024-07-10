@@ -41,7 +41,6 @@ bool issame(const std::vector<std::string>& a, const std::string& b) {
 }
 
 int main() {
-    std::vector<std::string> result = select_words("a b c d e f", 1);
-    assert(issame(result, {"b"}));
+    assert(issame(vector<string>(select_words("a b c d e f", 1)), {"b"}));
     return 0;
 }
