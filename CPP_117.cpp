@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -12,42 +11,16 @@ vector<string> select_words(string s, int n) {
         if (isalpha(c)) {
             word += tolower(c);
         } else if (!word.empty()) {
-            bool has_n_consonants = false;
-            for (int i = 0; i < word.size(); ++i) {
-                if (!ispunct(word[i])) {
-                    int consonant_count = 0;
-                    for (int j = 0; j < word.size(); ++j) {
-                        if (ispunct(word[j]))
-                            continue;
-                        if (!isvowel(word[j])) {
-                            ++consonant_count;
-                        }
-                    }
-                    if (consonant_count == n) {
-                        has_n_consonants = true;
-                        break;
-                    }
-                }
-            }
+            bool has_n_consonants = count(word.begin(), word.end(), !ispunct(c) && !isspace(c)) - count(word.begin(), word.end(), 'a') - count(word.begin(), word.end(), 'e') - count(word.begin(), word.end(), 'i') - count(word.begin(), word.end(), 'o') - count(word.begin(), word.end(), 'u') >= n;
             if (has_n_consonants) {
                 result.push_back(word);
             }
             word = "";
         }
     }
-    return result;
-}
-
-int main() {
-    string s;
-    int n;
-    cout << "Enter a string: ";
-    cin >> s;
-    cout << "Enter the number of consonants: ";
-    cin >> n;
-    vector<string> res = select_words(s, n);
-    for (auto str : res) {
-        cout << str << endl;
+    bool has_n_consonants = count(word.begin(), word.end(), !ispunct(c) && !isspace(c)) - count(word.begin(), word.end(), 'a') - count(word.begin(), word.end(), 'e') - count(word.begin(), word.end(), 'i') - count(word.begin(), word.end(), 'o') - count(word.begin(), word.end(), 'u') >= n;
+    if (has_n_consonants) {
+        result.push_back(word);
     }
-    return 0;
+    return result;
 }
