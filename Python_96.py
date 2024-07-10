@@ -1,3 +1,4 @@
+```
 print("Welcome to the Prime Number Finder!")
 n = int(input("Enter a number: "))
 
@@ -15,3 +16,5 @@ def count_up_to(n):
         if is_prime(i):
             result.append(i)
     return result
+
+print(count_up_to(n))
