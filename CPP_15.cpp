@@ -1,5 +1,4 @@
-#include <string>
-using namespace std;
+Here is the completed code:
 
 string string_sequence(int n) {
     ostringstream oss;
