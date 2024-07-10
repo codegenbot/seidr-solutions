@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include <string>
 
 using namespace std;
 
@@ -12,8 +13,9 @@ long long special_factorial(int n) {
 }
 
 int main() {
-    long long n;
+    string nStr;
     cout << "Enter a positive integer: ";
-    cin >> n;
+    cin >> nStr;
+    int n = stoi(nStr);
     cout << "The special factorial of " << n << " is: " << special_factorial(n) << endl;
 }
