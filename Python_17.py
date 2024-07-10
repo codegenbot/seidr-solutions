@@ -1,10 +1,10 @@
 def parse_music(music_data):
     notes = music_data.split()
-    result = []
+    total_duration = 0
     for note in notes:
-        if note.isdigit():
-            result.append(int(note))
-    return result
+        duration, _ = note.split(":")
+        total_duration += int(duration)
+    return total_duration
 
-music_data = input()
+music_data = input("Enter notes separated by space and duration by colon: ")
 print(parse_music(music_data))
