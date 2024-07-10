@@ -1,28 +1,25 @@
-#include <vector>
+#include <iostream>
 using namespace std;
 
 int main() {
     int cents;
     cin >> cents;
 
-    vector<int> coins = {25, 10, 5, 1}; // values of quarters, dimes, nickles and pennies in cents
-    vector<int> count(4); // to store the count of each type of coin
+    int quarters = cents / 25;
+    cents %= 25;
 
-    for (int i = 0; i < 4; i++) {
-        while (cents >= coins[i]) {
-            int numCoins = cents / coins[i];
-            cents -= numCoins * coins[i];
-            count[i] = numCoins;
-        }
-    }
+    int dimes = cents / 10;
+    cents %= 10;
 
-    cout << count[3] << endl; // print the number of pennies
-    for (int i = 2; i >= 0; i--) {
-        if (count[i] > 0) {
-            cout << count[i] << endl; // print the number of each type of coin
-            break;
-        }
-    }
+    int nickles = cents / 5;
+    cents %= 5;
+
+    int pennies = cents;
+
+    cout << quarters << endl;
+    cout << dimes << endl;
+    cout << nickles << endl;
+    cout << pennies << endl;
 
     return 0;
 }
