@@ -3,7 +3,8 @@
 #include <map>
 #include <algorithm>
 #include <iostream>
-#include <cassert>
+
+using namespace std;
 
 std::vector<std::string> by_length(std::vector<int> arr){
     std::vector<std::string> result;
@@ -39,6 +40,14 @@ std::vector<std::string> by_length(std::vector<int> arr){
 }
 
 int main() {
-    assert(by_length({9, 4, 8}) == std::vector<std::string>{"Nine", "Four", "Eight"});
+    std::vector<std::string> expected = {"Nine", "Four", "Eight"};
+    std::vector<std::string> result = by_length({9, 4, 8});
+    
+    if (result == expected) {
+        std::cout << "Test case passed." << std::endl;
+    } else {
+        std::cout << "Test case failed." << std::endl;
+    }
+
     return 0;
 }
