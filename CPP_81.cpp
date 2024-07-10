@@ -12,7 +12,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b){
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::string> result(n);
+    std::vector<std::string> result = std::vector<std::string>(); // Initialize with an empty vector
     for (float grade : grades) {
         if (grade >= 4.0)
             result.push_back("A+");
@@ -53,7 +53,8 @@ int main() {
         std::cin >> grades[i];
     }
 
-    std::vector<std::string> result = numerical_letter_grade(grades);
+    std::vector<std::string> result;
+    result = numerical_letter_grade(grades);
 
     std::cout << "Letter Grades: ";
     for (const auto& letter : result) {
