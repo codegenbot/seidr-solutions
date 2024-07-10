@@ -3,7 +3,8 @@ using namespace std;
 
 string squareDigits(string input) {
     string output = "";
-    for (char c : input) {
+    for (int i = 0; i < input.size(); i++) {
+        char c = input[i];
         int digit = c - '0';
         output += to_string(digit * digit);
     }
@@ -11,6 +12,8 @@ string squareDigits(string input) {
 }
 
 int main() {
-    cout << squareDigits("8174") << endl;
+    string input;
+    cin >> input;
+    cout << squareDigits(input) << endl;
     return 0;
 }
