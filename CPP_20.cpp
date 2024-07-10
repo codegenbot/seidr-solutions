@@ -4,7 +4,7 @@
 
 using namespace std;
 
-pair<float, float> find_closest_elements(vector<float> numbers) {
+pair<float, float> find_closest_elements(const vector<float>& numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
     pair<float, float> result = make_pair(numbers[0], numbers[1]);
@@ -18,7 +18,7 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    vector<float> numbers = {3.5, 2.1, 5.7, 1.8, 4.2};
+    vector<float> numbers = {3.5, 2.1, 8.7, 1.9, 4.2};
     pair<float, float> closest_elements = find_closest_elements(numbers);
     cout << closest_elements.first << " " << closest_elements.second << endl;
     return 0;
