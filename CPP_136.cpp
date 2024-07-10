@@ -10,10 +10,10 @@ std::vector<int> largest_smallest_integers(const std::vector<int>& numbers) {
 }
 
 bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-int main() {
+int main(){
     assert(is_same(largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-100, 1});
 
     return 0;
