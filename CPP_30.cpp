@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <assert>
 
 std::vector<float> get_positive(std::vector<float> l){
     std::vector<float> result;
