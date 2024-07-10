@@ -16,5 +16,5 @@ for i in range(n):
 if cut_index == -1:
     cut_index = n - 1
 
-print(*arr[: cut_index + 1])
-print(*arr[cut_index + 1 :])
+print(*arr[:cut_index + 1])
+print(*arr[cut_index + 1:])
