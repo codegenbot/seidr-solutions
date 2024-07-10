@@ -6,6 +6,5 @@ def parse_music(music_data):
         total_duration += int(duration)
     return total_duration
 
-
-music_data = input().strip()
+music_data = raw_input("Enter notes separated by space and duration by colon: ")
 print(parse_music(music_data))
