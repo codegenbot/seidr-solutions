@@ -1,20 +1,17 @@
-vector<float> l_odd, l_even;
-    for (int i = 0; i < l.size(); ++i) {
+vector<float> l_prime = l;
+    vector<float> even_values;
+    for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l_even.push_back(l[i]);
-        } else {
-            l_odd.push_back(l[i]);
+            even_values.push_back(l[i]);
         }
     }
-    sort(l_even.begin(), l_even.end());
-    for (int i = 0, j = 0, k = 0; i < l.size(); ++i) {
+    sort(even_values.begin(), even_values.end());
+    int even_index = 0;
+    for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            l[i] = l_even[j];
-            ++j;
-        } else {
-            l[i] = l_odd[k];
-            ++k;
+            l_prime[i] = even_values[even_index];
+            even_index++;
         }
     }
-    return l;
+    return l_prime;
 }
