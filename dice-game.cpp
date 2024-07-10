@@ -2,5 +2,11 @@ Here is the solution:
 
 double diceGame(int n, int m) {
     double total = (double)n * m;
-    return (n - 1) / total;
+    double p = 0;
+    
+    for(int i = 1; i < n; i++) {
+        p += (double)(n - i + 1) / total;
+    }
+    
+    return p;
 }
