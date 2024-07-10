@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,8 +5,8 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> multiplesOfThree(1); // Initialize with capacity 1
-    vector<int> others(0);              // Initialize with capacity 0
+    vector<int> multiplesOfThree;
+    vector<int> others;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0)
@@ -19,29 +18,27 @@ vector<int> sort_third(vector<int> l) {
     sort(multiplesOfThree.begin(), multiplesOfThree.end());
 
     vector<int> result;
-    int j = 0;
-    for (int i = 0; i < l.size(); ) {
+    int i = 0;
+    while (i < l.size()) {
         if (i % 3 == 0 && !multiplesOfThree.empty()) {
-            int val = multiplesOfThree[j];
-            while (!multiplesOfThree.empty() && j < multiplesOfThree.size()) {
+            int val = multiplesOfThree[0];
+            while (!multiplesOfThree.empty()) {
                 result.push_back(val);
-                for(int k = 0; k < 3; k++) {
-                    if(i % 3 == 0)
-                        i++;
-                    else
-                        i++;
+                for(int k = 0; k < 2; k++) {
+                    i += 3;
+                    if(!multiplesOfThree.empty())
+                        multiplesOfThree.erase(multiplesOfThree.begin());
                 }
-                j++;
-                if(j >= multiplesOfThree.size())
-                    break;
             }
         } else {
             if(others.size() > 1) {
                 result.push_back(others[0]);
                 others.erase(others.begin());
-            } else {
+            } else if (!others.empty()) {
                 result.push_back(others[0]);
-            }
+                others.pop_back();
+            } else
+                break;
             i++;
         }
     }
@@ -50,8 +47,8 @@ vector<int> sort_third(vector<int> l) {
 }
 
 int main_driver() {
-    vector<int> l1 = {1, 2, 3};
-    vector<int> l2 = {5, 6, 3, 4, 8, 9, 2};
+    vector<int> l1 = {3, 2};
+    vector<int> l2 = {9, 8, 7, 6, 5, 4, 3, 2};
 
     cout << "l1: ";
     for (int i : l1) {
