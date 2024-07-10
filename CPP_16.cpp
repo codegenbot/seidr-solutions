@@ -1,4 +1,3 @@
-
 // Include the necessary header files
 #include <iostream>
 #include <vector>
