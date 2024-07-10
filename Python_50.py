@@ -1,6 +1,7 @@
 def decode_shift():
+    result = ""
+
     if __name__ == "__main__":
-        result = ""
         while True:
             s = input("Enter a string to shift (or 'q' to quit): ")
             if s.lower() == "q":
@@ -15,7 +16,11 @@ def decode_shift():
                 else:
                     ascii_offset = 65 if char.isupper() else 97
                     if char.isupper():
-                        result += chr((ord(char) - ascii_offset + n) % 26 + ascii_offset).upper()
+                        result += chr(
+                            (ord(char) - ascii_offset + n) % 26 + ascii_offset
+                        ).upper()
                     else:
-                        result += chr((ord(char) - ascii_offset + n) % 26 + ascii_offset).lower()
+                        result += chr(
+                            (ord(char) - ascii_offset + n) % 26 + ascii_offset
+                        ).lower()
             print(result)
