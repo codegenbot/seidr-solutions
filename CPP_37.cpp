@@ -1,18 +1,18 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if (v1.size() != v2.size()) return false;
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) return false;
+bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (std::abs(a[i] - b[i]) > 1e-9) return false;
     }
     return true;
 }
 
-std::vector<int> sort_even(const std::vector<int>& numbers) {
-    std::vector<int> even_numbers;
-    for (int num : numbers) {
-        if (num % 2 == 0) {
+std::vector<float> sort_even(const std::vector<float>& numbers) {
+    std::vector<float> even_numbers;
+    for (float num : numbers) {
+        if (num % 2.0 == 0.0f) {
             even_numbers.push_back(num);
         }
     }
@@ -20,21 +20,21 @@ std::vector<int> sort_even(const std::vector<int>& numbers) {
     return even_numbers;
 }
 
-int main() {
+int unique_main() {
     int n;
-    std::vector<int> numbers;
+    std::vector<float> numbers;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
-        int num;
+        float num;
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> num;
         numbers.push_back(num);
     }
-    std::vector<int> even_numbers = sort_even(numbers);
-    if (issame(even_numbers, {2,4,8,12})) {
+    std::vector<float> even_numbers = sort_even(numbers);
+    if (issame(even_numbers, {2.0f,4.0f,8.0f,12.0f})) {
         std::cout << "The sorted even numbers are: ";
-        for (int num : even_numbers) {
+        for (float num : even_numbers) {
             std::cout << num << " ";
         }
         std::cout << std::endl;
@@ -42,4 +42,8 @@ int main() {
         std::cout << "The expected output is not achieved." << std::endl;
     }
     return 0;
+}
+
+int main() {
+    return unique_main();
 }
