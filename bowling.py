@@ -21,7 +21,9 @@ def bowling_score(bowls):
                 else:
                     score += int(next_bowl)
 
-                if next_frame.index(next_bowl) == 1:  # Check if just 2 bowls have been bowled in next frame
+                if (
+                    next_frame.index(next_bowl) == 1
+                ):  # Check if just 2 bowls have been bowled in next frame
                     break
 
         elif len(frame) == 2 and i < 9:  # Spare in frame
