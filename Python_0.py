@@ -1,9 +1,3 @@
 def check_numbers(numbers, threshold):
     result = [num for num in numbers if num > threshold]
     return result
-
-# Call the function with appropriate arguments
-numbers = [5, 10, 15, 20]
-threshold = 10
-output = check_numbers(numbers, threshold)
-print(output)
