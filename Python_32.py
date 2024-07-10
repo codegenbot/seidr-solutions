@@ -1,5 +1,3 @@
-Here is the solution:
-
 def find_zero(xs: list):
-    n = len(xs) // 2
-    return -xs[n-1] / xs[n]
+    degree = len(xs) // 2
+    return round((-xs[degree - 1] / xs[degree]), 2)
