@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```
 def parse_music(music_string: str) -> list:
     music_list = []
