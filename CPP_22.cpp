@@ -1,16 +1,20 @@
-```
+#include <algorithm>
 #include <vector>
 #include <list>
-#include <stdexcept>
+#include <boost/any.hpp>
 
-std::vector<int> filter_integers(std::list<any> values) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+}
+
+std::vector<int> filter_integers(std::list<boost::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<bool>(value)) {
-            try {
-                int val = stoi(any_cast<std::string>(value));
+        if(boost::holds_alternative<int>(value)) {
+            int val = boost::get<int>(value);
+            if(val != 0) {
                 result.push_back(val);
-            } catch (std::invalid_argument&) {}
+            }
         }
     }
     return result;
