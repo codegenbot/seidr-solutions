@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -12,9 +11,6 @@ std::string int_to_mini_roman(int number) {
             number -= pair.first;
             roman += pair.second;
         }
-    }
-    if (number > 0) {
-        return "Input is too large. Please enter a number less than 4000.";
     }
     return roman;
 }

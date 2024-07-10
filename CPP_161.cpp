@@ -1,6 +1,5 @@
-#include <iostream>
 #include <string>
-#include <cctype>
+using namespace std;
 
 std::string solve(std::string s) {
     std::string result = "";
