@@ -16,7 +16,7 @@ bool issame(string a, string b) {
     return true;
 }
 
-{
+(int main() {
     int num;
     cin >> num;
     string str1, str2;
@@ -29,4 +29,5 @@ bool issame(string a, string b) {
         }
     }
     
-}
+    return 0;
+})
