@@ -10,16 +10,17 @@ std::vector<std::string> all_prefixes(const std::string& str) {
     return prefixes;
 }
 
-bool issame(const std::vector<std::vector<char>>& a, const std::vector<std::vector<char>>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); ++i) {
-        if(!issame(a[i],b[i])) return false;
+        if(a[i] != b[i]) return false;
     }
     return true;
 
 }
 
+std::vector<std::string> b;
 int main() {
-    std::vector<std::vector<char>> b = {{'W'}, {'W', 'W'}, {'W', 'W', 'W'}}; 
+    b = {"W", "W", "W"}; 
     assert(issame(b, all_prefixes("WWW")));
 }
