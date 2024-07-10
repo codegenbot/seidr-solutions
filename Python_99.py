@@ -1,10 +1,16 @@
-```python
-def closest_integer_to_month(value):
-    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    month_number = int(input("Enter the number of the month (1-12): "))
-    if month_number < 1 or month_number > 12:
-        return "Invalid input. Please enter a number between 1 and 12."
-    else:
-        return months[month_number - 1]
+def find_average(lst):
+    closest_integer = round(sum(lst) / len(lst))
+    return closest_integer
 
-closest_integer_to_month(5)
+
+def main():
+    lst = input("Enter space-separated numbers: ").split()
+    try:
+        lst = [int(x) for x in lst]
+        print(find_average(lst))
+    except ValueError as e:
+        print(f"Invalid input: {e}")
+
+
+if __name__ == "__main__":
+    main()
