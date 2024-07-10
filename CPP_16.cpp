@@ -1,16 +1,10 @@
 #include <algorithm>
-#include <cctype>
-#include <vector>
+#include <cassert>
 
-int count_distinct_characters(std::string str) {
-    std::transform(str.begin(), str.end(), str.begin(), ::tolower);
-    std::vector<bool> visited(26, false);
-    int count = 0;
-    for (char c : str) {
-        if (std::isalpha(c) && !visited[c - 'a']) {
-            visited[c - 'a'] = true;
-            count++;
-        }
-    }
-    return count;
+int count_distinct_characters(const std::string& str) {
+    std::string str_copy = str;
+    std::transform(str_copy.begin(), str_copy.end(), str_copy.begin(), ::tolower);
+    std::sort(str_copy.begin(), str_copy.end());
+    auto it = std::unique(str_copy.begin(), str_copy.end());
+    return std::distance(str_copy.begin(), it);
 }
