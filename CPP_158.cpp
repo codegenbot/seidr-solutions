@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -22,9 +23,7 @@ int main() {
         std::cout << "Enter word " << i + 1 << ": ";
         std::string str;
         getline(std::cin, str); 
-        if (str.find_first_not_of(' ') == std::string::npos) {
-            words.push_back(str);
-        } else {
+        if (!str.empty()) { // Check if string is not empty
             str.erase(0, str.find_first_not_of(' ')); 
             str.erase(str.find_last_not_of(' ') + 1);
             words.push_back(str);
