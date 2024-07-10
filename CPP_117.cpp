@@ -15,8 +15,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 std::vector<std::string> select_words(std::string input, int k) {
     std::istringstream iss(input);
     std::vector<std::string> words;
-    std::string word;
-    while (iss >> word) {
+    
+    while (getline(iss, word, ' ")) { 
         words.push_back(word);
     }
     
@@ -39,7 +39,7 @@ std::string Join(const std::vector<std::string>& vec, char delimiter) {
 }
 
 int main() {
-    if (!issame(std::vector<std::string>(my_result.begin(), my_result.end()), select_words("a b c d e f", 1))) 
+    if (!issame(std::vector<std::string>(std::begin({"b"}), std::end({"b"})), select_words("a b c d e f", 1))) 
         std::cout << "{" + Join(select_words("a b c d e f", 1), ", ") + "}" << std::endl;
     return 0;
 }
