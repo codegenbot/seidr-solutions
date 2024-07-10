@@ -1,11 +1,14 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 int main() {
-    std::vector<std::string> words = {"play", "play", "play"};
-    std::string max_word = *std::max_element(words.begin(), words.end(),
+    std::vector<std::string> words;
+    for (const auto& word : {"play", "play", "play"}) {
+        words.push_back(word);
+    }
+    std::string max_word = *max_element(words.begin(), words.end(),
         [](const std::string& a, const std::string& b) {
             if (a.length() == b.length()) {
                 return a < b;
