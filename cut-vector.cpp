@@ -1,31 +1,26 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 int main() {
-    vector<int> nums;
-    int num;
+    vector<int> nums = {3, 1, 4, 1, 5, 9, 2, 6, 5};
+    int target = 10;
 
-    while (cin >> num) {
-        nums.push_back(num);
-    }
-
-    sort(nums.begin(), nums.end());
-
-    int sum = accumulate(nums.begin(), nums.end(), 0);
-    int target = sum / 2;
     int prefixSum = 0;
-    int index = 0;
-    int minDiff = INT_MAX;
+    int index = -1;
 
     for (int i = 0; i < nums.size(); ++i) {
         prefixSum += nums[i];
-        int diff = abs(2 * prefixSum - sum);
-        if (diff < minDiff) {
-            minDiff = diff;
+        if (prefixSum == target) {
             index = i;
+            break;
+        }
+        int diff1 = abs(prefixSum - target);
+        int diff2 = abs(target - (prefixSum - nums[i]));
+        if (diff1 < diff2) {
+            index = i;
+            break;
         }
     }
 
