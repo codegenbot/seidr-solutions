@@ -1,8 +1,4 @@
-#include "cryptopp/md5.h"
-#include <cryptopp/sha.h>
-#include <cryptopp/hmac.h>
-#include <cryptopp/aes.h>
-#include <string>
+#include <cryptopp/md5.h>
 
 std::string cppString_to_md5(std::string text) {
     CryptoPP::MD5 hash;
