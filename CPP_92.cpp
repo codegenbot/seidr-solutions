@@ -1,13 +1,8 @@
-Here's the completed code:
+Here is the completed code:
 
-```cpp
 bool any_int(float a, float b, float c) {
-    int ai = (int)a;
-    int bi = (int)b;
-    int ci = (int)c;
-
-    if(ai == bi + ci || ai == bi - ci || ai == ci + bi || ai == bi + ci)
-        return true;
-    else
-        return false;
+    int ai = a;
+    int bi = b;
+    int ci = c;
+    return (ai == bi + ci || ai == ci + bi || bi == ai + ci || bi == ci + ai || ci == ai + bi || ci == bi + ai);
 }
