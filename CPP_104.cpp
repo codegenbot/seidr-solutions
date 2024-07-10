@@ -1,7 +1,7 @@
 #include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    // code for issame function
 }
 
 vector<int> unique_digits(vector<int> x) {
