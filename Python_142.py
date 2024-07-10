@@ -1,9 +1,10 @@
-def sum_squares(x):
-    lst = list(map(int, input("Enter numbers separated by space: ").split()))
+def sum_squares(*args):
     total_sum = 0
-    for i in range(len(lst)):
-        if i % 3 == 0 and i % 4 != 0:
-            total_sum += lst[i] ** 2
-        elif i % 4 == 0 and i % 3 != 0:
-            total_sum += lst[i] ** 3
+    for arg in args:
+        if not isinstance(arg, (int, float)):
+            raise ValueError("Invalid input. Only numbers are allowed.")
+        try:
+            total_sum += float(arg) ** 2
+        except ValueError:
+            raise ValueError("Invalid input. Only numbers are allowed.")
     return total_sum
