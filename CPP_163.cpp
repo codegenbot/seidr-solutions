@@ -2,12 +2,14 @@
 #include <iostream>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin(), b.end());
+    return a == b;
 }
 
 std::vector<int> generate_integers(int start, int end) {
-    std::vector<int> result(end - start + 1);
-    std::iota(result.begin(), result.end(), start);
+    std::vector<int> result;
+    for (int i = start; i <= end; ++i) {
+        result.push_back(i);
+    }
     return result;
 }
 
