@@ -14,7 +14,7 @@ int monotonic(std::vector<int> l) {
             decreasing = false;
         }
     }
-    return increasing || decreasing;
+    return increasing && decreasing;
 }
 
 int main_problem_CPP_57() {
