@@ -1,9 +1,13 @@
 def add(x, y):
     return x + y
 
-try:
-    x, y = map(int, input("Enter two integers separated by space: ").strip().split())
-    result = add(x, y)
-    print(result)
-except ValueError:
-    print("Error: Invalid input")
+def main():
+    try:
+        x, y = map(int, input().strip().split())
+        result = add(x, y)
+        print(result)
+    except ValueError:
+        print("Error: Invalid input")
+
+if __name__ == "__main__":
+    main()
