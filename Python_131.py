@@ -1,4 +1,3 @@
-```python
 def digits(n):
     product = 1
     has_odd = False
@@ -6,4 +5,4 @@ def digits(n):
         if int(digit) % 2 != 0:
             has_odd = True
             product *= int(digit)
-    return product if has_odd else 1
+    return n if not has_odd else product
