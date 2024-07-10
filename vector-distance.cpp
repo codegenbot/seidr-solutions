@@ -11,8 +11,8 @@ double calculateDistance(const std::vector<float>& vector1, const std::vector<fl
 }
 
 int main() {
-    std::vector<float> v1({1.0, 2.0, 3.0});
-    std::vector<float> v2({4.0, 5.0, 6.0});
+    std::vector<float> v1({1.0f, 2.0f, 3.0f});
+    std::vector<float> v2({4.0f, 5.0f, 6.0f});
     double result = calculateDistance(v1, v2);
     std::cout << "The distance between the two vectors is: " << result << std::endl;
     return 0;
