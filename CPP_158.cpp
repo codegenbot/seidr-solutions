@@ -20,6 +20,7 @@ int main() {
     int n;
     std::cout << "Enter the number of words: ";
     std::cin >> n;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Add this line
 
     for (int i = 0; i < n; ++i) {
         std::string word;
