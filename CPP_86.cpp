@@ -1,17 +1,20 @@
-string result = "";
+#include <iostream>
+#include <algorithm>
+#include <string>
+
+string anti_shuffle(string s) {
+    string result = "";
     string word = "";
     for (char c : s) {
         if (c == ' ') {
             sort(word.begin(), word.end());
-            result += word + ' ';
+            result += word + " ";
             word = "";
         } else {
             word += c;
         }
     }
-    if (!word.empty()) {
-        sort(word.begin(), word.end());
-        result += word;
-    }
+    sort(word.begin(), word.end());
+    result += word;
     return result;
 }
