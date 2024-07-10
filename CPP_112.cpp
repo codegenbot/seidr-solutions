@@ -50,7 +50,15 @@ int main() {
     else
         cout << "Second number is greater." << endl;
 
-    assert(issame(vector<char>(reverse_delete("mama", "ma").begin(), reverse_delete("mama", "ma").end()),
-              vector<char>(to_string(reverse_delete("mama", "ma")).c_str(), to_string(reverse_delete("mama", "ma")).c_str() + to_string(reverse_delete("mama", "ma")).size())));
+    string s1 = "mama";
+    vector<char> v1(s1.begin(), s1.end());
+    string s2 = "ma";
+    vector<char> v2(s2.begin(), s2.end());
+    if(issame(vector<char>(reverse_delete(s1, s2).begin(), reverse_delete(s1, s2).end()),
+              vector<char>(to_string(reverse_delete(s1, s2)).c_str(), to_string(reverse_delete(s1, s2)).size())))
+        cout << "The strings are same." << endl;
+    else
+        cout << "The strings are not same." << endl;
+
     return 0;
 }
