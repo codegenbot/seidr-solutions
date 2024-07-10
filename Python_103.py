@@ -1,3 +1,5 @@
+```Python
+import math
 def rounded_avg(n, m):
-    avg = round((n + m) / 2.0)
-    return f"0b{bin(avg)[2:].ljust(8, '0')}"
+    avg = (n + m) / 2.0
+    return f"0b{bin(int(avg))[2:].ljust(8, '0')}"
