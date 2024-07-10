@@ -1,6 +1,5 @@
-#ifndef PROBLEM_H
-#define PROBLEM_H
-
+```
+#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -17,9 +16,12 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5f, 3.0f, 4.5f, 6.0f};
-    long long odd_sum = double_the_difference(lst);
+    std::vector<float> lst;
+    float num;
+    while(std::cin >> num) {
+        lst.push_back(num);
+    }
+    int odd_sum = double_the_difference(lst);
+    std::cout << "The sum of the squares of the odd numbers is: " << odd_sum << std::endl;
     return 0;
 }
-
-#endif
