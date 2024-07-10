@@ -1,14 +1,22 @@
-def solveBoolean(expression):
-    stack = []
-    for char in expression[::-1]:
-        if char == "&":
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a and b)
-        elif char == "|":
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a or b)
-        else:
-            stack.append(char == "t")
-    return stack[0]
+Here is the Python solution:
+
+def solve_boolean(expression):
+    if expression == 'T':
+        return True
+    elif expression == 'F':
+        return False
+    elif '&' in expression and '|' in expression:
+        left, right = expression.split('&')
+        left = solve_boolean(left)
+        right = solve_boolean(right)
+        return left and right
+    elif '&' in expression:
+        left, right = expression.split('&')
+        left = solve_boolean(left)
+        right = solve_boolean(right)
+        return left and right
+    elif '|' in expression:
+        left, right = expression.split('|')
+        left = solve_boolean(left)
+        right = solve_boolean(right)
+        return left or right
