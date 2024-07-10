@@ -1,6 +1,5 @@
 #include <vector>
-
-vector<int> filterNumbersWithoutEvenDigits(vector<int> x) {
+vector<int> removeNumbersWithEvenDigits(vector<int> x) {
     vector<int> result;
     for (int num : x) {
         int temp = num;
