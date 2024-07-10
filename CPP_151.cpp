@@ -1,13 +1,9 @@
 long long double_the_difference(vector<float> lst) {
     long long sum = 0;
-    vector<float> numbers;
+    float num;
     for (int i = 0; i < 5; ++i) {
-        float num;
         cin >> num;
-        numbers.push_back(num);
-    }
-    for (float num : numbers) {
-        if (num > 0 && floor(num) == num) { 
+        if (num > 0 && floor(num) == num) { // check if number is positive and integer
             sum += pow(num, 2);
         }
     }
