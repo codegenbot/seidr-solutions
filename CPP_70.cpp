@@ -10,13 +10,18 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
         lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
         
         if (!lst.empty()) {
-            int max_val = *max_element(lst.begin(), lst.end());
-            if (max_val == min_val) {
+            bool isSame = true;
+            for(int i = 0; i < lst.size() - 1; i++) {
+                if (lst[i] > lst[i + 1]) {
+                    isSame = false;
+                    break;
+                }
+            }
+            
+            if (!isSame) {
+                int max_val = *max_element(lst.begin(), lst.end());
                 result.push_back(max_val);
                 lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
-            } else {
-                result.push_back(*min_element(lst.begin(), lst.end()));
-                lst.erase(std::remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
             }
         }
     }
