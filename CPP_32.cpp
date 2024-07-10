@@ -1,6 +1,10 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <cmath> 
 using namespace std;
+
+double poly(vector<double> coeffs, double x); 
 
 double find_zero(vector<double> coeffs) {
     double x = 2.0;
