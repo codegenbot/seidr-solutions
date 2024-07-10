@@ -15,6 +15,8 @@ vector<string> by_length(const vector<int>& nums) {
 }
 
 int main() {
-    assert(by_length({9, 4, 8}) == vector<string>{"Nine", "Four", "Eight"});
+    vector<string> expected = {"Nine", "Four", "Eight"};
+    vector<string> result = by_length({9, 4, 8});
+    assert(expected == result);
     return 0;
 }
