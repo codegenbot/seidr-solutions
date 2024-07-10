@@ -1,4 +1,5 @@
 #include <vector>
+
 vector<int> findIndicesOfSubstring(const string& text, const string& target) {
     vector<int> indices;
 
