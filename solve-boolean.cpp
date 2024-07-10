@@ -1,3 +1,9 @@
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 bool evaluateBooleanExpression(const string& expression) {
     if (expression == "t") {
         return true;
