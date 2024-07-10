@@ -1,18 +1,16 @@
-Here is the completed code:
-
 int is_bored(string S){
-    int count = 0;
-    string sentence;
-    for(int i=0; i<S.length(); i++){
-        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
-            if(sentence.length() > 0 && sentence[0] == 'I')
-                count++;
-            sentence = "";
-        }else{
-            sentence += S[i];
+    int boredoms = 0;
+    size_t pos = 0;
+    while ((pos = S.find("I", pos)) != string::npos) {
+        if (S[pos] == '.' || S[pos] == '?' || S[pos] == '!') {
+            boredoms++;
+            pos += 1; // skip the punctuation
+            while (pos < S.length() && (S[pos] == ' ' || S[pos] == '\t')) {
+                pos++; // skip spaces and tabs
+            }
+        } else {
+            pos++; // move to next character
         }
     }
-    if(sentence.length() > 0 && sentence[0] == 'I')
-        count++;
-    return count;
+    return boredoms;
 }
