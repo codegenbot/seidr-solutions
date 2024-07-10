@@ -1,3 +1,4 @@
+```
 #include <cassert>
 #include <string>
 
@@ -10,7 +11,7 @@ int solve(std::string s) {
     return s.length();
 }
 
-int main() {
+int testMain() {
     assert(solve("#ccc") == 3);
     return 0;
 }
