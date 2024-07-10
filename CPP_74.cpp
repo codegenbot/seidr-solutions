@@ -1,11 +1,7 @@
-#include <iostream>
-#include <vector>
 #include <string>
-#include <cassert>
+#include <vector>
 
-using namespace std;
-
-bool issame(vector<string> a, vector<string> b){
+bool issame(vector<string> a, vector<string> b) {
     int total_chars1 = 0;
     int total_chars2 = 0;
     
@@ -17,11 +13,9 @@ bool issame(vector<string> a, vector<string> b){
         total_chars2 += str.length();
     }
     
-    return total_chars1 == total_chars2;
-}
-
-int main(){
-    assert(issame({"this"}, {}));
-    // Add more test cases here
-    return 0;
+    if (total_chars1 < total_chars2) {
+        return a;
+    } else {
+        return b;
+    }
 }
