@@ -41,7 +41,7 @@ int main() {
     std::cin >> code;
     std::cout << "Enter your guess: ";
     std::cin >> guess;
-
+    
     int result = mastermind(code, guess);
     std::cout << "Number of white pegs and black pegs are " << result << std::endl;
 
