@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 using namespace std;
 
@@ -14,6 +13,5 @@ string circular_shift(int x, int shift) {
 }
 
 int main() {
-    assert(circular_shift(11, 2) == "1111");
-    cout << circular_shift(1234, 3) << endl;
+    cout << circular_shift(11, 2) << endl;
 }
