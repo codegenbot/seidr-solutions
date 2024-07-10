@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -17,11 +18,36 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     while (index <= text.length() - target.length()) {
         size_t found = static_cast<size_t>(text.find(target, index));
         if (found != std::string::npos) {
-            result.push_back(static_cast<int>(found));
+            result.push_back(found);
             index = found + 1;
         } else {
+            std::cerr << "Target substring not found in the text." << std::endl;
             break;
         }
     }
 
     return result;
+}
+
+int main() {
+    std::cout << "GCD of two numbers: ";
+    int a, b;
+    std::cin >> a >> b;
+    if (!(b)) {
+        std::cerr << "Error: Second number cannot be zero." << std::endl;
+        return 1;
+    }
+    std::cout << gcd(a, b) << "\n";
+    
+    // Example usage for indicesOfSubstring function
+    std::string text = "banana";
+    std::string target = "ana";
+    std::vector<int> result = indicesOfSubstring(text, target);
+    std::cout << "Indices of substring 'ana' in 'banana': ";
+    for (int i : result) {
+        std::cout << i << " ";
+    }
+    std::cout << "\n";
+    
+    return 0;
+}
