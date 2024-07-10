@@ -1,4 +1,4 @@
-```cpp
+```
 #include <boost/any.hpp>
 #include <string>
 
