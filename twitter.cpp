@@ -1,14 +1,10 @@
 #include <string>
 #include <iostream>
-#include <algorithm>
-#include <cctype>
 
 int main() {
     std::string tweet;
     std::getline(std::cin, tweet);
-
-    tweet.erase(0, tweet.find_first_not_of(" \t\n\r")); // Trim leading whitespace
-    tweet.erase(tweet.find_last_not_of(" \t\n\r") + 1); // Trim trailing whitespace
+    std::cin.ignore(); // Clear the newline character from the input buffer
 
     if (tweet.empty()) {
         std::cout << "You didn't type anything" << std::endl;
