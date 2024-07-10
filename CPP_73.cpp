@@ -5,12 +5,12 @@
 #include <climits>
 
 int main() {
-    int n;
+    std::size_t n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
     std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
+    for (std::size_t i = 0; i < n; i++) {
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> arr[i];
     }
@@ -25,10 +25,10 @@ int main() {
 }
 
 int smallest_change(std::vector<int> arr) {
-    int n = arr.size();
+    std::size_t n = arr.size();
     int m = 1; // All rows will have the same size 'm'
     
-    for (int i = 0; i < n; i++) {
+    for (std::size_t i = 0; i < n; i++) {
         if (arr[i] != 0) {
             m = i + 1;
             break;
@@ -37,13 +37,13 @@ int smallest_change(std::vector<int> arr) {
     
     std::vector<std::vector<int>> dp(n, std::vector<int>(m));
     
-    for (int i = 0; i < n; i++) {
+    for (std::size_t i = 0; i < n; i++) {
         dp[i][0] = arr[i];
     }
     
     for (int length = 2; length <= n; length++) {
-        for (int i = 0; i < n - length + 1; i++) {
-                int j = i + length - 1;
+        for (std::size_t i = 0; i < n - length + 1; i++) {
+                std::size_t j = i + length - 1;
                 
                 if (arr[i] == arr[j]) {
                     dp[i][j-i+1] = dp[i + 1][j - i];
