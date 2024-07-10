@@ -3,7 +3,7 @@ int vowels_count(string s) {
     for (char c : s) {
         if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
             count++;
-        } else if (c == 'y' && s[s.size() - 1] == 'y') {
+        } else if (c == 'y' && s.back() == c) {
             count++;
         }
     }
