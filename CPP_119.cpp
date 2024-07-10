@@ -13,7 +13,7 @@ std::string match_parens(std::vector<std::string> lst) {
 }
 
 int main() {
-    assert(match_parens({{"("}, {")"}}) == "Yes");
-    assert(match_parens({{"("}, {"))"}) == "No");
+    assert(match_parens(std::vector<std::string>({{"("}})) == "Yes");
+    assert(match_parens(std::vector<std::string>({{"("}, {"))"}})) == "No");
     return 0;
 }
