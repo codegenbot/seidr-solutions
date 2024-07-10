@@ -1,7 +1,8 @@
+```cpp
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -9,8 +10,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> minPath(std::vector<std::vector<int>> input, int target) {
-    std::vector<int> path;
+vector<int> minPath(vector<vector<int>> input, int target) {
+    vector<int> path;
     for (int i = 0; i < target; i++) {
         if (i >= input[1].size()) {
             path.push_back(input[1][0]);
@@ -28,18 +29,18 @@ std::vector<int> minPath(std::vector<std::vector<int>> input, int target) {
 }
 
 int main() {
-    std::vector<std::vector<int>> input;
+    vector<vector<int>> input;
     input.push_back({1, 3});
     input.push_back({3, 2});
     int target = 10;
 
     if (minPath(input, target).empty()) {
-        std::cout << "No paths found with length " << target << "." << std::endl;
+        cout << "No paths found with length " << target << "." << endl;
         return 0; 
     }
     
     for (int i : minPath(input, target)) {
-        std::vector<int> output;
+        vector<int> output;
         while(i > 0) {
             if(i >= input[1].size()) {
                 i -= input[1][0];
@@ -56,13 +57,14 @@ int main() {
         }
         bool same = issame(output, {1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
         if(same) {
-            std::cout << "The minimum path is: ";
+            cout << "The minimum path is: ";
             for (int i : output) {
-                std::cout << i << " ";
+                std::string str = std::to_string(i);
+                cout << str << " ";
             }
-            std::cout << std::endl;
+            cout << endl;
         } else {
-            std::cout << "No paths found with length " << target << "." << std::endl;
+            cout << "No paths found with length " << target << "." << endl;
         }
     }
 }
