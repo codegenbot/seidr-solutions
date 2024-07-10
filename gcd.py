@@ -1,4 +1,3 @@
-```python
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
@@ -11,6 +10,5 @@ def indices_of_substring(text, target):
             result.append(i)
     return result
 
-if __name__ == "__main__":
-    print(gcd(int(input()), int(input())))
-    print(indices_of_substring(input(), input()))
+print(gcd(int(input()), int(input())))
+print(indices_of_substring(input(), input()))
