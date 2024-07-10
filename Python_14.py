@@ -26,4 +26,5 @@ def all_prefixes() -> None:
         except ValueError as e:
             print(f"Invalid input. Please enter an integer.")
 
-    print("\n".join(get_all_prefixes(s)[:n]))
+    for prefix in get_all_prefixes(s)[:n]:
+        print(prefix)
