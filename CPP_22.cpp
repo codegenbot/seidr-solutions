@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <iostream>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool sameVectors(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -23,14 +24,14 @@ int main() {
     std::vector<int> vector1 = {num1};
     std::vector<int> vector2 = {num2};
 
-    if(isSame(vector1, vector2)) {
+    if(sameVectors(vector1, vector2)) {
         std::cout << "Vectors are same." << std::endl; 
     }
     else {
         std::cout << "Vectors are not same." << std::endl;
     }
 
-    std::vector<int> values = std::vector<int>({1, 0, 3, 4});
+    std::vector<int> values = {1, 0, 3, 4};
     std::vector<int> filtered = filterIntegers(values);
     for (const auto& value : filtered) {
         std::cout << value << " ";
