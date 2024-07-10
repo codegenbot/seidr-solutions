@@ -8,18 +8,16 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d) {
-                count++;
+    for (char c : guess) {
+        bool found = false;
+        for (int i = 0; i < 4; i++) {
+            if (c == code[i] && !found) {
+                found = true;
+            } else if (c == code[i]) {
+                white++;
             }
         }
-        if (count > 1 || count == 1 && code.find(d) != string::npos) {
-            continue;
-        }
-        white += count - black;
     }
 
-    return white + black;
+    return black + white - black;
 }
