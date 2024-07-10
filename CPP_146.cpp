@@ -8,22 +8,9 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
     for (int i = 0; i < n; i++) {
-        std::string num = "";
-        while (true) {
-            std::cout << "Enter element: ";
-            if (!(std::cin >> std::ws)) {
-                std::cin.clear();
-                while(std::cin.get() != '\n') std::cin.ignore();
-                std::getline(std::cin, num);
-                break;
-            } else {
-                std::cerr << "Invalid input! Please enter a string.\n";
-                std::cin.clear();
-                std::cin.ignore();
-                num.resize(std::min(size_t(10), num.size()) + 1);
-                std::getline(std::cin, num);
-            }
-        }
+        std::string num;
+        std::cout << "Enter element: ";
+        getline(std::cin, num);
         nums.push_back(num);
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
