@@ -1,3 +1,7 @@
+#include <string>
+#include <vector>
+using namespace std;
+
 string int_to_mini_romank(int number){
     vector<pair<int, string>> roman_map = {
         {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
