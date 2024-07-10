@@ -1,7 +1,8 @@
 import hashlib
 
 def string_to_md5():
-    text = input("Enter some text: ")
+    text = input("""Enter some text: 
+""")
     if not text:
         return None
     else:
