@@ -1,25 +1,23 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
-int next_smallest(std::vector<int> lst) {
-    std::sort(lst.begin(), lst.end());
-    
+int next_smallest(const std::vector<int>& lst) {
+    std::vector<int> copy_lst = lst;
+    std::sort(copy_lst.begin(), copy_lst.end());
     int count = 0;
-    for (int i = 1; i < lst.size(); ++i) {
-        if (lst[i] != lst[i - 1]) {
+    for (int i = 1; i < copy_lst.size(); ++i) {
+        if (copy_lst[i] != copy_lst[i - 1]) {
             count++;
         }
         if (count == 1) {
-            return lst[i];
+            return copy_lst[i];
         }
     }
-    
     return -1;
 }
 
 int main() {
     assert(next_smallest({-35, 34, 12, -45}) == -35);
-    
-    return 0;
 }
