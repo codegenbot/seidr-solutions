@@ -12,5 +12,5 @@ def sum_of_odd_numbers_in_every_other_element():
                 raise ValueError
         except ValueError:
             print("Invalid input. Please try again.")
-            continue
-    return sum(i for i in numbers[1::2] if i % 2 != 0)
+        else:
+            return sum(i for i in numbers[1::2] if i % 2 != 0)
