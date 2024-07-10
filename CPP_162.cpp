@@ -1,38 +1,28 @@
-#include <openssl/evp.h>
-#include <openssl/crypto.h>
-#include <string>
-#include <iostream>
-#include <cassert>
-
 std::string string_to_md5(const std::string& input) {
-    EVP_MD_CTX *mdctx = NULL;
-    const EVP_MD *md = NULL;
+    EVP_MD_CTX *mdctx;
+    const EVP_MD *md;
     unsigned char hash[EVP_MAX_MD_SIZE];
     unsigned int hash_len;
 
     OpenSSL_add_all_algorithms(); // Initialize OpenSSL library
 
-    if (!(md = EVP_md5())) {
-        return ""; // Handle error
+    md = EVP_md5();
+    mdctx = EVP_MD_CTX_new();
+    
+    if (mdctx == nullptr) {
+        return "";
     }
 
-    if (!(mdctx = EVP_MD_CTX_new())) {
-        return ""; // Handle error
+    if (EVP_DigestInit_ex(mdctx, md, NULL) != 1) {
+        return "";
     }
 
-    if (!EVP_DigestInit_ex(mdctx, md, NULL)) {
-        EVP_MD_CTX_free(mdctx);
-        return ""; // Handle error
+    if (EVP_DigestUpdate(mdctx, input.c_str(), input.size()) != 1) {
+        return "";
     }
 
-    if (!EVP_DigestUpdate(mdctx, input.c_str(), input.size())) {
-        EVP_MD_CTX_free(mdctx);
-        return ""; // Handle error
-    }
-
-    if (!EVP_DigestFinal_ex(mdctx, hash, &hash_len)) {
-        EVP_MD_CTX_free(mdctx);
-        return ""; // Handle error
+    if (EVP_DigestFinal_ex(mdctx, hash, &hash_len) != 1) {
+        return "";
     }
 
     EVP_MD_CTX_free(mdctx);
