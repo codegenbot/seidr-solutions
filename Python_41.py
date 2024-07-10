@@ -1,8 +1,7 @@
 ```
-def car_race_collision(tracks):
+def calculate_collision_rate(tracks):
     collisions = 0
-    for i in range(1, tracks+1): 
-        for j in range(i): 
-            if (j == int((tracks - 1) / 3)) or (j == 2 * int((tracks - 1) / 3)):
-                collisions += 1
-    return collisions
+    for i in range(0, tracks):
+        if (i == int((tracks - 1) / 3)) or (i == 2 * int((tracks - 1) / 3)):
+            collisions += 1
+    return collisions / tracks if tracks > 0 else 0
