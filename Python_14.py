@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -9,7 +10,7 @@ def all_prefixes() -> None:
     while True:
         try:
             s = input("Please enter a string: ")
-            if not s.strip() or not s.isalnum():
+            if not s.strip().isalnum():
                 print("Error: Please provide a non-empty alphanumeric string.")
             else:
                 break
@@ -26,4 +27,8 @@ def all_prefixes() -> None:
         except ValueError as e:
             print(f"Invalid input. Please enter an integer.")
 
-    print("\n".join(get_all_prefixes(s)[:num]))
+    prefixes = get_all_prefixes(s)[:num]
+    if not prefixes:
+        print("There are no prefixes for this string.")
+    else:
+        print("\n".join(prefixes))
