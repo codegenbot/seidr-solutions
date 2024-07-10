@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     string text, target;
-    cin >> target >> ws >> text;
+    cin >> text >> target;
 
     vector<int> indices;
     int pos = text.find(target, 0);
