@@ -27,6 +27,6 @@ int main() {
     for (const auto& str : filtered_strings) {
         std::cout << str << " ";
     }
-
+    
     return 0;
 }
