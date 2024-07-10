@@ -1,20 +1,12 @@
-#include <iostream>
-#include <cassert>
+```c++
+#include <string>
 
 bool is_happy(string s) {
     if (s.length() < 3) return false;
     for (int i = 0; i <= s.length() - 3; i++) {
-        string three_chars = s.substr(i, 3);
         bool unique = true;
-        for (char c : three_chars) {
-            int count = 0;
-            for (int j = i; j < i + 3; j++) {
-                if (s[j] == c) count++;
-            }
-            if (count > 1) {
-                unique = false;
-                break;
-            }
+        for (int j = 1; j <= 3; j++) {
+            if (s[i + j - 1] == s[(i + j) % s.length()]) unique = false;
         }
         if (!unique) return false;
     }
