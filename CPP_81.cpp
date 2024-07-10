@@ -7,10 +7,9 @@
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        auto it = std::find_if(b.begin(), b.end(), [&](const std::string& s) {
-            return s == std::to_string(a[i]);
-        });
-        if (it == b.end()) return false;
+        if (!std::count_if(b.begin(), b.end(), [&](const auto& str) { return std::stoi(str) == std::stoi(std::to_string(a[i])); })) {
+            return false;
+        }
     }
     return true;
 }
