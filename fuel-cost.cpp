@@ -1,9 +1,13 @@
-int solve(vector<int> v) {
-    int sum = 0;
-    for (int i : v) {
-        int num = (i / 3);
-        num = (num > 0) ? num - 2 : 0;
-        sum += num;
+int calculateFuelCost(vector<int> prices) {
+    int total = 0;
+    for (int price : prices) {
+        int newPrice = (price / 3);
+        if (newPrice < 1) {
+            newPrice = 0;
+        } else {
+            newPrice--;
+        }
+        total += newPrice;
     }
-    return sum;
+    return total;
 }
