@@ -1,8 +1,10 @@
-def mean_absolute_deviation(numbers):
-    return sum(abs(num - mean(numbers)) for num in numbers) / len(numbers)
+numbers = list(map(float, input("Enter numbers (space separated): ").split()))
 
 
-import statistics as stat
+def mean_absolute_deviation(data):
+    mean = sum(data) / len(data)
+    deviation = [(x - mean) for x in data]
+    return sum([abs(x) for x in deviation]) / len(data)
 
-numbers = list(map(float, input("Enter numbers separated by space: ").split()))
+
 print(mean_absolute_deviation(numbers))
