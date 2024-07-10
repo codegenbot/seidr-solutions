@@ -1,7 +1,7 @@
-num_goods = int(input())
+n = int(input())
 prices = list(map(float, input().split()))
-num_discounts = int(input())
+m = int(input())
 discounts = list(map(float, input().split()))
 
-total_price = sum([(1 - discounts[i] / 100) * prices[i] for i in range(num_goods)])
+total_price = sum([(1 - discounts[i] / 100) * prices[i] for i in range(n)])
 print(total_price)
