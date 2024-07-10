@@ -10,6 +10,7 @@ def is_prime(num):
             return False
     return True
 
+
 def prime_fib(n: int):
     def fibonacci(num):
         if num <= 1:
@@ -24,5 +25,6 @@ def prime_fib(n: int):
             count += 1
         i += 1
     return fibonacci(i - 1)
+
 
 print(prime_fib(n))
