@@ -13,8 +13,9 @@ int main() {
     cin >> n;
     int result = prime_fib(n);
     ostringstream oss;
-    oss << "The " << n << "th prime Fibonacci number is: " << result; 
-    cout << oss.str(); 
+    oss << "The " << n << "th prime Fibonacci number is: " << result << endl; 
+    string str = oss.str();  // get the string representation
+    cout << str;  // print the output
 }
 
 bool isPrime(int num) {
