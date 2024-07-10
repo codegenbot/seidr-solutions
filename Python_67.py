@@ -1,8 +1,6 @@
-Here is the modified code:
-
 ```
-def fruit_distribution(s):
-    s = " ".join(s).replace("apples and", "apples ").replace("oranges", " oranges").split()
+def fruit_distribution(sentence):
+    s = " ".join(sentence).replace("apples and", "apples ").replace("oranges", " oranges").split()
     if 'apples' not in s or 'oranges' not in s:
         return None
     apples_and_part = [part for part in s if "apples" in part][0]
