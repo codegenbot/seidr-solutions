@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <new>
 
 bool solveBoolean(std::string s) {
     bool result = true;
