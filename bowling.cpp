@@ -1,18 +1,14 @@
 ```cpp
-#include <iostream>
-#include <string>
-
 int rollCount = 0;
 int roll(int pins) {
-    int i;
-    for (i = 0; i < pins && rollCount + i <= 10; i++) {
-        rollCount += 1;
+    if (rollCount == 1 || rollCount > 2) {
+        return pins;
     }
-    if (rollCount + i > 10) {
+    rollCount++;
+    if (pins + roll(0) >= 10) {
         return 10;
-    } else {
-        return rollCount + i;
     }
+    return pins + roll(0);
 }
 
 int bowlingScore(const std::string& input) {
