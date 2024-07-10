@@ -1,10 +1,11 @@
-#include <iostream>
 #include <string>
 #include <cassert>
+#include <cmath>
+#include <iostream>
 
 using namespace std;
 
-string average_binary(int n, int m) {
+string avg(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -16,7 +17,7 @@ string average_binary(int n, int m) {
     
     int avg = round((double)sum / (m - n + 1));
     
-    string binary_avg = "";
+    std::string binary_avg = "";
     while (avg > 0) {
         binary_avg = to_string(avg % 2) + binary_avg;
         avg /= 2;
@@ -26,8 +27,7 @@ string average_binary(int n, int m) {
 }
 
 int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << average_binary(n, m) << endl;
+    assert (avg(5, 5) == "101");
+
     return 0;
 }
