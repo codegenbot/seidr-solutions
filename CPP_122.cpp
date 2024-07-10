@@ -1,3 +1,4 @@
+```cpp
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
     for (int i = 0; i < std::min(k, arr.size()); i++) { 
@@ -6,4 +7,9 @@ int add_elements(std::vector<int> arr, int k) {
         }
     }
     return sum;
+}
+
+int main() {
+    assert(add_elements({1}, 1) == 1);
+    return 0;
 }
