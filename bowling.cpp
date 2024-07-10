@@ -31,10 +31,8 @@ int score(string s) {
         } else {
             total += s[i] - '0';
             
-            if (isSpare) {
-                total += s[i] - '0';
-            } else if (isStrike) {
-                total += s[i] - '0';
+            if (isSpare || isStrike) {
+                total += s[i + 1] - '0';
             }
 
             isSpare = false;
