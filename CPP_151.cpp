@@ -11,7 +11,7 @@ float double_the_difference(std::vector<float>& lst) {
         }
     }
 
-    return odd_sum * odd_sum;
+    return odd_sum * 2;
 }
 
 int main() {
