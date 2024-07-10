@@ -9,7 +9,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     std::vector<int> path;
     
     for (int i = 0; i < k; ++i) {
-        for (const std::vector<int>& row : grid) {
+        for (const auto& row : grid) {
             path.insert(path.end(), row.begin(), row.end());
         }
     }
