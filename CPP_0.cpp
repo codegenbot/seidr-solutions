@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -20,10 +21,10 @@ int main() {
     float x;
     while (true) { 
         cin >> x; 
-        if(x == 4.0f) break;
+        if(x == "stop") break;
         a.push_back(x);
-    }
-    cin.ignore(); 
+        cin >> std::ws; // Add this line to ignore whitespace characters
+    } 
 
     cout << "Enter the threshold: ";
     cin >> threshold;
