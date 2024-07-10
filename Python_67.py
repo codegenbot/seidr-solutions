@@ -10,9 +10,13 @@ def fruit_distribution(s, n):
             count = int(words[i])
             i += 1
             fruit = words[i - 1]
-            distributed = min(count, n)  
+            if fruit in fruits:
+                total_count = sum(fruits.get(k, 0) for k in fruits)
+                distributed = min(count, n - total_count)
+            else:
+                distributed = count
+            remaining = max(0, count - distributed)
             if fruit:
                 fruits[fruit] = fruits.get(fruit, 0) + distributed
-            n -= distributed  
         i += 1
     return len(fruits)
