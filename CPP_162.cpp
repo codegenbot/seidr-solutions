@@ -24,8 +24,13 @@ std::string string_to_md5(const std::string& str) {
     return ss.str();
 }
 
-int main_test() {
-    assert(string_to_md5("password") == "5d41402abc4de22fbc1fc7ce2a607762");
+int main() {
     OpenSSL_add_all_algorithms();
+    EVP_MD_CTX_new();
+    OpenSSL_init_crypto();
+    int main_test() {
+        assert(string_to_md5("password") == "5d41402abc4de22fbc1fc7ce2a607762");
+        return 0;
+    }
     return 0;
 }
