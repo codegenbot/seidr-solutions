@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <algorithm>
 
 std::vector<int> compare(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
@@ -16,7 +17,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     const std::vector<int> expected = {2, 0, 0, 1};
-    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), expected));
+    assert(issame(compare({1, 2, 3, 5}, {-1, 2, 3, 4}), expected);
     
     return 0;
 }
