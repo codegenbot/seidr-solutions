@@ -1,35 +1,63 @@
-vector<string> issame(vector<string> a, vector<string> b) {
-    // Add your code here
+#include <iostream>
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    // Add your code here
+    string input_string;
+    cin >> input_string;
+    
+    vector<string> separated_groups = separate_paren_groups(input_string);
+    
+    // Additional code to verify the function correctness
+    vector<string> expected_groups;
+    // Populate expected_groups with your test case
+    
+    if (issame(separated_groups, expected_groups)) {
+        cout << "Function implementation is correct" << endl;
+    } else {
+        cout << "Function implementation is incorrect" << endl;
+    }
+    
     return 0;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
-    vector<string> result;
-    string group;
-    int count = 0;
+    vector<string> groups;
+    string current_group;
+    int balance = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (count > 0) {
-                group += c;
+            if (balance > 0) {
+                current_group += c;
             }
-            count++;
+            balance++;
         } else if (c == ')') {
-            count--;
-            if (count > 0) {
-                group += c;
-            } else if (count == 0) {
-                result.push_back(group);
-                group = "";
+            balance--;
+            if (balance > 0) {
+                current_group += c;
+            } else if (balance == 0) {
+                groups.push_back(current_group);
+                current_group = "";
             }
         }
     }
 
-    return result;
+    return groups;
 }
