@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 #include <iostream>
 #include <string>
@@ -5,7 +6,7 @@
 bool is_simple_power(int x, int n) {
     if (n == 0) return false; 
     std::string strY = std::to_string(round(pow(n, log(x) / log(n)))); 
-    return (strY.size() == std::stoi(std::to_string(x)).size() && strY == std::to_string(x));
+    return (strY.length() == std::to_string(x).length() && strY == std::to_string(x));
 }
 
 int main() {
