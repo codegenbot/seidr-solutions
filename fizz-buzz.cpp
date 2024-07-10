@@ -1,2 +1,13 @@
-else
-    return std::to_string(std::string(1, x + '0'));
+#include <string>
+
+std::string fizzBuzz(int x) {
+    std::string result;
+    if (x % 15 == 0)
+        return "FizzBuzz";
+    else if (x % 3 == 0)
+        return "Fizz";
+    else if (x % 5 == 0)
+        return "Buzz";
+    else
+        return std::to_string(x);
+}
