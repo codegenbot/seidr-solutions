@@ -6,12 +6,9 @@ def cut_vector(lst):
     split_idx = 0
 
     for i in range(1, len(lst)):
-        left_sum = sum(lst[:i])
-        right_sum = sum(lst[i:])
+        diff = abs(sum(lst[:i]) - sum(lst[i:]) + lst[i])
 
-        diff = abs(left_sum - right_sum)
-
-        if (left_sum == right_sum and i > 1) or (diff < min_diff):
+        if (diff == 0 and i > 1) or (diff < min_diff):
             min_diff = diff
             split_idx = i
 
