@@ -1,7 +1,13 @@
 n = int(input())
-v1 = [float(x) for x in input().split()]
-v2 = [float(x) for x in input().split()]
+v1 = list(map(float, input().split()))
+m = int(input())
+v2 = list(map(float, input().split()))
 
-distance = ((sum((x - y) ** 2 for x, y in zip(v1, v2)))) ** 0.5
+from math import sqrt
 
-print(distance)
+dist = 0
+for a, b in zip(v1, v2):
+    dist += (a - b) ** 2
+dist = sqrt(dist)
+
+print("%.6f" % dist)

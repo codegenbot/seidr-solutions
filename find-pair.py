@@ -9,12 +9,15 @@ def find_pair():
         while left < right:
             total = nums[left] + nums[right]
             if total == target:
-                if (nums[left], nums[right]) not in pairs and (nums[right], nums[left]) not in pairs:
-                    pairs.append((nums[left], nums[right]))
+                pairs.append((nums[left], nums[right]))
                 left += 1
                 right -= 1
             elif total < target:
                 left += 1
             else:
                 right -= 1
-        print(pairs)
+        if not pairs:
+            print(-1)
+        else:
+            for pair in pairs:
+                print(*pair)
