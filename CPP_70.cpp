@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-bool areVectorsSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() != b.size()) {
         return false;
     }
@@ -16,7 +16,7 @@ bool areVectorsSame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    int n1, m1, n2, m2;
+    int n1, n2;
     std::cout << "Enter the size of first vector: ";
     std::cin >> n1;
     std::vector<int> a(n1);
@@ -31,7 +31,7 @@ int main() {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> b[i];
     }
-    if(areVectorsSame(a, b)) {
+    if(issame(a, b)) {
         std::cout << "The two vectors are the same." << std::endl;
     } else {
         std::cout << "The two vectors are not the same." << std::endl;
