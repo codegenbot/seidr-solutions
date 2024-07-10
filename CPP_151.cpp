@@ -1,28 +1,21 @@
-#include <iostream>
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
-    for (float x : lst) {
-        if (int(x) > 0 && int(x) % 2 != 0)
-            sum += pow(int(x), 2);
+    for(auto num : lst){
+        if(int(num) > 0 && int(num) == int(num)){
+            sum += pow(int(num), 2);
+        }
     }
     return sum;
-
 }
 
 int main() {
-    std::vector<float> lst;
-    float num;
-
-    while (std::cin >> num) {
-        lst.push_back(num);
-    }
-
-    long long result = double_the_difference(lst);
-
-    std::cout << "Result: " << result << std::endl;
-
+    std::vector<float> lst; 
+    float x;
+    while(std::cin >> x)
+        lst.push_back(x);
+    assert (double_the_difference(lst) == odd_sum );
     return 0;
 }
