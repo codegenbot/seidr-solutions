@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <cmath>
 
-int maxAbs(int arr[], int n) {
-    vector<int> l(arr, arr + n);
-    return abs(*max_element(l.begin(), l.end()));
+long long absolute_value(long long n) {
+    return abs(n);
 }
