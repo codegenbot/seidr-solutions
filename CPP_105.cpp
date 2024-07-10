@@ -7,21 +7,22 @@ bool issame(vector<string> a, vector<string> b);
 
 vector<string> by_length(vector<int> arr);
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
+int main() {
+    vector<int> arr = {9, 2, 4, 1, 5, 7, 3};
+    vector<string> result = by_length(arr);
+
+    for (string num : result) {
+        std::cout << num << " ";
     }
 
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    return 0;
 }
 
-vector<string> by_length(vector<int> arr) {
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+vector<string> by_length(vector<int> arr){
     vector<string> result;
     map<int, string> num_to_name = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
