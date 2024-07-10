@@ -1,3 +1,6 @@
+#ifndef TEST
+#define TEST
+
 #include <openssl/evp.h>
 #include <string>
 #include <iostream>
@@ -24,8 +27,11 @@ std::string string_to_md5(const std::string& input) {
     return md5_hash;
 }
 
+#endif
+
 int main() {
     assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
     std::cout << "MD5 hash test passed!" << std::endl;
+
     return 0;
 }
