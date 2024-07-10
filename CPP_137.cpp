@@ -2,28 +2,23 @@
 #include <string>
 #include <algorithm>
 
-using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
+    if (is_any_of<a>(int.class)) {
+        int ai = any_cast<int>(a);
+        int bi = any_cast<int>(b);
+        return (ai > bi) ? a : ((bi > ai) ? b : boost::any("None"));
+    } else if (is_any_of<a>(double.class)) {
+        double ad = any_cast<double>(a);
+        double bd = any_cast<double>(b);
+        return (ad > bd) ? a : ((bd > ad) ? b : boost::any("None"));
+    } else if (is_any_of<a>(string.class)) {
+        string as = any_cast<string>(a);
+        string bs = any_cast<string>(b);
+        double da = stod(as);
+        double db = stod(bs);
+        return (da > db) ? a : ((db > da) ? b : boost::any("None"));
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return max((float)a.convert_to<float>(), stof(b.convert_to<string>().c_str()));
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (stof(a.convert_to<string>().c_str()) > stof(b.convert_to<string>().c_str())) ? a : ((stof(a.convert_to<string>().c_str()) < stof(b.convert_to<string>().c_str())) ? b : boost::any("None")));
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return (stoi(a.convert_to<int>().convert_to<string>()) > stof(b.convert_to<string>().c_str())) ? a : ((stoi(a.convert_to<int>().convert_to<string>()) < stof(b.convert_to<string>().c_str())) ? b : boost::any("None"));
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return (int)a > (int)b ? a : ((int)a < (int)b ? b : boost::any("None"));
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return max((float)a, (float)b);
-    }
-    else {
-        return boost::any("None");
-    }
+    return boost::any();
 }
