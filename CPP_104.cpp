@@ -13,6 +13,8 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
+vector<int> unique_digits(vector<int> x);
+
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
     for (int num : x) {
@@ -34,6 +36,6 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main() {
-    // Your main function code here
+    // Main function implementation
     return 0;
 }
