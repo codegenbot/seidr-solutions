@@ -1,4 +1,7 @@
+Here is the modified code with backticks added at the beginning and end:
+
 ```
+```python
 def parse_music(music_string: str) -> list:
     music_list = []
     i = 0
@@ -32,3 +35,4 @@ def parse_music(music_string: str) -> list:
         else:
             i += 1
     return music_list
+```
