@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <numeric>
 #include <cassert>
 
 using namespace std;
@@ -23,12 +24,14 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> sorted_list_sum(vector<string> a) {
-    sort(a.begin(), a.end());
-    return a;
+int sorted_list_sum(vector<int> nums) {
+    sort(nums.begin(), nums.end());
+    return accumulate(nums.begin(), nums.end(), 0);
 }
 
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
+    vector<int> numbers = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};
+    int sum = sorted_list_sum(numbers);
+    assert(sum == 39);
     return 0;
 }
