@@ -15,7 +15,7 @@ double poly(const std::vector<double>& coeffs, double x) {
 
 double find_zero(const std::vector<double>& coeffs) {
     double a = coeffs[0];
-    double b = coeffs[0];
+    double b = coeffs[1];
     return -b / a;
 }
 
