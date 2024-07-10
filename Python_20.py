@@ -1,24 +1,12 @@
-from typing import List, Tuple
-
-
-def find_closest_elements():
-    first_set = input("Enter the first set of numbers (space-separated): ")
-    second_set = input("Enter the second set of numbers (space-separated): ")
-
-    first_numbers = list(map(float, first_set.split()))
-    second_numbers = list(map(float, second_set.split()))
-
+def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
+    sorted_numbers = sorted((num, i) for i, num in enumerate(numbers))
     min_diff = float("inf")
     closest_pair = (None, None)
 
-    for num1 in first_numbers:
-        for num2 in second_numbers:
-            diff = abs(num1 - num2)
-            if diff < min_diff:
-                min_diff = diff
-                closest_pair = (num1, num2)
+    for i in range(len(sorted_numbers) - 1):
+        diff = abs(sorted_numbers[i][0] - sorted_numbers[i + 1][0])
+        if diff < min_diff:
+            min_diff = diff
+            closest_pair = (sorted_numbers[i][0], sorted_numbers[i + 1][0])
 
-    return tuple(sorted(closest_pair))
-
-
-print(find_closest_elements())
+    return tuple(closest_pair)
