@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 string decimal_to_binary(int decimal){
