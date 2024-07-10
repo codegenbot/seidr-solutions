@@ -1,39 +1,33 @@
 def bowling_score(bowls):
     score = 0
-    frames = bowls.split("/")
-    
-    for i in range(len(frames)):
-        if frames[i] == "X":
+    frame = 0
+    bowl_index = 0
+
+    while frame < 10:
+        if bowls[bowl_index] == "X":
             score += 10
-            if i < 9:
-                if i + 1 < len(bowls):
-                    next_bowl = bowls[i + 1]
-                    if next_bowl == "X":
-                        score += 10
-                        if i + 2 < len(bowls):
-                            next_next_bowl = bowls[i + 2]
-                            if next_next_bowl == "X":
-                                score += 10
-                            elif next_next_bowl != "-":
-                                score += int(next_next_bowl)
-                    elif next_bowl == "-":
-                        pass
-                    else:
-                        score += int(next_bowl)
-            elif i == 9:
-                if len(bowls) == 21:
-                    if bowls[19] == "X" and bowls[20] == "X":
-                        score += 20
-                    elif bowls[19] == "X" or bowls[20] == "X":
-                        score += 10
-                    elif bowls[20] != "-":
-                        score += int(bowls[20])
-                    
-        else:
-            for bowl in frames[i]:
-                if bowl == "-":
-                    pass
+            if bowl_index + 2 < len(bowls):
+                if bowls[bowl_index + 2] == "X":
+                    score += 10
+                elif bowls[bowl_index + 2] != "-":
+                    score += int(bowls[bowl_index + 2])
+                if bowls[bowl_index + 1] == "X" and bowl_index + 3 < len(bowls):
+                    score += 10
                 else:
-                    score += int(bowl)
-                
+                    score += int(bowls[bowl_index + 1])
+            bowl_index += 1
+            frame += 1
+        elif bowls[bowl_index] == "/":
+            score += 10
+            score += int(bowls[bowl_index + 1])
+            bowl_index += 2
+            frame += 1
+        else:
+            if bowls[bowl_index] != "-":
+                score += int(bowls[bowl_index])
+            if bowls[bowl_index + 1] == "/":
+                score += 10 - int(bowls[bowl_index])
+            bowl_index += 2
+            frame += 1
+
     return score
