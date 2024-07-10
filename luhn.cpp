@@ -1,4 +1,6 @@
-```cpp
+#include <vector>
+#include <cstdint>
+
 int luhn(std::vector<uint16_t> cc) {
     int sum = 0;
     bool doubleNext = false;
