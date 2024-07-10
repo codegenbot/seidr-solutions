@@ -1,10 +1,9 @@
 int vowels_count(string s){
     int count = 0;
-    for(char c: s){
-        if(strchr("aeiouAEIOUyY", tolower(c)) != nullptr) {
-            if(c == 'y' && s.back() != 'y') continue; // Ignore 'y's that are not at the end of the word
+    for(int i=0; i<s.length();i++){
+        if((s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') ||
+           (s[i] == 'y' && i==s.length()-1))
             count++;
-        }
     }
     return count;
 }
