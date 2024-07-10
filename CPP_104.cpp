@@ -5,7 +5,7 @@ bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
@@ -36,6 +36,6 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main() {
-    // Add your test cases here
+    // Main function implementation
     return 0;
 }
