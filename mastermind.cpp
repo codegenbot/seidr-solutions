@@ -1,6 +1,6 @@
-#include <iostream>
-#include <map>
-#include <algorithm>
+# include <iostream>
+# include <map>
+# include <algorithm>
 
 using namespace std;
 
@@ -10,11 +10,11 @@ int main() {
 
     int whitePegs = 0, blackPegs = 0;
 
-    while (!code.empty() && !guess.empty()) {
+    while (! code.empty()) {
         map<char, int> codeFreq, guessFreq;
-        whitePegs = 0;
-        blackPegs = 0;
-
+        codeFreq.clear();
+        guessFreq.clear();
+        
         for (int i = 0; i < 4; ++i) {
             if (code[i] == guess[i]) {
                 blackPegs++;
@@ -32,10 +32,11 @@ int main() {
             whitePegs += std::min(it->second, guessFreq[it->first]);
         }
 
-        cout << whitePegs << " " << blackPegs << endl;
-        code.clear();
-        guess.clear();
-        cin >> code >> guess;
+        cout << whitePegs << endl << blackPegs << endl;
+
+        // Reset values for new iteration
+        code = "";
+        guess = "";
     }
 
     return 0;
