@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include <cassert>
+
+using namespace std;
 
 bool is_prime(int n) {
     if (n <= 1) {
@@ -14,9 +15,9 @@ bool is_prime(int n) {
     return true;
 }
 
-std::string words_in_sentence(std::string sentence){
-    std::string result = "";
-    std::string word = "";
+string words_in_sentence(string sentence) {
+    string result = "";
+    string word = "";
     for (char c : sentence) {
         if (c == ' ') {
             if (is_prime(word.length())) {
@@ -34,8 +35,8 @@ std::string words_in_sentence(std::string sentence){
 }
 
 int main() {
-    std::string sentence;
-    getline(std::cin, sentence);
-    std::cout << words_in_sentence(sentence) << std::endl;
+    string sentence;
+    getline(cin, sentence);
+    cout << words_in_sentence(sentence) << endl;
     return 0;
 }
