@@ -1,24 +1,30 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
+pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
+    int minDiff = INT_MAX;
+    int splitIndex = -1;
     
-    for (int i = 1; i < v.size(); i++) {
-        int sum_left = accumulate(v.begin(), v.begin() + i, 0);
-        int sum_right = accumulate(v.begin() + i, v.end(), 0);
+    for (int i = 0; i < nums.size(); ++i) {
+        int leftSum = 0, rightSum = 0;
         
-        if (sum_left == sum_right) {
-            return {vector<int>(v.begin(), v.begin() + i), vector<int>(v.begin() + i, v.end())};
-        } else {
-            int diff = abs(sum_left - sum_right);
-            if (diff < min_diff) {
-                min_diff = diff;
-                cut_index = i;
-            }
+        for (int j = 0; j < i; ++j)
+            leftSum += nums[j];
+        for (int j = i + 1; j < nums.size(); ++j)
+            rightSum += nums[j];
+        
+        int diff = abs(leftSum - rightSum);
+        if (diff <= minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
     
-    return {vector<int>(v.begin(), v.begin() + cut_index), vector<int>(v.begin() + cut_index, v.end())};
+    vector<int> leftVec, rightVec;
+    for (int i = 0; i < splitIndex; ++i)
+        leftVec.push_back(nums[i]);
+    for (int i = splitIndex; i < nums.size(); ++i)
+        rightVec.push_back(nums[i]);
+    
+    return {leftVec, rightVec};
 }
