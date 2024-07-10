@@ -2,14 +2,10 @@
 #include <cassert>
 #include <list>
 #include <vector>
-#include <boost/any>
+#include <any>
 
 using namespace std;
-using boost::any;
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+using std::any;
 
 vector<int> filter_integers(list<any> values){
     vector<int> result;
