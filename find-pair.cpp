@@ -3,26 +3,27 @@ using namespace std;
 
 pair<int, int> findPair(vector<int>& nums, int target) {
     unordered_map<int, int> numMap;
-    for (int num : nums) {
-        int complement = target - num;
+    for (int i = 0; i < nums.size(); i++) {
+        int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            return {complement, num};
+            return make_pair(complement, nums[i]);
         }
-        numMap[num] = 1;
+        numMap[nums[i]] = i;
     }
-    return {{-1, -1}}; // return default value
+    return make_pair(0, 0);
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    for (int& x : nums) {
+        cin >> x;
     }
     int target;
     cin >> target;
     pair<int, int> result = findPair(nums, target);
-    cout << result.first << " " << result.second << endl;
+    cout << result.first << '\n';
+    cout << result.second << '\n';
     return 0;
 }
