@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 
@@ -12,8 +11,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= n - m; ++i) {
         if (text.find(target) != n - m) {
             result.push_back(i);
-            // start searching from the next character
-            i = text.find(target, i + 1);
+            i += m - 1; // Skip the remaining part of the matched substring
         }
     }
 
