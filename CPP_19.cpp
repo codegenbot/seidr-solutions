@@ -1,21 +1,37 @@
-map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-string result = "", temp;
-for (int i = 0; i < numbers.size(); ++i) {
-    if (numbers[i] == ' ') {
-        result += temp + " ";
-        temp = "";
+map<string, int> numMap = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
+
+vector<pair<string, int>> numVec;
+
+string currentNumber = "";
+for (char c : numbers) {
+    if (c == ' ') {
+        numVec.push_back({currentNumber, numMap[currentNumber]});
+        currentNumber = "";
     } else {
-        temp += numbers[i];
+        currentNumber += c;
     }
 }
-result += temp;
-temp = "";
-for (auto& it : num_map) {
-    size_t pos;
-    while ((pos = result.find(it.first)) != string::npos) {
-        temp += it.first + " ";
-        result.erase(pos, it.first.size() + 1);
-    }
+numVec.push_back({currentNumber, numMap[currentNumber}};
+
+sort(numVec.begin(), numVec.end(), [](const pair<string, int>& a, const pair<string, int>& b) {
+    return a.second < b.second;
+});
+
+string result = "";
+for (const auto& num : numVec) {
+    result += num.first + " ";
 }
-return temp;
+
+return result.substr(0, result.size() - 1);
 }
