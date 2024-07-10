@@ -1,28 +1,24 @@
-int scoreBowlingRound(string input){
-    int score = 0, frame = 1, ball = 1;
-    for (char c : input) {
-        if (c == 'X' || c == '/') {
+int score(string s) {
+    int frame = 0, score = 0;
+    for (char c : s) {
+        if (c == 'X') {
             score += 10;
-            if (frame < 10)
-                score += (c == 'X') ? (input[ball] == 'X' ? 10 + (input[ball+1] == '/' ? 10 : (input[ball+1] == '-' ? 0 : input[ball+1] - '0')) : (input[ball+1] == '/' ? 10 : (input[ball+1] == '-' ? 0 : input[ball] - '0' + input[ball+1] - '0'))) : input[ball] - '0';
-            ball += (c == 'X') ? 1 : 0;
-        } else if (c == '-') {
-            ball++;
+            score += (s[frame + 1] == 'X') ? 10 : (s[frame + 1] == '/') ? 10 - s[frame + 2] + '0' : s[frame + 1] - '0';
+            score += (s[frame + 2] == 'X') ? 10 : ((frame == 18) ? (s[frame + 2] == '/' ? 10 - s[frame + 3] + '0' : s[frame + 2] - '0') : 0);
+            frame++;
+        } else if (c == '/') {
+            score += 10 - s[frame - 1] + '0';
         } else {
             score += c - '0';
         }
-        ball++;
-        if (frame < 10 && (c == '/' || ball == 2)) {
-            ball = 1;
-            frame++;
-        }
+        frame++;
     }
     return score;
 }
 
-int main(){
-    string input;
-    cin >> input;
-    cout << scoreBowlingRound(input) << endl;
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
