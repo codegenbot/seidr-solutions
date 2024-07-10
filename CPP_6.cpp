@@ -1,3 +1,4 @@
+``` 
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -28,10 +29,10 @@ vector<int> parse_nested_parens(const string& paren_string) {
         result.push_back(max_depth);
     }
     return result;
-
 }
 
 int main() {
-    assert(same(parse_nested_parens("(()(())((()))")), vector<int>({0, 1, 2, 1, 0, -1, -2, -3, -4})));
+    assert(same(parse_nested_parens("(()(())((()))")), vector<int>(){0, 1, 2, 1, 0, -1, -2, -3, -4}));
+    cout << "Hello, World!";
     return 0;
 }
