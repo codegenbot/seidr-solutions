@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -18,4 +17,3 @@ int main() {
     std::getline(std::cin, s);
     int result = vowels_count(s);
     return 0;
-}
