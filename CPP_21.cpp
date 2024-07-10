@@ -1,12 +1,14 @@
-bool issame(vector<float> v1, vector<float> v2) {
-    if (v1.size() != v2.size()) {
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
+
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
+
     return true;
 }
 
@@ -32,12 +34,15 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 }
 
 int main() {
-    vector<float> input = {1.0, 2.0, 3.0};
-    vector<float> expected_output = {0.0, 0.5, 1.0};
-    vector<float> scaled_output = rescale_to_unit(input);
+    vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
+    vector<float> expected_output = {0.0, 0.25, 0.5, 0.75, 1.0};
 
-    bool result = issame(expected_output, scaled_output);
-    cout << (result ? "Output matches expected result.\n" : "Output does not match expected result.\n");
+    vector<float> output = rescale_to_unit(numbers);
+    if (issame(output, expected_output)) {
+        cout << "Output matches expected result." << endl;
+    } else {
+        cout << "Output does not match expected result." << endl;
+    }
 
     return 0;
 }
