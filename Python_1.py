@@ -16,7 +16,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if stack and stack[-1] == '(':
                 stack.pop()
                 temp_str += char
-                result.append(temp_str[1:-1])  # Add the group to the result without parentheses
+                result.append(temp_str)
                 temp_str = ''
-    
+    if stack:
+        while stack:
+            temp_str += stack.pop()
+        result.append(temp_str)
+
     return result
