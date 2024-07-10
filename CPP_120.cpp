@@ -1,18 +1,30 @@
-```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> maximum(vector<int> arr, int k) {
     vector<int> result;
     for(int i = 0; i < k; i++) {
-        auto it = std::max_element(arr.begin(), arr.end());
+        auto it = max_element(arr.begin(), arr.end());
         result.push_back(*it);
-        arr.erase(it - arr.begin());
+        arr.erase(it);
     }
     return result;
 
 }
-bool issame(vector<int> a,vector<int>b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+
+int mainFunction() {
+    int n, k;
+    cin >> n >> k;
+    
+    vector<int> arr(n);
+    for(int i = 0; i < n; i++) cin >> arr[i];
+    
+    cout << "[";
+    for(int i = 0; i < k; i++) cout << maximum(arr, 1)[i] << " ";
+    cout << "]";
+
+    return 0;
 }
