@@ -1,5 +1,5 @@
 ```
-def solve_task():
+def solve_task(separate_paren_groups):
     while True:
         try:
             num1 = int(input("Enter first number: "))
