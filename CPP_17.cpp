@@ -1,13 +1,13 @@
-vector<int> issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
-        return {-1};
+        return false;
     }
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
-            return {-1};
+            return false;
         }
     }
-    return {1};
+    return true;
 }
 
 vector<int> parse_music(string music_string);
@@ -39,12 +39,9 @@ int main() {
 
     vector<int> example = {1, 2, 3};
 
-    vector<int> result = issame(music_beats, example);
+    bool result = issame(music_beats, example);
 
-    for (int i : result) {
-        cout << i << " ";
-    }
-    cout << endl;
+    cout << (result ? "true" : "false") << endl;
 
     return 0;
 }
