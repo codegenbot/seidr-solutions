@@ -1,18 +1,36 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
 string get_closest_vowel(string word) {
-    string vowels = "aeiouAEIOU";
-    for (int i = 0; i < word.size(); ++i) {
-        if (!isalnum(word[i])) continue;
-        bool found = false;
-        for (int j = i + 1; j < word.size() && !found; ++j) {
-            if (!isalnum(word[j])) continue;
-            for (char c : vowels) {
-                if (word[j] == c) {
-                    return string(1, c);
-                    found = true;
-                    break;
-                }
-            }
+    int left = 0;
+    for (int i = word.length() - 1; i >= 0; i--) {
+        if (!isvowel(word[i])) {
+            left = i + 1;
+            break;
         }
     }
+
+    for (int i = left; i < word.length(); i++) {
+        if (isvowel(word[i])) {
+            return string(1, word[i]);
+        }
+    }
+
     return "";
+}
+
+bool isvowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
+
+int main() {
+    cout << get_closest_vowel("yogurt") << endl;
+    cout << get_closest_vowel("FULL") << endl;
+    cout << get_closest_vowel("quick") << endl;
+    cout << get_closest_vowel("ab") << endl;
+
+    return 0;
 }
