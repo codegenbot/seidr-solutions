@@ -1,4 +1,3 @@
-```Python
 def search(lst):
     freq_dict = {}
     for num in lst:
