@@ -30,22 +30,17 @@ namespace myspace {
         std::cout << "Enter the number of elements: ";
         std::cin >> n;
 
-        std::vector<int> game; 
+        std::vector<int> game(n);
+        std::vector<int> guess(n);
 
         for (int i = 0; i < n; i++) {
             std::cout << "Enter element " << i + 1 << ": ";
-            int num;
-            std::cin >> num;
-            game.push_back(num);
+            std::cin >> game[i];
         }
 
-        std::vector<int> guess(n);
         std::cout << "Enter your guess: ";
         for (int i = 0; i < n; i++) {
-            std::cout << "Enter element " << i + 1 << ": ";
-            int num;
-            std::cin >> num;
-            guess[i] = num;
+            std::cin >> guess[i];
         }
 
         if (issame(game, guess)) {
