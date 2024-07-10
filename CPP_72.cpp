@@ -24,13 +24,12 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    vector<int> q1 = {4, 3, 5};
-    int w1 = 10;
-    cout << boolalpha << will_it_fly(q1, w1) << endl;
-    
-    vector<int> q2 = {7, 6, 5};
-    int w2 = 12;
-    cout << boolalpha << will_it_fly(q2, w2) << endl;
-
+    vector<int> q = {1,2,3};
+    int w = 10;
+    if(will_it_fly(q,w)) {
+        cout << "The quad will fly." << endl;
+    } else {
+        cout << "The quad won't fly." << endl;
+    }
     return 0;
 }
