@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 
-bool issame(std::map<char, int> a, std::map<char, int> b) {
+bool is_same(std::map<char, int> a, std::map<char, int> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
