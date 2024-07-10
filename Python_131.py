@@ -1,10 +1,9 @@
+```
 def digits(n):
-    if n == 0:
-        return 1
-    product = 1
+    max_product = 1
     while n:
         digit = n % 10
-        if digit % 2 != 0:
-            product *= digit
+        if digit != 0 and digit % 2 != 0: 
+            max_product *= digit
         n //= 10
-    return product
+    return max_product if max_product else 0
