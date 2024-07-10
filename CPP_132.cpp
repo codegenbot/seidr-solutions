@@ -19,7 +19,7 @@ bool is_nested(const std::string str) {
     return level != 0; 
 }
 
-main() {
+int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);

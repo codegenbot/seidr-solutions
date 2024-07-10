@@ -10,7 +10,13 @@ int main() {
     while (true) {
         getline(std::cin, num);
         if (num == "stop") break;
-        int n = std::stoi(num.substr(0, num.find(' ')).c_str());
+        int n;
+        std::string temp = num;
+        if(temp.length() > 1000000){ 
+            std::cout << "String too long. Please enter a shorter one." << std::endl;
+            continue; 
+        }
+        n = std::stoi(temp);
         nums.push_back(std::to_string(n)); 
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
