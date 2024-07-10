@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -13,7 +12,7 @@ std::vector<float> sort_even(std::vector<float> l){
     std::vector<float> result(l.size());
     for(int i = 0; i < l.size(); i++){
         if(i % 2 == 0){
-            vector<float> temp;
+            std::vector<float> temp;
             for(auto j: l | std::views::slices(0, l.size(), 2)){
                 temp.push_back(j);
             }
