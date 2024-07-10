@@ -11,6 +11,5 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
             result.append(num)
     return result
 
-
 numbers = [1, 2, 3, 2, 4]
 print(remove_duplicates(numbers))
