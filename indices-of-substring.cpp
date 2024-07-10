@@ -17,11 +17,11 @@ vector<int> indicesOfSubstring(string text, string target) {
                 break;
             }
         }
-        if (!found) {
-            i++; 
-        } else {
+        if (found) {
             result.push_back(i);
-            i += m; 
+            i++; // Start searching from the next character
+        } else {
+            i++; // Start searching from the next character
         }
     }
 
