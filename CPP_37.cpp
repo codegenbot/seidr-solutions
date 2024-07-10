@@ -38,11 +38,9 @@ void sort_even(const vector<float>& l) {
     sort(l_even.begin(), l_even.end());
     for (int i = 0, j = 0; i < l.size(); ++i) {
         if (i % 2 == 0) {
-            //const_cast<float&>(l[i]) = l_even[j];
-            // cannot directly modify l in the current setup
-            // to make the modification work
-            // above 2 lines can be replaced with the following alternative code
-            // may not assert properly
+            // Using const_cast to modify l, since the original vector is const
+            const_cast<vector<float>&>(l)[i] = l_even[j];
+            ++j;
         }
     }
 }
