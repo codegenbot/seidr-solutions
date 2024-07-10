@@ -1,3 +1,4 @@
+```cpp
 #include <utility> 
 using namespace std;
 pair<pair<int, int>, pair<int, int>> findPair(vector<int>& nums, int target) {
