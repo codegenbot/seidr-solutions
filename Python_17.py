@@ -6,11 +6,8 @@ def parse_music(music_data: str):
         lines.append(line)
     return lines
 
-music_data = []
-while True:
-    line = input()
-    if not line.strip():
-        break
-    music_data.append(line)
+music_data = """First line
+Second line
+Third line"""
 
-print(parse_music('\n'.join(music_data)) )
+print(parse_music(music_data))
