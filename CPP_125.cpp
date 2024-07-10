@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <cctype>
+#include <cassert>
 
 using namespace std;
 
@@ -32,4 +33,9 @@ vector<string> split_words(string txt) {
         result.push_back(word);
     }
     return result;
+}
+
+int main() {
+    assert(static_cast<bool>(issame(split_words(""))));
+    return 0;
 }
