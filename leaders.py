@@ -1,10 +1,8 @@
 def leaders(input):
-    if not input:
-        return []
     max_right = input[-1]
     leaders = [max_right]
     for i in range(len(input) - 2, -1, -1):
         if input[i] >= max_right:
+            leaders.insert(0, input[i])
             max_right = input[i]
-            leaders.insert(0, max_right)
     return leaders
