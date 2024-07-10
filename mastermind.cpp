@@ -1,3 +1,9 @@
+```c
+#include <string>
+#include <iostream>
+
+struct PegCounts { int white; int black; };
+
 PegCounts mastermind(std::string code, std::string guess) {
     PegCounts result = {0, 0};
     std::string remainingGuess = guess;
@@ -35,4 +41,12 @@ PegCounts mastermind(std::string code, std::string guess) {
     }
 
     return result;
+}
+
+int main() {
+    std::string code = "ABCD";
+    std::string guess = "BCDE";
+    PegCounts result = mastermind(code, guess);
+    std::cout << "White pegs: " << result.white << ", Black pegs: " << result.black << std::endl;
+    return 0;
 }
