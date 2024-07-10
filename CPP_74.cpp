@@ -14,8 +14,8 @@ bool issame(vector<string> a, vector<string> b) {
     }
     
     if (total_chars1 < total_chars2) {
-        return true;
+        return a;
     } else {
-        return false;
+        return b;
     }
 }
