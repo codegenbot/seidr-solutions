@@ -1,14 +1,11 @@
-#include <vector>
-#include <string>
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return (a == b);
 }
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> result;
+vector<string> split_words(string txt) {
+    vector<string> result;
     bool inWord = false;
-    std::string word = "";
+    string word = "";
 
     for (char c : txt) {
         if (!inWord && !isalpha(c)) { 
@@ -32,6 +29,7 @@ std::vector<std::string> split_words(std::string txt) {
 }
 
 int main() {
-    bool b = true;  
-    assert(issame(std::vector<std::string>({}), std::vector<std::string>({})));
+    bool b = true;
+    assert(issame(split_words(""), vector<string>({""})));
+    return 0;
 }
