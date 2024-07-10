@@ -7,8 +7,13 @@ def parse_music(music_string: str) -> List[int]:
     result = []
     i = 0
     while i < len(music_string):
-        length = 1
-        while i + length <= len(music_string) and music_string[i:i+length] in note_lengths:
-            i += length
-            length = note_lengths[music_string[i-1:i]] if i > 0 else 1
+        current_sequence = ""
+        j = 1
+        while i + j <= len(music_string):
+            current_sequence += music_string[i:i+j]
+            if current_sequence not in note_lengths and current_sequence[:-1] not in note_lengths:
+                break
+            j += 1
+        result.append(note_lengths[current_sequence])
+        i += j
     return result
