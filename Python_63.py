@@ -1,6 +1,6 @@
 def fibfib(n: int):
     if n <= 1:
-        return "0"
+        return str(0)
     elif n % 2 == 0:
         a, b = 0, 1
         result = [a]
