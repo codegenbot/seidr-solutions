@@ -16,11 +16,11 @@ int main() {
     for (int i = 1; i <= numBounces; i++) {
         totalDistance += pow(2, -bouncinessIndex) * (2 * (heightAfterFirstBounce - startHeight));
         startHeight = heightAfterFirstBounce;
-        heightAfterFirstBounce /= bouncinessIndex; 
+        heightAfterFirstBounce /= bouncinessIndex; // update the ball's height for the next bounce
     }
 
     cout << fixed; 
-    cout << setprecision(5);
+    cout << setprecision(10);
     cout << totalDistance << endl;
 
     return 0;
