@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-bool has_close_elements(vector<double> a, double threshold) {
+bool has_close_elements(vector<float> a, float threshold) {
     for(int i = 1; i < a.size(); i++) {
         if(abs(a[i] - a[i-1]) <= threshold)
             return true;
@@ -13,16 +12,20 @@ bool has_close_elements(vector<double> a, double threshold) {
 }
 
 int main() {
-    vector<double> a;
-    double threshold;
+    vector<float> a;
+    int n;
+    cout << "Enter the initial size: ";
+    cin >> n;
+    a.resize(n);
+    float threshold;
 
     cout << "Enter the elements of the vector (space-separated, type 'stop' when done): ";
     string input;
-    double x;
+    float x;
     while (true) { 
         cin >> input; 
         if(input == "stop") break;
-        a.push_back(stod(input)); // convert string to double
+        a.push_back(stof(input)); // convert string to float
         cin >> std::ws; // Add this line to ignore whitespace characters
     } 
 
