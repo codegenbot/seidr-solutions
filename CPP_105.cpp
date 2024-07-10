@@ -3,15 +3,15 @@
 #include <algorithm>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::int32_t> temp;
+    std::vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
             temp.push_back(i);
     }
     
-    std::sort(temp.begin(), temp.end());
+    sort(temp.begin(), temp.end());
     
-    std::reverse(temp.begin(), temp.end());
+    reverse(temp.begin(), temp.end());
     
     std::vector<std::string> result;
     for (int i : temp) {
