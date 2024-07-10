@@ -2,12 +2,12 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::std::vector<int>& a, const std::std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> sort_array(const std::vector<int>& arr) {
-    std::vector<int> sortedArr = arr;
+std::std::vector<int> sort_array(const std::std::vector<int>& arr) {
+    std::std::vector<int> sortedArr = arr;
     std::sort(sortedArr.begin(), sortedArr.end());
     return sortedArr;
 }
