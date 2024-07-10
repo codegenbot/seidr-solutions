@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <limits>
-#include <cmath>
+#include <climits>
 
 using namespace std;
 
@@ -30,11 +29,11 @@ int main() {
     vector<int> subVector1(nums.begin(), nums.begin() + index + 1);
     vector<int> subVector2(nums.begin() + index + 1, nums.end());
 
-    for (const auto& num : subVector1) {
+    for (int num : subVector1) {
         cout << num << endl;
     }
     cout << "---" << endl;
-    for (const auto& num : subVector2) {
+    for (int num : subVector2) {
         cout << num << endl;
     }
 
