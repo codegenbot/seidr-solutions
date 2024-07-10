@@ -1,14 +1,5 @@
-```cpp
-int skjkasdkd(vector<int> lst){
-    int maxPrime = 0;
-    for(int i : lst){
-        if(i > 1 && isPrime(i)){
-            maxPrime = i;
-            break;
-        }
-    }
-    return sumOfDigits(maxPrime);
-}
+#include <vector>
+using namespace std;
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -25,10 +16,21 @@ int sumOfDigits(int n) {
         n /= 10;
     }
     return sum;
+}
 
+int skjkasdkd(vector<int> lst){
+    int maxPrime = 0;
+    for(int i : lst){
+        if(i > 1 && isPrime(i)){
+            maxPrime = i;
+            break;
+        }
+    }
+    return sumOfDigits(maxPrime);
 }
 
 int main() {
-    assert (skjkasdkd({127, 97, 8192}) == 10);
+    vector<int> lst = {127, 97, 8192};
+    cout << skjkasdkd(lst) << endl;  
     return 0;
 }
