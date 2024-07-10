@@ -25,7 +25,8 @@ int count_nums(std::vector<int> nums) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> nums(n);
+    std::vector<int> nums;
+    nums.resize(n); // Fix this line to initialize your vector.
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i]; 
     }

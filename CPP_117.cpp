@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -22,10 +21,10 @@ std::vector<std::string> select_words(std::string input, int k) {
     
     std::sort(words.begin(), words.end());
     
-    std::vector<std::string> result;
+    std::vector<std::string> result = std::vector<std::string>(words.begin(), words.end()); 
     for (int i = 0; i < k; ++i) {
         if (i >= words.size()) break;
-        result.push_back(words[i]);
+        result[i] = words[i];
     }
     
     return result;
