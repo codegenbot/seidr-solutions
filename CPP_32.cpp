@@ -14,14 +14,9 @@ double poly(vector<double> xs, double x){
 }
 
 double find_zero(vector<double> xs){
-    if(xs.size() % 2 != 0) return -1; // Return -1 if the number of coefficients is odd
+    if(xs.size() % 2 != 0) return -1; // return -1 if the number of coefficients is odd
     double x = 1.0;
     for(int i=0; i<xs.size();i+=2)
-    {
-        while(abs(poly(xs, x)) > 1e-6)
-        {
-            x -= poly(xs, x) / xs[i];
-        }
-    }
-    return round(x, 10);
+        x = x - xs[i]/xs[i+1];
+    return x;
 }
