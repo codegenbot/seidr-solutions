@@ -18,9 +18,8 @@ string anti_shuffle(string sStr) {
                 word += sStr[j];
                 j++;
             }
-            vector<char> temp(word.begin(), word.end()); // Convert string to vector
-            sort(temp.begin(), temp.end());
-            for (char c : temp) {
+            vector<char>(word.begin(), word.end(), std::allocator<char>()).sort();
+            for (char c : word) {
                 result += c;
             }
             i = j - 1;
