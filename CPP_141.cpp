@@ -1,24 +1,28 @@
-int digits = 0;
-    int dots = 0;
+#include <string>
+using namespace std;
+
+string file_name_check(string file_name) {
+    int digitCount = 0;
+    int dotCount = 0;
     int dotIndex = -1;
     
-    for (int i = 0; i < file_name.size(); ++i) {
-        if (isdigit(file_name[i])) {
-            digits++;
+    for (int i = 0; i < file_name.length(); ++i) {
+        if (file_name[i] >= '0' && file_name[i] <= '9') {
+            digitCount++;
         } else if (file_name[i] == '.') {
-            dots++;
+            dotCount++;
             dotIndex = i;
         }
     }
     
-    if (digits <= 3 && dots == 1 && dotIndex > 0 && dotIndex < file_name.size() - 1) {
-        string extension = file_name.substr(dotIndex + 1);
-        if (extension == "txt" || extension == "exe" || extension == "dll") {
-            if (isalpha(file_name[0])) {
-                return "Yes";
-            }
-        }
+    if (digitCount > 3 || dotCount != 1 || dotIndex == 0 || dotIndex == file_name.length() - 1) {
+        return "No";
     }
     
-    return "No";
+    string extension = file_name.substr(dotIndex + 1);
+    if (extension != "txt" && extension != "exe" && extension != "dll") {
+        return "No";
+    }
+    
+    return "Yes";
 }
