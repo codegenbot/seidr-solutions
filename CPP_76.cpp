@@ -1,15 +1,14 @@
-```
 #include <cmath>
 #include <iostream>
 
 bool is_simple_power(int x, int n);
 
-bool is_simple_power(int x, int int) {
-    double y = pow(n, log(x) / log(n));
+bool is_simple_power(int x, int intN) {
+    double y = pow((double)n, log((double)x) / log((double)n));
     return (y == x);
 }
 
-int main() {
+int originalMain() {
     std::cout << "Enter a number: ";
     int tempX;
     std::cin >> tempX;
