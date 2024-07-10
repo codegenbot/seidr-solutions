@@ -1,5 +1,7 @@
+```cpp
 #include <vector>
 #include <initializer_list>
+#include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
@@ -37,5 +39,6 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    assert(bf("Jupiter", "Makemake").empty()); 
+    if (!issame(bf("Jupiter", "Mars"), {"Saturn"})) 
+        assert(false); 
 }
