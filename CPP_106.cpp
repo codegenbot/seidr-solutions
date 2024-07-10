@@ -23,7 +23,3 @@ vector<int> f(int n) {
     }
     return result;
 }
-
-bool isSame(vector<int> a, vector<int> b) {
-    return a == b;
-}
