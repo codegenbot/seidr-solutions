@@ -1,4 +1,3 @@
-```Python
 def smallest_change():
     arr = list(map(int, input().split()))
     n = len(arr)
