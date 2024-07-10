@@ -25,6 +25,7 @@ vector<int> parse_nested_parens(string paren_string) {
         result.push_back(max_depth);
     }
     return result;
+
 }
 
 int main() {
