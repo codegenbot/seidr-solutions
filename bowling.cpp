@@ -23,7 +23,7 @@ int calculateBowlingScore(string input) {
             frames[frame] += c - '0';
             ball++;
 
-            if (ball == 2 || frames[frame] == 10) {
+            if (ball == 2 || (c != '-' && c != '/')) {
                 frame++;
                 ball = 0;
             }
