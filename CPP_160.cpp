@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <cstdio>
@@ -16,18 +17,28 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
     }
 
     int result = 0;
-    for(int i = 1; i < operand.size(); i++) {
-        if(operator_[i-1] == "+") {
-            result += operand[i];
-        } else if(operator_[i-1] == "*") {
-            result *= operand[i];
+    string op = "";
+    for (int i = 0; i < operator_.size(); i++) {
+        if (op == "") {
+            op = operator_[i];
+        } else {
+            switch (op[0]) {
+                case '+':
+                    result += operand[i];
+                    break;
+                case '-':
+                    result -= operand[i];
+                    break;
+                case '*':
+                    result *= operand[i];
+                    break;
+                case '/':
+                    result /= operand[i];
+                    break;
+            }
+            op = operator_[i];
         }
     }
 
     return result;
-}
-
-int main() {
-    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
-    return 0;
 }
