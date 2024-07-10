@@ -10,7 +10,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> strange_sort_vector(std::vector<int> lst) {
+std::vector<int> strange_sort_list(std::vector<int> lst) {
     std::vector<int> result;
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
@@ -32,10 +32,11 @@ int main() {
     std::cout << "Enter an integer: ";
     std::cin >> num;
     std::vector<int> input = {num};
-    std::vector<int> output = strange_sort_vector(input);
+    std::vector<int> output = strange_sort_list(input);
     std::cout << "Output: ";
     for (auto i : output) {
         std::cout << i << " ";
     }
     std::cout << std::endl;
+    return 0;
 }
