@@ -1,20 +1,15 @@
 string get_closest_vowel(string word) {
-    int n = word.size();
-    for (int i = n - 1; i >= 0; --i) {
-        if (!isalpha(word[i])) continue;
-        if (isvowel(word[i])) return string(1, tolower(word[i]));
-        while (i > 0 && !isalpha(word[i-1])) --i;
-        if (isconsonant(word[i-1]) && isvowel(word[i-2])) return string(1, tolower(word[i-2]));
+    int n = word.length();
+    for(int i=n-1; i>=0; i--) {
+        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u' ||
+           word[i] == 'A' || word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || word[i] == 'U') {
+            for(int j=i+1; j<n; j++) {
+                if(word[j] == 'a' || word[j] == 'e' || word[j] == 'i' || word[j] == 'o' || word[j] == 'u' ||
+                   word[j] == 'A' || word[j] == 'E' || word[j] == 'I' || word[j] == 'O' || word[j] == 'U') {
+                    return string(1, word[i]);
+                }
+            }
+        }
     }
     return "";
-}
-
-bool isvowel(char c) {
-    c = tolower(c);
-    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
-}
-
-bool isconsonant(char c) {
-    c = tolower(c);
-    return !isvowel(c) && (c >= 'b' && c <= 'z');
 }

@@ -6,13 +6,13 @@ int prod_signs(vector<int> arr) {
         if (num == 0) {
             return 0;
         }
-        product *= sign(num);
+        product *= (num > 0 ? 1 : -1);
         sum += abs(num);
     }
 
-    return product * sum > INT_MAX ? -32768 : product * sum;
-}
+    if (arr.empty()) {
+        return -32768;
+    }
 
-int sign(int n) {
-    return n > 0 ? 1 : n < 0 ? -1 : 0;
+    return product * sum;
 }
