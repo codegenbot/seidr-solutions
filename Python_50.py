@@ -1,11 +1,13 @@
-input_string = input("Please enter a string:").strip()
-
-def decode_shift(s: str):
-    if not s:
-        return "No input provided"
+def decode_shift(input_string):
+    decoded_message = ""
+    for char in input_string:
+        decoded_char = chr(ord(char) + 1)
+        decoded_message += decoded_char
+    return decoded_message
     
-    shift = str.maketrans("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "vwxyzabcdefghijklmnopqrstuvWXYZABCDEFGHIJKLMNOPQRSTU")
-    return s.translate(shift)
-
-result = decode_shift(input_string)
-print(result)
+try:
+    input_string = input("Please enter a string:").strip()
+    result = decode_shift(input_string)
+    print(result)
+except:
+    print("Invalid input. Please enter a valid string.")
