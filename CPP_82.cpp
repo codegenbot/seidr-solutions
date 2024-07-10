@@ -1,8 +1,10 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
 
-int prime_length(int len) {
+bool prime_length(const std::string& str) {
+    int len = static_cast<int>(str.length());
     if(len <= 1) return false;
     for(int i=2; i*i<=len; i++){
         if(len%i==0) return false;
@@ -16,14 +18,12 @@ int main()
     std::string input;
     std::cout << "Enter a string: ";
     std::cin >> input;
-    bool flag = true;
+    bool is_digit = true;
     for(auto c : input){
-        flag &= std::isdigit(c); 
+        is_digit &= std::isdigit(c); 
     }
     int len = input.length(); 
-    std::string str_len = std::to_string(len);
-    bool flag_prime = prime_length(len);
-    if(flag && flag_prime) {  
+    if(is_digit && prime_length(std::to_string(len).c_str())) {  
         std::cout << "The length of the string is prime." << std::endl;
     } else {
         std::cout << "The length of the string is not prime." << std::endl;
