@@ -1,6 +1,5 @@
 ```
 import sys
-
 def find_zero(xs):
     n = len(xs)
     total_sum = sum(xs)
