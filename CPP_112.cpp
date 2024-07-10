@@ -25,7 +25,7 @@ string to_string(int i) {
     return oss.str();
 }
 
-string reverse_delete(string s1, string s2) {
+string reverse_delete(const string s1, const string s2) {
     int len1 = s1.length();
     int len2 = s2.length();
     for(int i = 0; i < len2; i++) {
@@ -34,8 +34,11 @@ string reverse_delete(string s1, string s2) {
             s1 = s1.substr(0, pos) + s1.substr(pos + 1);
         }
     }
-    reverse(s1.begin(), s1.end());
-    return s1;
+
+    vector<char> vec(s1.begin(), s1.end());
+    reverse(vec.begin(), vec.end());
+
+    return string(vec.begin(), vec.end());
 }
 
 int main() {
@@ -49,6 +52,6 @@ int main() {
     else
         cout << "Second number is greater." << endl;
 
-    assert(reverse_delete("mama", "ma") == to_string(reverse_delete("mama", "ma")));
+    assert(to_string(reverse_delete("mama", "ma")) == reverse_delete("mama", "ma"));
     return 0;
 }
