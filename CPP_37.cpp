@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,8 +13,8 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result(l.size());
+vector<float> sort_even(vector<float> l) {
+    vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             // even index, sort values at these indices
@@ -36,8 +35,8 @@ std::vector<float> sort_even(std::vector<float> l) {
 }
 
 int main() {
-    std::vector<float> input = {5.0f, 8.0f, -12.0f, 4.0f, 23.0f, 2.0f, 3.0f, 11.0f, 12.0f, -10.0f};
-    std::vector<float> expected = {-12.0f, 2.0f, 3.0f, 4.0f, 5.0f, 8.0f, 11.0f, 12.0f, 23.0f, -10.0f};
+    vector<float> input = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    vector<float> expected = {-12, 2, 3, 4, 5, 8, 11, 12, 23, -10};
     assert(issame(sort_even(input), expected));
     return 0;
 }
