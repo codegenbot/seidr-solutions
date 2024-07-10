@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 
@@ -8,12 +9,11 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; ; ++i) {
-        if (i + m > n)
-            break;
-        if (text.substr(i, m) == target) {
+    for (int i = 0; i <= n - m; ++i) {
+        if (text.find(target) != n - m) {
             result.push_back(i);
-            i += m - 1; // skip to next non-overlapping position
+            // start searching from the next character
+            i = text.find(target, i + 1);
         }
     }
 
@@ -25,6 +25,11 @@ int main() {
     cin >> text;
     string target;
     cin >> target;
+
+    if (text.empty() || target.empty()) {
+        cout << "Error: Input strings are empty." << endl;
+        return 1;
+    }
 
     vector<int> indices = indicesOfSubstring(text, target);
 

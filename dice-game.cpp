@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <iomanip>
 
 int main() {
     int n, m;
@@ -16,6 +14,5 @@ int main() {
             continue;
         p += (1.0 / n) * (1.0 / m);
     }
-    std::cout << "The probability that Peter rolls strictly higher than Colin is: " << std::fixed << std::setprecision(10) << (1 - p) << std::endl;
+    std::cout << "The probability that Peter rolls strictly higher than Colin is: " << std::to_string(1 - p) << std::endl;
     return 0;
-}
