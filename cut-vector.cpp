@@ -5,7 +5,7 @@ using namespace std;
 vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     vector<vector<int>> res(2);
-    
+
     for(int i=0; i<n-1; i++){
         if(nums[i] == nums[i+1]){
             res[0].push_back(nums[i]);
@@ -13,28 +13,26 @@ vector<vector<int>> cutVector(vector<int>& nums) {
             res[1].push_back(nums[i+1]);
             break;
         } else {
-            int diff = INT_MAX;
-            int cutIndex = i;
-            
+            int diff = abs(nums[i] - nums[i+1]);
             for(int j=i; j<n-1; j++){
                 if(abs(nums[j] - nums[j+1]) < diff){
-                    cutIndex = j;
-                    diff = abs(nums[cutIndex]-nums[cutIndex+1]);
+                    i=j;
+                    diff=abs(nums[j]-nums[j+1]);
                 }
             }
             res[0].push_back(nums[i]);
             res[1].clear();
-            for(int j=cutIndex+1; j<n;j++){
+            for(int j=i+1; j<n;j++){
                 res[1].push_back(nums[j]);
             }
         }
     }
-    
+
     if(res[0].size() == 0) {
         res[0].push_back(nums[0]);
         res[1] = nums;
     }
-    
+
     return res;
 }
 
