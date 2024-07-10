@@ -1,16 +1,9 @@
-int i = 0, count = 0;
-while(i < brackets.length()){
-    if(brackets[i] == '<'){
-        count++;
+bool correct_bracketing(string brackets){
+    int count = 0;
+    for (char c : brackets) {
+        if (c == '<') count++;
+        else if (c == '>') count--;
+        if (count < 0) return false;
     }
-    else{
-        if(count > 0){
-            count--;
-        }
-        else{
-            return false;
-        }
-    }
-    i++;
+    return count == 0;
 }
-return (count == 0);
