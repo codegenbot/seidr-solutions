@@ -1,3 +1,3 @@
-values = list(map(int, input("Enter space-separated integers: ").split()))
+values = list(map(int, input().strip().split()))
 result = sum(val * val for val in values)
 print(result)
