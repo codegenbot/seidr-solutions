@@ -11,7 +11,7 @@ const char* miniRoman(int num) {
         else
             return "IV";
     } else {
-        return std::string(num, 'I').c_str();
+        return "I";
     }
 }
 

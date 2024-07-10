@@ -1,3 +1,4 @@
+```
 def parse_nested_parens(paren_string: str) -> list:
     if not paren_string:
         return []
@@ -14,13 +15,14 @@ def parse_nested_parens(paren_string: str) -> list:
             if max_level < 0:
                 result.append(-max_level)
                 max_level = 0
-                if not current_group:
-                    continue
                 while current_group and current_group[0] == '(':
-                    group_value = int(current_group[1:-1])
-                    result.append(group_value)
+                    group_value = int(current_group[1:-1].replace('-', '')) 
+                    result.append(group_value) 
                     current_group = current_group[1:-1]
         elif char.isdigit():
-            current_group += char
+            if current_group and current_group[0] != '-':
+                current_group += char
+            else:
+                return [int(x) for x in current_group.replace('(','-').replace(')', '').split(',')] + result
 
     return [int(x) for x in current_group.replace('(','-').replace(')', '').split(',')] + result
