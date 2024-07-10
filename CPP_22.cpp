@@ -22,12 +22,12 @@ vector<int> filter_integers(list<any> values){
 }
 
 int main() {
-    list<any> values = {5, "hello", 10, 20, 'a'};
+    list<any> values = {std::any(10), std::any("hello"), std::any(20), std::any(30), std::any(40)};
     vector<int> filtered_values = filter_integers(values);
-    
-    for (int val : filtered_values) {
-        std::cout << val << " ";
+
+    for (int num : filtered_values) {
+        cout << num << " ";
     }
-    
+
     return 0;
 }
