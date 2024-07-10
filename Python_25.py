@@ -1,13 +1,5 @@
-def is_prime(num):
-    if num <= 1:
-        return False
-    for i in range(2, int(num**0.5) + 1):
-        if num % i == 0:
-            return False
-    return True
-
-
-if is_prime(n):
-    print(f"{n} is a prime number.")
-else:
-    print(f"{n} is not a prime number.")
+def get_positive_integer():
+    n = int(input("Please enter a positive integer greater than 1: "))
+    while n <= 1:
+        n = int(input("Invalid input. Please enter a positive integer greater than 1: "))
+    return n
