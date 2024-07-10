@@ -10,6 +10,5 @@ def total_match(lst1, lst2):
     else:
         return lst1
 
-lst1, lst2 = input("Enter two lists of strings separated by comma: ").split(",") 
-lst1, lst2 = [x.strip()[1:-1].split() for x in lst1+l2]
-print(total_match([lst1], [lst2]))
+lst1, lst2 = input("Enter two lists of strings separated by comma: ").split(",")
+print(total_match(eval('['+lst1+']'), eval('['+lst2+']')))
