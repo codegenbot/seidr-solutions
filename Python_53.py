@@ -1,15 +1,14 @@
 def add(a: int, b: int) -> int:
     return a + b
 
+
 if __name__ == "__main__":
     while True:
         try:
-            # Task description
-            print("Enter two integers to add:")
-            a = int(input("Enter the first number: "))
-            b = int(input("Enter the second number: "))
+            a = int(input("Enter the first number (integer only): "))
+            b = int(input("Enter the second number (integer only): "))
             result = add(a, b)
-            print(f"The sum of {a} and {b} is: {result}")
+            print(result)
             break
         except ValueError:
             print("Please enter integers only. Please re-enter the numbers.")
