@@ -1,9 +1,8 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<std::int32_t> temp;
+    std::vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
             temp.push_back(i);
