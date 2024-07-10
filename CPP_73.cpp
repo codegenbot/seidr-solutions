@@ -13,10 +13,7 @@ int smallest_change(std::vector<int> arr) {
         }
     }
     
-    std::vector<int> dp(n - m);
-    for (int i = 0; i < n - m; ++i) {
-        dp[i] = 0; // or any other valid value for integer type
-    }
+    std::vector<int> dp(n - m, 0); // Initialize with zeros
     int smallest = INT_MAX;
 
     for (int length = 2; length <= n; length++) {
