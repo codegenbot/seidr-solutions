@@ -1,4 +1,3 @@
-num_strings = int(input().strip())
 strings = []
 while True:
     string = input().strip()
