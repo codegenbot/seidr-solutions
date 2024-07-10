@@ -1,6 +1,10 @@
 #include <algorithm>
 #include <cmath>
 
-int findMax(int l[], int n) {
-    return *std::max_element(l, l+n);
+int findMax(int arr[], int n) {
+    return *std::max_element(arr, arr+n);
+}
+
+double findMaxDouble(double arr[], int n) {
+    return *std::max_element(arr, arr+n);
 }
