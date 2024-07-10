@@ -3,7 +3,7 @@
 #include <cassert>
 
 std::vector<int> sum_product(const std::vector<int>& nums){
-    std::vector<int> result(2, 1);
+    std::vector<int> result(2, 0);
     for(auto num : nums){
         result[0] += num;
         result[1] *= num;
