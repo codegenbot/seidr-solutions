@@ -1,10 +1,10 @@
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 
 int main() {
     std::string input;
     std::getline(std::cin, input);
-    
+
     std::string word, result;
     std::istringstream iss(input);
     while (iss >> word) {
@@ -13,9 +13,9 @@ int main() {
         }
         result += word + " ";
     }
-    
+
     result.pop_back(); // Remove extra space at the end
     std::cout << result << std::endl;
-    
+
     return 0;
 }
