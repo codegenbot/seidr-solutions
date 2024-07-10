@@ -1,4 +1,3 @@
-```
 import math
 
 def car_race_collision(num_cars=None):
