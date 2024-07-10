@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```cpp
 using namespace std;
 
 string longest(vector<string> strings){
