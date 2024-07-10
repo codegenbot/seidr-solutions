@@ -1,6 +1,7 @@
 #include <vector>
+#include <initializer_list>
 
-bool is_same(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size()!=b.size()) return false;
     for(int i=0;i<a.size();i++){
         if(a[i]!=b[i])return false;
@@ -31,7 +32,7 @@ int main() {
     std::cin >> n;
     
     std::vector<int> pile = make_a_pile(n);
-    if(is_same(pile, make_a_pile(n))){
+    if(issame(pile, make_a_pile(n))){
         std::cout << "The piles are the same." << std::endl;
     } else {
         std::cout << "The piles are not the same." << std::endl;
