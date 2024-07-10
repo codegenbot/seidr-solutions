@@ -38,7 +38,7 @@ int main() {
     }
 
     try {
-        assert({{numerical_letter_grade(0, 0.7)}} == {"F"}); 
+        assert(std::vector<std::string>({numerical_letter_grade(0, 0.7).c_str()}) == {"F"}); 
     } catch (const std::runtime_error& e) {
         std::cerr << e.what() << std::endl;
     }
