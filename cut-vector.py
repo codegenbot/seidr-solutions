@@ -11,11 +11,16 @@ cut_index = -1
 for i in range(n):
     prefix_sum += arr[i]
     diff = abs(total_sum - 2 * prefix_sum)
-    if diff <= min_diff:
+    if diff < min_diff:
         min_diff = diff
         cut_index = i
-        subvector1 = arr[: cut_index + 1]
-        subvector2 = arr[cut_index + 1 :]
+
+subvector1 = arr[:cut_index + 1]
+subvector2 = arr[cut_index + 1:]
+
+if cut_index == n - 1:
+    subvector1 = arr
+    subvector2 = []
 
 print(*subvector1)
 print(*subvector2)
