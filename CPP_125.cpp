@@ -38,11 +38,9 @@ vector<string> split_words(string txt) {
 
 int main() {
     assert(issame(split_words("")) == true);
-    string input;
-    cout << "Enter your text: ";
-    cin >> input;
-    vector<string> words = split_words(input);
-    for(string word : words) {
-        cout << word << endl;
+    vector<string> words = split_words("0,hello");
+    for (string s : words) {
+        cout << s << " ";
     }
+    cout << endl;
 }
