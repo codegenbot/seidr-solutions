@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <cmath>
+#include <string>
 
 using namespace std;
 
@@ -9,23 +10,20 @@ int starts_one_ends(int n) {
     for (long long i = 1; i <= pow(10, n-1); i++) {
         string str;
         bool start_with_one = false, end_with_one = false;
-
         for (int j = 0; j < n; j++) {
             if ((i % 2 == 0) && j == 0) {
                 start_with_one = true;
             }
             char c = (i % 2 == 0 ? '0' : '1');
-            str += c;
+            str.push_back(c);
         }
-
         for (int j = n - 1; j >= 0; j--) {
             if ((i % 2 == 0) && j == n - 1) {
                 end_with_one = true;
             }
             char c = (i % 2 == 0 ? '0' : '1');
-            str += c;
+            str.push_back(c);
         }
-
         if ((start_with_one || i == 1) && (end_with_one || i == pow(10, n-1))) {
             count++;
         }
