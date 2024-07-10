@@ -8,8 +8,10 @@ using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
     string result = "";
-    for (char ch : s) {
-        if (c.find(ch) == string::npos) {
+    vector<bool> seen(26, false);
+    for (char ch : c) {
+        if (!seen[ch - 'a']) {
+            seen[ch - 'a'] = true;
             result += ch;
         }
     }
