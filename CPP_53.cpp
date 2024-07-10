@@ -1,11 +1,3 @@
-#include <iostream>
-#include <cstdlib>
-#include <cassert>
-
-int add(int x, int y) {
-    return x + y;
-}
-
 int main() {
     srand(time(NULL));
     int x = rand() % 1000;
