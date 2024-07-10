@@ -1,7 +1,7 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 bool same(int a, int b) {
     if (a == b)
@@ -32,6 +32,8 @@ int originalMain() {
         std::cout << "No elements left" << std::endl;
     }
 }
+
 int main() {
     originalMain();
     return 0;
+}
