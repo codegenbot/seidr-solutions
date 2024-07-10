@@ -2,13 +2,17 @@ def mean_absolute_deviation(numbers):
     avg = sum(numbers) / len(numbers)
     return sum(abs(num - avg) for num in numbers) / len(numbers)
 
-while True:
-    try:
-        numbers = list(map(float, input("Enter numbers separated by space: ").split()))
-        if len(numbers) > 0:
+
+def main():
+    while True:
+        try:
+            numbers = list(
+                map(float, input("Enter numbers separated by space: ").split())
+            )
             print(mean_absolute_deviation(numbers))
-        else:
-            print("Invalid input. Please enter at least one number.")
-        break
-    except ValueError:
-        print("Invalid input. Please enter numbers separated by space.")
+            break
+        except ValueError:
+            print("Invalid input. Please enter numbers separated by space.")
+
+
+main()
