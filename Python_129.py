@@ -3,29 +3,21 @@ def minPathSum(grid):
     m = [[0] * n for _ in range(n)]
 
     def dfs(i, j, path, visited):
+        nonlocal min_path_sum 
         if (i, j) == (n - 1, n - 1):
-            return sum(path) + grid[i][j]
+            nonlocal min_path_sum 
+            if min_path_sum is None or sum(path) + grid[i][j] < min_path_sum:
+                min_path_sum = sum(path) + grid[i][j]
         visited.add((i, j))
-        min_path = None
         for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             ni, nj = i + x, j + y
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
                 new_path = path + [grid[ni][nj]]
-                new_path.sort()
-                if min_path is None or sum(new_path) < sum(min_path):
-                    min_path = new_path
-        for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-            ni, nj = i + x, j + y
-            if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
-                for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-                    ni, nj = i + x, j + y
-                    if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
-                        min_path = dfs(ni, nj, new_path, visited.copy())
-                        if min_path is not None:
-                            m[i][j] = sum(min_path)
+                dfs(ni, nj, new_path, visited)
         return
 
+    min_path_sum = None 
     for i in range(n):
         for j in range(n):
             dfs(i, j, [], set())
-    return sum([sum(row) for row in m])
+    return min_path_sum
