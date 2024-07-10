@@ -1,11 +1,6 @@
-Here is the completed code:
-
-```cpp
 bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    char last_char = txt.back();
-    for (int i = 0; i < txt.size() - 1; ++i) {
-        if (txt[i] == ' ' && txt[i + 1] == last_char) return false;
-    }
-    return isalpha(last_char);
+    if(txt.empty()) return false;
+    int len = txt.length();
+    char lastChar = txt[len-1];
+    return (isalpha(lastChar)) && (!isspace(lastChar));
 }
