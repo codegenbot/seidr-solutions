@@ -1,3 +1,4 @@
+```
 def add(x: int, y: int):
     return x + y
 
@@ -21,4 +22,4 @@ while True:
                 print("Invalid input. Please enter an integer.")
     except Exception as e:
         print(f"Error: {e}. Goodbye!")
-        exit()
+        break
