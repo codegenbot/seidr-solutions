@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```
 from typing import List
 
@@ -13,7 +15,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             stack.append(char)
             groups.append('(')
         elif char == ')':
-            if stack and stack[-1] == '(':
+            if stack:
                 stack.pop()
                 groups.append(')')
             else:
