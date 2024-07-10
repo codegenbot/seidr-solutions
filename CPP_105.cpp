@@ -1,17 +1,10 @@
 #include <algorithm>
 #include <map>
+#include <vector>
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 vector<string> by_length(vector<int> arr){
@@ -35,10 +28,9 @@ vector<string> by_length(vector<int> arr){
         }
     }
     
-    sort(valid_nums.begin(), valid_nums.end(), [](int a, int b) {
-        return to_string(a).size() < to_string(b).size();
-    });
-
+    sort(valid_nums.begin(), valid_nums.end());
+    reverse(valid_nums.begin(), valid_nums.end());
+    
     for (int num : valid_nums) {
         result.push_back(num_to_name[num]);
     }
