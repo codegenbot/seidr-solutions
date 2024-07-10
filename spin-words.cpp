@@ -18,7 +18,7 @@ std::string spinWords(std::string str) {
         result += word + " ";
         pos = nextPos;
     }
-    return result.trim(); // Added trim()
+    return result;
 }
 
 int main() {
