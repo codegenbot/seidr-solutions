@@ -4,31 +4,27 @@
 bool evaluate(char op, bool operand1, bool operand2) {
     if (op == '|') {
         return operand1 || operand2;
-    } else if (op == '&') {
+    } else {
         return operand1 && operand2;
     }
-    return false; // Default case
 }
 
 int main() {
     std::string s;
     std::cin >> s;
 
-    bool result = true;
-    char op = '&';
-    bool operand = true;
-
+    bool result = false;
+    char op = '|'; 
+    bool operand = false;
+    
     for (char c : s) {
         if (c == 'T' || c == 'F') {
             operand = (c == 'T');
+            result = evaluate(op, result, operand);
         } else if (c == '|' || c == '&') {
             op = c;
-        } else {
-            result = evaluate(op, result, operand);
         }
     }
-
-    result = evaluate(op, result, operand);
 
     if (result) {
         std::cout << "True" << std::endl;
