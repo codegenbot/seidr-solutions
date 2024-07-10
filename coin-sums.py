@@ -4,8 +4,7 @@ def coin_sums(cents):
 
     for i in range(len(coins)):
         while cents >= coins[i]:
-            coins_divisible = min(cents // coins[i], len(range(coins[i], 0, -1)) and range(coins[i], 0, -1).index(coins[i]))
-            counts[i] += coins_divisible
-            cents -= coins_divisible * coins[i]
+            cents -= coins[i]
+            counts[i] += 1
 
-    return counts[3], counts[2], counts[1], counts[0]
+    return str(counts[3]) + "\n" + str(counts[2]) + "\n" + str(counts[1]) + "\n" + str(cents)
