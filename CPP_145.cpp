@@ -1,15 +1,14 @@
-```cpp
-#include <algorithm>
 #include <vector>
-#include <utility>
-#include <initializer_list> 
+#include <cassert>
+#include <iostream>
+
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool isEqual(vector<int> a, vector<int> b) {
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
-vector<int> orderPoints(vector<int> nums) {
+vector<int> sortAndReturn(vector<int> nums) {
     vector<pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); i++) {
         int sumOfDigits = 0;
@@ -32,7 +31,7 @@ vector<int> orderPoints(vector<int> nums) {
     return result;
 }
 
-int main() {
+int mainTest() {
     vector<int> nums = {0,6,6,-76,-21,23,4};
     cout << "[";
     for(int i=0; i<nums.size();i++) {
@@ -43,7 +42,7 @@ int main() {
     }
     cout << "]\n";
     
-    vector<int> result = orderPoints(nums);
+    vector<int> result = sortAndReturn(nums);
     cout << "[";
     for(int i=0; i<result.size();i++) {
         cout << result[i];
@@ -53,6 +52,6 @@ int main() {
     }
     cout << "]\n";
     
-    assert (issame(orderPoints({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6});
+    assert (isEqual(vector<int>{-76, -21, 0, 4, 23, 6, 6}, sortAndReturn({0,6,6,-76,-21,23,4})));
     return 0;
 }
