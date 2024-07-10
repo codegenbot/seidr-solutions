@@ -27,13 +27,9 @@ def parse_nested_parens(paren_string: str) -> list:
                 continue
             temp_group += char
     
-    if stack:  # remove any remaining open parentheses
-        while stack:
-            temp_group += stack.pop()
+    while stack:  
+        temp_group += stack.pop()
 
-    if temp_group.isdigit():
-        result = [int(temp_group)]
-    else:
-        result = []
-
-    return [] if len(result) <= 1 else result
+    groups.append(int(temp_group)) if temp_group.isdigit() else [int(temp_group)]
+    
+    return [] if len(groups) <= 1 else groups
