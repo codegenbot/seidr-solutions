@@ -13,6 +13,12 @@ def filter_by_substring():
                 continue
 
             strings = [s.strip() for s in input_str.split(",")]
+            break
+        except ValueError:
+            print("Invalid input. Please try again.")
+
+    while True:
+        try:
             num_to_display = int(
                 input(
                     "Enter the number of results to display (1-{}): ".format(
@@ -20,17 +26,28 @@ def filter_by_substring():
                     )
                 )
             )
-
             if 1 <= num_to_display <= len(strings):
                 break
             else:
                 print("Please enter a number between 1 and {}".format(len(strings)))
-
         except ValueError:
             print("Invalid input. Please try again.")
 
-    result = [s for s in strings if bool(re.compile(substring).search(s))]
-    print(result[:num_to_display])
+    while True:
+        try:
+            result = [s for s in strings if bool(re.compile(substring).search(s))]
+            while True:
+                try:
+                    if result:
+                        print(result[:num_to_display])
+                    else:
+                        print(f"No results found with the substring {substring}.")
+                    break
+                except ValueError:
+                    print("Invalid input. Please try again.")
+            break
+        except TypeError:
+            print("Invalid input. Please try again.")
 
 
 filter_by_substring()
