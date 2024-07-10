@@ -1,20 +1,22 @@
-#include <vector>
-#include <string>
-
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    string str;
-    for(int i=0; i<n; i++) {
-        str += to_string(arr[i]);
-    }
-    
     int left = 0, right = n - 1;
-    int count = 0;
-    while(left < right) {
-        if(str[left] != str[right]) {
-            count++;
+    int changes = 0;
+
+    while (left < right) {
+        if (arr[left] != arr[right]) {
+            changes++;
+            break;
         }
         left++;
         right--;
     }
-    return count;
+
+    for (int i = left; i <= right; i++) {
+        if (arr[i] != arr[n - i - 1]) {
+            changes++;
+        }
+    }
+
+    return changes;
+}
