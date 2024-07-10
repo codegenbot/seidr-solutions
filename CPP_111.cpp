@@ -13,7 +13,7 @@ std::map<char, int> histogram(std::string s) {
     return freqMap;
 }
 
-bool histogramCheck(std::map<char,int> a, std::map<char,int> b){
+bool issame(std::map<char,int> a, std::map<char,int> b){
     if(a.size() != b.size())
         return false;
 
@@ -25,6 +25,6 @@ bool histogramCheck(std::map<char,int> a, std::map<char,int> b){
 }
 
 int main() {
-    assert(histogramCheck(histogram("a"), { {'a', 1} }));
+    assert(issame(histogram("a"), {{'a', 1}}));
     return 0;
 }
