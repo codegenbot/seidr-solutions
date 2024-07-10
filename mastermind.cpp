@@ -1,26 +1,14 @@
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+#include <string>
+using namespace std;
 
-    for (int i = 0; i < 4; i++) {
+pair<int, int> mastermind(string code, string guess) {
+    pair<int, int> result = {0, 0};
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
+            ++result.second;
+        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
+            ++result.first;
         }
     }
-
-    map<char, int> codeMap;
-    map<char, int> guessMap;
-
-    for (int i = 0; i < 4; i++) {
-        codeMap[code[i]]++;
-        guessMap[guess[i]]++;
-    }
-
-    for (auto it = codeMap.begin(); it != codeMap.end(); it++) {
-        if (it->second > 0 && guessMap[it->first] > 0) {
-            white += min(it->second, guessMap[it->first]);
-        }
-    }
-
-    return black + white;
+    return result;
 }
