@@ -8,13 +8,11 @@ def get_all_prefixes(s: str) -> List[str]:
 def all_prefixes() -> None:
     while True:
         try:
-            s = input("Please enter a string (or 'quit' to exit): ")
-            if not s or s.lower() == "quit":
+            s = input("Please enter a string: ")
+            if not s.strip():
+                print("Error: Please provide a non-empty string.")
+            else:
                 break
-            print("\n".join(get_all_prefixes(s)))
         except Exception as e:
             print(f"Unexpected error occurred: {e}")
-
-
-if __name__ == "__main__":
-    all_prefixes()
+    print("\n".join(get_all_prefixes(s)))
