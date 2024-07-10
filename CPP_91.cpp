@@ -1,8 +1,7 @@
 int is_bored(string S){
     int count = 0;
-    int n = S.length();
-    for(int i=0; i<n; ++i){
-        if(S[i] == 'I' && (i == 0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')){
+    for (int i = 0; i < S.size(); ++i) {
+        if (S[i] == 'I' && (i == 0 || S[i - 1] == '.' || S[i - 1] == '?' || S[i - 1] == '!')) {
             count++;
         }
     }
