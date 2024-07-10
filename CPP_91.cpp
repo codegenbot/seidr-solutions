@@ -1,3 +1,4 @@
+```
 #include <string>
 
 int main() {
@@ -5,7 +6,7 @@ int main() {
     cout << "Enter a sentence: ";
     cin >> S;
     int result = is_bored(S);
-    cout << "The count of 'I' at the start of sentences is: " << result << endl;
+    cout << "Boredom count: " << result << endl;
     return 0;
 }
 
@@ -13,7 +14,7 @@ int is_bored(string S){
     int count = 0;
     string boredom = "I";
     size_t pos = 0;
-    
+
     while((pos = S.find(".", pos)) != string::npos ||
           (pos = S.find("?", pos)) != string::npos ||
           (pos = S.find("!", pos)) != string::npos){
@@ -21,6 +22,6 @@ int is_bored(string S){
             count++;
         pos += 1;
     }
-    
+
     return count;
 }
