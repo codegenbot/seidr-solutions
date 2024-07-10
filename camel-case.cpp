@@ -1,4 +1,4 @@
-```c++
+```c
 #include <iostream>
 #include <string>
 
@@ -21,14 +21,7 @@ std::string camelCase(std::string str) {
             }
         } else {
             for (size_t j = 0; j < words[i].size(); ++j) {
-                if (i == 0) {
-                    result += tolower(words[i][j]);
-                } else {
-                    result += toupper(words[i][0]);
-                    for (size_t k = 1; k < words[i].size(); ++k) {
-                        result += tolower(words[i][k]);
-                    }
-                }
+                result += tolower(words[i][j]);
             }
         }
     }
