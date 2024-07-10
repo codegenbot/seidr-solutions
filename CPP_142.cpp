@@ -9,6 +9,7 @@ int sum_squares(int n) {
     return static_cast<int>(sum);
 }
 
+namespace MainNamespace {
 int main() {
     int n;
     std::cin >> n;
