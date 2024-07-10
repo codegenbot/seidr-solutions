@@ -1,4 +1,6 @@
-```
+Here is the corrected code:
+
+```python
 from typing import List
 
 def filter_integers() -> List[int]:
