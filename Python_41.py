@@ -1,5 +1,2 @@
-def car_race_collision(n: int, a1: int, a2: int):
-    if a1 > a2:
-        return (n - 1) * a2
-    else:
-        return (n - 1) * a1
+def car_race_collision(n: int, a1=0, a2=0):
+    return sum(1 for _ in range(min(a1-1, a2), max(a1, a2)+1))
