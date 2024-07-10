@@ -1,53 +1,44 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
-    int min_diff = INT_MAX;
-    int pos = -1;
-
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int diff = abs(vec[i] - vec[i + 1]);
-        if (diff <= min_diff) {
-            min_diff = diff;
-            pos = i;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int minDiff = INT_MAX;
+    int splitIndex = 0;
+    
+    for (int i = 1; i < v.size(); i++) {
+        int diff = abs(v[i] - v[0]);
+        
+        if (diff < minDiff) {
+            minDiff = diff;
+            splitIndex = i;
         }
     }
-
-    std::vector<int> left = {vec[0]};
-    for (int i = 0; i < pos; i++) {
-        left.push_back(vec[i + 1]);
+    
+    vector<int> left = {v[0]};
+    vector<int> right = v;
+    
+    for (int i = 1; i <= splitIndex; i++) {
+        left.push_back(v[i]);
+        right.erase(right.begin());
     }
-
-    std::vector<int> right = {vec[pos + 1]};
-    for (int i = pos + 2; i < vec.size(); i++) {
-        right.push_back(vec[i]);
-    }
-
-    return {left, right};
+    
+    return make_pair(left, right);
 }
 
 int main() {
     int n;
-    std::cin >> n;
-
-    std::vector<int> vec(n);
-    for (auto& num : vec) {
-        std::cin >> num;
+    cin >> n;
+    vector<int> v(n+1);
+    for(int i=0;i<=n;i++){
+        cin>>v[i];
     }
-
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(vec);
-
-    std::cout << "[";
-    for (int num : result.first) {
-        std::cout << num << " ";
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    for(auto x:res.first){
+        cout<<x<<" ";
     }
-    std::cout << "] [";
-
-    for (int num : result.second) {
-        std::cout << num << " ";
+    cout<<endl;
+    for(auto x:res.second){
+        cout<<x<<" ";
     }
-
-    std::cout << "]" << std::endl;
-
     return 0;
 }
