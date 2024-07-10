@@ -1,7 +1,4 @@
-Here is the solution to the problem:
-
-```
-from typing import List
+Here is the solution:
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
@@ -11,8 +8,8 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         for c in s:
             if c == '(':
                 level += 1
-                max_level = max(max_level, level)
             elif c == ')':
                 level -= 1
+            max_level = max(max_level, level)
         result.append(max_level)
     return result
