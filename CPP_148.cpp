@@ -2,17 +2,17 @@
 #include <iostream>
 using namespace std;
 
-void bf(string n) {
-    if (n.empty())
-        cout << "Error: Input string is empty." << endl;
+void bf(int n) {
+    if(n<1)
+        cout << "Error: Input number is less than 1." << endl;
     else
-        cout << "Input string is valid." << endl;
+        cout << "Input number is valid." << endl;
 }
 
 int main() {
     int num;
-    cin >> num;
-    string str = to_string(num);
-    bf(str);
+    cin >> ws; 
+    getline(cin, num); 
+    bf(stoi(num)); 
     return 0;
 }
