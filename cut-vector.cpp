@@ -1,26 +1,24 @@
-```cpp
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
-    int minDiff = numeric_limits<int>::max();
-    pair<vector<int>, vector<int>> result;
+    int n = v.size();
+    long long total_sum = accumulate(v.begin(), v.end(), 0LL);
     
-    for(int i = 1; i <= v.size(); i++) { 
-        int leftSum = 0, rightSum = 0;
-        
-        for(int j = 0; j < i; j++) {
-            leftSum += v[j];
+    pair<long long, long long> prefix_sum = {{0LL}, {accumulate(v.begin(), v.end(), 0LL)}};
+    
+    int min_diff = INT_MAX;
+    vector<int> left, right;
+    
+    for (int i = 0; i < n; ++i) {
+        if (prefix_sum.second - prefix_sum.first >= total_sum / 2) {
+            min_diff = min(min_diff, abs(total_sum - 2 * prefix_sum.second));
+            left = {begin(v), begin(v) + i};
+            right = {end(v) - (n - i - 1), end(v)};
         }
-        
-        rightSum = accumulate(v.begin() + i - 1, v.end(), 0); 
-         
-        int diff = abs(leftSum - rightSum);
-        
-        if(diff < minDiff) {
-            minDiff = diff;
-            result = {vector<int>(v.begin(), v.begin() + i), vector<int>(v.begin() + i, v.end())};
-        }
-    else if (leftSum == rightSum)
-        return make_pair(vector<int>(v.begin(), v.begin() + i), vector<int>(v.begin() + i, v.end()));
     }
     
-    return result;
+    return {{left}, {right}};
 }
