@@ -17,5 +17,5 @@ def encode(message):
         elif char != " ": 
             result += char
         else: 
-            result += " " if char == " " else ""
+            result += " "
     return result
