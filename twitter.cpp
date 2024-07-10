@@ -3,6 +3,7 @@
 
 int main() {
     std::string tweet;
+    std::cin >> std::ws;
     getline(std::cin, tweet);
 
     if (tweet.empty()) {

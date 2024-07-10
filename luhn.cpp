@@ -3,18 +3,20 @@
 using namespace std;
 
 int main() {
-    vector<int> digits(16);
-    for (int i = 0; i < 16; ++i) {
+    int n;
+    cin >> n;
+    vector<int> digits(n);
+    for (int i = 0; i < n; ++i) {
         cin >> digits[i];
     }
 
     int sum = 0;
-    for (int i = 14; i >= 0; i -= 2) {
+    for (int i = n - 2; i >= 0; i -= 2) {
         int doubled = digits[i] * 2;
         sum += (doubled > 9) ? (doubled - 9) : doubled;
     }
 
-    for (int i = 15; i >= 0; i -= 2) {
+    for (int i = n - 1; i >= 0; i -= 2) {
         sum += digits[i];
     }
 
