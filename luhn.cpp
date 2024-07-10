@@ -1,19 +1,16 @@
-int luhn(vector<int> digits) {
+int luhn(vector<int>& creditCardNumber) {
     int sum = 0;
     bool doubleNext = false;
-    
-    for (int i = digits.size() - 1; i >= 0; --i) {
+    for (int i = creditCardNumber.size() - 1; i >= 0; --i) {
+        int digit = creditCardNumber[i];
         if (doubleNext) {
-            int temp = digits[i] * 2;
-            if (temp > 9) {
-                temp -= 9;
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
             }
-            sum += temp;
-        } else {
-            sum += digits[i];
         }
+        sum += digit;
         doubleNext = !doubleNext;
     }
-    
     return sum;
 }
