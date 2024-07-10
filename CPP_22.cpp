@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <iostream>
 
-bool issame(const int& a, const int& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -23,7 +24,7 @@ int main() {
     std::vector<int> vector1 = {num1};
     std::vector<int> vector2 = {num2};
 
-    if(issame(num1, num2)) {
+    if(issame(vector1, vector2)) {
         std::cout << "Vectors are same." << std::endl; 
     }
     else {
@@ -37,6 +38,6 @@ int main() {
     }
     std::cout << std::endl;
 
-    assert(issame(3, 3));
+    assert(issame({1, 1, 1}, {1, 1, 1}));
     return 0;
 }
