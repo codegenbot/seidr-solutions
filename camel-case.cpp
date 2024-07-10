@@ -4,7 +4,7 @@
 
 int main() {
     std::string input;
-    getline(std::cin, input);
+    std::getline(std::cin, input);
     
     bool capitalize = true;
     for (char& c : input) {
@@ -12,7 +12,7 @@ int main() {
             capitalize = true;
         } else if (c != ' ') {
             if (capitalize) {
-                std::cout << (char)toupper(c);
+                std::cout << (char)std::toupper(c);
                 capitalize = false;
             } else {
                 std::cout << c;
