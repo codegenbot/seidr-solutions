@@ -1,52 +1,26 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentRoll = 0;
-    bool firstRoll = true;
-
+    int roll = 0;
+    vector<int> rolls(2);
+    
     for (char c : s) {
-        if (c == 'X') { // strike
-            score += 10 + nextTwoRolls(s);
-            currentRoll = 0;
-            firstRoll = true;
-        } else if (c == '/') { // spare
-            score += 10 - currentRoll;
-            currentRoll = 0;
-            firstRoll = false;
-        } else {
-            currentRoll++;
-            if (!firstRoll) {
-                if (currentRoll == 2) {
-                    score += 10 - currentRoll;
-                    currentRoll = 0;
-                    firstRoll = true;
-                }
-            }
+        if (c >= '0' && c <= '9') {
+            roll = roll * 10 + (c - '0');
+        } else if (c == '/') {
+            score += rolls[0] + rolls[1];
+            rolls.clear();
+            roll = 0;
+        } else if (c == 'X') {
+            score += 10 + rolls[0];
+            rolls.clear();
+            roll = 0;
         }
+        
+        rolls.push_back(roll);
+        roll = 0;
     }
-
+    
+    score += rolls[0] + rolls[1];
+    
     return score;
-}
-
-int nextTwoRolls(string s) {
-    int i = s.size() - 1;
-    while (i >= 0 && !isdigit(s[i])) i--;
-    if (i < 0) return 10;
-
-    string str = "";
-    while (i >= 0 && isdigit(s[i])) {
-        str.push_back(s[i]);
-        i--;
-    }
-    reverse(str.begin(), str.end());
-    int val1 = stoi(str);
-    str.clear();
-    i--;
-    while (i >= 0 && isdigit(s[i])) {
-        str.push_back(s[i]);
-        i--;
-    }
-    reverse(str.begin(), str.end());
-    int val2 = stoi(str);
-
-    return val1 + val2;
 }
