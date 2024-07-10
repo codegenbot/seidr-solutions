@@ -1,7 +1,8 @@
+#include <algorithm>
+
 #include <vector>
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 std::string spinWords(std::string str) {
     std::string result = "";
@@ -18,14 +19,13 @@ std::string spinWords(std::string str) {
         result += word + " ";
         pos = nextPos;
     }
-    return result;
+    return result.trim(); // Remove this line
 }
 
 int main() {
-    // You can test your function here
-    std::cout << spinWords("a") << std::endl; // Should print: a
-    std::cout << spinWords("this is a test") << std::endl; // Should print: this is a test
-    std::cout << spinWords("this is another test") << std::endl; // Should print: this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // Should print: hi
+    std::cout << spinWords("a") << std::endl; 
+    std::cout << spinWords("this is a test") << std::endl; 
+    std::cout << spinWords("this is another test") << std::endl; 
+    std::cout << spinWords("hi") << std::endl; 
     return 0;
 }
