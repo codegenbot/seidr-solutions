@@ -1,4 +1,10 @@
-bool increasing = true;
+#include <vector>
+#include <cassert>
+
+int monotonic(std::vector<int> l);
+
+int monotonic(std::vector<int> l) {
+    bool increasing = true;
     bool decreasing = true;
     for (int i = 1; i < l.size(); ++i) {
         if (l[i] < l[i - 1]) {
@@ -9,4 +15,12 @@ bool increasing = true;
         }
     }
     return increasing || decreasing;
+}
+
+int main_problem_CPP_57() {
+    assert(monotonic({9, 9, 9, 9}) == true);
+    assert(monotonic({1, 2, 3, 4}) == true);
+    assert(monotonic({4, 3, 2, 1}) == true);
+    assert(monotonic({1, 2, 2, 4}) == true);
+    return 0;
 }
