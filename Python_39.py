@@ -1,11 +1,10 @@
 def is_prime(num):
     if num < 2:
         return False
-    for i in range(2, int(num**0.5) + 1):
+    for i in range(2, int(num ** 0.5) + 1):
         if num % i == 0:
             return False
     return True
-
 
 def prime_fib(n: int):
     if n == 1:
@@ -20,5 +19,5 @@ def prime_fib(n: int):
     primes = [num for num in fib if is_prime(num)]
     return primes[-1]
 
-
+# Test the function with the given assertion
 assert prime_fib(10) == 89
