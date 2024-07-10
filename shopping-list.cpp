@@ -26,6 +26,7 @@ int main() {
     vector<float> discounts(n);
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
+        discounts[i] /= 100.0;
     }
 
     float total_price = calculateTotalPrice(prices, discounts);
