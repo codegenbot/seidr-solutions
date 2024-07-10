@@ -1,6 +1,8 @@
 #include <vector>
 #include <algorithm>
 
+using namespace std;
+
 int minPath(vector<vector<int>>& grid) {
     int m = grid.size();
     if (m == 0) return 1;
@@ -17,13 +19,17 @@ int minPath(vector<vector<int>>& grid) {
         }
     }
 
+    int res = 0, path = 0;
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
             if (grid[i][j] == 1) return 0;
+            if (grid[i][j] == 2) path++;
         }
     }
 
-    return 1;
+    res = path;
+
+    return res;
 }
 
 bool issame(vector<int> a, vector<int> b) {

@@ -1,5 +1,5 @@
 #include <cmath>
-#include <ostream>
+#include <iostream>
 
 int sum_squares(int n) {
     double sum = 0.0;
@@ -12,6 +12,8 @@ int sum_squares(int n) {
 int main() {
     int n;
     std::cin >> n;
-    std::cout << sum_squares(n) << std::endl;
+    int result = sum_squares(n);
+    assert(result == -1448);  
+    std::cout << result << std::endl;
     return 0;
 }
