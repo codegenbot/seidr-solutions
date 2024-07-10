@@ -1,4 +1,6 @@
+```cpp
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 bool isPrime(int num); // Function prototype for isPrime()
@@ -10,11 +12,10 @@ int main() {
     cout << "Enter the number: ";
     cin >> n;
     int result = prime_fib(n);
-    if (result == -1) {
-        cout << "Invalid input. Please enter a positive integer." << endl;
-    } else {
-        cout << "The " << n << "th prime Fibonacci number is: " << result << endl;
-    }
+    ostringstream oss; 
+    oss << "The " << n << "th prime Fibonacci number is: " << result; 
+    string str = oss.str(); 
+    cout << (result == -1 ? "" : str);
 }
 
 bool isPrime(int num) {
