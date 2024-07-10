@@ -1,10 +1,12 @@
-bool pairs_sum_to_zero(vector<int>& l) {
-    unordered_set<int> s;
+
+bool pairs_sum_to_zero(const vector<int>& l) {
+    unordered_set<int> seen;
     for (int num : l) {
-        if (s.count(-num) > 0) {
+        if (seen.count(-num)) {
             return true;
         }
-        s.insert(num);
+        seen.insert(num);
     }
     return false;
 }
+```
