@@ -1,3 +1,4 @@
+```
 #include <string>
 
 int how_many_times(string str, string substring) {
@@ -6,7 +7,7 @@ int how_many_times(string str, string substring) {
 
     while ((pos = str.find(substring)) != string::npos) {
         count++;
-        str.erase(pos, substring.length());
+        str.replace(pos, substring.length(), "");
     }
 
     return count;
