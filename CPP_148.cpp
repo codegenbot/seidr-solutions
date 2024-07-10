@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -6,8 +5,8 @@
 
 using namespace std;
 
-bool issame(const vector<string>& v1, const vector<string>& v2) {
-    return v1 == v2;
+bool areSame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> bf(string planet1, string planet2) {
@@ -40,7 +39,6 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), vector<string>{}));
-    
+    assert(areSame(bf("Jupiter", "Makemake"), vector<string>{}));
     return 0;
 }
