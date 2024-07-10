@@ -11,15 +11,13 @@ def fruit_distribution(s, n):
             i += 1
             fruit = ""
             for j in range(i, len(words)):
-                if not words[j].isalnum():
+                if words[j].isdigit():
                     break
                 fruit += words[j] + " "
             fruit = fruit.strip()
             if fruit:
                 if fruit in fruits:
-                    total_count = fruits[fruit]
-                    new_count = min(count, n - total_count)
-                    fruits[fruit] = total_count + new_count
+                    fruits[fruit] += count
                 else:
                     fruits[fruit] = count
         i += 1
