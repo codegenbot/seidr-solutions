@@ -1,5 +1,8 @@
 def digits(n):
-    product = 1
+    total = 0
+    has_odd = False
     for digit in str(n):
-        product *= int(digit)
-    return product
+        if int(digit) % 2 != 0:
+            has_odd = True
+        total += int(digit)
+    return total if not has_odd else 1
