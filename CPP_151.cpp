@@ -2,21 +2,8 @@
 #include <vector>
 #include <cassert>
 
-std::vector<float> double_the_difference() {
-    std::vector<float> lst;
-    float sum = 0.0;
+float double_the_difference(std::vector<float>& lst) {
     float odd_sum = 0.0;
-
-    std::cout << "Enter the size of the vector: ";
-    int size;
-    std::cin >> size;
-
-    std::cout << "Enter " << size << " float numbers: ";
-    for (int i = 0; i < size; ++i) {
-        float num;
-        std::cin >> num;
-        lst.push_back(num);
-    }
 
     for (float num : lst) {
         if (num > 0 && num == (int)num && (int)num % 2 != 0) {
@@ -24,7 +11,13 @@ std::vector<float> double_the_difference() {
         }
     }
 
-    sum = odd_sum * odd_sum;
+    return odd_sum * 2;
+}
 
-    return {sum};
+int main() {
+    std::vector<float> lst = {1.0, 2.0, 3.0, 4.0, 5.0};
+    float result = double_the_difference(lst);
+    assert(result == double_the_difference(lst));
+    
+    return 0;
 }

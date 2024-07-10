@@ -24,6 +24,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0), {1, 0}));
+    std::vector<int> expected = {1, 0};
+    assert(issame(even_odd_count(0), expected));
     return 0;
 }
