@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <set>
 #include <string>
@@ -22,11 +21,13 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     
     // Check if the temporary string is a palindrome
     bool is_palindrome = true;
-    for (int i = 0; i < temp.length() / 2; i++) {
+    int i = 0;
+    while (i < temp.length() / 2) {
         if (temp[i] != temp[temp.length() - i - 1]) {
             is_palindrome = false;
             break;
         }
+        i++;
     }
     
     // Add the result string and "True"/"False" to the vector
