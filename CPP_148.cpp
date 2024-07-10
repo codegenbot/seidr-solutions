@@ -1,5 +1,5 @@
-#include <iostream>
-#include <vector>
+#include<iostream>
+#include<vector>
 
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -31,8 +31,8 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    vector<string> result = bf("Earth", "Neptune");
-    for (const auto& planet : result) {
+    vector<string> result = bf("Earth", "Jupiter");
+    for (const string& planet : result) {
         cout << planet << " ";
     }
 
