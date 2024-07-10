@@ -1,3 +1,2 @@
-string = input("Enter a string: ").strip()
-result = "".join([char.lower() if char.isupper() else char.upper() for char in string])
-print(result)
+def convert_case(string):
+    return "".join([char.lower() if char.islower() else char.upper() for char in string])
