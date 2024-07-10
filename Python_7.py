@@ -3,11 +3,14 @@ import sys
 substring = input().strip()
 
 strings = []
-for line in sys.stdin:
-    string = line.strip()
-    if string == "----":
-        break
-    strings.append(string)
+try:
+    while True:
+        string = input().strip()
+        if string == "----":
+            break
+        strings.append(string)
+except EOFError:
+    pass
 
 def filter_strings(strings, substring):
     return [string for string in strings if substring in string]
