@@ -8,7 +8,9 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (cin >> num) {
+    ifstream inFile("input.txt");
+
+    while (inFile >> num) {
         nums.push_back(num);
     }
 
