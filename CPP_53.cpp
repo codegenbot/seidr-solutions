@@ -1,12 +1,8 @@
 #include <iostream>
-#include <cstdlib>
-#include <cassert>
 
 int add(int x, int y) {
     return x + y;
 }
-
-int main();
 
 int main() {
     int num1, num2;
