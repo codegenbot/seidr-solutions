@@ -1,7 +1,18 @@
-vector<int> maximum(vector<int> arr,int k){
-    vector<int> res(k);
-    partial_sort(arr.begin(), arr.end() - k + 1, arr.end(),
-                  [&res](int a, int b) { return count(res.begin(), res.end(), a) <
-                                             count(res.begin(), res.end(), b); });
-    return res;
+```cpp
+vector<int> maximum(vector<int> arr, int k) {
+    vector<int> result;
+    for(int i = 0; i < k; i++) {
+        auto it = std::max_element(arr.begin(), arr.end());
+        result.push_back(*it);
+        arr.erase(it - arr.begin());
+    }
+    return result;
+
+}
+bool issame(vector<int> a,vector<int>b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
