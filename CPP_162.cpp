@@ -1,27 +1,23 @@
+#include <iostream>
 #include <string>
-#include <openssl/md5.h>
-
-using namespace std;
+#include <openssl/ssl.h>
+#include <openssl/sha.h>
 
 string string_to_md5(string text) {
-    if (text.empty()) {
-        return "";
-    }
-
-    MD5_CTX ctx;
+    if (text.empty()) return "";
     unsigned char md[16];
-    string result;
-
-    // Calculate the MD5 hash of 'text'
+    MD5_CTX ctx;
     MD5_Init(&ctx);
-    MD5_Update(&ctx, text.c_str(), text.length());
+    const char* str = text.c_str();
+    size_t len = text.size();
+    MD5_Update(&ctx, str, len);
     MD5_Final(md, &ctx);
 
-    for (int i = 0; i < 16; ++i) {
+    string result = "";
+    for (size_t i = 0; i < 16; ++i) {
         char buff[3];
         sprintf(buff, "%02x", md[i]);
-        result += string(buff);
+        result += buff;
     }
-
     return result;
 }
