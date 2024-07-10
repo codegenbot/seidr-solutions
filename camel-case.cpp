@@ -3,13 +3,16 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '-') {
-            i++;
-            while (i < str.length() && str[i] == '-') i++;
-            result += toupper(str[i]);
-        } else if (str[i] != ' ') {
-            if (!result.empty()) result[0] = tolower(result[0]);
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == '-') {
+            if (result != "") {
+                result[0] = toupper(result[0]);
+            }
+            int j = i + 1;
+            while (j <= str.length() && str[j] != '-') {
+                result += tolower(str[j++]);
+            }
+        } else {
             result += str[i];
         }
     }
@@ -18,8 +21,8 @@ std::string camelCase(std::string str) {
 
 int main() {
     std::string input;
-    while (std::cin >> input) {
-        std::cout << camelCase(input) << std::endl;
-    }
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+    std::cout << "The camelCase equivalent is: " << camelCase(input) << std::endl;
     return 0;
 }
