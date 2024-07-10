@@ -10,7 +10,10 @@ vector<float> rescale_to_unit(vector<float> numbers) {
     float maxVal = *max_element(numbers.begin(), numbers.end());
 
     for (float num : numbers) {
-        result.push_back((num - minVal) / (maxVal - minVal));
+        if(maxVal == minVal)  
+            result.push_back(0);
+        else
+            result.push_back((num - minVal) / (maxVal - minVal));
     }
 
     return result;
