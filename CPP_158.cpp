@@ -21,7 +21,10 @@ int main() {
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter word " << i + 1 << ": ";
-        std::getline(std::cin, words[i]);
+        std::string s;
+        std::cin >> s;
+        std::cin.ignore(); // ignore trailing spaces
+        words.push_back(s);
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
     return 0;
