@@ -1,5 +1,7 @@
+```
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 double diceGame(int n, int m) {
