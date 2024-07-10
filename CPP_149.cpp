@@ -29,6 +29,6 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> input) {
     return input;
 }
 
-int driver() {
+int main() {
     return issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"});
 }

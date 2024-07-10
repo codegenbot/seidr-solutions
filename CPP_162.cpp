@@ -1,12 +1,8 @@
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include <sstream>
 #include <openssl/md5.h>
 
 using namespace std;
 
-string string_to_md5(string text) {
+string myString_to_md5(string text) {
     unsigned char md[16];
     EVP_MD_CTX ctx;
     EVP_DigestInit(&ctx, EVP_md5());
@@ -15,9 +11,9 @@ string string_to_md5(string text) {
 
     string result;
     for (int i = 0; i < 16; ++i) {
-        ostringstream oss;
-        oss << hex << setfill('0') << setw(2) << static_cast<int>(md[i]);
-        result += oss.str();
+        char buffer[3];
+        sprintf(buffer, "%02x", md[i]);
+        result += string(buffer);
     }
 
     return result;
