@@ -1,8 +1,6 @@
 #include <string>
 #include <vector>
-#include <cassert>
-
-std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions);
+#include <cassert> // include the assert header file
 
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     std::string strongest_extension = "";
