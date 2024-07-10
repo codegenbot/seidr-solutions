@@ -1,41 +1,62 @@
-#include <boost/variant.hpp>
+#include <string>
+#include <variant>
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (boost::holds_alternative<int>(a) && boost::holds_alternative<double>(b)) {
-        return boost::get<int>(a) > boost::get<double>(b) ? a : b;
+using namespace std;
+
+variant<int, double, string> compare_one(variant<int, double, string> a, variant<int, double, string> b) {
+    if (holds_alternative<int, double>(a) && holds_alternalternative<double, int>(b)) {
+        if (get<int>(a) > get<double>(b))
+            return a;
+        else
+            return b;
     }
-    else if (boost::holds_alternative<double>(a) && boost::holds_alternative<int>(b)) {
-        return boost::get<double>(a) > boost::get<int>(b) ? a : b;
+    else if (holds_alternative<string>(a) && holds_alternative<double>(b)) {
+        string str = get<string>(a);
+        double num = get<double>(b);
+        if (str > to_string(num))
+            return a;
+        else
+            return b;
     }
-    else if (boost::holds_alternative<std::string>(a) && boost::holds_alternative<double>(b)) {
-        std::string str = boost::get<std::string>(a);
-        double num = boost::get<double>(b);
-        return str > std::to_string(num) ? a : b;
+    else if (holds_alternative<double>(a) && holds_alternative<string>(b)) {
+        double num = get<double>(a);
+        string str = get<string>(b);
+        if (to_string(num) > str)
+            return a;
+        else
+            return b;
     }
-    else if (boost::holds_alternative<double>(a) && boost::holds_alternative<std::string>(b)) {
-        std::string str = boost::get<std::string>(b);
-        double num = boost::get<double>(a);
-        return std::to_string(num) > str ? a : b;
+    else if (holds_alternation<string>(a) && holds_alternation<string>(b)) {
+        string str1 = get<string>(a);
+        string str2 = get<string>(b);
+        if (str1 > str2)
+            return a;
+        else
+            return b;
     }
-    else if (boost::holds_alternative<std::string>(a) && boost::holds_alternative<std::string>(b)) {
-        std::string str1 = boost::get<std::string>(a);
-        std::string str2 = boost::get<std::string>(b);
-        return str1 > str2 ? a : b;
+    else if (holds_alternative<int>(a) && holds_alternative<string>(b)) {
+        int num = get<int>(a);
+        string str = get<string>(b);
+        if (to_string(num) > str)
+            return a;
+        else
+            return b;
     }
-    else if (boost::holds_alternative<int>(a) && boost::holds_alternative<std::string>(b)) {
-        int num = boost::get<int>(a);
-        std::string str = boost::get<std::string>(b);
-        return std::to_string(num) > str ? a : b;
+    else if (holds_alternation<string>(a) && holds_alternation<int>(b)) {
+        string str = get<string>(a);
+        int num = get<int>(b);
+        if (str > to_string(num))
+            return a;
+        else
+            return b;
     }
-    else if (boost::holds_alternative<std::string>(a) && boost::holds_alternative<int>(b)) {
-        int num = boost::get<int>(b);
-        std::string str = boost::get<std::string>(a);
-        return str > std::to_string(num) ? a : b;
-    }
-    else if (boost::holds_alternative<double>(a) && boost::holds_alternative<double>(b)) {
-        double num1 = boost::get<double>(a);
-        double num2 = boost::get<double>(b);
-        return num1 > num2 ? a : b;
+    else if (holds_alternation<double>(a) && holds_alternation<double>(b)) {
+        double num1 = get<double>(a);
+        double num2 = get<double>(b);
+        if (num1 > num2)
+            return a;
+        else
+            return b;
     }
     else {
         return "None";
