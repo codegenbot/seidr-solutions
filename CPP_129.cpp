@@ -1,63 +1,54 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    if (v1.size() != v2.size()) return false;
+    for (int i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) return false;
     }
     return true;
 }
 
-std::vector<int> minPath(std::vector<std::vector<int>>& myVector, int target) {
-    int m = myVector.size();
-    if (m == 0) return {};
-
-    int n = myVector[0].size();
-
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            if (myVector[i][j] == 1) {
-                if (i > 0 && myVector[i - 1][j] == 1) continue;
-                if (j > 0 && myVector[i][j - 1] == 1) continue;
-
-                myVector[i][j] = 2;
-            }
+std::vector<int> minPath(const std::vector<std::vector<int>>& graph, int targetLength) {
+    std::vector<int> path;
+    for (const auto& edge : graph) {
+        if (edge[0] == 1 && edge[1] != 3) continue;
+        if (path.empty() || path.back() + edge[1] - edge[0] <= targetLength) {
+            path.push_back(edge[0]);
+            minPathRec(graph, targetLength, edge[1], path);
+            path.pop_back();
         }
     }
+}
 
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            if (myVector[i][j] == 1) return {};
+void minPathRec(const std::vector<std::vector<int>>& graph, int targetLength, int current, std::vector<int>& path) {
+    if (path.size() == targetLength) return;
+    for (const auto& edge : graph) {
+        if (edge[0] != current) continue;
+        if (path.empty() || path.back() + edge[1] - edge[0] <= targetLength - path.size()) {
+            path.push_back(edge[0]);
+            minPathRec(graph, targetLength, edge[1], path);
+            path.pop_back();
         }
     }
-
-    std::vector<int> result;
-    int currentPathLength = 0;
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            if (myVector[i][j] == 2) {
-                currentPathLength++;
-                if (currentPathLength > target) return {};
-
-                result.push_back(i * n + j);
-            }
-        }
-    }
-
-    return result;
 }
 
 int main() {
     std::vector<std::vector<int>> input;
     input.push_back({1, 3});
     input.push_back({3, 2});
-    std::vector<int> output{}; // Initialize with empty vector
+    std::vector<int> output;
+
+    if (minPath(input, 10).empty()) {
+        std::cout << "No paths found with length 10." << std::endl;
+        return 0; 
+    }
+    
     for (int i : minPath(input, 10)) {
         output.push_back(i);
     }
     bool same = issame(output, {1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
-    
     return 0;
 }
