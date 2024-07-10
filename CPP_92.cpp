@@ -16,4 +16,3 @@ int main() {
     assert(any_int(3.01f, 4.0f, 7.0f) == false);
     std::cout << "Code runs correctly." << std::endl;
     return 0;
-}
