@@ -3,6 +3,18 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 std::vector<int> uniqueDigits(std::vector<int> x) {
     std::vector<int> result;
     for (int num : x) {
@@ -25,7 +37,7 @@ std::vector<int> uniqueDigits(std::vector<int> x) {
 }
 
 int main() {
-    assert(uniqueDigits({135, 103, 31}) == std::vector<int>{31, 135});
+    assert(issame(uniqueDigits({135, 103, 31}), std::vector<int>{31, 135}));
     std::cout << "Test Passed!" << std::endl;
     return 0;
 }
