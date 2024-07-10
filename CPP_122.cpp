@@ -3,8 +3,10 @@ Here is the completed code:
 ```cpp
 int add_elements(vector<int> arr, int k) {
     int sum = 0;
-    for (int i = 0; i < k; i++) {
-        if ((arr[i] >= 10) && (arr[i] <= 99)) {
+    for (int i = 0; i < k && i < arr.size(); i++) {
+        if (arr[i] <= 99) {
+            sum += arr[i];
+        } else if (arr[i] >= 100 && arr[i] <= 999) {
             sum += arr[i];
         }
     }
