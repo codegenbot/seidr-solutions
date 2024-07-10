@@ -1,14 +1,12 @@
-Here is the solution:
+#include <iostream>
 
-double diceGame(int n, int m) {
-    double total = (n + m);
-    double peterWins = 0;
-    
-    for (int i = 1; i <= m - 1; i++) {
-        if (i < n) {
-            peterWins += 1.0;
-        }
-    }
+double getProbability(int n, int m) {
+    return (m - 1.0) / (n * m);
+}
 
-    return peterWins / total;
+int main() {
+    int n, m;
+    std::cin >> n >> m;
+    std::cout << std::fixed << std::setprecision(6) << getProbability(n, m) << std::endl;
+    return 0;
 }
