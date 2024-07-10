@@ -1,25 +1,32 @@
+#include <stdio.h>
+#include <vector>
+using namespace std;
+
 int smallest_change(vector<int> arr) {
     int n = arr.size();
-    string s = "";
-    for (int i = 0; i < n; i++) {
-        s += to_string(arr[i]);
-    }
-    int changes = 0;
-    bool flag = true;
-    for (int i = 0; i < n / 2; i++) {
-        if (s[i] != s[n - i - 1]) {
-            flag = false;
-            break;
+    vector<vector<bool>> dp(n, vector<bool>(n, false));
+    
+    for (int i = 0; i < n; ++i)
+        dp[i][i] = true;
+    
+    for (int len = 1; len < n; ++len) {
+        for (int i = 0; i < n - len; ++i) {
+            int j = i + len;
+            if (arr[i] == arr[j])
+                dp[i][j] = dp[i + 1][j - 1];
+            else
+                dp[i][j] = false;
         }
     }
-    if (!flag) {
-        for (int i = 0; i < n; i++) {
-            if (s[i] != s[n - i - 1]) {
-                changes++;
-            }
+    
+    int res = n;
+    for (int i = 0; i < n; ++i)
+        if (!dp[0][i]) {
+            int left, right;
+            for (left = 0; !dp[left][i]; ++left);
+            for (right = i; !dp[i][right]; ++right);
+            res = min(res, (right - left + 1));
         }
-    } else {
-        changes = 0;
-    }
-    return changes;
+    
+    return n - res;
 }
