@@ -1,30 +1,47 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
+#include <string>
 
-bool isSame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
 
-void get_user_input(std::vector<std::string>& user_input) {
-    std::string input;
-    while (std::cout << "Enter a string (or 'stop' to finish): ", 
-           std::getline(std::cin, input), input != "stop") {
-        user_input.push_back(input);
+int total_match(vector<string> input, vector<string> matches) {
+    int count = 0;
+    for (const string& str : input) {
+        if (find(matches.begin(), matches.end(), str) != matches.end()) {
+            count++;
+        }
+    }
+    return count;
+}
+
+void get_user_input(vector<string>& user_input) {
+    // implement your code to get the user input here
+    // For example:
+    string temp;
+    cout << "Enter strings (enter 'stop' when done): ";
+    while (true) {
+        cin >> temp;
+        if (temp == "stop") break;
+        user_input.push_back(temp);
     }
 }
 
 int main() {
-    std::vector<std::string> user_input;
+    vector<string> user_input;
     get_user_input(user_input);
-    if (isSame({user_input[0]}, user_input)) {
-        std::cout << "The two lists are the same." << std::endl;
+    if (issame({"some"}, user_input)) {  
+        cout << "The two lists are the same." << endl;
     } else {
-        std::cout << "Error: The two lists are not the same." << std::endl;
+        cout << "Error: The two lists are not the same." << endl;
     }
     return 0;
 }
