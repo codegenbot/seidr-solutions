@@ -8,7 +8,7 @@ def minPath(grid, k):
     while queue:
         value, path, step = queue.pop(0)
         if step == k:
-            if not result or sum(x for x in path) < sum(x for y in result for x in y):
+            if not result or sum(x for x in path) < sum(y for y in result):
                 result = path
         else:
             for direction in directions:
@@ -17,4 +17,4 @@ def minPath(grid, k):
                     queue.append((grid[x][y], path + [grid[x][y]], step + 1))
                     visited[x][y] = True
 
-    return result
+    return sum(x for x in result)
