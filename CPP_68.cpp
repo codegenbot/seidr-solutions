@@ -4,6 +4,8 @@ bool issame(int a, int b){
     return a == b;
 }
 
+vector<int> pluck(vector<int> arr);
+
 vector<int> pluck(vector<int> arr){
     vector<int> result;
     int smallest_even = -1;
