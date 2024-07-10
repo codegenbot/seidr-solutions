@@ -1,7 +1,6 @@
-def below_zero(operations: List[int]) -> bool:
-    balance = 0
+def below_zero(operations: list[int]) -> bool:
+    min_temp = float("inf")
     for operation in operations:
-        balance += operation
-        if balance < 0:
-            return True
-    return False
+        if operation < min_temp:
+            min_temp = operation
+    return min_temp < 0
