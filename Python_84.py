@@ -1,5 +1,2 @@
-def solve(N):
-    if N > 1:
-        return "1"
-    else:
-        pass
+def solve(N): 
+    return "1" if N > 1 else ""
