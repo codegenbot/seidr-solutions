@@ -1,3 +1,5 @@
+Here is the completed code:
+
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     int left = 0, right = n - 1;
@@ -12,9 +14,9 @@ int smallest_change(vector<int> arr) {
         right--;
     }
 
-    for (int i = 0; i < n / 2; i++) {
+    for (int i = left; i <= right; i++) {
         if (arr[i] != arr[n - i - 1]) {
-            changes += 2;
+            changes++;
         }
     }
 
