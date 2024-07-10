@@ -4,13 +4,17 @@ using namespace std;
 double snowDay(int hours, float initialSnow, float rateOfSnowFall, float proportionOfSnowMeltingPerHour) {
     double totalSnow = 0;
     
-    // Add snow and then melt it for each hour
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfSnowFall;
-        totalSnow *= (1 - proportionOfSnowMeltingPerHour);
+        if (rateOfSnowFall > 0) {
+            totalSnow += rateOfSnowFall;
+        }
+        
+        if (proportionOfSnowMeltingPerHour > 0 && initialSnow > 0) {
+            initialSnow -= initialSnow * proportionOfSnowMeltingPerHour / 100.0;
+        }
     }
     
-    return initialSnow + totalSnow;
+    return totalSnow + initialSnow;
 }
 
 int main() {
