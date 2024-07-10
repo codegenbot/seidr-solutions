@@ -1,2 +1,5 @@
 def check(func, *args):
-    print(func([1, -2, 3, 4]))
+    result = func(*args)
+    print(result)
+
+check(double_the_difference, [1, 2, -3])
