@@ -1,11 +1,14 @@
 string get_closest_vowel(string word) {
-    for (int i = word.size() - 1; i > 0; --i) {
-        if (isvowel(word[i])) {
-            int j = i - 1;
-            while (j >= 0 && !isvowel(word[j]) && !ispunct(word[j]))
-                j--;
-            if (j < 0 || isvowel(word[j]))
-                return string(1, word[i]);
+    for (int i = word.length() - 1; i >= 0; --i) {
+        if (word[i] == 'a' || word[i] == 'e' || word[i] == 'i' ||
+            word[i] == 'o' || word[i] == 'u') {
+            int left = i + 1;
+            while (left < word.length() && !isvowel(word[left])) {
+                ++left;
+            }
+            if (left < word.length()) {
+                return string(1, word[left]);
+            }
         }
     }
     return "";
