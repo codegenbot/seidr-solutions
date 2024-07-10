@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -29,7 +30,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i]; 
     }
-    if (nums.empty()) {  // If no numbers were read, there's nothing to count
+    if (nums.empty()) {  
         std::cout << "No numbers were read." << std::endl;
         return 0;
     }
