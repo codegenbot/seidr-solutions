@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 int next_smallest(const std::vector<int>& lst) {
     std::vector<int> copy_lst = lst;
@@ -19,5 +18,15 @@ int next_smallest(const std::vector<int>& lst) {
 }
 
 int main() {
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
+    std::vector<int> input;
+    int num;
+    while (std::cin >> num)
+    {
+        input.push_back(num);
+    }
+
+    int result = next_smallest(input);
+    std::cout << result << std::endl;
+
+    return 0;
 }
