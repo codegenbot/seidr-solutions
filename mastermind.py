@@ -7,8 +7,7 @@ def mastermind(code, guess):
         if code[c] == guess[c]:
             black += 1
             code_counts[guess[c]] -= 1
-        elif code_counts.get(guess[c], 0) > 0:
+        elif code_counts.get(guess[c], 0):
             white += 1
             code_counts[guess[c]] -= 1
-
     return str(white), str(black)
