@@ -1,7 +1,9 @@
 ```
-#include <iostream>
 #include <vector>
 using namespace std;
+
+#include <iostream>
+#include <iomanip>
 
 double vectorDistance(vector<float> v1, vector<float> v2) {
     double sum = 0;
