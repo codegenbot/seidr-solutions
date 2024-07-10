@@ -1,3 +1,7 @@
+#include <vector>
+#include <algorithm>
+#include <cmath>
+
 vector<float> rescale_to_unit(vector<float> numbers) {
     float min_num = *min_element(numbers.begin(), numbers.end());
     float max_num = *max_element(numbers.begin(), numbers.end());
@@ -11,7 +15,7 @@ vector<float> rescale_to_unit(vector<float> numbers) {
     return rescaled_numbers;
 }
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(vector<float> a , vector<float> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -23,4 +27,9 @@ bool issame(vector<float> a, vector<float> b) {
     }
     
     return true;
+}
+
+int main() {
+    // Main function implementation
+    return 0;
 }

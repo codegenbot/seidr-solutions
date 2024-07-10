@@ -2,11 +2,13 @@
 #include <vector>
 #include <cassert>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b);
+
 std::vector<int> sum_product(const std::vector<int>& nums){
-    std::vector<int> result;
-    if (nums.size() == 1) {
-        int product = nums[0] * nums[0];
-        result.push_back(product);
+    std::vector<int> result(2, 1);
+    for(auto num : nums){
+        result[0] += num;
+        result[1] *= num;
     }
     return result;
 }
@@ -16,6 +18,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame(sum_product({10}), {10, 10}));
+    assert(issame(sum_product({10}), {10, 0}));
+    
     return 0;
 }
