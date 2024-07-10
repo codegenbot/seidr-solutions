@@ -1,5 +1,9 @@
-```
-def fibfib(n: int):
+Here is the modified code:
+
+print("Fibonacci Number Calculator")
+n = int(input("Enter the number: "))
+
+def fibfib(n):
     if n <= 1:
         return 1
     elif n == 2:
@@ -10,7 +14,4 @@ def fibfib(n: int):
             a, b = b, a + b
         return b
 
-
-if __name__ == "__main__":
-    n = int(input("Enter the number: "))
-    print(fibfib(n))
+print(fibfib(n))
