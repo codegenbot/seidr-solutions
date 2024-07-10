@@ -1,10 +1,9 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <initializer_list>
 
 int main() {
-    std::vector<int> arr = {7,5,3,4,2}; 
+    std::vector<int> arr = {7,5,3,4,2}; // Initialize with input values
     std::vector<int> leaders_result = leaders(arr);
     
     for (auto leader : leaders_result) {
