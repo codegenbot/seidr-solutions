@@ -25,6 +25,6 @@ vector<int> unique_digits(vector<int> x){
 }
 
 int main() {
-    // Your main function code here
+    // Main function code here
     return 0;
 }
