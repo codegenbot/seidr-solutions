@@ -9,17 +9,17 @@ int main() {
     string input;
     getline(cin, input);
     
-    string result;
-    istringstream iss(input);
-
-    transform(istream_iterator<string>(iss), istream_iterator<string>(), 
-              back_inserter(result), [](const string& word){
-        if (word.length() >= 5) {
-            return string(word.rbegin(), word.rend());
+    string word, result;
+    stringstream iss(input);
+    
+    while (iss >> word) {
+        if (word.size() >= 5) {
+            reverse(word.begin(), word.end());
         }
-        return word;
-    });
-
+        result += word + " ";
+    }
+    
+    result.pop_back(); // remove extra space at the end
     cout << result << endl;
     
     return 0;
