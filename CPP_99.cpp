@@ -1,9 +1,9 @@
 #include <iostream>
-#include <cmath>
 #include <cassert>
+#include <cmath>
 
-int closest_integer(std::string number) {
-    double num = std::stod(number);
+int closest_integer(const std::string &input) {
+    double num = std::stod(input);
     return static_cast<int>(std::round(num));
 }
 
