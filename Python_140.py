@@ -7,7 +7,7 @@ def fix_spaces(text):
     text = text.strip("_")
     if not text:
         return "N/A"
-    return text
+    return text.lower().replace(" ", "_")
 
 
 while True:
@@ -17,4 +17,4 @@ while True:
         print(result)
         break
     except (ValueError, EOFError):
-        print("Please enter valid input. Try again!")
+        print("Please enter valid input. Try again!"
