@@ -1,23 +1,25 @@
+```cpp
 #include <iostream>
 #include <map>
 #include <cctype>
-#include <cassert>
 
-bool check_dict_case(std::map<std::string, std::string> dict) {
+using namespace std;
+
+bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
 
     bool allLower = true;
     bool allUpper = true;
 
     for (auto& pair : dict) {
-        std::string key = pair.first;
+        string key = pair.first;
         if (!allLower && !allUpper)
             break;
 
-        if (!std::islower(key[0])) {
+        if (!islower(key[0])) {
             allLower = false;
         }
-        if (!std::isupper(key[0])) {
+        if (!isupper(key[0])) {
             allUpper = false;
         }
     }
@@ -27,6 +29,7 @@ bool check_dict_case(std::map<std::string, std::string> dict) {
 
 int main() {
     assert(check_dict_case({}) == false);
-    // rest of your code here
+    map<string, string> myDict = {{"Hello", "World"}, {"HELLO", "world"}};
+    cout << check_dict_case(myDict) << endl; // Output: 1
     return 0;
 }
