@@ -5,11 +5,8 @@ def solution(lst):
 def main():
     while True:
         try:
-            n = int(input("Enter the number of inputs: "))
-            lst = list(
-                map(int, input(f"Enter {n} numbers separated by space: ").split())
-            )
-            if len(lst) == 0:
+            lst = list(map(int, input("Enter numbers separated by space: ").split()))
+            if not lst:
                 print("No valid inputs")
                 continue
             break
