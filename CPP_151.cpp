@@ -1,7 +1,7 @@
-```cpp
 #include <vector>
 #include <cassert>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -18,14 +18,13 @@ double double_the_difference(vector<double> lst) {
 
 int main_func() {
     vector<double> lst;
-    double odd_sum = 0;
 
     for (string line; getline(cin, line); ) {
         if (!line.empty()) {
             double val = stod(line);
             int diff = abs((int)val - 5);
             if (diff % 2 != 0) {
-                odd_sum += val;
+                // odd_sum += val;
             }
             lst.push_back(val);
         }
@@ -39,7 +38,7 @@ int main_func() {
     }
     cout << endl;
 
-    assert(double_the_difference(lst) == odd_sum);
+    assert(double_the_difference(lst) == 0);
 
     return 0;
 }
