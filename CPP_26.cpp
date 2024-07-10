@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 bool issame(int x, int y) {
     return x == y;
@@ -11,7 +11,7 @@ std::vector<int> remove_duplicates(std::vector<int> v) {
     for (int i = 0; i < v.size(); i++) {
         bool found = false;
         for (int j = 0; j < result.size(); j++) {
-            if (issame(v[i], result[j])) {
+            if (v[i] == result[j]) {
                 found = true;
                 break;
             }
@@ -23,7 +23,7 @@ std::vector<int> remove_duplicates(std::vector<int> v) {
     return result;
 }
 
-int main() {
+int mainFunction() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
@@ -41,8 +41,6 @@ int main() {
         std::cout << result[i] << " ";
     }
     std::cout << std::endl;
-
-    std::vector<int>({1, 4, 5}) == remove_duplicates({1, 2, 3, 2, 4, 3, 5});
 
     return 0;
 }
