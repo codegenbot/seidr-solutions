@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -28,11 +27,10 @@ It distinct(It first, It last) {
     return result.begin();
 }
 
-int main() {
+int main_test() { 
     std::vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    auto output(distinct(input.begin(), input.end()));
-    auto end = std::unique(output.begin(), output.end());
-    for (int i : std::vector<int>(output.begin(), end)) {
+    auto output = distinct(input.begin(), input.end());
+    for (int i : std::vector<int>(output, distinct(input.end()))) {
         std::cout << i << " ";
     }
 }
