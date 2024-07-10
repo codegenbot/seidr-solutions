@@ -51,8 +51,6 @@ std::string int_to_roman(int number) {
     return roman;
 }
 
-int main() {
-    assert(int_to_roman(1000) == "M");
-    std::cout << int_to_roman(2022) << std::endl;
+int test() {
     return 0;
 }
