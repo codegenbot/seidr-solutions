@@ -22,3 +22,5 @@ std::vector<int> tri(int n) {
     }
     return result;
 }
+
+assert(issame(tri(1), {1, 3}));
