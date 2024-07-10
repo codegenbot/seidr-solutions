@@ -12,11 +12,7 @@ bool has_close_elements(vector<float> a, float threshold) {
 }
 
 int main() {
-    vector<float> a;
-    int n;
-    cout << "Enter the initial size: ";
-    cin >> n;
-    a.resize(n);
+    vector<float> a; 
     float threshold;
 
     cout << "Enter the elements of the vector (space-separated, type 'stop' when done): ";
@@ -25,8 +21,8 @@ int main() {
     while (true) { 
         cin >> input; 
         if(input == "stop") break;
-        a.push_back(stof(input)); // convert string to float
-        cin >> std::ws; // Add this line to ignore whitespace characters
+        a.push_back(stof(input)); 
+        cin >> std::ws; 
     } 
 
     cout << "Enter the threshold: ";
