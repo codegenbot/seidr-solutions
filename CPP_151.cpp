@@ -9,22 +9,20 @@ int double_the_difference(const std::vector<int>& nums) {
             oddSum += nums[i];
         }
     }
-    return oddSum * oddSum;
+    return oddSum * odd_sum;
 }
 
 int main() {
     std::vector<int> lst;
-    int num;
+    int num, odd_sum = 0;
     while(std::cin >> num) {
-        if (std::cin.fail()) {
-            // Handle invalid input error
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            break;
-        }
         lst.push_back(num);
+        if (num % 2 != 0) {
+            odd_sum += num;
+        }
     }
-    int result = double_the_difference(lst);
+    int result = double_the_difference(lst); 
     std::cout << "The sum of squares of odd numbers is: " << result << std::endl;
+    assert(double_the_difference(lst) == odd_sum);
     return 0;
 }
