@@ -1,19 +1,35 @@
-int bowlingScore(string str) {
+int bowlingScore(string s) {
     int score = 0;
-    int roll = 0;
-    for (char c : str) {
-        if (c == '/') {
-            if (roll < 10) {
-                score += min(10, roll);
-                roll = 0;
+    int currentFrame = 1;
+    int rollCount = 0;
+
+    for (char c : s) {
+        if (c == 'X') { // strike
+            score += 10 + 10 + 10;
+            currentFrame++;
+        } else if (c == '/') { // spare
+            score += 10 + 10 - 2;
+            currentFrame++;
+        } else { // normal roll
+            int pins = c - '0';
+            if (currentFrame < 10) {
+                score += pins;
+                rollCount++;
+                if (rollCount < 2 || s[s.size() - 1] != '/') {
+                    continue;
+                }
+                currentFrame++;
+            } else { // last frame
+                score += pins;
+                rollCount++;
+                if (s.size() > 2 && s[s.size() - 1] == 'X') {
+                    score += 10 + 10;
+                } else if (s.size() > 2 && s[s.size() - 1] == '/') {
+                    score += 10 + 10 - 2;
+                }
             }
-        } else if (c == 'X') {
-            score += 30;
-            roll = 0;
-        } else {
-            roll++;
         }
     }
-    if (roll > 0) score += min(10, roll);
+
     return score;
 }
