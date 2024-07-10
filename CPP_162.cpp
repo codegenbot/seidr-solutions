@@ -1,7 +1,4 @@
-#include "/path/to/CryptoPP/include/cryptopp/md5.h"
-#include <cryptopp/sha.h>
-#include <cryptopp/hmac.h>
-#include <cryptopp/aes.h>
+#include <cryptopp/md5.h>
 #include <string>
 
 std::string cppString_to_md5(std::string text) {
