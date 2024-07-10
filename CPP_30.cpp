@@ -1,10 +1,24 @@
+```
 #include <vector>
+#include <algorithm>
 
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
-    for(float num : l) {
-        if(num > 0)
-            result.push_back(num);
+bool isSame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
-    return result;
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i] - b[i]) > 1e-9) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool isSame(vector<float> l, float num) {
+    for (float x : l) {
+        if (x == num) {
+            return true;
+        }
+    }
+    return false;
 }
