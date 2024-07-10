@@ -1,20 +1,23 @@
-```
 #include <algorithm>
 #include <string>
 #include <vector>
-
 #include <initializer_list>
-#include <stdexcept>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) {
+        return false; 
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] + b[i] != sorted_list_sum({a[i], b[i]})[0]) return false;
+        std::vector<std::string> temp = {a[i], b[i]};
+        std::sort(temp.begin(), temp.end());
+        if (temp[0] != temp[1]) {
+            return false; 
+        }
     }
     return true;
 }
 
-vector<string> sorted_list_sum(vector<string> v) {
-    sort(v.begin(), v.end());
+std::vector<std::string> sorted_list_sum(const std::vector<std::string>& v) {
+    std::sort(v.begin(), v.end());
     return v;
 }
