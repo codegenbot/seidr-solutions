@@ -1,14 +1,11 @@
-#include <algorithm>
-#include <functional>
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b){
-    // Function implementation here
+int maximum(int a, int b) {
+    return a > b ? a : b;
 }
 
-vector<int> maximum(vector<int> arr, int k) {
+vector<int> maximum_k_elements(vector<int>& arr, int k) {
     sort(arr.begin(), arr.end(), greater<int>());
-    vector<int> result(arr.begin(), arr.begin() + k);
-    return result;
+    return vector<int>(arr.begin(), arr.begin() + k);
 }
