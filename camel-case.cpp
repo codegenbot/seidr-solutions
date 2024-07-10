@@ -7,14 +7,12 @@ std::string camelCase(const std::string& s) {
 
     for (char c : s) {
         if (c == '-') {
-            s.replace(s.find('-'), 1, "");
+            first = false;
         } else if (!first) {
-            result[0] = toupper(c);
-            result += c;
+            result += toupper(c);
         } else {
             result += tolower(c);
         }
-        first = false;
     }
 
     return result;
@@ -26,4 +24,3 @@ int main() {
         std::cout << camelCase(s) << '\n';
     }
     return 0;
-}
