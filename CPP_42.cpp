@@ -1,5 +1,6 @@
-for(int &x : l){
-        x++;
+vector<int> result;
+    for(int num : l){
+        result.push_back(num + 1);
     }
-    return l;
+    return result;
 }
