@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include <boost/any.hpp>
 using namespace std;
 
@@ -28,11 +29,36 @@ boost::any compare_one(boost::any a, boost::any b) {
         string x = boost::any_cast<string>(a);
         string y = boost::any_cast<string>(b);
         return (stod(x) > stod(y)) ? a : ((stod(y) > stod(x)) ? b : boost::any("None"));
-    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = boost::any_cast<int>(a);
-        int y = boost::any_cast<int>(b);
-        return (x > y) ? a : ((y > x) ? b : boost::any("None"));
     } else {
         return boost::any("Invalid input");
+    }
+}
+
+int main() {
+    int x;
+    float y;
+    string s;
+
+    cout << "Enter first value (integer, float or string): ";
+    cin >> boost::any(&x);
+    
+    if(x == 0.0f) {
+        cout << "Enter second value (float): ";
+        cin >> y;
+        return boost::any(compare_one(boost::any(x), boost::any(y)));
+    } else if(x < 0.0f) {
+        cout << "Enter second value (string): ";
+        getline(cin, s);
+        return boost::any(compare_one(boost::any(x), boost::any(s)));
+    } else {
+        cout << "Enter second value (integer or float): ";
+        cin >> y;
+        if(y == 0.0f) {
+            cout << "Enter third value (string): ";
+            getline(cin, s);
+            return boost::any(compare_one(boost::any(x), boost::any(s)));
+        } else {
+            return boost::any(compare_one(boost::any(x), boost::any(y)));
+        }
     }
 }
