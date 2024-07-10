@@ -1,3 +1,4 @@
+#include <vector>
 #include <algorithm>
 
 float max_element(std::vector<float> l) {
