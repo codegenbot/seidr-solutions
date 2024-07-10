@@ -11,11 +11,11 @@ vector<string> separate_paren_groups(string paren_string) {
             open_count++;
         } else if (c == ')') {
             open_count--;
-            if (open_count > 0) {
-                current_group += c;
-            } else if (open_count == 0) {
+            if (open_count == 0) {
                 result.push_back(current_group);
                 current_group = "";
+            } else {
+                current_group += c;
             }
         }
     }
