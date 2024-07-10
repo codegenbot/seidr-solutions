@@ -1,6 +1,11 @@
-```string sortNumbers(string numbers) {
-    vector<string> numVec;
-    string temp;
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+std::string sort_numbers(std::string numbers) {
+    vector<std::string> numVec;
+    std::string temp;
     
     for (char c : numbers) {
         if (isdigit(c)) continue;
@@ -14,10 +19,10 @@
 
     sort(numVec.begin(), numVec.end());
     
-    string result;
-    for (string str : numVec) {
+    std::string result;
+    for (std::string str : numVec) {
         result += str;
         result += " ";
     }
     return result.substr(0, result.size() - 1);
-}```
+}
