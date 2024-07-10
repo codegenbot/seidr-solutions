@@ -1,25 +1,32 @@
-int getHint(string s1, string s2) {
-    int white = 0;
+#include <vector>
+#include <iostream>
+#include <string>
+
+int mastermind(string code, string guess) {
     int black = 0;
+    int white = 0;
 
-    map<char, int> s1_count, s2_count;
-
-    for (char c : s1) {
-        s1_count[c]++;
-    }
-    for (char c : s2) {
-        s2_count[c]++;
-    }
-
-    for (int i = 0; i < 4; i++) {
-        if (s1[i] == s2[i]) {
+    for(int i=0; i<4; i++) {
+        if(code[i] == guess[i]) {
             black++;
-        } else {
-            if (s1_count[s1[i]] > 0 && s2_count[s1[i]] > 0) {
-                white++;
-            }
         }
     }
 
-    return to_string(black).append(" " + to_string(white));
+    for(int i=0; i<6; i++) {
+        int count = 0;
+        for(int j=0; j<4; j++) {
+            if(guess[j] == (string)(i+48) && code.find((string)(i+48)) != string::npos) {
+                count++;
+            }
+        }
+        if(count > 1) white += count - 1;
+    }
+
+    return black + white;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    cout << mastermind(code, guess) << endl;
 }
