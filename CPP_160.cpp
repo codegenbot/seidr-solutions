@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <cmath>
-#include <cassert>
 
 using namespace std;
 
@@ -25,7 +23,7 @@ int do_algebra(vector<string> operato, vector<int> operand) {
 }
 
 int main() {
-    assert (do_algebra({"//", "*"}, {7, 3, 4}) == 8);
-    
+    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
+
     return 0;
 }
