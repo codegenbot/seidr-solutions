@@ -1,5 +1,5 @@
-#include <string>
 #include <cassert>
+#include <string>
 
 bool check_if_last_char_is_a_letter(const std::string &txt) {
     if(txt.empty()) return false;
@@ -10,8 +10,7 @@ bool check_if_last_char_is_a_letter(const std::string &txt) {
     return false;
 }
 
-int unique_main_function_name() {
-    std::string input_str = "apple pi e ";
-    assert(check_if_last_char_is_a_letter(input_str) == false);
+int main() {
+    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
     return 0;
 }
