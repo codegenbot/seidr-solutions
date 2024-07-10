@@ -9,7 +9,6 @@ int specialFilter(vector<int> nums) {
         }
     }
     return count;
-
 }
 
 int main() {
