@@ -7,16 +7,16 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<int> vec(n);
+    std::string arr[n]; 
 
     for(int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> vec[i];
+        std::cin >> arr[i];
     }
 
-    int max_value = *std::max_element(vec.begin(), vec.end()); 
+    //int max_value = *std::max_element(arr, arr+n); 
 
-    std::cout << "Maximum element: " << max_value << std::endl;
+    //std::cout << "Maximum element: " << max_value << std::endl;
 
     return 0;
 }
