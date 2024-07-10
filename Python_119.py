@@ -1,10 +1,11 @@
-def is_valid(s):
+```
+def match_parens(s):
     stack = []
     for c in s:
         if c == '(':
             stack.append(c)
         elif c == ')':
             if len(stack) == 0:
-                return False
+                return 'No'
             stack.pop()
-    return len(stack) == 0
+    return 'Yes' if len(stack) == 0 else 'No'
