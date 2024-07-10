@@ -30,7 +30,6 @@ std::vector<int> parse_nested_parens(const std::string& s) {
 }
 
 int main() {
-    std::vector<int> expected = {4, 3, 2, 1, 0, -1, -2, -3, -4};
-    assert(areSame(parse_nested_parens("(()(())((()))"), expected));
+    assert(areSame(parse_nested_parens("(()(())((()))"), {4, 3, 2, 1, 0, -1, -2, -3, -4}));
     return 0;
 }
