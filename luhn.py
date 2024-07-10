@@ -1,14 +1,4 @@
+```Python
 def luhn(card):
     card = [int(i) for i in str(card)]
-    if len(card) != 16:
-        return "Invalid card number"
-    
-    card.reverse()  
-    result = 0    
-    for i, x in enumerate(card): 
-        if i % 2 == 1:  
-            x *= 2              
-            if x > 9:
-                x -= 9             
-        result += x         
-    return result % 10 == 0
+    return sum([x if i % 2 != 0 else (2 * x - (2 * x) // 10) if i % 4 == 0 else x for i, x in enumerate(card)])
