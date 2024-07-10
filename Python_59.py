@@ -1,12 +1,6 @@
-```
 def largest_prime_factor(n: int):
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-            while n % i == 0:
-                n //= i
-            i += 1
-    return n
+    i = n - 1
+    while i > 1:
+        if n % i == 0 and all(i % j != 0 for j in range(2, int(i**0.5) + 1)):
+            return i
+        i -= 1
