@@ -1,8 +1,6 @@
 #include <vector>
 #include <cassert>
 
-vector<int> count_up_to(int n);
-
 bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
