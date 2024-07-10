@@ -14,7 +14,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v) {
     std::vector<int> result;
     for (const auto& pair : v) {
-        int num = stoi(pair.first + " " + pair.second);
+        int num = stoi(pair.first + pair.second);
         if (!num) return {};
         result.push_back(num);
     }
