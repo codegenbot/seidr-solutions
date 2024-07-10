@@ -10,13 +10,13 @@ int mastermind(string code, string guess) {
 
     for (char c : guess) {
         int count = 0;
-        for (int i = 0; i < 4; ++i) {
-            if (c == code[i]) {
+        for (char d : code) {
+            if (c == d) {
                 count++;
             }
         }
-        white += count - 1;
+        white += min(count, 1);
     }
 
-    return black + white;
+    return black + white - black;
 }
