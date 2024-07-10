@@ -5,12 +5,10 @@ def main():
     print("Enter two integers separated by a space. Enter 'stop' to exit.")
     while True:
         try:
-            user_input = raw_input().strip().split(' ')
-            if user_input[0] == 'stop':
+            user_input = raw_input().strip()
+            if user_input == 'stop':
                 break
-            if len(user_input) != 2:
-                raise ValueError
-            num1, num2 = map(int, user_input)
+            num1, num2 = map(int, user_input.split())
             result = add(num1, num2)
             print(result)
         except (ValueError, IndexError):
