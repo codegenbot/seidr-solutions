@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -20,13 +20,19 @@ int main() {
     cout << "Enter the number of elements: ";
     cin >> num;
 
-    numbers.resize(num, 0); 
+    while(num <= 0){
+        cout << "Invalid input. Please enter a positive integer.\n";
+        cout << "Enter the number of elements: ";
+        cin >> num;
+    }
+
+    numbers.resize(num); 
 
     for (int i = 0; i < num; i++) {
         int threshold;
         cout << "Enter element " << i + 1 << ": ";
         cin >> threshold;
-        numbers[i] = threshold;
+        numbers.push_back(threshold);
     }
 
     bool result = below_threshold(numbers, 5);
