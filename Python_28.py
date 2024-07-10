@@ -1,4 +1,4 @@
-```
+```python
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
@@ -8,8 +8,10 @@ def concatenate(strings: List[str]) -> str:
     return result
 
 if __name__ == '__main__':
-    user_input = input("Enter a list of strings separated by spaces (or press Enter to test with default input): ")
-    strings = user_input.split()  
+    n = int(input("Enter number of strings: "))
+    strings = []
+    for _ in range(n):
+        user_input = input()
+        strings.append(user_input)
     print(concatenate(strings))
-
-print(concatenate(['hello', 'world']))
+    print(concatenate(['hello', 'world']))
