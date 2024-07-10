@@ -6,8 +6,8 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> multiplesOfThree(1); // Initialize with capacity 1
-    vector<int> others(0);              // Initialize with capacity 0
+    vector<int> multiplesOfThree;
+    vector<int> others;
 
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0)
@@ -25,7 +25,7 @@ vector<int> sort_third(vector<int> l) {
             int val = multiplesOfThree[j];
             while (!multiplesOfThree.empty() && j < multiplesOfThree.size()) {
                 result.push_back(val);
-                for(int k = 0; k < 3; k++) {
+                for(int k = 0; k < 2; k++) {
                     if(i % 3 == 0)
                         i++;
                     else
