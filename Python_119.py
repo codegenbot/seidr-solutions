@@ -1,1 +1,1 @@
-n, *input_list = map(int, input().split())  # Input format: space-separated integers
+n, *input_list = map(int, input().split())
