@@ -1,5 +1,3 @@
-Here is the solution:
-
 #include <vector>
 using namespace std;
 
@@ -7,15 +5,15 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> res;
     
-    for(int i = n - 1; i >= 0; i--) {
-        bool isLeader = true;
-        for(int j = i + 1; j < n; j++) {
-            if(arr[j] >= arr[i]) {
-                isLeader = false;
+    for(int i=n-1; i>=0; i--){
+        bool leader = true;
+        for(int j=i+1; j<n; j++){
+            if(arr[i] < arr[j]){
+                leader = false;
                 break;
             }
         }
-        if(isLeader) res.push_back(arr[i]);
+        if(leader) res.push_back(arr[i]);
     }
     
     return res;
