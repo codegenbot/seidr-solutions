@@ -8,12 +8,10 @@ def is_multiply_prime(a):
                 return False
         return True
 
-    primes = [i for i in range(2, a) if is_prime(i)]
-    count = 0
-    for prime in reversed(primes):
+    while a > 1:
+        prime = next((i for i in range(2, a+1) if is_prime(i)), None)
+        if prime is None:
+            return False
         while a % prime == 0:
             a //= prime
-            count += 1
-            if count > 2:
-                return False
-    return True
+    return a == 1
