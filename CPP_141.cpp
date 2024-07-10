@@ -2,6 +2,10 @@
 #include <cassert>
 
 std::string file_name_check(std::string file_name) {
+    if (file_name.empty()) {
+        return "No";
+    }
+    
     int digitCount = 0;
     int dotCount = 0;
     int dotIndex = -1;
@@ -15,11 +19,15 @@ std::string file_name_check(std::string file_name) {
         }
     }
     
-    if (digitCount > 3 || dotCount != 1 || dotIndex == -1 || dotIndex == file_name.length() - 1 || dotIndex == 0) {
+    if (digitCount > 3 || dotCount != 1 || dotIndex == -1 || dotIndex == file_name.length() - 1 || dotIndex == 0 || dotIndex == 0) {
         return "No";
     }
     
-    std::string extension = file_name.substr(dotIndex + 1);
+    if (file_name.length() - dotIndex < 4) {
+        return "No";
+    }
+    
+    std::string extension = file_name.substr(dotIndex);
     if (extension != ".txt" && extension != ".exe" && extension != ".dll") {
         return "No";
     }
