@@ -1,11 +1,4 @@
-#include <vector>
-#include <string>
-using namespace std;
-
-bool issame(vector<string> a,vector<string>b){
-    return a.size() == b.size() && all_of(a.begin(),a.end(),[&](const string s){return count(b.begin(),b.end(),s)>0;});
-}
-
+```cpp
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(string s : strings) {
@@ -13,9 +6,18 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
             result.push_back(s);
     }
     return result;
+
+}
+bool operator==(vector<string> a, vector<string>b){
+    if(a.size() != b.size())
+        return false;
+    for(size_t i = 0; i < a.size(); i++){
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
 }
 
-int main() {
-    assert (issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
-    return 0;
+int main(){
+    assert(std::equal(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run") ,{"grunt", "prune"}));
 }
