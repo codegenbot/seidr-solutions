@@ -1,1 +1,2 @@
-user_input = input("Please enter an alphanumeric string: ").strip()
+print("Please enter an alphanumeric string:")
+user_input = raw_input().strip()
