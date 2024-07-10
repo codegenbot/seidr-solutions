@@ -9,7 +9,7 @@ vector<int> computeLPSArray(string target) {
     vector<int> lps(m, 0);
 
     if (m == 0) { 
-        return vector<int>();
+        return {};
     }
 
     int length = 0;
@@ -30,7 +30,7 @@ vector<int> computeLPSArray(string target) {
 }
 
 vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
+    vector<int> result = {};
     int n = text.length();
     int m = target.length();
 
@@ -39,17 +39,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            i++; // Skip the matched portion
-        } else {
-            int j = min(i + lps[m - 1], n - 1); 
-            while (j >= i && text[j - m + 1] != target[0]) { 
-                j -= 1; 
-            }
-            if (j - m + 1 >= i) {
-                i = j;
-            } else {
-                break;
-            }
+            i += m - 1; // Skip the matched portion
         }
     }
 
