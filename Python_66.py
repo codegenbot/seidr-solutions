@@ -1,4 +1,3 @@
-```
 def digitSum(s):
     s = s.lower()
     total = 0
