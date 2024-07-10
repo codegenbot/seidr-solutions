@@ -1,35 +1,37 @@
-map<char,int> histogram(string test){
-    map<char,int> result;
-    int max_count = 0;
+map<char, int> histogram(string test) {
+    map<char, int> result;
+    if (test.empty()) return result;
 
-    for (string word : split(test, ' ')) {
-        for (char c : word) {
-            if (result.find(c) == result.end()) {
-                result[c] = 1;
-            } else {
-                result[c]++;
+    size_t count = 0;
+    char prevChar = '\0';
+    for (char c : test) {
+        if (c == ' ') continue;
+        if (c == prevChar) {
+            ++count;
+        } else {
+            if (prevChar != '\0') {
+                result[prevChar] = count;
             }
-            max_count = max(max_count, result[c]);
+            prevChar = c;
+            count = 1;
         }
     }
 
-    map<char,int> max_result;
+    if (prevChar != '\0') {
+        result[prevChar] = count;
+    }
 
+    int maxCount = 0;
     for (auto& pair : result) {
-        if (pair.second == max_count) {
-            max_result[pair.first] = pair.second;
+        if (pair.second > maxCount) maxCount = pair.second;
+    }
+
+    map<char, int> maxResult;
+    for (auto& pair : result) {
+        if (pair.second == maxCount) {
+            maxResult[pair.first] = pair.second;
         }
     }
 
-    return max_result;
-}
-
-vector<string> split(string str, char delimiter) {
-    vector<string> tokens;
-    string token;
-    istringstream tokenStream(str);
-    while (getline(tokenStream, token, delimiter)) {
-        tokens.push_back(token);
-    }
-    return tokens;
+    return maxResult;
 }
