@@ -1,8 +1,12 @@
 #include <vector>
 #include <string>
-#include <cassert>
+#include <algorithm>
 
-std::vector<std::string> split_words(std::string txt) {
+bool issame(char a, char b) {
+    return tolower(a) == tolower(b);
+}
+
+std::vector<std::string> split_words(const std::string& txt) {
     std::vector<std::string> result;
     std::string word = "";
     for (char c : txt) {
@@ -28,8 +32,4 @@ std::vector<std::string> split_words(std::string txt) {
         result[0] = std::to_string(count);
     }
     return result;
-}
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Add your implementation here
 }
