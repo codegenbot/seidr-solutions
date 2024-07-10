@@ -1,10 +1,26 @@
 def fruit_distribution(s, n):
     s = s.lower()
-    if not s: return 0
-    total_weight = int(''.join(filter(str.isdigit, s)))
-    if n != total_weight:
-        raise ValueError("The provided weight does not match the given text")
-    fruits = [word for word in s.split() if word not in ['and', 'of'] and not word[0].isdigit()]
+    if not s:
+        return 0
+    fruits = {}
+    words = s.split()
+    i = 0
+    while i < len(words):
+        if words[i].isdigit():
+            count = int(words[i])
+            i += 1
+            fruit = ""
+            for j in range(i, len(words)):
+                if not words[j].isalnum():
+                    break
+                fruit += words[j] + " "
+            fruit = fruit.strip()
+            if fruit:
+                if fruit in fruits:
+                    total_count = fruits[fruit]
+                    new_count = min(count, n - total_count)
+                    fruits[fruit] = total_count + new_count
+                else:
+                    fruits[fruit] = count
+        i += 1
     return len(fruits)
-
-print(fruit_distribution("1 apples and 100 oranges", 101))
