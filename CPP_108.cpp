@@ -39,16 +39,14 @@ int main() {
     int n;
     std::cin >> n;
     std::vector<int> nums;
-    for (int i = 0; i < n && std::cin.peek() != '\n'; i++) {
+    for (int i = 0; i < n && !std::cin.fail(); i++) {
         int num;
-        std::cin >> num;
-        while(std::cin.peek() == ' ') { 
-            std::cin.ignore(); // remove space from the input stream
-        }
-        if(num == 0) { 
-            break; 
-        } else {
-            nums.push_back(num); 
+        while(std::cin >> num && !std::cin.fail()) {
+            if(num == 0) { 
+                break; 
+            } else {
+                nums.push_back(num); 
+            }
         }
     }
     if (!nums.empty()) {  
