@@ -1,16 +1,17 @@
+```cpp
 #include <iostream>
 #include <string>
 
 std::string flip_case(const std::string& str) {
     std::string result;
     for (char c : str) {
-        if (c >= 'a' && c <= 'z') {
-            result += c - ('a' - 'A');
-        } else if (c >= 'A' && c <= 'Z') {
-            result += c - ('A' - 'a');
-        } else {
+        if (isalpha(c)) {
+            if (islower(c))
+                result += toupper(c);
+            else
+                result += tolower(c);
+        } else
             result += c;
-        }
     }
     return result;
 }
