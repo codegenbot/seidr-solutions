@@ -1,5 +1,8 @@
-```c++
-int calculateFuelCost(std::vector<int> numbers) {
+#include <vector>
+#include <cmath>
+#include <initializer_list>
+
+int calculateFuelCost(std::initializer_list<int> numbers) {
     int total = 0;
     for (int number : numbers) {
         int result = static_cast<int>(std::floor(double(number) / 3)) - 2;
@@ -8,4 +11,4 @@ int calculateFuelCost(std::vector<int> numbers) {
         }
         total += result;
     }
-    return total; }
+    return total;
