@@ -1,13 +1,15 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <vector>
+#include <stdexcept>
 
-bool issame(std::string a, std::string b) {
-    if (a.length() != b.length()) return false;
-    for (int i = 0; i < a.length(); i++) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
         bool found = false;
-        for (char c : b) {
-            if (a[i] == c) { 
+        for (const auto& str : b) {
+            if (a[i] == str) { 
                 found = true;
                 break;
             }
@@ -29,14 +31,14 @@ std::string numerical_letter_grade(int credits, double gpa) {
 
 int main() {
     int credits = 0;
-    double gpa = 0.7;
+    double gpa = 4.0;
 
     if (numerical_letter_grade(credits, gpa) == "F" || numerical_letter_grade(credits, gpa) == "D+") {
         throw std::runtime_error("Invalid GPA");
     }
 
     try {
-        assert(numerical_letter_grade(0, 0.7) == "F"); 
+        assert(std::vector<std::string>{{numerical_letter_grade(0, 4.0)}} == std::vector<std::string>{"A"}); 
     } catch (const std::runtime_error& e) {
         std::cerr << e.what() << std::endl;
     }
