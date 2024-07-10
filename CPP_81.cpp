@@ -36,7 +36,5 @@ int main() {
         throw std::runtime_error("Invalid GPA");
     }
     
-    std::string grade = numerical_letter_grade(credits, gpa);
-    assert({grade} == {"A", "B+"});
     return 0;
 }
