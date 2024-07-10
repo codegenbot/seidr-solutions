@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -20,8 +19,21 @@ std::vector<int> largest_smallest_integers(const std::vector<int>& lst) {
 }
 
 int main() {
-    std::vector<int> result = largest_smallest_integers({-6, -4, -4, -3, -100, 1});
-    assert(issame(result, {-3, 1}));
+    std::vector<int> input;
+    int numElements;
+    std::cin >> numElements;
+    for (int i = 0; i < numElements; ++i) {
+        int num;
+        std::cin >> num;
+        input.push_back(num);
+    }
+
+    std::vector<int> result = largest_smallest_integers(input);
+    if (issame(result, {-3, 1})) {
+        std::cout << "The output is correct." << std::endl;
+    } else {
+        std::cout << "The output is incorrect." << std::endl;
+    }
 
     return 0;
 }
