@@ -1,10 +1,9 @@
-```
 import math
 
 def rounded_avg(n, m):
     avg = (n + m) / 2
     if int(avg) == round(avg):
-        return "0b" + bin(int(round(avg)))[2:].ljust(8, '0')
+        return f"0b{bin(int(round(avg)))[2:].ljust(8, '0')}"
     else:
         bin_str = "0"
         while True:
