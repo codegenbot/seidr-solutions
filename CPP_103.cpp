@@ -25,6 +25,7 @@ std::string solve(int n, int m) {
 int main() {
     int n, m;
     std::cin >> n >> m;
-    std::cout << solve(n, m) << std::endl;
+    std::string result = solve(n, m);
+    std::cout << result;
     return 0;
 }
