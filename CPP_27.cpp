@@ -1,3 +1,4 @@
+```cpp
 #include <sstream>
 
 std::string flip_case(const std::string& str) {
@@ -15,19 +16,19 @@ std::string flip_case(const std::string& str) {
 }
 
 int main() {
-    std::stringstream ss("");
+    std::string ssStr; // Use a string instead of stringstream
     char c;
     while ((c = std::cin.get()) != '\n') {
         if (isalpha(c)) {
             if (isupper(c))
-                ss << tolower((char)c);  
+                ssStr += tolower((char)c);  
             else
-                ss << toupper((char)c);
+                ssStr += toupper((char)c);
         } else
-            ss << c;
+            ssStr += c;
     }
     
-    std::cout << "Flipped case: " << ss.str() << std::endl;
+    std::cout << "Flipped case: " << flip_case(ssStr) << std::endl;
 
     return 0;
 }
