@@ -1,6 +1,9 @@
 def dice_game(n, m):
-    return (
-        sum(1 / (n * m) for k in range(m) for v in range(k + 1, n + 1))
-        if n > m
-        else sum(1 / (n * m) for k in range(n) for v in range(k + 1, m + 1))
+    total = n * m
+    peters_win = sum(
+        1
+        for i in range(m + 1)
+        for j in range(i)
+        if min((n - 1) * j + 1, n) > max((m - 1) * i + 1, 1)
     )
+    return peters_win / total
