@@ -15,19 +15,24 @@ string exchange(const vector<int>& lst1, const vector<int>& lst2) {
 }
 
 int main() {
+    vector<int> lst1, lst2;
     int n;
     cin >> n;
-
-    vector<int> lst1(n), lst2(n);
-
+    
+    // Read elements for lst1
     for (int i = 0; i < n; ++i) {
-        cin >> lst1[i];
+        int val;
+        cin >> val;
+        lst1.push_back(val);
     }
-
+    
+    // Read elements for lst2
     for (int i = 0; i < n; ++i) {
-        cin >> lst2[i];
+        int val;
+        cin >> val;
+        lst2.push_back(val);
     }
-
+    
     cout << exchange(lst1, lst2) << endl;
     
     return 0;
