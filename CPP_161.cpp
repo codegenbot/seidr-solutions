@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -14,5 +13,6 @@ int main() {
     std::cout << "Enter a string: ";
     std::string s;
     std::getline(std::cin, s);
-    std::cout << solve(s) << std::endl;
+    int result = solve(s);
+    std::cout << "Length of the converted string is: " << result << std::endl;
 }
