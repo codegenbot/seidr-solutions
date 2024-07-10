@@ -1,5 +1,6 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
 bool solveBoolean(string s) {
     stack<char> st;
@@ -8,20 +9,35 @@ bool solveBoolean(string s) {
             while (!st.empty() && st.top() == '&') {
                 st.pop();
             }
-            if (st.empty()) return false;
-            st.push('&');
+            if (st.empty()) {
+                return false;
+            }
+            st.pop();
         } else if (s[i] == '|') {
             while (!st.empty() && st.top() == '|') {
                 st.pop();
             }
-            if (st.empty()) return true;
-            st.push('|');
+            if (st.empty()) {
+                return true;
+            }
+            st.pop();
         } else {
             st.push(s[i]);
         }
     }
-    while (!st.empty()) {
-        st.pop();
+    return st.size() > 0 ? st.top() == 'T' : false;
+}
+
+int main() {
+    string s;
+    while (cin >> s) {
+        if (s == "t") {
+            cout << "True" << endl;
+        } else if (s == "f") {
+            cout << "False" << endl;
+        } else {
+            cout << (solveBoolean(s) ? "True" : "False") << endl;
+        }
     }
-    return false;
+    return 0;
 }
