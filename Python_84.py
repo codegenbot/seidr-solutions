@@ -1,3 +1,8 @@
-```
+```Python
 def solve(N):
-    return "1" if N > 1 else `````
+    if N > 1:
+        return "1"
+    elif N == 1:
+        return "0"
+    else:
+        return ""
