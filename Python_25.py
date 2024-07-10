@@ -1,3 +1,16 @@
+def factorize(n):
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            factors.append(i)
+    if n > 1:
+        factors.append(n)
+    return factors
+
 if __name__ == "__main__":
     while True:
         try:
@@ -7,6 +20,6 @@ if __name__ == "__main__":
             else:
                 result = factorize(n)
                 print(result)
-                break  # exit the loop if valid input is provided
+                break
         except ValueError:
             print("Please enter a valid integer.")
