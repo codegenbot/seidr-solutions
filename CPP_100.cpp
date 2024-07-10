@@ -1,22 +1,20 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b); 
-vector<int> make_a_pile(int n);  
-void cpp100();
+bool issame(vector<int> a, vector<int> b);
+vector<int> make_a_pile(int n);
 
-int main() {
+void cpp100() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-    
+
     vector<int> pile = make_a_pile(n);
     if(issame(pile, make_a_pile(n))){
         cout << "The piles are the same." << endl;
     } else {
         cout << "The piles are not the same." << endl;
     }
-    
 }
 
 bool issame(vector<int> a, vector<int> b){
