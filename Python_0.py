@@ -1,13 +1,12 @@
-```Python
+```
 numbers = []
 while True:
-    nums = [float(x.strip().replace(",", ".")) for x in input("Enter numbers (comma-separated): ").strip().split(",")]
-    threshold = float(input("Enter threshold: "))
-    
-    if all(num < 1000 for num in nums):
+    temp_input = input("Enter numbers (comma-separated): ").strip()
+    if temp_input:
+        numbers = [float(x.strip().replace(",", ".")) for x in temp_input.split(",")]
         break
-    else:
-        print("Error: Please enter numbers less than or equal to 999.")
+
+threshold = float(input("Enter threshold: "))
 
 def has_close_elements(numbers, threshold):
     numbers.sort()
