@@ -6,6 +6,7 @@ def solve_task():
             break
         except ValueError:
             print("Invalid input. Please enter numeric values.")
+    
     result = num1 + num2
     
     while True:
@@ -18,3 +19,5 @@ def solve_task():
                 return None
         else:
             print("Invalid input. Please enter y or N.")
+    
+solve_task()
