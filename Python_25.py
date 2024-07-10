@@ -1,7 +1,7 @@
 from typing import List
+
+
 def factorize(n: int) -> List[int]:
-    if not isinstance(n, int):
-        return "Error: Input must be an integer."
     i = 2
     factors = []
     while i * i <= n:
@@ -16,4 +16,4 @@ def factorize(n: int) -> List[int]:
                 factors.append(i)
     if n > 1:
         factors.append(n)
-    return factors
+    print("The prime factorization of", n, "is", *factors)
