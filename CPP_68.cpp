@@ -40,9 +40,10 @@ int main() {
 
     }
 
-    v1.reserve(size); // Move this line here
+    v2.resize(size);
+    vector<int> v3(v2); // Initialize v2 with 'size' default values
 
-    if (issame(pluck(v1), v2))  
+    if (issame(pluck(v1), v3))  
         cout << "Arrays are same" << endl;
     else   
         cout << "Arrays are not same" << endl;
