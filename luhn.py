@@ -1,5 +1,6 @@
 n = 16
 digits = list(map(int, input().split()))
+
 total = 0
 for i in range(n):
     if i % 2 == 0:
