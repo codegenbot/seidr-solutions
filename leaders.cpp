@@ -1,7 +1,10 @@
-```
-#include <vector>
-#include <iostream>
-#include <algorithm>
+std::vector<int> leaders(std::vector<int>& arr);
+
+int main() {
+    std::vector<int> arr = {16, 17, 4, 3, 5, 2};
+    for(auto x : leaders(arr)) std::cout << x << " ";
+    return 0;
+}
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
@@ -14,12 +17,5 @@ std::vector<int> leaders(std::vector<int>& arr) {
         res.push_back(arr[i]);
     }
     
-    res.push_back(arr[n-1]); // the rightmost element is always a leader
     return res;
-}
-
-int main() {
-    std::vector<int> arr = {16, 17, 4, 3, 5, 2};
-    for(auto x : leaders(arr)) std::cout << x << " ";
-    return 0;
 }
