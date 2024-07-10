@@ -8,13 +8,11 @@ def fix_spaces(text):
         return "N/A"
     return text
 
-text = input("Enter a text: ")
 while True:
-    try:
+    text = input("Enter a text: ")
+    if text.isalpha() or text == "":
         result = fix_spaces(text)
         print(result)
         break
-    except Exception as e:
-        print(f"Error: {str(e)}")
-        print("Please enter valid input. Try again!")
-        text = input("Enter a text: ")
+    else:
+        print("Invalid input. Please enter a string of alphabets.")
