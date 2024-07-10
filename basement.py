@@ -4,4 +4,4 @@ def basement(vector):
         total += num
         if total < 0:
             return i + 1
-    return -1
+    return -1 if total >= 0 else len(vector)
