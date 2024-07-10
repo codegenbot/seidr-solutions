@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
