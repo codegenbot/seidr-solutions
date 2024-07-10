@@ -1,14 +1,15 @@
 #include <cassert>
 #include <string>
+#include <any>
 
 std::string compare_one(std::string str, int num) {
     if (num == 1) {
-        return "None";
+        return std::string("None");
     }
-    return "";
+    return std::string("");
 }
 
 int main() {
-    assert(compare_one("1", 1) == "None");
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
     return 0;
 }
