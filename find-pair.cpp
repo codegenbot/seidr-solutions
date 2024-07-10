@@ -3,7 +3,7 @@
 #include <stdexcept>
 
 using namespace std;
-using unordered_map = unordered_map;
+using namespace std::unordered_map; // Add this line
 
 pair<int, int> findPair(const vector<int>& nums, int target) {
     unordered_map<int, int> numMap;
