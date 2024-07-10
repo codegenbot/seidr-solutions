@@ -29,11 +29,15 @@ std::string Strongest_Extension(std::string class_name, std::vector<std::string>
 
         if (valid_extension) {
             int strength = cap_count - sm_count;
-            if (strength > max_strength || (strength == max_strength && strongest_extension.empty())) {
+            if (strength > max_strength || (strength == max_strength && ext.size() > strongest_extension.size())) {
                 max_strength = strength;
                 strongest_extension = ext;
             }
         }
+    }
+
+    if (max_strength == INT_MIN) {
+        return "";
     }
 
     return class_name + "." + strongest_extension;

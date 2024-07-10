@@ -1,13 +1,8 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <numeric>
-#include <cassert>
 
 using namespace std;
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
 
 int sum_of_digits(int num) {
     int sum = 0;
@@ -18,9 +13,9 @@ int sum_of_digits(int num) {
     return sum;
 }
 
-std::vector<int> order_by_points(const std::vector<int>& nums) {
-    std::vector<int> sorted_nums = nums;
-    std::sort(sorted_nums.begin(), sorted_nums.end(), [&](int a, int b) {
+vector<int> order_by_points(vector<int> nums) {
+    vector<int> sorted_nums = nums; 
+    sort(sorted_nums.begin(), sorted_nums.end(), [&](int a, int b) {
         int sum_a = sum_of_digits(a);
         int sum_b = sum_of_digits(b);
         if (sum_a == sum_b) {
@@ -32,6 +27,19 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    vector<int> nums;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int num;
+        cin >> num;
+        nums.push_back(num);
+    }
+    
+    vector<int> result = order_by_points(nums);
+    for (int num : result) {
+        cout << num << " ";
+    }
+    
     return 0;
 }

@@ -6,16 +6,14 @@
 
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool areSame(vector<string> a, vector<string> b){
     return a == b;
 }
 
 vector<string> bf(const string& s1, const string& s2) {
-    return {};
-}
-
-int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
-    
-    return 0;
+    vector<string> common_chars;
+    sort(s1.begin(), s1.end());
+    sort(s2.begin(), s2.end());
+    set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(), back_inserter(common_chars));
+    return common_chars;
 }

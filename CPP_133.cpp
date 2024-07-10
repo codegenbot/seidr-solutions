@@ -1,8 +1,12 @@
-int sum_squares(const std::vector<int>& lst) {
+#include <vector>
+#include <cmath>
+
+int sum_squares(std::vector<int> lst){
+    if(lst.empty()) return 0;
+    
     int sum = 0;
     for (int num : lst) {
-        int rounded_num = std::round(num);
-        sum += rounded_num * rounded_num;
+        sum += num * num;
     }
     return sum;
 }
