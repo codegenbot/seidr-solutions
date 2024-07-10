@@ -1,12 +1,12 @@
-def coin_sums(cents):
+def coin_sums():
+    cents = int(input())
     coins = [25, 10, 5, 1]
     res = []
+
     for coin in coins:
-        count = cents // coin
-        res.append(count)
+        count = int(cents / coin)
+        if count > 0:
+            res.append(count)
         cents %= coin
-    return tuple(res)
 
-
-cents = int(input())
-print(*coin_sums(cents))
+    return " ".join(map(str, res))
