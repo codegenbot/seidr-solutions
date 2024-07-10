@@ -26,4 +26,3 @@ int main() {
     vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 5, 9, 8, 4};
     cout << luhn(digits) << endl;
     return 0;
-}
