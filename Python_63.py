@@ -1,10 +1,7 @@
+import math
+
 def fibfib(n: int):
-    if n <= 1:
-        return 1
-    elif n == 2:
-        return 1
-    else:
-        a, b = 1, 1
-        for _ in range(3, n+1):
-            a, b = b, a+b
-        return b
+    sqrt_5 = math.sqrt(5)
+    phi = (1 + sqrt_5) / 2
+    psi = (1 - sqrt_5) / 2
+    return int((phi**n - psi**n) / sqrt_5)
