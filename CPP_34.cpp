@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return (a == b);
 }
@@ -33,8 +37,8 @@ int main() {
         input.push_back(x);
     }
     
-    auto unique_end = std::unique(input.begin(), input.end());
-    std::vector<int> output(input.begin(), unique_end);
+    auto end = distinct(input.begin(), input.end());
+    std::vector<int> output(input.begin(), end);
     std::sort(output.begin(), output.end());
     
     for (int i : output) {
