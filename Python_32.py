@@ -1,5 +1,3 @@
 values = list(map(int, input().split()))
-result = 0
-for val in values:
-    result += val * val
+result = sum(val * val for val in values)
 print(result)
