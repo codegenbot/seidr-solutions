@@ -16,7 +16,7 @@ vector<int> leaders(vector<int>& arr) {
         leaders.push_back(arr[n-1]);
     }
     
-    leaders.push_back(arr.back());
+    leaders.push_back(arr.back()); // add the last element
     return leaders;
 }
 
