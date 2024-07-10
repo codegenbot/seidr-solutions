@@ -1,5 +1,7 @@
 def solve(N):
-    if N > 0:
-        return str(bin(N))[2:]
-    else:
+    if N == 0:
         return "0"
+    if N < 0:
+        return "-" + bin(abs(N))[2:]
+    else:
+        return bin(N)[2:]
