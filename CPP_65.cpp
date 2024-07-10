@@ -1,8 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <cassert>
-
-using namespace std;
+#include <string>
 
 string circular_shift(int x, int shift) {
     string num_str = to_string(x);
@@ -18,8 +16,9 @@ string circular_shift(int x, int shift) {
     return num_str.substr(n - shift) + num_str.substr(0, n - shift);
 }
 
+// Example test cases
 int main() {
     assert(circular_shift(11, 101) == "11");
-
+    // Add more test cases as needed
     return 0;
 }
