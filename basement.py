@@ -1,7 +1,8 @@
-def basement(lst):
+Here is the solution:
+
+def basement(v):
     total = 0
-    for i in range(len(lst)):
+    for i, x in enumerate(v):
         if total < 0:
             return i
-        total += lst[i]
-    return len(lst)
+        total += x
