@@ -1,7 +1,6 @@
 ```cpp
 #include <string>
 #include <algorithm>
-#include <cstring>
 
 int is_bored(const std::string& S){
     int count = 0;
@@ -17,10 +16,9 @@ int is_bored(const std::string& S){
 }
 
 int main() {
-    char buffer[1024]; 
+    std::string input;
     std::cout << "Enter a string: ";
-    fgets(buffer, sizeof(buffer), stdin); 
-    std::string input(buffer, strlen(buffer)); 
+    std::cin >> input; 
     int result = is_bored(input);
     std::cout << "Count of 'I' at the beginning: " << result << std::endl;
     return 0;
