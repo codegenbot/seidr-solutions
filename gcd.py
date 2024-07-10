@@ -1,4 +1,3 @@
-```
 values = input("Enter two integers (separated by space): ").split()
 if len(values) != 2:
     print("Error: Enter exactly two integers separated by space.")
