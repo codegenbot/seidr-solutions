@@ -1,2 +1,3 @@
-values = list(map(int, input().strip().split()))
-print(sum(values))
+values = list(map(int, input().split()))
+result = sum(val * val for val in values)
+print(result)
