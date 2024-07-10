@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -6,7 +7,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> filter_integer(std::vector<int> values) {
-    std::vector<int> result;
+    std::vector<int> result = std::vector<int>(1); // Initialize result vector with a size 1
     for (int value : values) {
         if(value != 0) {
             if(result.empty()) {
@@ -41,9 +42,6 @@ int main() {
     }
     std::cout << std::endl;
 
-    if(std::vector<int>({1}) == std::vector<int>({1})) {
-        return 0;
-    } else {
-        return 1;
-    }
+    assert(std::vector<int>({1}) == std::vector<int>({1}));
+    return 0;
 }
