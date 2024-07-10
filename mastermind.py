@@ -1,6 +1,6 @@
 def mastermind(code, guess):
     code = list(code)
     guess = list(guess)
-    black_pegs = sum([1 for i in range(4) if code[i] == guess[i]])
-    white_pegs = 4 - black_pegs
-    return str(black_pegs), str(white_pegs)
+    white_pegs = sum(1 for c, g in zip(code, guess) if c == g and c != guess[0])
+    black_pegs = sum(1 for c, g in zip(code, guess) if c == g and c == code[0])
+    return str(white_pegs), str(black_pegs)
