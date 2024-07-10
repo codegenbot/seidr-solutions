@@ -13,5 +13,5 @@ bool correct_bracketing(const std::string& brackets) {
             s.pop();
         }
     }
-    return s.empty();
+    return s.empty(); // Check if the stack is empty at the end
 }
