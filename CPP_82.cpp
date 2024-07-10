@@ -1,7 +1,6 @@
-```cpp
+```
 #include <iostream>
 #include <string>
-#include <cassert>
 
 bool prime_length(const std::string& str) {
     int len = static_cast<int>(str.length());
