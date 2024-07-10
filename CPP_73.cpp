@@ -15,10 +15,7 @@ int smallest_change(std::vector<int> arr) {
     
     int smallest = INT_MAX;
 
-    int dp[n + 1];
-    for (int i = 0; i <= n; i++) {
-        dp[i] = INT_MAX;
-    }
+    std::vector<int> dp(n+1);
     for (auto coin : arr) {
         dp[coin] = 1;
     }
