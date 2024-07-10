@@ -1,24 +1,52 @@
-int score(string s) {
-    int frame = 0, score = 0;
+int get_score(string s) {
+    int score = 0;
+    int frame = 1;
+    int ball = 0;
+    vector<int> rolls;
+
     for (char c : s) {
         if (c == 'X') {
-            score += 10;
-            score += (s[frame + 1] == 'X') ? 10 : (s[frame + 1] == '/') ? 10 - s[frame + 2] + '0' : s[frame + 1] - '0';
-            score += (s[frame + 2] == 'X') ? 10 : ((frame == 18) ? (s[frame + 2] == '/' ? 10 - s[frame + 3] + '0' : s[frame + 2] - '0') : 0);
+            rolls.push_back(10);
             frame++;
+            if (frame > 10)
+                break;
         } else if (c == '/') {
-            score += 10 - s[frame - 1] + '0';
+            rolls.push_back(10 - rolls.back());
+        } else if (c == '-') {
+            rolls.push_back(0);
         } else {
-            score += c - '0';
+            rolls.push_back(c - '0');
         }
-        frame++;
     }
+
+    for (int i = 0; i < rolls.size(); i++) {
+        if (frame > 10)
+            break;
+
+        if (rolls[i] == 10) {
+            score += 10 + rolls[i+1] + rolls[i+2];
+            ball++;
+            frame++;
+        } else if (rolls[i] + rolls[i+1] == 10) {
+            score += 10 + rolls[i+2];
+            i++;
+            ball += 2;
+            frame++;
+        } else {
+            score += rolls[i] + rolls[i+1];
+            i++;
+            ball += 2;
+            frame++;
+        }
+    }
+
     return score;
 }
 
 int main() {
     string s;
     cin >> s;
-    cout << score(s) << endl;
+    cout << get_score(s) << endl;
+    
     return 0;
 }
