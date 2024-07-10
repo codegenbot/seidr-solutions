@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <random>
@@ -32,5 +33,4 @@ int main() {
     } else {
         std::cout << "The piles are not the same." << std::endl;
     }
-    
 }
