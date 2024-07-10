@@ -1,20 +1,12 @@
-from typing import List
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     count = 0
-    current_group = ""
-    
     for char in paren_string:
-        if char == '(':
+        if char == "(":
             count += 1
-        elif char == ')':
+        elif char == ")":
             count -= 1
-            
-        current_group += char
-        
         if count == 0:
-            result.append(current_group.replace(" ", ""))
-            current_group = ""
-    
+            result.append(paren_string[: paren_string.index(char) + 1])
+            paren_string = paren_string[paren_string.index(char) + 1 :].lstrip()
     return result
