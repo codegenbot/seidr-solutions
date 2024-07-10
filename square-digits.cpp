@@ -1,10 +1,4 @@
-```cpp
 #include <string>
-
-int main() {
-    std::cout << squareDigits("123") << std::endl;
-    return 0;
-}
 
 std::string squareDigits(std::string input) {
     std::string output = "";
@@ -13,4 +7,9 @@ std::string squareDigits(std::string input) {
         output += std::to_string(digit);
     }
     return output;
+}
+
+int main() {
+    std::cout << squareDigits("3141") << std::endl; // Example usage
+    return 0;
 }
