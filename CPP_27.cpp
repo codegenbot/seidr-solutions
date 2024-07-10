@@ -1,13 +1,19 @@
-string flip_case(string str){
-    string result = "";
+#include <iostream>
+#include <string>
+#include <cctype>
+
+std::string flip_case(std::string str) {
+    std::string result = "";
     for(int i=0; i<str.length(); i++){
-        char c = str[i];
-        if(c>=97 && c<=122) // lowercase character
-            result += (char)(c-32); // convert to uppercase
-        else if(c>=65 && c<=90) // uppercase character
-            result += (char)(c+32); // convert to lowercase
+        if(std::islower(str[i]))
+            result += std::toupper(str[i]);
         else
-            result += c; // non-alphabetic characters remain the same
+            result += std::tolower(str[i]);
     }
     return result;
+}
+
+int main() {
+    assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    return 0;
 }
