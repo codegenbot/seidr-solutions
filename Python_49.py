@@ -2,12 +2,10 @@
 def modp(n: int, p: int):
     if n == 0:
         return 0
-    elif p == 2:
-        return n
+    elif is_prime(p) and pow(n, p-1, p) != 1:
+        return n % p
     else:
         result = pow(n, p-1, p)
-        if result == 1 and is_prime(p):
-            return pow(n, -1, p)
         for i in range(2, p):
             result = (result * n) % p
         return result
