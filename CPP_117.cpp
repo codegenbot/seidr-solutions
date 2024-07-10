@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,7 +13,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 std::vector<std::string> select_words(std::string input, int k) {
     std::istringstream iss(input);
-    std::vector<std::string> words = std::vector<std::string>(0); // Initialize the vector with 0 capacity
+    std::vector<std::string> words; // Initialize the vector with default capacity
     int wordCount = 0;
 
     for (std::string s; std::getline(iss, s, ' ');) {
@@ -36,9 +35,14 @@ std::string Join(const std::vector<std::string>& vec, char delimiter) {
     return ss.str();
 }
 
-int main() {
+int myMain() {
     std::vector<std::string> my_result = select_words("a b c d e f", 1);
     if (!issame(std::vector<std::string>(my_result.begin(), my_result.end()), select_words("a b c d e f", 1))) 
         std::cout << "{" + Join(my_result, ", ") + "}" << std::endl;
+    return 0;
+}
+
+int main() {
+    myMain();
     return 0;
 }
