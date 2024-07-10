@@ -1,21 +1,3 @@
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <iterator>
-#include <set>
-#include <cassert>
-
-std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
-    std::sort(l1.begin(), l1.end());
-    std::sort(l2.begin(), l2.end());
-    std::vector<int> result;
-    std::set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), std::back_inserter(result));
-    result.erase(std::unique(result.begin(), result.end()), result.end());
-    return result;
-}
-
-int main() {
-    assert(common({4, 3, 2, 8}, {}) == std::vector<int>{});
-    
-    return 0;
-}
+assert(issame(common({4, 3, 2, 8}, {2, 3, 5}), {2, 3}));
+assert(issame(common({1, 2, 3}, {4, 5, 6}), {}));
+assert(issame(common({1, 2, 3}, {1, 2, 3}), {1, 2, 3}));
