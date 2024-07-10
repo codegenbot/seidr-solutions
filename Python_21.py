@@ -8,7 +8,8 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
     min_val = min(numbers)
     max_val = max(numbers)
 
-    if max_val == min_val:
+    scale_factor = max_val - min_val
+    if scale_factor == 0:
         return [1.0] * len(numbers) 
-    else:
-        return [(x - min_val) / (max_val - min_val) for x in numbers]
+
+    return [(x - min_val) / scale_factor for x in numbers]
