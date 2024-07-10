@@ -1,4 +1,3 @@
-
 bool is_nested(const std::string& str) {
     int count = 0;
     for (char c : str) {
@@ -8,5 +7,5 @@ bool is_nested(const std::string& str) {
             count--;
         }
     }
-    return count < 0 ? true : false;
+    return count == 0;
 }
