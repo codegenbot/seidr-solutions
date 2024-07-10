@@ -7,6 +7,9 @@ bool isValidTriangle(double a, double b, double c) {
 }
 
 int main() {
-    assert (!isValidTriangle(3.01, 4, 7));
+    double tolerance = 0.0001;
+    cout << (isValidTriangle(3.01, 4, 7) ? "true" : "false") << endl;
+    assert(!isValidTriangle(3.01, 4, 7));
+    assert(!isValidTriangle(3.01 - tolerance, 4, 7));
     return 0;
 }
