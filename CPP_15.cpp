@@ -1,7 +1,9 @@
+#include <string>
+
 string string_sequence(int n) {
-    string result = "";
+    ostringstream oss;
     for (int i = 0; i <= n; ++i) {
-        result += to_string(i) + " ";
+        oss << i << " ";
     }
-    return result;
+    return oss.str();
 }
