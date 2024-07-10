@@ -1,4 +1,3 @@
-```
 def snow_day(hours, initial_snow_feet, rate_of_snowfall_feet, proportion_melting):
     current_snow = initial_snow_feet * 12
     for _ in range(hours):
