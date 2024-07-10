@@ -1,6 +1,6 @@
 ```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -38,6 +38,6 @@ int main() {
     }
     std::cout << std::endl;
 
-    assert(std::vector({1, 1, 1}) == std::vector({1, 1, 1}));
+    assert(std::vector<int>({1}) == std::vector<int>({1}));
     return 0;
 }
