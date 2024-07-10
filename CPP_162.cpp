@@ -1,21 +1,27 @@
-#include <openssl/ssl.h>
-#include <openssl/x509v3.h>
+#include <openssl/evp.h>
+#include <string>
+
+using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    unsigned char result[16];
-    MD5_CTX md5Context;
-    MD5_Init(&md5Context);
-    MD5_Update(&md5Context, text.c_str(), text.size());
-    MD5_Final(result, &md5Context);
+    unsigned char md[16];
+    EVP_MD_CTX mdctx;
+    EVP_MD *mdav = EVP_md5();
+    unsigned char *d = NULL;
+    size_t len = 0;
 
-    string output;
-    for (int i = 0; i < 16; i++) {
-        char temp[3];
-        sprintf(temp, "%02x", result[i]);
-        output += temp;
+    EVP_DigestInit_ex(&mdctx, mdav, 0);
+    EVP_DigestUpdate(&mdctx, text.c_str(), text.size());
+    EVP_DigestFinal_ex(&mdctx, md, &len);
+
+    string result = "";
+    for (size_t i = 0; i < len; ++i) {
+        char buf[3];
+        sprintf(buf, "%02x", md[i]);
+        result += buf;
     }
 
-    return output;
+    return result;
 }
