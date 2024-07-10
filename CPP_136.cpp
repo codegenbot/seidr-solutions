@@ -18,18 +18,6 @@ namespace MyNamespace {
             }
         }
 
-        std::vector<int> result;
-        if(max_negative > 0) {
-            result.push_back(INT_MAX);
-        } else {
-            result.push_back(max_negative);
-        }
-        if(min_positive < 1) {
-            result.push_back(INT_MIN);
-        } else {
-            result.push_back(min_positive);
-        }
-
-        return result;
+        return {std::max({max_negative, -min_positive})};
     }
 }
