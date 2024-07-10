@@ -10,15 +10,10 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     vector<int> numbers = {4, 2, 1, 2, 4, 3, 1};
-    vector<int> expected_result = {1, 2, 3, 4};
-    
     vector<int> result = remove_duplicates(numbers);
+    vector<int> expected = {1, 2, 3, 4};
     
-    if (issame(result, expected_result)) {
-        cout << "Output matches expected result.";
-    } else {
-        cout << "Output does not match expected result.";
-    }
+    bool same = issame(result, expected);
     
     return 0;
 }
