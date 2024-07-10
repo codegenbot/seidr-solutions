@@ -3,15 +3,12 @@
 #include <algorithm>
 #include <cctype>
 
-void trimString(std::string& str) {
-    str.erase(0, str.find_first_not_of(" \t\n\r"));
-    str.erase(str.find_last_not_of(" \t\n\r") + 1);
-}
-
 int main() {
     std::string tweet;
     std::getline(std::cin, tweet);
-    trimString(tweet);
+
+    tweet.erase(0, tweet.find_first_not_of(" \t\n\r")); // Trim leading whitespace
+    tweet.erase(tweet.find_last_not_of(" \t\n\r") + 1); // Trim trailing whitespace
 
     if (tweet.empty()) {
         std::cout << "You didn't type anything" << std::endl;
