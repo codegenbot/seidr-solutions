@@ -1,8 +1,9 @@
 ```
-def car_race_collision(n: int):
-    a1 = int(input("Enter the speed of the first car: "))
-    a2 = int(input("Enter the speed of the second car: "))
+def car_race_collision(distance: int):
+    a1 = int(input("Enter speed of car 1: "))
+    a2 = int(input("Enter speed of car 2: "))
+
     if a1 > a2:
-        return (n - 1) * a2
+        return (distance - 1) * a2
     else:
-        return (n - 1) * a1
+        return (distance - 1) * a1
