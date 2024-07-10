@@ -1,20 +1,27 @@
 #include <iostream>
 #include <vector>
 
-bool issame(vector<int> a,vector<int>b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]) return false;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-vector<int> minPath(vector<vector<int>> input, int target) {
-    vector<int> path;
-    for (int i = 0; i < input.size(); i++) {
-        while(target >= input[i][0]) {
-            target -= input[i][0];
-            path.push_back(input[i][0]);
+std::vector<int> minPath(std::vector<std::vector<int>> input, int target) {
+    std::vector<int> path;
+    for (int i = 0; i < target; i++) {
+        if (i >= input[1].size()) {
+            path.push_back(input[1][0]);
+        } else {
+            for (int j = 0; j < input.size(); j++) {
+                if (i >= input[j][0]) {
+                    path.push_back(input[j][0]);
+                    i -= input[j][0];
+                }
+            }
+            break;
         }
     }
     return path;
@@ -32,7 +39,7 @@ int main() {
     }
     
     for (int i : minPath(input, target)) {
-        vector<int> output;
+        std::vector<int> output;
         while(i > 0) {
             if(i >= input[1].size()) {
                 i -= input[1][0];
