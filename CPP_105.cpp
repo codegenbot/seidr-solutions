@@ -4,7 +4,7 @@
 #include <string>
 
 bool issame(const std::string &str1, const std::string &str2) {
-    return str1.size() == str2.size();
+    return str1.length() == str2.length();
 }
 
 std::vector<std::string> by_length(std::vector<int> arr);
