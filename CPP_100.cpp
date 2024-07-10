@@ -16,7 +16,7 @@ bool is_same(vector<int> a, vector<int> b) {
 std::vector<int> make_a_pile(int n) {
     std::random_device rd;
     std::mt19937 mt(rd());
-    vector<int> pile;
+    vector pile;
     for (int i = 1; i <= n; i++) {
         pile.push_back(i);
     }
