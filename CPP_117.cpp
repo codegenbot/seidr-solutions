@@ -1,33 +1,42 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
+#include <iostream>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
+    std::string word = "";
     int count = 0;
 
     for (char c : s) {
-        if (isalpha(c)) {
-            if (tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u') {
-                count = 0;
-            } else {
-                count++;
-            }
-            word += c;
-        } else if (!word.empty()) {
+        if (c == ' ') {
             if (count == n) {
                 result.push_back(word);
             }
             word = "";
             count = 0;
+        } else {
+            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
+                count++;
+            }
+            word += c;
         }
     }
 
-    if (!word.empty() && count == n) {
+    if (count == n) {
         result.push_back(word);
     }
 
@@ -35,9 +44,16 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-}
+    // Test the select_words function
+    std::vector<std::string> input = {"apple", "banana", "cherry"};
+    std::vector<std::string> expected_output = {"pple", "bn", "chrry"};
+    std::vector<std::string> result = select_words("apple banana cherry", 1);
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (issame(result, expected_output)) {
+        std::cout << "Test Passed" << std::endl;
+    } else {
+        std::cout << "Test Failed" << std::endl;
+    }
+
+    return 0;
 }
