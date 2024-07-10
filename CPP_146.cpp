@@ -14,7 +14,7 @@ int specialFilter(const std::vector<int>& nums){
 }
 
 int main() {
-    std::vector<int> numbers = {12, 25, -36, 8, 17};
+    std::vector<int> numbers = {12, 25, -37, 46, 99};
     int result = specialFilter(numbers);
     return 0;
 }
