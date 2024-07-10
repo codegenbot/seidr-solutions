@@ -26,3 +26,8 @@ vector<string> total_match(const vector<string>& lst1, const vector<string>& lst
     }
     return lst2;
 }
+
+int main() {
+    // Test the functions if needed
+    return 0;
+}
