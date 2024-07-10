@@ -1,9 +1,12 @@
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
-bool below_threshold(vector<int> numbers, int threshold) {
-    for (int i = 0; i < numbers.size(); i++) {
-        if (numbers[i] < threshold) return true;
+bool below_threshold(const vector<int>& numbers, int threshold) {
+    for (int num : numbers) {
+        if (num < threshold)
+            return true;
     }
     return false;
 }
