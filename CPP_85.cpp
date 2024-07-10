@@ -11,6 +11,7 @@ int add(vector<int> lst){
 }
 
 int main() {
-    vector<int> lst = {4, 4, 6, 8};
-    int result = add(lst);
+    assert (add({4, 4, 6, 8}) == 12);
+    
 }
+```
