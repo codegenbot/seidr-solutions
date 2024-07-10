@@ -3,8 +3,10 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> uniqueDigits(std::vector<int> x) {
-    std::vector<int> result;
+using namespace std;
+
+vector<int> unique_digits(vector<int> x) {
+    vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
@@ -20,12 +22,12 @@ std::vector<int> uniqueDigits(std::vector<int> x) {
             result.push_back(num);
         }
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
 }
 
 int main() {
-    assert(uniqueDigits({135, 103, 31}) == std::vector<int>{31, 135});
-    std::cout << "Test Passed!" << std::endl;
+    assert(unique_digits({135, 103, 31}) == vector<int>{31, 135});
+    cout << "Test Passed!" << endl;
     return 0;
 }
