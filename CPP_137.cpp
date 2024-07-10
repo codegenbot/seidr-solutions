@@ -1,28 +1,40 @@
-```
-#include <boost/any.hpp>
+```cpp
+#include <iostream>
+#include <string>
+#include <any>
 using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any((int)b > (int)a ? b : a);
-    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return boost::any((float)b > (float)a ? b : a);
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-        if (strA == "None") return boost::any("None");
-        return boost::any(strB > strA ? b : a);
-    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int valA = boost::any_cast<int>(a);
-        string strB = boost::any_cast<string>(b);
-        if (strB == "None") return boost::any("None");
-        return boost::any(strB > to_string(valA) ? b : a);
-    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-        string strA = boost::any_cast<string>(a);
-        int valB = boost::any_cast<int>(b);
-        if (strA == "None") return boost::any("None");
-        return boost::any(strA > to_string(valB) ? a : b);
+any compare_one(any a, any b) {
+    if (holds_alternative<int, float>(a) && holds_alternative<float, int>(b)) {
+        return get<int>(b) > get<int>(a) ? b : a;
+    } else if (holds_alternative<string>(a) && holds_alternative<string>(b)) {
+        string strA = any_cast<string>(a);
+        string strB = any_cast<string>(b);
+        return strB > strA ? b : a;
+    } else if (holds_alternative<int>(a) && holds_alternative<string>(b)) {
+        int valA = get<int>(a);
+        string strB = any_cast<string>(b);
+        return strB > to_string(valA) ? b : a;
+    } else if (holds_alternative<string>(a) && holds_alternative<int>(b)) {
+        string strA = any_cast<string>(a);
+        int valB = get<int>(b);
+        return strA > to_string(valB) ? a : b;
     } else {
-        return boost::any("None");
+        return "None";
     }
+}
+
+int main() {
+    any a = 5; 
+    any b = 3.14f;
+    any result = compare_one(a, b);
+
+    if (holds_alternative<string>(result)) {
+        cout << any_cast<string>(result) << endl;
+    } else {
+        int value = get<int>(result);
+        cout << "The greater number is: " << value << endl;
+    }
+
+    return 0;
 }
