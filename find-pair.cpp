@@ -2,27 +2,28 @@
 #include <vector>
 #include <map>
 
-using namespace std;
-
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
+    int n, target;
+    std::cin >> n;
+
+    std::vector<int> nums(n);
+
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
-    int target;
-    cin >> target;
-    
-    map<int, int> num_idx;
+
+    std::cin >> target;
+
+    std::map<int, int> hash;
+
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
-        if (num_idx.find(complement) != num_idx.end()) {
-            cout << complement << endl << nums[i] << endl;
+        if (hash.find(complement) != hash.end()) {
+            std::cout << complement << std::endl << nums[i];
             break;
         }
-        num_idx[nums[i]] = i;
+        hash[nums[i]] = i;
     }
-    
+
     return 0;
 }
