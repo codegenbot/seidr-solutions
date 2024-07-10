@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```python
 def digits(n):
     max_product = 1
     while n:
