@@ -1,8 +1,10 @@
 ```
-import random
-
-
 def modp(n: int, p: int):
+    if p == 2:
+        return False
+    for i in range(3, int(p**0.5) + 1):
+        if p % i == 0:
+            return False
     if pow(2, n - 1, p) == 1:
         return False
     for _ in range(p - 2):
@@ -12,11 +14,3 @@ def modp(n: int, p: int):
         if pow(a, (n - 1) // 2, p) != p - 1:
             return False
     return True
-
-
-n = int(input("Enter the value of n: "))
-p = int(input("Enter the value of p: "))
-
-result = modp(n, p)
-
-print(f"The result is {result}")
