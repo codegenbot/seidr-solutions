@@ -1,11 +1,22 @@
-double find_zero(vector<double> xs){
-    double sum = 0;
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
+
+double poly(vector<double> xs, double x){
+    double sum=0;
     int i;
     for (i=0;i<xs.size();i++)
     {
-        if(i%2==1)
-            continue;
-        sum+=xs[i]/xs[0];
+        sum+=xs[i]*pow(x,i);
     }
-    return -sum;
+    return sum;
+}
+
+double find_zero(vector<double> xs){
+    if(xs.size() % 2 != 0) return -1; // return -1 if the number of coefficients is odd
+    double x = 1.0;
+    for(int i=0; i<xs.size();i+=2)
+        x = x - xs[i]/xs[i+1];
+    return x;
 }
