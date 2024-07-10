@@ -10,11 +10,13 @@ int digitSum(std::string s) {
         if (isupper(c)) {
             sum += c - 'A' + 1; 
         } else if (islower(c)) {
-            std::string temp = s;
-            while(std::next_permutation(std::begin(temp), std::end(temp))) {
-                for(char d : temp) {
-                    sum += d - 'A' + 1;
-                }
+            for(int i = 0; i < 26; i++) {
+                std::string temp = s;
+                do {
+                    for(char d : temp) {
+                        sum += (d >= 'a' && d <= 'z') ? d - 'a' + 1 : d - 'A' + 1;
+                    }
+                } while(std::next_permutation(std::begin(temp), std::end(temp)));
             }
         }
     }
