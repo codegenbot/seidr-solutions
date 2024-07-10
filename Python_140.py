@@ -16,5 +16,6 @@ while True:
         result = fix_spaces(text)
         print(result)
         break
-    except (ValueError, EOFError):
+    except Exception as e:
+        print(f"Error: {str(e)}")
         print("Please enter valid input. Try again!")
