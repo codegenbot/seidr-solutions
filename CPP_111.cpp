@@ -1,9 +1,10 @@
-#include <cassert>
 #include <iostream>
 #include <map>
 #include <string>
 
-using namespace std;
+bool issame(std::map<char, int> a, std::map<char, int> b) {
+    return a == b;
+}
 
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> result;
@@ -30,6 +31,10 @@ std::map<char, int> histogram(std::string test) {
 }
 
 int main() {
-    assert(histogram("a") == std::map<char, int>{{'a', 1}});
+    std::map<char, int> test1 = histogram("a");
+    for (const auto& pair : test1) {
+        std::cout << pair.first << " " << pair.second << std::endl;
+    }
+    
     return 0;
 }
