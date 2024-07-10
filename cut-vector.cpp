@@ -11,7 +11,7 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
         }
         
         rightSum = accumulate(v.begin() + i - 1, v.end(), 0); 
-        
+         
         int diff = abs(leftSum - rightSum);
         
         if(diff < minDiff) {
