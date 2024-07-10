@@ -1,19 +1,18 @@
-// Sort even indices
-    vector<float> even_indices;
-    for (int i = 0; i < l.size(); i += 2) {
-        even_indices.push_back(l[i]);
-    }
-    sort(even_indices.begin(), even_indices.end());
+vector<float> even_values;
+    vector<size_t> even_indices;
 
-    // Create the final vector
-    vector<float> result;
-    for (int i = 0; i < l.size(); i++) {
+    for (size_t i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            result.push_back(l[i]);
-        } else {
-            result.push_back(even_indices[i/2]);
+            even_values.push_back(l[i]);
+            even_indices.push_back(i);
         }
     }
 
-    return result;
+    sort(even_values.begin(), even_values.end());
+
+    for (size_t i = 0; i < even_indices.size(); i++) {
+        l[even_indices[i]] = even_values[i];
+    }
+
+    return l;
 }
