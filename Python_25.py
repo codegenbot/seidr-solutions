@@ -5,4 +5,4 @@ while True:
             raise ValueError
         break
     except ValueError:
-        print("Please enter a valid positive integer greater than 1.")
+        print("Invalid input. Please enter a positive integer greater than 1.")
