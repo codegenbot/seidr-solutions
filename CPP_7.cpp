@@ -4,9 +4,7 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
