@@ -1,4 +1,4 @@
-```cpp
+```c
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -42,7 +42,7 @@ vector<int> sort_third(vector<int> l) {
     return result;
 }
 
-int main_driver() {
+int main() {
     vector<int> l1 = {1, 2, 3};
     vector<int> l2 = {5, 6, 3, 4, 8, 9, 2};
 
