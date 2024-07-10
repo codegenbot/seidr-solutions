@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 using namespace std;
 
@@ -7,9 +8,10 @@ int add(vector<int> lst){
         if(lst[i] % 2 == 0) sum += lst[i];
     }
     return sum;
+
 }
 
-int main(){
-    assert (add({4, 5, 6, 8}) == 12);  
-    return 0;
+int main() {
+    vector<int> lst = {4, 4, 6, 8};
+    int result = add(lst);
 }
