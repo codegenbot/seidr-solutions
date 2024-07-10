@@ -1,3 +1,6 @@
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
 vector<string> result;
 string current_group;
 int open_braces = 0;
@@ -17,10 +20,6 @@ for (char c : paren_string) {
             current_group = "";
         }
     }
-}
-
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
 }
 
 return result;
