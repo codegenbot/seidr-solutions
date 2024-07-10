@@ -11,6 +11,17 @@ bool std::issame(std::vector<int> a, std::vector<int> b){
 
 }
 
+std::vector<int> make_a_pile(int n) {
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::vector<int> pile;
+    for (int i = 1; i <= n; i++) {
+        pile.push_back(i);
+    }
+    std::shuffle(pile.begin(), pile.end(), mt);
+    return pile; 
+}
+
 int main() {
     int n;
     std::cout << "Enter a number: ";
