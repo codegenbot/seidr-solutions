@@ -1,9 +1,10 @@
+```cpp
 #include <openssl/md5.h>
 #include <string>
 
 using namespace std;
 
-string string_to_md5(string text) {
+string myString_to_md5(string text) {
     unsigned char md[16];
     EVP_MD_CTX ctx;
     EVP_DigestInit(&ctx, EVP_md5());
@@ -21,9 +22,6 @@ string string_to_md5(string text) {
 }
 
 int main() {
-    string text;
-    cout << "Enter a string: ";
-    cin >> text;
-    cout << "MD5 of the entered string is: " << string_to_md5(text) << endl;
+    cout << myString_to_md5("password") << endl;
     return 0;
 }
