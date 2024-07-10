@@ -20,10 +20,10 @@ int main() {
     double totalSnow = 0.0;  
 
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
+        initialSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour;
     }
     
     cout << fixed << setprecision(10);  
-    cout << "The amount of snow on the ground after " << hours << " hours is: " << totalSnow << " ft" << endl;
+    cout << "The amount of snow on the ground after " << hours << " hours is: " << initialSnow << " ft" << endl;
     return 0;
 }
