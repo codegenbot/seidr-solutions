@@ -5,10 +5,7 @@ def modp(n: int, p: int) -> int:
     elif p <= 0:
         return None
     else:
-        result = 1
-        while p > 1:
-            if p % 2 == 1:
-                result = (result * n) % p
-            p //= 2
-            n = (n * n) % p
+        result = n % p
+        for _ in range(1, p-1):  
+            result = (result * n % p)
         return result
