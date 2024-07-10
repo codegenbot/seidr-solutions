@@ -1,5 +1,6 @@
 #include <vector>
-#include <string>
+#include <iostream>
+#include <cassert>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
@@ -11,14 +12,18 @@ bool issame(vector<string> a, vector<string> b) {
             return false;
         }
     }
-    
+
     return true;
 }
 
 vector<string> select_words(string s, int n);
 
 int main() {
-    // Test the code here
+    vector<string> result = select_words("Hello World, this is a test", 2);
+    vector<string> expected = {"Hello", "World,", "this", "test"};
+    
+    assert(issame(result, expected));
+
     return 0;
 }
 
