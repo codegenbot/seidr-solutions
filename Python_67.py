@@ -1,4 +1,7 @@
-```
 def fruit_distribution(s, n):
-    total_weight = sum(int(fruit) for fruit in s.split() if fruit.isdigit())
-    return min(n - total_weight, 100)
+    s = s.lower()
+    fruits = s.split("and")
+    for i in range(len(fruits)):
+        if "," in fruits[i]:
+            fruits[i] = fruits[i].replace(",", "")
+    return sum(int(fruit) for fruit in fruits[:n]) / n
