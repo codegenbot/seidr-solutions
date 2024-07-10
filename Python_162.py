@@ -1,11 +1,15 @@
-```
 import hashlib
 
+
 def string_to_md5():
-    text = input("Enter some text: ")
-    if not text:
-        return None
-    else:
-        return hashlib.md5(text.encode()).hexdigest()
+    while True:
+        text = input("Enter some text (or 'q' to quit): ").strip()
+        if text.lower() == 'q':
+            return None
+        elif not text:
+            print("Please enter some text.")
+        else:
+            return hashlib.md5(text.encode()).hexdigest()
+
 
 print(string_to_md5())
