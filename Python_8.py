@@ -2,9 +2,8 @@ from typing import List, Tuple
 
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    if not numbers:
-        return 0, 1
-    product = 1
+    sum_numbers = sum(numbers)
+    product_numbers = 1 if not numbers else 1
     for num in numbers:
-        product *= num
-    return sum(numbers), product
+        product_numbers *= num
+    return sum_numbers, product_numbers
