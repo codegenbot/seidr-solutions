@@ -1,28 +1,33 @@
-```
 def solve_boolean(expression):
-    if expression == 'T':
+    if expression == "T":
         return True
-    elif expression == 'F':
+    elif expression == "F":
         return False
-    stack = []
-    temp = ''
-    for char in expression:
-        if char in ['&', '|']:
-            if temp: 
-                if temp == 'T':
-                    stack.append(True)
-                else: 
-                    stack.append(False)
-                temp = ''
-            if char == '&':
-                stack.append((stack.pop() and stack.pop()))
-            elif char == '|':
-                stack.append((stack.pop() or stack.pop()))
-        else:
-            temp += char
-    if temp: 
-        if temp == 'T':
-            stack.append(True)
-        else: 
-            stack.append(False)
-    return stack[0]
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid input")
+    elif "(" not in expression and ")" not in expression:  
+        if "&" in expression:
+            left, right = expression.split("&")
+            return not (solve_boolean(left) and solve_boolean(right))
+        elif "|" in expression:
+            left, right = expression.split("|")
+            return solve_boolean(left) or solve_boolean(right)
+    else:
+        stack = []
+        for char in expression:
+            if char == "(":
+                stack.append(char)
+            elif char == ")":
+                while stack[-1] != "(":
+                    pass
+                stack.pop()
+            elif not stack:  
+                if "&" in expression and "|" in expression:
+                    raise ValueError("Invalid input")
+                if "&" in expression:
+                    left, right = expression.split("&")
+                    return not (solve_boolean(left) and solve_boolean(right))
+                elif "|" in expression:
+                    left, right = expression.split("|")
+                    return solve_boolean(left) or solve_boolean(right)
+        stack should be empty now
