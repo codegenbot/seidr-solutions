@@ -1,6 +1,7 @@
+```cpp
 #include <vector>
 
-int maxPrimeSum(vector<int> lst){
+int findSumOfDigitsOfMaxPrime(vector<int> lst){
     int maxPrime = 0;
     for(int i: lst){
         if(isPrime(i) && i > maxPrime)
