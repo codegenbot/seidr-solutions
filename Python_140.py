@@ -7,7 +7,7 @@ def fix_spaces(text):
                 if len(new_text) > 0 and len(new_text) <= 2:
                     new_text += "_ "
                 elif len(new_text) > 2:
-                    new_text += char
+                    in_word = True
                 else:
                     new_text += " "
             else:
