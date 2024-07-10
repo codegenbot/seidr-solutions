@@ -1,23 +1,19 @@
-string solve(string s){
-    string result;
-    bool hasLetter = false;
+#include <string>
 
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            if(islower(s[i])){
-                result += toupper(s[i]);
-            }else{
-                result += tolower(s[i]);
-            }
-            hasLetter = true;
-        }else{
-            result += s[i];
+using namespace std;
+
+string solve(string s) {
+    string res = "";
+    bool found_letter = false;
+
+    for (char c : s) {
+        if (isalpha(c)) {
+            found_letter = true;
+            res += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
+        } else {
+            res += c;
         }
     }
 
-    if(!hasLetter){
-        reverse(result.begin(), result.end());
-    }
-
-    return result;
+    return found_letter ? res : string(rbegin(s), rend(s));
 }
