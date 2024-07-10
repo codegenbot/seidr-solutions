@@ -1,12 +1,14 @@
-int stack_size = 0;
-for(int i=0; i<brackets.size();i++){
-    if(brackets[i] == '<'){
-        stack_size++;
-    }
-    else if(brackets[i] == '>'){
-        if(stack_size <= 0)
+int count_open = 0;
+
+for (char bracket : brackets) {
+    if (bracket == '<') {
+        count_open++;
+    } else if (bracket == '>') {
+        if (count_open == 0) {
             return false;
-        stack_size--;
+        }
+        count_open--;
     }
 }
-return stack_size == 0;
+
+return count_open == 0;
