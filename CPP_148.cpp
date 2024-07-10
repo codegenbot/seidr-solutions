@@ -8,11 +8,11 @@ bool issame(vector<string> a) {
     if (a.size() != 1) {
         return false;
     }
-    string str = tolower(a[0]);
+    string str = a[0];
     for (int i = 1; i < a.size(); i++) {
         string temp;
         cin >> temp;
-        if (tolower(temp) != str) {
+        if (temp.toLowerCase() != str.toLowerCase()) {
             return false;
         }
     }
