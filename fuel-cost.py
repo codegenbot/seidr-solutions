@@ -1,4 +1,2 @@
-import math
-
-total = sum(math.floor(int(x) / 3) - 2 for x in input().split())
+total = sum(int(int(int(x) / 3) - 2) for x in input().split())
 print(total)
