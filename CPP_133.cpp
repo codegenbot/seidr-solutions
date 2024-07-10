@@ -1,10 +1,10 @@
 #include <vector>
 #include <cmath>
 
-float sum_squares(std::vector<float> lst){
-    float sum = 0;
-    for (float num : lst) {
-        sum += pow(static_cast<int>(std::round(num)), 2);
+double sum_squares(std::vector<double> lst){
+    double sum = 0;
+    for (double num : lst) {
+        sum += std::round(num) * std::round(num);
     }
     return sum;
 }
