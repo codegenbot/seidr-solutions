@@ -17,10 +17,8 @@ std::vector<int> parse_nested_parens(std::string input){
             }
         }
     }
-    return result;
-}
+    
+    assert(result == std::vector<int>{4});
 
-int main() {
-    assert(parse_nested_parens("(()(())((())))") == std::vector<int>{4});
-    return 0;
+    return result;
 }
