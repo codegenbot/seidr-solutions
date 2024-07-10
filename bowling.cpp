@@ -1,8 +1,7 @@
-```cpp
 #include <iostream>
 #include <string>
 
-int bowlingScore(std::string input) {
+int bowlingScore(string input) {
     int score = 0;
     int currentRoll = 0;
     int frameNumber = 1;
@@ -31,7 +30,7 @@ int bowlingScore(std::string input) {
     return score;
 }
 
-int bowlingScoreForExtraRolls(std::string input, int i) {
+int bowlingScoreForExtraRolls(string input, int i) {
     int score = 0;
 
     for (int j = i + 1; j < input.size(); j++) {
