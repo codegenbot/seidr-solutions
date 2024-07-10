@@ -2,24 +2,15 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool result = false;
-    for (char c : s) {
-        if (c == 't') {
-            result = true;
-        } else if (c == 'f') {
-            return false;
-        } else if (c == '|') {
-            return true; // | operator always returns True
-        } else if (c == '&') {
-            return false; // & operator always returns False
-        }
-    }
-    return result;
-}
+    if (s == "T" || s == "t") return true;
+    if (s == "F" || s == "f") return false;
+    
+    bool a = solveBoolean(s.substr(0, 1));
+    char op = s[1];
+    bool b = solveBoolean(s.substr(2));
 
-int main() {
-    string s;
-    cin >> s;
-    cout << (solveBoolean(s) ? "True" : "False") << endl;
-    return 0;
+    if (op == '&') return a && b;
+    if (op == '|') return a || b;
+
+    return -1; // This line should not be reached.
 }
