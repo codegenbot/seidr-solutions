@@ -1,5 +1,4 @@
 #include <string>
-#include <iostream>
 
 int hex_key(string num) {
     int count = 0;
