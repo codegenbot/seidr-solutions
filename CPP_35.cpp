@@ -5,19 +5,14 @@
 
 int main() {
     std::vector<int> l;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i = 0; i < n; ++i) {
-        int x;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x;
-        l.push_back(x);
+    int num;
+    while(std::cin >> num) {
+        l.push_back(num);
     }
-    if(l.empty()) {
-        std::cout << "No elements entered. Exiting." << std::endl;
-        return 0;
+    if(l.size() == 0) {
+        std::cout << "No elements in the vector." << std::endl;
+    } else {
+        std::cout << "The maximum element is: " << *std::max_element(l.begin(), l.end()) << std::endl;
     }
-    std::cout << "Maximum element: " << *std::max_element(l.begin(), l.end()) << std::endl;
     return 0;
 }
