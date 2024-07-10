@@ -1,18 +1,20 @@
 #include <vector>
 #include <iostream>
+using namespace std;
 
-double probability(int n, int m) {
-    double p = 0.0;
-    for (int i = m + 1; i <= n; ++i) {
-        p += 1.0 / (n * m);
-    }
-    return p;
+double calculateProbability(int n, int m) {
+    if(n == 1 || m == 1)
+        return 0.0;
+    
+    double numerator = (n - 1) * (m);
+    double denominator = n * m;
+    
+    return (double)numerator / denominator;
 }
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
-    double result = probability(n, m);
-    std::cout << result << std::endl;
+    cin >> n >> m;
+    cout << fixed << setprecision(5) << calculateProbability(n, m) << endl;
     return 0;
 }
