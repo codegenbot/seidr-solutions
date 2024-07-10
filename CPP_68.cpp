@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -45,4 +46,7 @@ void testMain() {
 
 }
 
-testMain();
+int main() {
+    testMain();
+    return 0; 
+}
