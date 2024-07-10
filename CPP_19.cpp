@@ -34,3 +34,7 @@ string sort_numbers(string numbers) {
     result.pop_back(); // Remove trailing space
     return result;
 }
+
+int main() {
+    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
+}
