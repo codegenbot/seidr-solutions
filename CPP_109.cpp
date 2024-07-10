@@ -1,31 +1,35 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
-bool move_one_ball(std::vector<int> arr) {
+bool is_sorted(const std::vector<int>& arr) {
+    return std::is_sorted(arr.begin(), arr.end());
+}
+
+void rotate(std::vector<int>& arr) {
+    std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
+}
+
+bool move_one_ball(std::vector<int>& arr) {
     int n = arr.size();
-    if (n == 0) {
-        return true;
-    }
-    
-    int minIdx = 0;
     for (int i = 0; i < n; ++i) {
-        if (arr[i] < arr[minIdx]) {
-            minIdx = i;
+        if (is_sorted(arr)) {
+            return true;
         }
+        rotate(arr);
     }
-    
-    for (int i = 0; i < n; ++i) {
-        if (arr[(minIdx + i) % n] != i + 1) {
-            return false;
-        }
-    }
-    
-    return true;
+    return false;
 }
 
 int main() {
-    assert(move_one_ball({}) == true); 
-    // Additional test cases can be added here
+    std::vector<int> test1 = {1, 2, 3, 4, 5};
+    std::vector<int> test2 = {5, 4, 3, 2, 1};
+
+    assert(move_one_ball(test1) == true);
+    assert(move_one_ball(test2) == false);
+
+    std::cout << "All tests passed successfully!" << std::endl;
+
     return 0;
 }
