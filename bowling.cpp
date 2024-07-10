@@ -1,4 +1,5 @@
 #include <string>
+
 int score(string s) {
     int totalScore = 0;
     int frame = 1;
