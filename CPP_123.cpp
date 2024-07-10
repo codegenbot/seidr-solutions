@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -7,7 +6,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+    std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0)
             n = n / 2;
@@ -22,7 +21,7 @@ std::vector<int> get_odd_collatz(int n) {
         else
             n = 3 * n + 1;
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
 }
 
