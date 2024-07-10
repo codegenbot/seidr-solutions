@@ -1,10 +1,9 @@
 #include <vector>
+#include <cassert>
 
-bool issame(vector<int> a, vector<int> b);
-
-vector<int> strange_sort_list(vector<int> lst){
+std::vector<int> strange_sort_list(std::vector<int> lst){
     sort(lst.begin(), lst.end());
-    vector<int> result;
+    std::vector<int> result;
     int left = 0, right = lst.size() - 1;
     while (left <= right) {
         if (left == right) {
