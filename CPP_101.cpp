@@ -1,4 +1,6 @@
-using namespace std;
+```
+#include <vector>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -34,5 +36,7 @@ vector<string> words_string(string s) {
 }
 
 int main() {
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
+    vector<string> test1 = words_string("ahmed     , gamal");
+    assert(issame(test1, {"ahmed", "gamal"}));
     return 0;
+}
