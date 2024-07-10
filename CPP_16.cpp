@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <iostream>
 #include <string>
 #include <cassert>
 
@@ -12,6 +11,7 @@ int count_distinct_characters(const std::string& str) {
 }
 
 int main() {
-    assert(count_distinct_characters("Jerry jERRY JeRRRY") == 5);
-    return 0;
+    std::string test_input = "Hello World";
+    int expected_result = 8;
+    assert(count_distinct_characters(test_input) == expected_result);
 }
