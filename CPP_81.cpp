@@ -1,66 +1,20 @@
-#include <iostream>
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<std::string> result;
-    for (float grade : grades) {
-        if (grade >= 4.0)
-            result.push_back("A+");
-        else if (grade > 3.7)
-            result.push_back("A");
-        else if (grade > 3.3)
-            result.push_back("A-");
-        else if (grade > 3.0)
-            result.push_back("B+");
-        else if (grade > 2.7)
-            result.push_back("B");
-        else if (grade > 2.3)
-            result.push_back("B-");
-        else if (grade > 2.0)
-            result.push_back("C+");
-        else if (grade > 1.7)
-            result.push_back("C");
-        else if (grade > 1.3)
-            result.push_back("C-");
-        else if (grade > 1.0)
-            result.push_back("D+");
-        else if (grade > 0.7)
-            result.push_back("D");
-        else
-            result.push_back("E");
-    }
-    return result;
+std::string numerical_letter_grade(int credits, double gpa) {
+    if (gpa >= 3.7) return "A";
+    else if (gpa >= 3.4) return "B+";
+    else if (gpa >= 3.1) return "B";
+    else if (gpa >= 2.8) return "C+";
+    else if (gpa >= 2.5) return "C";
+    else if (gpa >= 2.2) return "D+";
+    else return "F";
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of grades: ";
-    std::cin >> n;
-
-    std::vector<float> grades(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter grade " << i + 1 << ": ";
-        std::cin >> grades[i];
-    }
-
-    if(issame(numerical_letter_grade(grades), {"A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "E"})) {
-        std::cout << "Letter grades: ";
-        for (const auto& grade : numerical_letter_grade(grades)) {
-            std::cout << grade << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "Invalid input. Please check your grades." << std::endl;
-    }
-
+    int credits = 0;
+    double gpa = 0.7;
+    std::pair<std::vector<int>, std::vector<double>> input({credits}, {gpa});
+    assert(issame(numerical_letter_grade({credits, gpa}), {"E", "D-"}));
     return 0;
 }
