@@ -1,17 +1,16 @@
+Here is the solution:
+
 def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    else:
-        result = True
-        for char in expression:
-            if char == '&':
-                result &= (True if next_char == 'T' else False)
-            elif char == '|':
-                result |= (True if next_char == 'T' else False)
-            next_char = char
+    elif '&' in expression:
+        left, right = expression.split('&')
+        return solve_boolean(left) and solve_boolean(right)
+    elif '|' in expression:
+        left, right = expression.split('|')
+        return solve_boolean(left) or solve_boolean(right)
 
-        return result
+expression = input()
+print(solve_boolean(expression))
