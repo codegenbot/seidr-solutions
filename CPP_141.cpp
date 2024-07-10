@@ -2,7 +2,7 @@
 #include <cassert>
 
 std::string file_name_check(std::string file_name) {
-    if (file_name.empty()) {
+    if(file_name.length() < 5) {
         return "No";
     }
     
@@ -19,16 +19,12 @@ std::string file_name_check(std::string file_name) {
         }
     }
     
-    if (digitCount > 3 || dotCount != 1 || dotIndex == -1 || dotIndex == file_name.length() - 1 || dotIndex == 0 || dotIndex == 0) {
+    if (digitCount > 3 || dotCount != 1 || dotIndex == -1 || dotIndex == file_name.length() - 1 || dotIndex == 0) {
         return "No";
     }
     
-    if (file_name.length() - dotIndex < 4) {
-        return "No";
-    }
-    
-    std::string extension = file_name.substr(dotIndex);
-    if (extension != ".txt" && extension != ".exe" && extension != ".dll") {
+    std::string extension = file_name.substr(dotIndex + 1);
+    if (extension != ".txt" && extension != ".exe" && extension != ".dll" || extension.length() != 3) {
         return "No";
     }
     
