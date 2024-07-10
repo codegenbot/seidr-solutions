@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 int odd_count(const std::vector<std::string>& vec) {
     int count = 0;
