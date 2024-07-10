@@ -1,6 +1,6 @@
+```
 def add(x: int, y: int):
     return x + y
-
 
 while True:
     try:
@@ -16,6 +16,9 @@ while True:
                     break
             except ValueError:
                 print("Invalid input. Please enter an integer.")
+
+        if response.lower() == "no":
+            exit()
     except Exception as e:
         print(f"Error: {e}. Goodbye!")
         exit()
