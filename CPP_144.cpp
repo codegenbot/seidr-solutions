@@ -14,7 +14,7 @@ int customGcd(int a, int b) {
 
 bool checkDivisibility(std::string x, std::string n) {
     if (x.find('/') == std::string::npos || n.find('/') == std::string::npos) {
-        return false; // Return false if '/' is not found in input strings
+        return false;
     }
 
     try {
@@ -22,7 +22,7 @@ bool checkDivisibility(std::string x, std::string n) {
         int den2 = std::stoi(n.substr(n.find('/') + 1));
 
         if (den1 == 0 || den2 == 0) {
-            return false; // Return false if any denominator is 0
+            return false;
         }
 
         int num1 = std::stoi(x.substr(0, x.find('/')));
@@ -30,13 +30,13 @@ bool checkDivisibility(std::string x, std::string n) {
 
         return (num1 * num2) % (den1 * den2) == 0;
     } catch (std::invalid_argument& e) {
-        return false; // Handle stoi conversion error
+        return false;
     }
 }
 
 bool simplify(std::string x, std::string n) {
     if (x.find('/') == std::string::npos || n.find('/') == std::string::npos) {
-        return false; // Return false if '/' is not found in input strings
+        return false;
     }
 
     try {
@@ -46,11 +46,11 @@ bool simplify(std::string x, std::string n) {
         int den2 = std::stoi(n.substr(n.find('/') + 1));
 
         if (den1 == 0 || den2 == 0) {
-            return false; // Return false if any denominator is 0
+            return false;
         }
 
-        int gcd = std::gcd(num1 * den2, num2 * den1);
-        if (gcd == 0) {
+        int gcd = std::__gcd(num1 * den2, num2 * den1);
+        if (gcd == 1) {
             gcd = customGcd(num1 * den2, num2 * den1);
         }
 
@@ -59,6 +59,6 @@ bool simplify(std::string x, std::string n) {
 
         return num1 == num2 && den1 == den2;
     } catch (std::invalid_argument& e) {
-        return false; // Handle stoi conversion error
+        return false;
     }
 }
