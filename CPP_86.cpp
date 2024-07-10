@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -5,7 +6,7 @@
 using namespace std;
 
 string anti_shuffle(string sStr) {
-    vector<string> words;
+    vector<string> words(std::allocator<string>());
     string word;
     for (char c : sStr) {
         if (c == ' ') {
@@ -24,10 +25,10 @@ string anti_shuffle(string sStr) {
     string result;
     for (string w : words) {
         sort(w.begin(), w.end());
-        result += w + " ";
+        result += w;
     }
 
-    return result.substr(0, result.size() - 1); // remove the extra space at the end
+    return result;
 }
 
 int main() {
