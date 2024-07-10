@@ -6,10 +6,11 @@ def string_to_md5(text):
     return None
 
 if __name__ == "__main__":
-    while True:
-        try:
+    try:
+        while True:
             user_input = input()
             result = string_to_md5(user_input)
             print("MD5 hash of the input string is:", result)
-        except EOFError:
-            break
+
+    except EOFError:
+        pass
