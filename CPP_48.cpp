@@ -5,7 +5,7 @@
 bool is_palindrome(const std::string& text) {
     std::string formatted_text;
     std::copy_if(text.begin(), text.end(), std::back_inserter(formatted_text), [](char c) {
-        return std::isalnum(c);
+        return std::isalnum(c) && !std::isspace(c);
     });
     
     int left = 0;
