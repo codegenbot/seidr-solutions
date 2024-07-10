@@ -10,5 +10,5 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
         if (num % 2 != 0)
             oddCount2++;
     
-    return std::to_string(oddCount1 == 0 && oddCount2 == 0);
+    return (oddCount1 > 0 || oddCount2 > 0) ? "YES" : "NO";
 }
