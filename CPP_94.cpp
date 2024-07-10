@@ -2,8 +2,8 @@
 #include <cassert>
 
 int main() {
-    int a, b, c;
-    std::cin >> a >> b >> c;
-    assert({a, b, c} == {127, 97, 224});
+    int num3, num4, num5;
+    std::cin >> num3 >> num4 >> num5;
+    assert({num3, num4, num5} == {127, 97, 224});
     return 0;
 }
