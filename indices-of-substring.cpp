@@ -16,8 +16,9 @@ int main() {
 
     size_t pos = text.find(target, 0);
     std::vector<int> indices;
+    
     int last_pos = 0;
-
+    
     while (pos != std::string::npos) {
         indices.push_back(pos);
         last_pos = pos;
