@@ -2,6 +2,8 @@
 #include <string>
 #include <cassert>
 
+using namespace std;
+
 vector<string> filter_by_prefix(const vector<string>& vec, const string& prefix) {
     vector<string> result;
     for (const auto& str : vec) {
