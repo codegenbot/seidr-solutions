@@ -6,11 +6,9 @@ using namespace std;
 
 auto compare_one(int a, double b) {
     if (b > a) {
-        return to_string(b);
-    } else if (a == b) {
-        return "Equal";
+        return b;
     } else {
-        return to_string(a);
+        return static_cast<double>(a);
     }
 }
 
