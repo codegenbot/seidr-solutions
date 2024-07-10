@@ -27,7 +27,7 @@ std::string kebabToCamel(const std::string& str) {
         if (i > 0) {
             char firstChar = std::toupper(words[i][0]);
             result += firstChar;
-            result.erase(0, 1);
+            result += std::string(1, words[i].erase(0, 1)).lower();
         } else {
             result += words[i];
         }
@@ -37,6 +37,7 @@ std::string kebabToCamel(const std::string& str) {
 }
 
 int main() {
+    // Test cases
     std::cout << kebabToCamel("nospaceordash") << std::endl; 
     std::cout << kebabToCamel("two-words") << std::endl; 
     std::cout << kebabToCamel("two words") << std::endl; 
