@@ -1,16 +1,24 @@
 #include <string>
 
 bool correct_bracketing(const std::string& brackets) {
-    int count = 0;
+    int angle_brackets = 0;
+    int square_brackets = 0;
     for (char c : brackets) {
         if (c == '<') {
-            count++;
+            angle_brackets++;
         } else if (c == '>') {
-            if (count <= 0) {
+            if (angle_brackets == 0) {
                 return false;
             }
-            count--;
+            angle_brackets--;
+        } else if (c == '[') {
+            square_brackets++;
+        } else if (c == ']') {
+            if (square_brackets == 0) {
+                return false;
+            }
+            square_brackets--;
         }
     }
-    return count == 0;
+    return angle_brackets == 0 && square_brackets == 0;
 }
