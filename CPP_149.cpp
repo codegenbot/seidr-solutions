@@ -1,10 +1,4 @@
-```cpp
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 vector<string> sorted_list_sum(vector<string> lst) {
-    // Create a new vector and copy strings with even lengths to it
     vector<string> result;
     for (const string& s : lst) {
         if (s.length() % 2 == 0) {
@@ -12,7 +6,6 @@ vector<string> sorted_list_sum(vector<string> lst) {
         }
     }
 
-    // Sort the resulting vector by length and then alphabetically
     sort(result.begin(), result.end(),
          [](const string& a, const string& b) {
              if (a.length() != b.length()) {
@@ -25,7 +18,11 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return result;
 }
 
-int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
-    return 0;
+bool issame(string s1, string s2) {
+    for (int i = 0; i < min(s1.length(), s2.length()); i++) {
+        if (s1[i] != s2[i]) {
+            return false;
+        }
+    }
+    return s1.length() == s2.length();
 }
