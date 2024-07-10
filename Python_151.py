@@ -1,2 +1,2 @@
 def check(func):
-    func(lst)
+    print(func([1, -2, 3]))
