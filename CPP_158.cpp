@@ -21,14 +21,12 @@ int main() {
     std::cin >> std::ws; 
     std::cin >> n;
 
-    std::cin.ignore(); 
-
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
-        std::cin.ignore(); 
         std::getline(std::cin, word); 
         words.push_back(word);
+        std::cin.ignore(); 
     }
 
     findMaxWord(words);
