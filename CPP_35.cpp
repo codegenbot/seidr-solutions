@@ -6,7 +6,7 @@ int getMax(int n) {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    int arr[n]; // Declare an array of size n
+    int arr[n]; 
 
     for (int i = 0; i < n; i++) {
         int x;
@@ -14,8 +14,8 @@ int getMax(int n) {
         std::cin >> x;
         if(x > max)
             max = x;
-        arr[i] = x; // Fill the array
+        arr[i] = x; 
     }
 
-    return *std::max_element(arr, arr+n); 
+    return *std::max_element(arr, arr+n);
 }
