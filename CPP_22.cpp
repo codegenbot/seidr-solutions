@@ -1,16 +1,15 @@
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
+bool sameVectors(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 std::vector<int> filterIntegers(std::vector<int> values) {
     std::vector<int> result;
-    for (const auto& value : values) {
-        if (static_cast<int>(value) != 0) {
-            result.push_back(static_cast<int>(value));
+    for (int value : values) {
+        if(value != 0) {
+            result.push_back(value);
         }
     }
     return result;
@@ -24,7 +23,7 @@ int main() {
     std::vector<int> vector1 = {num1};
     std::vector<int> vector2 = {num2};
 
-    if(isSame(vector1, vector2)) {
+    if(sameVectors(vector1, vector2)) {
         std::cout << "Vectors are same." << std::endl; 
     }
     else {
@@ -33,7 +32,7 @@ int main() {
 
     std::vector<int> values = {1, 0, 3, 4};
     std::vector<int> filtered = filterIntegers(values);
-    for (const auto& value : filtered) {
+    for (int value : filtered) {
         std::cout << value << " ";
     }
     std::cout << std::endl;
