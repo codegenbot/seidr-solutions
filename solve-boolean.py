@@ -1,2 +1,14 @@
+```Python
 def solve_boolean(expression):
-    return eval(' '.join('T' if c == 'T' else 'False' for c in expression).replace('&', ' and').replace('|', ' or'))
+    result = True
+    for c in expression:
+        if c == 'F':
+            result = False
+            break
+        elif c == '|':
+            result = not result
+        elif c == '&':
+            if not result:
+                result = False
+                break
+    return result
