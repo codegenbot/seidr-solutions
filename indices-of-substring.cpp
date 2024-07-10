@@ -16,7 +16,7 @@ int main() {
     for (int idx : indices) {
         std::cout << idx << " ";
     }
-    std::cout << std::endl;
+    std::endl;
 
     return 0;
 }
