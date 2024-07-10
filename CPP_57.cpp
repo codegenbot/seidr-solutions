@@ -1,4 +1,4 @@
-bool monotonic(std::vector<int> l) {
+bool monotonic(std::vector<int>& l) {
     bool increasing = true;
     bool decreasing = true;
     
