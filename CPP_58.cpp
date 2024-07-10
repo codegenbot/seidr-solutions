@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
@@ -52,8 +50,8 @@ int main() {
     }
 
     for (int i = 0; i < n; i++) {
-        vector<int> result = common({l1[i][0], l1[i][1], l1[i][2], l1[i][3]},
-                                     {l2[0][0], l2[0][1], l2[0][2], l2[0][3]});
+        vector<int> temp(vector<int>( {l1[i][0], l1[i][1], l1[i][2], l1[i][3]} ));
+        vector<int> result = common(temp, {l2[0][0], l2[0][1], l2[0][2], l2[0][3]});
         for (int j : result) {
             cout << j;
             if (j < result.size() - 1) {
