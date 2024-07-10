@@ -1,21 +1,26 @@
-```
 def fix_spaces(text):
-    new_text = ''
-    count = 0
+    new_text = ""
     in_word = False
+    prev_char_was_space = True
     for char in text:
-        if char == ' ':
-            if not in_word:
-                new_text += ' '
-            else:
-                if count <= 2:
-                    new_text += '_'
+        if char == " " and not in_word:
+            if len(new_text) > 0 and not prev_char_was_space:
+                if len(new_text) <= 2:
+                    new_text += "_"
                 else:
-                    new_text += '-'
-                count = 0
-            in_word = False
-        elif char != '\n' and char != ' ':
-            new_text += char
+                    new_text += "-"
+            elif len(new_text) > 0 and prev_char_was_space:
+                if len(new_text) <= 2:
+                    new_text += "_"
+                else:
+                    new_text += "-"
+        elif char != "\n" and (char == " " or not in_word):
             in_word = True
-            count += 1
+            prev_char_was_space = False
+            new_text += char
+        elif char != "\n" and in_word:
+            if char != " ":
+                in_word = False
+            prev_char_was_space = False
+            new_text += char
     return new_text.strip()
