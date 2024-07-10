@@ -1,26 +1,50 @@
 #include <vector>
-#include <climits> 
-#include <cmath>
-
+#include <iostream>
+#include <ostream>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    for (int i = 0; i < v.size() - 1; i++) {
-        int diff = abs(v[i] - v[i + 1]);
-        if (diff <= minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+vector<vector<int>> cutVector(vector<int>& nums) {
+    int n = nums.size();
+    vector<vector<int>> res(2);
+    
+    for(int i=0; i<n-1; i++){
+        if(nums[i] == nums[i+1]){
+            res[0].push_back(nums[i]);
+            res[1].clear();
+            res[1].push_back(nums[i+1]);
+            break;
+        } else {
+            int diff = INT_MAX, idx = i;
+            for(int j=i; j<n-1; j++){
+                if(abs(nums[j] - nums[j+1]) < diff){
+                    diff=abs(nums[j]-nums[j+1]);
+                    idx=j;
+                }
+            }
+            res[0].push_back(nums[idx]);
+            res[1].clear();
+            for(int j=idx+1; j<n;j++){
+                res[1].push_back(nums[j]);
+            }
         }
     }
-    vector<int> left = {v[0]};
-    vector<int> right = v;
-    for (int i = 0; i < cutIndex; i++) {
-        left.push_back(v[i]);
+    
+    if(res[0].size() == 0) {
+        res[0].push_back(nums[0]);
+        res[1] = nums;
     }
-    for (int i = cutIndex + 1; i < v.size(); i++) {
-        right.pop_back();
+    
+    return res;
+}
+
+int main() {
+    vector<int> nums = {1, 0};
+    vector<vector<int>> result = cutVector(nums);
+    for(int i=0; i<2; i++){
+        for(int j=0; j<result[i].size();j++){
+            cout<<result[i][j]<<" ";
+        }
+        cout<<endl;
     }
-    return {left, right};
+    return 0;
 }
