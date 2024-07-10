@@ -26,25 +26,34 @@ int main() {
 
 int smallest_change(std::vector<int> arr) {
     int n = arr.size();
-    std::vector<std::vector<int>> dp(n, std::vector<int>(n));
+    int m = 1; // All rows will have the same size 'm'
     
     for (int i = 0; i < n; i++) {
-        dp[i][i] = 0;
+        if (arr[i] != 0) {
+            m = i + 1;
+            break;
+        }
+    }
+    
+    std::vector<std::vector<int>> dp(n, std::vector<int>(m));
+    
+    for (int i = 0; i < n; i++) {
+        dp[i][0] = arr[i];
     }
     
     for (int length = 2; length <= n; length++) {
         for (int i = 0; i < n - length + 1; i++) {
-            int j = i + length - 1;
-            
-            if (arr[i] == arr[j]) {
-                dp[i][j] = dp[i + 1][j - 1];
-            } else {
-                int min_left = (i < n-1) ? dp[i+1][j] : INT_MAX;
-                int min_right = (j > 0) ? dp[i][j-1] : INT_MAX;
-                dp[i][j] = 1 + (arr[i] == arr[j]) ? dp[i+1][j-1] : std::min(min_left, min_right);
+                int j = i + length - 1;
+                
+                if (arr[i] == arr[j]) {
+                    dp[i][j-i+1] = dp[i + 1][j - i];
+                } else {
+                    int min_left = (i < n-1) ? dp[i+1][j - i] : INT_MAX;
+                    int min_right = (j > 0) ? dp[i][j - i - 1] : INT_MAX;
+                    dp[i][j-i+1] = 1 + (arr[i] == arr[j]) ? dp[i + 1][j - i] : std::min(min_left, min_right);
+                }
             }
         }
-    }
     
-    return dp[0][n - 1];
+    return dp[0][n-1];
 }

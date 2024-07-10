@@ -3,7 +3,13 @@
 #include <algorithm>
 #include <cmath>
 
-int main() {
+int maxElementFinder(int n, int arr[]) {
+    auto max_element = *std::max_element(arr, arr+n);
+
+    return max_element;
+}
+
+int mainOther() {
     std::cout << "Enter the number of elements: ";
     int n;
     std::cin >> n;
@@ -14,12 +20,13 @@ int main() {
         std::cin >> arr[i];
     }
 
-    auto max_element_iter = *std::max_element(arr, arr+n);
-
-    // Use the iterator
-    int max_element = *max_element_iter;
+    int max_element = maxElementFinder(n, arr);
 
     std::cout << "Maximum element: " << max_element << std::endl;
 
     return 0;
+}
+
+int main() {
+    mainOther();
 }

@@ -18,11 +18,13 @@ std::string flip_case(std::string str) {
 
 int driver() {  
     std::string inputStr;
-    while (std::cin >> inputStr) {  
+    while (std::getline(std::cin, inputStr)) {  
         if (inputStr.empty()) {
             std::cout << "Error: Input is empty. Please enter a valid string." << std::endl;
+            std::cout.flush();
         } else {
-            std::cout << "Flipped case: " << flip_case(inputStr) << std::endl;
+            std::cout << "Flipped case: " << flip_case(std::move(inputStr)) << std::endl;
+            std::cout.flush();
         }
     }
     return 0;
