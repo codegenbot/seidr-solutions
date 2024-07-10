@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 
@@ -21,9 +20,9 @@ std::vector<int> leaders(std::vector<int>& arr) {
 int main() {
     std::vector<int> arr = {12, 10, 8, 6, 4};
     std::vector<int> leadersResult = leaders(arr);
-    for(int i : leadersResult) {
-        std::cout << i << " ";
+    for(int i=0; i < leadersResult.size(); i++) {
+        std::cout << "Leader at index " << i << ": " << leadersResult[i] << "\n";
     }
-    std::cout << std::endl;
+    
     return 0;
 }
