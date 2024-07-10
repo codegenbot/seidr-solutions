@@ -10,5 +10,5 @@ def decode_shift(s: str):
             ascii_offset = ord('a') if ch.islower() else ord('A')
             result += chr(((ord(ch) - ascii_offset - n) % 26) + ascii_offset)
         else:
-            result += ch
+            continue
     return result
