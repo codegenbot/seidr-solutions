@@ -1,4 +1,3 @@
-```
 def cut_vector(lst):
     if len(set(lst)) == 1:
         return [lst], []
@@ -10,13 +9,13 @@ def cut_vector(lst):
         left_sum = sum(lst[:i])
         right_sum = sum(lst[i:])
 
+        if left_sum == right_sum and i > 1:
+            return lst[:i-1], [lst[i-1]] + lst[i:]
+
         diff = abs(left_sum - right_sum)
 
-        if (left_sum == right_sum and i > 1) or (diff < min_diff):
+        if (diff < min_diff):
             min_diff = diff
             split_idx = i
 
-    if min_diff == 0:
-        return [lst], []
-    else:
-        return lst[:split_idx], lst[split_idx:]
+    return lst[:split_idx], lst[split_idx:]
