@@ -1,8 +1,8 @@
 #include <vector>
 using namespace std;
 
-bool issame(string planet1, string planet2) {
-    return planet1 == planet2;
+bool issame(string s1, string s2) {
+    return s1 == s2;
 }
 
 vector<string> bf(string planet1, string planet2) {
