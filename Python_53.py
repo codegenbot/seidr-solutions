@@ -1,3 +1,5 @@
+import sys
+
 def add(x, y):
     return x + y
 
@@ -5,7 +7,7 @@ def main():
     print("Enter two integers separated by a space. Enter 'stop' to exit.")
     while True:
         try:
-            inputs = input().strip()
+            inputs = sys.stdin.readline().rstrip()
             if inputs == 'stop':
                 break
             x, y = map(int, inputs.split())
