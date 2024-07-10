@@ -1,2 +1,6 @@
+```
 def solve(N):
-    return "1"
+    if N > 1:
+        return bin(N)[2:]
+    else:
+        return "0"
