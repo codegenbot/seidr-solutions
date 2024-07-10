@@ -7,12 +7,10 @@ bool move_one_ball(std::vector<int> arr) {
 
     std::sort(arr.begin(), arr.end());
 
-    int prev = arr[0];
-    for (int i = 1; i < arr.size(); i++) {
-        if (arr[i] != prev) {
+    for (int i = 0; i < arr.size(); i++) {
+        if (std::abs((i + 1) - (arr[i] % arr.size())) > 1) {
             return false;
         }
-        prev = arr[i];
     }
 
     return true;
