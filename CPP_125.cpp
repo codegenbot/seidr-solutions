@@ -1,35 +1,20 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+Here is the completed code:
 
-using namespace std;
-
+```cpp
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0, prevPos = 0;
+    size_t pos = 0, prev_pos = 0;
 
     while ((pos = txt.find_first_of(" ,")) != string::npos) {
-        if (pos == 0) {
-            // Split on commas
-            if (txt[0] == ',') {
-                result.push_back(txt.substr(1));
-                break;
-            }
-        }
-
-        string word = txt.substr(prevPos, pos - prevPos);
-        result.push_back(word);
-
-        prevPos = pos + 1;
-
-        if (pos == string::npos) {
-            // Last word
-            result.push_back(txt.substr(prevPos));
+        if (pos == 0 || txt[pos - 1] != ' ') {
+            result.push_back(txt.substr(prev_pos, pos - prev_pos));
+            prev_pos = pos + 1;
         }
     }
 
-    if (result.empty()) {
+    if (prev_pos < txt.size()) {
+        result.push_back(txt.substr(prev_pos));
+    } else if (txt.empty()) {
         int count = 0;
         for (char c : txt) {
             if (c >= 'a' && c <= 'z') {
@@ -42,17 +27,4 @@ vector<string> split_words(string txt) {
     }
 
     return result;
-}
-
-int main() {
-    string txt;
-    cout << "Enter a string: ";
-    getline(cin, txt);
-    vector<string> result = split_words(txt);
-
-    for (string s : result) {
-        cout << s << endl;
-    }
-
-    return 0;
 }
