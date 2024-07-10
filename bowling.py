@@ -1,17 +1,22 @@
 ```
 def bowling_score(frames):
     score = 0
-    frame_index = 0
-    for frame in frames.split('/'):
-        if len(frame) == 1:
-            score += 10
-        elif 'X' in frame:
-            score += 10 + (10 - int(frame.replace('X', '')))
+    frame = 1
+    for bowl in frames:
+        if bowl == 'X':
+            score += 30
+            frame -= 1
+        elif bowl == '/':
+            strike_score = 10 + self.strike_score(frame)
+            score += strike_score
+            frame -= 1
         else:
-            first_roll, second_roll = map(int, frame)
-            if first_roll + second_roll == 10:
-                score += first_roll + 10
-            else:
-                score += first_roll + second_roll
-        frame_index += 1
+            score += int(bowl)
     return score
+
+def strike_score(frame):
+    if frame > 2:
+        return 0
+    if frame == 2:
+        return 15
+    return 10
