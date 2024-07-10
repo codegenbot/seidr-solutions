@@ -1,3 +1,4 @@
+#include <cassert>
 #include <vector>
 
 bool triples_sum_to_zero(const std::vector<int>& nums) {
@@ -11,4 +12,13 @@ bool triples_sum_to_zero(const std::vector<int>& nums) {
         }
     }
     return false;
+}
+
+int main() {
+    assert(triples_sum_to_zero({100, 3, 5, -100}) == false);
+    assert(triples_sum_to_zero({-1, 0, 1}) == true);
+    assert(triples_sum_to_zero({1, 2, 3, -6, 4, 5}) == true);
+    assert(triples_sum_to_zero({1, 2, 3, 4, 5}) == false);
+    
+    return 0;
 }
