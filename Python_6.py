@@ -1,5 +1,10 @@
 def parse_nested_parens(paren_string: str) -> List[int]:
-    return [
-        max([(s.count("(") - s.count(")")) for s in group.split(" ")])
-        for group in paren_string.split()
-    ]
+    depths = []
+    depth = 0
+    for char in paren_string:
+        if char == "(":
+            depth += 1
+            depths.append(depth)
+        elif char == ")":
+            depth -= 1
+    return [max(depths) if depths else 0 for depths in paren_string.split()]
