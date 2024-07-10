@@ -3,7 +3,15 @@
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> by_length(vector<int> arr){
@@ -27,9 +35,10 @@ vector<string> by_length(vector<int> arr){
         }
     }
     
-    sort(valid_nums.begin(), valid_nums.end());
-    reverse(valid_nums.begin(), valid_nums.end());
-    
+    sort(valid_nums.begin(), valid_nums.end(), [](int a, int b) {
+        return to_string(a).size() < to_string(b).size();
+    });
+
     for (int num : valid_nums) {
         result.push_back(num_to_name[num]);
     }
