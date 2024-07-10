@@ -33,7 +33,7 @@ bool issorted(std::vector<int> v) {
 }
 
 std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v) {
-    std::vector<int> result = {};
+    std::vector<int> result;
     for (const auto& pair : v) {
         int num = 0;
         for (char c : pair.first) {
@@ -42,11 +42,11 @@ std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v)
         for (char c : pair.second) {
             num = num * 10 + (c - '0');
         }
-        if (!num) return {}; 
+        if (!num) return std::vector<int>(); 
         result.push_back(num);
     }
     std::sort(result.begin(), result.end());
-    return (result.size() > 0 ? result : {}); 
+    return result; 
 }
 
 int main() { 
