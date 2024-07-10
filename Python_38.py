@@ -6,15 +6,14 @@ def encode_cyclic(s: str):
         groups.append(group[1:] + group[0] if len(group) == 3 else group)
     return "".join(groups).lstrip('x')
 
+
 def decode_cyclic(s: str):
-    result = []
-    temp = ''
+    result = ""
     for char in s:
         if char == 'x':
-            result.append(temp)
-            temp = ''
+            continue
+        elif len(result) % 3 == 0 and result[-1] == 'x':
+            result += char
         else:
-            temp += char
-    if temp:
-        result.append(temp)
-    return ''.join(result[::-1])
+            result += result[-1] + char
+    return result
