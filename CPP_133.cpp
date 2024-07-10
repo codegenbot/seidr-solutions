@@ -1,4 +1,18 @@
-int mainFunc() {
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+long long sum_squares(const vector<float>& lst){
+    long long total = 0;
+    for(float x : lst){
+        total += lround(x) * lround(x);
+    }
+    return total;
+}
+
+int main() {
     vector<float> lst;
     int n;
     cout << "Enter number of elements: ";
@@ -11,14 +25,6 @@ int mainFunc() {
         lst.push_back(x);
     }
 
-    int total = sum_squares(lst);
+    long long total = sum_squares(lst);
     cout << "Sum of squares: " << total << endl;
-}
-
-int sum_squares(const vector<float>& lst){
-    int total = 0;
-    for(float x : lst){
-        total += ceil(x) * ceil(x);
-    }
-    return total;
 }
