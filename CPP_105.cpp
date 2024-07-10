@@ -1,14 +1,18 @@
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<map>
+#include<algorithm>
+using namespace std;
+
 vector<string> by_length(vector<int> arr) {
     vector<int> temp;
     for (int i : arr) {
-        if (i >= 1 && i <= 9) {
+        if (i >= 1 && i <= 9)
             temp.push_back(i);
-        }
     }
-    
     sort(temp.begin(), temp.end());
     reverse(temp.begin(), temp.end());
-    
     vector<string> result;
     for (int i : temp) {
         switch (i) {
@@ -23,6 +27,5 @@ vector<string> by_length(vector<int> arr) {
             case 9: result.push_back("Nine"); break;
         }
     }
-    
     return result;
 }
