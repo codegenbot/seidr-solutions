@@ -15,4 +15,4 @@ while i < len(rolls) and frame <= 10:
 
     i += 1
 
-print("The score of the round is:", score)  
+print("The score of the round is:", score)
