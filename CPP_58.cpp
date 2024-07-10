@@ -22,5 +22,5 @@ int main() {
         return findCommonElements(v1, v2);
     };
 
-    assert (issame(common({4, 3, 2, 8}, {}) , {}));
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
 }
