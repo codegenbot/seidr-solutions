@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool is_sorted(vector<int> lst){
+bool is_sorted(vector<int> lst) {
     bool isSorted = true;
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
@@ -15,22 +15,24 @@ bool is_sorted(vector<int> lst){
     return isSorted;
 }
 
-int main(){
-    int n, temp;
-    vector<int> lst;
-
-    cout << "Enter the number of elements in your array: ";
+int main() {
+    int n;
+    cout << "Enter the number of elements: ";
     cin >> n;
 
-    for(int i=0; i<n; i++){
-        cin >> temp;
-        lst.push_back(temp);
+    vector<int> lst;
+    for(int i = 0; i < n; i++) {
+        int num;
+        cout << "Enter element " << (i+1) << ": ";
+        cin >> num;
+        lst.push_back(num);
     }
 
-    if(is_sorted(lst))
-        cout << "The array is sorted."<<endl;
-    else
-        cout << "The array is not sorted."<<endl;
-
+    if(is_sorted(lst)) {
+        cout << "The list is sorted." << endl;
+    } else {
+        cout << "The list is not sorted." << endl;
+    }
+    
     return 0;
 }
