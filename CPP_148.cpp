@@ -16,7 +16,8 @@ vector<string> bf(string planet1, string planet2) {
     for (int i = 0; i < planets.size(); ++i) {
         if (planets[i] == planet1) {
             start = i;
-        } else if (planets[i] == planet2) {
+        }
+        else if (planets[i] == planet2) {
             end = i;
         }
     }
