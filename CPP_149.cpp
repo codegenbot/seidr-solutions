@@ -1,4 +1,8 @@
 ```cpp
+#include <vector>
+#include <algorithm>
+#include <string>
+
 bool issame(vector<string> a, vector<string> b) {
     if(a != b) return false;
     for(size_t i = 0; i < a.size(); ++i) {
