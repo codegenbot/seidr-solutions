@@ -1,16 +1,19 @@
 #include <algorithm>
 #include <vector>
+#include <iostream>
 
 bool move_one_ball(std::vector<int> arr) {
     if (arr.empty()) return true;
 
     std::sort(arr.begin(), arr.end());
-    
-    int minPos = std::distance(arr.begin(), std::min_element(arr.begin(), arr.end()));
-    
-    for (int i = 0; i < arr.size(); i++) {
-        if ((i != minPos) && (arr[i] == arr[minPos])) return false;
+
+    int prev = arr[0];
+    for (int i = 1; i < arr.size(); i++) {
+        if (arr[i] != prev) {
+            return false;
+        }
+        prev = arr[i];
     }
-    
+
     return true;
 }
