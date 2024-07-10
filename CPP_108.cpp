@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -30,7 +31,8 @@ int main() {
         std::cin >> nums[i]; 
     }
     if (nums.empty()) {  
-        return 0;
+        std::cout << "Error: No numbers entered." << std::endl;
+        return 1;
     }
     std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
     return 0;
