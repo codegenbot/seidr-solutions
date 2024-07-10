@@ -19,7 +19,7 @@ PegCounts mastermind(std::string code, std::string guess) {
             }
         }
         if (count > 0) {
-            result.white += count - 1; 
+            result.white += count - 1;
         }
     }
 
