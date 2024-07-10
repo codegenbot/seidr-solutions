@@ -1,30 +1,34 @@
 #include <vector>
 using namespace std;
 
-double shoppingList(double price[], double discount[], int n) {
-    double total = 0;
-    for (int i = 0; i < n; i++) {
-        double amount = price[i] * (1 - discount[i] / 100);
-        total += amount;
+double totalShoppingTripCost(vector<float> prices, vector<float> discounts) {
+    double totalCost = 0;
+    for (int i = 0; i < prices.size(); i++) {
+        double costAfterDiscount = prices[i] * (1 - discounts[i]/100);
+        totalCost += costAfterDiscount;
     }
-    return total;
+    return totalCost;
 }
 
 int main() {
     int n;
     cin >> n;
-    
-    double price[n];
-    for(int i=0; i<n; i++) {
-        cin >> price[i];
-    }
-    
-    double discount[n];
-    for(int i=0; i<n; i++) {
-        cin >> discount[i];
+
+    vector<float> prices(n);
+    for (int i = 0; i < n; i++) {
+        cin >> prices[i];
     }
 
-    cout << fixed << setprecision(1) << shoppingList(price, discount, n) << endl;
-    
+    vector<float> discounts(n);
+    for (int i = 0; i < n; i++) {
+        cin >> discounts[i];
+    }
+
+    double result = totalShoppingTripCost(prices, discounts);
+
+    cout << fixed;
+    cout.precision(1);
+    cout << result << endl;
+
     return 0;
 }
