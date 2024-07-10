@@ -1,8 +1,6 @@
-```
-#include <iostream>
 #include <string>
 
-int hex_key(const std::string& num) {
+int hex_key(string num) {
     int count = 0;
     for (char c : num) {
         if (c >= '2' && c <= '7') {
@@ -12,13 +10,3 @@ int hex_key(const std::string& num) {
         }
     }
     return count;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter a hexadecimal number: ";
-    std::getline(std::cin, input);
-    int result = hex_key(input);
-    std::cout << "Number of valid characters: " << result << std::endl;
-    return 0;
-}
