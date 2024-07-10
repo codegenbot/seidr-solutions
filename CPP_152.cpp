@@ -1,7 +1,6 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 bool issame(std::vector<int> game, std::vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {
@@ -19,7 +18,6 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
             result.push_back(0);
         } else {
             int diff = abs(game[i] - guess[i]);
-            // you can add any additional logic to handle the differences here
             result.push_back(diff);
         }
     }
@@ -31,10 +29,9 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> game(n);
-    std::cout << "Enter the game numbers: ";
+    std::vector<int> game;
     for (int i = 0; i < n; i++) {
-        std::cin >> game[i];
+        std::cin >> game.push_back(i);
     }
 
     std::vector<int> guess(n);
