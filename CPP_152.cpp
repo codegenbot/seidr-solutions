@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 bool issame(std::vector<int> game, std::vector<int> guess) {
     for (int i = 0; i < game.size(); i++) {
@@ -55,8 +54,4 @@ int main2() {
     }
 
     return 0;
-}
-
-int main() {
-    return main2();
 }
