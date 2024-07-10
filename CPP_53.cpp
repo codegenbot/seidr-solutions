@@ -7,8 +7,9 @@ int add(int x, int y) {
 }
 
 int main() {
-    int x, y;
-    std::cin >> x >> y;
-    std::cout << add(x, y) << std::endl;
+    int x, y, z;
+    std::cin >> x >> y >> z;
+    int result = add(x, y) * z;
+    std::cout << result << std::endl;
     return 0;
 }

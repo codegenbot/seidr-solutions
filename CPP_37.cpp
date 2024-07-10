@@ -22,12 +22,11 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    std::vector<float> testNumbers = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    std::vector<float> sortedNumbers = testNumbers;
-    sort_even(sortedNumbers);
-    assert(issame(sortedNumbers, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    std::vector<float> inputNumbers = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    sort_even(inputNumbers);
+    assert(issame(inputNumbers, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
 
-    for (const auto& num : sortedNumbers) {
+    for (const auto& num : inputNumbers) {
         std::cout << num << " ";
     }
     return 0;
