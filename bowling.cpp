@@ -1,22 +1,35 @@
 int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
-        if (s[i] == '/') {
-            int firstRoll = stoi(s.substr(0, i));
-            int secondRoll = stoi(s.substr(i + 1));
-            if (firstRoll + secondRoll >= 10) {
-                score += 10;
-            } else {
-                score += firstRoll + secondRoll;
-            }
-        } else {
-            int roll = stoi(s.substr(i, 2));
-            if (roll == 10) {
-                score += roll;
-            } else {
-                score += roll;
-            }
+    bool lastRollWasStrike = false;
+    bool lastRollWasSpare = false;
+
+    for (char c : s) {
+        if (c == 'X') {
+            score += 10;
+            lastRollWasStrike = true;
+            continue;
+        } else if (c == '/') {
+            score += 10 - (lastRollWasStrike ? 0 : 5);
+            lastRollWasSpare = true;
+            continue;
         }
+
+        int currentFrameScore = c - '0';
+        if (!lastRollWasStrike && !lastRollWasSpare) {
+            score += currentFrameScore;
+        } else if (lastRollWasStrike) {
+            if (currentFrameScore == 10) {
+                score += 10 + 10;
+            } else {
+                score += 10 + currentFrameScore;
+            }
+        } else { // lastRollWasSpare
+            score += 10 + currentFrameScore - 5;
+        }
+
+        lastRollWasStrike = false;
+        lastRollWasSpare = false;
     }
+
     return score;
 }
