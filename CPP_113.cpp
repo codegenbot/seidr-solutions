@@ -1,16 +1,25 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <cassert>
+#include <cassert> // Add this line to include the assert library
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+using namespace std;
+
+vector<string> odd_count(vector<string> lst) {
+    vector<string> result;
+    for (string s : lst) {
+        int count = 0;
+        for (char c : s) {
+            if ((c - '0') % 2 != 0) {
+                count++;
+            }
+        }
+        result.push_back("the number of odd elements " + to_string(count) + " in the string " + s + " of the input.");
+    }
+    return result;
 }
 
 int main() {
-    assert(issame({"271", "137", "314"}, {"the number of odd elements 2n the str2ng 2 of the 2nput.",
-                                          "the number of odd elements 3n the str3ng 3 of the 3nput.",
-                                          "the number of odd elements 2n the str2ng 2 of the 2nput."}));
+    assert(odd_count({"271", "137", "314"}) == vector<string>{"the number of odd elements 2 in the string 271 of the input.", "the number of odd elements 2 in the string 137 of the input.", "the number of odd elements 2 in the string 314 of the input."});
     
     return 0;
 }
