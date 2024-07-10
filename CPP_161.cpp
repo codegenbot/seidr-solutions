@@ -1,9 +1,9 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
 std::string solve(std::string s) {
-    std::string result = "";
+    std::string result;
     for (char c : s) {
         if (isalpha(c)) {
             result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
@@ -19,10 +19,5 @@ int main() {
     std::string s;
     std::getline(std::cin, s);
     std::string result = solve(s);
-    if (!result.empty()) {
-        std::cout << "Result: " << result << std::endl;
-    } else {
-        std::cout << "Result: " << s << std::endl;  
-    }
-    return 0;
+    std::cout << "Result: " << result << std::endl;
 }
