@@ -1,8 +1,7 @@
-```
 def minPath(grid, k):
     n = len(grid)
     m = [[cell for cell in row] for row in grid]
-    
+
     def dfs(i, j, path, visited):
         if len(path) == k:
             return path
@@ -15,7 +14,7 @@ def minPath(grid, k):
                 if min_path is None or new_path < min_path:
                     min_path = new_path
         return min_path
-    
+
     for i in range(n):
         for j in range(m[0].count(1)):
             m[i][j] -= 1
