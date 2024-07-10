@@ -1,5 +1,5 @@
+```cpp
 #include <cmath>
-#include <math.h>
 
 bool isPrime(int num) {
     if (num <= 1) {
