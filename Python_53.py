@@ -5,7 +5,10 @@ while True:
     try:
         x = int(input("Enter first number: "))
         y = int(input("Enter second number: "))
-        print(f"The sum of {x} and {y} is {add(x,y)}")
-        break
+        if x >= 0 and y >= 0:  
+            print(add(x, y))
+            break
+        else:
+            print("Invalid input. Please enter positive numbers.")
     except ValueError:
         print("Invalid input. Please enter integers.")
