@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -18,7 +17,12 @@ int main() {
             continue; 
         }
         n = std::stoi(temp);
-        nums.push_back(std::to_string(n)); 
+        if (temp.length() > 1000000) { 
+            std::cout << "String too long. Please enter a shorter one." << std::endl;
+            continue; 
+        } else {
+            nums.push_back(std::to_string(n)); 
+        }
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
 }
