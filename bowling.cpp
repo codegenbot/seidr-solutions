@@ -1,11 +1,9 @@
-```cpp
-int bowlingScore() {
+#include <string>
+
+int bowlingScore(std::string input) {
     int score = 0;
     bool firstInFrame = true;
     bool strikeOrSpare = false;
-    std::string input; 
-    std::cin >> input;
-
     for (char c : input) {
         if (c == '|') {
             if (!firstInFrame && !strikeOrSpare) {
