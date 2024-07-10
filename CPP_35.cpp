@@ -1,11 +1,10 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
-float max_element(vector<int> l) {
-    vector<float> v;
-    for (int x : l) {
-        v.push_back((float)x);
-    }
+int main() {
+    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    vector<float> v = l; 
     return *max_element(v.begin(), v.end());
 }
