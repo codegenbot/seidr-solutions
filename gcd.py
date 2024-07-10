@@ -1,11 +1,19 @@
+```
+import math
+
 def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return abs(a)
+    return math.gcd(a, b)
 
 def indices_of_substring(text, target):
     result = []
-    for i in range(len(text)):
-        if text[i:i+len(target)] == target:
-            result.append(i)
+    start = 0
+    while True:
+        pos = text.find(target, start)
+        if pos == -1:
+            break
+        start = pos + len(target)
+        result.append(pos)
     return result
+
+print(gcd(182041, 626624))
+print(indices_of_substring("HelloWorld", "o"))
