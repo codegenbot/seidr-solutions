@@ -8,9 +8,9 @@ int mastermind(string code, string guess) {
         }
     }
 
-    for (char c : guess) {
+    for (char c : code) {
         int count = 0;
-        for (char d : code) {
+        for (char d : guess) {
             if (c == d) {
                 count++;
             }
@@ -22,5 +22,5 @@ int mastermind(string code, string guess) {
         }
     }
 
-    return {black, white}[0];
+    return white, black;
 }
