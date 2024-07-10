@@ -1,34 +1,25 @@
-int count_digits(const string& str) {
-    int count = 0;
-    for (char c : str) {
-        if (isdigit(c)) {
-            count++;
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool found_dot = false;
+    for(int i=0; i<file_name.length(); i++){
+        char c = file_name[i];
+        if(c == '.'){
+            found_dot = true;
+        }else if(isdigit(c)){
+            digit_count++;
+        }else if(found_dot && (c == 't' || c == 'x' || c == 'd' || c == 'l')){
+            // check the substring after the dot
+            string ext = file_name.substr(i+1);
+            if(ext == "txt" || ext == "exe" || ext == "dll"){
+                return "Yes";
+            }else{
+                return "No";
+            }
+        }else if(!found_dot && !isalpha(c)){
+            return "No";
         }
     }
-    return count;
-}
-
-string file_name_check(string file_name) {
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
-        return "No";
-    }
-
-    string before_dot = file_name.substr(0, dot_pos);
-    string after_dot = file_name.substr(dot_pos + 1);
-
-    if (!isalpha(before_dot[0])) {
-        return "No";
-    }
-
-    if (count_digits(file_name) > 3) {
-        return "No";
-    }
-
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    if (find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end()) {
-        return "No";
-    }
-
+    if(digit_count > 3) return "No";
+    if(!found_dot) return "No";
     return "Yes";
 }
