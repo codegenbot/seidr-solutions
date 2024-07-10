@@ -1,26 +1,39 @@
 #include <vector>
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
+vector<int> substringIndices(string text, string target) {
     vector<int> result;
-    int n = text.length();
-    int m = target.length();
+    int j = 0; // index of target in text
 
-    for(int i = 0; i <= n - m; i++) {
-        if(text.substr(i, m) == target) {
-            result.push_back(i);
-            // Check for overlapping occurrences
-            while(i + m < n && text.substr(i, m) == target) {
-                i++;
-                result.push_back(i);
-            }
+    while (j <= text.length() - target.length()) {
+        int i = 0; // index of current match
+        for (; i < target.length(); i++) {
+            if (text[j + i] != target[i]) break;
         }
+        if (i == target.length()) result.push_back(j);
+        j++;
     }
 
     return result;
 }
 
-int gcd(int a, int b) {
+int main() {
+    int a, b; // input values
+    cin >> a >> b;
+
+    cout << __gcd(a, b) << endl; // use gcd function to find the largest integer that divides both numbers
+
+    string text, target; // input strings
+    cin >> text >> target;
+
+    vector<int> indices = substringIndices(text, target);
+    for (int index : indices)
+        cout << index << " ";
+    cout << endl;
+    return 0;
+}
+
+long long gcd(long long a, long long b) {
     if(b == 0)
         return a;
     else
