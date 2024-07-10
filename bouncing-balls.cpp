@@ -16,7 +16,7 @@ int main() {
     }
 
     cout << fixed;
-    cout << totalDistance << endl;
+    cout << setiosflags(ios::fixed) << totalDistance << endl;
 
     return 0;
 }
