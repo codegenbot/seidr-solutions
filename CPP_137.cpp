@@ -1,64 +1,28 @@
-#include <string>
-#include <variant>
-
+```
+#include <boost/any.hpp>
 using namespace std;
 
-variant<int, double, string> compare_one(variant<int, double, string> a, variant<int, double, string> b) {
-    if (holds_alternative<int, double>(a) && holds_alternalternative<double, int>(b)) {
-        if (get<int>(a) > get<double>(b))
-            return a;
-        else
-            return b;
-    }
-    else if (holds_alternative<string>(a) && holds_alternative<double>(b)) {
-        string str = get<string>(a);
-        double num = get<double>(b);
-        if (str > to_string(num))
-            return a;
-        else
-            return b;
-    }
-    else if (holds_alternative<double>(a) && holds_alternative<string>(b)) {
-        double num = get<double>(a);
-        string str = get<string>(b);
-        if (to_string(num) > str)
-            return a;
-        else
-            return b;
-    }
-    else if (holds_alternation<string>(a) && holds_alternation<string>(b)) {
-        string str1 = get<string>(a);
-        string str2 = get<string>(b);
-        if (str1 > str2)
-            return a;
-        else
-            return b;
-    }
-    else if (holds_alternative<int>(a) && holds_alternative<string>(b)) {
-        int num = get<int>(a);
-        string str = get<string>(b);
-        if (to_string(num) > str)
-            return a;
-        else
-            return b;
-    }
-    else if (holds_alternation<string>(a) && holds_alternation<int>(b)) {
-        string str = get<string>(a);
-        int num = get<int>(b);
-        if (str > to_string(num))
-            return a;
-        else
-            return b;
-    }
-    else if (holds_alternation<double>(a) && holds_alternation<double>(b)) {
-        double num1 = get<double>(a);
-        double num2 = get<double>(b);
-        if (num1 > num2)
-            return a;
-        else
-            return b;
-    }
-    else {
-        return "None";
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return boost::any((int)b > (int)a ? b : a);
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return boost::any((float)b > (float)a ? b : a);
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+        if (strA == "None") return boost::any("None");
+        return boost::any(strB > strA ? b : a);
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        int valA = boost::any_cast<int>(a);
+        string strB = boost::any_cast<string>(b);
+        if (strB == "None") return boost::any("None");
+        return boost::any(strB > to_string(valA) ? b : a);
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string strA = boost::any_cast<string>(a);
+        int valB = boost::any_cast<int>(b);
+        if (strA == "None") return boost::any("None");
+        return boost::any(strA > to_string(valB) ? a : b);
+    } else {
+        return boost::any("None");
     }
 }
