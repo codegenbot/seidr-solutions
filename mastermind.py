@@ -14,4 +14,4 @@ def mastermind(code, guess):
     for i in range(6):
         white += min(code_count[i], guess_count[i])
 
-    return str(black) + "\n" + str(white)
+    return str(white) + "\n" + str(black)
