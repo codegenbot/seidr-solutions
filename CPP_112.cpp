@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -15,8 +14,9 @@ bool issame(vector<string> a, vector<string> b) {
 string reverse_delete(string s1, string s2) {
     int len1 = s1.length();
     int len2 = s2.length();
+    s1 = s1;  // Initialize with itself
     for(int i = 0; i < len2; i++) {
-        auto pos = s1.find(string(1, s2[i]));
+        auto pos = s1.find(to_string(s2[i]));
         if(pos != string::npos) {
             s1 = s1.substr(0, pos) + s1.substr(pos + 1);
         }
