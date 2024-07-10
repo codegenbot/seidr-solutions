@@ -1,10 +1,9 @@
 #include <vector>
-
-bool issame(vector<int> a, vector<int> b){ 
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-vector<int> even_odd_palindrome(int n){ 
+vector<int> even_odd_palindrome(int n){
     vector<int> result(2, 0);
 
     for (int i = 1; i <= n; ++i) {
