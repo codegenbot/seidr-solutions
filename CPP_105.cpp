@@ -14,7 +14,4 @@ vector<string> by_length(const vector<int>& nums) {
     return words;
 }
 
-int main() {
-    assert(by_length({9, 4, 8}) == vector<string>{"Nine", "Four", "Eight"});
-    return 0;
-}
+assert(by_length({9, 4, 8}) == vector<string>{"Nine", "Four", "Eight"});
