@@ -1,11 +1,8 @@
 vector<int> unique_numbers;
-unordered_map<int, int> freq;
 for (int num : numbers) {
-    freq[num]++;
-}
-for (auto& p : freq) {
-    if (p.second == 1) {
-        unique_numbers.push_back(p.first);
+    if (count(numbers.begin(), numbers.end(), num) == 1) {
+        unique_numbers.push_back(num);
     }
 }
+sort(unique_numbers.begin(), unique_numbers.end());
 return unique_numbers;
