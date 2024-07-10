@@ -1,15 +1,15 @@
-Here is the completed code:
-
 long long minSubArraySum(vector<long long> nums) {
-    long long min_sum = INT_MAX;
-    for (int i = 0; i < nums.size(); i++) {
-        long long sum = 0;
-        for (int j = i; j < nums.size(); j++) {
-            sum += nums[j];
-            if (sum < min_sum) {
-                min_sum = sum;
-            }
+    if (nums.empty()) return 0;
+    long long minSum = INT_MAX;
+    long long currentSum = 0;
+
+    for (long long num : nums) {
+        currentSum += num;
+        minSum = min(minSum, currentSum);
+        if (currentSum > 0) {
+            currentSum = 0;
         }
     }
-    return min_sum;
+
+    return minSum;
 }
