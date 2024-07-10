@@ -2,17 +2,19 @@
 def encode(message):
     vowels = 'aeiouAEIOU'
     result = ''
-    vowel_index = 0
     for char in message:
         if char.isalpha():
             if char.lower() in vowels:
+                index = vowels.index(char.lower())
+                next_index = (index + 1) % len(vowels)
                 if char.isupper():
-                    result += vowels[vowel_index].upper()
+                    result += vowels[next_index].upper()
                 else:
-                    result += vowels[vowel_index].lower()
-                vowel_index = (vowel_index + 1) % len(vowels)
+                    result += vowels[next_index].lower()
             else:
-                result += 'x'
+                start_index = 'abcdefghijklmnopqrstuvwxyz'.index(char.lower()) if char.isalpha() and char.lower() < 'm' else 'mnopqrstuvwxyzabcdef'.index(char.lower())
+                next_index = (start_index + 1) % len('abcdefghijklmnopqrstuvwxyz')
+                result += chr(ord('a') + next_index)
         else:
             result += char
     return result
