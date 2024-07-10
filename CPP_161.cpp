@@ -1,16 +1,10 @@
-```cpp
-#include <iostream>
 #include <string>
 
 int solve(std::string s) {
-    for (char &c : s) {
-        c = std::tolower(c);
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] >= 'A' && s[i] <= 'Z') {
+            s[i] += ('a' - 'A');
+        }
     }
     return s.length();
-}
-
-int main() {
-    std::cout << solve("#ccc") << std::endl;
-    assert(solve("#ccc") == 3);
-    return 0;
 }
