@@ -1,11 +1,13 @@
 int sum_squares(vector<int> lst) {
-    int sum = 0;
+    int total = 0;
     for (int i = 0; i < lst.size(); i++) {
         if (i % 3 == 0 && i % 4 != 0) {
-            sum += lst[i] * lst[i];
+            total += lst[i] * lst[i]; // square the number
         } else if (i % 4 == 0 && i % 3 != 0) {
-            sum += lst[i] * lst[i] * lst[i];
+            total += pow(lst[i], 3); // cube the number
+        } else {
+            total += lst[i]; // do not change the number
         }
     }
-    return sum;
+    return total;
 }
