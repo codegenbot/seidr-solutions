@@ -1,27 +1,22 @@
 int digitCount = 0;
-    for (char c : file_name) {
-        if (c >= '0' && c <= '9') {
+    int dotCount = 0;
+    int dotIndex = -1;
+
+    for (int i = 0; i < file_name.length(); i++) {
+        if (isdigit(file_name[i])) {
             digitCount++;
+        } else if (file_name[i] == '.') {
+            dotCount++;
+            dotIndex = i;
         }
     }
-    
-    if (digitCount > 3) {
+
+    if (digitCount > 3 || dotCount != 1 || dotIndex == 0 || dotIndex == file_name.length() - 1) {
         return "No";
     }
 
-    size_t dotPos = file_name.find('.');
-    if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.size() - 1) {
-        return "No";
-    }
-
-    string beforeDot = file_name.substr(0, dotPos);
-    string afterDot = file_name.substr(dotPos + 1);
-
-    if (!isalpha(beforeDot[0])) {
-        return "No";
-    }
-
-    if (afterDot != "txt" && afterDot != "exe" && afterDot != "dll") {
+    string extension = file_name.substr(dotIndex + 1);
+    if (extension != "txt" && extension != "exe" && extension != "dll") {
         return "No";
     }
 
