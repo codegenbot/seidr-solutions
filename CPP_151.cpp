@@ -1,27 +1,24 @@
-```cpp
-#include <iostream>
-#include <cmath>
+int main() {
+    double odd_sum = 0;
+    std::vector<double> lst;
 
-long long double_the_difference(std::initializer_list<double> lst) {
-    long long sum = 0;
-    for (double num : lst) {
-        if (num > 0 && std::floor(num) == num) { 
-            if (std::fmod(num, 2.0) != 0.0) { 
-                sum += std::pow(num, 2);
+    for (std::string line; std::getline(std::cin, line); ) {
+        if (!line.empty()) {
+            double val = std::stod(line);
+            int diff = abs((int)val - 5);
+            if (diff % 2 != 0) {
+                odd_sum += val;
             }
+            lst.push_back(val);
         }
     }
-    return sum;
-}
 
-int main() {
-    long long odd_sum = 0;
-    while (true) {
-        std::string line;
-        std::getline(std::cin, line);
-        if (line.empty()) break; 
-        double val = std::stod(line);
-        odd_sum += double_the_difference({val});
+    for (double x : lst) {
+        if (abs((int)x - 5) % 2 != 0) {
+            std::cout << x << " ";
+        }
     }
+    std::cout << std::endl;
+
     return 0;
 }
