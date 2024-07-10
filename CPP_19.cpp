@@ -1,33 +1,27 @@
 #include <algorithm>
+#include <string>
+
 using namespace std;
 
 string sort_numbers(string numbers) {
-    map<string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                    {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                    {"eight", 8}, {"nine", 9}};
-    vector<string> num_list;
-    string temp;
-
-    for (char &c : numbers) {
-        if (isalpha(c)) {
-            temp += c;
-            continue;
-        }
-        if (!temp.empty()) {
-            num_list.push_back(temp);
-            temp = "";
-        }
+    string result = "";
+    map<string, int> numMap;
+    for (int i = 0; i <= 9; i++) {
+        string str = to_string(i);
+        if (i == 0)
+            str = "zero";
+        else if (i < 3)
+            str = (i == 1 ? "one" : (i == 2 ? "two" : "three"));
+        else if (i < 7)
+            str = (i == 4 ? "four" : (i == 5 ? "five" : (i == 6 ? "six" : "seven")));
+        else
+            str = (i == 8 ? "eight" : "nine");
+        numMap[str] = i;
     }
-    if (!temp.empty())
-        num_list.push_back(temp);
 
-    sort(num_list.begin(), num_list.end(),
-         [&number_map](const string &a, const string &b) {
-             return number_map.at(a) < number_map.at(b);
-         });
-
-    string result;
-    for (const string &s : num_list)
-        result += s + " ";
+    for (char c : numbers) {
+        if (c != ' ')
+            result += (numMap.find(to_string(c)))->first + " ";
+    }
     return result.substr(0, result.size() - 1);
 }
