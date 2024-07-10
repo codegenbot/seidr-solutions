@@ -10,7 +10,7 @@ def parse_music(music_string: str) -> List[int]:
         if music_string[i:i+2] in note_lengths:
             result.append(note_lengths[music_string[i:i+2]])
             i += 2
-        elif music_string[i] in note_lengths:
-            result.append(note_lengths[music_string[i]])
+        else:
+            result.append(note_lengths.get(music_string[i], 4))
             i += 1
     return result
