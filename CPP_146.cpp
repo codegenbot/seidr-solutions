@@ -7,13 +7,19 @@ int main() {
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     for (int i = 0; i < n; i++) {
         std::string num;
         while (true) {
             std::cout << "Enter element: ";
             if (!(std::cin >> std::ws)) {
-                std::getline(std::cin, num);
-                break;
+                if (!std::getline(std::cin, num).empty()) {
+                    break;
+                } else {
+                    std::cerr << "Invalid input! Please enter a string.\n";
+                    std::cin.clear();
+                    std::cin.ignore(1024, '\n');
+                }
             } else {
                 std::cerr << "Invalid input! Please enter a string.\n";
                 std::cin.clear();
