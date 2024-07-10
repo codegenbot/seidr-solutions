@@ -4,9 +4,10 @@
 int main() {
     std::string digits;
     std::cin >> digits;
+    std::cin.ignore();
     
     int sum = 0;
-    for (int i = 0; i < digits.size() - 1 && digits.size() >= 2; ++i) {
+    for (int i = 0; i < digits.size() - 1; ++i) {
         if (digits[i] == digits[i + 1]) {
             sum += digits[i] - '0';
         }
