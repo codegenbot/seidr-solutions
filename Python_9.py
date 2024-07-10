@@ -1,6 +1,5 @@
 from typing import List, Tuple
 
-
 def rolling_max(numbers: List[int]) -> List[int]:
     max_num = None
     rolling_max_list = []
