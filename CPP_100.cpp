@@ -1,9 +1,6 @@
+```cpp
 #include <vector>
 #include <algorithm>
-#include <iostream>
-#include <random>
-
-using namespace std;
 
 bool issame(vector<int> a, vector<int> b){
     if(a.size()!=b.size()) return false;
@@ -11,6 +8,15 @@ bool issame(vector<int> a, vector<int> b){
         if(a[i]!=b[i])return false;
     }
     return true;
+}
+
+vector<int> make_a_pile(int n) {
+    vector<int> temp;
+    for(int i=0; i<n; i++){
+        temp.push_back(i+1);
+    }
+    random_shuffle(temp.begin(),temp.end());
+    return temp;
 }
 
 int main() {
@@ -26,13 +32,4 @@ int main() {
         cout << "The piles are not the same." << endl;
     }
     
-}
-
-vector<int> make_a_pile(int n) {
-    vector<int> temp;
-    for(int i=0; i<n; i++){
-        temp.push_back(i+1);
-    }
-    random_shuffle(temp.begin(),temp.end());
-    return temp;
 }
