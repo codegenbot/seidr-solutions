@@ -18,11 +18,11 @@ int main() {
     for (int i = 0; i < nums.size(); ++i) {
         prefixSum += nums[i];
         int diff = abs(2 * prefixSum - totalSum);
-        if (diff <= minDiff) {
+        if (diff < minDiff) {
             minDiff = diff;
             index = i;
         }
-        if (minDiff <= 0) {
+        if (minDiff == 0) {
             break;
         }
     }
