@@ -13,7 +13,7 @@ std::vector<int> sort_third(std::vector<int> l) {
     return l_copy;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+std::vector<int> issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
