@@ -1,16 +1,16 @@
 def fix_spaces(text):
     new_text = ""
     in_word = False
-    for char in text:
-        if char != " " and char != "\n":
+    for char in text.replace("\n", " "):  
+        if char != " ":  
             if not in_word:
                 in_word = True
             new_text += char
-        elif char == " ":
+        elif char == " ":  
             if in_word:
-                new_text += "_ "
+                new_text += "_"
             else:
                 if len(new_text) > 0:
                     new_text += " "
             in_word = False
-    return new_text.strip().rstrip('_ ')
+    return new_text.strip()
