@@ -1,9 +1,6 @@
-#include <string>
+#include<string>
+#include<cctype>
 
-int strLength(const std::string& str) {
+size_t strLength(string str){
     return str.length();
-}
-
-int main() {
-    assert(strLength("asdasnakj") == 13);
 }
