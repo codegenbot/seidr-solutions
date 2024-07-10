@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool compareVectors(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,14 +16,15 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 std::vector<int> common(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
     for (int i = 0; i < a.size(); i++) {
-        if (issame({a[i], a[i+1], a[i+2], a[i+3]}, {b[0], b[1], b[2], b[3]})) {
+        if (compareVectors({a[i], a[i+1], a[i+2], a[i+3]}, {b[0], b[1], b[2], b[3]})) {
             result.push_back(a[i]);
         }
     }
     return result;
 }
 
-int main() {
+int main() 
+{
     int n, m;
     std::cin >> n >> m;
 
