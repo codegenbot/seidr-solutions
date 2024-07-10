@@ -1,4 +1,4 @@
-```c
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -32,6 +32,8 @@ vector<int> sort_third(vector<int> l) {
                         i++;
                 }
                 j++;
+                if(j >= multiplesOfThree.size())
+                    break;
             }
         } else {
             result.push_back(others[(i % 3) % others.size()]);
@@ -42,7 +44,7 @@ vector<int> sort_third(vector<int> l) {
     return result;
 }
 
-int main() {
+int main_driver() {
     vector<int> l1 = {1, 2, 3};
     vector<int> l2 = {5, 6, 3, 4, 8, 9, 2};
 
