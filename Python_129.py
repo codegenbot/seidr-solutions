@@ -1,10 +1,11 @@
+```
 def minPathSum(grid):
     n = len(grid)
     m = [[0] * n for _ in range(n)]
 
     def dfs(i, j, path, visited):
         if (i, j) == (n - 1, n - 1):
-            return sum(path) + grid[i][j]
+            return sum(path)
         visited.add((i, j))
         min_path = None
         for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
@@ -20,6 +21,6 @@ def minPathSum(grid):
     for i in range(n):
         for j in range(n):
             path = dfs(i, j, [], set())
-            if min_path is None or sum(path) + grid[i][j] < sum(min_path):
+            if min_path is None or sum(path) < sum(min_path):
                 min_path = path
     return sum(min_path)
