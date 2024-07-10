@@ -8,13 +8,28 @@ bool issame(vector<string> a, vector<string> b);
 vector<string> by_length(vector<int> arr);
 
 int main() {
-    vector<int> input = {9, 3, 7, 2, 5, 4, 1, 6, 8};
+    vector<int> input = {3, 2, 5, 1, 9, 7};
     vector<string> result = by_length(input);
-    for (string str : result) {
+
+    for (const string& str : result) {
         cout << str << " ";
     }
-    cout << endl;
+
     return 0;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 vector<string> by_length(vector<int> arr){
