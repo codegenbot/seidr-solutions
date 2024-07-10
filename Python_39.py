@@ -9,13 +9,15 @@ def is_prime(num):
     return True
 
 def prime_fib(n):
+    if n <= 0:
+        return
     a, b = 1, 1
-    count = 2
-    while count <= n:
+    count = 0
+    while count < n:
         a, b = b, a + b
         if is_prime(b):
+            print(b)
             count += 1
-    return b
 
-n = int(input("Enter the value of n: "))
-print(prime_fib(n))
+n = int(input())
+prime_fib(n)
