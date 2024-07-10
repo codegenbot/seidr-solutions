@@ -1,10 +1,18 @@
+```
 def add(x: int, y: int):
     return x + y
 
 x = input("Enter first number: ")
 y = input("Enter second number: ")
 
-if not (x.isnumeric() and y.isnumeric()):
+try:
+    x = int(x)
+    y = int(y)
+
+    if x < 0 and y < 0 or (x > 0 and y > 0):  
+        print("Program did not receive expected input")
+    else:
+        print("The sum of the given numbers is", add(x, y))
+
+except ValueError:
     print("Invalid inputs. Please enter integers.")
-else:
-    print("The sum of the given numbers is", add(int(x), int(y)))

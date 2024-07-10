@@ -1,2 +1,2 @@
 def solve(N):
-    return bin(N)[2:]
+    return format(N, 'b')[2:]
