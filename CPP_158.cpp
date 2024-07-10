@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -24,10 +23,12 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
-        std::cin.ignore(32767, '\n'); 
+        std::cin.ignore();
         std::getline(std::cin, word); 
         words.push_back(word);
     }
+
+    std::cin.ignore(); // Add this line to consume any remaining whitespace
 
     findMaxWord(words);
     return 0;
