@@ -1,35 +1,22 @@
-int count_digits(const string& s) {
-    int count = 0;
-    for (char c : s) {
-        if (isdigit(c)) {
-            count++;
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool found_dot = false;
+
+    for(int i = 0; i < file_name.length(); i++){
+        if(isdigit(file_name[i])){
+            digit_count++;
         }
-    }
-    return count;
-}
-
-bool file_name_check(string file_name) {
-    int digit_count = count_digits(file_name);
-    bool has_dot = false;
-    string before_dot, after_dot;
-
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos != string::npos) {
-        before_dot = file_name.substr(0, dot_pos);
-        after_dot = file_name.substr(dot_pos + 1);
-        has_dot = true;
-    }
-
-    if (digit_count > 3 || !has_dot || before_dot.empty() || !isalpha(before_dot[0])) {
-        return "No";
-    }
-    
-    string extensions[] = {"txt", "exe", "dll"};
-    for (const auto& ext : extensions) {
-        if (after_dot == ext) {
+        else if(file_name[i] == '.'){
+            found_dot = true;
+        }
+        else if(found_dot && (file_name[i] == 't' || file_name[i] == 'x' ||
+                               file_name[i] == 'd' || file_name[i] == 'l' ||
+                               file_name[i] == 'e')){
             return "Yes";
         }
     }
 
-    return "No";
+    if(digit_count > 3 || !found_dot) return "No";
+
+    return (isalpha(file_name[0]) && found_dot) ? "Yes" : "No";
 }
