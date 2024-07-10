@@ -14,7 +14,7 @@ string average_binary(int n, int m) {
         sum += i;
     }
     
-    int avg = static_cast<int>((double)sum / (m - n + 1) + 0.5);
+    int avg = (int)((double)sum / (m - n + 1) + 0.5);
     
     string binary_avg = "";
     while (avg > 0) {
