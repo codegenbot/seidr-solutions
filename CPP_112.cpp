@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::string result = "";
@@ -15,11 +16,15 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return {result, result == reversed ? "True" : "False"};
 }
 
-int main() {
-    auto result = reverse_delete("mamma", "mia");
-    auto expected = std::vector<std::string>{"", "True"};
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return a == b;
+}
 
-    std::cout << "Test Result: " << (result == expected ? "Pass" : "Fail") << std::endl;
+int main() {
+    std::vector<std::string> result = reverse_delete("mamma", "mia");
+    std::vector<std::string> expected = {"", "True"};
+
+    assert(result[0] == expected[0] && result[1] == expected[1]);
 
     return 0;
 }
