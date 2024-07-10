@@ -1,21 +1,15 @@
+```
+#include <iostream>
 #include <vector>
-#include <string>  
+#include <string>
+
 using namespace std;
 
-int main() {
-    string text = "ABCDEF";
-    string target = "CDE";
-    vector<size_t> result = indicesOfSubstring(text, target);
-    for (size_t i : result) {
-        cout << i << endl;
-    }
-}
-
-vector<size_t> indicesOfSubstring(string text, string target) {
-    vector<size_t> result;
-    for (size_t i = 0; i <= text.size() - target.size(); ++i) {
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    for (int i = 0; i <= text.length() - target.length(); i++) {
         bool found = true;
-        for (size_t j = 0; j < target.size(); ++j) {
+        for (int j = 0; j < target.length(); j++) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
@@ -26,4 +20,14 @@ vector<size_t> indicesOfSubstring(string text, string target) {
         }
     }
     return result;
+}
+
+int main() {
+    string text = "bananas";
+    string target = "ana";
+    vector<int> result = indicesOfSubstring(text, target);
+    for (int i : result) {
+        cout << i << endl;
+    }
+    return 0;
 }
