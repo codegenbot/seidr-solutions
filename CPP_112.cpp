@@ -5,8 +5,8 @@ bool issame(vector<string> a, vector<string> b) {
     return (a == b);
 }
 
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
+vector<vector<string>> reverse_delete(string s, string c) {
+    vector<vector<string>> result;
     
     // Remove characters in s that are equal to any character in c
     string temp = "";
@@ -27,8 +27,10 @@ vector<string> reverse_delete(string s, string c) {
     reverse(str.begin(), str.end());
     bool check = (str == temp);
     
-    result.push_back(temp);
-    result.push_back((check ? "True" : "False"));
+    vector<string> res1;
+    res1.push_back(temp);
+    res1.push_back((check ? "True" : "False"));
+    result.push_back(res1);
     
     return result;
 }
