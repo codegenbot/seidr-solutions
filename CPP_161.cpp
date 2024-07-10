@@ -1,13 +1,15 @@
-```cpp
-#include <iostream>
 #include <string>
+#include <cctype>
 
-int solve(std::string) { return 0; } 
+int solve(std::string s) {
+    for (int i = 0; i < s.length(); i++) {
+        if (std::isupper(s[i])) { 
+            s[i] = std::tolower(s[i]);
+        }
+    }
+    return s.length();
+}
 
 int main() {
-    std::cout << "Enter a string: ";
-    std::string s;
-    std::getline(std::cin, s);  
-    std::cout << solve(s) << std::endl;  
-    return 0;
+    assert (solve("#ccc") == "#CCC");
 }
