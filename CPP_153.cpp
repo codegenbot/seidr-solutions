@@ -5,9 +5,7 @@
 #include <cctype>
 
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
-    if (class_name.empty()) return "";
-
-    assert(!extensions.empty());
+    if (class_name.empty() || extensions.empty()) return "";
 
     std::string strongest_extension = "";
     int max_strength = INT_MIN;

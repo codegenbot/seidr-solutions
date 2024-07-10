@@ -16,9 +16,8 @@ int sum_of_digits(int num) {
     return sum;
 }
 
-vector<int> order_by_points(vector<int> nums) {
-    vector<int> sorted_nums = nums; 
-    sort(sorted_nums.begin(), sorted_nums.end(), [&](int a, int b) {
+vector<int>& order_by_points(vector<int>& nums) {
+    sort(nums.begin(), nums.end(), [&](int a, int b) {
         int sum_a = sum_of_digits(a);
         int sum_b = sum_of_digits(b);
         if (sum_a == sum_b) {
@@ -26,5 +25,5 @@ vector<int> order_by_points(vector<int> nums) {
         }
         return sum_a < sum_b;
     });
-    return sorted_nums;
+    return nums;
 }

@@ -15,5 +15,5 @@ bool is_equal_to_sum_even(int n) {
         position++;
     }
     
-    return sum % 2 == 0 && sum == 2 * original_n && original_n % 2 == 0;
+    return sum == original_n;
 }

@@ -1,6 +1,7 @@
 #include <string>
 #include <cassert>
 #include <cctype>
+#include <iostream>
 
 bool check_if_last_char_is_a_letter(const std::string &txt) {
     std::string trimmed_txt = txt;
@@ -10,7 +11,9 @@ bool check_if_last_char_is_a_letter(const std::string &txt) {
 }
 
 int unique_main_function_name() {
-    std::string input_str = "apple pi e ";
+    std::string input_str;
+    std::getline(std::cin, input_str);
+
     while (!input_str.empty() && input_str.back() == ' ') {
         input_str.pop_back();
     }
