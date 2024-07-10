@@ -6,9 +6,14 @@ bool issame(const vector<vector<string>>& a, const vector<vector<string>>& b) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (!issame(a[i], b[i])) {
-            return false;
+        bool same_elements = true;
+        for (const string& str : a[i]) {
+            if (std::find(b[i].begin(), b[i].end(), str) == b[i].end()) {
+                same_elements = false;
+                break;
+            }
         }
+        if (!same_elements) return false;
     }
     return true;
 }
@@ -57,7 +62,11 @@ void get_user_input(vector<vector<string>>& user_input) {
 int main() {
     vector<vector<string>> user_input;
     get_user_input(user_input);
-    int count = total_match(user_input, {{{"some"}}});
-    cout << "Count of matches is: " << count << endl;
+    if (issame({{{""}}}, {{}})) {  
+        cout << "The two lists are the same." << endl;
+    } else {
+        int count = total_match(user_input, {{{"some"}}});
+        cout << "Error: The two lists are not the same. Count of matches is: " << count << endl;
+    }
     return 0;
 }
