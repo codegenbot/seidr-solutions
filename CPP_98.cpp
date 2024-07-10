@@ -14,7 +14,10 @@ int count_upper(string s) {
 }
 
 int main() {
-    assert(count_upper("EEEE") == 4);
-    // Add more tests if you need to
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    int result = count_upper(input);
+    cout << "Number of uppercase letters at even positions: " << result << endl;
     return 0;
 }
