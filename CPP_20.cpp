@@ -1,20 +1,22 @@
-#include <algorithm>
-#include <vector>
+Here is the completed code:
 
-std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
+
+vector<float> find_closest_elements(vector<float> numbers){
+    float min_diff = numeric_limits<float>::max();
+    pair<float, float> closest_pair;
     
-    float minDiff = numeric_limits<float>::max();
-    pair<float, float> closestPair = {numbers[0], numbers[0]};
-
-    for(int i = 1; i < numbers.size(); i++) {
-        float diff = numbers[i] - numbers[i-1];
-        if(diff < minDiff) {
-            minDiff = diff;
-            closestPair.first = numbers[i-1];
-            closestPair.second = numbers[i];
+    for(int i=0; i<numbers.size()-1; i++){
+        for(int j=i+1; j<numbers.size(); j++){
+            if(abs(numbers[i]-numbers[j]) < min_diff){
+                min_diff = abs(numbers[i]-numbers[j]);
+                closest_pair = make_pair(min(max(numbers[i], numbers[j]), min(numbers[i], numbers[j]));
+            }
         }
     }
-
-    return closestPair;
+    
+    return vector<float>{closest_pair.first, closest_pair.second};
 }
