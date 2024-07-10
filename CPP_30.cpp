@@ -16,15 +16,21 @@ int main() {
         return 1;
     }
     
+    v1.reserve(n);  // Reserve space for n elements
+
     // Read input and check for same
     for(int i = 0; i < n; i++) {
         float num;
         while(true) {
-            std::cout << "Enter value " << (i+1) << ": ";
-            if (!(std::cin >> num)) {
+            try {
+                std::cout << "Enter value " << (i+1) << ": ";
+                if (!(std::cin >> num)) {
+                    throw std::invalid_argument("Invalid input.");
+                }
+            } catch(const std::exception& e) {
                 std::cout << "Invalid input." << std::endl;
                 std::cin.clear();
-                std::cin.ignore(std::numeric_limits<float>::max(), '\n');
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 return 1;
             }
             v1.push_back(num);
