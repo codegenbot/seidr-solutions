@@ -1,17 +1,13 @@
-from typing import List
+from typing import list
 
 
-def has_close_elements() -> None:
+def has_close_elements():
+    numbers = input("Enter numbers (space separated): ").split()
+    threshold = float(input("Enter threshold: "))
+
     try:
-        numbers = input("Enter a list of floats separated by spaces: ").split()
-        threshold = float(input("Enter the threshold value: "))
-        if not all(num.replace(".", "", 1).isdigit() for num in numbers):
-            raise ValueError
         numbers = [float(num) for num in numbers]
-        for i in range(len(numbers)):
-            for j in range(i + 1, len(numbers)):
-                if abs(numbers[i] - numbers[j]) <= threshold:
-                    return print(True)
-        print(False)
-    except ValueError:
-        print("Invalid input. Please enter a list of floats.")
+        return has_close_elements(list(map(float, numbers)), threshold)
+    except ValueError as e:
+        print(f"Error: {e}")
+        return None
