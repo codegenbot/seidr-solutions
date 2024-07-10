@@ -1,8 +1,8 @@
 ```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 
-int count_nums(vector<int> v) {
+int count_nums(std::vector<int> v) {
     int count = 0;
     for (int num : v) {
         if (num >= 0) {
@@ -15,7 +15,7 @@ int count_nums(vector<int> v) {
                 count++;
             }
         } else {
-            num = -num; 
+            num = -num; // make the number positive for calculation
             int sum = 0;
             while (num > 0) {
                 sum += num % 10;
@@ -30,16 +30,20 @@ int count_nums(vector<int> v) {
 }
 
 int main() {
-    vector<int> v;
+    std::vector<int> v;
     int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
     for(int i = 0; i < n; i++) {
         int num;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> num;
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> num;
         v.push_back(num);
     }
-    cout << "The count of numbers with positive sum of digits is: " << count_nums(v) << endl;
+    
+    int result = count_nums(v);
+    std::cout << "Numbers with positive sum of digits: " << result << std::endl;
+    
     return 0;
 }
