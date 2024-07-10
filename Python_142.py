@@ -1,13 +1,14 @@
-def sum_squares(*args):
+```
+def sum_squares():
     numbers = []
-    for _ in args:
-        while True:
-            try:
-                num = float(input("Enter a number: "))
-                if not isinstance(num, (int, float)):
-                    raise ValueError("Invalid input. Only numbers are allowed.")
-                numbers.append(num)
+    while len(numbers) < 5:
+        try:
+            num = float(input("Enter a number (or 'stop' to finish): "))
+            if num == 'stop':
                 break
-            except ValueError as e:
-                print(e)
+            if not isinstance(num, (int, float)):
+                raise ValueError("Invalid input. Only numbers are allowed.")
+            numbers.append(num)
+        except ValueError as e:
+            print(e)
     return sum([i ** 2 for i in numbers])
