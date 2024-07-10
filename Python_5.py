@@ -1,14 +1,15 @@
-from typing import List
-
-
-def intersperse(list1: List[int], list2: List[int]) -> List[int]:
+```python
+def intersperse(a, b):
     result = []
-    
-    while list1 or list2:
-        if list1 and (not list2 or len(result) % 2 == 0):
-            result.append(list1.pop(0))
-        elif list2:
-            result.append(list2.pop(0))            
-        else:
-            result.append(list1.pop(0))            
+    min_len = min(len(a), len(b))
+    for i in range(min_len):
+        result.append(a.pop(0))
+        result.append(b.pop(0))
+    result.extend(a)
+    result.extend(b)
     return result
+
+list1 = [1, 3, 5]
+list2 = ['a', 'b', 'c']
+result = intersperse(list1 + list2, [])
+print(result)
