@@ -9,7 +9,7 @@ string middleCharacter(string s) {
 
 int main() {
     string s;
-    getline(cin, s);
+    cin >> s;
     cout << middleCharacter(s) << endl;
     return 0;
 }
