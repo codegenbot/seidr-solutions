@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 float triangle_area(float a, float b, float c) {
     float s = (a + b + c) / 2;
