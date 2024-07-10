@@ -1,4 +1,6 @@
-```cpp
+#include <iostream>
+#include <vector>
+
 bool issame(vector<int> a,vector<int>b){
     if(a.size() != b.size()) return false;
     for(int i=0; i<a.size(); i++){
@@ -9,17 +11,10 @@ bool issame(vector<int> a,vector<int>b){
 
 vector<int> minPath(vector<vector<int>> input, int target) {
     vector<int> path;
-    for (int i = 0; i < target; i++) {
-        if (i >= input[1].size()) {
-            path.push_back(input[1][0]);
-        } else {
-            for (int j = 0; j < input.size(); j++) {
-                if (i >= input[j][0]) {
-                    path.push_back(input[j][0]);
-                    i -= input[j][0];
-                }
-            }
-            break;
+    for (int i = 0; i < input.size(); i++) {
+        while(target >= input[i][0]) {
+            target -= input[i][0];
+            path.push_back(input[i][0]);
         }
     }
     return path;
@@ -32,7 +27,7 @@ int main() {
     int target = 10;
 
     if (minPath(input, target).empty()) {
-        cout << "No paths found with length " << target << "." << endl;
+        std::cout << "No paths found with length " << target << "." << std::endl;
         return 0; 
     }
     
@@ -54,13 +49,13 @@ int main() {
         }
         bool same = issame(output, {1, 3, 1, 3, 1, 3, 1, 3, 1, 3});
         if(same) {
-            cout << "The minimum path is: ";
+            std::cout << "The minimum path is: ";
             for (int i : output) {
-                cout << i << " ";
+                std::cout << i << " ";
             }
-            cout << endl;
+            std::cout << std::endl;
         } else {
-            cout << "No paths found with length " << target << "." << endl;
+            std::cout << "No paths found with length " << target << "." << std::endl;
         }
     }
 }
