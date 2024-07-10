@@ -1,7 +1,3 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
 bool is_same(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
     return a == b;
 }
