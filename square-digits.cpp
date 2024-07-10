@@ -1,14 +1,26 @@
 #include <iostream>
-#include <string>
 
 int main() {
-    std::string num;
-    std::cin >> num;
-    std::string result = "";
-    for (char digit : num) {
-        int n = digit - '0';
-        result += std::to_string(n * n);
+    int number;
+    std::cin >> number;
+
+    if (number <= 0) {
+        std::cout << "Invalid input" << std::endl;
+        return 1;
     }
-    std::cout << result;
+
+    int temp = number;
+    int result = 0;
+    int base = 1;
+
+    while (temp > 0) {
+        int digit = temp % 10;
+        result += digit * digit * base;
+        temp /= 10;
+        base *= 100;
+    }
+
+    std::cout << result << std::endl;
+
     return 0;
 }
