@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -37,6 +36,6 @@ std::string join(const std::vector<std::string>& words, const std::string& delim
 }
 
 int main() {
-    std::cout << spinWords("This is a test") << std::endl; // hi
+    std::cout << spinWords("hello world") << std::endl; // olleH wodrl
     return 0;
 }
