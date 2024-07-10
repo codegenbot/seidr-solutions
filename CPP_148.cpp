@@ -31,7 +31,7 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    vector<string> result = bf("Earth", "Jupiter");
+    vector<string> result = bf("Mars", "Neptune");
     for (const string& planet : result) {
         cout << planet << " ";
     }
