@@ -18,18 +18,18 @@ vector<string> sorted_list_sum(vector<string> inputList) {
 }
 
 int main() {
-    vector<string> inputList;
-    string input;
-    
-    while (cin >> input) {
-        inputList.push_back(input);
+    vector<string> list1 = {"apple", "banana", "orange"};
+    vector<string> list2 = {"banana", "orange", "apple"};
+
+    if (areSame(list1, list2)) {
+        cout << "Both lists are the same after sorting\n";
+    } else {
+        cout << "Lists are different after sorting\n";
     }
-    
-    vector<string> result = sorted_list_sum(inputList);
-    
-    for (const string& s : result) {
-        cout << s << " ";
+
+    vector<string> sortedList = sorted_list_sum(list1);
+    for (const string& item : sortedList) {
+        cout << item << " ";
     }
-    
     return 0;
 }
