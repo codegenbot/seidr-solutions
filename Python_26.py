@@ -17,6 +17,9 @@ if __name__ == "__main__":
                 try:
                     numbers = [int(num) for num in numbers.split(",")]
                     print(remove_duplicates(numbers))
+                    cont = input("Do you want to continue? (y/n): ")
+                    if cont.lower() != 'y':
+                        break
                     break
                 except ValueError:
                     print("Invalid input. Please enter comma-separated integers.")
