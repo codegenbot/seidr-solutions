@@ -10,7 +10,10 @@ def encode(message):
                     index = (vowels.index(char.lower()) + 1) % 5
                 result += vowels[index].upper() if char.isupper() else vowels[index].lower()
             else:
-                result += char.swapcase()
+                if char.isupper():
+                    result += char.swapcase().upper()
+                else:
+                    result += char.swapcase()
         else:
             result += char
     return result
