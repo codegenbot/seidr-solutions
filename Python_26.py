@@ -14,7 +14,7 @@ if __name__ == "__main__":
         else: 
             while True:
                 try:
-                    numbers = [int(num) for num in numbers.split(",")]
+                    numbers = [int(num) for num in numbers.split(",") if num]
                     print(remove_duplicates(numbers))
                     cont = input("Do you want to continue? (y/n): ")
                     if cont.lower() != 'y':
