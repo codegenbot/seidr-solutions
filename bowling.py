@@ -1,3 +1,4 @@
+```
 def bowling_score(game):
     score = 0
     roll = 0
@@ -19,6 +20,12 @@ def bowling_score(game):
             if third_roll == 10:
                 score += first_roll + second_roll + 10
                 roll += 1
+            elif first_roll + second_roll >= 10:
+                bonus = 10 - (first_roll + second_roll)
+                score += first_roll + second_roll + bonus
+                roll += 1
             else:
-                score += first_roll + second_roll + third_roll
+                score += first_roll + second_roll + int(frame[2])
+    if roll < 10:
+        score += 10 - roll
     return score
