@@ -25,6 +25,9 @@ int main()
     for (int i = 0; i < n; ++i) {
         std::string str;
         getline(std::cin, str); 
+        if (!str.empty()) { // Check for empty strings
+            str.erase(0, str.find_first_not_of(' ')); 
+        }
         words.push_back(str); 
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
