@@ -1,5 +1,5 @@
 #include <boost/any.hpp>
-// Define issame function
+
 bool issame(const vector<boost::any>& a, const vector<boost::any>& b) {
     return a.size() == b.size() && all_of(a.begin(), a.end(), [&b](const auto& x) {
         return any_cast<int>(x) == any_cast<int>(find_if(b.begin(), b.end(), [&x](const auto& y) { return any_cast<int>(y) == any_cast<int>(x); }), 0);
