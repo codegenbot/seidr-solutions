@@ -1,5 +1,6 @@
+```cpp
+#include <iostream>
 #include <map>
-#include <string>
 #include <cctype>
 
 bool check_dict_case(map<string, string> dict) {
@@ -26,5 +27,22 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     assert(check_dict_case({}) == false);
+    map<string, string> dict;
+    cout << "Enter the number of key-value pairs: ";
+    int n;
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        string key, value;
+        cout << "Enter key and value (separated by space): ";
+        cin >> key >> value;
+        dict[key] = value;
+    }
+
+    if (check_dict_case(dict)) {
+        cout << "The dictionary case is consistent.\n";
+    } else {
+        cout << "The dictionary case is not consistent.\n";
+    }
     return 0;
 }
