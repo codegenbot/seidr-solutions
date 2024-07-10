@@ -24,8 +24,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
-        std::cin.get(); // Replace this line
-        std::getline(std::cin, word); 
+        std::cin >> word; 
         words.push_back(word);
     }
 
