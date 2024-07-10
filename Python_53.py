@@ -1,6 +1,6 @@
 ```
 def add(a, b):
-    return str(a) + ' + ' + str(b) + ' = ' + str(a + b)
+    return a + b
 
 while True:
     try:
