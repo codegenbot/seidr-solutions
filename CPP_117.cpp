@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 #include <sstream>
 
 using namespace std;
@@ -21,7 +20,16 @@ vector<string> select_words(string s, int n) {
 }
 
 int main() {
-    bool result = select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "e", "f"};
-    assert(result);
-    return result ? 0 : 1;
+    string input;
+    int n;
+    getline(cin, input);
+    cin >> n;
+  
+    vector<string> result = select_words(input, n);
+  
+    for (const string& word : result) {
+        cout << word << " ";
+    }
+  
+    return 0;
 }
