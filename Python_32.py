@@ -1,5 +1,5 @@
-```
 import math
+
 
 def find_zero(xs):
     if len(xs) % 2 != 0:
@@ -10,5 +10,6 @@ def find_zero(xs):
     d = math.sqrt(b**2 - 4 * a * c)
     return (-b + d) / (2 * a)
 
+
 xs = map(int, input("Enter the coefficients: ").split())
-print(find_zero(xs))
+print(find_zero(list(xs)))
