@@ -1,3 +1,4 @@
+```
 def decode_cyclic(s: str):
     if s[0] == "x":
         return s[1:] + s[0]
