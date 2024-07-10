@@ -1,10 +1,23 @@
 string find_max(vector<string> words){
-    string max_str = *max_element(words.begin(), words.end(), 
-        [&] (const string &s1, const string &s2) {
-            if (s1.size() == s2.size()) {
-                return s1 < s2;
+    string result = *min_element(words.begin(), words.end());
+    for (const auto& word : words) {
+        if (word.size() == result.size()) {
+            int count1 = 0;
+            int count2 = 0;
+            set<char> set1(word.begin(), word.end());
+            for (char c : set1) {
+                count1++;
             }
-            return s1.size() > s2.size();
-    });
-    return max_str;
+            set<char> set2(result.begin(), result.end());
+            for (char c : set2) {
+                count2++;
+            }
+            if (count1 > count2) {
+                result = word;
+            } else if (count1 == count2 && word < result) {
+                result = word;
+            }
+        }
+    }
+    return result;
 }
