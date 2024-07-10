@@ -5,15 +5,12 @@ using namespace std;
 vector<int> leaders(vector<int>& vec) {
     vector<int> res;
     int n = vec.size();
+    int max_right = vec.back();
     for(int i=n-1; i>=0; i--){
-        bool leader = true;
-        for(int j=i+1; j<n; j++){
-            if(vec[j] >= vec[i]){
-                leader = false;
-                break;
-            }
+        if(vec[i] >= max_right){
+            res.push_back(vec[i]);
+            max_right = vec[i];
         }
-        if(leader) res.push_back(vec[i]);
     }
     return res;
 }
@@ -31,8 +28,8 @@ int main() {
     }
     vector<int> result = leaders(input);
     cout << "Leaders: ";
-    for(int i=0; i<result.size(); i++){
-        cout << result[i] << " ";
+    for(auto x : result) {
+        cout << x << " ";
     }
     cout << endl;
 }
