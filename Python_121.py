@@ -1,4 +1,3 @@
-```
 def sum_of_odd_numbers_in_every_other_element():
     while True:
         try:
@@ -13,4 +12,5 @@ def main():
     result = sum_of_odd_numbers_in_every_other_element()
     print(f"The sum of odd numbers is {result}")
 
-main()
+if __name__ == "__main__":
+    main()
