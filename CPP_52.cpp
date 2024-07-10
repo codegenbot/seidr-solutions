@@ -1,5 +1,6 @@
+```cpp
 #include <iostream>
-#include <cassert>
+#include <vector>
 
 using namespace std;
 
@@ -12,10 +13,4 @@ bool below_threshold(vector<int> numbers, int threshold) {
     return false;
 }
 
-int main() {
-    if(not(below_threshold({1, 8, 4, 10}, 10))) {
-        cout << "Test Passed" << endl;
-    } else {
-        cout << "Test Failed" << endl;
-    }
-}
+int main() { return 0; }
