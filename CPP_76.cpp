@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 #include <iostream>
 #include <string>
@@ -22,9 +21,9 @@ int main() {
     int n = std::stoi(nStr);
     
     if(is_simple_power(x, n))
-        std::cout << (x == y ? x << " is a simple power of " << n : x << " is not a simple power of " << n) << std::endl;
+        std::cout << std::to_string(x) << " is a simple power of " << std::to_string(n) << std::endl;
     else
-        std::cout << (x == y ? x << " is a simple power of " << n : x << " is not a simple power of " << n) << std::endl;
+        std::cout << std::to_string(x) << " is not a simple power of " << std::to_string(n) << std::endl;
 
     return 0;
 }
