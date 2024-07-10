@@ -18,14 +18,14 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 int main() {
     int n1, m1, n2, m2;
     std::cout << "Enter the size of first vector: ";
-    std::cin >> n1 >> m1;
+    std::cin >> n1;
     std::vector<int> a(n1);
     for(int i = 0; i < n1; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> a[i];
     }
     std::cout << "Enter the size of second vector: ";
-    std::cin >> n2 >> m2;
+    std::cin >> n2;
     std::vector<int> b(n2);
     for(int i = 0; i < n2; i++) {
         std::cout << "Enter element " << i+1 << ": ";
