@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -12,5 +13,5 @@ int exchange(std::vector<int> lst1, std::vector<int> lst2) {
         if (num % 2 != 0)
             oddCount2++;
     
-    return (oddCount1 == 0 && oddCount2 == 0);
+    return oddCount1 == 0 && oddCount2 == 0 ? 1 : 0;
 }
