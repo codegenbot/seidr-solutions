@@ -1,16 +1,10 @@
-int i = 0, count = 0;
-while(i < brackets.length()){
-    if(brackets[i] == '<'){
-        count++;
+int stack_size = 0;
+for (char bracket : brackets) {
+    if (bracket == '<') {
+        stack_size++;
+    } else if (bracket == '>') {
+        if (stack_size <= 0) return false;
+        stack_size--;
     }
-    else{
-        if(count > 0){
-            count--;
-        }
-        else{
-            return false;
-        }
-    }
-    i++;
 }
-return (count == 0);
+return stack_size == 0;
