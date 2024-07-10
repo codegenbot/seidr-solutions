@@ -17,21 +17,27 @@ std::string numerical_letter_grade(int credits, double gpa) {
     else if (gpa >= 3.1) return "B";
     else if (gpa >= 2.8) return "C+";
     else if (gpa >= 2.5) return "C";
-    else if (gpa >= 2.2) return "D";
+    else if (gpa >= 2.2) return "D+";
     else return "F";
 }
 
 int main() {
     int credits = 0;
-    double gpa = 3.4; 
+    double gpa = 0.7;
 
-    if (numerical_letter_grade(credits, gpa) == "F" || numerical_letter_grade(credits, gpa) == "D") {
+    std::string grade = numerical_letter_grade(credits, gpa);
+
+    if (grade == "F" || grade == "D+") {
         throw std::runtime_error("Invalid GPA");
     }
-    
+
     int credits1 = 3;
     double gpa1 = 3.4; 
-    std::string grade = numerical_letter_grade(credits1, gpa1);
-    assert (issame(std::vector<std::string>({}), std::vector<std::string>({grade})));
-    return 0;
+    grade = numerical_letter_grade(credits1, gpa1);
+    
+    if (!issame({grade}, {"E", "D-"})) {
+        return 0;
+    } else {
+        return -1; // Or some other error handling mechanism
+    }
 }
