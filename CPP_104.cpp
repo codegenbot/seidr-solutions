@@ -31,7 +31,6 @@ void test_unique_digits() {
     assert(result == expected);
 }
 
-int main() {
-    test_unique_digits();
-    return 0;
-}
+// Removed the second definition of the main() function
+
+// End of code
