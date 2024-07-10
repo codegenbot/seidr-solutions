@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
-
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
@@ -36,6 +32,6 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), vector<string>{"()", "(())", "(()())"}));
+    assert(separate_paren_groups("( ) (( )) (( )( ))") == vector<string>{"()", "(())", "(()())"});
     return 0;
 }

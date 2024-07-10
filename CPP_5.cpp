@@ -1,6 +1,12 @@
 #include <vector>
 #include <cassert>
 
+namespace std {
+    bool operator==(const std::vector<int>& a, const std::vector<int>& b){
+        return a == b;
+    }
+}
+
 std::vector<int> intersperse(const std::vector<int>& vec, int val){
     std::vector<int> result;
     for(const auto& num : vec){
@@ -10,11 +16,7 @@ std::vector<int> intersperse(const std::vector<int>& vec, int val){
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
-    return a == b;
-}
-
 int main(){
-    assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
+    assert(std::operator==(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
     return 0;
 }
