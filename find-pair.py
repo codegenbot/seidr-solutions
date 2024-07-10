@@ -1,12 +1,17 @@
 def find_pair():
     num_cases = int(input())
     for _ in range(num_cases):
-        nums = list(map(int, input().split()))
+        num_pairs = int(input())
+        nums = sorted(list(map(int, input().split())))
         target = int(input())
-        seen = {}
-        for num in nums:
-            remaining = target - num
-            if remaining in seen:
-                print(f"{num} {remaining}")
-                break
-            seen[num] = 1
+        left = 0
+        right = len(nums) - 1
+        while left < right:
+            total = nums[left] + nums[right]
+            if total == target:
+                print(f"{nums[left]} {nums[right]}")
+                return
+            elif total < target:
+                left += 1
+            else:
+                right -= 1
