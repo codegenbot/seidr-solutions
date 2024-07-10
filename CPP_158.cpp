@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -23,7 +24,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
-        std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+        std::cin.ignore(); // Add this line to ignore only one character
         std::getline(std::cin, word); 
         words.push_back(word);
     }
