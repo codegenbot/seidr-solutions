@@ -1,3 +1,7 @@
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
 vector<float> sort_even(vector<float> l) {
     vector<float> l_odd, l_even;
     for (int i = 0; i < l.size(); ++i) {
