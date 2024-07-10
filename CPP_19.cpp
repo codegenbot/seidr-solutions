@@ -1,4 +1,4 @@
-string sort_numbers(string numbers) {
+string sort_numbers(const string& numbers) {
     map<string, int> num_map = {
         {"zero", 0},
         {"one", 1},
@@ -13,7 +13,7 @@ string sort_numbers(string numbers) {
     };
 
     map<int, string> rev_map;
-    for (auto const& pair : num_map) {
+    for (const auto& pair : num_map) {
         rev_map[pair.second] = pair.first;
     }
 
@@ -36,5 +36,6 @@ string sort_numbers(string numbers) {
 }
 
 int main() {
-    assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
+    return 0;
 }
