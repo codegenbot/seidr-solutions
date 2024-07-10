@@ -1,6 +1,8 @@
+```c++
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 bool will_it_fly(vector<int> q, int w);
 
@@ -18,25 +20,20 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    int w;
-    std::cout << "Enter the weight: ";
-    std::cin >> w;
-    
     vector<int> q;
-    while(true) {
-        int x;
-        std::cout << "Enter a quantity (0 to finish): ";
-        std::cin >> x;
-        if(x == 0) break;
-        q.push_back(x);
+    int w;
+    cout << "Enter the number of queens: ";
+    cin >> w;
+    cout << "Enter the queen's weights: ";
+    for(int i = 0; i < w; i++) {
+        int weight;
+        cin >> weight;
+        q.push_back(weight);
     }
-    
-    bool result = will_it_fly(q, w);
-    
-    if(result)
-        std::cout << "The package will fly.\n";
-    else
-        std::cout << "The package won't fly.\n";
-    
+    if(will_it_fly(q, w)) {
+        cout << "The queens will fly." << endl;
+    } else {
+        cout << "The queens won't fly." << endl;
+    }
     return 0;
 }
