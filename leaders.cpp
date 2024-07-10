@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 using namespace std;
 
@@ -12,13 +13,11 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> res;
     
-    int maxRightSoFar = arr[n-1];
-    res.push_back(maxRightSoFar);
-    
-    for(int i=n-2; i>=0; i--){
-        if(arr[i] >= maxRightSoFar){
-            res.push_back(arr[i]);
-            maxRightSoFar = arr[i];
+    int rightmostLeader = -1;
+    for(int i=n-1; i>=0; i--){
+        if(arr[i] >= rightmostLeader){
+            rightmostLeader = arr[i];
+            res.push_back(rightmostLeader);
         }
     }
     
