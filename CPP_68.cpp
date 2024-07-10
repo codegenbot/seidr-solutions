@@ -20,7 +20,7 @@ std::vector<int> pluck(const std::vector<int>& n) {
 
 }
 
-int main() {
+int mainHelper() {
     std::vector<int> v1 = {7, 9, 7, 1};
     std::vector<int> v2 = {1};
 
