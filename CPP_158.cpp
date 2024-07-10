@@ -26,8 +26,6 @@ int main() {
         std::cout << "Enter word " << (i + 1) << ": ";
         std::getline(std::cin, word); 
         words.push_back(word);
-        std::cout << "Press Enter to continue..."; // Just for demonstration purpose
-        std::cin.ignore();  // Clear the buffer of any remaining characters
     }
 
     findMaxWord(words);
