@@ -1,4 +1,3 @@
-```python
 def intersperse(a, b):
     result = []
     min_len = min(len(a), len(b))
@@ -11,5 +10,5 @@ def intersperse(a, b):
 
 list1 = [1, 3, 5]
 list2 = ['a', 'b', 'c']
-result = intersperse(list1 + list2, [])
+result = intersperse(list1 + list2, list2)
 print(result)
