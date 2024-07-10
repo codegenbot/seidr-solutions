@@ -1,14 +1,10 @@
-#include <stdio.h>
-#include <string>
-#include <cmath>
+#include<string>
 using namespace std;
-
-bool simplify(string x, string n) {
-    int x_numerator, x_denominator, n_numerator, n_denominator;
-    sscanf(x.c_str(), "%d/%d", &x_numerator, &x_denominator);
-    sscanf(n.c_str(), "%d/%d", &n_numerator, &n_denominator);
-
-    double result = (double)x_numerator / x_denominator * n_numerator / n_denominator;
-
-    return (fabs(result - round(result)) < 1e-9);
+bool simplify(string x, string n){
+    int num1 = stoi(x.substr(0, x.find('/')));
+    int den1 = stoi(x.substr(x.find('/') + 1));
+    int num2 = stoi(n.substr(0, n.find('/')));
+    int den2 = stoi(n.substr(n.find('/') + 1));
+    
+    return (num1 * den2 == num2 * den1);
 }
