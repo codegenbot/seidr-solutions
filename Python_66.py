@@ -1,6 +1,10 @@
-def sum_of_digits_in_string(s):
+```
+def digitSum(s):
     total = 0
-    for char in s:
-        if char.isdigit():
-            total += int(char)
+    for i, c in enumerate(s):
+        if c.isdigit():
+            if (i % 2) == 0:
+                total += int(c)
+            else:
+                total += int(c) * 2 - 5 if int(c) > 4 else int(c) * 2
     return total
