@@ -1,35 +1,59 @@
 #include <vector>
 using namespace std;
 
-vector<int> cutVector(vector<int>& nums) {
-    int n = nums.size();
-    vector<int> res[2];
+vector<vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<vector<int>> res(2);
+    int minDiff = INT_MAX;
+    int pos = -1;
+    
     for (int i = 0; i < n; i++) {
-        res[i % 2].push_back(nums[i]);
-    }
-    if (n == 1 || res[0][res[0].size() - 1] == res[1][0]) {
-        return {res[0], res[1]};
-    } else {
-        int minDiff = INT_MAX;
-        int cutPos = -1;
-        for (int i = 1; i < n; i++) {
-            if (abs(res[0].back() - res[1][0]) < minDiff) {
-                minDiff = abs(res[0].back() - res[1][0]);
-                cutPos = i;
-            }
-            res[0].pop_back();
-            res[1].insert(res[1].begin(), res[1][0]);
+        if (v[i] == 0) {
+            res[0].push_back(v.begin(), v.end());
+            res[1].clear();
+            return res;
         }
-        return {res[0], res[1]};
+        
+        if (v[i] > 0) {
+            int leftSum = 0, rightSum = 0;
+            for (int j = i; j >= 0 && j < n; j--) {
+                leftSum += v[j];
+            }
+            for (int j = i + 1; j < n; j++) {
+                rightSum += v[j];
+            }
+            
+            if (leftSum == rightSum) {
+                res[0].assign(v.begin(), v.begin() + i);
+                res[1].assign(v.begin() + i, v.end());
+                return res;
+            } else if (abs(leftSum - rightSum) < minDiff) {
+                minDiff = abs(leftSum - rightSum);
+                pos = i;
+            }
+        }
     }
+    
+    res[0].assign(v.begin(), v.begin() + pos);
+    res[1].assign(v.begin() + pos, v.end());
+    return res;
 }
 
 int main() {
-    vector<int> nums = {1, 10};
-    vector<int> result = cutVector(nums);
-    for (auto num : result) {
-        cout << num << " ";
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
     }
-    cout << endl;
+    
+    vector<vector<int>> res = cutVector(v);
+    for (auto &v : res) {
+        for (int x : v) {
+            cout << x;
+        }
+        cout << '\n';
+    }
+    
     return 0;
 }
