@@ -1,6 +1,6 @@
 while True:
     s = input("Enter a string to shift (or 'q' to quit): ")
-    if s.lower() == "q":
+    if s.lower() == 'q':
         break
     try:
         n = int(input("Enter the number of positions to shift: "))
