@@ -1,4 +1,5 @@
-#include <vector>
+#include<stdio.h>
+#include<vector>
 using namespace std;
 
 int get_matrix_triples(int n) {
