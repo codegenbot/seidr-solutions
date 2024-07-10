@@ -1,31 +1,50 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string input) {
-    std::string output = "";
-    std::string temp = "";
-
-    for (char c : input) {
-        if (c == ' ') {
-            if (temp.length() >= 5)
-                std::reverse(temp.begin(), temp.end());
-            output += temp + " ";
-            temp = "";
-        } else
-            temp += c;
+string spinWords(string str) {
+    string result = "";
+    for (const auto& word : split(str)) {
+        if (word.length() >= 5) {
+            reverse(word.begin(), word.end());
+        }
+        result += word + " ";
     }
-
-    if (temp.length() >= 5)
-        std::reverse(temp.begin(), temp.end());
-
-    return output + temp;
+    return result.substr(0, result.size()-1);
 }
 
-int main() {
-    std::string input;
-    while (!(std::cin >> input).eof()) {
-        std::cout << spinWords(input) << std::endl;
-        std::cin.ignore();
+string split(string str) {
+    string result = "";
+    for (char c : str) {
+        if (c == ' ') {
+            result += "\n";
+        } else {
+            result += c;
+        }
     }
-    return 0;
+    vector<string> words;
+    string word = "";
+    for (const auto& line : split(result, '\n')) {
+        for (char c : line) {
+            if (c != ' ') {
+                word += c;
+            } else {
+                words.push_back(word);
+                word = "";
+            }
+        }
+        words.push_back(word);
+        word = "";
+    }
+    return implode(words, " ");
+}
+
+string implode(vector<string> arr, string delimeter) {
+    string result = "";
+    for (const auto& str : arr) {
+        result += str;
+        if (!str.empty()) {
+            result += delimeter;
+        }
+    }
+    return result;
 }
