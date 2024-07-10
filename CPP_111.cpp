@@ -1,14 +1,15 @@
 #include <iostream>
 #include <map>
 #include <cassert>
+#include <string>
 
-bool issame(std::map<char, int> a, std::map<char, int> b) {
+bool issame(std::map<std::char, int> a, std::map<std::char, int> b) {
     return a == b;
 }
 
-std::map<char, int> histogram(std::string test) {
-    std::map<char, int> result;
-    std::map<char, int> count;
+std::map<std::char, int> histogram(std::string test) {
+    std::map<std::char, int> result;
+    std::map<std::char, int> count;
 
     for (char c : test) {
         if (c != ' ') {
