@@ -1,9 +1,12 @@
+```cpp
 #include <map>
 #include <string>
+#include <vector>
 
 std::map<char, int> histogram(std::string s) {
     std::map<char, int> freqMap;
-    for (char c : s) {
+    std::vector<char> str(s.begin(), s.end());
+    for (char c : str) {
         if (freqMap.find(c) == freqMap.end()) {
             freqMap[c] = 1;
         } else {
