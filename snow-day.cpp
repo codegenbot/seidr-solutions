@@ -10,7 +10,7 @@ double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proport
         }
         
         if (proportionMeltingPerHour > 0.0) {
-            snow -= std::setprecision(10) << snow * proportionMeltingPerHour;
+            snow -= std::setprecision(10) * (snow * proportionMeltingPerHour);
         }
     }
     
