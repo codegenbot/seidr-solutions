@@ -1,46 +1,35 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
-#include <utility>
+#include <algorithm>
 
-bool std::issame(std::vector<std::pair<float, float>> a, std::vector<std::pair<float, float>> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (std::abs(a[i].first - a[i].second) != std::abs(b[i].first - b[i].second)) {
-            return false;
-        }
-    }
-    return true;
+bool issame(float a, float b) {
+    return std::abs(a - b) < 0.001;
 }
 
 std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
-    std::pair<float, float> closest_pair = {numbers[0], numbers[1]};
-    for (int i = 1; i < numbers.size() - 1; ++i) {
-        if (std::abs(numbers[i] - numbers[i + 1]) < std::abs(closest_pair.first - closest_pair.second)) {
-            closest_pair = {numbers[i], numbers[i + 1]};
+    std::vector<std::pair<float, float>> closest_pairs;
+    for (size_t i = 0; i < numbers.size() - 1; ++i) {
+        if (issame(numbers[i], numbers[i + 1])) {
+            closest_pairs.push_back({numbers[i], numbers[i]});
         }
     }
-    return {{closest_pair.first, closest_pair.second}};
+    return closest_pairs;
 }
 
-int main() {
-    int num;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> num;
-    
-    std::vector<float> numbers(num);
-    
-    for (int i = 0; i < num; ++i) {
-        std::cout << "Enter element no. " << i + 1 << ": ";
-        std::cin >> numbers[i];
+int main 
+{ 
+    std::vector<float> numbers;
+    float num;
+    while (std::cin >> num) {
+        numbers.push_back(num);
     }
     
-    std::cout << "The closest elements are: ";
-    
-    std::vector<std::pair<float, float>> result = find_closest_elements(numbers);
-    for (auto pair : result) {
-        std::cout << pair.first << " and " << pair.second << ", ";
+    std::vector<std::pair<float, float>> closest_pairs = find_closest_elements(numbers);
+    if (!closest_pairs.empty()) {
+        for (const auto& pair : closest_pairs) {
+            std::cout << "(" << pair.first << ", " << pair.second << ")" << std::endl;
+        }
+    } else {
+        std::cout << "No elements found." << std::endl;
     }
-    
-    return 0;
 }
