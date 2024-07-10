@@ -4,12 +4,12 @@ def add(a, b):
 
 while True:
     try:
-        x = int(input("Enter first number: "))
-        y = int(input("Enter second number: "))
-        if x >= 0 and y >= 0:  
-            print(add(x, y))
+        num_list = list(map(int, input("Enter numbers separated by space: ").split()))
+        if len(num_list) % 2 == 0 and all(x >= 0 for x in num_list):  
+            for i in range(0, len(num_list), 2):
+                print(add(num_list[i], num_list[i+1]))
             break
         else:
-            print("Invalid input. Please enter positive numbers.")
+            print("Invalid input. Please enter numbers that can be paired up.")
     except ValueError:
         print("Invalid input. Please enter integers.")
