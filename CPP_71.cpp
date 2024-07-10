@@ -10,12 +10,12 @@ float triangle_area(int a, int b, int c) {
 
 int main() {
     std::cout << "Enter sides of triangle: ";
-    char s1[5], s2[5], s3[5];
-    std::cin >> s1 >> std::ws >> s2 >> std::ws >> s3;
+    int side1, side2, side3;
+    std::cin >> side1 >> side2 >> side3;
 
-    int a = std::stoi(s1);
-    int b = std::stoi(s2);
-    int c = std::stoi(s3);
+    int a = side1;
+    int b = side2;
+    int c = side3;
 
     assert(std::abs(triangle_area(a, b, c)) < 0.01);
     float result = triangle_area(a, b, c);
