@@ -6,9 +6,7 @@
 
 using namespace std;
 
-bool issame(const vector<string>& v1, const vector<string>& v2) {
-    return v1 == v2;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -40,7 +38,7 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), vector<string>{}));
+    assert(issame(bf("Jupiter", "Makemake"), {}));
     
     return 0;
 }
