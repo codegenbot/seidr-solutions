@@ -23,7 +23,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    int n = 10; 
+    int n = 10; // input here
     std::vector<int> result = make_a_pile(n);
     assert(issame(result, make_a_pile(n)));
     return 0;
