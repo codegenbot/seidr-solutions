@@ -5,10 +5,6 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 vector<string> all_prefixes(string str){
     vector<string> result;
     for (int i = 1; i <= str.size(); ++i) {
@@ -18,6 +14,12 @@ vector<string> all_prefixes(string str){
 }
 
 int main() {
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    vector<string> expected = {"W", "WW", "WWW"};
+    vector<string> prefixes = all_prefixes("WWW");
+
+    for (int i = 0; i < prefixes.size(); ++i) {
+        assert(prefixes[i] == expected[i]);
+    }
+
     return 0;
 }
