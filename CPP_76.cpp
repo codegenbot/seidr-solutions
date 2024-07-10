@@ -20,11 +20,6 @@ int main() {
     std::cin >> nTemp;
 
     if(nTemp != 0) {
-        // Convert integer to string
-        std::string strN = std::to_string(nTemp);
-
-        std::cout << strN << std::endl;
-
         if(is_simple_power(tempX, nTemp))  
             std::cout << tempX << " is a simple power of " << nTemp << std::endl;
         else
