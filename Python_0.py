@@ -3,7 +3,7 @@ from typing import List
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     if not numbers: 
-        return False  # Return False for an empty list
+        return False  
     numbers.sort()
     for i in range(1, len(numbers)):
         if abs(numbers[i] - numbers[i-1]) <= threshold:
