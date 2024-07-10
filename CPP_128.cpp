@@ -1,12 +1,15 @@
-int prod_signs(std::vector<int> arr) {
+#include <initializer_list>
+#include <vector>
+
+int prod_signs(const vector<int>& arr) {
     if (arr.empty()) return -32768;
-    int sign = 1;
-    long long sum = 0;
-    bool hasZero = false;
-    for (int num : arr) {
-        if (num == 0) hasZero = true;
-        else sign *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
-        sum += abs(num);
+    int sign_product = 1;
+    long long sum_of_magnitudes = 0;
+    for (const auto& num : arr) {
+        if (num == 0) continue;
+        int sign = num / abs(num);
+        sign_product *= sign;
+        sum_of_magnitudes += abs(num);
     }
-    return (hasZero ? 0 : sign * sum);
+    return sign_product * sum_of_magnitudes;
 }
