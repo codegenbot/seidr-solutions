@@ -1,3 +1,5 @@
+#include <vector>
+
 int luhn(vector<int> card) {
     int sum = 0;
     bool doubleNext = false;

@@ -1,24 +1,30 @@
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int n = v.size();
-    long long total_sum = accumulate(v.begin(), v.end(), 0LL);
-    
-    pair<long long, long long> prefix_sum = {{0LL}, {accumulate(v.begin(), v.end(), 0LL)}};
-    
-    int min_diff = INT_MAX;
-    vector<int> left, right;
-    
+    long long total_sum = 0;
     for (int i = 0; i < n; ++i) {
-        if (prefix_sum.second - prefix_sum.first >= total_sum / 2) {
-            min_diff = min(min_diff, abs(total_sum - 2 * prefix_sum.second));
-            left = {begin(v), begin(v) + i};
-            right = {end(v) - (n - i - 1), end(v)};
+        total_sum += v[i];
+    }
+
+    pair<int, int> best_split = {0, n};
+    double min_diff = numeric_limits<double>::max();
+
+    for (int left = 1; left < n; ++left) {
+        long long left_sum = 0;
+        for (int i = 0; i < left; ++i) {
+            left_sum += v[i];
+        }
+
+        long long right_sum = total_sum - left_sum;
+        double diff = labs((long long)right_sum - left_sum) / double(left);
+        
+        if (diff < min_diff) {
+            min_diff = diff;
+            best_split = {0, left};
         }
     }
-    
-    return {{left}, {right}};
+
+    return {{v.begin(), v.begin() + best_split.second}, {v.begin() + best_split.first, v.end()}};
 }
