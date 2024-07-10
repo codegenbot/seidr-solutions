@@ -1,6 +1,8 @@
 #include <vector>
 
-int calculateFuelCost(std::vector<int> numbers) {
+using namespace std;
+
+int calculateFuelCost(vector<int> numbers) {
     int total = 0;
     for (int number : numbers) {
         int result = (number / 3) - 2;
