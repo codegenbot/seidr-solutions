@@ -1,3 +1,4 @@
+```c++
 #include <string>
 
 bool is_happy(string s) {
@@ -10,3 +11,4 @@ bool is_happy(string s) {
         if (!unique) return false;
     }
     return true;
+}
