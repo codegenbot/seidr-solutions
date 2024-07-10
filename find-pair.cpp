@@ -1,16 +1,14 @@
-#include <unordered_map>
 #include <vector>
+#include <unordered_map>
 
-namespace myns {
-    std::pair<int, int> findPair(std::vector<int>& nums, int target) {
-        unordered_map<int, int> numMap;
-        for (int i = 0; i < nums.size(); i++) {
-            int complement = target - nums[i];
-            if (numMap.count(complement)) {
-                return make_pair(complement, nums[i]);
-            }
-            numMap[nums[i]] = i;
+std::pair<int, int> my_findPair(std::vector<int>& nums, int target) {
+    unordered_map<int, int> numMap;
+    for (int i = 0; i < nums.size(); i++) {
+        int complement = target - nums[i];
+        if (numMap.count(complement)) {
+            return make_pair(complement, nums[i]);
         }
-        return make_pair(-1, -1);
+        numMap[nums[i]] = i;
     }
+    return make_pair(-1, -1);
 }
