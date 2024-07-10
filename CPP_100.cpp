@@ -26,8 +26,9 @@ int main() {
     int n;
     std::cout << "Enter a number: ";
     std::cin >> n;
-    
+
     int pile = make_a_pile(n);
+
     if(std::issame({1}, {pile})){
         std::cout << "The piles are the same." << std::endl;
     } else {
