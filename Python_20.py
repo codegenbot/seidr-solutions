@@ -13,10 +13,12 @@ def find_closest_elements(numbers):
     return closest_pair
 
 if __name__ == "__main__":
-    try:
-        numbers = list(map(float, [x for x in (n.replace('.', '', 1).replace('-', '', 1) for n in input("Enter a series of space-separated numbers: ").split()) if x.isdigit() or (x[0] == '-' and len(x) > 1 and x[1:].isdigit())]))
-        result = find_closest_elements(numbers)
-    except ValueError as e:
-        print("Invalid input. Please enter only numeric values.")
-    else:
-        print(result)
+    while True:
+        try:
+            numbers = input("Enter a series of space-separated numbers: ").split()
+            numbers = list(map(float, [x for x in numbers if x.replace('.', '', 1).replace('-', '', 1).isdigit()]))
+            break
+        except ValueError as e:
+            print("Invalid input. Please enter only numeric values.")
+    result = find_closest_elements(numbers)
+    print(result)
