@@ -1,18 +1,28 @@
-def cut_vector(vector):
-    if len(vector) == 1:
-        return [vector], []
+def cut_vector(lst):
+    min_diff = float("inf")
+    cut_index = 0
 
-    left_sum = sum(vector[: len(vector) // 2])
-    right_sum = sum(vector[len(vector) // 2 :])
+    for i in range(1, len(lst)):
+        left_sum = sum(lst[:i])
+        right_sum = sum(lst[i:])
+
+        if left_sum == right_sum:
+            return (lst[:i], lst[i:])
+        elif abs(left_sum - right_sum) < min_diff:
+            min_diff = abs(left_sum - right_sum)
+            cut_index = i
+
+    left_sum = sum(lst[:cut_index])
+    right_sum = sum(lst[cut_index:])
 
     if left_sum == right_sum:
-        return [vector[: len(vector) // 2]], [vector[len(vector) // 2 :]]
+        return (lst[:cut_index], lst[cut_index:])
     else:
-        min_diff = abs(left_sum - right_sum)
-        for i in range(len(vector) // 2):
-            new_left_sum = sum(vector[:i])
-            new_right_sum = sum(vector[i:])
-            if abs(new_left_sum - new_right_sum) < min_diff:
-                min_diff = abs(new_left_sum - new_right_sum)
-                cut_index = i
-        return [vector[:cut_index]], [vector[cut_index:]]
+        return (lst[:cut_index], lst[cut_index:])
+
+
+print(cut_vector([1]))
+print(cut_vector([1, 10]))
+print(cut_vector([1, 100]))
+print(cut_vector([1, 1000]))
+print(cut_vector([1, 10000]))
