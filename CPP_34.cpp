@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iterator>
 
 namespace std {
     template<typename It>
@@ -38,5 +39,5 @@ int main_test() {
     }
     std::cout << std::endl;
 
-    assert(issame({0, 2, 3, 5, 9, 123}, std::vector<int>(unique(input).first, unique(input).second)));
+    assert(issame({0, 2, 3, 5, 9, 123}, std::vector<int>(std::unique(input.begin(), input.end()), input.end())));
 }

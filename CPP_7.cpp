@@ -5,16 +5,18 @@ std::vector<std::vector<std::string>> filter_by_substring(const std::vector<std:
     std::vector<std::vector<std::string>> result;
     for (const auto& vec : input) {
         bool found = false;
+        std::vector<std::string> temp;
         for (const auto& str : vec) {
             if (str.find(sub) != std::string::npos) {
                 found = true;
-                result.push_back({{sub}});
+                temp.push_back(str);
                 break;
             }
         }
         if (!found) {
-            result.push_back({});
+            temp.clear();
         }
+        result.push_back(temp);
     }
     return result;
 }
@@ -25,7 +27,7 @@ int main() {
     
     auto output = filter_by_substring(input, sub);
     
-    if (!(output == std::vector<std::vector<std::string>>{{{"run"}} ,{{}} ,{{"prune"}} ,{{}} }))
+    if (!(output == std::vector<std::vector<std::string>> {{{"run"}} ,{{}} ,{{"prune"}} ,{{}} }))
         return 1;
     
     input = {{"apple", "banana"}, {"orange", "grape"}, {"kiwi", "mango"}};
