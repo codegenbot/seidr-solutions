@@ -5,7 +5,7 @@ vector<int> strange_sort_list(vector<int> lst) {
     if (lst.empty()) return result;
 
     vector<int> min_max(lst);
-    sort(min_max.begin(), min_max.end());
+    std::sort(min_max.begin(), min_max.end());
 
     while (!min_max.empty()) {
         result.push_back(*min_max.begin());
