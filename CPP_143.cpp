@@ -1,38 +1,26 @@
-string result = "";
-    int prime[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37};
-    string word = "";
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
-            if (word.length() > 0) {
-                int len = word.length();
-                bool is_prime = false;
-                for (int j = 0; j < sizeof(prime)/sizeof(prime[0]); j++) {
-                    if (len == prime[j]) {
-                        is_prime = true;
-                        break;
-                    }
-                }
-                if (is_prime) {
-                    result += word + " ";
-                }
-                word = "";
-            }
-        } else {
-            word += sentence[i];
+string words_in_sentence(string sentence){
+    string result = "";
+    int n = sentence.length();
+    for(int i=0; i<n;){
+        int j = i;
+        while(j<n && sentence[j] != ' '){
+            j++;
         }
-    }
-    if (word.length() > 0) {
-        int len = word.length();
-        bool is_prime = false;
-        for (int j = 0; j < sizeof(prime)/sizeof(prime[0]); j++) {
-            if (len == prime[j]) {
-                is_prime = true;
+        int word_len = j - i;
+        bool is_prime = true;
+        for(int k=2; k*k<=word_len; k++){
+            if(word_len % k == 0){
+                is_prime = false;
                 break;
             }
         }
-        if (is_prime) {
-            result += word;
+        if(is_prime && word_len > 1){
+            result += sentence.substr(i, word_len) + " ";
         }
+        i = j + 1;
+    }
+    if(result.length() > 0){
+        result.pop_back(); //remove the extra space at the end
     }
     return result;
 }
