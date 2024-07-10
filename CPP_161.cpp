@@ -5,8 +5,8 @@
 int solve(std::string s) {
     int count = 0;
     for (char c : s) {
-        c = tolower(c); 
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+        if (std::tolower(c) == 'a' || std::tolower(c) == 'e' || 
+            std::tolower(c) == 'i' || std::tolower(c) == 'o' || std::tolower(c) == 'u') {
             count++;
         }
     }
