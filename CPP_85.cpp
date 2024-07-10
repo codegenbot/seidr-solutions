@@ -1,5 +1,5 @@
 #include <vector>
-#include <initializer_list> 
+#include <initializer_list>
 using namespace std;
 
 int add(vector<int> lst){
