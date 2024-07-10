@@ -1,21 +1,25 @@
-```
-def bowling_score(game):
-    score = 0
+def bowling(score):
+    total = 0
     frame = 1
-    while frame <= len(game):
-        if game[frame*2-1:frame*2+2] in ['X', 'XX']:
-            score += 10 + (10 - int(game[frame*2-1])) * 10
-            frame += 1
-        elif game[frames*2-1:frames*2] == 'X':
-            score += 10
+    while frame <= 10:
+        if score[0] == "X":
+            total += 30
+            score = score[1:]
+        elif score[0] in ["/", "-"]:
+            first_roll = int(score[: score.find("/")])
+            second_roll = int(
+                score[score.find("/") + 1 : score.find("-") or len(score)]
+            )
+            total += first_roll + second_roll
+            score = score[score.find("-") + 1 :].strip("/")
             frame += 1
         else:
-            bonus = sum(int(i) for i in game[frame*2-1:frame*2+2])
-            if bonus < 10:
-                score += 1 * int(game[frame*2-1])
-                score += 1 * int(game[frame*2]) if frame != len(game) else 0
-            elif bonus == 10:
-                score += 10
-                frame += 1
-        frames += 1
-    return score
+            first_roll = int(score[0])
+            if score[1] == "/":
+                second_roll = 10 - first_roll
+            else:
+                second_roll = int(score[1])
+            total += first_roll + second_roll
+            score = score[2:].strip("/")
+            frame += 1
+    return total
