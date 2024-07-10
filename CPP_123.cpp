@@ -17,5 +17,5 @@ while (n != 1) {
     }
 }
 result.push_back(1);
-sort(result.begin(), result.end());
+sort(result.begin(), result.end(), issame);
 return result;
