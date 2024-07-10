@@ -1,13 +1,12 @@
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+#include <vector>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
 }
 
-vector<int> strange_sort_list(vector<int> lst){
-    vector<int> result;
+std::vector<int> strange_sort_list(std::vector<int> lst){
+    std::vector<int> result;
     sort(lst.begin(), lst.end());
     int i = 0, j = lst.size() - 1;
     while (i <= j) {
