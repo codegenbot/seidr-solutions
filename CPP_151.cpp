@@ -1,8 +1,3 @@
-```cpp
-#include <vector>
-#include <cmath>
-#include <initializer_list>
-
 long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
@@ -13,10 +8,4 @@ long long double_the_difference(std::vector<float> lst) {
         }
     }
     return sum;
-}
-
-int main() {
-    std::vector<float> lst = {1.0f, 2.0f, 3.0f, 4.0f};
-    int result = calculate_odd_sum();
-    return result;
 }
