@@ -1,3 +1,5 @@
+```
+import math
 def find_zero(xs: list):
     if len(xs) % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
@@ -6,5 +8,3 @@ def find_zero(xs: list):
     c = sum([coeff for i, coeff in enumerate(xs) if i % 2 == 0])
     d = math.sqrt(b**2 - 4 * a * c)
     return (-b + d) / (2 * a)
-
-import math
