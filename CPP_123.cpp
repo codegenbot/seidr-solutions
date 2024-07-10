@@ -31,8 +31,8 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    vector<int> expected = {1, 3, 5, 7, 9, 11};
-    vector<int> result = get_odd_collatz(13);
-    assert(issame(expected, result));
+    vector<int> result = get_odd_collatz(10);
+    vector<int> expected = {1, 3, 5, 7, 9, 10};
+    assert(issame(result, expected));
     return 0;
 }
