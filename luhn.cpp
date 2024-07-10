@@ -1,5 +1,5 @@
-```
 #include <vector>
+#include <cmath>
 
 int luhn(std::vector<int> card) {
     int sum = 0;
@@ -15,7 +15,6 @@ int luhn(std::vector<int> card) {
     }
 
     return sum;
-
 }
 
-int main() { return luhn({4,7,8,0,0,5,3,9,6,7,1,1,7,2,8,3}); }
+int main() { return luhn({4,5,3,9,2,6,5,3,8,7,1,6,0,2,0,0}); }
