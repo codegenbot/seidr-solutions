@@ -19,25 +19,24 @@ int main() {
     int n1, n2;
     std::cout << "Enter the size of first vector: ";
     std::cin >> n1;
-    
-    std::cout << "Enter element 1 to " << n1 << ": " << std::endl; // let user know how many elements are expected
-
-    std::vector<int> a(n1); 
-
+    if(n1 > std::vector<int>::max_size()) {
+        std::cerr << "Error: Size too large." << std::endl;
+        return 1; 
+    }
+    std::vector<int> a;
     for(int i = 0; i < n1; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         int temp; 
         std::cin >> temp;
         a.push_back(temp);
     }
-    
     std::cout << "Enter the size of second vector: ";
     std::cin >> n2;
-
-    std::cout << "Enter element 1 to " << n2 << ": " << std::endl; // let user know how many elements are expected
-
-    std::vector<int> b(n2);
-    
+    if(n2 > std::vector<int>::max_size()) {
+        std::cerr << "Error: Size too large." << std::endl;
+        return 1; 
+    }
+    std::vector<int> b;
     for(int i = 0; i < n2; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         int temp; 
