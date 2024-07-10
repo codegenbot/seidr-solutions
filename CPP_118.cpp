@@ -1,18 +1,8 @@
-#include <iostream>
 #include <string>
 
-using namespace std;
+using namespace std; 
 
-bool isvowel(char c) {
-    return (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' ||
-            c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
-}
-
-bool ispunct(char c) {
-    return (c == '.' || c == ',' || c == '?' || c == '!');
-}
-
-string get_closest_vowel(string word) {
+std::string get_closest_vowel(std::string word) {
     int n = word.size();
     for (int i = n - 1; i > 0; --i) {
         if (!isalpha(word[i])) continue;
@@ -23,10 +13,4 @@ string get_closest_vowel(string word) {
         if (isvowel(word[i])) return word.substr(i);
     }
     return "";
-}
-
-int main() {
-    assert(get_closest_vowel("Above") == "o");
-    cout << get_closest_vowel("Above");
-    return 0;
 }

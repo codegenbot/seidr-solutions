@@ -2,7 +2,7 @@
 #include <string>
 #include <algorithm>
 
-int is_bored(std::string S){
+int is_bored(const std::string& S){
     int count = 0;
     std::string boredom = "I";
     size_t pos = 0;
@@ -14,13 +14,13 @@ int is_bored(std::string S){
         pos = S.find(" ", pos);
     }
     return count;
+
 }
 
 int main() {
     std::cout << "Enter a string: ";
     std::string input;
     std::getline(std::cin, input);
-    input = std::string(input); // Convert to basic_string<char>
     int result = is_bored(input);
     std::cout << "Count of 'I' at the beginning: " << result << std::endl;
     return 0;
