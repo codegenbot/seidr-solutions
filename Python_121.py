@@ -1,4 +1,3 @@
-```
 def find_odd_sum(lst):
     odd_sum = 0
     for num in lst:
