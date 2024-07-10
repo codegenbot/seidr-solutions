@@ -1,4 +1,3 @@
-```
 import re
 
 
@@ -39,7 +38,7 @@ def filter_integers() -> None:
 
             print(f"The integers from the input are: {user_values}")
             if len(user_values) == 1:
-                print("Average Value is Not Applicable")
+                print(f"Average Value is Not Applicable")
             else:
                 print(f"Average Value: {avg_value:.2f}")
             print(f"Minimum Value: {min_value}")
