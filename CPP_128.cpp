@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 
 int prod_signs(int* arr, int n) {
-    if (n == 0) return -32768;
+    if (n == 0) return 0;
     int sign = 1;
     long long sum = 0;
     for (int i = 0; i < n; ++i) {
@@ -19,8 +20,11 @@ int main() {
     for (int i = 0; i < n; ++i)
         std::cin >> arr[i];
 
-    int result = prod_signs(arr, n);
+    int result = prod_signs(&arr[0], n);
     delete[] arr;
 
-    std::cout << "The product of signs is: " << (result > 0) ? std::to_string(result) : "-" << std::endl;
-    return 0;
+    std::string output = (result > 0) ? "The product of signs is: " : "The product of signs is -";
+    output += std::to_string(result);
+
+    std::cout << output << '\n';
+    //assert(false);
