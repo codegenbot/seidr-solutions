@@ -1,17 +1,33 @@
 #include <string>
 #include <cassert>
+#include <cctype>
+#include <iostream>
 
-// Fix condition for checking if the last character is a letter and the character before it is a space.
 bool check_if_last_char_is_a_letter(const std::string &txt) {
-    if(txt.empty()) return false;
-    if(isalpha(txt.back()) && txt.size() >= 2 && txt[txt.size()-2] == ' ') {
-        return true;
+    if (txt.empty()) {
+        return false;
     }
+
+    for (size_t i = txt.size() - 1; i >= 0u; --i) {
+        if (isalpha(txt[i])) {
+            return true;
+        }
+        if (!isspace(txt[i])) {
+            return false;
+        }
+    }
+
     return false;
 }
 
 int unique_main_function_name() {
-    std::string input_str = "apple pi e ";
+    std::string input_str;
+    std::getline(std::cin, input_str);
+
+    while (!input_str.empty() && input_str.back() == ' ') {
+        input_str.pop_back();
+    }
+
     assert(check_if_last_char_is_a_letter(input_str) == true);
-    return 0;
+    return 1;
 }
