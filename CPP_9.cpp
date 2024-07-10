@@ -11,7 +11,7 @@ std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> result;
     int n = numbers.size();
     for (int i = 0; i < n; ++i) {
-        int max_val = numbers[i];
+        int max_val = std::max(numbers[i], (i == 0) ? numbers[i] : result[i - 1]);
         for (int j = i + 1; j < n; ++j) {
             max_val = std::max(max_val, numbers[j]);
         }
