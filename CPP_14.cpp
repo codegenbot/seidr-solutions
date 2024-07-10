@@ -1,14 +1,9 @@
 using namespace std;
 
-#include <initializer_list>
-#include <vector>
-#include <string>
-#include <iostream>
-
-bool issame(vector<string> a, vector<string> secondVector) {
-    if (a.size() != secondVector.size()) return false;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != secondVector[i]) return false;
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
@@ -19,4 +14,3 @@ vector<string> all_prefixes(const string& s) {
         result.push_back(s.substr(0, i));
     }
     return result;
-}
