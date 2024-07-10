@@ -7,17 +7,15 @@ for (char ch : s) {
             break;
         }
     }
-
+    
     if (!found) {
         result.push_back(string(1, ch));
     }
 }
-
 string resStr = "";
 for (int i = 0; i < result.size(); i++) {
     resStr += result[i];
 }
-
 bool isPalindrome = true;
 int start = 0, end = resStr.length() - 1;
 while (start < end) {
@@ -28,6 +26,5 @@ while (start < end) {
     start++;
     end--;
 }
-
 result.push_back(isPalindrome ? "True" : "False");
 return result;
