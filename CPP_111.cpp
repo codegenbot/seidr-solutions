@@ -4,8 +4,6 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
 bool issame(std::map<char, int> a, std::map<char, int> b) {
     return a == b;
 }
