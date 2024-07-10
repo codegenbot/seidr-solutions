@@ -18,8 +18,8 @@ vector<int> leaders(vector<int>& arr) {
 
     for(int i=n-2; i>=0; i--){
         if(arr[i] >= maxRight){
-            res.push_back(arr[i]);
             maxRight = arr[i];
+            res.push_back(maxRight);
         }
     }
     
