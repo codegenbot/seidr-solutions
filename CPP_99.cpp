@@ -1,9 +1,4 @@
-Here is the solution:
-
-#include <string>
 #include <cmath>
-
-using namespace std;
 
 int closest_integer(string value) {
     double num = stod(value);
