@@ -14,22 +14,16 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 
 std::vector<std::string> select_words(std::string input, int k) {
     std::istringstream iss(input);
-    std::getline(iss, input); // remove leading and trailing whitespace
     std::vector<std::string> words;
 
-    std::string word;
-    while (std::getline(iss, word)) { 
-        words.push_back(word);
+    for (std::string s; std::getline(iss, s, ' '); ++k) {
+        if (k > 1) break;
+        words.push_back(s);
     }
 
     std::sort(words.begin(), words.end());
 
-    std::vector<std::string> result;
-    for (int i = 0; i < k && i < words.size(); ++i) {
-        result.push_back(words[i]);
-    }
-
-    return result;
+    return words;
 }
 
 std::string Join(const std::vector<std::string>& vec, char delimiter) {
