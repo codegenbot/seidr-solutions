@@ -3,11 +3,11 @@
 #include <vector>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<int> filter_integer(std::vector<int> values) {
-    std::vector<int> result;
+    std::vector<int> result; // Initialize here
     for (int value : values) {
         if(value != 0) {
             if(result.empty()) {
