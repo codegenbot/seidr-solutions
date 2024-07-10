@@ -1,4 +1,4 @@
-```'
+```
 if __name__ == '__main__':
     while True:
         s = input("Enter a string to shift (or 'q' to quit): ")
@@ -16,4 +16,3 @@ if __name__ == '__main__':
                 ascii_offset = 65 if char.isupper() else 97
                 result += chr((ord(char) - ascii_offset + n) % 26 + ascii_offset)
         print(result)
-'```
