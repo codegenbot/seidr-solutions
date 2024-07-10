@@ -5,8 +5,6 @@ using namespace std;
 
 vector<int> intersperse(vector<int> numbers, int delimeter);
 
-bool issame(vector<int> a, vector<int> b);
-
 vector<int> intersperse(vector<int> numbers, int delimeter){
     vector<int> result;
     for(int i=0; i<numbers.size(); i++){
@@ -18,11 +16,13 @@ vector<int> intersperse(vector<int> numbers, int delimeter){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a,vector<int>b);
+
+bool issame(vector<int> a,vector<int>b){
     return a == b;
 }
 
-int main(){
-    // Your main function code here
+int main() {
+    // Main function implementation here
     return 0;
 }
