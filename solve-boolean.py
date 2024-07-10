@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     def evaluate(expression):
         if '&&' in expression or '||' in expression:
