@@ -1,4 +1,3 @@
-```
 def is_prime(n):
     if n < 2:
         return False
@@ -7,8 +6,10 @@ def is_prime(n):
             return False
     return True
 
+
 def modp(num, p):
     return pow(num, p, p)
+
 
 def main():
     while True:
