@@ -1,21 +1,21 @@
-\#include <iostream>
+#include <iostream>
 
 int main() {
     int n, m;
     std::cin >> n >> m;
     
-    double probability = 0.0;
+    double total_outcomes = n * m;
+    double valid_outcomes = 0.0;
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
             if (i > j) {
-                probability += 1.0;
-            } else if (i == j) {
-                probability -= 1.0;
+                valid_outcomes += 1.0;
             }
         }
     }
-    probability /= (n * m);
-
+    
+    double probability = valid_outcomes / total_outcomes;
+    
     std::cout << probability << std::endl;
     
     return 0;
