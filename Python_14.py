@@ -5,5 +5,5 @@ def all_prefixes(input_string: str) -> list:
     return [input_string[:i] for i in range(1, len(input_string) + 1)]
 
 if __name__ == "__main__":
-    user_input = "your_input_string"
-    print(all_prefixes(user_input))
+    result = all_prefixes(input("Enter a string: "))
+    print(result)
