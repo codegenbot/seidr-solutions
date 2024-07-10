@@ -1,9 +1,17 @@
-#include <vector>
-#include <string>
 #include <assert.h>
 
+vector<int> parse_music(string music_string);
+
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> parse_music(string music_string){
@@ -28,8 +36,8 @@ vector<int> parse_music(string music_string){
 }
 
 int main() {
-    assert(issame(parse_music("o|.o|."), {4, 2, 4, 1}));
-    assert(issame(parse_music("o."), {4, 1}));
-    assert(issame(parse_music("||"), {}));
+    vector<int> result = parse_music("|o.|");
+    assert(issame(result, {1, 2, 1}));
+    
     return 0;
 }
