@@ -1,3 +1,4 @@
+{
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -23,7 +24,7 @@ double poly(vector<double> coeffs, double x) {
     return result;
 }
 
-int main(){
+{
     vector<double> coeffs = {1.0, -7.0, 12.0, -6.0};
     double solution = find_zero(coeffs);
     if (abs(poly(coeffs, solution)) > 1e-3) {
@@ -31,4 +32,4 @@ int main(){
     } else {
         cout << "The zero of the polynomial is: " << solution << endl;
     }
-    return 0;
+}
