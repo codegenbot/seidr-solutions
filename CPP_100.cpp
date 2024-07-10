@@ -6,6 +6,20 @@ bool issame(vector<int> a, vector<int> b){
 
 vector<int> make_a_pile(int n);
 
+int main() {
+    int n;
+    cin >> n;
+    vector<int> stones = make_a_pile(n);
+    vector<int> b;
+    cin >> b;
+    if(issame(stones, b)){
+        cout << "Same";
+    } else {
+        cout << "Not Same";
+    }
+    return 0;
+}
+
 vector<int> make_a_pile(int n){
     vector<int> stones;
     stones.push_back(n);
