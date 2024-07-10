@@ -1,12 +1,22 @@
-vector<int> unique_numbers;
-unordered_map<int, int> freq;
-for (int num : numbers) {
-    freq[num]++;
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-for (auto it : freq) {
-    if (it.second == 1) {
-        unique_numbers.push_back(it.first);
-    }
+void remove_duplicates(vector<int>& numbers) {
+    sort(numbers.begin(), numbers.end());
+    numbers.erase(unique(numbers.begin(), numbers.end(), issame), numbers.end());
 }
-return unique_numbers;
+
+int main() {
+    vector<int> numbers = {1, 2, 3, 2, 4, 1, 5};
+    remove_duplicates(numbers);
+    return numbers;
+}
