@@ -3,16 +3,14 @@ def solution(lst):
 
 
 def main():
-    n = 1
+    n = int(input("Enter the number of integers: "))
     while True:
         try:
             inputs = input(f"Enter {n} numbers separated by space: ")
             inputs_list = list(map(int, inputs.split()))
             if len(inputs_list) != n:
                 print(
-                    "Invalid input. Please enter {} valid integers separated by space.".format(
-                        n
-                    )
+                    f"Invalid input. Please enter {n} valid integers separated by space."
                 )
                 continue
             break
@@ -20,7 +18,3 @@ def main():
             print("Invalid input. Please enter valid integers separated by space.")
 
     print(solution(inputs_list))
-
-
-if __name__ == "__main__":
-    main()
