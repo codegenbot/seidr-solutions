@@ -16,10 +16,9 @@ int luhn(vector<int>& digits) {
         doubleNext = !doubleNext;
     }
     return sum;
-}
 
 int main() {
-    vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 3, 8, 7, 1, 0, 2, 8, 8, 4};
+    vector<int> digits = {4,3,2,8,7,9,6,0,1,5};
     int result = luhn(digits);
     cout << "Result: " << result << endl;
     return 0;
