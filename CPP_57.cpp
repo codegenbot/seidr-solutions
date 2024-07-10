@@ -1,10 +1,10 @@
-#include <vector>
+#include <vector> 
 
-bool monotonic(const std::vector<float>& l){
+bool monotonic(const std::vector<float>& l){  
     bool increasing = true;
     bool decreasing = true;
     
-    for(size_t i = 1; i < l.size(); i++){
+    for(size_t i = 1; i < l.size(); i++){  
         if(l[i] < l[i-1]){
             increasing = false;
         }
