@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -37,7 +36,7 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
 
-    vector<int> result; 
+    vector<int> result;
     result = even_odd_palindrome(n);
 
     cout << "Number of even palindromes: " << result[0] << endl;
