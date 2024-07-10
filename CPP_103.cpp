@@ -25,11 +25,4 @@ string average_binary(int n, int m) {
     return binary_avg;
 }
 
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << average_binary(n, m) << endl;
-    return 0;
-}
-
-assert(average_binary(2, 5) == "101");
+assert(average_binary(5, 5) == "101");
