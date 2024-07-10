@@ -1,3 +1,4 @@
+```
 def paired_digits(digits):
     total = 0
     for i in range(len(digits) - 1):
@@ -5,3 +6,4 @@ def paired_digits(digits):
             total += int(digits[i])
         if digits[i] == digits[i + 2]: 
             total += int(digits[i])    
+    return total
