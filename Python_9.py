@@ -1,6 +1,7 @@
-from typing import List, Union
+```
+from typing import List
 
-def rolling_max(numbers: List[Union[int]]) -> List[int]:
+def rolling_max(numbers: List[int]) -> List[int]:
     result = []
     max_num = numbers[0]
     for num in numbers:
