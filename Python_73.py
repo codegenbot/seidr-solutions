@@ -1,11 +1,16 @@
 ```
 def smallest_change():
-    arr = list(map(int, input().split()))
-    while len(str(arr).replace(" ", "")) != str(len(set(map(str,arr))))*1:
+    arr = input().split()
+    n = len(arr)
+    
+    for i in range(n):
+        arr[i] = int(arr[i])
+        
+    while len(str(arr)) - str(arr).count(' ') != n:
         arr = list(map(int, input().split()))
-
+    
     arr.sort()
-    left, right = 0, len(arr) - 1
+    left, right = 0, n - 1
     changes = 0
 
     while left < right:
