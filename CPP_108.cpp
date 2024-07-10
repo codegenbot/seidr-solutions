@@ -1,4 +1,3 @@
-#include <vector>
 #include <cmath>
 
 int count_nums(std::vector<int> nums) {
@@ -43,4 +42,3 @@ int count_nums(std::vector<int> nums) {
         }
     }
     return count;
-}
