@@ -1,18 +1,24 @@
 #include <vector>
-#include <assert>
+using namespace std;
 
-vector<vector<float>> get_positive(vector<vector<float>> l){
-    vector<vector<float>> result;
-    for (auto &i : l) {
-        vector<float> temp;
-        for (float j : i) {
-            if (j > 0) {
-                temp.push_back(j);
-            }
-        }
-        if (!temp.empty()) {
-            result.push_back(temp);
+bool isSame(vector<float> a, vector<float> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(abs(a[i]) - abs(b[i]) > 1e-9) return false;
+    }
+    return true;
+}
+
+vector<float> get_positive(vector<float> l){
+    vector<float> result;
+    for (float i : l) {
+        if (i > 0) {
+            result.push_back(i);
         }
     }
     return result;
+}
+
+int main() {
+    assert(isSame(get_positive({}), {})); 
 }
