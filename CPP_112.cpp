@@ -5,7 +5,7 @@
 
 using namespace std;
 
-std::string reverse_delete(std::string s, std::string c) {
+std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::string result = "";
     for (char ch : s) {
         if (c.find(ch) == std::string::npos) {
@@ -14,12 +14,12 @@ std::string reverse_delete(std::string s, std::string c) {
     }
     std::string reversed = result;
     std::reverse(reversed.begin(), reversed.end());
-    return result == reversed ? "True" : "False";
+    return {result, result == reversed ? "True" : "False"};
 }
 
 int main() {
-    std::string result = reverse_delete("mamma", "mia");
-    std::string expected = "True";
+    std::vector<std::string> result = reverse_delete("mamma", "mia");
+    std::vector<std::string> expected = {"", "True"};
 
     std::cout << "Test Result: " << (result == expected ? "Pass" : "Fail") << std::endl;
     
