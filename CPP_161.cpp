@@ -1,4 +1,3 @@
-```cpp
 #include <cassert>
 #include <string>
 #include <vector>
@@ -20,6 +19,6 @@ int solve(std::string s) {
 
 int main() {
     assert(solve("aAeEiIoUu") == 6);
-    std::cout << solve("#ccc").size() << std::endl;
+    std::cout << solve("aAeEiIoUu") << std::endl;
     return 0;
 }
