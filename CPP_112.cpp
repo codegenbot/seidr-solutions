@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -5,30 +6,30 @@
 #include <cassert>
 using namespace std;
 
-bool issame(const string& a, const string& b) {
-    if(a.size() != b.size())
+bool issame(string a, string b) {
+    if(a.length() != b.length())
         return false;
-    for(int i = 0; i < a.size(); i++) {
+    for(int i = 0; i < a.length(); i++) {
         if(a[i] != b[i])
             return false;
     }
     return true;
 }
 
-string to_string(const char c) {
+string to_string(char c) {
     ostringstream oss;
     oss << c;
     return oss.str();
 }
-string to_string(const int i) {
+string to_string(int i) {
     ostringstream oss;
     oss << i;
     return oss.str();
 }
 
-string reverse_delete(const string& s1, const string& s2) {
-    int len1 = s1.size();
-    int len2 = s2.size();
+string reverse_delete(string s1, string s2) {
+    int len1 = s1.length();
+    int len2 = s2.length();
     for(int i = 0; i < len2; i++) {
         auto pos = s1.find(s2[i]);
         if(pos != std::string::npos) {
