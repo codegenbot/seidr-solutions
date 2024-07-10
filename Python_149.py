@@ -45,3 +45,6 @@ if __name__ == "__main__":
                             print("Invalid input. Please enter a number or 'q'.")
                     except ValueError:
                         print("Invalid input. Please enter a number or 'q'.")
+        }
+    ) 
+    if __name__ == "__main__":
