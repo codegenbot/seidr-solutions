@@ -1,4 +1,4 @@
-pair<int, int> largest_smallest_integers(vector<int> lst) {
+int largestNegInt(int maxNeg = 0, int minPos = INT_MAX), int smallestPosInt) {
     int maxNeg = 0;
     int minPos = INT_MAX;
 
@@ -11,5 +11,5 @@ pair<int, int> largest_smallest_integers(vector<int> lst) {
         }
     }
 
-    return {(maxNeg >= 0 ? 0 : maxNeg), (minPos <= 0 ? 0 : minPos)};
+    return {maxNeg >= 0 ? 0 : maxNeg, minPos <= 0 ? 0 : minPos};
 }
