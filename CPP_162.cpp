@@ -1,5 +1,6 @@
+#include <iostream>
+#include <string>
 #include <openssl/md5.h>
-#include <openssl/ssl.h>
 
 std::string myString_to_md5(const char *text) {
     unsigned char result[16];
@@ -14,3 +15,11 @@ std::string myString_to_md5(const char *text) {
         output += temp;
     }
     return output;
+
+int main() {
+    const char* text;
+    std::cout << "Enter a string: ";
+    std::cin >> text;
+    std::cout << myString_to_md5(text) << std::endl;
+    return 0;
+}

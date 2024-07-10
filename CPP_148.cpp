@@ -9,7 +9,7 @@ bool issame(vector<string> a) {
         return false;
     }
     string str = tolower(a[0]);
-    for (int i = 1; i < num; i++) {
+    for (int i = 1; i < a.size(); i++) {
         string temp;
         cin >> temp;
         if (tolower(temp) != str) {
@@ -19,7 +19,7 @@ bool issame(vector<string> a) {
     return true;
 }
 
-int original_main() {
+int main() {
     int num;
     cin >> num;
     vector<string> strings;
