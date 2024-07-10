@@ -1,37 +1,30 @@
-```cpp
+#include <vector>
 #include <iostream>
 #include <string>
+#include <sstream>
 
-std::string camelCase(std::string str) {
-    std::vector<std::string> words;
-    size_t start = 0;
-    for (size_t i = 0; i <= str.size(); ++i) {
-        if (i == str.size() || str[i] == ' ') {
-            words.push_back(str.substr(start, i - start));
-            start = i + 1;
-        }
+std::string camelCase(std::string s) {
+    std::stringstream ss(s);
+    std::string token;
+    std::string result = "";
+    bool firstWord = true;
+
+    while (std::getline(ss, token, '-')) {
+        if (!firstWord)
+            result += char(toupper(token[0]));
+        else
+            result += token;
+        result += token.substr(1) + " ";
+        firstWord = false;
     }
 
-    std::string result;
-    for (size_t i = 0; i < words.size(); ++i) {
-        if (!result.empty()) {
-            result += (char)toupper(words[i][0]);
-            for (size_t j = 1; j < words[i].size(); ++j) {
-                result += tolower(words[i][j]);
-            }
-        } else {
-            for (size_t j = 0; j < words[i].size(); ++j) {
-                result += tolower(words[i][j]);
-            }
-        }
-    }
-
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << std::endl;
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << camelCase(s) << std::endl;
     }
     return 0;
+}
