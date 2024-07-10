@@ -1,26 +1,34 @@
 #include <string>
-#include <cmath>
+
+using namespace std;
+
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
 
 string words_in_sentence(string sentence){
     string result = "";
-    for (int i = 0; i < sentence.size(); i++) {
-        if (sentence[i] != ' ') {
-            int len = 1;
-            while(i+1 < sentence.size() && sentence[i+1] != ' ') {
-                i++;
-                len++;
+    int count = 0;
+    for(int i=1; i<=100; i++){
+        if(isPrime(i)){
+            int pos = 0;
+            while((pos = sentence.find(" ")) != -1 && isPrime(strlen(sentence.substr(0, pos).c_str()))){
+                result += sentence.substr(0, pos) + " ";
+                sentence.erase(0, pos+1);
             }
-            string word = sentence.substr(i-len+1, len);
-            bool is_prime = true;
-            for(int j = 2; j <= sqrt(len); j++) {
-                if(len % j == 0) {
-                    is_prime = false;
-                    break;
-                }
+            if(!sentence.empty()){
+                result += sentence + " ";
             }
-            if(is_prime)
-                result += word + " ";
         }
     }
-    return result.substr(0, result.size()-1);
+    return result;
+}
+
+int main() {
+    assert (words_in_sentence("here is") == "is");
+    return 0;
 }
