@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <cmath>
 
@@ -11,4 +10,3 @@ int calculateFuelCost(std::vector<int>& vec) {
         sum += result;
     }
     return sum;
-}
