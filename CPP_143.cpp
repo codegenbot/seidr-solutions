@@ -1,3 +1,7 @@
+```c
+#include <string>
+using namespace std;
+
 string words_in_sentence(string sentence) {
     vector<string> words = split(sentence, ' ');
     string result;
