@@ -2,6 +2,7 @@
 
 int hex_key(string num) {
     if (num.empty()) {
+        cout << "Error: Input string is empty." << endl;
         return -1;
     }
     int count = 0;
