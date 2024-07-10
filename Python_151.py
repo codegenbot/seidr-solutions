@@ -1,3 +1,4 @@
+```python
 def double_the_difference(lst):
     sum_of_squares = sum(i ** 2 for i in lst)
     twice_sum = 2 * sum(lst)
