@@ -8,6 +8,10 @@ int fib(int n) {
         return memo[n];
     }
 
+    if (n <= 1) {
+        return n;
+    }
+
     int result = fib(n - 1) + fib(n - 2);
     memo[n] = result;
 
