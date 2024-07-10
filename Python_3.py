@@ -5,7 +5,6 @@ def below_zero(operations):
             count += 1
     return count
 
-import sys
-operations = list(map(int, sys.argv[1:]))
+operations = list(map(int, input().split()))
 result = below_zero(operations)
 print(result)
