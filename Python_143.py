@@ -1,15 +1,8 @@
-```
-def words_in_sentence(sentence):
-    prime_words = []
-    for word in sentence.split():
-        if is_prime(len(word)):
-            prime_words.append(word)
-    return ' '.join(prime_words)
-
-def is_prime(n):
-    if n < 2:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
+def find_characters(input_string):
+    char_count = {}
+    for char in input_string:
+        if char in char_count:
+            char_count[char] += 1
+        else:
+            char_count[char] = 1
+    return char_count
