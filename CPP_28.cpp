@@ -1,6 +1,8 @@
+Here is the completed code:
+
 string concatenate(vector<string> strings){
     string result = "";
-    for (const auto& s : strings) {
+    for(auto s : strings) {
         result += s;
     }
     return result;
