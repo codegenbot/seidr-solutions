@@ -15,9 +15,9 @@ std::string decimal_to_binary(int decimal){
 }
 
 int main() {
-    int n;
+    int decimal;
     std::cout << "Enter a decimal number: ";
-    std::cin >> n;
-    std::cout << "Binary representation of the number is: " << decimal_to_binary(n) << std::endl;
+    std::cin >> decimal;
+    std::cout << "Binary representation: " << decimal_to_binary(decimal) << std::endl;
     return 0;
 }
