@@ -20,6 +20,10 @@ int main() {
     std::cout << "Enter a string: ";
     getline(std::cin, input); 
     int result = is_bored(input);
-    std::cout << "Count of 'I' at the beginning: " << result << std::endl;
+    if(result == 0) {
+        std::cout << "No 'I' at the beginning." << std::endl;
+    } else {
+        std::cout << "Count of 'I' at the beginning: " << result << std::endl;
+    }
     return 0;
 }
