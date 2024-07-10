@@ -8,7 +8,7 @@ def modp(n: int, p: int):
         result = pow(n, p-1, p)
         if result == 1 and is_prime(p):
             return n % p
-        for _ in range(2, p):
+        for i in range(2, p):
             result = (result * n) % p
         return result
 
