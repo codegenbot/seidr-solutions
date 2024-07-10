@@ -1,7 +1,7 @@
 vector<string> result;
     string current_group;
     int balance = 0;
-
+    
     for (char c : paren_string) {
         if (c == '(') {
             if (balance > 0) {
