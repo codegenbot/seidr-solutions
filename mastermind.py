@@ -1,13 +1,11 @@
-def mastermind(code, guess):
-    white = 0
+def get_pegs(code, guess):
     black = 0
-    code_set = set(code)
-    guess_set = set(guess)
+    white = 0
 
     for i in range(4):
         if code[i] == guess[i]:
             black += 1
-        elif code[i] in guess_set:
+        elif str(code[i]) in str(guess):
             white += 1
 
     return str(black) + "\n" + str(white)
