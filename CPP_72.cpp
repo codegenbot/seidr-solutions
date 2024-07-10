@@ -15,6 +15,6 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    assert (will_it_fly({5}, 5) == true);
+    assert(will_it_fly({5}, 5) == true);
     return 0;
 }
