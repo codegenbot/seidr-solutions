@@ -1,5 +1,5 @@
-```
-def parse_nested_parens(paren_string: str) -> list:
+```python
+def parse_nested_parentheses(paren_string: str) -> list:
     if not paren_string:
         return []
 
@@ -8,7 +8,7 @@ def parse_nested_parens(paren_string: str) -> list:
     stack = []
     in_group = False
     
-    for char in paren_string:
+    """for char in paren_string:
         if char == '(':
             stack.append(char)
             temp_group += '('
@@ -33,4 +33,4 @@ def parse_nested_parens(paren_string: str) -> list:
 
     groups.append(int(temp_group)) if temp_group.isdigit() else []
     
-    return [] if len(groups) <= 1 else groups
+    return [] if len(groups) <= 1 else groups"""
