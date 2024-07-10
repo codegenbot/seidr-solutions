@@ -1,5 +1,3 @@
-Here is the completed code:
-
 vector<int> next_smallest(vector<int> lst) {
     if (lst.size() < 2) return vector<int>();
     sort(lst.begin(), lst.end());
@@ -9,3 +7,4 @@ vector<int> next_smallest(vector<int> lst) {
         }
     }
     return vector<int>();
+}
