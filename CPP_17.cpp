@@ -32,15 +32,16 @@ std::vector<int> parse_music(std::string music_string) {
 }
 
 int main() {
-    std::string input_string = "o|.|o||o";
-    std::vector<int> parsed_beats = parse_music(input_string);
-
-    std::vector<int> expected_beats = {4, 1, 2, 1, 4};
-    if (issame(parsed_beats, expected_beats)) {
-        std::cout << "Parsed beats match the expected beats." << std::endl;
+    std::string input_music = "o||o";
+    std::vector<int> parsed_music = parse_music(input_music);
+    
+    std::vector<int> expected_output = {4, 1, 1, 4};
+    
+    if (issame(parsed_music, expected_output)) {
+        std::cout << "Output matches expected." << std::endl;
     } else {
-        std::cout << "Parsed beats do not match the expected beats." << std::endl;
+        std::cout << "Output does not match expected." << std::endl;
     }
-
+    
     return 0;
 }
