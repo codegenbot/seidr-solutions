@@ -23,8 +23,7 @@ int luhn(vector<int> digits) {
 }
 
 int main() {
-    vector<int> digits = {4, 7, 8, 3, 1, 6, 4, 5, 9, 2, 8, 0, 8, 6, 7, 1};
-    int result = luhn(digits);
-    cout << "Result: " << result << endl;
+    vector<int> digits = {4, 5, 3, 9, 2, 6, 5, 1, 7, 8, 1, 6, 5, 9, 8, 4};
+    cout << luhn(digits) << endl;
     return 0;
 }
