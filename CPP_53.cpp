@@ -6,8 +6,6 @@ int add(int x, int y) {
     return x + y;
 }
 
-int main();
-
 int main() {
     int num1, num2;
     std::cin >> num1 >> num2;
