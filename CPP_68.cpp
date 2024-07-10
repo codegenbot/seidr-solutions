@@ -1,7 +1,10 @@
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
-vector<pair<int,int>> pluck(vector<int> arr) {
-    vector<pair<int,int>> result;
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
     if (arr.empty()) return result;
 
     int smallestEven = INT_MAX;
@@ -13,7 +16,8 @@ vector<pair<int,int>> pluck(vector<int> arr) {
         }
     }
 
-    result.push_back({smallestEven, index});
+    result.push_back(smallestEven);
+    result.push_back(index);
 
     return result;
 }
