@@ -9,8 +9,8 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
     for(auto extension : extensions){
         int cap = 0, sm = 0;
         for(int i = 0; i < extension.length(); i++){
-            if(std::isupper(extension[i])) cap++;
-            else if(std::islower(extension[i])) sm++;
+            if(isupper(extension[i])) cap++;
+            else if(islower(extension[i])) sm++;
         }
         if(cap - sm > strongest){
             strongest = cap - sm;
