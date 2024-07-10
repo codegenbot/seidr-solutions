@@ -40,8 +40,7 @@ int main() {
 
     }
 
-    v2.resize(size);
-    v1 = v2;  // Move all elements from v2 to v1
+    v1.reserve(size); // Move this line here
 
     if (issame(pluck(v1), v2))  
         cout << "Arrays are same" << endl;
