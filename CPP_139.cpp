@@ -15,7 +15,7 @@ long long special_factorial(int n) {
 int main() {
     int n;
     cout << "Enter a positive integer: ";
-    cin >> ws; 
+    cin >> ws;  // Add this line
     cin >> n;
     cout << "The special factorial of " << n << " is: " << special_factorial(n) << endl;
 }
