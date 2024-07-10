@@ -1,10 +1,12 @@
+```
 def decode_shift(s: str):
     while True:
-        n = int(input("Enter the shift value (1-25): "))
-        if 1 <= n <= 25:
-            break
-        print("Invalid input. Please enter a value between 1 and 25.")
-    
+        try:
+            n = int(input("Enter the shift value (1-25): "))
+            if 1 <= n <= 25:
+                break
+        except ValueError:
+            pass
     result = ""
     for ch in s:
         if ch.isalpha():
