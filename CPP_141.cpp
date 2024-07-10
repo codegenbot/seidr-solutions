@@ -1,22 +1,25 @@
 string file_name_check(string file_name){
+    int dot_count = 0;
     int digit_count = 0;
-    bool found_dot = false;
+    bool first_letter_valid = true;
 
-    for(int i = 0; i < file_name.length(); i++){
-        if(isdigit(file_name[i])){
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] == '.'){
+            dot_count++;
+        }else if(isdigit(file_name[i])){
             digit_count++;
-        }
-        else if(file_name[i] == '.'){
-            found_dot = true;
-        }
-        else if(found_dot && (file_name[i] == 't' || file_name[i] == 'x' ||
-                               file_name[i] == 'd' || file_name[i] == 'l' ||
-                               file_name[i] == 'e')){
-            return "Yes";
+        }else if(i==0 && !isalpha(file_name[i])){
+            first_letter_valid = false;
         }
     }
 
-    if(digit_count > 3 || !found_dot) return "No";
-
-    return (isalpha(file_name[0]) && found_dot) ? "Yes" : "No";
+    if(dot_count > 1 || digit_count > 3 || first_letter_valid==false){
+        return "No";
+    }else{
+        string ext = file_name.substr(file_name.find('.')+1);
+        if(ext != "txt" && ext != "exe" && ext != "dll"){
+            return "No";
+        }
+        return "Yes";
+    }
 }
