@@ -2,7 +2,7 @@
 #include <cassert>
 
 namespace contest {
-    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    bool issame(std::vector<int> a, std::vector<int> b) {
         if (a.size() != b.size()) {
             return false;
         }
@@ -15,4 +15,22 @@ namespace contest {
         
         return true;
     }
+
+    std::vector<int> generate_palindrome(int n) {
+        std::vector<int> palindrome;
+        for (int i = n; i >= 0; --i) {
+            palindrome.push_back(i);
+        }
+        for (int i = 1; i <= n; ++i) {
+            palindrome.push_back(i);
+        }
+        return palindrome;
+    }
+}
+
+int main() {
+    assert(contest::issame(contest::generate_palindrome(1), {0, 1}));
+    // Add more test cases here
+
+    return 0;
 }
