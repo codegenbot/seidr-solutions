@@ -5,27 +5,50 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result;
+    vector<int> multiplesOfThree;
+    vector<int> others;
+
     for (int i = 0; i < l.size(); i++) {
-        if (i % 3 == 0) {
-            vector<int> temp;
-            for (int j = i; j < l.size() && j % 3 == 0; j++) {
-                temp.push_back(l[j]);
-            }
-            sort(temp.begin(), temp.end());
-            for (int k = 0; k < temp.size(); k++) {
-                result.push_back(temp[k]);
+        if (i % 3 == 0)
+            multiplesOfThree.push_back(l[i]);
+        else
+            others.push_back(l[i]);
+    }
+
+    sort(multiplesOfThree.begin(), multiplesOfThree.end());
+
+    vector<int> result;
+    int i = 0;
+    while (i < l.size()) {
+        if (i % 3 == 0 && !multiplesOfThree.empty()) {
+            int val = multiplesOfThree[0];
+            while (!multiplesOfThree.empty()) {
+                result.push_back(val);
+                for(int k = 0; k < 2; k++) {
+                    i += 3;
+                    if(!multiplesOfThree.empty())
+                        multiplesOfThree.erase(multiplesOfThree.begin());
+                }
             }
         } else {
-            result.push_back(l[i]);
+            if(others.size() > 1) {
+                result.push_back(others[0]);
+                others.erase(others.begin());
+            } else if (!others.empty()) {
+                result.push_back(others[0]);
+                others.pop_back();
+            } else
+                break;
+            i++;
         }
     }
+
     return result;
 }
 
-int main() {
-    vector<int> l1 = {1, 2, 3};
-    vector<int> l2 = {5, 6, 3, 4, 8, 9, 2};
+int main_driver() {
+    vector<int> l1 = {3, 2};
+    vector<int> l2 = {9, 8, 7, 6, 5, 4, 3, 2};
 
     cout << "l1: ";
     for (int i : l1) {
