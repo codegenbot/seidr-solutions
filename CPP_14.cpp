@@ -1,4 +1,6 @@
-using namespace std;
+#include <vector>
+#include <string>
+#include <initializer_list>
 
 bool issame(string s1, string s2) {
     if(s1.size() != s2.size()) {
