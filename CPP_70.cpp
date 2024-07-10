@@ -1,23 +1,43 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
+
 using namespace std;
 
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
-    
+    if (lst.empty()) return result;
+
+    vector<int> minMax;
     while (!lst.empty()) {
-        int min_val = *min_element(lst.begin(), lst.end());
-        int max_val = *max_element(lst.begin(), lst.end());
-        
-        auto it_min = find(lst.begin(), lst.end(), min_val);
-        auto it_max = find(it_min, lst.end(), max_val);
-        
-        result.push_back(*it_min);
-        lst.erase(it_min);
-        if (it_max != lst.end()) {
-            result.push_back(*it_max);
-            lst.erase(it_max);
+        int min = *min_element(lst.begin(), lst.end());
+        int max = *max_element(lst.begin(), lst.end());
+        minMax.push_back(min);
+        for (auto it = lst.begin(); it != lst.end(); ++it) {
+            if (*it == min || *it == max) {
+                lst.erase(it);
+                break;
+            }
         }
     }
-    
-    return result;
+
+    return minMax;
+}
+
+int main() {
+    vector<int> lst1 = {1, 2, 3, 4};
+    vector<int> result1 = strange_sort_vector(lst1);
+    for (auto x : result1) {
+        cout << x << " ";
+    }
+    cout << endl;
+
+    vector<int> lst2 = {5, 5, 5, 5};
+    vector<int> result2 = strange_sort_vector(lst2);
+    for (auto x : result2) {
+        cout << x << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
