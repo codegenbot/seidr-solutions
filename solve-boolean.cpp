@@ -2,42 +2,47 @@
 #include <iostream>
 #include <string>
 
-bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '&') {
-            while (!st.empty() && st.top() == '&') {
-                st.pop();
+bool solveBoolean(string expression) {
+    stack<char> s;
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
             }
-            if (st.empty()) {
-                return false;
+            s.push('&');
+        } else if (expression[i] == '|') {
+            while (!s.empty()) {
+                s.pop();
             }
-            st.pop();
-        } else if (s[i] == '|') {
-            while (!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if (st.empty()) {
-                return true;
-            }
-            st.pop();
-        } else {
-            st.push(s[i]);
+            s.push('|');
+        } else if (expression[i] != '&' && expression[i] != '|') {
+            s.push(expression[i]);
         }
     }
-    return st.size() > 0 ? st.top() == 'T' : false;
+
+    bool result = false;
+    while (!s.empty()) {
+        char c = s.top();
+        s.pop();
+        if (c == 't') {
+            result = true;
+        } else if (c == 'f') {
+            return false;
+        }
+    }
+
+    return result;
 }
 
 int main() {
-    string s;
-    while (cin >> s) {
-        if (s == "t") {
-            cout << "True" << endl;
-        } else if (s == "f") {
-            cout << "False" << endl;
-        } else {
-            cout << (solveBoolean(s) ? "True" : "False") << endl;
-        }
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
+    bool result = solveBoolean(expression);
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
     }
     return 0;
 }
