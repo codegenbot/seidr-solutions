@@ -9,7 +9,6 @@ int sum_squares(int n) {
     return static_cast<int>(sum);
 }
 
-namespace MainNamespace {
 int main() {
     int n;
     std::cin >> n;
@@ -17,6 +16,10 @@ int main() {
     if(n < 0) {
         std::cout << "Invalid input. Please enter a non-negative integer." << std::endl;
     } else {
-        std::cout << sum_squares(n) << std::endl;
+        int result = sum_squares(n);
+        // You can add assert statement here to test the function with specific inputs
+        // assert (sum_squares(-1) == 1 && sum_squares(5) == 55 && ...);
+
+        std::cout << "Sum of squares: " << result << std::endl;
     }
 }
