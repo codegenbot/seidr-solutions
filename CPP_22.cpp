@@ -1,8 +1,8 @@
-```cpp
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 
-bool sameVectors(std::vector<int> a, std::vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -24,7 +24,7 @@ int main() {
     std::vector<int> vector1 = {num1};
     std::vector<int> vector2 = {num2};
 
-    if(sameVectors(vector1, vector2)) {
+    if(isSame(vector1, vector2)) {
         std::cout << "Vectors are same." << std::endl; 
     }
     else {

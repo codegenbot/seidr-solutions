@@ -37,9 +37,10 @@ int main() {
         input.push_back(x);
     }
     
-    auto unique_end = distinct(input.begin(), input.end());
-    std::vector<int> output(input.begin(), unique_end);
-
+    auto end = distinct(input.begin(), input.end());
+    std::vector<int> output(input.begin(), end);
+    std::sort(output.begin(), output.end());
+    
     for (int i : output) {
         std::cout << i << " ";
     }
