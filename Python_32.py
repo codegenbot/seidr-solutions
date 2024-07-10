@@ -1,5 +1,6 @@
-```
 import sys
+from functools import reduce
+
 
 def find_zero(xs):
     n = len(xs)
@@ -13,6 +14,7 @@ def find_zero(xs):
             if subset_sum == 0:
                 zero_combinations += 1
         return zero_combinations
+
 
 xs = list(map(int, sys.argv[1:]))
 if len(xs) % 2 != 0:
