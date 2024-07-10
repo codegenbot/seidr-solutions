@@ -13,7 +13,7 @@ int prod_signs(int* arr, int n) {
 }
 
 int main_func() {
-    int n; // number of elements in the array
+    int n; 
     std::cin >> n;
     int* arr = new int[n];
     for (int i = 0; i < n; ++i)
