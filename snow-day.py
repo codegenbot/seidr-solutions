@@ -1,2 +1,2 @@
-def snow_day(hours, initial_snow, rate_of_snow_fall, proportion_melting):
-    return initial_snow + (rate_of_snow_fall - proportion_melting) * hours
+def snow_day(hours, initial_snow, rate_of_snowfall, melting_rate):
+    return initial_snow + rate_of_snowfall * hours - melting_rate * hours
