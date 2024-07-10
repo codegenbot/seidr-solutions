@@ -15,7 +15,7 @@ int main() {
     int index = -1;
     int minDiff = INT_MAX;
 
-    for (int i = 0; i < nums.size()-1; ++i) {
+    for (int i = 0; i < nums.size(); ++i) {
         prefixSum += nums[i];
         int diff = abs(2 * prefixSum - totalSum);
         if (diff < minDiff) {
@@ -28,11 +28,11 @@ int main() {
     }
 
     for (int i = 0; i <= index; ++i) {
-        cout << nums[i] << " ";
+        cout << nums[i] << endl;
     }
-    cout << "--- ";
+    cout << "---" << endl;
     for (int i = index + 1; i < nums.size(); ++i) {
-        cout << nums[i] << " ";
+        cout << nums[i] << endl;
     }
 
     return 0;
