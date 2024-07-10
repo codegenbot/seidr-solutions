@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -18,4 +17,5 @@ int main() {
     std::getline(std::cin, input);
     int result = hex_key(input);
     std::cout << "Number of valid characters: " << result << std::endl;
+    return 0;
 }
