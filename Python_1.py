@@ -1,6 +1,5 @@
-Here is the modified code:
-
 ```
+```python
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -18,9 +17,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if stack and stack[-1] == '(':
                 stack.pop()
                 temp_str += char
-                result.append(temp_str[1:-1])
+                result.append(temp_str)
                 temp_str = ''
             else:
                 temp_str += char
-
     return result
+```
