@@ -1,17 +1,23 @@
 #include <vector>
 #include <algorithm>
+#include <set>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<int> common(vector<int> l1, vector<int> l2) {
-    set<int> s1(l1.begin(), l1.end());
-    set<int> s2(l2.begin(), l2.end());
+std::vector<int> common(const std::vector<int>& l1, const std::vector<int>& l2) {
+    std::set<int> s1(l1.begin(), l1.end());
+    std::set<int> s2(l2.begin(), l2.end());
 
-    vector<int> result(s1.begin(), s1.end());  // start the output with s1
+    std::vector<int> result;
     std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(),
-                          back_inserter(result));
+                          std::back_inserter(result));
     
     return result;
+}
+
+int main() {
+    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    // Use your function here
 }
