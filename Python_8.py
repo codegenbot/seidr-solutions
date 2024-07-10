@@ -1,1 +1,3 @@
-numbers = [int(input("Enter a number: ")) for _ in range(5)]
+numbers = []
+for _ in range(5):
+    numbers.append(int(input("Enter a number: ")))
