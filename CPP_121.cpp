@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 
 int solution(vector<int> lst) {
@@ -8,7 +9,6 @@ int solution(vector<int> lst) {
         }
     }
     return sum;
-
 }
 
 int main() {
