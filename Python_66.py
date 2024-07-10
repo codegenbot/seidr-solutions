@@ -1,5 +1,4 @@
-```
 def digitSum(n=""):
-    if not n:
-        n = input("Enter a number: ")
-    return sum(int(digit) for digit in n)
+    if not n:  
+        n = int(input("Enter a number: "))
+    return sum(int(digit) for digit in str(n))
