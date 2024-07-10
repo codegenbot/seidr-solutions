@@ -18,7 +18,6 @@ int main() {
         }
         if (!found) {
             cout << "Character not found in cipher!";
-            return 1;
         }
     }
 
