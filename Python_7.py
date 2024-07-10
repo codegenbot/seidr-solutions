@@ -1,3 +1,5 @@
+substring = input().strip()
+
 strings = []
 try:
     while True:
@@ -5,16 +7,6 @@ try:
         if string == "----":
             break
         strings.append(string)
-except EOFError:
-    pass
-
-substring = input().strip()
-
-try:
-    while True:
-        string = input().strip()
-        if not string:
-            break
 except EOFError:
     pass
 
