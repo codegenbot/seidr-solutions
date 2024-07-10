@@ -5,13 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); ++i){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> split_words(string txt){
     vector<string> result;
@@ -43,6 +37,15 @@ vector<string> split_words(string txt){
 
 int main(){
     assert (issame(split_words("") ,{"0"}));
-    // Add more test cases here
+    // more test cases...
+    
     return 0;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
