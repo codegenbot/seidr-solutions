@@ -1,4 +1,7 @@
-n = int(input())
+import sys
+sys.stdin = open(0).buffer
+
+n = int(input("Enter the value of n: "))
 
 import math
 
