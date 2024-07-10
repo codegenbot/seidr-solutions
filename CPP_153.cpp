@@ -1,9 +1,10 @@
+```cpp
 #include <vector>
 #include <string>
 
 using namespace std;
 
-int Strongest_Extension(string class_name,vector<string> extensions){
+int Strongest_Extension(string class_name, vector<string> extensions){
     int strongest_strength = 0;
     string strongest_extension;
 
