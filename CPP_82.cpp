@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <string>
 
@@ -12,7 +12,7 @@ bool prime_length(const std::string& str) {
 
 }
 
-int main() 
+int main_func() 
 {
     std::string input;
     std::cout << "Enter a string: ";
@@ -21,7 +21,7 @@ int main()
     for(auto c : input){
         if(c < '0' || c > '9') flag = false; 
     }
-    if (flag && prime_length(input.length())) {
+    if (flag && prime_length(to_string(input.length()))) {
         std::cout << "The length of the string is prime." << std::endl;
     } else {
         std::cout << "The length of the string is not prime." << std::endl;
