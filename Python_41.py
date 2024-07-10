@@ -1,5 +1,5 @@
-def car_race_collision(n, a1, a2):
-    if abs(a1 - a2) > 0:
-        return n * (a1 + a2)
+def car_race_collision(n: int, a1: int, a2: int):
+    if a1 > a2:
+        return (n - 1) * a2
     else:
-        return (n - 1) * max(a1, a2)
+        return (n - 1) * a1
