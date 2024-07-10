@@ -1,33 +1,19 @@
-```cpp
-#include <iostream>
-#include <vector>
+#include<vector>
 using namespace std;
 
 bool is_sorted(vector<int> lst){
+    bool isSorted = true;
     for(int i = 1; i < lst.size(); i++){
         if(lst[i] <= lst[i-1]){
-            return false;
+            isSorted = false;
+            break;
         }
     }
-    return true;
+    return isSorted;
 }
 
 int main(){
-    vector<int> lst;
-    int n, x;
-    
-    cout << "Enter number of elements: ";
-    cin >> n;
-
-    for(int i = 0; i < n; i++){
-        cin >> x;
-        lst.push_back(x);
-    }
-
-    if(is_sorted(lst))
-        cout << "The list is sorted." << endl;
-    else
-        cout << "The list is not sorted." << endl;
-
+    vector<int> lst = {5,4,3,2,1};
+    cout << (is_sorted(lst) ? "The list is sorted" : "The list is not sorted");
     return 0;
 }
