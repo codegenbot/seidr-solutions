@@ -3,7 +3,7 @@ def add(a: int, b: int) -> int:
 
 if __name__ == "__main__":
     try:
-        a, b = map(int, input("Enter two numbers separated by space: ").strip().split())
+        a, b = map(int, raw_input("Enter two numbers separated by space: ").strip().split())
         result = add(a, b)
         print(f"The sum of {a} and {b} is: {result}")
     except ValueError:
