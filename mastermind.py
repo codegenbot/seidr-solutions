@@ -1,6 +1,11 @@
-Here is the solution:
+def get_mastermind_clue(code, guess):
+    black_pegs = 0
+    white_pegs = 0
 
-def mastermind(code, guess):
-    black = sum(1 for a, b in zip(guess, code) if a == b)
-    white = sum(min(1, code.count(c)) for c in set(guess))
-    return str(black), str(white)
+    for i in range(4):
+        if code[i] == guess[i]:
+            black_pegs += 1
+        elif str(guess[i]) in str(code):
+            white_pegs += 1
+
+    return f"{white_pegs}\n{black_pegs}"
