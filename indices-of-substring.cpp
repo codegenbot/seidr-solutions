@@ -1,8 +1,7 @@
-#include <vector>
-#include <string>
-using namespace std;
+if(text.substr(i, target.length()) == target) {
+            indices.push_back(i);
+        }
+    }
 
-vector<int> findIndicesOfSubstring(const string& text, const string& target) {
-    vector<int> indices;
-
-    for (int i = 0; i <= text.length() - target.length(); ++i) {
+    return indices;
+}
