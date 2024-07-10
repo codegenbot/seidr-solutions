@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -31,7 +30,7 @@ int main() {
         std::cout << "Vectors are not same." << std::endl;
     }
 
-    std::vector<int> values = {1, 0, 3, 4};
+    std::vector<int> values = {1, 2, 3, 4};
     std::vector<int> filtered = filterIntegers(values);
     for (const auto& value : filtered) {
         std::cout << value << " ";
