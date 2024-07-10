@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <string>
 
 int main() {
