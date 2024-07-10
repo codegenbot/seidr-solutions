@@ -3,9 +3,9 @@
 #include<assert.h>
 using namespace std;
 
-pair<int, int> sum_product(int number){
-    int sum = number;
-    int product = number;
+pair<int, int> sum_product(int num){
+    int sum = num;
+    int product = num;
     
     return make_pair(sum, product);
 }
