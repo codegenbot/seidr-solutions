@@ -1,6 +1,6 @@
 Here is the solution:
-```c++
-vector<float> get_positive(vector<float> l) {
+
+vector<float> get_positive(vector<float> l){
     vector<float> result;
     for (float x : l) {
         if (x > 0) {
