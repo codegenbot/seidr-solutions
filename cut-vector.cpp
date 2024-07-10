@@ -2,39 +2,25 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = 0;
+    int n = v.size();
+    pair<vector<int>, vector<int>> res;
     
-    for (int i = 1; i <= v.size(); i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        if (i < v.size()) {
-            for (int j = 0; j < i; j++) {
-                left_sum += v[j];
-            }
-            for (int j = i; j < v.size(); j++) {
-                right_sum += v[j];
-            }
-        } else {
-            left_sum = 0;
-            right_sum = 0;
-            for (int j = 0; j < v.size(); j++) {
-                left_sum += v[j];
-                right_sum += v[j];
-            }
+    for (int i = 0; i < n; i++) {
+        vector<int> left, right;
+        for (int j = 0; j <= i; j++) {
+            left.push_back(v[j]);
+        }
+        for (int j = i + 1; j < n; j++) {
+            right.push_back(v[j]);
         }
         
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        int diff = abs((int)accumulate(left.begin(), left.end(), 0) - (int)accumulate(right.begin(), right.end(), 0));
+        if (i == 0 || diff <= abs((int)accumulate(res.first.begin(), res.first.end(), 0) - (int)accumulate(res.second.begin(), res.second.end(), 0))) {
+            res = {left, right};
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + cut_index);
-    vector<int> right(v.begin() + cut_index, v.end());
-    
-    return {left, right};
+    return res;
 }
 
 int main() {
@@ -44,15 +30,18 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    cout << "Left: ";
-    for (int num : result.first) {
-        cout << num << " ";
+    
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "1 ";
+    for (int x : res.first) {
+        cout << x << " ";
     }
     cout << endl;
-    cout << "Right: ";
-    for (int num : result.second) {
-        cout << num << " ";
+    cout << "0 ";
+    for (int x : res.second) {
+        cout << x << " ";
     }
+    cout << endl;
+    
     return 0;
 }
