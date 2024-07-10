@@ -1,4 +1,3 @@
-```
 import sys
 
 def find_zero(xs):
