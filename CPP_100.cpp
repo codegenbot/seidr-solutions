@@ -1,6 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iostream>
+#include <random>
 
 using namespace std;
 
@@ -12,16 +13,7 @@ bool issame(vector<int> a, vector<int> b){
     return true;
 }
 
-vector<int> make_a_pile(int n) {
-    vector<int> temp;
-    for(int i=0; i<n; i++){
-        temp.push_back(i+1);
-    }
-    random_shuffle(temp.begin(),temp.end());
-    return temp;
-}
-
-void cpp100() {
+int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
@@ -34,4 +26,13 @@ void cpp100() {
         cout << "The piles are not the same." << endl;
     }
     
+}
+
+vector<int> make_a_pile(int n) {
+    vector<int> temp;
+    for(int i=0; i<n; i++){
+        temp.push_back(i+1);
+    }
+    random_shuffle(temp.begin(),temp.end());
+    return temp;
 }
