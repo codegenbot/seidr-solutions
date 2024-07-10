@@ -5,9 +5,6 @@ def fibfib(n: int):
         return 1
     else:
         a, b = 0, 1
-        result = 1
-        while True:
+        for _ in range(3, n+1):
             a, b = b, a+b
-            if len(str(b)) >= len(str(n)):
-                break
         return b
