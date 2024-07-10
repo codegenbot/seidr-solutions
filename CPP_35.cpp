@@ -1,16 +1,19 @@
-using namespace std;
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <initializer_list>
 
 int getMax(int n) {
-    vector<int> l;
-    cout << "Enter the number of elements: ";
-    cin >> n;
+    std::vector<int> l;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
 
     for (int i = 0; i < n; i++) {
         int x;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> x;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> x;
         l.push_back(x);
     }
 
-    return *max_element(l.begin(), l.end());
+    return *std::max_element(l.begin(), l.end());
 }
