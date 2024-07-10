@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -33,9 +34,4 @@ void solveProblem() {
             cout << "The strings are not the same." << endl;
         }
     }
-}
-
-int main() {
-    solveProblem();
-    return 0;
 }
