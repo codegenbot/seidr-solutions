@@ -27,15 +27,12 @@ int main() {
     std::cin >> n;
     std::vector<int> nums;
     for (int i = 0; i < n; i++) {
-        int num;
-        if(std::cin >> num) { 
-            while(std::cin.peek() == ' ') { // skip leading spaces
-                std::cin.get();
-            }
-            nums.push_back(num); 
-        } else {
-            break; 
+        while(std::cin.peek() == ' ') { // skip leading spaces
+            std::cin.get();
         }
+        int num; 
+        std::cin >> num; 
+        nums.push_back(num); 
     }
     if (!nums.empty()) {  
         std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;

@@ -3,9 +3,10 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <sstream>
 using namespace std;
 
-bool issame(string a, string b) {
+bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++) {
@@ -50,6 +51,7 @@ int main() {
     else
         cout << "Second number is greater." << endl;
 
-    assert(to_string(reverse_delete("mama", "ma")) == reverse_delete("mama", "ma"));
+    assert(issame(vector<string>({to_string(reverse_delete("mama", "ma")).c_str()})),
+              vector<string>({to_string(reverse_delete("mama", "ma")).c_str()}));
     return 0;
 }
