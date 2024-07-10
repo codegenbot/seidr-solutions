@@ -6,42 +6,33 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int wordLength;
+    int start = 0;
+    
     for (int i = 0; i <= str.length(); i++) {
-        if (str[i] == ' ') {
-            result += str.substr(wordLength, i - wordLength) + " ";
-            wordLength = i + 1;
-        } else if (i == str.length() - 1) {
-            result += str.substr(wordLength);
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
+            
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+            
+            result += word + " ";
+            start = i + 1;
         }
     }
-
-    for (int i = 0; i < result.length(); i++) {
-        if (result[i] != ' ') {
-            int j = i;
-            while (j < result.length() && result[j] != ' ')
-                j++;
-            string word = result.substr(i, j - i);
-            if (word.length() >= 5) {
-                for (int k = word.length() - 1; k >= 0; k--)
-                    result.replace(i, j - i + 1, word[k]);
-                i += word.length();
-            }
-        } else
-            i++;
-    }
-
+    
     return result;
 }
 
 int main() {
+    // Read input from user
     string str;
-    while (true) {
-        cout << "Enter a sentence or 'q' to quit: ";
-        cin >> str;
-        if (str == "q")
-            break;
-        cout << spinWords(str) << endl;
-    }
+    cout << "Enter a string of one or more words (separated by spaces):" << endl;
+    getline(cin, str);
+    
+    // Call the function and print the output
+    string output = spinWords(str);
+    cout << "Output: " << output << endl;
+    
     return 0;
 }
