@@ -7,13 +7,13 @@ int main() {
     std::cin >> n;
 
     std::vector<int> vec;
-    vec.reserve(n);
+    vec.reserve(n);  
 
     for(int i = 0; i < n; i++) {
         std::cout << "Enter element " << i+1 << ": ";
-        int temp;
-        std::cin >> temp;
-        vec.push_back(temp);
+        int value;
+        std::cin >> value;
+        vec.push_back(value);
     }
 
     int max_value = *std::max_element(vec.begin(), vec.end()); 
