@@ -1,6 +1,7 @@
-#include <cassert>
+#include <iostream>
 #include <string>
 #include <vector>
+#include <cassert>
 
 int solve(std::string s) {
     if (s.empty()) {
