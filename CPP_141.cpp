@@ -1,19 +1,42 @@
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
-    for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
+Here is the completed code:
+
+```cpp
+bool has_digits = false;
+int dot_count = 0;
+
+for (char c : file_name) {
+    if (isdigit(c)) {
+        if (!has_digits) {
+            has_digits = true;
         }
-        else if(file_name[i] == '.'){
-            found_dot = true;
+        if (has_digits && has_digits++ > 3) {
+            return "No";
         }
-        else if(found_dot && (file_name[i] == 't' || file_name[i] == 'x' || file_name[i] == 'd' || file_name[i] == 'l' || file_name[i] == 'e')){
-            return "Yes";
+    } else if (c == '.') {
+        dot_count++;
+        if (dot_count > 1) {
+            return "No";
         }
+    } else if (!isalpha(c)) {
+        return "No";
     }
-    if(digit_count > 3) return "No";
-    if(!found_dot) return "No";
-    if(file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z') return "No";
-    return "Yes";
 }
+
+if (has_digits || dot_count != 1) {
+    return "No";
+}
+
+size_t pos = file_name.find('.');
+string prefix = file_name.substr(0, pos);
+string suffix = file_name.substr(pos + 1);
+
+if (!(prefix[0] >= 'A' && prefix[0] <= 'Z') && !(prefix[0] >= 'a' && prefix[0] <= 'z')) {
+    return "No";
+}
+
+vector<string> valid_suffixes = {"txt", "exe", "dll"};
+if (find(valid_suffixes.begin(), valid_suffixes.end(), suffix) == valid_suffixes.end()) {
+    return "No";
+}
+
+return "Yes";
