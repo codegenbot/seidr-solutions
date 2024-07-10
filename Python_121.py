@@ -1,4 +1,9 @@
-```
 def solution(lst):
-    odd_sum = sum(i for i in lst if i % 2 != 0)
-    return odd_sum
+    if len(lst) > 0:
+        even_sum = 0
+        for num in lst:
+            if num % 2 == 0:
+                even_sum += num
+        return even_sum
+    else:
+        return None
