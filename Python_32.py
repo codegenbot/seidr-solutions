@@ -14,6 +14,6 @@ def find_zero(xs: list):
             continue
         return -xs[0] / xs[i]
 
+
 coefficients = list(map(float, input().split()))
-result = find_zero(coefficients)
-print(result)
+print(find_zero(coefficients))
