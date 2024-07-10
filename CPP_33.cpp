@@ -1,13 +1,11 @@
-vector<int> indices;
-    for(int i=0; i<l.size(); i++){
-        if(i % 3 == 0)
-            indices.push_back(i);
-    }
-    vector<int> sorted_indices = indices;
-    sort(sorted_indices.begin(), sorted_indices.end(),
-         [&l](int i, int j){ return l[i] < l[j]; });
-    for(int i=0; i<indices.size(); i++){
-        l[indices[i]] = l[sorted_indices[i]];
+for (int i = 0; i < l.size(); i++) {
+        if (i % 3 == 0) {
+            int start = i;
+            while (i + 1 < l.size() && i % 3 == 0) {
+                i++;
+            }
+            sort(l.begin() + start, l.begin() + i + 1);
+        }
     }
     return l;
 }
