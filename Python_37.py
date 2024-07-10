@@ -6,7 +6,7 @@ def sort_even(l: list):
     result = []
     i, j = 0, 0
     while i < len(even) or j < len(odd):
-        if i < len(even) and (j >= len(odd) or even[i] > 0 or (even[i] <= 0) and (j >= len(odd) or even[i] <= odd[j])):
+        if i < len(even) and (j >= len(odd) or (even[i] > 0) or (j >= len(odd) or even[i] <= odd[j])):
             result.append(even[i])
             i += 1
         elif j < len(odd): 
