@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 int get_matrix_triples(int n) {
     std::vector<int> a(n);
@@ -21,9 +22,8 @@ int get_matrix_triples(int n) {
 
 int main() {
     int n;
-    std::cout << "Enter the value of n: ";
     std::cin >> n;
-    int result = get_matrix_triples(n);
-    std::cout << "Number of matrices satisfying the condition: " << result << std::endl;
+    std::cout << get_matrix_triples(n) << std::endl;
+    assert(get_matrix_triples(100) == 53361);
     return 0;
 }
