@@ -1,32 +1,46 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
-using namespace std;
+std::vector<int> parse_music(std::string music_string);
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2);
+
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    if (v1.size() != v2.size()) {
+        return false;
+    }
+    for (int i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<int> parse_music(string music_string);
-int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
-    return 0;
-}
-
-vector<int> parse_music(string music_string) {
-    vector<int> beats;
-    int length = music_string.length();
-    for (int i = 0; i < length; ++i) {
+std::vector<int> parse_music(std::string music_string) {
+    std::vector<int> beats;
+    for (int i = 0; i < music_string.size(); ++i) {
         if (music_string[i] == 'o') {
             beats.push_back(4);
-        } else if (music_string.substr(i, 2) == "o|") {
-            beats.push_back(2);
-            ++i;
-        } else if (music_string.substr(i, 2) == ".|") {
-            beats.push_back(1);
-            ++i;
+        } else if (music_string[i] == '|' && music_string[i - 1] == 'o') {
+            beats.back() = 2;
+        } else if (music_string[i] == '|' && music_string[i - 1] == '.') {
+            beats.back() = 1;
         }
     }
     return beats;
+}
+
+int main() {
+    std::string input_string = "o|.|o||o";
+    std::vector<int> parsed_beats = parse_music(input_string);
+
+    std::vector<int> expected_beats = {4, 1, 2, 1, 4};
+    if (issame(parsed_beats, expected_beats)) {
+        std::cout << "Parsed beats match the expected beats." << std::endl;
+    } else {
+        std::cout << "Parsed beats do not match the expected beats." << std::endl;
+    }
+
+    return 0;
 }
