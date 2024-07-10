@@ -6,11 +6,5 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
         sum += num;
         product *= num;
     }
-    return std::make_pair(sum, product);
-}
-
-int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5};
-    auto result = sum_product(numbers);
-    return 0;
+    return {sum, product};
 }
