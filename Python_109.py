@@ -1,5 +1,5 @@
 def move_one_ball():
-    num = int(input())
+    num = input()
     if len(str(num)) == 0:
         return True
     
