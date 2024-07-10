@@ -1,9 +1,7 @@
 vector<float> get_positive(vector<float> l){
-    vector<float> result;
-    for(float x: l) {
-        if(x > 0) {
-            result.push_back(x);
-        }
+    vector<float> positive_numbers;
+    for(float num : l){
+        if(num > 0) positive_numbers.push_back(num);
     }
-    return result;
+    return positive_numbers;
 }
