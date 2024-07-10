@@ -1,7 +1,8 @@
 def find_zero(xs):
     n = len(xs)
-    for i in range(n // 2):
-        a = xs[2 * i]
-        b = xs[2 * i + 1]
-        if b != 0:
-            return -b / a
+    zero_index = -1
+    for i in range(n):
+        if xs[i] == 0:
+            zero_index = i
+            break
+    return zero_index
