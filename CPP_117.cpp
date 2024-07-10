@@ -17,7 +17,7 @@ std::vector<std::string> select_words(std::string input, int k) {
     std::vector<std::string> words;
     std::string word;
     
-    while (getline(iss, word)) {
+    while (getline(iss, word, ' ')) {
         words.push_back(word);
     }
     
