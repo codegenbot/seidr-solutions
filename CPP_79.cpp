@@ -1,10 +1,21 @@
-Here is the solution:
+#include <iostream>
+#include <string>
 
-string decimal_to_binary(int decimal){
-    string binary = "";
-    while (decimal > 0) {
-        binary = (decimal & 1) ? "1" + binary : "0" + binary;
-        decimal >>= 1;
+std::string decimal_to_binary(int decimal){
+    std::string binary = "";
+    while(decimal > 0) {
+        int remainder = decimal % 2;
+        if(remainder == 1)
+            binary.insert(0,"1");
+        else
+            binary.insert(0,"0");
+        decimal /= 2;
     }
     return "db" + binary + "db";
+}
+
+int main() {
+    assert (decimal_to_binary(15) == "db1111db");
+    std::cout << decimal_to_binary(15) << std::endl; 
+    return 0;
 }
