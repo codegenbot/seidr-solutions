@@ -1,4 +1,5 @@
-if(date.empty()) return false;
+bool valid_date(const std::string& date) {
+    if(date.empty()) return false;
     
     int month, day, year;
     if(sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3) return false;
@@ -16,4 +17,11 @@ if(date.empty()) return false;
     }
 
     return true;
+}
+
+bool valid_date(const std::string& date);
+
+int main() {
+    // Your main function code
+    return 0;
 }
