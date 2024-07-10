@@ -4,10 +4,14 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in 'aeiou':
-                new_pos = (ord(char) - 97 + 3) % 26
-                result += chr(new_pos + 97)
+                result += chr((ord(char) - 97 + 3) % 26 + 97)
             else:
-                result += char.swapcase()
+                if char.isupper() and char.lower() in 'aeiou':
+                    result += chr((ord('A') + (ord(char) - ord('A')) + 3) % 26 + 65)
+                elif char.isupper():
+                    result += chr((ord(char) - 65 + 3) % 26 + 65)
+                else:
+                    result += chr((ord(char) - 97 + 3) % 26 + 97)
         else:
             result += char
     return result
