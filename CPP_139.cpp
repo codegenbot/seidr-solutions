@@ -1,4 +1,5 @@
-#include <stdio.h>
+```cpp
+#include <iostream>
 using namespace std;
 
 long long special_factorial(int n) {
@@ -11,8 +12,8 @@ long long special_factorial(int n) {
 
 int main() {
     int n;
-    printf("Enter a positive integer: ");
-    scanf("%d", &n);
-    printf("The special factorial of %d is: %lli\n", n, special_factorial(n));
+    cout << "Enter a positive integer: ";
+    cin >> n;
+    cout << "The special factorial of " << n << " is: " << special_factorial(n) << endl;
     return 0;
 }
