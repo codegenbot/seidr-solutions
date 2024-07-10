@@ -15,6 +15,8 @@ vector<int> leaders(vector<int>& vec) {
 }
 
 int main() {
-    leaders({1, 3, 4, 1, 5, 9, 2, 8, 6});
+    vector<int> vec = {16, 17, 4, 3, 5, 2};
+    vector<int> leaders = leaders(vec);
+    for(int i : leaders) cout << i << " ";
     return 0;
 }
