@@ -22,24 +22,20 @@ vector<int> leaders(vector<int>& arr) {
     }
     
     return result;
-
 }
 
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
-    
-    if (n == 0)
-        return result;
-        
-    result.push_back(arr[n - 1]);
-    for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] >= arr[n - 1])
-            result.push_back(arr[i]);
-        else
-            break;
+    int leader = -1;
+
+    for(int i = n-1; i >= 0; i--) {
+        if(leader <= arr[i]) {
+            leader = arr[i];
+            result.push_back(leader);
+        }
     }
-    
+
     return result;
 }
 
