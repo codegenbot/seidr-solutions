@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -22,4 +21,10 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
         result.push_back(max_depth);
     }
     return result;
+}
+
+int main() {
+    std::vector<int> result = parse_nested_parens("(()(())((())))");
+    assert(issame(result, {4}));
+    return 0;
 }
