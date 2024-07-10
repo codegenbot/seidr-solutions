@@ -1,7 +1,6 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -25,7 +24,7 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
     vector<int> res = get_odd_collatz(n);
-    cout << "The sorted vector of odd numbers in Collatz sequence is: ";
+    cout << "The Collatz sequence of odd numbers is: ";
     for (int i : res) {
         cout << i << " ";
     }
