@@ -1,17 +1,22 @@
-```
+#include <vector>
 #include <iostream>
 #include <iomanip>
+using namespace std;
 
 double probability(int n, int m) {
-    double sum = 0;
-    for (int i = 1; i <= m; i++) {
-        sum += (n - i) / static_cast<double>(n * m);
+    double total = (double)n * m;
+    double peterWins = 0.0;
+    
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j < m && j <= i; ++j) { }
+        peterWins += 1.0;
     }
-    return sum;
+    
+    return peterWins / total;
 }
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
-    std::cout << std::fixed << std::setprecision(2) << probability(n, m) << std::endl;
+    cin >> n >> m;
+    cout << fixed << setprecision(2) << probability(n, m) << endl;
 }
