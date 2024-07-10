@@ -1,3 +1,6 @@
-x, y = map(int, input().split())
+def add(x: int, y: int):
+    return x + y
+
+x, y = map(int, input("Enter two integers separated by a space: ").split())
 result = add(x, y)
 print(result)
