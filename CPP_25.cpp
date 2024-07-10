@@ -1,7 +1,6 @@
 #include <vector>
-#include <cassert>
 
-vector<int> factorize(int n) {
+vector<int> factors(int n) {
     vector<int> factors;
     for (int i = 2; i * i <= n; i++) {
         while (n % i == 0) {
@@ -13,13 +12,4 @@ vector<int> factorize(int n) {
         factors.push_back(n);
     }
     return factors;
-}
-
-bool issame(const vector<int> &a, const vector<int> &b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
-    return 0;
 }
