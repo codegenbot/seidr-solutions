@@ -8,10 +8,6 @@ vector<int> computeLPSArray(string target) {
     int m = target.length();
     vector<int> lps(m, 0);
 
-    if (m == 0) { 
-        return vector<int>();
-    }
-
     int length = 0;
 
     for (int i = 1; i < m; i++) {
@@ -39,8 +35,8 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            i += m - 1; // Skip the matched portion
-        } else if (i + m >= n || text[i + lps[m - 1]] != target[lps[m - 1]]) {
+            i++; // Continue checking from the next character
+        } else if (i + m >= n || text[i + lps[m-1]] != target[lps[m-1]]) {
             while (i + lps[m-1] <= n && text[i+lps[m-1]] != target[lps[m-1]]) {
                 i = i + 1;
             }
