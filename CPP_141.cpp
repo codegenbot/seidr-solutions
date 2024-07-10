@@ -21,10 +21,10 @@ string file_name_check(string file_name){
 
     if(digit_count > 3 || !has_dot || before_dot.empty() || 
        (before_dot[0] < 'a' && before_dot[0] < 'A') ||
-       (!std::find(file_name.begin(), file_name.end(), '.') + 1 == file_name.length())){
+       (!find(file_name.begin(), file_name.end(), '.') + 1 == file_name.length())){
         return "No";
     } else {
-        string after_dot = file_name.substr(std::find(file_name.begin(), file_name.end(), '.') + 1);
+        string after_dot = file_name.substr(file_name.find('.') + 1);
         if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll"){
             return "No";
         }
