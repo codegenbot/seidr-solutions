@@ -1,4 +1,4 @@
-```c++
+```c
 #include <string>
 using namespace std;
 
@@ -26,9 +26,9 @@ int mastermind(string code, string guess) {
 }
 
 int main() {
-    string code = "XXXX";  // Your Mastermind code here
-    string guess = "XXXX";  // Your guess code here
+    string code = "XXXX";
+    string guess = "XXXX";
     int result = mastermind(code, guess);
-    cout << result;  // Print the result
+    cout << result;
     return 0;
 }
