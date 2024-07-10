@@ -15,4 +15,4 @@ def fibfib(n: int):
         if n > 1:
             if n <= 2: 
                 return "0"
-            return str(int(fibfib(n-1)) + int(fibfib(n-2)))
+            return str(fibfib(n-1) + fibfib(n-2))
