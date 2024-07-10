@@ -1,14 +1,7 @@
-Here is the solution in Python:
+Here is the solution:
 
-def basement(input_list):
-    total = 0
-    for i, num in enumerate(input_list):
-        total += num
-        if total < 0:
+def basement(input):
+    for i in range(len(input)):
+        if sum(input[:i+1]) < 0:
             return i
-
-print(basement([1])) # 0
-print(basement([1,-100])) # 0
-print(basement([2,-1,100])) # 0
-print(basement([2,-95,100])) # 0
-print(basement([2,-30,5])) # 0
+    return -1
