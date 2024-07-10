@@ -3,9 +3,7 @@ def find_zero(xs: list):
     a = xs[0]
     b = xs[1]
     c = xs[2]
-    return -b / (2 * c) if c != 0 else -a / b
-
-
-# Additional test cases
-# print(round(find_zero([1, 2]), 2))  # -0.5
-# print(round(find_zero([-6, 11, -6, 1]), 2))  # 1.0
+    D = b**2 - 4 * a * c
+    x1 = (-b + math.sqrt(D)) / (2 * a)
+    x2 = (-b - math.sqrt(D)) / (2 * a)
+    return x1 if abs(poly(xs, x1)) < abs(poly(xs, x2)) else x2
