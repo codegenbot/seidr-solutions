@@ -7,25 +7,17 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
+    cin.ignore(); // Ignore the newline character left in the buffer after getline()
     
     if(tweet.empty()) {
         cout << "You didn't type anything" << endl;
     }
     
+    else if(tweet.length() > 140) {
+        cout << "Too many characters" << endl;
+    }
+    
     else {
-        size_t count = 0;
-        for (char c : tweet) {
-            if (!ispunct(c) && !isspace(c)) {
-                ++count;
-            } 
-        }
-        
-        if(count > 140) {
-            cout << "Too many characters" << endl;
-        }
-        
-        else {
-            cout << "Your tweet has " << count << " characters" << endl;
-        }
+        cout << "Your tweet has " << tweet.length() << " characters" << endl;
     }
 }
