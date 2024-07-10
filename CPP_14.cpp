@@ -38,7 +38,7 @@ int main() {
         }
     }
 
-    if (!issame(std::vector<std::string>({"W", "WW", "WWW"}))) {
+    if (!issame(std::vector<std::string>({input}))) {
         std::cout << "The prefixes are different." << std::endl;
     }
 
