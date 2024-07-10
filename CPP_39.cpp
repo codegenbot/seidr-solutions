@@ -12,10 +12,9 @@ int main() {
     cout << "Enter the number: ";
     cin >> n;
     int result = prime_fib(n);
-    ostringstream oss; 
+    ostringstream oss;
     oss << "The " << n << "th prime Fibonacci number is: " << result; 
-    string str = oss.str(); 
-    cout << str; 
+    cout << oss.str(); 
 }
 
 bool isPrime(int num) {
