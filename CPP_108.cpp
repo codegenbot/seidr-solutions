@@ -13,7 +13,7 @@ int count_nums(vector<int> v) {
                 count++;
             }
         } else {
-            num = -num; 
+            num = -num; // make the number positive for calculation
             int sum = 0;
             while (num > 0) {
                 sum += num % 10;
