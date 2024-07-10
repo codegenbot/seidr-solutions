@@ -1,54 +1,41 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int> vec) {
-    int n = vec.size();
+vector<vector<int>> cutVector(vector<int> &nums) {
+    int n = nums.size();
     int min_diff = INT_MAX;
-    int pos = -1;
+    vector<vector<int>> res(2);
     
-    for (int i = 0; i < n; i++) {
-        int left_sum = 0, right_sum = 0;
-        
-        for (int j = 0; j < i; j++)
-            left_sum += vec[j];
-        for (int j = i; j < n; j++)
-            right_sum += vec[j];
-        
-        if (left_sum == right_sum) {
-            return {{vec.begin(), vec.begin() + i}, {vec.begin() + i, vec.end()}};
-        }
-        
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            pos = i;
+    for (int i = 1; i < n; i++) {
+        if (abs(nums[i] - nums[0]) <= min_diff) {
+            min_diff = abs(nums[i] - nums[0]);
+            res[0].clear();
+            res[1].clear();
+            res[0].insert(res[0].begin(), nums.begin() + 1, nums.begin() + i);
+            res[1].insert(res[1].begin(), nums.begin() + i, nums.end());
         }
     }
     
-    vector<int> left, right;
-    for (int i = 0; i < pos; i++)
-        left.push_back(vec[i]);
-    for (int i = pos; i < n; i++)
-        right.push_back(vec[i]);
-    
-    return {{left}, {right}};
+    return res;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(n);
-    for (int &x : vec)
-        cin >> x;
-    vector<vector<int>> res = cutVector(vec);
-    cout << "First subvector: ";
-    for (int x : res[0])
-        cout << x << " ";
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+    vector<vector<int>> result = cutVector(nums);
+    cout << "First part: ";
+    for (int num : result[0]) {
+        cout << num << " ";
+    }
     cout << endl;
-    cout << "Second subvector: ";
-    for (int x : res[1])
-        cout << x << " ";
+    cout << "Second part: ";
+    for (int num : result[1]) {
+        cout << num << " ";
+    }
     cout << endl;
-    
     return 0;
 }
