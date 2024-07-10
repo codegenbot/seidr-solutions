@@ -1,13 +1,24 @@
+#include <cassert>
+#include <string>
+#include <vector>
+#include <iostream>
+
 int solve(std::string s) {
     if (s.empty()) {
         return 0;
     }
-    int count = 0;
+    std::string v;
     for (char c : s) {
-        c = std::tolower(c);
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-            count++;
+        if (std::tolower(c) == 'a' || std::tolower(c) == 'e' || 
+            std::tolower(c) == 'i' || std::tolower(c) == 'o' || std::tolower(c) == 'u') {
+            v += std::tolower(c);
         }
     }
-    return count;
+    return v.size();
+}
+
+int main() {
+    assert(solve("aAeEiIoUu") == 6);
+    std::cout << solve("#ccc").size() << std::endl;
+    return 0;
 }
