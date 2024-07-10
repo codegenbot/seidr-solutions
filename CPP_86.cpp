@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -29,4 +28,10 @@ string anti_shuffle(string sStr) {
     }
 
     return result.substr(0, result.size() - 1); // remove the extra space at the end
+}
+
+int main() {
+    string sStr = "Hi. My name is Mister Robot. How are you?";
+    cout << anti_shuffle(sStr) << endl;
+    return 0;
 }
