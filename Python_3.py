@@ -1,1 +1,2 @@
-n = int(input().strip())
+import sys
+n = int(sys.stdin.readline().strip())
