@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool is_same(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
+bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b) {
     return a == b;
 }
 
@@ -25,6 +25,6 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
 }
 
 int main() {
-    assert(is_same(get_row({{}, {1}, {1, 2, 3}}, 3), std::vector<std::vector<int>>{{2, 2}}));
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3), std::vector<std::vector<int>>{{2, 2}}));
     return 0;
 }
