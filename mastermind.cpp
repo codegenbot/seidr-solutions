@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int mastermind(std::string code, std::string guess) {
