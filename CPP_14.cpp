@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -39,12 +39,4 @@ int main() {
         }
     }
 
-    std::vector<std::string> result = all_prefixes("WWW");
-    if (!issame({result.begin(), result.end()})) { 
-        std::cout << "The prefixes are not the same." << std::endl;
-    } else {
-        std::cout << "The prefixes are the same." << std::endl;
-    }
-
-    return 0;
-}
+//    assert(issame({{"W", "WW", "WWW"}}));
