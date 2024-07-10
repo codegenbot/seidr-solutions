@@ -1,4 +1,3 @@
-```
 #include <string>
 #include <cctype>
 #include <cassert>
@@ -22,5 +21,11 @@ int main() {
     string input;
     cout << "Enter a word: ";
     cin >> input;
-    cout << "The closest vowel is: " << get_closest_vowel(input) << endl;
+    for (int i = 0; i < input.size(); ++i) {
+        if (isvowel(input[i])) {
+            cout << "The closest vowel is: " << input.substr(i);
+            break;
+        }
+    }
+    return 0;
 }
