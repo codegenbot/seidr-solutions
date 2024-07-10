@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cctype> // Include for tolower function
 
 int vowels_count(std::string s){
     int count = 0;

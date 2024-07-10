@@ -14,7 +14,7 @@ int fib(int n) {
     return result;
 }
 
-int main(){
+int solveProblem(){
     int n;
     std::cout << "Enter the value of n: ";
     std::cin >> n;
