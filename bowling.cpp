@@ -1,37 +1,23 @@
 int bowlingScore(string s) {
     int score = 0;
-    bool prevStrike = false;
-    int currentFrame = 1;
+    int roll = 0;
+    bool bonus = false;
 
     for (char c : s) {
-        if (c == 'X') { // strike in this frame
-            score += 10 + strikeBonus(currentFrame);
-            prevStrike = true;
-            currentFrame++;
-        } else if (c >= '1' && c <= '9') { // normal roll in this frame
-            int pins = c - '0';
-            if (prevStrike) {
-                score += pins;
-                prevStrike = false;
-                currentFrame++;
-            } else {
-                score += pins;
-            }
-        } else { // spare in this frame
-            score += 10 + strikeBonus(currentFrame);
-            currentFrame++;
+        if (c == 'X') {
+            score += 10 + (bonus ? 10 : 0);
+            roll++;
+            bonus = true;
+        } else if (c == '/') {
+            score += 10 - roll;
+            roll++;
+            bonus = false;
+        } else {
+            int points = c - '0' * 2;
+            score += points;
+            roll++;
         }
-
-        if (currentFrame > 10) break; // no more frames to process
     }
 
     return score;
-}
-
-int strikeBonus(int frame) {
-    if (frame <= 2) return 0;
-    if (frame == 3) return 1;
-    if (frame >= 4) return 2;
-
-    return 0;
 }
