@@ -1,20 +1,16 @@
 #include <vector>
-using namespace std;
+#include <iostream>
 
-vector<vector<int>> cutVector(vector<int> nums) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
     int minDiff = INT_MAX;
-    int cutIndex = 0;
+    int pos = 0;
     
-    for (int i = 1; i < nums.size(); i++) {
-        if (abs(nums[i] - nums[i-1]) <= minDiff) {
-            minDiff = abs(nums[i] - nums[i-1]);
-            cutIndex = i;
+    for(int i=1; i<vec.size(); i++) {
+        if(abs(vec[i]-vec[0]) <= minDiff) {
+            minDiff = abs(vec[i]-vec[0]);
+            pos = i;
         }
     }
     
-    vector<vector<int>> result(2);
-    result[0].assign(nums.begin(), nums.begin() + cutIndex);
-    result[1].assign(nums.begin() + cutIndex, nums.end());
-    
-    return result;
+    return {{}, {}};
 }
