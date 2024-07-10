@@ -17,8 +17,10 @@ std::string solve(std::string s) {
 int main() {
     std::cout << "Enter a string: ";
     std::string s;
-    char c;
-    while ((c = std::cin.get()) != '\n') {
+    while (true) {
+        char c = std::cin.get();
+        if (c == '\n')
+            break;
         s += c;
     }
     std::string result = solve(s);
