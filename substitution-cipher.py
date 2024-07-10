@@ -1,10 +1,9 @@
-```
-def decipher_cipher(input1, input2, input3):
-    cipher = {k: v for k, v in zip(input1, input2)}
-    output = ''
-    for char in input3:
-        if char in cipher:
-            output += cipher[char]
-        else:
-            output += char
-    return output
+def substitution_cipher(cipher_text1, cipher_text2, text_to_decrypt):
+    decrypted_text = ""
+    for char in text_to_decrypt:
+        for i in range(len(cipher_text1)):
+            if cipher_text1[i] == char.lower():
+                decrypted_text += cipher_text2[i].lower()
+            elif cipher_text1[i].upper() == char.upper():
+                decrypted_text += cipher_text2[i].upper()
+    return decrypted_text
