@@ -1,4 +1,3 @@
-```
 import math
 
 def car_race_collision(num_cars=None):
@@ -7,4 +6,4 @@ def car_race_collision(num_cars=None):
             num_cars = int(input("Enter the number of cars: "))
         except ValueError:
             num_cars = 1
-    return num_cars * (num_cars - 1) // 2
+    return (num_cars * (num_cars - 1)) // 2
