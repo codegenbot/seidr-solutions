@@ -1,33 +1,20 @@
-Here is the completed code:
-
 string file_name_check(string file_name){
-    int count = 0;
-    bool foundDot = false;
-    string beforeDot;
-    
-    for(int i = 0; i < file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            count++;
-            if(count > 3) return "No";
-        }
-        else if(file_name[i] == '.'){
-            foundDot = true;
-            break;
-        }
-        else{
-            beforeDot += file_name[i];
+    int digit_count = 0;
+    bool has_dot = false;
+    for(int i=0; i<file_name.length(); i++){
+        char c = file_name[i];
+        if(c >= '0' && c <= '9'){
+            digit_count++;
+            if(digit_count > 3) return "No";
+        }else if(c == '.'){
+            has_dot = true;
+        }else if(!has_dot){
+            if((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) return "No";
         }
     }
-    
-    if(!foundDot || beforeDot.empty() || !isalpha(beforeDot[0])) return "No";
-    
-    string afterDot = "";
-    for(int i = file_name.length()-1; i > 0; i--){
-        if(file_name[i] == '.') break;
-        else afterDot = file_name[i] + afterDot;
-    }
-    
-    if(afterDot != "txt" && afterDot != "exe" && afterDot != "dll") return "No";
-    
+    if(!has_dot) return "No";
+    size_t pos = file_name.find('.');
+    string extension = file_name.substr(pos+1);
+    if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
     return "Yes";
 }
