@@ -6,17 +6,13 @@ using namespace std;
 
 std::vector<int> factorize(int n) {
     std::vector<int> factors;
-    if (n == 0) {
-        factors.push_back(0);
-        return factors;
-    }
-    if (n == 1) {
-        factors.push_back(1);
-        return factors;
-    }
-    if (n < 0) {
-        factors.push_back(-1);
-        n = abs(n);
+    if (n < 2) {
+        if (n <= 0) {
+            return factors;
+        } else {
+            factors.push_back(n);
+            return factors;
+        }
     }
     for (int i = 2; i * i <= n; ++i) {
         while (n % i == 0) {
