@@ -6,13 +6,7 @@ def poly(xs: list, x: float):
 
 
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("xs must have even number of coefficients")
-
     n = len(xs)
-    a = xs[0]
-    b = -xs[1]
-
-    root = (-b + math.sqrt(b**2 - 4 * a * xs[n // 2])) / (2 * a)
-
-    return round(root, 2)
+    assert n % 2 == 0, "xs must have even number of coefficients"
+    leading_coeff = abs(max(xs))
+    return -leading_coeff / xs[-1]
