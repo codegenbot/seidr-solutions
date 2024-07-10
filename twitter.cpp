@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <string>
 
@@ -17,10 +16,7 @@ string validateTweet(string tweet) {
 int main() {
     string tweet;
     cout << "Enter a tweet: ";
-    getline(cin, tweet);
-    while (tweet.back() == '\n') {
-        tweet.pop_back();
-    }
+    getline(cin, tweet) >> ws; // Remove the leading whitespace
     cout << validateTweet(tweet) << endl;
     return 0;
 }
