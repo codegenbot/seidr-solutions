@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -9,7 +8,7 @@ bool std::issame(std::vector<int> a, std::vector<int> b) {
 std::pair<int, int> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
     for (int i = 1; i <= n; i++) {
-        if (i == std::stoi(std::to_string(reverse(i)))) {
+        if (i == reverse(i)) {
             if (i % 2 == 0)
                 even++;
             else
@@ -38,5 +37,5 @@ int reverse(int n) {
         strRev += std::to_string(remainder);
         n /= 10;
     }
-    return std::stoi(strRev); // Convert string to integer
+    return std::stoi(strRev); 
 }
