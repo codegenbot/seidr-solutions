@@ -10,4 +10,4 @@ def decode_cyclic(s: str):
             temp += char
     if temp:
         result.append(temp)
-    return "".join(result).replace("x", ")
+    return "".join(result).replace("x", "")
