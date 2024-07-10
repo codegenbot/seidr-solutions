@@ -1,8 +1,14 @@
+**Code:**
 #include <string>
 #include <iostream>
 
 int main() {
     std::string tweet;
+    
+    if (!isatty(fileno(stdin))) {
+        std::cout << "Interactive mode detected. Provide input:" << std::endl;
+    }
+
     getline(std::cin, tweet);
 
     if (tweet.empty()) {
