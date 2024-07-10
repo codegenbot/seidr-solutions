@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
@@ -10,8 +14,14 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-int main() {
-    // Existing main function code remains unchanged
-    // Ensure there's only one 'int main()' function in the code
-    return 0;
+std::vector<int> largest_smallest_integers(const std::vector<int>& lst) {
+    int largest_negative = INT_MIN, smallest_positive = INT_MAX;
+    for (int num : lst) {
+        if (num < 0 && num > largest_negative) {
+            largest_negative = num;
+        } else if (num > 0 && num < smallest_positive) {
+            smallest_positive = num;
+        }
+    }
+    return {largest_negative, smallest_positive};
 }
