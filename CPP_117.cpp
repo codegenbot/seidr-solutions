@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -38,7 +39,8 @@ std::string Join(const std::vector<std::string>& vec, char delimiter) {
 }
 
 int main() {
-    if (!issame({{"a"}}, select_words("a b c d e f", 1))) 
+    std::vector<std::string> my_result = {"b"};
+    if (!issame(std::vector<std::string>(std::begin(my_result), std::end(my_result)), select_words("a b c d e f", 1))) 
         std::cout << "{" + Join(select_words("a b c d e f", 1), ", ") + "}" << std::endl;
     return 0;
 }
