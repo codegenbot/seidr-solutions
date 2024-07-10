@@ -1,4 +1,3 @@
-```
 n = int(input("Enter first number: "))
 m = int(input("Enter second number: "))
 def rounded_avg(n, m):
@@ -10,4 +9,4 @@ def rounded_avg(n, m):
         avg += 1
         bin_str = format(avg, "b")
     return bin_str.zfill(32)
-print('''{}'''.format(rounded_avg(n, m)))
+print(rounded_avg(n, m))
