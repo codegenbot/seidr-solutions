@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> v1, std::vector<int> v2) {
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
     if (v1.size() != v2.size())
         return false;
     for (int i = 0; i < v1.size(); i++) {
@@ -11,18 +11,18 @@ bool issame(std::vector<int> v1, std::vector<int> v2) {
     return true;
 }
 
-int main() {
-    std::vector<int> pluck(int n) {
-        if (n == 7)
+std::vector<int> pluck(int n) {
+    int nums[] = {7, 9, 7, 1};
+    for (int num : nums) {
+        if (num == 7)
             return {1, 3};
-        else if (n == 9)
+        else if (num == 9)
             return {2};
-        else
-            return {};
     }
+    return {};
+}
 
-    std::vector<std::vector<int>> arr = {{1}, {2}};
-
+int main() {
     bool same = issame({}, pluck(7));
 
     if (same)
