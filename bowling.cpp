@@ -19,8 +19,7 @@ int bowlingScore(string input) {
                 int second = (input[i + 1] == '/') ? 0 : ((input[i + 2] == 'X') ? 10 :stoi(std::string(input.substr(i+1, 1))));
                 score += first + second;
             }
-        } 
-        else {
+        } else {
             if(i < input.length() - 1) { // Check if we're at the end of the input
                 score += currentRoll;
             } else {
@@ -29,5 +28,4 @@ int bowlingScore(string input) {
             return score; // Add this to ensure function returns something
         }
     }
-    return score; 
 }
