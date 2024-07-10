@@ -1,4 +1,8 @@
-if(date.empty()) return false;
+#include <iostream>
+#include <string>
+
+bool valid_date(std::string date) {
+    if(date.empty()) return false;
     
     int month, day, year;
     if(sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3) return false;
@@ -10,4 +14,23 @@ if(date.empty()) return false;
     if(month == 2 && (day < 1 || day > 29)) return false;
     
     return true;
+}
+
+int contest_main() {
+    std::string date;
+    std::cout << "Enter a date in the format MM-DD-YYYY: ";
+    std::cin >> date;
+
+    if(date.size() != 10 || date[2] != '-' || date[5] != '-') {
+        std::cout << "Invalid date format. Please enter date in the format MM-DD-YYYY." << std::endl;
+        return 1;
+    }
+
+    if(valid_date(date)) {
+        std::cout << "Valid date." << std::endl;
+    } else {
+        std::cout << "Invalid date." << std::endl;
+    }
+
+    return 0;
 }
