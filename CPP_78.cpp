@@ -13,7 +13,6 @@ int hex_key(string num) {
         }
     }
     return count;
-
 }
 
 int main() {
