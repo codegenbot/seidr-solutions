@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -8,15 +9,14 @@ int main() {
     int n;
     cin >> n;
 
-    double temp;
-    vector<double> vec1, vec2;
+    vector<double> vec1(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> vec1[i];
+    }
 
-    for (int i = 0; i < 2 * n; ++i) {
-        cin >> temp;
-        if (i < n)
-            vec1.push_back(temp);
-        else
-            vec2.push_back(temp);
+    vector<double> vec2(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> vec2[i];
     }
 
     double sum = 0;
@@ -25,7 +25,7 @@ int main() {
     }
 
     double result = sqrt(sum);
-    cout << result << endl;
+    cout << fixed << setprecision(17) << result << endl;
 
     return 0;
 }
