@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -11,4 +12,13 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
     if min_val == max_val:
         return [0.0] * len(numbers)
 
-    return [(x - min_val) / (max_val - min_val) for x in numbers]
+    seen = set()
+    result = []
+    for x in numbers:
+        if isinstance(x, (int, float)):
+            val = (x - min_val) / (max_val - min_val)
+            if val not in seen:
+                result.append(val)
+                seen.add(val)
+
+    return result
