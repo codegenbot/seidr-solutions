@@ -14,12 +14,3 @@ bool issame(vector<string> a, vector<string> b) {
 
     return true;
 }
-
-void separate_paren_groups() {
-    // Function implementation goes here
-}
-
-int main() {
-    // Your main function code here
-    return 0;
-}
