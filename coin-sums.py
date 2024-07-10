@@ -4,7 +4,8 @@ def coin_sums(cents):
 
     for i in range(len(coins)):
         count = cents // coins[i]
-        counts[coins.index(25) - i] = count
-        cents -= coins[i] * count
+        if count > 0:
+            counts[i] = count
+            cents -= coins[i] * count
 
     return counts[3], counts[2], counts[1], counts[0]
