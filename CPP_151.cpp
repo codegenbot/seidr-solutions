@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -14,9 +15,9 @@ double double_the_difference(vector<double> lst) {
     return static_cast<double>(sum);
 }
 
-int main() {
-    double odd_sum = 0;
+int main_func() {
     vector<double> lst;
+    double odd_sum = 0;
 
     for (string line; getline(cin, line); ) {
         if (!line.empty()) {
