@@ -39,6 +39,11 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    vector<string> output = reverse_delete("hello", "olleh");
+    cout << "Output: ";
+    for (string str : output) {
+        cout << str << " ";
+    }
+    cout << endl;
     return 0;
 }

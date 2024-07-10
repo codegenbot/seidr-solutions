@@ -10,17 +10,8 @@ float triangle_area(int a, int b, int c) {
 
 int main() {
     std::cout << "Enter sides of triangle: ";
-    std::cin >> std::ws;  
-    char temp[5];
-    std::cin.width(4);
-    std::cin >> temp;
-    char s1[5] = temp;
-    std::cin.width(4);
-    std::cin >> temp;
-    char s2[5] = temp;
-    std::cin.width(4);
-    std::cin >> temp;
-    char s3[5] = temp;
+    char s1[5], s2[5], s3[5];
+    std::cin >> s1 >> std::ws >> s2 >> std::ws >> s3;
 
     int a = std::stoi(s1);
     int b = std::stoi(s2);
