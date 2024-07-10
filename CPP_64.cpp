@@ -14,8 +14,14 @@ int vowels_count(std::string s) {
 }
 
 int main() {
-    std::string s = ""; // Initialize as empty
-    std::cin >> s;
+    std::string s = "";
+    char temp[1000]; 
+    while(std::cin.getline(temp, 1000)) { 
+        if (!s.empty()) {
+            s += "\n";
+        }
+        s += temp; 
+    }
     if(s.empty()) {
         std::cout << "Error: Input string is empty." << std::endl;
     } else {
