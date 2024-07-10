@@ -4,5 +4,5 @@ def convert_case(s):
 try:
     user_input = input("Enter a string: ").strip()
     print(convert_case(user_input))
-except:
+except Exception as e:
     print("Invalid input. Please enter a valid string.")
