@@ -11,6 +11,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             if stack:
                 stack.pop()
                 level -= 1
-        if not stack and paren == ')':
-            result.append(level)
-    return result
+        else:
+            continue
+    return [level]
