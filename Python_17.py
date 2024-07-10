@@ -9,8 +9,8 @@ def parse_music(music_data: str):
     return lines
 
 music_data = ''
-while True:
-    line = input().rstrip()
+for line in sys.stdin:
+    line = line.rstrip()
     if not line.strip():
         break
     music_data += line + '\n'
