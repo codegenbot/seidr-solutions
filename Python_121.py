@@ -2,7 +2,6 @@
 def solution(lst):
     return sum(i for i in lst[1::2] if i % 2 != 0)
 
-
 def main():
     n = int(input("Expected input: "))
     while True:
@@ -16,7 +15,6 @@ def main():
             print("Invalid input. Please enter valid integers separated by space.")
 
     print(solution(lst))
-
 
 if __name__ == "__main__":
     main()
