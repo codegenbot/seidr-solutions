@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int how_many_times(string str, string substring) {
@@ -8,3 +9,4 @@ int how_many_times(string str, string substring) {
         str.erase(0, pos + substring.length());
     }
     return count;
+}
