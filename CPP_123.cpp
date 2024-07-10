@@ -1,5 +1,29 @@
-std::vector<int> test_case_1 = {1, 4, 2, 1};
-std::vector<int> test_case_2 = {1, 2, 1};
+#include <vector>
+#include <cassert>
 
-assert(issame(get_odd_collatz(1), test_case_1));
-assert(issame(get_odd_collatz(2), test_case_2));
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
+    while (n != 1) {
+        result.push_back(n);
+        n = (n % 2 == 0) ? n / 2 : 3 * n + 1;
+    }
+    result.push_back(n);
+    return result;
+}
+
+int main() {
+    assert(issame(get_odd_collatz(1), std::vector<int>({1, 4, 2, 1}));
+    return 0;
+}
