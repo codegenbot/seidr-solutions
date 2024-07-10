@@ -1,13 +1,18 @@
 Here is the completed code:
 
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // or any value that represents "None"
+    if (lst.empty()) return -1; // or some other sentinel value
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    for (auto it = sorted.begin(); it != prev(sorted.end()); ++it) {
-        if (*it != *(prev(it))) {
-            return *it;
+    for (int i = 0; i < sorted.size() - 1; ++i) {
+        if (sorted[i] != sorted[i+1]) {
+            return sorted[i+1];
         }
     }
-    return -1; // or any value that represents "None"
+    return -1; // or some other sentinel value
 }
