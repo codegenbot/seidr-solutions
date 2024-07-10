@@ -1,31 +1,25 @@
-#include <iostream>
-#include <vector>
-#include <cassert>
-
-using namespace std;
-
-// Function prototype
-vector<string> separate_paren_groups(string paren_string);
-
-bool issame(vector<string> a, vector<string> b) {
-    // Add logic to compare vectors a and b
-    return a == b;
-}
-
 vector<string> separate_paren_groups(string paren_string) {
-    vector<string> groups;
+    vector<string> result;
     string current_group;
-    int balance = 0;
+    int depth = 0;
 
     for (char c : paren_string) {
-        // Add logic to separate groups based on parentheses
+        if (c == '(') {
+            if (depth > 0) {
+                current_group += c;
+            }
+            depth++;
+        } else if (c == ')') {
+            depth--;
+            if (depth >= 0) {
+                current_group += c;
+                if (depth == 0) {
+                    result.push_back(current_group);
+                    current_group.clear();
+                }
+            }
+        }
     }
 
-    return groups;
-}
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    
-    return 0;
+    return result;
 }
