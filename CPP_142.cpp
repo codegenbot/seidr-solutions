@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 #include <iostream>
 #include <cassert>
@@ -10,7 +11,7 @@ double sum_squares(int n) {
     return sum;
 }
 
-int main() {
+int main_function() {
     int n;
     while (!(std::cin >> n)) {
         std::cout << "Invalid input. Please enter a non-negative integer.\n";
@@ -20,6 +21,7 @@ int main() {
 
     if(n < 0) {
         std::cout << "Invalid input. Please enter a non-negative integer.\n";
+        return 1;
     } else {
         double result = sum_squares(n);
         std::cout << "Sum of squares: " << std::to_string(result) << std::endl;
