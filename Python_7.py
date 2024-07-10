@@ -1,9 +1,12 @@
 strings = []
 while True:
-    string = input().strip()
-    if string == '----':
+    try:
+        string = input().strip()
+        if string == '----':
+            break
+        strings.append(string)
+    except EOFError:
         break
-    strings.append(string)
 
 substring = input().strip()
 
