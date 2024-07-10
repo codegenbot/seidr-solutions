@@ -1,3 +1,4 @@
+```cpp
 double getProbability(int n, int m) {
     double total = (double)n * m;
     double p = 0;
