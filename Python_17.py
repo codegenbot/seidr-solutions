@@ -1,3 +1,4 @@
+```
 def parse_music(music_string: str) -> list:
     music_list = []
     i = 0
@@ -6,8 +7,7 @@ def parse_music(music_string: str) -> list:
             music_list.append(4)
             i += 1
         elif i < len(music_string) - 1 and music_string[i:i+2] == 'o|':
-            music_list.append(2)
-            i += 2
+            i += 2; continue
         elif i < len(music_string) - 3:
             if music_string[i:i+3] in ['...||', '.||.', '..|.']:
                 music_list.append(1)
