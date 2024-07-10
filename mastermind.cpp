@@ -8,7 +8,7 @@ using namespace std;
 bool isValidInput(const string& str) {
     if (str.length() != 4) return false;
     for (char c : str) {
-        if ((c < 'a' || c > 'f') && (c < 'A' || c > 'F')) return false;
+        if ((c < 'A' || c > 'F') && (c < 'a' || c > 'f')) return false;
     }
     return true;
 }
@@ -39,7 +39,7 @@ int main() {
     }
 
     for (auto it = codeFreq.begin(); it != codeFreq.end(); ++it) {
-        whitePegs += min(codeFreq[it->first], guessFreq[it->first]);
+        whitePegs += std::min(codeFreq[it->first], guessFreq[it->first]);
     }
 
     cout << whitePegs << endl << blackPegs << endl;
