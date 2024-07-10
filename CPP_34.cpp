@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -26,22 +25,12 @@ namespace std {
     }
 }
 
-int issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size())
-        return 0;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return 0;
-    }
-    return 1;
-}
-
 int main_test() { 
     std::vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    auto output = std::distinct(input.begin(), input.end());
-    for (auto i : std::unique(output.begin(), output.end())) {
+    std::vector<int> uniqueInput(input.begin(), input.end());
+    auto output = std::distinct(uniqueInput.begin(), uniqueInput.end());
+    for (auto i : output) {
         std::cout << i << " ";
     }
-    
-    assert(issame({5, 3, 5, 2, 3, 3, 9, 0, 123}, {0, 2, 3, 5, 9, 123}));
+    assert(std::distinct({5, 3, 5, 2, 3, 3, 9, 0, 123}) == std::vector<int>({0, 2, 3, 5, 9, 123}));
 }
