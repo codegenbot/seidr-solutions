@@ -3,6 +3,7 @@
 bool correct_bracketing(const std::string& brackets) {
     int angle_brackets = 0;
     int square_brackets = 0;
+    int curly_brackets = 0;
     for (char c : brackets) {
         if (c == '<') {
             angle_brackets++;
@@ -18,7 +19,14 @@ bool correct_bracketing(const std::string& brackets) {
                 return false;
             }
             square_brackets--;
+        } else if (c == '{') {
+            curly_brackets++;
+        } else if (c == '}') {
+            if (curly_brackets == 0) {
+                return false;
+            }
+            curly_brackets--;
         }
     }
-    return angle_brackets == 0 && square_brackets == 0;
+    return angle_brackets == 0 && square_brackets == 0 && curly_brackets == 0;
 }
