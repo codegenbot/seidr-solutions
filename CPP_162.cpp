@@ -5,6 +5,10 @@
 
 using namespace std;
 
+extern "C" {
+    #include <openssl/evp.h>
+}
+
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
