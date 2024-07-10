@@ -1,18 +1,26 @@
-bool issame(vector<float>& a, vector<float>& b){
-    sort(a.begin(), a.end());
-    return a == b;
-}
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
-vector<float> find_closest_elements(vector<float> numbers){
+pair<float, float> find_closest_elements(const vector<float>& numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
-    int min_index1 = 0, min_index2 = 1;
-    for(int i = 1; i < numbers.size() - 1; ++i){
-        if(numbers[i+1] - numbers[i] < min_diff){
-            min_diff = numbers[i+1] - numbers[i];
-            min_index1 = i;
-            min_index2 = i+1;
+    pair<float, float> closest_pair = {numbers[0], numbers[1]};
+    for (int i = 1; i < numbers.size() - 1; ++i) {
+        if (numbers[i + 1] - numbers[i] < min_diff) {
+            min_diff = numbers[i + 1] - numbers[i];
+            closest_pair = {numbers[i], numbers[i + 1]};
         }
     }
-    return {numbers[min_index1], numbers[min_index2]};
+    return closest_pair;
+}
+
+bool issame(pair<float, float> a, pair<float, float> b) {
+    return (a.first == b.first && a.second == b.second);
+}
+
+int main() {
+    assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {2.2, 3.1}));
+    return 0;
 }
