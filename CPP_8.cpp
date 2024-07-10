@@ -4,22 +4,6 @@
 
 using namespace std;
 
-vector<int> sum_product(vector<int> nums);
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
-}
-
 vector<int> sum_product(vector<int> nums){
     int sum = 0;
     int product = 1;
@@ -32,23 +16,11 @@ vector<int> sum_product(vector<int> nums){
     return {sum, product};
 }
 
-int main(){
-    vector<int> nums;
-    int n;
-    cin >> n;
-    
-    for(int i=0; i<n; i++){
-        int num;
-        cin >> num;
-        nums.push_back(num);
-    }
+vector<int> nums = {2, 5, 3};
 
-    vector<int> result = sum_product(nums);
+vector<int> result = sum_product(nums);
 
-    assert(issame(result, {10, 10}));
+assert(result == vector<int>{10, 30});
 
-    cout << "Sum: " << result[0] << endl;
-    cout << "Product: " << result[1] << endl;
-
-    return 0;
-}
+cout << "Sum: " << result[0] << endl;
+cout << "Product: " << result[1] << endl;
