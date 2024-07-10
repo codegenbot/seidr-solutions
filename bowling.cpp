@@ -1,4 +1,5 @@
-#include <string>
+```
+using namespace std;
 
 int bowlingScore(string input) {
     int score = 0;
@@ -29,3 +30,4 @@ int bowlingScore(string input) {
         }
     }
     return score;
+}
