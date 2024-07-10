@@ -25,6 +25,5 @@ int main() {
     } else {
         cout << "Test Failed" << endl;
     }
-
     return 0;
 }
