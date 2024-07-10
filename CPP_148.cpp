@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -13,7 +14,8 @@ int main() {
     int num;
     cin >> num;
     if (num > 0) {
-        bf(to_string(num));
+        string str = to_string(num);
+        bf(str); 
     } else {
         cout << "Error: Input number should be positive." << endl;
     }
