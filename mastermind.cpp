@@ -7,7 +7,9 @@ using namespace std;
 int main() {
     string code, guess;
     cin >> code >> guess;
+    
     map<char, int> codeFreq, guessFreq;
+    
     codeFreq.clear();
     guessFreq.clear();
 

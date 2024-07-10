@@ -8,6 +8,6 @@ while index < len(text):
     if index == -1:
         break
     indices.append(index)
-    index += len(target)  # Update index position by length of target string
+    index += 1
 
 print(*indices)
