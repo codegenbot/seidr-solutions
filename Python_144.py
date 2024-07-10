@@ -1,12 +1,12 @@
-x = '"{}"'.format(input("Enter the fraction x (in the format 'a/b'): "))
-n = '"{}"'.format(input("Enter the fraction n (in the format 'c/d'): "))
+```
+x = input("Enter the fraction x (in the format 'a/b'): ")
+n = input("Enter the fraction n (in the format 'c/d'): ")
 
 import math
 
-
 def simplify(x, n):
-    x_num, x_denom = map(int, x[3:-1].split("/"))
-    n_num, n_denom = map(int, n[3:-1].split("/"))
+    x_num, x_denom = map(int, x[3:-1].split('/'))
+    n_num, n_denom = map(int, n[3:-1].split('/'))
 
     if x_denom == 0 or n_denom == 0:
         return "Error: Division by zero is not allowed"
@@ -23,5 +23,5 @@ def simplify(x, n):
 
     return simplified_x_num, simplified_x_denom, simplified_n_num, simplified_n_denom
 
-
-print(simplify(x.strip('"'), n.strip('"')))
+result = simplify(x, n)
+print(result)
