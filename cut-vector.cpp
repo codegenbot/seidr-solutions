@@ -1,30 +1,45 @@
-```c++
+#include <iostream>
 #include <vector>
-#include <climits>
-#include <cmath>
+#include <climits> // Include this header
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    for (int i = 0; i < v.size() - 1; i++) {
-        int diff = abs(v[i] - v[i + 1]);
-        if (diff <= minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+vector<vector<int>> cutVector(vector<int>& nums) {
+    int n = nums.size();
+    vector<vector<int>> res(2);
+
+    if (n == 0)
+        return res;
+
+    int min_diff = INT_MAX, prev_diff = INT_MAX;
+    int idx = 0, prev_idx = 0;
+
+    for (int i = 1; i < n; i++) {
+        int diff = abs(nums[i] - nums[i-1]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            idx = i;
+            prev_idx = i-1;
         }
     }
-    vector<int> left = {v[0]};
-    vector<int> right = v;
-    for (int i = 0; i < cutIndex; i++) {
-        left.push_back(v[i]);
-    }
-    for (int i = cutIndex + 1; i < v.size(); i++) {
-        right.pop_back();
-    }
-    return {left, right};
+
+    res[0].clear();
+    for (int i = 0; i <= prev_idx; i++)
+        res[0].push_back(nums[i]);
+    res[1].clear();
+    for (int i = prev_idx + 1; i < n; i++)
+        res[1].push_back(nums[i]);
+
+    return res;
 }
 
 int main() {
+    vector<int> nums = {1, 0};
+    vector<vector<int>> result = cutVector(nums);
+    for(int i=0; i<2; i++){
+        for(int j=0; j<result[i].size();j++){
+            cout<<result[i][j]<<" ";
+        }
+        cout<<endl;
+    }
     return 0;
 }
