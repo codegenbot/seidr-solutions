@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -33,6 +34,6 @@ int main() {
     string target = "World";
     vector<int> result = indicesOfSubstring(text, target);
     for (int i : result) {
-        std::cout << i << std::endl;
+        cout << i << endl;
     }
     return 0;
