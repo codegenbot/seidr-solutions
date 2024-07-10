@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool b(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
@@ -23,7 +24,7 @@ bool bf(std::string planet1, std::string planet2) {
     }
     
     if (index1 == -1 || index2 == -1)
-        return std::vector<std::string>();
+        return {};
     
     std::vector<std::string> result;
     for (int i = 0; i < planets.size(); i++) {
