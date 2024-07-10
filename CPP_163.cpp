@@ -1,5 +1,9 @@
 #include <vector>
 
-bool issame(const std::std::vector<int>& a, const std::std::vector<int>& b) {
+std::vector<int> generate_integers(int a, int b) {
+    return {};
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
