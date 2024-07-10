@@ -1,4 +1,4 @@
-```Python
+````
 from typing import List
 
 def filter_integers() -> List[int]:
@@ -8,14 +8,7 @@ def filter_integers() -> List[int]:
         if value.lower() == 'stop':
             break
         try:
-            int_val = int(value)
-            if int_val.is_integer(): 
-                values.append(int_val)
-            else:
-                print(f"Invalid input. {value} is not an integer.")
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
-
+            values.append(int(value))
+        except ValueError as e:
+            print(f"Invalid input. Please enter a valid integer: {str(e)}")
     return values
-
-print(filter_integers())
