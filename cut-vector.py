@@ -3,9 +3,9 @@ def cut_vector(vector):
     split_index = 0
 
     for i in range(1, len(vector)):
-        diff = abs(sum(vector[:i]) - sum(vector[i:]))
+        diff = abs(np.mean(vector[:i]) - np.mean(vector[i:]))
 
-        if diff <= min_diff:
+        if diff < min_diff:
             min_diff = diff
             split_index = i
 
