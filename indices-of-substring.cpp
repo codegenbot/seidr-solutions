@@ -26,7 +26,8 @@ int main() {
         size_t pos = text.find(target, 0);
         while (pos != std::string::npos) {
             indices.push_back(static_cast<int>(pos));
-            pos = text.find(target, pos); // Modified line
+            pos = text.find(target, pos);
+            pos += 1;
         }
     }
     
