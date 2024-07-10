@@ -1,4 +1,9 @@
 def luhn(card):
     card = [int(i) for i in card.replace(" ", "")]
-    result = sum([x if i % 2 != 0 else x * 2 - x // 10 * 9 for i, x in enumerate(card)])
+    result = sum(
+        [
+            x if i % 2 != 0 else x * 2 - (x % 10) + (x // 10) // 10 * 9
+            for i, x in enumerate(card)
+        ]
+    )
     return str(result)
