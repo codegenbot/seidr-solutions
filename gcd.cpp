@@ -2,38 +2,27 @@
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int textLen = text.length();
-    int targetLen = target.length();
+    vector<int> res;
+    int n = text.length();
+    int m = target.length();
     
-    for(int i=0; i<=textLen-targetLen; i++) {
-        if(text.substr(i, targetLen) == target) {
-            result.push_back(i);
-            // consider overlapping
-            while(i+targetLen <= textLen && text.substr(i, targetLen) == target)
+    for(int i=0; i+n-m-1;i++){
+        if(text.substr(i,m).compare(target)==0){
+            res.push_back(i);
+            // Check for overlapping occurrences
+            while(i+n-m<n && text.substr(i,m).compare(target)==0) {
                 i++;
+                res.push_back(i);
+            }
         }
     }
     
-    return result;
+    return res;
 }
 
 int gcd(int a, int b) {
-    if (b == 0) 
+    if (b == 0)
         return a;
-    else 
+    else
         return gcd(b, a % b);
-}
-
-int main() {
-    int n1, n2;
-    cin >> n1 >> n2;
-    cout << gcd(n1, n2) << endl;
-
-    string text, target;
-    cin >> text >> target;
-    vector<int> indices = indicesOfSubstring(text, target);
-    for(int i : indices)
-        cout << i << " ";
-    return 0;
 }
