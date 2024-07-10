@@ -15,5 +15,5 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
 
-    return b;
+    return b.type() == typeid(int) ? a : b;
 }
