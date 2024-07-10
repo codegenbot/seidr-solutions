@@ -1,14 +1,7 @@
-#include <stdio.h>
-#include <string>
-#include <cmath>
-using namespace std;
+int x_num = stoi(x.substr(0, x.find('/')));
+    int x_den = stoi(x.substr(x.find('/') + 1));
+    int n_num = stoi(n.substr(0, n.find('/')));
+    int n_den = stoi(n.substr(n.find('/') + 1));
 
-bool simplify(string x, string n) {
-    int x_numerator, x_denominator, n_numerator, n_denominator;
-    sscanf(x.c_str(), "%d/%d", &x_numerator, &x_denominator);
-    sscanf(n.c_str(), "%d/%d", &n_numerator, &n_denominator);
-
-    double result = (double)x_numerator / x_denominator * n_numerator / n_denominator;
-
-    return (fabs(result - round(result)) < 1e-9);
+    return (x_num * n_num) % (x_den * n_den) == 0;
 }
