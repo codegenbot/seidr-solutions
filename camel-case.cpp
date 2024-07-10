@@ -1,31 +1,21 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include <algorithm>
 
 std::string camelCase(const std::string& s) {
-    std::string result;
-    bool first = true;
-
-    for (char c : s) {
-        if (c == '-') {
-            first = false;
-        } else if (!first) {
-            result[0] = toupper(c);
-            result += c;
+    std::vector<std::string> words;
+    for (const auto& word : s.split '-') {
+        if (!words.empty()) {
+            words.back() + tolower(word[0]) + word.substr(1);
         } else {
-            result += tolower(c);
+            words.push_back(tolower(word));
         }
     }
 
-    return result;
+    return words.size() > 0 ? words.back() : "";
 }
 
-int main() {
-    std::string s;
-    while (std::getline(std::cin, s)) {
-        s.erase(std::remove_if(s.begin(), s.end(), [](char c){ return !isalnum(c) && c != '-'; }), s.end());
-        if (!s.empty()) {
-            std::cout << camelCase(s) << '\n';
-        }
-    }
+std::string_view operator""sv(const char* data, std::size_t length) {
+    return std::string_view(data, length);
 }
