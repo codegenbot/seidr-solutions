@@ -1,7 +1,10 @@
-#include <string>
 #include <vector>
+#include <string>
+#include <cassert>
 
-vector<string> split_words(string txt) {
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> solve(string txt) {
     vector<string> words;
     string word = "";
     for (char c : txt) {
@@ -30,5 +33,5 @@ vector<string> split_words(string txt) {
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // Your comparison logic here
+    // Add your implementation here
 }
