@@ -2,12 +2,13 @@
 using namespace std;
 
 string int_to_mini_roman(int number) {
-    map<int, string> roman = {{1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
-                               {100, "c"}, {90, "xc"}, {50, "l"},
-                               {40, "xl"}, {10, "x"}, {9, "ix"}, {5, "v"},
-                               {4, "iv"}, {1, "i"}};
+    map<int, string> roman = {{1000, "M"}, {900, "CM"}, {500, "D"}, 
+                               {400, "CD"}, {100, "C"}, {90, "XC"}, 
+                               {50, "L"}, {40, "XL"}, {10, "X"}, 
+                               {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
+
     string result = "";
-    for (auto it = roman.begin(); it != roman.end(); ++it) {
+    for (auto it = roman.rbegin(); it != roman.rend(); ++it) {
         while (number >= it->first) {
             result += it->second;
             number -= it->first;
