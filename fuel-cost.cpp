@@ -1,19 +1,12 @@
-int totalFuelCost(vector<int> &prices) {
+Here is the solution:
+
+int fuelCost(vector<int> v) {
     int sum = 0;
-    for (int price : prices) {
-        int newPrice = (price / 3) - 2;
-        sum += newPrice;
+    for (int i : v) {
+        int x = (i / 3);
+        x = std::floor(x) - 2;
+        if (x > 0)
+            sum += x;
     }
     return sum;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> prices(n);
-    for (int i = 0; i < n; i++) {
-        cin >> prices[i];
-    }
-    cout << totalFuelCost(prices) << endl;
-    return 0;
 }
