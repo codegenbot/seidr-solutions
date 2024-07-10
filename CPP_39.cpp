@@ -12,22 +12,26 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
-    int fibNum = 0, prevFib = 1, count = 0;
+    int a = 0, b = 1, fib = 0;
+    int count = 0;
+
     while (true) {
-        int temp = fibNum + prevFib;
-        fibNum = prevFib;
-        prevFib = temp;
-        if (isPrime(prevFib)) {
+        fib = a + b;
+        a = b;
+        b = fib;
+        if (isPrime(fib)) {
             count++;
             if (count == n)
-                return prevFib;
+                return fib;
         }
     }
 }
 
 int main() {
-    for (int i = 1; i <= 5; i++) {
-        cout << "prime_fib(" << i << ") = " << prime_fib(i) << endl;
-    }
+    cout << prime_fib(1) << endl;
+    cout << prime_fib(2) << endl;
+    cout << prime_fib(3) << endl;
+    cout << prime_fib(4) << endl;
+    cout << prime_fib(5) << endl;
     return 0;
 }
