@@ -7,6 +7,7 @@ def sum_of_odd_numbers_in_every_other_element():
         return sum(i for i in numbers[1::2] if i % 2 != 0)
     except ValueError:
         print("Invalid input. Please try again.")
-        return sum_of_odd_numbers_in_every_other_element([])
+        return sum_of_odd_numbers_in_every_other_element()
 
-sum_of_odd_numbers_in_every_other_element()
+result = sum_of_odd_numbers_in_every_other_element()
+print(f"Sum of odd numbers in every other element is: {result}")
