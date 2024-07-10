@@ -9,7 +9,7 @@ bool std::issame(std::vector<int> a, std::vector<int> b) {
 std::pair<int, int> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
     for (int i = 1; i <= n; i++) {
-        if (i == stoi(reverse(i).data())) {
+        if (i == std::stoi(std::to_string(reverse(i)))) {
             if (i % 2 == 0)
                 even++;
             else
@@ -19,7 +19,7 @@ std::pair<int, int> even_odd_palindrome(int n) {
     return std::make_pair(even, odd);
 }
 
-std::pair<int, int> user_input() {
+std::pair<int, int> userInput() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
@@ -30,12 +30,13 @@ std::pair<int, int> user_input() {
     std::cout << "Number of odd palindromes: " << result.second << std::endl;
 }
 
-std::string reverse(int n) {
-    std::string rev = "";
+int reverse(int n) {
+    int rev = 0;
+    std::string strRev = "";
     while (n != 0) {
         int remainder = n % 10;
-        rev += char(remainder + '0');
+        strRev = std::to_string(remainder) + strRev; // Fix
         n /= 10;
     }
-    return rev;
+    return std::stoi(strRev); // Convert string to integer
 }
