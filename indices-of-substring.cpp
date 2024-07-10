@@ -7,25 +7,23 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.size();
 
     for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target)
+        if (text.substr(i, m) == target) {
             result.push_back(i);
+        }
     }
 
     return result;
 }
 
 int main() {
-    string text;
-    cin >> text;
-    string target;
-    cin >> target;
+    // Testing the function
+    string text, target;
+    cin >> text >> target;
 
-    vector<int> res = indicesOfSubstring(text, target);
+    vector<int> indices = indicesOfSubstring(text, target);
 
-    for (int i : res) {
+    for (int i : indices)
         cout << i << " ";
-    }
-    cout << endl;
 
     return 0;
 }
