@@ -1,30 +1,22 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-bool issame(std::vector<int> v1, std::vector<int> v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-std::vector<int> common(std::vector<int> v1, std::vector<int> v2) {
+std::vector<int> common(const std::vector<int>& vec1, const std::vector<int>& vec2) {
     std::vector<int> result;
-    for (int i : v1) {
-        for (int j : v2) {
-            if (i == j) {
-                result.push_back(i);
-                break;
-            }
-        }
-    }
+    std::set_intersection(vec1.begin(), vec1.end(), vec2.begin(), vec2.end(), std::back_inserter(result));
     return result;
 }
 
-assert(issame(common({4, 3, 2, 8}, {2, 3, 5}), {2, 3}));
-assert(issame(common({1, 2, 3}, {4, 5, 6}), {}));
-assert(issame(common({1, 2, 3}, {1, 2, 3}), {1, 2, 3}));
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(common({4, 3, 2, 8}, {2, 3, 5}), {2, 3}));
+    assert(issame(common({1, 2, 3}, {4, 5, 6}), {}));
+    assert(issame(common({1, 2, 3}, {1, 2, 3}), {1, 2, 3}));
+
+    return 0;
+}
