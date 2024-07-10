@@ -1,2 +1,6 @@
+```
 def modp(n: int, p: int):
-    return pow(n, p - 2, p) if pow(2, p - 1, p) == 1 else None
+    if n < 0:
+        n += p
+    gcd = lambda a, b: 2*a if not b else gcd(b, a%b)
+    return pow(n, p - 2 * gcd(n, p), p)
