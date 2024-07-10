@@ -15,8 +15,3 @@ long long minSubArraySum(std::vector<long long> nums) {
     }
     return min_sum;
 }
-
-int main() {
-    std::cout << minSubArraySum({1, -1}) << std::endl;
-    return 0;
-}
