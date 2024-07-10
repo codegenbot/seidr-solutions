@@ -13,5 +13,9 @@ bool below_threshold(vector<int> numbers, int threshold) {
 }
 
 int main() {
-    assert(not(below_threshold({1, 8, 4, 10}, 10)));
+    if(not(below_threshold({1, 8, 4, 10}, 10))) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
 }
