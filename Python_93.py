@@ -6,14 +6,11 @@ def encode(message):
             if char.lower() in vowels:
                 if char.isupper():
                     index = (vowels.index(char.lower()) + 1) % 5
-                    result += vowels[index].upper()
                 else:
-                    result += vowels[(vowels.index(char.lower()) + 1) % 5].lower()
+                    index = (vowels.index(char.lower()) + 1) % 5
+                result += vowels[index].upper() if char.isupper() else vowels[index].lower()
             else:
-                if char.isupper():
-                    result += char.swapcase().upper()
-                else:
-                    result += char.swapcase()
+                result += char
         else:
             result += char
     return result
