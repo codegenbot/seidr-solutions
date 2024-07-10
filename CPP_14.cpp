@@ -28,7 +28,8 @@ int mainFunc() {
         std::cout << "Invalid input. Please enter a non-empty string." << std::endl;
     } else {
         std::vector<char> result = all_prefixes(input);
-        if (!issame({{""}}, {std::vector<std::string>(result.begin(), result.end())})) {
+        std::vector<std::string> chars(result.begin(), result.end());
+        if (!issame(std::vector<std::string>(chars.begin(), chars.begin()), std::vector<std::string>(chars.begin(), chars.end()))) {
             std::cout << "The prefixes are not the same." << std::endl;
         } else {
             std::cout << "The prefixes are the same." << std::endl;
@@ -36,7 +37,7 @@ int mainFunc() {
     }
 
     std::vector<char> www = all_prefixes("WWW");
-    if (!issame({{""}}, {std::vector<std::string>(www.begin(), www.end())})) {
+    if (!issame(std::vector<std::string>(www.begin(), www.end()), std::vector<std::string>(www.begin(), www.begin()))) {
         std::cout << "The prefixes are not the same." << std::endl;
     } else {
         std::cout << "The prefixes are the same." << std::endl;
