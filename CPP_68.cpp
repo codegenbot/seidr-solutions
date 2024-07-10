@@ -1,11 +1,11 @@
 #include <vector>
 
-bool issame(int x, int y){
-    return x == y;
+bool issame(int a, int b){
+    return a == b;
 }
 
-vector<int> pluck(vector<int> arr){
-    vector<int> result;
+std::vector<int> pluck(std::vector<int> arr){
+    std::vector<int> result;
     int smallest_even = -1;
     int smallest_index = -1;
     
