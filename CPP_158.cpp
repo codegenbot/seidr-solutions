@@ -18,10 +18,10 @@ int main() {
     std::vector<std::string> words;
     int n;
     std::cout << "Enter the number of words: ";
-    std::cin >> std::ws; // clear the newline left in the stream buffer
+    std::cin >> std::ws; 
     std::cin >> n;
 
-    std::cin.ignore(); // ignore newline left in the stream buffer
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     for (int i = 0; i < n; ++i) {
         std::string word;
