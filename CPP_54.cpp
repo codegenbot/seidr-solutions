@@ -1,7 +1,25 @@
-bool same_chars(const std::string& s0, const std::string& s1) {
-    std::string temp_s0 = s0;
-    std::string temp_s1 = s1;
-    sort(temp_s0.begin(), temp_s0.end());
-    sort(temp_s1.begin(), temp_s1.end());
-    return temp_s0 == temp_s1;
+#include <iostream>
+#include <algorithm>
+#include <string>
+
+bool same_chars(std::string s0, std::string s1) {
+    std::sort(s0.begin(), s0.end());
+    std::sort(s1.begin(), s1.end());
+    return s0 == s1;
+}
+
+int main() {
+    std::string str1, str2;
+    std::cout << "Enter first string: ";
+    std::cin >> str1;
+    std::cout << "Enter second string: ";
+    std::cin >> str2;
+
+    if (same_chars(str1, str2)) {
+        std::cout << "Both strings have the same characters." << std::endl;
+    } else {
+        std::cout << "Strings do not have the same characters." << std::endl;
+    }
+
+    return 0;
 }
