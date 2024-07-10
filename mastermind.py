@@ -1,13 +1,12 @@
 def mastermind(code, guess):
-    black_pegs = 0
+    code_set = set(code)
     white_pegs = 0
+    black_pegs = 0
 
-    for i in range(len(guess)):
-        if code[i] == guess[i]:
-            black_pegs += 1
-        elif str(i + 1) in [
-            str(x).zfill(2) for x in [i + 1 for c, g in zip(code, guess) if c != g]
-        ]:
+    for char in guess:
+        if char in code and char != code[0]:
             white_pegs += 1
+        elif char == code[0]:
+            black_pegs += 1
 
-    return f"{white_pegs}\n{black_pegs}"
+    return str(white_pegs) + "\n" + str(black_pegs)
