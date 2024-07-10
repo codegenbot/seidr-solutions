@@ -1,3 +1,4 @@
+```cpp
 int main() {
     string middleCharacter(string s) {
         int len = s.length();
