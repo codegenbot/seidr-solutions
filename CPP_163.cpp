@@ -17,5 +17,5 @@ bool is_same(std::vector<int> a, std::vector<int> b){
 
 int main(){
     auto generated_integers = generate_integers(17, 89);
-    assert(is_same(generated_integers, {}));
-} 
+    assert(is_same(generated_integers, {})); 
+}
