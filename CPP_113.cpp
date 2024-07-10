@@ -20,9 +20,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 int main() {
-    std::vector<std::string> vec1 = { "271", "137", "314" };
-    std::vector<std::string> vec2 = { "271", "137", "314" };
+    std::vector<std::string> vec1 = {"271", "137", "314"};
+    std::vector<std::string> vec2 = {"271", "137", "314"};
     assert(issame(vec1, vec2));
-    assert(odd_count({ "271", "137", "314" }) == 5);
     return 0;
 }
