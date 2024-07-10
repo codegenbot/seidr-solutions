@@ -1,6 +1,9 @@
+#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-bool issame(vector<int> a, vector<int> b);
+using namespace std;
 
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
@@ -22,11 +25,13 @@ vector<int> unique_digits(vector<int> x){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+void test_unique_digits() {
+    vector<int> expected = {31, 135};
+    vector<int> result = unique_digits({135, 103, 31});
+    assert(result == expected);
 }
 
 int main() {
-    // Your main function code here
+    test_unique_digits();
     return 0;
 }
