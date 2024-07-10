@@ -7,10 +7,7 @@ def solve_boolean(expression):
         elif char == 'F':
             return False
         elif char == '&':
-            if 'F' in expression:
-                result = False
-            else:
-                result = True
+            result &= all(char == 'T' for char in expression[expression.index(char) + 1:])
         elif char == '|':
-            result = any('T' in s for s in expression.split('|')) or not 'F' in expression
+            result |= any(char == 'F' for char in expression[:expression.index('|')])
     return result
