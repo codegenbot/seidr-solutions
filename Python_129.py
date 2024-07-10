@@ -1,5 +1,5 @@
-````
-def minPath(grid, k):
+```
+'''def minPath(grid, k):
     N = len(grid)
     def dfs(i, j, path):
         if len(path) == k:
@@ -13,4 +13,4 @@ def minPath(grid, k):
                 res = min(res, grid[ni][nj] + dfs(ni, nj, path + [grid[ni][nj]]))
         return res
     
-    return min(dfs(i, j, [grid[i][j]]) for i in range(N) for j in range(N))
+    return min(dfs(i, j, [grid[i][j]]) for i in range(N) for j in range(N))'''
