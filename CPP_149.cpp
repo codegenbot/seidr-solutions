@@ -4,6 +4,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
+    // Create a new vector and copy strings with even lengths to it
     vector<string> result;
     for (const string& s : lst) {
         if (s.length() % 2 == 0) {
@@ -11,6 +12,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
         }
     }
 
+    // Sort the resulting vector by length and then alphabetically
     sort(result.begin(), result.end(),
          [](const string& a, const string& b) {
              if (a.length() != b.length()) {
@@ -24,6 +26,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
+    // Call the function sorted_list_sum before using its result in issame.
     assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == {"cc", "dd", "aaaa", "bbbb"});
     return 0;
 }
