@@ -2,9 +2,12 @@
 #include <cassert>
 #include <utility>
 #include <vector>
+#include <limits>
+#include <cmath>
 
 bool issame(std::pair<float, float> a, std::pair<float, float> b) {
-    return a == b;
+    return std::abs(a.first - b.first) < std::numeric_limits<float>::epsilon() &&
+           std::abs(a.second - b.second) < std::numeric_limits<float>::epsilon();
 }
 
 std::pair<float, float> find_closest_elements(const std::vector<float>& numbers) {
@@ -21,6 +24,10 @@ std::pair<float, float> find_closest_elements(const std::vector<float>& numbers)
     return closest_elements;
 }
 
-assert(issame(find_closest_elements({1.2, 3.4, 5.6, 7.8}), std::make_pair(3.4f, 5.6f)));
-
-assert(issame(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}), std::make_pair(2.2f, 3.1f)));
+int main() {
+    assert(issame(find_closest_elements({1.2, 3.4, 5.6, 7.8}), std::make_pair(3.4f, 5.6f)));
+    
+    assert(issame(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}), std::make_pair(2.2f, 3.1f)));
+    
+    return 0;
+}
