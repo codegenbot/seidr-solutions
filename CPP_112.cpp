@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -55,4 +54,3 @@ int main() {
         cout << str << endl;
     }
     return 0;
-}
