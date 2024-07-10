@@ -11,13 +11,16 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
-    int a = 0, b = 1, fib = 0;
-    for (int i = 1; ; i++) {
-        fib = a + b;
-        a = b;
-        b = fib;
-        if (isPrime(fib) && ++i == n)
-            return fib;
+    int fibNum = 0, prevFib = 1, count = 0;
+    while (true) {
+        int temp = fibNum + prevFib;
+        fibNum = prevFib;
+        prevFib = temp;
+        if (isPrime(prevFib)) {
+            count++;
+            if (count == n)
+                return prevFib;
+        }
     }
 }
 
