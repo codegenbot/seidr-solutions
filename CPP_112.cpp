@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 using namespace std;
 
 bool issame(const string a, const string b) {
@@ -24,6 +25,11 @@ string to_string(int i) {
     oss << i;
     return oss.str();
 }
+string to_string(long double x) {
+    ostringstream oss;
+    oss << fixed << setprecision(2) << x; 
+    return oss.str();
+}
 
 string reverse_delete(const string s1, const string s2) {
     int len1 = s1.length();
@@ -34,11 +40,9 @@ string reverse_delete(const string s1, const string s2) {
             s1 = s1.substr(0, pos) + s1.substr(pos + 1);
         }
     }
-
-    vector<char> vec(s1.begin(), s1.end());
-    reverse(vec.begin(), vec.end());
-
-    return string(vec.begin(), vec.end());
+    std::string reversed = s1; 
+    std::reverse(reversed.begin(),reversed.end());
+    return reversed;
 }
 
 int main() {
