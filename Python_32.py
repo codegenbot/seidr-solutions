@@ -1,5 +1,3 @@
-import sys
-
-values = list(map(int, sys.stdin.readline().strip().split()))
+values = list(map(int, input().split()))
 result = sum(val * val for val in values)
 print(result)
