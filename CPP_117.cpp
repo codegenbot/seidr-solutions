@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -11,36 +10,19 @@ vector<string> select_words(string s, int n) {
     int consonants = 0;
 
     for (char c : s) {
-        if (c == ' ') {
-            if (consonants == n) {
-                result.push_back(word);
-            }
-            word.clear();
-            consonants = 0;
+        if (c != ' ') {
+            if (!isalpha(c)) continue; // skip non-alphabets
+            bool isConsonant = !isupper(c) && c != 'y'; // assume lowercase, adjust for uppercase and 'y'
+            if (isConsonant) consonants++;
+            word += tolower(c); // store in lowercase
         } else {
-            if (!isalpha(c)) continue; // ignore non-alphabets
-            char lowerCase = tolower(c);
-            if (lowerCase != 'a' && lowerCase != 'e' && lowerCase != 'i' && lowerCase != 'o' && lowerCase != 'u') {
-                consonants++;
-            }
-            word += c;
+            if (consonants == n) result.push_back(word);
+            word = "";
+            consonants = 0;
         }
     }
 
-    // check the last word
-    if (consonants == n) {
-        result.push_back(word);
-    }
+    if (consonants == n) result.push_back(word);
 
     return result;
-}
-
-int main() {
-    string s = "Mary had a little lamb";
-    int n = 4;
-    vector<string> result = select_words(s, n);
-
-    for (string str : result) {
-        cout << str << endl;
-    }
 }
