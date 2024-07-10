@@ -1,6 +1,6 @@
+```
 #include <string>
 #include <iostream>
-#include <cctype>
 
 bool is_nested(std::string str) {
     int count = 0;
