@@ -1,24 +1,16 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
-    for (int num : lst1) {
-        if (num % 2 != 0) {
-            oddCount++;
-        }
-    }
-    for (int i = 0; i < lst1.size(); i++) {
-        if (lst1[i] % 2 != 0) {
-            bool found = false;
-            for (int j = 0; j < lst2.size(); j++) {
-                if (lst2[j] % 2 != 0) {
-                    swap(lst1[i], lst2[j]);
-                    found = true;
+    bool possible = false;
+    for (int i : lst1) {
+        if (i % 2 != 0) {
+            for (int j : lst2) {
+                if (j % 2 == 0) {
+                    swap(i, j);
+                    possible = true;
                     break;
                 }
             }
-            if (!found) {
-                return "NO";
-            }
+            if (!possible) return "NO";
         }
     }
-    return oddCount == 0 ? "YES" : "NO";
+    return "YES";
 }
