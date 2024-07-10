@@ -1,17 +1,22 @@
 int do_algebra(vector<string> operator_, vector<int> operand) {
-    int result = operand[0];
+    string expression = "";
     for (int i = 0; i < operator_.size(); i++) {
-        if (operator_[i] == "+") {
-            result += operand[i + 1];
-        } else if (operator_[i] == "-") {
-            result -= operand[i + 1];
-        } else if (operator_[i] == "*") {
-            result *= operand[i + 1];
-        } else if (operator_[i] == "//") {
-            result = result / static_cast<int>(operand[i + 1]);
-        } else if (operator_[i] == "**") {
-            result = pow(result, operand[i + 1]);
+        if (i == 0)
+            expression += to_string(operand[i]);
+        else {
+            expression += " ";
+            expression += operator_[i];
+            expression += " ";
+            expression += to_string(operand[i]);
         }
     }
+
+    int result = eval(expression.c_str());
     return result;
+}
+
+int eval(char* s) {
+    char temp[1000];
+    sprintf(temp, "%d", atoi(s));
+    return atoi(temp);
 }
