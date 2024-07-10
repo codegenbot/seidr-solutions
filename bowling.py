@@ -1,21 +1,22 @@
-def bowling_game(frames):
+def bowling_score(rolls):
     score = 0
-    frame = 1
-    while frames and frame <= 10:
-        if frames[0] == "X":
-            score += 30
-            frames = frames[1:]
-            frame += 1
-        elif "/" in frames[:2]:
-            left, right = frames[:2].split("/")
-            score += int(left) + int(right)
-            frames = frames[2:]
-            if len(frames) >= 3 and frames[:3] == "X" * 3:
-                score += 30
-                frames = frames[3:]
-            else:
-                frame += 1
+    roll_index = 0
+    for frame in range(1, 11):
+        if rolls[roll_index] == "X":
+            score += 10
+            roll_index += 2
+        elif re.match("\/", rolls[roll_index]):
+            right_pin = int(rolls[roll_index][1])
+            left_pin = 10 - right_pin
+            score += left_pin + right_pin
+            roll_index += 2
         else:
-            score += int(frames[0])
-            frames = frames[1:]
+            right_pin = int(rolls[roll_index])
+            left_pin = int(rolls[roll_index + 1])
+            if right_pin + left_pin == 10:
+                score += 10
+                roll_index += 2
+            else:
+                score += right_pin + left_pin
+                roll_index += 2
     return score
