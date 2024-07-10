@@ -7,10 +7,7 @@ while True:
         xs = [int(x) for x in input("Enter the coefficients: ").split()]
         if len(xs) % 2 != 0:
             raise ValueError("xs must have even number of coefficients")
+        print(find_zero(xs))
         break
     except ValueError as e:
         print(e)
-    except Exception as e:
-        print("Invalid input. Please enter integers separated by spaces.")
-
-print(find_zero(xs))
