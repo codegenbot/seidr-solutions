@@ -1,24 +1,23 @@
+#include <iostream>
 #include <vector>
-using namespace std;
+#include <string>
 
-double double_the_difference(vector<double> lst) {
-    int sum = 0;
+void double_the_difference(const std::vector<double>& lst) {
     for (double x : lst) {
-        int diff = abs((int)x - 5);
-        if (diff % 2 != 0) {
-            sum += diff;
+        if (abs((int)x - 5) % 2 != 0) {
+            std::cout << x * 2 << " ";
         }
     }
-    return static_cast<double>(sum);
+    std::cout << std::endl;
 }
 
 int main() {
     double odd_sum = 0;
-    vector<double> lst;
+    std::vector<double> lst;
 
-    for (string line; getline(cin, line); ) {
+    for (std::string line; std::getline(std::cin, line); ) {
         if (!line.empty()) {
-            double val = stod(line);
+            double val = std::stod(line);
             int diff = abs((int)val - 5);
             if (diff % 2 != 0) {
                 odd_sum += val;
@@ -29,12 +28,12 @@ int main() {
 
     for (double x : lst) {
         if (abs((int)x - 5) % 2 != 0) {
-            cout << x << " ";
+            std::cout << x << " ";
         }
     }
-    cout << endl;
+    std::cout << std::endl;
 
-    assert(double_the_difference(lst) == odd_sum);
+    double_the_difference(lst);
 
     return 0;
 }
