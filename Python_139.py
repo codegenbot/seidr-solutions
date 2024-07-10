@@ -4,5 +4,5 @@ def special_factorial(n):
     else:
         result = 1
         for i in range(1, n+1):
-            result *= math.factorial(i)
+            result *= i * special_factorial(i-1)
         return result
