@@ -1,6 +1,5 @@
-```c++
 #include <vector>
-
+#include <iostream>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -9,24 +8,21 @@ vector<int> leaders(vector<int>& arr) {
     
     if (n == 0)
         return result;
-        
-    result.push_back(arr[n - 1]);
     
+    int lastLeaderIndex = n - 1; 
     for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] > result.back())
-            result.push_back(arr[i]);
+        if (arr[i] >= arr[lastLeaderIndex]) {
+            lastLeaderIndex = i;
+            result.push_back(arr[lastLeaderIndex]);
+        }
     }
-    
-    reverse(result.begin(), result.end());
     
     return result;
 }
 
-int main() {
-    vector<int> arr = {12, 10, 8, 6};
-    vector<int> result = leaders(arr);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    return 0;
+vector<int> arr = {12, 10, 8, 6};
+vector<int> result = leaders(arr);
+for (int i : result) {
+    cout << i << " ";
 }
+return 0;
