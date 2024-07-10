@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <iterator>
+#include <set>
 #include <cassert>
 
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
@@ -13,11 +14,8 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
 int main() {
-    assert(issame(common({4, 3, 2, 8}, {}), {}));
+    assert(common({4, 3, 2, 8}, {}) == std::vector<int>{});
+    
     return 0;
 }
