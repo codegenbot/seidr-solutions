@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <cmath>
-#include <initializer_list>
+#include <vector>
 #include <iostream>
 
 int getMax(int n) {
