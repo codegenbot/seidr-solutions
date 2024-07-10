@@ -1,5 +1,4 @@
 #include <vector>
-#include <initializer_list>
 #include <limits.h>
 
 bool issame(vector<int> a, vector<int> b) {
@@ -33,8 +32,11 @@ vector<int> pluck(vector<vector<int>> arr) {
 }
 
 int main() {
-    vector<vector<int>> arr = {{7}, {9}, {7}, {1}};
+    vector<vector<int>> arr;
+    arr.push_back({7});
+    arr.push_back({9});
+    arr.push_back({7});
+    arr.push_back({1});
     vector<int> result = pluck(arr);
     assert(issame(result, {}));
     return 0;
-}
