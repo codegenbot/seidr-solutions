@@ -20,12 +20,8 @@ string int_to_mini_roman(int number) {
 
 int main() {
     int num;
-    cout << "Enter a positive integer: ";
+    cout << "Enter a number: ";
     cin >> num;
-    if(num < 1) {
-        cout << "Please enter a positive integer." << endl;
-        return -1;
-    }
-    cout << "The Roman numeral for " << num << " is " << int_to_mini_roman(num) << "." << endl;
+    cout << "Roman numeral representation: " << int_to_mini_roman(num) << endl;
     return 0;
 }
