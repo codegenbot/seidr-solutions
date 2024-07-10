@@ -1,9 +1,6 @@
 #include <vector>
-#include <cassert>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,22 +10,4 @@ bool issame(vector<int> a, vector<int> b) {
         }
     }
     return true;
-}
-
-vector<int> get_odd_collatz(int n) {
-    vector<int> result = {n};
-    while (n != 1) {
-        if (n % 2 == 0) {
-            n /= 2;
-        } else {
-            n = 3 * n + 1;
-        }
-        result.push_back(n);
-    }
-    return result;
-}
-
-int main() {
-    assert(issame(get_odd_collatz(1), {1}));
-    return 0;
 }
