@@ -1,10 +1,10 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <limits>
 
-void findMaxWord(std::vector<std::string>& words) {
+void main(std::vector<std::string>& words) {
     std::string max_word = *std::max_element(words.begin(), words.end(),
         [](const std::string& a, const std::string& b) {
             if (a.length() == b.length()) {
@@ -24,11 +24,11 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
-        std::cin.ignore(); // Add this line to ignore only one character
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::getline(std::cin, word); 
         words.push_back(word);
     }
 
-    findMaxWord(words);
+    main(words);
     return 0;
 }
