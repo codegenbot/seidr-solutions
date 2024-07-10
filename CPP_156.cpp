@@ -14,7 +14,7 @@ std::string int_to_mini_roman(int number) const {
     return roman;
 }
 
-int main() { 
+int main(); {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
