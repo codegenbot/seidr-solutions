@@ -1,4 +1,4 @@
-Here is the completed code:
+Here is the solution:
 
 #include <vector>
 using namespace std;
@@ -10,18 +10,5 @@ int basement(vector<int>& v) {
         if (sum < 0)
             return i;
     }
-    return -1; // not found
-}
-
-int main() {
-    vector<int> input;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int x;
-        cin >> x;
-        input.push_back(x);
-    }
-    cout << basement(input) << endl;
-    return 0;
+    return -1; // or throw an exception, depending on your requirements
 }
