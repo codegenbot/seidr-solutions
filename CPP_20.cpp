@@ -16,6 +16,10 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() {
+    std::vector<float> numbers = {1.2, 3.4, 5.6, 7.8};
+    std::pair<float, float> result = find_closest_elements(numbers);
+    assert(result == std::make_pair(3.4f, 5.6f));
+    
     assert(find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f}) == std::make_pair(2.2f, 3.1f));
     
     return 0;
