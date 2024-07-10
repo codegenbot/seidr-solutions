@@ -1,6 +1,9 @@
-int car_race_collision(int n) {
-    if (n < 2) {
-        return 0;
+int car_race_collision(int n, int speed[]) {
+    int collisions = 0;
+    for (int i = 1; i < n; ++i) {
+        if (speed[i] > speed[i - 1]) {
+            collisions++;
+        }
     }
-    return n * (n - 1) / 2; // Calculate total number of collisions
+    return collisions;
 }
