@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -21,6 +22,8 @@ int main() {
             std::cout << "Enter value " << (i+1) << ": ";
             if (!(std::cin >> num)) {
                 std::cout << "Invalid input." << std::endl;
+                std::cin.clear();
+                std::cin.ignore(INT_MAX, '\n');
                 return 1;
             }
             v1.push_back(num);
@@ -34,6 +37,8 @@ int main() {
             std::cout << "Enter value " << (i+1) << ": ";
             if (!(std::cin >> num)) {
                 std::cout << "Invalid input." << std::endl;
+                std::cin.clear();
+                std::cin.ignore(INT_MAX, '\n');
                 return 1;
             }
             v2.push_back(num);
@@ -49,7 +54,7 @@ int main() {
             if(result < 0.0f || num > result)
                 result = num;
         }
-        std::cout << "The maximum of the numbers is: " << result << std::endl;
+        std::cout << "The positive of the numbers is: " << result << std::endl;
     } else {
         std::cout << "The numbers are not same." << std::endl;
     }
