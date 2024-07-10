@@ -30,12 +30,17 @@ def filter_by_substring():
             print("Invalid input. Please try again.")
 
     if substring:
-        result = [s for s in strings if re.compile(substring).search(s)]
+        true_values = [s for s in strings if re.compile(substring).search(s)]
+        false_values = [s for s in strings if not re.compile(substring).search(s)]
+
         if expected_output.lower() == "true values":
-            print(result[:num_to_display])
+            print(true_values[:num_to_display])
         elif expected_output.lower() == "false values":
-            print([s for s in strings if not re.compile(substring).search(s)][:num_to_display])
+            print(false_values[:num_to_display])
         else:
-            print(result + [s for s in strings if not re.compile(substring).search(s)][:num_to_display])
+            if len(true_values) > 0:
+                print(true_values[:num_to_display])
+            if len(false_values) > 0:
+                print(false_values[:num_to_display])
     else:
         print("Please enter a substring first.")
