@@ -1,3 +1,4 @@
+```Python
 from typing import List
 import math
 
@@ -99,7 +100,7 @@ def main():
         common_factors.append(n1)
     if n2 > 1 and not (n1 % n2 == 0 or n3 % n2 == 0 or n4 % n2 == 0):
         common_factors.append(n2)
-    if n3 > 1 and not (n1 % n3 == 0 or n2 % n3 == 0 or n4 % n3 == 0):
+    if n3 > 1 and not (n1 % n3 == 0 or n2 % n3 == 0):
         common_factors.append(n3)
     if n4 > 1 and not (n1 % n4 == 0 or n2 % n4 == 0 or n3 % n4 == 0):
         common_factors.append(n4)
