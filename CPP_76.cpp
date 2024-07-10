@@ -1,4 +1,3 @@
-```cpp
 #include <cmath>
 #include <iostream>
 
@@ -18,9 +17,9 @@ int main() {
 
     if (n != 0) {
         if(is_simple_power(tempX, n))  
-            std::cout << std::string(std::to_string(tempX)) << " is a simple power of " << std::to_string(n) << std::endl;
+            std::cout << tempX << " is a simple power of " << n << std::endl;
         else
-            std::cout << "Error: " << std::string(std::to_string(tempX)) << " is not a simple power of " << std::to_string(n) << std::endl;
+            std::cout << "Error: " << tempX << " is not a simple power of " << n << std::endl;
     } 
     else {
         std::cout << "n cannot be zero." << std::endl;
