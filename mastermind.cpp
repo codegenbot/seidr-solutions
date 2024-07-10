@@ -20,9 +20,10 @@ int main() {
         }
     }
 
-    whitePegs = 0; // Clear white pegs count
+    whitePegs = 0; // Fix
+
     for (auto it = codeFreq.begin(); it != codeFreq.end(); ++it) {
-        whitePegs += min(it->second, guessFreq[it->first]);
+        whitePegs += std::min(it->second, guessFreq[it->first]);
     }
 
     cout << whitePegs << endl << blackPegs << endl;
