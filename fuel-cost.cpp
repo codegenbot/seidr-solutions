@@ -1,8 +1,10 @@
-int calculateFuelCost(vector<int> &numbers) {
+#include <vector>
+using namespace std;
+
+int fuelCost(vector<int> vec) {
     int sum = 0;
-    for (int num : numbers) {
-        int result = (num / 3) - 2;
-        sum += result;
+    for (int i : vec) {
+        sum += (i / 3 - 2);
     }
     return sum;
 }
