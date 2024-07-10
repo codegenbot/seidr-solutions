@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <vector>
@@ -22,9 +21,8 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string str;
         getline(std::cin, str); 
-        str.erase(0, str.find_first_not_of(' ')).erase(str.find_last_not_of(' ') + 1);
+        str = str.substr(str.find_first_not_of(' '), std::string::npos);
         words.push_back(str); 
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
-    return 0;
 }
