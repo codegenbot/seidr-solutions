@@ -3,16 +3,20 @@
 
 using namespace std;
 
-vector<int> sort_array(vector<int> arr) {
-    vector<int> result = arr;
-    sort(result.begin(), result.end(), 
-         [](int a, int b) {
-             if (bitset<64>(a).count() == bitset<64>(b).count()) {
-                 return a < b;
-             }
-             else {
-                 return bitset<64>(a).count() < bitset<64>(b).count();
-             }
+vector<int> sort_vector(vector<int> arr) {
+    sort(arr.begin(), arr.end(), 
+         [&] (int a, int b) {
+             if (bit_set(a) == bit_set(b)) return a < b;
+             return bit_set(a) < bit_set(b);
          });
-    return result;
+    return arr;
+}
+
+int bit_set(int n) {
+    int count = 0;
+    while (n > 0) {
+        n &= n - 1;
+        count++;
+    }
+    return count;
 }
