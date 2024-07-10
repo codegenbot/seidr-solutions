@@ -27,7 +27,8 @@ int main() {
     for (int i = 0; i < num; i++) {
         string str1, str2;
         cin >> str1 >> str2;
-        if (str1 == str2) { 
+        vector<string> strVector = {str1, str2};
+        if (issame(strVector)) { 
             cout << "The strings are the same." << endl;
         } else {
             cout << "The strings are not the same." << endl;
