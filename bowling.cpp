@@ -19,12 +19,10 @@ int bowlingScore(std::string input) {
         else if (c == 'X') {
             score += 10;
             int extraPins = 0;
-            if (!firstInFrame && !strikeOrSpare) {
-                for (int i = 2; i < input.size(); ++i) {
-                    if (input[i] != '|') {
-                        extraPins = input[i] - '0';
-                        break;
-                    }
+            for (int i = 2; i < input.size(); ++i) {
+                if (input[i] != '|') {
+                    extraPins = input[i] - '0';
+                    break;
                 }
             }
             firstInFrame = true;
