@@ -1,21 +1,35 @@
-```
 def minPath(grid, k):
-    n = len(grid)
-    visited = [[False for _ in range(n)] for _ in range(n)]
-    queue = [(0, 0, [grid[0][0]])]
-    result = None
-    while queue:
-        x, y, path = queue.pop(0)
-        if len(path) > k:
-            continue
-        visited[x][y] = True
-        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
-                new_path = path + [grid[nx][ny]]
-                if len(new_path) == k:
-                    if result is None or new_path < result:
-                        result = new_path
-                else:
-                    queue.append((nx, ny, new_path))
-    return result
+    N = len(grid)
+    visited = [[False] * N for _ in range(N)]
+    path = []
+
+    def dfs(i, j, path_length):
+        if path_length == k:
+            nonlocal result
+            return [(i, j), *path]
+
+        if path_length > k or visited[i][j]:
+            return None
+
+        visited[i][j] = True
+        path.append(grid[i][j])
+        for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            ni, nj = i + di, j + dj
+            if 0 <= ni < N and 0 <= nj < N and not visited[ni][nj]:
+                temp_path = dfs(ni, nj, path_length + 1)
+                if temp_path is not None:
+                    return [(ni, nj), *path, *temp_path]
+
+        visited[i][j] = False
+        return None
+
+    for i in range(N):
+        for j in range(N):
+            res = dfs(i, j, 0)
+            if res is not None:
+                result = res
+                break
+        if result:
+            break
+
+    return sorted(result[1:])
