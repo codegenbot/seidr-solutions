@@ -1,17 +1,18 @@
-```
 #include <iostream>
-#include <iomanip>
-
 using namespace std;
 
 double diceGame(int n, int m) {
-    double total = (n + m - 1);
-    return (double)(m - 1) / total;
+    double sum = 0;
+    for (int i = 1; i <= min(n, m); i++) {
+        sum += (n - i + 1) / (double)n * (m - i) / (double)m;
+    }
+    return sum;
 }
 
 int main() {
-    int n, m;
+    int n; // input
+    int m; // input
     cin >> n >> m;
-    cout << fixed << setprecision(6) << diceGame(n, m) << endl;
+    cout << diceGame(n, m) << endl;
     return 0;
 }
