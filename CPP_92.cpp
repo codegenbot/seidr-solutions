@@ -1,5 +1,4 @@
-#ifndef CODE_H
-#define CODE_H
+#include <cassert>
 
 bool any_int(float a, float b, float c) {
     int ai = a, bi = b, ci = c;
@@ -7,8 +6,6 @@ bool any_int(float a, float b, float c) {
 }
 
 int main() {
-    assert(any_int(3.01f, 4, 7) == false); 
+    assert(any_int(3.01f, 4, 7) == false);
     return 0;
 }
-
-#endif
