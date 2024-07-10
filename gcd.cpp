@@ -1,12 +1,8 @@
-#include <vector>
-#include <string>
-#include <iostream>
-
-using namespace std;
-
 int gcd(int a, int b) {
     if (b == 0)
         return a;
+    if (a < 0 || b < 0)
+        return gcd(abs(a), abs(b));
     return gcd(b, a % b);
 }
 
@@ -24,16 +20,9 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
             }
         }
         if (found) {
-            for (int j = 0; j < m; ++j) {
-                indices.push_back(i + j);
-            }
+            indices.push_back(i);
         }
     }
     
     return indices;
-}
-
-int main() {
-    // Add your test cases here
-    return 0;
 }
