@@ -1,7 +1,18 @@
 Here is the solution:
 
 def find_zero(xs: list):
-    n = len(xs)
-    assert n % 2 == 0, "xs should have even number of coefficients"
-    max_coeff_index = xs.index(max(filter(None, xs)))
-    return (-1) ** (max_coeff_index // 2) * math.pow(n / (2 * max_coeff_index), 1 if max_coeff_index % 2 else -1)
+    if len(xs) % 2 != 0:
+        return "Error: List xs must have even number of coefficients"
+    a = xs[0]
+    b = xs[1]
+    c = -sum([coeff for i, coeff in enumerate(xs[2:]) if i % 2 == 1])
+    d = sum([coeff for i, coeff in enumerate(xs[2:]) if i % 2 == 0])
+    
+    if a != 0:
+        x = (-c + math.sqrt(c**2 - 4*a*d)) / (2*a)
+    elif b != 0:
+        x = (-c + math.sqrt(c**2 - 4*b)) / (2*b)
+    else:
+        return "Error: The polynomial is not quadratic or linear"
+    
+    return round(x, 2)
