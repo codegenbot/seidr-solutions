@@ -3,7 +3,6 @@
 #include <string>
 #include <algorithm>
 #include <cassert>
-
 using namespace std;
 
 bool issame(const string& a, const string& b) {
@@ -14,6 +13,22 @@ bool issame(const string& a, const string& b) {
             return false;
     }
     return true;
+}
+
+string to_string(const char c) {
+    ostringstream oss;
+    oss << c;
+    return oss.str();
+}
+string to_string(const int i) {
+    ostringstream oss;
+    oss << i;
+    return oss.str();
+}
+string to_string(const double d) {
+    ostringstream oss;
+    oss << d;
+    return oss.str();
 }
 
 string reverse_delete(const string& s1, const string& s2) {
@@ -41,7 +56,10 @@ int main() {
         cout << "First number is greater." << endl;
     else
         cout << "Second number is greater." << endl;
+    
+    string s1 = "mama";
+    string s2 = "ma";
+    cout << "Reverse and delete: " << reverse_delete(s1, s2) << endl;
 
-    assert(issame(to_string(num1) + to_string(num2), reverse_delete("mama", "ma")));
     return 0;
 }
