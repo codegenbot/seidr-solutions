@@ -1,4 +1,7 @@
 def luhn(card):
     card = [int(i) for i in str(card)]
     if len(card) != 16:
-        return sum([card[i] * 2 if i % 2 == 1 else card[i] for i in range(0, len(card))])
+        return "Invalid card number"
+    
+    total = sum([x if i % 2 == 0 else (9 - int((10 - x % 10)) / 10) * int(x % 10) + x // 10 for i, x in enumerate(card)])
+    return str(total % 10)
