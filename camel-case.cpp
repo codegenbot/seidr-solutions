@@ -24,7 +24,7 @@ std::string camelCase(const std::string& input) {
 int main() {
     char c;
     std::string input = "";
-    while ((c = std::cin.get()) != '\n') {
+    while ((c = cin.get()) != '\n') {
         if (c == '-') {
             input += toupper(c + 1);
         } else if (c != ' ') {
