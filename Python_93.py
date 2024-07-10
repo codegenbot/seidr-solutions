@@ -1,22 +1,21 @@
-```
-def encode(message):
+def pig_latin(message):
     result = ""
     for char in message:
         if char.isalpha():
             if char.isupper():
-                if ord(char) - 64 in [21,25,9,15,20]:
-                    result += 'z'
-                elif ord(char) - 64 == 24:
-                    result += 'b'
+                if char == 'X' or char == 'x':
+                    result += 'ay'
+                elif char == 'Y' or char == 'y':
+                    result += 'by'
                 else:
-                    result += chr((ord(char) - 64 + 1) % 26 + 65)
+                    result += chr(ord(char) + 1).lower()
+                    result += 'ay'
             else:
-                if ord(char.lower()) - 97 in [1,5,9,15,21]:
-                    result += 'z'
-                elif ord(char.lower()) - 97 == 25:
-                    result += 'b'
+                if char in ['a', 'e', 'i', 'o', 'u']:
+                    result += char
                 else:
-                    result += chr((ord(char.lower()) - 97 + 1) % 26 + 97)
+                    result += chr(ord(char) - ord('a') + 1)
+                    result += 'ay'
         else:
             result += char
     return result
