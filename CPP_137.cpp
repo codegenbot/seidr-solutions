@@ -14,27 +14,22 @@ boost::any compare_one(boost::any a, boost::any b) {
         int ib = boost::any_cast<int>(b);
         return ia > ib ? a : b;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        string sa = boost::any_cast<string>(a);
+    else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
+        std::string sa = boost::any_cast<std::string>(a);
         double sb = boost::any_cast<double>(b);
         return stod(sa) > sb ? a : b;
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+    else if (a.type() == typeid(double) && b.type() == typeid(std::string)) {
         double sa = boost::any_cast<double>(a);
-        string sb = boost::any_cast<string>(b);
+        std::string sb = boost::any_cast<std::string>(b);
         return sa > stod(sb) ? a : b;
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string sa = boost::any_cast<string>(a);
-        string sb = boost::any_cast<string>(b);
-        if (stod(sa) > stod(sb))
-            return a;
-        else if (stod(sa) < stod(sb))
-            return b;
-        else
-            return b;
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string sa = boost::any_cast<std::string>(a);
+        std::string sb = boost::any_cast<std::string>(b);
+        return stod(sa) > stod(sb) ? a : b;
     }
     else {
-        return any();
+        return any("None");
     }
 }
