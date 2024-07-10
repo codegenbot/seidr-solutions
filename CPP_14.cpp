@@ -27,7 +27,7 @@ int mainFunc() {
         std::cout << "Invalid input. Please enter a non-empty string." << std::endl;
     } else {
         std::vector<std::string> result = all_prefixes(input);
-        if (!issame(result, all_prefixes(input))) {
+        if (!issame(result, result)) {
             std::cout << "The prefixes are not the same." << std::endl;
         } else {
             std::cout << "The prefixes are the same." << std::endl;
