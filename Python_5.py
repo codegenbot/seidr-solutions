@@ -1,11 +1,6 @@
 def intersperse(a, b):
     result = []
-    if isinstance(b, int):
-        b = [str(b)] * len(a)
-    elif not isinstance(b, str):
-        return "Invalid input type."
-    
-    for item in a:
+    i = 0
+    for item in (a + [b] if isinstance(b, int) else [item for pair in zip(a, [b]*len(a)) for item in pair]):
         result.append(item)
-        result.append(b)
     return result
