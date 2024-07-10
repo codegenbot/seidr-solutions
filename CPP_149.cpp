@@ -32,8 +32,9 @@ bool issorted(std::vector<int> v) {
     return true;
 }
 
-std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v) {
-    std::vector<int> result = {};
+int* sortListSum(std::vector<std::pair<std::string, std::string>> v) {
+    int size = v.size();
+    int* result = new int[size];
     for (const auto& pair : v) {
         int num = 0;
         for (char c : pair.first) {
@@ -42,18 +43,19 @@ std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v)
         for (char c : pair.second) {
             num = num * 10 + (c - '0');
         }
-        if (!num) return {}; 
-        result.push_back(num);
+        if (!num) return nullptr; 
+        result[size--] = num;
     }
-    std::sort(result.begin(), result.end());
-    return (result.size() > 0 ? result : {}); 
+    std::sort(result, result + size);
+    return result;
 }
 
 int main() { 
-    v1 = {{"" , ""}};  
-    v2 = {{"" , ""}};
-    assert(issame({{"aaaa", "bbbb"}, {"cccc", "ddd"}}, {{"cccc", "ddd"}, {"aaaa", "bbbb"}})); 
-    assert(issame(std::vector<std::pair<std::string, std::string>>{{"aaaa", "bbbb"}, {"dd", "cc"}},
-                  std::vector<std::pair<std::string, std::string>>{{"cc", "dd"}, {"aaaa", "bbbb"}})); 
+    std::vector<std::pair<std::string, std::string>> v1 = {{"aaaa", "bbbb"}, {"cccc", "ddd"}};
+    std::vector<std::pair<std::string, std::string>> v2 = {{"cccc", "ddd"}, {"aaaa", "bbbb"}}; 
+    int* p1 = sortListSum(v1);
+    int* p2 = sortListSum(v2); 
+    assert(issame(v1, v2)); 
+    assert(issorted({{p1[0], p2[0]}}, {p1[1], p2[1]})); 
 
 }
