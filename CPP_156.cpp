@@ -12,9 +12,7 @@ std::string int_to_roman(int num) {
     std::ostringstream oss;
     int thousands = num / 1000;
     for (int i = 0; i < thousands; i++) {
-        for (int i2 = 0; i2 < thousands; i2++) {
-            oss << "M";
-        }
+        oss << "M";
     }
     num %= 1000;
     int hundreds = num / 100;
