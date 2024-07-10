@@ -1,3 +1,6 @@
-```python
 def indices_of_substring(text, target):
-    return [i for i, char in enumerate(text) if text[i:i+len(target)] == target]
+    result = []
+    if text.startswith(target):
+        result.append(0)
+    [result.extend(range(i, i+len(target))) for i in range(len(text)-len(target)+1) if text[i:i+len(target)] == target]
+    return result
