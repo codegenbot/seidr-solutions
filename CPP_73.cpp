@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -38,24 +37,4 @@ int smallest_change(std::vector<int> arr) {
     }
     
     return smallest;
-}
-
-int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> arr[i];
-    }
-
-    int smallest = smallest_change(arr);
-
-    if (smallest == INT_MAX) {
-        std::cout << "No change is possible.\n";
-    } else {
-        std::cout << "Smallest number of coins needed: " << smallest << "\n";
-    }
 }
