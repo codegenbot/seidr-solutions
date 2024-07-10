@@ -1,5 +1,4 @@
 int capacity = 10;
-
 const int max_fill(vector<vector<int>> grid, int capacity) 
 {
     int rows = grid.size();
