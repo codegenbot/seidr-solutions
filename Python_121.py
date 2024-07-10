@@ -1,3 +1,4 @@
+```
 def solution(lst):
     odd_sum = 0
     for num in lst:
