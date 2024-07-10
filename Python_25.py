@@ -1,9 +1,21 @@
+```Python
 from typing import List
 import math
 
 
 def main():
-    n = [int(input("Enter an integer: ")) for _ in range(4)]
+    n = []
+    while len(n) < 4:
+        try:
+            num = int(input("Enter an integer: "))
+        except ValueError:
+            print("Invalid input! Please enter an integer.")
+        else:
+            if num in n:
+                print("Duplicate found. Please enter unique integers.")
+            else:
+                n.append(num)
+
     if len(n) != len(set(n)):
         print("Expected 4 unique integers, but got duplicates.")
     else:
@@ -23,7 +35,7 @@ def main():
 
         common_factors = []
         i = 2
-        while i <= max(2, min(num for num in n)):
+        while i * i <= min(n):
             if all(num % i == 0 for num in n):
                 count = 0
                 while all(num > 1 and num % i == 0 for num in n):
