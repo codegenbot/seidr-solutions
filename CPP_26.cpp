@@ -27,6 +27,6 @@ bool isEqual(std::vector<int> a, std::vector<int> b){
 }
 
 int main() {
-    assert(isEqual(std::vector<int>({1, 2, 3, 2, 4, 3, 5}), std::vector<int>({1, 4, 5})));
+    assert(isEqual(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
     return 0;
 }
