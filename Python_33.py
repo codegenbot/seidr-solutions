@@ -1,5 +1,3 @@
+```
 def sort_third(l: list):
-    return sorted(
-        [i for sub in l for i in [sub] if isinstance(sub, list) and len(sub) > 2]
-        + [x for x in l if not isinstance(x, list)]
-    )
+    return sorted([x for x in l if isinstance(x, list) or isinstance(x, tuple)], key=lambda x: x[2])
