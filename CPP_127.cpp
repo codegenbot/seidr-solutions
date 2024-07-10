@@ -25,7 +25,7 @@ string intersection(vector<int> interval1, vector<int> interval2) {
         return "NO";
     }
 
-    int intersectionLength = max(0, intersectionEnd - intersectionStart + 1);
+    int intersectionLength = max(0, intersectionEnd - intersectionStart);
 
     if (isPrimeNumber(intersectionLength)) {
         return "YES";
