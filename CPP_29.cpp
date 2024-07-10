@@ -20,7 +20,7 @@ int main() {
     std::vector<std::string> a = {"xxx", "asd", "xxy", "john doe", "xxxxAA", "xxx"};
     std::vector<std::string> b = filter_by_prefix(a, "xxx");
     
-    if (issame(b, {"xxx", "xxxAAA", "xxx"})) {
+    if (issame(b, {{"xxx"}, {"xxxAAA"}, {"xxx"}})) {
         return 0;
     } else {
         return -1; 
