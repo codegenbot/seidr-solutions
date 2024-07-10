@@ -31,8 +31,7 @@ int main() {
         std::cin >> nums[i]; 
     }
     if (nums.empty()) {  
-        std::cout << "Error: No numbers entered." << std::endl;
-        return 1;
+        return 0;
     }
     std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
     return 0;
