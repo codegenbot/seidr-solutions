@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <stack>
 
 bool solveBoolean(string expression) {
     stack<char> operation;
