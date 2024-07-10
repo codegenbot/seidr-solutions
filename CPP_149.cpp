@@ -9,8 +9,6 @@ vector<string> sorted_list_sum(vector<string> lst) {
             result.push_back(str);
     }
     
-    if (result.size() == 0) return result; // added this line
-    
     sort(result.begin(), result.end());
     
     return result;
