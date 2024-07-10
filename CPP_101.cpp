@@ -1,8 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
+#include <sstream>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
         return false;
     
@@ -12,32 +12,21 @@ bool issame(vector<string> a, vector<string> b) {
     }
     
     return true;
-
-}
-
-vector<string> words_string(string s) {
-    vector<string> result;
-    string word = "";
-    for (char c : s) {
-        if (c == ',' || c == ' ') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
-        } else {
-            word += c;
-        }
-    }
-    if (!word.empty()) {
-        result.push_back(word);
-    }
-    return result;
-
 }
 
 int main() {
-    string words = "ahmed     , gamal";
-    vector<string> expected = {"ahmed", "gamal"};
-    assert(issame(words_string(words), expected));
-    return 0;
+    std::vector<std::string> words_string;
+    std::string input_string;
+    std::cout << "Enter your string: ";
+    std::getline(std::cin, input_string);
+    std::stringstream ss(input_string);
+    std::string word;
+    while (std::getline(ss, word, ' ')) {
+        words_string.push_back(word);
+    }
+    
+    if (!issame(words_string, {"ahmed", "gamal"}))
+        std::cout << "The entered string is not the same as expected." << std::endl;
+    else
+        std::cout << "The entered string is the same as expected." << std::endl;
 }
