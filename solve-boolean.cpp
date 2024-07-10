@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <limits>
 
 bool solveBoolean(std::string s) {
     bool result = true;
@@ -35,14 +34,13 @@ bool solveBoolean(std::string s) {
                 break; }
             case '&': {
                 bool subResult = true;
-                int j = 0;
                 for (; i < s.size(); ) {
                     char c = s[i];
                     i++;
-                    if (c != 'T' && c != 'F')
-                        return false; // invalid expression
-                    if ((j % 2) != 0)
-                        subResult = false; 
+                    if ((c == 'F' && !subResult) || (c != 'T'))
+                        return false; 
+                    if (c == 'F')
+                        subResult = false;
                 }
                 result = subResult;
                 break; }
@@ -57,10 +55,6 @@ int main() {
     std::cout << "Enter a boolean expression: ";
     
     std::getline(std::cin, input); // Read the entire line at once
-
-    if (input.back() != '\n') { 
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    }
 
     bool result = solveBoolean(input);
 
