@@ -1,10 +1,10 @@
 #include <vector>
+#include <iostream>
+#include <algorithm>
 
-bool isEqual(const vector<int>& a, const vector<int>& b) {
-    return a[0] == b[0] && a[1] == b[1];
+bool issame(std::vector<std::vector<int>> a, std::vector<std::vector<int>> b){
+    // Function implementation goes here
 }
-
-vector<vector<int>> get_row(vector<vector<int>> lst, int x);
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
@@ -15,12 +15,12 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
             }
         }
     }
-    sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b) {
-        if (a[0] != b[0]) {
-            return a[0] < b[0];
-        } else {
-            return a[1] > b[1];
-        }
+    sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b){
+        return a[0] < b[0] || (a[0] == b[0] && a[1] > b[1]);
     });
     return result;
+}
+
+int main() {
+    // Test cases go here
 }
