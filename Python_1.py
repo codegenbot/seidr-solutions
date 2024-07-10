@@ -2,8 +2,6 @@ def separate_paren_groups(expression):
     result = []
     temp_group = ""
     in_group = False
-    unmatched_open = 0
-    unmatched_close = 0
 
     for char in expression:
         if char == "(":
@@ -16,17 +14,14 @@ def separate_paren_groups(expression):
             if in_group:
                 temp_group += char
                 if temp_group.count("(") == temp_group.count(")"):
-                    result.append(temp_group)
+                    result.append(temp_group[:-1])  # remove the last parenthesis
                     in_group = False
                     temp_group = ""
             else:
-                unmatched_close += 1
+                result.append(")")
+                in_group = False
 
-    while unmatched_open > 0 or unmatched_close > 0:
-        if expression[expression.index(")") - 1] == "(":
-            unmatched_open -= 1
-        else:
-            unmatched_close -= 1
-        result.append(expression.pop(0))
+    if temp_group:  # check for any remaining group
+        result.append(temp_group)
 
     return [x for x in result if x]
