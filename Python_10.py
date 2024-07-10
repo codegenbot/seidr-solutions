@@ -1,4 +1,3 @@
-```
 import re
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
