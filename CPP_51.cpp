@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 std::string str_remove_vowels(std::string text){
