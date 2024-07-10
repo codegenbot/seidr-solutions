@@ -13,7 +13,7 @@ bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> filter_integers(list<any> values){
+vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (auto val : values) {
         if (val.type() == typeid(int)) {
