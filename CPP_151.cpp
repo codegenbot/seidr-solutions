@@ -22,15 +22,14 @@ std::vector<double> double_the_difference() {
 }
 
 int main() {
-    std::vector<double> output = double_the_difference();
-
+    double sum = 0;
+    auto result = double_the_difference();
     std::cout << "The numbers that are different from 5 by an odd number: ";
-    for (double x : output) {
+    for (double x : result.first) {
         if (std::abs((int)x - 5) % 2 != 0) {
             std::cout << x << " ";
         }
     }
     std::cout << std::endl;
-
     return 0;
 }
