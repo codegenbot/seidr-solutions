@@ -1,20 +1,19 @@
-#include <vector>
-namespace std {
-   bool issame(std::vector<int> a, std::vector<int> b) {
-       return a == b;
-   }
+#include <vector>    // include vector header file
 
-   std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
-       std::vector<int> path;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
-       for (int i = 0; i < k; ++i) {
-           for (const auto& row : grid) {
-               for (int val : row) {
-                   path.push_back(val);
-               }
-           }
-       }
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
+    std::vector<int> path;
 
-       return path;
-   }
+    for (int i = 0; i < k; ++i) {
+        for (const auto& row : grid) {
+            for (int val : row) {
+                path.push_back(val);
+            }
+        }
+    }
+
+    return path;
 }
