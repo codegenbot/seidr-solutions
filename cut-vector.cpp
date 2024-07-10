@@ -1,8 +1,5 @@
-```c
 #include <vector>
 #include <utility>
-#include <algorithm>
-#include <numeric>
 #include <limits> // for INT_MAX
 #include <cmath>  // for abs
 
@@ -26,4 +23,3 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     }
     
     return make_pair(left, right);
-}
