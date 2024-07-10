@@ -1,3 +1,4 @@
+```
 def rolling_max(numbers: List[int]) -> list:
     result = [numbers[0]]
     max_num = numbers[0]
