@@ -1,9 +1,10 @@
-def smallest_change(arr):
-    n = int(input("Enter the number of integers: "))
+def smallest_change(n=None):
+    if n is None:
+        n = int(input("Enter the number of integers: "))
     arr = list(map(int, input(f"Enter {n} space-separated integers: ").split()))
 
     while len(arr) != n:
-        arr = list(map(int, input(f"Enter {n} space-separated integers: ").split()))
+        arr = list(map(int, input(f"Enter {n} space-separated integers: ").split())
     
     arr.sort()
     left, right = 0, len(arr) - 1
