@@ -1,2 +1,1 @@
-print("Enter 5 numbers:")
-numbers = [int(input(f"Enter number {i + 1}: ")) for i in range(5)]
+numbers = list(map(int, input("Enter 5 numbers separated by spaces: ").split()))
