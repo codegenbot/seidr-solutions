@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 float get_positive(float num1, float num2) {
     if(num1 == num2)
@@ -8,15 +7,11 @@ float get_positive(float num1, float num2) {
         return 0.0f;
 }
 
-bool issame(std::vector<float> nums) {
-    for(int i = 1; i < nums.size(); i++) {
-        if(nums[0] != nums[i])
-            return false;
-    }
-    return true;
+bool is_same(float a, float b, float c, float d) {
+    return (a == b && b == c && c == d);
 }
 
-int main() {
+int main_function() {
     float num1, num2, num3, num4;
     std::cout << "Enter the first number: ";
     if (!(std::cin >> num1)) {
@@ -39,7 +34,7 @@ int main() {
         return 1;
     }
 
-    bool are_same = issame({num1, num2, num3, num4});
+    bool are_same = is_same(num1, num2, num3, num4);
     
     if (are_same) {
         float result = get_positive(std::max(num1, num2), std::min(num1, num2));
