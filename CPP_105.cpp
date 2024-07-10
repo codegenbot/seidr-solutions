@@ -5,18 +5,17 @@ vector<string> by_length(vector<int> arr){
         {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
     };
 
-    vector<int> sorted_arr;
+    vector<int> valid_nums;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            sorted_arr.push_back(num);
+            valid_nums.push_back(num);
         }
     }
 
-    sort(sorted_arr.begin(), sorted_arr.end());
+    sort(valid_nums.begin(), valid_nums.end());
+    reverse(valid_nums.begin(), valid_nums.end());
 
-    reverse(sorted_arr.begin(), sorted_arr.end());
-
-    for (int num : sorted_arr) {
+    for (int num : valid_nums) {
         result.push_back(num_to_name[num]);
     }
 
