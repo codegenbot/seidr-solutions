@@ -9,7 +9,7 @@ int sum_squares(int n) {
     return static_cast<int>(sum);
 }
 
-int myMain() {
+int main() {
     int n;
     std::cin >> n;
 
@@ -18,8 +18,4 @@ int myMain() {
     } else {
         std::cout << sum_squares(n) << std::endl;
     }
-}
-
-int main() {
-    myMain();
 }
