@@ -1,35 +1,33 @@
+#include <iostream>
 #include <string>
+#include <cctype>
 
-string file_name_check(string file_name) {
-    int digit_count = 0;
-    int dot_count = 0;
-    int dot_position = -1;
-    string substr_before_dot;
-    string substr_after_dot;
-
+std::string file_name_check(const std::string& file_name) {
+    int digits = 0, dots = 0, dotIndex = -1;
+    
     for (int i = 0; i < file_name.size(); ++i) {
-        if (file_name[i] >= '0' && file_name[i] <= '9') {
-            digit_count++;
+        if (std::isdigit(file_name[i])) {
+            digits++;
         } else if (file_name[i] == '.') {
-            dot_count++;
-            dot_position = i;
+            dots++;
+            dotIndex = i;
         }
     }
-
-    if (digit_count > 3 || dot_count != 1 || dot_position == 0 || dot_position == file_name.size() - 1) {
-        return "No";
+    
+    if (digits <= 3 && dots == 1 && dotIndex > 0 && dotIndex < file_name.size() - 1) {
+        std::string extension = file_name.substr(dotIndex + 1);
+        if (extension == "txt" || extension == "exe" || extension == "dll") {
+            if (std::isalpha(file_name[0])) {
+                return "Yes";
+            }
+        }
     }
+    
+    return "No";
+}
 
-    substr_before_dot = file_name.substr(0, dot_position);
-    substr_after_dot = file_name.substr(dot_position + 1);
-
-    if (substr_before_dot.empty() || !(isalpha(substr_before_dot[0]))) {
-        return "No";
-    }
-
-    if (substr_after_dot != "txt" && substr_after_dot != "exe" && substr_after_dot != "dll") {
-        return "No";
-    }
-
-    return "Yes";
+int main() {
+    assert(file_name_check("s.") == "No");
+    
+    return 0;
 }
