@@ -33,7 +33,3 @@ vector<string> reverse_delete(string s, string c) {
     
     return result;
 }
-
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
