@@ -16,7 +16,7 @@ std::vector<int> even_odd_palindrome(int n) {
                 odd++;
         }
     }
-    return std::vector<int>(1, even) + std::vector<int>(1, odd);
+    return std::vector<int>{even, odd};
 }
 
 int main() {
