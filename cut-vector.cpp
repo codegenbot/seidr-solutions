@@ -2,43 +2,48 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    pair<vector<int>, vector<int>> res;
+    int min_diff = INT_MAX;
+    int cut_index = 0;
     
-    for (int i = 0; i < n - 1; i++) {
-        int sumLeft = 0, sumRight = 0;
-        for (int j = 0; j <= i; j++) {
-            sumLeft += v[j];
-        }
-        for (int j = i + 1; j < n; j++) {
-            sumRight += v[j];
-        }
-        
-        if (sumLeft == sumRight) {
-            res.first = vector<int>(v.begin(), v.begin() + i + 1);
-            res.second = vector<int>(v.begin() + i, v.end());
-            return res;
+    for(int i = 1; i < v.size(); ++i) {
+        int diff = abs(v[i] - v[0]);
+        if(diff <= min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    // If no equal partition found
-    int minDiff = INT_MAX;
-    for (int i = 0; i < n - 1; i++) {
-        int sumLeft = 0, sumRight = 0;
-        for (int j = 0; j <= i; j++) {
-            sumLeft += v[j];
-        }
-        for (int j = i + 1; j < n; j++) {
-            sumRight += v[j];
-        }
-        
-        int diff = abs(sumLeft - sumRight);
-        if (diff < minDiff) {
-            res.first = vector<int>(v.begin(), v.begin() + i + 1);
-            res.second = vector<int>(v.begin() + i, v.end());
-            minDiff = diff;
-        }
+    return {vector<int>(v.begin(), v.begin() + cut_index), vector<int>(v.begin() + cut_index, v.end())};
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<int> v(n);
+    for(int i = 0; i < n; ++i) {
+        cin >> v[i];
     }
-    
-    return res;
+
+    pair<vector<int>, vector<int>> result = cutVector(v);
+
+    cout << "Cut at index ";
+    for(auto x : result.first) {
+        cout << x << ' ';
+    }
+    cout << '\n';
+
+    cout << "Resulting subvectors: \n";
+    cout << "First vector: ";
+    for(auto x : result.first) {
+        cout << x << ' ';
+    }
+    cout << '\n';
+    cout << "Second vector: ";
+    for(auto x : result.second) {
+        cout << x << ' ';
+    }
+    cout << '\n';
+
+    return 0;
 }
