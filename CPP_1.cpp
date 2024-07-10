@@ -1,8 +1,7 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
+#include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+bool issame(vector<string> a, vector<string> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,9 +13,4 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     }
 
     return true;
-}
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    return 0;
 }
