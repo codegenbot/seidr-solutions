@@ -28,17 +28,20 @@ int main() {
     int size;
     cin >> size;
 
-    vector<int> v1(size);
+    vector<int> v1; // Initialize the vector here
 
     for (int i = 0; i < size; i++) {
         int x;
         cin >> x;
         if(x == 7 || x == 9)
-            v1[i] = 1; 
+            v1.push_back(1); 
         else if(x == 1)
-            v1[i] = 0; 
+            v1.push_back(0); 
 
     }
+
+    v2.resize(size);
+    v1 = v2;  // Move all elements from v2 to v1
 
     if (issame(pluck(v1), v2))  
         cout << "Arrays are same" << endl;
