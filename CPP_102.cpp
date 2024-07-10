@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -19,4 +20,3 @@ int main() {
     cin >> x >> y;
     cout << "The biggest even number is: " << choose_num(x, y) << endl;
     return 0;
-}
