@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
 
-bool std::operator==(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::issame(std::vector<int> a, std::vector<int> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> even_odd_palindrome(int n) {
+std::vector<std::int32_t> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
     for (int i = 1; i <= n; i++) {
         if (i == reverse(i)) {
@@ -18,7 +18,7 @@ std::vector<int> even_odd_palindrome(int n) {
     return {even, odd};
 }
 
-int userInput() {
+std::int32_t std::userInput() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
