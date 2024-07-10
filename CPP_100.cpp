@@ -28,16 +28,16 @@ std::vector<int> make_a_pile(int n) {
     return pile;
 }
 
-int program() {
+int main_func() {
     int n;
-    std::cout << "Enter a number: ";
-    std::cin >> n;
+    cout << "Enter a number: ";
+    cin >> n;
     
     std::vector<int> pile = make_a_pile(n);
     if(issame(pile, make_a_pile(n))){
-        std::cout << "The piles are the same." << std::endl;
+        cout << "The piles are the same." << endl;
     } else {
-        std::cout << "The piles are not the same." << std::endl;
+        cout << "The piles are not the same." << endl;
     }
     
     return 0;
