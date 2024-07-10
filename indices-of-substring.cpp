@@ -1,6 +1,4 @@
-```cpp
-#include <vector>
-#include <string>
+#include <bits/stdc++.h>
 
 std::vector<int> indicesOfSubstring(std::string text, std::string target) {
     std::vector<int> result;
