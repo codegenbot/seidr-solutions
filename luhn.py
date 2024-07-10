@@ -1,14 +1,8 @@
-Here is the completed Python code:
-
-def luhn(card_number):
-    card_number = [int(x) for x in str(card_number).split()]
-    new_card_number = []
-    for i, digit in enumerate(card_number):
-        if (i % 2) == 0:
-            new_digit = digit
+def luhn(card):
+    total = 0
+    for i, digit in enumerate(reversed(card)):
+        if i % 2 == 0 and int(digit) * 2 >= 10:
+            total += int(digit) * 2 - 9
         else:
-            new_digit = digit * 2
-            if new_digit > 9:
-                new_digit -= 9
-        new_card_number.append(new_digit)
-    return sum(new_card_number)
+            total += int(digit)
+    return total
