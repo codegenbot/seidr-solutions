@@ -1,56 +1,49 @@
-int bowlingScore(string s) {
+int bowlingScore(string frames) {
     int score = 0;
-    int frame = 1;
-    for(int i=0; i<s.size(); i++) {
-        if(s[i] == 'X') {
-            score += 10 + (i<18 ? bowlingStrike(frame) : 0);
-            frame++;
-        } else if(s[i] == '/') {
-            score += 10 - bowlingKnockdown(i+1);
-            frame++;
-        } else {
-            int knockdown = bowlingKnockdown(i+1);
-            if(knockdown < 10) {
-                score += knockdown;
-                frame++;
-            } else {
-                score += knockdown;
-                i++; // skip the second number
+    int currentFrameRolls = 0;
+
+    for (int i = 0; i < frames.size(); ++i) {
+        if (frames[i] == 'X') { // strike
+            score += 10 + getExtraFrames(frames, i);
+            currentFrameRolls = 2;
+        } else if (frames[i] == '/') { // spare
+            score += 5 + getExtraFrames(frames, i+1);
+            currentFrameRolls = 2;
+        } else { // normal roll
+            int rollsThisFrame = frames[i] - '0';
+            score += rollsThisFrame;
+            currentFrameRolls++;
+            if (currentFrameRolls == 2) {
+                if (i + 2 < frames.size() && frames[i+1] != '/') {
+                    score += frames[i+1] - '0';
+                }
             }
         }
     }
+
     return score;
 }
 
-int bowlingStrike(int frame) {
-    int score = 0;
-    for(int i=frame; i<=3 && i<=9; i++) {
-        if(i == frame) {
-            score += 10;
+int getExtraFrames(string frames, int start) {
+    int extraRolls = 0;
+    for (int i = start; i < frames.size(); ++i) {
+        if (frames[i] == 'X') { // strike
+            extraRolls += 10 + getExtraFrames(frames, i+1);
+            break;
+        } else if (frames[i] == '/') { // spare
+            extraRolls += 5 + getExtraFrames(frames, i+2);
+            break;
         } else {
-            score += bowlingKnockdown(frame);
+            int rollsThisFrame = frames[i] - '0';
+            extraRolls += rollsThisFrame;
+            if (i+1 < frames.size() && frames[i+1] != '/') {
+                extraRolls++;
+            }
+            if (extraRolls >= 3) {
+                break;
+            }
         }
     }
-    return score;
-}
 
-int bowlingKnockdown(int pin) {
-    switch(pin) {
-        case 1:
-        case 2:
-        case 3:
-            return 0;
-        case 4:
-            return 4;
-        case 5:
-            return 5;
-        case 6:
-            return 6;
-        case 7:
-            return 7;
-        case 8:
-            return 8;
-        case 9:
-            return 9;
-    }
+    return extraRolls;
 }
