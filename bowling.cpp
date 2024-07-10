@@ -1,31 +1,28 @@
-int calculateBowlingScore(string s) {
-    int score = 0;
-    int frame = 1;
-    for (int i = 0; i < s.size(); ++i) {
-        if (s[i] == 'X') {
+int scoreBowlingRound(string input){
+    int score = 0, frame = 1, ball = 1;
+    for (char c : input) {
+        if (c == 'X' || c == '/') {
             score += 10;
-            score += (s[i + 2] == 'X' ? 10 : isdigit(s[i + 2]) ? s[i + 2] - '0' : 10);
-            score += (s[i + 4] == 'X' ? 10 : s[i + 4] == '/' ? (10 - (s[i + 2] == 'X' ? 10 : s[i + 2] - '0')) : isdigit(s[i + 4]) ? s[i + 4] - '0' : 10);
-            ++frame;
-        } else if (isdigit(s[i])) {
-            score += s[i] - '0';
-            if (s[i + 1] == '/') {
-                score += (10 - (s[i] - '0'));
-                ++i;
-            }
-            ++frame;
-        } else if (s[i] == '/') {
-            score += (10 - (s[i - 1] - '0'));
-            ++frame;
+            if (frame < 10)
+                score += (c == 'X') ? (input[ball] == 'X' ? 10 + (input[ball+1] == '/' ? 10 : (input[ball+1] == '-' ? 0 : input[ball+1] - '0')) : (input[ball+1] == '/' ? 10 : (input[ball+1] == '-' ? 0 : input[ball] - '0' + input[ball+1] - '0'))) : input[ball] - '0';
+            ball += (c == 'X') ? 1 : 0;
+        } else if (c == '-') {
+            ball++;
+        } else {
+            score += c - '0';
         }
-        if (frame > 10) break;
+        ball++;
+        if (frame < 10 && (c == '/' || ball == 2)) {
+            ball = 1;
+            frame++;
+        }
     }
     return score;
 }
 
-int main() {
-    string s;
-    cin >> s;
-    cout << calculateBowlingScore(s) << endl;
+int main(){
+    string input;
+    cin >> input;
+    cout << scoreBowlingRound(input) << endl;
     return 0;
 }
