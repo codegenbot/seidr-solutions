@@ -17,8 +17,8 @@ int main() {
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
         if (seen.find(complement) != seen.end()) {
-            std::cout << complement << std::endl;
-            std::cout << nums[i] << std::endl;
+            cout << complement << endl;
+            cout << nums[i] << endl;
             break;
         }
         seen[nums[i]] = i;
