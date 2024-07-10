@@ -1,4 +1,6 @@
 ```cpp
+using namespace std;
+
 #include <vector>
 #include <string>
 
@@ -16,3 +18,18 @@ vector<string> all_prefixes(const string& s) {
         result.push_back(s.substr(0, i));
     }
     return result;
+
+}
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    
+    vector<string> prefixes = all_prefixes(str);
+    
+    for (string prefix : prefixes) {
+        cout << prefix << endl;
+    }
+    
+    return 0;
+}
