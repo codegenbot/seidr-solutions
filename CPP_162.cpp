@@ -1,6 +1,5 @@
 #include <string>
 #include <openssl/ssl.h>
-#include <openssl/x509v3.h>
 #include <openssl/md5.h>
 
 using namespace std;
@@ -15,7 +14,7 @@ string string_to_md5(string text) {
     for (int i = 0; i < 16; ++i) {
         char buffer[3];
         sprintf(buffer, "%02x", md5[i]);
-        result += buffer;
+        result += string(buffer);
     }
 
     return result;
