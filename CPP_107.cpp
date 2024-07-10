@@ -4,6 +4,10 @@
 #include <algorithm>
 #include <cassert>
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
 std::vector<int> even_odd_palindrome(int n) {
     int even_count = 0, odd_count = 0;
     for (int i = 1; i <= n; ++i) {
@@ -19,10 +23,6 @@ std::vector<int> even_odd_palindrome(int n) {
         }
     }
     return {even_count, odd_count};
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
 }
 
 int main() {
