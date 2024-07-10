@@ -2,20 +2,50 @@ vector<string> select_words(string s, int n) {
     vector<string> result;
     string word = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            word += tolower(c);
-        } else if (!word.empty()) {
-            bool has_n_consonants = count_if(word.begin(), word.end(), [](char c) { return !ispunct(c) && !isvowel(tolower(c)); }) == n;
-            if (has_n_consonants) {
-                result.push_back(word);
+        if (c != ' ') {
+            word += c;
+        } else {
+            if (word.length() > 0) {
+                int consonants = 0;
+                bool isConsonant = true;
+                for (char ch : word) {
+                    if (isalpha(ch)) {
+                        if (!isvowel(ch)) {
+                            consonants++;
+                            isConsonant = true;
+                        } else {
+                            isConsonant = false;
+                        }
+                    }
+                }
+                if (consonants == n && isConsonant) {
+                    result.push_back(word);
+                }
+                word = "";
             }
-            word = "";
         }
     }
-    bool has_n_consonants = count_if(word.begin(), word.end(), [](char c) { return !ispunct(c) && !isvowel(tolower(c)); }) == n;
-    if (has_n_consonants) {
-        result.push_back(word);
+    if (word.length() > 0) {
+        int consonants = 0;
+        bool isConsonant = true;
+        for (char ch : word) {
+            if (isalpha(ch)) {
+                if (!isvowel(ch)) {
+                    consonants++;
+                    isConsonant = true;
+                } else {
+                    isConsonant = false;
+                }
+            }
+        }
+        if (consonants == n && isConsonant) {
+            result.push_back(word);
+        }
     }
-    sort(result.begin(), result.end());
     return result;
+}
+
+bool isvowel(char ch) {
+    ch = tolower(ch);
+    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
 }
