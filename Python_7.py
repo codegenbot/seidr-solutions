@@ -3,21 +3,38 @@ import re
 
 
 def filter_by_substring():
-    input_str = input("Enter strings (comma-separated) then press Enter, then enter a substring: ")
-    substring = input("Enter a substring: ")
+    while True:
+        try:
+            input_str = input("Enter strings (comma-separated): ")
+            substring = input("Enter a substring: ")
 
-    try:
-        strings = [s.strip() for s in input_str.split()]
-    except ValueError:
-        return []
+            if not input_str or not substring:
+                print("Please provide both strings and a substring.")
+                continue
 
-    if not strings or not substring:
-        return []
+            strings = [s.strip() for s in input_str.split(",")]
+            break
+        except ValueError:
+            print("Invalid input. Please try again.")
 
-    pattern = re.compile(substring)
+    while True:
+        try:
+            num_to_display = int(
+                input(
+                    "Enter the number of results to display (1-{}): ".format(
+                        len(strings)
+                    )
+                )
+            )
+            if 1 <= num_to_display <= len(strings):
+                break
+            else:
+                print("Please enter a number between 1 and {}".format(len(strings)))
+        except ValueError:
+            print("Invalid input. Please try again.")
 
-    result = [s for s in strings if bool(pattern.search(s))]
-    print(result)
+    result = [s for s in strings if bool(re.compile(substring).search(s))]
+    print(result[:num_to_display])
 
 
 filter_by_substring()
