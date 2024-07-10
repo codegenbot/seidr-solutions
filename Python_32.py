@@ -8,4 +8,4 @@ def find_zero(xs: list):
 
 coefficients = [float(input("Enter coefficient a: ")), float(input("Enter coefficient b: ")), float(input("Enter coefficient c: "))]
 result = find_zero(coefficients)
-print("The result is:", result)
+print("The zero of the quadratic equation is:", result)
