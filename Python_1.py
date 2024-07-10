@@ -6,9 +6,9 @@ def solve_task():
             break
         except ValueError:
             print("Invalid input. Please enter numeric values.")
-
+    
     result = num1 + num2
-
+    
     while True:
         response = input("Are you sure? (y/N): ").lower()
         if response in ["y", "n"]:
