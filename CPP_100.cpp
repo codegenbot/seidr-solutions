@@ -1,26 +1,30 @@
-#include <vector>
+```
 #include <iostream>
-#include <algorithm>
+#include <vector>
 
-std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
-    
-    for(int i=1; i<=n; ++i){
-        pile.push_back(i);
-    }
-    
-    return pile;
-}
-
-bool issame(vector<int> a, vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){
     if(a.size()!=b.size()) return false;
-    sort(a.begin(),a.end());
-    sort(b.begin(),b.end());
     for(int i=0;i<a.size();i++){
         if(a[i]!=b[i])return false;
     }
     return true;
 
+}
+
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
+    int stones = n;
+    
+    while(stones > 0) {
+        pile.push_back(stones);
+        if (stones % 2 == 1) {
+            stones = stones + 1;
+        } else {
+            stones = stones + 2;
+        }
+    }
+    
+    return pile;
 }
 
 int main() {
