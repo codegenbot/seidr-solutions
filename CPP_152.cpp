@@ -2,15 +2,24 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) {
-            return false;
+            vector<int> res(a.size());
+            if (a[i] > b[i]) {
+                fill(res.begin(), res.end(), 1);
+            } else {
+                fill(res.begin(), res.end(), 2);
+            }
+            return res;
         }
     }
     return true;
 }
 
 int main() {
-    assert(issame({1,2,3,5},{-1,2,3,4}) == vector<bool>({{!(a[0]==b[0]),!((a[1]-b[1])!=0),!((a[2]-b[2])!=0),!(a[3]!=b[3])}}));
+    assert(issame({1,2,3,5},{-1,2,3,4}) == {2,0,0,1});
     return 0;
 }
