@@ -21,22 +21,22 @@ std::vector<int> findLeaders(std::vector<int> nums) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    std::vector<int> nums(n);
-    std::cout << "Enter the elements:\n";
-    for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+    int num_count;
+    std::vector<int> nums;
+
+    std::cin >> num_count;
+
+    for (int i = 0; i < num_count; ++i) {
+        int num;
+        std::cin >> num;
+        nums.push_back(num);
     }
-    
+
     std::vector<int> result = findLeaders(nums);
-    
-    std::cout << "Leaders in the vector are: ";
-    for (int num : result) {
-        std::cout << num << " ";
+
+    for (int leader : result) {
+        std::cout << leader << " ";
     }
-    
+
     return 0;
 }
