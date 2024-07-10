@@ -1,4 +1,4 @@
-Here is the completed code:
+Here is the solution:
 
 string middleCharacter(string s) {
     int len = s.length();
