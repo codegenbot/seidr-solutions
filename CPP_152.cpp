@@ -1,10 +1,6 @@
 ```cpp
-#ifdef __cpp_lib_initializer_list
-#include <initializer_list>
-#endif
-
+#define __cpp_initializer_lists 201304L
 #include <vector>
-
 #include <algorithm>
 
 bool issame(std::vector<int> game, std::vector<int> guess) {
@@ -17,12 +13,12 @@ bool issame(std::vector<int> game, std::vector<int> guess) {
 }
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
-    std::vector<int> result(game.size());
+    std::vector<int> result({0});
     for (int i = 0; i < game.size(); i++) {
         if (game[i] == guess[i]) {
-            result[i] = 0;
+            result.push_back(0);
         } else {
-            result[i] = abs(game[i] - guess[i]);
+            result.push_back(abs(game[i] - guess[i]));
         }
     }
     return result;
