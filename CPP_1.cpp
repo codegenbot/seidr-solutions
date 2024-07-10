@@ -1,13 +1,13 @@
 vector<string> result;
-    int count = 0;
     string current_group = "";
-    
+    int count = 0;
+
     for (char c : paren_string) {
         if (c == '(') {
-            count++;
-            if (count > 1) {
+            if (count > 0) {
                 current_group += c;
             }
+            count++;
         } else if (c == ')') {
             count--;
             if (count > 0) {
@@ -18,6 +18,6 @@ vector<string> result;
             }
         }
     }
-    
+
     return result;
 }
