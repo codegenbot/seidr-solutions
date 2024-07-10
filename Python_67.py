@@ -16,10 +16,10 @@ def fruit_distribution(s, n):
                 i -= 1
                 break
             total_count = sum(fruits.get(k, 0) for k in fruits)
-            distributed = min(count, n - total_count)
-            remaining = count - distributed
-            total_count += distributed
             if fruit:
+                distributed = min(count, min(n // len(fruits), count - (total_count)))
+                remaining = count - distributed
+                total_count += distributed
                 fruits[fruit] = distributed
         i += 1
     return len(fruits) + (
