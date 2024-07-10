@@ -6,11 +6,12 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(vector<string>{"Jupiter", "Makemake"}, {}));
+    assert(issame(vector<string>{"Jupiter", "Makemake"}, vector<string>{}));
+    
     return 0;
 }
