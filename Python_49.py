@@ -1,14 +1,24 @@
-def find_prime_divisors(n):
-    i = 2
-    prime_divisors = []
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-            while n % i == 0:
-                n //= i
-            prime_divisors.append(i)
-    if n > 1:
-        prime_divisors.append(n)
-    return prime_divisors
+Here is the modified code:
+
+```python
+import random
+
+
+def modp(n: int, p: int):
+    if pow(2, n - 1, p) == 1:
+        return False
+    for _ in range(p - 2):
+        a = random.randint(2, p - 2)
+        if pow(a, n, p) == 1:
+            continue
+        if pow(a, (n - 1) // 2, p) != p - 1:
+            return False
+    return True
+
+
+n = int(input("Enter the value of n: "))
+p = int(input("Enter the value of p: "))
+
+result = modp(n, p)
+
+print(f"The result is {result}")
