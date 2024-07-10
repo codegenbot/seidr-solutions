@@ -1,6 +1,4 @@
-```
-def search():
-    lst = list(map(int, input("Enter numbers separated by space: ").split()))
+def search(lst):
     freq = {}
     for i in lst:
         if i > 0:
@@ -15,4 +13,6 @@ def search():
             break
     return max_freq if max_freq != -1 else -1
 
-print(search())
+
+# Testing the function
+print(search([3, 4, 5, 2, 1, 5, 2, 4, 6, 7]))
