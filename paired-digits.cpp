@@ -1,10 +1,7 @@
-```c++
 #include <string>
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string of digits: ";
-    std::cin >> str;
+    std::string str = "your_string_here"; // replace with the desired input
     int sum = pairedDigits(str);
     return 0;
 }
