@@ -1,16 +1,14 @@
 #include <iostream>
 #include <vector>
-#include <string>
-
 using namespace std;
 
 int main() {
-    string text, target;
-    cin >> text >> target;
+    std::string text, target;
+    cin >> target >> text;
     
-    vector<int> indices;
-    size_t pos = text.find(target, 0);
-    while (pos != std::string::npos) {
+    std::vector<int> indices;
+    int pos = text.find(target, 0);
+    while (pos != string::npos) {
         indices.push_back(pos);
         pos = text.find(target, pos + 1);
     }
