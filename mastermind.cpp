@@ -19,8 +19,8 @@ int mastermind(std::string code, std::string guess) {
     std::vector<char> codeCopy(code.begin(), code.end());
     for (int i = 0; i < 4; ++i) {
         bool found = false;
-        for (int j = 0; j < 4; ++j) {
-            if (codeCopy[j] == guess[i]) {
+        for (char c : codeCopy) {
+            if (c == guess[i]) {
                 found = true;
                 codeCopy.erase(std::remove(&*codeCopy.begin(), &*codeCopy.end(), guess[i]), codeCopy.end());
                 break;
