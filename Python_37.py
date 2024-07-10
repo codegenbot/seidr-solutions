@@ -1,4 +1,3 @@
 def sort_even(l: list):
-    return [sorted([y for y in l if y <= x])[j] 
-            if (i := j) % 2 != 0 else x 
-        for i, x in enumerate(sorted(l))]
+    return [x if i % 2 != 0 else sorted([y for y in l if y <= x])[j] 
+        for j, x in enumerate(sorted(l)) for i in range(len(l))]
