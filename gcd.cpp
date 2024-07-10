@@ -1,3 +1,4 @@
+```cpp
 #include <bits/stdc++.h>
 
 int gcd(int a, int b) {

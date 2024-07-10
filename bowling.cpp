@@ -1,49 +1,45 @@
+#include <iostream>
 #include <string>
 
-int bowlingScore(string input) {
-    int total = 0;
-    for (int i = 0; i < 20; i++) {
-        string roll = input.substr(i, 1);
-        if (roll == "X") {
-            total += 10 + getBonus(input, i);
-        } else if (roll[0] == ' ') {
-            int strikeValue = getStrikeValue(input, i);
-            total += strikeValue;
-        } else {
-            int value = roll[0] - '0';
-            total += value;
-            roll = input.substr(i + 1, 2);
-            while (roll != "///") {
-                value += roll[0] - '0';
-                if (roll[1] == '/') {
-                    break;
-                }
-                roll = input.substr(i + 3, 2);
+int bowlingScore(std::string input) {
+    int score = 0;
+    int i = 0;
+    
+    while (i < input.length()) {
+        if (input[i] == 'X') {
+            score += 10 + getBonus(input, ++i);
+        } else if (input.substr(i, 1) == " ")) {
+            if (input.substr(i+1, 2) == "X") {
+                score += 10 + getBonus(input, i+2);
+                i++;
+            } else {
+                int strike = stoi(input.substr(i+1, 1));
+                score += 10 + strike;
+                i+=2;
             }
-            total += value;
-        }
-    }
-    return total;
-}
-
-int getStrikeValue(string input, int i) {
-    int strikeValue = 10;
-    for (int j = i; j < i + 2; j++) {
-        string roll = input.substr(j, 1);
-        if (roll == "X") {
-            strikeValue += 10 + getBonus(input, j);
+        } else if (stoi(input.substr(i, 1)) == 0) {
+            score += 0;
+            i += 1;
         } else {
-            strikeValue += roll[0] - '0';
+            int framescore = 0;
+            for(int j=0; j<2 && i < input.length(); j++, i++) {
+                framescore += stoi(input.substr(i, 1));
+            }
+            if (framescore > 10) {
+                score += getBonus(input, i);
+            } else {
+                score += framescore;
+            }
         }
     }
-    return strikeValue;
+    
+    return score;
 }
 
-int getBonus(string input, int i) {
-    string roll = input.substr(i + 1, 2);
-    if (roll == "X") {
-        return 10 + getBonus(input, i + 2);
-    } else {
-        return roll[0] - '0';
+int getBonus(std::string input, int i) {
+    int bonus = 0;
+    for(int j=0; j<2 && i < input.length(); j++, i++) {
+        bonus += stoi(input.substr(i, 1));
     }
+    return bonus;
 }
