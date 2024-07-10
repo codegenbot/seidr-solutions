@@ -1,22 +1,40 @@
 #include <string>
 using namespace std;
 
-bool solveBoolean(string s) {
-    if (s == "T") return true;
-    if (s == "F") return false;
-    
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '|') {
-            string left = s.substr(0, i);
-            string right = s.substr(i+1);
-            return solveBoolean(left) || solveBoolean(right);
-        }
-        else if (s[i] == '&') {
-            string left = s.substr(0, i);
-            string right = s.substr(i+1);
-            return solveBoolean(left) && solveBoolean(right);
+bool solveBoolean(string input) {
+    stack<char> s;
+    for (int i = 0; i < input.length(); i++) {
+        if (input[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
+            }
+            if (s.empty()) return false;
+        } else if (input[i] == '|') {
+            while (!s.empty() && s.top() == '|') {
+                s.pop();
+            }
+            if (s.empty()) return true;
+        } else {
+            s.push(input[i]);
         }
     }
-    
-    return false;
+    while (!s.empty()) {
+        if (s.top() == '&') return false;
+        if (s.top() == '|') return true;
+        s.pop();
+    }
+    return s.size() > 0;
+}
+
+int main() {
+    string input;
+    cout << "Enter a Boolean expression: ";
+    cin >> input;
+    bool result = solveBoolean(input);
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+    return 0;
 }
