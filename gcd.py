@@ -6,14 +6,13 @@ def gcd(a, b):
 
 def find_indices(text, target):
     indices = []
-    start = 0
-    while start < len(text):
-        pos = text.find(target, start)
-        if pos != -1:
-            indices.append(pos)
-            start = pos + 1
-        else:
+    i = 0
+    while i < len(text):
+        pos = text.find(target)
+        if pos == -1:
             break
+        indices.append(pos)
+        i = pos + 1
     return indices
 
 print(gcd(1, 1))  
