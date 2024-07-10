@@ -1,10 +1,11 @@
-int firstNegativeIndex(vector<int>& nums) {
-    for (int i = 0; i < nums.size(); i++) {
-        int sum = 0;
-        for (int j = 0; j <= i; j++) {
-            sum += nums[j];
-            if (sum < 0) return i;
-        }
+#include <vector>
+using namespace std;
+
+int basement(const vector<int>& arr) {
+    int sum = 0;
+    for (int i = 0; i < arr.size(); i++) {
+        sum += arr[i];
+        if (sum < 0) return i;
     }
-    return -1;
+    return -1; // or any other value that indicates no such index is found
 }
