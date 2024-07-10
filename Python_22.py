@@ -1,20 +1,24 @@
 ```
-import re
+from typing import List
+
 
 def filter_integers() -> None:
     print("Please enter a comma-separated list of values (separated by commas):")
     user_input = input()
 
-    if not re.match(r"^[0-9]+(,[0-9]+)*$", user_input):
-        print("Invalid input. Please enter a valid list of comma-separated integers.")
-        return
-
     try:
-        user_values = [int(val) for val in user_input.split(",")]
+        user_values = [val.strip() for val in user_input.split(",")]
 
-        print("The integers from the input are:", user_values)
+        filtered_values = []
+        for value in user_values:
+            if value.isdigit():
+                filtered_values.append(int(value))
+            else:
+                filtered_values.append(value)
+
+        print("The integers from the input are:", filtered_values)
     except ValueError:
-        print("Invalid input. Please enter a valid list of comma-separated integers.")
+        print("Invalid input. Please enter a valid list of comma-separated values.")
 
 
 filter_integers()
