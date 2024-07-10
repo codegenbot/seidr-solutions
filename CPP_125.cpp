@@ -2,7 +2,7 @@
 #include <string>
 #include <cctype>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) -> (std::vector<std::string>(a) == b)
+bool issame(std::vector<std::string> a, std::vector<std::string> b) -> (a == b)
 
 std::vector<std::string> split_words(string txt) {
     vector<string> result;
@@ -31,6 +31,4 @@ std::vector<std::string> split_words(string txt) {
 }
 
 int main() {
-    bool b;
-    assert(issame(std::vector<std::string>({""}), std::vector<std::string>({"0"})));
-}
+    assert(issame(split_words(""), std::vector<string>({""})));
