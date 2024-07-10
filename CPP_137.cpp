@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <boost/lexical_cast.hpp>
+#include <limits>
 
 using namespace std;
 
