@@ -3,9 +3,13 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
@@ -31,15 +35,15 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> num;
 
-    std::vector<int> output = get_odd_collatz(num);
+    std::vector<int> sequence = get_odd_collatz(num);
 
-    if (issame({1}, output)) {
-        std::cout << "The sequence is 1" << std::endl;
+    if (issame({1}, sequence)) {
+        std::cout << "The sequence is {1}.\n";
     } else {
-        for (int i : output) {
+        for (int i : sequence) {
             std::cout << i << " ";
         }
-        std::cout << std::endl;
+        std::cout << "\n";
     }
 
     return 0;
