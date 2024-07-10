@@ -1,8 +1,5 @@
-#include <iostream>
-#include <vector>
-
-int count_matrices(int n) {
-    std::vector<int> a(n);
+int get_matrix_triples(int n) {
+    vector<int> a(n);
     int count = 0;
     for (int i = 0; i < n; i++) {
         a[i] = i * i - i + 1;
@@ -17,11 +14,4 @@ int count_matrices(int n) {
         }
     }
     return count;
-}
-
-int main() {
-    int n;
-    std::cin >> n;
-    std::cout << count_matrices(n) << std::endl;
-    return 0;
 }
