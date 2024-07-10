@@ -15,5 +15,11 @@ def parse_nested_parens(paren_string: str) -> List[int]:
     return depths
 
 input_string = input("Enter the nested parens string: ").strip()
-result = parse_nested_parens(input_string)
-print(result)
+if input_string:
+    result = parse_nested_parens(input_string)
+    if type(result) == list:
+        print(result)
+    else:
+        print(result)
+else:
+    print("No input received. Please provide a valid nested parens string.")
