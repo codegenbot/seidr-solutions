@@ -31,10 +31,12 @@ vector<int> findSubstringIndices(string text, string target) {
 
 int main() {
     long long a, b;
+    cin >> a >> b;
     string text, target;
-    cin >> a >> b >> text >> target;
-    
+    cin >> text >> target;
+
     cout << gcd(a, b) << endl;
+
     vector<int> result = findSubstringIndices(text, target);
     for (int i = 0; i < result.size(); ++i) {
         cout << result[i] << " ";
