@@ -10,7 +10,7 @@ std::vector<int> count_up_to(int n) {
     std::vector<int> primes;
     for (int num = 2; num <= n; ++num) {
         bool is_prime = true;
-        for (int i = 2; i <= sqrt(num); ++i) {
+        for (int i = 2; i <= std::sqrt(num); ++i) {
             if (num % i == 0) {
                 is_prime = false;
                 break;
