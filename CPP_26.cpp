@@ -3,14 +3,14 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const vector<int>& v1, const vector<int>& v2) {
-    return v1.size() == v2.size() && std::equal(v1.begin(), v1.end(), v2.begin());
+bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
+    return v1 == v2;
 }
 
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> uniqueNumbers;
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::vector<int> uniqueNumbers;
     for (int num : numbers) {
-        if (count(numbers.begin(), numbers.end(), num) == 1) {
+        if (std::count(numbers.begin(), numbers.end(), num) == 1) {
             uniqueNumbers.push_back(num);
         }
     }
