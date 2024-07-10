@@ -7,14 +7,27 @@ bool issame(vector<string> a, vector<string> b);
 
 vector<string> by_length(vector<int> arr);
 
-int main() {
-    // Your main function code here
-}
-
 bool issame(vector<string> a, vector<string> b) {
-    // Your issame function code here
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
-vector<string> by_length(vector<int> arr){
-    // Your by_length function code here
+int main() {
+    vector<int> input_nums = {5, 2, 9, 4, 1, 11, 7};
+    vector<string> result = by_length(input_nums);
+
+    for (const auto& str : result) {
+        std::cout << str << " ";
+    }
+
+    return 0;
 }
