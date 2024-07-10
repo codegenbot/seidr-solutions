@@ -1,11 +1,12 @@
-int largestSmallest(int maxNeg, int minPos) {
-    if (maxNeg >= 0 && minPos <= 0) {
-        return 1;
+int largestNegInt(int maxNeg = 0, int minPos = INT_MAX), int smallestPosInt(int) {
+    for (int num : lst) {
+        if (num < 0 && num > maxNeg) {
+            maxNeg = num;
+        }
+        else if (num > 0 && num < minPos) {
+            minPos = num;
+        }
     }
-    else if ((maxNeg < 0 && minPos > 0) || (maxNeg > 0 && minPos < 0)) {
-        return 2;
-    }
-    else {
-        return 3;
-    }
+
+    return {maxNeg >= 0 ? 0 : maxNeg, minPos <= 0 ? 0 : minPos};
 }
