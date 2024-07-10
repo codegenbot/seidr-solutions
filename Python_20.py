@@ -1,7 +1,6 @@
-```python
-from typing import List, Tuple
-
-def find_closest_elements() -> Tuple[float, float]:
+```
+from typing import List
+def find_closest_elements():
     while True:
         try:
             numbers = [float(num) for num in input("Enter space-separated numbers: ").split()]
