@@ -1,7 +1,5 @@
-```
-def highest_rank(lst):
-    from collections import Counter
-    counter = Counter(lst)
-    max_value = max(counter.values())
-    max_keys = [key for key, value in counter.items() if value == max_value]
-    return -1 if len(max_keys) > 1 else max_keys[0]
+def find_odd_index(lst):
+    if len(lst) == 0:
+        return None
+    odd_indices = [i for i in range(len(lst)) if lst[i] % 2 != 0]
+    return min(odd_indices) if odd_indices else -1
