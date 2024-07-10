@@ -3,16 +3,16 @@
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
-    int maxNeg = 0;
-    int minPos = INT_MAX;
-
+    vector<int> result(2, 0);
+    
     for (int num : lst) {
-        if (num < 0 && num > maxNeg) {
-            maxNeg = num;
-        } else if (num > 0 && num < minPos) {
-            minPos = num;
+        if (num < 0 && result[0] == 0) {
+            result[0] = num;
+        }
+        else if (num > 0 && result[1] == 0) {
+            result[1] = num;
         }
     }
-
-    return {maxNeg, minPos};
+    
+    return result;
 }
