@@ -1,8 +1,14 @@
-Here is the solution:
+Here is the Python solution for the problem:
 
+```
 def indices_of_substring(text, target):
     result = []
-    for i in range(len(text)):
-        if text[i:].startswith(target):
-            result.append(i)
+    start = 0
+    while start < len(text):
+        pos = text.find(target, start)
+        if pos != -1:
+            result.append(pos)
+            start = pos + 1
+        else:
+            break
     return result
