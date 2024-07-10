@@ -7,8 +7,12 @@ using namespace std;
 
 std::vector<int> factorize(int n) {
     std::vector<int> factors;
-    if (n <= 1) {
-        factors.push_back(n);
+    if (n == 0) {
+        factors.push_back(0);
+        return factors;
+    }
+    if (n == 1) {
+        factors.push_back(1);
         return factors;
     }
     if (n < 0) {
@@ -23,6 +27,9 @@ std::vector<int> factorize(int n) {
     }
     if (n > 1) {
         factors.push_back(n);
+    }
+    if (factors.size() == 1 && factors[0] == n) {
+        factors.clear();
     }
     return factors;
 }
