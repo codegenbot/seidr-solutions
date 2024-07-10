@@ -1,7 +1,10 @@
+Here is the modified code:
+
+```cpp
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool checkSame(std::vector<int> a, std::vector<int> b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -15,18 +18,7 @@ std::vector<int> even_odd_palindrome(int n) {
                 odd++;
         }
     }
-    return std::vector<int>(1, even) + std::vector<int>(1, odd);
-}
-
-std::vector<int> userInput() {
-    int n;
-    std::cout << "Enter a positive integer: ";
-    std::cin >> n;
-
-    std::vector<int> result = even_odd_palindrome(n);
-
-    std::cout << "Number of even palindromes: " << result[0] << std::endl;
-    std::cout << "Number of odd palindromes: " << result[1] << std::endl;
+    return {even, odd};
 }
 
 int reverse(int n) {
@@ -37,4 +29,15 @@ int reverse(int n) {
         n /= 10;
     }
     return rev;
+}
+
+int userMain() {
+    int n;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> n;
+
+    std::vector<int> result = even_odd_palindrome(n);
+
+    std::cout << "Number of even palindromes: " << result[0] << std::endl;
+    std::cout << "Number of odd palindromes: " << result[1] << std::endl;
 }
