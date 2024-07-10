@@ -1,4 +1,11 @@
-if (n > m) {
+#include <iostream>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+string average_binary(int n, int m) {
+    if (n > m) {
         return "-1";
     }
     
@@ -16,4 +23,11 @@ if (n > m) {
     }
     
     return binary_avg;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << average_binary(n, m) << endl;
+    return 0;
 }
