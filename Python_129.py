@@ -1,7 +1,7 @@
 ````
 def minPathSum(grid, k):
     N = len(grid)
-
+    
     def dfs(i, j, path):
         if len(path) == k:
             return sum(path)
