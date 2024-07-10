@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 int main() {
     string code, guess;
     cin >> code >> guess;
@@ -20,9 +26,9 @@ int main() {
         }
     }
     
-    white = max(0, white);
+    white = std::max(0, white);
     
-    cout << white << endl << black << endl;
+    cout << white << "\n" << black << "\n";
     
     return 0;
 }
