@@ -12,4 +12,4 @@ def parse_music(music_string: str) -> List[int]:
             i += 2
         else:
             break
-    return result
+    return result```
