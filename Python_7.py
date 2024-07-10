@@ -1,14 +1,14 @@
-substring = input().strip()
-
 strings = []
-try:
-    while True:
+while True:
+    try:
         string = input().strip()
         if string == "----":
             break
         strings.append(string)
-except EOFError:
-    pass
+    except EOFError:
+        break
+
+substring = input().strip()
 
 def filter_strings(strings, substring):
     return [string for string in strings if substring in string]
