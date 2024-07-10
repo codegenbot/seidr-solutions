@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-bool is_nested(const std::string& str) {
+bool is_nested(std::string str) {
     int count = 0;
     for (char c : str) {
         if (c == '[') count++;
@@ -19,10 +19,10 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     
-    if(is_nested(input)) {
-        std::cout << "The string is nested.\n";
+    if (is_nested(input)) {
+        std::cout << "The string is nested." << std::endl;
     } else {
-        std::cout << "The string is not nested.\n";
+        std::cout << "The string is not nested." << std::endl;
     }
     
     return 0;
