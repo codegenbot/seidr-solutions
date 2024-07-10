@@ -1,30 +1,30 @@
-int bowlingScore(string s) {
-    int score = 0;
-    bool lastRoll = false;
+#include <vector>
+#include <string>
 
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
-            score += 10;
-            lastRoll = true;
-        } else if (s[i] == '/') {
-            int roll1 = stoi(s.substr(i - 1, 1));
-            int roll2 = 10 - roll1;
-            score += roll1 + roll2;
-            i++;
-            lastRoll = false;
+int bowlingScore(const std::string& rolls) {
+    int score = 0;
+    int roll = 0;
+    bool lastFrame = false;
+
+    for (char c : rolls) {
+        if (c == 'X') {
+            score += 30;
+            roll = 2;
+            lastFrame = true;
+        } else if (c == '/') {
+            score += 10 + (roll - 1);
+            roll = 0;
+            lastFrame = false;
         } else {
-            int roll1 = stoi(s.substr(i, 1));
-            int roll2 = stoi(s.substr(i + 1, 1));
-            if (roll1 == 10) {
-                score += roll1 + roll2;
-                i++;
-                lastRoll = true;
-            } else {
-                score += roll1 + roll2;
-                if (!lastRoll)
-                    score += min(roll1, roll2);
-                lastRoll = false;
-            }
+            int frameScore = c - '0';
+            score += frameScore;
+            roll++;
+        }
+    }
+
+    if (!lastFrame) {
+        for (int i = 0; i < roll; ++i) {
+            score += 10;
         }
     }
 
