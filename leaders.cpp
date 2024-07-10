@@ -22,14 +22,14 @@ vector<int> findLeaders(const vector<int>& nums) {
 
 int main() {
     vector<int> nums;
-    int num;
-    while (cin >> num) {
-        nums.push_back(num);
+    int input;
+    while (cin >> input) {
+        nums.push_back(input);
     }
 
     vector<int> result = findLeaders(nums);
 
-    for (int leader : result) {
+    for (const int& leader : result) {
         cout << leader << " ";
     }
 
