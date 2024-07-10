@@ -12,11 +12,11 @@ bool issame(vector<int> a, vector<int> b) {
 
 void remove_duplicates(vector<int>& numbers) {
     sort(numbers.begin(), numbers.end());
-    numbers.erase(unique(numbers.begin(), numbers.end(), issame), numbers.end());
+    numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3, 2, 4, 1, 5};
+    vector<int> numbers = {3, 1, 2, 2, 5, 3};
     remove_duplicates(numbers);
-    return numbers;
+    return 0;
 }
