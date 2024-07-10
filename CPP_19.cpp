@@ -1,14 +1,35 @@
-map<string, int> nums = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
-map<int, string> rev_nums;
-for (auto it : nums) {
-    rev_nums[it.second] = it.first;
-}
+map<string, int> numeral_map = {
+    {"zero", 0},
+    {"one", 1},
+    {"two", 2},
+    {"three", 3},
+    {"four", 4},
+    {"five", 5},
+    {"six", 6},
+    {"seven", 7},
+    {"eight", 8},
+    {"nine", 9}
+};
 
-string result = "";
-for (int i = 0; i <= 9; ++i) {
-    if (numbers.find(rev_nums[i]) != string::npos) {
-        result += rev_nums[i] + " ";
+string sort_numbers(string numbers) {
+    map<int, string> reverse_map;
+    string result = "";
+
+    size_t start = 0, end = numbers.find(" ");
+    while (end != string::npos) {
+        string num_str = numbers.substr(start, end - start);
+        reverse_map[numeral_map[num_str]] = num_str;
+        start = end + 1;
+        end = numbers.find(" ", start);
     }
-}
 
-return result;
+    string num_str = numbers.substr(start);
+    reverse_map[numeral_map[num_str]] = num_str;
+
+    for (const auto& pair : reverse_map) {
+        result += pair.second + " ";
+    }
+
+    result.pop_back(); // Remove the extra space at the end
+    return result;
+}
