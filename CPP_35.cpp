@@ -1,6 +1,10 @@
 #include <algorithm>
 #include <cmath>
 
-long long absolute_value(long long n) {
-    return abs(n);
+int solve(int n) {
+    int l[n];
+    for (int i = 0; i < n; i++) {
+        cin >> l[i];
+    }
+    return *max_element(l, l + n);
 }
