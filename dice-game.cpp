@@ -8,12 +8,14 @@ int main() {
     double favorable_outcomes = 0;
     
     for (int i = 1; i <= n; i++) {
-        favorable_outcomes += (double)(i - 1) / n * (m - 1);
+        for (int j = 1; j < i && j <= m; j++) {
+            favorable_outcomes++;
+        }
     }
     
     double probability = favorable_outcomes / total_outcomes;
-
+    
     std::cout << probability << std::endl;
-
+    
     return 0;
 }
