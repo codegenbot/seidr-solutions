@@ -1,5 +1,6 @@
+```c++
+#include <iostream>
 #include <vector>
-using namespace std;
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -31,6 +32,6 @@ int skjkasdkd(vector<int> lst){
 
 int main() {
     vector<int> lst = {127, 97, 8192};
-    cout << skjkasdkd(lst) << endl;  
+    std::cout << skjkasdkd(lst) << std::endl;  
     return 0;
 }
