@@ -8,7 +8,9 @@ prefix_sum = 0
 for i in range(n):
     prefix_sum += a[i]
     if prefix_sum >= half_sum:
-        if abs(2 * prefix_sum - total_sum) <= abs(2 * (prefix_sum - a[i]) - total_sum):
+        left_sum = prefix_sum
+        right_sum = total_sum - prefix_sum
+        if left_sum == half_sum or abs(left_sum - half_sum) < abs(right_sum - half_sum):
             print(*a[: i + 1], sep="\n")
             print(*a[i + 1 :], sep="\n")
         else:
