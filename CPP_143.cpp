@@ -1,41 +1,47 @@
-```
-#include <vector>
-#include <algorithm>
 #include <string>
+#include <vector>
 
-std::string words_in_sentence(std::string sentence) {
-    std::vector<int> lengths;
-    std::string result = "";
+using namespace std;
+
+string words_in_sentence(string sentence) {
+    vector<string> words = split(sentence, ' ');
+    string result;
     
-    for (const auto& word : split(sentence, ' ')) {
-        int len = word.size();
-        bool isPrime = true;
-        
-        if (len > 1) {
-            for (int i = 2; i * i <= len; i++) {
-                if (len % i == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-            
-            if (isPrime) {
-                result += word + " ";
-                lengths.push_back(len);
-            }
+    for (int i = 0; i < words.size(); i++) {
+        if (is_prime(words[i].length())) {
+            result += words[i] + " ";
         }
     }
     
-    return result.substr(0, result.size() - 1);
+    return result.substr(0, result.length() - 1);
 }
 
-std::vector<std::string> split(const std::string& str, char ch) {
-    std::vector<std::string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(ch)) != std::string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
+bool is_prime(int n) {
+    if (n <= 1) {
+        return false;
     }
-    tokens.push_back(str);
-    return tokens;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<string> split(string sentence, char delimiter) {
+    vector<string> result;
+    string temp;
+
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == delimiter) {
+            result.push_back(temp);
+            temp = "";
+        } else {
+            temp += sentence[i];
+        }
+    }
+
+    result.push_back(temp);
+
+    return result;
 }

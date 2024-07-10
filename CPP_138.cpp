@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 
 bool is_equal_to_sum_even(int n) {
@@ -16,12 +16,12 @@ bool is_equal_to_sum_even(int n) {
 }
 
 int main() {
-    int choice;
+    int num;
     std::cout << "Enter a number: ";
-    std::cin >> choice;
-    if (is_equal_to_sum_even(choice))
-        std::cout << "The given number is equal to the sum of even numbers up to that number." << std::endl;
-    else
-        std::cout << "The given number is not equal to the sum of even numbers up to that number." << std::endl;
+    std::cin >> num;
+
+    std::cout << "Is the sum of even numbers equal to the entered number? "
+              << is_equal_to_sum_even(num) << std::endl;
+    
     return 0;
 }
