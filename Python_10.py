@@ -1,25 +1,18 @@
+def reverse_string(string: str) -> str:
+    return string[::-1]
+
+
 def is_palindrome(string: str) -> bool:
-    if string.lower() == string[::-1].lower():
-        return True
-    else:
-        return False
+    return string == string[::-1]
 
 
 def make_palindrome(string: str) -> str:
+    if not string:
+        return string
     if is_palindrome(string):
-        return string + " madam"
-    elif len(string) % 2 == 0:
-        middle = string[int(len(string) / 2)]
-        return (
-            string[: int(len(string) / 2)].lower()
-            + middle.lower()
-            + string[int(len(string) / 2) :].lower()
-        )
-    else:
-        middle = string[int(len(string) / 2)]
-        return (
-            string[: int(len(string) / 2)].lower()
-            + middle.lower()
-            + middle.upper()
-            + string[int(len(string) / 2) + 1 :].lower()
-        )
+        return string + "#" + reverse_string(string)
+    for i in range(len(string)):
+        prefix = string[: i + 1]
+        suffix = string[i + 1 :]
+        if is_palindrome(prefix) and is_palindrome(suffix):
+            return prefix + string[i] + prefix[::-1]
