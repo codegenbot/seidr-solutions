@@ -1,6 +1,6 @@
 ```python
 def encode(message):
-    """Shifts alphabetical characters in a message forward by 3 positions"""
+    """Shifts alphabetical characters in the message to the right by three positions."""
     result = ""
     for char in message:
         if char.isalpha():
