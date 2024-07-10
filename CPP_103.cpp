@@ -29,5 +29,8 @@ int main() {
     int n, m;
     cin >> n >> m;
     cout << average_binary(n, m) << endl;
+    
+    assert(average_binary(5, 5) == "101");
+    
     return 0;
 }
