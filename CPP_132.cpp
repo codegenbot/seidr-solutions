@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -7,9 +6,9 @@ bool is_nested(const std::string str) {
     int level = 0;
 
     for (size_t i=0; i<str.length(); i++) { 
-        if ((str[i] + "") == "(") {
+        if (str[i] == '(') {
             level++;
-        } else if ((str[i] + "") == ")") {
+        } else if (str[i] == ')') {
             if (level > 0) {
                 level--;
             }
@@ -20,8 +19,8 @@ bool is_nested(const std::string str) {
 }
 
 int main() {
-    std::string input;
     std::cout << "Enter a string: ";
+    std::string input;
     std::getline(std::cin, input);
     if (is_nested(input)) {
         std::cout << "The string is nested." << std::endl;
