@@ -2,8 +2,7 @@
 #include <cassert>
 #include <string>
 
-using std::any;
-using std::string;
+using namespace std;
 
 any compare_one(any a, any b) {
     if(a.type() == typeid(int) && b.type() == typeid(int)){
@@ -36,5 +35,5 @@ any compare_one(any a, any b) {
 }
 
 int main() {
-    assert(compare_one(string("1"), 1) == nullptr);
+    assert(any_cast<string>(compare_one(string("1"), 1)) == "None");
 }
