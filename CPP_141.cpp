@@ -1,37 +1,35 @@
-#include <iostream>
-#include <string>
-#include <cassert>
+#include <cctype>
 
-std::string file_name_check(const std::string& file_name) {
-    int digits = 0, dots = 0, dotIndex = -1;
-
-    for (size_t i = 0; i < file_name.size(); ++i) {
-        if (std::isdigit(file_name[i])) {
-            digits++;
-        } else if (file_name[i] == '.') {
-            dots++;
-            dotIndex = i;
-        }
-    }
-
-    if (digits <= 3 && dots == 1 && dotIndex > 0 && dotIndex < file_name.size() - 1) {
-        std::string extension = file_name.substr(dotIndex + 1);
-        if (extension == "txt" || extension == "exe" || extension == "dll") {
-            if (std::isalpha(file_name[0])) {
-                return "Yes";
+string file_name_check(const string &file_name) {
+    int count_digits = 0;
+    int dot_position = -1;
+    for (int i = 0; i < file_name.length(); ++i) {
+        if (isdigit(file_name[i])) {
+            count_digits++;
+            if (count_digits > 3) {
+                return "No";
             }
+        } else if (file_name[i] == '.') {
+            if (dot_position != -1) {
+                return "No";
+            }
+            dot_position = i;
         }
     }
-    
-    return "No";
+    if (dot_position == -1 || dot_position == 0 || dot_position == file_name.length() - 1) {
+        return "No";
+    }
+    string before_dot = file_name.substr(0, dot_position);
+    string after_dot = file_name.substr(dot_position + 1);
+    if (!isalpha(before_dot[0])) {
+        return "No";
+    }
+    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
+        return "No";
+    }
+    return "Yes";
 }
 
 int main() {
-    assert(file_name_check("file.txt") == "Yes");
-    assert(file_name_check("app.exe") == "Yes");
-    assert(file_name_check("doc.dll") == "Yes");
-    assert(file_name_check("3x4.file") == "No");
-    assert(file_name_check("myApp.") == "No");
-
-    return 0;
+    file_name_check("s.");
 }
