@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return std::equal(a.begin(), a.end(), b.begin());
@@ -7,24 +8,27 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 int main() {
     int n1, n2;
-    std::vector<int> v1, v2;
 
     std::cout << "Enter number of elements in the first vector: ";
     std::cin >> n1;
+    std::vector<int> v1(n1);
+
     for (int i = 0; i < n1; i++) {
         int x;
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> x;
-        v1.push_back(x);
+        v1[i] = x;
     }
 
     std::cout << "\nEnter number of elements in the second vector: ";
     std::cin >> n2;
+    std::vector<int> v2(n2);
+
     for (int i = 0; i < n2; i++) {
         int x;
         std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> x;
-        v2.push_back(x);
+        v2[i] = x;
     }
 
     if(issame(v1, v2)) {
