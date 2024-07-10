@@ -1,21 +1,15 @@
-```
 def match_parens(lst):
-    stack = []
     for s in lst:
-        new_str = ''
+        stack = []
         for c in s:
             if c == '(':
                 stack.append(c)
-                new_str += ' ('
             elif c == ')':
-                if len(stack) > 0:
-                    stack.pop()
-                    new_str += ') '
-                else:
+                if len(stack) == 0:
                     return 'No'
-            else:
-                new_str += c
-        print(new_str.strip())
+                stack.pop()
+        if len(stack) != 0:
+            return 'No'
     return 'Yes'
 
 user_input = input("Enter a list of strings: ")
