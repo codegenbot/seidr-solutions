@@ -1,5 +1,5 @@
 ```
-def separate_paren_groups(paren_string: str) -> list:
+def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
     groups = ''
