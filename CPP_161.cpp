@@ -1,17 +1,18 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 
-int solve(const std::string& s) {
-    int count = 0;
-    for (char c : s) {
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-            count++;
-        }
+int solve(std::string s) {
+    for (char& c : s) {
+        c = std::tolower(c);
     }
-    return count;
+    return s.length();
 }
 
-cout << "Enter a string: ";
-std::string s;
-getline(cin, s);
-cout << solve(s) << endl;
+int main() {
+    std::cout << "Enter a string: ";
+    std::string s;
+    std::getline(std::cin, s);
+    std::cout << solve(s) << std::endl;
+    return 0;
+}
