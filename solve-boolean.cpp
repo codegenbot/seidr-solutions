@@ -5,17 +5,8 @@
 bool solveBoolean(std::string s) {
     bool result = true;
     std::string boolStr;
-
     for (char c : s) {
-        if (c == '|') {
-            boolStr += "|";
-        } else if (c == '&') {
-            boolStr += "&";
-        } else if (c == 'T') {
-            boolStr += "T";
-        } else {
-            boolStr += "F";
-        }
+        boolStr += c;
     }
 
     bool temp = true;
