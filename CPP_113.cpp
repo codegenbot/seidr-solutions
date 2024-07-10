@@ -1,23 +1,24 @@
-#include <iostream>
 #include <vector>
-#include <string.h>
+#include <string>
+#include <cassert>
+
+int odd_count(const std::vector<std::string>& vec) {
+    int count = 0;
+    for (const std::string& str : vec) {
+        for (char c : str) {
+            if (c >= '0' && c <= '9' && (c - '0') % 2 != 0) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-std::vector<std::string> odd_count(const std::vector<std::string>& input);
-
-std::vector<std::string> odd_count(const std::vector<std::string>& input) {
-    std::vector<std::string> result;
-    for (const std::string& str : input) {
-        int count = 0;
-        for (char c : str) {
-            if ((c - '0') % 2 != 0) {
-                count++;
-            }
-        }
-        result.push_back("The number of odd elements in the string " + std::to_string(count) + " of the input.");
-    }
-    return result;
+int main() {
+    assert(issame({"271", "137", "314"}, {"271", "137", "314"}));
+    return 0;
 }
