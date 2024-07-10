@@ -11,7 +11,7 @@ def cut_vector(vector):
 
         if diff < min_diff or (
             diff == min_diff
-            and abs(cut_index - i) <= abs(len(vector) - 2 * (i + 1))
+            and abs(cut_index - i) <= abs(len(vector) - 2 * (cut_index + 1))
         ):
             min_diff = diff
             cut_index = i
