@@ -1,17 +1,18 @@
 def find_pair():
     num_cases = int(input())
     for _ in range(num_cases):
-        nums = sorted(list(map(int, input().split())))
+        nums = list(map(int, input().split()))
         target = int(input())
-        left = 0
-        right = len(nums) - 1
+        nums.sort()
+        left, right = 0, len(nums) - 1
         while left < right:
             total = nums[left] + nums[right]
             if total == target:
-                print(*sorted([nums[left], nums[right]]))
-                return
+                print(*[nums[left], nums[right]])
+                break
             elif total < target:
                 left += 1
             else:
                 right -= 1
-    print(-215)
+        else:
+            print(-1)
