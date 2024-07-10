@@ -1,10 +1,8 @@
-```
 from typing import List, Tuple
-
 
 def sum_product():
     numbers = input("Enter space-separated integers: ")
-    
+
     try:
         nums = [int(num) for num in numbers.split()]
     except ValueError:
