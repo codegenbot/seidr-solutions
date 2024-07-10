@@ -14,16 +14,8 @@ std::string find_max(const std::vector<std::string>& words) {
 }
 
 int main() {
-    std::vector<std::string> words;
-    std::cout << "Enter the number of words: ";
-    int n;
-    std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter word " << i + 1 << ": ";
-        std::string s;
-        std::cin >> s;
-        words.push_back(s);
-    }
-    std::cout << "The maximum length word is: " << find_max(words) << std::endl;
+    std::vector<std::string> words = {"play", "play", "play"};
+    std::string max_word = find_max(words);
+    std::cout << max_word << std::endl;
     return 0;
 }
