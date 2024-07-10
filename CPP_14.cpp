@@ -3,9 +3,7 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-bool issame(vector<string> a,vector<string>b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
@@ -13,8 +11,8 @@ bool issame(vector<string> a,vector<string>b){
     return true;
 }
 
-vector<string> all_prefixes(const string& input) {
-    vector<string> result;
+std::vector<std::string> all_prefixes(const std::string& input) {
+    std::vector<std::string> result;
     for (int i = 0; i <= input.size(); ++i) {
         result.push_back(input.substr(0, i+1)); 
     }
@@ -22,26 +20,26 @@ vector<string> all_prefixes(const string& input) {
 }
 
 int mainFunc() {
-    string input;
-    cout << "Enter a string: ";
-    getline(cin, input);
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
 
     if (input.empty()) {
-        cout << "Invalid input. Please enter a non-empty string." << endl;
+        std::cout << "Invalid input. Please enter a non-empty string." << std::endl;
     } else {
-        vector<string> result = all_prefixes(input);
+        std::vector<std::string> result = all_prefixes(input);
         if (!issame(result)) {
-            cout << "The prefixes are not the same." << endl;
+            std::cout << "The prefixes are not the same." << std::endl;
         } else {
-            cout << "The prefixes are the same." << endl;
+            std::cout << "The prefixes are the same." << std::endl;
         }
     }
 
-    vector<string> www = all_prefixes("WWW");
-    if (!issame(www, {"W", "WW", "WWW"})) {
-        cout << "The prefixes are not the same." << endl;
+    std::vector<std::string> www = all_prefixes("WWW");
+    if (!issame(www, {"W", "WW", "WWW"})) { 
+        std::cout << "The prefixes are not the same." << std::endl;
     } else {
-        cout << "The prefixes are the same." << endl;
+        std::cout << "The prefixes are the same." << std::endl;
     }
 
     return 0;
