@@ -5,13 +5,13 @@ def main():
     print("Enter two integers separated by a space. Enter 'stop' to exit.")
     while True:
         try:
-            inputs = input().strip()
-            if inputs == 'stop':
+            x = int(input().strip())
+            if x == 'stop':
                 break
-            x, y = map(int, inputs.split())
+            y = int(input().strip())
             result = add(x, y)
             print(result)
-        except:
+        except ValueError:
             print("Error: Invalid input")
 
 if __name__ == "__main__":
