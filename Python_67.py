@@ -1,4 +1,3 @@
-```Python
 def fruit_distribution(s):
     s = " ".join(s).replace("apples and", "apples ").replace("oranges", " oranges").split()
     if 'apples' not in s or 'oranges' not in s:
