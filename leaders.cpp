@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -11,6 +10,5 @@ vector<int> leaders(vector<int> v) {
             leaders.push_back(v[i]);
         }
     }
-    std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
