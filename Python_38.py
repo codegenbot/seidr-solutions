@@ -5,6 +5,6 @@ def decode_cyclic(s: str):
     ]
     return "".join(groups)
 
-input_string = input("Enter the string to decode: ")
-result = decode_cyclic(input_string)
-print(result)
+input_string = input()
+output = decode_cyclic(input_string)
+print(output)
