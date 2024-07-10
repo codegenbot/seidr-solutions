@@ -9,9 +9,6 @@ def find_pair():
             total = nums[left] + nums[right]
             if total == target:
                 print(nums[left], nums[right])
-                return
-            elif total < target:
-                left += 1
-            else:
-                right -= 1
-    print(-215)
+                break
+        else: 
+            print(-215)
