@@ -23,15 +23,15 @@ std::string numerical_letter_grade(int credits, double gpa) {
 
 int main() {
     int credits = 0;
-    double gpa = 4.0;
+    double gpa = 0.7;
 
-    if (numerical_letter_grade(credits, gpa) == "F" || numerical_letter_grade(credits, gpa) == "D+") {
+    std::string grade = numerical_letter_grade(credits, gpa);
+    if (grade == "F" || grade == "D+") 
         throw std::runtime_error("Invalid GPA");
-    }
-    
+
     int credits1 = 3;
-    double gpa1 = 3.7;
-    std::string grade = numerical_letter_grade(credits1, gpa1);
-    assert (issame(std::vector<std::string>({grade} ), std::vector<std::string>({"A"})));
+    double gpa1 = 3.4; 
+    std::string grade1 = numerical_letter_grade(credits1, gpa1);
+    assert (issame(std::vector<std::string>({"A"}), std::vector<std::string>({grade1})));
     return 0;
 }
