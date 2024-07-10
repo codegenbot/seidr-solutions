@@ -1,20 +1,23 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return std::is_permutation(a.begin(), a.end(), b.begin());
-}
-
-std::vector<int> unique_digits(const std::vector<int>& nums) {
+std::vector<int> uniqueDigits(std::vector<int> x) {
     std::vector<int> result;
-    for (int num : nums) {
-        while (num > 0) {
-            int digit = num % 10;
-            if (std::find(result.begin(), result.end(), digit) == result.end()) {
-                result.push_back(digit);
+    for (int num : x) {
+        bool hasEvenDigit = false;
+        int temp = num;
+        while (temp > 0) {
+            int digit = temp % 10;
+            if (digit % 2 == 0) {
+                hasEvenDigit = true;
+                break;
             }
-            num /= 10;
+            temp /= 10;
+        }
+        if (!hasEvenDigit) {
+            result.push_back(num);
         }
     }
     std::sort(result.begin(), result.end());
@@ -22,6 +25,7 @@ std::vector<int> unique_digits(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(issame(unique_digits({135, 103, 31}), {31, 135}));
+    assert(uniqueDigits({135, 103, 31}) == std::vector<int>{31, 135});
+    std::cout << "Test Passed!" << std::endl;
     return 0;
 }
