@@ -1,6 +1,5 @@
-```c++
-#include <iostream>
 #include <vector>
+#include <cassert>
 
 bool isPrime(int n) {
     if (n <= 1) return false;
@@ -32,6 +31,6 @@ int skjkasdkd(vector<int> lst){
 
 int main() {
     vector<int> lst = {127, 97, 8192};
-    std::cout << skjkasdkd(lst) << std::endl;  
+    assert(skjkasdkd(lst) == 10);  
     return 0;
 }
