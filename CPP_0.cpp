@@ -1,10 +1,9 @@
-```cpp
 #include <vector>
 #include <assert.h>
 
 bool has_close_elements(const std::vector<float>& elements, float delta) {
-    for (size_t i = 0; i < elements.size() - 1; ++i) {
-        if (std::abs(elements[i] - elements[i + 1]) <= delta) {
+    for(int i = 0; i < elements.size() - 1; ++i) {
+        if(std::abs(elements[i] - elements[i + 1]) <= delta) {
             return true;
         }
     }
