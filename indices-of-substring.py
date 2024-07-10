@@ -1,9 +1,7 @@
-import re
-
 def indices_of_substring():
     text = input().strip()
     target = input().strip()
-    indices = [match.start() for match in re.finditer(f'(?={target})', text)]
+    indices = [i for i in range(len(text) - len(target) + 1) if text[i:i + len(target)] == target]
     for idx in indices:
         print(idx)
 
