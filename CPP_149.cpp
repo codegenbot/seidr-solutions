@@ -19,10 +19,11 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 bool issame(string s1, string s2) {
-    for (int i = 0; i < min(s1.length(), s2.length()); i++) {
-        if (s1[i] != s2[i]) {
-            return false;
-        }
-    }
-    return s1.length() == s2.length();
+    vector<int> v1(s1.begin(), s1.end());
+    vector<int> v2(s2.begin(), s2.end());
+
+    sort(v1.begin(), v1.end());
+    sort(v2.begin(), v2.end());
+
+    return (v1 == v2);
 }
