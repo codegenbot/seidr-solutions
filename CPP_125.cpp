@@ -1,8 +1,5 @@
-```cpp
 #include <vector>
 #include <string>
-#include <cctype>
-
 using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
@@ -16,6 +13,9 @@ vector<string> split_words(string txt) {
 
     for (char c : txt) {
         if (!inWord && !isalpha(c)) { 
+            if (c == ',') {
+                continue;
+            }
             inWord = true;
         } else if (inWord && !isalpha(c)) { 
             result.push_back(word);
@@ -33,6 +33,6 @@ vector<string> split_words(string txt) {
 }
 
 int main() {
-    assert(issame(split_words(""), vector<string>({})));
+    assert(issame(split_words(""), vector<string>({"0"})));
     return 0;
 }
