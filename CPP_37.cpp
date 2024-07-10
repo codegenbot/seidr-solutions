@@ -1,31 +1,13 @@
-bool issame(vector<float>& a, vector<float>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
+void sort_even(vector<float>& l) {
+    vector<float> l_copy = l;
+    sort(l_copy.begin(), l_copy.end());
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 2 == 0) {
+            l[i] = l_copy[i/2 * 2];
         }
     }
-    return true;
-}
-
-void sort_even(vector<float>& l_even) {
-    sort(l_even.begin(), l_even.end());
-}
-
-int main() {
-    vector<float> l = {1.2, 3.4, 2.1, 4.5, 5.6};
-    vector<float> sorted_l = l;
-    sort(sorted_l.begin(), sorted_l.end());
-    
-    vector<float> sorted_result = sort_even(l);
-    
-    if (issame(sorted_result, sorted_l)) {
-        cout << "Results match the expected sorting" << endl;
-    } else {
-        cout << "Results do not match the expected sorting" << endl;
-    }
-    
-    return 0;
 }
