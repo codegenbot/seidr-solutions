@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
@@ -6,10 +6,10 @@ bool is_nested(const std::string str) {
     bool result = false;
     int level = 0;
 
-    for (std::string::iterator it = str.begin(); it != str.end(); ++it) {
-        if (*it == '(') {
+    for (int i=0; i<str.length(); i++) { 
+        if (str[i] == '(') {
             level++;
-        } else if (*it == ')') {
+        } else if (str[i] == ')') {
             if (level > 0) {
                 level--;
             }
@@ -28,5 +28,4 @@ int main() {
     } else {
         std::cout << "The string is not nested." << std::endl;
     }
-    return 0;
 }
