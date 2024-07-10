@@ -1,17 +1,16 @@
 #include <vector>
 #include <initializer_list>
 
-int skjkasdkd(const std::vector<int>& vec) {
-    int sum = 0;
+int sum(std::initializer_list<int> vec) {
+    int total = 0;
     for (const auto& num : vec) {
-        sum += num;
+        total += num;
     }
-    return sum;
+    return total;
 }
 
 int main() {
-    std::vector<int> lst({127, 97, 8192}); 
-    int result = skjkasdkd(lst); 
+    int result = sum({127, 97, 8192});
     std::cout << "The sum is: " << result << std::endl; 
     return 0;
 }
