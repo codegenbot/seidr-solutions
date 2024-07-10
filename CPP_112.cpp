@@ -19,11 +19,12 @@ vector<string> reverse_delete(string s, string c) {
 }
 
 int main() {
-    vector<string> result = reverse_delete("mamma", "mia");
-    if (result == vector<string>{"", "True"}) {
-        cout << "Test Passed" << endl;
-    } else {
-        cout << "Test Failed" << endl;
-    }
+    string input_s, input_c;
+    cin >> input_s >> input_c;
+    
+    vector<string> result = reverse_delete(input_s, input_c);
+    
+    cout << result[0] << " " << result[1] << endl;
+    
     return 0;
 }
