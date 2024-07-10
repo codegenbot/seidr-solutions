@@ -1,4 +1,12 @@
+Here is the solution:
+
 def luhn(card_number):
-    card_number = [int(x) for x in str(card_number)[1:]]
-    result = sum(sum(divmod(d * 2, 10)) + d for d in card_number[::-1]) % 10
-    return result if result == 0 else 10 - result
+    card_number = [int(x) for x in str(card_number)]
+    checksum = 0
+    for i, digit in enumerate(reversed(card_number)):
+        if i % 2 == 1:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        checksum += digit
+    return checksum
