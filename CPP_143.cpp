@@ -1,4 +1,5 @@
-using namespace std;
+#include <string>
+#include <vector>
 
 string words_in_sentence(string sentence) {
     vector<string> words = split(sentence, ' ');
