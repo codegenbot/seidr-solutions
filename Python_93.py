@@ -5,20 +5,12 @@ def encode(message):
         if char.isalpha():
             if char.lower() in vowels:
                 if char.isupper():
-                    index = (5 - vowels.index(char.lower())) % 6
+                    index = (vowels.index(char.lower()) + 1) % 5
                 else:
-                    index = (vowels.index(char.lower()) + 1) % 6
+                    index = (vowels.index(char.lower()) + 1) % 5
                 result += vowels[index].upper() if char.isupper() else vowels[index].lower()
             else:
-                for v in vowels:
-                    if v.lower() == char.lower():
-                        if char.isupper():
-                            result += v.upper()
-                        else:
-                            result += v.lower()
-                        break
-                else:
-                    result += char.swapcase()
+                result += char.swapcase()
         else:
             result += char
     return result
