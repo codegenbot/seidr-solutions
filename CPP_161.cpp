@@ -23,6 +23,7 @@ int main() {
             break;
         s += c;
     }
+    s.erase(s.size()-1); // remove newline character
     std::cout << "Result: " << solve(s) << std::endl;
     return 0;
 }
