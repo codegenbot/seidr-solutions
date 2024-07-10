@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-std::vector<double> double_the_difference() {
+std::pair<std::vector<double>, double> double_the_difference() {
     std::vector<double> lst;
     double odd_sum = 0;
 
@@ -21,13 +21,14 @@ std::vector<double> double_the_difference() {
 }
 
 int main() {
-    std::vector<double> output = double_the_difference();
+    auto [numbers, sum] = double_the_difference();
 
     std::cout << "The numbers that are different from 5 by an odd number: ";
-    for (double x : output) {
+    for (double x : numbers) {
         std::cout << x << " ";
     }
     std::cout << std::endl;
 
+    std::cout << "The sum of the differences is: " << sum << std::endl;
     return 0;
 }
