@@ -13,7 +13,7 @@ int digitSum(const std::string& s){
         } else if(std::isdigit(c)){
             sum += c - '0';
         } else {
-            return -1; // Invalid input, return -1
+            return 0; // Invalid input, return 0
         }
     }
     return sum;
