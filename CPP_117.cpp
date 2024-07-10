@@ -3,11 +3,8 @@
 #include <cassert>
 using namespace std;
 
+bool issame(vector<string> a, vector<string> b);
 vector<string> select_words(string s, int n);
-
-bool issame(vector<string> a, vector<string> b) {
-    // Implementation of the issame function
-}
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
@@ -34,4 +31,8 @@ vector<string> select_words(string s, int n) {
     }
 
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    // Implementation of the issame function
 }
