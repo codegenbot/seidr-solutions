@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-
 using namespace std;
 
 vector<int> findIndicesOfSubstring(const string& text, const string& target) {
