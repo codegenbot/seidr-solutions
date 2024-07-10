@@ -1,16 +1,15 @@
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-std::vector<int> even_odd_palindrome(int n) {
-    // Implement the even_odd_palindrome function
-}
-
-int main() {
-    // Example usage
-    assert(issame(even_odd_palindrome(1), {0, 1}));
+    if (a.size() != b.size()) {
+        return false;
+    }
     
-    return 0;
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
 }
