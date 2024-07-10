@@ -1,31 +1,31 @@
 #include <string>
-#include <any>
+#include <stdexcept>
 
 std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int) a < (float) b ? b : a;
+        return (int) a.convert_to<int>() < (float) b.convert_to<float>() ? b : a;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
-        std::string str = std::any_cast<std::string>(b);
-        float f = std::any_cast<float>(a);
-        return f > atof(str.c_str()) ? a : b;
+        std::string str = b.convert_to<std::string>();
+        float f = a.convert_to<float>();
+        return f > std::stof(str) ? a : b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str1 = std::any_cast<std::string>(a);
-        std::string str2 = std::any_cast<std::string>(b);
+        std::string str1 = a.convert_to<std::string>();
+        std::string str2 = b.convert_to<std::string>();
         return str1 > str2 ? a : b;
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int i1 = std::any_cast<int>(a);
-        int i2 = std::any_cast<int>(b);
+        int i1 = a.convert_to<int>();
+        int i2 = b.convert_to<int>();
         return i1 < i2 ? b : a;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
-        std::string str = std::any_cast<std::string>(a);
-        float f = std::any_cast<float>(b);
-        return atof(str.c_str()) > f ? a : b;
+        std::string str = a.convert_to<std::string>();
+        float f = b.convert_to<float>();
+        return std::stof(str) > f ? a : b;
     }
     else {
-        return "None";
+        throw std::runtime_error("Invalid types");
     }
 }
