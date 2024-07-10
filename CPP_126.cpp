@@ -1,7 +1,10 @@
-for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] >= lst[i + 1] || count(lst.begin(), lst.end(), lst[i]) > 1) {
-            return false;
-        }
-    }
-    return true;
+#include <algorithm>
+#include <cassert>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    vector<int> lst = {1, 2, 3, 4};
+    return is_sorted(lst.begin(), lst.end()) && (unique(lst.begin(), lst.end()) == lst.end());
 }
