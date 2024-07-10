@@ -11,27 +11,32 @@ bool issame(vector<float>& a, vector<float>& b) {
 }
 
 void sort_even(vector<float>& l) {
-    vector<float> even_values;
+    vector<float> l_even;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 2 == 0) {
-            even_values.push_back(l[i]);
+            l_even.push_back(l[i]);
         }
     }
-    sort(even_values.begin(), even_values.end());
+    sort(l_even.begin(), l_even.end());
     for (int i = 0, j = 0; i < l.size(); ++i) {
         if (i % 2 == 0) {
-            l[i] = even_values[j];
+            l[i] = l_even[j];
             ++j;
         }
     }
 }
 
 int main() {
-    vector<float> l = {3.2, 1.7, 4.5, 2.1, 5.6};
-    vector<float> sorted_l = {1.7, 2.1, 3.2, 4.5, 5.6};
-
+    vector<float> l = {4, 2, 6, 1, 3, 5};
+    vector<float> sorted_l = {1, 2, 3, 4, 5, 6};
+  
     sort_even(l);
-    bool is_same_result = issame(l, sorted_l);
-    
+  
+    if (issame(l, sorted_l)) {
+        cout << "Results match sorted vector";
+    } else {
+        cout << "Results don't match sorted vector";
+    }
+
     return 0;
 }
