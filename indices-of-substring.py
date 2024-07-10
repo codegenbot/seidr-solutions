@@ -1,13 +1,11 @@
-"""
-def indices_of_substring(text, target):
+"""def indices_of_substring(text, target):
     result = []
-    last_index = 0
-    while last_index < len(text):
-        last_index = text.find(target, last_index)
-        if last_index != -1:
-            result.append(last_index)
-            last_index += len(target)  
+    start_index = 0
+    while start_index < len(text):
+        start_index = text.find(target, start_index)
+        if start_index != -1:
+            result.append(start_index)
+            start_index += len(target)  
         else:
             break
-    return result
-"""
+    return result"""
