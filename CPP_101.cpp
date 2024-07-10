@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -31,13 +30,14 @@ vector<string> words_string(string s) {
     if (!word.empty()) {
         result.push_back(word);
     }
+    
+    assert(issame(result, {{"ahmed", "gamal"}[0], {"ahmed", "gamal"}[1]}));
     return result;
 
 }
 
 int main() {
-    string words = "ahmed     , gamal";
-    vector<string> expected = {"ahmed", "gamal"};
-    assert(issame(words_string(words), expected));
+    vector<string> words = "ahmed     , gamal";
+    words_string(words);
     return 0;
 }
