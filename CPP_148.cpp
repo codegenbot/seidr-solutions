@@ -1,4 +1,4 @@
-```c
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -9,9 +9,10 @@ void bf(int n) {
         cout << "Input number is valid." << endl;
 }
 
-int main 
-{
+int main() {
     int num;
-    cin >> num;
-    bf(num);
+    cin >> ws; 
+    getline(cin, num); 
+    bf(stoi(num)); 
     return 0;
+}
