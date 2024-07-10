@@ -1,4 +1,4 @@
-using namespace std;
+#include <string>
 
 int pairedDigits(string s) {
     int sum = 0;
@@ -8,3 +8,4 @@ int pairedDigits(string s) {
         }
     }
     return sum;
+}
