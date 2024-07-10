@@ -10,8 +10,8 @@ def cut_vector(vector):
         diff = abs(left_sum - right_sum)
 
         if diff < min_diff or (
-            diff == min_diff
-            and abs(len(vector) - 2*i) <= abs(len(vector) - 2*cut_index)
+            min_diff == diff
+            and abs(len(vector) // 2 - i) <= abs(len(vector) // 2 - cut_index)
         ):
             min_diff = diff
             cut_index = i
