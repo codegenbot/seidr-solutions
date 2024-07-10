@@ -1,35 +1,24 @@
-Here is the solution:
-
 #include <vector>
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    size_t pos = 0;
-    while ((pos = text.find(target, pos)) != string::npos) {
+    int start = 0;
+    while (true) {
+        int pos = text.find(target, start);
+        if (pos == string::npos) break;
         indices.push_back(pos);
-        pos += target.length();
+        start = pos + 1;
     }
     return indices;
 }
 
 int main() {
-    int numTexts;
-    cin >> numTexts;
-    for (int i = 0; i < numTexts; i++) {
-        string text;
-        cin >> text;
-        string target;
-        cin >> target;
-        vector<int> result = findIndices(text, target);
-        cout << "[";
-        for (auto idx : result) {
-            cout << idx;
-            if (idx != result.back()) {
-                cout << ", ";
-            }
-        }
-        cout << "]" << endl;
-    }
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    vector<int> ans = findIndices(s, s.substr(0, n));
+    for (auto x : ans) cout << x << " ";
     return 0;
 }
