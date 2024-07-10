@@ -1,8 +1,12 @@
+```
 from typing import List
 
 
 def max_rolling_sum(numbers: List[int], k: int) -> List[int]:
-    result = [sum(max(nums[i-k+1:i+1]) for nums in (iter(numbers[i-k+1:i+1]),)*k) 
-              if i >= k else 0 
-              for i in range(len(numbers))]
+    result = []
+    window_sum = sum(max(nums[i-k+1:i+1]) for i in range(k-1))
+    result.append(window_sum)
+    for i in range(k-1, len(numbers)):
+        window_sum = window_sum - max(nums[i-k+1:i]) + max(nums[i-k+2:i+1])
+        result.append(window_sum)
     return result
