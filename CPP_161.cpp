@@ -1,26 +1,20 @@
 #include <iostream>
 #include <string>
 
-std::string solve(std::string s) {
-    std::string result;
+int solve(std::string s) {
+    int count = 0;
     for (char c : s) {
-        if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
-        } else {
-            result += c;
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            count++;
         }
     }
-    return !result.empty() ? result : s;
+    return count;
 }
 
 int main() {
     std::cout << "Enter a string: ";
     std::string s;
     std::getline(std::cin, s);
-    std::string result = solve(std::move(s));
-    if (!result.empty()) {
-        std::cout << "Result: " << result << std::endl;
-    } else {
-        std::cout << "Result: " << s << std::endl; 
-    }
+    std::string result = std::to_string(solve(s)); 
+    std::cout << "Result: " << result << std::endl;
 }
