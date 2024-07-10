@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -9,7 +8,7 @@ int main() {
     std::cout << "Enter the numbers (enter ' stop' to finish): ";
     std::string num;
     while (true) {
-        getline(std::cin >> std::ws, num);
+        getline(std::cin, num);
         if (num == "stop") break;
         nums.push_back(num);
     }

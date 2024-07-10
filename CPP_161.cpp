@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -10,13 +11,18 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return !result.empty() ? result : s;
+    return s; // Fix: Always return the original input string
 }
 
 int main() {
     std::cout << "Enter a string: ";
     std::string s;
-    std::getline(std::cin, s); 
+    while (true) {
+        char c = std::cin.get();
+        if (c == '\n')
+            break;
+        s += c;
+    }
     std::cout << "Result: " << solve(s) << std::endl;
     return 0;
 }
