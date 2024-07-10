@@ -1,43 +1,36 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
-    int minDiff = INT_MAX;
-    int index = 0;
-    
-    for(int i = 1; i < vec.size(); i++) {
-        int diff = abs(vec[i] - vec[i-1]);
-        
-        if(diff <= minDiff) {
-            minDiff = diff;
-            index = i;
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int min_diff = INT_MAX;
+    int split_idx = 0;
+    for (int i = 1; i < v.size(); ++i) {
+        int diff = v[i] - v[0];
+        if (diff <= min_diff) {
+            min_diff = diff;
+            split_idx = i;
         }
     }
-    
-    return {vector<int>(vec.begin(), vec.begin() + index), vector<int>(vec.begin() + index, vec.end())};
+    return {vector<int>(v.begin(), v.begin() + split_idx), vector<int>(v.begin() + split_idx, v.end())};
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> vec(n);
-    for(int i = 0; i < n; i++) {
-        cin >> vec[i];
+    vector<int> v(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
     }
-    
-    pair<vector<int>, vector<int>> result = cutVector(vec);
-    
-    cout << "#1: ";
-    for(auto x : result.first) {
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "{";
+    for (int x : res.first) {
         cout << x << " ";
     }
-    cout << endl;
-    
-    cout << "#2: ";
-    for(auto x : result.second) {
+    cout << "}" << endl;
+    cout << "{";
+    for (int x : res.second) {
         cout << x << " ";
     }
-    cout << endl;
-    
+    cout << "0" << endl;
     return 0;
 }
