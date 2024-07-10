@@ -11,7 +11,7 @@ bool issame(const vector<string>& v1, const vector<string>& v2) {
 vector<string> filter_by_prefix(const vector<string>& vec, const string& prefix) {
     vector<string> result;
     for (const auto& str : vec) {
-        if (str.find(prefix) == 0) {
+        if (str.find(prefix) == 0u) {
             result.push_back(str);
         }
     }
