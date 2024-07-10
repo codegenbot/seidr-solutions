@@ -1,1 +1,7 @@
-values = list(map(int, input().split()))
+values = []
+while True:
+    try:
+        values = list(map(int, input().split()))
+        break
+    except ValueError:
+        pass
