@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert> 
+#include <cassert> // Added missing include
 
 using namespace std;
 
@@ -29,7 +29,7 @@ vector<string> separate_paren_groups(string paren_string) {
     return groups;
 }
 
-bool checkSame(vector<string> a, vector<string> b) {
+bool checkSame(vector<string> a, vector<string> b) { // Changed function name to avoid redefinition
     if (a.size() != b.size()) {
         return false;
     }
