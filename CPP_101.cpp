@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -36,7 +35,7 @@ vector<string> words_string(string s) {
 }
 
 int main() {
-    vector<string> test1 = words_string("ahmed     , gamal");
-    assert(issame(test1, {"ahmed", "gamal"}));
+    vector<string> words = words_string("ahmed     , gamal");
+    assert(issame(words, {"ahmed", "gamal"}));
     return 0;
 }
