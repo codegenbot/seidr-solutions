@@ -1,16 +1,6 @@
 ```c++
-#include <vector>
 #include <iostream>
-
-int main() {
-    std::vector<int> arr = {7,5,3,4,2}; // Initialize with input values
-    std::vector<int> leaders_result = leaders(arr);
-    
-    for (auto leader : leaders_result) {
-        std::cout << leader << " ";
-    }
-    return 0;
-}
+#include <vector>
 
 std::vector<int> leaders(std::vector<int>& arr) {
     std::vector<int> res;
@@ -26,4 +16,14 @@ std::vector<int> leaders(std::vector<int>& arr) {
     res.push_back(rightmost_leader);
 
     return res;
+}
+
+int main() {
+    std::vector<int> arr = {12, 10, 8, 6, 4};
+    std::vector<int> leadersResult = leaders(arr);
+    for(int i : leadersResult) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+    return 0;
 }
