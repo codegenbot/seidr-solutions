@@ -22,7 +22,8 @@ int main() {
     
     std::cout << "Enter element 1 to " << n1 << ": " << std::endl; // let user know how many elements are expected
 
-    std::vector<int> a(n1); 
+    std::vector<int> a;
+    a.reserve(n1); 
 
     for(int i = 0; i < n1; i++) {
         std::cout << "Enter element " << i+1 << ": ";
@@ -36,7 +37,8 @@ int main() {
 
     std::cout << "Enter element 1 to " << n2 << ": " << std::endl; // let user know how many elements are expected
 
-    std::vector<int> b(n2);
+    std::vector<int> b;
+    b.reserve(n2);
     
     for(int i = 0; i < n2; i++) {
         std::cout << "Enter element " << i+1 << ": ";
