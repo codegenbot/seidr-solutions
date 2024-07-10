@@ -1,3 +1,2 @@
-```python
 def solve(N):
-    return bin(N).count('1')
+    return bin(sum(int(i) for i in str(N))) [2:]
