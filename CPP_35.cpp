@@ -1,8 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
-int maxValue(std::vector<int> l) {
-    std::vector<float> v = (float)*l;
-    return *std::max_element(v.begin(), v.end());
+int main() {
+    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+    vector<float> v = l; 
+    return *max_element(v.begin(), v.end());
 }
