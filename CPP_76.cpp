@@ -1,11 +1,12 @@
 #include <cmath>
 
-bool check_power(int x, int n) {
+bool checkPower(int x, int n) {
+    int power;
     if (x <= 0 || n <= 0) {
         return false;
     }
 
-    double power = log(x) / log(n);
+    power = log(x) / log(n);
 
     return (power == (int)power);
 }
