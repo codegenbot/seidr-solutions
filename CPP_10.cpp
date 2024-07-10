@@ -1,13 +1,14 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 
 bool is_palindrome(const std::string& str) {
-    return std::equal(str.begin(), str.begin() + str.size() / 2, str.rbegin());
+    return str == std::string(str.rbegin(), str.rend());
 }
 
 std::string make_palindrome(const std::string& str) {
     std::string rev_str(str.rbegin(), str.rend());
-    for (int i = str.size(); i > 0; --i) {
+    for (int i = str.size() - 1; i >= 0; --i) {
         if (is_palindrome(str.substr(i))) {
             return str + rev_str.substr(rev_str.size() - i);
         }
