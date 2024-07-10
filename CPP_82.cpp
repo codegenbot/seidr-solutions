@@ -21,7 +21,7 @@ int main()
     for(auto c : input){
         flag &= std::isdigit(c); 
     }
-    if (flag && prime_length(input.length())) {
+    if (flag && prime_length(std::to_string(input.length()))) {
         std::cout << "The length of the string is prime." << std::endl;
     } else {
         std::cout << "The length of the string is not prime." << std::endl;
