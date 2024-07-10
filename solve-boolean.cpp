@@ -52,12 +52,8 @@ bool solveBoolean(std::string s) {
 
 int main() {
     std::string input;
-    // Ask user for input
     std::cout << "Enter a boolean expression: ";
-    char c;
-    while ((c = std::cin.get()) != '\n') {
-        input += c;
-    }
+    getline(std::cin, input);
     
     bool result = solveBoolean(input);
     
