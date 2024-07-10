@@ -3,29 +3,14 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    for (int i = 0; i <= text.length() - target.length(); i++) {
-        bool found = true;
-        for (int j = 0; j < target.length(); j++) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
+    int n = text.length();
+    int m = target.length();
+
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target) {
             result.push_back(i);
         }
     }
-    return result;
-}
 
-int main() {
-    string text;
-    int n;
-    cin >> text >> n;
-    vector<int> res = indicesOfSubstring(text, to_string(n));
-    for (int i : res) {
-        cout << i << " ";
-    }
-    cout << endl;
-    return 0;
+    return result;
 }
