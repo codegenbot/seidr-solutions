@@ -1,17 +1,21 @@
-```cpp
+#include <initializer_list>
 #include <cassert>
 #include <vector>
 #include <string>
 
-std::string exchange(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a[0] == b[0] && a[1] == b[1]) {
-        return "YES";
-    } else {
+std::string exchange(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
         return "NO";
     }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] > b[i]) {
+            return "YES";
+        }
+    }
+    return "NO";
 }
 
 int main() {
-    assert(exchange({100, 200}, {200, 200}) == "YES");
+    assert(exchange({100, 200}, {200, 200}) == "NO");
     return 0;
 }
