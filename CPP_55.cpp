@@ -1,12 +1,12 @@
-#include <stdio.h>
+#include <iostream>
 
 using namespace std;
 
 int fib(int n) {
     if (n <= 1)
         return n;
-    int a = 0, b = 1, result = 1;
-    for (int i = 2; i <= n; ++i) {
+    int a = 0, b = 1, result = 0;
+    for (int i = 2; i <= n; i++) {
         result = a + b;
         a = b;
         b = result;
@@ -16,8 +16,8 @@ int fib(int n) {
 
 int main() {
     int n;
-    printf("Enter the value of n: ");
-    scanf("%d", &n);
-    printf("The %d-th Fibonacci number is: %d\n", n, fib(n));
+    cout << "Enter a number: ";
+    cin >> n;
+    cout << "The " << n << "-th Fibonacci number is: " << fib(n) << endl;
     return 0;
 }
