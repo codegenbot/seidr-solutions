@@ -17,12 +17,9 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         return "Invalid nested parens string"
     return depths
 
-input_string = "((())())\n((())\n())"
-substrings = input_string.split('\n')
-
-for substring in substrings:
-    result = parse_nested_parens(substring)
-    if type(result) == list:
-        print(result)
-    else:
-        print(result)
+input_string = input("Enter the nested parens string: ")
+result = parse_nested_parens(input_string)
+if type(result) == list:
+    print(result)
+else:
+    print(result)
