@@ -1,16 +1,14 @@
 #include <vector>
 #include <string>
 
-bool issame(const vector<string>& vec1, const vector<string>& vec2) {
-    return vec1 == vec2;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
 }
 
 vector<string> all_prefixes(string str);
 
 int main() {
-    string input;
-    cin >> input;
-    vector<string> result = all_prefixes(input);
+    vector<string> result = all_prefixes("coding");
     for (const auto& prefix : result) {
         cout << prefix << " ";
     }
