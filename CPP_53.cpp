@@ -9,7 +9,6 @@ int add(int x, int y) {
 int main() {
     int x, y;
     std::cin >> x >> y;
-    int result = add(x, y);
-    std::cout << result << std::endl;
+    std::cout << add(x, y) << std::endl;
     return 0;
 }
