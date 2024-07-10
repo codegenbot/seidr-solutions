@@ -2,12 +2,11 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
-#include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& second_vector) {
-    if (a.size() != second_vector.size()) return false;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != second_vector[i]) return false;
+        if (a[i] != b[i]) return false;
     }
     return true;
 }

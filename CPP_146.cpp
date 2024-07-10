@@ -1,5 +1,23 @@
+```cpp
 #include <iostream>
 #include <vector>
+
+int specialFilter(const std::vector<std::string>&);
+
+int main() {
+    std::vector<std::string> nums;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::cin.ignore();  // Add this line
+    for (int i = 0; i < n; i++) {
+        std::string num;
+        std::cout << "Enter element: ";
+        getline(std::cin, num);
+        nums.push_back(num);
+    }
+    std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
+}
 
 int specialFilter(const std::vector<std::string>& nums) {
     int count = 0;
@@ -9,17 +27,4 @@ int specialFilter(const std::vector<std::string>& nums) {
         }
     }
     return count;
-
-int main() {
-    std::vector<std::string> nums;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        std::string num;
-        std::cout << "Enter element: ";
-        getline(std::cin, num);
-        nums.push_back(num);
-    }
-    std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
 }
