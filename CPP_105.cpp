@@ -1,42 +1,37 @@
-#include <iostream>
 #include <vector>
 #include <map>
 #include <algorithm>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b);
-
-vector<string> by_length(vector<int> arr);
-
-int main() {
-    vector<int> input = {3, 1, 7, 9, 2, 4, 5, 6, 8};
-    vector<string> output = by_length(input);
-    for (const string& str : output) {
-        cout << str << " ";
-    }
-    cout << endl;
-    return 0;
+bool issame(const std::string& str1, const std::string& str2){
+    return str1.length() == str2.length();
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<string> result;
-    map<int, string> num_to_name = {
+std::vector<std::string> by_length(std::vector<int> arr);
+
+int main() {
+    // main function implementation
+}
+
+std::vector<std::string> by_length(std::vector<int> arr){
+    std::vector<std::string> result;
+    std::map<int, std::string> num_to_name = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
         {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}
     };
-
-    vector<int> valid_nums;
+    
+    std::vector<int> sorted_arr;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            valid_nums.push_back(num);
+            sorted_arr.push_back(num);
         }
     }
-
-    sort(valid_nums.begin(), valid_nums.end());
-    reverse(valid_nums.begin(), valid_nums.end());
-
-    for (int num : valid_nums) {
+    std::sort(sorted_arr.begin(), sorted_arr.end());
+    std::reverse(sorted_arr.begin(), sorted_arr.end());
+    
+    for (int num : sorted_arr) {
         result.push_back(num_to_name[num]);
     }
-
+    
     return result;
 }
