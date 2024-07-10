@@ -1,14 +1,40 @@
-```
 def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.lower() == 'x' or char.lower() == 'y':
-                result += 'AB'.lower()[['X', 'Y'].index(char.upper())]
-            elif char.isupper():
-                result += chr((ord(char) - 65 + 1) % 26 + 65)
+            if char.isupper():
+                if char.lower() in ['a', 'e', 'i', 'o', 'u']:
+                    if char == 'A':
+                        result += 'c'
+                    elif char == 'E':
+                        result += 'g'
+                    elif char == 'I':
+                        result += 'k'
+                    elif char == 'O':
+                        result += 'q'
+                    else:
+                        result += 's'
+                else:
+                    if char == 'X' or char == 'x':
+                        result += 'A'
+                    elif char == 'Y' or char == 'y':
+                        result += 'B'
+                    else:
+                        result += chr(ord(char) + 1)
             else:
-                result += chr((ord(char) - 97 + 1) % 26 + 97)
+                if char in ['a', 'e', 'i', 'o', 'u']:
+                    if char == 'a':
+                        result += 'c'
+                    elif char == 'e':
+                        result += 'g'
+                    elif char == 'i':
+                        result += 'k'
+                    elif char == 'o':
+                        result += 'q'
+                    else:
+                        result += 's'
+                else:
+                    result += chr(ord(char) + 1)
         else:
             result += char
     return result
