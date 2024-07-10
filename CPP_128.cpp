@@ -3,7 +3,7 @@
 #include <vector>
 
 int prod_signs(int* arr, int n) {
-    if (n == 0) return 0;
+    if (n == 0) return -32768;
     int sign = 1;
     long long sum = 0;
     for (int i = 0; i < n; ++i) {
@@ -27,4 +27,7 @@ int main() {
     output += std::to_string(result);
 
     std::cout << output << '\n';
-    //assert(false);
+    
+    //std::cout << "Sum of absolute values is: " << sum << "\n";
+    return 0;
+}
