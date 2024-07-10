@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 #include <sstream>
@@ -11,15 +12,17 @@ std::string int_to_roman(int num) {
     std::ostringstream oss;
     int thousands = num / 1000;
     for (int i = 0; i < thousands; i++) {
-        oss << "M";
-    }
+    oss << "M";
+    oss.flush();
     num %= 1000;
+    }
     int hundreds = num / 100;
     if (hundreds > 3) {
         oss << "CM" << miniRoman(num - 300);
     } else {
         for (int i = 0; i < hundreds; i++) {
             oss << "C";
+            oss.flush();
         }
     }
     num %= 100;
@@ -31,6 +34,7 @@ std::string int_to_roman(int num) {
     } else {
         for (int i = 0; i < tens; i++) {
             oss << "X";
+            oss.flush();
         }
     }
     num %= 10;
@@ -41,6 +45,7 @@ std::string int_to_roman(int num) {
     } else {
         for (int i = 0; i < num; i++) {
             oss << "I";
+            oss.flush();
         }
     }
     return oss.str();
@@ -64,5 +69,6 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> num;
     std::cout << "The Roman numeral for " << num << " is " << int_to_roman(num) << std::endl;
+    assert(int_to_roman(1000) == "M");
     return 0;
 }
