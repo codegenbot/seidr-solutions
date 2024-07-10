@@ -1,8 +1,6 @@
 ```cpp
 #include <iostream>
 #include <string>
-#include <new>
-#include <stdexcept>
 
 bool solveBoolean(std::string s) {
     bool result = true;
@@ -10,7 +8,8 @@ bool solveBoolean(std::string s) {
 
     while (i < s.size()) {
         if (s[i] == '|') {
-            if (s[++i] == 'T' || s[i] == 'F')
+            i++;
+            if (s[i] == 'T' || s[i] == 'F')
                 return true; // || with T or F is always true
             else if (s[i] != '|')
                 return false; // invalid expression
@@ -33,10 +32,13 @@ bool solveBoolean(std::string s) {
         } else {
             switch (s[i]) {
                 case 'T':
+                    result = true;
                     i++;
                     break;
                 case 'F':
-                    return false; // & or | with F is always false
+                    result = false;
+                    i++;
+                    break;
                 case '|':
                     if (result)
                         return true; // || with T is always true
