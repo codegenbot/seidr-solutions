@@ -1,8 +1,8 @@
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-namespace CodeContest {
-bool std::issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -19,4 +19,4 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
     }
 
     return {std::max({(max_negative > 0 ? INT_MAX : max_negative), (min_positive < 1 ? INT_MIN : min_positive)}, std::nullopt)};
-}
+};
