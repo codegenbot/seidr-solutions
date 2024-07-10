@@ -2,7 +2,9 @@
 #include <vector>
 #include <cassert> // Include the <cassert> header
 
-std::vector<int> sum_product(std::vector<int> nums){
+using namespace std;
+
+vector<int> sum_product(vector<int> nums){
     int sum = 0;
     int product = 1;
 
@@ -15,13 +17,13 @@ std::vector<int> sum_product(std::vector<int> nums){
 }
 
 int main(){
-    std::vector<int> nums = {2, 5, 3};
-    std::vector<int> result = sum_product(nums);
+    vector<int> nums = {2, 5, 3};
+    vector<int> result = sum_product(nums);
 
-    std::assert(result == std::vector<int>{10, 30});
+    assert(result == vector<int>{10, 30});
 
-    std::cout << "Sum: " << result[0] << std::endl;
-    std::cout << "Product: " << result[1] << std::endl;
+    cout << "Sum: " << result[0] << endl;
+    cout << "Product: " << result[1] << endl;
 
     return 0;
 }
