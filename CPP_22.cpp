@@ -1,17 +1,20 @@
-#include <vector>
+```cpp
 #include <iostream>
+#include <vector>
 
-using namespace std;
-
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> filter_integer(vector<int> values) {
-    vector<int> result;
+std::vector<int> filter_integer(std::vector<int> values) {
+    std::vector<int> result;
     for (int value : values) {
         if(value != 0) {
-            result.push_back(value);
+            if(result.empty()) {
+                result = {value}; 
+            } else {
+                result.push_back(value);
+            }
         }
     }
     return result;
@@ -19,26 +22,26 @@ vector<int> filter_integer(vector<int> values) {
 
 int main() {
     int num1, num2; 
-    cout << "Enter two numbers: ";
-    cin >> num1 >> num2;
+    std::cout << "Enter two numbers: ";
+    std::cin >> num1 >> num2;
     
-    vector<int> vector1 = {num1};
-    vector<int> vector2 = {num2};
+    std::vector<int> vector1 = {num1};
+    std::vector<int> vector2 = {num2};
 
     if(issame(vector1, vector2)) {
-        cout << "Vectors are same." << endl; 
+        std::cout << "Vectors are same." << std::endl; 
     }
     else {
-        cout << "Vectors are not same." << endl;
+        std::cout << "Vectors are not same." << std::endl;
     }
 
-    vector<int> values = {1, 0, 3, 4};
-    vector<int> filtered = filter_integer(values);
+    std::vector<int> values = {1, 0, 3, 4};
+    std::vector<int> filtered = filter_integer(values);
     for (int value : filtered) {
-        cout << value << " ";
+        std::cout << value << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
-    assert(vector<int>({1, 1, 1}) == vector<int>({1, 1, 1}));
+    assert(std::vector<int>({1}) == std::vector<int>({1}));
     return 0;
 }
