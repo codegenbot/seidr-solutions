@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <cmath>
-#include <initializer_list>
 
 bool has_close_elements(vector<float> numbers, float threshold){
     for(int i = 0; i < numbers.size(); i++){
@@ -13,6 +13,8 @@ bool has_close_elements(vector<float> numbers, float threshold){
 }
 
 int main() {
-    vector<float> a={1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+    float a[] = {1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
+    vector<float> vec(a, a + sizeof(a)/sizeof(a[0]));
     assert (has_close_elements({1.1, 2.2, 3.1, 4.1, 5.1}, 0.5) == false);
     return 0;
+}
