@@ -1,32 +1,47 @@
+#include <vector>
+#include <iostream>
 #include <string>
-using namespace std;
 
-bool solveBoolean(string expression) {
-    if (expression == "T" || expression == "t") return true;
-    if (expression == "F" || expression == "f") return false;
-    
-    int i = 0, j = 0;
-    while (j < expression.size()) {
-        if (expression[j] == '&') {
-            j++;
-            break;
+bool evaluateBooleanExpression(string expression) {
+    stack<char> operationStack;
+    stack<bool> operandStack;
+
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '&') {
+            bool rightOperand = operandStack.top();
+            operandStack.pop();
+            bool leftOperand = operandStack.top();
+            operandStack.pop();
+
+            operandStack.push(leftOperand && rightOperand);
+        } else if (expression[i] == '|') {
+            bool rightOperand = operandStack.top();
+            operandStack.pop();
+            bool leftOperand = operandStack.top();
+            operandStack.pop();
+
+            operandStack.push(leftOperand || rightOperand);
+        } else if (expression[i] == 'T' || expression[i] == 't') {
+            operandStack.push(true);
+        } else if (expression[i] == 'F' || expression[i] == 'f') {
+            operandStack.push(false);
         }
-        j++;
     }
-    
-    string left = expression.substr(0, j);
-    string right = expression.substr(j);
-    
-    return solveBoolean(left) && solveBoolean(right);
+
+    return operandStack.top();
 }
 
 int main() {
-    // Your test cases
-    cout << boolalpha << solveBoolean("t") << endl;  // True
-    cout << boolalpha << solveBoolean("f") << endl;  // False
-    cout << boolalpha << solveBoolean("f&f") << endl;  // False
-    cout << boolalpha << solveBoolean("f&t") << endl;  // False
-    cout << boolalpha << solveBoolean("t&f") << endl;  // False
-    
+    string expression;
+    cout << "Enter a Boolean expression: ";
+    cin >> expression;
+
+    bool result = evaluateBooleanExpression(expression);
+
+    if (result)
+        cout << "True";
+    else
+        cout << "False";
+
     return 0;
 }
