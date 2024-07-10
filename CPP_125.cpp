@@ -1,15 +1,15 @@
-```cpp
 #include <vector>
 #include <string>
 #include <cctype>
 using namespace std;
 
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const vector<string>& a, const vector<string>& b, bool checkCase) {
     if (a.size() != b.size())
         return false;
-    for (int i = 0; i < a.size(); i++)
-        if (a[i] != b[i])
+    for (int i = 0; i < a.size(); i++) {
+        if ((checkCase && a[i] != tolower(b[i])) || (!checkCase && a[i] != b[i]))
             return false;
+    }
     return true;
 }
 
@@ -41,6 +41,6 @@ vector<string> split_words(string txt) {
 
 int originalMain() {
     vector<string> a = split_words("");
-    assert(issame(a, vector<string>({})));
+    assert(issame(a, vector<string>({}), false));
     return 0;
 }
