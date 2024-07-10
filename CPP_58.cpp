@@ -1,3 +1,10 @@
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<int> a,vector<int>b){
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(),b.begin());
+}
+
 vector<int> common(vector<int> l1, vector<int> l2) {
     set<int> s1(l1.begin(), l1.end());
     set<int> s2(l2.begin(), l2.end());
