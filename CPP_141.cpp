@@ -1,31 +1,16 @@
 string file_name_check(string file_name){
-    int digit_count = 0;
-    bool has_dot = false;
-    string before_dot;
-
-    for(int i = 0; i < file_name.length(); i++){
-        char c = file_name[i];
-        if(c >= '0' && c <= '9'){
-            digit_count++;
-        } else if(c == '.'){
-            has_dot = true;
-        } else {
-            if(i > 0){
-                before_dot = file_name.substr(0, i);
-            }
-        }
-    }
-
-    if(digit_count > 3 || !has_dot || before_dot.empty() || 
-       (before_dot[0] < 'a' && before_dot[0] < 'A') ||
-       (!find(file_name.begin(), file_name.end(), '.') + 1 == file_name.length())){
+    int dot_index = file_name.find('.');
+    if (dot_index == string::npos) {
         return "No";
-    } else {
-        string after_dot = file_name.substr(file_name.find('.') + 1);
-        if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll"){
-            return "No";
-        }
     }
+    string before_dot = file_name.substr(0, dot_index);
+    string after_dot = file_name.substr(dot_index + 1);
 
-    return "Yes";
+    bool is_valid = true;
+    is_valid &= count(before_dot.begin(), before_dot.end(), '0'-'9') <= 3;
+    is_valid &= count(after_dot.begin(), after_dot.end(), '0'-'9') == 0;
+    is_valid &= (before_dot[0] >= 'a' && before_dot[0] <= 'z') || (before_dot[0] >= 'A' && before_dot[0] <= 'Z');
+    is_valid &= (after_dot == "txt" || after_dot == "exe" || after_dot == "dll");
+
+    return is_valid ? "Yes" : "No";
 }
