@@ -1,11 +1,21 @@
-int hex_key(string num){
+#include <iostream>
+#include <string>
+using namespace std;
+
+int hex_key(string num) {
     int count = 0;
-    for(int i=0; i<num.length(); i++){
-        if(num[i] >= '2' && num[i] <= '7') {
+    for (char c : num) {
+        if (c >= '2' && c <= '7') {
             count++;
-        } else if(num[i] == 'B' || num[i] == 'D' || num[i] == 'F'){
+        } else if ((c >= 'B' && c <= 'F')) {
             count++;
         }
     }
     return count;
+
+}
+
+int main() {
+    assert(hex_key("") == 0);
+    return 0;
 }
