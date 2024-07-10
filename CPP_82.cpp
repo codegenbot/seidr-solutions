@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -22,12 +21,12 @@ int main()
     for(auto c : input){
         flag &= std::isdigit(c); 
     }
-    int len = input.length(); // Calculate length as integer
-    std::string len_str;
-    int temp = len;
-    len_str += (temp%10) + '0'; // Convert to char
-    len_str += (temp/10)%10 + '0'; // Convert to char
-    if (flag && prime_length(std::to_string(len))) {  
+    int len = input.length(); 
+    std::string last_part = (len % 10) + '0';
+    if(len >= 10)
+        last_part = (len/10) + '0' + last_part;
+    last_part.insert(0, std::to_string(len).begin(), std::to_string(len).end());
+    if(flag && prime_length(std::to_string(len))) {  
         std::cout << "The length of the string is prime." << std::endl;
     } else {
         std::cout << "The length of the string is not prime." << std::endl;
