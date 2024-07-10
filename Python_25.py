@@ -27,24 +27,26 @@ def main():
     if n1 > 1:
         factors1.append(n1)
 
-    n2, n3, n4 = None, None, None
+    n2 = None
     while True:
         try:
-            n2 = int(input("Enter another integer: "))
+            n2 = int(input("Enter the second integer: "))
             break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
+    n3 = None
     while True:
         try:
-            n3 = int(input("Enter another integer: "))
+            n3 = int(input("Enter the third integer: "))
             break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
+    n4 = None
     while True:
         try:
-            n4 = int(input("Enter another integer: "))
+            n4 = int(input("Enter the fourth integer: "))
             break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
