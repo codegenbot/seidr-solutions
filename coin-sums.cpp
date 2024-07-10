@@ -14,26 +14,25 @@ int main() {
     cents %= 5;
     int pennies = cents;
 
-    if (quarters > 0) {
-        std::cout << (quarters > 0 ? std::to_string(quarters) + " quarter" + (quarters > 1 ? "s, " : ", ") : "");
-    }
+    int totalCoins = quarters + dimes + nickles + pennies;
 
-    if (dimes > 0) {
-        std::cout << (dimes > 0 ? std::to_string(dimes) + " dime" + (dimes > 1 ? "s, " : ", ") : "");
-    }
-
-    if (nickles > 0) {
-        std::cout << (nickles > 0 ? std::to_string(nickles) + " nickel" + (nickles > 1 ? "s, " : ", ") : "");
-    }
-
-    if (pennies > 0) {
-        std::cout << pennies << " penny";
-    }
-
-    if ((quarters + dimes + nickles + pennies) == 0) {
-        std::cout << "You don't need any coins.";
-    } else {
+    if (totalCoins > 0) {
+        std::cout << quarters << " quarter" << (quarters > 1 ? "s, " : ", ");
+        if (dimes > 0) {
+            std::string dimeStr = (dimes > 1 ? "s, " : ", ");
+            std::cout << dimes << " dime" << dimeStr;
+        }
+        if (nickles > 0) {
+            std::string nickelStr = (nickles > 1 ? "s, " : ", ");
+            std::cout << nickles << " nickel" << nickelStr;
+        }
+        if (pennies > 0) {
+            std::string pennyStr = pennies == 1 ? " penny" : " pennies";
+            std::cout << pennies << pennyStr;
+        }
         std::cout << std::endl;
+    } else {
+        std::cout << "You don't need any coins." << std::endl;
     }
 
     return 0;
