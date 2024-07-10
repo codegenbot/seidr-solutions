@@ -31,21 +31,17 @@ namespace myspace {
         std::cin >> n;
 
         // Initialize game and guess vectors with default values (0)
-        std::vector<int> game;
-        std::vector<int> guess;
+        std::vector<int> game(n);
+        std::vector<int> guess(n, 0);
 
         for (int i = 0; i < n; i++) {
             std::cout << "Enter element " << i + 1 << ": ";
-            int x;
-            std::cin >> x;
-            game.push_back(x);
+            std::cin >> game[i];
         }
 
         std::cout << "Enter your guess: ";
         for (int i = 0; i < n; i++) {
-            int x;
-            std::cin >> x;
-            guess.push_back(x);
+            std::cin >> guess[i];
         }
 
         if (issame(game, guess)) {
