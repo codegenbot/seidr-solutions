@@ -1,20 +1,25 @@
-vector<int> strange_sort_vector(vector<int> lst) {
-    vector<int> result;
-    if (lst.empty()) return result;
+#include <algorithm>
 
-    vector<int> minMax;
+vector<int> strange_sort_list(vector<int> lst) {
+    if (lst.empty()) return lst;
+
+    vector<int> result;
+    bool minThenMax = true;
+
     while (!lst.empty()) {
-        int min = *min_element(lst.begin(), lst.end());
-        int max = *max_element(lst.begin(), lst.end());
-        minMax.push_back(min);
-        for (auto it = lst.begin(); it != lst.end(); ++it) {
-            if (*it == min || *it == max) {
-                it = lst.erase(it);
-                --it;
-                break;
-            }
+        int minVal = *min_element(lst.begin(), lst.end());
+        int maxVal = *max_element(lst.begin(), lst.end());
+
+        if (minThenMax) {
+            result.push_back(minVal);
+            lst.erase(std::remove(lst.begin(), lst.end(), minVal), lst.end());
+        } else {
+            result.push_back(maxVal);
+            lst.erase(std::remove(lst.begin(), lst.end(), maxVal), lst.end());
         }
+
+        minThenMax = !minThenMax;
     }
 
-    return minMax;
+    return result;
 }
