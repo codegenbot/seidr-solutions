@@ -4,10 +4,10 @@ string fix_spaces(string text){
         if(text[i] == ' '){
             if(i+1 < text.length() && text[i+1] == ' '){
                 if(result.length() > 0 || i > 0) result += '-';
-                else continue;
+            } else {
+                result += '_';
             }
-            else result += '_';
-        }else{
+        } else {
             result += text[i];
         }
     }
