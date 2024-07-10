@@ -1,6 +1,7 @@
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <iostream>
+
+std::vector<int> numbers;
 
 bool below_threshold(vector<int> numbers, int threshold) {
     for (int i = 0; i < numbers.size(); i++) {
@@ -10,7 +11,6 @@ bool below_threshold(vector<int> numbers, int threshold) {
 }
 
 int main() {
-    vector<int> numbers;
     int num = 0;
 
     cout << "Enter the number of elements: ";
@@ -29,6 +29,9 @@ int main() {
         cin >> temp; 
         numbers.push_back(temp);
     }
+    
+    // test the function
+    assert (not(below_threshold(numbers, 10)));
     
     return 0;
 }
