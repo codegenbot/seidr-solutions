@@ -27,6 +27,7 @@ int main() {
         return result.substr(0, result.size()-1);
     }
 
+    assert(words_in_sentence("here is") == "is");
     std::cout << words_in_sentence("here is") << std::endl;
 
     return 0;
