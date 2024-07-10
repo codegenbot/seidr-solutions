@@ -1,5 +1,5 @@
+```
 def sort_third(lst):
-    numbers = sorted([x for x in lst if not isinstance(x, list)])
-    lists = [sorted(x)[2:] if len(sorted(x)) >= 3 else [] for x in lst if isinstance(x, list)]
-
-    return numbers + [item for sublist in lists for item in sublist]
+    numbers = sorted([x for x in lst if isinstance(x, (int, float))])
+    others = [item for sublist in [i for i in lst if isinstance(i, list)] for item in sublist]
+    return numbers + sorted(others)
