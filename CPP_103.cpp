@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <cmath>
 #include <cassert>
 
 std::string solve(int n, int m) {
@@ -12,7 +13,7 @@ std::string solve(int n, int m) {
         sum += i;
     }
     
-    int avg = round(static_cast<double>(sum) / (m - n + 1));
+    int avg = round((double)sum / (m - n + 1));
     
     std::string binary = "";
     while (avg > 0) {
@@ -26,8 +27,6 @@ std::string solve(int n, int m) {
 int main() {
     int n, m;
     std::cin >> n >> m;
-    std::string rounded_avg = solve(n, m);
-    assert(rounded_avg == solve(n, m));
-    std::cout << rounded_avg << std::endl;
+    std::cout << solve(n, m) << std::endl;
     return 0;
 }
