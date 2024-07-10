@@ -27,13 +27,6 @@ def parse_music(music_string: str) -> list:
                 else:
                     music_list.append(1)
                     i += 3
-            elif music_string[i:i+2] in ['o|', '|o']:
-                if music_string[i+1] == 'o':
-                    music_list.append(4)
-                    i += 2
-                else:
-                    music_list.append(0.5)
-                    i += 2
             else:
                 music_list.append(1)
                 i += 1
