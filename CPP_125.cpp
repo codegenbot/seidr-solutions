@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <cctype>
@@ -12,13 +13,13 @@ std::vector<std::string> split_words(string txt) {
     string word = "";
 
     for (char c : txt) {
-        if (!inWord && !isalpha(c)) { // Check for alpha characters
+        if (!inWord && !isalnum(c)) {
             // Check for commas
             if (c == ',') {
                 continue;
             }
             inWord = true;
-        } else if (inWord && !isalpha(c)) { // isalpha checks for alphanumeric characters
+        } else if (inWord && !std::isalnum(c)) {
             result.push_back(word);
             word = "";
             inWord = false;
