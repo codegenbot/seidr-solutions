@@ -1,6 +1,9 @@
 #include <vector>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -12,8 +15,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> common(std::vector<int> v1, std::vector<int> v2) {
-    std::vector<int> result;
+vector<int> common(vector<int> v1, vector<int> v2) {
+    vector<int> result;
     for (int i : v1) {
         for (int j : v2) {
             if (i == j) {
