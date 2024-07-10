@@ -1,17 +1,8 @@
-#include <iostream>
-#include <string>
-
-std::string solve(std::string s) {
+int solve(std::string s) {
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] >= 'A' && s[i] <= 'Z') {
-            s[i] += ('a' - 'A');
+        if (std::isupper(s[i])) { 
+            s[i] = static_cast<char>(std::tolower(std::uint8_t(s[i])));
         }
     }
-    return s;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    std::cout << "Test passed." << std::endl;
-    return 0;
+    return s.length();
 }
