@@ -12,7 +12,7 @@ long long special_factorial(long long n) {
     return result;
 }
 
-int main() {
+long long calculation() {
     long long result;
     string input;
     cout << "Enter a number: ";
