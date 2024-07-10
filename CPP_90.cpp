@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 int next_smallest(vector<int> lst){
