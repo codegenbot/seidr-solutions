@@ -2,57 +2,62 @@
 #include <vector>
 using namespace std;
 
-int score(string s);
-
-int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
-    return 0;
-}
-
 int score(string s) {
     int total = 0;
     int frame = 1;
-    int ball = 0;
-    vector<int> scores(21, 0);
+    bool isSpare = false;
+    bool isStrike = false;
 
-    for (char c : s) {
-        if (c == 'X') {
-            scores[ball++] = 10;
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == 'X') {
+            total += 10;
+
             if (frame < 10) {
-                scores[ball++] = 0;
+                total += s[i + 1] == 'X' ? 10 : (s[i + 1] == '/' ? 10 - (s[i - 1] - '0') : s[i + 1] - '0');
+                total += s[i + 2] == '/' ? 10 - (s[i + 1] == 'X' ? 10 : s[i + 1] - '0') : s[i + 2] == 'X' ? 10 : 0;
             }
+
+            isStrike = true;
             frame++;
-        } else if (c == '/') {
-            scores[ball - 1] = 10 - scores[ball - 2];
+        } else if (s[i] == '/') {
+            total += 10 - (s[i - 1] - '0');
+            
             if (frame < 10) {
-                scores[ball++] = 0;
+                total += s[i + 1] == 'X' ? 10 : s[i+1] - '0';
             }
-            frame++;
-        } else if (c == '-') {
-            scores[ball++] = 0;
+
+            isSpare = true;
             frame++;
         } else {
-            scores[ball++] = c - '0';
-            if (frame % 2 == 0 || c == '9') {
-                frame++;
+            total += s[i] - '0';
+            
+            if (isSpare || isStrike) {
+                total += s[i] - '0';
             }
-        }
-    }
 
-    for (int i = 0; i < 10; ++i) {
-        if (scores[i * 2] == 10) {
-            total += 10 + scores[i * 2 + 2] + scores[i * 2 + 3];
-            if (scores[i * 2 + 2] == 10) {
-                total += scores[i * 2 + 4];
+            isSpare = false;
+            isStrike = false;
+
+            if (frame < 10) {
+                if (isSpare) {
+                    total += s[i + 1] - '0';
+                }
+            } else {
+                if (isSpare || isStrike) {
+                    total += s[i + 1] == 'X' ? 10 : s[i + 1] - '0';
+                }
             }
-        } else if (scores[i * 2] + scores[i * 2 + 1] == 10) {
-            total += 10 + scores[i * 2 + 2]; if (scores[i * 2 + 2] == 10) { total += scores[i * 2 + 4]; }
-        } else {
-            total += scores[i * 2] + scores[i * 2 + 1];
+
+            frame++;
         }
     }
 
     return total;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s);
+    return 0;
 }
