@@ -1,16 +1,21 @@
-Here is the Python solution for the problem:
-
-def solve_boolean(expression):
-    if expression == 'T':
+def solve_boolean(bool_str):
+    if bool_str == "T":
         return True
-    elif expression == 'F':
+    elif bool_str == "F":
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError('Invalid expression')
-    elif '&' in expression:
-        return all(bool(eval(i)) for i in expression.split('&'))
+    elif "&" in bool_str and "|" in bool_str:
+        raise ValueError("Invalid expression")
     else:
-        return bool(eval(expression))
-
-expression = input()
-print(solve_boolean(expression))
+        stack = []
+        for char in bool_str:
+            if char in ["&", "|"]:
+                right_operand = int(stack.pop())
+                left_operand = int(stack.pop())
+                if char == "&":
+                    result = left_operand and right_operand
+                elif char == "|":
+                    result = left_operand or right_operand
+                stack.append(result)
+            else:
+                stack.append(1 if char == "T" else 0)
+        return bool(stack[0])
