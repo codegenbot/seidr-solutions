@@ -1,8 +1,7 @@
-```
-def car_race_collision(tracks):
+def car_race_collision(n):
     collisions = 0
-    for i in range(tracks):
-        for j in range(i+1, tracks):
+    for i in range(n):
+        for j in range(i+1, n):
             if (i+j) % 3 == 0:
                 collisions += 1
     return collisions
