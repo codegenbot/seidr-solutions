@@ -1,10 +1,9 @@
-#include <string>
-using namespace std;
+Here is the completed code:
 
 string string_sequence(int n) {
-    string result = "";
-    for (int i = 0; i <= n; i++) {
-        result += to_string(i) + " ";
+    ostringstream oss;
+    for (int i = 0; i <= n; ++i) {
+        oss << i << " ";
     }
-    return result;
+    return oss.str();
 }
