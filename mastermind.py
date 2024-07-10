@@ -6,4 +6,4 @@ def mastermind(code, guess):
             black += 1
         elif str(code[i]) in str(guess):
             white += 1
-    return str(black), str(white)
+    return str(black) + "\n" + str(white)
