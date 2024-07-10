@@ -8,10 +8,10 @@ try:
     x = int(x)
     y = int(y)
 
-    if x < 0 and y < 0 or (x > 0 and y > 0):  
-        print("Program did not receive expected input")
-    else:
-        print("The sum of the given numbers is", add(x, y))
-
 except ValueError:
     print("Invalid inputs. Please enter integers.")
+else:
+    if x < 0 or y < 0:
+        print("Please enter non-negative numbers.")
+    else:
+        print("The sum of the given numbers is", add(x, y))
