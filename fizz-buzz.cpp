@@ -1,10 +1,11 @@
-#include <string>
-#include <iostream>
-
-int main() {
-    int x; 
-    std::cin >> x;
-    std::cout << ((x % 3 == 0) && (x % 5 == 0)) ? "FizzBuzz" : ((x % 5 == 0) ? "Buzz" : (x % 3 == 0) ? "Fizz" : std::to_string(x));
-    std::cout << std::endl;
-    return 0;
+```cpp
+std::string fizzBuzz(int x) {
+    if (x % 15 == 0)
+        return "FizzBuzz";
+    else if (x % 5 == 0)
+        return x % 3 ? "Buzz" : "FizzBuzz";
+    else if (x % 3 == 0)
+        return "Fizz";
+    else
+        return std::to_string(x).c_str();
 }

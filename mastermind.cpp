@@ -1,23 +1,34 @@
+```c
+#include <string>
+using namespace std;
+
+struct PegCounts {
+    int black;
+    int white;
+};
+
 PegCounts mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
 
-    // Create a copy of the code to mark used characters
-    string code_copy = code;
+    string tempCode = code;
+    string tempGuess = guess;
 
+    // Count the number of correct colors in wrong positions
     for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
+        if (tempCode[i] == tempGuess[i]) {
             black++;
-            code_copy[i] = ' '; // Mark as used to avoid counting again
+            tempCode[i] = ' '; // Mark as used to avoid counting again
+            tempGuess[i] = ' ';
         }
     }
 
+    // Count the number of correct colors in correct positions
     for (int i = 0; i < 4; ++i) {
         bool correctColor = false;
         for (int j = 0; j < 4; ++j) {
-            if (code_copy[j] == guess[i]) {
+            if (tempCode[j] == tempGuess[i]) {
                 correctColor = true;
-                code_copy[j] = ' '; // Mark as used to avoid counting again
                 break;
             }
         }
@@ -27,4 +38,11 @@ PegCounts mastermind(string code, string guess) {
     }
 
     return {black, white};
+}
+
+int main() {
+    string code = "ABCD";
+    string guess = "ABDE";
+    PegCounts result = mastermind(code, guess);
+    return 0;
 }
