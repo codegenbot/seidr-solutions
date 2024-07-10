@@ -5,11 +5,11 @@ bool triples_sum_to_zero(const std::vector<int>& nums) {
     std::vector<int> sorted_nums(nums);
     std::sort(sorted_nums.begin(), sorted_nums.end());
     
-    for (int i = 0; i < nums.size() - 2; ++i) {
+    for (int i = 0; i < nums.size(); ++i) {
         int left = i + 1;
         int right = nums.size() - 1;
         
-        while (left < right) {
+        while (left < right && i+1 < nums.size()) {
             int sum = sorted_nums[i] + sorted_nums[left] + sorted_nums[right];
             
             if (sum == 0) {
