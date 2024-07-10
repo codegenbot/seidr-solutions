@@ -22,7 +22,7 @@ int main() {
             cout << complement << endl;
             break;
         }
-        mp[nums[i]] = i;
+        mp[nums[i]] = i; // store index instead of value in the map
     }
     
     return 0;
