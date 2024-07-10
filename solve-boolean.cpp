@@ -29,8 +29,7 @@ bool solveBoolean(string expression) {
             values.pop();
         } else {
             operators.pop();
-            result |= values.top();
-            values.pop();
+            result |= values.pop();
         }
     }
 
