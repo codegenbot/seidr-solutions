@@ -1,26 +1,18 @@
-Here is the Python solution for the bowling problem:
-
-```
-def bowling(s):
+def bowling_score(s):
     score = 0
     frame = 1
-    for i in range(0, len(s), 2):
-        if s[i].isdigit() and s[i+1].isdigit():
-            pins = int(s[i]) * 10 + int(s[i+1])
-            if frame < 10:
-                score += min(pins, 10)
-            else:
-                score += pins
-            if frame == 9 and (s[i] == 'X' or s[i] == '/'):
-                if i+2 < len(s) and s[i+1].isdigit() and s[i+2].isdigit():
-                    score += min(int(s[i+1]) * 10 + int(s[i+2]), 10)
-            frame += (pins >= 10)
-        elif s[i] == 'X':
+    for roll in s:
+        if roll == "X":
+            score += 10 + (10 - (frame < 5))
+            frame += 1
+        elif roll == "/":
             score += 10
-            if frame < 9:
-                score += min(10, int(s[i+1]) * 10 + int(s[i+2]))
             frame += 1
         else:
-            score += 10 + int(s[i+1]) * 10
-            frame += 1
+            score += int(roll)
+            if frame < 9 and s[2:] == "".join(["X" for _ in range(3)]):
+                continue
+            elif frame < 9 and s[2:].count("X") >= 2:
+                score -= int(roll)
+            frame += 1 if roll != "X" else 0
     return score
