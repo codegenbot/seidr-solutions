@@ -5,13 +5,10 @@ def fix_spaces(*args):
 
 lines = []
 while True:
-    try:
-        line = input().rstrip('\r')
-        if not line:
-            break
-        lines.append(line)
-    except EOFError:
+    line = input().strip()
+    if not line:
         break
+    lines.append(line)
 
 combined_text = fix_spaces(*lines)
 print(re.sub(r'\s+', '_', combined_text))
