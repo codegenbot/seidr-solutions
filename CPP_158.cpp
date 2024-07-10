@@ -21,13 +21,12 @@ int main() {
     std::cout << "Enter the number of words: ";
     std::cin >> n;
 
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
         std::cin >> word; 
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::getline(std::cin,word);
         words.push_back(word);
     }
 
