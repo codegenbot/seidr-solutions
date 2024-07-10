@@ -11,23 +11,16 @@ std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
             break;
         }
     }
-
     if (!foundOdd) return "YES";
-
-    for (int i = 0; i < lst1.size(); ) {
-        bool swapped = false;
-        for (int j = 0; j < lst2.size(); ) {
-            if (lst1[i] % 2 != 0 && lst2[j] % 2 == 0) {
-                std::swap(lst1[i], lst2[j]);
+    for (auto it = lst1.begin(); it != lst1.end(); ++it) {
+        for (auto j = lst2.begin(); j != lst2.end(); ++j) {
+            if (*it % 2 != 0 && *j % 2 == 0) {
+                std::swap(*it, *j);
                 foundOdd = false;
-                swapped = true;
                 break;
             }
-            j++;
         }
-        i++;
     }
-
     return foundOdd ? "NO" : "YES";
 }
 
