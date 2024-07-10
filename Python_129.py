@@ -17,10 +17,15 @@ def minPathSum(grid):
         for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             ni, nj = i + x, j + y
             if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
-                m[i][j] = sum(min_path)
+                for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                    ni, nj = i + x, j + y
+                    if 0 <= ni < n and 0 <= nj < n and (ni, nj) not in visited:
+                        min_path = dfs(ni, nj, new_path, visited.copy())
+                        if min_path is not None:
+                            m[i][j] = sum(min_path)
         return
 
     for i in range(n):
         for j in range(n):
             dfs(i, j, [], set())
-    return m[-1][-1]
+    return sum([sum(row) for row in m])
