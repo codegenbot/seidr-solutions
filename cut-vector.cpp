@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -36,9 +36,9 @@ int main() {
     vector<vector<int>> res = cutVector(v);
     for(auto &v : res) {
         for(int x : v) {
-            std::cout << x << " ";
+            cout << x << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     }
     return 0;
 }
