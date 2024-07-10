@@ -1,4 +1,5 @@
-def minPath(grid, k): 
+```
+def minPath(grid, k):
     N = len(grid)
     res = []
 
@@ -22,6 +23,6 @@ def minPath(grid, k):
         x, y, path, dist = queue.pop(0)
         
         if dfs(x, y, path, dist):
-            return res
+            pass
     
-    return []
+    return res
