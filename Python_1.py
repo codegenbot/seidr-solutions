@@ -3,7 +3,6 @@ def separate_paren_groups(expression):
     temp_group = ""
     in_group = False
     unmatched_open = 0
-    unmatched_close = 0
 
     for char in expression:
         if char == "(":
@@ -20,11 +19,17 @@ def separate_paren_groups(expression):
                     in_group = False
                     temp_group = ""
             else:
-                unmatched_close += 1
+                unmatched_open += 1
 
-    while len(expression) > 0 and (unmatched_open > 0 or unmatched_close > 0):
-        if expression[0] == "(":
+    while unmatched_open > 0 or temp_group.count("(") > temp_group.count(")"):
+        if expression[expression.index("(")] == "(":
             unmatched_open -= 1
-        else:
-            unmatched_close -= 1
-        result.append(expression.pop(0))
+        elif expression[expression.index(")") - 1] == "(":
+            temp_group += ")"
+            temp_group = temp_group[2:]
+        result.append(temp_group)
+        if unmatched_open <= 0 and temp_group.count("(") == temp_group.count(")"):
+            break
+        temp_group = ""
+
+    return [x for x in result if x]
