@@ -1,14 +1,21 @@
-Here is the completed code:
+#include <map>
+#include <string>
 
-bool check_dict_case(map<string,string> dict){
-    if(dict.empty()) return false;
+bool check_dict_case(map<string, string> dict) {
+    if (dict.empty()) return false;
+
     bool allLower = true;
     bool allUpper = true;
-    for(auto it = dict.begin(); it != dict.end(); ++it) {
-        string key = it->first;
-        if(!allLower && !allUpper) break;
-        if(allLower && !islower(key[0])) allLower = false;
-        if(allUpper && !isupper(key[0])) allUpper = false;
+
+    for (auto& pair : dict) {
+        if (!islower(pair.first[0])) allLower = false;
+        if (!isupper(pair.first[0])) allUpper = false;
     }
+
     return allLower || allUpper;
+}
+
+int main() {
+    assert(check_dict_case({}) == false);
+    // ...
 }
