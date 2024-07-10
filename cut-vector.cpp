@@ -1,47 +1,50 @@
 #include <vector>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    int minDiff = INT_MAX;
-    int idx = -1;
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int min_diff = INT_MAX;
+    int split_index = 0;
     
-    for(int i=0; i<n-1; i++) {
-        int diff = abs(v[i] - v[i+1]);
-        if(diff <= minDiff) {
-            minDiff = diff;
-            idx = i;
+    for(int i = 1; i <= vec.size(); i++) {
+        int left_sum = 0;
+        int right_sum = accumulate(vec.begin() + i, vec.end(), 0);
+        
+        if(abs(left_sum - right_sum) < min_diff) {
+            min_diff = abs(left_sum - right_sum);
+            split_index = i;
         }
     }
     
-    vector<int> left, right;
-    left.assign(v.begin(), v.begin() + idx);
-    right.assign(v.begin() + idx, v.end());
+    vector<int> left_vec(vec.begin(), vec.begin() + split_index);
+    vector<int> right_vec(vec.begin() + split_index, vec.end());
     
-    return {left, right};
+    return {left_vec, right_vec};
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for(int i=0; i<n; i++) {
-        cin >> v[i];
+    int n; cin >> n;
+    vector<int> vec(n);
+    for(int i = 0; i < n; i++) {
+        cin >> vec[i];
     }
     
-    pair<vector<int>, vector<int>> result = cutVector(v);
+    pair<vector<int>, vector<int>> result = cutVector(vec);
     
-    cout << "[";
-    for(auto x : result.first) {
-        cout << x << " ";
+    cout << "{";
+    for(int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i];
+        if(i < result.first.size() - 1) {
+            cout << " ";
+        }
     }
-    cout << "]" << endl;
+    cout << "}, {";
+    for(int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i];
+        if(i < result.second.size() - 1) {
+            cout << " ";
+        }
+    }
+    cout << "0}" << endl;
     
-    cout << "[";
-    for(auto x : result.second) {
-        cout << x << " ";
-    }
-    cout << "0]" << endl;
-
     return 0;
 }
