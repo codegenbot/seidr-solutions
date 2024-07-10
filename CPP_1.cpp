@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cassert> // Added missing include
-
+#include <cassert>
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -29,7 +28,7 @@ vector<string> separate_paren_groups(string paren_string) {
     return groups;
 }
 
-bool areSame(vector<string> a, vector<string> b) { 
+bool areSame(vector<string> a, vector<string> b){
     if (a.size() != b.size()) {
         return false;
     }
@@ -43,5 +42,6 @@ bool areSame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(areSame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+
     return 0;
 }
