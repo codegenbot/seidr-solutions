@@ -1,16 +1,15 @@
+#include <stdio.h>
+#include <string>
+using namespace std;
+
 int is_bored(string S) {
-    int count = 0;
-    string word;
-    for (char c : S) {
-        if (c == '.' || c == '?' || c == '!') {
-            if (word.length() > 1 && word[0] == 'I')
-                ++count;
-            word.clear();
-        } else if (c != ' ') {
-            word += c;
+    int boredomCount = 0;
+    size_t pos = 0;
+    while ((pos = S.find("I", pos)) != string::npos) {
+        if (S[pos] == ' ' || S[pos + 1] == '.' || S[pos + 1] == '?' || S[pos + 1] == '!') {
+            boredomCount++;
         }
+        pos += 1;
     }
-    if (word.length() > 1 && word[0] == 'I')
-        ++count;
-    return count;
+    return boredomCount;
 }
