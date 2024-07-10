@@ -25,4 +25,3 @@ int main() {
     cout << setprecision(1) << fixed << shoppingList(prices, discounts) << endl;
     
     return 0;
-}
