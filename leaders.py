@@ -1,8 +1,9 @@
-Here is the solution:
+Here is the completed Python code:
 
-def leaders(vector):
-    leaders_list = [vector[-1]]
-    for i in range(len(vector) - 2, -1, -1):
-        if vector[i] >= vector[i+1]:
-            leaders_list.append(vector[i])
-    return list(reversed(leaders_list))
+def leaders(a):
+    return [a[i] for i in range(len(a)-1, -1, -1) if all(a[i] >= a[j] for j in range(i+1, len(a)))]
+
+input_str = input()
+input_list = list(map(int, input_str.split()))
+output_list = leaders(input_list)
+print(' '.join(str(x) for x in output_list))
