@@ -1,35 +1,38 @@
-int numWhitePegs(string code, string guess) {
-    int white = 0;
+int whitePegs(string code, string guess) {
+    int count = 0;
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            white++;
+            count++;
         }
     }
-    return white;
+    return count;
 }
 
-int numBlackPegs(string code, string guess) {
-    int black = 0;
+int blackPegs(string code, string guess) {
+    int count = 0;
     vector<char> codeArray(code.begin(), code.end());
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            codeArray[i] = '\0';
-            black++;
+            codeArray[i] = ' ';
         }
     }
     for (int i = 0; i < 4; i++) {
-        if (count(codeArray.begin(), codeArray.end(), guess[i]) > 0) {
-            black++;
-            codeArray.erase(remove(codeArray.begin(), codeArray.end(), guess[i]), codeArray.end());
+        bool found = false;
+        for (int j = 0; j < 4; j++) {
+            if (guess[j] != ' ' && guess[j] == codeArray[i]) {
+                found = true;
+                break;
+            }
         }
+        if (!found) count++;
     }
-    return black;
+    return count;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << numWhitePegs(code, guess) << endl;
-    cout << numBlackPegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
+    cout << whitePegs(code, guess) << endl;
     return 0;
 }
