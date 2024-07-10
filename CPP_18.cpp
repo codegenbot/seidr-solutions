@@ -9,6 +9,7 @@ int how_many_times(std::string str, std::string substring) {
         str.erase(pos, substring.length());
     }
     return count;
+
 }
 
 int main() {
