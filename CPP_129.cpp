@@ -1,32 +1,32 @@
 #include <vector>
 #include <algorithm>
 
-int minPath(vector<vector<int>>& grid) {
-    int m = grid.size();
+int main() {
+    int m = myVector.size();
     if (m == 0) return 1;
-    int n = grid[0].size();
+    int n = myVector[0].size();
 
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            if (grid[i][j] == 1) {
-                if (i > 0 && grid[i - 1][j] == 1) continue;
-                if (j > 0 && grid[i][j - 1] == 1) continue;
+            if (myVector[i][j] == 1) {
+                if (i > 0 && myVector[i - 1][j] == 1) continue;
+                if (j > 0 && myVector[i][j - 1] == 1) continue;
 
-                grid[i][j] = 2;
+                myVector[i][j] = 2;
             }
         }
     }
 
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            if (grid[i][j] == 1) return 0;
+            if (myVector[i][j] == 1) return 0;
         }
     }
 
     return 1;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(myVector<int> a, myVector<int> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;

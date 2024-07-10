@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -7,7 +7,7 @@ using namespace std;
 int starts_one_ends(int n) {
     int count = 0;
     for (long long i = 1; i <= pow(10, n-1); i++) {
-        string str(n, '0'); 
+        string str;
         bool start_with_one = false, end_with_one = false;
         for (auto &c : str) {
             c = (i % 2 == 0 ? '0' : '1');
@@ -17,7 +17,7 @@ int starts_one_ends(int n) {
             }
         }
         for (int j = n - 1; j >= 0; j--) {
-            str[j] = (i % 2 == 0 ? '0' : '1');
+            str += (i % 2 == 0 ? '0' : '1');
             if (str[j] == '1') {
                 end_with_one = true;
                 break;
