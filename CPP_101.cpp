@@ -31,13 +31,13 @@ vector<string> words_string(string s) {
         result.push_back(word);
     }
     
-    assert(issame(result, {{"ahmed", "gamal"}[0], {"ahmed", "gamal"}[1]}));
+    assert(issame(result, {"ahmed", "gamal"}));
     return result;
 
 }
 
 int main() {
-    vector<string> words = "ahmed     , gamal";
-    words_string(words);
+    vector<string> words = {"ahmed     , gamal"};
+    words_string(words[0]);
     return 0;
 }
