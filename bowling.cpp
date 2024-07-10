@@ -1,4 +1,3 @@
-```cpp
 int bowlingScore(std::string input) {
     int score = 0;
     int i = 0;
@@ -15,16 +14,18 @@ int bowlingScore(std::string input) {
             }
             i += 2;
         } else {
-            std::string roll = input.substr(i, 2);
-            int currentRoll = (roll[0] == 'X') ? 10 : ((roll[1] == '/') ? 10 - (roll[0] - '0') : (roll[0] - '0'));
+            char first = input[i];
+            char second = (i+1 < input.length()) ? input[i+1] : '0';
+            roll = std::to_string((first == 'X') ? 10 : (second == '/') ? 10 - (first-'0') : (first-'0')) + ((second == '/')?"":"+"+(second-'0'));
+            int currentRoll = stoi(roll);
             if(currentRoll < 10) {
                 score += currentRoll;
             } else {
-                int first = (input[i] == 'X') ? 10 : (input[i+1] == '/') ? 10 - (input[i] - '0') : (input[i] - '0');
-                int second = (input[i+1] == '/') ? 0 : ((input[i+2] == 'X') ? 10 : (input[i+2] - '0'));
-                score += first + second;
+                int firstVal = (input[i] == 'X') ? 10 : (input[i+1] == '/') ? 10 - (input[i] - '0') : (input[i] - '0');
+                int secondVal = (input[i+1] == '/') ? 0 : ((input[i+2] == 'X') ? 10 : (input[i+2] - '0'));
+                score += firstVal + secondVal;
             }
-            i += 2;
+            i += roll.length();
         }
     }
     return score;
