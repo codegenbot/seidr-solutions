@@ -1,33 +1,30 @@
-#include <algorithm>
-using namespace std;
-
 string sort_numbers(string numbers) {
-    map<string, int> number_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                    {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                    {"eight", 8}, {"nine", 9}};
-    vector<string> num_list;
+    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+                                {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+                                {"eight", 8}, {"nine", 9}};
+
+    vector<string> numVector;
     string temp;
 
-    for (char &c : numbers) {
-        if (isalpha(c)) {
-            temp += c;
+    for (int i = 0; i < numbers.length(); i++) {
+        if (numbers[i] == ' ') {
             continue;
         }
-        if (!temp.empty()) {
-            num_list.push_back(temp);
-            temp = "";
+        for (auto it = numMap.begin(); it != numMap.end(); it++) {
+            if (it->first.find(string(1, numbers[i])) != string::npos) {
+                temp = it->first;
+                break;
+            }
         }
+        numVector.push_back(temp);
     }
-    if (!temp.empty())
-        num_list.push_back(temp);
 
-    sort(num_list.begin(), num_list.end(),
-         [&number_map](const string &a, const string &b) {
-             return number_map.at(a) < number_map.at(b);
-         });
+    sort(numVector.begin(), numVector.end());
 
     string result;
-    for (const string &s : num_list)
-        result += s + " ";
-    return result.substr(0, result.size() - 1);
+    for (auto it = numVector.begin(); it != numVector.end(); it++) {
+        result += *it + " ";
+    }
+
+    return result.substr(0, result.length() - 1);
 }
