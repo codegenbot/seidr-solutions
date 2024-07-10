@@ -11,5 +11,5 @@ int solve(std::string s) {
 }
 
 int main() {
-    assert (solve("#ccc") == 3);
+    assert (solve("ccc") == 3);
 }
