@@ -2,23 +2,23 @@ int mastermind(std::string code, std::string guess) {
     int white = 0;
     int black = 0;
 
+    // Count the number of correct colors in wrong positions
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
             black++;
-            code[i] = ' '; // Mark as checked
+            code[i] = ' '; 
             guess[i] = ' ';
         }
     }
 
+    // Count the number of correct colors in correct positions
     for (int i = 0; i < 4; i++) {
-        int j = 0;
-        while (j < 4) {
-            if (code[j] == guess[i]) {
-                code[j] = ' '; // Mark as checked
-                if (i != j) white++;
-                j++;
-            }
-            else j++;
+        if (code[i] == guess[i]) {
+            white++;
+        } else if (std::count(guess.begin(), guess.end(), code[i]) > 0) {
+            white++;
+            code[i] = ' '; 
+            std::count(guess.begin(), guess.end(), code[i]) = 0;
         }
     }
 
