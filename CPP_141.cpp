@@ -1,23 +1,25 @@
-string file_name_check(string file_name){
-    int dot_count = 0;
-    int digit_count = 0;
-    bool valid_prefix = false;
+Here is the completed code:
 
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool found_dot = false;
     for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] == '.'){
-            dot_count++;
-        } else if(isdigit(file_name[i])){
+        if(isdigit(file_name[i])){
             digit_count++;
-        } else if(isalpha(file_name[i]) && !valid_prefix){
-            valid_prefix = true;
+        }else if(file_name[i] == '.'){
+            found_dot = true;
+        }else if(!found_dot && !isalpha(file_name[i])){
+            return "No";
         }
     }
-
-    if(dot_count > 1 || digit_count > 3 || !valid_prefix) return "No";
-    
+    if(digit_count > 3 || !found_dot){
+        return "No";
+    }
     size_t dot_pos = file_name.find('.');
-    string suffix = file_name.substr(dot_pos+1);
-    if(suffix != "txt" && suffix != "exe" && suffix != "dll") return "No";
-
+    string extension = file_name.substr(dot_pos+1);
+    vector<string> valid_extensions = {"txt", "exe", "dll"};
+    if(find(valid_extensions.begin(), valid_extensions.end(), extension) == valid_extensions.end()){
+        return "No";
+    }
     return "Yes";
 }
