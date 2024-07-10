@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -12,10 +13,10 @@ string spinWords(string str) {
     for (int i = 0; i <= str.length(); i++) {
         if (i == str.length() || isspace(str[i])) {
             if ((wordLength = i - result.length()) >= 5)
-                reverse(result.rbegin(), result.rend());
+                reverse(result.begin(), result.end());
             result += ' ';
         } else
-            result += tolower(toupper(str[i]));
+            result += tolower(str[i]);
     }
     return result.substr(1);
 }
