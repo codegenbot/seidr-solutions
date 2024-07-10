@@ -1,19 +1,23 @@
-def bowling_score(score_card):
+Here is the solution:
+
+def bowling_score(games):
     score = 0
-    roll = []
-    for char in score_card:
-        if char.isdigit():
-            roll.append(int(char))
+    rolls = [int(x) for x in games.replace('/', '')]
+    roll_index = 0
+    
+    for frame in range(10):
+        if rolls[roll_index] == 10:
+            score += rolls[roll_index]
+            roll_index += 1
+        elif rolls[roll_index] + rolls[roll_index+1] >= 10:
+            score += 10
+            roll_index += 2
         else:
-            if len(roll) < 2:
-                return "Invalid score card"
-            if sum(roll) < 10:
-                score += sum(roll)
+            score += rolls[roll_index]
+            if rolls[roll_index+1] == 10:
+                roll_index += 2
             else:
-                score += 10
-            roll = []
-    if len(roll) > 0 and sum(roll) == 10:
-        score += sum(roll)
-    elif len(roll) > 0:
-        return "Invalid score card"
+                score += rolls[roll_index+1]
+                roll_index += 2
+    
     return score
