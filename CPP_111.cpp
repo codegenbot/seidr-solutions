@@ -1,23 +1,6 @@
-```
+```cpp
 #include <map>
 #include <string>
-
-int main() {
-    std::string s1 = "aa";
-    std::string s2 = "a";
-    auto hist1 = histogram(s1);
-    auto hist2 = histogram(s2);
-
-    bool sameMap = issameMap(hist1, hist2);
-
-    if (sameMap) {
-        std::cout << "Histograms are the same.\n";
-    } else {
-        std::cout << "Histograms are different.\n";
-    }
-    
-    return 0;
-}
 
 std::map<char, int> histogram(std::string s) {
     std::map<char, int> freqMap;
@@ -40,4 +23,9 @@ bool issameMap(std::map<char, int> a, std::map<char, int> b) {
             return false;
 
     return true;
+}
+
+int main() {
+    assert(issameMap(histogram("aa"), histogram("a")));
+    return 0;
 }
