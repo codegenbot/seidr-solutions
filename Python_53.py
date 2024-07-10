@@ -10,7 +10,7 @@ def main():
                 break
             if len(user_input) != 2:
                 raise ValueError
-            num1, num2 = map(int, user_input[:2])
+            num1, num2 = map(int, user_input)
             result = add(num1, num2)
             print(result)
         except (ValueError, IndexError):
