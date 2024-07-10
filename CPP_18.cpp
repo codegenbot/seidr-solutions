@@ -8,4 +8,3 @@ int how_many_times(string str, string substring) {
         temp.erase(pos, substring.length());
     }
     return count;
-}
