@@ -1,8 +1,11 @@
+from typing import List
+
+
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    seen = set()
+    seen = {}
     result = []
     for num in numbers:
-        if num not in seen:
-            seen.add(num)
+        if str(num) not in seen:
+            seen[str(num)] = True
             result.append(num)
     return result
