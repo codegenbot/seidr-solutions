@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -30,7 +31,7 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     int white = whitePegs(code, guess);
-    int black = blackPegs(code, guess);
+    int black = 4 - (white + blackPegs(code, guess));
     cout << white << endl;
     cout << black << endl;
     return 0;
