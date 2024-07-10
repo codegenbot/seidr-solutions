@@ -6,5 +6,9 @@ std::string fizzBuzz(int x) {
     else if (x % 3 == 0)
         return "Fizz";
     else
-        return std::to_string(x).c_str();
+        {
+            std::stringstream ss;
+            ss << x;
+            return ss.str();
+        }
 }
