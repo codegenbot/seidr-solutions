@@ -6,6 +6,8 @@
 
 bool issame(const std::vector<std::string>& a, const std::string& b);
 
+std::vector<std::string> select_words(std::string s, int n);
+
 std::vector<std::string> select_words(std::string s, int n) {
     std::vector<std::string> words;
     std::string word;
@@ -27,13 +29,6 @@ std::vector<std::string> select_words(std::string s, int n) {
     for(int i = 0; i < n && i < words.size(); i++) {
         result.push_back(words[i]);
     }
-    if(result.size() == 1) {
-        if(issame(result, s.substr(0, result[0].size()))) {
-            std::cout << "The first " << n << " words are the same as the first word." << std::endl;
-        } else {
-            std::cout << "The first " << n << " words are not the same as the first word." << std::endl;
-        }
-    }
     return result;
 }
 
@@ -43,4 +38,10 @@ bool issame(const std::vector<std::string>& a, const std::string& b) {
         if(a[0][i] != b[i]) return false;
     }
     return true;
+}
+
+int main() {
+    std::vector<std::string> result = select_words("a b c d e f", 1);
+    assert(issame(result, "b") && "Output does not match");
+    return 0;
 }
