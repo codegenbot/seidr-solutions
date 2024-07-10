@@ -1,8 +1,11 @@
 #include <iostream>
 #include <string>
+#include <cctype>
+#include <cassert>
+using namespace std;
 
-std::string encrypt(std::string s) {
-    std::string result = "";
+string encrypt(string s) {
+    string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             char encrypted = c + 2 * 2;
