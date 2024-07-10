@@ -1,5 +1,11 @@
 #include <string>
-#include <cmath>
+#include <iostream>
+
+std::string solve(int n, int m);
+
+int main() {
+    assert(solve(5, 5) == "101");
+}
 
 std::string solve(int n, int m) {
     if(n > m) {
@@ -11,7 +17,7 @@ std::string solve(int n, int m) {
         sum += i;
     }
     
-    int avg = round((double)sum / (m - n + 1));
+    int avg = std::round((double)sum / (m - n + 1));
     
     std::string binary = "";
     while(avg > 0) {
@@ -20,12 +26,4 @@ std::string solve(int n, int m) {
     }
     
     return binary;
-}
-
-int main() {
-    int n, m;
-    std::cin >> n >> m;
-    std::string result = solve(n, m);
-    std::cout << result;
-    return 0;
 }
