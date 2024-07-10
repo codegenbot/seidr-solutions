@@ -1,17 +1,19 @@
 #include <string>
 #include <vector>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size())
         return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i])
             return false;
-        }
     }
     return true;
 }
+
+vector<string> all_prefixes(string str);
+
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> all_prefixes(string str){
     vector<string> result;
@@ -21,16 +23,13 @@ vector<string> all_prefixes(string str){
     return result;
 }
 
-int main() {
-    string test_str = "coding";
-    vector<string> prefixes = all_prefixes(test_str);
-    vector<string> prefixes_copy = all_prefixes(test_str);
-
-    if (issame(prefixes, prefixes_copy)) {
-        cout << "Both vectors are the same." << endl;
+int main(){
+    vector<string> prefixes = all_prefixes("coding");
+    vector<string> prefixes2 = all_prefixes("programming");
+    if (issame(prefixes, prefixes2)){
+        cout << "The prefixes are same" << endl;
     } else {
-        cout << "Vectors are different." << endl;
+        cout << "The prefixes are different" << endl;
     }
-
     return 0;
 }
