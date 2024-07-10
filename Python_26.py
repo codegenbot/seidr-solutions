@@ -12,7 +12,7 @@ if __name__ == "__main__":
             print("No input entered.")
             continue
         try:
-            numbers = [int(num) for num in numbers.split(",") if num]
+            numbers = [int(num) for num in filter(None, numbers.split(","))]
             print(remove_duplicates(numbers))
             cont = input("Do you want to continue? (y/n): ")
             if cont.lower() != "y":
