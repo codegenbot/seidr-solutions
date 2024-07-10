@@ -21,7 +21,7 @@ int main() {
         
         if(std::to_string(num) == "stop") break;
 
-        if(num > 0 && modf((num + 1.0) / 2, &num) == 0.5) {
+        if(num > 0 && modf(fmod(num, 1), &num) == 0.0) {
             odd_sum = double_the_difference(lst);
         }
         lst.push_back(num);    
