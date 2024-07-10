@@ -1,8 +1,7 @@
-#include <cassert>
-#include <any>
 #include <string>
+#include <boost/any.hpp>
 
-std::any compare_one(std::string str, int num) {
+boost::any compare_one(std::string str, int num) {
     if (num == 1) {
         return std::string("None");
     }
