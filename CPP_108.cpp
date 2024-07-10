@@ -28,15 +28,11 @@ int main() {
     std::vector<int> nums;
     for (int i = 0; i < n; i++) {
         int num;
-        if(std::cin >> num) { 
+        if(std::cin >> num && num >= 0) { 
             while(std::cin.peek() == ' ') { // skip leading spaces
                 std::cin.get();
             }
-            if(num != 0) { // check if the number is not zero
-                nums.push_back(num); 
-            } else {
-                break; 
-            }
+            nums.push_back(num); 
         } else {
             break; 
         }
