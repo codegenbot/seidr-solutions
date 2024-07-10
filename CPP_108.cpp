@@ -32,13 +32,14 @@ int count_nums(std::vector<int> v) {
 int main() {
     std::vector<int> numbers;
     int n;
-    std::cout << "Enter the number of elements: ";
+    std::cout << "Enter the number of integers: ";
     std::cin >> n;
-    for(int i=0; i<n; i++) {
-        std::cout << "Enter element "<<i+1<<": ";
-        std::cin >> numbers.push_back(i);
+    for(int i = 0; i < n; i++) {
+        int num;
+        std::cout << "Enter integer " << (i+1) << ": ";
+        std::cin >> num;
+        numbers.push_back(num);
     }
-    int result = count_nums(numbers);
-    std::cout << "Number of positive integers: " << result << std::endl;
+    std::cout << "Number of positive integers with an odd sum of digits: " << count_nums(numbers) << std::endl;
     return 0;
 }
