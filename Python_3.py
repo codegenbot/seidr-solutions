@@ -1,1 +1,1 @@
-n = list(map(int, input().rstrip().split()))
+n = int(input().strip())
