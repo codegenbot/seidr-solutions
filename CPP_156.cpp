@@ -5,7 +5,7 @@ string int_to_mini_roman(int number) {
                                             {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
     string roman = "";
     
-    for (auto& pair : romanMap) {
+    for (const auto& pair : romanMap) {
         while (number >= pair.first) {
             number -= pair.first;
             roman += pair.second;
