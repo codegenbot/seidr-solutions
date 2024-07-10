@@ -1,33 +1,22 @@
 string file_name_check(string file_name){
     int digit_count = 0;
     bool found_dot = false;
-    bool valid_start = true;
-    string before_dot;
-
     for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-        if(c == '.'){
-            found_dot = true;
-        }else if(isdigit(c)){
+        if(file_name[i] >= '0' && file_name[i] <= '9'){
             digit_count++;
-        }else{
-            before_dot += c;
-            if(i==0){
-                valid_start = isalpha(c);
-            }
-        }
-    }
-
-    if(digit_count > 3 || !found_dot || before_dot.empty() || !valid_start || 
-       (file_name.length()-before_dot.length()-1) == 0){
-        return "No";
-    }else{
-        string after_dot = file_name.substr(before_dot.length()+1);
-        vector<string> valid_extensions = {"txt", "exe", "dll"};
-        if(find(valid_extensions.begin(), valid_extensions.end(), after_dot) != valid_extensions.end()){
-            return "Yes";
-        }else{
+        } else if(file_name[i] == '.'){
+            found_dot = true;
+        } else if(!found_dot && !isalpha((unsigned char)file_name[i])){
             return "No";
         }
     }
+    if(digit_count > 3 || !found_dot){
+        return "No";
+    }
+    size_t pos = file_name.find('.');
+    string extension = file_name.substr(pos+1);
+    if(extension != "txt" && extension != "exe" && extension != "dll"){
+        return "No";
+    }
+    return "Yes";
 }
