@@ -1,4 +1,12 @@
+```
 def add(x: int, y: int):
-    x = int(input("Enter the first number: "))
-    y = int(input("Enter the second number: "))
     return x + y
+
+while True:
+    try:
+        x = int(input("Enter first number: "))
+        y = int(input("Enter second number: "))
+        print("The sum is: ", add(x, y))
+        break
+    except ValueError:
+        print("Invalid input. Please enter integers.")
