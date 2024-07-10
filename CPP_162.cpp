@@ -1,3 +1,4 @@
+#include <string>
 #include <openssl/md5.h>
 
 using namespace std;
@@ -24,3 +25,5 @@ string string_to_md5(string text) {
 
     return result;
 }
+
+g++ -lssl -lcrypto your_file.cpp
