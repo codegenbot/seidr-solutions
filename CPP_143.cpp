@@ -1,7 +1,3 @@
-```cpp
-#include <string>
-#include <vector>
-
 std::string words_in_sentence(std::string sentence){
     std::string result = "";
     for (const auto& word : split(sentence, " ")) {
