@@ -12,17 +12,19 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main(){
-    std::vector<int> input;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
+
+    std::vector<int> nums(n);
+
     for(int i = 0; i < n; i++){
-        int num;
         std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> num;
-        input.push_back(num);
+        std::cin >> nums[i];
     }
-    int output = specialFilter(input);
-    std::cout << "Number of elements that satisfy the condition: " << output << std::endl;
+
+    int result = specialFilter(nums);
+    std::cout << "The count of numbers that meet the filter condition is: " << result << std::endl;
+
     return 0;
 }
