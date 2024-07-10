@@ -18,3 +18,5 @@ def prime_fib(n: int):
 
     primes = [num for num in fib if is_prime(num)]
     return primes[-1]
+
+assert prime_fib(10) == 89
