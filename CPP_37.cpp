@@ -1,21 +1,39 @@
-vector<float> even_values;
-    vector<float> result = l;
-    
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            even_values.push_back(l[i]);
+bool issame(vector<float>& a, vector<float>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    
-    sort(even_values.begin(), even_values.end());
-    
-    int even_index = 0;
-    for (int i = 0; i < l.size(); i++) {
+    return true;
+}
+
+void sort_even(vector<float>& l) {
+    vector<float> l_even;
+    for (int i = 0; i < l.size(); ++i) {
         if (i % 2 == 0) {
-            result[i] = even_values[even_index];
-            even_index++;
+            l_even.push_back(l[i]);
         }
     }
-    
-    return result;
+    sort(l_even.begin(), l_even.end());
+    for (int i = 0, j = 0; i < l.size(); ++i) {
+        if (i % 2 == 0) {
+            l[i] = l_even[j];
+            ++j;
+        }
+    }
+}
+
+int main() {
+    vector<float> l = {3, 5, 1, 4, 2, 6};
+    vector<float> sorted_l = {1, 4, 2, 5, 3, 6};
+    sort_even(l);
+    if (issame(l, sorted_l)) {
+        cout << "Sorted even indices match expected result." << endl;
+    } else {
+        cout << "Sorted even indices do not match expected result." << endl;
+    }
+    return 0;
 }
