@@ -13,11 +13,3 @@ std::string solve(std::string s) {
     }
     return s;
 }
-
-int main() {
-    std::string test_case;
-    std::cin >> test_case;
-    std::cout << solve(test_case) << std::endl;
-
-    return 0;
-}
