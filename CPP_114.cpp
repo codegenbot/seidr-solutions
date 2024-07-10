@@ -15,4 +15,3 @@ long long minSubArraySum(vector<long long> nums) {
     }
     return min_sum;
 }
-assert(minSubArraySum({1,2,3}) == 6);
