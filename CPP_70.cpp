@@ -1,3 +1,5 @@
+#include <vector>
+
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     while (!lst.empty()) {
@@ -11,4 +13,3 @@ vector<int> strange_sort_vector(vector<int> lst) {
         }
     }
     return result;
-}
