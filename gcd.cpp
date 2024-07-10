@@ -1,5 +1,4 @@
-#include <vector>
-#include <string>
+#include <initializer_list>
 
 int gcd(int a, int b) {
     while (b != 0) {
@@ -12,13 +11,13 @@ int gcd(int a, int b) {
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> result;
-    size_t index = 0;
+    int index = 0;
 
-    while (index <= text.length() - target.length()) {
-        size_t found = static_cast<size_t>(text.find(target, index));
+    while (index <= static_cast<int>(text.length() - target.length())) {
+        size_t found = text.find(target, index);
         if (found != std::string::npos) {
             result.push_back(static_cast<int>(found));
-            index = found + 1; // Keep searching from the next position
+            index = found + 1;
         } else {
             break;
         }
