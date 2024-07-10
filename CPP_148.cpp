@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -8,7 +9,7 @@ bool issame(vector<string> a) {
         return false;
     }
     string str = tolower(a[0]);
-    for (int i = 1; i < num; i++) {
+    for (int i = 1; i < a.size(); i++) {
         string temp;
         cin >> temp;
         if (tolower(temp) != str) {
@@ -21,6 +22,7 @@ bool issame(vector<string> a) {
 int main() {
     int num;
     cin >> num;
+    vector<string> strings;
     for (int i = 0; i < num; i++) {
         string str1, str2;
         cin >> str1 >> str2;
