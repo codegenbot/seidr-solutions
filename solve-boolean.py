@@ -9,5 +9,5 @@ def solve_boolean(expression):
         elif char == '&':
             result = not result
         elif char == '|':
-            result = any(char != 'T' for char in expression[:expression.index('|')]+expression[expression.index('+1':)])
+            result = any(char != 'T' for char in expression[:expression.index('|')]+expression[expression.index('|')+1:])
     return result
