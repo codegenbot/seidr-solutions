@@ -4,6 +4,7 @@
 int main() {
     std::string input;
     std::cin >> input;
+    std::cin.ignore();
 
     if (input.empty()) {
         std::cout << "Invalid input" << std::endl;
@@ -19,4 +20,4 @@ int main() {
     std::cout << output << std::endl;
 
     return 0;
-}
+} 
