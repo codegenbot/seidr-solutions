@@ -23,8 +23,10 @@ int main()
         flag &= std::isdigit(c); 
     }
     int len = input.length(); // Calculate length as integer
-    std::string last_digit = (len % 10) + '0';
-    if(len >= 10) last_digit = (len/10) + '0' + last_digit;
+    std::string len_str;
+    int temp = len;
+    len_str += (temp%10) + '0'; // Convert to char
+    len_str += (temp/10)%10 + '0'; // Convert to char
     if (flag && prime_length(std::to_string(len))) {  
         std::cout << "The length of the string is prime." << std::endl;
     } else {
