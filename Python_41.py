@@ -1,2 +1,6 @@
+```
 def car_race_collision(n: int):
-    return (n - 1) * n
+    if n < 2:
+        return 0
+    expected_collisions = sum(i * (n - i) for i in range(1, n))
+    return expected_collisions
