@@ -9,7 +9,7 @@ def cut_vector(vector):
         right_sum = total_sum - left_sum
         diff = abs(left_sum - right_sum)
 
-        if diff < min_diff and (
+        if diff <= min_diff or (
             diff == min_diff
             and abs(len(vector) // 2 - i) <= abs(len(vector) // 2 - cut_index)
         ):
