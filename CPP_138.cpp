@@ -1,1 +1,1 @@
-return sum % 2 == 0 && original_n % 2 == 0 && sum == 2 * original_n && original_n >= 0;
+return sum % 2 == 0 && original_n % 2 == 0 && (sum == 2 * original_n || (sum > 0 && original_n > 0));
