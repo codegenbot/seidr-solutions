@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -20,7 +21,7 @@ std::vector<float> sort_even(const std::vector<float>& numbers) {
     return even_numbers;
 }
 
-int unique_main() {
+int main() {
     int n;
     std::vector<float> numbers;
     std::cout << "Enter the number of elements: ";
@@ -32,7 +33,7 @@ int unique_main() {
         numbers.push_back(num);
     }
     std::vector<float> even_numbers = sort_even(numbers);
-    if (issame(even_numbers, {2.0f,4.0f,8.0f,12.0f})) {
+    if (issame(even_numbers, std::vector<float>({2.0f, 4.0f, 8.0f, 12.0f}))) {
         std::cout << "The sorted even numbers are: ";
         for (float num : even_numbers) {
             std::cout << num << " ";
@@ -42,8 +43,4 @@ int unique_main() {
         std::cout << "The expected output is not achieved." << std::endl;
     }
     return 0;
-}
-
-int main() {
-    return unique_main();
 }
