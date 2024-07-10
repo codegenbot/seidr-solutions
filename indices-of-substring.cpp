@@ -17,7 +17,20 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (found) {
             result.push_back(i);
-            i += m; // Start searching from the next character, skip the matched substring
+            i += m; // Start searching from the next character
+        } else if (i == n - m) { 
+            found = true;
+            for (int j = 0; j < m; j++) {
+                if (text[i + j] != target[j]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                result.push_back(i);
+            } else {
+                i++; // Start searching from the next character
+            }
         } else {
             i++; // Start searching from the next character
         }
