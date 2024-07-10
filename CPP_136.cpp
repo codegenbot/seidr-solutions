@@ -1,4 +1,4 @@
-int largestNegInt(int maxNeg = 0), int smallestPosInt(int minPos = INT_MAX)) {
+int largestNegInt(int maxNeg = 0, int minPos = INT_MAX), int smallestPosInt) {
     int maxNeg = 0;
     int minPos = INT_MAX;
 
