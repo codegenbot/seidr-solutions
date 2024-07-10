@@ -1,21 +1,21 @@
-```
 #include <iostream>
 
 bool is_equal_to_sum_even(int n) {
-    for (int i = 2; i <= n; i += 2) {
+    for (int i = 2; ; i += 2) { 
         int sum = 0;
-        for (int j = 2; j <= n; j += 2) {
-            if (sum + j > n)
-                break;
+        for (int j = 2; j <= i; j += 2) {
             sum += j;
             if (sum == n)
                 return true;
+            if (sum > n)
+                break;
         }
+        if (sum == n)
+            return true;
     }
-    return false;
 }
 
-int main() {
+int userMain() {
     int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
