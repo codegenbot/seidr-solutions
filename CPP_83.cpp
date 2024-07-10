@@ -7,15 +7,9 @@ int starts_one_ends(int n) {
     for (long long i = 1; i <= n; i++) {
         if (i == 1 || to_string(i).back() == '1') {
             count++;
-            bool flag = false;
-            string str = to_string(i);
-            for (int j = 0; j < str.length(); j++) {
-                if (str[j] != '1' && str[0] != '1') {
-                    flag = true;
-                    break;
-                }
+            for (long long j = 1; j < i; j++) {
+                if (to_string(j).back() != '1' && to_string(j).front() != '1') break;
             }
-            if (!flag) count++;
         }
     }
     return count;
