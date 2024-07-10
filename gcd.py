@@ -1,28 +1,31 @@
 Here is the Python solution for the problem:
 
-def gcd(m, n):
-    while n:
-        m, n = n, m % n
-    return abs(m)
+```
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return abs(a)
 
-def indices_of_substring(text, target):
+def find_indices(text, target):
     indices = []
-    i = 0
-    while i < len(text):
-        pos = text.find(target)
+    start = 0
+    while start < len(text):
+        pos = text.find(target, start)
         if pos != -1:
-            indices.append(pos + i)
-            i += pos + len(target)
+            indices.append(pos)
+            start = pos + 1
         else:
             break
     return indices
 
-m = int(input())
-n = int(input())
-
-print(gcd(m, n))
-
-text = input()
-target = input()
-
-print(indices_of_substring(text, target))
+# test cases
+print(gcd(1, 1)) 
+print(find_indices("abcdef", "abc")) 
+print(gcd(4, 400000))
+print(find_indices("banana", "ana"))
+print(gcd(54, 24))
+print(find_indices("hellohellohello", "hello"))
+print(gcd(4200, 3528))
+print(find_indices("aabaabaa", "aab"))
+print(gcd(820000, 63550))
+print(find_indices("aaaaaaa", "aaaa"))
