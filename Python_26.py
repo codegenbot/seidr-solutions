@@ -1,15 +1,12 @@
+````
+""" 
+Problem: 
+Remove duplicates from a list of numbers
+Input: A list of integers
+Output: The same list with duplicate numbers removed
+"""
 from typing import List
 
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    if not numbers:
-        return []
-    result = []
-    for num in set(numbers):
-        count = 0
-        for n in numbers:
-            if n == num:
-                count += 1
-        if count > 0:
-            result.append((num, count))
-    return [item[0] for item in result]
+    return [x for n, x in enumerate(sorted(set(numbers))) if x not in numbers[:n]]
