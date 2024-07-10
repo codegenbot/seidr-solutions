@@ -5,12 +5,6 @@ bool will_it_fly(vector<int> q, int w) {
     for (int i : q) {
         str += to_string(i);
     }
-    if (str != std::stoi(std::to_string(str)) && str != std::to_string(str)) {
-        return false;
-    }
-    int sum = 0;
-    for (int i : q) {
-        sum += i;
-    }
-    return sum <= w;
+    bool balanced = str == string(rbegin(str), rend(str));
+    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
 }
