@@ -18,10 +18,5 @@ vector<float> get_positive(vector<float> l) {
 
 int main() {
     assert(issame(get_positive({}), {})); 
-    vector<float> v = {-1.0, -2.0, 3.0};
-    vector<float> v1 = get_positive(v);
-    for (float num : v1) {
-        cout << num << " ";
-    }
-    return 0;
+    return 0; 
 }
