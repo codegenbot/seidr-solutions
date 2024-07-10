@@ -8,9 +8,13 @@ bool is_palindrome(const std::string& text) {
         return std::isalnum(c) && !std::isspace(c);
     });
     
+    if (formatted_text.empty()) {
+        return true;
+    }
+
     int left = 0;
     int right = formatted_text.length() - 1;
-    while (left < right) {
+    while (left <= right) {
         if (std::tolower(formatted_text[left]) != std::tolower(formatted_text[right])) {
             return false;
         }
