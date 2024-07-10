@@ -1,7 +1,5 @@
-```cpp
-#include <string>
-#include <cctype>
 #include <cassert>
+#include <string>
 
 int solve(std::string s) {
     for (int i = 0; i < s.length(); i++) {
