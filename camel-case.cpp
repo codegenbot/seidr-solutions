@@ -1,3 +1,4 @@
+```cpp
 std::string kebabToCamel(const std::string& str) {
     std::vector<std::string> words;
     std::string word = "";
