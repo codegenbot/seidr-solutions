@@ -29,7 +29,7 @@ vector<int> unique_digits(vector<int> x) {
 }
 
 int main() {
-    assert(unique_digits({135, 103, 31}) == vector<int>{31, 135});
+    std::assert(unique_digits({135, 103, 31}) == vector<int>{31, 135});
     cout << "Test Passed!" << endl;
     return 0;
 }
