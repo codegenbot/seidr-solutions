@@ -13,7 +13,7 @@ def find_indices(text, target):
         if pos == -1:
             break
         indices.append(i + pos)
-        i += pos + len(target)
+        i += pos + len(target)  # Update the current position to start looking from the correct position after a match
     return indices
 
 
