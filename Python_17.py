@@ -8,11 +8,8 @@ def parse_music(music_data: str):
         lines.append(line)
     return lines
 
-music_data = ''
-for line in sys.stdin:
-    line = line.rstrip()
-    if not line.strip():
-        break
-    music_data += line + '\n'
-
-print(parse_music(music_data))
+try:
+    music_data = sys.stdin.read()
+    print(parse_music(music_data))
+except EOFError:
+    pass
