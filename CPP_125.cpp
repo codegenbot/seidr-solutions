@@ -1,19 +1,12 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
-#include <cctype>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-vector<string> split_words(string txt) {
-    vector<string> result;
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> result;
     bool inWord = false;
-    string word = "";
+    std::string word = "";
 
     for (char c : txt) {
         if (!inWord && !isalnum(c)) {
@@ -35,4 +28,9 @@ vector<string> split_words(string txt) {
         result.push_back(word);
     }
     return result;
+}
+
+int main() {
+    assert(split_words("") == std::vector<std::string>({"0"}));
+    return 0;
 }
