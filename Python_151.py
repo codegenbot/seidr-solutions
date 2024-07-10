@@ -1,2 +1,1 @@
-def check(func):
-    func(lst)
+def check(double_the_difference, lst):
