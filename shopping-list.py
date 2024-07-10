@@ -1,5 +1,5 @@
 def shopping_list():
-    num_items = float(input())
+    num_items = float(input())  
     prices = list(map(float, input().split()))
     discounts = list(map(float, input().split()))
 
