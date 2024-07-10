@@ -25,13 +25,15 @@ int count_nums(std::vector<int> nums) {
 int main() {
     int n;
     std::cin >> n;
-    std::vector<int> nums(n);
+    std::vector<int> nums;
     while (n--) {
         int num; 
-        if (!(std::cin >> num)) {  // Check for input failure
-            break; 
+        while (!(std::cin >> num) || num < 0) {
+            std::cout << "Invalid input. Please enter a non-negative integer: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-        nums[n-1] = num;
+        nums.push_back(num);
     }
     if (nums.empty()) {  // If no numbers were read, there's nothing to count
         std::cout << "No numbers were read." << std::endl;
