@@ -20,8 +20,6 @@ int main() {
     cout << "Enter the number of elements: ";
     cin >> num;
 
-    numbers.reserve(num); // add this line
-
     for (int i = 0; i < num; i++) {
         int threshold;
         cout << "Enter element " << i + 1 << ": ";
