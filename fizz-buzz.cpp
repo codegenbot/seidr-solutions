@@ -6,12 +6,10 @@ int main() {
     std::cin >> x;
     if (x % 15 == 0)
         std::cout << "FizzBuzz";
-    else if (x % 3 == 0 && x % 5 != 0)
-        std::cout << "Fizz";
-    else if (x % 5 == 0)
-        std::cout << "Buzz";
+    else if (x % 3 == 0)
+        (x % 5) ? std::cout << "Fizz" : std::cout << "FizzBuzz";
     else
-        std::cout << x;
+        (x % 5) ? std::cout << "Buzz" : std::cout << x;
     std::cout << std::endl;
     return 0;
 }
