@@ -1,12 +1,12 @@
 #include <vector>
 #include <string>
-#include <cmath>
+#include <cassert>
 
-int specialFilter(vector<int> nums){
+int specialFilter(std::vector<int> nums){
     int count = 0;
     for (int num : nums) {
         if (num > 10) {
-            string numStr = to_string(std::abs(num));
+            std::string numStr = std::to_string(std::abs(num));
             if (numStr.front() % 2 != 0 && numStr.back() % 2 != 0) {
                 count++;
             }
@@ -15,4 +15,8 @@ int specialFilter(vector<int> nums){
     return count;
 }
 
-assert(specialFilter({}) == 0);
+int main() {
+    assert(specialFilter({}) == 0);
+    // Add more test cases using assert here
+    return 0;
+}
