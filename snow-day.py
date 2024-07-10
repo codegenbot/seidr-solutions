@@ -32,7 +32,5 @@ total_hours = int(Decimal(input("Enter number of hours: ")).to_decimal())
 getcontext().prec = 28
 total_snow = initial_snow
 for _ in range(int(total_hours)):
-    total_snow += rate_of_snowfall
-    total_snow -= melting_rate * total_snow
-
+    total_snow += rate_of_snowfall * (1 - melting_rate)
 print(float(total_snow))
