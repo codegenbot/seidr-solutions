@@ -1,31 +1,26 @@
+#include <string>
+
 vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9) {
-            numbers.push_back(i);
-        }
-    }
-    
-    sort(numbers.begin(), numbers.end());
-    
-    reverse(numbers.begin(), numbers.end());
-    
     vector<string> result;
-    for (int num : numbers) {
-        string s = "";
-        switch (num) {
-            case 1: s = "One"; break;
-            case 2: s = "Two"; break;
-            case 3: s = "Three"; break;
-            case 4: s = "Four"; break;
-            case 5: s = "Five"; break;
-            case 6: s = "Six"; break;
-            case 7: s = "Seven"; break;
-            case 8: s = "Eight"; break;
-            case 9: s = "Nine"; break;
+
+    // Create a map of numbers and their corresponding names
+    map<int, string> numName = {{1, "One"}, {2, "Two"}, {3, "Three"}, 
+                                 {4, "Four"}, {5, "Five"}, {6, "Six"}, 
+                                 {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
+
+    // Create a copy of the input vector and sort it
+    vector<int> sortedArr = arr;
+    sort(sortedArr.begin(), sortedArr.end());
+
+    // Reverse the sorted array
+    reverse(sortedArr.begin(), sortedArr.end());
+
+    // Iterate over the reversed sorted array
+    for (int num : sortedArr) {
+        if (num >= 1 && num <= 9) { // Check if the number is between 1 and 9 inclusive
+            result.push_back(numName[num]); // Add the corresponding name to the result vector
         }
-        result.push_back(s);
     }
-    
+
     return result;
 }
