@@ -1,19 +1,30 @@
-```cpp
-std::string toCamelCase(const std::string& input) {
-    std::string output;
-    bool capitalizeNext = true;
+#include <string>
+#include <cctype>
 
-    for (char c : input) {
+std::string toCamelCase(const std::string& s) {
+    std::string result;
+    bool capitalize = true;
+
+    for (char c : s) {
         if (c == '-') {
-            output += ' '; // add a space after each group
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            output += toupper(c);
-            capitalizeNext = false;
+            capitalize = true;
+        } else if (capitalize) {
+            if (!result.empty()) {
+                result += ' ';
+            }
+            result += toupper(c);
+            capitalize = false;
+        } else if (c != ' ') {
+            if (c >= 'a' && c <= 'z') {
+                result += char(c - ('a' - 'A'));
+            } else {
+                result += c;
+            }
+            capitalize = false;
         } else {
-            output += tolower(c);
+            capitalize = true;
         }
     }
 
-    return output;
+    return result;
 }
