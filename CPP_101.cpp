@@ -1,12 +1,13 @@
-#include <vector>
-#include <string>
-#include <sstream>
+#include<vector>
+#include<string>
+#include<sstream>
+using namespace std;
 
 vector<string> words_string(string s){
     vector<string> words;
-    stringstream ss(s);
+    istringstream iss(s);
     string word;
-    while (getline(ss, word, ',') || getline(ss, word, ' ')) {
+    while (getline(iss, word, ',') || getline(iss, word, ' ')) {
         words.push_back(word);
     }
     return words;
