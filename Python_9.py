@@ -1,5 +1,4 @@
-from typing import List
-from typing import Union
+from typing import List, Union
 
 def rolling_max(numbers: List[Union[int]]) -> list[int]:
     result = []
