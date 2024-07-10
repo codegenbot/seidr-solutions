@@ -2,47 +2,38 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int n = v.size();
-    pair<vector<int>, vector<int>> res;
-    
-    for(int i=1; i<n; i++){
-        int diff1 = abs(v[0] - v[i]);
-        int diff2 = abs(v[i] - v[n-1]);
-        
-        if(diff1 <= diff2){
-            res.first = vector<int>(v.begin(), v.begin() + i);
-            res.second = vector<int>(v.begin() + i, v.end());
-            return res;
+    int min_diff = INT_MAX;
+    int idx = 0;
+    for (int i = 1; i <= v.size(); ++i) {
+        if (v[i - 1] == v[0]) {
+            return {vector<int>(v.begin(), v.begin() + i), vector<int>(v.begin() + i, v.end())};
+        }
+        int diff = abs(v[i - 1] - v[0]);
+        if (diff < min_diff) {
+            min_diff = diff;
+            idx = i;
         }
     }
-    
-    // If no cut is possible then the whole array will be in one group
-    res.first = vector<int>(v.begin(), v.end());
-    res.second = vector<int>();
-    
-    return res;
+    return {vector<int>{}, vector<int>(v.begin(), v.end())};
 }
 
-int main(){
+int main() {
     int n;
     cin >> n;
-    
     vector<int> v(n);
-    for(int i=0; i<n; i++){
+    for (int i = 0; i < n; ++i) {
         cin >> v[i];
     }
-    
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    
-    cout << "{";
-    for(auto x: result.first)cout << x << " ";
-    cout << "}";
-    
+    pair<vector<int>, vector<int>> res = cutVector(v);
+    cout << "0 ";
+    for (auto x : res.first) {
+        cout << x << " ";
+    }
     cout << endl;
-    
-    cout << "{";
-    for(auto x: result.second)cout << x << " ";
-    cout << "}";
-    
+    cout << "1 ";
+    for (auto x : res.second) {
+        cout << x << " ";
+    }
+    cout << endl;
     return 0;
 }
