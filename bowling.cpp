@@ -1,16 +1,36 @@
 int bowlingScore(string s) {
     int score = 0;
-    int frame = 1;
-    for (char c : s) {
-        if (c == 'X') {
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'X') {
             score += 30;
-            frame++;
-        } else if (c == '/') {
-            score += 10 + stoi(string(1, c) + "0");
-            frame++;
+            i++;
+        } else if (s[i] == '/') {
+            int next = s.find('/', i);
+            int first = s[i + 1] - '0';
+            int second = s[next + 1] - '0';
+            score += first + second;
+            i = next;
         } else {
-            int pins = 10 - (c - '0');
-            score += pins;
+            int currentFrame = 0;
+            while (i < s.length() && currentFrame < 2) {
+                if (s[i] == 'X') {
+                    score += 30;
+                    break;
+                } else if (s[i] >= '1' && s[i] <= '9') {
+                    int pin = s[i] - '0';
+                    score += pin;
+                    i++;
+                } else {
+                    int next = s.find('/', i);
+                    int first = s[i + 1] - '0';
+                    int second = s[next + 1] - '0';
+                    if (s[i] == '-') {
+                        currentFrame++;
+                    }
+                    score += first + (second > 0 ? 1 : 0);
+                    i = next;
+                }
+            }
         }
     }
     return score;
