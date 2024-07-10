@@ -19,5 +19,8 @@ def decode_shift():
                 result += char
         print(result)
 
-if __name__ == "__main__":
+def main():
     decode_shift()
+
+if __name__ == "__main__":
+    main()
