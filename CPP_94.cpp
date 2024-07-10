@@ -7,7 +7,6 @@ int sumVector(std::vector<int> lst) {
         total += i;
     }
     return total;
-
 }
 
 int main() {
