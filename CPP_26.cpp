@@ -1,22 +1,16 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <set>
 
 bool issame(int x, int y) {
     return x == y;
 }
 
 std::vector<int> remove_duplicates(std::vector<int> v) {
-    std::vector<int> result(std::max_element(v.begin(), v.end()) - v.begin() + 1);
-    for (int x : v) { 
-        bool found = false;
-        for (int y : result) { 
-            if (x == y) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
+    std::set<int> seen;
+    std::vector<int> result;
+    for (int x : v) {
+        if (seen.insert(x).second) { // new element, add to result
             result.push_back(x);
         }
     }

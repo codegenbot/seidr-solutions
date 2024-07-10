@@ -1,3 +1,13 @@
+#include <iostream>
+using namespace std;
+
+bool below_threshold(vector<int> numbers, int threshold) {
+    for (int i = 0; i < numbers.size(); i++) {
+        if (numbers[i] < threshold) return true;
+    }
+    return false;
+}
+
 int main() {
     int num;
     vector<int> numbers;
