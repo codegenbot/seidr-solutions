@@ -26,4 +26,4 @@ int main() {
         s.erase(std::remove_if(s.begin(), s.end(), [](char c){ return c == '-' || c == ' '; }), s.end());
         std::cout << camelCase(s) << '\n';
     }
-}
+    return 0};
