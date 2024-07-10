@@ -1,18 +1,13 @@
-#include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
-bool issame(char a, char b) {
-    return a == b;
-}
-
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> split_words(string txt) {
+    vector<string> words;
+    string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
-                result.push_back(word);
+                words.push_back(word);
                 word = "";
             }
         } else {
@@ -20,16 +15,20 @@ std::vector<std::string> split_words(std::string txt) {
         }
     }
     if (!word.empty()) {
-        result.push_back(word);
+        words.push_back(word);
     }
-    if (result.size() == 1 && isalpha(result[0][0])) {
+    if (words.empty()) {
         int count = 0;
-        for (char c : result[0]) {
+        for (char c : txt) {
             if (islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
-        result[0] = std::to_string(count);
+        words.push_back(to_string(count));
     }
-    return result;
+    return words;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    // Your comparison logic here
 }
