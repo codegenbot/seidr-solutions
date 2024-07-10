@@ -30,12 +30,11 @@ int main() {
     for (int i = 0; i < result.first.size(); i++) {
         cout << result.first[i] << " ";
     }
-    cout << "] [" << endl;
-    cout << "[";
-    for (int i = 0; i < result.second.size(); i++) {
+    cout << "] [" << "[";
+    for (int i = 0; i < result.second.size() - 1; i++) {
         cout << result.second[i] << " ";
     }
-    cout << "] 0" << endl;
+    cout << result.second.back() << "]\n";
     
     return 0;
 }
