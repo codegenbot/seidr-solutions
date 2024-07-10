@@ -14,16 +14,10 @@ def fix_spaces(text):
                     new_text += '-'
                 count = 0
             in_word = False
-        elif char.isalnum():
-            new_text += char
-            in_word = True
-            count = 1
-        else:
-            if in_word and count > 0:
-                if count <= 2:
-                    new_text += '_'
-                else:
-                    new_text += '-'
-                count = 0
+        elif not char.isalnum():
             in_word = False
+        elif in_word:
+            count += 1
+        in_word = True
+        new_text += char
     return new_text.strip()
