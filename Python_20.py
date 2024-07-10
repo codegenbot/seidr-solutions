@@ -1,6 +1,5 @@
 ```
 def find_closest_elements(numbers):
-    numbers = sorted(set(map(float, [x for x in numbers if x.replace('.', '', 1).replace('-', '', 1).isdigit()])))
     min_diff = float("inf")
     closest_pair = ()
 
