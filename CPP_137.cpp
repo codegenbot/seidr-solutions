@@ -1,7 +1,6 @@
-#include <iostream>
-#include <string>
+```cpp
 #include <boost/any.hpp>
-#include <boost/convert.hpp>
+#include <string>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
