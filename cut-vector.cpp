@@ -2,53 +2,28 @@
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
-    int min_diff = INT_MAX;
-    int cut_index = -1;
+    int minDiff = INT_MAX;
+    pair<vector<int>, vector<int>> result;
     
-    for (int i = 0; i < v.size() - 1; i++) {
-        int left_sum = 0, right_sum = 0;
+    for (int i = 0; i < v.size(); i++) {
+        int leftSum = 0, rightSum = 0;
         
-        for (int j = 0; j <= i; j++) {
-            left_sum += v[j];
+        for (int j = 0; j < i; j++) {
+            leftSum += v[j];
         }
         
-        for (int j = i + 1; j < v.size(); j++) {
-            right_sum += v[j];
+        for (int j = i; j < v.size(); j++) {
+            rightSum += v[j];
         }
         
-        int diff = abs(left_sum - right_sum);
+        int diff = abs(leftSum - rightSum);
         
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        if (diff <= minDiff) {
+            minDiff = diff;
+            result.first = vector<int>(v.begin(), v.begin() + i);
+            result.second = vector<int>(v.begin() + i, v.end());
         }
     }
     
-    vector<int> left(v.begin(), v.begin() + cut_index + 1);
-    vector<int> right(v.begin() + cut_index, v.end());
-    
-    return {left, right};
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++) {
-        cin >> v[i];
-    }
-    
-    pair<vector<int>, vector<int>> result = cutVector(v);
-    
-    cout << "[";
-    for (int num : result.first) {
-        cout << num << " ";
-    }
-    cout << "] [";
-    for (int num : result.second) {
-        cout << num << " ";
-    }
-    cout << "]" << endl;
-    
-    return 0;
+    return result;
 }
