@@ -1,17 +1,20 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
 int main() {
-    string text, target;
-    cin >> target >> text;
+    std::string text, target;
+    std::cin >> text >> target;
     
-    vector<int> indices;
-    size_t start = 0;
-    
-    while ((start = text.find(target, start)) != string::npos) {
-        indices.push_back(start);
-        start += 1;
+    std::vector<int> indices;
+    size_t pos = text.find(target, 0);
+    while (pos != std::string::npos) {
+        indices.push_back(static_cast<int>(pos));
+        pos = text.find(target, pos + 1);
     }
     
-    for (int idx : indices) {
-        cout << idx << " ";
+    for (int i = 0; i < indices.size(); ++i) {
+        std::cout << indices[i] << " ";
     }
     
     return 0;
