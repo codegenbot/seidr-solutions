@@ -1,24 +1,21 @@
-```cpp
+```
 #include <iostream>
 #include <cmath>
 #include <iomanip>
 using namespace std;
 
 int main() {
-    double startHeight = 0, firstBounce = 0;
-    int numBounces = 0;
+    double startHeight, firstBounce;
+    int numBounces;
 
-    while (!(cin >> startHeight >> firstBounce >> numBounces)) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Invalid input. Please try again.\n";
-    }
+    cin >> startHeight >> firstBounce >> numBounces;
+    cin.ignore();
 
     double bouncinessIndex = (firstBounce - startHeight) / startHeight;
 
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; i++) {
-        totalDistance += pow(2, i) * bouncinessIndex + 1;
+        totalDistance += (1 + bouncinessIndex) / 2 * startHeight;
     }
 
     cout << fixed << setprecision(5);
