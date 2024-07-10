@@ -1,12 +1,11 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <numeric>
-#include <cassert>
+#include <iostream>
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool are_same(vector<string> a, vector<string> b) {
     a.erase(remove_if(a.begin(), a.end(), [](const string& s) { return s.length() % 2 != 0; }), a.end());
     sort(a.begin(), a.end(), [](const string& x, const string& y) {
         if (x.length() == y.length()) {
@@ -24,14 +23,12 @@ bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-int sorted_list_sum(vector<int> nums) {
-    sort(nums.begin(), nums.end());
-    return accumulate(nums.begin(), nums.end(), 0);
+vector<string> sorted_list_sum(vector<string> a) {
+    sort(a.begin(), a.end());
+    return a;
 }
 
 int main() {
-    vector<int> numbers = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};
-    int sum = sorted_list_sum(numbers);
-    assert(sum == 39);
+    assert(are_same(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     return 0;
 }

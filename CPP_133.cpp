@@ -4,8 +4,7 @@
 double sum_squares(std::vector<double> lst){
     double sum = 0;
     for (double num : lst) {
-        double rounded_num = std::round(num);
-        sum += rounded_num * rounded_num;
+        sum += num * num;
     }
     return sum;
 }
