@@ -16,11 +16,23 @@ vector<int> sum_product(vector<int> nums){
     return {sum, product};
 }
 
-vector<int> nums = {2, 5, 3};
+int main(){
+    vector<int> nums;
+    int n;
+    cin >> n;
+    
+    for(int i=0; i<n; i++){
+        int num;
+        cin >> num;
+        nums.push_back(num);
+    }
 
-vector<int> result = sum_product(nums);
+    vector<int> result = sum_product(nums);
 
-assert(result == vector<int>{10, 30});
+    assert(result == vector<int>{10, 10});
 
-cout << "Sum: " << result[0] << endl;
-cout << "Product: " << result[1] << endl;
+    cout << "Sum: " << result[0] << endl;
+    cout << "Product: " << result[1] << endl;
+
+    return 0;
+}
