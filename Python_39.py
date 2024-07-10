@@ -1,6 +1,6 @@
 def prime_fib(n):
     fib_sequence = [0, 1]
-    while len(fib_sequence) <= n:
+    while len(fib_sequence) <= n-2:
         fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
 
     def is_prime(num):
@@ -12,6 +12,6 @@ def prime_fib(n):
         return True
 
     def sum_prime_fib(fib_sequence):
-        return sum(num for num in fib_sequence if num <= n and is_prime(num))
+        return sum(num for num in fib_sequence if is_prime(num))
 
     return sum_prime_fib(fib_sequence)
