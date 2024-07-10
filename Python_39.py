@@ -6,16 +6,16 @@ def prime_fib(n):
             if num % i == 0:
                 return False
         return True
-
-    def fibonacci(n):
-        fib = [0, 1]
-        while len(fib) < n:
-            fib.append(fib[-1] + fib[-2])
-        return fib
-
-    fib_numbers = fibonacci(n)
-    prime_fib_numbers = [num for num in fib_numbers if is_prime(num)]
-    return prime_fib_numbers
+    
+    def is_fib(num):
+        if num == 0:
+            return True
+        a, b = 0, 1
+        while a < num:
+            a, b = b, a + b
+        return a == num
+    
+    return is_prime(n) and is_fib(n)
 
 n = int(input("Enter a number: "))
 print(prime_fib(n))
