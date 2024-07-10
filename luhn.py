@@ -7,3 +7,5 @@ def luhn(card_num):
         ]
     )
     return result
+
+print(luhn(4165643892581652))
