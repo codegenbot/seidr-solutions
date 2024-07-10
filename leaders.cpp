@@ -30,9 +30,8 @@ int main() {
         input.push_back(x);
     }
     vector<int> result = leaders(input);
-    cout << "Leaders: ";
-    for(int i=0; i<result.size(); i++){
-        cout << result[i] << " ";
+    for(auto x : result) {
+        cout << x << " ";
     }
     cout << endl;
 }
