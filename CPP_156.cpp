@@ -6,7 +6,7 @@ std::string romanMap[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX",
 
 std::string int_to_roman(int number) {
     std::string roman = "";
-    for (const auto& str : romanMap) {
+    for (auto& str : romanMap) {
         while (number >= 1000) {
             number -= 1000;
             roman += "M";
@@ -57,7 +57,7 @@ std::string int_to_roman(int number) {
 }
 
 int main() { 
-    int num; 
+    int num;
     std::cout << "Enter a number: ";
     std::cin >> num;
     std::cout << "The Roman numeral is: " << int_to_roman(num) << std::endl << std::flush;
