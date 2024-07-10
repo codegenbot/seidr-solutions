@@ -2,10 +2,8 @@ def minPath(grid, k):
     n = len(grid)
     res = []
 
-    def dfs(i, j, path):
-        if len(path) > k:
-            return []
-        if len(path) == k:
+    def dfs(i, j, path, l):
+        if l == k:
             return [path]
         for x, y in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
             if (
@@ -14,12 +12,12 @@ def minPath(grid, k):
                 and (x, y) not in set(zip(*[grid[i] for i in range(n)]))
             ):
                 grid[x][y], grid[i][j] = grid[i][j], grid[x][y]
-                paths = dfs(x, y, path + [grid[x][y]])
+                temp = dfs(x, y, path + [grid[x][y]], l + 1)
+                if temp:
+                    return temp
                 grid[x][y], grid[i][j] = grid[i][j], grid[x][y]
-                if not res:
-                    res = paths
-                else:
-                    res = [p for p in res if len(p) > k or p in paths]
-        return res
+        if l < k:
+            return []
+        return [path]
 
-    return dfs(0, 0, [grid[0][0]])
+    return min([i for i in set(dfs(0, 0, [grid[0][0]], 1)) if len(i) == k], default=[])
