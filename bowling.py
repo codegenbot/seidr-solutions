@@ -26,5 +26,6 @@ def bowling_score(bowls):
 
     return score
 
+
 bowls = input()
 print(bowling_score(bowls))
