@@ -1,6 +1,6 @@
-def find_zero(p: list):
-    n = len(p)
+```
+def find_zero(xs):
+    n = len(xs)
     if n % 2 != 0:
-        raise ValueError("p must have even number of coefficients")
-    zero_x = (-p[1] + (p[-1] ** (n // 2))) / (p[-1] * (p[1] ** ((n - 2) // 2)))
-    return round(zero_x, 5)
+        raise ValueError("xs must have even number of coefficients")
+    return -xs[1] / xs[-1]
