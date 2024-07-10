@@ -1,8 +1,12 @@
 #include <iostream>
 #include <vector>
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
-    return (a == b);
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
@@ -24,6 +28,7 @@ int main() {
                 return 1;
             }
             v1.push_back(num);
+            break;
         }
     }
 
@@ -37,6 +42,7 @@ int main() {
                 return 1;
             }
             v2.push_back(num);
+            break;
         }
     }
 
@@ -46,7 +52,7 @@ int main() {
     if (are_same) {
         float result = 0.0f;
         for(float num : v1) {
-            if(result < 0.0f || num > result)
+            if(result < num)
                 result = num;
         }
         std::cout << "The positive of the numbers is: " << result << std::endl;
