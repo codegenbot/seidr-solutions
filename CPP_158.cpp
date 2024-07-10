@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -19,16 +20,14 @@ int main() {
     int n;
     std::cout << "Enter the number of words: ";
     std::cin >> n;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Add this line
 
     for (int i = 0; i < n; ++i) {
         std::string word;
         std::cout << "Enter word " << (i + 1) << ": ";
-        std::cin.ignore();
         std::getline(std::cin, word); 
         words.push_back(word);
     }
-
-    std::cin.ignore(); // Add this line to consume any remaining whitespace
 
     findMaxWord(words);
     return 0;

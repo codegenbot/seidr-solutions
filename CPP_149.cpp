@@ -2,8 +2,13 @@
 #include <string>
 #include <vector>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+bool issame(std::vector<std::pair<std::string, std::string>> a, std::vector<std::pair<std::string, std::string>> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i].first > b[i].first || a[i].second > b[i].second) return false;
+        if (a[i].first < b[i].first || a[i].second < b[i].second) return true;
+    }
+    return true;
 }
 
 bool issorted(std::vector<int> v) {
@@ -13,7 +18,7 @@ bool issorted(std::vector<int> v) {
     return true;
 }
 
-std::vector<int> sortListSum(const std::vector<std::pair<std::string, std::string>>& v) {
+std::vector<int> sortListSum(std::vector<std::pair<std::string, std::string>> v) {
     std::vector<int> result;
     for (const auto& pair : v) {
         int num = 0;
@@ -32,6 +37,6 @@ std::vector<int> sortListSum(const std::vector<std::pair<std::string, std::strin
 
 int main() { 
     assert(issame({{"aaaa", "bbbb"}, {"cccc", "ddd"}}, {{"cccc", "ddd"}, {"aaaa", "bbbb"}})); 
-    assert(issame(std::vector<std::string>{{"aaaa", "bbbb"}, {"dd", "cc"}},
-                  std::vector<std::string>{{"cc", "dd"}, {"aaaa", "bbbb"}})); 
+    assert(issame(std::vector<std::pair<std::string, std::string>>{{"aaaa", "bbbb"}, {"dd", "cc"}},
+                  std::vector<std::pair<std::string, std::string>>{{"cc", "dd"}, {"aaaa", "bbbb"}})); 
 }
