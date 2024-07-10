@@ -1,4 +1,10 @@
-vector<int> f(int n){
+#include <vector>
+#include <cassert>
+#include <algorithm>
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b);
+vector<int> f(int n) {
     vector<int> result;
     for (int i = 1; i <= n; i++) {
         if (i % 2 == 0) {
