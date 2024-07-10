@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -16,6 +17,7 @@ int count_nums(std::vector<int> nums) {
                 }
                 num /= 10;
             }
+            count++;
         } else if (num < 0) {
             int sum_of_digits = 0;
             while (abs(num) != 0) {
@@ -29,7 +31,15 @@ int count_nums(std::vector<int> nums) {
                 }
                 num /= 10;
             }
+            count++;
         }
     }
     return count;
+}
+
+int main() {
+    std::vector<int> nums = {1, -2, 3};
+    int result = count_nums(nums);
+    std::cout << "The count is: " << result << std::endl;
+    return 0;
 }
