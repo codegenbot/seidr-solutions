@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -18,6 +17,9 @@ int main() {
     std::cout << "Enter a string: ";
     std::string s;
     std::getline(std::cin, s);
-    std::string result = solve(std::move(s));
+    if (s.back() == '\n') {
+        s.pop_back();
+    }
+    std::string result = solve(s);
     std::cout << "Result: " << result << std::endl;
 }

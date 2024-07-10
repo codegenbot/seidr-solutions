@@ -22,10 +22,16 @@ int main() {
 
     if (str.find('.') != string::npos) { 
         double b = stod(str);
-        cout << "The result is: " << compare_one(a, b) << endl;
+        if(b > a)
+            cout << "The result is: " << b << endl;
+        else
+            cout << "The result is: " << a << endl;
     } else {
         int b = stoi(str);
-        cout << "The result is: " << compare_one(a, b) << endl;
+        if(b > a)
+            cout << "The result is: " << b << endl;
+        else
+            cout << "The result is: " << a << endl;
     }
 
     return 0;
