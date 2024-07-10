@@ -1,3 +1,4 @@
+```cpp
 int numBlackPegs(string code, string guess) {
     int blackPegs = 0;
     for (int i = 0; i < 4; ++i) {
@@ -29,3 +30,4 @@ int main() {
     cout << numWhitePegs(code, guess) << endl;
     cout << numBlackPegs(code, guess) << endl;
     return 0;
+}
