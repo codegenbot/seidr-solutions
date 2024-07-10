@@ -1,15 +1,12 @@
-def sum_and_product_of_digits(n: int) -> Tuple[int, int]:
-    def digits_sum-product(num: int) -> Tuple[int, int]:
-        total_sum = 0
-        product = 1
-        while num:
-            digit = num % 10
-            total_sum += digit
-            product *= digit
-            num //= 10
-        return (total_sum, product)
-
-    numbers = [int(x) for x in str(n)]
+def calculate_average_and_median(numbers: List[int]) -> Tuple[float, float]:
     if not all(isinstance(x, int) for x in numbers):
-        return "Error: Input must be a positive integer"
-    return digits_sum_product(n)
+        return "Error: Input must be a list of integers"
+
+    average = sum(numbers) / len(numbers)
+    numbers.sort()
+    median = (
+        numbers[len(numbers) // 2]
+        if len(numbers) % 2 != 0
+        else (numbers[len(numbers) // 2 - 1] + numbers[len(numbers) // 2]) / 2
+    )
+    return (average, median)
