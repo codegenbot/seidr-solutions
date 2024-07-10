@@ -1,18 +1,15 @@
-def decode_shift(shift=None):
-    if shift is None:
-        shift = int(input("Enter the shift value: "))
-    s = input().upper()
-    if not s.isalpha():
-        return 
-    for ch in s:
-        if not ch.isalpha():
-            return 
+```python
+def decode_shift():
+    s = input("Enter a string to shift: ")
+    n = int(input("Enter the number of positions to shift: "))
     result = ""
-    for ch in s:
-        if ch.islower():
-            result += chr(((ord(ch) - 97 + shift) % 26) + ord("a"))
+    for char in s:
+        if char.isalpha():
+            ascii_offset = 65 if char.isupper() else 97
+            result += chr((ord(char) - ascii_offset + n) % 26 + ascii_offset)
         else:
-            result += chr(((ord(ch) - 65 + shift) % 26) + ord("A"))
+            result += char
     return result
 
-print(decode_shift())
+while True:
+    print(decode_shift())
