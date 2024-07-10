@@ -12,10 +12,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> remove_duplicates(std::vector<int> v) {
-    std::set<int> s;
-    for(int i = 0; i < v.size(); i++) {
-        s.insert(v[i]);
-    }
-    std::vector<int> result(s.begin(), s.end());
+    std::vector<int> result(v.begin(), std::unique(v.begin(), v.end()));
     return result;
 }
