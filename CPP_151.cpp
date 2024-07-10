@@ -46,5 +46,6 @@ int main() {
     std::cout << std::endl;
 
     std::cout << "The sum of the differences is: " << odd_sum << std::endl;
+
     return 0;
 }
