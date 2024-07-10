@@ -1,4 +1,10 @@
-```
 def car_race_collision(n: int):
-    pairs = (n // 2) * ((n - 1) // 2)
-    return str(min(0, pairs - n))
+    collisions = 0
+    for i in range(1, n // 2 + 1):
+        j = n // i
+        if i * j == n:
+            if i != j:
+                collisions += 1
+            else:
+                return str(collisions)
+    return str(collisions)
