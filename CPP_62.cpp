@@ -1,6 +1,8 @@
 #include <vector>
 
-vector<float> derivative(vector<float> xs) {
+vector<float> derivative(vector<float> xs);
+
+vector<float> derivative(vector<float> xs){
     vector<float> result;
     for (int i = 1; i < xs.size(); ++i) {
         result.push_back(xs[i] * i);
@@ -8,7 +10,4 @@ vector<float> derivative(vector<float> xs) {
     return result;
 }
 
-int main() {
-    // Your main function code here
-    return 0;
-}
+```
