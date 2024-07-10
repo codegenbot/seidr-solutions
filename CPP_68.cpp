@@ -24,11 +24,11 @@ vector<int> pluck(const vector<int>& n) {
 }
 
 int main() { 
-    vector<int> v2;
     int size;
     cin >> size;
 
-    vector<int> v1(v2); // Initialize the vector here
+    vector<int> v2(size);
+    vector<int> v1; // Initialize the vector here
 
     for (int i = 0; i < size; i++) {
         int x;
