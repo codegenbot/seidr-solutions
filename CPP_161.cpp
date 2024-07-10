@@ -1,20 +1,18 @@
-#include <algorithm>
-using namespace std;
-
-string solve(string s) {
+string solve(string s){
     string result = "";
-    for (char c : s) {
-        if (!isalpha(c)) {
-            result += c;
+    bool hasLetter = false;
+
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            hasLetter = true;
+            result += (s[i] >= 'a' && s[i] <= 'z') ? toupper(s[i]) : tolower(s[i]);
         } else {
-            char temp = tolower(c);
-            if (result.empty() || !isupper(temp)) {
-                result += toupper(temp);
-            } else {
-                result += tolower(temp);
-            }
+            result += s[i];
         }
     }
-    reverse(result.begin(), result.end());
+
+    if(!hasLetter)
+        reverse(result.begin(), result.end());
+
     return result;
 }
