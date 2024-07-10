@@ -37,7 +37,9 @@ vector<int> indicesOfSubstring(string text, string target) {
             result.push_back(i);
             i += m - 1; // Skip the matched portion
         } else if (i + m >= n || text[i + lps[m - 1]] != target[lps[m - 1]]) {
-            i = i + (m - lps[m - 1] - 1);
+            while (i + lps[m-1] <= n && text[i+lps[m-1]] != target[lps[m-1]]) {
+                i = i + 1;
+            }
         }
     }
 
