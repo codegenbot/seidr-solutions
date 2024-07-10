@@ -1,1 +1,27 @@
-assert ((reverse_delete("mamma", "mia")) == (std::vector<std::string>{{"ma","True"}}));
+#include <vector>
+#include <set>
+#include <string>
+
+std::pair<std::string, std::string> reverse_delete(std::string s, std::string c) {
+    std::set<char> c_set(c.begin(), c.end());
+    
+    std::string temp = "";
+    
+    for (char ch : s) {
+        if (c_set.find(ch) == c_set.end()) {
+            temp += ch;
+        }
+    }
+    
+    bool is_palindrome = true;
+    int i = 0, length = temp.length();
+    while (i < length / 2) {
+        if (temp[i] != temp[length - i - 1]) {
+            is_palindrome = false;
+            break;
+        }
+        i++;
+    }
+    
+    return std::make_pair(temp, (is_palindrome) ? "True" : "False");
+}
