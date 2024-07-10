@@ -1,16 +1,25 @@
-vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            nums.push_back(num);
-        }
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+bool compare(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
+        return false;
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
     }
+    
+    return true;
+}
 
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
-
+vector<string> by_length(vector<int> arr) {
     vector<string> result;
-    for (int num : nums) {
+    for (int num : arr) {
         string str = "";
         switch (num) {
             case 1:
