@@ -12,5 +12,6 @@ def match_parens(lst):
     return 'Yes' if len(stack) == 0 else 'No'
 
 user_input = input("Enter a list of strings: ")
-lst = [s.strip() for s in user_input.split()]
-print(match_parens(lst))
+lst = [s.strip() for s in user_input.split(',')]
+parsed_lst = [[c for c in l.split()] for l in lst]
+print(match_parens(parsed_lst))
