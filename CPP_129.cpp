@@ -3,19 +3,21 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
+bool issame(vector<int> a, vector<vector<int>> b) {
+    if (a.size() != b[0].size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != b[1][i]) return false;
     }
     return true;
 }
 
 vector<int> minPath(vector<vector<int>> input, int target) {
     vector<int> path;
-    for (int i = 0; i < target; i++) {
+    int i = 0;
+    while(i < target) {
         if (i >= input[1].size()) {
             path.push_back(input[1][0]);
+            i -= input[1][0];
         } else {
             for (int j = 0; j < input.size(); j++) {
                 if (i >= input[j][0]) {
@@ -57,9 +59,8 @@ void minPathTest() {
             }
         }
         string tempStr = "";
-        for (int i : output) {
-            tempStr += std::to_string(i) + " ";
-            if(tempStr.length() > 0) tempStr += "\n";
+        for (int x : output) {
+            tempStr += std::to_string(x) + " ";
         }
         cout << tempStr << endl;
     }
