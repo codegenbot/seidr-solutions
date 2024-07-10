@@ -15,6 +15,11 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
+string to_string(char c) {
+    ostringstream oss;
+    oss << c;
+    return oss.str();
+}
 string to_string(int i) {
     ostringstream oss;
     oss << i;
