@@ -1,6 +1,5 @@
-```cpp
+#include <iostream>
 #include <vector>
-#include <assert.h>
 
 int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
@@ -23,4 +22,8 @@ bool isPrime(int n){
     }
     return true;
 
-int main {}
+int main() {
+    std::vector<int> lst = {127, 97, 8192};
+    std::cout << "The sum is: " << skjkasdkd(lst) << std::endl;
+    return 0;
+}
