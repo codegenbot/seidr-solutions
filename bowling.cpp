@@ -41,4 +41,3 @@ int bowlingScore() {
         }
     }
     return score;
-}
