@@ -1,11 +1,11 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <string>
+#include <iostream>
+#include <ostream>
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool same(const vector<int>& a, const vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -35,10 +35,9 @@ vector<int> parse_nested_parens(const string& s) {
 
 int main_function() {
     vector<int> expected = {4, 3, 2, 1, 0, -1, -2, -3, -4};
-    if (!issame(parse_nested_parens("(()(())((()))"), vector<int>(expected.begin(), expected.end()))) {
+    if (!same(parse_nested_parens("(()(())((()))"), expected)) {
         cout << "Test failed" << endl;
     } else {
         cout << "Test passed" << endl;
     }
     return 0;
-}
