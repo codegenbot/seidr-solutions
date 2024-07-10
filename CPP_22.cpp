@@ -2,6 +2,7 @@
 #include <iostream>
 #include <list>
 #include <boost/any.hpp>
+#include <cassert>
 
 using namespace std;
 
