@@ -10,11 +10,11 @@ bool solveBoolean(string s) {
             break;
         }
         else if (s[i] == '&') {
-            while(i+1<s.length() && s[i+1] == '&') i++;
+            while(i+1<s.length() && s[i+1] != '|') i++;
             if (!res) return false;
         }
         else if (s[i] == '|') {
-            while(i+1<s.length() && s[i+1] == '|') i++;
+            while(i+1<s.length() && s[i+1] != '&' && s[i+1] != 'f') i++;
             if (res) return true;
         }
     }
