@@ -1,6 +1,7 @@
-```
+```python
 from typing import List
-def factorize(n: int) -> List[int]:
+
+def factorize() -> List[int]:
     while True:
         try:
             n = int(input("Enter a number to be factored: "))
@@ -21,5 +22,4 @@ def factorize(n: int) -> List[int]:
                 factors.append(i)
     if n > 1:
         factors.append(n)
-    print("The factors are: ")
-    print(factors)
+    return factors
