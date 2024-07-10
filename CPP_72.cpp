@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
 
 bool will_it_fly(vector<int> q, int w);
 
@@ -20,16 +19,23 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    int n, w;
-    cin >> n >> w;
-    vector<int> q(n);
-    for (auto &i:q) {
-        cin >> i;
+    vector<int> q;
+    int w;
+    
+    cout << "Enter the number of queries: ";
+    cin >> w;
+    cout << "Enter the queries: ";
+    for(int i=0; i<w; i++) {
+        int x;
+        cin >> x;
+        q.push_back(x);
     }
-    if (will_it_fly(q,w)) {
-        cout << "Yes" << endl;
+    
+    if(will_it_fly(q, w)) {
+        cout << "The plane will fly." << endl;
     } else {
-        cout << "No" << endl;
+        cout << "The plane will not fly." << endl;
     }
+    
     return 0;
 }
