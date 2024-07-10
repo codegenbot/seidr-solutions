@@ -11,7 +11,7 @@ int count_distinct_characters(const std::string& str) {
 }
 
 int main() {
-    std::string test_input = "TestString";
-    int result = count_distinct_characters(test_input);
-    assert(result == 9);
+    std::string test_input = "Hello World";
+    int expected_result = 8;
+    assert(count_distinct_characters(test_input) == expected_result);
 }
