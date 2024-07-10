@@ -3,16 +3,21 @@ import re
 
 
 def filter_by_substring():
-    input_strings = input("Enter strings (space-separated): ")
-    substring = input("Enter a substring: ")
+    while True:
+        try:
+            input_str = input("Enter strings (comma-separated): ")
+            substring = input("Enter a substring: ")
 
-    try:
-        strings = [s.strip() for s in input_strings.split()]
-    except ValueError:
-        return "Invalid input. Please enter space-separated strings."
+            if not input_str or not substring:
+                print("Please provide both strings and a substring.")
+                continue
 
-    if not strings or not substring:
-        return []
+            strings = [s.strip() for s in input_str.split(",")]
+            break
+        except ValueError:
+            print("Invalid input. Please try again.")
+
+    _ = input("Press Enter when ready...")
 
     pattern = re.compile(substring)
 
