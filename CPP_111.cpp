@@ -33,10 +33,13 @@ std::map<char, int> histogram(std::string test) {
 
 int main() {
     std::map<char, int> test1 = histogram("a");
+    std::map<char, int> test2 = histogram("b");
 
-    for (const auto &pair : test1) {
-        std::cout << pair.first << " " << pair.second << std::endl;
+    if (issame(test1, test2)) {
+        std::cout << "Maps are the same" << std::endl;
+    } else {
+        std::cout << "Maps are different" << std::endl;
     }
-
+    
     return 0;
 }
