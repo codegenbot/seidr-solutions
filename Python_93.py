@@ -1,9 +1,7 @@
 def encode(message):
     result = ""
     for char in message:
-        if not char.isalpha():  
-            result += char
-        else:
+        if char.isalpha():
             if char.isupper():
                 if char == 'X' or char == 'x':
                     result += 'A'
@@ -25,4 +23,6 @@ def encode(message):
                         result += 's'
                 else:
                     result += chr(ord(char) + 1)
+        else:
+            result += char
     return result
