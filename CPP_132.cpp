@@ -9,4 +9,3 @@ bool is_nested(const std::string& str) {
     }
     return count == 0;
 }
-```
