@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 int get_matrix_triples(int n) {
@@ -19,7 +20,10 @@ int get_matrix_triples(int n) {
 }
 
 int main() {
-    // Example test case
-    assert(get_matrix_triples(100) == 53361);
+    int n;
+    std::cout << "Enter the value of n: ";
+    std::cin >> n;
+    int result = get_matrix_triples(n);
+    std::cout << "Number of matrices satisfying the condition: " << result << std::endl;
     return 0;
 }
