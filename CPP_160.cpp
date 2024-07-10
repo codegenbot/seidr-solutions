@@ -3,33 +3,10 @@
 #include <cctype>
 #include <cstdlib>  
 #include <cmath>    
-#include <cstring>
+#include <cstring>  
 
-int do_algebra(vector<string> operator_, vector<int> operand) {
-    int result = 0;
-    string expression = "";
-    
-    for (int i = 0; i < operator_.size(); i++) {
-        if (i == 0)
-            expression += to_string(operand[i]);
-        else if (i == operator_.size() - 1)
-            expression += operator_[i] + to_string(operand[i]);
-        else
-            expression += " " + operator_[i] + " " + to_string(operand[i]);
-    }
-    
-    int temp = 0;
-    for (int i = 0; i < operand.size(); i++) {
-        if (expression.find(to_string(operand[i])) != string::npos) {
-            temp = operand[i];
-            break;
-        }
-    }
-    
-    long long y = 0;
-    result = eval(expression.c_str(), y);
-    
-    return result;
+long long eval(const char *p) {
+    return eval(p, 0);
 }
 
 long long eval(const char *p, long long y) {
@@ -97,4 +74,30 @@ long long eval(const char *p, long long y) {
         }
     }
     return y;
+}
+
+int do_algebra(vector<string> operator_, vector<int> operand) {
+    int result = 0;
+    string expression = "";
+    
+    for (int i = 0; i < operator_.size(); i++) {
+        if (i == 0)
+            expression += to_string(operand[i]);
+        else if (i == operator_.size() - 1)
+            expression += operator_[i] + to_string(operand[i]);
+        else
+            expression += " " + operator_[i] + " " + to_string(operand[i]);
+    }
+    
+    int temp = 0;
+    for (int i = 0; i < operand.size(); i++) {
+        if (expression.find(to_string(operand[i])) != string::npos) {
+            temp = operand[i];
+            break;
+        }
+    }
+    
+    result = eval(expression.c_str());
+    
+    return result;
 }
