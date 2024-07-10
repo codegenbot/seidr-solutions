@@ -8,11 +8,11 @@ while True:
             try:
                 x = int(input("Enter first number: "))
                 y = int(input("Enter second number: "))
-                print("The sum is: ", add(x, y))
+                print(f"The sum is: {add(x, y)}")
                 break
             except ValueError:
                 print("Invalid input. Please enter an integer.")
-                
+
         response = input("Do you want to calculate the sum again? (yes/no): ")
         if response.lower() != "yes":
             exit()
