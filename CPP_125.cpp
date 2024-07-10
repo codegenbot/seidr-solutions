@@ -31,5 +31,5 @@ std::vector<std::string> split_words(std::string txt) {
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    // Function definition is not provided as it's not required for the task.
+    // Your implementation here
 }
