@@ -1,32 +1,14 @@
+```
 def solve_boolean(expression):
     if not expression:
         return False
-
-    stack = []
-    operators = []
-
-    for char in expression:
-        if char.upper() == 'T':
-            stack.append(True)
-        elif char.upper() == 'F':
-            stack.append(False)
-        else:
-            if char.upper() == '|':
-                while operators and operators[-1].upper() == '&':
-                    operand2 = stack.pop()
-                    operand1 = stack.pop()
-                    stack.append(operand1 and operand2)
-                    operators.pop()
-                operators.append(char)
-            elif char.upper() == '&':
-                operators.append(char)
-
-    result = stack[0]
-    while operators:
-        operator = operators.pop()
-        if operator.upper() == '|':
-            result = stack.pop() or result
-        else:
-            result = stack.pop() and result
-
-    return result
+    if '&&' in expression or '||' in expression:
+        left = expression[:expression.index('&') | expression.index('|')]
+        right = expression[expression.index('&') + 1:]
+        return (solve_boolean(left) and solve_boolean(right)) if '&' in expression else (solve_boolean(left) or solve_boolean(right))
+    elif expression == 'T':
+        return True
+    elif expression == 'F':
+        return False
+    else:
+        return bool(expression)
