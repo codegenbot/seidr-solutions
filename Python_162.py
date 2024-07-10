@@ -10,7 +10,7 @@ def string_to_md5(text):
 if __name__ == "__main__":
     try:
         while True:
-            user_input = input(
+            user_input = raw_input(
                 "Enter a string to get its MD5 hash (Press Enter to exit):"
             ).strip()
             if user_input == "":
