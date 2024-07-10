@@ -1,5 +1,7 @@
+```cpp
 #include <string>
-#include <cassert> 
+#include <cassert>
+
 using namespace std;
 
 string circular_shift(int x, int shift) {
@@ -8,7 +10,7 @@ string circular_shift(int x, int shift) {
     if (shift >= n)
         return str;
     else {
-        string result = str.substr(shift % n) + str.substr(0, shift % n);
+        string result = str.substr(shift) + str.substr(0, shift);
         return result;
     }
 }
