@@ -5,8 +5,8 @@
 
 std::string validateTweet(const std::string& tweet) {
     if (tweet.empty()) return "You didn't type anything";
-    if (tweet.length() > 140) return "Too many characters";
-    return "Your tweet has " + std::to_string(tweet.length()) + " characters";
+    if (tweet.size() > 140) return "Too many characters";
+    return "Your tweet has " + std::to_string(tweet.size()) + " characters";
 }
 
 int main() {
@@ -18,8 +18,7 @@ int main() {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             break; 
         }
-        std::string output = validateTweet(tweet); 
-        std::cout << output << std::endl;
+        std::cout << validateTweet(tweet) << std::endl;
     }
     return 0;
 }
