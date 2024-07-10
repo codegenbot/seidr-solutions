@@ -7,4 +7,5 @@ def smallest_change():
             changes += 1
     return changes
 
+
 print(smallest_change())
