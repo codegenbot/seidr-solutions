@@ -1,9 +1,12 @@
 #include <vector>
+#include <cassert> // Include cassert for assert function
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    std::vector<int> result;
-    // Add your logic here
-    return result;
+    // Implement the issame function here
+}
+
+std::vector<int> compare(const std::vector<int>& a, const std::vector<int>& b) {
+    // Implement the compare function here
 }
 
 int main() {
