@@ -22,14 +22,13 @@ int main() {
     
     std::cout << "Enter element 1 to " << n1 << ": " << std::endl; // let user know how many elements are expected
 
-    std::vector<int> a;
-    a.resize(n1, 0); 
+    std::vector<int> a(n1); 
 
     for(int i = 0; i < n1; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         int temp; 
         std::cin >> temp;
-        a.push_back(temp);
+        a[i] = temp;
     }
     
     std::cout << "Enter the size of second vector: ";
@@ -37,14 +36,13 @@ int main() {
 
     std::cout << "Enter element 1 to " << n2 << ": " << std::endl; // let user know how many elements are expected
 
-    std::vector<int> b;
-    b.resize(n2, 0);
+    std::vector<int> b(n2); 
     
     for(int i = 0; i < n2; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         int temp; 
         std::cin >> temp;
-        b.push_back(temp);
+        b[i] = temp;
     }
     if(issame(a, b)) {
         std::cout << "The two vectors are the same." << std::endl;
