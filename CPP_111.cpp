@@ -1,53 +1,30 @@
-map<char, int> histogram(string test) {
-    map<char, int> result;
-    if (test.empty()) return result;
+#include <map>
+#include <string>
 
-    string words[256]; // assuming only lowercase letters and spaces are present in the input
-    int wordCount = 0;
-    for (char c : test) {
-        if (c == ' ') {
-            wordCount++;
-        } else {
-            if (wordCount >= sizeof(words) / sizeof(string)) {
-                return result; // handle error condition: too many words
-            }
-            words[wordCount] += c;
-        }
+std::map<char,int> histogram(const std::string& str) {
+    std::map<char,int> result;
+    for(char c: str) {
+        if(result.find(c) != result.end()) 
+            result[c]++;
+        else 
+            result[c] = 1;
     }
+    return result;
+}
 
-    for (int i = 0; i <= wordCount; i++) {
-        int count = 1;
-        for (int j = i + 1; j <= wordCount; j++) {
-            if (words[i] == words[j]) {
-                count++;
-            } else {
-                break;
-            }
-        }
-        result[words[i][0]] = count;
+bool issame(std::map<char,int> a, std::map<char,int> b){
+    for(auto x: a) {
+        if(b.find(x.first)!=b.end() && b[x.first] != x.second) 
+            return false;
     }
-
-    map<char, int> sameWords;
-    for (auto p : result) {
-        bool flag = false;
-        for (auto q : result) {
-            if (p.first == q.first && p.second == q.second) {
-                sameWords[p.first] = p.second;
-                flag = true;
-                break;
-            }
-        }
-        if (!flag) {
-            sameWords[p.first] = p.second;
-        }
+    for(auto x: b) {
+        if(a.find(x.first)!=a.end() && a[x.first] != x.second) 
+            return false;
     }
+    return true;
+}
 
-    bool issame(map<char,int> a,map<char,int> b){
-        return a == b;
-    }
-
-    map<char, int> result2 = histogram("a");
-    cout << issame(result, result2);
-    
-    return sameWords;
+int main() {
+    assert(issame(histogram("a"), {{'a', 1}}));
+    return 0;
 }
