@@ -4,23 +4,21 @@ vector<string> select_words(string s, int n) {
     int count = 0;
 
     for (char c : s) {
-        if (isalpha(c)) {
-            if (tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u') {
-                count = 0;
-            } else {
-                count++;
-            }
-            word += c;
-        } else if (!word.empty()) {
+        if (c == ' ') {
             if (count == n) {
                 result.push_back(word);
             }
             word = "";
             count = 0;
+        } else {
+            if (c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && c != 'A' && c != 'E' && c != 'I' && c != 'O' && c != 'U') {
+                count++;
+            }
+            word += c;
         }
     }
 
-    if (!word.empty() && count == n) {
+    if (count == n) {
         result.push_back(word);
     }
 
