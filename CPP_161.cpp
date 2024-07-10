@@ -1,8 +1,13 @@
+```cpp
 #include <string>
+#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
 std::string solve(std::string s) {
+    if (s.empty()) return s;
+    
     std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
@@ -11,4 +16,13 @@ std::string solve(std::string s) {
             result += c;
         }
     }
-    return result.empty() ? std::string(s).reverse() : result;
+    return !result.empty() ? result : "";
+}
+
+int main() {
+    cout << "Enter a string: ";
+    std::string s;
+    getline(cin, s);  
+    std::cout << solve(s) << std::endl;  
+    return 0;
+}
