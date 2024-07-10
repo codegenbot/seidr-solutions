@@ -33,8 +33,6 @@ std::map<char, int> histogram(std::string test) {
     return maxChars;
 }
 
-int main() {
+void main() {
     assert(issame(histogram("a"), {{'a', 1}}));
-
-    return 0;
 }
