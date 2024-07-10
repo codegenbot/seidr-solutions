@@ -21,7 +21,7 @@ int main() {
             cout << "The result is: " << a << endl;
     } else {
         int b = stoi(str);
-        if(boost::any_cast<double>(boost::any_cast<boost::any>(b))) > a)
+        if(boost::any_cast<double>(boost::any(b))) > a) 
             cout << "The result is: " << b << endl;
         else
             cout << "The result is: " << a << endl;
