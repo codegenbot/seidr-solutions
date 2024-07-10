@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,8 +10,8 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
     for(auto extension : extensions){
         int cap = 0, sm = 0;
         for(int i = 0; i < extension.length(); i++){
-            if(std::isupper(extension[i])) cap++;
-            else if(std::islower(extension[i])) sm++;
+            if(isupper(extension[i])) cap++;
+            else if(islower(extension[i])) sm++;
         }
         if(cap - sm > strongest){
             strongest = cap - sm;
@@ -19,4 +20,8 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
     }
 
     return class_name + "." + strongest_extension;
+}
+
+int main(){
+    assert (Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
 }
