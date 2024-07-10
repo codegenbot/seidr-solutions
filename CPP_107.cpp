@@ -2,28 +2,31 @@
 #include <vector>
 #include <algorithm>
 
-std::pair<int, int> even_odd_palindrome(int n) {
-    int even = 0, odd = 0;
+std::vector<int> even_odd_palindrome(int n) {
+    int even_count = 0, odd_count = 0;
+
     for (int i = 1; i <= n; ++i) {
         std::string num = std::to_string(i);
         std::string rev_num = num;
         std::reverse(rev_num.begin(), rev_num.end());
+
         if (num == rev_num) {
             if (i % 2 == 0) {
-                even++;
+                even_count++;
             } else {
-                odd++;
+                odd_count++;
             }
         }
     }
-    return {even, odd};
+
+    return {even_count, odd_count};
 }
 
-bool issame(std::pair<int, int> a, std::pair<int, int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert (issame(even_odd_palindrome(1), {0, 1}));
+    assert(issame(even_odd_palindrome(1), {0, 1}));
     return 0;
 }
