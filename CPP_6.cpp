@@ -1,17 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    // implement your comparison logic here
 }
 
 std::vector<int> parse_nested_parens(std::string paren_string) {
