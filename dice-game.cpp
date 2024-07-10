@@ -1,20 +1,9 @@
-#include <iostream>
-using namespace std;
+Here is the solution:
 
-double getProbability(int n, int m) {
-    double total = (double)n * m;
-    double p = 0.0;
-    
+double diceGame(int n, int m) {
+    double total = 1.0;
     for (int i = 1; i <= m && i < n; i++) {
-        p += (double)(n - i) / total;
+        total += 1.0 / m;
     }
-    
-    return p;
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(2) << getProbability(n, m);
-    return 0;
+    return total;
 }
