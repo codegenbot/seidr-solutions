@@ -1,8 +1,6 @@
-#include <string>
-
-std::string compareStrings(std::string a, std::string b) {
-    std::string result = "";
-    for(int i=0; i<a.size(); i++){
+string string_xor(const string &a, const string &b) {
+    string result = "";
+    for(size_t i=0; i<a.size(); i++){
         if(a[i] != b[i]){
             result += "1";
         } else {
