@@ -1,9 +1,6 @@
-```cpp
-#include <vector>
-
-int skjkasdkd(const std::vector<int>& vec) {
+int skjkasdkd(std::vector<int> vec) {
     int sum = 0;
-    for (const auto& num : vec) {
+    for (int num : vec) {
         sum += num;
     }
     return sum;
