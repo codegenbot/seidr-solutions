@@ -1,4 +1,3 @@
-"""
 def mastermind(code, guess):
     black = 0
     white = 0
@@ -17,4 +16,3 @@ def mastermind(code, guess):
             code_count[char] -= 1
 
     return str(black) + "\n" + str(white)
-"""
