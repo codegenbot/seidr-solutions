@@ -1,12 +1,17 @@
+```cpp
 #include <vector>
-#include <limits.h>
+#include <initializer_list>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-vector<int> pluck(vector<vector<int>> arr) {
-    vector<int> result;
+std::vector<int> pluck(std::vector<std::vector<int>> arr) {
+    std::vector<int> result;
 
     for (const auto& v : arr) {
         if (!v.empty()) {
@@ -32,11 +37,8 @@ vector<int> pluck(vector<vector<int>> arr) {
 }
 
 int main() {
-    vector<vector<int>> arr;
-    arr.push_back({7});
-    arr.push_back({9});
-    arr.push_back({7});
-    arr.push_back({1});
-    vector<int> result = pluck(arr);
+    std::vector<std::vector<int>> arr = {{7}, {9}, {7}, {1}};
+    std::vector<int> result = pluck(arr);
     assert(issame(result, {}));
     return 0;
+}
