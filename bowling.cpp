@@ -1,38 +1,27 @@
 ```cpp
-#include <vector>
 #include <string>
+using namespace std;
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int roll = 0;
-    bool previousStrike = false;
-
     for (char c : s) {
-        if (c == 'X') {
-            score += 10 + (previousStrike ? 10 : 0);
-            previousStrike = true;
+        if (c == '/') {
+            if (roll < 2) {
+                score += 10 - (10 - roll);
+            }
+            roll = 0;
+        } else if (isdigit(c)) {
             roll++;
-        } else if (c == '/') {
-            int thisRoll = 10 - roll;
-            score += thisRoll;
-            previousStrike = false;
-            roll++;
-        } else {
-            int pins = c - '0';
-            score += pins + (previousStrike ? 10 : 0);
-            previousStrike = false;
-            roll++;
+        } else if (c == 'X') {
+            score += 10;
+            roll = 0;
         }
     }
-
+    if (roll > 1) {
+        score += 10 + (roll - 2) * 10;
+    } else if (roll == 1) {
+        score += 10 + (10 - roll);
+    }
     return score;
-}
-
-int main() {
-    std::string input;
-    std::cout << "Enter the bowling score string: ";
-    std::cin >> input;
-    int result = bowlingScore(input);
-    std::cout << "The score is: " << result << std::endl;
-    return 0;
 }
