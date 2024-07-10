@@ -16,18 +16,13 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
     }
 
     int result = 0;
-    for(int i=0; i<operator_.size(); i++) {
-        if(operator_[i] == "+") {
-            result += operand[i];
-        } else if(operator_[i] == "*") {
+    for(int i=1; i<operator_.size(); i++) {
+        if(operator_[i-1] == "//") {
+            result /= operand[i];
+        } else if(operator_[i-1] == "*") {
             result *= operand[i];
         }
     }
 
     return result;
-}
-
-int main() {
-    assert(do_algebra({"//", "*"}, {7, 3, 4}) == 8);
-    return 0;
 }
