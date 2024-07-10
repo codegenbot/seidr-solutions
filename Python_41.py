@@ -1,9 +1,5 @@
-def calculate_collision_point(a: int):
-    n = int(input("Enter the number of cars: "))
-    a1 = int(input("Enter the speed of car 1: "))
-    a2 = int(input("Enter the speed of car 2: "))
-    
-    if a1 > a2:
-        return (n - 1) * a2
+def car_race_collision(n: int = 0, a1: int = 0, a2: int = 0):
+    if n <= 0:
+        return 0
     else:
-        return (n - 1) * a1
+        return min(a1, a2) * (n - 1)
