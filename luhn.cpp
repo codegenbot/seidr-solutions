@@ -1,33 +1,28 @@
 #include <vector>
 using namespace std;
 
-int luhn(vector<int> digits) {
+int luhnCheck(vector<int> nums) {
     int sum = 0;
-    for(int i = 0; i < digits.size(); i++) {
+    for(int i = 0; i < nums.size(); i++) {
         if(i % 2 == 1) {
-            int temp = digits[i] * 2;
+            int temp = nums[i] * 2;
             if(temp > 9) {
                 temp -= 9;
             }
             sum += temp;
         } else {
-            sum += digits[i];
+            sum += nums[i];
         }
     }
     return sum;
 }
 
 int main() {
-    // Read input from user
-    int n;
-    cin >> n;
-    vector<int> digits(16);
+    int n; cin >> n;
+    vector<int> nums(n);
     for(int i = 0; i < n; i++) {
-        cin >> digits[i];
+        cin >> nums[i];
     }
-
-    // Call the luhn function and print the output
-    cout << luhn(digits) << endl;
-
+    cout << luhnCheck(nums) << endl;
     return 0;
 }
