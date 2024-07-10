@@ -1,5 +1,5 @@
-#include <string>
 #include <vector>
+#include <string>
 #include <algorithm>
 #include <cassert>
 
@@ -19,7 +19,7 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return {result, result == result_reverse ? "True" : "False"};
 }
 
-int main() {
+int solveProblem() {
     assert(issame(reverse_delete("mamma", "mia"), std::vector<std::string>{"mm", "False"}));
     return 0;
-} 
+}
