@@ -1,4 +1,3 @@
-```
 def substitution_cipher(cipher1, cipher2, message):
     if len(cipher1) != len(cipher2):
         if len(cipher1) > len(cipher2):
