@@ -1,7 +1,11 @@
+```
 def modp(n: int, p: int) -> int:
     if not isinstance(n, int) or not isinstance(p, int):
-        return "Invalid input. Both inputs must be integers."
+        return None
     elif p <= 0:
-        return "Modulus cannot be less than or equal to zero."
+        return None
     else:
-        return n if p == 1 else pow(n, p-1, p) * n % p
+        result = 1
+        for _ in range(1, p):
+            result = (result * n) % p
+        return result
