@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -25,8 +26,14 @@ if __name__ == "__main__":
         for _ in range(n):
             while True:
                 user_input = input()
-                if user_input.isdigit():
-                    print("Please provide a string instead of a number.")
+                if user_input[0].isdigit():
+                    try:
+                        num = int(user_input)
+                        if num > 0:
+                            strings.append(user_input)
+                            break
+                    except ValueError:
+                        print("Invalid input. Please enter a positive number.")
                 else:
                     strings.append(user_input)
                     break
