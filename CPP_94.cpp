@@ -1,10 +1,12 @@
+```cpp
 #include <vector>
 #include <iostream>
 
 int skjkasdkd(std::vector<int> lst) {
     int sum = 0;
-    for(int i : lst)
+    for (int i : lst) {
         sum += i;
+    }
     return sum;
 }
 
