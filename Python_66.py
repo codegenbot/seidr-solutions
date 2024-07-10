@@ -1,3 +1,5 @@
 ```
-def digitSum(s):
-    return sum(ord(c) for c in s if 'A' <= c <= 'Z')
+import re
+
+def digitSum(n):
+    return sum(int(digit) for digit in re.findall('\d', str(n)))
