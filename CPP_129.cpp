@@ -12,13 +12,6 @@ bool issame(vector<int> a, vector<vector<int>> b) {
     return true;
 }
 
-string to_string(int x) {
-    if(x > INT_MAX || x < INT_MIN)
-        return "Out of range";
-    else
-        return to_string(to_string(x)); // Use std::to_string instead of recursive call.
-}
-
 vector<int> minPath(vector<vector<int>> input, int target) {
     vector<int> path;
     int i = 0;
@@ -60,7 +53,7 @@ void minPathTest() {
                 int j = 0;
                 while(j < input.size() && i >= input[j][0]) {
                     i -= input[j][0];
-                    outputStr += to_string(i) + " ";
+                    outputStr += std::to_string(i) + " ";
                     j++;
                 }
                 break;
@@ -68,8 +61,4 @@ void minPathTest() {
         }
     }
     cout << outputStr << endl;
-}
-
-int main() { 
-    minPathTest();
 }

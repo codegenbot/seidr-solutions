@@ -1,5 +1,3 @@
-Here is the modified code:
-
 #include <iostream>
 #include <string>
 #include <openssl/md5.h>
@@ -14,12 +12,12 @@ std::string myString_to_md5(const char *text) {
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         char temp[3];
         sprintf(temp, "%02x", result[i]);
-        output += temp;
+        output = output + std::string(temp);
     }
     return output;
 
-int main { 
-    const char* text;
+int main() {
+    char text[256];
     std::cout << "Enter a string: ";
     std::cin >> text;
     std::cout << myString_to_md5(text) << std::endl;

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -8,11 +9,12 @@ bool issame(vector<string> a) {
     if (a.size() != 1) {
         return false;
     }
-    string str = a[0].toLowerCase();
+    string str = a[0];
     for (int i = 1; i < a.size(); i++) {
         string temp;
         cin >> temp;
-        if (temp.toLowerCase() != str) {
+        transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+        if (temp != str) {
             return false;
         }
     }

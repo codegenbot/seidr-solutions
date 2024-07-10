@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 
@@ -15,6 +16,10 @@ int main() {
     std::cout << "Enter a string: ";
     std::string s;
     std::getline(std::cin, s);
-    std::string result = std::to_string(solve(s)); 
-    std::cout << "Result: " << result << std::endl;
+    int result = solve(s); 
+    if (result > 0) {
+        std::cout << "Result: " << result << std::endl;
+    } else {
+        std::cout << "No vowels found." << std::endl;
+    }
 }
