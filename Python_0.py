@@ -1,6 +1,6 @@
 while True:
-    try:
-        threshold = int(input("Enter a threshold number: ").strip())
+    threshold = input("Enter a threshold number: ").strip()
+    if threshold.isdigit():
+        threshold = int(threshold)
         break
-    except ValueError:
-        print("Invalid input. Please enter a numeric value for the threshold.")
+    print("Invalid input. Please enter a numeric value for the threshold.")

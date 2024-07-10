@@ -1,6 +1,5 @@
 import hashlib
 
-
 def string_to_md5(text):
     if text:
         return hashlib.md5(text.encode()).hexdigest()
@@ -8,6 +7,6 @@ def string_to_md5(text):
         return None
 
 if __name__ == "__main__":
-    user_input = input("Enter a string: ").strip()
+    user_input = input('Enter a string in double quotes: ').strip()[1:-1]
     result = string_to_md5(user_input)
     print("MD5 hash of the input string is:", result)

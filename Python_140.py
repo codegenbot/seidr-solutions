@@ -1,8 +1,7 @@
 import re
-import sys
 
 def fix_spaces(text):
-    return re.sub(r'\s+', '_', text).strip('_')
+    return re.sub(r'\s+', '_', text.strip())
 
-text = sys.stdin.readline().rstrip()
+text = input("Enter the text: ")
 print(fix_spaces(text))

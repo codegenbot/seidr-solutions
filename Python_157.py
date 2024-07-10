@@ -1,10 +1,6 @@
 def is_pythagorean_triplet(a, b, c):
-    numbers = [a, b, c]
-    numbers.sort()
-    return numbers[0]**2 + numbers[1]**2 == numbers[2]**2
+    return a**2 + b**2 == c**2 or a**2 + c**2 == b**2 or b**2 + c**2 == a**2
 
-a = int(input("Enter first number: "))
-b = int(input("Enter second number: "))
-c = int(input("Enter third number: "))
+a, b, c = map(int, input().split())
 
 print(is_pythagorean_triplet(a, b, c))
