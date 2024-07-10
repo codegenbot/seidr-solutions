@@ -1,12 +1,16 @@
-string solve(string s){
-    string result = "";
-    for(int i = 0; i < s.length(); i++){
-        if(isalpha(s[i])){
-            char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+#include <bits/stdc++.h>
+
+using namespace std;
+
+std::string solve(std::string str){
+    std::string result = "";
+    for(int i = 0; i < str.length(); i++){
+        if(isalpha(str[i])){
+            char c = (islower(str[i])) ? toupper(str[i]) : tolower(str[i]);
             result += c;
         } else {
-            result += s[i];
+            result += str[i];
         }
     }
-    return (result.find_first_of("abcdefghijklmnopqrstuvwxyz") == string::npos) ? string(result.rbegin(), result.rend()) : result;
+    return (result.find_first_of("abcdefghijklmnopqrstuvwxyz") == std::string::npos) ? std::string(result.rbegin(), result.rend()) : result;
 }
