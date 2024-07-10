@@ -1,6 +1,4 @@
-def leaders(input):
-    leaders = [input[-1]]
-    for i in range(len(input) - 2, -1, -1):
-        if input[i] >= input[i + 1]:
-            leaders.append(input[i])
-    return list(reversed(leaders))
+def leaders(a):
+    return [
+        a[i] for i in range(len(a) - 1, -1, -1) if all(x <= a[i] for x in a[i + 1 :])
+    ]
