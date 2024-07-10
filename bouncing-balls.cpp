@@ -11,13 +11,9 @@ int main() {
 
     double bouncinessIndex = heightAfterFirstBounce / startHeight;
 
-    double totalDistance = 0.0;
-    for (int i = 1; i <= numBounces; i++) {
-        totalDistance += pow(2, -bouncinessIndex) * (startHeight + heightAfterFirstBounce);
-    }
+    double totalDistance = (startHeight + heightAfterFirstBounce) * pow(0.5, 1 - bouncinessIndex);
 
-    cout << fixed;
-    cout << setprecision(5);
+    cout << fixed << setprecision(5);
     cout << totalDistance << endl;
 
     return 0;
