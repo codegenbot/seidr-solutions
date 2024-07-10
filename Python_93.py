@@ -7,6 +7,8 @@ def encode(message):
                 index = (vowels.index(char.lower()) + 1) % 5
                 result += vowels[index].upper() if char.isupper() else vowels[index].lower()
             else:
-                result += 'x'
+                if char.isalpha():
+                    result += char
         else:
             result += char
+    return result
