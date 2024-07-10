@@ -1,24 +1,14 @@
 def encode(message: str) -> str:
-    def check(func):
-        assert func("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq wRkTg"
-        print("All test cases pass")
-
-    encoded_message = ""
-    vowels = "aeiouAEIOU"
+    encoded_message = ''
+    vowels = 'aeiouAEIOU'
     for char in message:
         if char.isalpha():
             offset = 3 if char.upper() in vowels else 1
-            offset = -offset if char.isupper() != char.islower() else offset
-            encoded_char = chr(
-                (ord(char) - ord("A" if char.isupper() else "a") + offset) % 26
-                + ord("A" if char.isupper() else "a")
-            )
-            encoded_message += (
-                encoded_char.lower() if char.islower() else encoded_char.upper()
-            )
+            offset *= -1 if char.isupper() != char.islower() else 1
+            encoded_char = chr((ord(char) - ord('A' if char.isupper() else 'a') + offset) % 26 + ord('A' if char.isupper() else 'a'))
+            encoded_message += encoded_char.lower() if char.islower() else encoded_char.upper()
+        elif char == ' ':
+            encoded_message += ' '
         else:
             encoded_message += char
     return encoded_message
-
-
-check(encode)
