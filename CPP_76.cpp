@@ -1,5 +1,7 @@
+```cpp
 #include <cmath>
 #include <iostream>
+#include <string>
 
 bool is_simple_power(int x, int n) {
     if (n == 0) return false; 
@@ -8,12 +10,14 @@ bool is_simple_power(int x, int n) {
 }
 
 int main() {
-    int tempX, nTemp;
     std::cout << "Enter a number: ";
+    int tempX;
     std::cin >> tempX;
 
     std::cout << "Enter another number: ";
-    std::cin >> nTemp;
+    std::string input;
+    std::cin >> input;
+    int nTemp = std::stoi(input); // convert string to int
 
     if (nTemp != 0) {
         if(is_simple_power(tempX, nTemp))  
