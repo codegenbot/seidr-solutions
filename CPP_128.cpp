@@ -1,4 +1,5 @@
-#include <initializer_list>
+```cpp
+#include <vector>
 
 int prod_signs(std::vector<int> arr) {
     if (arr.empty()) return -32768;
@@ -9,3 +10,4 @@ int prod_signs(std::vector<int> arr) {
         sum += abs(num);
     }
     return (sign > 0) ? sum : -sum;
+}
