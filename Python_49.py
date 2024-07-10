@@ -1,14 +1,15 @@
-def modp(a: int, b: int):
-    if a == 0:
+```
+def modp(n: int, p: int):
+    if n == 0:
         return 0
-    elif b == 1:
-        return a
+    elif p == 2:
+        return n
     else:
-        result = pow(a, b-1, b)
-        if result == 1 and is_prime(b):
-            return a % b
-        for i in range(2, b):
-            result = (result * a) % b
+        result = pow(n, p-1, p)
+        if result == 1 and is_prime(p):
+            return pow(n, -1, p)
+        for i in range(2, p):
+            result = (result * n) % p
         return result
 
 def is_prime(num: int):
