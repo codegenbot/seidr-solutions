@@ -1,4 +1,8 @@
-```
 def max_product_of_digits(n):
     n = str(n)
-    return int(''.join(sorted(n, reverse=True)).lstrip('0') or '0')
+    digits = list(n) 
+    product = 1
+    for digit in sorted(digits, reverse=True):
+        if digit != '0':
+            product *= int(digit)
+    return str(product) or '0'

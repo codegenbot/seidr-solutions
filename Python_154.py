@@ -1,3 +1,6 @@
-```Python
+```
 def cycpattern_check(a, b):
-    return (a in b+b or b in a+a) if len(a) > 0 and len(b) > 0 else False
+    for i in range(len(a)-len(b)+1):
+        if (a * 2).find(a) >= i and (a * 2).find(a) % len(a) < i:
+            return True
+    return False
