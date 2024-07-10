@@ -7,5 +7,8 @@ string solve(string s) {
             result += c;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    if (result.length() == 0 || all_of(result.begin(), result.end(), ::isalpha)) {
+        reverse(result.begin(), result.end());
+    }
+    return result;
 }
