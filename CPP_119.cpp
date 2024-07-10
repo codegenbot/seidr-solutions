@@ -1,7 +1,8 @@
 #include <vector>
 #include <cassert>
+#include <string>
 
-int match_parens(std::vector<std::string> lst) {
+std::string match_parens(std::vector<std::string> lst) {
     int open = 0, close = 0;
     for (const std::string& s : lst) {
         for (char c : s) {
@@ -9,11 +10,11 @@ int match_parens(std::vector<std::string> lst) {
             else if (c == ')') close++;
         }
     }
-    return (open == close) ? 1 : 0;
+    return (open == close) ? "Yes" : "No";
 }
 
 int main() {
-    assert(match_parens({{"("}, {")"}}) == 1);
-    assert(match_parens({{"("}, {"))"}) == 0);
+    assert(match_parens({{"("}}) == "Yes");
+    assert(match_parens({{"("}, {"))"}}) == "No");
     return 0;
 }
