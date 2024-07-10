@@ -1,27 +1,30 @@
-string file_name_check(string file_name){
-    int dot_count = 0;
-    int digit_count = 0;
-    bool valid = true;
+Here is the completed code:
 
-    for(int i = 0; i < file_name.length(); i++){
-        if(file_name[i] == '.'){
-            dot_count++;
-        } else if(isdigit(file_name[i])){
-            digit_count++;
+string file_name_check(string file_name) {
+    int digitCount = 0;
+    bool hasDot = false;
+    string prefix;
+
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digitCount++;
+        } else if (c == '.') {
+            hasDot = true;
+        } else if (!hasDot) {
+            prefix += c;
         }
     }
 
-    if(digit_count > 3 || dot_count != 1) return "No";
-
-    string first_part = "";
-    for(int i = 0; i < file_name.find('.'); i++){
-        first_part += file_name[i];
+    if (digitCount > 3 || !prefix.size() || !isalpha(prefix[0])) {
+        return "No";
     }
-
-    if(!isalpha(first_part[0])) return "No";
-    
-    string second_part = file_name.substr(file_name.find('.') + 1);
-    if(second_part != "txt" && second_part != "exe" && second_part != "dll") return "No";
+    if (!hasDot || file_name.find(".") == string::npos) {
+        return "No";
+    }
+    string suffix = file_name.substr(file_name.find("."));
+    if (suffix != ".txt" && suffix != ".exe" && suffix != ".dll") {
+        return "No";
+    }
 
     return "Yes";
 }
