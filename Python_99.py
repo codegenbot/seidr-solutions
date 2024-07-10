@@ -1,5 +1,4 @@
-```
-def closest_integer_to_month(value):
+def closest_integer_to_month():
     months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     month_number = int(input("Enter the number of the month (1-12): "))
     if month_number < 1 or month_number > 12:
@@ -7,4 +6,5 @@ def closest_integer_to_month(value):
     else:
         return months[month_number - 1]
 
-print(closest_integer_to_month(input("Enter a value: ")))
+closest_integer = closest_integer_to_month()
+check(closest_integer)
