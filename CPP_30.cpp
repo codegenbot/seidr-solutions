@@ -2,7 +2,7 @@
 #include <cassert>
 
 bool issame(std::vector<float> a, std::vector<float> b){
-    return a == b;
+    return a == b;  // Implement the comparison logic as needed
 }
 
 vector<float> get_positive(vector<float> l){
@@ -13,7 +13,7 @@ vector<float> get_positive(vector<float> l){
         }
     }
     return result;
-}  
+}
 
 int main(){
     assert(issame(get_positive({}), {}));
