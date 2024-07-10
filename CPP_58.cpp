@@ -50,7 +50,7 @@ int main() {
     }
 
     for (int i = 0; i < n; i++) {
-        vector<int> temp(l1[i]);
+        vector<int> temp(vector<int>( {l1[i][0], l1[i][1], l1[i][2], l1[i][3]} ));
         vector<int> result = common(temp, {l2[0][0], l2[0][1], l2[0][2], l2[0][3]});
         for (int j : result) {
             cout << j;

@@ -39,3 +39,4 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
             result.push_back("E");
     }
     return result;
+}

@@ -16,6 +16,8 @@ int main() {
         return 1;
     }
     
+    v1.reserve(n);  // Reserve space for n elements
+
     // Read input and check for same
     for(int i = 0; i < n; i++) {
         float num;
