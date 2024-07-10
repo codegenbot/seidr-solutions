@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,10 +10,20 @@ int sumVector(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> lst({127, 97, 8192});
-    int result = sumVector(lst);
+    std::vector<int> input;
+    int size;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> size;
+
+    for (int i = 0; i < size; i++) {
+        int num;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> num;
+        input.push_back(num);
+    }
+
+    int result = sumVector(input);
     std::cout << "The sum is: " << result << std::endl;
-    // Remove the following line and replace with your expected output.
-    std::cout << "Expected sum: 1216" << std::endl;
+
     return 0;
 }
