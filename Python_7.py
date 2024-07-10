@@ -1,4 +1,6 @@
 ```
+import re
+
 def filter_by_substring():
     expected_output = input("Is your expected output 'True values', 'False values', or 'all'? ")
     while True:
@@ -28,8 +30,8 @@ def filter_by_substring():
             print("Invalid input. Please try again.")
 
     if substring:
-        true_values = [s for s in strings if substring in s]
-        false_values = [s for s in strings if substring not in s]
+        true_values = [s for s in strings if re.compile(substring).search(s)]
+        false_values = [s for s in strings if not re.compile(substring).search(s)]
 
         if expected_output.lower() == "true values":
             print(true_values[:num_to_display])
