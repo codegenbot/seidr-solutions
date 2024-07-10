@@ -13,7 +13,7 @@ void bf(string n) {
 int main() {
     int num;
     cin >> num;
-    string str = to_string(num);
-    bf(str);  
+    string s = to_string(num);
+    bf(s);  
     return 0;
 }
