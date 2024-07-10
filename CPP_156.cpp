@@ -10,7 +10,7 @@ int main()
     return 0;
 }
 
-const char* int_to_roman(int number)
+std::string int_to_roman(int number)
 {
     if (number <= 0)
         return "";
@@ -57,5 +57,5 @@ const char* int_to_roman(int number)
         roman += 'V';
     }
 
-    return roman.c_str();
+    return roman;
 }
