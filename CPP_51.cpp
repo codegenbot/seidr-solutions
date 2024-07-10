@@ -1,6 +1,3 @@
-```cpp
-#include <string>
-
 std::string str_remove_vowels(std::string text){
     std::string result = "";
     for(char c : text){
@@ -9,4 +6,3 @@ std::string str_remove_vowels(std::string text){
         }
     }
     return result;
-}
