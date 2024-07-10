@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b){
     if(a.size() != b.size()){
         return false;
     }
@@ -15,7 +17,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-std::vector<int> sum_product(std::vector<int> nums){
+vector<int> sum_product(vector<int> nums){
     int sum = 0;
     int product = 1;
     
@@ -27,15 +29,21 @@ std::vector<int> sum_product(std::vector<int> nums){
     return {sum, product};
 }
 
-int n;
-std::cin >> n;
+int main(int argc, char* argv[]){
+    vector<int> nums;
+    int n;
+    cin >> n;
+    
+    for(int i=0; i<n; i++){
+        int num;
+        cin >> num;
+        nums.push_back(num);
+    }
 
-std::vector<int> nums(n);
-for(int i=0; i<n; i++){
-    std::cin >> nums[i];
+    vector<int> result = sum_product(nums);
+
+    cout << "Sum: " << result[0] << endl;
+    cout << "Product: " << result[1] << endl;
+
+    return 0;
 }
-
-std::vector<int> result = sum_product(nums);
-
-std::cout << "Sum: " << result[0] << std::endl;
-std::cout << "Product: " << result[1] << std::endl;
