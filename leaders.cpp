@@ -1,13 +1,15 @@
 #include <vector>
+using namespace std;
 
-std::vector<int> leaders(const std::vector<int>& vec) {
-    std::vector<int> result;
-    int lastMax = vec.back();
-    for (int i = vec.size() - 1; i >= 0; --i) {
-        if (vec[i] >= lastMax) {
-            result.push_back(vec[i]);
-            lastMax = vec[i];
-        }
+vector<int> leaders(vector<int>& arr) {
+    int n = arr.size();
+    vector<int> result;
+    result.push_back(arr[n-1]);
+    
+    for(int i=n-2; i>=0; i--) {
+        if(arr[i] >= arr[i+1])
+            result.push_back(arr[i]);
     }
+    
     return result;
 }
