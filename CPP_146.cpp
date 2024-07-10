@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -25,4 +26,8 @@ void userInput() {
         }
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
+}
+
+int main() {
+    userInput();
 }
