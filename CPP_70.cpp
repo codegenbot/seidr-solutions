@@ -1,5 +1,5 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
 #include <cassert>
 
 bool is_same(std::vector<int> a, std::vector<int> b) {
@@ -21,5 +21,5 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     return result;
 }
 
-assert(is_same(strange_sort_list({111111}), strange_sort_list({111111})));
+assert(is_same(strange_sort_list({111111}), {111111}));
 return 0;
