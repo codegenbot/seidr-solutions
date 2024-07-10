@@ -1,13 +1,15 @@
 from typing import List
 
-def all_prefixes() -> List[str]:
+def get_all_prefixes(s: str) -> List[str]:
+    return [s[:i+1] for i in range(len(s)+1)]
+
+def all_prefixes() -> None:
     s = input("Please enter a string: ")
     if not s:
         print("Error: Please provide valid input.")
-        return None
     else:
-        return [s[:i+1] for i in range(len(s)+1)]
+        result = "\n".join(get_all_prefixes(s))
+        print(result)
 
 if __name__ == "__main__":
-    result = all_prefixes()
-    print(result)
+    all_prefixes()
