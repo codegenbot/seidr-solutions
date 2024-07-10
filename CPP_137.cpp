@@ -1,41 +1,28 @@
 #include <iostream>
 #include <boost/any.hpp>
-#include <string>
 #include <algorithm>
 
-using namespace std;
-
-boost::any compare_one(boost::any a, boost::any b){
-    if(a.type() == typeid(int) && b.type() == typeid(int)){
+template <typename T>
+boost::any compare_one(const T& a, const T& b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
         return boost::any_cast<int>(a) > boost::any_cast<int>(b) ? a : b;
-    } else if(a.type() == typeid(float) && b.type() == typeid(float)){
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         return boost::any_cast<float>(a) > boost::any_cast<float>(b) ? a : b;
-    } else if(a.type() == typeid(string) && b.type() == typeid(string)){
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-
-        if(strA.find(",") != string::npos){
-            replace(strA.begin(), strA.end(), ',', '.');
-        }
-
-        if(strB.find(",") != string::npos){
-            replace(strB.begin(), strB.end(), ',', '.');
-        }
-
-        float numA = stof(strA);
-        float numB = stof(strB);
-        
-        return numA > numB ? a : (numA < numB ? b : "None");
+    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string num1 = boost::any_cast<std::string>(a);
+        std::string num2 = boost::any_cast<std::string>(b);
+        auto replaceComma = [](std::string& s) { std::replace(s.begin(), s.end(), ',', '.'); };
+        if (num1.find(",") != std::string::npos) replaceComma(num1);
+        if (num2.find(",") != std::string::npos) replaceComma(num2);
+        float fnum1 = std::stof(num1);
+        float fnum2 = std::stof(num2);
+        return fnum1 > fnum2 ? a : (fnum1 < fnum2 ? b : "None");
     } else {
         return "None";
     }
 }
 
-int main(){
-    assert(boost::any_cast<string>(compare_one(string("1"), string("1"))) == "None");
-
-    // Add more test cases here if needed
-
-    cout << "All test cases pass";
+int main() {
+    assert(boost::any_cast<std::string>(compare_one<std::string>("1", "2")) == "None");
     return 0;
 }
