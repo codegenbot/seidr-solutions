@@ -1,53 +1,31 @@
+Here is the solution:
+
 #include <iostream>
 #include <string>
 
-std::string spinWords(const std::string& input) {
-    std::string output = "";
-    for (const auto& word : input.split(" ")) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
-        }
-        output += word + " ";
-    }
-    return output.substr(0, output.size() - 1);
-}
+using namespace std;
 
-std::string spinWords(const std::string& input) {
-    std::vector<std::string> words = split(input, " ");
-    for (auto& word : words) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+string spinWords(string str) {
+    string result = "";
+    int start = 0;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i == str.length() || str[i] == ' ') {
+            string word = str.substr(start, i - start);
+            if (word.length() >= 5) {
+                result += word.substr(word.length() - 1) + word.substr(0, word.length() - 1) + " ";
+            } else {
+                result += word + " ";
+            }
+            start = i + 1;
         }
     }
-    return join(words, " ");
-}
-
-std::vector<std::string> split(const std::string& str, const std::string& delimiter) {
-    size_t pos = 0;
-    std::vector<std::string> tokens;
-    while ((pos = str.find(delimiter)) != std::string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + delimiter.length());
-    }
-    tokens.push_back(str);
-    return tokens;
-}
-
-std::string join(const std::vector<std::string>& words, const std::string& delimiter) {
-    std::string output = "";
-    for (const auto& word : words) {
-        output += word;
-        if (!delimiter.empty()) {
-            output += delimiter;
-        }
-    }
-    return output;
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
+    string str;
+    while (cin >> str) {
+        cout << spinWords(str) << endl;
+    }
     return 0;
 }
