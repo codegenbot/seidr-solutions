@@ -1,18 +1,30 @@
 from typing import List
 
 
+def factorize(n: int) -> List[int]:
+    """Return the prime factors of `n`."""
+    i = 2
+    factors = []
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            factors.append(i)
+    if n > 1:
+        factors.append(n)
+    return factors
+
+
 def main():
-    def check(factorize: List[int]):
-        num = int(input("Enter a number to factorize: "))
-        result = []
-        for i in range(2, num):
-            if num % i == 0:
-                factorize.append(i)
-                while num % i == 0:
-                    num //= i
-        if num > 1:
-            factorize.append(num)
-        print("Factors:", *factorize)
+    num = int(input("Enter a number: "))
+    print(check(num))
 
 
-main()
+def check(factorized_num):
+    for i in range(2, factorized_num + 1):
+        if all(x not in factorize(i) for x in factorize(factorized_num) if x != i):
+            return str(factorized_num)
+
+
+print(main())
