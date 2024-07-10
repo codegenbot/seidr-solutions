@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <numeric>
 #include <cassert>
+#include <cmath>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
@@ -9,8 +10,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::sort(nums.begin(), nums.end(), [](int a, int b) {
-        int sum_a = std::accumulate(std::to_string(std::abs(a)).begin(), std::to_string(std::abs(a)).end(), 0, [](int acc, char c) { return acc + c - '0'; });
-        int sum_b = std::accumulate(std::to_string(std::abs(b)).begin(), std::to_string(std::abs(b)).end(), 0, [](int acc, char c) { return acc + c - '0'; });
+        int sum_a = std::accumulate(std::to_string(abs(a)).begin(), std::to_string(abs(a)).end(), 0, [](int acc, char c) { return acc + c - '0'; });
+        int sum_b = std::accumulate(std::to_string(abs(b)).begin(), std::to_string(abs(b)).end(), 0, [](int acc, char c) { return acc + c - '0'; });
         if (sum_a == sum_b) {
             return a < b;
         }
