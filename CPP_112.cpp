@@ -13,7 +13,6 @@ vector<string> reverse_delete(string s, string c) {
             result += ch;
         }
     }
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
-    return {result, result == reversed ? "True" : "False"};
+    reverse(result.begin(), result.end());
+    return {result, result == s ? "True" : "False"};
 }
