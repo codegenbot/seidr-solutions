@@ -1,4 +1,9 @@
 ```cpp
+float triangle_area(int a, int b, int c) {
+    float s = (a + b + c) / 2;
+    return sqrt((s*(s-a)*(s-b)*(s-c)));
+}
+
 int main() {
     int a, b, c; 
     std::cout << "Enter sides of triangle: ";
