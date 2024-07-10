@@ -1,2 +1,29 @@
 ```cpp
-return open > 0 || close > 0;
+#include <iostream>
+#include <string>
+
+bool is_nested(const std::string& str) {
+    int count = 0;
+    for (char c : str) {
+        if (c == '[') count++;
+        else if (c == ']') {
+            if (count > 1) return true;
+            count--;
+        }
+    }
+    return false;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    
+    if(is_nested(input)) {
+        std::cout << "The string is nested.\n";
+    } else {
+        std::cout << "The string is not nested.\n";
+    }
+    
+    return 0;
+}
