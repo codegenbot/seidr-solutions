@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <limits>
@@ -12,8 +13,7 @@ int main() {
     while(true) {
         std::string tweet;
         std::cout << "Enter a tweet: ";
-        std::getline(std::cin, tweet); 
-        if (tweet.empty()) break; 
+        if (!(std::getline(std::cin, tweet))) break; 
         std::cout << validateTweet(tweet) << std::endl;
     }
     return 0;
