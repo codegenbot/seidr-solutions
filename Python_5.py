@@ -4,7 +4,7 @@ def intersperse(a, b):
         if i < len(a): 
             result.append(a[i])
         if isinstance(b, int) and i < len(a): 
-            result.append(a[i])
+            result.append(b)
         elif isinstance(b, str):
             result.append(b)
         else:
