@@ -1,15 +1,13 @@
-```
-def add(a, b):
-    return a + b
+def add(a, b): 
+    return a + b 
 
-while True:
-    try:
-        num_list = list(map(int, input("Enter numbers separated by space: ").split()))
-        if len(num_list) % 2 == 0 and all(x >= 0 for x in num_list):  
-            for i in range(0, len(num_list), 2):
-                print(add(num_list[i], num_list[i+1]))
-            break
-        else:
-            print("Invalid input. Please enter numbers that can be paired up.")
-    except ValueError:
+while True: 
+    try: 
+        num_list = list(map(int, input("Enter numbers separated by space: ").split())) 
+        if len(num_list) == 2 and len(num_list) == 2 and all(x >= 0 for x in num_list):  
+            print(add(*num_list)) 
+            break 
+        else: 
+            print("Invalid input. Please enter two positive numbers.") 
+    except ValueError: 
         print("Invalid input. Please enter integers.")
