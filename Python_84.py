@@ -1,6 +1,6 @@
 ```
 def solve(N):
-    if N < 0:
-        return bin(abs(N))[3:]
-    else:
+    if N > 0:
         return bin(N)[2:]
+    else:
+        return "0"
