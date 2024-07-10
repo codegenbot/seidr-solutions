@@ -1,6 +1,6 @@
-#include<stdio.h>
-#include<math.h>
-#include<string>
+#include <stdio.h>
+#include <math.h>
+#include <string>
 using namespace std;
 
 string rounded_avg(int n,int m){
@@ -9,16 +9,14 @@ string rounded_avg(int n,int m){
     for(int i=n; i<=m; i++){
         sum += i;
     }
-    double avg = (double)sum / (m-n+1);
-    int rounded = floor(avg);
+    double avg = (double)sum / (m - n + 1);
+    avg = floor(avg);
     string binary = "";
-    while(rounded > 0){
-        if(rounded & 1)
-            binary.push_back('1');
-        else
-            binary.push_back('0');
-        rounded >>= 1;
+    while(avg > 0){
+        if(avg & 1) binary.push_back('1');
+        else binary.push_back('0');
+        avg /= 2;
     }
-    reverse(binary.begin(),binary.end());
+    reverse(binary.begin(), binary.end());
     return binary;
 }
