@@ -19,5 +19,3 @@ def solve_task():
                 return None
         else:
             print("Invalid input. Please enter y or N.")
-
-print(solve_task())
