@@ -23,16 +23,15 @@ int mainFunc() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-
-    if (input.empty()) {
-        std::cout << "Invalid input. Please enter a non-empty string." << std::endl;
-    } else {
+    if (!input.empty()) {
         std::vector<std::string> result = all_prefixes(input);
         if (!issame(result)) {
             std::cout << "The prefixes are not the same." << std::endl;
         } else {
             std::cout << "The prefixes are the same." << std::endl;
         }
+    } else {
+        std::cout << "Invalid input. Please enter a non-empty string." << std::endl;
     }
 
     std::vector<std::string> prefixes = all_prefixes("WWW");
