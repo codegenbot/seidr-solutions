@@ -1,4 +1,3 @@
-```python
 from typing import List
 
 def factorize() -> List[int]:
