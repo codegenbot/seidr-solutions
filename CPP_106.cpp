@@ -1,7 +1,11 @@
 #include <vector>
+#include <iostream>
+#include <cassert>
 
-std::vector<int> f(int n) {
-    std::vector<int> result(n);
+using namespace std;
+
+vector<int> f(int n) {
+    vector<int> result(n);
     for (int i = 0; i < n; ++i) {
         if (i % 2 == 0) {
             int fact = 1;
@@ -18,4 +22,19 @@ std::vector<int> f(int n) {
         }
     }
     return result;
+}
+
+bool isSame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> result = f(n);
+    for (int i = 0; i < n; ++i) {
+        cout << result[i] << " ";
+    }
+    cout << endl;
+    return 0;
 }
