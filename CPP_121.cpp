@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <iostream>
 
 namespace Contest {
     int solutions(const std::vector<int>& lst) {
