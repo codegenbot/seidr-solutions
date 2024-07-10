@@ -1,4 +1,4 @@
 ```cpp
-int my_strlen(string str){
+int my_strlen(string str) {
     return str.length();
 }
