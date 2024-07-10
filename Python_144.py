@@ -1,4 +1,5 @@
 def simplify(x, n):
     a, b = map(int, x.split("/"))
     c, d = map(int, n.split("/"))
-    return float(a*d) == float(b*c)
+    gcd = lambda a, b: a if not b else gcd(b, a % b)
+    return gcd(a, b) == gcd(c, d)
