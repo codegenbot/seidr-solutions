@@ -1,8 +1,9 @@
+```
 def decode_shift(s: str):
     return "".join(
         [
             (
-                chr(((ord(ch.lower()) - ord('a')) % 26) + ord('a'))
+                chr(((ord(ch.lower()) - 5 - ord("a")) % 26) + ord("a"))
                 if ord('a') <= ord(ch.lower()) - ord('a') < 26
                 else ch
             )
