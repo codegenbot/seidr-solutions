@@ -1,16 +1,8 @@
+```python
 from typing import List
 
 
 def parse_music(music_string: str) -> List[int]:
-    """
-    Parse music string into a list of note lengths.
-
-    Args:
-        music_string (str): A string representing the music notes.
-
-    Returns:
-        List[int]: A list of integers where each integer represents a note length.
-    """
     note_lengths = {"o": 4, "|": 2, ".|": 1}
     result = []
     i = 0
