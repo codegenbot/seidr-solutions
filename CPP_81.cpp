@@ -37,7 +37,9 @@ int main() {
     }
     
     try {
-        assert(numerical_letter_grade(0, 0.7) == "F"); 
+        int credits1 = 0;
+        double gpa1 = 0.7;
+        assert(numerical_letter_grade(credits1, gpa1) == "F"); 
     } catch (const std::runtime_error& e) {
         std::cerr << e.what() << std::endl;
     }
