@@ -1,3 +1,4 @@
+```
 def mastermind(code, guess):
     code_counts = {c: code.count(c) for c in set(code)}
     white = 0
