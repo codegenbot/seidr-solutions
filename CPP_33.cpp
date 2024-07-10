@@ -3,16 +3,16 @@
 #include <cassert>
 
 template <typename T>
-auto sort_third = [](std::vector<T> &vec) {
+void sort_third(std::vector<T> &vec) {
     std::sort(vec.begin(), vec.end());
-};
+}
 
 template <typename T>
 bool issame(const std::vector<T> &a, const std::vector<T> &b) {
     std::vector<T> a_sorted = a;
     std::vector<T> b_sorted = b;
-    sort_third<T>(a_sorted);
-    sort_third<T>(b_sorted);
+    sort_third(a_sorted);
+    sort_third(b_sorted);
 
     return a_sorted == b_sorted;
 }

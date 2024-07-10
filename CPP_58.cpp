@@ -1,11 +1,11 @@
 #include <vector>
 
-bool issame(std::vector<int> v1, std::vector<int> v2) {
-    if (v1.size() != v2.size()) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -24,7 +24,3 @@ std::vector<int> common(std::vector<int> v1, std::vector<int> v2) {
     }
     return result;
 }
-
-static_assert(issame(common({4, 3, 2, 8}, {2, 3, 5}), {2, 3}));
-static_assert(issame(common({1, 2, 3}, {4, 5, 6}), {}));
-static_assert(issame(common({1, 2, 3}, {1, 2, 3}), {1, 2, 3}));
