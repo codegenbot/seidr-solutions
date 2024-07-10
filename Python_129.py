@@ -1,6 +1,8 @@
 def minPath(grid, k):
     n = len(grid)
-    q = [(0, 0, [grid[0][0]])]
+    m = [[i * n + j for j in range(n)] for i in range(n)]
+
+    q = [(0, 0, [m[0][0]])]
     visited = set((0, 0))
     res = []
 
@@ -15,8 +17,7 @@ def minPath(grid, k):
             nx, ny = x + dx, y + dy
 
             if 0 <= nx < n and 0 <= ny < n and (nx, ny) not in visited:
-                if grid[nx][ny] == grid[x][y]: 
-                    q.append((nx, ny, path + [grid[nx][ny]]))
+                q.append((nx, ny, path + [m[nx][ny]]))
                 visited.add((nx, ny))
 
     return res
