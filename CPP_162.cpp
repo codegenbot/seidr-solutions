@@ -2,18 +2,19 @@
 #include <algorithm>
 #include <openssl/evp.h>
 #include <sstream>
-#include <cassert>
+#include <assert.h> 
+#include <iomanip>
 
 std::string string_to_md5(const std::string& str) {
-    EVP_MD_CTX mdctx;
+    EVP_MD_CTX md5;
     unsigned char hash[16];
-    EVP_SignInit(&mdctx, EVP_sha1());
-    EVP_SignUpdate(&mdctx, str.c_str(), str.size());
-    EVP_SignFinal(&mdctx, hash, sizeof(hash), nullptr);
+    EVP_DigestInit_ex(&md5, EVP_md5(), 0);
+    EVP_DigestUpdate(&md5, str.c_str(), str.size());
+    EVP_DigestFinal_ex(&md5, hash, nullptr);
 
     std::stringstream ss;
     for (int i = 0; i < 16; ++i) {
-        ss << std::hex << std::fill << std::setw(2) << (int)hash[i];
+        ss << std::hex << std::setfill('0') << std::setw(2) << (int)hash[i];
     }
 
     return ss.str();
