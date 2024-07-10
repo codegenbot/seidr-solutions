@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cassert>
-#include <cstdio>
 
 int fruit_distribution(std::string s, int n) {
     int total_fruits = n;
