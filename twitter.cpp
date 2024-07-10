@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
 int main() {
-    using namespace std;
-
     string tweet;
     getline(cin, tweet);
 
