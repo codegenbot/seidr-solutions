@@ -7,4 +7,4 @@ def coin_sums(cents):
             total_coins[i] += 1
             cents -= coins[i]
 
-    return total_coins[3], total_coins[2], total_coins[1], total_coins[0]
+    return f"Quarters: {total_coins[3]}, Nickles: {total_coins[2]}, Dimes: {total_coins[1]}, Pennies: {total_coins[0]}"
