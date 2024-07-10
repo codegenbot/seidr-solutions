@@ -32,5 +32,3 @@ int main() {
         std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
     }
     return 0;
-
-}
