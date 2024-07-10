@@ -1,35 +1,14 @@
 #include <vector>
 using namespace std;
 
-vector<int> findIndices(const string& text, const string& target) {
-    vector<int> indices;
-    for (int i = 0; i <= text.size() - target.size(); ++i) {
-        bool found = true;
-        for (int j = 0; j < target.size(); ++j) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found) {
-            indices.push_back(i);
-        }
-    }
-    return indices;
-}
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int lastPos = -1; // The index of the last occurrence of the target in the text.
 
-int main() {
-    string text;
-    int numTargets;
-    cin >> text >> numTargets;
-    for (int i = 0; i < numTargets; ++i) {
-        string target;
-        cin >> target;
-        vector<int> indices = findIndices(text, target);
-        for (int idx : indices) {
-            cout << idx << " ";
-        }
-        cout << endl;
+    while ((lastPos = text.find(target, lastPos + 1)) != string::npos) {
+        result.push_back(lastPos);
+        lastPos++;
     }
-    return 0;
+
+    return result;
 }
