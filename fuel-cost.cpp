@@ -1,22 +1,13 @@
-Here is the solution:
-
-int calculate(int n) {
-    return (n / 3) - 2;
-}
-
-int main() {
-    int N;
-    std::cin >> N;
-
-    if(N == 0)
-        return 0;
-
-    int sum = 0;
-    for(int i = 1; i <= N; i++) {
-        sum += calculate(i);
+int calculateFuelCost(vector<int> prices) {
+    int total = 0;
+    for (int price : prices) {
+        int newPrice = (price / 3);
+        if (newPrice < 1) {
+            newPrice = 0;
+        } else {
+            newPrice--;
+        }
+        total += newPrice;
     }
-
-    std::cout << sum << std::endl;
-
-    return 0;
+    return total;
 }
