@@ -14,5 +14,5 @@ int search(const vector<int>& lst) {
             maxFreq = freq;
         }
     }
-    return maxFreq > 0 ? maxFreq : -1;
+    return maxFreq > 0 ? maxFreq : INT_MIN;
 }
