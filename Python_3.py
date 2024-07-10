@@ -1,10 +1,2 @@
 def below_zero(input_operations):
-    count = 0
-    for num in input_operations:
-        if num < 0:
-            count += 1
-    return count
-
-n = int(input())
-input_operations = list(map(int, input().split()))
-print(below_zero(input_operations))
+    return sum(1 for num in input_operations if num < 0)
