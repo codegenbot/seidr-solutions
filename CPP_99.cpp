@@ -1,8 +1,4 @@
-Here is the completed code:
-
-#include <string>
-
-using namespace std;
+#include <cmath>
 
 int closest_integer(string value) {
     double num = stod(value);
