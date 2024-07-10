@@ -1,6 +1,4 @@
-#include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
 namespace cpp9 {
@@ -8,10 +6,14 @@ namespace cpp9 {
         return a == b;
     }
 
-    std::vector<int> rolling_max(std::vector<int> input) {
+    std::vector<int> rolling_max(const std::vector<int>& nums) {
         std::vector<int> result;
-        for (int i = 0; i < input.size(); ++i) {
-            result.push_back(*std::max_element(input.begin() + i, input.end()));
+        for (size_t i = 0; i < nums.size(); ++i) {
+            int max_val = nums[i];
+            for (size_t j = i; j < nums.size(); ++j) {
+                max_val = std::max(max_val, nums[j]);
+            }
+            result.push_back(max_val);
         }
         return result;
     }
