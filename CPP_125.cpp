@@ -35,6 +35,7 @@ vector<string> split_words(string txt) {
 }
 
 int main() {
+    bool b = true;
     assert(issame(split_words(""), vector<string>({""})));
     return 0;
 }
