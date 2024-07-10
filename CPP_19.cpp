@@ -1,4 +1,11 @@
-map<string, int> number_map = {
+#include <map>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <cassert>
+
+std::map<std::string, int> number_map = {
     {"zero", 0},
     {"one", 1},
     {"two", 2},
@@ -11,22 +18,24 @@ map<string, int> number_map = {
     {"nine", 9}
 };
 
-string sort_numbers(string numbers){
-    map<int, string> reverse_map;
+std::string sort_numbers(std::string numbers);
+
+std::string sort_numbers(std::string numbers){
+    std::map<int, std::string> reverse_map;
     for (const auto& pair : number_map) {
         reverse_map[pair.second] = pair.first;
     }
 
-    vector<int> sorted_numbers;
-    stringstream ss(numbers);
-    string token;
+    std::vector<int> sorted_numbers;
+    std::stringstream ss(numbers);
+    std::string token;
     while (ss >> token) {
         sorted_numbers.push_back(number_map[token]);
     }
 
-    sort(sorted_numbers.begin(), sorted_numbers.end());
+    std::sort(sorted_numbers.begin(), sorted_numbers.end());
 
-    string result;
+    std::string result;
     for (const auto& num : sorted_numbers) {
         result += reverse_map[num] + " ";
     }
