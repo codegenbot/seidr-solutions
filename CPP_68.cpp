@@ -36,7 +36,7 @@ void testMain() {
 
     }
 
-    if (issame(v1, pluck({7,9,7,1})))  
+    if (issame(pluck(v1), pluck(v2)))  
         cout << "Arrays are same" << endl;
     else   
         cout << "Arrays are not same" << endl;
@@ -45,5 +45,5 @@ void testMain() {
 
 int main() {
     testMain();
-    return 0;
+    return 0; 
 }
