@@ -29,9 +29,4 @@ void sort_even(vector<float>& l) {
     }
 }
 
-int main() {
-    vector<float> l = {3.0, 1.0, 4.0, 1.0, 5.0, 9.0};
-    sort_even(l);
-    assert(issame(l, {1.0, 1.0, 4.0, 3.0, 5.0, 9.0}));
-    return 0;
-}
+assert(issame(sort_even({3.2, 1.5, 4.7, 2.1, 5.5, 6.3}), {1.5, 3.2, 2.1, 4.7, 5.5, 6.3}));
