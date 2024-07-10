@@ -1,4 +1,4 @@
-def basement(vector):
+def basement(vector):  
     total = 0  
     for i, num in enumerate(vector):
         total += num
