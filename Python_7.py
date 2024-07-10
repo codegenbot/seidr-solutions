@@ -1,7 +1,12 @@
+strings = []
 try:
-    substring = input().strip()
+    while True:
+        try:
+            string = input().strip()
+        except EOFError:
+            break
+        if string == "----":
+            break
+        strings.append(string)
 except EOFError:
-    raise ValueError("Invalid input format for substring")
-
-if not all(char.isalpha() or char.isspace() for char in substring):
-    raise ValueError("Invalid input format for substring")
+    pass
