@@ -1,15 +1,15 @@
-```cpp
+#include <iostream>
 #include <cassert>
-#include <vector>
-#include <initializer_list>
 
-bool below_threshold(std::vector<int> l, int t) {
-    for (int num : l) {
-        if (num >= t) {
-            return false;
+using namespace std;
+
+bool below_threshold(vector<int> numbers, int threshold) {
+    for (int number : numbers) {
+        if (number < threshold) {
+            return true;
         }
     }
-    return true;
+    return false;
 }
 
 int main() {
