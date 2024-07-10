@@ -1,19 +1,19 @@
 #include <string>
 #include <cctype>
 
-std::string remove_vowels(std::string text) {
+std::string remove_vowels(std::string text){
     std::string result = "";
-    for (char c : text) {
-        if (!isvowel(c)) {
+    for(char c : text){
+        if(!isvowel(c)){
             result += c;
         }
     }
     return result;
 }
 
-bool isvowel(char c) {
+bool isvowel(char c){
     c = tolower(c);
-    switch (c) {
+    switch(c){
         case 'a':
         case 'e':
         case 'i':
@@ -27,5 +27,5 @@ bool isvowel(char c) {
 
 int main() {
     assert(remove_vowels("ybcd") == "ybcd");
-    // Add your code here
+    // add your code here
 }
