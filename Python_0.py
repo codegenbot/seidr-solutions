@@ -1,5 +1,5 @@
 while True:
-    threshold = input("Enter a threshold number: ")
+    threshold = input("Enter a threshold number: ").strip()
     if threshold.isdigit():
         threshold = int(threshold)
         break
