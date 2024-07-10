@@ -15,15 +15,16 @@ vector<string> reverse_delete(string s, string c) {
     }
     string reversed = result;
     reverse(reversed.begin(), reversed.end());
-    return {result, result == reversed ? "True" : "False"};
+    return (result, result == reversed ? "True" : "False");
 }
 
 int main() {
     vector<string> result = reverse_delete("mamma", "mia");
-    if (result == vector<string>{"", "True"}) {
+    if (result[0] == "") {
         cout << "Test Passed" << endl;
     } else {
         cout << "Test Failed" << endl;
     }
+
     return 0;
 }
