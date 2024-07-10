@@ -20,10 +20,6 @@ double find_zero(const std::vector<double>& coeffs) {
 int main() {
     std::vector<double> coeffs = {1.0, -4.0, 4.0};
 
-    for (int i = 0; i < coeffs.size(); ++i) {
-        coeffs.push_back(coeffs[0] * i);
-    }
-
     double solution;
     solution = find_zero(coeffs);
     assert(std::abs(poly(coeffs, solution)) < 1e-2);
