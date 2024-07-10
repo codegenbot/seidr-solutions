@@ -1,7 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
+using namespace std;
 
 int whitePegs(string code, string guess) {
     int count = 0;
@@ -18,8 +19,7 @@ int blackPegs(string code, string guess) {
     vector<char> codeVec(code.begin(), code.end());
     for (int i = 0; i < 4; i++) {
         if (code[i] == guess[i]) {
-            auto it = remove(codeVec.begin(), codeVec.end(), code[i]);
-            codeVec.erase(it, codeVec.end());
+            codeVec.erase(remove(codeVec.begin(), codeVec.end(), code[i]), codeVec.end());
             count++;
         }
     }
@@ -30,7 +30,7 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     int white = whitePegs(code, guess);
-    int black = blackPegs(code, guess);
+    int black = 4 - (white + blackPegs(code, guess));
     cout << white << endl;
     cout << black << endl;
     return 0;
