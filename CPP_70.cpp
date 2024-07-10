@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -20,26 +21,14 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 
 int main() {
     std::vector<int> input;
-    
-    // Take input from user
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    for (int i = 0; i < n; ++i) {
-        int val;
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> val;
-        input.push_back(val);
+    int num;
+    std::cout << "Enter numbers (0 to stop): ";
+    while ((std::cin >> num) && (num != 0)) {
+        input.push_back(num);
     }
-    
-    // Call the function and print output
-    std::vector<int> output = strange_sort_list(input);
     std::cout << "Sorted list: ";
-    for (int x : output) {
-        std::cout << x << " ";
+    for (int i : strange_sort_list(input)) {
+        std::cout << i << " ";
     }
-    std::cout << std::endl;
-    
     return 0;
 }
