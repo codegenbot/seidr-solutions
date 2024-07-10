@@ -1,3 +1,6 @@
+Here's the corrected code:
+
+```
 def bowling_score(game):
     score = 0
     roll = 0
