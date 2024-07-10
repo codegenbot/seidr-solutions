@@ -1,8 +1,8 @@
+```cpp
 #include <string>
-#include <vector>
 
-std::string rounded_avg(int n,int m){
-    if(n > m) return "-1";
+std::string rounded_avg(int n, int m) {
+    if (n > m) return "-1";
     long sum = 0;
     for(long i=n; i<=m; i++){
         sum += i;
@@ -21,6 +21,6 @@ std::string rounded_avg(int n,int m){
 int main() {
     int n, m;
     std::cin >> n >> m;
-    std::cout << rounded_avg(n,m);
+    std::cout << rounded_avg(n, m) << std::endl;
     return 0;
 }
