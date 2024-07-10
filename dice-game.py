@@ -1,4 +1,3 @@
-```
 import math
 
 def roll_higher(n, m):
