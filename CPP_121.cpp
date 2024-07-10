@@ -1,3 +1,7 @@
+```
+#include <initializer_list>
+#include <vector>
+
 int solution(std::initializer_list<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
@@ -8,7 +12,4 @@ int solution(std::initializer_list<int> lst) {
     return sum;
 }
 
-int main() {
-    assert(solution({3, 13, 2, 9}) == 3);
-    return 0;
-}
+assert(solution({3, 13, 2, 9}) == 3);
