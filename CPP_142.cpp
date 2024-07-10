@@ -1,4 +1,4 @@
-```
+```cpp
 #include <cmath>
 #include <iostream>
 #include <cassert>
@@ -11,4 +11,23 @@ double sum_squares(int n) {
     return sum;
 }
 
-assert(sum_squares(17) == -1448);
+int main() {
+    int n;
+    while (!(std::cin >> n)) {
+        std::cout << "Invalid input. Please enter a non-negative integer.\n";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+
+    if(n < 0) {
+        std::cout << "Invalid input. Please enter a non-negative integer.\n";
+    } else {
+        double result = sum_squares(n);
+        std::cout << "Sum of squares: " << result << std::endl;
+        
+        assert(sum_squares(1) == 1);
+        assert(sum_squares(2) == 5);
+        assert(sum_squares(3) == 14);
+        return 0;
+    }
+}
