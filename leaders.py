@@ -1,3 +1,4 @@
+```
 def leaders(arr):
     leaders = [arr[len(arr)-1]]
     for i in range(len(arr) - 2, -1, -1):
