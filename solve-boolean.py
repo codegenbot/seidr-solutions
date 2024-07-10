@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     if not expression:
         return False
