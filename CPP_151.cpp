@@ -15,20 +15,23 @@ int main() {
     std::vector<float> lst; 
     float odd_sum = 0.0f; 
 
-    // Input from user
+    // Read input from user
     int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    cin >> n;
 
     for(int i = 0; i < n; i++){
         float x;
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> x;
+        cin >> x;
         lst.push_back(x);
     }
 
-    // Calculate the sum
-    odd_sum = double_the_difference(lst);
+    // Calculate the sum of squares of odd numbers in the list
+    for(float x : lst){
+        if(int(x) > 0 && int(x) % 2 != 0)
+            odd_sum += pow(int(x), 2);
+    }
+
+    assert (double_the_difference(lst) == odd_sum );
 
     return 0;
 }
