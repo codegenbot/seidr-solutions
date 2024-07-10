@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -6,11 +5,15 @@ int main() {
     std::vector<std::string> nums;
     int n;
     std::cout << "Enter the number of elements: ";
-    std::cin >> n;
+    if (!(std::cin >> n)) {
+        return 1;
+    }
     for (int i = 0; i < n; i++) {
-        std::string num;
-        std::cout << "Enter element: ";
-        getline(std::cin, num);
+        std::string num = "";
+        while(true) {
+            std::cout << "Enter element: ";
+            getline(std::cin, num);
+        }
         nums.push_back(num);
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
