@@ -1,19 +1,17 @@
-```
-import re
-
 def filter_by_substring():
-    expected_output = input("Is your expected output 'True values', 'False values', or 'all'? ")
     while True:
-        if expected_output.lower() not in ["true values", "false values", "all"]:
-            print("Invalid input. Please try again.")
-            expected_output = input("Is your expected output 'True values', 'False values', or 'all'? ")
-        else:
+        expected_output = input(
+            "Is your expected output 'True values', 'False values', or 'all'? "
+        )
+        if expected_output.lower() in ["true values", "false values", "all"]:
             break
+        else:
+            print("Invalid input. Please try again.")
 
     strings = []
     while True:
         user_input = input("Enter strings (comma-separated), or 'done' to finish: ")
-        if user_input.lower() == 'done':
+        if user_input.lower() == "done":
             break
         strings.extend([s.strip() for s in user_input.split(",")])
 
@@ -21,7 +19,9 @@ def filter_by_substring():
 
     while True:
         try:
-            num_to_display = int(input(f"Enter the number of results to display (1-{len(strings)}): "))
+            num_to_display = int(
+                input(f"Enter the number of results to display (1-{len(strings)}): ")
+            )
             if 1 <= num_to_display <= len(strings):
                 break
             else:
