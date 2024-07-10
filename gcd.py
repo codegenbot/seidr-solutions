@@ -1,31 +1,5 @@
-def gcd(a, b):
-    if a == 0:
-        return abs(b)
-    elif b == 0:
-        return abs(a)
-    while b != 0:
-        a, b = b, a % b
-    return abs(a)
-
-
-def indices_of_substring(text, target):
-    result = []
-    pos = 0
-    while True:
-        pos = text.find(target, pos)
-        if pos == -1:
-            break
-        result.append(pos)
-        pos += len(target)
-    return result
-
-
-a = int(input())
-b = int(input())
-
+a, b = map(int, input("Enter two integers (separated by space): ").split())
 print(gcd(a, b))
-
-text = input()
-target = input()
-
-print(indices_of_substring(text, target))
+text_target = input("Enter text and target string (separated by space): ").split()
+text, *target = text_target  
+print(*indices_of_substring(text, ''.join(target)))
