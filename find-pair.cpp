@@ -2,9 +2,9 @@
 #include <vector>
 #include <map>
 
-int main() {
-    using namespace std;
+using namespace std;
 
+int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
