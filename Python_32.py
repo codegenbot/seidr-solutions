@@ -1,12 +1,12 @@
-# Prompt user to enter the size of the list
-n = int(input("Enter the size of the list: "))
-# Prompt user to enter the list values
-print("Enter space-separated values for the list:")
-# Read 'n' input values from user
-xs = list(map(float, input().split()[:n]))
+while True:
+    try:
+        n = int(input("Enter the number of values in the list: "))
+        print("Enter space-separated values for the list:")
+        xs = list(map(float, input().split()))
+        assert len(xs) == n
+        break
+    except (ValueError, AssertionError):
+        print("Invalid input. Please try again.")
 
-# Call the function with the input list
 result = find_zero(xs)
-
-# Print the result
 print(result)
