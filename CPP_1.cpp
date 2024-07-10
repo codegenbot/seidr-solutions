@@ -1,24 +1,21 @@
 vector<string> result;
-    string current_group;
-    int balance = 0;
-
+    string temp;
+    int count = 0;
     for (char c : paren_string) {
         if (c == '(') {
-            balance++;
-            if (balance > 1) {
-                current_group.push_back(c);
+            if (count > 0) {
+                temp.push_back(c);
             }
+            count++;
         } else if (c == ')') {
-            balance--;
-            if (balance >= 1) {
-                current_group.push_back(c);
-            }
-            if (balance == 0) {
-                result.push_back(current_group);
-                current_group.clear();
+            count--;
+            if (count > 0) {
+                temp.push_back(c);
+            } else if (count == 0) {
+                result.push_back(temp);
+                temp = "";
             }
         }
     }
-
     return result;
 }
