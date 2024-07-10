@@ -5,7 +5,6 @@
 int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
-    bool previousStrike = false;
 
     for (char c : s) {
         if (c == 'X') {
