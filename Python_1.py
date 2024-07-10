@@ -10,10 +10,11 @@ def solve_task():
     
     while True:
         response = input("Are you sure? (y/N): ").lower()
-        if response == "y":
-            print(f"Result: {result}")
-            return result
-        elif response != "n":
+        if response in ["y", "n"]:
+            if response == "y":
+                return f"Result: {result}"
+            elif response == "n":
+                print("Operation cancelled!")
+                return None
+        else:
             print("Invalid input. Please enter y or N.")
-    
-solve_task()
