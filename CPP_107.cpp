@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
+bool std::operator==(const std::vector<int>& a, const std::vector<int>& b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -18,6 +18,17 @@ std::vector<int> even_odd_palindrome(int n) {
     return {even, odd};
 }
 
+int userInput() {
+    int n;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> n;
+
+    std::vector<int> result = even_odd_palindrome(n);
+
+    std::cout << "Number of even palindromes: " << result[0] << std::endl;
+    std::cout << "Number of odd palindromes: " << result[1] << std::endl;
+}
+
 int reverse(int n) {
     int rev = 0;
     while (n != 0) {
@@ -26,20 +37,4 @@ int reverse(int n) {
         n /= 10;
     }
     return rev;
-}
-int main() {
-    int n;
-    std::cout << "Enter a positive integer: ";
-    std::cin >> n;
-
-    if (n > 0) {
-        std::vector<int> result = even_odd_palindrome(n);
-
-        std::cout << "Number of even palindromes: " << result[0] << std::endl;
-        std::cout << "Number of odd palindromes: " << result[1] << std::endl;
-    } else {
-        std::cout << "Invalid input. Please enter a positive integer." << std::endl;
-    }
-
-    return 0;
 }
