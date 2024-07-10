@@ -2,7 +2,7 @@
 def basement(vector):
     total = 0
     for i, num in enumerate(vector):
-        if total <= 0:
+        if total <= 0: 
             total = 0
         total += num
         if total < 0:
