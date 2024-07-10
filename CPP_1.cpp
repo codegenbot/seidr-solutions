@@ -1,4 +1,11 @@
-vector<string> groups;
+#include <iostream>
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+vector<string> separate_paren_groups(string paren_string) {
+    vector<string> groups;
     string group;
     int balance = 0;
 
@@ -20,4 +27,16 @@ vector<string> groups;
     }
 
     return groups;
+}
+
+bool are_same_vectors(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
