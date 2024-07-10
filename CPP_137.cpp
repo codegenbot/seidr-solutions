@@ -1,10 +1,9 @@
 #include <iostream>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
-int CompareOne(int a, double b) {
+int compare_helper(int a, double b) {
     if (b > a) {
         return b;
     } else if (a == b) {
@@ -28,10 +27,10 @@ int main() {
         string str;
         cin.clear();
         cin >> str;
-        cout << "The result is: " << CompareOne(a, stod(str)) << endl;
+        cout << "The result is: " << compare_helper(a, stod(str)) << endl;
     } else {
         // If the input is a valid float
-        cout << "The result is: " << CompareOne(a, b) << endl;
+        cout << "The result is: " << compare_helper(a, b) << endl;
     }
 
     return 0;
