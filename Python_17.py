@@ -17,5 +17,3 @@ def parse_music(music_string: str) -> List[int]:
         if not found: 
             i += 1
     return result
-```
-```
