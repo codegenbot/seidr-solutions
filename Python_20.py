@@ -1,4 +1,3 @@
-```
 def check(lst):
     if len(set(lst)) == 1:
         return "All elements are equal"
