@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -16,5 +15,5 @@ bool is_sorted(vector<int> lst){
 int main 
 {
     vector<int> lst = {1, 2, 3, 4};
-    cout << (is_sorted(lst) ? "The list is sorted" : "The list is not sorted") << endl;
+    cout << boolalpha << is_sorted(lst);
 }
