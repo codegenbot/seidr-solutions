@@ -18,9 +18,8 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
 }
 
 int main() {
-    vector<float> numbers = {1.5, 2.3, 0.8, 3.1, 4.7};
+    vector<float> numbers = {3.5, 2.1, 5.7, 1.8, 4.2};
     pair<float, float> closest_elements = find_closest_elements(numbers);
-    cout << "Closest elements are: " << closest_elements.first << " and " << closest_elements.second << endl;
-    
+    cout << closest_elements.first << " " << closest_elements.second << endl;
     return 0;
 }
