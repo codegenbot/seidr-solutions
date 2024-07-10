@@ -4,7 +4,7 @@ def string_to_md5(text):
     if text:
         return hashlib.md5(text.encode()).hexdigest()
     else:
-        return None
+        return "Input string is empty"
 
 if __name__ == "__main__":
     user_input = input("Enter a string: ")
