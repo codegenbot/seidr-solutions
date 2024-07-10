@@ -2,9 +2,9 @@
 #include <algorithm>
 #include <cassert>
 
-vector<int> strange_sort_list(vector<int> lst);
-
 bool issame(vector<int> a, vector<int> b);
+
+vector<int> strange_sort_list(vector<int> lst);
 
 vector<int> strange_sort_list(vector<int> lst){
     sort(lst.begin(), lst.end());
