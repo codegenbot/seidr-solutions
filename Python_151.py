@@ -4,3 +4,4 @@ def double_the_difference(lst):
     return abs(odd_sum - min(lst)) * 2
 
 print(double_the_difference([7, 1]))
+check(lambda: double_the_difference([7, 1]))
