@@ -3,10 +3,11 @@ def coin_sums(cents):
     total_coins = [0, 0, 0, 0]
 
     while cents > 0:
-        for i, coin in enumerate(coins):
-            count = cents // coin
+        for i in range(len(coins)):
+            count = cents // coins[i]
             if count > 0:
                 total_coins[i] = count
-                cents -= coin * count
+                cents -= coins[i] * count
+                break
 
     return total_coins
