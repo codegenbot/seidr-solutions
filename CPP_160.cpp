@@ -1,44 +1,53 @@
-int do_algebra(vector<string> operato, vector<int> operand) {
+#include <vector>
+#include <string>
+#include <cmath>
+
+int do_algebra(vector<string> operators, vector<int> operands) {
     int result = 0;
-    for(int i = 0; i < operato.size(); i++) {
-        if(operato[i] == "+") {
-            result += operand[i];
-        } else if(operato[i] == "-") {
-            result -= operand[i];
-        } else if(operato[i] == "*") {
-            int temp = 0;
-            for(int j = i; j < operato.size(); j++) {
-                if(operato[j] == "*") {
-                    temp *= operand[j];
-                } else if(operato[j] == "-") {
-                    temp -= operand[j];
-                    break;
-                }
-            }
-            result += temp;
-        } else if(operato[i] == "//") {
-            int temp = 0;
-            for(int j = i; j < operato.size(); j++) {
-                if(operato[j] == "//") {
-                    temp /= operand[j];
-                } else if(operato[j] == "-") {
-                    temp -= operand[j];
-                    break;
-                }
-            }
-            result += temp;
-        } else if(operato[i] == "**") {
+    int operand_index = 0;
+
+    for (auto op : operators) {
+        if (op == "+") {
+            result += operands[operand_index];
+            operand_index++;
+        } else if (op == "-") {
+            result -= operands[operand_index];
+            operand_index++;
+        } else if (op == "*") {
             int temp = 1;
-            for(int j = i; j < operato.size(); j++) {
-                if(operato[j] == "**") {
-                    temp = (int)pow(temp, operand[j]);
-                } else if(operato[j] == "-") {
-                    temp = (int)pow(temp, -operand[j]);
-                    break;
+            for (int i = operand_index; i < operators.size(); i++) {
+                if (operators[i] == "*") {
+                    temp *= operands[i + 1];
+                } else if (operators[i] == "/") {
+                    temp /= operands[i + 1];
                 }
             }
             result += temp;
+            operand_index = i + 2; // skip the rest of the loop
+        } else if (op == "/") {
+            int temp = operands[operand_index];
+            for (int i = operand_index + 1; i < operators.size(); i++) {
+                if (operators[i] == "*") {
+                    temp *= operands[i + 1];
+                } else if (operators[i] == "/") {
+                    temp /= operands[i + 1];
+                }
+            }
+            result += temp;
+            operand_index = i + 2; // skip the rest of the loop
+        } else if (op == "**") {
+            int temp = 1;
+            for (int i = operand_index; i < operators.size(); i++) {
+                if (operators[i] == "*") {
+                    temp *= operands[i + 1];
+                } else if (operators[i] == "/") {
+                    temp /= operands[i + 1];
+                }
+            }
+            result += pow(operands[0], temp);
+            operand_index = i + 2; // skip the rest of the loop
         }
     }
+
     return result;
 }
