@@ -7,6 +7,7 @@ int main() {
     string tweet;
     cout << "Enter a tweet: ";
     getline(cin, tweet);
+    
     cin.ignore(); // Ignore the newline character left in the buffer after getline()
     
     if(tweet.empty()) {
