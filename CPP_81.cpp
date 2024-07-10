@@ -7,7 +7,8 @@
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (std::find(b.begin(), b.end(), a[i]) == b.end()) return false;
+        auto it = std::find(b.begin(), b.end(), a[i]);
+        if (it == b.end()) return false;
     }
     return true;
 }
@@ -31,6 +32,6 @@ int main() {
     }
     
     std::string grade = numerical_letter_grade(credits, gpa);
-    assert(std::vector<std::string>({grade}) == std::vector<std::string>({"A", "B+"}));
+    assert(std::set<std::string>({grade}) == std::set<std::string>({"A", "B+"}));
     return 0;
 }
