@@ -1,6 +1,6 @@
 Here is the solution:
 
-double getProbability(int n, int m) {
-    double total = (double)n * m;
-    return 1.0 - (n / total) * (m / total);
+double probability(int n, int m) {
+    double total = (n + m);
+    return (m - 1.0) / total;
 }
