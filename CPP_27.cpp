@@ -2,7 +2,7 @@
 
 using namespace std;
 
-string flip_case(string str){
+string filp_case(string str){
     string result = "";
     for(int i=0; i<str.length(); i++){
         if(str[i] >= 'a' && str[i] <= 'z'){
