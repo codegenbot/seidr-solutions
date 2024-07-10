@@ -29,8 +29,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         std::cin >> nums[i]; 
     }
-    if (nums.empty()) {  // If no numbers were read, there's nothing to count
-        std::cout << "No numbers were read." << std::endl;
+    if (nums.empty()) {  
         return 0;
     }
     std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
