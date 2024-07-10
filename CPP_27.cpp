@@ -1,7 +1,7 @@
 #include <string>
 #include <cctype>
 #include <iostream>
-#include <cassert> // Add missing header
+#include <cassert>
 
 std::string flip_case(std::string str) {
     for (char &c : str) {
@@ -15,11 +15,7 @@ std::string flip_case(std::string str) {
 }
 
 int main() {
-    std::string result = flip_case("These violent delights have violent ends");
-    std::cout << result << std::endl;
-    std::cout << "Test Passed!" << std::endl;
-
     assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
-
-    return 0; // Add return statement
+    std::cout << "Test Passed!" << std::endl;
+    return 0;
 }
