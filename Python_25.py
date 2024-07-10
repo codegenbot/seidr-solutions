@@ -18,4 +18,4 @@ while True:
         print(result)
         break
     except ValueError:
-        print("Please enter a valid integer.")
+        print("Invalid input. Please enter a valid integer.")
