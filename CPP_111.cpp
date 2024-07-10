@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <map>
 #include <string>
 
@@ -14,7 +14,7 @@ std::map<char, int> histogram(std::string s) {
     return freqMap;
 }
 
-bool isSameMap(std::map<char, int> a, std::map<char, int> b) {
+bool sameMaps(std::map<char, int> a, std::map<char, int> b) {
     if (a.size() != b.size())
         return false;
 
@@ -25,4 +25,4 @@ bool isSameMap(std::map<char, int> a, std::map<char, int> b) {
     return true;
 }
 
-assert(isSameMap(histogram("aa"), histogram("a")));
+assert(sameMaps(histogram("aa"), histogram("a")));
