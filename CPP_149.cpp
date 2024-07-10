@@ -1,19 +1,19 @@
-```cpp
+```c++
 #include <initializer_list>
 
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(std::vector<std::string> const& a, std::vector<std::string> const& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
-        return false;
+        throw std::runtime_error("Vectors are not the same size");
     }
     for (int i = 0; i < a.size(); i++) {
         std::vector<std::string> temp = {a[i], b[i]};
         std::sort(temp.begin(), temp.end());
         if (temp[0] != temp[1]) {
-            return false;
+            throw std::runtime_error("Vectors are not the same");
         }
     }
     return true;
