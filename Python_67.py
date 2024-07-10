@@ -1,15 +1,6 @@
 def fruit_distribution():
-    s = input("Enter the sentence (e.g., 'apples apples oranges' ): ")
-    n = int(input("Enter the number of fruits: "))
-    s = (
-        " ".join(s.split())
-        .replace("apples and", "apples ")
-        .replace("oranges", " oranges")
-        .split()
-    )
-    apples = int(
-        sum(1 for word in s if word == "apples")
-        - (sum(1 for word in s if word == "apples and") or 0)
-    )
-    oranges = sum(1 for word in s if word == "oranges")
+    s = input("Enter the text: ").lower()
+    n = int(input("Enter the total number of fruits: "))
+    apples = int(s.count("apples") * (s.lower().count("and") // 2))
+    oranges = int((s.count("oranges") - s.lower().count(" and ")) if " or" in s else 0)
     return n - apples - oranges
