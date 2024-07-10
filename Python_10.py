@@ -7,7 +7,5 @@ def make_palindrome():
         if s == reverse_string(s, i):
             return s[:i][::-1] + s
 
-    return "No palindrome found"
-
 result = make_palindrome()
 print(result)
