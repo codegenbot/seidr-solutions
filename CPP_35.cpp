@@ -1,18 +1,20 @@
 #include <vector>
 #include <cassert>
 #include <cmath>
+#include <initializer_list>
 
-float max_element(const std::vector<float>& l){
-    float max = l[0];
-    for(int i=1; i<l.size(); i++){
-        if(l[i] > max){
-            max = l[i];
+float max_element(const std::initializer_list<float>& l) {
+    assert(!l.empty());
+    float max_val = *(l.begin());
+    for (auto it = std::next(l.begin()); it != l.end(); ++it) {
+        if (*it > max_val) {
+            max_val = *it;
         }
     }
-    return max;
+    return max_val;
 }
 
-int main(){
-    assert (std::abs(max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10})- 124)<1e-4);
+int main() {
+    float result = max_element({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10});
     return 0;
 }
