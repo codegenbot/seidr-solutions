@@ -17,11 +17,7 @@ int sum_of_digits(int num) {
 }
 
 vector<int> order_by_points(const vector<int>& nums) {
-    if (nums.empty()) {
-        return nums;
-    }
-    
-    vector<int> sorted_nums = nums; 
+    vector<int> sorted_nums = nums;
     sort(sorted_nums.begin(), sorted_nums.end(), [&](int a, int b) {
         int sum_a = sum_of_digits(a);
         int sum_b = sum_of_digits(b);
