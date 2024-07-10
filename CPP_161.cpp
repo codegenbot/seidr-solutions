@@ -1,26 +1,23 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
-std::string solve(std::string s) {
-    std::string result = "";
+int solve(std::string s) {
+    int count = 0;
     for (char c : s) {
+        c = tolower(c); 
         if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-            result += c;
+            count++;
         }
     }
-    return result;
+    return count;
 }
 
 int main() {
     std::cout << "Enter a string: ";
     std::string s;
     std::getline(std::cin, s);
-    std::string result = solve(s); 
-    if (result.empty()) {
-        std::cout << "No vowels found in the input." << std::endl;
-    } else {
-        std::cout << "Result: " << result << std::endl;
-    }
+    int result = solve(s); 
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
