@@ -2,12 +2,7 @@
 def main():
     while True:
         try:
-            lst = (
-                input("Enter words (separated by space): ")
-                .lower()
-                .replace(" ", "")
-                .split()
-            )
+            lst = (input("Enter words (separated by space): ").lower().replace(" ", "").split())
             break
         except Exception as e:
             print(f"Error: {str(e)}")
@@ -17,9 +12,7 @@ def main():
         while True:
             try:
                 sorted_list_sum = sum(len(word) for word in lst if len(word) % 2 == 0)
-                input_val = int(
-                    input("Press Enter to calculate the sum or type 'q' to quit: ")
-                )
+                input_val = int(input("Press Enter to calculate the sum or type 'q' to quit: "))
                 if input_val == 113:
                     break
                 print(sorted_list_sum)  
