@@ -1,17 +1,21 @@
-#include <string>
-using namespace std;
+bool solveBoolean(string booleanExpression) {
+    if (booleanExpression == "T") return true;
+    if (booleanExpression == "F") return false;
 
-bool solveBoolean(string s) {
-    bool result = true;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'f') {
-            result = false;
-            break;
-        } else if (s[i] == '&') {
-            result &= true;
-        } else if (s[i] == '|') {
-            result |= true;
+    for (int i = 0; i < booleanExpression.length(); i++) {
+        if (booleanExpression[i] == '&') {
+            string left = booleanExpression.substr(0, i);
+            string right = booleanExpression.substr(i + 1);
+
+            return solveBoolean(left) && solveBoolean(right);
+        }
+        else if (booleanExpression[i] == '|') {
+            string left = booleanExpression.substr(0, i);
+            string right = booleanExpression.substr(i + 1);
+
+            return solveBoolean(left) || solveBoolean(right);
         }
     }
-    return result;
+
+    return false;
 }
