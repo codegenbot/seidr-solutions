@@ -8,7 +8,7 @@ def substitution_cipher(cipher1, cipher2, message):
             if char.isupper():
                 result += cipher[char.upper()].upper()  
             else:
-                result += cipher[char.lower()].lower()
+                result += cipher[char.lower()].lower()  
         else:  
             result += char
     return result
