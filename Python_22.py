@@ -1,4 +1,3 @@
-```Python
 import re
 
 
@@ -8,19 +7,18 @@ def filter_integers() -> None:
         user_input = input()
 
         if not user_input:
-            print("You can press Enter to exit. Program terminated.")
-            return
-
+            print("Please enter some values. You can press Enter to exit.")
         elif not re.match(r"^[0-9]+(,[0-9]+)*$", user_input):
             print(
-                "Invalid input. Please enter a valid list of comma-separated integers. Try again!"
+                "Invalid input. Please enter a valid list of comma-separated integers."
             )
         else:
             break
 
     try:
         user_values = [
-            int(val) for val in filter(lambda x: x != "", user_input.split(","))
+            int(val)
+            for val in filter(lambda x: len(x.strip()) > 0, user_input.split(","))
         ]
 
         if not user_values:
