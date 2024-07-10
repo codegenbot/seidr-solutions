@@ -12,7 +12,7 @@ std::string string_to_md5(const std::string& input) {
     unsigned char hash[EVP_MAX_MD_SIZE];
     unsigned int hash_len;
 
-    OpenSSL_add_all_algorithms(); // Added OpenSSL initialization
+    OPENSSL_init_crypto(OPENSSL_INIT_ADD_ALL_CIPHERS | OPENSSL_INIT_ADD_ALL_DIGESTS, NULL); // Initialize OpenSSL library
 
     md = EVP_md5();
     mdctx = EVP_MD_CTX_new();
