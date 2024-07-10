@@ -3,10 +3,7 @@
 #include <vector>
 
 int solve(std::string s) {
-    if (s.empty()) {
-        return 0;
-    }
-    std::vector<char> v;
+    std::vector<char> v(10); // Ensure vector has enough space before pushing characters into it.
     for (char c : s) {
         if (std::tolower(c) == 'a' || std::tolower(c) == 'e' || 
             std::tolower(c) == 'i' || std::tolower(c) == 'o' || std::tolower(c) == 'u') {
