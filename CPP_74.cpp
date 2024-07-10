@@ -1,13 +1,5 @@
 bool issame(const vector<string>& lst1, const vector<string>& lst2) {
-        if (lst1.size() != lst2.size()) {
-            return false;
-        }
-        for (size_t i = 0; i < lst1.size(); ++i) {
-            if (lst1[i] != lst2[i]) {
-                return false;
-            }
-        }
-        return true;
+        return lst1 == lst2;
     }
 
     int countChars(const vector<string>& lst1) {
@@ -21,6 +13,27 @@ bool issame(const vector<string>& lst1, const vector<string>& lst2) {
     vector<string> total_match(vector<string> lst1, vector<string> lst2);
 
     int main() {
-        // Main function code here
+        vector<string> lst1 = {"apple", "banana", "cherry"};
+        vector<string> lst2 = {"apple", "banana", "cherry"};
+
+        if (issame(lst1, lst2)) {
+            cout << "Lists are the same" << endl;
+        } else {
+            cout << "Lists are different" << endl;
+        }
+
+        vector<string> result = total_match(lst1, lst2);
+
+        for (const string& str : result) {
+            cout << str << " ";
+        }
+
         return 0;
+    }
+
+    vector<string> total_match(vector<string> lst1, vector<string> lst2) {
+        if (countChars(lst1) < countChars(lst2)) {
+            return lst1;
+        }
+        return lst2;
     }
