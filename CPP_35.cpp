@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <cmath>
 
-long long maximumElement(long long arr[], int n) {
-    return *max_element(arr, arr+n);
+long long maxAbsSum(vector<int>& l) {
+    return *max_element(l.begin(), l.end());
 }
