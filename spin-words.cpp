@@ -1,20 +1,20 @@
-int main() {
-    string input;
-    getline(cin, input);
+string spinWords(const string &sentence) {
+    string result = "";
     string word = "";
-    for (int i = 0; i <= input.length(); i++) {
-        if (i == input.length() || input[i] == ' ') {
+    for (char c : sentence) {
+        if (c == ' ') {
             if (word.length() >= 5) {
                 reverse(word.begin(), word.end());
             }
-            cout << word;
-            if (i != input.length()) {
-                cout << " ";
-            }
+            result += word + " ";
             word = "";
         } else {
-            word += input[i];
+            word += c;
         }
     }
-    return 0;
+    if (word.length() >= 5) {
+        reverse(word.begin(), word.end());
+    }
+    result += word;
+    return result;
 }
