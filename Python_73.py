@@ -1,25 +1,11 @@
-```
 def smallest_change():
-    arr = input().split()
-    n = len(arr)
-    
-    for i in range(n):
-        arr[i] = int(arr[i])
-        
-    while len(str(arr)) - str(arr).count(' ') != n:
-        arr = list(map(int, input().split()))
-    
-    arr.sort()
-    left, right = 0, n - 1
+    sep = input("Enter a number and a separator (e.g., 1 2, for comma), then press Enter: ")
+    arr = list(map(int, input(f"Enter {len(sep) - 1} numbers separated by '{sep}':").split(sep)))
     changes = 0
-
-    while left < right:
-        if arr[left] > arr[right]:
-            arr[left], arr[right] = arr[right], arr[left]
+    for i in range(len(arr) - 1):
+        if arr[i] > arr[i + 1]:
+            arr[i], arr[i + 1] = arr[i + 1], arr[i]
             changes += 1
-        left += 1
-        right -= 1
-
     return changes
 
 
