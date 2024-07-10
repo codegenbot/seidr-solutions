@@ -1,6 +1,9 @@
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
+    if not paren_string:
+        return []
+    
     depths = []
     current_depth = 0
     for char in paren_string:
@@ -11,6 +14,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         depths.append(current_depth)
     return depths
 
-input_string = input().strip()
+input_string = input("Enter the nested parens string: ")
 result = parse_nested_parens(input_string)
 print(result)
