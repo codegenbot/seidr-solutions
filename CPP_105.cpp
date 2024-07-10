@@ -1,13 +1,16 @@
 vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
+    vector<int> num_arr; // store numbers between 1 and 9
     for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            nums.push_back(i);
+        if (i >= 1 && i <= 9) {
+            num_arr.push_back(i);
+        }
     }
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
+
+    sort(num_arr.begin(), num_arr.end());
+    reverse(num_arr.begin(), num_arr.end());
+
     vector<string> result;
-    for (int i : nums) {
+    for (int i : num_arr) {
         switch (i) {
             case 1:
                 result.push_back("One");
@@ -35,7 +38,9 @@ vector<string> by_length(vector<int> arr) {
                 break;
             case 9:
                 result.push_back("Nine");
+                break;
         }
     }
+
     return result;
 }
