@@ -2,9 +2,7 @@
 #include <vector>
 #include <cassert> // Include the <cassert> header
 
-using namespace std;
-
-vector<int> sum_product(vector<int> nums){
+std::vector<int> sum_product(std::vector<int> nums){
     int sum = 0;
     int product = 1;
 
@@ -16,14 +14,18 @@ vector<int> sum_product(vector<int> nums){
     return {sum, product};
 }
 
+bool are_equal(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
+}
+
 int main(){
-    vector<int> nums = {2, 5, 3};
-    vector<int> result = sum_product(nums);
+    std::vector<int> nums = {2, 5, 3};
+    std::vector<int> result = sum_product(nums);
 
-    assert(result == vector<int>{10, 30});
+    assert(are_equal(result, {10, 30}));
 
-    cout << "Sum: " << result[0] << endl;
-    cout << "Product: " << result[1] << endl;
+    std::cout << "Sum: " << result[0] << std::endl;
+    std::cout << "Product: " << result[1] << std::endl;
 
     return 0;
 }
