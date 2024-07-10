@@ -7,7 +7,7 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
-
+    
     vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec1[i];
@@ -19,7 +19,7 @@ int main() {
     }
 
     double sum = 0;
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n - 1; ++i) {
         sum += pow(vec1[i] - vec2[i], 2);
     }
 
