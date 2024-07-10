@@ -25,7 +25,7 @@ vector<int> sort_third(vector<int> l) {
             int val = multiplesOfThree[j];
             while (!multiplesOfThree.empty() && j < multiplesOfThree.size()) {
                 result.push_back(val);
-                for(int k = 0; k < 2; k++) {
+                for(int k = 0; k < 3; k++) {
                     if(i % 3 == 0)
                         i++;
                     else
@@ -36,7 +36,7 @@ vector<int> sort_third(vector<int> l) {
                     break;
             }
         } else {
-            if(others.size() > 1) {
+            if (!others.empty()) { // Check for empty vector before pushing
                 result.push_back(others[0]);
                 others.erase(others.begin());
             } else {
