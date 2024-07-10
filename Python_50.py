@@ -1,4 +1,3 @@
-```
 def decode_shift():
     s = input().upper()
     if not s.isalpha():
