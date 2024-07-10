@@ -3,34 +3,43 @@
 #include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-void sort(std::vector<int>& l) {
+std::vector<int> sort(std::vector<int> l) {
     std::vector<int> l_copy = l;
     for (int i = 0; i < l.size(); ++i) {
         if (i % 3 == 0) {
             std::sort(l_copy.begin() + i, l_copy.begin() + i + 3);
-       }
+        }
     }
-    l = l_copy;
+    return l_copy;
 }
 
 int main() {
-    std::vector<int> l = {5, 2, 8, 3, 6, 7, 1, 4, 9};
-    sort(l);
-    for (int num : l) {
+    std::vector<int> original{9, 3, 7, 5, 1, 6, 2, 8, 4};
+    std::vector<int> sorted = sort(original);
+
+    // Check if the original vector is unchanged
+    if (issame(original, {9, 3, 7, 5, 1, 6, 2, 8, 4})) {
+        std::cout << "Original vector unchanged\n";
+    } else {
+        std::cout << "Original vector changed\n";
+    }
+
+    // Print the sorted vector
+    for (const auto& num : sorted) {
         std::cout << num << " ";
     }
-    std::cout << std::endl;
-
-    std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = {1, 2, 3};
-    if (issame(a, b)) {
-        std::cout << "Arrays are the same." << std::endl;
-    } else {
-        std::cout << "Arrays are not the same." << std::endl;
-    }
+    std::cout << "\n";
 
     return 0;
 }
