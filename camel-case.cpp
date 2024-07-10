@@ -22,9 +22,15 @@ std::string camelCase(const std::string& input) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input; // Use std::cin directly
+    char c;
+    std::string input = "";
+    while ((c = std::cin.get()) != '\n') {
+        if (c == '-') {
+            input += toupper(c + 1);
+        } else if (c != ' ') {
+            input += c;
+        }
+    }
     std::cout << camelCase(input) << std::endl;
 
     return 0;
