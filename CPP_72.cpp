@@ -1,14 +1,17 @@
+Here is the completed code:
+
 bool will_it_fly(vector<int> q, int w) {
-    string s = "";
+    string str = "";
     for (int i : q) {
-        s += to_string(i);
+        str += to_string(i);
     }
-    if (s != reverse(s).substr(0, s.length())) {
+    if (str != reverse(str).s) {
         return false;
+    } else {
+        int sum = 0;
+        for (int i : q) {
+            sum += i;
+        }
+        return sum <= w;
     }
-    int sum = 0;
-    for (int i : q) {
-        sum += i;
-    }
-    return sum <= w;
 }
