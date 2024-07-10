@@ -20,20 +20,24 @@ int mastermind(std::string code, std::string guess) {
         bool found = false;
         for (int j = 0; j < 4; ++j) {
             if (code[j] == guess[i]) {
-                black++;
                 code[j] = ' ';  // mark as used
                 found = true;
                 break;
             }
         }
-        if (!found) {
-            for (int j = 0; j < 4; ++j) {
-                if (guess[j] == code[i]) {
-                    white++;
-                    guess[j] = ' ';  // mark as used
-                    break;
-                }
+        if (!found) black++;
+    }
+
+    // Count the number of correct colors in wrong positions
+    for (int i = 0; i < 4; ++i) {
+        int j = 0;
+        while (j < 4) {
+            if (code[j] == guess[i]) {
+                white++;
+                code[j] = ' ';  // mark as used
+                break;
             }
+            j++;
         }
     }
 
