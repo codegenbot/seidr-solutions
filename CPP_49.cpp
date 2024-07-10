@@ -1,4 +1,7 @@
+#include <iostream>
+
 int modp(int n, int p) {
+    if (p == 1) return 0;
     int result = 1;
     n = n % p;
     while (n > 0) {
@@ -12,8 +15,7 @@ int modp(int n, int p) {
 
 int main() {
     int n, p;
-    cin >> n;
-    cin >> p;
-    cout << modp(n, p) << endl;
+    std::cin >> n >> p;
+    std::cout << modp(n, p) << std::endl;
     return 0;
 }
