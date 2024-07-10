@@ -1,7 +1,3 @@
 python
-
-
 def paired_digits(s):
-    return sum(
-        int(d) for d in set([s[i] for i in range(len(s) - 1) if s[i] == s[i + 1]])
-    )
+    return sum(int(x) for x in s if s.index(x)*2 < len(s) and s[s.index(x)+1] == x)
