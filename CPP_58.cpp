@@ -3,11 +3,11 @@
 #include <assert.h>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -15,6 +15,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame({1,2}, {1,2}) || "Test failed");
+    assert(issame({4, 3, 2}, {4, 3, 2}) || "Test failed");
     return 0;
 }
