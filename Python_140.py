@@ -4,9 +4,7 @@ def fix_spaces(text):
     in_word = False
     for char in text:
         if char == ' ':
-            if char == ' ' and not in_word:
-                new_text += ' '
-            elif not in_word:
+            if not in_word:
                 new_text += ' '
             else:
                 if count <= 2:
@@ -16,7 +14,7 @@ def fix_spaces(text):
                 count = 0
             in_word = False
         elif char != '\n':
-            new_text += char
             in_word = True
-            count += 1
+            count += (1 if char.isspace() else 1)
+            new_text += char
     return new_text.strip()
