@@ -1,3 +1,4 @@
+```
 def parse_music(music_string: str) -> List[int]:
     if set(music_string) - {'o', '|', '.', '.|'}:
         return ["Invalid input. Please enter a string containing 'o', '|', '.' and '.|'"]
