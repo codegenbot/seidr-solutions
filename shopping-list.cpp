@@ -5,7 +5,7 @@ using namespace std;
 
 float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
     if (prices.size() != discounts.size()) {
-        return -1; // Or any other appropriate error handling mechanism
+        return -1;
     }
 
     float total = 0.0;
