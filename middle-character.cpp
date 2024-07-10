@@ -1,3 +1,9 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string middleCharacter(string s);
+
 string middleCharacter(string s) {
     int n = s.size();
     if (n % 2 == 0) {
@@ -6,6 +12,7 @@ string middleCharacter(string s) {
         return s.substr(n/2, 1);
     }
 }
+
 int main() {
     string s;
     getline(cin, s);
