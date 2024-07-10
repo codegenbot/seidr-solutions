@@ -1,6 +1,6 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
-#include <initializer_list>
+#include <algorithm>
 
 int main() {
     std::vector<int> arr;
