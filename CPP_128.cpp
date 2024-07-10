@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -18,7 +19,6 @@ int prod_signs(std::vector<int> arr) {
     }
 
     return product * sum;
-
 }
 
 int main() {
