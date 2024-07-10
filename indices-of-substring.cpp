@@ -3,15 +3,15 @@ using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
-    for (int i = 0; i <= text.size() - target.size(); i++) {
-        bool found = true;
-        for (int j = 0; j < target.size(); j++) {
+    for (int i = 0; i <= text.length() - target.length(); i++) {
+        int j = 0;
+        while (j < target.length()) {
             if (text[i + j] != target[j]) {
-                found = false;
                 break;
             }
+            j++;
         }
-        if (found) {
+        if (j == target.length()) {
             indices.push_back(i);
         }
     }
@@ -25,5 +25,6 @@ int main() {
     for (int i : result) {
         cout << i << " ";
     }
+    cout << endl;
     return 0;
 }
