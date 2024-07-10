@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
 int calculateScore(const string& bowls) {
     int score = 0;
