@@ -1,21 +1,6 @@
-def sort_numbers(numbers: str) -> str:
-    num_dict = {
-        "zero": 0,
-        "one": 1,
-        "two": 2,
-        "three": 3,
-        "four": 4,
-        "five": 5,
-        "six": 6,
-        "seven": 7,
-        "eight": 8,
-        "nine": 9,
-    }
-    sorted_nums = sorted([num_dict[i] for i in numbers.split()])
-    return " ".join(
-        [
-            i
-            for i in [num_dict[j] for j in numbers.split()]
-            if num_dict[j] in sorted_nums
-        ]
-    )
+def sort_numbers():
+    num_dict = {'zero': 0, 'one': 1, 'two': 2, 'three': 3, 'four': 4,
+                'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9}
+    numbers_str = input("Enter the numbers: ")
+    nums = [num_dict[i] for i in numbers_str.split() if i in num_dict]
+    return ' '.join(map(str, sorted(nums)))
