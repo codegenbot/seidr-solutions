@@ -12,7 +12,7 @@ int count_nums(std::vector<int> nums) {
                     sum_of_digits += digit;
                 }
                 num /= 10;
-                if (!has_negative_digit && digit < 5) {
+                if (num < 0 && !has_negative_digit) {
                     has_negative_digit = true;
                 }
             }
@@ -21,7 +21,7 @@ int count_nums(std::vector<int> nums) {
             }
         } else if (num < 0) {
             int sum_of_digits = 0;
-            bool has_negative_digit = true;
+            bool has_negative_digit = false;
             while (num != 0) {
                 int digit = abs(num % 10);
                 if (digit == 5 || digit == 8 || digit == 9) {
@@ -30,6 +30,9 @@ int count_nums(std::vector<int> nums) {
                     sum_of_digits += digit;
                 }
                 num /= 10;
+                if (digit < 5) {
+                    has_negative_digit = true;
+                }
             }
             if (sum_of_digits > 0 || !has_negative_digit) {
                 count++;
