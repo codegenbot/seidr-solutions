@@ -42,14 +42,14 @@ int main() {
     pair<vector<int>, vector<int>> res = cutVector(vec);
     
     cout << "[";
-    for (int num : res.first) {
+    for (auto num : res.first) {
         cout << num;
         if (&num != &res.first.back())
             cout << " ";
     }
     cout << "] [";
-
-    for (int num : res.second) {
+    
+    for (auto num : res.second) {
         cout << num;
         if (&num != &res.second.back())
             cout << " ";
