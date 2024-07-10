@@ -20,10 +20,9 @@ int prime_fib(int n) {
     if (n == 2) {
         return 3;
     }
-    
-    int prev = 1, curr = 1, next;
+    int prev = 2, curr = 3;
     for (int i = 3; i <= n; i++) {
-        next = prev + curr;
+        int next = prev + curr;
         while (!isPrime(next)) {
             next = prev + curr;
             prev = curr;
@@ -32,7 +31,7 @@ int prime_fib(int n) {
         prev = curr;
         curr = next;
     }
-    return next;
+    return curr;
 }
 
 int main() {
