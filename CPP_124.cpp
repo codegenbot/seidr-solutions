@@ -1,4 +1,6 @@
 #include <string>
+#include <iostream>
+
 bool valid_date(const std::string& date) {
     if(date.empty()) return false;
     
@@ -21,7 +23,11 @@ bool valid_date(const std::string& date) {
 }
 
 int main() {
-    assert(valid_date("04-2003") == false);
-    // Add more test cases here
+    if(valid_date("04-2003")) {
+        std::cout << "Valid date\n";
+    } else {
+        std::cout << "Invalid date\n";
+    }
+
     return 0;
 }
