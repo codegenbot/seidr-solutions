@@ -1,4 +1,12 @@
-string result = "";
+#include <iostream>
+#include <string>
+#include <cctype>
+#include <cassert> // Include cassert for the assert() function
+
+using namespace std;
+
+string encrypt(string s) {
+    string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             char encrypted = c + 2 * 2;
