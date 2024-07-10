@@ -9,22 +9,20 @@ int prime_fib(int n) {
         a = b;
         b = fib;
         bool isPrime = true;
-        for (int j = 2; j * j <= fib; j++) {
+        for (int j = 2; j * j <= fib; j++)
             if (fib % j == 0) {
                 isPrime = false;
                 break;
             }
-        }
         if (!isPrime) continue;
         return i;
     }
 }
 
 int main() {
-    printf("%d\n", prime_fib(1));
-    printf("%d\n", prime_fib(2));
-    printf("%d\n", prime_fib(3));
-    printf("%d\n", prime_fib(4));
-    printf("%d\n", prime_fib(5));
+    int n;
+    printf("Enter the number: ");
+    scanf("%d", &n);
+    printf("The %d-th prime Fibonacci number is: %d\n", n, prime_fib(n));
     return 0;
 }
