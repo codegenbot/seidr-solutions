@@ -1,5 +1,3 @@
-import sys
-
 def parse_music(music_data: str):
     lines = []
     for line in music_data.splitlines():
@@ -10,7 +8,10 @@ def parse_music(music_data: str):
 
 music_data = ''
 while True:
-    line = sys.stdin.readline().rstrip()
+    try:
+        line = input()
+    except EOFError:
+        break
     if not line.strip():
         break
     music_data += line + '\n'
