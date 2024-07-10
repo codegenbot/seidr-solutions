@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -28,4 +29,5 @@ int driver() {
 
 int main(int argc, const char* argv[]) {
     driver();
+    return 0;
 }
