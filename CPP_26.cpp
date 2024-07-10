@@ -13,7 +13,7 @@ std::vector<int> remove_duplicates(std::vector<int> v) {
         for (int j = 0; j < i; j++) { 
             if (v[i] == result[j]) {
                 found = true;
-                break; // <--- Add this line
+                break;
             }
         }
         if (!found) {
