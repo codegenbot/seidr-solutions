@@ -1,8 +1,7 @@
-int fuelCost(vector<int> v) {
+int fuelCost(vector<int> numbers) {
     int sum = 0;
-    for (int i : v) {
-        int result = (i / 3);
-        result = (result > 0) ? result - 2 : 0;
+    for (int num : numbers) {
+        int result = floor(num / 3.0) - 2;
         sum += result;
     }
     return sum;
