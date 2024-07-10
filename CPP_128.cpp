@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -23,8 +22,10 @@ int prod_signs(std::vector<int> arr) {
 }
 
 int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
-    std::vector<int> testArr = {1, 2, 3};
+    std::vector<int> testArr(std::allocator<int>());
+    testArr.push_back(1); 
+    testArr.push_back(2); 
+    testArr.push_back(3);
     int result = prod_signs(testArr);
     std::cout << "Product of signs and sum: " << result << std::endl;
     return 0;

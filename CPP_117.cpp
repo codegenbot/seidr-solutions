@@ -29,7 +29,7 @@ bool issame(const std::vector<std::string>& a, const std::string& b) {
 
 int main() {
     std::vector<std::string> result = select_words("a b c d e f", 1);
-    assert(issame(result, "b") && "Output does not match");
+    assert(issame(result, "b")); 
     std::cout << "{" + Join(result, ", ") + "}" << std::endl;
     return 0;
 }
