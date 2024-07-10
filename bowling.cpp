@@ -9,18 +9,19 @@ int bowlingScore(string input) {
             score += 30;
             i++;
         } else if(input[i] == '/') {
-            std::string nextTwo = std::string(input.substr(i+1, 1));
-            score += 10 + (nextTwo == "/" ? 0 : stoi(nextTwo));
+            int nextTwo = stoi(string(1, input[i+1]) + string(1, input[i+2]));
+            score += 10 + nextTwo;
             i += 3;
         } else {
-            std::string roll = std::string(input.substr(i, 2));
-            int currentRoll = (roll[0] == 'X') ? 10 : ((roll[1] == '/') ? 10 - stoi(roll.substr(0, 1)) : stoi(roll));
+            int currentRoll = stoi(string(1, input[i]) + string(1, input[i+1]));
             if(currentRoll < 10) {
                 score += currentRoll;
+                i += 2;
             } else {
-                int first = (input[i] == 'X') ? 10 : (input[i + 1] == '/') ? 10 - stoi(std::string(input.substr(i, 1))) : stoi(std::string(input.substr(i, 1)));
-                int second = (input[i + 1] == '/') ? 0 : ((input[i + 2] == 'X') ? 10 :stoi(std::string(input.substr(i+1, 1))));
+                int first = stoi(string(1, input[i]) + string(0));
+                int second = stoi(string(1, input[i+1]) + string(1, input[i+2]));
                 score += first + second;
+                i += 2;
             }
         }
     }
