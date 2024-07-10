@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <cctype>
@@ -37,10 +36,6 @@ vector<string> split_words(string txt) {
 }
 
 int main() {
-    assert(issame(split_words("")) == true);
-    vector<string> words = split_words("0,hello");
-    for (string s : words) {
-        cout << s << " ";
-    }
-    cout << endl;
+    assert(static_cast<bool>(issame(split_words(""))));
+    return 0;
 }
