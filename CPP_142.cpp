@@ -1,5 +1,6 @@
-```cpp
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 int sum_squares(vector<int> lst) {
@@ -15,27 +16,6 @@ int sum_squares(vector<int> lst) {
 }
 
 int main() {
-    vector<int> numbers;
-    numbers.push_back(-1);
-    numbers.push_back(-3);
-    numbers.push_back(17);
-    numbers.push_back(-1);
-    numbers.push_back(-15);
-    numbers.push_back(13);
-    numbers.push_back(-1);
-    numbers.push_back(14);
-    numbers.push_back(-14);
-    numbers.push_back(-12);
-    numbers.push_back(-5);
-    numbers.push_back(14);
-    numbers.push_back(-14);
-    numbers.push_back(6);
-    numbers.push_back(13);
-    numbers.push_back(11);
-    numbers.push_back(16);
-    numbers.push_back(16);
-    numbers.push_back(4);
-    numbers.push_back(10);
+    vector<int> numbers = {-1, -3, 17, -1, -15, 13, -1, 14, -14, -12, -5, 14, -14, 6, 13, 11, 16, 16, 4, 10};
     cout << sum_squares(numbers) << endl;
     return 0;
-}
