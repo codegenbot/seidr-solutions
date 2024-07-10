@@ -1,15 +1,23 @@
 def sort_third(l: list):
     if len(l) % 3 != 0:
-        l += [None] * ((len(l) + 2) // 3 * 3 - len(l)) + [None] * ((len(l) + 1) % 3)
-    l1 = sorted([x for i, x in enumerate(l) if i % 3 == 0])
-    l2 = [x for i, x in enumerate(l) if i % 3 == 1]
-    l3 = sorted([x for i, x in enumerate(l) if i % 3 == 2 and x is not None])
+        l += [None] * (3 - len(l) % 3)
+    first, middle, last = [], [], []
+    for i, x in enumerate(l):
+        if i % 3 == 0:
+            first.append(x)
+        elif i % 3 == 1:
+            middle.append(x)
+        else:
+            last.append(x)
 
-    return [
-        (
-            x
-            if i % 3 != 0
-            else (x if i % 3 == 1 else next((y for y in reversed(l3) if y > x), None))
-        )
-        for i, x in enumerate(l1 + l2 + list(reversed(l3)))
-    ]
+    first, last = sorted(first), sorted(last, reverse=True)
+    result = []
+    for i in range(len(l)):
+        if i % 3 == 0:
+            result.append(first.pop(0))
+        elif i % 3 == 1:
+            result.append(middle.pop(0))
+        else:
+            result.append(last.pop(0) or None)
+
+    return tuple(result)
