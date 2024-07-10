@@ -22,7 +22,14 @@ int main()
     std::vector<std::string> words;
     for (int i = 0; i < n; ++i) {
         std::string str;
-        std::getline(std::cin >> std::ws, str); 
+        std::getline(std::cin, str); 
+        size_t pos = str.find_first_not_of(' ');
+        if(pos != std::string::npos && pos < str.size()) { 
+            str.erase(0, pos); 
+        }
+        while (str.back() == ' ') {
+            str.pop_back();
+        }
         words.push_back(str);
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
