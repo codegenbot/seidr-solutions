@@ -10,7 +10,7 @@ int main() {
     
     double totalDistance = 2 * h0;
     for (int i = 2; i <= numBounces; ++i) {
-        totalDistance += h0 * (1 + bouncinessIndex);
+        totalDistance += (1 + bouncinessIndex) * h0;
         h0 *= bouncinessIndex;
     }
     
