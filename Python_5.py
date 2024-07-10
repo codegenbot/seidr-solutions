@@ -7,8 +7,13 @@ def intersperse(a, b):
             result.append(next(iter(a)))
             result.append(b)
     else:
-        for _ in range(len([b])):
-            result.extend([a])
+        length = max(len(list(a)), len(list(b)))
+        for _ in range(length):
+            result.append(a)
+            if isinstance(b, int):
+                result.append(b)
+            else:
+                result.append(next(iter(b)))
     return result
 
 list1 = [2]
