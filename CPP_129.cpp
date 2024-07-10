@@ -1,42 +1,50 @@
 #include <iostream>
 #include <vector>
+#include <queue>
+#include <algorithm>
+
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n, 0));
-    
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i == 0 && j == 0) {
-                dp[i][j] = grid[i][j];
-            } else if (i > 0) {
-                dp[i][j] = min({dp[i-1][j], dp[i][j-1], dp[i-1][j-1]}) + grid[i][j];
-            } else {
-                dp[i][j] = min({dp[i][j-1], dp[i-1][j]}) + grid[i][j];
+    vector<vector<int>> visited(n, vector<int>(n));
+    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
+    vector<int> res;
+
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (visited[i][j] == 0) {
+                pq.push({grid[i][j], {i, j}});
+                visited[i][j] = 1;
             }
         }
     }
-    
-    int res = INT_MAX;
-    vector<int> ans;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (dp[i][j] == dp[n-1][n-1]) {
-                int path_len = 0;
-                int curr_val = grid[i][j];
-                while (path_len < k) {
-                    ans.push_back(curr_val);
-                    if (i > 0 && dp[i-1][j] == dp[i][j]) i--;
-                    else if (j > 0 && dp[i][j-1] == dp[i][j]) j--;
-                    else i--, j--;
-                    curr_val = grid[i][j];
-                    path_len++;
+
+    while (!pq.empty()) {
+        int val = pq.top().first;
+        pair<int, int> pos = pq.top().second;
+        pq.pop();
+
+        res.push_back(val);
+
+        if (k > 0) {
+            --k;
+
+            // Explore neighbors
+            vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+            for (auto dir : directions) {
+                int x = pos.first + dir.first;
+                int y = pos.second + dir.second;
+
+                if (x >= 0 && x < n && y >= 0 && y < n && visited[x][y] == 0) {
+                    pq.push({grid[x][y], {x, y}});
+                    visited[x][y] = 1;
                 }
-                return ans;
             }
+        } else {
+            break;
         }
     }
-    
-    return {};
+
+    return res;
 }
