@@ -1,9 +1,8 @@
-import math
-
 def modp(n: int, p: int):
     if n == 0:
         return 0
-    elif math.gcd(n, p) != 1:
-        return None
+    elif p == 2:
+        return n
     else:
-        return pow(n, -1, p)
+        result = pow(n, p-1, p)
+        return n * result % p
