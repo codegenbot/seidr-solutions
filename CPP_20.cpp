@@ -1,9 +1,8 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(float const& a, float const& b) {
+bool issame(float a, float b) {
     return std::abs(a - b) < 0.001;
 }
 
@@ -17,7 +16,8 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
     return closest_pairs;
 }
 
-int main() { 
+int main() 
+{ 
     std::vector<float> numbers;
     float num;
     while (std::cin >> num) {
