@@ -1,9 +1,7 @@
-#include <cmath>
-
-double diceGame(int n, int m) {
-    double total = 0.0;
-    for (int i = 1; i < n; i++) {
-        total += pow(m, i) / (n * m);
-    }
-    return total;
+```
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(2) << probability(n, m) << endl;
+    return 0;
 }
