@@ -1,4 +1,10 @@
-int total = number + need;
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+std::vector<int> eat(int number, int need, int remaining) {
+    int total = number + need;
     int eaten = total > remaining ? remaining : total;
     int left = remaining - eaten;
     return {eaten, left};
