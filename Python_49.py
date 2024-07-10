@@ -1,10 +1,10 @@
 ```
+import random
+
+
 def modp(n: int, p: int):
-    if p == 2:
+    if p < 3:
         return False
-    for i in range(3, int(p**0.5) + 1):
-        if p % i == 0:
-            return False
     if pow(2, n - 1, p) == 1:
         return False
     for _ in range(p - 2):
