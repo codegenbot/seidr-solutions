@@ -1,4 +1,3 @@
-```
 int add_elements(std::vector<int> arr, int k) {
     if(k > arr.size()) {
         k = arr.size();
