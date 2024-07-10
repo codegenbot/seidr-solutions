@@ -1,33 +1,29 @@
 #include <map>
 #include <string>
+#include <sstream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
-std::string sort_numbers(std::string numbers){
-    std::map<std::string, int> num_map = {
-        {"zero", 0},
-        {"one", 1},
-        {"two", 2},
-        {"three", 3},
-        {"four", 4},
-        {"five", 5},
-        {"six", 6},
-        {"seven", 7},
-        {"eight", 8},
-        {"nine", 9}
-    };
+std::map<std::string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
 
-    std::map<int, std::string> rev_map;
-    for(auto const& pair : num_map){
-        rev_map[pair.second] = pair.first;
+std::string sort_numbers(std::string numbers) {
+    std::vector<std::string> num_strings;
+    std::stringstream ss(numbers);
+    std::string token;
+    
+    while (ss >> token) {
+        num_strings.push_back(token);
     }
     
-    std::string result = "";
-    size_t pos = 0;
-    while((pos = numbers.find(" ")) != std::string::npos){
-        std::string token = numbers.substr(0, pos);
-        numbers.erase(0, pos + 1);
-        result += rev_map[num_map[token]] + " ";
+    std::sort(num_strings.begin(), num_strings.end(), [&](const std::string &a, const std::string &b) {
+        return num_map[a] < num_map[b];
+    });
+    
+    std::string result;
+    for (const auto &num_str : num_strings) {
+        result += num_str + " ";
     }
-    result += rev_map[num_map[numbers]];
     
     return result;
 }
