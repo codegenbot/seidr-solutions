@@ -1,27 +1,22 @@
-#include <string>
 #include <sstream>
-
-using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    MD5_CTX md5;
-    unsigned char buffer[1024];
-    stringstream ss(text);
-    string chunk;
+    unsigned char md5[MD5_DIGEST_LENGTH];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const char *ptr = text.c_str();
+    while (*ptr) {
+        MD5_Update(&ctx, ptr, 1);
+        ptr++;
+    }
+    MD5_Final(md5, &ctx);
 
-    while (getline(ss, chunk)) {
-        MD5Update(&md5, (const unsigned char*)chunk.c_str(), chunk.size());
+    stringstream ss;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        ss << setfill('0') << setw(2) << hex << (int)md5[i];
     }
 
-    unsigned char result[16];
-    MD5Final(result, &md5);
-
-    ostringstream oss;
-    for (int i = 0; i < 16; ++i) {
-        oss << hex << setfill('0') << fixed << setw(2) << (int)result[i];
-    }
-
-    return oss.str();
+    return ss.str();
 }
