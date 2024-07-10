@@ -1,13 +1,14 @@
+```cpp
 #include <string>
 #include <iostream>
 #include <sstream>
 
-const char* miniRoman(int num) {
+std::string miniRoman(int num) {
     if (num == 9)
         return "IX";
     if (num >= 4) {
         if (num % 4 > 0)
-            return "IV" + std::string(1, 'I') + std::to_string(num - 4);
+            return "IV" + std::string(num - 4, 'I');
         else
             return "IV";
     } else {
@@ -62,5 +63,6 @@ int main() {
     std::cout << "Enter a number: ";
     std::cin >> num;
     std::cout << "The Roman numeral for " << num << " is " << int_to_roman(num) << std::endl;
+    assert (int_to_roman(1000) == "M");
     return 0;
 }
