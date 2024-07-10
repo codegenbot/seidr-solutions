@@ -3,10 +3,8 @@ def modp(n: int, p: int) -> int:
         return None
     elif p <= 0:
         return None
-    elif p == 1:
-        return n
     else:
         result = 1
-        for _ in range(1, p):  
+        for _ in range(2, p + 1):  
             result = (result * n) % p
         return result
