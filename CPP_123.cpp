@@ -3,10 +3,11 @@
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
+    if(a.size() != b.size())
+        return false;
+    for(int i=0; i<a.size(); i++)
+        if(a[i] != b[i])
+            return false;
     return true;
 }
 
@@ -30,11 +31,10 @@ int main() {
     int n;
     cout << "Enter a number: ";
     cin >> n;
-    vector<int> collatz = get_odd_collatz(n);
-    if (issame({n}, collatz)) {
-        cout << "The sequence is Collatz." << endl;
-    } else {
-        cout << "The sequence is not Collatz." << endl;
-    }
+    vector<int> res = get_odd_collatz(n);
+    if(issame({1}, res))
+        cout << "The Collatz sequence is odd." << endl;
+    else
+        cout << "The Collatz sequence contains even numbers." << endl;
     return 0;
 }
