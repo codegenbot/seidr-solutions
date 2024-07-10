@@ -1,3 +1,4 @@
+```
 #include <cmath>
 #include <cassert>
 
@@ -9,11 +10,18 @@ bool iscuber(int a){
         i++;
     }
     return false;
-
 }
 
 int main() {
     assert(iscuber(1728) == true);
     assert(iscuber(1729) == false);
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    if (iscuber(num)) {
+        std::cout << "The number is a perfect cube." << std::endl;
+    } else {
+        std::cout << "The number is not a perfect cube." << std::endl;
+    }
     return 0;
 }
