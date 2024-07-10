@@ -1,4 +1,3 @@
-```
 def encode(message):
     vowels = 'aeiouAEIOU'
     result_vowel_map = {0: 'o', 1: 'u', 2: 'a', 3: 'e', 4: 'i', 5: 'A', 6: 'U'}
