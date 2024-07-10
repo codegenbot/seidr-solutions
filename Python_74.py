@@ -8,13 +8,8 @@ def total_match(lst1, lst2):
     elif total_chars_lst1 > total_chars_lst2:
         return lst2
     else:
-        match_count = 0
-        for s1, s2 in zip(lst1, lst2):
-            if set(s1) == set(s2):
-                match_count += 1
-        if match_count == len(lst1):
-            return "Both lists are matches"
-        elif match_count > 0:
-            return f"{match_count} matching sets found"
+        matching_strings = [s for s in lst1 if s in lst2]
+        if len(matching_strings) > 0:
+            return matching_strings
         else:
-            return "No matching sets found"
+            return lst1
