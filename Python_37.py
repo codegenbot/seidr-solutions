@@ -1,11 +1,10 @@
-from itertools import zip_longest
-
 def sort_even(l: list):
     even = sorted([x for x in l if x % 2 == 0])
     odd = sorted([x for x in l if x % 2 != 0])
 
-    max_len = max(len(even), len(odd))
-    even += [0] * (max_len - len(even))
-    odd += [0] * (max_len - len(odd))
+    result = []
+    min_len = min(len(even), len(odd))
+    for i in range(min_len):
+        result.append((even[i], odd[i]))
 
-    return tuple(i for i in zip_longest(even, odd))
+    return tuple(result)
