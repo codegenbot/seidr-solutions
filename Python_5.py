@@ -1,11 +1,17 @@
-```
+```Python
+list1 = [1, 3]
+list2 = [2, 4]
+
 def intersperse(a, b):
-    result = [x for x in a]
-    while b:
-        result.insert(0, b.pop(0))
-        if len(b) % 2 == 1:
-            result.append(b.pop(0))
+    result = []
+    while any(x for x in (a, b)):
+        if a and (not b or len(result) % 2 == 0):
+            result.append(a.pop(0))
+        elif b:
+            result.append(b.pop(0))            
+        else:
+            result.extend(a)
+            break
     return result
 
-result = intersperse(list1 + list2)
-print(result)
+print(intersperse(list1, list2))
