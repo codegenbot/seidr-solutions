@@ -7,7 +7,6 @@ def all_prefixes(string: str) -> List[str]:
         result.append(string[:i])
     return result
 
-
 input_string = input("Please enter a string: ")
 result = all_prefixes(input_string)
 print(result)
