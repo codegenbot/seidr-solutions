@@ -1,3 +1,4 @@
+```
 #include <vector>
 
 int calculateFuelCost(vector<int> numbers) {
