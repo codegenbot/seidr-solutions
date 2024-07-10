@@ -1,12 +1,10 @@
 def luhn(card):
-    total = 0
-    for i, num in enumerate(reversed(str(card))):
+    card = [int(x) for x in card.split()]
+    new_card = []
+    for i, num in enumerate(card):
         if i % 2 == 1:
-            num = str(int(num) * 2)
-            if len(num) > 1:
-                total += int(num[0]) + int(num[1])
-            else:
-                total += int(num)
-        else:
-            total += int(num)
-    return total
+            num *= 2
+            if num > 9:
+                num -= 9
+        new_card.append(num)
+    return sum(new_card)
