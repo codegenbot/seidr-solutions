@@ -1,23 +1,23 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
 int main() {
     string input;
     getline(cin, input);
-
-    bool capitalizeNextChar = false;
-    for(char& c : input) {
-        if(c == ' ') {
-            capitalizeNextChar = true;
-        } else if(c == '-') {
-            capitalizeNextChar = true;
-            c = ' '; // Convert '-' to ' ' for camelCase
+    
+    bool isFirst = true;
+    for (char c : input) {
+        if (c == '-') {
+            isFirst = true;
+        } else if (isFirst) {
+            cout << (char)toupper(c);
+            isFirst = false;
         } else {
-            if(capitalizeNextChar && islower(c)) {
-                c = toupper(c);
-            }
-            capitalizeNextChar = false;
+            cout << c;
         }
     }
-
-    cout << input << endl;
-
+    
     return 0;
 }
