@@ -6,19 +6,15 @@ def find_pair():
         target = int(input())
         nums.sort()
         pairs = []
-        left, right = 0, len(nums) - 1
-        while left < right:
-            total = nums[left] + nums[right]
-            if total == target:
-                pairs.append((nums[left], nums[right]))
-                left += 1
-                right -= 1
-            elif total < target:
-                left += 1
-            else:
-                right -= 1
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    pair = (nums[i], nums[j])
+                    if pair not in pairs:
+                        pairs.append(pair)
         if not pairs:
             print(-1)
         else:
+            pairs.sort()
             for pair in pairs:
                 print(*pair)
