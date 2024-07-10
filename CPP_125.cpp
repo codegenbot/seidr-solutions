@@ -34,5 +34,5 @@ vector<string> split_words(const string& txt) {
 }
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin());
 }
