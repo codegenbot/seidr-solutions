@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 int findFirstNegativeIndex(const vector<int>& vec) {
@@ -8,7 +10,7 @@ int findFirstNegativeIndex(const vector<int>& vec) {
         if (sum < 0)
             return i;
     }
-    return -1; // or throw an exception, depending on your requirements
+    return -1;
 }
 
 int main() {
