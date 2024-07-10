@@ -4,14 +4,61 @@
 
 bool solveBoolean(std::string s) {
     bool result = true;
+    std::string boolStr;
+
     for (char c : s) {
-        if (c == 'T') {
-            result = true;
-        } else if (c == 'F') {
-            result = false;
+        if (c == '|') {
+            boolStr += "|";
+        } else if (c == '&') {
+            boolStr += "&";
+        } else if (c == 'T') {
+            boolStr += "T";
+        } else {
+            boolStr += "F";
         }
     }
-    return result;
+
+    bool temp = true;
+    int i = 0;
+    while (i < boolStr.size()) {
+        switch (boolStr[i]) {
+            case '|': {
+                bool subResult = true;
+                for (; i < boolStr.size(); ) {
+                    char c = boolStr[i];
+                    i++;
+                    if (c == 'F')
+                        subResult = false;
+                    else if (c != 'T' && c != '|')
+                        return false; // invalid expression
+                }
+                temp = subResult;
+                break; }
+            case '&': {
+                bool subResult = true;
+                for (; i < boolStr.size(); ) {
+                    char c = boolStr[i];
+                    i++;
+                    if ((c == 'F' && !subResult) || (c != 'T'))
+                        return false; 
+                    if (c == 'F')
+                        subResult = false;
+                }
+                temp = subResult;
+                break; }
+            case 'T':
+                i++;
+                break;
+            case 'F':
+                if (temp)
+                    temp = false;
+                else
+                    return false;
+                i++;
+                break;
+        }
+    }
+    return temp;
 }
 
 int main() {
