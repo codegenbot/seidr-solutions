@@ -1,3 +1,6 @@
+Here is the modified code with the necessary `#include` statement:
+
+```cpp
 #include <string>
 
 int mastermind(string code, string guess) {
@@ -20,5 +23,5 @@ int mastermind(string code, string guess) {
         white += min(count, black);
     }
 
-    return black;
+    return black + (4 - black);
 }
