@@ -1,5 +1,10 @@
-operations = list(map(int, input().split()))
 def below_zero(operations):
-    return sum(num < 0 for num in operations)
+    count = 0
+    for num in operations:
+        if num < 0:
+            count += 1
+    return count
 
-print(below_zero(operations))
+operations = list(map(int, input().strip().split()))
+result = below_zero(operations)
+print(result)
