@@ -8,14 +8,15 @@ int main() {
     int n;
     cin >> n;
     
-    vector<double> vec1(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec1[i];
-    }
+    double temp;
+    vector<double> vec1, vec2;
 
-    vector<double> vec2(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> vec2[i];
+    for (int i = 0; i < 2 * n; ++i) {
+        cin >> temp;
+        if (i < n)
+            vec1.push_back(temp);
+        else
+            vec2.push_back(temp);
     }
 
     double sum = 0;
