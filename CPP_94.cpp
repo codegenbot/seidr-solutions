@@ -1,5 +1,6 @@
-#include <initializer_list>
+```cpp
 #include <vector>
+#include <initializer_list>
 
 int skjkasdkd(const std::vector<int>& vec) {
     int sum = 0;
