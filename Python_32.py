@@ -1,6 +1,3 @@
-```
-import sys
-
 def find_zero(xs):
     n = len(xs)
     total_sum = sum(xs)
@@ -14,7 +11,12 @@ def find_zero(xs):
                 zero_combinations += 1
         return zero_combinations
 
-xs = list(map(int, sys.argv[1:]))
-if len(xs) % 2 != 0:
-    raise ValueError("xs must have even number of coefficients")
-print(find_zero(xs))
+while True:
+    try:
+        xs = [int(x) for x in input("Enter the coefficients: ").split()]
+        if len(xs) % 2 != 0:
+            raise ValueError("xs must have even number of coefficients")
+        print(find_zero(xs))
+        break
+    except ValueError as e:
+        print(str(e))
