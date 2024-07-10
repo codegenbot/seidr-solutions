@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 
@@ -35,10 +34,6 @@ int main() {
 
     std::vector<int> result = even_odd_palindrome(n);
 
-    if(result[0] == 0 && result[1] == 0) {
-        std::cout << "No palindromes found." << std::endl;
-    } else {
-        std::cout << "Number of even palindromes: " << result[0] << std::endl;
-        std::cout << "Number of odd palindromes: " << result[1] << std::endl;
-    }
+    std::cout << "Number of even palindromes: " << result[0] << std::endl;
+    std::cout << "Number of odd palindromes: " << result[1] << std::endl;
 }
