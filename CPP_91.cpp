@@ -1,17 +1,18 @@
 Here is the completed code:
 
-```cpp
-int is_bored(string S) {
+int is_bored(string S){
     int count = 0;
     string sentence;
-    for (char c : S) {
-        if (c == '.' || c == '?' || c == '!') {
-            if (sentence.find("I") != string::npos)
+    for(int i=0; i<S.length(); i++){
+        if(S[i] == '.' || S[i] == '?' || S[i] == '!'){
+            if(sentence.length() > 0 && sentence[0] == 'I')
                 count++;
             sentence = "";
-        } else {
-            sentence += c;
+        }else{
+            sentence += S[i];
         }
     }
+    if(sentence.length() > 0 && sentence[0] == 'I')
+        count++;
     return count;
 }
