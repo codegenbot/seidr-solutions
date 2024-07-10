@@ -11,5 +11,4 @@ def prime_fib(n):
                 return False
         return True
 
-    prime_fib_list = [num for num in fib_sequence if is_prime(num)]
-    return sum(prime_fib_list)
+    return sum(num for num in fib_sequence if is_prime(num))
