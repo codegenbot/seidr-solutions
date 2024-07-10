@@ -11,14 +11,14 @@ int calculateScore(const std::string& bowls) {
         
         if (bowl == 'X') {
             score += 10;
-            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (isdigit(bowls[bowlIndex + 1]) ? bowls[bowlIndex + 1] - '0' : 10);
-            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (isdigit(bowls[bowlIndex + 2]) ? bowls[bowlIndex + 2] - '0' : 10);
+            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (std::isdigit(bowls[bowlIndex + 1]) ? bowls[bowlIndex + 1] - '0' : 10);
+            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (std::isdigit(bowls[bowlIndex + 2]) ? bowls[bowlIndex + 2] - '0' : 10);
             bowlIndex++;
         } else if (bowl == '/') {
-            score += 10 - (isdigit(bowls[bowlIndex - 1]) ? bowls[bowlIndex - 1] - '0' : 0);
-            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (isdigit(bowls[bowlIndex + 1]) ? bowls[bowlIndex + 1] - '0' : 10);
+            score += 10 - (std::isdigit(bowls[bowlIndex - 1]) ? bowls[bowlIndex - 1] - '0' : 0);
+            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (std::isdigit(bowls[bowlIndex + 1]) ? bowls[bowlIndex + 1] - '0' : 10);
         } else {
-            score += (isdigit(bowl) ? bowl - '0' : 0);
+            score += (std::isdigit(bowl) ? bowl - '0' : 0);
         }
         
         if (bowl != 'X') {
