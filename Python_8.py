@@ -1,1 +1,1 @@
-numbers = [int(input(f"Enter number {i + 1}: ")) for i in range(5)]
+numbers = [int(input()) for _ in range(5)]
