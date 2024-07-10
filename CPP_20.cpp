@@ -1,3 +1,4 @@
+Here is the modified code:
 ```cpp
 #include <algorithm>
 #include <vector>
@@ -13,17 +14,29 @@ bool std::issame(std::vector<std::pair<float, float>> a, std::vector<std::pair<f
     return true;
 }
 
-int main() {
-    std::vector<float> numbers;
-    for (float num; std::cin >> num; ) {
-        numbers.push_back(num);
-    }
+std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
     std::sort(numbers.begin(), numbers.end());
-    auto closest_pair = std::make_pair(numbers[0], numbers[1]);
+    std::pair<float, float> closest_pair = std::make_pair(numbers[0], numbers[1]);
     for (int i = 1; i < numbers.size() - 1; ++i) {
         if (std::abs(numbers[i] - numbers[i + 1]) < std::abs(closest_pair.first - closest_pair.second)) {
             closest_pair = std::make_pair(numbers[i], numbers[i + 1]);
         }
     }
-    return {0, {{closest_pair.first, closest_pair.second}}};
+    return {{closest_pair.first, closest_pair.second}};
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<float> numbers(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> numbers[i];
+    }
+    
+    std::cout << "[";
+    for (auto p : find_closest_elements(numbers)) {
+        std::cout << "(" << p.first << "," << p.second << ") ";
+    }
+    std::cout << "]"<<std::endl;
+    return 0;
 }
