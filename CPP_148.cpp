@@ -29,3 +29,16 @@ vector<string> bf(string planet1, string planet2) {
 
     return result;
 };
+
+int main() {
+    string planet1, planet2;
+    cin >> planet1 >> planet2;
+
+    vector<string> result = bf(planet1, planet2);
+
+    for (const string& planet : result) {
+        cout << planet << " ";
+    }
+
+    return 0;
+}
