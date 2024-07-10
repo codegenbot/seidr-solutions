@@ -6,21 +6,17 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    int i = 0;
-    while(i < str.length()) {
+    for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
             result += str[i];
-            i++;
-        } else if (i + str.length() - i - 1 >= 5) {
+        } else if (i >= str.length() - 5) {
             for (int j = i; j >= std::max(0, i-5); j--) {
                 result += str[j];
             }
-            i += str.find(' ') == string::npos ? str.length() : str.find(' ');
         } else {
-            for (; i < std::min((int)str.length(), i+6); i++) {
-                result += str[i];
+            for (int j = i; j < std::min(i+6, str.length()); j++) {
+                result += str[j];
             }
-            i++;
         }
     }
     return result;
