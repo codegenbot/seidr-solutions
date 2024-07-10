@@ -1,5 +1,3 @@
-input_string = input()
-
 def decode_shift(input_string):
     decoded_message = ""
     for char in input_string:
@@ -11,3 +9,6 @@ def decode_shift(input_string):
             decoded_char = char
         decoded_message += decoded_char
     return decoded_message
+
+input_string = input()
+print(decode_shift(input_string))
