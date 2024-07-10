@@ -1,5 +1,6 @@
-def all_prefixes(string):
-    return [string[:i + 1] for i in range(len(string)]
+def all_prefixes(string: str) -> List[str]:
+    return [string[:i + 1] for i in range(len(string))]
 
-string = input()
-print(all_prefixes(string))
+input_string = input("Enter a string: ")
+result = all_prefixes(input_string)
+print(result)
