@@ -1,6 +1,7 @@
 #include <cassert>
 #include <any>
 #include <string>
+#include <string_view>
 
 std::any compare_one(std::string str, int num) {
     if (num == 1) {
@@ -10,6 +11,6 @@ std::any compare_one(std::string str, int num) {
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
+    assert(std::any_cast<std::string_view>(compare_one(std::string("1"), 1)) == "None");
     return 0;
 }
