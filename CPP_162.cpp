@@ -1,6 +1,3 @@
-#ifndef TEST
-#define TEST
-
 #include <openssl/evp.h>
 #include <string>
 #include <iostream>
@@ -12,7 +9,7 @@ std::string string_to_md5(const std::string& input) {
     unsigned char hash[EVP_MAX_MD_SIZE];
     unsigned int hash_len;
 
-    OPENSSL_init_crypto(OPENSSL_INIT_ADD_ALL_CIPHERS | OPENSSL_INIT_ADD_ALL_DIGESTS, NULL); // Initialize OpenSSL library
+    OpenSSL_add_all_algorithms(); // Initialize OpenSSL library
 
     md = EVP_md5();
     mdctx = EVP_MD_CTX_new();
@@ -28,5 +25,3 @@ std::string string_to_md5(const std::string& input) {
 
     return md5_hash;
 }
-
-#endif
