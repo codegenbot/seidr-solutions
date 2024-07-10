@@ -23,7 +23,7 @@ std::vector<float> sortEven(std::vector<float> l) {
     return result;
 }
 
-int main() 
+int main_function() 
 {
     std::vector<float> input;
     float num;
@@ -33,6 +33,9 @@ int main()
     std::vector<float> output = sortEven(input);
     for(float f : output) {
         std::cout << f << " ";
+    }
+    if (!isSame({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10})) {
+        std::cout << "Test failed";
     }
     return 0;
 }
