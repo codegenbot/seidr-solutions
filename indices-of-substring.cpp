@@ -3,9 +3,10 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    for (int i = 0; i <= text.size() - target.size(); i++) {
+    int len = target.size();
+    for (int i = 0; i <= text.size() - len; i++) {
         bool found = true;
-        for (int j = 0; j < target.size(); j++) {
+        for (int j = 0; j < len; j++) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
@@ -19,17 +20,12 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
+    int n;
+    cin >> n;
     string text;
-    cout << "Enter the text: ";
-    getline(cin, text);
-    
-    string target;
-    cout << "Enter the target substring: ";
-    getline(cin, target);
-
-    vector<int> indices = indicesOfSubstring(text, target);
-    for (int i : indices) {
-        cout << i << endl;
-    }
+    cin >> text;
+    vector<int> res = indicesOfSubstring(text, text.substr(0, 1));
+    for (int i:res) cout << i << " ";
+    cout << endl;
     return 0;
 }
