@@ -1,18 +1,13 @@
-#include <string>
-
 vector<string> by_length(vector<int> arr) {
-    vector<int> numArr;
+    vector<int> temp;
     for (int i : arr) {
         if (i >= 1 && i <= 9) {
-            numArr.push_back(i);
+            temp.push_back(i);
         }
     }
-
-    sort(numArr.begin(), numArr.end());
-    reverse(numArr.begin(), numArr.end());
-
+    sort(temp.begin(), temp.end());
     vector<string> result;
-    for (int i : numArr) {
+    for (int i : temp) {
         string str = "";
         switch (i) {
             case 1:
@@ -45,6 +40,6 @@ vector<string> by_length(vector<int> arr) {
         }
         result.push_back(str);
     }
-
+    reverse(result.begin(), result.end());
     return result;
 }
