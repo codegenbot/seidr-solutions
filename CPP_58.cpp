@@ -21,6 +21,6 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 int main() {
     vector<int> l1 = {4, 3, 2, 8};
     vector<int> l2 = {};
-    assert(issame(common(l1, l2), l2));
+    assert(equal(l1.begin(), l1.end(), l2.begin()));
     return 0;
 }
