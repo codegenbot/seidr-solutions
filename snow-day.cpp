@@ -7,7 +7,7 @@ int main() {
     cout << "Enter the number of hours: ";
     cin >> hours;  
 
-    double initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour; 
+    double initialSnow, rateOfSnowFall, proportionOfSnowMeltingPerHour, totalSnow;
     cout << "Enter the total amount of snow initially (in feet): ";
     cin >> initialSnow;
 
@@ -17,7 +17,7 @@ int main() {
     cout << "Enter the proportion of snow melting per hour: ";
     cin >> proportionOfSnowMeltingPerHour;
 
-    double totalSnow = initialSnow;  // Declare and initialize totalSnow
+    totalSnow = initialSnow;  // Add this line to set the initial totalSnow
 
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfSnowFall - proportionOfSnowMeltingPerHour * totalSnow;
