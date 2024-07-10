@@ -23,6 +23,11 @@ def prime_fib(n: int):
             count += 1
     return num
 
-n = int(input("Enter the value of n (integer >= 1): "))
-result = prime_fib(n)
-print(result)
+while True:
+    n = int(input("Enter the value of n: "))
+    if n > 0:
+        result = prime_fib(n)
+        print(result)
+        break
+    else:
+        print("The input value should be greater than 0.")
