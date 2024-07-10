@@ -1,5 +1,5 @@
 #include <cmath>
-#include <assert.h>
+#include <cassert>
 
 bool iscuber(int a){
     int i = 1;
