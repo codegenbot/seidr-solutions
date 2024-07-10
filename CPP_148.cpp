@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -9,7 +10,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(vector<string>{"Jupiter", "Makemake"}, vector<string>{}));
+    assert (issame(vector<string>{"Jupiter", "Makemake"}, vector<string>{"Pluto", "Eris"}));
     
     return 0;
 }
