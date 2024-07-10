@@ -11,7 +11,7 @@ def is_prime(num):
 def prime_fib(n):
     a, b = 1, 1
     count = 2
-    while count <= n:
+    while count < n:
         a, b = b, a + b
         if is_prime(b):
             count += 1
