@@ -15,10 +15,9 @@ int main() {
     std::vector<int> lst; 
     int num;
 
+    lst.reserve(100); // Initialize the vector's capacity
+
     while(std::cin >> num) { 
-        if(lst.size() >= (std::size_t)lst.capacity()) {
-            lst.reserve(lst.size() + 1);
-        }
         lst.push_back(num); 
     }
     int result = double_the_difference(lst); 
