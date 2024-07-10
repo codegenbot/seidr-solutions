@@ -1,6 +1,7 @@
+```
 def cut_vector(lst):
     avg = sum(lst) / len(lst)
-    min_diff = float("inf")
+    min_diff = float('inf')
     cut_index = 0
 
     for i in range(len(lst)):
