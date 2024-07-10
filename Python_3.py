@@ -1,12 +1,4 @@
-import sys
-
-def below_zero(operations: List[int]) -> bool:
-    balance = 0
-    for operation in operations:
-        balance += operation
-        if balance < 0:
-            return True
-    return False
-
-input_operations = list(map(int, sys.argv[1:]))
+input() # This will consume the first input which specifies the length of operations
+n = int(input())
+input_operations = list(map(int, input().split()))
 print(below_zero(input_operations))
