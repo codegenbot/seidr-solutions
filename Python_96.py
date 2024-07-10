@@ -14,6 +14,6 @@ def count_up_to(n):
         if is_prime(i):
             result.append(i)
             prime_count += 1
-        if len(result) >= n:
+        if prime_count >= n:
             break
     return result[:n]
