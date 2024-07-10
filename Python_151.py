@@ -1,3 +1,4 @@
+```
 def double_the_difference():
     n = int(input("Enter number of elements: "))
     numbers = [int(input(f"Enter element {i+1}: ")) for i in range(n)]
