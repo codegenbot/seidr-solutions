@@ -5,7 +5,7 @@ def main():
     print("Enter two integers separated by a space. Enter 'stop' to exit.")
     while True:
         try:
-            inputs = input().strip()
+            inputs = input()
             if inputs == 'stop':
                 break
             x, y = map(int, inputs.split())
