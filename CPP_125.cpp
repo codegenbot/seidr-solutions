@@ -1,26 +1,38 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0;
-    while ((pos = txt.find(' ')) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
+    size_t pos = 0, prevPos = 0;
+    
+    while ((pos = txt.find_first_of(" ,")) != string::npos) {
+        if (pos == 0) {
+            if (txt.find(',') == string::npos)
+                return {to_string(txt.length() - to_string((char)(97 + txt[0] % 26)).size())};
+            pos = txt.find(',');
+        }
+        
+        result.push_back(txt.substr(prevPos, pos - prevPos));
+        prevPos = pos + 1;
     }
-    if (txt.empty()) {
-        return result;
-    }
-    result.push_back(txt);
-    return result.size() == 1 ? vector<string>{to_string(count_lowercase_odd_order(txt))} : result;
+    
+    if (prevPos < txt.size())
+        result.push_back(txt.substr(prevPos));
+    
+    return result;
 }
 
-int count_lowercase_odd_order(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (islower(c)) {
-            count++;
-            if (count % 2 != 0) {
-                return count;
-            }
-        }
+int main() {
+    string txt;
+    cout << "Enter a string: ";
+    getline(cin, txt);
+    vector<string> res = split_words(txt);
+    for (const auto& str : res) {
+        cout << str << endl;
     }
-    return -1; // should not happen
+    return 0;
 }
