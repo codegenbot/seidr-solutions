@@ -1,5 +1,5 @@
 vector<float> sort_even(vector<float> l) {
-    vector<float> result;
+    vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             vector<float> evenVals;
@@ -9,9 +9,9 @@ vector<float> sort_even(vector<float> l) {
                 }
             }
             sort(evenVals.begin(), evenVals.end());
-            result.push_back(evenVals[0]);
+            result[i] = evenVals[0];
         } else {
-            result.push_back(l[i]);
+            result[i] = l[i];
         }
     }
     return result;
