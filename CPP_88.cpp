@@ -16,9 +16,9 @@ std::vector<int> sortArray(std::vector<int> array){
     int sum = array[0] + array[array.size() - 1];
     
     if(sum % 2 == 0){
-        std::sort(array.begin(), array.end(), std::greater<int>());
+        sort(array.begin(), array.end(), std::greater<int>());
     } else {
-        std::sort(array.begin(), array.end());
+        sort(array.begin(), array.end());
     }
     
     return array;
