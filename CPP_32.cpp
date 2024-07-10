@@ -18,7 +18,7 @@ double find_zero(const std::vector<double>& coefficients) {
 }
 
 int main() {
-    std::vector<double> coefficients = {1.0, -4.0, 4.0}; // Corrected namespace std::vector
+    std::vector<double> coefficients = {1.0, -4.0, 4.0};
 
     double solution;
     solution = find_zero(coefficients);
