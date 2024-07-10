@@ -13,23 +13,23 @@ float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
 
 int main() {
     int n;
-    if (!(cin >> n)) {
-        cerr << "Error reading the number of items" << endl;
+    if (!(cin >> n) || n <= 0) {
+        cout << "Invalid input for number of items";
         return 1;
     }
 
     vector<float> prices(n);
     for (int i = 0; i < n; ++i) {
-        if (!(cin >> prices[i])) {
-            cerr << "Error reading price for item " << i + 1 << endl;
+        if (!(cin >> prices[i]) || prices[i] < 0) {
+            cout << "Invalid input for price";
             return 1;
         }
     }
 
     vector<float> discounts(n);
     for (int i = 0; i < n; ++i) {
-        if (!(cin >> discounts[i])) {
-            cerr << "Error reading discount percentage for item " << i + 1 << endl;
+        if (!(cin >> discounts[i]) || discounts[i] < 0 || discounts[i] > 100) {
+            cout << "Invalid input for discount";
             return 1;
         }
     }
