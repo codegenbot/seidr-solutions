@@ -1,6 +1,7 @@
 def add(a: int, b: int) -> int:
     return a + b
 
+
 while True:
     try:
         a = int(input("Enter the first number: "))
@@ -9,7 +10,7 @@ while True:
         print(result)
         break
     except ValueError:
-        print("Please enter integers only")
+        print("Please enter integers only. Please re-enter the numbers.")
     except KeyboardInterrupt:
         print("\nProgram interrupted. Exiting.")
         break
