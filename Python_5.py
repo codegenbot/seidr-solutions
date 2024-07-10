@@ -1,13 +1,13 @@
 def intersperse(a, b):
-    result = [x for x in a]
-    while b:
-        result.insert(0, b.pop(0))
-        if len(b) % 2 == 1:
-            result.append(b.pop(0))
+    result = []
+    for i in range(len(a) + len(b)):
+        if i % 2 == 0:
+            result.append(a.pop(0) if i < len(a) else b.pop(0))
+        else:
+            result.append(a.pop(0) if i >= len(a) else b.pop(0))
     return result
 
-list1 = input("Enter list1 elements (space-separated): ").split()
-list2 = input("Enter list2 elements (space-separated): ").split()
-
+list1 = [1, 3, 5]
+list2 = ['a', 'b', 'c']
 result = intersperse(list1 + list2, [])
 print(result)
