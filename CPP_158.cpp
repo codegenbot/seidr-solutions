@@ -1,6 +1,4 @@
 ```cpp
-#include<iostream>
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -27,7 +25,7 @@ int main()
         std::getline(std::cin, str); 
         str.erase(0, str.find_first_not_of(' ')); 
         if (!str.empty()) { 
-            words.push_back(str.substr(0, str.find_first_of(' '))); 
+            words.push_back(str);
         }
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
