@@ -3,12 +3,9 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int n = text.length();
-    int m = target.length();
-
-    for (int i = 0; i <= n - m; i++) {
+    for (int i = 0; i <= text.length() - target.length(); i++) {
         bool match = true;
-        for (int j = 0; j < m; j++) {
+        for (int j = 0; j < target.length(); j++) {
             if (text[i + j] != target[j]) {
                 match = false;
                 break;
@@ -18,15 +15,12 @@ vector<int> indicesOfSubstring(string text, string target) {
             result.push_back(i);
         }
     }
-
     return result;
 }
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+long long gcd(long long a, long long b) {
+    if (b == 0)
+        return a;
+    else
+        return gcd(b, a % b);
 }
