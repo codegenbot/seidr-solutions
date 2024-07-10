@@ -17,7 +17,8 @@ int main() {
         totalDistance += pow(2, i) * bouncinessIndex + 1;
     }
 
-    cout << fixed << showpoint;
+    std::cout << std::fixed;
+    std::cout << std::setprecision(5);
     cout << totalDistance << endl;
 
     return 0;
