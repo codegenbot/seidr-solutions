@@ -2,7 +2,7 @@ from typing import List
 
 
 def get_all_prefixes(s: str) -> List[str]:
-    return [s[:i+1] for i in range(len(s))]
+    return [s[:i] for i in range(len(s))]
 
 
 def all_prefixes() -> None:
