@@ -1,5 +1,4 @@
-import math
-
-
 def car_race_collision(n: int):
-    return math.comb(n, 2)
+    if n <= 0:
+        raise ValueError("Input must be greater than 0")
+    return n * (n - 1) // 2
