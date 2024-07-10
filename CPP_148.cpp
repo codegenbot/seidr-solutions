@@ -1,14 +1,15 @@
 #include <iostream>
+#include <vector>
 #include <string>
 
 using namespace std;
 
-bool issame(string a, string b) {
-    if (a.length() != b.length()) {
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.length(); i++) {
-        if (tolower(a[i]) != tolower(b[i])) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -18,14 +19,21 @@ bool issame(string a, string b) {
 int main() {
     int num;
     cin >> num;
-    string str1, str2;
-    for (int i = 0; i < num; i++) {
-        cin >> str1 >> str2;
-        if (issame(str1, str2)) {
-            cout << "The strings are the same." << endl;
-        } else {
-            cout << "The strings are not the same." << endl;
+    if (num > 0) {
+        vector<string> a, b;
+        for (int i = 0; i < num; i++) {
+            string s1, s2;
+            cin >> s1 >> s2;
+            a.push_back(s1);
+            b.push_back(s2);
         }
+        if (issame(a, b)) {
+            cout << "The two lists are the same." << endl;
+        } else {
+            cout << "The two lists are not the same." << endl;
+        }
+    } else {
+        cout << "Error: Input number should be positive." << endl;
     }
     
     return 0;

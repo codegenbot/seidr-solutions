@@ -17,9 +17,7 @@ std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
         if (game[i] == guess[i]) {
             result.push_back(0);
         } else {
-            int diff = abs(game[i] - guess[i]);
-            // you can add any additional logic to handle the differences here
-            result.push_back(diff);
+            result.push_back(abs(game[i] - guess[i]));
         }
     }
     return result;
@@ -30,16 +28,22 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> game(n);
+    std::vector<int> game;
+    game.reserve(n);
     std::cout << "Enter the game numbers: ";
     for (int i = 0; i < n; i++) {
-        std::cin >> game[i];
+        int num;
+        std::cin >> num;
+        game.push_back(num);
     }
 
-    std::vector<int> guess(n);
+    std::vector<int> guess;
+    guess.reserve(n);
     std::cout << "Enter your guess: ";
     for (int i = 0; i < n; i++) {
-        std::cin >> guess[i];
+        int num;
+        std::cin >> num;
+        guess.push_back(num);
     }
 
     if (issame(game, guess)) {
