@@ -1,23 +1,23 @@
 string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
+    int digitCount = 0;
+    bool foundDot = false;
     for(int i=0; i<file_name.length(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-            if(digit_count > 3) return "No";
+        if(file_name[i] >= '0' && file_name[i] <= '9'){
+            digitCount++;
+            if(digitCount > 3) return "No";
         }
         else if(file_name[i] == '.'){
-            found_dot = true;
+            foundDot = true;
         }
-        else if(found_dot && (file_name[i] != ' ')) {
-            if(i==0 || !isalpha(file_name[i-1])){
-                return "No";
-            }
+        else if(!foundDot && !isalpha((unsigned char)file_name[i])){
+            return "No";
         }
     }
-    if(!found_dot) return "No";
-    size_t pos = file_name.find('.');
-    string ext = file_name.substr(pos+1);
-    if(ext!="txt" && ext!="exe" && ext!="dll") return "No";
-    return "Yes";
+    if(!foundDot) return "No";
+    string extension = file_name.substr(file_name.find('.')+1);
+    string allowedExtensions[] = {"txt", "exe", "dll"};
+    for(int i=0; i<3; i++){
+        if(extension == allowedExtensions[i]) return "Yes";
+    }
+    return "No";
 }
