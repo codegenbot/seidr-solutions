@@ -9,17 +9,9 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     for (int i = 0; i <= n - m + 1; ++i) {
-        bool found = true;
-        for (int j = 0; j < m; ++j) {
-            if (text[i+j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-
-        if (found) {
+        if (text.substr(i, m) == target) {
             result.push_back(i);
-            i += m - 1; // to avoid duplicate matches
+            i += m - 1; // adjust the starting position for next loop iteration
         }
     }
 
