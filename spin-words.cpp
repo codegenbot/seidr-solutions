@@ -1,35 +1,36 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    int wordLength;
-    std::string word;
+std::string spinWords(const std::string& input) {
+    std::string output = "";
+    std::vector<std::string> words;
+    size_t start = 0;
 
-    for (int i = 0; i <= str.length(); i++) {
-        if (i == str.length() || str[i + 1] != ' ') {
-            word += str[i];
-            wordLength = word.length();
-            if (wordLength >= 5) {
-                std::string reversedWord = "";
-                for (int j = wordLength - 1; j >= 0; j--) {
-                    reversedWord += word[j];
-                }
-                result += reversedWord + " ";
-            } else {
-                result += word + " ";
+    for (size_t i = 0; i <= input.size(); ++i) {
+        if (i == input.size() || input[i] == ' ') {
+            string word = input.substr(start, i - start);
+            if (word.size() >= 5) {
+                reverse(word.begin(), word.end());
             }
-            word.clear();
+            words.push_back(word);
+            start = i + 1;
         }
     }
 
-    return result.substr(0, result.length() - 1);
+    for (const auto& word : words) {
+        output += word + " ";
+    }
+
+    return output.substr(0, output.size() - 1); // remove the trailing space
 }
 
 int main() {
-    std::string str;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, str);
-    std::cout << spinWords(str) << std::endl;
+    std::string input;
+    while (true) {
+        std::cout << "Enter a string: ";
+        std::getline(std::cin, input);
+        if (input == "exit") break;
+        std::cout << "Spin words: " << spinWords(input) << std::endl;
+    }
     return 0;
 }
