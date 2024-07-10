@@ -1,3 +1,6 @@
+Here is the corrected Python code for the `encode` function:
+
+```
 def encode(message):
     result = ""
     for char in message:
@@ -5,8 +8,10 @@ def encode(message):
             if char.isupper():
                 if char == 'X' or char == 'x':
                     result += 'A'
+                elif char == 'Y' or char == 'y':
+                    result += 'B'
                 else:
-                    result += chr(ord(char) + 1)
+                    result += chr(ord(char.lower()) + 1).upper()
             else:
                 if char in ['a', 'e', 'i', 'o', 'u']:
                     if char == 'a':
