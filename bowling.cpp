@@ -1,9 +1,7 @@
-#include <iostream>
 #include <string>
-
 using namespace std;
 
-int bowlingScore(string input) {
+int bowlingScore(std::string input) {
     int score = 0;
     int i = 0;
     while(i < input.length()) {
