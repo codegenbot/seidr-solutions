@@ -1,10 +1,11 @@
+```
 #include <cmath>
 #include <iostream>
 #include <string>
 
 bool is_simple_power(int x, int n);
 
-bool is_simple_power(int x, int n) {
+bool is_simple_power(int x, int int) {
     double y = pow(n, log(x) / log(n));
     return (y == x);
 }

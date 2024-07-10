@@ -22,8 +22,9 @@ int main() {
             std::cout << "Enter value " << (i+1) << ": ";
             if (!(std::cin >> num)) {
                 std::cout << "Invalid input." << std::endl;
+                // Clear the input buffer
                 std::cin.clear();
-                std::cin.ignore(INT_MAX, '\n');
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 return 1;
             }
             v1.push_back(num);
@@ -37,8 +38,9 @@ int main() {
             std::cout << "Enter value " << (i+1) << ": ";
             if (!(std::cin >> num)) {
                 std::cout << "Invalid input." << std::endl;
+                // Clear the input buffer
                 std::cin.clear();
-                std::cin.ignore(INT_MAX, '\n');
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 return 1;
             }
             v2.push_back(num);
