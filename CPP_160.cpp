@@ -1,82 +1,10 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <limits>
-#include <cmath>
 #include <cctype>
-
-using namespace std;
-
-long long eval(const char *p) {
-    return eval(p, 0);
-}
-
-long long eval(const char *p, long long y) {
-    while (*p) {
-        if (isdigit(*p)) {
-            p++;
-            continue;
-        }
-        if (*p == ' ') {
-            p++;
-            continue;
-        }
-        if (*p == '+') {
-            p++;
-            if (*p == 'y') {
-                y++;
-                p += 2;
-                continue;
-            }
-            p++;
-            continue;
-        }
-        if (*p == '-') {
-            p++;
-            if (*p == 'y') {
-                y--;
-                p += 2;
-                continue;
-            }
-            p++;
-            continue;
-        }
-        if (*p == '*') {
-            int x = 1;
-            while (isdigit(*p)) {
-                x = x * (int)(*p - '0');
-                p++;
-            }
-            y *= x;
-            p += (int)strlen(p);
-            continue;
-        }
-        if (*p == '/') {
-            int x = 1;
-            while (isdigit(*p)) {
-                x = x * (int)(*p - '0');
-                p++;
-            }
-            if (x != 0)
-                y /= x;
-            else
-                return numeric_limits<long long>::max();
-            p += (int)strlen(p);
-            continue;
-        }
-        if (*p == '^') {
-            int x = 1;
-            while (isdigit(*p)) {
-                x = x * (int)(*p - '0');
-                p++;
-            }
-            y = pow(y, x);
-            p += (int)strlen(p);
-            continue;
-        }
-    }
-    return y;
-}
+#include <cstdlib>  
+#include <cmath>   
+#include <cstring>
 
 int do_algebra(vector<string> operator_, vector<int> operand) {
     int result = 0;
@@ -102,4 +30,75 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
     result = eval(expression.c_str());
     
     return result;
+}
+
+long long eval(const char *p) {
+    return eval(p, 0);
+}
+
+long long eval(const char *p, long long y) {
+    while (*p) {
+        if (isdigit(*p)) {
+            p += 1;
+            continue;
+        }
+        if (*p == ' ') {
+            p += 1;
+            continue;
+        }
+        if (*p == '+') {
+            p = p + 1;
+            if (*p == 'y') {
+                y++;
+                p = p + 2;
+                continue;
+            }
+            p = p + 1;
+            continue;
+        }
+        if (*p == '-') {
+            p = p + 1;
+            if (*p == 'y') {
+                y--;
+                p = p + 2;
+                continue;
+            }
+            p = p + 1;
+            continue;
+        }
+        if (*p == '*') {
+            p = p + 1;
+            while (isdigit(*p)) {
+                p++;
+            }
+            int x = atoi(p - 1);
+            y *= x;
+            p = p + strlen(p);
+            continue;
+        }
+        if (*p == '/') {
+            p = p + 1;
+            while (isdigit(*p)) {
+                p++;
+            }
+            int x = atoi(p - 1);
+            if (x != 0)
+                y /= x;
+            else
+                return LLONG_MAX;
+            p = p + strlen(p);
+            continue;
+        }
+        if (*p == '^') {
+            p = p + 1;
+            while (isdigit(*p)) {
+                p++;
+            }
+            int x = atoi(p - 1);
+            y = pow(y, x);
+            p = p + strlen(p);
+            continue;
+        }
+    }
+    return y;
 }
