@@ -1,6 +1,17 @@
-Here is the solution:
+#include <iostream>
+using namespace std;
 
 double probability(int n, int m) {
-    double total = (n + m);
-    return (m - 1.0) / total;
+    double p = 0;
+    for (int i = m + 1; i <= n; i++) {
+        p += 1.0 / n;
+    }
+    return p;
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << fixed << setprecision(6) << probability(n, m);
+    return 0;
 }
