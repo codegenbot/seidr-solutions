@@ -1,7 +1,8 @@
-```cpp
+```c++
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -54,3 +55,4 @@ int main() {
         cout << str << endl;
     }
     return 0;
+}
