@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -10,4 +11,9 @@ std::vector<int> generate_integers(int start, int end) {
         result.push_back(i);
     }
     return result;
+}
+
+int main() {
+    // Test your functions here
+    return 0;
 }
