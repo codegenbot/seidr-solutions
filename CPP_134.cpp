@@ -1,10 +1,9 @@
 #include <string>
 #include <cassert>
 
-// Fix condition for checking if the last character is a letter and the character before it is a space.
 bool check_if_last_char_is_a_letter(const std::string &txt) {
     if(txt.empty()) return false;
-    if(isalpha(txt.back()) && txt.size() >= 2 && txt[txt.size()-2] == ' ') {
+    if(isalpha(txt.back()) && txt.size() >= 2 && (txt.size() == 1 || txt[txt.size()-2] == ' ')) {
         return true;
     }
     return false;
