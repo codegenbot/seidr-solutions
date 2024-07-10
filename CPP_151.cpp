@@ -1,8 +1,9 @@
+```
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::pair<std::vector<double>, double> double_the_difference() {
+std::vector<double> double_the_difference() {
     std::vector<double> lst;
     double odd_sum = 0;
 
@@ -21,14 +22,13 @@ std::pair<std::vector<double>, double> double_the_difference() {
 }
 
 int main() {
-    auto [numbers, sum] = double_the_difference();
+    std::vector<std::pair<double, double>> output = double_the_difference();
 
     std::cout << "The numbers that are different from 5 by an odd number: ";
-    for (double x : numbers) {
+    for (double x : output.first) {
         std::cout << x << " ";
     }
     std::cout << std::endl;
 
-    std::cout << "The sum of the differences is: " << sum << std::endl;
     return 0;
 }
