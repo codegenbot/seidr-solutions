@@ -1,6 +1,7 @@
 ```cpp
 #include <cmath>
 #include <vector>
+#include <initializer_list>
 
 double calculateDistance(const std::vector<float>& vector1, const std::vector<float>& vector2) {
     double sum = 0;
