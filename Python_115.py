@@ -1,2 +1,5 @@
+Here is the solution:
+
 def max_fill(grid, capacity):
-    return math.ceil(sum(sum(row) for row in grid) / float(capacity))
+    total_water = sum(sum(row) for row in grid)
+    return math.ceil(total_water / capacity) if total_water > 0 else 0
