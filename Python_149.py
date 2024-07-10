@@ -7,14 +7,14 @@ def main():
                 .replace(" ", "")
                 .split()
             )
-            break
+            if len(lst) > 0:
+                break
         except Exception as e:
             print(f"Error: {str(e)}")
             continue
 
     if len(lst) > 0:
-        even_word_sum = sum(len(word) for word in lst if len(word) % 2 == 0)
-        print(even_word_sum)
+        print(sum(len(word) for word in lst if len(word) % 2 == 0))
     else:
         print("Please enter at least one word.")
 
