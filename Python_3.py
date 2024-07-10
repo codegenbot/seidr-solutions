@@ -1,1 +1,3 @@
-n = list(map(int, input("Enter the values of n separated by spaces: ").split()))
+import sys
+
+n = int(sys.stdin.readline())
