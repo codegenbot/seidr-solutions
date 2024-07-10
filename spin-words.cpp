@@ -11,16 +11,16 @@ string spinWords(string str) {
         if (str[i] == ' ') {
             result += str[i];
             i++;
-        } else if (i + strlen(&str[i]) >= 5) {
-            for (int j = i + strlen(&str[i]) - 1; j >= i; j--) {
+        } else if (i >= str.length() - 5) {
+            for (int j = i; j >= max(0, i-5); j--) {
                 result += str[j];
             }
-            i += strlen(&str[i]);
+            i++;
         } else {
-            for (int j = i; j < min(i+6, (int)str.length()); j++) {
-                result += str[j];
+            for (int k = i; k < std::min((int)str.length(), i+6); k++) {
+                result += str[k];
             }
-            i += min(i+6, (int)str.length()) - i;
+            i += min((int)str.length(), i+6) - 1;
         }
     }
     return result;
