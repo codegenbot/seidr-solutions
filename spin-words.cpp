@@ -10,11 +10,11 @@ int main() {
     getline(cin, input);
     
     string word, result;
-    istringstream iss(input);
+    stringstream iss(input);
     
     while (iss >> word) {
-        if (word.length() >= 5) {
-            reverse(word.begin(), word.end());
+        if (word.size() >= 5) {
+            reverse(word.begin() + 1, word.end() - 1);
         }
         result += word + " ";
     }
