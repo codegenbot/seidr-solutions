@@ -1,12 +1,11 @@
-```
-def move_one_ball(arr):
-    if len(arr) == 0:
+def move_one_ball():
+    num = input()
+    if len(str(num)) == 0:
         return True
-    left = 1
-    for i in range(1, len(arr)):
-        if arr[i-1] > arr[i]:
-            left = i
-            break
-    for _ in range(left):
-        arr.append(arr.pop(0))
-    return all(arr[i] <= arr[i+1] for i in range(len(arr)-1))
+    
+    max_val = int(max(str(num)))
+    
+    for i in range(len(str(num))):
+        if int(str(num)[i]) > max_val - len(str(num)) + i:
+            return False
+    return True
