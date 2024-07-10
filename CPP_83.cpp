@@ -9,7 +9,7 @@ int starts_one_ends(int n) {
             count++;
         }
         for (int j = 1; j < n - 1; j++) {
-            int num = i * pow(10, j - 1) + j % 10;
+            int num = i * pow(10, j) + (i % 10);
             if (num >= 1 && num <= 9) {
                 count++;
             }
