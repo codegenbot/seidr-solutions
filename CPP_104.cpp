@@ -1,5 +1,6 @@
 #include <vector>
-vector<int> removeNumbersWithEvenDigits(vector<int> x) {
+
+vector<int> removeNumbersWithEvenDigits(vector<int>& x) {
     vector<int> result;
     for (int num : x) {
         int temp = num;
