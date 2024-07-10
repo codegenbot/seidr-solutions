@@ -1,9 +1,19 @@
-int main() {
-    std::vector<int> lst = {127, 97, 8192}; 
+```cpp
+#include <vector>
+#include <initializer_list>
+#include <iostream>
+
+int skjkasdkd(const std::vector<int>& vec) {
     int sum = 0;
-    for(int num : lst) {
-        sum += num; 
+    for (const auto& num : vec) {
+        sum += num;
     }
-    std::cout << "The sum is: " << sum << std::endl; 
+    return sum;
+}
+
+int main() {
+    std::vector<int> lst({127, 97, 8192}); 
+    int result = skjkasdkd(lst); 
+    std::cout << "The sum is: " << result << std::endl; 
     return 0;
 }
