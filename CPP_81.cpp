@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -36,7 +37,11 @@ int main() {
         throw std::runtime_error("Invalid GPA");
     }
     
-    std::string grade = numerical_letter_grade(credits, gpa);
-    assert({grade} == {"A", "B+"});
+    try {
+        assert(numerical_letter_grade(0, 0.7) == "F"); 
+    } catch (const std::runtime_error& e) {
+        std::cerr << e.what() << std::endl;
+    }
+
     return 0;
 }
