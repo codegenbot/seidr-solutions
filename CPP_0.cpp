@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 
@@ -16,13 +16,15 @@ int main() {
     vector<float> a;
     float threshold;
 
-    cout << "Enter the elements of the vector (space-separated): ";
-    for(int i = 0; ;i++) {
-        float x;
-        cin >> x;
-        if(cin.peek() == EOF) break;
+    cout << "Enter the elements of the vector (space-separated, type 'stop' when done): ";
+    string input;
+    float x;
+    while (true) { 
+        cin >> x; 
+        if(input == "stop") break;
         a.push_back(x);
     }
+    cin.ignore(); 
 
     cout << "Enter the threshold: ";
     cin >> threshold;
