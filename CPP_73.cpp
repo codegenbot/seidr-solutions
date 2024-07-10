@@ -13,30 +13,31 @@ int smallest_change(std::vector<int> arr) {
         }
     }
     
-    std::vector<int> dp(n - m + 2); // Declare dp before using it
-    dp[0] = 0; 
+    std::vector<int> dp(n-m-1);  
+    for (int i = 0; i < n-m-1; i++) {
+        dp[i] = INT_MAX;
+    }
+    int smallest = INT_MAX;
 
-    for (int length = 1; length <= n; length++) {
+    for (int length = 2; length <= n; length++) {
         for (int i = 0; i < n - length + 1; i++) {
                 int j = i + length - 1;
                 
                 if (arr[i] == arr[j]) {
-                    dp[length] = dp[length-1];
+                    dp[length-1] = dp[length-2];
                 } else {
-                    int min_left = (i < n-length) ? dp[length-1] : INT_MAX;
-                    int min_right = (j > length-1) ? dp[length-1] : INT_MAX;
-                    dp[length] = 1 + (arr[i] == arr[j]) ? dp[length-1] : std::min(min_left, min_right);
+                    int min_left = (i < n-length) ? dp[length-2] : INT_MAX;
+                    int min_right = (j > length-1) ? dp[length-2] : INT_MAX;
+                    dp[length-1] = 1 + (arr[i] == arr[j]) ? dp[length-2] : std::min(min_left, min_right);
                 }
             }
 
-        if (dp[m-1] < INT_MAX) {
-            return dp[m-1];
-        } else {
-            return INT_MAX;
+        if (dp[m-1] < smallest) {
+            smallest = dp[m-1];
         }
     }
     
-    return INT_MAX;
+    return smallest;
 }
 
 int main() {
