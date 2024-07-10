@@ -1,7 +1,7 @@
+```
 #include <vector>
 #include <set>
 #include <string>
-
 using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
