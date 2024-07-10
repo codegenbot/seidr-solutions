@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 #include <algorithm>
@@ -19,7 +18,7 @@ std::string solve(std::string s) {
     return result.empty() ? string(s.rbegin(),s.end()) : result;
 }
 
-int main() {
+int mainFunc() {
     cout << "Enter a string: ";
     std::string s;
     getline(cin, s);  
