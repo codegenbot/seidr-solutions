@@ -2,13 +2,13 @@
 #include <iostream>
 #include <string>
 
-std::string romanMap[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+std::string romanMap[13] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
-long int_to_roman(long number) {
+std::string int_to_roman(int number) {
     std::string roman = "";
-    for (const auto& str : romanMap) {
-        while (number >= 4000) {
-            number -= 4000;
+    for (int i = 0; i < 13; ++i) {
+        while (number >= 1000) {
+            number -= 1000;
             roman += "M";
         }
         if (number >= 900) {
@@ -53,12 +53,12 @@ long int_to_roman(long number) {
             roman += "I";
         }
     }
-    return number;
+    return roman;
 }
 
 int main() { 
-    long num; 
+    int num; 
     std::cout << "Enter a number: ";
     std::cin >> num;
-    std::cout << "The Roman numeral is: " << int_to_roman(num) << std::endl << std::flush;
+    std::cout << "The Roman numeral is: " << int_to_roman(num) << std::endl;
 }

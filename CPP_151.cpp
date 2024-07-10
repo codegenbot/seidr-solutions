@@ -1,18 +1,5 @@
-```cpp
-#include <iostream>
-#include <vector>
-
-int double_the_difference(const std::vector<int>& lst) {
-    int result = 0;
-    for (const auto& num : lst) {
-        if (num % 2 != 0) {
-            result += num * num; // calculate the square of each odd number
-        }
-    }
-    return result;
-}
-
-int main() {
+void calculate_odd_sum() {
+    int num;
     std::vector<int> lst; 
     int odd_sum = 0; 
 
@@ -22,8 +9,9 @@ int main() {
             odd_sum += num;
         }
     }
-    int result = double_the_difference(lst); 
+    int result = double_the_difference(lst, odd_sum); 
     std::cout << "The sum of squares of odd numbers is: " << result << std::endl;
-    assert(result == odd_sum);
+}
 
-    return 0;
+int double_the_difference(const std::vector<int>& lst, int odd_sum) {
+    return (lst.size() * odd_sum - 2*std::accumulate(lst.begin(), lst.end(), 0)) / 2;

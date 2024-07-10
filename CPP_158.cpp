@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -22,11 +21,11 @@ int main() {
     for (int i = 0; i < n; ++i) {
         std::string str;
         getline(std::cin, str); 
+        str.erase(0, str.find_first_not_of(' ')); 
+        str.pop_back(); 
         if (str.find_first_not_of(' ') == std::string::npos) {
             words.push_back(str);
         } else {
-            str.erase(0, str.find_first_not_of(' ')); 
-            str.erase(str.find_last_not_of(' ') + 1);
             words.push_back(str);
         }
     }
