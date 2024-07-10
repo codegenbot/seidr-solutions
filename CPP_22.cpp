@@ -7,21 +7,22 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> filter_integer(std::vector<int> values) {
-    std::vector<int> result; 
+    std::queue<int> result; 
     bool isFirst = true;
     for (int value : values) {
-        if(value != 0) {
-            if (!isFirst) {
-                result.push_back(value);
-            } else {
-                result.push_back(value);
-                isFirst = false; // Reset here to avoid exceeding maximum size.
-            }
-        } else {
-            isFirst = true;
+        if(value != 0 && !isFirst) {
+            result.push(value);
+        } else if(value != 0) {
+            result.push(value);
+            isFirst = true; // Reset here to avoid exceeding maximum size.
         }
     }
-    return result;
+    std::vector<int> filtered;
+    while (!result.empty()) {
+        filtered.push_back(result.front());
+        result.pop();
+    }
+    return filtered;
 }
 
 int main() {
