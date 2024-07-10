@@ -18,7 +18,7 @@ std::pair<int, int> even_odd_palindrome(int n) {
     return std::make_pair(even, odd);
 }
 
-std::pair<int, int> userInput() {
+std::pair<int, int> user_input() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
@@ -30,12 +30,11 @@ std::pair<int, int> userInput() {
 }
 
 int reverse(int n) {
-    int rev = 0;
-    std::string strRev = "";
+    std::string rev = "";
     while (n != 0) {
         int remainder = n % 10;
-        strRev += std::to_string(remainder);
+        rev.push_back((char)(remainder + '0'));
         n /= 10;
     }
-    return std::stoi(strRev); 
+    return std::stoi(rev);
 }
