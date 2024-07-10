@@ -1,18 +1,26 @@
+#include <iostream>
 #include <unordered_map>
 
-std::unordered_map<int, int> memo;
-
 int fib(int n) {
+    if (n < 0) {
+        return -1; // Error code for invalid input
+    }
+
+    if (n == 0) {
+        return 0; // Base case for fib(0)
+    }
+
+    if (n == 1) {
+        return 1; // Base case for fib(1)
+    }
+
+    static std::unordered_map<int, int> memo;
+
     if (memo.find(n) != memo.end()) {
         return memo[n];
     }
-    
-    if (n <= 1) {
-        return n;
-    }
-    
+
     int result = fib(n - 1) + fib(n - 2);
     memo[n] = result;
-    
     return result;
 }
