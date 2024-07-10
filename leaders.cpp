@@ -14,6 +14,7 @@ std::vector<int> leaders(std::vector<int>& arr) {
         res.push_back(arr[i]);
     }
     
+    res.push_back(arr[n-1]); // the rightmost element is always a leader
     return res;
 }
 
