@@ -1,4 +1,7 @@
 ```
+def modp(num, p):
+    return num ** p % p
+
 def main():
     while True:
         num = input("Enter a number: ")
@@ -24,7 +27,3 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
-
-
-def modp(num, p):
-    return num ** p % p
