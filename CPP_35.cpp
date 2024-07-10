@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -5,14 +6,19 @@
 
 int main() {
     std::vector<int> l;
-    int maxVal = 0;
-
-    // Read input from user...
-    for (int i; std::cin >> i;) {
-        l.push_back(i);
-        if (i > maxVal) maxVal = i;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i = 0; i<n; i++) {
+        int x;
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> x;
+        l.push_back(x);
     }
-
-    // Return the maximum value in the vector
-    return maxVal;
+    if(l.empty()) {
+        std::cout << "No elements entered." << std::endl;
+    } else {
+        std::cout << "The maximum element is: " << *std::max_element(l.begin(), l.end()) << std::endl;
+    }
+    return 0;
 }
