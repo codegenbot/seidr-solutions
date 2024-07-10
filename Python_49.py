@@ -1,4 +1,3 @@
-```
 def is_prime(n):
     if n < 2:
         return False
@@ -32,6 +31,13 @@ def main():
             print("Invalid input. Please enter numbers.")
 
     if is_prime(p):
-        print(f"{num} to the power of {p} mod {p} is {modp(num, p)}")
+        n = num**p
+        result = modp(n, p)
+        print(f"{num} to the power of {p} mod {p} is {result}")
     else:
         print("The given prime number is not valid. Please enter a prime number.")
+    pass
+
+
+if __name__ == "__main__":
+    main()
