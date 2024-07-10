@@ -1,2 +1,2 @@
 def cycpattern_check(a, b):
-    return b in (a + a) or b[::-1] in (a + a)
+    return any(b in a[i:] + a[:i] for i in range(len(a)))
