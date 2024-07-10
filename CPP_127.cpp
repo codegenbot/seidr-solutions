@@ -1,9 +1,9 @@
-int intersection(std::vector<int> interval1, std::vector<int> interval2) {
+int intersection(vector<int> interval1, vector<int> interval2) {
     int start = max(interval1[0], interval2[0]);
     int end = min(interval1[1], interval2[1]);
 
     if (start > end)
-        return 1;
+        return 0;
 
     int length = end - start + 1;
 
@@ -15,5 +15,5 @@ int intersection(std::vector<int> interval1, std::vector<int> interval2) {
         }
     }
 
-    return isPrime ? 0 : 1;
+    return isPrime ? 1 : 0;
 }
