@@ -1,14 +1,10 @@
 def fizz_buzz(x):
-    if x % 3 == 0 and x % 5 == 0:
+    s = str(x)
+    if s.startswith("Fizz") and s.startswith("Buzz"):
         return "FizzBuzz"
-    elif x % 3 == 0:
+    elif s.startswith("Fizz"):
         return "Fizz"
-    elif x % 5 == 0:
+    elif s.startswith("Buzz"):
         return "Buzz"
     else:
-        str_x = str(x)
-        if str_x.startswith('Fizz'):
-            return 'Fizz'
-        if str_x.startswith('Buzz'):
-            return 'Buzz'
-        return str_x
+        return s
