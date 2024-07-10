@@ -1,9 +1,9 @@
-string num = to_string(x);
-    int n = num.size();
+string num_str = to_string(x);
+    int n = num_str.size();
     shift %= n;
     if (shift == 0) {
-        return num;
+        return num_str;
     }
-    string result = num.substr(n - shift) + num.substr(0, n - shift);
+    string result = num_str.substr(n - shift) + num_str.substr(0, n - shift);
     return result;
 }
