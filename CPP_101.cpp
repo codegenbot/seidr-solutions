@@ -20,9 +20,3 @@ vector<string> words_string(string s) {
 void test_words_string() {
     assert(words_string("ahmed     , gamal") == vector<string>{"ahmed", "gamal"});
 }
-
-int main() {
-    test_words_string();
-    
-    return 0;
-}
