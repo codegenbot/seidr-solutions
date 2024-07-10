@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <cmath>
 #include <cassert>
+#include <string>
 
 float triangle_area(int a, int int b, int c) {
     float s = (a + b + c) / 2;
@@ -10,14 +10,16 @@ float triangle_area(int a, int int b, int c) {
 
 int main() {
     std::cout << "Enter sides of triangle: ";
-    int side1, side2, side3;
-    std::cin >> side1 >> std::ws >> std::string(). >> side2 >> std::ws >> std::ignore >> std::string(). >> side3 >> std::ws >> std::ignore;
+    std::string side1Str, side2Str, side3Str;
+    std::getline(std::cin, side1Str);
+    std::getline(std::cin, side2Str);
+    std::getline(std::cin, side3Str);
 
-    float s1 = static_cast<float>(side1);
-    float s2 = static_cast<float>(side2);
-    float s3 = static_cast<float>(side3);
+    int side1 = std::stoi(side1Str);
+    int side2 = std::stoi(side2Str);
+    int side3 = std::stoi(side3Str);
 
-    assert(std::abs(triangle_area(s1, s2, s3)) < 0.01);
+    assert(std::abs(triangle_area(side1, side2, side3)) < 0.01);
     float result = triangle_area(side1, side2, side3);
     std::cout << "The area of the triangle is: " << static_cast<int>(result) << std::endl;
 }
