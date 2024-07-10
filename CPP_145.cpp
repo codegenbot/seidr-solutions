@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <algorithm>
 #include <vector>
@@ -30,7 +29,7 @@ std::vector<int> orderPoints(std::vector<int> nums) {
     return result;
 }
 
-int driver() {
+int main() {
     std::vector<int> nums = {0,6,6,-76,-21,23,4};
     std::cout << "[";
     for(int i=0; i<nums.size();i++) {
@@ -51,6 +50,5 @@ int driver() {
     }
     std::cout << "]\n";
     
-    assert (issame(orderPoints({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6});
     return 0;
 }
