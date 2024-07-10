@@ -1,4 +1,5 @@
-```
+Here is the modified code:
+
 numbers = []
 while True:
     nums = [float(x.strip().replace(",", ".")) for x in input("Enter numbers (comma-separated): ").strip().split(",")]
