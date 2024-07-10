@@ -1,3 +1,9 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <algorithm>
+using namespace std;
+
 string rounded_avg(int n,int m){
     if(n > m) return "-1";
     int sum = 0;
@@ -6,7 +12,7 @@ string rounded_avg(int n,int m){
     avg = floor(avg + 0.5);
     string res = "";
     while(avg > 0){
-        if(avg & 1) res.push_back('1');
+        if(avg == (int)avg) res.push_back('1');
         else res.push_back('0');
         avg /= 2;
     }
