@@ -3,9 +3,9 @@
 
 using namespace std;
 
-string sortNumbers(string numbers) {
-    vector<string> numVec;
-    string temp;
+std::string sort_numbers(std::string numbers) {
+    vector<std::string> numVec;
+    std::string temp;
     
     for (char c : numbers) {
         if (isdigit(c)) continue;
@@ -19,8 +19,8 @@ string sortNumbers(string numbers) {
 
     sort(numVec.begin(), numVec.end());
     
-    string result;
-    for (string str : numVec) {
+    std::string result;
+    for (std::string str : numVec) {
         result += str;
         result += " ";
     }
