@@ -28,22 +28,17 @@ int main() {
     std::vector<int> nums;
     for (int i = 0; i < n; i++) {
         int num;
-        std::cin >> num; 
-        nums.push_back(num); 
+        if(std::cin >> num) { 
+            while(std::cin.peek() == ' ') { // skip leading spaces
+                std::cin.get();
+            }
+            nums.push_back(num); 
+        } else {
+            break; 
+        }
     }
     if (!nums.empty()) {  
-        bool hasNegative = false;
-        for (int num : nums) {
-            if (num < 0) {
-                hasNegative = true;
-                break;
-            }
-        }
-        if (!hasNegative) {
-            std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
-        } else {
-            std::cout << "No positive sums to count." << std::endl;
-        }
+        std::cout << "Count of positive sums is: " << count_nums(nums) << std::endl;
     }
     return 0;
 
