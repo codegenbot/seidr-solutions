@@ -1,4 +1,3 @@
-```
 def fibfib(n: int):
     if n <= 1:
         return 
@@ -10,5 +9,4 @@ def fibfib(n: int):
             result.append(a)
         return str(result)
     else:
-        print("Not implemented for odd numbers")
-        print(fibfib(n))
+        pass
