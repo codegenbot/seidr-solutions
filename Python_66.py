@@ -1,2 +1,6 @@
-def digitSum(s):
-    return sum(int(c) for c in s if "A" <= c <= "Z") - 64
+```
+def digitSum():
+    n = int(input("Enter a number: "))
+    return sum(int(digit) for digit in str(n))
+
+print(digitSum())
