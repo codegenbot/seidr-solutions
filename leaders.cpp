@@ -1,3 +1,8 @@
+```cpp
+#include <vector>
+#include <iostream>
+#include <algorithm>
+
 std::vector<int> leaders(std::vector<int>& arr);
 
 int main() {
@@ -11,6 +16,8 @@ std::vector<int> leaders(std::vector<int>& arr) {
     std::vector<int> res;
     
     if(n == 1) return arr;
+    
+    res.push_back(arr[n-1]);
     
     for(int i=n-2; i>=0; --i){
         while(i > 0 && arr[i] <= arr[i+1]) i--;
