@@ -17,6 +17,7 @@ int main() {
             reverse(word.begin(), word.end());
         }
         result += word + " ";
+        word.clear();
     }
     
     result.pop_back(); // remove extra space at the end
