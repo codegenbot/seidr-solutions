@@ -1,3 +1,7 @@
-def leaders(v):
-    v = list(reversed(v))
-    return [v[0]] + [i for i in v[1:] if all(i >= j for j in v[v.index(i) + 1 :])]
+def leaders(a):
+    leaders_list = [a[-1]]
+    for i in range(len(a) - 2, -1, -1):
+        if a[i] >= a[-1]:
+            leaders_list.insert(0, a[i])
+            a.pop()
+    return leaders_list
