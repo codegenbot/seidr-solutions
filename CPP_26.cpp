@@ -10,13 +10,13 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-void remove_duplicates(vector<vector<int>>& numbers) {
+void remove_duplicates(vector<int>& numbers) {
     sort(numbers.begin(), numbers.end());
-    numbers.erase(unique(numbers.begin(), numbers.end(), issame), numbers.end());
+    numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
 }
 
 int main() {
-    vector<vector<int>> numbers = {{1, 2, 3}, {4, 5, 6}, {1, 2, 3}, {7, 8, 9}};
+    vector<int> numbers = {1, 2, 3, 1, 2, 4, 5};
     remove_duplicates(numbers);
     return 0;
 }
