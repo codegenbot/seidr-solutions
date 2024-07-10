@@ -1,3 +1,5 @@
+Here is the modified code:
+
 #include <iostream>
 #include <cmath>
 #include <string>
@@ -24,7 +26,6 @@ int starts_one_ends(int n) {
         count++;
     }
     return count;
-}
 
 int main() {
     int n;
@@ -32,4 +33,3 @@ int main() {
     cin >> n;
     cout << "The count of the numbers of " << n << "-digit positive integers that start or end with 1 is: " << starts_one_ends(n) << endl;
     return 0;
-}
