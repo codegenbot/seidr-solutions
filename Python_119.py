@@ -1,5 +1,6 @@
-````
+```python
 def match_parens(lst):
+    """Return 'Yes' if all strings have balanced parentheses, else 'No'."""
     stack = []
     for s in lst:
         for c in s:
