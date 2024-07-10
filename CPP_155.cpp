@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <cassert>
 
-bool assert_equal(const std::vector<int>& a, const std::vector<int>& b) {
+bool assert_equal(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
