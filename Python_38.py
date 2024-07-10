@@ -1,10 +1,24 @@
 ```
 def encode_cyclic(s: str):
-    groups = [s[i:i+3] if i+3 <= len(s) else s[i:] for i in range(0, len(s), 3)]
-    return "".join(group[1]+group[0] if len(group) == 3 else group for group in groups)
+    result = ""
+    i = 0
+    while i < len(s):
+        if i+3 <= len(s):
+            result += s[i+1:i+3] + s[i]
+            i += 3
+        else:
+            result += s[i:]
+            break
+    return result
 
 def decode_cyclic(s: str):
     result = ""
-    for i in range(0, len(s), 2):
-        result += s[i+1] + s[i]
+    i = 0
+    while i < len(s):
+        if i+2 <= len(s):
+            result += s[i+1] + s[i]
+            i += 2
+        else:
+            result += s[i:]
+            break
     return result
