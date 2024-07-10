@@ -22,11 +22,9 @@ int main() {
     int result = prod_signs(arr, n);
     delete[] arr;
 
-    if(result > 0) {
-        std::cout << "The product of signs is: " << result << '\n';
-    } else {
-        std::cout << "The product of signs is -" << result << '\n';
-    }
-    
+    std::string output = (result > 0) ? "The product of signs is: " : "The product of signs is -";
+    output += std::to_string(result);
+
+    std::cout << output << '\n';
     return 0;
 }
