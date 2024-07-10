@@ -1,6 +1,4 @@
-#include <vector>
-
-using namespace std;
+Here is the completed code:
 
 vector<float> get_positive(vector<float> l) {
     vector<float> result;
