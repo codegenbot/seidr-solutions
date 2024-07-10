@@ -1,13 +1,14 @@
 ```cpp
+#include <iostream>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-bool is_sorted(vector<int> lst){
+bool is_sorted(std::vector<int> lst){
     for(int i = 1; i < lst.size(); i++){
         if(lst[i-1] > lst[i]){
             return false;
         }
-        else if(count(lst.begin(), lst.end(), lst[i]) > 1){
+        else if(std::count(lst.begin(), lst.end(), lst[i]) > 1){
             return false;
         }
     }
@@ -15,5 +16,12 @@ bool is_sorted(vector<int> lst){
 }
 
 int main() {
-    assert(is_sorted({1, 2, 3, 4}) == true);
+    std::vector<int> list = {2, 3, 4};
+    bool result = is_sorted(list);
+    if(result) {
+        std::cout << "The vector is sorted.\n";
+    } else {
+        std::cout << "The vector is not sorted.\n";
+    }
+    return 0;
 }
