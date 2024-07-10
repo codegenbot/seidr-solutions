@@ -16,8 +16,6 @@ int main() {
         return 1;
     }
     
-    v1.reserve(n);  // Reserve space for n elements
-
     // Read input and check for same
     for(int i = 0; i < n; i++) {
         float num;
@@ -38,9 +36,9 @@ int main() {
     }
 
     // Read input for v2
-    v2 = v1;  // Since both are the same set, just copy v1 to v2
+    v2 = v1;  
 
-    bool are_same = (v1 == v2);
+    bool are_same = std::equal(v1.begin(), v1.end(), v2.begin());
 
     // Print output
     if (are_same) {
