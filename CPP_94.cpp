@@ -19,8 +19,7 @@ bool isPrime(int n){
     }
     return true;
 
-int main()
-{
+int main() {
     assert (skjkasdkd({127, 97, 8192}) == 10);
     std::cout << "The sum is: " << skjkasdkd({127, 97, 8192}) << std::endl;
-    return 0;
+    return 0;}
