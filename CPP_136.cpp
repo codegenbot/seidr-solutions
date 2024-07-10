@@ -1,8 +1,9 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
 namespace MyNamespace {
-    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
         return std::equal(a.begin(), a.end(), b.begin());
     }
 
@@ -18,6 +19,6 @@ namespace MyNamespace {
             }
         }
 
-        return {std::max({0, max_negative}), std::min({1, min_positive})};
+        return {max_negative, min_positive};
     }
 }
