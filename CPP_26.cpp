@@ -1,6 +1,7 @@
+using namespace std;
+
 #include <vector>
 #include <algorithm>
-using namespace std;
 
 vector<int> remove_duplicates(vector<int> numbers);
 
