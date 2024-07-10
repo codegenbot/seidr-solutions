@@ -26,7 +26,7 @@ int count_nums(std::vector<int> nums) {
                 int digit = abs(num % 10);
                 if (digit == 5 || digit == 8 || digit == 9) {
                     sum_of_digits += digit - 5;
-                } else if (digit > 4 && !has_negative_digit) {
+                } else if (digit <= 5 && !has_negative_digit) {
                     has_negative_digit = true;
                 } else if (digit > 0) {
                     sum_of_digits += digit;
