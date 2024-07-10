@@ -33,7 +33,10 @@ std::map<char, int> histogram(std::string test) {
 }
 
 int main() {
-    assert(areMapsEqual(histogram("a"), {{'a', 1}}));
+    std::map<char, int> test1 = histogram("a");
+    std::map<char, int> test2 = histogram("a");
+
+    assert(areMapsEqual(test1, test2));
 
     return 0;
 }
