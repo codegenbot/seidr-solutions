@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -14,13 +13,9 @@ long long double_the_difference(std::vector<float> lst) {
     return sum;
 }
 
-int calculate_odd_sum() {
+int main() {
     std::vector<float> lst = {1.0f, 2.0f, 3.0f, 4.0f};
     long long odd_sum = double_the_difference(lst);
-    return static_cast<int>(odd_sum);
-}
-
-int main() {
-    int result = calculate_odd_sum();
+    int result = static_cast<int>(odd_sum);
     return result;
 }
