@@ -8,7 +8,17 @@ def main():
             n1 = int(input("Enter the first integer: "))
             if n1 < 1:
                 print("Please enter a positive integer.")
-                continue
+                for _ in range(2):
+                    try:
+                        n1 = int(input("Enter the first integer: "))
+                        if n1 < 1:
+                            print("Please enter a positive integer.")
+                        else:
+                            break
+                    except ValueError:
+                        print("Invalid input. Please enter a valid integer.")
+                else:
+                    continue
             break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
@@ -19,11 +29,14 @@ def main():
         if n1 % i:
             i += 1
         else:
-            n1 //= i
+            n = n1
             count = 0
-            while n1 % i == 0:
-                n1 //= i
-                count += 1
+            while n > 1 and n % i == 0:
+                if n > 1:
+                    n //= i
+                    count += 1
+                else:
+                    break
             factors1.extend([i] * count)
     if n1 > 1:
         factors1.append(n1)
@@ -47,11 +60,21 @@ def main():
     while i * i <= min(n1, n2, n3):
         if n1 % i == 0 and n2 % i == 0 and n3 % i == 0:
             count = 0
-            while n1 % i == 0 and n2 % i == 0 and n3 % i == 0:
-                n1 //= i
-                n2 //= i
-                n3 //= i
-                count += 1
+            while (
+                n1 > 1
+                and n2 > 1
+                and n3 > 1
+                and n1 % i == 0
+                and n2 % i == 0
+                and n3 % i == 0
+            ):
+                if n1 > 1:
+                    n1 //= i
+                    n2 //= i
+                    n3 //= i
+                    count += 1
+                else:
+                    break
             common_factors.extend([i] * count)
         elif n1 % i or n2 % i or n3 % i:
             i += 1
