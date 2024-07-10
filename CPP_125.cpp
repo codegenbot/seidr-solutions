@@ -1,9 +1,9 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <cctype>
 
 bool issame(char a, char b) {
-    return a == b;
+    return tolower(a) == tolower(b);
 }
 
 std::vector<std::string> split_words(const std::string& txt) {
