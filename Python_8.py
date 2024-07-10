@@ -7,6 +7,8 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         product = 1
 
         for number in numbers:
+            if not isinstance(number, int):
+                raise TypeError
             total_sum += number
             product *= number
 
