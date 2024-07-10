@@ -22,7 +22,7 @@ float double_the_difference(std::vector<float>& lst) {
     return std::fabs(odd_sum - even_sum) * 2;
 }
 
-int main(int argc, char** argv) {
+int main() {
     for (int i = 0; i < 5; ++i) {
         float num;
         std::cout << "Enter a number: ";
