@@ -12,7 +12,7 @@ def bowling_score(bowls):
                 elif bowls[i + 2] != "-":
                     score += int(bowls[i + 2])
             else:
-                if len(bowls) == 20:
+                if len(bowls) == 20:  
                     score += 10
                 if i == 9:
                     for j in range(10, len(bowls)):
