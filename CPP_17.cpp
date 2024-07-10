@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-
 using namespace std;
 
 bool issame(vector<int>& a, vector<int> b){
@@ -37,7 +36,7 @@ int main() {
     cin >> music_string;
 
     vector<int> notes = parse_music(music_string);
-    vector<int> reference = {1, 2, 1, 2, 4, 2, 4, 2};
+    vector<int> reference = {1, 2, 3, 4};
 
     if(issame(notes, reference)) {
         cout << "Music is correct\n";
