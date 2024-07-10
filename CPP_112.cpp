@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <set>
 #include <string>
@@ -36,6 +35,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
     return result;
 }
 
-bool std::issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return (a == b);
 }
