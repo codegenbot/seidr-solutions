@@ -1,7 +1,16 @@
-#include <iostream>
 #include <vector>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
+
+std::vector<int> common(std::vector<int> a, std::vector<int> b) {
+    std::vector<int> result;
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    
+    std::set_intersection(a.begin(), a.end(), b.begin(), b.end(), std::back_inserter(result));
+    
+    return result;
+}
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
@@ -13,16 +22,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
         }
     }
     return true;
-}
-
-std::vector<int> common(std::vector<int> v1, std::vector<int> v2) {
-    std::vector<int> result;
-    for (int i : v1) {
-        if (std::find(v2.begin(), v2.end(), i) != v2.end()) {
-            result.push_back(i);
-        }
-    }
-    return result;
 }
 
 int main() {
