@@ -1,6 +1,6 @@
+#include <algorithm>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
@@ -23,7 +23,7 @@ vector<string> reverse_delete(string s, string c) {
     }
     result.push_back(temp);
     string rev = temp;
-    reverse(rev.begin(), rev.end());
+    std::reverse(rev.begin(), rev.end());
     if (temp == rev) {
         result.push_back("True");
     } else {
