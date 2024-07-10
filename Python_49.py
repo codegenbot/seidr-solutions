@@ -2,9 +2,9 @@
 import random
 
 
-def modp(n: int, p: int):
-    if p < 3:
-        return False
+def modp():
+    n = int(input("Enter a number: "))
+    p = int(input("Enter another number: "))
     if pow(2, n - 1, p) == 1:
         return False
     for _ in range(p - 2):
