@@ -22,9 +22,9 @@ std::any compare_one(std::any a, std::any b) {
             return nullptr;
         }
     } else if(a.type() == typeid(string) && b.type() == typeid(string)){
-        if(stod(std::any_cast<string>(a)) > stod(std::any_cast<string>(b))){
+        if(stof(std::any_cast<string>(a)) > stof(std::any_cast<string>(b))){
             return a;
-        } else if(stod(std::any_cast<string>(a)) < stod(std::any_cast<string>(b))){
+        } else if(stof(std::any_cast<string>(a)) < stof(std::any_cast<string>(b))){
             return b;
         } else {
             return nullptr;
