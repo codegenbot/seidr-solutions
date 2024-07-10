@@ -4,30 +4,10 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     }
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
-    return a == b;
-}
-
-std::vector<int> unique_digits(std::vector<int> x) {
-    std::vector<int> result;
-    for (int num : x) {
-        bool hasEvenDigit = false;
-        int temp = num;
-        while (temp > 0) {
-            if (temp % 2 == 0) {
-                hasEvenDigit = true;
-                break;
-            }
-            temp /= 10;
-        }
-        if (!hasEvenDigit) {
-            result.push_back(num);
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    std::sort(result.begin(), result.end());
-    return result;
-}
-
-int main() {
-    // Add test cases and assertions here
-    return 0;
+    return true;
 }
