@@ -21,7 +21,7 @@ int main() {
     float x;
     while (true) { 
         cin >> x; 
-        if(input == "stop") break;
+        if(x == "stop") break;
         a.push_back(x);
     }
     cin.ignore(); 
