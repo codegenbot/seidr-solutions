@@ -1,7 +1,4 @@
-```cpp
 #include <vector>
-#include <iostream>
-
 using namespace std;
 
 int luhn(const vector<int>& card) {
