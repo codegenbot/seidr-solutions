@@ -1,58 +1,39 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+Here is the completed code:
 
+```cpp
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
 using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0, prevPos = 0;
-
-    while ((pos = txt.find_first_of(" ,")) != string::npos) {
-        if (pos == 0) {
-            // Split on commas
-            if (txt[0] == ',') {
-                result.push_back(txt.substr(1));
-                break;
-            }
-        }
-
-        string word = txt.substr(prevPos, pos - prevPos);
-        result.push_back(word);
-
-        prevPos = pos + 1;
-
-        if (pos == string::npos) {
-            // Last word
-            result.push_back(txt.substr(prevPos));
-        }
-    }
-
-    if (result.empty()) {
-        int count = 0;
-        for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                if ((count++) % 2 == 1) {
-                    result.push_back(to_string(count));
-                    break;
+    size_t pos = 0, prev_pos = 0;
+    
+    while (pos != string::npos) {
+        if (txt.find(" ", pos) == string::npos && txt.find(",", pos) == string::npos) {
+            int count = 0;
+            for (char c : txt.substr(pos)) {
+                if (c >= 'a' && c <= 'z') {
+                    count++;
+                    if ((count - 1) % 2 != 0) {
+                        result.push_back(to_string(count));
+                        return result;
+                    }
                 }
             }
+        } else {
+            pos = txt.find((txt.find(" ", pos) == string::npos ? " " : (txt.find(",", pos) == string::npos ? "," : "")), pos);
+            if (pos != string::npos) {
+                result.push_back(txt.substr(prev_pos, pos - prev_pos));
+                prev_pos = pos + 1;
+            } else {
+                result.push_back(txt.substr(prev_pos));
+                return result;
+            }
         }
     }
-
+    
     return result;
-}
-
-int main() {
-    string txt;
-    cout << "Enter a string: ";
-    getline(cin, txt);
-    vector<string> result = split_words(txt);
-
-    for (string s : result) {
-        cout << s << endl;
-    }
-
-    return 0;
 }
