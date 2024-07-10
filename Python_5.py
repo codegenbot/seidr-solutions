@@ -1,12 +1,6 @@
-def format_numbers(numbers, delimiter):
+def modify_list(numbers, delimeter):
     result = []
-    for num in numbers[:-1]:
-        result.extend([num, delimiter])
-    if numbers:
-        result.append(numbers[-1])
+    for num in numbers:
+        result.extend([num, delimeter])
+    result.pop()
     return result
-
-numbers = input("Enter numbers separated by spaces: ").split()
-delimiter = input("Enter delimiter: ")
-output = format_numbers(numbers, delimiter)
-print(output)
