@@ -1,5 +1,6 @@
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 std::string file_name_check(std::string file_name) {
     if(file_name.length() < 5) {
@@ -26,7 +27,9 @@ std::string file_name_check(std::string file_name) {
     }
     
     std::string extension = file_name.substr(dotIndex + 1);
-    if (!((extension == "txt" || extension == "TXT" || extension == "exe" || extension == "EXE" || extension == "dll" || extension == "DLL") && extension.length() == 3)) {
+    std::transform(extension.begin(), extension.end(), extension.begin(), ::tolower);
+    
+    if (!((extension == "txt" || extension == "exe" || extension == "dll") && extension.length() == 3)) {
         return "No";
     }
     
