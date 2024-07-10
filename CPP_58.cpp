@@ -5,32 +5,31 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
-int main() {
-    int n1, n2;
-    std::vector<int> v1, v2;
-
-    // Read first set of integers
-    std::cout << "Enter number of elements in the first vector: ";
-    std::cin >> n1;
-    for (int i = 0; i < n1; i++) {
+std::vector<int> common() {
+    int n;
+    std::vector<int> v;
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        std::cout << "Enter element: ";
         int x;
-        std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> x;
-        v1.push_back(x);
+        v.push_back(x);
     }
+    return v;
+}
 
-    // Read second set of integers
-    std::cout << "\nEnter number of elements in the second vector: ";
-    std::cin >> n2;
-    for (int i = 0; i < n2; i++) {
+int main() {
+    auto v1 = common();
+    int m;
+    std::vector<int> v2;
+    std::cout << "Enter number of elements for second vector: ";
+    std::cin >> m;
+    for (int i = 0; i < m; i++) {
+        std::cout << "Enter element: ";
         int x;
-        std::cout << "Enter element " << i + 1 << ": ";
         std::cin >> x;
         v2.push_back(x);
     }
-
-    // Compare the vectors
-    assert(issame(v1, v2));
-
-    return 0;
+    assert(issame(v1, v2));  
 }
