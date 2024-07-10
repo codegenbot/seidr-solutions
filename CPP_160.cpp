@@ -15,12 +15,12 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
                     temp *= operand[j + 1];
                 } else if (operator_[j] == "/") {
                     temp /= operand[j + 1];
-                } else if (operator_[j] == "**") {
+                } else if (operand_[j] == "**") {
                     temp = pow(temp, operand[j + 1]);
                 }
             }
             result += temp;
-            i = j; // skip the rest of the loop
+            i = j; 
         } else if (operator_[i] == "/") {
             int temp = operand[i];
             for (int j = i + 1; j < operator_.size(); j++) {
