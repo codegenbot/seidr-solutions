@@ -27,7 +27,7 @@ It distinct(It first, It last) {
     return result.begin();
 }
 
-int main() {
+int run() {
     std::vector<int> input;
     int n;
     std::cin >> n;
@@ -38,9 +38,13 @@ int main() {
     }
     
     auto firstUnique = distinct(input.begin(), input.end());
-    std::vector<int> output(firstUnique, std::unique(input.begin(), input.end()));
+    std::vector<int> output(firstUnique, input.end());
 
     for (int i : output) {
         std::cout << i << " ";
     }
+}
+
+int main() {
+    run();
 }
