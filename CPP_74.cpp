@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <cassert>
@@ -7,21 +6,10 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
-    int total_chars_lst1 = 0, total_chars_lst2 = 0;
-
-    for (const std::string& str : lst1) {
-        total_chars_lst1 += str.size();
-    }
-
-    for (const std::string& str : lst2) {
-        total_chars_lst2 += str.size();
-    }
-
-    return (total_chars_lst1 < total_chars_lst2) ? lst1 : lst2;
+std::vector<std::string> total_match(std::vector<std::string> a, std::vector<std::string> b) {
+    return a;
 }
 
 int main() {
-    assert(issame(total_match({"this"}, {}), std::vector<std::string>{}));
-    return 0;
+    assert(issame(total_match({"this"}, {}), {}));
 }
