@@ -1,25 +1,28 @@
-int bowling(string s) {
+int bowlingScore(string s) {
     int score = 0;
-    bool inFrame = false;
-    int currentFrameScore = 0;
-    vector<int> frames;
+    int currentRoll = 0;
+    int frame = 1;
 
     for (char c : s) {
-        if (c == '/') {
-            inFrame = true;
-            continue;
-        }
-
-        if (!inFrame) {
-            currentFrameScore++;
-        } else {
-            if (c == 'X') {
-                score += 10 + currentFrameScore;
-                currentFrameScore = 0;
-            } else if (c >= '1' && c <= '9') {
-                int strikeOrSpare = c - '0';
-                score += strikeOrSpare + currentFrameScore;
-                currentFrameScore = 0;
+        if (c == 'X') {
+            score += 10 + (currentRoll > 0 ? currentRoll : 10);
+            currentRoll = 0;
+            frame++;
+        } else if (c == '/') {
+            score += 10 - currentRoll;
+            currentRoll = 0;
+            frame++;
+        } else if (isdigit(c)) {
+            currentRoll *= 10;
+            currentRoll += c - '0';
+            if (frame < 10) {
+                if (currentRoll >= 10) {
+                    score += 10 + (currentRoll > 10 ? 10 : currentRoll);
+                    currentRoll = 0;
+                    frame++;
+                }
+            } else {
+                score += currentRoll;
             }
         }
     }
