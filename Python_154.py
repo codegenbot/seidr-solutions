@@ -1,5 +1,3 @@
+```Python
 def cycpattern_check(a, b):
-    for i in range(len(a)-len(b)+1):
-        if a[i:i+len(b)] + a[:i] == b or a[i:] == b:
-            return True
-    return False
+    return (a in b+b or b in a+a) if len(a) > 0 and len(b) > 0 else False
