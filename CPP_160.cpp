@@ -32,11 +32,7 @@ int do_algebra(vector<string> operator_, vector<int> operand) {
     return result;
 }
 
-long long eval(const char *p) {
-    return eval(p, 0);
-}
-
-long long eval(const char *p, long long y) {
+long long eval(const char *p, long long y = LLONG_MIN) {
     while (*p) {
         if (isdigit(*p)) {
             p += 1;
