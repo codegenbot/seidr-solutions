@@ -1,5 +1,6 @@
+#include <string>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
 int mastermind(string code, string guess) {
     int white = 0;
