@@ -1,7 +1,6 @@
 from typing import List
 
-def all_prefixes() -> List[str]:
-    s = input("Please enter a string: ")
+def all_prefixes(s: str) -> List[str]:
     if not s:
         print("Error: Please provide valid input.")
         return []
