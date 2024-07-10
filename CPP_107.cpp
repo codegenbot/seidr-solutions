@@ -1,31 +1,29 @@
 #include <vector>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+namespace contest {
+    bool issame(std::vector<int> a, std::vector<int> b) {
+        if (a.size() != b.size()) {
             return false;
         }
+        
+        for (size_t i = 0; i < a.size(); ++i) {
+            if (a[i] != b[i]) {
+                return false;
+            }
+        }
+        
+        return true;
     }
-    
-    return true;
+
+    std::vector<int> even_odd_palindrome(int n) {
+        // Implement the logic for generating a palindrome based on n
+    }
 }
 
-bool even_odd_palindrome(std::vector<int> arr) {
-    std::vector<int> even, odd;
-    
-    for (int num : arr) {
-        if (num % 2 == 0) {
-            even.push_back(num);
-        } else {
-            odd.push_back(num);
-        }
-    }
-    
-    std::vector<int> odd_reversed(odd.rbegin(), odd.rend());
-    
-    return issame(even, odd_reversed);
+int main() {
+    assert(contest::issame(contest::even_odd_palindrome(1), {0, 1}));
+    // Add more test cases here
+
+    return 0;
 }
