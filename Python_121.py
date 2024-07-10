@@ -1,4 +1,3 @@
-```
 def solution():
     lst = []
     while True:
