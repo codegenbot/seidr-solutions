@@ -1,7 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <cassert>
 using namespace std;
 
 bool issame(const string a, const string b) {
@@ -34,11 +36,9 @@ string reverse_delete(const string s1, const string s2) {
             s1 = s1.substr(0, pos) + s1.substr(pos + 1);
         }
     }
-
-    vector<char> vec(s1.begin(), s1.end());
-    reverse(vec.begin(), vec.end());
-
-    return string(vec.begin(), vec.end());
+    std::string reversed = s1; 
+    std::reverse(reversed.begin(),reversed.end());
+    return reversed;
 }
 
 int main() {
@@ -47,11 +47,12 @@ int main() {
     cin >> num1;
     cout << "Enter second number: ";
     cin >> num2;
+
     if(num1 > num2)
         cout << "First number is greater." << endl;
     else
         cout << "Second number is greater." << endl;
 
-    assert(to_string(reverse_delete("mama", "ma")) == reverse_delete("mama", "ma"));
+    assert(issame(to_string(reverse_delete("mama", "ma")), reverse_delete("mama", "ma")));
     return 0;
 }
