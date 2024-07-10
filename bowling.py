@@ -18,10 +18,8 @@ def bowling_score(frames):
             score += 10 - int(frames[i - 1])
             score += int(frames[i + 1])
             frame += 1
-        else:
-            score += int(frames[i]) if frames[i].isdigit() else 0
-            if frames[i] == "-":
-                frames[i] = "0"
+        elif frames[i] != "-":
+            score += int(frames[i])
     return score
 
 
