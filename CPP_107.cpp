@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -24,7 +23,6 @@ int main() {
 
     std::cout << "Number of even palindromes: " << result[0] << std::endl;
     std::cout << "Number of odd palindromes: " << result[1] << std::endl;
-
 }
 
 int reverse(int n) {
