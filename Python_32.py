@@ -4,7 +4,6 @@ def find_zero(xs):
             return i
     return -1
 
-
 while True:
     try:
         n = int(input("Enter the number of values in the list: "))
