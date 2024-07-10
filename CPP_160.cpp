@@ -18,3 +18,4 @@ int do_algebra(vector<string> operators, vector<int> operands) {
         }
     }
     return result;
+}
