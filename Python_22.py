@@ -1,25 +1,27 @@
 import re
 
 
-def filter_integers(input_str=None) -> None:
-    input_str = input(
-        "Please enter a comma-separated list of values (separated by commas), or type 'exit' to quit: "
-    )
-
+def filter_integers() -> None:
     while True:
-        if not re.match(r"^[0-9]+(,[0-9]+)*$", input_str):
+        if "exit" in input().lower():
+            break
+        print("Please enter a comma-separated list of values (separated by commas):")
+        user_input = input()
+        if not user_input and "exit" in user_input.lower():
+            break
+        elif not user_input:
+            print("Please enter some values. You can press Enter to exit.")
+        elif not re.match(r"^[0-9]+(,[0-9]+)*$", user_input):
             print(
                 "Invalid input. Please enter a valid list of comma-separated integers."
             )
-        elif "exit" in input_str.lower():
-            break
         else:
             break
 
     try:
         user_values = [
             int(val.replace(" ", "").strip())
-            for val in input_str.split(",")
+            for val in user_input.split(",")
             if re.match(r"^\d+$", val.replace(" ", "")) or int(val) == 0
         ]
 
