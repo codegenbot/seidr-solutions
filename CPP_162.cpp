@@ -21,10 +21,9 @@ std::string myString_to_md5(const char *text) {
 
 int main() {
     std::cout << "Enter a string: ";
-    std::string input;
     std::cin >> input;
     const char *input_str = input.c_str();
     std::string output = myString_to_md5(input_str);
-    std::cout << "MD5: " << myString_to_md5(input_str) << std::endl;
+    std::cout << "MD5: " << output << std::endl;
     return 0;
 }
