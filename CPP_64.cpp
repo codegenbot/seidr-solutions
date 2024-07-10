@@ -1,26 +1,22 @@
-```cpp
-#include <string>
 #include <iostream>
+using namespace std;
 
-int vowels_count(std::string s) {
+int vowels_count(const char*);
+
+__BEGIN_DECLS
+__END_DECLS
+
+int main() {
+    assert(vowels_count("ACEDY") == 3);
+}
+
+int vowels_count(const char* str) {
     int count = 0;
-    for (char c : s) {
-        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-           c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+    for (int i = 0; str[i]; i++) {
+        if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || 
+            str[i] == 'o' || str[i] == 'u') {
             count++;
         }
     }
     return count;
-}
-
-int main() {
-    std::string s;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, s);
-    if(s.empty()) {
-        std::cout << "Error: Input string is empty." << std::endl;
-    } else {
-        int result = vowels_count(s);
-        std::cout << "Number of vowels: " << result << std::endl;
-    }
 }

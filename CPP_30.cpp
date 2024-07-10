@@ -1,6 +1,3 @@
-#include <iostream>
-#include <vector>
-
 float get_positive(float num1, float num2) {
     if(num1 == num2)
         return (num1 > 0.0f) ? num1 : -num1;
