@@ -8,6 +8,6 @@ while True:
         break
 
 def parse_music(music_data: str):
-    return music_data.split('\n')
+    return music_data.strip().split('\n')
 
 print(parse_music(music_input))
