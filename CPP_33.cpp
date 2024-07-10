@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <cassert>
 
+using namespace std;
+
 std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> l_copy = l;
     for (int i = 0; i < l.size(); i++) {
