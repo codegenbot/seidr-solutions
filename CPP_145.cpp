@@ -1,19 +1,34 @@
-#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <cassert>
+#include <cmath>
 
-int main() {
-    int n;
-    std::cin >> n;
-    
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+using namespace std;
+
+int sum_of_digits(int num) {
+    num = abs(num);
+    int sum = 0;
+    while (num != 0) {
+        sum += abs(num % 10);
+        num /= 10;
+    }
+    return sum;
+}
+
+vector<int> order_by_points(const vector<int>& nums) {
+    if (nums.empty()) {
+        return nums;
     }
     
-    std::vector<int> sorted_nums = order_by_points(nums);
-    
-    for (int num : sorted_nums) {
-        std::cout << num << " ";
-    }
-    
-    return 0;
+    vector<int> sorted_nums = nums; 
+    sort(sorted_nums.begin(), sorted_nums.end(), [&](int a, int b) {
+        int sum_a = sum_of_digits(a);
+        int sum_b = sum_of_digits(b);
+        if (sum_a != sum_b) {
+            return sum_a < sum_b;
+        }
+        return a < b;
+    });
+    return sorted_nums;
 }
