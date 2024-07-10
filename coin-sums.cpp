@@ -19,10 +19,28 @@ int main() {
     
     int penny = cents;
     
-    cout << "Quarters: " << quarter << endl;
-    cout << "Dimes: " << dime << endl;
-    cout << "Nickels: " << nickel << endl;
-    cout << "Pennies: " << penny << endl;
+    cout << quarter << " quarters, ";
+    if (quarter > 0) {
+        cout << quarter << endl;
+    } else {
+        cout << endl;
+    }
+    
+    cout << dime << " dimes, ";
+    if (dime > 0) {
+        cout << dime << endl;
+    } else {
+        cout << endl;
+    }
+    
+    cout << nickel << " nickels, ";
+    if (nickel > 0) {
+        cout << nickel << endl;
+    } else {
+        cout << endl;
+    }
+    
+    cout << penny << " pennies" << endl;
 
     return 0;
 }
