@@ -15,7 +15,7 @@ std::vector<std::string> separate_paren_groups(std::string paren_string) {
     for (char c : paren_string) {
         if (c == '(') {
             open_braces++;
-            if (open_braces > 0) {
+            if (open_braces > 1) {
                 current_group += c;
             }
         } else if (c == ')') {
