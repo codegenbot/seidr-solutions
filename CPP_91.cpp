@@ -5,12 +5,12 @@
 int is_bored(const std::string& S){
     int count = 0;
     size_t pos = 0;
-    while (pos != S.size()) {
+    while ((pos = S.find(" ", pos)) != std::string::npos) {
         if (S.substr(0, pos).compare("I") == 0) {
             count++;
             break;
         }
-        pos++;
+        pos = S.find(" ", pos);
     }
     return count;
 
