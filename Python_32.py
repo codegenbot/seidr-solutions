@@ -4,5 +4,3 @@ def find_zero(xs: list):
         raise ValueError("xs must have even number of coefficients")
     x = -xs[1] / xs[3]
     return round(x, 2)
-
-Here is the completed code:
