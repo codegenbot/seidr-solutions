@@ -1,4 +1,3 @@
-```
 numbers = list(map(float, input("Enter a series of space-separated numbers: ").split()))
 def find_closest_elements(numbers):
     min_diff = float("inf")
