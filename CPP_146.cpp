@@ -3,7 +3,7 @@
 
 int specialFilter(const std::vector<std::string>&);
 
-void userInput() {
+int main() {
     std::vector<std::string> nums;
     std::cout << "Enter the numbers (enter 'stop' to finish): ";
     std::string num;
@@ -27,6 +27,12 @@ void userInput() {
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
 }
 
-int main() {
-    userInput();
+int specialFilter(const std::vector<std::string>& nums) {
+    int count = 0;
+    for (const auto& num : nums) {
+        if (num.length() > 1 && num.length() <= 10 && (num.back() - '0') % 2 != 0 && ((num[8] - '0') / 10) % 10 % 2 != 0) {
+            count++;
+        }
+    }
+    return count;
 }
