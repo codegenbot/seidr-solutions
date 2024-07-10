@@ -1,29 +1,29 @@
+```cpp
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <cassert>
 #include <string> 
 using namespace std;
 
 string anti_shuffle(string sStr) {
-    string result = "";
-    for (int i = 0; i < sStr.length(); i++) {
-        if (sStr[i] == ' ') {
-            result += " ";
+    vector<string> words;
+    string word;
+    for (char c : sStr) {
+        if (c == ' ') {
+            words.push_back(word);
+            word = "";
         } else {
-            string word;
-            int j = i;
-            while (j < sStr.length() && sStr[j] != ' ') {
-                word += sStr[j];
-                j++;
-            }
-            vector<char>(word.begin(), word.end()).sort();
-            for (char c : word) {
-                result += c;
-            }
-            i = j - 1;
+            word += c;
         }
     }
+    words.push_back(word);
+
+    string result;
+    for (string w : words) {
+        sort(w.begin(), w.end());
+        result += w;
+    }
+
     return result;
 }
 
