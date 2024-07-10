@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 int gcd(int a, int b) {
