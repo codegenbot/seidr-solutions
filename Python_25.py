@@ -26,10 +26,6 @@ def main():
         if all(x is not None for x in n):
             all_inputs_entered = True
 
-    if not all_inputs_entered:
-        print("Program did not receive expected input.")
-        return
-
     factors1 = []
     i = 2
     while i * i <= n[0]:
@@ -59,14 +55,13 @@ def main():
         else:
             break
 
-    if common_factors:
+    if all_inputs_entered and common_factors:
         print(
             f"{', '.join(map(str, set(common_factors)))} are the common factors between {n}."
         )
+    elif not all_inputs_entered:
+        print("Please enter all inputs before finding common factors.")
     else:
-        print(f"No common factor found between {n}.")
-
-    if not common_factors:
         print(f"No common factor found between {n}.")
 
 
