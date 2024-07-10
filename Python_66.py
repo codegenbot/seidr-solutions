@@ -1,3 +1,4 @@
+```
 def digitSum(n=""):
     if isinstance(n, str):
         n = sum(int(digit) for digit in n.replace(" ", "").lower())
