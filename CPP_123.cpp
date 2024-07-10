@@ -1,17 +1,8 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
+std::vector<int> get_odd_collatz(int n) {
+    std::vector<int> result;
     while (n != 1) {
         if (n % 2 == 0) {
             n /= 2;
@@ -22,22 +13,26 @@ vector<int> get_odd_collatz(int n) {
             result.push_back(n);
         }
     }
-    sort(result.begin(), result.end());
+    std::sort(result.begin(), result.end());
     return result;
 }
 
-int main() {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-
-    vector<int> odd_collatz = get_odd_collatz(num);
-
-    if(issame({num}, odd_collatz)) {
-        cout << "The sequence is the same as the starting number." << endl;
-    } else {
-        cout << "The sequence is not the same as the starting number." << endl;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
 
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main() {
+    assert(issame(get_odd_collatz(1), {1}));
+    std::cout << "Program has terminated successfully." << std::endl;
     return 0;
 }
