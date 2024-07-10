@@ -12,6 +12,10 @@ std::vector<int> factorize(int n){
     return factors;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
 int main() {
-    assert(factorize(3 * 2 * 3) == std::vector<int>({2, 3, 3}));
+    assert(issame(factorize(3 * 2 * 3), {2, 3, 3}));
 }
