@@ -1,6 +1,4 @@
-#include <cryptopp/filters.h>
 #include <cryptopp/md5.h>
-#include <cryptopp/util.h>
 #include <string>
 
 std::string cppString_to_md5(std::string text) {
