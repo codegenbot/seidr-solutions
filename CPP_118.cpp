@@ -14,6 +14,3 @@ string get_closest_vowel(string word) {
     }
     return "";
 }
-
-assert(get_closest_vowel("Above") == "o");
-return 0;
