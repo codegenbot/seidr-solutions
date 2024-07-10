@@ -1,5 +1,8 @@
+def add(pair):
+    return sum(pair)
+
 def main():
-    print("Enter two integers separated by a space. Enter 'stop' to exit.")
+    print("Enter two integers separated by space on the same line. Enter 'stop' to exit.")
     while True:
         try:
             inputs = input().strip()
