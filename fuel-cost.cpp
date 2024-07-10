@@ -24,3 +24,4 @@ int main() {
         cout << "Output: " << fuelCost(testCase) << endl;
     }
     return 0;
+}
