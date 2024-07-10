@@ -1,35 +1,24 @@
-#include <iostream>
-#include <string>
 #include <openssl/evp.h>
 #include <openssl/md5.h>
+#include <string>
+#include <iostream>
+#include <cassert>
 
-using namespace std;
+std::string string_to_md5(const std::string& input) {
+    unsigned char hash[MD5_DIGEST_LENGTH];
+    MD5(reinterpret_cast<const unsigned char*>(input.c_str()), input.size(), hash);
 
-string string_to_md5(const string &text) {
-    if(text.empty()){
-        return "None";
+    std::string md5_hash;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        md5_hash += char(hash[i]);
     }
 
-    EVP_MD_CTX *mdctx;
-    const EVP_MD *md;
-    unsigned char digest[EVP_MAX_MD_SIZE];
-    unsigned int digest_len;
+    return md5_hash;
+}
 
-    OpenSSL_add_all_algorithms(); // Initialize OpenSSL library
+int main() {
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
+    std::cout << "MD5 hash test passed!" << std::endl;
 
-    md = EVP_md5();
-    mdctx = EVP_MD_CTX_new();
-
-    EVP_DigestInit_ex(mdctx, md, NULL); // Use EVP_DigestInit_ex instead of EVP_DigestInit
-    EVP_DigestUpdate(mdctx, text.c_str(), text.length());
-    EVP_DigestFinal_ex(mdctx, digest, &digest_len);
-
-    EVP_MD_CTX_free(mdctx);
-
-    char mdString[33];
-    for (int i = 0; i < 16; i++) {
-        sprintf(&mdString[i * 2], "%02x", (unsigned int)digest[i]);
-    }
-
-    return string(mdString);
+    return 0;
 }
