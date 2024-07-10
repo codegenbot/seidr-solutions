@@ -1,6 +1,4 @@
 ```cpp
-#include <string>
-
 int bowlingScore(std::string input) {
     int score = 0;
     bool firstInFrame = true;
@@ -8,7 +6,7 @@ int bowlingScore(std::string input) {
         if (c == 'X') {
             score += 10;
             if (!firstInFrame) {
-                score += 10 + (input[input.find(c) + 1] == '/' ? 0 : input[input.find(c) + 1] - '0' + input[input.find(c) + 2] - '0');
+                score += 10 + (input.find('/') - input.find(c) == 1 ? 0 : input[input.find('/')-1] - '0' + input[input.find('/')-2] - '0');
             }
         } else if (c == '/') {
             score += 10 - score;
@@ -31,5 +29,9 @@ int bowlingScore(std::string input) {
 }
 
 int main() {
+    std::string input;
+    std::cin >> input;
+    int score = bowlingScore(input);
+    std::cout << "The score is: " << score << std::endl;
     return 0;
 }
