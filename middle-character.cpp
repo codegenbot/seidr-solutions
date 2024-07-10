@@ -1,4 +1,6 @@
 string middleCharacter() {
+    string s;
+    cin >> s;
     int length = s.length();
     if (length % 2 == 1)
         return s.substr(length / 2, 1);
