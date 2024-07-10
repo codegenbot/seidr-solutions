@@ -1,4 +1,4 @@
-def indices_of_substring(text, target):
+def indices_of_substring(text, target): 
     result = [0] if text.startswith(target) else []
     if text.startswith(target):
         result.append(0)
