@@ -6,9 +6,12 @@ def is_prime(num):
             return False
     return True
 
-n = int(input("Enter a number: "))
-
-if is_prime(n):
-    print(f"{n} is a prime number.")
+try:
+    n = int(input("Enter a number: "))
+except ValueError:
+    print("Invalid input. Please enter a valid integer.")
 else:
-    print(f"{n} is not a prime number.")
+    if is_prime(n):
+        print(f"{n} is a prime number.")
+    else:
+        print(f"{n} is not a prime number.")
