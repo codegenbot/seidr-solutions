@@ -1,4 +1,3 @@
-```
 import re
 
 def filter_by_substring():
@@ -35,3 +34,5 @@ def filter_by_substring():
         print([s for s in strings if not re.compile(substring).search(s)][:num_to_display])
     else:
         print(result + [s for s in strings if not re.compile(substring).search(s)][:num_to_display])
+
+filter_by_substring()
