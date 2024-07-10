@@ -1,12 +1,12 @@
-string longest(vector<string> strings){
-    if(strings.empty()) return "";
-    string res = strings[0];
-    for(auto s : strings) {
-        if(s.length() > res.length()) {
-            res = s;
-        } else if(s.length() == res.length()) {
-            res = s;
+string longest(vector<string> strings) {
+    if (strings.empty()) return "";
+    string result = strings[0];
+    for (const auto& str : strings) {
+        if (str.length() > result.length()) {
+            result = str;
+        } else if (str.length() == result.length()) {
+            result = str;
         }
     }
-    return res;
+    return result;
 }
