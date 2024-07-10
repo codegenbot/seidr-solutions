@@ -1,6 +1,4 @@
-def leaders(a):
-    return [
-        a[i]
-        for i in range(len(a) - 1, -1, -1)
-        if all(x <= a[i] for x in a[i + 1 :]) or i == len(a) - 1
-    ]
+Here is the solution:
+
+def leaders(nums):
+    return [max(nums[i:]) for i in range(len(nums))][::-1]
