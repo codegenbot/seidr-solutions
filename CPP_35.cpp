@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <cmath>
 
-int largestAbsolute(int n) {
-    assert(n > 0);
-    return *std::max_element(std::vector<int>(n, 1), std::vector<int>(n, -1));
+int max_abs(int* l) {
+    return *std::max_element(l, l + sizeof(int)*5/sizeof(int)) - *std::min_element(l, l + sizeof(int)*5/sizeof(int));
 }
