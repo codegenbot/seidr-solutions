@@ -1,21 +1,20 @@
 #include <iostream>
 #include <map>
 #include <algorithm>
-#include <iomanip>
 
 using namespace std;
 
 bool isValidInput(const string& str) {
     if (str.length() != 4) return false;
     for (char c : str) {
-        if ((c < 'A' || c > 'F') && (c < 'a' || c > 'f')) return false;
+        if (c < 'A' || c > 'E') return false;
     }
     return true;
 }
 
 int main() {
     string code, guess;
-    cin >> setw(4) >> code >> guess;
+    cin >> code >> guess;
 
     if (!isValidInput(code) || !isValidInput(guess)) {
         cout << "Invalid input format." << endl;
