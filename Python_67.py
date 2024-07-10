@@ -1,3 +1,4 @@
 ```
 def fruit_distribution(s, n):
-    return sum(1 for fruit in s.split() if fruit.replace('and', '').replace(',', '').isdigit())
+    total_weight = sum(int(fruit) for fruit in s.split() if fruit.isdigit())
+    return min(n - total_weight, 100)
