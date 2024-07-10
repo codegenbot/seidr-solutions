@@ -1,7 +1,5 @@
-```cpp
-#include <openssl/opensslconf.h>
+#include <openssl/ssl.h>
 #include <string>
-#include <openssl/evp.h>
 
 using namespace std;
 
@@ -9,7 +7,7 @@ string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char md5[16];
-    EVP_MD_CTX* ctx = EVP_MD_CTX_create();
+    EVP_MD_CTX* ctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(ctx, EVP_md5(), NULL);
     const unsigned char* input = (const unsigned char*)text.c_str();
     size_t len = text.size();

@@ -1,5 +1,5 @@
 ```
-def parse_nested_parens(paren_string: str) -> List[int]:
+def parse_nested_parens(paren_string: str) -> list:
     if not paren_string:
         return []
     result = []
@@ -23,4 +23,5 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                     current_group = current_group[1:-1]
         elif char.isdigit():
             current_group += char
+
     return [int(x) for x in current_group.replace('(','-').replace(')', '').split(',')] + result
