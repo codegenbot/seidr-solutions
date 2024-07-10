@@ -3,7 +3,8 @@
 using namespace std;
 
 int main() {
-    int n = 16;
+    int n;
+    cin >> n;
     vector<int> digits(n);
     for (int i = 0; i < n; ++i) {
         cin >> digits[i];
@@ -15,8 +16,9 @@ int main() {
         sum += (doubled > 9) ? (doubled - 9) : doubled;
     }
 
-    for (int i = n - 1; i >= 0; i -= 1) {
-        sum += digits[i];
+    for (int i = n - 1; i >= 0; i -= 2) {
+        int doubled = digits[i] * 2;
+        sum += (doubled > 9) ? (doubled - 9) : doubled;
     }
 
     cout << sum << endl;
