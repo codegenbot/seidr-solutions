@@ -1,8 +1,5 @@
-```cpp
-#include<stdio.h>
-#include<math.h>
-#include<string>
 #include<algorithm>
+
 using namespace std;
 
 string rounded_avg(int n,int m){
@@ -23,4 +20,3 @@ string rounded_avg(int n,int m){
     }
     reverse(binary.begin(),binary.end());
     return binary;
-}
