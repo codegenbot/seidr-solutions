@@ -11,4 +11,4 @@ def concatenate(strings: List[str]) -> str:
         result = "Invalid input"
     return result
 
-print(concatenate([]))
+print(concatenate(['hello', 'world']))
