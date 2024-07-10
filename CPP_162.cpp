@@ -1,17 +1,10 @@
-#include <string>
-#include <cryptopp/sha.h>
-
 std::string myString_to_md5(std::string text) {
-    SHA256 sha;
-    byte hash[SHA256::DIGEST_SIZE];
-    string result;
-
-    sha.ComputeHash((const byte*)text.c_str(), text.size(), hash);
-    for (int i = 0; i < SHA256::DIGEST_SIZE; i++) {
-        char buffer[3];
-        sprintf(buffer, "%02x", hash[i]);
-        result += buffer;
+    unsigned char result[16];
+    EVP_MD5((const unsigned char*)text.c_str(), text.size(), result);
+    std::string output;
+    for (int i = 0; i < 16; i++) {
+        char temp[3];
+        sprintf(temp, "%02x", result[i]);
+        output += temp;
     }
-
-    return result;
-}
+    return output;
