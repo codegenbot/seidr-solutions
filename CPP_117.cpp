@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -7,37 +6,21 @@ using namespace std;
 
 vector<string> select_words(string s, int n) {
     vector<string> result;
-    string word;
-    int consonants = 0;
-
+    string word = "";
     for (char c : s) {
-        if (c == ' ') {
-            if (consonants == n)
+        if (isalpha(c)) {
+            word += tolower(c);
+        } else if (!word.empty()) {
+            bool has_n_consonants = count(word.begin(), word.end(), !ispunct(c) && !isspace(c)) - count(word.begin(), word.end(), 'a') - count(word.begin(), word.end(), 'e') - count(word.begin(), word.end(), 'i') - count(word.begin(), word.end(), 'o') - count(word.begin(), word.end(), 'u') >= n;
+            if (has_n_consonants) {
                 result.push_back(word);
-            word.clear();
-            consonants = 0;
-        } else if (!isalpha(c)) // ignore non-alphabetic characters
-            continue;
-        else {
-            char ch = tolower(c); // convert to lowercase for simplicity
-            if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u')
-                consonants++;
-            word += c;
+            }
+            word = "";
         }
     }
-
-    if (consonants == n)
+    bool has_n_consonants = count(word.begin(), word.end(), !ispunct(c) && !isspace(c)) - count(word.begin(), word.end(), 'a') - count(word.begin(), word.end(), 'e') - count(word.begin(), word.end(), 'i') - count(word.begin(), word.end(), 'o') - count(word.begin(), word.end(), 'u') >= n;
+    if (has_n_consonants) {
         result.push_back(word);
-
-    return result;
-}
-
-int main() {
-    string s = "Mary had a little lamb";
-    int n = 4;
-    vector<string> res = select_words(s, n);
-    for (string str : res) {
-        cout << str << endl;
     }
-    return 0;
+    return result;
 }
