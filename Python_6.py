@@ -24,7 +24,13 @@ def parse_nested_parens(paren_string: str) -> list:
         elif char.isdigit():
             current_group += char
 
-    group_value = int(current_group.replace('(','-').replace(')', '').replace(',', '').split()[-1]) 
-    result.append(group_value)
+    if current_group and current_group != '------':
+        if current_group.replace('-', '').isdigit():
+            group_value = int(current_group)
+        else:
+            return result
+        result.append(group_value)
+    else:
+        return []
 
     return [int(x) for x in current_group.replace('(','-').replace(')', '').replace(',', '').split() if x.isdigit()]
