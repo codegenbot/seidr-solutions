@@ -1,6 +1,4 @@
-#include <iostream>
 #include <vector>
-
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -16,16 +14,17 @@ vector<int> leaders(vector<int>& arr) {
         leaders.push_back(arr[n-1]);
     }
     
-    leaders.push_back(arr.back()); // add the last element
     return leaders;
 }
 
 int main() {
     vector<int> arr = {16, 17, 4, 3, 5, 2};
-    vector<int> result = leaders(arr);
-    for (int i : result) {
+    vector<int> leaders_result = leaders(arr);
+    
+    for (int i : leaders_result) {
         cout << i << " ";
     }
     cout << endl;
+    
     return 0;
 }
