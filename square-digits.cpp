@@ -2,12 +2,9 @@
 using namespace std;
 
 string squareDigits(string input) {
-    long long num = stol(input);
-    string result = "";
-    while (num > 0) {
-        int digit = num % 10;
-        result += to_string(digit * digit);
-        num /= 10;
+    string output;
+    for (char c : input) {
+        int digit = c - '0';
+        output += to_string(digit * digit);
     }
-    return result;
-}
+    return output;
