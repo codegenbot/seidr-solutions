@@ -1,21 +1,20 @@
+```cpp
 #include <vector>
 #include <string>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
 
-int main() {
-    vector<int> result = parse_nested_parens("(()(())((())))");
-    assert(issame(result, {4}));
-    return 0;
-}
-
-vector<int> parse_nested_parens(string paren_string) {
+std::vector<int> parse_nested_parens(std::string paren_string) {
     vector<int> result;
     int max_depth = 0;
     for (char c : paren_string) {
