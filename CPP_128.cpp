@@ -1,7 +1,8 @@
+#include <iostream>
 #include <vector>
-using namespace std;
+#include <cassert>
 
-int prod_signs(vector<int> arr) {
+int prod_signs(std::vector<int> arr) {
     int product = 1;
     long long sum = 0;
 
@@ -22,5 +23,8 @@ int prod_signs(vector<int> arr) {
 
 int main() {
     assert(prod_signs({-1, 1, 1, 0}) == 0);
+    std::vector<int> testArr = {1, 2, 3};
+    int result = prod_signs(testArr);
+    std::cout << "Product of signs and sum: " << result << std::endl;
     return 0;
 }
