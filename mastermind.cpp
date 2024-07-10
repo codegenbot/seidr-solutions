@@ -16,11 +16,10 @@ int mastermind(string code, string guess) {
             }
         }
         if (count > 1 || count == 1 && black > 0) {
-            white += count - 1;
-        } else if (count == 1) {
-            white++;
+            continue;
         }
+        white += min(count, 4 - black);
     }
 
-    return black + white;
+    return make_pair(white, black).second;
 }
