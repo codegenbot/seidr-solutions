@@ -1,3 +1,7 @@
 ```
-def get_positive(l: list):
-    return [i for i in l if i > 0]
+def get_positive():
+    num = int(input("Enter a number: "))
+    if num > 0:
+        print(f"The positive number is {num}.")
+    else:
+        print("Please enter a positive number.")
