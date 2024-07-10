@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,7 +13,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-std::vector<int> common(const std::vector<int>& v1, const std::vector<int>& v2) {
+std::vector<int> common(std::vector<int> v1, std::vector<int> v2) {
     std::vector<int> result;
     for (int i : v1) {
         for (int j : v2) {
@@ -27,9 +27,9 @@ std::vector<int> common(const std::vector<int>& v1, const std::vector<int>& v2) 
 }
 
 int main() {
-    assert(std::issame(std::common({4, 3, 2, 8}, {2, 3, 5}), {2, 3}));
-    assert(std::issame(std::common({1, 2, 3}, {4, 5, 6}), {}));
-    assert(std::issame(std::common({1, 2, 3}, {1, 2, 3}), {1, 2, 3}));
+    assert(issame(common({4, 3, 2, 8}, {2, 3, 5}), {2, 3}));
+    assert(issame(common({1, 2, 3}, {4, 5, 6}), {}));
+    assert(issame(common({1, 2, 3}, {1, 2, 3}), {1, 2, 3}));
 
     return 0;
 }
