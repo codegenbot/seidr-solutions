@@ -1,9 +1,12 @@
-def calculate_score(exam1: int, exam2: int) -> Tuple[int, str]:
-    total_score = exam1 + exam2
-    average = (
-        total_score / 2
-        if total_score > 0
-        else "Error: Both exams must have a score greater than zero"
-    )
+```
+from typing import List, Tuple
 
-    return (total_score, average)
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    if not all(isinstance(x, int) for x in numbers):
+        return ("Error: Input must be a list of integers")
+    total_sum = 0
+    product = 1
+    for num in numbers:
+        total_sum += num
+        product *= num
+    return (total_sum, product)
