@@ -1,7 +1,10 @@
+```
 import re
 def validate_tweet(tweet):
+    tweet = re.sub(r'@[\w]+', '', tweet)
+    tweet = re.sub(r'https?://\S+|www\.\S+', '', tweet)
     tweet = re.sub(r'[^a-zA-Z0-9\s]', '', tweet).strip()
-    if len(tweet) + len(re.findall(r'[^a-zA-Z0-9\s]', tweet)) > 140:
+    if len(tweet) > 140:
         return "Too many characters"
     elif not tweet:
         return "You didn't type anything"
