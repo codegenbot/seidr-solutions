@@ -1,6 +1,5 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 int count_nums(std::vector<int> v) {
     int count = 0;
@@ -15,7 +14,7 @@ int count_nums(std::vector<int> v) {
                 count++;
             }
         } else {
-            num = -num; // make the number positive for calculation
+            num = -num; 
             int sum = 0;
             while (num > 0) {
                 sum += num % 10;
@@ -30,15 +29,8 @@ int count_nums(std::vector<int> v) {
 }
 
 int main() {
-    std::vector<int> v;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        std::cin >> v.push_back(i);
-    }
-    int result = count_nums(v);
-    std::cout << "The number of positive numbers with an odd sum of digits: " << result << std::endl;
+    std::vector<int> numbers = {-123, -456, 789, 9012};
+    int result = count_nums(numbers);
+    std::cout << "Number of positive integers: " << result << std::endl;
     return 0;
 }
