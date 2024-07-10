@@ -4,4 +4,8 @@ def modp(n: int, p: int):
     elif p == 2:
         return n % p
     else:
-        return pow(n, p-1, p) * (n % p) % p
+        result = pow(n, p - 1, p)
+        if result != 1:
+            return (n * (n % p)) % p
+        else:
+            return n % p
