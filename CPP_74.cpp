@@ -24,8 +24,6 @@ int total_match(vector<string> input, vector<string> matches) {
 }
 
 void get_user_input(vector<string>& user_input) {
-    // implement your code to get the user input here
-    // For example:
     string temp;
     cout << "Enter strings (enter 'stop' when done): ";
     while (true) {
@@ -38,11 +36,10 @@ void get_user_input(vector<string>& user_input) {
 int main() {
     vector<string> user_input;
     get_user_input(user_input);
-    if (issame({"some"}, user_input)) {  
+    if (total_match({"some"}, user_input)) {  
         cout << "The two lists are the same." << endl;
     } else {
-        int count = total_match(user_input, {"some"});
-        cout << "Error: The two lists are not the same. Count of matches is: " << count << endl;
+        cout << "Error: The two lists are not the same." << endl;
     }
     return 0;
 }
