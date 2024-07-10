@@ -1,3 +1,5 @@
+Here is the modified code:
+
 def fruit_distribution(s, n):
     s = " ".join(s).replace("apples and", "apples ").replace("oranges", " oranges").split()
     if 'apples' not in s or 'oranges' not in s:
@@ -12,4 +14,4 @@ def fruit_distribution(s, n):
         oranges = int(oranges_part[0].replace("oranges", ""))
     else:
         oranges = int(''.join(filter(str.isdigit, oranges_part)))
-    return n - sum(int(i.replace("apples", "").replace("oranges", "")) for i in s)
+    return n - int(apples) - int(oranges)
