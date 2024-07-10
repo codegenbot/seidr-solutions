@@ -3,12 +3,23 @@ import math
 
 
 def main():
-    n1 = None
-    while not n1:
+    while True:
         try:
             n1 = int(input("Enter the first integer: "))
             if n1 < 1:
                 print("Please enter a positive integer.")
+                for _ in range(2):
+                    try:
+                        n1 = int(input("Enter the first integer: "))
+                        if n1 < 1:
+                            print("Please enter a positive integer.")
+                        else:
+                            break
+                    except ValueError:
+                        print("Invalid input. Please enter a valid integer.")
+                else:
+                    continue
+            break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
@@ -26,39 +37,99 @@ def main():
     if n1 > 1:
         factors1.append(n1)
 
-    nums = [n1]
-    for _ in range(3):
-        num = None
-        while not num:
-            try:
-                num = int(input(f"Enter another integer ({len(nums) + 1}): "))
-                if num < 1:
-                    print("Please enter a positive integer.")
-            except ValueError:
-                print("Invalid input. Please enter a valid integer.")
-        nums.append(num)
+    while True:
+        try:
+            n2 = int(input("Enter another integer: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+
+    while True:
+        try:
+            n3 = int(input("Enter another integer: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+
+    while True:
+        try:
+            n4 = int(input("Enter another integer: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
 
     common_factors = []
     i = 2
-    while i * i <= min(nums):
-        for n in nums:
-            if n % i:
-                break
-        else:
+    while i * i <= min(n1, n2, n3, n4):
+        if all(num % i == 0 for num in (n1, n2, n3, n4)):
             count = 0
-            while all(n > 1 and n % i == 0 for n in nums):
-                for n in nums:
-                    n //= i
+            while all(num > 1 and num % i == 0 for num in (n1, n2, n3, n4)):
+                n1 //= i
+                n2 //= i
+                n3 //= i
+                n4 //= i
                 count += 1
             common_factors.extend([i] * count)
-        i += 1
+        elif any(num % i for num in (n1, n2, n3, n4)):
+            i += 1
+        else:
+            break
+
+    if any(
+        num > 1 and not any(other_num % num == 0 for other_num in (n2, n3, n4))
+        for num in (n1, n2, n3, n4)
+    ):
+        common_factors.append(
+            next(
+                num
+                for num in (n1, n2, n3, n4)
+                if num > 1
+                and not any(other_num % num == 0 for other_num in (n2, n3, n4))
+            )
+        )
+    if any(
+        num > 1 and not any(other_num % num == 0 for other_num in (n1, n3, n4))
+        for num in (n2,)
+    ):
+        common_factors.append(
+            next(
+                num
+                for num in (n2,)
+                if num > 1
+                and not any(other_num % num == 0 for other_num in (n1, n3, n4))
+            )
+        )
+    if any(
+        num > 1 and not any(other_num % num == 0 for other_num in (n1, n2, n4))
+        for num in (n3,)
+    ):
+        common_factors.append(
+            next(
+                num
+                for num in (n3,)
+                if num > 1
+                and not any(other_num % num == 0 for other_num in (n1, n2, n4))
+            )
+        )
+    if any(
+        num > 1 and not any(other_num % num == 0 for other_num in (n1, n2, n3))
+        for num in (n4,)
+    ):
+        common_factors.append(
+            next(
+                num
+                for num in (n4,)
+                if num > 1
+                and not any(other_num % num == 0 for other_num in (n1, n2, n3))
+            )
+        )
 
     if common_factors:
         print(
-            f"{', '.join(map(str, set(common_factors)))} are the common factors between {' and '.join(map(str, nums))}."
+            f"{', '.join(map(str, set(common_factors)))} are the common factors between {n1}, {n2}, {n3} and {n4}."
         )
     else:
-        print(f"No common factor found between {' and '.join(map(str, nums))}.")
+        print(f"No common factor found between {n1}, {n2}, {n3} and {n4}.")
 
 
 if __name__ == "__main__":
