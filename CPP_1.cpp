@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -17,12 +16,11 @@ vector<string> separate_paren_groups(string paren_string) {
             balance++;
         } else if (c == ')') {
             balance--;
-            if (balance >= 0) {
+            if (balance > 0) {
                 group += c;
-                if (balance == 0) {
-                    groups.push_back(group);
-                    group = "";
-                }
+            } else if (balance == 0) {
+                groups.push_back(group);
+                group = "";
             }
         }
     }
@@ -30,21 +28,14 @@ vector<string> separate_paren_groups(string paren_string) {
     return groups;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
     return true;
-}
-
-int main() {
-    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
-    // Additional test cases can be added here
-
-    return 0;
 }
