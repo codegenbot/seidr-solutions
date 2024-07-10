@@ -1,16 +1,11 @@
-Here is the solution:
-
 def solve_boolean(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
-    elif '&' in expression:
-        left, right = expression.split('&')
-        return solve_boolean(left) and solve_boolean(right)
-    elif '|' in expression:
-        left, right = expression.split('|')
-        return solve_boolean(left) or solve_boolean(right)
-
-expression = input()
-print(solve_boolean(expression))
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
+    else:
+        ops = {'&': lambda x, y: x and y,
+               '|': lambda x, y: x or y}
+        return eval(' '.join(map(str, [ops[op](x, y) if op in expression else x for x, op, y in zip(expression[::2], expression[1::3], expression[2::4])]))
