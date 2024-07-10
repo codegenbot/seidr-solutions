@@ -9,5 +9,8 @@ def f(n):
     return result
 
 import math
-def factorial(x):
-    return math.factorial(x)
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
