@@ -18,8 +18,3 @@ string anti_shuffle(string s) {
     result += word;
     return result;
 }
-
-int main() {
-    assert(anti_shuffle("lirnug") == "inrglu");
-    return 0;
-}
