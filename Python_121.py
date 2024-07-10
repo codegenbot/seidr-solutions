@@ -17,7 +17,6 @@ def sum_of_odd_numbers_in_every_other_element():
             continue
         except Exception as e:
             print(f"An error occurred: {e}")
-
     return sum(i for i in numbers[1::2] if i % 2 != 0)
 
 
