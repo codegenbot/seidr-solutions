@@ -1,5 +1,5 @@
 #include <vector>
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -9,13 +9,11 @@ vector<int> leaders(vector<int>& arr) {
     if (n == 0)
         return result;
         
-    int currMax = arr[n - 1];
-    result.push_back(currMax);
-    
-    for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] >= currMax) {
-            currMax = arr[i];
-            result.push_back(currMax);
+    int max_right = arr[n - 1];
+    for (int i = n - 1; i >= 0; i--) {
+        if (arr[i] >= max_right) {
+            result.push_back(arr[i]);
+            max_right = arr[i];
         }
     }
     
