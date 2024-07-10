@@ -10,4 +10,3 @@ int calculateFuelCost(std::vector<int>& vec) {
         sum += result;
     }
     return sum;
-}
