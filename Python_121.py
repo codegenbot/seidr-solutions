@@ -9,11 +9,13 @@ def sum_of_odd_numbers_in_every_other_element():
             numbers = list(map(int, input_str.split()))
             if not numbers:
                 raise ValueError
+            return (
+                sum(i for i in numbers[1::2] if i % 2 != 0)
+                if len(numbers) > 1
+                else sum(i for i in numbers if i % 2 != 0)
+            )
         except ValueError:
             print("Invalid input. Please try again.")
-            continue
-
-    return sum(i for i in numbers[1::2] if i % 2 != 0)
 
 
 def main():
