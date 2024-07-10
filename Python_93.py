@@ -8,7 +8,7 @@ def encode(message):
             if char_lower in vowels:
                 new_char = chr((ord(char_lower) - ord('a') + 3) % 26 + ord('a'))
             else:
-                new_char = chr((ord(char_lower) - ord('a') + 6) % 26 + ord('a'))
+                new_char = chr((ord(char_lower) - ord('a') + 3) % 26 + ord('a'))
             if is_upper:
                 new_char = new_char.upper()
         else:
