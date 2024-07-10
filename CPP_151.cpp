@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 #include <cassert>
 
 float double_the_difference(std::vector<float>& lst) {
@@ -16,13 +17,13 @@ float double_the_difference(std::vector<float>& lst) {
         }
     }
 
-    return (odd_sum - even_sum) * 2;
+    return std::fabs(odd_sum - even_sum) * 2;
 }
 
-int main() {
+int main(){
     std::vector<float> lst = {1.0, 2.0, 3.0, 4.0, 5.0};
-    float odd_sum = double_the_difference(lst);
-    assert(double_the_difference(lst) == odd_sum);
+    float result = double_the_difference(lst);
+    std::cout << "Result: " << result << std::endl;
 
     return 0;
 }
