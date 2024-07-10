@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <sstream>
 
@@ -16,9 +17,19 @@ std::string flip_case(const std::string& str) {
 }
 
 int main() {
-    std::string result;
-    while (std::cin >> result) {  // use a loop until you reach the end of the file
-        std::cout << "Flipped case: " << flip_case(result) << std::endl;
+    std::string result = "";
+    char c;
+    while ((c = std::cin.get()) != '\n') {
+        if (isalpha(c)) {
+            if (isupper(c))
+                result += tolower((char)c);  
+            else
+                result += toupper((char)c);
+        } else
+            result += c;
+    }
+    
+    std::cout << "Flipped case: " << flip_case(result) << std::endl;
 
-        return 0;
+    return 0;
 }
