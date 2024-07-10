@@ -1,20 +1,19 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a) {
-    string b;
-    if (a.size() != 1 || a[0] != b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-int total_match(vector<string> input, vector<string> matches) {
+int total_match(const vector<string>& input, const vector<string>& matches) {
     int count = 0;
     for (const string& str : input) {
         if (find(matches.begin(), matches.end(), str) != matches.end()) {
@@ -37,7 +36,7 @@ void get_user_input(vector<string>& user_input) {
 int main() {
     vector<string> user_input;
     get_user_input(user_input);
-    if (issame(user_input)) {  
+    if (issame({"some"}, user_input)) {  
         cout << "The two lists are the same." << endl;
     } else {
         int count = total_match(user_input, {"some"});
