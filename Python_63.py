@@ -1,4 +1,5 @@
-def fibfib(n: int):
+```python
+def fib(n: int):
     if n <= 1:
         return n
     a, b = 0, 1
@@ -7,4 +8,4 @@ def fibfib(n: int):
     return b
 
 n = int(input("Enter an integer: "))
-print(fibfib(n))
+print(fib(n))
