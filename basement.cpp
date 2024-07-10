@@ -1,10 +1,10 @@
-int basement(std::vector<int>& arr) {
+#include <vector>
+
+int basement(const std::vector<int>& arr) {
+    int sum = 0;
     for (int i = 0; i < arr.size(); ++i) {
-        int sum = 0;
-        for (int j = 0; j <= i; ++j) {
-            sum += arr[j];
-            if (sum < 0) return i;
-        }
+        sum += arr[i];
+        if (sum < 0) return i;
     }
-    return -1; // or throw an exception if you prefer
+    return -1; // not found
 }
