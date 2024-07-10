@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -8,10 +7,11 @@ int main() {
     std::vector<std::string> nums;
     std::cout << "Enter the numbers (enter 'stop' to finish): ";
     std::string num;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignore all remaining newlines in the input buffer
     while (true) {
         getline(std::cin, num);
         if (num == "stop") break;
-        num.erase(num.find('\n'), num.length());
+        num.pop_back(); 
         nums.push_back(num);
     }
     std::cout << "Number of special numbers: " << specialFilter(nums) << std::endl;
