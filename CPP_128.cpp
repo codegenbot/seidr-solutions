@@ -1,4 +1,3 @@
-#include <vector>
 #include <initializer_list>
 
 int prod_signs(const vector<int>& arr) {
