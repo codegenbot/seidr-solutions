@@ -5,17 +5,17 @@ vector<string> select_words(string s, int n) {
         if (isalpha(c)) {
             word += tolower(c);
         } else if (!word.empty()) {
-            int consonants = 0;
-            for (char ch : word) {
-                if (!ispunct(ch) && !isalpha(ch) || !isvowel(tolower(ch))) {
-                    consonants++;
-                }
-            }
-            if (consonants == n) {
+            bool has_n_consonants = count_if(word.begin(), word.end(), [](char c) { return !ispunct(c) && !isvowel(tolower(c)); }) == n;
+            if (has_n_consonants) {
                 result.push_back(word);
             }
             word = "";
         }
     }
+    bool has_n_consonants = count_if(word.begin(), word.end(), [](char c) { return !ispunct(c) && !isvowel(tolower(c)); }) == n;
+    if (has_n_consonants) {
+        result.push_back(word);
+    }
+    sort(result.begin(), result.end());
     return result;
 }
