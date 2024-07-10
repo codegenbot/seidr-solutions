@@ -1,4 +1,3 @@
-```
 import re
 
 
@@ -25,16 +24,25 @@ def filter_integers() -> None:
 
         if not user_values:
             print("No values entered. Cannot calculate average and minimum.")
-        elif len(user_values) > 1:
-            avg_value = sum(user_values) / len(user_values)
-            min_value = min(user_values)
-
+        elif len(user_values) < 2:
             print(f"The integers from the input are: {user_values}")
-            print(f"Average Value: {avg_value:.2f}")
-            print(f"Minimum Value: {min_value}")
+            if len(user_values) > 1:
+                avg_value = sum(user_values) / len(user_values)
+                print(f"Average Value: {avg_value:.2f}")
+            else:
+                print(f"Minimum Value: {user_values[0]}")
         else:
             print(f"The integers from the input are: {user_values}")
-            print(f"Minimum Value: {user_values[0]}")
+            if len(user_values) > 1:
+                avg_value = sum(user_values) / len(user_values)
+                print(f"Average Value: {avg_value:.2f}")
+            min_value = min(user_values)
+
+            if len(user_values) == 1:
+                print(f"Minimum Value: {user_values[0]}")
+            else:
+                print(f"Minimum Value: {min_value}")
+
     except ZeroDivisionError:
         print("Invalid input. Please enter a valid list of comma-separated integers.")
 
