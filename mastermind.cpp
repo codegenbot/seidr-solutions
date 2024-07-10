@@ -1,14 +1,25 @@
 int mastermind(string code, string guess) {
-    int black = 0;
     int white = 0;
+    int black = 0;
 
-    for (int i = 0; i < 4; i++) {
+    // Count correct colors in wrong places
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             black++;
-        } else if (count(guess.begin(), guess.end(), code[i]) > 0) {
-            white++;
+            break;
         }
     }
 
-    return {black, white}[1];
+    // Count remaining correct colors in wrong places
+    int code_count[6] = {0};
+    int guess_count[6] = {0};
+    for (int i = 0; i < 4; ++i) {
+        code_count[code[i] - 'A']++;
+        guess_count[guess[i] - 'A']++;
+    }
+    for (int i = 0; i < 6; ++i) {
+        white += min(code_count[i], guess_count[i]);
+    }
+
+    return black + white;
 }
