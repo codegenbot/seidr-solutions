@@ -21,12 +21,12 @@ std::vector<int> findLeaders(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {16, 17, 4, 3, 5, 2};
+    std::vector<int> nums = {5, 3, 20, 15, 8, 3};
     std::vector<int> result = findLeaders(nums);
-    
+
     for (int num : result) {
         std::cout << num << " ";
     }
-    
+
     return 0;
 }
