@@ -1,5 +1,5 @@
+#include <vector>
 #include <utility>
-#include <cassert>
 
 std::pair<int, int> eat(int number, int need, int remaining) {
     int total = number + need;
