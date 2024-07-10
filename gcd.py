@@ -1,4 +1,8 @@
-```
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
 inputs = list(map(int, input("Enter two integers (separated by space): ").split()))
 if len(inputs) != 2:
     print("Invalid input. Please provide exactly two integers.")
@@ -8,11 +12,6 @@ else:
 
 text = input("Enter text: ")
 target = input("Enter target string: ")
-
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return a
 
 def indices_of_substring(text, target):
     start = 0
