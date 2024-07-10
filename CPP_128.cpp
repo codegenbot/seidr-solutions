@@ -6,6 +6,6 @@ int prod_signs(std::vector<int> arr) {
     long long sum = 0;
     for (int num : arr) {
         sign *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
-        sum += abs(num);
+        sum += std::abs(num);
     }
     return (sign > 0) ? sum : -sum;
