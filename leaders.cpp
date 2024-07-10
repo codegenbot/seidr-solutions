@@ -5,12 +5,14 @@ vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     if(n == 0) return res;
 
-    int maxRight = arr[n-1];
+    int leader = arr[n-1];
     for(int i=n-2; i>=0; --i){
-        if(arr[i] >= maxRight){
-            maxRight = arr[i];
-            res.push_back(maxRight);
+        if(arr[i] >= leader){
+            leader = arr[i];
         }
+    }
+    for(int i=n-1; i>=0; --i){
+        if(arr[i] == leader) res.push_back(arr[i]);
     }
 
     return res;
