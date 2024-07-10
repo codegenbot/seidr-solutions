@@ -1,4 +1,4 @@
-string check_file_name(string file_name) {
+string validate_file_name(string file_name) {
     int count_digits = 0;
     int dot_position = -1;
     for (int i = 0; i < file_name.length(); ++i) {
