@@ -1,6 +1,12 @@
-```cpp
-bool issame(vector<int> a,vector<int>b){
-    return a==b;
+#include <vector>
+using namespace std;
+
+bool issame(vector<int> v1, vector<int> v2) {
+    if(v1.size() != v2.size()) return false;
+    for(int i = 0; i < v1.size(); i++) {
+        if(v1[i] != v2[i]) return false;
+    }
+    return true;
 }
 
 vector<int> largest_smallest_integers(vector<int> lst){
@@ -15,6 +21,17 @@ vector<int> largest_smallest_integers(vector<int> lst){
         }
     }
 
-    return {std::max({(max_negative > 0 ? INT_MAX : max_negative), 
-                      (min_positive < 1 ? INT_MIN : min_positive)},0);
+    vector<int> result;
+    if(!issame({max_negative}, {0})) {
+        result.push_back(max_negative);
+    } else {
+        result.push_back(0);
+    }
+    if(!issame({min_positive}, {1})) {
+        result.push_back(min_positive);
+    } else {
+        result.push_back(1);
+    }
+
+    return result;
 }
