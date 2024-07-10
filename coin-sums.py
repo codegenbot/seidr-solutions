@@ -1,3 +1,4 @@
+```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
     result = []
@@ -6,6 +7,7 @@ def coin_sums(cents):
         count = cents // coin
         result.append(count)
         cents %= coin
+        if cents == 0: break
 
     return tuple(result)
 
