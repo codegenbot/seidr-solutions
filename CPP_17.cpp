@@ -4,13 +4,19 @@
 
 using namespace std;
 
-bool issame(vector<int>& a, vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]) return false;
+bool issame(vector<int> a, vector<int> b){
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
+
+vector<int> parse_music(string music_string);
 
 vector<int> parse_music(string music_string){
     vector<int> result;
@@ -31,8 +37,18 @@ vector<int> parse_music(string music_string){
     return result;
 }
 
-int main(){
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {4, 1, 4, 1, 4, 1, 4, 1}));
-    cout << "Music is correct" << endl;
+int main() {
+    string input_music;
+    cin >> input_music;
+    vector<int> parsed_result = parse_music(input_music);
+    
+    vector<int> b = {1, 2, 3, 4};
+    
+    bool result = issame(parsed_result, b);
+    
+    cout << std::boolalpha << result << endl;
+
+    assert(issame(parsed_result, {2, 1, 2, 1, 4, 2, 4, 2}));
+
     return 0;
 }
