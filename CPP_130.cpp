@@ -1,8 +1,9 @@
 #include <vector>
 #include <cassert>
 
-vector<int> tri(int n) {
-    vector<int> res;
+bool issame(vector<int> a, vector<int> b) {
+
+vector<int> res;
     res.push_back(3);
     if (n == 0) return res;
     res.push_back(1);
@@ -17,14 +18,6 @@ vector<int> tri(int n) {
         }
     }
     return res;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
 }
 
 assert(issame(tri(1), {1, 3}));
