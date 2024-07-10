@@ -6,7 +6,7 @@ std::string miniRoman(int num);
 
 std::string int_to_roman(int num) {
     if (num > 3999) {
-        return "Out of range";
+        return "";
     }
     std::ostringstream oss;
     int thousands = num / 1000;
