@@ -2,11 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool is_same(std::vector<int> a, std::vector<int> b);
-
-std::vector<int> strange_sort_list(std::vector<int> lst);
-
-bool is_same(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -29,7 +25,7 @@ int main() {
     std::vector<int> sorted_list = strange_sort_list({111111});
     std::vector<int> expected = {111111};
     
-    assert(is_same(sorted_list, expected));
+    assert(issame(sorted_list, expected));
     
     return 0;
 }
