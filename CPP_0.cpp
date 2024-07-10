@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -28,7 +28,7 @@ int main() {
         cin >> input; 
         if(input == "stop") break;
         a.push_back(stof(input)); 
-        cin >> ws; // ignore whitespace characters
+        cin >> std::ws; // Add this line to ignore whitespace characters
     } 
 
     cout << "Enter the threshold: ";
