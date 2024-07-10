@@ -1,3 +1,1 @@
-Here is the solution:
-
-return (a * h) / 2;
+return (a * h) / 2.0f;
