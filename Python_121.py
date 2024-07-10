@@ -3,7 +3,13 @@ def solution(lst):
 
 
 def main():
-    lst = list(map(int, input("Enter numbers separated by space: ").split()))
+    while True:
+        try:
+            lst = list(map(int, input("Enter numbers separated by space: ").split()))
+            break
+        except ValueError:
+            print("Invalid input. Please enter valid integers separated by space.")
+
     print(solution(lst))
 
 
