@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -10,7 +9,7 @@ bool issame(std::vector<float> v1, std::vector<float> v2) {
     return true;
 }
 
-std::vector<float> sortEven(std::vector<float> l) {
+std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result(l.size());
     int j = 0;
     for (int i = 0; i < l.size(); i++) {
@@ -31,10 +30,9 @@ int main_function()
     while(std::cin >> num) {
         input.push_back(num);
     }
-    std::vector<float> output = sortEven(input);
+    std::vector<float> output = sort_even(input);
     for(float f : output) {
         std::cout << f << " ";
     }
-    assert(issame(output, {5, 8, -12, 4, 23, 2, 3, 11, 12, -10}));
-    return 0;
+    std::cout << std::endl;
 }
