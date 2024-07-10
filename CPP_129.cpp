@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,7 +13,9 @@ bool issame(vector<int> a, vector<vector<int>> b) {
 }
 
 string to_string(int x) {
-    return std::to_string(x);
+    ostringstream oss;
+    oss << x;
+    return oss.str();
 }
 
 vector<int> minPath(vector<vector<int>> input, int target) {
@@ -66,8 +67,4 @@ void minPathTest() {
         }
     }
     cout << outputStr << endl;
-}
-
-int main() {
-    minPathTest();
 }
