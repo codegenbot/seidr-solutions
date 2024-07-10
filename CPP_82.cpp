@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -22,6 +23,9 @@ int main()
         flag &= std::isdigit(c); 
     }
     int len = input.length(); 
+    std::string last_part = (len % 10 > 9 ? std::to_string(len / 100) + std::to_string(len % 10) : 
+            (len / 10 > 0 ? std::to_string(len / 10) + std::to_string(len % 10) : 
+            std::to_string(len)));
     if(flag && prime_length(std::to_string(len))) {  
         std::cout << "The length of the string is prime." << std::endl;
     } else {
