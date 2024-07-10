@@ -3,9 +3,9 @@ namespace boost = boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any((int)a < (float)b ? &b : &a);
+        return (int)a < (float)b ? &b : &a;
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return boost::any((float)a > (int)b ? &a : &b);
+        return (float)a > b ? &a : &b;
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         if (boost::any_cast<string>(a) >= boost::any_cast<string>(b)) {
             return a;
@@ -34,7 +34,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if ((int)a < (int)b) {
             return b;
         } else {
-            return boost::any("None");
+            return boost::any(typeid(string));
         }
     } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
         if ((float)a > (float)b) {
@@ -42,8 +42,8 @@ boost::any compare_one(boost::any a, boost::any b) {
         } else if ((float)a < (float)b) {
             return b;
         } else {
-            return boost::any("None");
+            return boost::any(typeid(string));
         }
     }
-    return "None";
+    return boost::any(typeid(string));
 }
