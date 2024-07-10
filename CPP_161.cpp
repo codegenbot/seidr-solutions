@@ -1,10 +1,10 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cassert>
 
 int solve(std::string s) {
-    std::vector<char> v(1); 
+    std::vector<char> v;
     for (char c : s) {
         if (std::tolower(c) == 'a' || std::tolower(c) == 'e' || 
             std::tolower(c) == 'i' || std::tolower(c) == 'o' || std::tolower(c) == 'u') {
@@ -16,5 +16,6 @@ int solve(std::string s) {
 
 int main() {
     assert(solve("aAeEiIoUu") == 6);
+    std::cout << solve("#ccc") << std::endl;
     return 0;
 }
