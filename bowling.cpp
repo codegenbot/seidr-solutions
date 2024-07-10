@@ -1,18 +1,16 @@
 int bowlingScore(string s) {
     int score = 0;
-    int currentFrame = 1;
+    bool firstInFrame = true;
     for (char c : s) {
         if (c == '/') {
-            score += min(10 - '0', 10);
-            currentFrame++;
+            firstInFrame = false;
         } else if (isdigit(c)) {
-            score += c - '0';
-            if (currentFrame < 10 && c != 'X') {
-                currentFrame++;
+            if (firstInFrame) {
+                score += (int)(c - '0') * 2 + (10 - int(s.find('/')) / 2);
+            } else {
+                score += (int)(c - '0');
             }
-        } else {
-            score += 10;
-            currentFrame++;
+            firstInFrame = true;
         }
     }
     return score;
