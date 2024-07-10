@@ -1,9 +1,23 @@
-bool check_if_last_char_is_a_letter(string txt){
-    if(txt.empty()) return false;
-    string lastChar = txt.substr(txt.length()-1, 1);
-    for(int i=0; i<txt.length()-1; i++){
-        if(txt[i] == ' ' && txt.substr(i+1).find(lastChar) != string::npos)
-            return false;
+int main() {
+    string txt;
+    cin >> txt;
+    cout << (check_if_last_char_is_a_letter(txt) ? "true" : "false");
+    return 0;
+}
+
+bool check_if_last_char_is_a_letter(string txt) {
+    if(txt.length() == 0)
+        return false;
+
+    char lastChar = txt.back();
+    if(!isalpha(lastChar))
+        return false;
+
+    for(int i = 0; i < txt.length()-1; i++) {
+        if(isspace(txt[i]) || isalpha(txt[i])) {
+            return true;
+        }
     }
-    return isalpha(lastChar[0]);
+
+    return false;
 }
