@@ -1,4 +1,5 @@
 def simplify(x, n):
     a, b = map(int, x.split("/"))
     c, d = map(int, n.split("/"))
-    return [a//math.gcd(a, b), d//math.gcd(c, d)]
+    g = abs((a*d) // (b*c))
+    return f"{a//g}/{b//g}" if g != 1 else f"{a}/{b}"
