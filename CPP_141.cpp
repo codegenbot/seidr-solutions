@@ -1,20 +1,33 @@
+#include <string>
+
 string file_name_check(string file_name){
     int digit_count = 0;
     bool has_dot = false;
-    for(int i=0; i<file_name.length(); i++){
+    string before_dot;
+
+    for(int i = 0; i < file_name.length(); i++){
         char c = file_name[i];
         if(c >= '0' && c <= '9'){
             digit_count++;
-            if(digit_count > 3) return "No";
-        }else if(c == '.'){
+        } else if(c == '.'){
             has_dot = true;
-        }else if(!has_dot){
-            if((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) return "No";
+        } else {
+            if(i > 0){
+                before_dot = file_name.substr(0, i);
+            }
         }
     }
-    if(!has_dot) return "No";
-    size_t pos = file_name.find('.');
-    string extension = file_name.substr(pos+1);
-    if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
+
+    if(digit_count > 3 || !has_dot || before_dot.empty() || 
+       (before_dot[0] < 'a' && before_dot[0] < 'A') ||
+       (!find(file_name.begin(), file_name.end(), '.') + 1 == file_name.length())){
+        return "No";
+    } else {
+        string after_dot = file_name.substr(file_name.find('.') + 1);
+        if(after_dot != "txt" && after_dot != "exe" && after_dot != "dll"){
+            return "No";
+        }
+    }
+
     return "Yes";
 }
