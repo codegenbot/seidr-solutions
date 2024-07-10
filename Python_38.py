@@ -1,12 +1,14 @@
 def decode_cyclic(s: str):
+    if not s:
+        return "Please enter a valid string for decoding."
     result = ""
     i = 0
     while i < len(s):
-        if s[i] == 'x':
-            char_val = (int(s[i+1:]) + ord(s[0])) % 128
-            result += chr(char_val)
-            i += 2
-        else:
+        if i + 2 >= len(s) or s[i+1] != 'x':
             result += s[i]
             i += 1
+        else:
+            char_val = int(s[i+2:]) + ord(s[i])
+            result += chr(char_val % 128)
+            i += 3
     return result
