@@ -2,11 +2,9 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
 
-std::vector<std::string> total_match(const std::vector<std::string>& lst1, const std::vector<std::string>& lst2) {
+std::vector<std::string> total_match(std::vector<std::string> lst1, std::vector<std::string> lst2) {
     int total_chars_lst1 = 0, total_chars_lst2 = 0;
     
     for (const std::string& str : lst1) {
@@ -24,7 +22,11 @@ std::vector<std::string> total_match(const std::vector<std::string>& lst1, const
     }
 }
 
-int main() {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    return a == b;
+}
+
+int main(){
     assert(issame(total_match({"this"}, {}), {}));
     return 0;
 }
