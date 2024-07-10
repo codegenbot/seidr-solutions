@@ -1,26 +1,20 @@
 ```cpp
-#include <string>
-#include <iostream>
-
 int vowels_count(std::string s) {
     int count = 0;
+    bool has_y = false;
     for (char c : s) {
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-            (c == 'y' && (char*)s.find(c) == s.size() - 1)) {
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
             count++;
+        } else if (c == 'y') {
+            has_y = true;
         }
     }
-    return count;
+    return count + (has_y ? 1 : 0);
 }
 
 int main() {
     std::string s;
     std::getline(std::cin, s);
-    if(s.empty()) {
-        std::cout << "Error: Input string is empty." << std::endl;
-    } else {
-        int result = vowels_count(s);
-        std::cout << "Number of vowels: " << result << std::endl;
-    }
+    int result = vowels_count(s);
     return 0;
 }
