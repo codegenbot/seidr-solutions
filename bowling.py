@@ -17,17 +17,3 @@ def bowling_score(bowls):
                 bowl_index += 1
         frame += 1
     return score
-
-
-def get_strike_bonus(bowls, index):
-    if bowls[index + 1] == "X":
-        if bowls[index + 2] == "X":
-            return 20
-        else:
-            return 10 + int(bowls[index + 2])
-    else:
-        return int(bowls[index + 1]) + int(bowls[index + 2])
-
-
-bowls = input()
-print(bowling_score(bowls))
