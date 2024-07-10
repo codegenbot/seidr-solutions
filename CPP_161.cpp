@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <algorithm>
 
 std::string solve(std::string s) {
@@ -16,11 +15,7 @@ std::string solve(std::string s) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
-    
-    std::string result = solve(input);
-    std::cout << "Modified string: " << result << std::endl;
-
+    std::cin >> input;
+    std::cout << solve(input) << std::endl;
     return 0;
 }
