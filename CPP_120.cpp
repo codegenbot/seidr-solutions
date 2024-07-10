@@ -1,7 +1,8 @@
+```cpp
+#include <initializer_list>
 #include <algorithm>
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 bool same(int a, int b) {
     if (a == b)
@@ -35,3 +36,4 @@ int originalMain() {
 int main() {
     originalMain();
     return 0;
+}
