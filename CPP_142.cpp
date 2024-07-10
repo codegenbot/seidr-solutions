@@ -15,7 +15,18 @@ int sum_squares(vector<int> lst) {
     return total;
 }
 
-int main() {
-    vector<int> numbers = {-1, -3, 17, -1, -15, 13, -1, 14, -14, -12, -5, 14, -14, 6, 13, 11, 16, 16, 4, 10};
-    cout << sum_squares(numbers) << endl;
+int main(int argc, char* argv[]) {
+    vector<int> numbers;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    numbers.resize(n);
+    
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> numbers[i];
+    }
+    
+    cout << "Sum of squares: " << sum_squares(numbers) << endl;
     return 0;
+}
