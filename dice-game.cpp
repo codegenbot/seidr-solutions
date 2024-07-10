@@ -1,5 +1,5 @@
-```cpp
 #include <iostream>
+#include <string>
 #include <iomanip>
 
 int main() {
@@ -9,10 +9,11 @@ int main() {
     std::cout << "Enter the number of sides for Colin's die: ";
     std::cin >> m;
     double p = 0.0;
-    for (int i = 1; i <= n - 1; i++) {
-        p += (n - i) / (double)n * m / (double)m;
+    double total = (double)(n - 1) * m; 
+    for (int i = 1; i <= m-1; i++) {
+        p += (n-i)/(double)n; 
     }
     std::cout << "The probability that Peter rolls strictly higher than Colin is: ";
-    std::cout << std::fixed << std::setprecision(10) << 1 - p << std::endl; 
+    std::cout << std::fixed << std::setprecision(10) << 1 - p << std::endl;
     return 0;
 }
