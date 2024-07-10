@@ -1,5 +1,5 @@
 #include <vector>
-#include <algorithm>
+#include <string>
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::vector<std::string> result;
@@ -34,6 +34,6 @@ std::vector<std::string> reverse_delete(std::string s, std::string c) {
         right--;
     }
     
-    result.push_back(std::to_string(is_palindrome).erase(0, 5));
+    result.push_back(std::to_string(is_palindrome).substr(0,4));
     return result;
 }
