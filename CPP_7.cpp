@@ -12,21 +12,22 @@ std::vector<std::string> filter_by_substring(std::vector<std::string> strings, s
     return result;
 }
 
-bool issame(vector<vector<string>> b, vector<string>& a){
+bool issame(vector<vector<string>>& b, vector<string>& a){
+    bool same = true;
     for(int i = 0; i < a.size(); i++){
         bool found = false;
         for(const auto& v : b){
-            if(std::equal(a[i].begin(), a[i].end(), v.begin())){
+            if(std::count(v.begin(),v.end(),a[i]) > 0){
                 found = true;
                 break;
             }
         }
-        if(!found) return false;
+        same &= found;
     }
-    return true;
+    return same;
 }
 
-int main() {
-    assert(issame({{{"grunt", "trumpet", "prune", "gruesome"}}, {{"grunt"}, {"prune"}}}) );
+int main(){
+    assert(issame({{{"grunt", "trumpet", "prune", "gruesome"}}, {{"grunt"}, {"prune"}}}, {"grunt", "prune"}));
     return 0;
 }
