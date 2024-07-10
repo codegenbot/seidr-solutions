@@ -5,11 +5,10 @@ def coin_sums(cents):
 
     for coin in coins:
         count = cents // coin
-        if count > 0:
-            result.append(count)
-            cents %= coin
-        else:
-            result.append(0)
+        result.append(count)
+        cents %= coin
+        if cents == 0: break
+
     return tuple(result)
 
 cents = int(input())
