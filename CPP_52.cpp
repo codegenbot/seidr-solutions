@@ -4,7 +4,7 @@
 
 bool below_threshold(const std::vector<int>& l, int t) {
     for(int num : l){
-        if(num > t){
+        if(num >= t){
             return false;
         }
     }
@@ -12,6 +12,6 @@ bool below_threshold(const std::vector<int>& l, int t) {
 }
 
 int main() {
-    assert(!below_threshold({1, 8, 4, 10}, 10));
+    assert(!below_threshold({1, 8, 4, 10}, 10)); // Sample test case
     return 0;
 }
