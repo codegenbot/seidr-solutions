@@ -6,7 +6,7 @@ float sum = 0;
 
     float deviation_sum = 0;
     for (float num : numbers) {
-        deviation_sum += abs(num - mean);
+        deviation_sum += fabs(num - mean);
     }
     return deviation_sum / numbers.size();
 }
