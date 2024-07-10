@@ -1,14 +1,9 @@
 #include <iostream>
 #include <assert.h>
-#include <string>
-#include <cmath>
 
 bool any_int(float a, float b, float c) {
-    std::string sai = std::to_string(round(a));
-    std::string sbi = std::to_string(round(b));
-    std::string sci = std::to_string(round(c));
-
-    if ((sai == sbi + sci) || (sai == sbi - sci) || (sai == sci + sbi) || (sai == sci - sbi))
+    if ((int)a + (int)b == (int)c || (int)a - (int)b == (int)c ||
+        (int)b - (int)a == (int)c || (int)a + (int)b == (int)c)
         return true;
     else
         return false;
