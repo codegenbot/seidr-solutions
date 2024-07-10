@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 
 int main() {
     int n, m;
