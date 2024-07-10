@@ -1,4 +1,7 @@
-int skjkasdkd(vector<int> lst){
+#include <iostream>
+#include <vector>
+
+int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
     for(int i: lst){
         if(isPrime(i) && i > maxPrime)
@@ -20,6 +23,7 @@ bool isPrime(int n){
     return true;
 
 int main() {
-    assert (skjkasdkd({127, 97, 8192}) == 10);
+    std::vector<int> lst = {127, 97, 8192};
+    std::cout << "The sum is: " << skjkasdkd(lst) << std::endl;
     return 0;
 }
