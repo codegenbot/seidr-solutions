@@ -1,4 +1,4 @@
 def sort_third(l):
-    non_lists = [x for sublist in l for x in sublist if not isinstance(x, list)]
-    lists = [sublist for sublist in l if isinstance(sublist, list)]
-    return sorted(non_lists + lists)
+    int_list = [i for i in l if isinstance(i, int)]
+    lst_list = [sublist for sublist in l if isinstance(sublist, list)]
+    return sorted(int_list) + lst_list
