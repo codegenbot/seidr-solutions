@@ -1,10 +1,6 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
-
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
@@ -20,4 +16,16 @@ vector<int> get_odd_collatz(int n) {
     result.push_back(1);
     sort(result.begin(), result.end());
     return result;
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    // Test cases
+    vector<int> test_case = get_odd_collatz(10);
+    assert(issame(test_case, {1, 3, 5, 7, 9, 10}));
+    
+    return 0;
 }
