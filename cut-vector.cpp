@@ -1,33 +1,29 @@
 #include <vector>
-#include <iostream>
+using namespace std;
 
-std::vector<int> cutVector(const std::vector<int>& vec) {
-    int n = vec.size();
-    for (int i = 0; i < n - 1; ++i) {
-        if (vec[i] == vec[i + 1]) return {vec.sub(0, i + 1), vec.substr(i + 1)};
+vector<int> cutVector(vector<int> v) {
+    int n = v.size();
+    vector<int> left, right;
+    
+    for(int i = 0; i < n - 1; i++) {
+        if(v[i] == v[i+1]) {
+            left = v.substr(0, i + 1);
+            right = v.substr(i + 1, n - i - 1);
+            return {left, right};
+        }
     }
-    return {vec};
-}
-
-int main() {
-    int N;
-    std::cin >> N;
-    std::vector<int> vec(N);
-    for (auto& x : vec) {
-        std::cin >> x;
+    
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
+    
+    for(int i = 1; i < n; i++) {
+        if(abs(v[i] - v[0]) < minDiff) {
+            minDiff = abs(v[i] - v[0]);
+            cutIndex = i;
+        }
     }
-
-    auto res = cutVector(vec);
-
-    for (const auto& num : res[0]) {
-        std::cout << num << " ";
-    }
-    std::cout << "\n";
-
-    for (const auto& num : res[1]) {
-        std::cout << num << " ";
-    }
-    std::cout << "\n";
-
-    return 0;
+    
+    left = vector<int>(v.begin(), v.begin() + cutIndex);
+    right = vector<int>(v.begin() + cutIndex, v.end());
+    return {left, right};
 }
