@@ -1,20 +1,20 @@
 vector<string> result;
     string current_group;
-    int balance = 0;
+    int open_braces = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (balance > 0) {
+            open_braces++;
+            if (open_braces > 1) {
                 current_group += c;
             }
-            balance++;
         } else if (c == ')') {
-            balance--;
-            if (balance > 0) {
+            open_braces--;
+            if (open_braces > 0) {
                 current_group += c;
-            } else if (balance == 0) {
+            } else {
                 result.push_back(current_group);
-                current_group.clear();
+                current_group = "";
             }
         }
     }
