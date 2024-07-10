@@ -1,5 +1,8 @@
+#include <vector>
+#include <string>
+
 std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
-    vector<string> result;
+    std::vector<std::string> result;
     
     for (char ch : s) {
         bool found = false;
@@ -15,7 +18,7 @@ std::vector<std::string> reverse_delete(const std::string& s, const std::string&
         }
     }
     
-    string resStr = "";
+    std::string resStr = "";
     for (int i = 0; i < result.size(); i++) {
         resStr += result[i];
     }
