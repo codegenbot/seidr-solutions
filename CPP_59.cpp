@@ -1,13 +1,16 @@
 int largest_prime_factor(int n) {
-    while (n % 2 == 0) {
-        n /= 2;
-    }
-
-    for (int i = 3; i <= sqrt(n); i += 2) {
-        while (n % i == 0) {
-            n /= i;
+    int factor = 2;
+    int largestPrimeFactor = 0;
+    while (n > factor) {
+        if (n % factor == 0) {
+            largestPrimeFactor = factor;
+            n /= factor;
+        } else {
+            factor++;
         }
     }
-
-    return n;
+    if (n > largestPrimeFactor) {
+        largestPrimeFactor = n;
+    }
+    return largestPrimeFactor;
 }
