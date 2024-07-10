@@ -19,11 +19,13 @@ int main() {
     std::cout << "Enter the number of words: ";
     int n;
     std::cin >> n;
-    std::cin.ignore(INT_MAX, '\n'); // Ignore any remaining characters
     for (int i = 0; i < n; ++i) {
         std::cout << "Enter word " << i + 1 << ": ";
         std::string str;
-        getline(std::cin, str); 
+        std::cin >> str; // consume the newline left by integer read
+        if (!str.empty()) { 
+            getline(std::cin, str); 
+        }
         words.push_back(str);
     }
     std::cout << "The maximum length word is: " << find_max(words) << std::endl;
