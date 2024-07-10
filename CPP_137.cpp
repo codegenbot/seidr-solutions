@@ -1,4 +1,7 @@
-```cpp
+```
+#include <boost/any.hpp>
+#include <string>
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (boost::holds_alternative<int>(a) && boost::holds_alternative<double>(b)) {
         return boost::get<int>(a) > boost::get<double>(b) ? a : b;
