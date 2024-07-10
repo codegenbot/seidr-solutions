@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <limits>
 
@@ -17,4 +16,3 @@ int main() {
     cout << "Enter a positive integer: ";
     cin >> n;
     cout << "The special factorial of " << n << " is: " << special_factorial(n) << endl;
-}
