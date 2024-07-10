@@ -1,15 +1,10 @@
-```
 def cycpattern_check(a, b):
     if len(b) > len(a):
         return False
     for i in range(len(a)):
-        k = i
-        j = 0
-        while True:
-            if a[k] != b[j]:
+        for j in range(min(i+1, len(b))+1):
+            if a[i-j:i] != b[:j]:
                 break
-            k = (k + 1) % len(a)
-            j += 1
-            if j == len(b):
-                return True
+        else:
+            return True
     return False
