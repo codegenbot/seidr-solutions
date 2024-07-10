@@ -4,6 +4,9 @@ int add_elements(vector<int> arr, int k) {
         if (to_string(arr[i]).length() <= 2) {
             sum += arr[i];
         }
+        else {
+            break;
+        }
     }
     return sum;
 }
