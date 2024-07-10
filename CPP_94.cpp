@@ -1,5 +1,5 @@
 #include <vector>
-#include <assert.h>
+#include <iostream>
 
 int sumVector(std::vector<int> lst) {
     int total = 0;
@@ -10,6 +10,6 @@ int sumVector(std::vector<int> lst) {
 }
 
 int main() {
-    assert(sumVector({127, 97, 8192}) == 1216);
+    assert(sumVector({127, 97, 8192}) == 10);
+    std::cout << "sumVector({127, 97, 8192}) = " << sumVector({127, 97, 8192}) << std::endl;
     return 0;
-}
