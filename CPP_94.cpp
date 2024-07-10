@@ -24,6 +24,6 @@ bool isPrime(int n){
     return true;
 
 int main() {
-    assert (skjkasdkd({2,3}) == 6);
+    assert (skjkasdkd({1,2,3}) == 6);
     return 0;
 }
