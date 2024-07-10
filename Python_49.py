@@ -23,19 +23,22 @@ def main():
         num = input("Enter a number: ")
         p = input("Enter the prime number: ")
 
-        try:
-            num = int(num)
-            p = int(p)
-            break
-        except ValueError:
-            print("Invalid input. Please enter numbers.")
+        while True:
+            try:
+                num = int(num)
+                p = int(p)
+                break
+            except ValueError:
+                print("Invalid input. Please enter numbers.")
+                num = input("Enter a number: ")
+                p = input("Enter the prime number: ")
 
-    if is_prime(p):
-        n = num**p
-        result = modp(n, p)
-        print(f"{num} to the power of {p} mod {p} is {result}")
-    else:
-        print("The given prime number is not valid. Please enter a prime number.")
+        if is_prime(p):
+            n = num**p
+            result = modp(n, p)
+            print(f"{num} to the power of {p} mod {p} is {result}")
+        else:
+            print("The given prime number is not valid. Please enter a prime number.")
     pass
 
 
