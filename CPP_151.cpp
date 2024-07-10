@@ -6,25 +6,21 @@ long long double_the_difference(vector<float> lst){
         }
     }
     return sum;
-
 }
 
 int main() {
     vector<float> lst; 
     int odd_sum = 0;
-    float num;
-    
-    cout << "Enter numbers (enter 'stop' to finish):" << endl;
-    while(1) {
-        cin >> num;
-        
-        if(std::to_string(num) == "stop") break;
-
-        if(num > 0 && modf(num, &num) == 0.0) {
-            odd_sum = double_the_difference(lst);
-        }
-        lst.push_back(num);    
+    // Get input from user
+    cin >> lst.size();
+    for (int i = 0; i < lst.size(); i++) {
+        float x;
+        cin >> x;
+        lst.push_back(x);
     }
+    
+    long long result = double_the_difference(lst);
+    cout << result;
 
-    cout << "Sum of squared values: " << odd_sum << endl;
+    return 0;
 }
