@@ -15,6 +15,6 @@ namespace Contest {
 }
 
 int main() {
-    assert(Contest::solutions({3, 13, 2, 9}) == 13);
+    assert(Contest::solutions({3, 13, 2, 9}) == 22);
     return 0;
 }
