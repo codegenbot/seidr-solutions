@@ -15,7 +15,7 @@ int main() {
     
     cout << "Enter numbers (enter 'stop' to finish):" << endl;
     vector<float> lst; 
-    int odd_sum = 0;
+    long long odd_sum = 0;
     
     while(1) {
         cin >> num;
@@ -23,8 +23,7 @@ int main() {
         if(std::to_string(num) == "stop") break;
 
         if(num > 0 && modf(num, &num) == 0.0) {
-            long long sum = double_the_difference(lst);
-            odd_sum = sum;
+            odd_sum = double_the_difference(lst);
         }
         lst.push_back(num);    
     }
