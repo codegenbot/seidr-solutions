@@ -1,11 +1,11 @@
-```cpp
 #include <vector>
 #include <cassert>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
-double double_the_difference(initializer_list<double> lst) {
+double double_the_difference(vector<double> lst) {
     int sum = 0;
     for (double x : lst) {
         int diff = abs((int)x - 5);
@@ -16,7 +16,7 @@ double double_the_difference(initializer_list<double> lst) {
     return static_cast<double>(sum);
 }
 
-int main() {
+int main_func() {
     vector<double> lst;
 
     for (string line; getline(cin, line); ) {
@@ -24,8 +24,9 @@ int main() {
             double val = stod(line);
             int diff = abs((int)val - 5);
             if (diff % 2 != 0) {
-                lst.push_back(val);
+                // odd_sum += val;
             }
+            lst.push_back(val);
         }
     }
 
