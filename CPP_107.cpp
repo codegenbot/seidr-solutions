@@ -1,44 +1,37 @@
+```cpp
 #include <iostream>
 #include <vector>
-using namespace std;
 
-vector<int> even_odd_palindrome(int n) {
-    vector<int> result;
-    int even = 0;
-    int odd = 0;
-
-    for (int i = 1; i <= n; ++i) {
-        string str = to_string(i);
-        bool is_palindrome = true;
-
-        for (int j = 0; j < str.length() / 2; ++j) {
-            if (str[j] != str[str.length() - j - 1]) {
-                is_palindrome = false;
-                break;
-            }
+std::vector<int> even_odd_palindrome(int n) {
+    int even = 0, odd = 0;
+    for (int i = 1; i <= n; i++) {
+        if (i == reverse(i)) {
+            if (i % 2 == 0)
+                even++;
+            else
+                odd++;
         }
-
-        if (is_palindrome && i % 2 == 0)
-            even++;
-        else if (is_palindrome && i % 2 != 0)
-            odd++;
-
     }
-
-    result.push_back(even);
-    result.push_back(odd);
-
-    return result;
+    return std::vector<int>( {even, odd} );
 }
 
 int main() {
     int n;
-    cout << "Enter a positive integer: ";
-    cin >> n;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> n;
 
-    vector<int> result;
-    result = even_odd_palindrome(n);
+    std::vector<int> result = even_odd_palindrome(n);
 
-    cout << "Number of even palindromes: " << result[0] << endl;
-    cout << "Number of odd palindromes: " << result[1] << endl;
+    std::cout << "Number of even palindromes: " << result[0] << std::endl;
+    std::cout << "Number of odd palindromes: " << result[1] << std::endl;
+}
+
+int reverse(int n) {
+    int rev = 0;
+    while (n != 0) {
+        int remainder = n % 10;
+        rev = rev * 10 + remainder;
+        n /= 10;
+    }
+    return rev;
 }
