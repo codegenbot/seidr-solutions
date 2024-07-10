@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -18,5 +19,5 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
         }
     }
 
-    return {std::max({(max_negative > 0 ? INT_MAX : max_negative), (min_positive < 1 ? INT_MIN : min_positive)}, 0)};
+    return {std::max({(max_negative > 0 ? INT_MAX : max_negative), (min_positive < 1 ? INT_MIN : min_positive)})};
 }
