@@ -1,13 +1,10 @@
 ```
-def decipher(cipher1, cipher2, message):
-    mapping = {}
-    for char1, char2 in zip(cipher1, cipher2):
-        if char1 != char2:
-            mapping[char1] = char2
-    result = ""
-    for char in message:
-        if char in mapping:
-            result += mapping[char]
+def decipher_cipher(input1, input2, input3):
+    cipher = {k: v for k, v in zip(input1, input2)}
+    output = ''
+    for char in input3:
+        if char in cipher:
+            output += cipher[char]
         else:
-            result += char
-    return result
+            output += char
+    return output
