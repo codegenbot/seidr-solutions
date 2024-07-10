@@ -15,13 +15,15 @@ string spinWords(string str) {
             for (int j = i; j >= max(0, i-5); j--) {
                 result += str[j];
             }
-            i = str.length();
-        } else {
-            int k = i;
-            while (++k < min((int)str.length(), k+6)) {
-                result += str[k];
+            i++;
+            while (i < str.length() && str[i] == ' ') {
+                i++;
             }
-            i = k - 1;
+        } else {
+            for (int j = i; j < min(i+6, str.length()); j++) {
+                result += str[j];
+            }
+            i = j;
         }
     }
     return result;
