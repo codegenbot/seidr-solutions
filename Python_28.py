@@ -1,12 +1,9 @@
+```
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
-    result = []
-    for s in strings:
-        if s and isinstance(s, str):
-            result.append(s)
-        else:
-            return "Invalid input"
-    return ', '.join(result)
+    if not strings:
+        return ''
+    return ', '.join(map(str, strings))
 
 print(concatenate([]))
