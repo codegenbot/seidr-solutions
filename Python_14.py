@@ -1,10 +1,10 @@
-```Python
 from typing import List
 
 
 def all_prefixes(s: str) -> List[str]:
-    return [s[:i] for i in range(0, len(s) + 1)]
-
-
-string = input("Please enter a string: ")
-print(all_prefixes(string))
+    try:
+        string = input("Please enter a string: ")
+    except:
+        print("Error: Please provide valid input.")
+        return []
+    return [string[: i + 1] for i in range(len(string))]
