@@ -1,20 +1,11 @@
 #include <iostream>
 #include <algorithm>
+#include <cmath>
 
-int max_element(int arr[], int n) {
-    int max = arr[0];
-    for (int i = 1; i < n; i++) {
-        if (arr[i] > max)
-            max = arr[i];
-    }
-    return max;
-}
+int maxElementFinder(int n, int arr[]) {
+    auto max_element = *std::max_element(arr, arr+n);
 
-int abs(int x) {
-    if (x < 0)
-        return -x;
-    else
-        return x;
+    return max_element;
 }
 
 int main() {
@@ -23,13 +14,14 @@ int main() {
     std::cin >> n;
 
     int arr[n];
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
+    for(int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
         std::cin >> arr[i];
     }
 
-    int max = max_element(arr, n);
-    std::cout << "Maximum element is: " << max << std::endl;
+    int max_element = maxElementFinder(n, arr);
+
+    std::cout << "Maximum element: " << max_element << std::endl;
 
     return 0;
 }
