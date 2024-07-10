@@ -1,8 +1,6 @@
-```
-def find_zero coefficients: list):
+def find_zero coefficients: list) -> float:
     n = len(coefficients)
     if n % 2 != 0:
-        raise ValueError("coefficients must have even number of coefficients")
-    numerator = sum([c for i, c in enumerate(coefficients) if i % 2 == 1])
-    denominator = sum([c for i, c in enumerate(coefficients) if i % 2 == 0])
-    return -numerator / denominator
+        raise ValueError("coefficients must have even number of terms")
+    x0 = -coefficients[1] / coefficients[n-1]
+    return x0
