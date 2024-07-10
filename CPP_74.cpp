@@ -1,7 +1,6 @@
-#include <vector>
-#include <string>
-
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     int total_chars_lst1 = 0, total_chars_lst2 = 0;
@@ -19,10 +18,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     } else {
         return lst2;
     }
-}
-
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
 }
 
 int main() {
