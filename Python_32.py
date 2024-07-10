@@ -14,8 +14,6 @@ def find_zero(xs: list):
             continue
         return -xs[0] / xs[i]
 
-
-user_input = input("Enter the list of coefficients separated by spaces: ")
-coefficients = list(map(float, user_input.split()))
+coefficients = [float(x) for x in input("Enter the coefficients separated by space: ").split()]
 result = find_zero(coefficients)
 print(result)
