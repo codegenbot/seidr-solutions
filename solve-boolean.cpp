@@ -1,22 +1,10 @@
-bool evaluateBooleanExpression(const string& expression) {
-    if (expression == "t") {
-        return true;
-    } else if (expression == "f") {
-        return false;
-    } else if (expression == "t&f" || expression == "f&t" || expression == "f&f") {
-        return false;
-    } else {
-        return true;
-    }
-}
-
 int main() {
-    string expression;
-    cin >> expression;
-    if (evaluateBooleanExpression(expression)) {
-        cout << "True" << endl;
+    string s;
+    cin >> s;
+    if (s == "t") {
+        cout << "True";
     } else {
-        cout << "False" << endl;
+        cout << "False";
     }
     return 0;
 }
