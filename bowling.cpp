@@ -13,22 +13,17 @@ int calculateBowlingScore(string input) {
         if (c == 'X') {
             frames[frame] = 10;
             frame++;
-            ball = 0;
         } else if (c == '/') {
-            frames[frame] = 10 - frames[frame - 1] + c - '0';
+            frames[frame] = 10 - frames[frame - 1];
             frame++;
             ball = 0;
         } else if (c == '-') {
             ball++;
-            if (ball == 2) {
-                frame++;
-                ball = 0;
-            }
         } else {
             frames[frame] += c - '0';
             ball++;
 
-            if (ball == 2) {
+            if (ball == 2 || frames[frame] == 10) {
                 frame++;
                 ball = 0;
             }
@@ -40,11 +35,4 @@ int calculateBowlingScore(string input) {
     }
 
     return score;
-}
-
-int main() {
-    string input;
-    std::cin >> input;
-    std::cout << calculateBowlingScore(input) << std::endl;
-    return 0;
 }
