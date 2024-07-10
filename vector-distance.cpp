@@ -1,33 +1,27 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <stdexcept>
 
 using namespace std;
 
 int main() {
     int n;
     cin >> n;
-
+    
     if (n <= 0) {
-        cerr << "Invalid input for the dimension of vectors. Exiting..." << endl;
+        cout << "Invalid input for dimension." << endl;
         return 1;
     }
 
     vector<double> vec1(n);
     vector<double> vec2(n);
 
-    try {
-        for (int i = 0; i < n; ++i) {
-            cin >> vec1.at(i);
-        }
+    for (int i = 0; i < n; ++i) {
+        cin >> vec1[i];
+    }
 
-        for (int i = 0; i < n; ++i) {
-            cin >> vec2.at(i);
-        }
-    } catch(const out_of_range& e) {
-        cerr << "Error reading input vectors. Exiting..." << endl;
-        return 1;
+    for (int i = 0; i < n; ++i) {
+        cin >> vec2[i];
     }
 
     double sum = 0;
