@@ -1,14 +1,9 @@
 def solve_boolean(s):
-    if s == "t":
+    if s == "T":
         return True
-    elif s == "f":
+    elif s == "F":
         return False
-    elif "&" in s and "|" in s:
-        raise ValueError("Invalid expression")
+    elif "&" in s:
+        return eval(s.replace("&", " and "))
     else:
-        parts = s.split("&")
-        if len(parts) > 1:
-            res = all(eval(part.replace("|", "^")) for part in parts)
-        else:
-            res = eval(s.replace("|", "^"))
-        return bool(res)
+        return eval(s.replace("|", " or "))
