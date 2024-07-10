@@ -1,5 +1,5 @@
+```c++
 #include <string>
-#include <iostream>
 using namespace std;
 
 int mastermind(string code, string guess) {
