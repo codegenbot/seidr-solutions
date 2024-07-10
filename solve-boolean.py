@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     result = True
     op = ''
