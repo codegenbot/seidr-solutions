@@ -7,18 +7,10 @@ def get_all_prefixes(s: str) -> List[str]:
 
 def all_prefixes() -> None:
     while True:
-        s = input("Please enter a string: ")
-        if not s:
-            print("Error: Please provide valid string.")
-            continue
-        try:
-            if isinstance(s, str):
-                print("\n".join(get_all_prefixes(s)))
-                break
-            else:
-                print("Error: Please provide valid string.")
-        except Exception as e:
-            print(f"Unexpected error occurred: {e}")
+        while len(s := input("Please enter a string: ")) == 0 or not s.isalpha():
+            pass
+        print("\n".join(get_all_prefixes(s)))
+        break
 
 
 if __name__ == "__main__":
