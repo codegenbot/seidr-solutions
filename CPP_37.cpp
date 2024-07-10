@@ -1,4 +1,16 @@
-vector<float> sort_even(vector<float> l) {
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void sort_even(vector<float>& l) {
     vector<float> even_values;
     vector<float> sorted_even_values;
     for (int i = 0; i < l.size(); i++) {
@@ -15,28 +27,11 @@ vector<float> sort_even(vector<float> l) {
             sorted_even_index++;
         }
     }
-    return l;
-}
-
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
 }
 
 int main() {
-    vector<float> test_input = {3.2, 1.5, 4.7, 2.1, 5.3, 6.8};
-    vector<float> expected_output = {1.5, 1.5, 2.1, 2.1, 3.2, 3.2};
-    
-    vector<float> result = sort_even(test_input);
-
-    assert(issame(result, expected_output));
-
+    vector<float> l = {4, 7, 2, 9, 6, 1};
+    sort_even(l);
+    assert(issame(l, {2, 7, 4, 9, 1, 6}));
     return 0;
 }
