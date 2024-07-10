@@ -31,6 +31,6 @@ string file_name_check(const string &file_name) {
 }
 
 int main() {
-    cout << file_name_check("s.") << endl;
+    file_name_check("s.");
     return 0;
 }
