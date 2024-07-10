@@ -1,6 +1,5 @@
-def spin_words(text):
-    words = text.split()
-    for i in range(len(words)):
-        if len(words[i]) >= 5:
-            words[i] = words[i][::-1]
-    return " ".join(words)
+Here's the solution:
+
+def spin_words(s):
+    words = s.split()
+    return ' '.join(word if len(word) <= 4 else word[::-1] for word in words)
