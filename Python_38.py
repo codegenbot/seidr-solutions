@@ -1,5 +1,6 @@
 Here is the modified code:
 
+```python
 def decode_cyclic(s: str):
     result = ""
     i = 0
