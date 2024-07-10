@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -50,7 +49,7 @@ int main() {
             if(result < 0.0f || num > result)
                 result = num;
         }
-        std::cout << "The positive of the numbers is: " << result << std::endl;
+        std::cout << "The maximum of the numbers is: " << result << std::endl;
     } else {
         std::cout << "The numbers are not same." << std::endl;
     }
