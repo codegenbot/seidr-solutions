@@ -1,15 +1,4 @@
-```cpp
 #include <cmath>
-
-bool isPrime(int num);
-
-int x_or_y(int n, int x, int y) {
-    if (isPrime(n)) {
-        return x;
-    } else {
-        return y;
-    }
-}
 
 bool isPrime(int num) {
     if (num <= 1) {
@@ -21,4 +10,19 @@ bool isPrime(int num) {
         }
     }
     return true;
+}
+
+int main() {
+    int n, x, y;
+    cin >> n >> x >> y;
+    
+    if (n <= 1) {
+        cout << x << endl;
+    } else if (isPrime(n)) {
+        cout << x << endl;
+    } else {
+        cout << y << endl;
+    }
+    
+    return 0;
 }
