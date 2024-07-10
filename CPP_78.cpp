@@ -1,13 +1,11 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 
 int hex_key(const std::string& num) {
     int count = 0;
     for (char c : num) {
-        if (c >= '2' && c <= '7') {
-            count++;
-        } else if (c == 'B' || c == 'D' || c == 'F') {
+        if ((c >= '2' && c <= '7') || (c == 'B' || c == 'D' || c == 'F' || c == 'b' || c == 'd' || c == 'f')) {
             count++;
         }
     }
@@ -20,5 +18,4 @@ int main() {
     std::getline(std::cin, input);
     int result = hex_key(input);
     std::cout << "Number of valid characters: " << result << std::endl;
-    return 0;
 }
