@@ -15,7 +15,7 @@ std::vector<std::vector<int>> get_row(std::vector<std::vector<int>> lst, int x){
             }
         }
     }
-    sort(result.begin(), result.end(), [](const std::vector<int>& a, const std::vector<int>& b){
+    std::sort(result.begin(), result.end(), [](const std::vector<int>& a, const std::vector<int>& b){
         return a[0] < b[0] || (a[0] == b[0] && a[1] > b[1]);
     });
     return result;
