@@ -1,4 +1,3 @@
-```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,7 +9,7 @@ string rounded_avg(int n,int m){
     avg = floor(avg + 0.5);
     string res = "";
     while(avg > 0){
-        if(avg == (int)avg) res.push_back('1');
+        if(static_cast<int>(avg) & 1) res.push_back('1');
         else res.push_back('0');
         avg /= 2;
     }
@@ -18,5 +17,7 @@ string rounded_avg(int n,int m){
     return res;
 }
 
-cout << rounded_avg(5, 5) << endl;
-return 0;
+int main(){
+    cout << rounded_avg(5, 5) << endl;
+    return 0;
+}
