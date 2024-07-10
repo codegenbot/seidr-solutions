@@ -1,14 +1,10 @@
-Here is the solution:
-
-```cpp
-int balance = 0;
-for(string s : lst) {
-    for(char c : s) {
-        if(c == '(') balance++;
-        else if(c == ')') {
-            if(balance <= 0) return "No";
-            balance--;
+string match_parens(vector<string> lst){
+    int open = 0, close = 0;
+    for (auto s : lst) {
+        for (char c : s) {
+            if (c == '(') open++;
+            else close++;
         }
     }
+    return open == close ? "Yes" : "No";
 }
-return balance == 0 ? "Yes" : "No";
