@@ -1,8 +1,7 @@
-```cpp
-#include <vector>
 #include <algorithm>
+#include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool isSame(int a, int b) {
     return a == b;
 }
 
@@ -14,4 +13,18 @@ std::vector<int> maximum(std::vector<int> arr, int k) {
         arr.erase(std::remove(arr.begin(), arr.end(), max_val), arr.end());
     }
     return result;
+}
+
+int main() {
+    std::vector<int> input = {1, 2, 3, -23, 243, -400, 0};
+    int k = 4;
+    if (maximum(input, k).size() != 0) {
+        for (int i : maximum(input, k)) {
+            std::cout << i << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "No elements left" << std::endl;
+    }
+    return 0;
 }
