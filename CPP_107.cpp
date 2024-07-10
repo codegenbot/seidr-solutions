@@ -27,13 +27,20 @@ int reverse(int n) {
     }
     return rev;
 }
+
 int main() {
     int n;
     std::cout << "Enter a positive integer: ";
     std::cin >> n;
 
-    std::vector<int> result = even_odd_palindrome(n);
+    if (n > 0) {
+        std::vector<int> result = even_odd_palindrome(n);
 
-    std::cout << "Number of even palindromes: " << result[0] << std::endl;
-    std::cout << "Number of odd palindromes: " << result[1] << std::endl;
+        std::cout << "Number of even palindromes: " << result[0] << std::endl;
+        std::cout << "Number of odd palindromes: " << result[1] << std::endl;
+    } else {
+        std::cout << "Invalid input. Please enter a positive integer." << std::endl;
+    }
+
+    return 0;
 }
