@@ -1,14 +1,9 @@
-```
-while True:
-    try:
-        a = int(input())
-        b = int(input())
-        text = input()
-        target = input()
-        break
-    except ValueError:
-        print("Invalid input. Please enter valid integers and strings.")
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
 
 print(gcd(a, b))
+
+text = input("Enter text: ")
+target = input("Enter target string: ")
 
 print(find_indices(text, target))
