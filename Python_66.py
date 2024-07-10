@@ -1,4 +1,3 @@
-```
 def digitSum(s):
     total = 0
     for i, c in enumerate(s):
@@ -7,4 +6,6 @@ def digitSum(s):
                 total += int(c)
             else:
                 total += int(c) * 2 - 5 if int(c) > 4 else int(c) * 2
+        else:
+            total += 0
     return total
