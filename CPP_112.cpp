@@ -1,6 +1,8 @@
+```
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -36,3 +38,10 @@ vector<string> reverse_delete(string s, string c) {
     reverse(rev.begin(), rev.end());
     result.push_back((temp == rev) ? "True" : "False");
     return result;
+
+}
+
+int main() {
+    assert(same(reverse_delete("mamma", "mia"), vector<string> {"", "True"}));
+    return 0;
+}
