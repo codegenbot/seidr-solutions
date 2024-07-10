@@ -8,9 +8,8 @@ int mastermind(string code, string guess) {
         } else {
             bool found = false;
             for (int j = 0; j < 4; ++j) {
-                if (guess[j] == code[i] && j != i) {
+                if (guess[j] == code[i] && !found) {
                     found = true;
-                    break;
                 }
             }
             if (!found) white++;
