@@ -1,5 +1,10 @@
 #include <vector>
 #include <cassert>
+#include <algorithm>
+
+namespace std {
+    using ::vector;
+}
 
 std::vector<int> make_a_pile(int n){
     std::vector<int> stones;
@@ -15,12 +20,12 @@ std::vector<int> make_a_pile(int n){
     return stones;
 }
 
-bool std::issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b){
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 int contest_main(){
     assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-
+    
     return 0;
 }
