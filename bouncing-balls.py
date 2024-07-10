@@ -1,4 +1,3 @@
-```
 import math
 
 h1 = float(input())
