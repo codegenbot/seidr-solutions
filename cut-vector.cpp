@@ -1,10 +1,10 @@
-#include <pair>
+#include <pair> 
 
 std::pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
     int n = v.size();
     long long total_sum = accumulate(v.begin(), v.end(), 0LL);
     
-    std::pair<long long, long long> prefix_sum = {{0LL}, {accumulate(v.begin(), v.end(), 0LL)}};
+    pair<long long, long long> prefix_sum = {{0LL}, {accumulate(v.begin(), v.end(), 0LL)}};
     
     int min_diff = INT_MAX;
     vector<int> left, right;
@@ -17,5 +17,5 @@ std::pair<vector<int>, vector<int>> cutVector(vector<int>& v) {
         }
     }
     
-    return {left, right};
+    return {make_pair(left, vector<int>()), make_pair(right, vector<int>())};
 }
