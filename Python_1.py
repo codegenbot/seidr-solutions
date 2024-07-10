@@ -13,7 +13,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             stack.append(char)
             groups.append('(')
         elif char == ')':
-            if stack:
+            if stack and stack[-1] == '(':
                 stack.pop()
                 groups.append(')')
             else:
