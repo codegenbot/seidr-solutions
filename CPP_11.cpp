@@ -1,8 +1,8 @@
 #include <string>
 
 std::string string_xor(std::string a, std::string b) {
-    if(a.length() != b.length()) {
-        throw std::runtime_error("Input strings are not of the same length");
+    if (a.length() != b.length()) {
+        return "Strings are not of the same length";
     }
     std::string result = "";
     for (int i = 0; i < a.length(); i++) {
