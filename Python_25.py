@@ -1,10 +1,8 @@
-from typing import List
-import math
-
+Here is the solution:
 
 def factorize(n: int) -> List[int]:
-    factors = []
     i = 2
+    factors = []
     while i * i <= n:
         if n % i:
             i += 1
@@ -17,4 +15,4 @@ def factorize(n: int) -> List[int]:
             i += 1
     if n > 1:
         factors.append(n)
-    return [factor for factor in set(factors)]
+    return [int(factor) for factor in set(map(str, factors))]
