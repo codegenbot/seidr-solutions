@@ -1,4 +1,4 @@
-Here's the solution:
+Here is the completed code:
 
 def decode_cyclic(s: str):
     result = ""
@@ -6,11 +6,11 @@ def decode_cyclic(s: str):
     for char in s:
         temp += char
         if len(temp) == 3:
-            if temp[0] == temp[2]:
-                result += temp[1]
+            if len(result) > 0 and len(result) % 3 != 0:
+                result += temp[2]
             else:
                 result += temp
             temp = ""
-    if temp:
-        result += temp
+    if len(temp) > 0:
+        result += temp[1:] + temp[0] if len(temp) == 3 else temp
     return result
