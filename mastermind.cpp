@@ -1,2 +1,2 @@
-codeFreq[code[i] - 'A']++;
-guessFreq[guess[i] - 'A']++;
+codeFreq[code[i] - 'A' - 'A']++;
+guessFreq[guess[i] - 'A' - 'A']++;
