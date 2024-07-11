@@ -1,3 +1,4 @@
+```cpp
 std::string solveBoolean(std::string expression) {
     std::stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
@@ -30,9 +31,6 @@ std::string solveBoolean(std::string expression) {
     }
 }
 
-int getBoolValue(char c) {
-    if (c == 'T')
-        return 1;
-    if (c == 'F')
-        return 0;
+bool getBoolValue(char c) {
+    return c == 'T';
 }
