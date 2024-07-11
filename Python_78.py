@@ -1,8 +1,6 @@
-```
 def hex_key(num):
-    primes = {'B': True, 'D': True, '7': True, '5': True, '3': True, '2': True}
-    count = 0
-    for char in num:
-        if char in primes:
-            count += 1
-    return count
+    hex_map = {'0': '000', '1': '0011', '2': '0010', '3': '0100', 
+               '4': '0111', '5': '0101', '6': '0110', '7': '1000',
+               '8': '1011', '9': '1001', 'A': '1100', 'B': '1111', 
+               'C': '1101', 'D': '1010', 'E': '1100', 'F': '1111'}
+    return ''.join(hex_map.get(c, c) for c in num.upper().replace(' ', ''))
