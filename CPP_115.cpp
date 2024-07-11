@@ -1,21 +1,17 @@
-int result = 0;
-        int rows = grid.size();
+int rows = grid.size();
         int cols = grid[0].size();
-        
-        for (int j = 0; j < cols; j++) {
-            int available_water = 0;
-            for (int i = 0; i < rows; i++) {
-                if (grid[i][j] == 1) {
-                    int needed_water = grid[i][j] - available_water;
-                    if (needed_water > 0) {
-                        int buckets_needed = (needed_water + capacity - 1) / capacity;
-                        result += buckets_needed;
-                        available_water += buckets_needed * capacity;
-                    }
-                    available_water--;
-                }
+        int total_water = 0;
+        int required_buckets = 0;
+
+        for (int j = 0; j < cols; ++j) {
+            int max_water_in_col = 0;
+            for (int i = 0; i < rows; ++i) {
+                max_water_in_col = max(max_water_in_col, grid[i][j]);
             }
+            total_water += max_water_in_col;
         }
-        
-        return result;
+
+        required_buckets = (total_water / capacity) + ((total_water % capacity) != 0);
+
+        return required_buckets;
     }
