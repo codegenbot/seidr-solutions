@@ -4,5 +4,5 @@ def digitSum(s):
         if char.isdigit():
             total += int(char)
         elif char.isalpha():
-            total += ord(char.upper()) - 64
+            total += ord(char.upper()) - 55
     return total
