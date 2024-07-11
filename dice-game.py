@@ -1,13 +1,4 @@
-def main():
-    n = int(input())
-    m = int(input())
-
-    total_outcomes = n * m
-    favorable_outcomes = sum(n - i for i in range(n))
-
-    probability = favorable_outcomes / total_outcomes
-    print(round(probability, 2))
-
-
-if __name__ == "__main__":
-    main()
+n = int(input())
+m = int(input())
+probability = sum(1 for i in range(1, n+1) for j in range(1, m+1) if i > j) / (n * m)
+print(round(probability, 2))
