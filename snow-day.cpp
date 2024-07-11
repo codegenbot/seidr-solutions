@@ -7,12 +7,12 @@ double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proport
     
     for (int i = 0; i < hours; i++) {
         if (rateOfSnowfall > 0.0) {
-            totalSnow += initialSnow + rateOfSnowfall;
+            totalSnow += rateOfSnowfall;
         }
         
         if (proportionOfSnowMeltingPerHour > 0.0) {
             if (totalSnow > 0.0) {
-                totalSnow -= totalSnow * proportionOfSnowMeltingPerHour / 100.0; // convert to decimal
+                totalSnow -= totalSnow * proportionOfSnowMeltingPerHour / 100.0; 
             }
         }
     }
