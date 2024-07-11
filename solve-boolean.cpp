@@ -21,10 +21,20 @@ std::string solveBoolean(std::string expression) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            result = (getBoolValue(s.top())) ? "True" : "False";
+            result = (getBoolValue(s.top()) && getBoolValue(s.top())) ? "True" : "False";
         } else if (c == '|') {
-            result = (getBoolValue(s.top())) ? "True" : "False";
+            result = (getBoolValue(s.top()) || getBoolValue(s.top())) ? "True" : "False";
         } else {
-            result = (getBoolValue(c)) ? "True" : "False";
+            result = std::string(1, c) == "T" ? "True" : "False";
         }
     }
+    return result;
+}
+
+int getBoolValue(char c) {
+    if (c == 'T') {
+        return 1;
+    } else {
+        return 0;
+    }
+}
