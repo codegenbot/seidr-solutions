@@ -1,25 +1,21 @@
-```
 def valid_date(date):
-    day, month, year = date.split('-')
-    if len(day) == 1:
-        day = '0' + day
-    if len(month) == 1:
-        month = '0' + month
-    try:
-        int(year)
-        if not (int(month) >= 1 and int(month) <= 12):
+    day, month, year = map(int, date.split('-'))
+    if (month < 1 or month > 12) or (day < 1):
+        return False
+    if month in [4,6,9,11]:
+        if day > 30:
             return False
-        if int(month) in [4,6,9,11]:
-            if int(day) > 30 or int(day) < 1:
-                return False
-        elif int(month) == 2:
-            if int(year) % 4 != 0 and int(year) % 100 == 0 or int(year) % 400 != 0:
-                return day, 'Day must be between 1 and 29.'
-            elif int(day) > 29 or int(day) < 1:
-                return False
+    elif month == 2:
+        if year % 4 != 0 and day > 29:
+            return False
+        elif year % 100 != 0 and day > 28:
+            return False
+        elif year % 400 != 0 and day > 29:
+            return False
         else:
-            if int(day) > 31 or int(day) < 1:
+            if day > 29:
                 return False
-    except ValueError:
-        return 'Invalid date format.'
+    else:
+        if day > 31:
+            return False
     return True
