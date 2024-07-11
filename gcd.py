@@ -1,10 +1,22 @@
-Here is the corrected code:
+```
+while True:
+    values = input("Enter two integers (separated by space): ").split()
+    try:
+        a, b = map(int, values)
+        if len(values) != 2:
+            print("Please enter exactly two integers.")
+        else:
+            break
+    except ValueError:
+        print("Please enter exactly two integers.")
 
-```Python
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return abs(a)
+
+text, *targets = input("Enter text and target string(s) (separated by space): ").split(maxsplit=1)
+print(*indices_of_substring(text, *targets))
 
 def indices_of_substring(text, target):
     result = []
@@ -17,16 +29,3 @@ def indices_of_substring(text, target):
         else:
             break
     return result
-
-while True:
-    values = input("Enter two integers (separated by space): ").split()
-    try:
-        a, b = map(int, values)
-        break
-    except ValueError:
-        print("Please enter exactly two integers.")
-
-print(gcd(a, b))
-
-text, *targets = input("Enter text and target string(s) (separated by space): ").split(maxsplit=1)
-print(*indices_of_substring(text, *targets))
