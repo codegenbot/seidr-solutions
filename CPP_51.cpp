@@ -10,6 +10,6 @@ std::string remove_vowels(std::string text) {
 }
 
 int main() {
-    // Main function code here
+    // Main function code (if any)
     return 0;
 }
