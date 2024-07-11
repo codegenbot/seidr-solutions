@@ -1,43 +1,37 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-
-using namespace std;
-
 vector<string> split_words(string txt) {
     vector<string> result;
-    
-    size_t pos = 0;
-    while ((pos = txt.find(' ')) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
+    size_t pos = 0, prev_pos = 0;
+
+    while ((pos = txt.find_first_of(" ,")) != string::npos) {
+        if (pos == 0 || txt[pos - 1] != ' ') {
+            if (prev_pos == 0) {
+                result.push_back(txt.substr(0, pos));
+                prev_pos = pos;
+            } else {
+                result.push_back(txt.substr(prev_pos, pos - prev_pos));
+                prev_pos = pos;
+            }
+        } else {
+            prev_pos = pos + 1;
+        }
     }
-    
-    if (txt.empty()) return result;
-    
-    if (txt.find(',') == string::npos) {
+
+    if (prev_pos == 0) {
+        result.push_back(txt);
+    } else {
+        result.push_back(txt.substr(prev_pos));
+    }
+
+    if (result.size() == 1 && all_of(result[0].begin(), result[0].end(), ::islower)) {
         int count = 0;
-        for (char c : txt) {
-            if ((int)c >= 97 && (int)c <= 122 && (count++ % 2 == 1)) {
-                result.push_back(to_string(count));
-                break;
+        for (char c : result[0]) {
+            if (c >= 'a' && c <= 'z') {
+                count += (int)c - (int)'a';
             }
         }
-    } else {
-        result.push_back(txt);
+        result.clear();
+        result.push_back(to_string(count));
     }
-    
-    return result;
-}
 
-int main() {
-    string txt;
-    cout << "Enter a text: ";
-    getline(cin, txt);
-    vector<string> result = split_words(txt);
-    for (string s : result) {
-        cout << s << endl;
-    }
-    return 0;
+    return result;
 }
