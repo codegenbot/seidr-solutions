@@ -1,4 +1,4 @@
-````
+```
 def max_water(n, m):
     row_values = list(map(int, input(f"Enter {n} row values separated by space: ").split()))
     column_values = list(map(int, input(f"Enter {m} column values separated by space: ").split()))
@@ -26,4 +26,4 @@ def max_water(n, m):
                 
     return total_water
 
-print(max_water(int(input("Enter the number of rows: ")), int(input("Enter the number of columns: "))))```
+print(max_water(int(input("Enter the number of rows: ")), int(input("Enter the number of columns: "))))
