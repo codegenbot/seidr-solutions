@@ -1,4 +1,3 @@
-```
 def find_closest_elements(arr):
     arr.sort()
     if len(arr) == 1:
