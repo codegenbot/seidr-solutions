@@ -1,5 +1,8 @@
 def find_zero(xs: list):
-    """Returns the x-coordinate where the line defined by two points (xs[0], xs[1]) and (xs[2], xs[3]) intersects the x-axis.
-    The function assumes that xs is a list of four numbers, representing the coordinates of two points in a plane.
+    """Find the zero point on the line defined by (x1, y1) and (x2, y2).
+    Args:
+        xs (list): A list of two points [(x1, y1), (x2, y2)].
+    Returns:
+        float: The zero point on the line.
     """
     return -xs[1] / xs[0]
