@@ -1,3 +1,3 @@
-sort(arr.begin(), arr.end());
-vector<int> result(arr.end() - k, arr.end());
-return result;
+sort(arr.rbegin(), arr.rend());
+vector<int> res(arr.begin(), arr.begin() + k);
+return res;
