@@ -1,1 +1,3 @@
-result = sum([(num // 3 - 2) for num in nums if num >= 2])
+nums = list(map(int, input().split()))
+result = sum([(num // 3 - 2) for num in nums])
+print(result)
