@@ -11,10 +11,10 @@ for i in range(len(arr)):
     diff = abs(left_sum - right_sum)
     if diff < min_diff or (diff == min_diff and left_sum < total_sum/2):
         min_diff = diff
-        cut_index = i
+        cut_index = i + 1
 
-subvector1 = arr[:cut_index + 1]
-subvector2 = arr[cut_index + 1:]
+subvector1 = arr[:cut_index]
+subvector2 = arr[cut_index:]
 
 print(*subvector1)
 print(*subvector2)
