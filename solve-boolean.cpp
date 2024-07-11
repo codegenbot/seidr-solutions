@@ -23,7 +23,7 @@ string solveBoolean(string expression) {
     }
 
     string result = "";
-    bool left = false, right = false;
+    bool left, right;
     while (!s.empty()) {
         char c = s.top();
         s.pop();
