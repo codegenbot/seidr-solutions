@@ -1,26 +1,26 @@
+#include <iostream>
+#include <cmath> // for abs
 #include <vector>
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
-    vector<int> left;
-    vector<int> right;
-    
+    int min_diff = INT_MAX;
+    int min_idx = -1;
     for(int i=0; i<n-1; i++){
-        if(abs(nums[i+1] - nums[i]) <= 0){
-            left.push_back(nums[i]);
-            break;
-        } else {
-            left.push_back(nums[i]);
-        }
+        int diff = abs(nums[i+1] - nums[i]);
+        if(diff == 0 && (min_diff > 0 || min_idx == -1)) min_diff = 0, min_idx = i;
+        else if(diff < min_diff) min_diff = diff, min_idx = i;
     }
-    for(int i=left.size(); i<n; i++) right.push_back(nums[i]);
-    
-    return {{left}, {right}};
+    if(min_idx == -1) {
+        return {{}, {}};
+    } else {
+        vector<int> left(min_idx+1), right(n-min_idx-1);
+        for(int i=0; i<=min_idx; i++) left.push_back(nums[i]);
+        for(int i=min_idx+1; i<n; i++) right.push_back(nums[i]);
+        return {{left}, {right}};
+    }
 }
-
-#include <iostream>
-using namespace std;
 
 int main() {
     vector<int> nums = {1, 2, 3, 4, 5};
@@ -30,7 +30,7 @@ int main() {
         for(int j=0; j<result[i].size(); j++) {
             cout << result[i][j] << " ";
         }
-        cout << "\n";
+        cout << endl;
     }
     return 0;
 }
