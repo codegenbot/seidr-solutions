@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```python
 def find_zero(xs):
     if len(xs) % 2 != 0:
         return "Error: xs must have an even number of coefficients"
