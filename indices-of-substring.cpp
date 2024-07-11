@@ -15,11 +15,7 @@ int main() {
     }
 
     for (int i = 0; i < indices.size(); ++i) {
-        if (i != indices.size() - 1) {
-            std::cout << indices[i] << " ";
-        } else {
-            std::cout << indices[i];
-        }
+        std::cout << indices[i] << " ";
     }
 
     return 0;
