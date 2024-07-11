@@ -2,10 +2,11 @@
 def fix_spaces(text):
     new_text = ""
     for char in text:
-        if len(new_text) > 0 and new_text[-1] != " " and char == " ":
-            new_text += "_"
-        elif char == " ":
-            new_text += char
+        if char == " ":
+            if len(new_text) > 0 and new_text[-1] != " ":
+                new_text += "_"
+            else:
+                new_text += " "
         else:
             new_text += char
     return new_text
