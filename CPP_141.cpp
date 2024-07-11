@@ -1,34 +1,40 @@
 #include <string>
-#include <cctype>
+#include <cassert>
 
-string file_name_check(string file_name) {
+std::string file_name_check(const std::string& file_name) {
     int countDigits = 0;
-    int dotPos = file_name.find('.');
-    
-    if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.length() - 1) {
-        return "No";
+    size_t dotPos = file_name.find('.');
+
+    if (dotPos == std::string::npos || dotPos == 0 || dotPos == file_name.length() - 1) {
+        return std::string("No");
     }
-    
+
     for (char c : file_name) {
         if (c >= '0' && c <= '9') {
             countDigits++;
         }
     }
-    
+
     if (countDigits > 3) {
-        return "No";
+        return std::string("No");
     }
-    
-    string prefix = file_name.substr(0, dotPos);
-    string suffix = file_name.substr(dotPos + 1);
-    
+
+    std::string prefix = file_name.substr(0, dotPos);
+    std::string suffix = file_name.substr(dotPos + 1);
+
     if (prefix.empty() || !(isalpha(prefix[0]))) {
-        return "No";
+        return std::string("No");
     }
-    
+
     if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
-        return "No";
+        return std::string("No");
     }
-    
-    return "Yes";
+
+    return std::string("Yes");
+}
+
+int main() {
+    assert(file_name_check("s.") == "No");
+    // Add more test cases here
+    return 0;
 }
