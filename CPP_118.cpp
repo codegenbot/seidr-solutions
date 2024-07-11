@@ -1,10 +1,11 @@
-reverse(word.begin(), word.end());
-    for (int i = 1; i < word.size() - 1; ++i) {
+int i = word.length() - 2;
+    while (i > 0) {
         if (word[i] != 'a' && word[i] != 'e' && word[i] != 'i' && word[i] != 'o' && word[i] != 'u' &&
             word[i - 1] != 'a' && word[i - 1] != 'e' && word[i - 1] != 'i' && word[i - 1] != 'o' && word[i - 1] != 'u' &&
-            word[i + 1] != 'a' && word[i + 1] != 'e' && word[i + 1] != 'i' && word[i + 1] != 'o' && word[i + 1] != 'u') {
+            isalpha(word[i]) && isalpha(word[i - 1])) {
             return string(1, word[i]);
         }
+        i--;
     }
     return "";
 }
