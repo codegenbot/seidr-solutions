@@ -7,4 +7,4 @@ def encode(message):
             encoded_message += char.swapcase()
     return encoded_message
 
-print(encode("I DoNt KnOw WhAt tO WrItE"))  # Output: "k DqNt KnQw WhCt tQ WrKtG"
+print(encode("I DoNt KnOw WhAt tO WrItE"))  # Output: "K DqNt KnQw WhCt Tq WrKtG"
