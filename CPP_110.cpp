@@ -1,17 +1,28 @@
+#include<stdio.h>
+#include<vector>
+#include<string>
+using namespace std;
+
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int even_count = 0;
+    int evenCount = 0;
     for (int num : lst1) {
         if (num % 2 == 0)
-            even_count++;
+            evenCount++;
     }
-    if (even_count == lst1.size())
-        return "YES";
-    for (int num : lst2) {
-        if (num % 2 == 0 && even_count < lst1.size()) {
-            lst1.push_back(num);
-            lst2.erase(std::remove(lst2.begin(), lst2.end(), num), lst2.end());
-            even_count++;
+    for (int i = 0; i < lst1.size(); i++) {
+        bool found = false;
+        for (int j = 0; j < lst2.size(); j++) {
+            if (lst1[i] % 2 != 0 && lst2[j] % 2 == 0) {
+                swap(lst1[i], lst2[j]);
+                found = true;
+                break;
+            }
         }
+        if (!found)
+            return "NO";
     }
-    return "NO";
+    if (evenCount == lst1.size())
+        return "YES";
+    else
+        return "NO";
 }
