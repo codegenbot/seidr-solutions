@@ -1,22 +1,21 @@
 from typing import List
 import math
 
-
-def factorize(number: int) -> List[int]:
+def main():
+    n = int(input("Enter a number: "))
     factors = []
     i = 2
-    while i * i <= number:
-        if number % i:
+    while i * i <= n:
+        if n % i:
             i += 1
         else:
             count = 0
-            while number % i == 0:
-                number //= i
+            while n % i == 0:
+                n //= i
                 count += 1
             factors.append(i ** count)
-            i = 2  
-    if number > 1:
-        factors.append(number)
+    if n > 1:
+        factors.append(n)
     return factors
 
-print(factorize(int(input("Enter a number: "))))
+print(main())
