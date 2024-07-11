@@ -6,18 +6,18 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     
     for num in numbers:
         if not isinstance(num, int):
-            return (f"Invalid input: {num}")
+            return (0, 0)
         
         try:
             total_sum += num
             product *= num
         except ZeroDivisionError:
-            return "Cannot multiply by zero"
+            return ("Invalid input")
     
     if product == 0 and total_sum > 0:
-        return total_sum, product
+        return (total_sum, product)
     
     if product == 0:
-        return f"Product is zero: {product}"
+        return ("Product is zero")
     
-    return total_sum, product
+    return (total_sum, product)
