@@ -1,7 +1,6 @@
 int count = 0;
-    string vowels = "AEIOU";
-    for(int i = 0; i < s.length(); i += 2){
-        if(vowels.find(s[i]) != string::npos){
+    for (int i = 0; i < s.size(); i += 2) {
+        if (s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U') {
             count++;
         }
     }
