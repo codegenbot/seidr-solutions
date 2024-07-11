@@ -10,8 +10,9 @@ def parse_music(music_string: str) -> List[int]:
         else:
             note = music_string[i:i+2]
             i += 2
-            if note[1] == '|':
-                result.append(beats_per_note[note[:-1]]) // 2
+            if note[0] == '.':
+                for _ in range(3):
+                    result.append(beats_per_note[note])
             else:
                 result.append(beats_per_note[note])
     return result
