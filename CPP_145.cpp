@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -44,7 +45,7 @@ std::vector<int> order_by_points(std::vector<int>& nums) {
     std::sort(pairs.begin(), pairs.end());
     std::vector<int> result;
     for (const auto& pair : pairs) {
-        result.push_back(nums[pair.second]);
+        result.push_back(nums[pair.first]);
     }
     return result;
 }
