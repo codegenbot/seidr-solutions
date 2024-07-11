@@ -1,8 +1,7 @@
-```
 def coin_sums(cents):
     if cents < 0:
         return "Error: Input should be a non-negative number of cents."
-
+        
     coins = [25, 10, 5, 1]
     total_coins = [0, 0, 0, 0]
 
