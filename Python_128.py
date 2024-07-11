@@ -10,7 +10,7 @@ def product_of_signs(arr):
     return result if not has_zero else 0
 
 def check():
-    arr = list(map(int, input("Enter numbers separated by space: ").split()))
+    arr = list(map(int, input('''Enter numbers separated by space: ''').split()))
     print(product_of_signs(arr))
 
 check()
