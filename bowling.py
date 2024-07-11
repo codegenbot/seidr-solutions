@@ -1,4 +1,3 @@
-```
 def bowling_score(rolls):
     score = 0
     roll_index = 0
@@ -6,10 +5,10 @@ def bowling_score(rolls):
         if rolls[roll_index] == 'X':
             score += 10
             roll_index += 1
-        elif rolls[roll_index:roll_index+2].count('/'):
+        elif '/' in rolls[roll_index:roll_index+2]:
             first_roll, second_roll = map(int, rolls[roll_index:roll_index+2].replace('/', '-'))
             if first_roll + second_roll == 10:
-                score += 10 + rolls[roll_index+2]
+                score += 10
             else:
                 score += first_roll + second_roll
             roll_index += 2
