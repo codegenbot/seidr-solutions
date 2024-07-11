@@ -14,5 +14,4 @@ def solve(is_binary):
         except ValueError:
             print("Invalid decimal input!")
 
-if __name__ == "__main__":
-    solve(True)
+solve(True)
