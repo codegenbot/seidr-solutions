@@ -9,8 +9,8 @@ def factorize(n: int) -> List[int]:
             while n % i == 0:
                 n //= i
                 count += 1
-            factors.append(i) * count
+            factors.append(i * count)
             i += 1
     if n > 1:
         factors.append(n)
-    return [int(factor) for factor in set(map(str, factors))]
+    return list(set(map(int, str(f) for f in factors)))
