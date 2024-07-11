@@ -1,26 +1,53 @@
 ```cpp
-#include <vector>
-#include <string>
-
-bool isSame(vector<string> a, vector<string> b) {
-    for (int i = 0; i < a.size(); i++) {
-        if (find(b.begin(), b.end(), a[i]) == b.end())
-            return false;
-    }
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring){
+int main() {
+    vector<string> strings;
+    string substring;
+
+    cout << "Enter the list of strings (space separated): ";
+    getline(cin, substring);
+    strings = split(substring, ' ');
+
+    cout << "Enter the substring: ";
+    cin >> substring;
+
+    vector<string> result = filter_by_substring(strings, substring);
+
+    if (issame(result, strings))
+        cout << "The resulting list is empty." << endl;
+    else
+        for (const auto& str : result)
+            cout << str << endl;
+
+    return 0;
+}
+
+vector<string> filter_by_substring(vector<string> strings, string substring) {
     vector<string> result;
     for (const auto& str : strings) {
         if(str.find(substring) != string::npos)
             result.push_back(str);
     }
     return result;
-
 }
 
-int main() {
-    assert(isSame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    return 0;
+vector<string> split(string s, char c) {
+    vector<string> result;
+    string temp = "";
+
+    for (char ch : s) {
+        if(ch == c) {
+            result.push_back(temp);
+            temp = "";
+        } else {
+            temp += ch;
+        }
+    }
+
+    result.push_back(temp);
+
+    return result;
 }
