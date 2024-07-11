@@ -10,16 +10,13 @@ int score(string s) {
         if (s[i] == 'X') {
             total += 10;
             if (frame < 9) {
-                if (i + 2 < s.size()) {
-                    total += (s[i + 1] == 'X') ? 10 : (s[i + 1] - '0');
-                    total += ((s[i + 1] == 'X' && i + 3 < s.size()) ? ((s[i + 2] == 'X') ? 10 : (s[i + 2] - '0'))
-                                                                : ((s[i + 2] == '/') ? 10 : (s[i + 2] - '0')));
-                }
+                total += ((s[i + 1] == 'X') ? 10 : (s[i + 1] - '0'));
+                total += ((s[i + 2] == 'X') ? ((s[i + 3] == 'X') ? 10 : (s[i + 3] - '0')) : ((s[i + 2] == '/') ? 10 : (s[i + 2] - '0')));
             }
             frame++;
         } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0');
-            total += (i + 1 < s.size()) ? ((s[i + 1] == 'X') ? 10 : (s[i + 1] - '0')) : 0;
+            total += 10 - (s[i + 1] - '0');
+            total += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
             if (frame < 9) {
                 i++;
             }
@@ -28,8 +25,8 @@ int score(string s) {
             total += 0;
         } else {
             total += s[i] - '0';
-            if (frame < 9 && i + 1 < s.size() && s[i + 1] == '/') {
-                total += 10 - (s[i] - '0');
+            if (frame < 9 && s[i + 1] == '/') {
+                total += 10 - (s[i + 1] - '0');
             }
         }
     }
@@ -38,7 +35,11 @@ int score(string s) {
 
 int main() {
     string s;
-    cin >> s;
+    for (int i = 0; i < 20; i++) {
+        char bowl;
+        cin >> bowl;
+        s += bowl;
+    }
     cout << score(s) << endl;
     return 0;
 }
