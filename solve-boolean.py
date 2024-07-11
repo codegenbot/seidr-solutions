@@ -6,11 +6,13 @@ def solve_boolean(expression):
     elif expression == "f":
         return False
 
-    while "&" in expression or "|" in expression:
-        for op in ["&", "|"]:
-            if op in expression:
-                result = operations[op](expression.replace(op, "True").count("t"), 
-                                         expression.count(op) - expression.replace(op, "True").count("t"))
-                expression = str(result)
+    for op in ["&", "|"]:
+        while op in expression:
+            result = operations[op](expression.replace(op, "True").count("t"), 
+                                     expression.count(op) - expression.replace(op, "True").count("t"))
+            expression = str(result)
 
-    return eval(expression)
+    if "&" in expression or "|" in expression:
+        return False
+
+    return expression == "t"
