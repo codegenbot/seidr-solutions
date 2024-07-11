@@ -1,4 +1,4 @@
-// Problem description: Determine if the input number is a perfect cube.
+// Problem description: Given an integer 'a', check if it is a perfect cube.
 
 bool iscuber(int a){
     int i = 0;
@@ -10,12 +10,15 @@ bool iscuber(int a){
 }
 
 int main() {
-    int n;
+    int num;
     cout << "Enter a number: ";
-    cin >> n;
-    if(iscuber(n)) {
-        cout << "The number is a perfect cube.\n";
+    cin >> num;
+
+    if(iscuber(num)) {
+        cout << "The number is a perfect cube." << endl;
     } else {
-        cout << "The number is not a perfect cube.\n";
+        cout << "The number is not a perfect cube." << endl;
     }
+
+    return 0;
 }
