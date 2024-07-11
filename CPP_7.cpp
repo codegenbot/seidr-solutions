@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+#include <string>
 #include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
@@ -9,46 +11,46 @@ bool issame(vector<string> a, vector<string> b) {
 
 int main() {
     vector<string> strings;
+    cout << "Enter number of strings: ";
+    int n;
+    cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        string s;
+        cout << "Enter string " << i+1 << ": ";
+        getline(cin, s);
+        strings.push_back(s);
+    }
+    
     string substring;
-
-    // Read input from user
-    cout << "Enter the list of strings (separated by spaces): ";
-    getline(cin, substring);
-    strings = split(substring);
-
-    cout << "Enter the substring to filter: ";
+    cout << "Enter the substring: ";
     getline(cin, substring);
 
-    vector<string> filtered_strings = filter_by_substring(strings, substring);
+    vector<string> result = filter_by_substring(strings, substring);
 
-    if (issame(strings, filtered_strings)) {
-        cout << "The filtered list contains the same strings as the original list." << endl;
+    if(result.empty()) {
+        cout << "No strings contain the substring: " << substring << endl;
     } else {
-        cout << "The filtered list does not contain the same strings as the original list." << endl;
+        cout << "Strings that contain the substring: " << substring << ":";
+        for(const auto& s : result) {
+            cout << "\n" << s;
+        }
+    }
+
+    if(!issame({substring}, {string ""})) {
+        vector<string> new_strings;
+        for(const auto& s : strings) {
+            if(issame({s}, {substring})) {
+                new_strings.push_back(s);
+            }
+        }
+        cout << "\nStrings that are the same as the substring: " << substring << ":";
+        for(const auto& s : new_strings) {
+            cout << "\n" << s;
+        }
+    } else {
+        cout << endl;
     }
 
     return 0;
-}
-
-vector<string> split(const string& str) {
-    vector<string> tokens;
-    size_t start = 0, end = 0;
-
-    while ((end = str.find(' ', start)) != string::npos) {
-        tokens.push_back(str.substr(start, end - start));
-        start = end + 1;
-    }
-
-    tokens.push_back(str.substr(start));
-    return tokens;
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for (const auto& s : strings) {
-        if (s.find(substring) != string::npos) {
-            result.push_back(s);
-        }
-    }
-    return result;
 }
