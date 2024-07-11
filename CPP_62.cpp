@@ -1,20 +1,21 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
-}
+using namespace std;
 
-std::vector<float> derivative(std::vector<float> xs) {
-    std::vector<float> derivative_xs;
-    for (size_t i = 1; i < xs.size(); ++i) {
+vector<float> derivative(vector<float> xs){
+    vector<float> derivative_xs;
+    for (int i = 1; i < xs.size(); ++i) {
         derivative_xs.push_back(xs[i] * i);
     }
     return derivative_xs;
 }
 
+bool issame(vector<float> a, vector<float> b){
+    return a == b;
+}
+
 int main() {
     assert(issame(derivative({1}), {}));
-    
     return 0;
 }
