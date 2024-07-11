@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <iostream>
 
 int solutions(std::vector<int> lst) {
     int sum = 0;
@@ -12,7 +12,6 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> vec = {3, 13, 2, 9};
-    std::cout << solutions(vec) << std::endl;
-    return 0;
+    assert(solutions({3, 13, 2, 9}) == 3);
+    // rest of your code...
 }
