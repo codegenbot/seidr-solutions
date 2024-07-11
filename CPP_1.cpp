@@ -1,24 +1,23 @@
 vector<string> groups;
-    string current_group;
-    int depth = 0;
-
+    string group;
+    int balance = 0;
+    
     for (char c : paren_string) {
         if (c == '(') {
-            depth++;
-            if (depth > 1) {
-                current_group += c;
+            if (balance > 0) {
+                group += c;
             }
+            balance++;
         } else if (c == ')') {
-            depth--;
-            if (depth >= 1) {
-                current_group += c;
-            }
-            if (depth == 0) {
-                groups.push_back(current_group);
-                current_group = "";
+            balance--;
+            if (balance > 0) {
+                group += c;
+            } else if (balance == 0 && !group.empty()) {
+                groups.push_back(group);
+                group = "";
             }
         }
     }
-
+    
     return groups;
 }
