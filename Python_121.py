@@ -1,5 +1,5 @@
 ```
-while True:  
+while True:
     user_input = input("Enter a list of numbers separated by space, or 'q' to quit: ")
 
     if user_input.lower() in ["q", "quit", "exit"]:
@@ -7,7 +7,7 @@ while True:
         exit()
 
     try:
-        if not user_input:  # Check for empty input
+        if not user_input:  
             print("Please enter a number or 'q' to quit.")
             continue
 
@@ -28,5 +28,11 @@ while True:
                     print(f"Median: {nums[mid]}")
                 else:
                     print(f"Median: {(nums[mid-1] + nums[mid]) / 2}")
+        elif user_input.lower() in ["q", "quit", "exit"]:
+            print("Goodbye!")
+            exit()
+        else:
+            print("Invalid input. Please enter a correct number or 'q' to quit.")
+
     except Exception as e:
         print(f"Error: {e}")
