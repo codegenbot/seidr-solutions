@@ -1,10 +1,10 @@
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<float> a, vector<float> b){
+    if(a.size() != b.size()){
         return false;
     }
     
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
@@ -12,8 +12,9 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-int main() {
-    vector<float> l = {3.5, 1.2, 4.8, 2.3, 6.7, 5.1};
+int main(){
+    vector<float> l = {3.2, 1.1, 4.5, 2.7, 5.0, 3.9};
+    
     vector<float> even_indices;
     vector<float> sorted_even_indices;
     
@@ -34,7 +35,7 @@ int main() {
         }
     }
     
-    assert(issame(sorted_even_indices, l));
+    assert(issame(even_indices, sorted_even_indices));
     
     return 0;
 }
