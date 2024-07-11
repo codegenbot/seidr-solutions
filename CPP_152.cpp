@@ -2,7 +2,9 @@
 #include <vector>
 
 bool issame(int a, int b) {
-    return a == b;
+    if (a == b)
+        return true;
+    return false;
 }
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
