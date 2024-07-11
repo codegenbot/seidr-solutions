@@ -1,4 +1,3 @@
-```
 def find_closest_elements(arr, target):
     left = 0
     right = len(arr) - 1
