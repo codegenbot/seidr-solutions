@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -11,9 +11,8 @@ int main() {
 }
 
 double probability(int n, int m) {
-    double sum = 0;
-    for (int i = 1; i < n; i++) {
-        sum += (n - i) * (1.0 / (double)m);
-    }
-    return sum;
+    double totalOutcomes = (double)(n + m - 1);
+    double favorableOutcomes = (double)n * m;
+    
+    return static_cast<double>(favorableOutcomes) / totalOutcomes;
 }
