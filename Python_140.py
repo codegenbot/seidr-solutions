@@ -6,10 +6,10 @@ def fix_spaces(text):
         if not prev_was_space and char == " ":
             new_text += "_"
             prev_was_space = True
-        elif char != " ":
-            new_text += char
+        elif char != " " and prev_was_space:
+            new_text += "-"
             prev_was_space = False
         else:
-            new_text += "-"
-            prev_was_space = True
+            new_text += char
+            prev_was_space = bool(char.isspace())
     return new_text
