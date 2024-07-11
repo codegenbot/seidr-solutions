@@ -1,6 +1,5 @@
-```cpp
 #include <map>
-#include <string>
+#include <cctype>
 using namespace std;
 
 bool check_dict_case(map<string, string> dict) {
@@ -19,20 +18,4 @@ bool check_dict_case(map<string, string> dict) {
     }
 
     return allLower || allUpper;
-}
-
-int main() {
-    map<string, string> dictionary;
-    
-    // implement your code here
-
-    // use the check_dict_case function here
-    bool result = check_dict_case(dictionary);
-    
-    if (result) 
-        cout << "All keys are either in uppercase or lowercase.\n";
-    else
-        cout << "The dictionary contains both upper and lower case keys.\n";
-
-    return 0;
 }
