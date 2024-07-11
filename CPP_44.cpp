@@ -9,3 +9,5 @@ std::string change_base(int x, int base) {
     }
     return result == "" ? "0" : result;
 }
+
+```
