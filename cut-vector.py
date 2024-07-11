@@ -3,7 +3,7 @@ arr = list(map(int, input().split()))
 total_sum = sum(arr)
 left_sum = 0
 min_diff = float('inf')
-cut_index = len(arr)
+cut_index = None
 
 for i in range(len(arr) - 1):
     left_sum += arr[i]
@@ -13,10 +13,11 @@ for i in range(len(arr) - 1):
         min_diff = diff
         cut_index = i + 1
 
-cut_index = int(cut_index)
+if cut_index is not None:
+    subvector1 = arr[:cut_index]
+    subvector2 = arr[cut_index:]
 
-subvector1 = arr[:cut_index]
-subvector2 = arr[cut_index:]
-
-print(*subvector1)
-print(*subvector2)
+    print(*subvector1)
+    print(*subvector2)
+else:
+    print("No possible cut point found.")
