@@ -1,3 +1,4 @@
+```
 from collections import deque
 
 def minPath(grid, k):
@@ -13,5 +14,5 @@ def minPath(grid, k):
                 visited.add((x, y, cell))
                 if cell < cur_min:
                     cur_min = cell
-                res.append(cur_min)
+        res.append(cur_min)
     return res
