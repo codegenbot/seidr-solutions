@@ -1,9 +1,10 @@
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
+    vector<int> result;
     int n = arr.size();
-    vector<int> res;
     
     for (int i = n - 1; i >= 0; i--) {
         bool leader = true;
@@ -13,19 +14,11 @@ vector<int> leaders(vector<int>& arr) {
                 break;
             }
         }
-        if (leader) res.push_back(arr[i]);
+        if (leader) {
+            result.push_back(arr[i]);
+        }
     }
     
-    return res;
-}
-
-int main() {
-    vector<int> testArr = {16, 17, 4, 3, 5, 2, 8, 9};
-    vector<int> leadersArr = leaders(testArr);
-    
-    for (int i : leadersArr) {
-        cout << i << " ";
-    }
-    
-    return 0;
+    std::reverse(result.begin(), result.end());
+    return result;
 }
