@@ -1,4 +1,3 @@
-```
 for char in paren_string:
     if char == " ":
         continue
