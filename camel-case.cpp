@@ -3,19 +3,27 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    bool capitalizeNext = true;
-    
-    for (char c : str) {
-        if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
+    for (int i = 0; i < str.size(); i++) {
+        if (str[i] == '-') {
+            i++; // skip the '-'
+            while (i < str.size() && str[i] == ' ') {
+                i++; // skip the spaces
+            }
+            if (result != "") {
+                result += std::toupper(str[i]);
+            } else {
+                result += str[i];
+            }
+        } else if (str[i] == ' ') {
+            continue; // skip the space
         } else {
-            result += tolower(c);
+            if (result != "") {
+                result += std::tolower(str[i]);
+            } else {
+                result += std::toupper(str[i]);
+            }
         }
     }
-    
     return result;
 }
 
