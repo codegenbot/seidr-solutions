@@ -1,4 +1,7 @@
 def decode_cyclic(encoded_str: bytes, key: int) -> str:
+    if encoded_str is None or len(encoded_str) == 0:
+        return "Invalid input. Please provide a non-empty string."
+    
     decoded_str = ""
     n = len(encoded_str) // 2
     while n % 2 != 0:
@@ -15,7 +18,3 @@ def decode_cyclic(encoded_str: bytes, key: int) -> str:
         else:
             decoded_str += bits[1:].hex()[::-1].ljust(n * 2, "0").decode()
     return decoded_str
-
-encoded_str = input("Enter the encoded string: ")
-key = int(input("Enter the key: "))
-print(decode_cyclic(encoded_str.encode(), key))
