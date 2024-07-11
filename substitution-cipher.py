@@ -3,7 +3,10 @@ def decipher(cipher1, cipher2, message):
     result = ""
     for char in message:
         if char.isalpha():
-            result += mapping.get(char.lower(), char)
+            if char.islower():
+                result += mapping.get(char, char).lower()
+            else:
+                result += mapping.get(char.upper(), char).upper()
         else:
             result += char
     return result
