@@ -1,1 +1,1 @@
-r"Your tweet has {} characters".format(len(re.sub(r'W+', '', tweet)))
+"Your tweet has {len(re.sub(r'W+', '', tweet))} characters"
