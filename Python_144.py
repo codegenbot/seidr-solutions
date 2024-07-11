@@ -1,16 +1,5 @@
+```
 import math
-
-
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return a
-
-
-def simplify(fraction):
-    numerator, denominator = map(int, fraction.split("/"))
-    common_divisor = gcd(numerator, denominator)
-    return f"{numerator//common_divisor}/{denominator//common_divisor}"
 
 
 def is_valid_fraction(fraction):
@@ -28,76 +17,62 @@ def main():
         if choice == "num":
             y = int(input("Please enter the number: "))
             while True:
-                c, d = map(
-                    int,
-                    input("Enter the fraction n (in the format 'a/b'): ").split("/"),
-                )
+                c, d = map(int, input("Enter the fraction n (in the format 'a/b'): ").split("/"))
                 if d == 0:
                     print("Division by zero is not allowed")
                     break
                 else:
-                    common_divisor = gcd(d, y)
+                    common_divisor = math.gcd(d, y)
                     simplified_x_num = c * (y // common_divisor)
                     simplified_x_denom = d // common_divisor
 
-                    common_divisor = gcd(c, d)
+                    common_divisor = math.gcd(c, d)
                     if c % common_divisor != 0:
-                        common_divisor = gcd(c * common_divisor, y)
+                        common_divisor = math.gcd(c * common_divisor, y)
                     simplified_y_num = c // common_divisor
                     simplified_y_denom = d // common_divisor
 
-                    print(
-                        f"{simplified_x_num}/{simplified_x_denom} and {simplified_y_num}/{simplified_y_denom}"
-                    )
+                    print(f"{simplified_x_num}/{simplified_x_denom} and {simplified_y_num}/{simplified_y_denom}")
                     sum_num = c * simplified_y_denom + c * simplified_x_denom
                     sum_denom = d * simplified_y_denom
 
                     if sum_denom == 0:
                         print("Division by zero is not allowed")
                     else:
-                        common_divisor = gcd(sum_num, sum_denom)
+                        common_divisor = math.gcd(sum_num, sum_denom)
                         simplified_sum_num = sum_num // common_divisor
                         simplified_sum_denom = sum_denom // common_divisor
                         print(f"Sum: {simplified_sum_num}/{simplified_sum_denom}")
                         break
 
         elif choice == "1/1" or choice == "fraction":
-            a, b = map(
-                int, input("Enter the fraction x (in the format 'a/b'): ").split("/")
-            )
+            a, b = map(int, input("Enter the fraction x (in the format 'a/b'): ").split("/"))
             if is_valid_fraction(str(a) + "/" + str(b)):
                 y = int(input("Please enter the number: "))
                 while True:
-                    c, d = map(
-                        int,
-                        input("Enter the fraction n (in the format 'a/b'): ").split(
-                            "/"
-                        ),
-                    )
+                    c, d = map(int, input("Enter the fraction n (in the format 'a/b'): ").split("/"))
                     if d == 0:
                         print("Division by zero is not allowed")
                         break
                     else:
-                        common_divisor = gcd(b, d)
+                        common_divisor = math.gcd(b, d)
                         simplified_x_num = a * (d // common_divisor)
                         simplified_x_denom = b // common_divisor
 
-                        common_divisor = gcd(c, d)
+                        common_divisor = math.gcd(c, d)
                         if c % common_divisor != 0:
-                            common_divisor = gcd(a * common_divisor, b)
+                            common_divisor = math.gcd(a * common_divisor, b)
                         simplified_y_num = c // common_divisor
                         simplified_y_denom = d // common_divisor
 
-                        print(
-                            f"{simplified_x_num}/{simplified_x_denom} and {simplified_y_num}/{simplified_y_denom}"
-                        )
+                        print(f"{simplified_x_num}/{simplified_x_denom} and {simplified_y_num}/{simplified_y_denom}")
                         sum_num = a * simplified_y_denom + c * simplified_x_denom
                         sum_denom = b * simplified_y_denom
 
                         if sum_denom == 0:
                             print("Division by zero is not allowed")
                         else:
-                            common_divisor = gcd(sum_num, sum_denom)
+                            common_divisor = math.gcd(sum_num, sum_denom)
                             simplified_sum_num = sum_num // common_divisor
                             simplified_sum_denom = sum_denom // common_divisor
                             print(f"Sum: {simplified_sum_num}/{simplified_sum_denom}")
