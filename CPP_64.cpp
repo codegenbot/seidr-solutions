@@ -6,7 +6,7 @@ transform(s.begin(), s.end(), s.begin(), ::tolower);
         }
     }
     if (!s.empty() && (s.back() == 'y' || s.back() == 'Y')) {
-        count++;
+        count--;
     }
     return count;
 }
