@@ -1,42 +1,17 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+bool compareVectors(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-class StdVectorInt {
+class stdVectorInt {
 public:
-    StdVectorInt() {}
+    stdVectorInt() {}
 };
 
-StdVectorInt obj;
-
-int main() {
-    int n; 
-    std::cin >> n;
-    std::vector<int> nums(n);
-    for (auto& num : nums) 
-        std::cin >> num;
-    
-    std::sort(nums.begin(), nums.end());
-    
-    bool same = isSame(nums, nums);
-    if (same)
-        std::cout << "The sorted array is the same as the original one.\n";
-    else
-        std::cout << "The sorted array is different from the original one.\n";
-
-    std::vector<int> result = order_by_points(nums);
-
-    for (const auto& num : result) 
-        std::cout << num << " ";
-    std::cout << "\n";
-    
-    return 0;
-}
+stdVectorInt obj;
 
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
@@ -55,4 +30,28 @@ std::vector<int> order_by_points(std::vector<int> nums) {
         result.push_back(nums[pair.second]);
     }
     return result;
+}
+
+int main() {
+    int n; 
+    std::cin >> n;
+    std::vector<int> nums(n);
+    for (auto& num : nums) 
+        std::cin >> num;
+    
+    std::sort(nums.begin(), nums.end());
+    
+    bool same = compareVectors(nums, nums);
+    if (same)
+        std::cout << "The sorted array is the same as the original one.\n";
+    else
+        std::cout << "The sorted array is different from the original one.\n";
+
+    std::vector<int> result = order_by_points(nums);
+
+    for (const auto& num : result) 
+        std::cout << num << " ";
+    std::cout << "\n";
+    
+    return 0;
 }

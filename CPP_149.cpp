@@ -1,20 +1,17 @@
-```#include <vector>
-#include <string>
+#include <vector>
 #include <algorithm>
+#include <sstream>
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     std::sort(lst.begin(), lst.end());
-    for(int i = 0; i < lst.size(); ++i)
-        if(lst[i].find("red") != std::string::npos)
+    
+    for(int i = 0; i < lst.size() -1 ; i++) {
+        int sum1 = lexical_cast<int>(lst[i].substr(1, lst[i].find(" ") -1));
+        int sum2 = lexical_cast<int>(lst[i+1].substr(1, lst[i+1].find(" ") -1));
+        
+        if(sum1 + sum2 > lexical_cast<int>(lst[i+1].substr(1, lst[i+1].find(" ") -1)) && i < lst.size() - 2) {
             return {};
-    int sum = 0;
-    for(const auto& s : lst)
-        if(s.find("red") == std::string::npos) {
-            int temp = 0;
-            for(char c : s) 
-                if(c >= '0' && c <= '9') 
-                    temp = temp * 10 + (c - '0');
-            sum += temp;
         }
-    return {std::to_string(sum)};
-}``
+    } 
+    return lst;
+}
