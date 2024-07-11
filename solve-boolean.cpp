@@ -1,4 +1,3 @@
-```cpp
 std::string solveBoolean(std::string expression) {
     std::stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
@@ -18,15 +17,22 @@ std::string solveBoolean(std::string expression) {
     }
 
     std::string result = "";
+    bool left = false, right = false;
     while (!s.empty()) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            result = (getBoolValue(s.top())) ? "True" : "False";
+            left = getBoolValue(s.top());
+            right = true;
+            result = (left && right) ? "True" : ("False");
         } else if (c == '|') {
-            result = (getBoolValue(s.top())) ? "True" : "False";
+            left = getBoolValue(s.top());
+            right = true;
+            result = (left || right) ? "True" : ("False");
         } else {
-            result = (getBoolValue(c)) ? "True" : "False";
+            result = (getBoolValue(c)) ? "True" : ("False");
         }
     }
+
+    return result;
 }
