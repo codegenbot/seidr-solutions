@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b){
-    // Code for checking if two vectors are the same
+    return a == b;
 }
 
 vector<int> even_odd_palindrome(int n){
