@@ -11,6 +11,6 @@ bool issame(const vector<string>& a, const vector<string>& b) {
 
 int main() {
     assert(issame(vector<string>{"Jupiter", "Makemake"}, {}));
-
+    
     return 0;
 }
