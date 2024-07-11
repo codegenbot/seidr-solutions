@@ -1,6 +1,22 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
 vector<string> separate_paren_groups(string paren_string);
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
@@ -28,15 +44,15 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    string input;
-    cin >> input;
+    string input_string;
+    cout << "Enter the input parenthesis string: ";
+    cin >> input_string;
     
-    vector<string> groups = separate_paren_groups(input);
-
-    if (issame(groups, groups)) {
-        cout << "The groups are the same" << endl;
-    } else {
-        cout << "The groups are different" << endl;
+    vector<string> groups = separate_paren_groups(input_string);
+    
+    cout << "Separated groups:" << endl;
+    for (const string& group : groups) {
+        cout << group << endl;
     }
 
     return 0;
