@@ -2,7 +2,7 @@
 #include <string>
 
 int main() {
-    int result = pairedDigits("123221");
+    int result = pairedDigits("123212");
     return 0;
 }
 
