@@ -1,4 +1,3 @@
-```cpp
 bool pairs_sum_to_zero(vector<int> l) {
     sort(l.begin(), l.end());
     for (int i = 0; i < l.size() / 2; i++) { 
