@@ -1,4 +1,3 @@
-```
 cents = int(input("Enter the amount in cents: "))
 coins = [0, 0, 0, 0]
 
