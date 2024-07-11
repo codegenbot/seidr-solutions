@@ -6,10 +6,10 @@ using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return boost::any(b);
+        return b;
     }
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return boost::any(b);
+        return b;
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = boost::any_cast<std::string>(a);
@@ -22,20 +22,24 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any("None");
+            return boost::any(any_cast<double>("None"));
         }
     }
     else if ((a.type() == typeid(double) && b.type() == typeid(std::string)) || 
              (a.type() == typeid(std::string) && b.type() == typeid(double))) {
-        if (boost::any_cast<double>(a) > boost::any_cast<double>(b)) {
+        double valA = boost::any_cast<double>(a);
+        double valB = boost::any_cast<double>(b);
+
+        if (valA > valB) {
             return a;
         }
-        else if (boost::any_cast<double>(a) < boost::any_cast<double>(b)) {
+        else if (valA < valB) {
             return b;
         }
         else {
-            return boost::any("None");
+            return boost::any(any_cast<double>("None"));
         }
     }
 
     return boost::any();
+}
