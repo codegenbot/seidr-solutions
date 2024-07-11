@@ -10,8 +10,15 @@ int main() {
         std::cin >> vec1[i];
     }
 
-    std::vector<double> vec2(n);
-    for (int i = 0; i < n; ++i) {
+    int m;
+    std::cin >> m;
+    if (n != m) {
+        std::cout << "Error: Vectors must be of the same size." << std::endl;
+        return 1;
+    }
+
+    std::vector<double> vec2(m);
+    for (int i = 0; i < m; ++i) {
         std::cin >> vec2[i];
     }
 
