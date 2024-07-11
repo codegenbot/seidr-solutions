@@ -1,4 +1,3 @@
-```cpp
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for (const auto& str : strings) {
@@ -9,7 +8,8 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 
 }
-bool issame(vector<string> a,vector<string>b){
+
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
     
