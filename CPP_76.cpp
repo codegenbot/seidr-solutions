@@ -1,8 +1,1 @@
-if (x <= 0 || n <= 0) {
-        return false;
-    }
-    
-    double result = log(x) / log(n);
-    
-    return result == int(result);
-}
+return x>0 && (n != 1 || x == 1 || (x > 1 && (log(x) / log(n) == (int)(log(x) / log(n))));
