@@ -1,9 +1,8 @@
-Here is the completed code:
-
 def move_one_ball(arr):
     if len(arr) == 0:
         return True
-    for i in range(len(arr)-1):
-        if arr[i] > arr[i+1]:
+    max_val = max(arr)
+    for i in range(len(arr)):
+        if arr[i] > max_val - i:
             return False
     return True
