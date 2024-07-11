@@ -1,7 +1,7 @@
 ```
 def double_the_difference():
-    sep = input("Enter the separator: ")
-    lst = list(map(int, input().split(sep)))
+    separator = input("Enter a separator: ")
+    lst = list(map(int, input().split(separator)))
     difference = max(lst) - min(lst)
     double_diff = difference * 2
     return double_diff
