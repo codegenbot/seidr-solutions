@@ -1,11 +1,8 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::string& a, const std::string& b) {
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(const std::string& s1, const std::string& s2) {
+    return s1 == s2;
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
