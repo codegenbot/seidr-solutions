@@ -1,6 +1,2 @@
 def leaders(input_list):
-    return [
-        x
-        for i, x in enumerate(input_list)
-        if all(x >= y for y in input_list[i + 1:])
-    ]
+    return [max(input_list[i:]) for i in range(len(input_list)-1, -1, -1)]
