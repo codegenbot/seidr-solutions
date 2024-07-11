@@ -15,6 +15,7 @@ int digitSum(std::string s){
 
 int main() {
     assert(digitSum("AbC") == 4);
+    assert(digitSum("DeF") == 8);
     
     return 0;
 }
