@@ -1,10 +1,8 @@
-string result = "";
-    for(char ch : s){
-        if(c.find(ch) == string::npos){
-            result += ch;
-        }
+for (char i : c) {
+        s.erase(remove(s.begin(), s.end(), i), s.end());
     }
-    string rev_result = result;
-    reverse(rev_result.begin(), rev_result.end());
-    return vector<string> {result, result == rev_result ? "True" : "False"};
+    string result = s;
+    string reversed = result;
+    reverse(reversed.begin(), reversed.end());
+    return { result, result == reversed ? "True" : "False" };
 }
