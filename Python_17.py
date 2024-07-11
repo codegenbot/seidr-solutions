@@ -7,9 +7,7 @@ def parse_music(music_string: str) -> List[int]:
             note_type = music_string[i+1:i+3]
             if note_type in notes:
                 result.append(notes[note_type])
-            else:
-                result.extend([notes['o|']]*4)
-            i += 3
+            i += 2
         else:
             note_type = music_string[i:i+2]
             result.append(notes[note_type])
