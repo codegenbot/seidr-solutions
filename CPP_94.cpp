@@ -22,16 +22,9 @@ bool isPrime(int n) {
         if (n % i == 0) return false;
     }
     return true;
-
 }
+
 int main(){
-    vector<int> lst;
-    int num;
-    while(true){
-        cin >> num;
-        if(num == -1) break;
-        lst.push_back(num);
-    }
-    cout << skjkasdkd(lst) << endl;
+    assert(skkkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
