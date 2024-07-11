@@ -1,5 +1,4 @@
-```cpp
-bool issame(vector<string> a, vector<string> b) {
+bool areEqual(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
     
@@ -9,4 +8,3 @@ bool issame(vector<string> a, vector<string> b) {
     }
     
     return true;
-}
