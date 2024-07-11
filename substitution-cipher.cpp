@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 
@@ -15,8 +16,8 @@ std::string substitutionCipher(const std::string& cipherMap, const std::string& 
 }
 
 int main() {
-    std::string cipherMap = "abcdefghijklmnopqrstuvwxyz"; 
-    std::string input = "bzjyvlaopidqguscxrtwk" + std::string("eogfmptnxqhijzkusrvld") + "ijalbwwxcz";
+    std::string cipherMap = "thekey"; 
+    std::string input = "bzjyvlaopidqguscxrtwk eogfmptnxqhijzkusrvld ijalbwwxcz";
     std::cout << substitutionCipher(cipherMap, input) << std::endl;
     return 0;
 }
