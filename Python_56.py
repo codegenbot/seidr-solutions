@@ -19,10 +19,10 @@ def correct_bracketing(expression):
 
 def check(correct_bracketing):
     while True:
-        expression = input("Enter an expression (or 'done' if finished): ")
-        if expression.lower() == "done":
-            break
         try:
+            expression = input("Enter an expression (or 'done' if finished): ")
+            if expression.lower() == "done":
+                break
             if correct_bracketing(expression):
                 print("Correct bracketing!")
             else:
