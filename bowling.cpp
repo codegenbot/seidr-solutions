@@ -7,30 +7,29 @@ int calculateScore(string s) {
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'X') {
             total += 10;
-            if (frame < 9) {
-                if (s[i + 2] == 'X') {
+            if (s[i+2] == 'X') {
+                total += 10;
+                if (s[i+4] == 'X' || i == s.size() - 1) {
                     total += 10;
-                    if (s[i + 4] == 'X') {
-                        total += 10;
-                    } else {
-                        total += s[i + 4] - '0';
-                    }
-                } else if (s[i + 3] == '/') {
-                    total += 10;
+                } else if (s[i+4] == '/') {
+                    total += 10 - (s[i+3] - '0');
                 } else {
-                    total += s[i + 2] - '0' + s[i + 3] - '0';
+                    total += s[i+3] - '0' + s[i+4] - '0';
                 }
+            } else if (s[i+3] == '/') {
+                total += 10;
+            } else {
+                total += s[i+2] - '0' + s[i+3] - '0';
             }
-            frame++;
+            if (frame < 9) {
+                frame++;
+            }
         } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0');
-            if (frame == 9) {
-                total += s[i + 1] - '0';
-            }
+            total += 10 - (s[i-1] - '0');
         } else if (s[i] >= '1' && s[i] <= '9') {
             total += s[i] - '0';
         }
-        if (frame == 10) {
+        if (frame == 9 && (s[i] == '/' || s[i] == 'X')) {
             break;
         }
     }
@@ -39,7 +38,7 @@ int calculateScore(string s) {
 
 int main() {
     string s;
-    std::cin >> s;
-    std::cout << calculateScore(s) << endl;
+    cin >> s;
+    cout << calculateScore(s) << endl;
     return 0;
 }
