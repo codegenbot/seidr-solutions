@@ -14,5 +14,5 @@ double probability(int n, int m) {
     if (n < m)
         return 0.0;
     else
-        return (m + 1.0) / n;
+        return 1.0 - ((double)m + 1.0) / n;
 }

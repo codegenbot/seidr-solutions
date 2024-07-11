@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 
@@ -25,18 +26,10 @@ int main() {
         }
     }
 
-    int pennies = dp[cents][0].first;
-    int nickles = (pennies / 5) * 5 - dp[cents- pennies][0].first; 
-    pennies -= nickles * 5;
-    int dimes = (nickles / 2) * 10 - dp[cents-nickles*2][1].first;  
-    nickles -= dimes * 2;
-    int quarters = (dimes / 4) * 25 - dp[cents-dimes*4][2].first;  
-    dimes -= quarters * 4;
-
-    cout << quarters << endl;
-    cout << dimes << endl;
-    cout << nickles << endl;
-    cout << pennies << endl;
+    cout << dp[cents][3].second << " quarters" << endl;
+    cout << dp[cents][2].second << " dimes" << endl;
+    cout << dp[cents][1].second << " nickles" << endl;
+    cout << dp[cents][0].second << " pennies" << endl;
 
     return 0;
 }
