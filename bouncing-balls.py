@@ -8,4 +8,4 @@ for _ in range(num_bounces):
     total_distance += final_height * 2
     starting_height = final_height
 
-print(total_distance - final_height)
+print(total_distance)
