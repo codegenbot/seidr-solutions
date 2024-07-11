@@ -20,7 +20,8 @@ bool monotonic(std::vector<float> l) {
 int main() {
     std::vector<float> input;
     std::cout << "Enter the numbers (space separated): ";
-    for (float x; std::cin >> x;) {
+    float x;
+    while(std::cin >> x) {
         input.push_back(x);
     }
     if (monotonic(input)) {
