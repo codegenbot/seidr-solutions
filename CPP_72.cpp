@@ -3,8 +3,19 @@ int sum = 0;
         sum += q[i];
     }
     
-    vector<int> q_reverse = q;
-    reverse(q_reverse.begin(), q_reverse.end());
+    if (q.size() % 2 != 0) {
+        return false;
+    }
     
-    return sum <= w && q == q_reverse;
+    for (int i = 0; i < q.size() / 2; i++) {
+        if (q[i] != q[q.size() - 1 - i]) {
+            return false;
+        }
+    }
+    
+    if (sum <= w) {
+        return true;
+    } else {
+        return false;
+    }
 }
