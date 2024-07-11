@@ -1,19 +1,13 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
+    return a == b;
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<string> result;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<string> result;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
             result.push_back(to_string(i));
