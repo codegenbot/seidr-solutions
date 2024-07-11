@@ -1,4 +1,11 @@
-```python
 from typing import List
 
-filtered_strings = filter_by_prefix([input() for _ in range(int(input("Enter number of strings: ")))], input("Enter prefix: "))
+def filter_by_prefix() -> None:
+    strings = input("Enter the list of strings (space-separated): ")
+    prefix = input("Enter the prefix: ")
+
+    if isinstance(prefix, str):
+        result = [s for s in strings.split() if s.startswith(prefix)]
+        print(f"Result: {result}")
+    else:
+        print("Invalid prefix. Please enter a string.")
