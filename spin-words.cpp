@@ -1,7 +1,4 @@
-#include <string>
-#include <iostream>
-using namespace std;
-
+```cpp
 string spinWords(string str) {
     string result = "";
     int i = 0;
@@ -23,16 +20,4 @@ string spinWords(string str) {
         i = pos + 1;
     }
     return result.substr(0, result.length() - 1);
-}
-
-int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-
-    string output = spinWords(input);
-
-    cout << "Spun words: " << output << endl;
-
-    return 0;
 }

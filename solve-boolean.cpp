@@ -1,30 +1,32 @@
+```cpp
 std::string solveBoolean(std::string expression) {
-    std::stack<char> s;
+    std::string result = "True";
+    bool left = false, right = false;
+    
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
+            if (getBoolValue(left) && getBoolValue(right)) {
+                result = "True";
+            } else {
+                result = "False";
             }
-            s.push('&');
+            left = right = false;
         } else if (expression[i] == '|') {
-            while (!s.empty()) {
-                s.pop();
+            if (getBoolValue(left) || getBoolValue(right)) {
+                result = "True";
+            } else {
+                result = "False";
             }
-            s.push('|');
+            left = right = false;
         } else {
-            s.push(expression[i]);
+            bool value = getBoolValue(expression[i]);
+            if (value) {
+                left = right = true;
+            } else {
+                left = right = false;
+            }
         }
     }
-
-    std::string result = "";
-    while (!s.empty()) {
-        char c = s.top();
-        s.pop();
-        if (c == '&') {
-            result = (getBoolValue(s.top())) ? "True" : "False";
-        } else if (c == '|') {
-            result = (getBoolValue(s.top())) ? "True" : "False";
-        } else {
-            result = (getBoolValue(c)) ? "True" : "False";
-        }
-    }
+    
+    return result;
+}
