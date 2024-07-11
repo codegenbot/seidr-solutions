@@ -13,12 +13,4 @@ int sum_squares(std::vector<int> lst){
     return sum;
 }
 
-int cpp142_solution() {
-    // Your code goes here
-
-    std::vector<int> numbers = {1, 2, 3, 4, 5};
-
-    int result = sum_squares(numbers);
-
-    return result;
-}
+int custom_main() {
