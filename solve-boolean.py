@@ -12,17 +12,15 @@ def solve_boolean(expression):
         if char in ["T", "F"]:
             stack.append(bool(char == "T"))
         elif char == "(":
-            stack.append(char)
+            stack.append("(")
         elif char == ")":
             while stack and stack[-1] != "(":
                 b = stack.pop()
                 a = stack.pop()
-                stack.append(operations[char](a, b))
+                stack.append(operations["|"](a, b))
         elif char in operations:
-            while (
-                len(stack) > 0
-                and stack[-1] != "("
-                and precedence[char] <= precedence.get(stack.pop(), 2)
-            ):
-                pass
+            while len(stack) > 0 and stack[-1] not in ["(", "|", "&"]:
+                stack.pop()
+            if stack and stack[-1] == "(":
+                stack.pop()
     return stack[0]
