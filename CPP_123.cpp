@@ -1,5 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
@@ -13,6 +13,10 @@ std::vector<int> get_odd_collatz(int n) {
         if (i % 2 != 0)
             result.push_back(i);
     }
-    std::sort(result.begin(), result.end());
+    sort(result.begin(), result.end());
     return result;
+}
+
+int main() {
+    assert(get_odd_collatz(1) == std::vector<int>({1}));  
 }
