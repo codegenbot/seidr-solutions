@@ -2,11 +2,10 @@ string solve(string s){
     string result = "";
     for(int i=0; i<s.length(); i++){
         if(isalpha(s[i])){
-            char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
-            result += c;
+            result += (s[i] >= 'a' && s[i] <= 'z') ? toupper(s[i]) : tolower(s[i]);
         } else {
             result += s[i];
         }
     }
-    return (result.empty()) ? string(reverse(s)) : result;
+    return result;
 }
