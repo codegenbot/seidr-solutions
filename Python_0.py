@@ -1,8 +1,9 @@
-from typing import list, float
+```
+from typing import List
 
-def has_close_elements(numbers: list[float], threshold: float) -> bool:
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            if abs(numbers[i] - numbers[j]) <= threshold:
-                return True
+def has_close_elements(numbers: List[float], threshold: float) -> bool:
+    numbers.sort()
+    for i in range(len(numbers) - 1):
+        if abs(numbers[i] - numbers[i + 1]) <= threshold:
+            return True
     return False
