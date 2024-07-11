@@ -15,10 +15,12 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif char == ")":
             while stack and stack[-1] != "(":
                 group += stack.pop()
-            if not stack or stack[-1] == "(": 
+            if not stack:
                 groups.append(group + ")")
                 group = ""
             else:
                 stack.pop()
+
+    if stack: groups.append(group + "))"; else: groups.append(group + ")"); group = "";
 
     return [group] + groups
