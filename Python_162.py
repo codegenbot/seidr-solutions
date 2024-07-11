@@ -15,4 +15,3 @@ while True:
         print(string_to_md5(text))
     except ValueError:
         print("Invalid input. Please enter a string.")
-        continue
