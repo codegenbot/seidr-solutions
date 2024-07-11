@@ -2,25 +2,27 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-vector<int> parse_music(string music_string) {
-    vector<int> parsed_music;
+std::vector<int> parse_music(std::string music_string) {
+    std::vector<int> result;
+    std::string delimiter = "| ";
     size_t pos = 0;
-    while ((pos = music_string.find("|", pos)) != string::npos) {
-        if (pos > 0 && isdigit(music_string[pos - 1])) {
-            parsed_music.push_back(music_string[pos - 1] - '0');
-        }
-        pos++;
+    while ((pos = music_string.find(delimiter)) != std::string::npos) {
+        std::string token = music_string.substr(0, pos);
+        if (token == "o")
+            result.push_back(2);
+        else if (token == ".")
+            result.push_back(1);
+        music_string.erase(0, pos + delimiter.length());
     }
-    return parsed_music;
+    return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
+    assert(issame(parse_music("o| .| o| .| o o| o o|"),
+                   {2, 1, 2, 1, 2, 2, 2, 2}));
     return 0;
 }
