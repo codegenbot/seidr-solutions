@@ -29,4 +29,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if groups:
         result.append(groups)
 
+    if len(stack) != 0:
+        return ["Program did not receive expected input"]
+
     return [g.strip() for g in result]
