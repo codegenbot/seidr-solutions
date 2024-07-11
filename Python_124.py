@@ -1,6 +1,5 @@
-```
-def valid_date(date):
-    day, month, year = date.split('-')
+```def valid_date(date):    
+    day, month, year = date.split('-')    
     if len(day) == 1:
         day = '0' + day
     if len(month) == 1:
@@ -11,4 +10,4 @@ def valid_date(date):
        (int(month) in [4,6,9,11] and int(day) < 1 or int(day) > 30) or \
        (int(month) == 2 and int(day) < 1 or int(day) > 29):
         return False
-    return True
+    return True```
