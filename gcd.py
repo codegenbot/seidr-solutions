@@ -1,8 +1,7 @@
 ```
 values = input("Enter two integers (separated by space): ").split()
-if len(values) != 2:
-    a, b = map(int, values)
-    print(gcd(a, b))
+a, b = map(int, values)
+print(gcd(a, b))
 
 def gcd(a, b):
     while b:
