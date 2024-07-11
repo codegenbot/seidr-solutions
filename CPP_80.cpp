@@ -3,7 +3,9 @@ bool is_happy(const string& s) {
         return false;
     
     for(int i = 0; i < s.length() - 2; ++i) {
-        if(s[i] - 'a' == s[i + 1] - 'a' || s[i] - 'a' == s[i + 2] - 'a' || s[i + 1] - 'a' == s[i + 2] - 'a')
+        if(static_cast<int>(s[i]) == static_cast<int>(s[i+1]) ||
+           static_cast<int>(s[i]) == static_cast<int>(s[i+2]) ||
+           static_cast<int>(s[i+1]) == static_cast<int>(s[i+2]))
             return false;
     }
     
