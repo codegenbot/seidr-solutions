@@ -1,9 +1,8 @@
-```c++
 #include <iostream>
 #include <string>
 
 std::string substitutionCipher(const std::string& cipherMap, const std::string& input) {
-    std::string output = ""; 
+    std::string output;
     for (char c : input) {
         char newChar = '\0';
         if (c >= 'a' && c <= 'z') {
@@ -13,17 +12,21 @@ std::string substitutionCipher(const std::string& cipherMap, const std::string& 
             int index = toupper(c) - 'A';
             newChar = toupper(cipherMap[index] - ('A' - 'a'));
         }
-        output += newChar; 
+        output += (newChar == '\0') ? c : newChar;
     }
     return output;
 }
 
 int main() {
-    std::string cipherMap = "abcdefghijklmnopqrstuvwxyz"; 
-    std::string input = "hello";
+    std::string cipherMap = "abcdefghijklmnopqrstuvwxyz"; // replace with actual cipher map
+    std::string input = "hello"; // replace with actual input string
 
-    std::string output = substitutionCipher(cipherMap, input);
-    std::cout << output << std::endl;
+    if(input.size() == 0) {
+        std::cout << "No message to decipher." << std::endl;
+    } else {
+        std::string output = substitutionCipher(cipherMap, input);
+        std::cout << output << std::endl;
+    }
 
     return 0;
 }
