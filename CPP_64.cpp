@@ -18,9 +18,4 @@ int vowels_count(const std::string& s){
 
 int main(){
     assert(vowels_count("ACEDY") == 3);
-    std::string str;
-    cout << "Enter a string: ";
-    cin >> str;
-    int vowelCount = vowels_count(str);
-    cout << "Number of vowels in the string is: " << vowelCount << endl;
 }
