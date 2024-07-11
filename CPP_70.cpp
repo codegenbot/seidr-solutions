@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <numeric>
 
-bool std::pmr::issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
+bool issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
     return a == b;
 }
 
@@ -23,6 +23,6 @@ std::pmr::vector<int> strange_sort_list(std::pmr::vector<int> lst) {
     return result;
 }
 
-int main() {
-    assert(std::pmr::issame(std::pmr::vector<int>(strange_sort_list({1, 1, 1, 1, 1})), std::pmr::vector<int>({1, 1, 1, 1, 1})));
+int another_main() {
+    assert(issame(std::pmr::vector<int>(strange_sort_list({1, 1, 1, 1, 1})), std::pmr::vector<int>({1, 1, 1, 1, 1})));
 }
