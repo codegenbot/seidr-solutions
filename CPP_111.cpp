@@ -33,7 +33,6 @@ std::map<char, int> histogram(std::string test) {
     return mostRepeatedChars;
 }
 
-int main() {
+void main() {
     assert(issame(histogram("a"), {{'a', 1}}));
-    return 0;
 }
