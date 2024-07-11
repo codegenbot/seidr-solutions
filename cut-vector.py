@@ -10,8 +10,8 @@ for i in range(1, len(arr) - 1):
         min_diff = current_diff
         cut_position = i
 
-subvector1 = arr[:cut_position]
-subvector2 = arr[cut_position:]
+subvector1 = arr[:cut_position + 1]
+subvector2 = arr[cut_position + 1:]
 
 print(*subvector1)
 print(*subvector2)
