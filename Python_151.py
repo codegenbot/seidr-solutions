@@ -1,6 +1,6 @@
-```
 def check(func):
     print(func())
+
 
 def double_the_difference():
     sep = input("Enter the separator: ")
@@ -9,5 +9,6 @@ def double_the_difference():
     double_diff = str(difference * 2)
     return double_diff
 
+
 if __name__ == "__main__":
-    check(double_the_difference)
+    check(double_the_difference())
