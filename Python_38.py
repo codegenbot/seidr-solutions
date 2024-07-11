@@ -1,6 +1,4 @@
-```
-def decode_cyclic():
-    s = input("Enter a string: ")
+def decode_cyclic(s: str):
     result = []
     temp = ""
     for char in s:
@@ -8,8 +6,6 @@ def decode_cyclic():
         if len(temp) == 3:
             result.append(temp[1] + temp[0])
             temp = ""
-    if temp:
+    if temp and len(temp) > 0:
         result.append(temp)
     return "".join(result)
-
-print(decode_cyclic())
