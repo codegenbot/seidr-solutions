@@ -9,6 +9,8 @@ def encode(message):
             else:
                 new_char = char.swapcase()
             result += new_char
-        else:
+        elif not char.isalnum(): 
+            result += char
+        else: 
             result += char
     return result
