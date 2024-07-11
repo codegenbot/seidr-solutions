@@ -1,41 +1,47 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> minPath(vector<vector<int>>& grid, int k) {
-    vector<int> res;
-    for (int i = 0; i < grid.size(); ++i) {
-        for (int j = 0; j < grid[0].size(); ++j) {
-            if (k > 0) {
-                vector<int> temp;
-                dfs(grid, i, j, k, temp);
-                if (res.empty() || res < temp) {
-                    res = temp;
-                }
-                --k;
+    int n = grid.size();
+    vector<vector<int>> dp(n, vector<int>(n));
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == 0 && j == 0) {
+                dp[i][j] = grid[i][j];
+            } else if (i == 0) {
+                dp[i][j] = min(dp[i][j - 1], dp[i][j]) + grid[i][j];
+            } else if (j == 0) {
+                dp[i][j] = min(dp[i - 1][j], dp[i][j]) + grid[i][j];
+            } else {
+                dp[i][j] = min({dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]}) + grid[i][j];
             }
         }
     }
+
+    vector<int> res;
+    for (int i = n - 1; i >= 0; i--) {
+        if (dp[i][n - 1] == grid[i][n - 1]) {
+            res.push_back(grid[i][n - 1]);
+            k--;
+            if (k == 0) break;
+        }
+    }
+
+    reverse(res.begin(), res.end());
     return res;
 }
 
-void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path) {
-    if (k == 0) {
-        return;
+int main() {
+    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    for (int i : result) {
+        cout << i << " ";
     }
-    path.push_back(grid[x][y]);
-    for (int i = -1; i <= 1; ++i) {
-        for (int j = -1; j <= 1; ++j) {
-            int nx = x + i, ny = y + j;
-            if (nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size()) {
-                bool found = false;
-                for (int z = 0; z < path.size(); ++z) {
-                    if (path[z] == grid[nx][ny]) {
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found) {
-                    dfs(grid, nx, ny, k - 1, path);
-                }
-            }
-        }
-    }
-    path.pop_back();
+    return 0;
 }
