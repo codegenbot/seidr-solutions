@@ -1,6 +1,6 @@
 #include <string>
 
-std::string file_name_check(std::string filename) {
+bool file_name_check(std::string filename) {
     int digit_count = 0;
     bool found_dot = false;
     bool valid_prefix = true;
@@ -9,7 +9,7 @@ std::string file_name_check(std::string filename) {
         if (isdigit(c)) {
             digit_count++;
             if (digit_count > 3)
-                return "No";
+                return false;
         } else if (c == '.') {
             found_dot = true;
         } else {
@@ -18,13 +18,5 @@ std::string file_name_check(std::string filename) {
         }
     }
 
-    if (digit_count <= 3 && found_dot && valid_prefix)
-        return "Yes";
-    else
-        return "No";
-}
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    return 0;
+    return (digit_count <= 3 && found_dot && valid_prefix);
 }
