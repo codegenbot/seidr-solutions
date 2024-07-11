@@ -1,6 +1,6 @@
 #include <vector>
 
-int count_nums(vector<int> nums) {
+int count_nums(std::vector<int> nums) {
     int count = 0;
     for (int num : nums) {
         bool has_positive_sum_of_digits = false;
@@ -30,3 +30,4 @@ int count_nums(vector<int> nums) {
         }
     }
     return count;
+}
