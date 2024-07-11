@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -11,8 +10,11 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
         int max_val = *max_element(lst.begin(), lst.end());
-        if (issame({min_val}, lst)) {
-            result.push_back(min_val);
+        if (issame({min_val}, {max_val})) {
+            for (int x : lst) {
+                if (x == min_val || x == max_val)
+                    result.push_back(x);
+            }
             lst.clear();
         } else {
             result.push_back(min_val);
