@@ -5,9 +5,9 @@ using namespace std;
 
 int main() {
     vector<int> nums;
-    string input;
-    getline(cin, input);
-    istringstream iss(input);
+    string line;
+    getline(cin, line);
+    istringstream iss(line);
     int num;
     
     while (iss >> num) {
