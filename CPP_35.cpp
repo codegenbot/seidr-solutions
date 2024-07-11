@@ -1,8 +1,9 @@
+```cpp
 #include <algorithm>
 #include <vector>
-#include <iostream>
+#include <initializer_list>
 
-int max_value_function() {
+int main() {
     std::vector<std::pair<int, int>> p;
     for (int i = 0; i < 6; ++i) {
         int x, y;
@@ -15,7 +16,7 @@ int max_value_function() {
     });
     
     int max_value = std::get<1>(max_pair);
-    int min_value = (*std::min_element(p.begin(), p.end()))->first;
+    int min_value = *std::min_element(p.begin(), p.end())->first;
     
     std::cout << "Maximum value: " << max_value << std::endl;
     std::cout << "Minimum value: " << min_value << std::endl;
