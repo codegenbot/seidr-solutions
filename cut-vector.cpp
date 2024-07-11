@@ -1,40 +1,35 @@
 int main() {
-    int n;
-    cin >> n;
-    
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    vector<int> nums;
+    int num;
+    while (cin >> num) {
+        nums.push_back(num);
     }
     
+    int n = nums.size();
     int sum = 0;
-    for (int num : nums) {
-        sum += num;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
     }
     
-    int target = sum / 2;
+    int half_sum = sum / 2;
+    int left_sum = 0;
+    int idx = 0;
     
-    int prefixSum = 0;
-    int idx = -1;
-    for (int i = 0; i < n; ++i) {
-        prefixSum += nums[i];
-        if (prefixSum >= target) {
-            idx = i;
-            break;
-        }
+    while (left_sum <= half_sum) {
+        left_sum += nums[idx];
+        idx++;
     }
     
-    if (abs(sum - 2 * prefixSum) < abs(sum - 2 * (prefixSum - nums[idx]))) {
-        for (int i = 0; i <= idx; ++i) {
-            cout << nums[i] << endl;
-        }
-        cout << 0 << endl;
-    } else {
-        for (int i = 0; i < idx; ++i) {
-            cout << nums[i] << endl;
-        }
-        cout << 0 << endl;
+    if (abs(left_sum - half_sum) < abs(left_sum - half_sum + nums[idx - 1])) {
+        idx--;
+        left_sum -= nums[idx];
     }
+    
+    for (int i = 0; i < idx; i++) {
+        cout << nums[i] << endl;
+    }
+    
+    cout << left_sum << endl;
     
     return 0;
 }
