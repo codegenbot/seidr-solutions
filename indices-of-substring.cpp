@@ -6,12 +6,13 @@ using namespace std;
 
 int main() {
     string text, target;
-    cin >> text >> target;
+    getline(cin, text);
+    getline(cin, target);
 
     vector<int> indices;
     size_t pos = 0;
 
-    while ((pos != string::npos && pos < text.length()) && (pos = text.find(target, pos)) != string::npos) {
+    while ((pos = text.find(target, pos, target.length())) != string::npos) {
         indices.push_back(pos);
         pos += target.length();
     }
