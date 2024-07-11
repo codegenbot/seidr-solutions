@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <vector>
+using namespace std;
 
 int whitePegs(string code, string guess) {
     int count = 0;
@@ -17,7 +17,7 @@ int blackPegs(string code, string guess) {
     vector<char> codeArray(code.begin(), code.end());
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
-            code[i] = 'x';
+            code.replace(i, 1, "x");
         }
     }
     for (int i = 0; i < 4; i++) {
@@ -38,3 +38,4 @@ int main() {
     cout << black << endl;
     cout << white << endl;
     return 0;
+}
