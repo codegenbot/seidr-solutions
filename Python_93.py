@@ -6,7 +6,7 @@ def encode(message):
             if char.lower() in vowels:
                 new_char = chr((ord(char.lower()) - 96 + 2) % 26 + 96)
             else:
-                new_char = chr((ord(char.lower()) - 97 + 2) % 26 + 97)
+                new_char = chr(ord(char) if ord('a') <= ord(char) <= ord('z') else ord(char))
             result += new_char
         else:
             result += char
