@@ -2,27 +2,35 @@
 #include <numeric>
 #include <algorithm>
 #include <cassert>
-#include <cmath>
 
-bool issame(const vector<int>& a, const vector<int>& b){
-    return accumulate(a.begin(), a.end(), 0) == accumulate(b.begin(), b.end(), 0);
+bool issame(const vector<int>& a, const vector<int>& b);
+
+vector<int> order_by_points(const vector<int>& nums) {
+    sort(nums.begin(), nums.end(), [](int a, int b) {
+        int sum_a = 0, sum_b = 0;
+        int temp_a = abs(a), temp_b = abs(b);
+        while (temp_a) {
+            sum_a += temp_a % 10;
+            temp_a /= 10;
+        }
+        while (temp_b) {
+            sum_b += temp_b % 10;
+            temp_b /= 10;
+        }
+        if (sum_a == sum_b) {
+            return a < b;
+        }
+        return sum_a < sum_b;
+    });
+    return nums;
 }
 
-return vector<int>
-sort(nums.begin(), nums.end(), [](int a, int b) {
-    int sum_a = 0, sum_b = 0;
-    int temp_a = abs(a), temp_b = abs(b);
-    while (temp_a) {
-        sum_a += temp_a % 10;
-        temp_a /= 10;
-    }
-    while (temp_b) {
-        sum_b += temp_b % 10;
-        temp_b /= 10;
-    }
-    if (sum_a == sum_b) {
-        return a < b;
-    }
-    return sum_a < sum_b;
-}, issame);
-```
+int main() {
+    vector<int> nums = {123, 534, 456, 321};
+    vector<int> sorted_nums = order_by_points(nums);
+
+    // Add assertions to validate the output
+    assert(sorted_nums == vector<int>{321, 123, 534, 456});
+
+    return 0;
+}
