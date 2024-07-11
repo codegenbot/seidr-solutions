@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -6,27 +5,19 @@ def concatenate(strings: List[str]) -> str:
     if isinstance(strings, list):
         return "".join(strings)
     elif strings:
-        return str(strings)
+        split_strings = strings.strip().split(",", 1)
+        input_list = [s.strip() for s in split_strings[0].split(",")]
+        return concatenate(input_list)
     else:
         return "Error: Expected a list of strings"
 
 
 if __name__ == "__main__":
     strings = input("Enter the strings (comma separated): ")
-    strings = strings.strip().split(",", 1)
-    if len(strings) == 2 and strings[1] == "":
-        input_list = [strings[0].strip()]
-    else:
-        input_list = [s.strip() for s in strings[0].split(",")]
     while True:
-        if all(isinstance(s, str) for s in input_list):
+        if all(isinstance(s, str) for s in strings.split(",")):
             break
         else:
             print("Invalid input. Please enter a list of strings.")
             strings = input("Enter the strings (comma separated): ")
-            strings = strings.strip().split(",", 1)
-            if len(strings) == 2 and strings[1] == "":
-                input_list = [strings[0].strip()]
-            else:
-                input_list = [s.strip() for s in strings[0].split(",")]
-    print(concatenate(input_list))
+    print(concatenate([s.strip() for s in strings.split(",")]))
