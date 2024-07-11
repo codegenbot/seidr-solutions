@@ -1,18 +1,18 @@
-#include<string>
-using namespace std;
-
 string words_in_sentence(string sentence) {
     string result = "";
     int len = 0;
     for (int i = 0; i < sentence.length(); i++) {
         if (sentence[i] == ' ') {
+            if (isPrime(len)) {
+                result += sentence.substr(len - strlen(&sentence[i]), i - len);
+            }
             len = 0;
         } else {
             len++;
         }
-        if (isPrime(len)) {
-            result += sentence.substr(i - len + 1, len) + " ";
-        }
+    }
+    if (isPrime(len)) {
+        result += sentence.substr(len - strlen(&sentence[len]));
     }
     return result;
 }
