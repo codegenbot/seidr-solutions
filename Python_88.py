@@ -1,8 +1,8 @@
-```
-def sort_array(array):
+def find_average_and_median(array):
+    average = sum(array) / len(array)
     array.sort()
     median = len(array) // 2
     if len(array) % 2 != 0:
-        return [array[median]]
+        return [average, array[median]]
     else:
-        return [array[:median], array[median:]]
+        return [average, array[median - 1 : median + 1]]
