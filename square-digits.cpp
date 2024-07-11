@@ -1,5 +1,10 @@
 #include <string>
-#include <cmath>
+
+int main() {
+    std::string output = squareDigits("153"); // replace with your desired input
+    return 0;
+
+}
 
 std::string squareDigits(std::string input) {
     std::string output;
@@ -11,10 +16,3 @@ std::string squareDigits(std::string input) {
     }
     return output;
 }
-
-int main() {
-    std::string input;
-    std::cout << "Enter a positive integer: ";
-    std::cin >> input;
-    std::cout << squareDigits(input) << std::endl;
-    return 0;
