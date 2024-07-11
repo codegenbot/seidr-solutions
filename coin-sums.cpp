@@ -1,4 +1,3 @@
-```
 int main() {
     int cents;
     cin >> cents;
@@ -12,6 +11,11 @@ int main() {
             results[i]++;
         }
     }
+
+    cout << results[3] << endl;
+    cout << results[2] << endl;
+    cout << results[1] << endl;
+    cout << results[0] << endl;
 
     int q = results[3];
     int d = (cents + 4) / 10;
