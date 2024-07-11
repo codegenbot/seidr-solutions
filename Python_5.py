@@ -1,6 +1,11 @@
 def complete_code(numbers, delimiter):
-    return [elem for sub_list in [[int(num), delimiter] for num in numbers.split()] for elem in sub_list][:-1]
+    result = []
+    for num in numbers[:-1]:
+        result.extend([num, delimiter])
+    if numbers:
+        result.append(numbers[-1])
+    return result
 
-numbers = input().strip()
-delimiter = input().strip()
+numbers = input("Enter numbers separated by space: ").split()
+delimiter = input("Enter delimiter: ")
 print(complete_code(numbers, delimiter))
