@@ -1,13 +1,13 @@
-n = int(input())
-m = int(input())
+def main():
+    n = int(input())
+    m = int(input())
 
-total_outcomes = n * m
-count_higher = 0
+    total_outcomes = n * m
+    favorable_outcomes = sum(n - i for i in range(n))
 
-for i in range(1, n + 1):
-    for j in range(1, m + 1):
-        if i > j:
-            count_higher += 1
+    probability = favorable_outcomes / total_outcomes
+    print(round(probability, 2))
 
-probability = count_higher / total_outcomes
-print(probability)
+
+if __name__ == "__main__":
+    main()
