@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <cmath>
 
@@ -23,7 +22,7 @@ vector<float> find_closest_elements(vector<float> numbers) {
     for (int i = 0; i < numbers.size(); ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
             float diff = abs(numbers[i] - numbers[j]);
-            if (diff <= min_diff) {
+            if (diff <= min_diff) { // Add the condition here
                 min_diff = diff;
                 closest_pair = {numbers[i], numbers[j]};
             }
