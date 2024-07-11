@@ -25,10 +25,10 @@ boost::any compare_one(const boost::any &a, const boost::any &b) {
             std::replace(strB.begin(), strB.end(), ',', '.');
         }
         if (std::stof(strA) > std::stof(strB)) {
-            return boost::any(a);
+            return a;
         } else if (std::stof(strA) < std::stof(strB)) {
-            return boost::any(b);
+            return b;
         }
     }
-    return boost::any("None");
+    return "None";
 }
