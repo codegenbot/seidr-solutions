@@ -1,7 +1,7 @@
+```Python
 def double_the_first_diff(lst):
-    first = min(lst)
-    for num in lst:
-        if num > first:
-            second = num
-            break
-    return (second - first) ** 2
+    first = min(set(lst))
+    if len(set(lst)) > 1:
+        return (max(lst) - first) ** 2
+    else:
+        return (max(lst) - first) ** 2
