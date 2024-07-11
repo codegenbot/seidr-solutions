@@ -1,3 +1,4 @@
+```Python
 def modp(n: int, p: int):
     if n < 2 and p > 1:
         return 1
