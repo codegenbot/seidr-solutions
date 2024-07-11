@@ -16,15 +16,15 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
 
         result.push_back(pos);
-        pos += 1; // move to the next character
+        pos += 1; // move to the next occurrence
     }
     
     return result;
 }
 
 int main() {
-    string text = "3/Ga(7N";
-    string target = "3/G";
+    string text = "ABCDEF";
+    string target = "CDE";
     vector<int> result = indicesOfSubstring(text, target);
     for (int i : result) {
         cout << i << endl;
