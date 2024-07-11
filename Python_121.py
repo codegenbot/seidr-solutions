@@ -10,3 +10,5 @@ while True:
             exit()
         else:
             print("Invalid input. Please enter a correct number or 'q' to quit.")
+    except Exception as e:
+        print(f"Error: {e}")
