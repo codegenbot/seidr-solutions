@@ -1,10 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
+#include <set>
 
 std::vector<int> findCommonElements(std::vector<int>& l1, std::vector<int>& l2) {
     std::sort(l1.begin(), l1.end());
@@ -16,6 +13,5 @@ std::vector<int> findCommonElements(std::vector<int>& l1, std::vector<int>& l2) 
 }
 
 int main() {
-    assert(issame(findCommonElements({4, 3, 2, 8}, {}), {}));
-    return 0;
+    assert(findCommonElements({4, 3, 2, 8}, {}) == std::vector<int>{});
 }
