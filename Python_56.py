@@ -1,18 +1,21 @@
-```
 def correct_bracketing(expression):
-    if isinstance(expression, str): 
+    if isinstance(expression, str):
         stack = []
         for char in expression:
-            if char == '(':
+            if char == "(":
                 stack.append(char)
-            elif char == ')':
+            elif char == ")":
                 if len(stack) == 0:
                     return False
                 else:
                     stack.pop()
         if len(stack) > 0:
             return False
+    else:
+        print("Invalid input. Please enter a valid mathematical expression.")
+
     return True
+
 
 def check():
     while True:
@@ -24,7 +27,8 @@ def check():
                 print("Correct bracketing!")
             else:
                 print("Incorrect bracketing. Try again.")
-        except Exception as e: 
+        except Exception as e:
             print(f"Error occurred: {e}")
+
 
 check()

@@ -1,5 +1,5 @@
 def cycpattern_check(a, b):
-    for _ in range(len(a)):
-        if b == a[0] + a[-1*a.index(b):]:
+    for i in range(len(b) + 1):
+        if a[i:] == b[:len(a[i:])] or a[:i] == b[len(a[i:]):]:
             return True
     return False
