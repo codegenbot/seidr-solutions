@@ -1,16 +1,18 @@
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return result;
+vector<int> pluck(vector<int> arr) {
+    vector<int> result = {};
+    int smallestEvenValue = INT_MAX;
+    int smallestIndex = -1;
 
-    int smallest = INT_MAX;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest) {
-            smallest = arr[i];
-            result = {{smallest, i}};
-        } else if (arr[i] % 2 == 0 && arr[i] == smallest) {
-            result.push_back({{arr[i], i}});
+        if (arr[i] % 2 == 0 && arr[i] < smallestEvenValue) {
+            smallestEvenValue = arr[i];
+            smallestIndex = i;
         }
     }
 
-    return result.empty() ? vector<pair<int, int>>{} : result;
+    if (smallestEvenValue != INT_MAX) {
+        result = {smallestEvenValue, smallestIndex};
+    }
+
+    return result;
 }
