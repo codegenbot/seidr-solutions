@@ -17,6 +17,8 @@ int main() {
             std::cout << c;
         }
     }
+
+    capitalize = false;
     
     return 0;
 }
