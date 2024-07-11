@@ -12,4 +12,4 @@ while True:
         print(add(x, y))  
         break
     except ValueError:
-        print("Invalid input. Please enter a whole number.")
+        print("Invalid input. Please enter whole numbers.")
