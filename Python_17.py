@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -15,8 +14,11 @@ def parse_music(music_string: str) -> List[int]:
                 result.append(2 * note_lengths[music_string[i : i + 2]])
             else:
                 result.append(note_lengths[music_string[i : i + 1]])
-        elif music_string[i] not in note_lengths:
-            # unexpected pattern, handle it
-            result.append(None)
+        elif music_string[i] in note_lengths:
+            result.append(note_lengths[music_string[i]])
         i += 1
     return result
+
+
+music_string = input("Enter music string: ")
+print(parse_music(music_string))
