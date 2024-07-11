@@ -1,14 +1,19 @@
-#include <algorithm>
-#include <vector>
+Here is the solution:
 
-using namespace std;
+vector<int> sort_vector(vector<int> arr){
+    sort(arr.begin(), arr.end(), 
+         [](int a, int b) {
+             return countll(a) < countll(b) || (countll(a) == countll(b) && a < b);
+         });
+    return arr;
+}
 
-vector<int> sort_array(vector<int> arr) {
-    vector<pair<int, int>> pairs;
-    for (int i : arr) {
-        int ones = __builtin_popcount(i);
-        pairs.push_back({ones, i});
+int countll(int n) {
+    int ones = 0;
+    while(n > 0) {
+        if((n & 1) != 0)
+            ones++;
+        n >>= 1;
     }
-    sort(pairs.begin(), pairs.end());
-    return vector<int>(pairs.begin(), pairs.end());
+    return ones;
 }
