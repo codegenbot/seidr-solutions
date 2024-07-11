@@ -4,6 +4,10 @@
 
 using namespace std;
 
+bool areSame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> tri(int n) {
     vector<int> result;
     if (n >= 0) {
@@ -27,6 +31,6 @@ vector<int> tri(int n) {
 }
 
 int main() {
-    assert(issame(tri(1), {3, 1}));
+    assert(areSame(tri(1), {3, 1}));
     return 0;
 }
