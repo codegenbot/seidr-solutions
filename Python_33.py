@@ -1,6 +1,5 @@
-```
 def sort_third(l: list):
-    """Sorts the third of each consecutive three elements of a list by sorting all previous 'threes' and returns the result."""
+    """This function sorts the third element of each group of three elements in the input list."""
     return [
         (
             x
