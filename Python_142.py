@@ -1,18 +1,14 @@
-```
-def check(func):
-    try:
-        result = func()
-        return result
-    except ValueError as e:
-        return str(e)
-
-
 def calculate_sum_of_cubes():
-    while True:
-        num_list = list(map(int, input("Enter space-separated integers: ").split()))
-        if all(isinstance(i, int) for i in num_list):
-            break
-    return sum([i**3 for i in num_list])
+    n = int(input("Enter a number: "))
+    sum_of_cubes = sum(i**3 for i in range(1, n + 1))
+    return sum_of_cubes
 
 
-print(check(calculate_sum_of_cubes))
+def check(num):
+    if num < 1000000:
+        return "The sum of cubes is less than 1 million."
+    else:
+        return "The sum of cubes is greater than or equal to 1 million."
+
+
+print(check(calculate_sum_of_cubes()))
