@@ -9,7 +9,7 @@ int main() {
 
     cin >> startHeight >> heightAfterFirstBounce >> numBounces;
 
-    double bouncinessIndex = heightAfterFirstBounce / (startHeight * 0.5);
+    double bouncinessIndex = (heightAfterFirstBounce / (startHeight * 0.5));
 
     double distanceTravelled = 0.0; // initialize distance traveled
     for (int i = 1; i <= numBounces; ++i) {
