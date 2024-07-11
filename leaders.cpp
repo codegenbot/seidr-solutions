@@ -26,7 +26,6 @@ int main() {
     
     cout << "Enter positive integers (0 to end input, press enter after each number, then Ctrl+D to finish):" << endl;
     cout.flush();
-
     do {
         cin >> num;
         if (num == 0) {
