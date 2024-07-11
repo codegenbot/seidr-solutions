@@ -1,5 +1,11 @@
 def sort_third(l: list):
-    odd = [x for i, x in enumerate(l) if (i+1) % 3 != 0]
-    even = [x for i, x in enumerate(l) if (i+1) % 3 == 0]
+    odd = [x for j, x in enumerate(reversed(l)) if (j+1) % 3 != 0]
+    even = [x for j, x in enumerate(reversed(l)) if (j+1) % 3 == 0]
     
-    return odd + even
+    result = []
+    while odd and even:
+        result.append(even.pop())
+        result.append(odd.pop())
+    result += odd
+    result += list(reversed(even))
+    return result
