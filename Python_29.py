@@ -2,15 +2,19 @@ from typing import List
 
 
 def filter_by_prefix():
-    strings = input("Enter strings (comma-separated): ").split(",")
-    prefix = input("Enter prefix: ")
+    try:
+        strings = input("Enter strings (comma-separated): ").split(",")
+        prefix = input("Enter prefix: ")
 
-    if strings and prefix:
-        filtered_strings = [s.strip() for s in strings if s.strip().startswith(prefix)]
+        filtered_strings = [
+            s.strip()
+            for s in strings
+            if len(strings) > 1 and s.strip().startswith(prefix)
+        ]
 
         print(filtered_strings)
-    else:
-        print("Invalid input. Please try again.")
+    except ValueError as e:
+        print(f"Error occurred: {e}")
 
 
 filter_by_prefix()
