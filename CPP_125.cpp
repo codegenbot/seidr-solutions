@@ -1,7 +1,10 @@
 #include <string>
-vector<string> split_words(string txt){
-    vector<string> result;
-    string word = "";
+#include <vector>
+#include <iostream>
+
+std::vector<std::string> split_words(std::string txt){
+    std::vector<std::string> result;
+    std::string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
@@ -22,31 +25,30 @@ vector<string> split_words(string txt){
                 count++;
             }
         }
-        result.push_back(to_string(count));
+        result.push_back(std::to_string(count));
     }
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()){
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
+    if(a.size() != b.size()) {
         return false;
     }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
+    for (size_t i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
     return true;
 }
 
-int main(){
-    string input = "hello,world";
-    vector<string> words = split_words(input);
-    vector<string> words_copy = split_words(input);
-    if(issame(words, words_copy)){
-        cout << "The vectors are the same." << endl;
-    } else {
-        cout << "The vectors are different." << endl;
+int main() {
+    std::string text = "apple orange banana";
+    std::vector<std::string> words = split_words(text);
+    for(const std::string& word : words) {
+        std::cout << word << " ";
     }
+    std::cout << std::endl;
+
     return 0;
 }
