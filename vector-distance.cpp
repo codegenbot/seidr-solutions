@@ -11,17 +11,10 @@ double vector_distance(int n) {
         cin >> v1[i] >> v2[i];
     }
     double sum = 0.0;
-    double length = 0.0;
-    for (int i = 0; i < n; i++) {
-        length += pow(v1[i], 2);
-    }
-    length = sqrt(length);
-
     for (int i = 0; i < n; i++) {
         sum += pow(v2[i] - v1[i], 2);
     }
-    
-    return sqrt(sum) / length;
+    return sqrt(sum);
 }
 
 int main() {
