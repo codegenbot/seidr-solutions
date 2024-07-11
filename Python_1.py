@@ -1,17 +1,16 @@
 ```
 def separate_paren_groups(s: str) -> List[str]:
     result = []
-    group = ''
-    is_grouping = False
+    temp = ''
     for char in s:
         if char == '(':
-            is_grouping = True
+            if temp:
+                result.append(temp)
+                temp = ''
         elif char == ')':
-            result.append(group)
-            group = ''
-            is_grouping = False
-        elif is_grouping:
-            group += char
-    if group:
-        result.append(group)
-    return [g for g in result if g]
+            temp += char
+        else:
+            temp += char
+    if temp:
+        result.append(temp)
+    return result
