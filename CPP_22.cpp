@@ -41,6 +41,8 @@ bool functionIsEqual(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(functionIsEqual(filter_integers({3, any('c'), 3, 3, any('a'), any('b') }),{3, 3, 3}));
+    list<any> values = {3, any('c'), 3, 3, any('a'), any('b')};
+    vector<int> filteredValues = filter_integers(values);
+    assert(functionIsEqual(filteredValues,{3, 3, 3}));
     return 0;
 }
