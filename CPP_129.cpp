@@ -1,32 +1,41 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-
-using namespace std;
-
 vector<int> minPath(vector<vector<int>>& grid, int k) {
-    int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n, 0));
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i == 0 && j == 0) continue;
-            int val = grid[i][j];
-            dp[i][j] = val + min({dp[(i - 1) % n][j], dp[i][(j - 1) % n], dp[i][(j + 1) % n], dp[(i + 1) % n][j]});
-        }
-    }
-
     vector<int> res;
-    int i = 0, j = 0;
-    for (int _k = 0; _k < k; _k++) {
-        res.push_back(grid[i][j]);
-        if (dp[(i - 1) % n][j] <= dp[i][(j + 1) % n] && dp[i][(j + 1) % n] <= dp[i][(j - 1) % n]) {
-            i = (i - 1) % n;
-        } else if (dp[i][(j + 1) % n] < dp[i][(j - 1) % n]) {
-            j = (j + 1) % n;
-        } else {
-            j = (j - 1) % n;
+    for (int i = 0; i < grid.size(); ++i) {
+        for (int j = 0; j < grid[0].size(); ++j) {
+            if (k > 0) {
+                vector<int> temp;
+                dfs(grid, i, j, k, temp);
+                if (res.empty() || res < temp) {
+                    res = temp;
+                }
+                --k;
+            }
         }
     }
-
     return res;
+}
+
+void dfs(vector<vector<int>>& grid, int x, int y, int k, vector<int>& path) {
+    if (k == 0) {
+        return;
+    }
+    path.push_back(grid[x][y]);
+    for (int i = -1; i <= 1; ++i) {
+        for (int j = -1; j <= 1; ++j) {
+            int nx = x + i, ny = y + j;
+            if (nx >= 0 && nx < grid.size() && ny >= 0 && ny < grid[0].size()) {
+                bool found = false;
+                for (int z = 0; z < path.size(); ++z) {
+                    if (path[z] == grid[nx][ny]) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    dfs(grid, nx, ny, k - 1, path);
+                }
+            }
+        }
+    }
+    path.pop_back();
 }
