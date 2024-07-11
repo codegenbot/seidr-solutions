@@ -1,16 +1,14 @@
+```cpp
 #include <vector>
 #include <algorithm>
+#include <functional>
 
-std::vector<int> cutVector(std::vector<int>& vec) {
-    int minDiff = INT_MAX;
-    int index = -1;
-
-    for (int i = 0; i < vec.size() - 1; i++) {
-        int diff = abs(vec[i] - vec[i + 1]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            index = i;
-        }
-    }
-
-    return {{vec.begin(), vec.begin() + index}, {vec.begin() + index, vec.end()}};
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& nums) {
+    auto it = std::min_element(nums.begin(), nums.end(),
+        [&](int a, int b){ return std::abs(a - (nums.back() + nums[0]) / 2.0) < 
+                           std::abs(b - (nums.back() + nums[0]) / 2.0); });
+    auto cut = it;
+    std::vector<int> left(nums.begin(), cut);
+    std::vector<int> right(cut, nums.end());
+    return {{left}, {right}};
+}```
