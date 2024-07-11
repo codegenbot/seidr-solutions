@@ -28,4 +28,7 @@ def minPath(grid, k):
             if grid[i][j] == k:
                 dfs(i, j, [], k)
 
-    return shortest_path
+    if shortest_path is not None:
+        return shortest_path
+    else:
+        return []
