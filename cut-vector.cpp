@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <numeric>
 
 using namespace std;
 
@@ -22,13 +24,13 @@ int main() {
     }
 
     for (int i = 0; i < cut_index; ++i) {
-        cout << nums[i] << '\n';
+        cout << nums[i] << endl;
     }
-    cout << 0 << '\n';
+    cout << 0 << endl;
     for (int i = cut_index; i < nums.size(); ++i) {
-        cout << nums[i] << '\n';
+        cout << nums[i] << endl;
     }
-    cout << 0 << '\n';
+    cout << 0 << endl;
 
     return 0;
 }
