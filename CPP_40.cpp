@@ -4,12 +4,12 @@
 using namespace std;
 
 bool triples_sum_to_zero(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    for (int i : s) {
-        int target = -i;
-        for (int j : s) {
-            if (j == i || j > target) break;
-            if (target + j == 0) return true;
+    for (int i = 0; i < l.size(); i++) {
+        for (int j = i + 1; j < l.size(); j++) {
+            int target = -l[i] - l[j];
+            if (find(l.begin(), l.end(), target) != l.end()) {
+                return true;
+            }
         }
     }
     return false;
