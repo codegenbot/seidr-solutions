@@ -1,45 +1,46 @@
-int getScore(string s) {
-    int score = 0;
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int score(string s) {
+    int total = 0;
     int frame = 1;
-    int bowl = 0;
-    vector<int> scores;
-
-    for (char& c : s) {
-        if (c == 'X') {
-            scores.push_back(10);
-            if (frame < 10) frame++;
-        } else if (c == '/') {
-            scores.push_back(10 - scores.back());
-            if (frame < 10) frame++;
-        } else if (c == '-') {
-            scores.push_back(0);
-        } else {
-            scores.push_back(c - '0');
-        }
-
-        if (bowl >= 1 || c == 'X' || frame == 10) {
-            int i = scores.size() - 1;
-            while (bowl < 2 && i >= 1) {
-                if (scores[i-1] == 10 || scores[i-1] + scores[i] == 10) {
-                    score += scores[i-1] + scores[i];
-                    i -= 2;
+    int i = 0;
+    while (frame <= 10) {
+        if (s[i] == 'X') {
+            total += 10;
+            if (s[i+1] == 'X') {
+                total += 10;
+                if (s[i+2] == 'X') {
+                    total += 10;
                 } else {
-                    score += scores[i];
-                    i--;
+                    total += s[i+2] - '0';
                 }
-                bowl++;
+            } else {
+                if (s[i+2] == '/') {
+                    total += 10;
+                } else {
+                    total += s[i+1] - '0' + s[i+2] - '0';
+                }
             }
+            i++;
+        } else if (s[i+1] == '/') {
+            total += 10;
+            total += s[i+2] - '0';
+            i += 2;
+        } else {
+            total += s[i] - '0' + s[i+1] - '0';
+            i += 2;
         }
-
-        bowl %= 2;
+        frame++;
     }
-
-    return score;
+    return total;
 }
 
 int main() {
     string s;
     cin >> s;
-    cout << getScore(s) << endl;
+    cout << score(s) << endl;
     return 0;
 }
