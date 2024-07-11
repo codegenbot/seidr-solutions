@@ -14,12 +14,21 @@ namespace Solution {
         }
         return result;
     }
-    
+
     bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-        return a == b;
+        if (a.size() != b.size()) {
+            return false;
+        }
+        for (size_t i = 0; i < a.size(); ++i) {
+            if (a[i] != b[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
 int main() {
     assert(Solution::issame(Solution::filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    return 0;
 }
