@@ -32,8 +32,11 @@ def main():
     find_zero = input("Enter coefficients (a b c [d]): ").split()
     if len(find_zero) > 3:
         d = int(find_zero[3])
-    else:
+    elif len(find_zero) == 3:
         d = None
+    else:
+        print("Invalid input. Please enter a, b, and c.")
+        return
     a, b, c = map(int, find_zero[:3])
     solve_quadratic_equation(a, b, c, d)
 
