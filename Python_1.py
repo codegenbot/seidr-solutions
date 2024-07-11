@@ -15,9 +15,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif c == ')':
             if stack and stack[-1] == '(':
                 stack.pop()
-                result.append(current_group + ')')
+                result.append(current_group + c)
                 current_group = ''
             else:
                 current_group += c
     
-    return [x for x in result if x]
+    return result
