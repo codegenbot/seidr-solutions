@@ -1,6 +1,5 @@
-```cpp
 #include <initializer_list>
-
+#define _MSC_VER 1900
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()))
         return true;
