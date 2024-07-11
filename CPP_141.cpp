@@ -1,20 +1,25 @@
 Here is the completed code:
 
-```cpp
-bool hasDigit = false;
-int dotCount = 0;
-
-for (char c : file_name) {
-    if (c >= '0' && c <= '9') {
-        if (!hasDigit) hasDigit = true; // first digit encountered, check not exceeded
-        else return "No"; // more than one digit found
-    } else if (c == '.') dotCount++;
-    else if (!isalpha(c)) { // not a letter and not a digit
-        if (dotCount != 1) return "No";
-        string extension = file_name.substr(file_name.find('.') + 1);
-        if (extension != "txt" && extension != "exe" && extension != "dll") return "No";
+string file_name_check(string file_name) {
+    int digitCount = 0;
+    bool foundDot = false;
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digitCount++;
+        } else if (c == '.') {
+            foundDot = true;
+        } else if (!foundDot && !isalpha(c)) {
+            return "No";
+        }
     }
+    if (digitCount > 3 || !foundDot) {
+        return "No";
+    }
+    size_t dotPos = file_name.find('.');
+    string ext = file_name.substr(dotPos + 1);
+    vector<string> validExts = {"txt", "exe", "dll"};
+    if (find(validExts.begin(), validExts.end(), ext) == validExts.end()) {
+        return "No";
+    }
+    return "Yes";
 }
-
-if (hasDigit || dotCount > 1) return "No";
-return "Yes";
