@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <cmath>
 #include <vector>
 #include <iostream>
@@ -9,7 +9,11 @@ double vectorDistance(int n, const std::vector<float>& v1, const std::vector<flo
         double diff = v1[i] - v2[i];
         sum += std::pow(diff, 2);
     }
-    return std::sqrt(sum);
+    if (sum > 0.0) {
+        return std::sqrt(sum);
+    } else {
+        return 0.0;
+    }
 }
 
 int main() {
