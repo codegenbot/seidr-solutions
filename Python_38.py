@@ -1,4 +1,3 @@
-```
 def decode_cyclic(s: str):
     result = ""
     temp = ""
@@ -11,9 +10,9 @@ def decode_cyclic(s: str):
                 result += temp
             temp = ""
     if temp:
-        if len(temp) < 3:  
+        if len(temp) < 3:
             result += temp
-        elif temp[0] == temp[2]:  
+        elif temp[0] == temp[2]:
             result += temp[1]
         else:
             result += temp
