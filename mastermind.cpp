@@ -1,7 +1,6 @@
 int main() {
     string code, guess;
     cin >> code >> guess;
-    
     int white = 0, black = 0;
     map<char, int> codeFreq, guessFreq;
     
@@ -14,8 +13,9 @@ int main() {
         }
     }
     
-    for (auto &p : codeFreq) {
-        white += min(p.second, guessFreq[p.first]);
+    for (const auto& pair : codeFreq) {
+        char color = pair.first;
+        white += min(pair.second, guessFreq[color]);
     }
     
     cout << white << endl << black << endl;
