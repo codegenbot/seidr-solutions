@@ -1,3 +1,8 @@
 def sort_even(l: list):
-    return [sorted([x for x in l if i // 2 * 2 == i]).pop() if i % 2 == 0 else x
-            for i, x in enumerate(l)]
+    evens = [x for x in l if x % 2 == 0]
+    sorted_evens = sorted(evens)
+    return [
+        x if i % 2 != 0 else y
+        for i, x in enumerate(l)
+        for y in (sorted_evens if i < len(evens) else [x])
+    ]
