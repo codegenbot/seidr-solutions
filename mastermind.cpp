@@ -4,25 +4,21 @@
 
 int whitePegs(std::string code, std::string guess) {
     int count = 0;
-    int codeMap[6] = {0}, guessMap[6] = {0};
+    std::vector<int> codeMap(6), guessMap(6);
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
             count++;
         }
     }
     for (char c : code) {
-        codeMap[c - '0']++;
+        int asciiVal = static_cast<int>(c); 
+        codeMap[asciiVal]++;
     }
     for (char c : guess) {
-        guessMap[c - '0']++;
+        int asciiVal = static_cast<int>(c);
+        guessMap[asciiVal]++;
     }
-    int white = 0;
-    for (int i = 0; i < 6; i++) {
-        if (codeMap[i] > 0 && guessMap[i] > 0) {
-            white += codeMap[i];
-        }
-    }
-    return count - blackPegs(code, guess) + white;
+    return count;
 }
 
 int blackPegs(std::string code, std::string guess) {
@@ -36,7 +32,9 @@ int blackPegs(std::string code, std::string guess) {
 }
 
 int main() {
-    std::cout << "White pegs: " << whitePegs("abc1", "1231") << std::endl;
-    std::cout << "Black pegs: " << blackPegs("abc1", "1231") << std::endl;
+    std::string code = "ABCN";
+    std::string guess1 = "ABCD";
+    std::cout << whitePegs(code, guess1) << " White Pegs and " << blackPegs(code, guess1) << " Black Pegs.\n";
+
     return 0;
 }
