@@ -17,8 +17,9 @@ int main() {
         cin >> vec2[i];
     }
 
-    float sum = 0;
+    float sum;
     for (int i = 0; i < n; ++i) {
+        sum = 0;
         sum += pow(vec1[i] - vec2[i], 2.0);
     }
 
