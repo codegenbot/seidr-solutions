@@ -1,10 +1,11 @@
+```python
 def encrypt(s):
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
-    result = ""
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    result = ''
     for char in s:
         if char.isalpha():
             index = alphabet.index(char.lower())
-            new_index = (index + 3) % len(alphabet)
+            new_index = (index + 4) % len(alphabet)
             if char.isupper():
                 result += alphabet[new_index].upper()
             else:
