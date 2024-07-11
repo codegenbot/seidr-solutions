@@ -1,15 +1,15 @@
-Here is the solution:
-
 def solve_boolean(expression):
-    if expression == 'T':
+    if expression == "T":
         return True
-    elif expression == 'F':
+    elif expression == "F":
         return False
-    elif '&' in expression:
-        a, b = expression.split('&')
-        return solve_boolean(a) and solve_boolean(b)
-    elif '|' in expression:
-        a, b = expression.split('|')
-        return solve_boolean(a) or solve_boolean(b)
-
-print(solve_boolean(input()))
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid expression")
+    else:
+        result = True
+        for i, char in enumerate(expression):
+            if char == "&":
+                result &= expression[i - 1] == "T"
+            elif char == "|":
+                result |= expression[i - 1] == "T"
+        return result
