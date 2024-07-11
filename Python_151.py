@@ -1,8 +1,8 @@
-```python
+```
 def double_the_difference(numbers):
-    even_sum = sum(i for i in numbers if i % 2 == 0)
-    square_sum = sum(i ** 2 for i in numbers)
-    return abs(square_sum - (2 * even_sum))
+    sum_of_squares = sum([n**2 for n in numbers])
+    average_even_numbers = sum([n for n in numbers if n % 2 == 0]) / len([n for n in numbers if n % 2 == 0])
+    return abs(sum_of_squares - 2 * average_even_numbers)
 
 def check():
     numbers = input("Enter a list of integers separated by space: ").split()
