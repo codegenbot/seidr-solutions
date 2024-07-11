@@ -1,4 +1,3 @@
-```cpp
 #include <sstream>
 #include <iomanip>
 
