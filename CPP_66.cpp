@@ -16,7 +16,11 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    int result = digitSum(input.erase(0, input.find_first_not_of("0123456789")));
+    // Check if the last character of the string is a newline
+    if (input.back() == '\n') {
+        input.pop_back();
+    }
+    int result = digitSum(input);
     std::cout << "The sum of digits is: " << result << std::endl;
     return 0;
 }
