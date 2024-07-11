@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 bool correct_bracketing(const std::string& s) {
     int count = 0;
@@ -16,6 +17,6 @@ bool correct_bracketing(const std::string& s) {
 }
 
 int main() {
-    std::cout << correct_bracketing("<<>");
+    assert(not correct_bracketing("<><><<><>><>>><>"));
     return 0;
 }
