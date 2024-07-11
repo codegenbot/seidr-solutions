@@ -1,14 +1,11 @@
-Here is the solution:
+Here is the completed code:
 
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("Input coefficients must have an even number of elements")
-    
-    if max(abs(x) for x in xs) == 0:
-        return 0
-    
-    from scipy.optimize import fsolve
-    def func(z):
-        return poly([x for _ in range(len(xs)//2)], z) - z**len(xs)//2
-    
-    return round(fsolve(func, max(abs(x) for x in xs))[0], 10)
+    n = len(xs)
+    assert n % 2 == 0, "List xs must have even number of coefficients"
+    a, b = 0, float('-inf')
+    for i in range(n // 2):
+        c = -xs[i*2] / (xs[(i*2)+1])
+        if abs(c) > abs(b):
+            b = c
+    return round(-b, 2)
