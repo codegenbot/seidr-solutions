@@ -1,25 +1,28 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <cctype>
 
-std::string solve(std::string s){
-    int n = s.size();
-    int count = 0;
-    for(int i=0; i<n; i++){
-        if(std::isalpha(s[i])){
-            s[i] = std::islower(s[i]) ? std::toupper(s[i]) : std::tolower(s[i]);
-        } else {
-            count++;
+std::string solve(const std::string& s) {
+    std::string result = s;
+    
+    for(char& c : result){
+        if(std::isalpha(c)){
+            if(std::islower(c)){
+                c = std::toupper(c);
+            } else {
+                c = std::tolower(c);
+            }
         }
     }
-    if(count == n){
-        std::reverse(s.begin(), s.end());
+    if(std::count_if(result.begin(), result.end(), ::isalpha) == 0){
+        std::reverse(result.begin(), result.end());
     }
-    return s;
+    return result;
 }
 
-int main(){
-    assert (solve("#ccc") == "#CCC");
-    // Add more test cases here
+int main() {
+    assert(solve("#ccc") == "#CCC");
+
     return 0;
 }
