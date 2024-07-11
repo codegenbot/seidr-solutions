@@ -1,4 +1,5 @@
 import math
+
 def fuel_cost():
     n = int(input())
     total = 0
