@@ -1,5 +1,4 @@
-```
-def prime_fib(n: int):
+def nth_fibonacci_prime(n: int):
     a, b = 0, 1
     count = 0
     while True:
@@ -8,6 +7,7 @@ def prime_fib(n: int):
             if count == n:
                 return b
         a, b = b, a + b
+
 
 def is_prime(num: int):
     if num < 2:
