@@ -1,20 +1,9 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+    return a == b;
 }
 
 std::vector<std::string> select_words(std::string s, int n) {
@@ -30,7 +19,7 @@ std::vector<std::string> select_words(std::string s, int n) {
             word = "";
             consonantCount = 0;
         } else if (isalpha(c)) {
-            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
+            if (std::tolower(c) != 'a' && std::tolower(c) != 'e' && std::tolower(c) != 'i' && std::tolower(c) != 'o' && std::tolower(c) != 'u') {
                 consonantCount++;
             }
             word += c;
@@ -45,12 +34,7 @@ std::vector<std::string> select_words(std::string s, int n) {
 }
 
 int main() {
-    std::vector<std::string> a = {"apple", "banana", "cherry"};
-    std::vector<std::string> b = {"apple", "banana", "cherry"};
-    assert(issame(a, b));
-
-    std::vector<std::string> output = select_words("a b c d e f", 1);
-    assert(issame(output, {"b", "c", "d", "f"}));
-
+    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
+    std::cout << "Test Passed!" << std::endl;
     return 0;
 }
