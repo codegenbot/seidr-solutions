@@ -1,28 +1,17 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
-using namespace std;
-
-vector<vector<int>> cutVector(vector<int> &nums) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
     int minDiff = INT_MAX;
-    vector<vector<int>> result(2);
+    int splitIndex = -1;
 
-    for (int i = 1; i < nums.size(); ++i) {
-        int diff = abs(nums[i] - nums[0]);
-        if (diff < minDiff) {
-            minDiff = diff;
-            result[0].clear();
-            result[1].clear();
-            result[0].reserve(i);
-            for (int j = 0; j < i; ++j) {
-                result[0].push_back(nums[j]);
-            }
-            result[1].reserve(nums.size() - i);
-            for (int j = i; j < nums.size(); ++j) {
-                result[1].push_back(nums[j]);
-            }
+    for (int i = 0; i < vec.size() - 1; i++) {
+        if (abs(vec[i] - vec[i + 1]) <= minDiff) {
+            minDiff = abs(vec[i] - vec[i + 1]);
+            splitIndex = i;
         }
     }
 
-    return result;
+    return {{}, {}}; // or return whatever you want here
 }
