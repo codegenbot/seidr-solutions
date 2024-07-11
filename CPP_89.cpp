@@ -1,13 +1,12 @@
-string result = "";
-    for (int i = 0; i < s.length(); ++i) {
-        if (isalpha(s[i])) {
-            char shifted = s[i] + 2 * ('z' - s[i] + 1) % 26;
-            if (shifted > 'z') {
-                shifted -= 26;
-            }
-            result += shifted;
+string encrypt(string s){
+    string result = "";
+    for(char c : s){
+        if(c >= 'a' && c <= 'z'){
+            result += 'a' + (c - 'a' + 2*2) % 26;
+        } else if(c >= 'A' && c <= 'Z'){
+            result += 'A' + (c - 'A' + 2*2) % 26;
         } else {
-            result += s[i];
+            result += c;
         }
     }
     return result;
