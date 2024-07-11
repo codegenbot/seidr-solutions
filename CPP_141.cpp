@@ -1,19 +1,47 @@
-int digitCount = 0;
-    for(char c : file_name){
-        if(isdigit(c)){
-            digitCount++;
+#include <string>
+#include <cassert>
+#include <cctype>
+
+string file_name_check(string file_name) {
+    int countDigits = 0;
+    int dotPos = file_name.find('.');
+    
+    if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.length() - 1) {
+        return "No";
+    }
+    
+    for (char c : file_name) {
+        if (c >= '0' && c <= '9') {
+            countDigits++;
         }
     }
-    if(digitCount > 3){
+    
+    if (countDigits > 3) {
         return "No";
     }
-    if(file_name.find(".") == string::npos || file_name.find(".") == 0 || file_name.find_last_of(".") == file_name.length()-1){
+    
+    string prefix = file_name.substr(0, dotPos);
+    string suffix = file_name.substr(dotPos + 1);
+    
+    if (prefix.empty() || !(isalpha(prefix[0]))) {
         return "No";
     }
-    string name = file_name.substr(0, file_name.find("."));
-    string extension = file_name.substr(file_name.find(".")+1);
-    if(name.empty() || !isalpha(name[0]) || extension != "txt" || extension != "exe" || extension != "dll"){
+    
+    if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
         return "No";
     }
+    
     return "Yes";
+}
+
+int main() {
+    string file_name_check(string file_name);
+    
+    assert(file_name_check("s.") == "No");
+    assert(file_name_check("file.txt") == "Yes");
+    assert(file_name_check("document.exe") == "Yes");
+    assert(file_name_check("data.dll") == "Yes");
+    assert(file_name_check("123.txt") == "No");
+    
+    return 0;
 }
