@@ -1,9 +1,9 @@
 numbers = list(map(int, input().split()))
 subvector1 = []
 subvector2 = []
+min_diff = abs(sum(numbers) - 0)
 
 if len(numbers) >= 2:
-    min_diff = float("inf")
     for cut_index in range(1, len(numbers)):
         sum1 = sum(numbers[:cut_index])
         sum2 = sum(numbers[cut_index:])
