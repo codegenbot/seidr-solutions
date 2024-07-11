@@ -1,4 +1,3 @@
-```python
 def solve_boolean(expression):
     if expression == "T":
         return True
@@ -17,4 +16,7 @@ def solve_boolean(expression):
         else:
             if result is None:
                 return eval("T" if current == "T" else "F", {"T": True, "F": False})
-            stack.append(str(int(not bool(result))) + (current if not expression.startswith("|") else ""))
+            stack.append(
+                str(int(not bool(result)))
+                + (current if not expression.startswith("|") else "")
+            )
