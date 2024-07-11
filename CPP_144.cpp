@@ -1,6 +1,6 @@
-#include <iostream>
+#include <stdio.h>
 #include <string>
-
+#include <iostream>
 using namespace std;
 
 bool simplify(string x, string n){
