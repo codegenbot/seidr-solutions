@@ -6,6 +6,8 @@ def solve_boolean(expression):
     elif "&" in expression and "|" in expression:
         raise ValueError("Invalid expression")
     elif "&" in expression:
-        return all(map(lambda x: x.lower() != "f", expression))
+        parts = expression.split("&")
+        return all(solve_boolean(part) for part in parts)
     elif "|" in expression:
-        return any(map(lambda x: x.lower() != "f", expression))
+        parts = expression.split("|")
+        return any(solve_boolean(part) for part in parts)
