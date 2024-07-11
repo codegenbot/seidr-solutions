@@ -1,17 +1,23 @@
-def separate_paren_groups(paren_string: str) -> list: 
-    result = []
-    stack = []
+```
+def separate_paren_groups(paren_string: str) -> List[str]:
     groups = []
+    current_group = ''
+    group_opened = False
     for char in paren_string:
-        if char == ' ': 
-            continue
-        if char in ['(', '[', '{']:
-            stack.append(char)
-            groups.append('')
-        elif char in {')': ')', ']': '[', '}': '{'}[char]:
-            if stack: 
-                top = stack.pop()
-                groups[-1] += char
-                if not stack and {')': ')', ']': '[', '}': '{'}[char] == {')': ')', ']': '[', '}': '{'}[top]:
-                    result.append(groups.pop().lstrip().rstrip())
-    return result
+        if char == ' ' and group_opened:
+            groups.append(current_group.strip())
+            current_group = ''
+            group_opened = False
+        elif char in ['(', '[', '{']:
+            group_opened = True
+            current_group += char
+        elif char in {')': ')', ']': '[', '}': '{'}:
+            if group_opened:
+                current_group += char
+                if current_group[0] == current_group[-1]:
+                    groups.append(current_group.strip())
+                    current_group = ''
+                    group_opened = False
+    if group_opened:
+        groups.append(current_group.strip())
+    return groups
