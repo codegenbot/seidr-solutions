@@ -1,44 +1,32 @@
-#include<stdio.h>
-#include<string>
+#include <iostream>
+#include <string>
 using namespace std;
 
 int fruit_distribution(string s, int n) {
-    size_t pos = 0;
-    int apples = 0, oranges = 0;
+    string temp;
+    int total_apples = 0, total_oranges = 0;
 
-    while ((pos = s.find("apples", pos)) != string::npos) {
-        if (s.substr(pos, "apples".length()).find("and") == string::npos) {
-            pos = s.find(" and ", pos);
-            if (pos == string::npos) {
-                pos = s.find(" apples", pos);
-            } else {
-                break;
+    for (int i = 0; i < s.length(); i++) {
+        if (isdigit(s[i])) {
+            temp += s[i];
+        } else if (!temp.empty()) {
+            if (s.substr(i - 2, 8) == "apples and") {
+                total_apples = stoi(temp);
+            } else if (s.substr(i - 7, 9) == "oranges and") {
+                total_oranges = stoi(temp);
             }
+            temp = "";
         }
-        int start = pos + 6; // "apples" length is 6
-        while (s[start] >= '0' && s[start] <= '9') {
-            start++;
-        }
-        apples = stoi(s.substr(start - position, pos - start));
-        break;
     }
 
-    while ((pos = s.find("oranges", pos)) != string::npos) {
-        if (s.substr(pos, "oranges".length()).find("and") == string::npos) {
-            pos = s.find(" and ", pos);
-            if (pos == string::npos) {
-                pos = s.find(" oranges", pos);
-            } else {
-                break;
-            }
-        }
-        int start = pos + 7; // "oranges" length is 7
-        while (s[start] >= '0' && s[start] <= '9') {
-            start++;
-        }
-        oranges = stoi(s.substr(start - position, pos - start));
-        break;
-    }
+    return n - total_apples - total_oranges;
+}
 
-    return n - apples - oranges;
+int main() {
+    cout << fruit_distribution("5 apples and 6 oranges", 19) << endl; 
+    cout << fruit_distribution("0 apples and 1 oranges",3) << endl; 
+    cout << fruit_distribution("2 apples and 3 oranges", 100) << endl; 
+    cout << fruit_distribution("100 apples and 1 oranges",120) << endl; 
+
+    return 0;
 }
