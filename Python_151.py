@@ -1,7 +1,4 @@
-def check():
-    numbers = input("Enter a list of integers separated by space: ").split()
-    try:
-        result = double_the_difference([int(i) for i in numbers])
-        print(f"The difference between the sum of squares and twice the average of the even numbers is: {result}")
-    except ValueError:
-        print("Invalid input. Please enter integers only.")
+def double_the_difference(lst):
+    result = sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
+    difference = abs(100 - 2*result)
+    return difference
