@@ -6,8 +6,6 @@ cut_position = 0
 for i in range(1, len(arr)):
     current_diff = abs(2 * sum(arr[:i]) - total_sum)
     if current_diff <= min_diff:
-        if current_diff == min_diff and sum(arr[:i]) < sum(arr[cut_position]):
-            continue
         min_diff = current_diff
         cut_position = i
 
