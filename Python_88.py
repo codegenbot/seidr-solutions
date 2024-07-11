@@ -3,7 +3,7 @@ def sort_array(array):
         return array
     array.sort()
     if len(array) % 2 != 0:
-        return [array[-1]]
+        return [array[0]]
     else:
         mid = len(array) // 2
-        return array[:mid] + [[array[mid - 1], array[mid]]]
+        return array[:mid], array[mid:]
