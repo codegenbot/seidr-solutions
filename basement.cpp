@@ -1,14 +1,10 @@
-int findFirstNegativeSumIndex(const vector<int>& nums) {
+int findNegativeSumIndex(const std::vector<int>& nums) {
     int res = 0;
-    int sum = 0;
-
     for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
-        if (sum < 0) {
-            res = i;
-            break;
+        res += nums[i];
+        if (res < 0) {
+            return i;
         }
     }
-
-    return res < 0 ? -1 : res;
+    return -1;
 }
