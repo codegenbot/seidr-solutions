@@ -3,12 +3,13 @@ from typing import List, Tuple
 
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    if not isinstance(numbers, list):
-        raise TypeError("Input should be a list of integers")
-
-    total_sum = sum(numbers)
+    total_sum = 0
     product = 1
+
     for num in numbers:
+        if not isinstance(num, int):
+            raise TypeError("All elements of the list must be integers")
+        total_sum += num
         product *= num
 
     return (total_sum, product)
