@@ -1,3 +1,4 @@
+```cpp
 pair<int, int> findPair(vector<int>& nums, int target) {
     sort(nums.begin(), nums.end());
     int i = 0, j = nums.size() - 1;
