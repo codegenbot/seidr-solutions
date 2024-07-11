@@ -19,9 +19,9 @@ int main() {
 std::vector<std::string> all_prefixes(std::string str) {
     std::vector<std::string> result;
     for (int i = 1; i <= str.length(); ++i) {
-        std::string prefix("");
-        for (int j = 0; j < i; ++j) {
-            prefix += str[j % str.length()];
+        std::string prefix;
+        for (int j = 0; j < i && j < str.length(); ++j) {
+            prefix += str[j];
         }
         result.push_back(prefix);
     }
