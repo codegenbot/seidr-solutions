@@ -18,6 +18,6 @@ int main() {
         return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
     }
 
-    assert(get_closest_vowel("Above") == "o");
+    assert(get_closest_vowel("Above") == 'o');
     return 0;
 }
