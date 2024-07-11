@@ -1,3 +1,5 @@
+Here is the completed code:
+
 vector<int> pluck(vector<int> arr) {
     vector<pair<int, int>> nodes;
     for (int i = 0; i < arr.size(); i++) {
@@ -5,9 +7,10 @@ vector<int> pluck(vector<int> arr) {
             nodes.push_back({arr[i], i});
         }
     }
-    if (nodes.empty()) {
+    if (!nodes.empty()) {
+        sort(nodes.begin(), nodes.end());
+        return {nodes[0].first, nodes[0].second};
+    } else {
         return {};
     }
-    sort(nodes.begin(), nodes.end());
-    return {{nodes[0].first, nodes[0].second}};
 }
