@@ -1,5 +1,6 @@
-#include<stdio.h>
+#include<iostream>
 #include<string>
+#include<algorithm>
 using namespace std;
 
 bool is_palindrome(string str){
@@ -7,15 +8,21 @@ bool is_palindrome(string str){
     return s==str;
 }
 
-string make_palindrome(string str){
-    if(is_palindrome(str)) return str; // If input string is already palindrome, just return it
-    for(int i = 0; i < str.length(); i++){
-        string suffix = str.substr(i);
-        if(is_palindrome(suffix)){
-            string prefix = str.substr(0, i);
-            reverse(prefix.begin(), prefix.end());
-            return prefix + suffix + prefix;
-        }
+string make_palindrome(string str) {
+    if (is_palindrome(str)) {
+        return str + str;
     }
-    return str; // If no palindromic suffix found, just return the original string
+    
+    int i = 0, j = str.length() - 1;
+    while (i < j) {
+        if (str[i] != str[j]) {
+            break;
+        }
+        i++;
+        j--;
+    }
+    
+    string prefix = str.substr(0, i);
+    string suffix = str.substr(i);
+    return prefix + reverse(suffix) + prefix;
 }
