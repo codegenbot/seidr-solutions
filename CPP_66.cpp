@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <cctype>
 #include <limits>
@@ -12,8 +13,9 @@ int digitSum(std::string s) {
     return sum;
 }
 
-int main() {
+int main {
     std::cout << "Enter a string: ";
+    std::string input;
     std::cin >> input;
     size_t pos = 0;
     while (pos < input.size() && ::isspace(input[pos])) {
@@ -39,3 +41,4 @@ int main() {
         std::cout << "Error: Empty input." << std::endl;
     }
     return 0;
+}
