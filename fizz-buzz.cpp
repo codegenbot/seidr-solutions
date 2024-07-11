@@ -10,7 +10,7 @@ std::string fizzBuzz(int x) {
     else if (x % 5 == 0)
         result = "Buzz";
     else
-        result = std::to_string(x);
+        return ""; 
     return result;
 }
 
