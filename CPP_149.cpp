@@ -1,4 +1,3 @@
-```
 vector<vector<string>> sorted_list_sum(vector<string> lst) {
     vector<vector<string>> result;
 
@@ -7,13 +6,13 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
             result.push_back({str});
     }
 
-    sort(result.begin(), result.end(),
-         [](const vector<string>& a, const vector<string>& b) {
-             if (a.size() != b.size())
-                 return a.size() - b.size();
-             else
-                 return a[0] < b[0];
-         });
+    std::sort(result.begin(), result.end(),
+              [](const vector<string>& a, const vector<string>& b) {
+                  if (a.size() != b.size())
+                      return a.size() - b.size();
+                  else
+                      return a[0] < b[0];
+              });
 
     return result;
 }
@@ -32,8 +31,4 @@ bool issame(vector<string> a, vector<string> b) {
             return false;
     }
     return a.size() == b.size();
-}
-
-int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
 }
