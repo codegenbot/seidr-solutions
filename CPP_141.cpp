@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 #include <cctype>
 
 string file_name_check(string file_name) {
@@ -22,7 +23,7 @@ string file_name_check(string file_name) {
     string prefix = file_name.substr(0, dotPos);
     string suffix = file_name.substr(dotPos + 1);
     
-    if (prefix.empty() || !(isalpha(prefix[0]))) {
+    if (prefix.empty() || !isalpha(prefix[0])) {
         return "No";
     }
     
@@ -31,4 +32,12 @@ string file_name_check(string file_name) {
     }
     
     return "Yes";
+}
+
+int main() {
+    string file_name_check(string file_name);
+
+    assert(file_name_check("s.") == "No");
+    
+    return 0;
 }
