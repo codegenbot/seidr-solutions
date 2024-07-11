@@ -8,32 +8,11 @@ bool issame() {
     int index2 = -1;
 
     for (int i = 0; i < planets.size(); i++) {
-        if ("Mercury" == planets[i]) {
+        if (planet1 == planets[i]) {
             index1 = i;
         }
-        else if ("Venus" == planets[i]) {
+        else if (planet2 == planets[i]) {
             index2 = i;
-        }
-        else if ("Earth" == planets[i]) {
-            index2 = i;
-        }
-        else if ("Mars" == planets[i]) {
-            index2 = i;
-        }
-        else if ("Jupiter" == planets[i]) {
-            index1 = i;
-        }
-        else if ("Saturn" == planets[i]) {
-            index2 = i;
-        }
-        else if ("Uranus" == planets[i]) {
-            index2 = i;
-        }
-        else if ("Neptune" == planets[i]) {
-            index2 = i;
-        }
-        else if ("Makemake" == planets[i]) {
-            return false;
         }
     }
 
@@ -41,11 +20,11 @@ bool issame() {
         return false;
     }
 
-    int start = std::min(index1, index2);
-    int end = std::max(index1, index2);
+    int start = min(index1, index2);
+    int end = max(index1, index2);
 
     for (int i = 0; i < planets.size(); i++) {
-        if ((i >= start && i <= end) != issame()) {
+        if ((i >= start && i <= end) != issame(planets[i], planet1)) {
             return false;
         }
     }
@@ -86,4 +65,5 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 
 int main() {
     assert(bf("Jupiter", "Makemake") == {});
+    return 0;
 }
