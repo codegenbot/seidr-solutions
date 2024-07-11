@@ -9,3 +9,7 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
     }
     return {sum, product};
 }
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
