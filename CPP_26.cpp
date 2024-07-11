@@ -20,6 +20,5 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 int main() {
-    assert(same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
+    assert(same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , vector<int>{1, 2, 3, 4, 5}));
     return 0;
-}
