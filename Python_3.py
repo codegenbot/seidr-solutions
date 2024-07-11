@@ -1,4 +1,4 @@
-```"""
+```
 def below_zero(operations: list) -> bool:
     balance = 0
     for operation in operations:
@@ -15,4 +15,3 @@ while True:
         break
     ops.append(op)
 print(below_zero(ops))
-""``
