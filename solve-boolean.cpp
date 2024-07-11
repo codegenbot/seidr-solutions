@@ -2,11 +2,11 @@
 #include <string>
 
 bool getBoolValue(char c) {
-    if (c == 'T' || c == 't')
+    if (c == 'T')
         return true;
-    else if (c == 'F' || c == 'f')
+    else if (c == 'F')
         return false;
-    throw std::runtime_error("Invalid input");
+    return false; // default to false for other characters
 }
 
 std::string solveBoolean(std::string expression) {
@@ -33,14 +33,11 @@ std::string solveBoolean(std::string expression) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            left = getBoolValue(s.top());
-            s.pop();
-            right = true;
+            result = (getBoolValue(s.top())) ? "True" : "False";
         } else if (c == '|') {
-            result = (left && right) ? "True" : "False";
-            return result;
+            result = (getBoolValue(s.top())) ? "True" : "False";
         } else {
-            right = getBoolValue(c);
+            result = (getBoolValue(c)) ? "True" : "False";
         }
     }
 
