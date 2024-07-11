@@ -1,2 +1,9 @@
+```
 def cycpattern_check(a, b):
-    return a.find(b) != -1 or any(a.find(x + b) != -1 for x in range(len(b)))
+    if b in a:
+        return True
+    for i in range(len(b)):
+        rotated = b[i:] + b[:i]
+        if rotated in a:
+            return True
+    return False
