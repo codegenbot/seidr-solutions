@@ -1,10 +1,11 @@
-```cpp
-#include <iostream>
 #include <stack>
 #include <string>
 
 bool getBoolValue(char c) {
-    return c == 'T';
+    if (c == 'T')
+        return true;
+    else
+        return false;
 }
 
 std::string solveBoolean(std::string expression) {
@@ -26,30 +27,21 @@ std::string solveBoolean(std::string expression) {
     }
 
     std::string result = "";
-    bool left, right;
+    bool left = false, right = false;
     while (!s.empty()) {
         char c = s.top();
         s.pop();
         if (c == '&') {
             left = getBoolValue(s.top());
             right = true;
-            s.pop();
             result = (left && right) ? "True" : "False";
         } else if (c == '|') {
             left = getBoolValue(s.top());
             right = true;
-            s.pop();
             result = (left || right) ? "True" : "False";
-            s.pop(); // Consume the operand
         } else {
             result = (getBoolValue(c)) ? "True" : "False";
         }
     }
 
     return result;
-}
-
-int main() {
-    std::cout << solveBoolean("TT|F&F") << std::endl;
-    return 0;
-}
