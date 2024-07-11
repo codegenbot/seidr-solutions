@@ -9,7 +9,6 @@ int main() {
     for (int i = 0; i < hours; ++i) {
         float snow_added = snow_fall_rate - (snow_on_ground * snow_melt_rate);
         snow_on_ground += snow_added;
-        snow_melt_rate = snow_fall_rate / snow_on_ground;
     }
 
     std::cout.precision(15);
