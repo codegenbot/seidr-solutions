@@ -1,15 +1,19 @@
-bool issame(vector<string> a,vector<string>b){
-    return a == b;
+```cpp
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string>b) {
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-vector<vector<string>> group_by_prefix(vector<vector<string>>& strings){
-    map<string, vector<string>> result;
-    for(auto& s : strings) {
-        string prefix = s[0];
-        for(string str : s) {
-            if(str.find(prefix) != 0) break;
-            result[prefix].push_back(str);
-        }
-    }
-    return vector<vector<string>>(result.begin(), result.end());
+int main() {
+    vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxAAC", "xxx"};
+    string prefix = "xxx";
+    vector<string> result = filter_by_prefix(strings, prefix);
+    
+    assert(issame(result, {"xxx", "xxxAAA", "xxx"}));
 }
