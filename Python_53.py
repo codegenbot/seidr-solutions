@@ -1,7 +1,15 @@
 def add(x: int, y: int):
-    if not isinstance(x, int) or not isinstance(y, int):
-        return "Invalid input. Please enter positive integers."
-    if x < 0 or y < 0:
-        return -1 * (abs(x) + abs(y))
+    if x < 0:
+        if y < 0:
+            return -1 * (abs(x) + abs(y))
+        else:
+            return -1 * (x + y)
+    elif y < 0:
+        return -1 * (x + abs(y))
     else:
-        return x + y
+        if x == y:
+            return 2 * x
+        elif x > y:
+            return x - y
+        else:
+            return y - x
