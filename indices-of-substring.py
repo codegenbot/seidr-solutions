@@ -1,8 +1,5 @@
+```
+import re
+
 def indices_of_substring(text, target):
-    result = []
-    for i in range(len(text)):
-        pos = text.find(target)
-        while pos != -1:
-            result.append(i + pos)
-            pos = text.find(target, pos+1)
-    return list(set(result))
+    return [m.start() for m in re.finditer(target, text)]
