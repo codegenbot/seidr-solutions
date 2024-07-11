@@ -1,9 +1,6 @@
-```
 #include <vector>
 #include <cassert>
-#include <vector>
 #include <iostream>
-#include <initializer_list>
 
 bool monotonic(std::vector<float> l) {
     bool increasing = true;
