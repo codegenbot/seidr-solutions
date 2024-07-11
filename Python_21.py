@@ -1,14 +1,23 @@
+```
+from typing import List
+
+
 def rescale_to_unit():
-    user_input = input("Enter numbers (comma-separated): ")
-    numbers = [float(num) for num in user_input.split(",")]
+    numbers = input("Please enter the list of numbers (space-separated): ")
     
-    if not numbers:
+    try:
+        numbers_list = [float(num) for num in numbers.split()]
+        if not numbers_list:
+            return []
+        
+        min_val = min(numbers_list)
+        max_val = max(numbers_list)
+        
+        if min_val == max_val:
+            return [0.0] * len(numbers_list)  
+        return [(x - min_val) / (max_val - min_val) for x in numbers_list]
+    except ValueError:
+        print("Invalid input. Please enter a list of space-separated numbers.")
         return []
-    
-    min_val = min(numbers)
-    max_val = max(numbers)
-    
-    if min_val == max_val:
-        return [0.0] * len(numbers)  # or any other value
-    
-    return [(x - min_val) / (max_val - min_val) for x in numbers]
+
+print(rescale_to_unit())
