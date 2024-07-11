@@ -1,22 +1,20 @@
 n = int(input())
-vec = [int(input()) for _ in range(n)]
+arr = [int(input()) for _ in range(n)]
 
-total_sum = sum(vec)
-half_sum = total_sum // 2
-
-prefix_sum = 0
+total_sum = sum(arr)
+curr_sum = 0
+idx = 0
 min_diff = float("inf")
-cut_index = -1
 
 for i in range(n):
-    prefix_sum += vec[i]
-    current_diff = abs(total_sum - 2 * prefix_sum)
-    if current_diff < min_diff:
-        min_diff = current_diff
-        cut_index = i
+    curr_sum += arr[i]
+    diff = abs(total_sum - 2 * curr_sum)
+    if diff < min_diff or (diff == min_diff and idx > i):
+        min_diff = diff
+        idx = i
 
-subvector1 = vec[: cut_index + 1]
-subvector2 = vec[cut_index + 1 :]
+part1 = arr[: idx + 1]
+part2 = arr[idx + 1 :]
 
-print(*subvector1)
-print(*subvector2)
+print(*part1)
+print(*part2)
