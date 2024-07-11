@@ -1,8 +1,6 @@
 ```
-def solution(lst):
-    odd_sum = sum(i for i in lst[1::2] if i % 2 != 0)
-    even_avg = sum(i for i in lst[::2]) / len([i for i in lst[::2]])
-    return f"Sum of odd numbers: {odd_sum}\nAverage of even numbers: {even_avg}"
+def sum_even_index(lst):
+    return sum(lst[i] for i in range(1, len(lst), 2) if lst[i] % 2 != 0)
 
 if __name__ == "__main__":
     user_input = input("Enter space-separated integers: ")
@@ -16,6 +14,6 @@ if __name__ == "__main__":
     lst = [int(i) for i in numbers]
     
     try:
-        print(solution(lst))
+        print(sum_even_index(lst))
     except ValueError:
         print("     Invalid input. Please enter only integers.")
