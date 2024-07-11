@@ -26,5 +26,5 @@ int bowlingScore(const std::string& s) {
 }
 
 int main() {
-    return bowlingScore("XXX/73/21/23/54//12/X16/8/24/X");
+    return bowlingScore("X|9-/8-7-X|-3|5/X|-10|-8-4-6|5/5|-1-3-7-X");
 }
