@@ -13,7 +13,8 @@ int main() {
     
     std::vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> vec2[i];
+        char comma;
+        std::cin >> vec2[i] >> comma;
     }
 
     float sum = 0.0;
