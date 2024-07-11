@@ -1,21 +1,32 @@
+#include <string>
 #include <boost/any.hpp>
 
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<a>(int.class)) {
-        int ai = any_cast<int>(a);
-        int bi = any_cast<int>(b);
-        return (ai > bi) ? a : ((bi > ai) ? b : boost::any("None"));
-    } else if (is_any_of<a>(double.class)) {
-        double ad = any_cast<double>(a);
-        double bd = any_cast<double>(b);
-        return (ad > bd) ? a : ((bd > ad) ? b : boost::any("None"));
-    } else if (is_any_of<a>(string.class)) {
-        string as = any_cast<string>(a);
-        string bs = any_cast<string>(b);
-        return (as.compare(bs) > 0) ? a : ((bs.compare(as) > 0) ? b : boost::any("None"));
-    } else {
-        return boost::any("Invalid input");
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return b;
+    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if (lexical_cast<int>(b.convert_to<string>()) >= lexical_cast<int>(a.convert_to<string>())) {
+            return b;
+        } else {
+            return "None";
+        }
+    } else if (a.type() == typeid(string) && b.type() != typeid(string)) {
+        if (lexical_cast<double>(b.convert_to<double>()) >= lexical_cast<double>(a.convert_to<string>())) {
+            return b;
+        } else {
+            return "None";
+        }
+    } else if (b.type() == typeid(string) && a.type() != typeid(string)) {
+        if (lexical_cast<double>(a.convert_to<double>()) >= lexical_cast<double>(b.convert_to<string>())) {
+            return a;
+        } else {
+            return "None";
+        }
     }
+
+    return b;
 }
