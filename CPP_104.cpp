@@ -2,9 +2,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+std::vector<int> issame(std::vector<int> x) {
     std::vector<int> result;
-    for (int num : a) {
+    for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
         while (temp > 0) {
