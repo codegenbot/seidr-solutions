@@ -4,15 +4,26 @@
 #include <cmath>
 
 int gcd(int a, int b) {
-    a = a == 0 ? std::abs(b) : std::abs(a);
-    
+    int sign = 1;
+    if (a < 0) {
+        sign *= -1;
+        a = -a;
+    }
+    if (b < 0) {
+        sign *= -1;
+        b = -b;
+    }
+
+    if (a == 0) return b;
+    if (b == 0) return a;
+
     while (b != 0) {
         int tmp = b;
         b = a % b;
         a = tmp;
     }
 
-    return a;
+    return a * sign;
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
