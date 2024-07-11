@@ -1,4 +1,3 @@
-```
 from typing import Any, List
 
 def filter_integers(values: List[Any]) -> list:
