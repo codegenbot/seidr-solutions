@@ -1,16 +1,18 @@
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end(),
-                     [](const string& a, const string& b) { return (a.length() % 2 == 1); });
-    vector<string> result(it, lst.end());
-    
-    sort(result.begin(), result.end(),
-        [](const string& a, const string& b) {
-            if (a.length() == b.length()) {
-                return a < b;
-            } else {
-                return a.length() < b.length();
-            }
-        });
-    
+    vector<string> result;
+
+    // Remove strings with odd lengths and sort the remaining vectors by length and then alphabetically.
+    for (const auto& str : lst) {
+        if (str.length() % 2 == 0) { // check if string has even length
+            result.push_back(str);
+        }
+    }
+
+    std::sort(result.begin(), result.end(), 
+              [](const auto &a, const auto &b) {
+                  if (a.length() == b.length()) return a < b;
+                  else return a.length() < b.length();
+              });
+
     return result;
 }
