@@ -7,18 +7,18 @@ def bowling_score(frames):
         if len(parts) == 1 and parts[0] == 'X':
             if i < 9:
                 score += 10
-            else: 
+            else:
                 if i + 1 < len(frames):
                     score += int(frames[i+1].split('/')[0]) * 2
         elif parts[0] == '':
             if i < 9:
                 score += 10
-            else: 
+            else:
                 if i + 1 < len(frames):
                     score += int(frames[i+1].split('/')[0])
         elif '/' in parts:
             score += 20
-        else: 
+        else:
             for part in parts:
                 score += int(part)
     return score
