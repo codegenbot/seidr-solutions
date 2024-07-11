@@ -4,11 +4,10 @@ int count = 0;
             if (c == '(') {
                 count++;
             } else {
-                if (count > 0) {
-                    count--;
-                } else {
+                if (count == 0) {
                     return "No";
                 }
+                count--;
             }
         }
     }
