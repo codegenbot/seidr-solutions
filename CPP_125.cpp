@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 
-vector<string> split_words(const string& txt) {
+vector<string> split_words(string txt) {
     vector<string> words;
     string word = "";
     for(char c : txt) {
@@ -27,14 +27,4 @@ vector<string> split_words(const string& txt) {
         words.push_back(to_string(count));
     }
     return words;
-}
-
-int main() {
-    string txt;
-    getline(cin, txt);
-    vector<string> result = split_words(txt);
-    for(const string& word : result) {
-        cout << word << " ";
-    }
-    return 0;
 }
