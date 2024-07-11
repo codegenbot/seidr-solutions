@@ -5,10 +5,8 @@
 int main() {
     std::vector<int> nums;
     std::string input;
-    
     getline(std::cin, input);
     std::istringstream iss(input);
-    
     int num;
     while (iss >> num) {
         nums.push_back(num);
@@ -16,10 +14,8 @@ int main() {
     
     int sum = 0;
     for (int num : nums) {
-        sum += (num / 3) - 2;
+        sum += (num / 3) - 2 + (num % 3 == 0 ? 0 : 1);
     }
-    
-    sum *= 3; // Move this line outside the loop
     
     std::cout << sum << std::endl;
     
