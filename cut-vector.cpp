@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <climits>
 
 int main() {
     std::vector<int> vec = {2, 5, 7, 3, 8, 4, 6};
