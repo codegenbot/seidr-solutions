@@ -1,12 +1,10 @@
-```
-def calculate_average_score():
+```Python
+def calculate_average_score(students_scores):
     total = 0
-    student_scores_count = int(input("Enter the number of students: "))
-    
-    for _ in range(student_scores_count):
-        score = input(f"Enter the score for student {_ + 1}: ")
+    for score in students_scores:
         total += int(score)
-        
-    average = total / student_scores_count
-    
+    average = total / len(students_scores)
     return str(int(average))
+
+students_scores = [90, 85, 75]
+print(calculate_average_score(students_scores))
