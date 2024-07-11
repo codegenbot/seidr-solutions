@@ -1,8 +1,6 @@
-message = input("Enter the message: ")
-result = ""
-for char in message.lower():
-    if char in cipher1.lower():
+def decipher(cipher1, cipher2, message):
+    result = ""
+    for char in message.lower():
         index = cipher1.index(char)
         result += cipher2[index]
-    else:
-        result += char
+    return result
