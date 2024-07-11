@@ -1,3 +1,4 @@
+```
 import math
 
 
@@ -19,4 +20,6 @@ def find_zero(xs):
 
 
 xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
+if len(xs) == 0 or all(i == '' for i in xs):
+    return "Please enter some coefficients"
 print(find_zero(xs))
