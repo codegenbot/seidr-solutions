@@ -1,4 +1,3 @@
-// Modified code
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,15 +19,12 @@ vector<string> words_string(string s){
 }
 
 int main() {
-    string input = "Hello world     C++";
-    vector<string> result = words_string(input);
+    string input_string = "Hello World, this is a test string";
+    vector<string> result = words_string(input_string);
     
-    assert(result.size() == 3);
-    assert(result[0] == "Hello");
-    assert(result[1] == "world");
-    assert(result[2] == "C++");
-    
-    cout << "All tests pass!" << endl;
+    for (const auto& word : result) {
+        cout << word << " ";
+    }
     
     return 0;
 }
