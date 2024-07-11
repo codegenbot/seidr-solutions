@@ -22,7 +22,7 @@ int main() {
         total += prices[i] * (1.0 - discounts[i] / 100.0);
     }
 
-    std::cout << total << std::endl;
+    cout << total << endl;
 
     return 0;
 }
