@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,19 +5,19 @@
 
 bool issame(int a, int b) {
     if (a > 9 || b > 9) {
+        std::cout << "Error: Input must be single digit." << std::endl;
         return false;
     }
-    
-    vector<string> result = by_length({a, b});
+    std::vector<std::string> result = by_length({a, b});
     for (int i = 0; i < min(result.size(), 2); i++) {
-        cout << result[i] << " ";
+        std::cout << result[i] << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
     return true;
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(num);
@@ -29,7 +28,7 @@ vector<string> by_length(vector<int> arr) {
     
     reverse(numbers.begin(), numbers.end());
     
-    vector<string> result;
+    std::vector<std::string> result;
     for (int num : numbers) {
         switch (num) {
             case 1:
@@ -63,12 +62,4 @@ vector<string> by_length(vector<int> arr) {
     }
     
     return result;
-}
-
-int main() {
-    int a, b;
-    cout << "Enter two numbers: ";
-    cin >> a >> b;
-    issame(a, b);
-    return 0;
 }
