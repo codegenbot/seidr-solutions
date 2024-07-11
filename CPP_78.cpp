@@ -18,7 +18,5 @@ int main() {
     std::cin >> input;
 
     int output = hex_key(input);
-    //assert (output == 0); // Assuming this should be the expected result
-
     return 0;
 }
