@@ -11,7 +11,7 @@ int main() {
         if (capitalize && std::isalpha(c)) {
             std::cout << (char)std::toupper(c);
             capitalize = false;
-        } else if (c == '-' && std::isalpha(c) && !capitalize) {
+        } else if (c == '-' || c == ' ') { // Updated condition
             capitalize = true;
         } else {
             std::cout << c;
