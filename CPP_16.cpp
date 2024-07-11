@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 
 int count_distinct_characters(const string& str) {
