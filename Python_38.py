@@ -1,4 +1,3 @@
-```
 def decode_cyclic(encoded_str):
     decoded_str = ""
     n = len(encoded_str) // 2
