@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <string>
+using namespace std;
 
 int calculateBowlingScore(string s) {
     int score = 0;
@@ -36,7 +36,7 @@ int calculateBowlingScore(string s) {
 }
 
 int main() {
-    std::string s;
+    string s;
     std::cin >> s;
     std::cout << calculateBowlingScore(s) << std::endl;
     return 0;
