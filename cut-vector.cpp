@@ -8,14 +8,7 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-    char delimiter = '\n'; // Change the delimiter as needed
-
-    while (true) {
-        cin >> num;
-        if (cin.peek() == delimiter) {
-            nums.push_back(num);
-            break;
-        }
+    while (cin >> num && !cin.fail()) {
         nums.push_back(num);
     }
 
