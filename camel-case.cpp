@@ -1,5 +1,3 @@
-```cpp
-#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <string>
@@ -19,14 +17,7 @@ std::vector<std::string> split(const std::string& s, char c) {
 
 std::string camelCase(const std::string& s) {
     if (s.empty()) {
-        return s;
-    }
-
-    if (s.find(' ') == std::string::npos && !s.empty()) {
-        std::string lower_s = s;
-        std::transform(lower_s.begin(), lower_s.end(), lower_s.begin(),
-            ::tolower);
-        return camelCase(lower_s);
+        return "";
     }
 
     std::vector<std::string> groups;
@@ -38,9 +29,9 @@ std::string camelCase(const std::string& s) {
     std::string result;
     for (int i = 0; i < groups.size(); ++i) {
         if (i > 0)
-            result += char(toupper(groups[i][0]));
+            result += char(std::toupper(groups[i][0]));
         else
-            result += tolower(groups[i][0]);
+            result += std::tolower(groups[i][0]);
         result += groups[i].substr(1);
     }
 
