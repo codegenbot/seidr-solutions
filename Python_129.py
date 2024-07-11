@@ -23,3 +23,5 @@ def minPath(k, grid='\n0 1\n1 2'):
             if min_path is None or path < min_path:
                 min_path = path
     return min_path
+
+print(minPath(2))
