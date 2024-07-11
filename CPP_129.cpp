@@ -1,3 +1,10 @@
+```
+#include <iostream>
+#include <vector>
+#include <limits>
+
+using namespace std;
+
 vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
     vector<vector<int>> dp(n, vector<int>(n));
@@ -34,4 +41,12 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
     }
     
     return res;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1,2},{3,4}};
+    int k = 2;
+    vector<int> result = minPath(grid,k);
+    for(int i: result) cout << i << " ";
+    return 0;
 }
