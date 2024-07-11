@@ -1,10 +1,11 @@
-```
 def below_zero(operations: List[int]) -> bool:
+    """Your comment here"""
     if not isinstance(operations, list):
-        return None
-
+        return False
+    
     for operation in operations:
         if not isinstance(operation, int):
-            return None
-
-    return any(op < 0 for op in operations)
+            return False
+    
+    balance = sum(operations)
+    return balance < 0
