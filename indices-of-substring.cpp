@@ -15,8 +15,8 @@ int main() {
     while ((pos = text.find(target, pos)) != string::npos) {
         if (pos < text.length()) {
             indices.push_back(pos);
+            pos += target.length();
         }
-        pos += target.length();
     }
 
     for (int i : indices) {
