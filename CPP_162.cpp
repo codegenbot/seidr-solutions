@@ -1,13 +1,23 @@
-#include <iostream>
-#include <string>
-#include <cryptopp/sha.h>
+#include "CryptoPP/sha1.h"
 
-std::string string_to_md5(const std::string& s) {
+#include <iostream>
+#include <sstream>
+
+int main() {
+    std::cout << "Enter a string: ";
+    std::string s;
+    std::getline(std::cin, s);
+
+    std::stringstream ss;
     CryptoPP::SHA1 sha;
-    unsigned char md5[16];
-    sha.Calculate(s, (int)s.size(), md5);
-    std::string result;
-    for (int i = 0; i < 16; ++i)
-        result.push_back(((unsigned char)md5[i]) * 2 + ((md5[i] * 4) > 9) ? ((unsigned char)md5[i]) * 2 + ((md5[i] * 4) > 9) : "0");
-    return result;
+    unsigned char md5[20];
+    sha.Calculate((const unsigned char*)s.c_str(), (int)s.size(), md5);
+
+    for(int i = 0; i < 16; ++i) {
+        ss << ((md5[i] * 4 > 9 ? std::hex << std::showbase : std::hex << std::noshowbase)
+            << std::setfill('0') << std::setw(2) << (int)(md5[i])) << " ";
+    }
+    std::cout << "The SHA1 is: " << ss.str() << std::endl;
+
+    return 0;
 }
