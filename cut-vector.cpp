@@ -13,17 +13,18 @@ int main() {
         cin >> arr[i];
     }
     
+    int total_sum = 0;
+    for (int i = 0; i < n; i++) {
+        total_sum += arr[i];
+    }
+    
+    int left_sum = 0;
     int min_diff = INT_MAX;
     int cut_index = -1;
     
-    for (int i = 1; i < n; i++) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j < i; j++) {
-            left_sum += arr[j];
-        }
-        for (int j = i; j < n; j++) {
-            right_sum += arr[j];
-        }
+    for (int i = 0; i < n - 1; i++) {
+        left_sum += arr[i];
+        int right_sum = total_sum - left_sum;
         
         int diff = abs(left_sum - right_sum);
         if (diff < min_diff) {
@@ -32,11 +33,11 @@ int main() {
         }
     }
     
-    for (int i = 0; i < cut_index; i++) {
+    for (int i = 0; i <= cut_index; i++) {
         cout << arr[i] << endl;
     }
     cout << endl;
-    for (int i = cut_index; i < n; i++) {
+    for (int i = cut_index + 1; i < n; i++) {
         cout << arr[i] << endl;
     }
     
