@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -33,14 +34,5 @@ int main() {
         lst.push_back(num);    
     }
 
-    long double sum = 0;
-    for (float num : lst) {
-        if (num > 0 && abs(num - lround(num)) < 1e-9) {
-            sum += pow(num, 2);
-        }
-    }
-
-    cout << "Sum of squared values: " << sum << endl;
-
-    return 0; 
-}
+    cout << "Sum of squared values: " << double_the_difference(lst) << endl;
+    return 0;
