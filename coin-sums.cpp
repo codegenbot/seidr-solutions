@@ -1,3 +1,4 @@
+```cpp
 int main() {
     int cents;
     cin >> cents;
@@ -6,10 +7,11 @@ int main() {
     int quarters = max_quarters;
     cents %= 25;
 
-    int dimes = min(cents / 10, (cents >= 25 ? max_quarters : (cents - (max_quarters * 25)) / 10));
+    int max_dimes = min(cents / 10, (cents + 9) / 10);
+    dimes = max_dimes;
     cents %= 10;
 
-    int nickles = min(cents / 5, (cents >= 10 ? dimes : (cents - (dimes * 10)) / 5));
+    int nickles = min(cents / 5, (cents + 4) / 5);
     cents %= 5;
 
     int pennies = cents;
