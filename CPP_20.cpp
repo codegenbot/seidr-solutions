@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <limits>
 #include <initializer_list>
