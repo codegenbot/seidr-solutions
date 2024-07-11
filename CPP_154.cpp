@@ -9,3 +9,7 @@ bool cycpattern_check(const string& a, const string& b) {
     
     return combined.find(b) != string::npos;
 }
+
+int main() {
+    // Your main function code here
+}
