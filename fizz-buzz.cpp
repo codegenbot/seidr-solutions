@@ -1,6 +1,4 @@
-#include <string>
-
-string fizzBuzz(int x) {
+int fizzBuzz(int x) {
     if (x % 3 == 0 && x % 5 == 0)
         return "FizzBuzz";
     else if (x % 3 == 0)
@@ -9,3 +7,4 @@ string fizzBuzz(int x) {
         return "Buzz";
     else
         return to_string(x);
+}
