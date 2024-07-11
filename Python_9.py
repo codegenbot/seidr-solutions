@@ -1,4 +1,5 @@
-def rolling_max(input_str: str) -> List[int]:
+```
+def rolling_max(input_str: str) -> list:
     input_str = "".join(filter(str.isdigit, input_str))
 
     numbers = []
