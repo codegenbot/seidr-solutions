@@ -1,18 +1,21 @@
-bool solveBoolean(string expression) {
-    bool result = true;
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == 'T') {
-            return true;
-        }
-        else if (expression[i] == 'F') {
+#include <string>
+using namespace std;
+
+bool solveBoolean(string s) {
+    bool res = false;
+    for (char c : s) {
+        if (c == 'T')
+            res = true;
+        else if (c == 'F')
             return false;
+        else if (c == '&') {
+            bool temp = res;
+            res = false;
         }
-        else if (expression[i] == '|') {
-            result = true;
-        }
-        else if (expression[i] == '&') {
-            result = false;
+        else if (c == '|') {
+            bool temp = res;
+            res = true;
         }
     }
-    return result;
+    return res;
 }
