@@ -1,4 +1,5 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -12,7 +13,7 @@ bool issame(vector<string> a,vector<string> b){
 }
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     
     int index1 = -1;
     for (int i = 0; i < planets.size(); i++) {
@@ -30,7 +31,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
         }
     }
     
-    std::vector<string> result;
+    std::vector<std::string> result;
     
     if (index1 >= 0 && index2 >= 0) {
         if (index1 > index2) {
@@ -47,10 +48,9 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
     
     return result;
-
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {})); 
+    assert(issame(bf("Jupiter", "Makemake"), {})); // Add this line after defining bf function
     return 0;   
 }
