@@ -1,27 +1,25 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
-vector<string> issame(string a, string b) {
+bool issame(const vector<string>& a, const vector<string>& b) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
     int start = -1, end = -1;
 
     for (int i = 0; i < 8; i++) {
-        if (a == planets[i]) {
+        if (a[0] == planets[i]) {
             start = i;
         }
-        if (b == planets[i]) {
+        if (b[0] == planets[i]) {
             end = i;
         }
     }
 
     if (start == -1 || end == -1) {
-        return result;
+        return false;
     }
 
     if (start > end) {
@@ -32,11 +30,5 @@ vector<string> issame(string a, string b) {
         result.push_back(planets[i]);
     }
 
-    return result;
-}
-
-int main() {
-    assert(issame("Jupiter", "Makemake").empty());
-
-    return 0;
+    return true;
 }
