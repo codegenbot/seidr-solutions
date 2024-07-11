@@ -1,5 +1,3 @@
-#include <cmath>
-
 float mean_absolute_deviation(vector<float> numbers) {
     float mean = 0.0f;
     for (float num : numbers) {
@@ -7,10 +5,10 @@ float mean_absolute_deviation(vector<float> numbers) {
     }
     mean /= numbers.size();
 
-    float mad = 0.0f;
+    float sum_diffs = 0.0f;
     for (float num : numbers) {
-        mad += abs(num - mean);
+        sum_diffs += abs(num - mean);
     }
-    mad /= numbers.size();
-    return mad;
+
+    return sum_diffs / numbers.size();
 }
