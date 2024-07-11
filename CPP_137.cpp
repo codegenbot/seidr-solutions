@@ -1,45 +1,17 @@
-#include <boost/variant.hpp>
+#include <boost/any.hpp>
 #include <string>
-#include <iostream>
 
 using namespace boost;
 
-boost::variant<int, double, std::string> compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
+boost::any compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)typeid(double)>a.type()) ? &b : &a;
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        return a > boost::any_cast<string>(b) ? &a : &b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return a.convert<string>() > boost::any_cast<string>(b) ? &a : &b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return *boost::any_cast<int>(&a) >= *boost::any_cast<int>(&b) ? &a : &b;
     }
-    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return static_cast<int>(b);
-    }
-    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string strA = boost::any_cast<std::string>(a);
-        std::string strB = boost::any_cast<std::string>(b);
-
-        if (strA > strB) {
-            return a;
-        }
-        else if (strA < strB) {
-            return b;
-        }
-        else {
-            return "None";
-        }
-    }
-    else if ((a.type() == typeid(double) && b.type() == typeid(std::string)) || 
-             (a.type() == typeid(std::string) && b.type() == typeid(double))) {
-        double numA = boost::any_cast<double>(a);
-        double numB = boost::any_cast<double>(b);
-
-        if (numA > numB) {
-            return a;
-        }
-        else if (numA < numB) {
-            return b;
-        }
-        else {
-            return "None";
-        }
-    }
-
-    return "Invalid";
+    return a;
 }
