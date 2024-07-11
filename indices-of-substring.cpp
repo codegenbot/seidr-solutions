@@ -14,10 +14,12 @@ int main() {
         return 0;
     }
 
-    for (int i = 0; i <= static_cast<int>(text.size()) - static_cast<int>(target.size()); ++i) {
-        if (text.substr(i, target.size()) == target) {
-            indices.push_back(i);
+    int pos = 0;
+    while (pos < text.size() - target.size() + 1) {
+        if (text.substr(pos, target.size()) == target) {
+            indices.push_back(pos);
         }
+        ++pos;
     }
 
     for (int i = 0; i < indices.size(); ++i) {
