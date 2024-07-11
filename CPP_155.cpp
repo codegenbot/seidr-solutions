@@ -1,11 +1,11 @@
-#include <vector>
-#include <string>
+#define _MSC_VER 1900
+#include <initializer_list>
 
-int issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if(a.size() == b.size() && a == b)
-        return 0;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if(a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()))
+        return true;
     else
-        return -1;
+        return false;
 }
 
 std::vector<int> even_odd_count(int num) {
@@ -20,7 +20,7 @@ std::vector<int> even_odd_count(int num) {
     return {count_even, count_odd};
 }
 
-int main() {
-    assert(issame(even_odd_count(0), std::vector<int>{1, 0}) == 0);
+int main(int argc, char* argv[]) {
+    assert(std::vector<int>(issame(even_odd_count(0), std::vector<int>{1, 0})) == std::vector<int>{1, 0});
     return 0;
 }
