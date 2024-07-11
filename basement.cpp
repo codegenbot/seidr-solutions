@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 int findFirstNegativeIndex(const vector<int>& vec) {
