@@ -1,4 +1,3 @@
-```
 values = input("Enter two integers (separated by space): ").split()
 if len(values) != 2:
     a, b = map(int, values)
