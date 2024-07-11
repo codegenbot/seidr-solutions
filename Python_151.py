@@ -1,4 +1,6 @@
-def double_the_difference(a, b):
-    return abs(int(a) - int(b)) * 2
+def double_the_difference():
+    user_input = input("Enter elements separated by comma: ")
+    a, b = map(int, user_input.split(','))
+    return abs(a - b) * 2
 
-print(double_the_difference(*map(str.strip, input("Enter elements separated by comma: ").split(","))))
+print(double_the_difference())
