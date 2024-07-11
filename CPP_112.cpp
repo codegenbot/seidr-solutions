@@ -1,11 +1,11 @@
-vector<string> res;
-    string result = "";
-    for(char ch : s){
-        if(c.find(ch) == string::npos){
-            result += ch;
+for(auto it = s.begin(); it != s.end();){
+        if(c.find(*it) != string::npos){
+            it = s.erase(it);
+        } else {
+            ++it;
         }
     }
-    res.push_back(result);
-    res.push_back(result == string(result.rbegin(), result.rend()) ? "True" : "False");
-    return res;
+    string temp = s;
+    reverse(temp.begin(), temp.end());
+    return {s, s == temp ? "True" : "False"};
 }
