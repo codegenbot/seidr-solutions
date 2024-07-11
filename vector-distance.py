@@ -1,7 +1,7 @@
 n = float(next(input() for _ in range(1)))
-m = float(next(input() for _ from range(m))))
-v1 = list(map(float, next(input().split()) for _ in range(n)))
-v2 = list(map(float, next(input().split()) for _ in range(m)))
+m = float(next(input() for _ in range(1)))
+v1 = list(map(float, next(input().split()) for _ in range(int(n))))
+v2 = list(map(float, next(input().split()) for _ in range(int(m))))
 
 from math import sqrt
 
