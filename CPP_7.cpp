@@ -1,8 +1,11 @@
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(auto &s : strings) {
-        if(s.find(substring) != string::npos)
-            result.push_back(s);
+bool areEqual(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
+        return false;
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (find(b.begin(), b.end(), a[i]) == b.end())
+            return false;
     }
-    return result;
+    
+    return true;
 }
