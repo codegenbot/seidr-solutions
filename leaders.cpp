@@ -1,26 +1,15 @@
-#include <vector>
-using namespace std;
-
-std::vector<int> leaders(std::vector<int>& arr) {
+```
+vector<int> getLeaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
+    int maxSoFar = arr.back(); // start with the last element as the initial max
 
-    for(int i=n-1; i>=0; i--) {
-        bool isLeader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
-                isLeader = false;
-                break;
-            }
+    for(int i=n-2; i>=0; i--) { 
+        if(arr[i] >= maxSoFar) {
+            result.push_back(arr[i]);
+            maxSoFar = arr[i]; // update the max for the next iteration
         }
-        if(isLeader) result.push_back(arr[i]);
     }
 
     return result;
-}
-
-int main() {
-    vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
-    std::vector<int> result_leaders = leaders(arr);
-    return 0;
 }
