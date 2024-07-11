@@ -1,23 +1,28 @@
+from typing import List
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
+    groups = []
 
     for char in paren_string:
         if char == ' ':
             continue
         if char == '(':
-            stack.append('(')
-            result.append('(')
+            stack.append(char)
+            groups.append('(')
         elif char == ')':
-            if stack and stack[-1] == '(':
-                stack.pop()
-                result.append(')')
+            stack.pop()
+            groups.append(')')
         
         if not stack:
-            temp = ''.join(result).strip('()')
-            if temp:  
-                result = [temp]
-            else:
-                result = []
+            result.append(''.join(groups))
+            groups = []
     
-    return list(map(str, filter(None, result)))
+    if stack:  
+        while stack:
+            groups.append(')')
+            stack.pop()
+        result.append(''.join(groups))
+
+    return [group for group in set(tuple(group) for group in set(frozenset(group.split()) for group in result))]
