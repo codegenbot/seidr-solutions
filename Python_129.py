@@ -1,23 +1,25 @@
 ```
+import heapq
+
 def minPath(grid, k):
     n = len(grid)
     res = []
 
     def dfs(i, j, path):
-        if i == n - 1:
-            return [path]
+        if len(path) == k:
+            nonlocal res
+            if not res or path < res:
+                res = path
+            return True
 
-        paths = []
         for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             newi, newj = i + x, j + y
 
-            if 0 <= newi < n and 0 <= newj < n:
-                if grid[newi][newj] not in path:
-                    paths.extend(dfs(newi, newj, path + [grid[newi][newj]]))
-
-        return sorted([x for x in paths if len(x) == k])
+            if 0 <= newi < n and 0 <= newj < n and grid[newi][newj] not in path:
+                dfs(newi, newj, path + [grid[newi][newj]])
 
     for i in range(n):
-        res.extend(dfs(i, 0, [grid[i][0]]))
+        for j in range(n):
+            dfs(i, j, [grid[i][j]])
 
-    return [item for sublist in res for item in sublist]
+    return res
