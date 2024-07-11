@@ -11,9 +11,7 @@ int main() {
     srand(time(nullptr)); 
     int randomNum = rand() % 1000; 
 
-    std::stringstream ss;
-    ss << "Random Number: " << randomNum << endl;
-    cout << ss.string() << endl; 
+    cout << "Random Number: " << randomNum << endl; 
 
     int num1, num2;
     cout << "Enter two numbers: ";
