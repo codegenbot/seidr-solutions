@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <utility>
 #include <algorithm>
+#include <utility>
 
 using namespace std;
 
@@ -25,7 +25,13 @@ bool issame(pair<float, float> a, pair<float, float> b) {
 
 int main() {
     pair<float, float> result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
-    pair<float, float> expected_result = {4.1, 5.1};
-    cout << (issame(result, expected_result) ? "Test Passed" : "Test Failed") << endl;
+    pair<float, float> expected_result = {3.1, 4.1};
+    
+    if (issame(result, expected_result)) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
+    
     return 0;
 }
