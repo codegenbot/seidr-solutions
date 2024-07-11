@@ -1,11 +1,20 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string middleCharacter(string s) {
+    int len = s.length();
+    if (len % 2 == 0) {
+        return s.substr(len/2 - 1, 2);
+    } else {
+        return s.substr(len/2, 1);
+    }
+}
+
 int main() {
     string s;
     cin >> s;
-    int n = s.length();
-    if (n % 2 == 0) {
-        cout << s.substr(n / 2 - 1, 2);
-    } else {
-        cout << s.substr(n / 2, 1);
-    }
+    cout << middleCharacter(s) << endl;
     return 0;
 }
