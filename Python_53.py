@@ -3,7 +3,7 @@ def add():
         try:
             x = int(input("Enter first number: "))
             y = int(input("Enter second number: "))
-            return x + y
+            print(x + y)
+            break
         except ValueError:
             print("Invalid input! Please enter a valid integer.")
-    break
