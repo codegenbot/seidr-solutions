@@ -1,21 +1,26 @@
 string words_in_sentence(string sentence){
     string result = "";
-    for (const auto& word : split(sentence, " ")) {
-        if (is_prime(word.length())) {
-            result += word + " ";
+    int count = 0;
+    for(int i=0; i<sentence.size(); i++){
+        if(sentence[i] == ' '){
+            count++;
+            continue;
+        }
+        bool is_prime = true;
+        int len = 1;
+        for(int j=i+1; j<=sentence.size() && sentence[j] != ' '; j++){
+            len++;
+            if(len > 2 && !is_prime(len)){
+                break;
+            }
+        }
+        if(len > 0){
+            result += &sentence[i];
+            i = j - 1;
+        } else {
+            count++;
         }
     }
-    return result.substr(0, result.size() - 1);
-}
-
-vector<string> split(const string& s, const string& delimiter) {
-    vector<string> result;
-    size_t pos = 0;
-    while ((pos = s.find(delimiter)) != stdstring::npos) {
-        result.push_back(s.substr(0, pos));
-        s.erase(0, pos + delimiter.length());
-    }
-    result.push_back(s);
     return result;
 }
 
