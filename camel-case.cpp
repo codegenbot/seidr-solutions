@@ -7,18 +7,18 @@ int main() {
     std::getline(std::cin, input);
     
     bool capitalize = false;
+    bool firstChar = true;
     for (char &c : input) {
         if (c == '-') {
             capitalize = true;
-        } else if (capitalize) {
+        } else if (firstChar || capitalize) {
             std::cout << (char)toupper(c);
+            firstChar = false;
             capitalize = false;
-        } else if (std::isspace(c)) {
-            std::cout << ' ';
-        } else {
+        } else if (c != ' ') {
             std::cout << c;
         }
     }
-    
+
     return 0;
 }
