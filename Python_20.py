@@ -1,3 +1,4 @@
+```
 def find_closest_elements(arr, target):
     arr.sort()
     left = 0
