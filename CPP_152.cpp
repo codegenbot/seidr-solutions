@@ -19,16 +19,33 @@ pair<int, int> compare(vector<int> a, vector<int> b) {
 }
 
 int main(int argc, char* argv[]) {
+    vector<int> a;
+    vector<int> b;
+
     if(argc >=3) {
-        vector<int> a = vector<int>();
-        for(int i=2; i<argc; i++) {
-            int num = atoi(argv[i]);
+        int n = atoi(argv[1]);
+        for(int i=0; i<n; i++) {
+            int num = atoi(argv[i+2]);
             a.push_back(num);
         }
-        if(argc == 3)
-            cout << compare(a, {stoi(argv[1]),})[0] << endl;
-        else
-            cout << compare(a, vector<int>({stoi(argv[1]),})) [0]<<endl;
+        n = atoi(argv[argc-1]);
+        for(int i=n; i<argc-1; i++) {
+            int num = atoi(argv[i+1]);
+            b.push_back(num);
+        }
     }
+
+    cout << "Comparing: ";
+    for(auto x : a) cout << x << " ";
+    cout << " and ";
+    for(auto y : b) cout << y << " ";
+    cout << endl;
     
+    pair<int, int> result = compare(a, b);
+
+    if(result.first == 0 && result.second == 0)
+        cout << "The two lists are equal." << endl;
+    else
+        cout << "List 1 is greater than List 2 if first element is 0, and vice versa." << endl;
+
     return 0;
