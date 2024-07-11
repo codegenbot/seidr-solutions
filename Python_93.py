@@ -13,13 +13,13 @@ def encode(message):
                     result += 'q'
                 else:
                     result += 'u'
-            elif char.isupper():
+            elif char.isupper():  
                 if char.lower() in 'aeiou':
                     result += 'c' if char.lower() == 'a' else 'g' if char.lower() == 'e' \
                         else 'k' if char.lower() == 'i' else 'q' if char.lower() == 'o' else 'u'
                 else:
                     result += chr(ord(char) + 1).lower()
-            else: 
+            else:  
                 result += chr(ord(char) - 1).upper() if char.isupper() else chr(ord(char) + 1)
         else:
             result += char
