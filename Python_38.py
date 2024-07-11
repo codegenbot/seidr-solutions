@@ -1,14 +1,22 @@
-```python
-def decode_cyclic(s: str):
-    result = ""
+def decode_cyclic(s):
+    if not isinstance(s, str):
+        raise ValueError("Input must be a string")
+
+    result = []
     temp = ""
     for char in s + s:
-        if char == '(' or len(temp) > 0 and char != ')':
-            temp += char
-        else:
-            if len(temp) >= 3 and temp[0] == temp[-1] and temp[0] in '()':
-                result += temp[1:-1]
-            elif temp:
-                result += temp
-            temp = ""
-    return result
+        temp += char
+        if len(temp) == 3:
+            if len(result) > 0 and result[-1] == temp[0]:
+                result.append(temp)
+            else:
+                if len(temp) >= 2:  
+                    if temp[0] == temp[2]:  # check for cyclic condition
+                        if temp[2] == '(':
+                            result.append(temp[1:])
+                        else:
+                            result.append(temp[1] + temp[0])
+                    else:  
+                        result.append(temp[1:])
+                    temp = ""
+    return "".join(result)
