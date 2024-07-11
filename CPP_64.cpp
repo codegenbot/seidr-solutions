@@ -7,7 +7,7 @@ int vowels_count(std::string s) {
     for (char c : s) {
         if (std::tolower(c) == 'a' || std::tolower(c) == 'e' || 
             std::tolower(c) == 'i' || std::tolower(c) == 'o' || 
-            std::tolower(c) == 'u') {
+            std::tolower(c) == 'u' || std::tolower(c) == 'y') {
             count++;
         }
     }
@@ -17,7 +17,7 @@ int vowels_count(std::string s) {
 int main() {
     std::cout << "Enter a string: ";
     std::string input;
-    getline(std::cin, input);  
+    std::getline(std::cin, input);  
     int result = vowels_count(input);
     std::cout << "Number of vowels: " << result << std::endl;
     return 0;
