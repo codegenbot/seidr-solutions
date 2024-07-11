@@ -1,9 +1,9 @@
 #include <iostream>
 #include <cmath> 
-#include <iomanip> 
+#include <iomanip>
 
-int main() { 
-    double startHeight; 
+int main() {
+    double startHeight;
     cin >> startHeight;
     
     double firstBounceHeight;
