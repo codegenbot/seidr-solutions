@@ -1,21 +1,15 @@
-#include <algorithm>
-#include <vector>
+Here is the completed code:
 
-using namespace std;
-
-vector<vector<int>> pluck(vector<int> arr) {
-    vector<vector<int>> result;
-    if (arr.empty()) return {{}};
-
-    vector<int>::iterator it = min_element(arr.begin(), arr.end(), [](int a, int b){
-        if(a%2!=b%2) return a<b;
-        return a>b;
-    });
-
-    int smallestValue = *it;
-    int index = distance(arr.begin(), it);
-
-    result.push_back({smallestValue, index});
-
+vector<int> pluck(vector<int> arr) {
+    vector<int> result;
+    if (arr.empty()) return result;
+    int minEven = INT_MAX, minIndex = -1;
+    for (int i = 0; i < arr.size(); ++i) {
+        if (arr[i] % 2 == 0 && arr[i] < minEven) {
+            minEven = arr[i];
+            minIndex = i;
+        }
+    }
+    result.push_back(minEven);
+    result.push_back(minIndex);
     return result;
-}
