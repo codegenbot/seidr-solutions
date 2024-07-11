@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -13,7 +14,7 @@ pair<int, int> compare(vector<int> a, vector<int> b) {
     else if (c.size() > d.size())
         return make_pair(0, 1);
     else
-        return make_pair((c[0] < d[0]), (c[0] == d[0]));
+        return make_pair(1, 1);
 }
 
 assert (compare(vector<int>( {1, 2, 3, 5} ), vector<int>({-1, 2, 3, 4} )) == make_pair(2,0));
