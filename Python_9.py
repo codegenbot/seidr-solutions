@@ -1,8 +1,6 @@
-```
-def rolling_max(numbers):
-    result = [numbers[0]]
-    max_ending_here = numbers[0]
-    for num in numbers[1:]:
-        max_ending_here = max(num, max_ending_here)
-        result.append(max_ending_here)
+from typing import List
+
+def rolling_max():
+    numbers = [int(num) for num in input("Enter numbers separated by space: ").split()]
+    result = [max(numbers[:i+1]) for i in range(len(numbers))]
     return result
