@@ -5,21 +5,21 @@ def rescale_to_unit():
     numbers = []
 
     while True:
-        user_input = input("Please enter a number (or 'stop' to finish): ")
+        num = input("Enter a number (or 'done' to finish): ")
 
-        if user_input.lower() == "stop":
+        if num.lower() == "done":
             break
 
         try:
-            numbers.append(float(user_input))
+            numbers.append(float(num))
         except ValueError:
-            print("Invalid input. Please enter a number or type 'stop' to finish.")
+            print("Invalid input. Please enter a valid number.")
 
     if not numbers:
         return []
 
-    min_val = min(x for x in numbers)
-    max_val = max(x for x in numbers)
+    min_val = min(x for x in numbers if isinstance(x, (int, float)))
+    max_val = max(x for x in numbers if isinstance(x, (int, float)))
 
     if min_val == max_val:
         return [0.0] * len(numbers)
