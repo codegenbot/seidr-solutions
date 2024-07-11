@@ -1,20 +1,32 @@
-Here is the solution:
+Here is the completed code:
 
 vector<string> reverse_delete(string s, string c) {
-    string result = "";
-    for (char c : s) {
+    vector<string> result;
+    string temp = "";
+    
+    for (char ch : s) {
         bool found = false;
-        for (char d : c) {
-            if (c == d) {
+        for (char cc : c) {
+            if (ch == cc) {
                 found = true;
                 break;
             }
         }
+        
         if (!found) {
-            result += c;
+            temp += ch;
         }
     }
-    string temp = result;
-    reverse(temp.begin(), temp.end());
-    return {result, temp == s ? "True" : "False"};
+    
+    string palinCheck = temp;
+    reverse(palinCheck.begin(), palinCheck.end());
+    
+    result.push_back(temp);
+    if (temp == palinCheck) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
+    
+    return result;
 }
