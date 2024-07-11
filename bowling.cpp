@@ -1,49 +1,41 @@
-int getScore(const string& bowls) {
-    int score = 0;
+int score(string bowls) {
+    int totalScore = 0;
     int frame = 1;
-    int ball = 0;
-    int first;
-    int second;
-    for (char c : bowls) {
-        if (c == 'X') {
-            score += 10;
+    
+    for (int i = 0; i < bowls.size(); ++i) {
+        if (bowls[i] == 'X') {
+            totalScore += 10;
             if (frame < 10) {
-                if (frame != 9 && bowls[ball + 2] == 'X') {
-                    score += 10;
-                }
-                if (bowls[ball + 1] == 'X') {
-                    score += 10;
+                totalScore += (bowls[i+1] == 'X') ? 10 : (bowls[i+1] - '0');
+                if (bowls[i+2] == '/') {
+                    totalScore += 10 - (bowls[i+1] == 'X' ? 0 : (bowls[i+1] - '0'));
+                } else if (bowls[i+2] == 'X') {
+                    totalScore += 10;
                 } else {
-                    score += bowls[ball + 1] - '0';
+                    totalScore += (bowls[i+2] == '-' ? 0 : (bowls[i+2] - '0'));
                 }
             }
-            ball++;
             frame++;
-        } else if (c == '/') {
-            score += 10 - first + 5;
+        } else if (bowls[i] == '/') {
+            totalScore += 10 - (bowls[i-1] - '0');
+            totalScore += (bowls[i+1] == 'X') ? 10 : (bowls[i+1] - '0');
             frame++;
-        } else if (c == '-') {
-            frame++;
+        } else if (bowls[i] == '-') {
+            // do nothing for a miss
         } else {
-            if (ball % 2 == 0) {
-                first = c - '0';
-            } else {
-                second = c - '0';
-                if (first + second == 10) {
-                    score += 10;
-                } else {
-                    score += first + second;
-                }
-            }
+            totalScore += bowls[i] - '0';
+            frame++;
         }
-        ball++;
     }
-    return score;
+    
+    return totalScore;
 }
 
 int main() {
     string bowls;
     cin >> bowls;
-    cout << getScore(bowls) << endl;
+
+    cout << score(bowls) << endl;
+
     return 0;
 }
