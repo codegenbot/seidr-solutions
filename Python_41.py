@@ -39,5 +39,4 @@ def car_race_collision():
     else:
         return f"Car 1 is moving with a speed of {speed2} km/h and car 2 is moving with a speed of {speed1} km/h."
 
-
 print(car_race_collision())
