@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -22,7 +21,7 @@ int blackPegs(string code, string guess) {
         }
     }
     for (int i = 0; i < 4; i++) {
-        if (count(codeArray.begin(), codeArray.end(), guess[i]) > 0) {
+        if (&*count(&*codeArray.begin(), &*codeArray.end(), guess[i]) > 0) {
             count++;
             codeArray.erase(remove(&*codeArray.begin(), &*codeArray.end(), guess[i]), &*codeArray.end());
         }
@@ -36,4 +35,3 @@ int main() {
     cout << blackPegs(code, guess) << endl;
     cout << whitePegs(code, guess) << endl;
     return 0;
-}
