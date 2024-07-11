@@ -1,4 +1,3 @@
-```python
 def sort_third(l):
     if len(l) < 3:
         return []
