@@ -6,9 +6,9 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int num1, num2;
+    int a, b;
     std::cout << "Enter two integers: ";
-    std::cin >> num1 >> num2;
-    std::cout << "GCD of " << num1 << " and " << num2 << " is " << gcd(num1, num2) << std::endl;
+    std::cin >> a >> b;
+    std::cout << "GCD of " << a << " and " << b << " is " << gcd(a, b) << std::endl;
     return 0;
 }
