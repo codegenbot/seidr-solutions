@@ -1,29 +1,18 @@
 string words_in_sentence(string sentence){
+    vector<string> words = split(sentence, ' ');
     string result = "";
-    int count = 0;
-    for(int i=0; i<sentence.length(); i++){
-        if(sentence[i] == ' '){
-            count++;
-        }
-        else{
-            if(count > 0){
-                if(isPrime(stoi(&sentence[i-count]))){
-                    result += &sentence[i-count];
-                    while (&sentence[i] != &sentence[i-count]+1 && &sentence[i] != ' '){
-                        i++;
-                    }
-                }
-                count = 0;
-            }
+    for(auto word : words){
+        if(is_prime(word.length())){
+            result += word + " ";
         }
     }
-    return result;
+    return result.substr(0, result.length()-1);
 }
 
-bool isPrime(int num) {
-    if (num <= 1) return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) return false;
+bool is_prime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
     }
     return true;
 }
