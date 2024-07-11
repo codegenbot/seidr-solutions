@@ -1,32 +1,25 @@
-bool evalBoolExpr(string expr) {
-    stack<char> stk;
-    for (char c : expr) {
-        if (c == 'T' || c == 'F') {
-            stk.push(c);
-        } else if (c == '&') {
-            char operand2 = stk.top(); stk.pop();
-            char operand1 = stk.top(); stk.pop();
-            if (operand1 == 'T' && operand2 == 'T') {
-                stk.push('T');
-            } else {
-                stk.push('F');
-            }
-        } else if (c == '|') {
-            char operand2 = stk.top(); stk.pop();
-            char operand1 = stk.top(); stk.pop();
-            if (operand1 == 'T' || operand2 == 'T') {
-                stk.push('T');
-            } else {
-                stk.push('F');
+int solveBoolean(string expr) {
+    stack<char> st;
+    for(char c : expr) {
+        if (c == 't' || c == 'f') {
+            st.push(c);
+        } else {
+            char op1 = st.top(); st.pop();
+            char op2 = st.top(); st.pop();
+            if (c == '|') {
+                st.push((op1 == 't' || op2 == 't') ? 't' : 'f');
+            } else { // c == '&'
+                st.push((op1 == 't' && op2 == 't') ? 't' : 'f');
             }
         }
     }
-    return (stk.top() == 'T');
+    return st.top() == 't';
 }
 
 int main() {
     string expr;
     cin >> expr;
-    cout << (evalBoolExpr(expr) ? "True" : "False") << endl;
+    int result = solveBoolean(expr);
+    cout << (result ? "True" : "False") << endl;
     return 0;
 }
