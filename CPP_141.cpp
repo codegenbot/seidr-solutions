@@ -1,16 +1,18 @@
+```
 std::string file_name_check(std::string filename) {
     int digit_count = 0;
     bool found_dot = false;
-    bool valid_prefix = true;
+    bool valid_prefix = (filename[0] >= '0' && filename[0] <= '9') ? false : true;
 
-    if (!filename.empty()) {
-        for (char c : filename) {
-            if (isdigit(c)) {
-                if (digit_count++ > 3)
-                    return "No";
-            } else if (c == '.') {
-                found_dot = true;
-            } else if (!valid_prefix && !ispunct(c))
+    for (char c : filename) {
+        if (isdigit(c)) {
+            digit_count++;
+            if (digit_count > 3)
+                return "No";
+        } else if (c == '.') {
+            found_dot = true;
+        } else {
+            if (digit_count > 0)
                 valid_prefix = false;
         }
     }
