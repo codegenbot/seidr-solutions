@@ -1,4 +1,5 @@
-def double_the_difference(lst):
-    result = sum(i**2 for i in lst if isinstance(i, int) and i > 0)
-    assert result == 29, f"Expected double the difference of {lst} to be {29} but got {result}"
-    return result
+def double_the_difference(numbers):
+    first_half = sorted([n for n in numbers[:len(numbers)//2]])
+    second_half = sorted([n for n in numbers[len(numbers)//2:]]
+    
+    return (first_half[-1] - second_half[0]) * 2

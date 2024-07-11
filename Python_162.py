@@ -2,9 +2,9 @@
 import hashlib
 
 def string_to_md5():
-    text = input("Please enter a string: ")
-    if not text:
+    text = input("Please enter some text: ")
+    if text:
+        md5_hash = hashlib.md5(text.encode()).hexdigest()
+        return md5_hash
+    else:
         return None
-    return hashlib.md5(text.encode()).hexdigest()
-
-print(string_to_md5())
