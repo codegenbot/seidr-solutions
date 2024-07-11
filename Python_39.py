@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```
 def prime_fib(n: int):
     def is_prime(num: int):
         if num < 2:
