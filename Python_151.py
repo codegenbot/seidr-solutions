@@ -1,3 +1,6 @@
+```
 def double_the_difference(list1, list2):
-    return 2 * abs(max(list1) - max(list2))
-print(double_the_difference([1, 3, 5], [2, 4, 6]) == (max(2,4,6) - min(1,3,5)) * 2)
+    difference = abs(max(list2) - min(list1))
+    return difference * 2
+
+print(double_the_difference([int(x) for x in input("Enter the first list of numbers: ").split(",")], [int(x) for x in input("Enter the second list of numbers: ").split(",")]))
