@@ -6,11 +6,11 @@ int basement(vector<int> nums) {
     long long sum = 0;
     int negIndex = nums.size();
     for (int i = 0; i < nums.size(); ++i) {
-        if (sum + nums[i] < 0) { // Handle integer overflow
+        sum += nums[i];
+        if (sum < 0) {
             negIndex = i;
             break;
         }
-        sum += nums[i];
     }
     return negIndex;
 }
