@@ -1,4 +1,7 @@
-Here is the solution:
+```
+from typing import List
+import math
+
 
 def factorize(n: int) -> List[int]:
     factors = []
@@ -7,11 +10,10 @@ def factorize(n: int) -> List[int]:
         if n % i:
             i += 1
         else:
-            count = 0
+            n //= i
             while n % i == 0:
                 n //= i
-                count += 1
-            factors.append(i for _ in range(count))
+                factors.append(i)
     if n > 1:
         factors.append(n)
-    return factors
+    return sorted(factors)
