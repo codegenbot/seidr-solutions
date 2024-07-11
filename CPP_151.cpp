@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -18,7 +17,7 @@ long long double_the_difference(vector<double> lst) {
 
 int main() {
     vector<double> lst; 
-    int odd_sum = 0;
+    double odd_sum = 0;
     
     cout << "Enter numbers (enter 'stop' to finish):" << endl;
     while(1) {
