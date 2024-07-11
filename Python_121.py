@@ -1,2 +1,2 @@
 def solution(lst):
-    return sum(i for i in lst if len(lst) % 2 != 0 or lst.index(i) % 2 != 0) / len(lst)
+    return sum(i for i in lst if (len(lst) % 2 != 0 or idx % 2 != 0) for idx, _ in enumerate(lst)) / len(lst)
