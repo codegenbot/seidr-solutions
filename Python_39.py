@@ -1,5 +1,5 @@
 ```
-def is_prime(num: int) -> bool:
+def is_prime(num: int):
     if num < 2:
         return False
     for i in range(2, int(num ** 0.5) + 1):
@@ -7,12 +7,13 @@ def is_prime(num: int) -> bool:
             return False
     return True
 
-def prime_fib(n: int) -> int:
-    a, b = 0, 1
-    count = 0
+def prime_fib(n: int):
+    a = b = 1
+    result = 1
+    counter = 0
     while True:
         a, b = b, a + b
         if is_prime(b):
-            count += 1
-            if count == n:
+            counter += 1
+            if counter == n:
                 return b
