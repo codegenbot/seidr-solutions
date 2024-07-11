@@ -1,6 +1,6 @@
-```
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 int max_value_function() {
     std::vector<std::pair<int, int>> p;
