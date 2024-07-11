@@ -26,10 +26,3 @@ vector<int> make_a_pile(int n){
     }
     return result;
 }
-
-int main(){
-    vector<int> expected = {5, 6, 8, 10, 12};
-    vector<int> result = make_a_pile(5);
-    assert(issame(expected, result));
-    return 0;
-}
