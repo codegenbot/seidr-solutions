@@ -9,7 +9,7 @@ bool issame(vector<float> a, vector<float> b) {
     return a == b;
 }
 
-vector<float> sort_even(vector<float> l) {
+void sort_even(vector<float> &l) {
     vector<float> even_values;
     vector<float> sorted_even_values;
     for (int i = 0; i < l.size(); i++) {
@@ -26,14 +26,11 @@ vector<float> sort_even(vector<float> l) {
             sorted_even_index++;
         }
     }
-    return l;
 }
 
 int main() {
-    vector<float> values = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    vector<float> temp = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    temp = sort_even(temp);
-    vector<float> expected_output = {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10};
-    assert(issame(temp, expected_output));
+    vector<float> test_values = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    sort_even(test_values);
+    assert(issame(test_values, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
