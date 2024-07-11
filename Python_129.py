@@ -1,5 +1,11 @@
-```
+Here is the corrected code:
+
+```Python
 def minPath():
+    """Solve the problem by finding the minimum path sum in a grid.
+    The grid size (n) and k are input from user.
+    Then, for each cell in the grid, find the minimum path sum starting from that cell with length k.
+    Return the minimum path sum found."""
     while True:
         try:
             n = int(input("Enter the size of the grid: "))
@@ -20,6 +26,11 @@ def minPath():
         except ValueError:
             print("Invalid input. Please enter an integer.")
 
+    m = [
+        [int(input(f"Enter value at row {i}, column {j}: ")) for j in range(1, n + 1)]
+        for i in range(1, n + 1)
+    ]
+
     def dfs(i, j, path, visited, m, k):
         if len(path) == k:
             return sum(path)
@@ -28,7 +39,6 @@ def minPath():
         for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             ni, nj = i + x, j + y
             if 1 <= ni <= n and 1 <= nj <= n and (ni, nj) not in visited:
-                m[ni] = [int(input(f"Enter value at row {ni}, column {nj}: ")) for _ in range(1, n + 1)]
                 new_path = dfs(ni, nj, path + [m[ni][nj]], visited.copy(), m, k)
                 if min_path is None or new_path < min_path:
                     min_path = new_path
