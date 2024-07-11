@@ -12,6 +12,6 @@ int main() {
     }
 
     cout << snow_on_ground << '\n';
-    
+
     return 0;
 }
