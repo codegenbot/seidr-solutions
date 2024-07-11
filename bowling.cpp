@@ -24,12 +24,30 @@ int calculateScore(string s) {
             frame++;
         } else if (s[i] == '/') {
             total += 10 - (s[i-1] - '0');
+            if (s[i+1] == 'X' || s[i+1] == '/') {
+                total += 10;
+            } else {
+                total += s[i+1] - '0';
+            }
+            i++;
+            frame++;
         } else if (s[i] >= '1' && s[i] <= '9') {
             total += s[i] - '0';
+            if (s[i+1] == '/') {
+                total += 10 - (s[i] - '0');
+            }
+            frame++;
         }
         if (frame == 10) {
             break;
         }
     }
     return total;
+} 
+
+int main() {
+    string s;
+    cin >> s;
+    cout << calculateScore(s) << endl;
+    return 0;
 }
