@@ -34,12 +34,17 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 }
 
 int main() {
-    vector<float> input_numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
-    vector<float> rescaled_numbers = rescale_to_unit(input_numbers);
+    vector<float> numbers = {1.0, 2.0, 3.0, 4.0};
     
-    vector<float> expected_output = {0.0, 0.25, 0.5, 0.75, 1.0};
+    vector<float> rescaled_numbers = rescale_to_unit(numbers);
     
-    bool result = issame(rescaled_numbers, expected_output);
+    vector<float> expected_rescaled_numbers = {0.0, 0.333333, 0.666667, 1.0};
+    
+    if (issame(rescaled_numbers, expected_rescaled_numbers)) {
+        cout << "Test Passed!" << endl;
+    } else {
+        cout << "Test Failed!" << endl;
+    }
     
     return 0;
 }
