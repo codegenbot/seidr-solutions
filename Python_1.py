@@ -21,14 +21,12 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     groups = ""
             else:
                 return []
-        elif c == ")" and stack:
-            while stack:
-                groups += stack.pop()
-            result.append(groups + c)
-            groups = ""
         elif c == "(" and not stack:
-            result.append(groups + c)
-            groups = ""
+            if groups:
+                result.append(groups + c)
+                groups = ""
+            else:
+                result.append(c)
     if stack:
         return []
     return [groups] + result
