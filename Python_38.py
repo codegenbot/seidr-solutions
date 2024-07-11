@@ -1,3 +1,4 @@
+```
 def decode_cyclic(s: str):
     max_len = 3 - len(s) % 3 if len(s) % 3 != 0 else 0
     s += 'x' * max_len  
