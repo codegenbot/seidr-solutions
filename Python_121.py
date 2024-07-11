@@ -1,2 +1,2 @@
 def solution(lst):
-    return sum(i for i in lst[1::2] if i % 2 == 0) != 0
+    return all(i % 2 == 0 for i in lst)
