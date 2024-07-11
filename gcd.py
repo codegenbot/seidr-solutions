@@ -1,4 +1,6 @@
 def gcd(a, b):
     while b:
         a, b = b, a % b
-    return a if a != 0 else max(abs(a), abs(b))
+    if a == 1:
+        return 1
+    return a
