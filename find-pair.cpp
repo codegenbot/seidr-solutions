@@ -1,4 +1,6 @@
 #include <utility>
+#include <vector>
+#include <unordered_map>
 
 std::pair<int, int> findPair(vector<int>& nums, int target) {
     unordered_map<int, int> numMap;
@@ -10,10 +12,5 @@ std::pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numMap[nums[i]] = i;
     }
-    for (const auto& pair : pairs) {
-        if (pair.first <= pair.second) {
-            return pair;
-        }
-    }
-    return pair<int, int>(0, 0);
-}
+    sort(pairs.begin(), pairs.end());
+    return pairs[0];
