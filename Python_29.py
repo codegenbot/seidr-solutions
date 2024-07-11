@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -31,4 +30,4 @@ try:
 except Exception as e:
     print(f"An error occurred: {e}")
     exit(1)
-filter_by_prefix([str(x) for x in strings], str(prefix))
+filter_by_prefix([str(x) for x in strings], prefix)

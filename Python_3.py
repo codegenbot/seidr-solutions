@@ -14,11 +14,11 @@ def below_zero(operations: List[str]) -> bool:
     return False
 
 
-while True:
-    operations = input("Enter space separated operations (e.g., -5 +3 -2): ")
-    operations = [op.strip() for op in operations.split(' ') if op.strip()]
-    while "" in operations:
-        operations.remove("")
-    if len(operations) > 0:
-        break
-print(below_zero([op for op in operations]))
+ops = []
+for op in input().split():
+    if op: 
+        ops.append(op.strip())
+while len(ops) > 1: 
+    for i in range(len(ops)-1, -1, -1):
+        ops.pop() 
+print(below_zero(ops))
