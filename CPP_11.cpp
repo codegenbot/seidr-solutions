@@ -11,15 +11,10 @@ string string_xor(string a, string b) {
         }
     }
     return result;
+
 }
 
 int main() {
-    string a, b;
-    cout << "Enter the first string: ";
-    cin >> a;
-    cout << "Enter the second string: ";
-    cin >> b;
-    string output = string_xor(a, b);
-    cout << "The XOR of the two strings is: " << output << endl;
+    assert(string_xor("0101", "0000") == "0101");
     return 0;
 }
