@@ -1,6 +1,5 @@
-```
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 int luhn(int cardNumber) {
     int sum = 0;
@@ -12,10 +11,10 @@ int luhn(int cardNumber) {
         cardNumber /= 10;
     }
     
-    for (int i = numbers.size() - 1; i > 0; --i) {
-        int digit = numbers[i-1];
+    for (int i = numbers.size() - 1; i >= 0; --i) {
+        int digit = numbers[i];
 
-        if ((numbers.size() % 2 == 0 && i % 2 != 0) || (numbers.size() % 2 != 0 && i % 2 == 0)) { 
+        if ((numbers.size() % 2 == 1 && i % 2 == 1) || (numbers.size() % 2 == 0 && i % 2 == 0)) { 
             digit *= 2;
             if (digit > 9) {
                 digit -= 9;
@@ -29,8 +28,7 @@ int luhn(int cardNumber) {
 }
 
 int main() {
-    int cardNumber = 1234; // replace with your credit card number
-    std::cout << "Luhn check for: " << cardNumber << std::endl;
-    std::cout << "Result: " << luhn(cardNumber) << std::endl;
+    int cardNumber = 14946721334973;  
+    std::cout << "The Luhn checksum for this card is: " << luhn(cardNumber) << std::endl;
     return 0;
 }
