@@ -3,8 +3,6 @@ from typing import Tuple
 import statistics
 
 def calculate_average_and_median() -> Tuple[float, float]:
-    average = 0
-    median = float('nan')
     while True:
         try:
             user_input = input("Enter numbers separated by space (or type 'q' to quit): ")
@@ -13,8 +11,7 @@ def calculate_average_and_median() -> Tuple[float, float]:
             numbers = [int(num) for num in user_input.split() if num.replace('-', '',).replace('.', '').isnumeric()]
             if len(numbers) < 2:
                 print("Median can only be calculated with at least two unique numbers. Average will be returned instead.")
-                average = sum(numbers) / len(numbers)
-                return average, median
+                return sum(numbers) / len(numbers), float('nan')
             else:
                 average = sum(numbers) / len(numbers)
                 median = statistics.median(sorted(set(numbers)))
