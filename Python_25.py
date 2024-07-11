@@ -1,3 +1,4 @@
+```
 from typing import List
 import math
 
@@ -14,8 +15,9 @@ def main():
                 n //= i
                 count += 1
             factors.append(i ** count)
+            i = 2  
     if n > 1:
         factors.append(n)
     return factors
 
-print(main())
+print(main()[0])
