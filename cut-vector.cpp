@@ -1,16 +1,18 @@
-#include <climits>
 #include <iostream>
+#include <climits>
 #include <vector>
-#include <cmath>
-
-using namespace std;
 
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int num;
     
-    while (cin >> num) {
+    while (std::cin >> num) {
         nums.push_back(num);
+    }
+
+    if (std::cin.fail()) {
+        std::cin.clear();
+        std::cin.ignore(INT_MAX, '\n');
     }
     
     int n = nums.size();
@@ -35,13 +37,13 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
     
-    cout << 0 << endl;
+    std::cout << "------------" << std::endl;
     
     for (int i = cutIndex + 1; i < n; i++) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
     
     return 0;
