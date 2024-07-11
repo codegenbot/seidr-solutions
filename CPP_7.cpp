@@ -42,4 +42,3 @@ int main() {
         cout << "The filtered array is different from the original array.\n";
     
     return 0;
-}
