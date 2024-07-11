@@ -1,5 +1,4 @@
-```
-def decode_shift(s: str):
+def decode_shift(s):
     if s.startswith("25-"):
         shift = int(s[3:])
         s = s[4:]
