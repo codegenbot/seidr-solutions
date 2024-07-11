@@ -1,4 +1,4 @@
-def find_zero(xs):
+def find_zero(xs: list):
     if len(xs) % 2 != 0:
         raise ValueError("List xs must have even number of coefficients")
     a = xs[-1]
