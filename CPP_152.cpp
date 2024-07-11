@@ -3,8 +3,10 @@
 
 using namespace std;
 
-pair<int, int> compare(vector<int> a, vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return {a.size(), b.size()};
+pair<bool, vector<int>> compare(vector<int> a, vector<int> b) {
+    if (lexicographical_compare(a.begin(), a.end(), b.begin(), b.end())) {
+        return {true, a};
+    } else {
+        return {false, b};
+    }
 }
