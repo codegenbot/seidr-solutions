@@ -2,7 +2,15 @@
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b){
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> strange_sort_list(vector<int> lst){
@@ -21,6 +29,6 @@ vector<int> strange_sort_list(vector<int> lst){
 }
 
 int main() {
-    // Add your main function code here
+    // Your main function code here
     return 0;
 }
