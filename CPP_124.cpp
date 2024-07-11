@@ -3,12 +3,12 @@ using namespace std;
 
 bool valid_date(string date) {
     // Check if date string is empty
-    if (date.empty()) {
+ 	if (date.empty() || date.find('-') == string::npos) {
         return false;
     }
 
     int month, day, year;
-    if (sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3 || date.find('-') == string::npos) {
+    if (sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3) {
         return false;
     }
 
