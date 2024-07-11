@@ -1,3 +1,9 @@
+```cpp
+#include <sstream>
+#include <iomanip>
+
+using namespace std;
+
 string string_to_md5(string text) {
     if (text.empty()) return "";
     
@@ -8,8 +14,8 @@ string string_to_md5(string text) {
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         stringstream ss;
         ss << hex << setfill('0') << setw(2) << (int)md5[i];
-        ss >> ws; 
-        result += ss.str(); 
+        ss >> ws; // consume leading whitespace
+        result += ss.str(); // add the converted string to the result
     }
     
     return result;
