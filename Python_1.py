@@ -1,5 +1,5 @@
-```
 from typing import List
+
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
@@ -7,23 +7,23 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     groups = ""
 
     for c in paren_string:
-        if c == ' ':
+        if c == " ":
             continue
-        if c == '(':
+        if c == "(":
             stack.append(c)
             groups += c
-        elif c == ')':
-            if stack and stack[-1] == '(':
+        elif c == ")":
+            if stack and stack[-1] == "(":
                 stack.pop()
                 groups += c
                 if not stack:
-                    result.append(groups + ')')
+                    result.append(groups[1:])
                     groups = ""
             else:
                 return []
-        elif c == '(' and not stack:
+        elif c == "(" and not stack:
             return []
 
     if stack:
         return []
-    return [groups + ')'] + result
+    return [groups] + result
