@@ -2,18 +2,6 @@
 #include <string>
 #include <iostream>
 
-int main() {
-    std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
-    
-    if (is_palindrome(input)) {
-        std::cout << "The string is a palindrome." << std::endl;
-    } else {
-        std::cout << "The string is not a palindrome." << std::endl;
-    }
-}
-
 bool is_palindrome(std::string s) {
     int start = 0;
     int end = s.length() - 1;
@@ -25,4 +13,16 @@ bool is_palindrome(std::string s) {
         end--;
     }
     return true;
+}
+
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::cin >> input;
+    
+    if (is_palindrome(input)) {
+        std::cout << "The string is a palindrome." << std::endl;
+    } else {
+        std::cout << "The string is not a palindrome." << std::endl;
+    }
 }
