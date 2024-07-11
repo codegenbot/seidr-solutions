@@ -1,21 +1,17 @@
-```Python
+```
 import re
 
 def fix_spaces(text):
-    text = re.sub(r'\s+', ' ', text)
-    return text.strip()
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
 
 print("Welcome to the space fixing program!")
 
 text = ""
 while True:
-    try:
-        line = input("Enter a line of text (or 'q' if you're done): ")
-    except:
-        print(fix_spaces(text))
-        break
+    line = input("Enter a line of text (or 'q' if you're done): ")
     if line.lower() == 'q':
-        print(fix_spaces(text))
         break
     text += line + " "
+text = text.strip().replace("   ", " ").strip()
 print(fix_spaces(text))
