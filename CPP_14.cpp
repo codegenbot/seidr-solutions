@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 
 vector<string> all_prefixes(string b){
     vector<string> result;
