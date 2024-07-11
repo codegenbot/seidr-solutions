@@ -17,10 +17,8 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     return result;
 }
 
-namespace contest {
-    bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-        return std::equal(a.begin(), a.end(), b.begin(), b.end());
-    }
+bool contest::issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 int main() {
