@@ -1,4 +1,3 @@
-```
 def main():
     while True:
         xs = input("Enter coefficients separated by spaces: ").split()
@@ -7,7 +6,9 @@ def main():
         ):
             xs = [float(x) for x in xs]
             break
-        print("Invalid input. Please enter exactly three or four coefficients, separated by spaces.")
+        print(
+            "Invalid input. Please enter exactly three or four coefficients, separated by spaces."
+        )
 
     import math
 
