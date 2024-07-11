@@ -1,5 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
 
 std::vector<int> pluck(std::vector<int> arr) {
     std::vector<int> result;
