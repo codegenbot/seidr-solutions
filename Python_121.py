@@ -1,3 +1,3 @@
 ```
 def solution(lst):
-    return sum(i for i in lst if i != 0)
+    return sum(i for i in lst if str(i) in '13579')
