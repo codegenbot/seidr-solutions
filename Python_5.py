@@ -1,6 +1,11 @@
-def create_string(numbers, delimiter):
+def concatenate_with_delimeter(numbers, delimeter):
     result = []
     for num in numbers:
-        result.extend([str(num), delimiter])
+        result.extend([num, delimeter])
     result.pop()
-    return ''.join(result)
+    return result
+
+numbers = [1, 2, 3, 4]
+delimeter = "-"
+output = concatenate_with_delimeter(numbers, delimeter)
+print(output)
