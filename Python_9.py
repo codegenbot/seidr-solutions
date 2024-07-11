@@ -1,10 +1,5 @@
-```python
+```
 from typing import List
-
-
-def rolling_max():
-"""from typing import List
-
 
 def rolling_max():
     result = []
@@ -24,4 +19,4 @@ def rolling_max():
                 break
             temp_result = [max(numbers[:i+1]) for i in range(len(numbers))]
             result.extend(temp_result)
-    return result"""]
+    return result
