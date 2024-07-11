@@ -1,9 +1,10 @@
-numbers = list(map(int, input().strip().split()))
 def sum_product(numbers):
-    total_sum = sum(numbers)
-    total_product = 1
+    sum_nums = sum(numbers)
+    product_nums = 1
     for num in numbers:
-        total_product *= num
-    return total_sum, total_product
+        product_nums *= num
+    return sum_nums, product_nums
+
+numbers = list(map(int, input().strip().split()))
 result = sum_product(numbers)
 print(*result)
