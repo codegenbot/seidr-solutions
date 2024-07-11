@@ -1,5 +1,7 @@
-def double_the_difference(lst1, lst2):
-    difference = abs(max(lst1) - min(lst2))
+def double_the_difference(list1, list2):
+    min_val = min(min(list1), min(list2))
+    max_val = max(max(list1), max(list2))
+    difference = abs(min_val - max_val)
     return difference * 2
 
 
