@@ -20,10 +20,7 @@ def minPath():
         except ValueError:
             print("Invalid input. Please enter an integer.")
 
-    m = [
-        [int(input(f"Enter value at row {i}, column {j}: ")) for j in range(1, n + 1)]
-        for i in range(1, n + 1)
-    ]
+    m = [[int(input(f"Enter value at row {i}, column {j}: ")) for j in range(1, n + 1)] for i in range(1, n + 1)]
 
     def dfs(i, j, path, visited, m, k):
         if len(path) == k:
