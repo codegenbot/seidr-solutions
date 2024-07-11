@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int main() {
     int n;
     cin >> n;
@@ -7,7 +11,7 @@ int main() {
     }
     int sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum += (vec[i] / 3) - 2;
+        sum += vec[i] / 3 - 2;
     }
     cout << sum;
     return 0;
