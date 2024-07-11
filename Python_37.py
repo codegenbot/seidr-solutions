@@ -1,8 +1,8 @@
-def merge(evens, odds):
-    i = j = 0
+def sort_by_type(evens, odds):
     result = []
-    while i < len(evens) and j < len(odds):
-        if -abs(odds[j]) >= evens[i]:
+    i = j = 0
+    while i < len(evens) or j < len(odds):
+        if j >= len(odds) or (i < len(evens) and -abs(odds[j-1]) > evens[i]):
             result.append(evens[i])
             i += 1
         else:
