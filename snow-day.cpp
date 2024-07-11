@@ -1,4 +1,4 @@
-#include <algorithm>
+#include <initializer_list>
 
 float snowDay(int hours, float groundSnow, float rate, float melt) {
     float totalSnow = groundSnow;
