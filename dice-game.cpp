@@ -1,3 +1,7 @@
 double getProbability(int n, int m) {
-    return 1.0 * (n - 1) / (n * m) + (n * m - (n - 1)) / (n * m);
+    double probability = 0;
+    for (int i = m + 1; i < n; ++i) {
+        probability += (double)(n - i) / (n * m);
+    }
+    return probability;
 }
