@@ -1,11 +1,6 @@
-def process_numbers(numbers, delimiter):
+def join_with_delimeter(numbers, delimeter):
     result = []
     for num in numbers:
-        result.extend([num, delimiter])
+        result.extend([num, delimeter])
     result.pop()
     return result
-
-numbers = [1, 2, 3, 4, 5]
-delimiter = ","
-output = process_numbers(numbers, delimiter)
-print(output)
