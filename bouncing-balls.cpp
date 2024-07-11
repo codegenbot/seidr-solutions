@@ -9,7 +9,7 @@ int main() {
     std::cin >> start_height;
     std::cin >> first_bounce_height;
 
-    std::replace(first_bounce_height.begin(), first_bounce_height.end(), ',', '.');
+    std::replace_if(first_bounce_height.begin(), first_bounce_height.end(), [](char c) { return c == ','; }, '.');
 
     std::cin >> num_bounces;
 
