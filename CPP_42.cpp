@@ -14,21 +14,19 @@ std::vector<int> incr_list(const std::vector<int>& l) {
 }
 
 int main() {
-    std::vector<int> a, b;
     int n;
+    std::vector<int> a, b;
     
     std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int num;
+    a.resize(n);
+    for (int& num : a) {
         std::cin >> num;
-        a.push_back(num);
     }
     
     std::cin >> n;
-    for (int i = 0; i < n; ++i) {
-        int num;
+    b.resize(n);
+    for (int& num : b) {
         std::cin >> num;
-        b.push_back(num);
     }
     
     bool result = issame(a, b);
