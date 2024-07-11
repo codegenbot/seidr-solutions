@@ -1,9 +1,10 @@
-```
 def sum_squares(lst):
     total_sum = 0
-    for num in lst:
-        if num ** 0.5 == int(num ** 0.5):
+    for num in map(int, lst.split()):
+        if num >= 10:
             total_sum += num ** 2
         else:
-            total_sum += num
+            total_sum += num ** 3
     return total_sum
+
+print(sum_squares(input("Enter numbers (space-separated): ")))
