@@ -1,12 +1,13 @@
-transform(message.begin(), message.end(), message.begin(), [](char c) {
+for(char &c : message){
         if(isalpha(c)){
-            c = isupper(c) ? tolower(c) : toupper(c);
-            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-                c = (char)(c + 2);
+            c = toupper(c);
+            if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+                c = c + 2;
+            }
+            if(c > 'Z'){
+                c = c - 26;
             }
         }
-        return c;
-    });
-
+    }
     return message;
 }
