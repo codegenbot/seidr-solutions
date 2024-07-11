@@ -1,23 +1,23 @@
-```c++
 #include <iostream>
 #include <string>
 
 std::string camelCase(const std::string& input) {
     std::string output;
     bool firstWord = true;
-    char nextChar;
 
+    char nextChar = ' '; // Initialize the next character as a space
     for (char c : input) {
         if (c == '-') {
             if (!firstWord) {
                 output.push_back(char(toupper(c)));
             } else {
                 firstWord = false;
-                if ((nextChar = input[output.size()]) != ' ') { 
-                    output += char(tolower(nextChar));
+                if (nextChar != ' ') { 
+                    output += char(tolower(input[output.size()]));
                 }
             }
         } else if (c == ' ') {
+            nextChar = c; // Update the next character
             continue;
         } else {
             if (!firstWord) {
