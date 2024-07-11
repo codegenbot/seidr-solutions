@@ -1,16 +1,15 @@
-int even_count = 0;
-        int odd_count = 0;
+vector<int> count = {0, 0};
         for (int i = 1; i <= n; ++i) {
-            string num_str = to_string(i);
-            string rev_num_str = num_str;
-            reverse(rev_num_str.begin(), rev_num_str.end());
-            if (num_str == rev_num_str) {
+            string num = to_string(i);
+            string rev_num = num;
+            reverse(rev_num.begin(), rev_num.end());
+            if (num == rev_num) {
                 if (i % 2 == 0) {
-                    even_count++;
+                    count[0]++;
                 } else {
-                    odd_count++;
+                    count[1]++;
                 }
             }
         }
-        return {even_count, odd_count};
+        return count;
     }
