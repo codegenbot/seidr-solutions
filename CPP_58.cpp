@@ -9,8 +9,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
-    // existing code here
-
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
     std::vector<int> result;
@@ -21,8 +19,6 @@ std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
 }
 
 int main() {
-    // existing code here
-
     assert(issame(common({4, 3, 2, 8}, {}), {}));
 
     return 0;
