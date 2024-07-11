@@ -1,10 +1,10 @@
+#include <iostream>
 #include <string>
+#include <cassert>
 
-string words_in_sentence(string sentence);
-
-string words_in_sentence(string sentence){
-    string result = "";
-    string word = "";
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    std::string word = "";
     for(char c : sentence){
         if(c == ' '){
             if(word.length() > 1){
@@ -37,4 +37,9 @@ string words_in_sentence(string sentence){
         }
     }
     return result;
+}
+
+int main() {
+    assert (words_in_sentence("here is") == "is");
+    return 0;
 }
