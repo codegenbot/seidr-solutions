@@ -1,19 +1,15 @@
-```
-def valid_date(date):
-    day, month, year = date.split('-')
-    if len(day) > 2 or len(month) > 2:
+def is_valid_date(date):
+    try:
+        day, month, year = map(int, date.split('-'))
+        if month < 1 or month > 12:
+            return False
+        if not ((month % 4 == 0 and month % 100 != 0) or month in [1,3,5,7,8,10,12]) and day > 31:
+            return False
+        elif (month % 4 == 0 and month % 100 != 0) and day > 29:
+            return False
+        elif month == 2 and day > 29:
+            return False
+        else:
+            return True
+    except ValueError:
         return False
-    if int(month) < 1 or int(month) > 12:
-        return False
-    days_in_month = [31,28,31,30,31,30,31,31,30,31,30,31]
-    if int(month) == 2 and int(day) > 29:
-        return False
-    if int(month) in (1,3,5,7,8,10,12) and int(day) > 31:
-        return False
-    if int(month) in (4,6,9,11) and int(day) > 30:
-        return False
-    if int(month) == 2 and int(day) > 29:
-        return False
-    if int(month) not in range(1,13):
-        return False
-    return True
