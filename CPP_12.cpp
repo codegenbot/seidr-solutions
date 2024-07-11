@@ -5,6 +5,9 @@ string longest(vector<string> strings){
         if(s.length() > result.length()){
             result = s;
         }
+        else if(s.length() == result.length()){
+            result = s;
+        }
     }
     return result;
 }
