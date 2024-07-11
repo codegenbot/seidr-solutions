@@ -25,12 +25,21 @@ int whitePegs(std::string code, std::string guess) {
 int blackPegs(std::string code, std::string guess) {
     int count = 0;
     for (int i = 0; i < 4; i++) {
-        if (guess[i] == code[i]) {
+        bool inCode = false;
+        bool inGuess = false;
+        for (int j = 0; j < 4; j++) {
+            if (code[j] == guess[i]) {
+                inCode = true;
+            }
+            if (guess[j] == guess[i]) {
+                inGuess = true;
+            }
+        }
+        if (inCode && inGuess) {
             count++;
         }
     }
     return count;
-
 }
 
 int main() {
