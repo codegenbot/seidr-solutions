@@ -21,4 +21,5 @@ int main() {
     else
         cout << "The triangle is not right-angled." << endl;
 
-    return 0;
+    return 0; 
+}
