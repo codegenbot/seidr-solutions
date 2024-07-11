@@ -10,7 +10,7 @@ int main() {
     for (char &c : message) {
         size_t index = cipher1.find(c);
         if (index != string::npos) {
-            c = cipher2[index];
+            c = cipher2[cipher1.find(c)];
         }
     }
 
