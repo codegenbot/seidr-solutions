@@ -11,14 +11,14 @@ string remove_vowels(string text){
         char c = tolower(text[i]);
         if(c >= 'a' && c <= 'z'){
             if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
-                result += text[i]; // Assign the character
+                result += text[i]; 
             }
         }
     }
     return result;
 }
 
-int main(){
+int main() {
     string text;
     cout << "Enter a sentence: ";
     getline(cin, text);
