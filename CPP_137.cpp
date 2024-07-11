@@ -1,29 +1,18 @@
-#include <iostream>
-#include<string>
-#include<boost/any.hpp>
-
-using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return boost::any_cast<int>(a) > boost::any_cast<int>(b)
-            ? b : (boost::any_cast<int>(a) < boost::any_cast<int>(b) ? a : boost::any("None"));
-    }
-    else if ((a.type() == typeid(float) || a.type() == typeid(double)) &&
-             (b.type() == typeid(float) || b.type() == typeid(double))) {
-        return boost::any_cast<double>(a) > boost::any_cast<double>(b)
-            ? b : (boost::any_cast<double>(a) < boost::any_cast<double>(b) ? a : boost::any("None"));
-    }
-    else if ((a.type() == typeid(string)) && (b.type() == typeid(string))) {
-        string strA = boost::any_cast<string>(a);
-        string strB = boost::any_cast<string>(b);
-
-        if (strA > strB) return b;
-        else if (strA < strB) return a;
-        else return boost::any("None");
-    }
-    else {
-        cout << "Invalid input type. Please enter integers, floats or strings." << endl;
-        return boost::any();
+    if (is_any_of<string>(a)) {
+        string strA = any_cast<string>(a);
+        if (is_any_of<string>(b)) {
+            string strB = any_cast<string>(b);
+            return (stod(strB) > stod(strA)) ? b : ((stod(strB) < stod(strA)) ? a : boost::any("None"));
+        } else {
+            return (stod(any_cast<string>(b).c_str()) > stod(strA)) ? b : ((stod(any_cast<string>(b).c_str()) < stod(strA)) ? a : boost::any("None"));
+        }
+    } else if (is_any_of<float>(a)) {
+        float fA = any_cast<float>(a);
+        return (is_any_of<float>(b)) ? (fA > any_cast<float>(b) ? b : (fA < any_cast<float>(b) ? a : boost::any("None"))) : ((stod(any_cast<string>(b).c_str())) > fA) ? b : ((stod(any_cast<string>(b).c_str())) < fA) ? a : boost::any("None");
+    } else {
+        return (is_any_of<float>(b)) ? (any_cast<float>(a) > b ? b : (any_cast<float>(a) < b ? a : boost::any("None"))) : ((stod(any_cast<string>(b).c_str())) > any_cast<float>(a)) ? b : ((stod(any_cast<string>(b).c_str())) < any_cast<float>(a)) ? a : boost::any("None");
     }
 }
