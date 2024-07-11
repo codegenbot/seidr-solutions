@@ -1,26 +1,10 @@
-string result = s;
-    int n = s.size();
-    bool has_letter = false;
-
-    for (int i = 0; i < n; i++) {
-        if (isalpha(s[i])) {
-            has_letter = true;
-            if (islower(s[i])) {
-                result[i] = toupper(s[i]);
-            } else {
-                result[i] = tolower(s[i]);
-            }
+for(char &c : s){
+        if(isalpha(c)){
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-
-    if (!has_letter) {
-        int start = 0, end = n - 1;
-        while (start < end) {
-            swap(result[start], result[end]);
-            start++;
-            end--;
-        }
+    if(all_of(s.begin(), s.end(), [](char c){ return !isalpha(c); })){
+        reverse(s.begin(), s.end());
     }
-
-    return result;
+    return s;
 }
