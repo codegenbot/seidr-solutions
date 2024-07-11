@@ -1,19 +1,15 @@
 #include <vector>
-#include <unordered_set>
+#include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return remove_duplicates(a) == remove_duplicates(b);
-}
-
-std::vector<int> remove_duplicates(const std::vector<int>& v) {
-    std::vector<int> result;
-    std::unordered_set<int> unique;
-    
-    for (int num : v) {
-        if (unique.insert(num).second) {
-            result.push_back(num);
-        }
+namespace std {
+    std::vector<int> remove_duplicates(const std::vector<int>& vec) {
+        std::vector<int> unique_vec = vec;
+        std::sort(unique_vec.begin(), unique_vec.end());
+        unique_vec.erase(std::unique(unique_vec.begin(), unique_vec.end()), unique_vec.end());
+        return unique_vec;
     }
-    
-    return result;
+
+    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+        return remove_duplicates(a) == remove_duplicates(b);
+    }
 }
