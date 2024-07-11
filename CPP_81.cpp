@@ -34,9 +34,9 @@ int main() {
     vector<float> grades = {0, 0.7};
     vector<string> expectedLetterGrades = {"E", "D-"};
     if (!issame(numerical_letter_grade(grades), expectedLetterGrades)) {
-        cout << "Test failed!" << endl;
+        std::cout << "Test failed!" << std::endl;
     } else {
-        cout << "Test passed!" << endl;
+        std::cout << "Test passed!" << std::endl;
     }
     return 0;
 }
