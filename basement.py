@@ -1,3 +1,4 @@
+```python
 import itertools
 
 def basement(input_vector):
