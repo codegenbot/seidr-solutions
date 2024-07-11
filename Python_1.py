@@ -19,4 +19,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 result.append(temp + " ")
                 temp = ""
 
-    return [i.strip() for i in result]
+    return [x.strip() for x in result]
