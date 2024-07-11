@@ -3,13 +3,21 @@
 
 bool issame(std::vector<float> a, std::vector<float> b);
 
-void sort_even(std::vector<float> &l);
+void sort_even(std::vector<float>& l);
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-void sort_even(std::vector<float> &l) {
+void sort_even(std::vector<float>& l) {
     std::vector<float> even_values;
     std::vector<float> sorted_even_values;
     for (int i = 0; i < l.size(); i++) {
