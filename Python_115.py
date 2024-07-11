@@ -27,4 +27,7 @@ def max_water(n, m):
     return total_water
 
 
-print(max_water(int(input("Enter the number of rows: ")), int(input("Enter the number of columns: "))))
+n = int(input("Enter the number of rows: "))
+m = int(input("Enter the number of columns: "))
+
+print(max_water(n, m))
