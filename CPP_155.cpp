@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cassert>
 #include <iostream>
@@ -39,4 +38,3 @@ int main() {
     cout << "Absolute value of the remaining Number: " << odd << endl;
 
     return 0;
-}
