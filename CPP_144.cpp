@@ -1,24 +1,11 @@
 #include <string>
-#include <iostream>
-
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = stoi(getNumerator(x));
-    int b = stoi(getDenominator(x));
-    int c = stoi(getNumerator(n));
-    int d = stoi(getDenominator(n));
+    int a = stoi(substring(x, 1, x.find('/')));
+    int b = stoi(substring(x, x.find('/') + 1));
+    int c = stoi(substring(n, 1, n.find('/')));
+    int d = stoi(substring(n, n.find('/') + 1));
 
     return (a * d) == (b * c);
-}
-
-string getNumerator(string s) {
-    size_t pos = s.find('/');
-    return s.substr(0, pos);
-}
-
-string getDenominator(string s) {
-    size_t pos = s.find '/';
-    string temp = s.substr(pos + 1);
-    return temp;
 }
