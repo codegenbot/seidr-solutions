@@ -1,18 +1,16 @@
 #include <string>
-#include <algorithm>
 
 bool correct_bracketing(const std::string& brackets) {
     int count = 0;
-    std::for_each(brackets.begin(), brackets.end(), [&count] (char c) {
+    for (char c : brackets) {
         if (c == '(') {
             count++;
         } else if (c == ')') {
-            if (count == 0) {
-                count = -1;
-            } else {
-                count--;
-            }
+            count--;
         }
-    });
+        if (count < 0) {
+            return false;
+        }
+    }
     return count == 0;
 }
