@@ -29,4 +29,7 @@ if len(evens) == 0 and len(odds) != 0:
 elif len(odds) == 0 and len(evens) != 0:
     print("Error: No odd numbers entered.")
 else:
-    print(sort_even(evens + odds))
+    if any(not isinstance(x, int) for x in evens + odds):
+        print("Error: Non-integer values entered.")
+    else:
+        print(sort_even(evens + odds))
