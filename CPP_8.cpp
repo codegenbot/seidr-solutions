@@ -1,8 +1,8 @@
 #include <vector>
-#include <utility>
 #include <cassert>
 
-bool issame(std::pair<int, int> a, std::pair<int, int> b) {
+template<typename T>
+bool issame(const std::pair<T, T>& a, const std::pair<T, T>& b) {
     return a == b;
 }
 
