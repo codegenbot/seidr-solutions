@@ -1,8 +1,8 @@
-def filter_by_prefix() -> None:
+def filter_by_prefix(prefix: str) -> None:
     while True:
         try:
             strings = input("Enter strings (comma-separated): ").split(",")
-            filtered_strings = [s.strip() for s in strings if len(strings) > 1 and s.strip()]
+            filtered_strings = [s.strip() for s in strings if len(strings) > 1 and s.strip().startswith(prefix)]
 
             print(filtered_strings)
             break
