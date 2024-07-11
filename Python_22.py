@@ -1,4 +1,7 @@
 from typing import List
 
-def filter_integers(values: List) -> List:
-    pass
+pass
+
+
+def filter_integers(values: List) -> List[int]:
+    return [value for value in values if isinstance(value, int) and 1 <= value <= 100]
