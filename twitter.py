@@ -1,3 +1,4 @@
+```
 def validate_tweet(tweet):
     ascii_tweet = ''.join(c for c in tweet if ord(c) < 128)
     if len(ascii_tweet) > 140:
