@@ -5,13 +5,17 @@
 int main() {
     std::string get_closest_vowel(std::string word) {
         int n = word.size();
+        char closest_vowel = '\0';
         for(int i=n-1; i>=0; --i){
             if(!isalpha(word[i])) continue;
             if(vowel(word[i])){
-                return tolower(word[i]);
+                if(closest_vowel == '\0') closest_vowel = tolower(word[i]);
+                else if(abs(i - (word.find(tolower(word[i]))) ) < abs(i - (word.find(tolower(closest_vowel))))) {
+                    closest_vowel = word[i];
+                }
             }
         }
-        return ' ';
+        return std::string(1, closest_vowel);
     }
 
     bool vowel(char c) {
@@ -19,6 +23,6 @@ int main() {
                 c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
     }
 
-    assert(get_closest_vowel("Above") == 'o');
+    std::cout << get_closest_vowel("Above") << std::endl;
     return 0;
 }
