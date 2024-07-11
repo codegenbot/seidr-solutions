@@ -1,6 +1,4 @@
-def find_zero():
-    inp = input("Enter the coefficients: ")
-    xs = list(map(int, inp.split()))
+def find_zero(xs):
     if len(xs) % 2 != 1:
         return "Error: xs must start with 0"
     if xs[0] != 0:
@@ -18,6 +16,3 @@ def find_zero():
         return None
     n = int(sum(x) / (sum(y) or 1))
     return n
-
-
-find_zero()
