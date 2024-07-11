@@ -1,15 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <unordered_set>
 
 bool pairs_sum_to_zero(const std::vector<int>& l) {
-    std::unordered_set<int> complements;
+    std::unordered_set<int> seen;
     for (int num : l) {
-        if (complements.count(-num)) {
+        if (seen.count(-num) > 0) {
             return true;
         }
-        complements.insert(num);
+        seen.insert(num);
     }
     return false;
 }
