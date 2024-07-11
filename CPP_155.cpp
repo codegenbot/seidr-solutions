@@ -1,6 +1,8 @@
-```cpp
 bool same(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    if(a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()))
+        return true;
+    else
+        return false;
 }
 
 std::vector<int> even_odd_count(int num) {
@@ -15,7 +17,7 @@ std::vector<int> even_odd_count(int num) {
     return {count_even, count_odd};
 }
 
-int main() {
-    assert(even_odd_count(0) == std::vector<int>{1, 0});
+int main(int argc, char* argv[]) {
+    assert(same(even_odd_count(0), std::vector<int>{1, 0}) == std::vector<int>(1, 0));
     return 0;
 }
