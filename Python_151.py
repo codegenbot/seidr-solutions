@@ -1,12 +1,14 @@
-```
-def double_the_difference(lst):
-    difference = max(lst) - min(lst)
-    double_diff = difference * 2
+def double_the_difference():
+    lst = list(map(int, input().split()))
+    difference = abs(max(lst) - min(lst))
+    if len(lst) > 1:
+        double_diff = difference * 2
+    else:
+        double_diff = 0
     return double_diff
 
-def check(func, input_str):
-    result = func(input_str.split())
-    print(result)
+def check(func):
+    print(func())
 
 if __name__ == "__main__":
-    check(double_the_difference, input())
+    check(double_the_difference)
