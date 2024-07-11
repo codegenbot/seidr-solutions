@@ -1,4 +1,3 @@
-````
 def encode(message):
     result = ""
     prev_alnum = False
