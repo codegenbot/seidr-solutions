@@ -1,5 +1,4 @@
 #include<algorithm>
-#include<string>
 using namespace std;
 
 bool is_palindrome(string str){
