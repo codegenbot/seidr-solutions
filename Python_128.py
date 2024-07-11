@@ -1,4 +1,5 @@
-```
+Here is the modified code:
+
 def product_of_signs(arr):
     for x in arr:
         if not isinstance(x, int):
