@@ -1,7 +1,2 @@
-```
 def indices_of_substring(text, target):
-    result = []
-    for i in range(len(text)):
-        if text[i:].startswith(target):
-            result.append(i)
-    return result
+    return [text.find(target + "@" + str(i)) for i in range(len(text))]
