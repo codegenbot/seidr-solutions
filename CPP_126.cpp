@@ -1,5 +1,3 @@
-```cpp
-#include <initializer_list>
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -11,7 +9,7 @@ bool is_sorted(vector<int> lst){
         if(lst[i-1] > lst[i]){
             return false;
         }
-        else if(std::count(lst.begin(), lst.end(), lst[i]) > 1){
+        else if(find(lst.begin(), lst.end(), lst[i]) != lst.end() || count(lst.begin(), lst.end(), lst[i]) > 1){
             return false;
         }
     }
