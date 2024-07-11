@@ -3,9 +3,13 @@ def solve_boolean(expression):
         return True
     elif expression == "F":
         return False
-    elif "&" in expression:
-        left, right = expression.split("&")
-        return solve_boolean(left) and solve_boolean(right)
-    elif "|" in expression:
-        left, right = expression.split("|")
-        return solve_boolean(left) or solve_BOOLEAN(right)
+    elif "&" in expression and "|" in expression:
+        raise ValueError("Invalid expression")
+    else:
+        result = True
+        for i, char in enumerate(expression):
+            if char == "&":
+                result &= expression[i - 1] == "T"
+            elif char == "|":
+                result |= expression[i - 1] == "T"
+        return result
