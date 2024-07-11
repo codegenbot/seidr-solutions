@@ -37,3 +37,8 @@ std::vector<std::string> issame(std::string planet1, std::string planet2) {
 
     return result;
 }
+
+int main() {
+    assert (issame("Jupiter", "Makemake") == {});
+    return 0;
+}
