@@ -1,11 +1,14 @@
-def find_pair(target, nums):
-    seen = {}
-    for num in nums:
-        complement = target - num
-        if complement in seen:
-            return f"{num} {complement}"
-        seen[num] = True
+def find_pair(n, nums):
+    left, right = 0, len(nums)-1
+    while left < right:
+        total = nums[left] + nums[right]
+        if total == n:
+            return f"{nums[left]} {nums[right]}"
+        elif total < n:
+            left += 1
+        else:
+            right -= 1
     return "No pair found"
 
-target = int(input())
-print(find_pair(target, [int(x) for x in input().split()]))
+n = int(input())
+print(find_pair(n, [int(x) for x in input().split()]))
