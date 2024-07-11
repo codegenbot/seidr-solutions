@@ -12,14 +12,12 @@ def valid_date(date):
         return False
     return True
 
-while True:
-    print("Enter date (yyyy-mm-dd):")
-    date = input()
-    if '-' in date:
-        break
+print("Enter date (yyyy-mm-dd):")
+date = input()
+if not date.replace('-', '').isnumeric() or len(date.split('-')) != 3:
+    print("Invalid format. Please enter the date in yyyy-mm-dd format.")
 else:
-    print("Invalid date format! Please use 'yyyy-mm-dd'.")
-if valid_date(date):
-    print(f"The date {date} is valid.")
-else:
-    print(f"The date {date} is not valid.")
+    if valid_date(date):
+        print(f"The date {date} is valid.")
+    else:
+        print(f"The date {date} is not valid.")
