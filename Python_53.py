@@ -1,4 +1,4 @@
-def add():
+def add(a):
     while True:
         try:
             x = int(input("Enter first number: "))
