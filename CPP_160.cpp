@@ -1,6 +1,6 @@
 #include <vector>
 
-int do_algebra(std::vector<std::string> operato, std::vector<int> operand){
+int do_algebra(vector<string> operato, vector<int> operand){
     int result = operand[0];
     for(int i = 0; i < operato.size(); i++){
         if(operato[i] == "+"){
@@ -19,10 +19,9 @@ int do_algebra(std::vector<std::string> operato, std::vector<int> operand){
 }
 
 int main(){
-    std::vector<std::string> operation = {"+", "-", "*", "//"};
-    std::vector<int> operands = {5, 3, 2, 4};
-  
-    std::cout << do_algebra(operation, operands) << std::endl;
-  
+    vector<string> operators = {"+", "-", "*", "//", "**"};
+    vector<int> operands = {2, 4, 3};
+    cout << do_algebra(operators, operands) << endl;
+
     return 0;
 }
