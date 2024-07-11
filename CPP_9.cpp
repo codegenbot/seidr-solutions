@@ -4,10 +4,13 @@
 std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> result;
     for (size_t i = 0; i < numbers.size(); ++i) {
-        int left = (i == 0) ? numbers[0] : numbers[i - 1];
-        int current = numbers[i];
-        int right = (i == numbers.size() - 1) ? numbers[numbers.size() - 1] : numbers[i + 1];
-        result.push_back(std::max({left, current, right}));
+        int max_val = numbers[i];
+        for (size_t j = i + 1; j < numbers.size(); ++j) {
+            if (numbers[j] > max_val) {
+                max_val = numbers[j];
+            }
+        }
+        result.push_back(max_val);
     }
     return result;
 }
