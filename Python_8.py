@@ -1,4 +1,3 @@
-```
 from typing import List, Tuple
 
 
@@ -13,7 +12,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return total_sum, product if product != 0 else 1
 
 
-numbers = input("Please enter numbers: ")
+numbers = str(input('"""Please enter numbers: """'))
 try:
     result = sum_product(list(map(int, numbers.split(','))))
 except ValueError:
