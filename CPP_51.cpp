@@ -1,7 +1,6 @@
-```cpp
+```c++
 #include <string>
 #include <iostream>
-#include <ostream>
 
 std::string removeVowels() {
     std::string text;
@@ -14,11 +13,10 @@ std::string removeVowels() {
             && std::tolower(c) != 'u')
             result += c; 
     }
-    std::cout << "Sentence with vowels removed: " << result << std::endl;
     return result;
 }
 
 int main() {
-    std::string output = removeVowels();
+    std::cout << "Sentence with vowels removed: " << removeVowels() << std::endl;
     return 0;
 }
