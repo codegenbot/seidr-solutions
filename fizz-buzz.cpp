@@ -1,17 +1,22 @@
 #include <string>
 
+std::string fizzBuzz(int x) {
+    std::string result;
+    if (x % 15 == 0)
+        return "FizzBuzz";
+    else if (x % 3 == 0)
+        result = "Fizz";
+    else if (x % 5 == 0)
+        result = "Buzz";
+    else
+        result = std::to_string(x);
+    return result;
+}
+
 int main() {
     int x;
     std::cout << "Enter an integer: ";
     std::cin >> x;
-    if (x % 15 == 0)
-        std::cout << "FizzBuzz";
-    else if (x % 3 == 0)
-        std::cout << "Fizz";
-    else if (x % 5 == 0)
-        std::cout << "Buzz";
-    else
-        std::cout << x;
-    std::cout << std::endl;
+    std::cout << fizzBuzz(x) << std::endl;
     return 0;
 }
