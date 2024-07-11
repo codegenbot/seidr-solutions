@@ -6,7 +6,6 @@ bool check_dict_case(map<string,string> dict){
     
     for(auto const& pair : dict){
         string key = pair.first;
-        
         bool is_lower = true;
         bool is_upper = true;
         
