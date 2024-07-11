@@ -1,5 +1,5 @@
 #include <cstring>
 
-int getStringLength(const std::string& str) {
+int calculateStringLength(const std::string& str) {
     return strlen(str.c_str());
 }
