@@ -9,4 +9,4 @@ def max_fill(grid, capacity):
             total_capacity = 0
             watered_buckets += 1
             
-    return math.ceil(total_capacity / capacity)
+    return math.ceil(total_water / capacity)
