@@ -5,6 +5,7 @@
 #include <set>
 #include <cassert>
 
+// Use fully qualified std::vector type in function signature
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     std::vector<int> sorted_a = a;
     std::vector<int> sorted_b = b;
@@ -17,6 +18,6 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    assert(issame({4, 3, 2, 8}, {}) == true);
+    assert(issame({4, 3, 2, 8}, {}) == true); // Correct way to call and assert
     return 0;
 }
