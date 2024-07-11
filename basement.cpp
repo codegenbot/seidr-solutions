@@ -10,7 +10,7 @@ int basement(vector<int>& nums) {
         res = max(res, i - min_sum);
         min_sum = min(min_sum, i);
     }
-    return res < 0 ? -1 : res;
+    return res < 0 ? -1 : res + 1;
 }
 
 int main() {
