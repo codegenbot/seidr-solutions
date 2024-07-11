@@ -1,14 +1,14 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
 
-std::string fizzBuzz(int x) {
-    std::string result;
+const char* fizzBuzz(int x) {
     if (x % 15 == 0)
         return "FizzBuzz";
     else if (x % 3 == 0)
-        result = "Fizz";
+        return "Fizz";
     else if (x % 5 == 0)
-        result = "Buzz";
+        return "Buzz";
     else
-        return std::to_string(x);
+        return std::to_string(x).c_str();
+}
