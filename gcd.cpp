@@ -1,14 +1,31 @@
-```cpp
 #include <vector>
 #include <string>
-#include <iostream>
 
 using namespace std;
 
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.length();
+    int m = target.length();
+
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target) {
+            result.push_back(i);
+        }
+    }
+
+    return result;
+}
+
 int gcd(int a, int b) {
-    return (b == 0) ? a : gcd(b, a % b);
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
 
 int main() {
-    cout << "GCD of 12 and 15 is: " << gcd(12, 15) << endl;
+    cout << gcd(12, 15) << endl; // Example usage of the gcd function
 }
