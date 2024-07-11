@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -6,24 +7,13 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> strings = {"cat", "dog", "bird", "fish"};
-    string substring = "og";
-    vector<string> result = filter_by_substring(strings, substring);
-
-    if (issame(result, strings)) {
-        cout << "The result is the same as the input." << endl;
-    } else {
-        cout << "The result is different from the input." << endl;
-    }
-
+    vector<string> strings = {"apple", "banana", "cherry"};
+    string substring = "an";
+    
+    if (issame(filter_by_substring(strings, substring), {"banana"}))
+        cout << "The vectors are the same." << endl;
+    else
+        cout << "The vectors are not the same." << endl;
+    
     return 0;
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for (const auto& str : strings) {
-        if(str.find(substring) != string::npos)
-            result.push_back(str);
-    }
-    return result;
 }
