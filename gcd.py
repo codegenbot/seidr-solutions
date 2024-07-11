@@ -3,4 +3,4 @@ def gcd(a, b):
         a, b = b, a % b
     if a == 1:
         return 1
-    return a
+    return a  
