@@ -4,10 +4,11 @@ def digitSum(n):
 
 while True:
     try:
-        user_input = input("Enter a number (or type 'exit' to quit): ")
-        if user_input.lower() == 'exit':
+        n = int(input("Enter a number: "))
+        if n != 0:
+            print(digitSum(n))
             break
-        n = int(user_input)
-        print(digitSum(n))
+        else:
+            print("Please enter a non-zero integer.")
     except ValueError:
         print("Invalid input. Please enter an integer.")
