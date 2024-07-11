@@ -1,20 +1,15 @@
-def solve_boolean(expression):
-    if expression == "T":
+Here is the solution:
+
+def solve_boolean(input_str):
+    if input_str == 'T':
         return True
-    elif expression == "F":
+    elif input_str == 'F':
         return False
-    elif "&" in expression and "|" in expression:
-        raise Exception("Invalid Expression")
+    elif '&' in input_str:
+        a, b = input_str.split('&')
+        return solve_boolean(a) and solve_boolean(b)
+    elif '|' in input_str:
+        a, b = input_str.split('|')
+        return solve_boolean(a) or solve_boolean(b)
     else:
-        stack = []
-        for char in expression[::-1]:
-            if char in ["&", "|"]:
-                b = stack.pop()
-                a = stack.pop()
-                if char == "&":
-                    stack.append(a and b)
-                elif char == "|":
-                    stack.append(a or b)
-            else:
-                stack.append(char == "T")
-        return stack[0]
+        raise ValueError("Invalid input")
