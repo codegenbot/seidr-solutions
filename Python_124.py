@@ -16,6 +16,5 @@ def valid_date(date):
         return False
     elif int(month) in [1,3,5,7,8,10,12] and (int(day) > 31):
         return False
-    if year.isdigit() and 0 < int(year) <= 9999:
+    else:
         return True
-    return False
