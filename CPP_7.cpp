@@ -33,10 +33,19 @@ int main() {
     string sub;
     cin >> sub;
     
-    if (issame(filter_by_substring(words, sub), filter(BySubstring(words,"")) ) )
+    if (issame(filter_by_substring(words, sub), filter(BySubstring(words, ""))) )
         cout << "Yes" << endl;
     else
         cout << "No" << endl;
 
     return 0;
+}
+
+vector<string> BySubstring(vector<string> arr, string sub) {
+    vector<string> result;
+    for (auto s : arr) {
+        if (s.find(sub) != string::npos)
+            result.push_back(s);
+    }
+    return result;
 }
