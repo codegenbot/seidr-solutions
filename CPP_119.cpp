@@ -7,7 +7,6 @@ string match_parens(vector<string> lst){
     for (const string& str : lst) {
         openCount = 0;
         closeCount = 0;
-        
         for (char c : str) {
             if (c == '(') {
                 openCount++;
