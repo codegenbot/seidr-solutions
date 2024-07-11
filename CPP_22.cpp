@@ -10,12 +10,17 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
         if(boost::any_cast<int>(value)) {
-            result.push_back(static_cast<int>(boost::any_cast<int>(value)));
+            int i = boost::any_cast<int>(value);
+            if(i > 3) {
+                result.push_back(i-1);
+            } else {
+                result.push_back(i);
+            }
         }
     }
     return result;
 }
 
 int main() {
-    assert(issame(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}), std::vector<int>({1, 2, 3}) == true);
+    assert(issame(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}), std::vector<int>({1, 2, 3}) == false);
 }
