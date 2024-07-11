@@ -1,2 +1,6 @@
-return (a == b + c) || (b == a + c) || (c == a + b);
+if ((a == b + c) || (b == a + c) || (c == a + b)) {
+        return true;
+    } else {
+        return false;
+    }
 }
