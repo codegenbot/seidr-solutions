@@ -2,7 +2,7 @@ def valid_date(date):
     parts = date.split('-')
     if len(parts) != 3:
         return False
-    month, day, year = map(int, parts)
+    month, day, year = map(int, parts[1].split('/') + [parts[0]])
     if month < 1 or month > 12:
         return False
     if (month in [1, 3, 5, 7, 8, 10, 12] and day > 31) or \
@@ -14,7 +14,7 @@ def valid_date(date):
 while True:
     print("Enter date (yyyy-mm-dd):")
     date = input()
-    if '-' in date:
+    if len(date) == 10 and date[4] == '-' and date[7] == '-':
         break
 else:
     print("Invalid date format! Please use 'yyyy-mm-dd'.")
