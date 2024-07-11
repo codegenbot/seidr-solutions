@@ -1,11 +1,8 @@
-from typing import List
-
-
-def remove_duplicates() -> List[int]:
-    user_input = input().split(',')
+def remove_duplicates(numbers: List[int]) -> List[int]:
     seen = set()
     result = []
-    for num in map(int, user_input):
+    for num in input().split(','):
+        num = int(num)  
         if str(num) not in seen:
             seen.add(str(num))
             result.append(num)
