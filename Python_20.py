@@ -1,11 +1,12 @@
-```
+```Python
 from typing import List, Tuple
 
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
-    if not all(isinstance(num, (int, float)) for num in numbers):
-        return "Invalid input"
-
+    if len(set(numbers)) != len(numbers):  # Check for duplicates
+        numbers = list(set(numbers))
+    
+    numbers.sort()
     min_diff = float("inf")
     closest_pair = ()
 
