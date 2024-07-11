@@ -1,13 +1,15 @@
-#include <iostream>
+````
 #include <stack>
 #include <string>
+
+using namespace std;
 
 bool getBoolValue(char c) {
     return c == 'T';
 }
 
-std::string solveBoolean(std::string expression) {
-    std::stack<char> s;
+std::string solveBoolean(string expression) {
+    stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
             while (!s.empty() && s.top() == '&') {
@@ -24,7 +26,7 @@ std::string solveBoolean(std::string expression) {
         }
     }
 
-    std::string result = "";
+    string result = "";
     bool left = false, right = false;
     while (!s.empty()) {
         char c = s.top();
