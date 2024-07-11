@@ -1,7 +1,7 @@
-```
 def shortestPathLength(grid):
     rows, cols = len(grid), len(grid[0])
     minPathLength = float("inf")
+    visited = set()
 
     def dfs(row, col, path_length):
         nonlocal minPathLength
@@ -21,12 +21,9 @@ def shortestPathLength(grid):
 
         visited.remove((row, col))
 
-    minPath = float("inf")
-    visited = set()
-
     for row in range(rows):
         for col in range(cols):
             if grid[row][col] == 1:
                 dfs(row, col, 0)
-                minPath = min(minPath, path_length) if path_length else minPath
+                minPathLength = min(minPathLength, path_length) if path_length else minPathLength
     return minPathLength
