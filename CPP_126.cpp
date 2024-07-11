@@ -17,6 +17,18 @@ bool is_sorted(vector<int> lst){
     return true;
 
 int main() {
-    vector<int> lst = {1,2,3,4};
-    cout << (is_sorted(lst) ? "True" : "False") << endl; 
+    vector<int> lst;
+    int num;
+    
+    cout << "Enter numbers, enter -1 to stop: ";
+    
+    while((cin >> num) && (num != -1)){
+        lst.push_back(num);
+    }
+    
+    if(lst.empty())
+        cout << "List is empty." << endl;
+    else
+        cout << (is_sorted(lst) ? "True" : "False") << endl; 
+    return 0;
 }
