@@ -10,7 +10,18 @@ map<char, int> histogram(string test){
         }
     }
 
-    return counts;
+    int maxCount = 0;
+    for (auto& pair : counts) {
+        maxCount = max(maxCount, pair.second);
+    }
+
+    for (auto& pair : counts) {
+        if (pair.second == maxCount) {
+            result[pair.first] = pair.second;
+        }
+    }
+
+    return result;
 }
 
 bool issame(map<char, int> a, map<char, int> b) {
@@ -18,9 +29,13 @@ bool issame(map<char, int> a, map<char, int> b) {
 }
 
 int main() {
-    map<char, int> testHist = histogram("aba ccc");
-    map<char, int> expectedHist = {{'a', 2}, {'b', 1}, {'c', 3}};
+    map<char, int> test1 = histogram("hello world");
+    map<char, int> expected1 = {{'l', 3}};
+    assert(issame(test1, expected1));
 
-    assert(issame(testHist, expectedHist));
+    map<char, int> test2 = histogram("apple");
+    map<char, int> expected2 = {{'p', 2}};
+    assert(issame(test2, expected2));
+
     return 0;
 }
