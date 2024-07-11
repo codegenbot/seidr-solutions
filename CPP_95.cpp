@@ -1,10 +1,22 @@
-if(dict.empty()) return false;
-bool all_lower = true, all_upper = true;
-for(auto const& pair : dict) {
-    if(pair.first != tolower(pair.first[0]) + pair.first.substr(1))
-        all_lower = false;
-    if(pair.first != toupper(pair.first[0]) + pair.first.substr(1))
-        all_upper = false;
-}
-return all_lower || all_upper;
+bool check_dict_case(map<string,string> dict){
+    if(dict.empty()) return false;
+    
+    bool all_lowercase = true;
+    bool all_uppercase = true;
+    
+    for(auto const& pair : dict){
+        string key = pair.first;
+        
+        if(key.empty() || key.find_first_not_of("abcdefghijklmnopqrstuvwxyz") != string::npos){
+            return false;
+        }
+        
+        if(key.find_first_not_of("abcdefghijklmnopqrstuvwxyz") != string::npos){
+            all_lowercase = false;
+        } else if(key.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ") != string::npos){
+            all_uppercase = false;
+        }
+    }
+    
+    return all_lowercase || all_uppercase;
 }
