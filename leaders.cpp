@@ -1,15 +1,28 @@
-#include <algorithm>
+#include <vector>
 
-using namespace std;
-
-vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
-    int n = arr.size();
+std::vector<int> leaders(const std::vector<int>& nums) {
+    int n = nums.size();
+    std::vector<int> leaders;
     for (int i = n - 1; i >= 0; --i) {
-        if (i == n - 1 || arr[i] >= arr[i + 1]) {
-            result.push_back(arr[i]);
+        bool isLeader = true;
+        for (int j = i + 1; j < n; ++j) {
+            if (nums[j] >= nums[i]) {
+                isLeader = false;
+                break;
+            }
+        }
+        if (isLeader) {
+            leaders.push_back(nums[i]);
         }
     }
-    reverse(result.begin(), result.end());
-    return result;
+    return leaders;
+}
+
+int main() {
+    std::vector<int> nums = {16, 17, 4, 3, 5, 2};
+    std::vector<int> leaders = leaders(nums);
+    for (int leader : leaders) {
+        std::cout << leader << " ";
+    }
+    return 0;
 }
