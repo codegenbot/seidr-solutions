@@ -19,6 +19,3 @@ def calculate_average_and_median() -> Tuple[float, float]:
     )
 
     return average, median
-
-result = calculate_average_and_median()
-print(f"Average: {result[0]}, Median: {result[1]}")
