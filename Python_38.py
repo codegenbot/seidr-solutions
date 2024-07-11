@@ -12,5 +12,3 @@ def decode_cyclic():
         return result
     else:
         return s
-
-print(decode_cyclic())
