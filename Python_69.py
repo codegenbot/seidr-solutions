@@ -8,7 +8,7 @@ def search():
         
         if user_input == "":
             print("No input received. Please enter a valid list of numbers.")
-            continue
+            continue:
 
         try:
             lst = [int(x) for x in user_input.split()]
@@ -17,4 +17,4 @@ def search():
             break  # stop the loop after valid input
         except ValueError:
             print("Invalid input. Please enter a list of numbers separated by space.")
-            continue
+            continue:
