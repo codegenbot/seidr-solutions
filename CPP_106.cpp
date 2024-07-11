@@ -21,3 +21,11 @@ vector<int> f(int n){
     }
     return result;
 }
+
+int main() {
+    // Call f function appropriately
+    vector<int> res = f(5);
+
+    // Call issame function if needed
+    return 0;
+}
