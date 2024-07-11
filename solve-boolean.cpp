@@ -1,12 +1,12 @@
-```
+#include <queue>
 #include <string>
-#include <stack>
-#include <cctype>
 
 bool getBoolValue(char c) {
-    if (c == 'T') return true;
-    if (c == 'F') return false;
-    return false; // default to false
+    if (c == 'T')
+        return true;
+    else if (c == 'F')
+        return false;
+    return false; // default to false for other characters
 }
 
 std::string solveBoolean(std::string expression) {
@@ -34,17 +34,17 @@ std::string solveBoolean(std::string expression) {
         s.pop();
         if (c == '&') {
             left = getBoolValue(s.top());
-            s.pop();
             right = getBoolValue(s.top());
-            s.pop();
+            s.pop();            
             result = (left && right) ? "True" : "False";
         } else if (c == '|') {
             left = getBoolValue(s.top());
+            right = getBoolValue(s.top());
             s.pop();
-            right = true;
+            s.pop();
             result = (left || right) ? "True" : "False";
         } else {
-            result = (getBoolValue(c)) ? "True" : "False";
+            result = getBoolValue(c) ? "True" : "False";
         }
     }
 
