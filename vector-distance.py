@@ -5,7 +5,10 @@ v2 = list(map(float, input().split()))
 
 from math import sqrt
 
-v_diff = [(a - b) ** 2 for a, b in zip(v1, v2)]
-dist = sqrt(sum(v_diff) + sum(i**2 for i in v1) + sum(i**2 for i in v2))
+v1_len = sum([i**2 for i in v1])
+v2_len = sum([i**2 for i in v2])
+
+diff_vector = [(a - b) ** 2 for a, b in zip(v1, v2)]
+dist = sqrt(sum(diff_vector) + (v1_len - 2 * sum(diff_vector)) + v2_len)
 
 print("%.6f" % dist)
