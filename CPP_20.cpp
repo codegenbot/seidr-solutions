@@ -1,3 +1,6 @@
+```cpp
+#include <algorithm>
+
 vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     pair<float, float> closest_pair = make_pair(numbers[0], numbers[1]);
@@ -6,5 +9,5 @@ vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
             closest_pair = make_pair(numbers[i], numbers[i + 1]);
         }
     }
-    return make_pair(numbers[0], numbers[1]);
+    return {make_pair(numbers[0], numbers[1])};
 }
