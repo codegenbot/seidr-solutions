@@ -1,7 +1,11 @@
-int calculateArea(int r1, int g1, int b1, int r2, int g2, int b2) {
-    int red = abs(r1 - r2);
-    int green = abs(g1 - g2);
-    int blue = abs(b1 - b2);
-
-    return 255 * (red + green + blue);
+string string_xor(string a, string b) {
+    string result = "";
+    for (int i = 0; i < a.size(); i++) {
+        if ((a[i] - '0') ^ (b[i] - '0')) {
+            result += "1";
+        } else {
+            result += "0";
+        }
+    }
+    return result;
 }
