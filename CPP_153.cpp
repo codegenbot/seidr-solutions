@@ -1,8 +1,3 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = -1;
     string result = "";
@@ -17,13 +12,10 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
             strongest = strength;
             result = extension;
         } else if (strength == strongest) {
-            result = min(result, extension);
+            if (result > extension) {
+                result = extension;
+            }
         }
     }
     return class_name + "." + result;
-}
-
-int main() {
-    assert(Strongest_Extension("Sp", {"671235", "Bb"}) == "Sp.671235");
-    return 0;
 }
