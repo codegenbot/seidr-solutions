@@ -1,9 +1,25 @@
-vector<int> filter_integers(list_any values);
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+#include <vector>
+#include <list>
+#include <boost/any.hpp>
+
+using namespace std;
+using boost::any;
+
+vector<int> filter_integers(list<any> values);
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<int> filter_integers(list_any values){
+vector<int> filter_integers(list<any> values){
     vector<int> result;
     for(auto& val : values){
         if(typeid(int) == val.type()){
@@ -11,4 +27,9 @@ vector<int> filter_integers(list_any values){
         }
     }
     return result;
+}
+
+int main() {
+    // Main function code here
+    return 0;
 }
