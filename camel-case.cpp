@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 int main() {
     string input;
     getline(cin, input);
@@ -15,7 +19,7 @@ int main() {
         }
     }
     
-    cout << input << endl;
+    cout << input << "\n";
     
     return 0;
 }
