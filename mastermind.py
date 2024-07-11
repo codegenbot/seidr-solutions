@@ -1,17 +1,26 @@
-def mastermind(code, guess):
-    code_counts = {c: code.count(c) for c in set(code)}
-    guess_counts = {c: guess.count(c) for c in set(guess)}
+```
+def get_pegs(master_code, guess):
+    master_code_count = [0]*6
+    white_pegs = 0
+    black_pegs = 0
+    
+    for i in range(4):
+        if guess[i] == master_code[i]:
+            black_pegs += 1
+        else:
+            master_code_count[ord(guess[i]) - ord('A')] += 1
+    
+    for i in range(4):
+        if guess[i] == master_code[i]:
+            continue
+        elif master_code_count[ord(guess[i]) - ord('A')] > 0:
+            white_pegs += 1
+            master_code_count[ord(guess[i]) - ord('A')] -= 1
+    
+    return black_pegs, white_pegs
 
-    white = 0
-    black = 0
+master_code = input().strip()
+guess = input().strip()
 
-    for c in range(len(code)):
-        if code[c] == guess[c]:
-            black += 1
-            code_counts[code[c]] -= 1
-            guess_counts[guess[c]] -= 1
-        elif code_counts.get(guess[c], 0) > 0:
-            white += 1
-            code_counts[guess[c]] -= 1
-
-    return str(white), str(black)
+black_peg, white_peg = get_pegs(master_code, guess)
+print(f"{black_peg}, {white_peg}")
