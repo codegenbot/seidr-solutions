@@ -1,6 +1,6 @@
-# include <iostream>
-# include <string>
-# include <vector>
+#include <iostream>
+#include <string>
+#include <vector>
 
 int main() {
     std::string text, target;
