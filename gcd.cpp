@@ -1,5 +1,4 @@
-```cpp
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -9,9 +8,11 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a, b;
-    cout << "Enter two integers: ";
-    cin >> a >> b;
-    cout << "GCD is: " << gcd(a,b);
+    string str1 = "", str2 = ""; 
+    cout << "Enter first number: ";
+    cin >> str1;
+    cout << "Enter second number: ";
+    cin >> str2;
+    int result = gcd(stoi(str1), stoi(str2)); 
+    cout << "GCD: " << result;
     return 0;
-}
