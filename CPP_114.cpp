@@ -1,12 +1,12 @@
 long long minSubArraySum(vector<long long> nums) {
-    long long minSum = INT_MAX, currSum = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        currSum += nums[i];
-        if (currSum > 0) {
-            minSum = min(minSum, currSum);
-        } else {
-            currSum = 0;
+    if (nums.empty()) return 0; // If nums is empty, return 0 as sum
+    long long min_sum = INT_MAX;
+    for(int i = 0; i < nums.size(); i++) { 
+        long long sum = 0; 
+        for(int j = i; j < nums.size(); j++) {
+            sum += nums[j]; // Calculate the sum of sub-vector
+            if(sum < min_sum) min_sum = sum;
         }
-    }
-    return minSum;
+    } 
+    return min_sum;
 }
