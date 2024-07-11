@@ -1,7 +1,8 @@
+```c
 #include <vector>
 #include <string>
 
-bool areSame(vector<string> a, vector<string>b) {
+bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
     for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) return false;
@@ -30,29 +31,5 @@ vector<string> numerical_letter_grade(vector<float> grades){
 
 int main() {
     vector<float> grades = {0, 0.7};
-    assert(areSame(numerical_letter_grade(grades), {"E", "D-"}) );
-    
-    // Read input from user
-    int n;
-    cout << "Enter number of students: ";
-    cin >> n;
-    
-    grades.resize(n);
-    
-    for(int i = 0; i < n; i++) {
-        cout << "Enter grade for student " << (i+1) << ": ";
-        cin >> grades[i];
-    }
-    
-    // Convert grades to letter grades
-    vector<string> letterGrades = numerical_letter_grade(grades);
-    
-    // Print the results
-    cout << "Letter Grades: ";
-    for(string s:letterGrades) {
-        cout << s << " ";
-    }
-    cout << endl;
-    
-    return 0;
+    assert(issame(numerical_letter_grade(grades), {"E", "D-"}) );
 }
