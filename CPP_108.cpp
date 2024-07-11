@@ -1,19 +1,17 @@
-int count_nums(vector<int> nums) {
+#include <vector>
+using namespace std;
+
+int count_nums(vector<int> n) {
     int count = 0;
-    for (int num : nums) {
-        int sum_of_digits = 0;
-        bool negative = false;
-        if (num < 0) {
-            negative = true;
-            num = -num;
+    for (int num : n) {
+        bool hasPositiveSum = false;
+        long absNum = labs(num);
+        while (absNum > 0) {
+            int digit = absNum % 10;
+            if (digit != 0) hasPositiveSum = true;
+            absNum /= 10;
         }
-        while (num > 0) {
-            sum_of_digits += num % 10;
-            num /= 10;
-        }
-        if ((negative && sum_of_digits > 0) || (!negative && sum_of_digits > 0)) {
-            count++;
-        }
+        if (hasPositiveSum) count++;
     }
     return count;
 }
