@@ -1,10 +1,10 @@
-#include <iostream>
 #include <string>
+#include <cctype>
 
-std::string encrypt(const std::string &s) {
+std::string encrypt(std::string s) {
     std::string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
+        if (std::isalpha(c)) {
             char encrypted = 'a' + (c - 'a' + 2 * 2) % 26;
             result += encrypted;
         } else {
@@ -12,9 +12,4 @@ std::string encrypt(const std::string &s) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(encrypt("a") == "e");
-    return 0;
 }
