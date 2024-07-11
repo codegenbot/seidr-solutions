@@ -1,4 +1,4 @@
 ```
-n = int(input("Enter the number of elements in the list: "))
-numbers = [int(x) for x in input(f"Enter {n} space-separated numbers: ").split()]
+number = int(input("Enter a number: "))
+numbers = [1, -2, 3, 0]
 print(double_the_difference(numbers))
