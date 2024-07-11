@@ -1,13 +1,20 @@
+#include <vector>
+
 vector<int> even_odd_palindrome(int n) {
     vector<int> result(2);
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; ++i) {
         string str = to_string(i);
-        if (str == reverse(str).str()) {
-            if (i % 2 == 0) {
-                result[0]++;
-            } else {
-                result[1]++;
+        bool isPalindrome = true;
+        for (int j = 0; j < str.length() / 2; ++j) {
+            if (str[j] != str[str.length() - 1 - j]) {
+                isPalindrome = false;
+                break;
             }
+        }
+        if (isPalindrome && i % 2 == 0) {
+            result[0]++;
+        } else if (isPalindrome) {
+            result[1]++;
         }
     }
     return result;
