@@ -1,3 +1,8 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
 int main() {
     string input;
     getline(cin, input);
@@ -20,7 +25,7 @@ int main() {
     if (word.length() >= 5) {
         reverse(word.begin(), word.end());
     }
-    result += word;
+    result += word + " ";
     
     cout << result << endl;
     
