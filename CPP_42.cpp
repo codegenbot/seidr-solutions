@@ -1,14 +1,11 @@
+#include <iostream>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b);
-
-std::vector<int> incr_list(std::vector<int> l);
-
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> incr_list(std::vector<int> l){
+std::vector<int> incr_list(std::vector<int> l) {
     std::vector<int> result;
     for (int num : l) {
         result.push_back(num + 1);
@@ -17,12 +14,29 @@ std::vector<int> incr_list(std::vector<int> l){
 }
 
 int main() {
-    std::vector<int> a, b;
+    std::vector<int> vec1, vec2;
+
+    int n;
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int num;
+        std::cin >> num;
+        vec1.push_back(num);
+    }
     
-    // Read elements into a and b
-    
-    bool result = issame(a, b);
-    std::vector<int> incremented = incr_list(a);
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int num;
+        std::cin >> num;
+        vec2.push_back(num);
+    }
+
+    std::cout << issame(vec1, vec2) << std::endl;
+
+    std::vector<int> res = incr_list(vec1);
+    for (int num : res) {
+        std::cout << num << " ";
+    }
     
     return 0;
 }
