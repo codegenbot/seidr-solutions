@@ -1,18 +1,14 @@
-```
+```Python
 def solve_boolean(expression):
+    while "|" in expression or "&" in expression:
+        if "&" in expression:
+            left, right = expression.split("&", 1)
+            expression = "&&".join(map(solve_boolean, [left, right]))
+        else:
+            left, right = expression.split("|", 1)
+            expression = "|".join(map(solve_boolean, [left, right]))
+
     if expression == "T":
         return True
     elif expression == "F":
         return False
-    else:
-        for op in "|&":
-            parts = expression.split(op)
-            left = parts[0]
-            right = parts[1]
-            if op == "|":
-                result = solve_boolean(left) or solve_boolean(right)
-            else:
-                result = solve_boolean(left) and solve_boolean(right)
-            if not result:  
-                break
-        return result
