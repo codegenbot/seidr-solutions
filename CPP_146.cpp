@@ -1,8 +1,11 @@
 int specialFilter(vector<int> nums){
     int count = 0;
-    for(auto num : nums){
-        if(num > 10 && (num % 10) % 2 != 0 && abs(num) % 10 % 2 != 0){
-            count++;
+    for (int num : nums) {
+        if (num > 10) {
+            string str_num = to_string(abs(num));
+            if (str_num.front() % 2 == 1 && str_num.back() % 2 == 1) {
+                count++;
+            }
         }
     }
     return count;
