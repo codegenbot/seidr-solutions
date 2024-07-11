@@ -4,9 +4,9 @@ int bowlingScore(std::string s) {
     for(int i = 0; i < s.size(); i++) {
         if(s[i] == '/') {
             if(roll < 2) {
-                score += (10 - '0') * 10 + (10 - 'X');
+                score += 10;
             } else {
-                score += (10 - 'X') * 10;
+                score += 10;
             }
             roll = 0;
         } else if('0' <= s[i] && s[i] <= '9') {
@@ -17,4 +17,3 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
-}
