@@ -2,8 +2,8 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 std::vector<int> rolling_max(const std::vector<int>& numbers) {
