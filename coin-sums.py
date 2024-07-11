@@ -1,4 +1,3 @@
-```
 cents = int(input("Enter the amount in cents: "))
 quarters = cents // 25
 remaining_cents = cents % 25
