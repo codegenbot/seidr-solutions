@@ -1,28 +1,29 @@
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
+int N = grid.size();
+    vector<int> dx = {0, 0, 1, -1};
+    vector<int> dy = {1, -1, 0, 0};
+    vector<vector<bool>> visited(N, vector<bool>(N, false));
     vector<int> path;
-    int row = 0, col = 0;
     
-    for (int i = 0; i < k; ++i) {
-        path.push_back(grid[row][col]);
-        if ((row + col) % 2 == 0) {
-            if (col == n - 1) {
-                ++row;
-            } else if (row == 0) {
-                ++col;
-            } else {
-                --row;
-                ++col;
+    function<void(int, int, int)> dfs = [&](int x, int y, int steps) {
+        if (steps == k) {
+            path.push_back(grid[x][y]);
+            return;
+        }
+        
+        visited[x][y] = true;
+        for (int i = 0; i < 4; ++i) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+            if (nx >= 0 && nx < N && ny >= 0 && ny < N && !visited[nx][ny]) {
+                dfs(nx, ny, steps + 1);
             }
-        } else {
-            if (row == n - 1) {
-                ++col;
-            } else if (col == 0) {
-                ++row;
-            } else {
-                ++row;
-                --col;
-            }
+        }
+        visited[x][y] = false;
+    };
+    
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            dfs(i, j, 1);
         }
     }
     
