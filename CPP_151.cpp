@@ -4,33 +4,30 @@
 
 using namespace std;
 
-long double sum = 0;
-long double odd_sum = 0;
-
 long double double_the_difference(vector<float> lst) {
-    long double sum_local = 0;
+    long double sum = 0;
     for (float num : lst) {
         if (num > 0 && abs(num - lround(num)) < 1e-9) {
-            sum_local += pow(num, 2);
+            sum += pow(num, 2);
         }
     }
-    return sum_local;
-
+    return sum;
 }
 
-int main() {
+int mainFunction() {
     vector<float> lst;
+    long double odd_sum = 0;
+
     cout << "Enter numbers (enter 'stop' to finish):" << endl;
     while(1) {
         float num;
-        
+
         cin >> num;
-        
+
         if(to_string(num) == "stop") break;
 
         if(abs(num - lround(num)) < 1e-9) {
             odd_sum = 0; 
-            sum = 0;
         }
         lst.push_back(num);    
     }
