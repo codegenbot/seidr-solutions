@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 ```
 def truncate_number_to_two_decimal_places():
     while True:
