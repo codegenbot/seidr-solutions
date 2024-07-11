@@ -1,7 +1,7 @@
+#include "cryptopp/sha.h"
 #include <iostream>
 #include <string>
 #include <sstream>
-#include "sha1.h"
 
 int main() {
     std::cout << "Enter a string: ";
@@ -18,7 +18,7 @@ int main() {
             << std::setfill('0') << std::setw(2) << (int)(md5[i]));
     }
 
-    std::cout << "The MD5 is: " << ss.str() << std::endl;
+    std::cout << "The SHA1 is: " << ss.str() << std::endl;
     
     return 0;
 }
