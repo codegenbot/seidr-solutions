@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```python
 while True:
     try:
         xs = [int(i) for i in input("Enter coefficients (a b c [d]): ").split()]
@@ -5,4 +8,4 @@ while True:
             raise ValueError
         break
     except ValueError:
-        print("Invalid input. Please enter exactly three or four coefficients: ")
+        print("Invalid input. Please enter exactly 3 or 4 coefficients: ")
