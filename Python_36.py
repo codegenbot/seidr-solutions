@@ -1,14 +1,14 @@
-```
+```Python
 def fizz_buzz(n: int):
+    result = 0
     for i in range(1, n+1):
         if i % 3 == 0:
-            output = "Fizz"
             if i % 5 == 0:
-                output += "Buzz"
+                result += 1
+            else:
+                result += 1/3
         elif i % 5 == 0:
-            output = "Buzz"
+            result += 1/5
         else:
-            output = str(i)
-        print(output)
-
-fizz_buzz(int(input("Enter a number: ")))
+            result += 1
+    return int(result)
