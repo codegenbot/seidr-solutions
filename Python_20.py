@@ -1,12 +1,10 @@
-    def find_closest_elements(numbers):
-        min_diff = float('inf')
-        closest_pair = ()
-        
-        for i in range(len(numbers)):
-            for j in range(i + 1, len(numbers)):
-                diff = abs(numbers[i] - numbers[j])
-                if diff < min_diff:
-                    min_diff = diff
-                    closest_pair = (min(numbers[i], numbers[j]), max(numbers[i], numbers[j]))
-        
-        return closest_pair
+def find_closest_elements(sorted_numbers: list[int], num: int) -> tuple[int]:
+    left = binary_search(sorted_numbers, num)
+    right = binary_search(sorted_numbers, num)
+
+    while left > 0 and sorted_numbers[left - 1] >= num:
+        left -= 1
+    while right < len(sorted_numbers) - 1 and sorted_numbers[right + 1] > num:
+        right += 1
+
+    return (sorted_numbers[left], sorted_numbers[right])
