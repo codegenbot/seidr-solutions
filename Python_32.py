@@ -1,3 +1,4 @@
+```
 while True:
     try:
         xs = [int(i) for i in input("Enter coefficients (a b c [d]): ").split()]
@@ -17,6 +18,6 @@ while True:
             else:
                 result = -b / a
                 print(f"There is one solution: {result}.")
-        break
+        continue
     except ValueError:
         print("Invalid input. Please enter exactly 3 or 4 coefficients: ")
