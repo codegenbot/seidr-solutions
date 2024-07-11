@@ -1,4 +1,3 @@
-```
 def encode(message):
     result = ""
     prev_alnum = False
@@ -11,7 +10,7 @@ def encode(message):
                     else:
                         result += chr((ord(char) - 97 + 3) % 26 + 97)
                 elif char.isdigit():
-                    result += str(int(char) + 3) if int(char) < 9 else '0'
+                    result += str((int(char) + 3) % 10)
             else:
                 result += char
             prev_alnum = True
