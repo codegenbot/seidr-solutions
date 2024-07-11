@@ -15,8 +15,7 @@ double vectorDistance(int n, const std::vector<float>& v1, const std::vector<flo
 int main() {
     int n;
     std::cin >> n; 
-    std::vector<float> v1, v2;
-    v1.resize(n), v2.resize(n);
+    std::vector<float> v1(n), v2(n); 
     for (float& val : v1) { std::cin >> val; }
     for (float& val : v2) { std::cin >> val; }
     double dist = vectorDistance(n, v1, v2);
