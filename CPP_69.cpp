@@ -1,12 +1,14 @@
-#include<vector>
-
-int search(vector<int> lst){
-    int result = -1;
+vector<int> freq(2001, 0);
     for (int num : lst) {
-        int freq = std::count(lst.begin(), lst.end(), num);
-        if (num > 0 && freq >= num && num > result) {
-            result = num;
+        freq[num]++;
+    }
+
+    int res = -1;
+    for (int i = 1; i <= 2000; ++i) {
+        if (freq[i] >= i) {
+            res = i;
         }
     }
-    return result;
+    
+    return res;
 }
