@@ -23,6 +23,8 @@ int main() {
             } else {
                 std::cout << (char)tolower(c); // Print lowercase character
             }
+        } else if (c == '-') {
+            capitalize = true;
         }
     }
 
