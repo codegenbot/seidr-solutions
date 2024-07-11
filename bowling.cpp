@@ -1,6 +1,7 @@
+```cpp
 #include <string>
 
-int bowlingScore(const std::string& s) {
+int bowlingScore(std::string s) {
     int score = 0;
     for (int i = 0; i < 10; ++i) {
         if (s[i] == 'X') {
@@ -10,9 +11,6 @@ int bowlingScore(const std::string& s) {
             if (i < 8 && s[i + 1] == '/') {
                 int roll2 = s[i + 2] - '0';
                 score += roll1 + roll2;
-            } else if (i < 9) {
-                int roll2 = s[++i] - '0';
-                score += roll1 * 2 + roll2;
             } else {
                 score += roll1 * 2;
             }
