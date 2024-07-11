@@ -1,20 +1,28 @@
-bool issame(vector<int> a, vector<int> b) {
+#include <vector>
+#include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    int m = grid.size();
-    int n = grid[0].size();
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
+    std::vector<int> result;
+    if (grid.empty()) return result;
     
-    vector<int> path;
+    int rows = grid.size();
+    int cols = grid[0].size();
     
-    for (int i = 0; i < m * n - 1; ++i) {
-        path.push_back(grid[i / n][i % n]);
-        if (i > 0 && path[i] < path[i - 1])
-            grid[i / n][i % n] += path[i - 1] - path[i] + k;
+    int totalSteps = rows * cols * k;
+    
+    while (totalSteps > 0) {
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                result.push_back(grid[i][j]);
+            }
+        }
+        
+        totalSteps -= rows * cols;
     }
     
-    path.push_back(grid[(m * n - 1) / n][(m * n - 1) % n]);
-    
-    return path;
+    return result;
 }
