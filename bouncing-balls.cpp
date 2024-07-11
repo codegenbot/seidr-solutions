@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-#include <string>
 
 int main() {
     double start_height, bounciness_index, total_distance = 0.0;
@@ -10,12 +9,7 @@ int main() {
     std::cin >> start_height;
     std::cin >> first_bounce_height;
 
-    // Replace ',' with '.'
-    for (char &c : first_bounce_height) {
-        if (c == ',') {
-            c = '.';
-        }
-    }
+    std::replace_if(first_bounce_height.begin(), first_bounce_height.end(), [](char c) { return c == ','; }, '.');
 
     std::cin >> num_bounces;
 
