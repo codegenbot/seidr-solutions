@@ -1,5 +1,3 @@
-#include <using namespace std>;
-
 using namespace std;
 
 string concatenate(vector<string> strings){
