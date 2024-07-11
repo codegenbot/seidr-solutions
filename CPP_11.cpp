@@ -1,15 +1,24 @@
-```cpp
-string string_xor(string a, string b) {
-    string result = "";
-    for (int i = 0; i < a.size(); i++) {
-        if ((a[i] - '0') ^ (b[i] - '0')) {
-            result += "1";
+string s1, s2;
+    cout << "Enter the first binary number: ";
+    cin >> s1;
+    cout << "Enter the second binary number: ";
+    cin >> s2;
+
+    while (s1.length() < s2.length()) {
+        s1 = '0' + s1;
+    }
+    while (s2.length() < s1.length()) {
+        s2 = '0' + s2;
+    }
+
+    string xorResult = "";
+    for(int i=0; i<s1.length(); i++) {
+        if ((s1[i]-'0') ^ (s2[i]-'0')) {
+            xorResult += "1";
         } else {
-            result += "0";
+            xorResult += "0";
         }
     }
-    return result;
-}
-int main() {
-    assert (string_xor("0101", "0000") == "0101");
+    cout << "XOR of two binary numbers: " << xorResult << endl;
+    return 0;
 }
