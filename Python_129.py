@@ -1,4 +1,4 @@
-```python
+```
 def minPathSum(grid):
     m = len(grid)
     n = len(grid[0])
@@ -15,4 +15,4 @@ def minPathSum(grid):
             
     return grid[-1][-1]
 
-assert minPathSum([[1,3],[3,2]]) == 6
+print(minPathSum([[1,3,1],[1,5,1],[4,2,1]]))
