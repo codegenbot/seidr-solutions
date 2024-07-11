@@ -1,6 +1,6 @@
 #include <stdexcept>
 
-std::string int_to_mini_roman(int number) {
+std::string int_to_roman(int number) {
     if (number >= 4000) {
         throw std::runtime_error("Number is too big");
     }
@@ -9,70 +9,51 @@ std::string int_to_mini_roman(int number) {
         number -= 1000;
         result += "M";
     }
-    int thousands = number / 100;
-    if (thousands == 9) {
-        result += "CM";
+    while (number >= 900) {
         number -= 900;
-    } else if (thousands >= 4) {
-        while (thousands >= 4) {
-            result += "CD";
-            number -= 400;
-            thousands -= 4;
-        }
-    } else {
-        for (; thousands > 0; --thousands) {
-            result += "C";
-        }
+        result += "CM";
+    }
+    while (number >= 500) {
+        number -= 500;
+        result += "D";
+    }
+    while (number >= 400) {
+        number -= 400;
+        result += "CD";
     }
     while (number >= 100) {
-        if (number >= 900) {
-            result += "CM";
-            number -= 900;
-        } else if (number >= 400) {
-            while (number >= 300) {
-                result += "CCC";
-                number -= 300;
-            }
-            result += "C";
-            number -= 100;
-        } else {
-            for (; number >= 100; number -= 100) {
-                result += "C";
-            }
-        }
-    }
-    while (number >= 10) {
-        if (number >= 90) {
-            result += "XC";
+        while (number >= 90) {
             number -= 90;
-        } else if (number >= 40) {
-            while (number >= 30) {
-                result += "XXX";
-                number -= 30;
-            }
-            result += "X";
-            number -= 10;
-        } else {
-            for (; number >= 10; number -= 10) {
+            result += "XC";
+        }
+        while (number >= 50) {
+            number -= 50;
+            result += "L";
+        }
+        while (number >= 40) {
+            number -= 40;
+            result += "XL";
+        }
+        while (number >= 10) {
+            for (int i = 0; i < number / 10; i++) {
                 result += "X";
             }
+            number %= 10;
         }
-    }
-    while (number > 0) {
-        if (number == 9) {
+        while (number >= 9) {
+            number -= 9;
             result += "IX";
-            number = 0;
-        } else if (number >= 5) {
-            result += "V";
+        }
+        while (number >= 5) {
             number -= 5;
-            while (number >= 1) {
-                result += "I";
-                number -= 1;
-            }
-        } else {
-            for (; number > 0; --number) {
-                result += "I";
-            }
+            result += "V";
+        }
+        while (number >= 4) {
+            number -= 4;
+            result += "IV";
+        }
+        for (int i = 0; i < number; i++) {
+            result += "I";
         }
     }
     return result;
