@@ -1,19 +1,19 @@
-```cpp
+```
 #include <iostream>
-#include <string>
-double probability(std::string n, std::string m);
+#include <iomanip>
+
+double probability(int n, int m);
 
 int main() {
-    std::string n, m;
-    std::cin >> n >> m;
-    int N = std::stoi(n), M = std::stoi(m);
-    double result = probability(N, M);
-    std::cout << std::setf(std::ios_base::fixed) << std::setprecision(2) << result << std::endl;
+    int n, m;
+    cin >> n >> m;
+    double result = probability(n, m);
+    cout << fixed << setprecision(2) << result << endl;
 }
 
-double probability(int N, int M) {
-    if (N < M)
+double probability(int n, int m) {
+    if (n < m)
         return 0.0;
     else
-        return (M + 1.0) / N;
+        return static_cast<double>(m + 1) / n;
 }
