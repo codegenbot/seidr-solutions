@@ -1,27 +1,35 @@
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool has_dot = false;
-    string before_dot;
+Here is the completed code:
 
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            digit_count++;
-            if (digit_count > 3) return "No";
+```cpp
+bool hasDigit = false;
+int dotCount = 0;
+
+for (char c : file_name) {
+    if (isdigit(c)) {
+        if (!hasDigit) {
+            hasDigit = true;
         }
-        else if (c == '.') {
-            has_dot = true;
+        if (hasDigit && ++dotCount > 3) {
+            return "No";
         }
-        else if (!has_dot) {
-            before_dot += c;
-            if (isalpha(c)) continue;
-            else return "No";
-        }
+    } else if (c == '.') {
+        dotCount++;
+    } else if (c == ' ' || c < 'A' || c > 'Z' || c < 'a' || c > 'z') {
+        return "No";
     }
-
-    if (!has_dot) return "No";
-
-    string after_dot = file_name.substr(file_name.find('.') + 1);
-    if (after_dot.size() < 3 || (after_dot != "txt" && after_dot != "exe" && after_dot != "dll")) return "No";
-
-    return "Yes";
 }
+
+if (dotCount != 1) {
+    return "No";
+}
+
+size_t pos = file_name.find('.');
+string beforeDot = file_name.substr(0, pos);
+string afterDot = file_name.substr(pos + 1);
+
+vector<string> validExtensions = {"txt", "exe", "dll"};
+if (find(validExtensions.begin(), validExtensions.end(), afterDot) == validExtensions.end()) {
+    return "No";
+}
+
+return "Yes";
