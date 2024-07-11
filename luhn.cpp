@@ -1,20 +1,16 @@
-#include <vector>
-
-int luhn(std::vector<int> digits) {
+int luhn(vector<int> cardNum) {
     int sum = 0;
-    bool doubleNext = false;
+    bool isSecond = false;
 
-    for (int i = digits.size() - 1; i >= 0; --i) {
-        if (doubleNext) {
-            int digit = digits[i] * 2;
-            if (digit > 9) {
-                digit -= 9;
-            }
-            sum += digit;
+    for (int i = cardNum.size() - 1; i >= 0; i--) {
+        if (isSecond) {
+            int val = cardNum[i] * 2;
+            if (val > 9) val -= 9;
+            sum += val;
         } else {
-            sum += digits[i];
+            sum += cardNum[i];
         }
-        doubleNext = !doubleNext;
+        isSecond = !isSecond;
     }
 
     return sum;
