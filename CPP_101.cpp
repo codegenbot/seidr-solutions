@@ -23,16 +23,13 @@ int main() {
     cout << "Enter a sentence: ";
     getline(cin, input);
 
-    vector<string> result = words_string(input);
+    vector<string> words = words_string(input);
 
-    if (result.empty()) {
-        cout << "No words detected." << endl;
-    } else {
-        cout << "Words detected:" << endl;
-        for (const string& word : result) {
-            cout << word << endl;
-        }
+    cout << "Words separated by spaces: ";
+    for (const auto& w : words) {
+        cout << w << " ";
     }
+    cout << endl;
 
     return 0;
 }
