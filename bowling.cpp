@@ -1,5 +1,5 @@
+```
 #include <string>
-#include <iostream>
 
 int bowlingScore(const std::string& s) {
     int score = 0;
