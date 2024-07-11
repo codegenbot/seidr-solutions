@@ -3,4 +3,4 @@ def remove_duplicates(input_string):
         input_string = ','.join(map(str, input_string))
     
     input_list = [int(x) for x in input_string.split(",")]
-    return [x for i, x in enumerate(sorted(input_list)) if i == 0 or x != input_list[i-1]]
+    return list(set(input_list))
