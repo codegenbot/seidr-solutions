@@ -11,3 +11,4 @@ def fix_spaces(text):
         else:
             new_text += char
             prev_was_space = False
+    return new_text
