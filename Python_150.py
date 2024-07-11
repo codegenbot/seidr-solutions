@@ -4,4 +4,7 @@ def x_or_y(n, x, y):
             if n % i == 0:
                 return y
     else:
-        return x
+        if x < y:
+            return 'x is smaller'
+        elif x > y:
+            return 'y is smaller'
