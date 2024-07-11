@@ -1,15 +1,21 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
+vector<int> factorize(int n){
+    vector<int> factors;
+    for(int i=2; i*i<=n; i++){
+        while(n%i == 0){
+            factors.push_back(i);
+            n /= i;
         }
     }
-    return true;
+    if(n > 1){
+        factors.push_back(n);
+    }
+    return factors;
+}
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
 int main(){
