@@ -11,6 +11,6 @@ bool is_prime(long long n){
 }
 
 int main() {
-    std::cout << std::boolalpha << is_prime(13441 * 19) << std::endl;
+    std::cout << is_prime(13441 * 19) << std::endl;
     return 0;
 }
