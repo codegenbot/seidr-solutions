@@ -21,7 +21,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
-        pos += targetLen; // Update to consider overlapping occurrences
+        pos += targetLen == 0 ? 1 : targetLen; // Update to consider overlapping occurrences
     }
 
     return indices;
