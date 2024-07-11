@@ -1,7 +1,10 @@
+Here is the modified code:
+
+```cpp
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
-#include <boost/config.hpp>
+#include <boost/converter.hpp>
 
 using namespace std;
 
@@ -84,7 +87,7 @@ int main() {
     boost::any a = 1;
     boost::any b = 2.0f;
     boost::any result = compare_one(a, b);
-    cout << "Result: " << any_cast<string>(result) << endl;
+    std::cout << "Result: " << any_cast<std::string>(result) << std::endl;
 
     return 0;
 }
