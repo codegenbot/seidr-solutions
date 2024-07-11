@@ -9,7 +9,7 @@ bool issame(const std::string& str1, const std::string& str2) {
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> res(2, 0);
-    for(int i = 1; i <= n; ++i) {
+    for (int i = 1; i <= n; ++i) {
         std::string str = std::to_string(i);
         std::string rev_str = str;
         std::reverse(rev_str.begin(), rev_str.end());
