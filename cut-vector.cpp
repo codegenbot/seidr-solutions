@@ -1,36 +1,40 @@
 int main() {
-    vector<int> nums;
+    vector<int> input;
     int num;
-    while(cin >> num) {
-        nums.push_back(num);
+    while (cin >> num) {
+        input.push_back(num);
     }
-    
-    int n = nums.size();
-    int diff = INT_MAX;
-    int cut = 0;
-    
-    for(int i = 1; i < n; i++) {
-        int sumLeft = 0, sumRight = 0;
-        for(int j = 0; j < i; j++) {
-            sumLeft += nums[j];
+
+    int n = input.size();
+    int ans = INT_MAX;
+    int cut_point = -1;
+
+    for (int i = 1; i < n; ++i) {
+        int left_sum = 0;
+        int right_sum = 0;
+        for (int j = 0; j < i; ++j) {
+            left_sum += input[j];
         }
-        for(int j = i; j < n; j++) {
-            sumRight += nums[j];
+        for (int j = i; j < n; ++j) {
+            right_sum += input[j];
         }
-        
-        int currentDiff = abs(sumLeft - sumRight);
-        if(currentDiff < diff) {
-            diff = currentDiff;
-            cut = i;
+
+        int diff = abs(left_sum - right_sum);
+        if (diff < ans) {
+            ans = diff;
+            cut_point = i;
         }
     }
-    
-    for(int i = 0; i < cut; i++) {
-        cout << nums[i] << endl;
+
+    for (int i = 0; i < cut_point; ++i) {
+        cout << input[i] << "\n";
     }
-    for(int i = cut; i < n; i++) {
-        cout << nums[i] << endl;
+    cout << "\n";
+
+    for (int i = cut_point; i < n; ++i) {
+        cout << input[i] << "\n";
     }
-    
+    cout << endl;
+
     return 0;
 }
