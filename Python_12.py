@@ -1,5 +1,5 @@
-Here is the modified code:
-
+```
+```python
 def longest(strings: List[object]) -> Optional[str]:
     if not strings:
         return None
@@ -13,3 +13,4 @@ def longest(strings: List[object]) -> Optional[str]:
             result = s
 
     return result
+```
