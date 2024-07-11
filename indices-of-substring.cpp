@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector>
 
-int main() {
-    std::string text, target;
-    std::cin >> text >> target;
+using namespace std;
 
-    std::vector<int> indices;
+int main() {
+    string text, target;
+    cin >> text >> target;
+
+    vector<int> indices;
     for (size_t i = 0; i <= text.size() - target.size(); ++i) {
         if (text.substr(i, target.size()) == target) {
             indices.push_back(i);
