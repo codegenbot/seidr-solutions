@@ -3,7 +3,7 @@
 #include <map>
 #include <cassert>
 
-bool issame(const std::map<char, int>& a, const std::map<char, int>& b){
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
 }
 
