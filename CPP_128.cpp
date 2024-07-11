@@ -1,23 +1,22 @@
-Here is the completed code:
-
-```cpp
 #include <vector>
 
 using namespace std;
 
 int prod_signs(vector<int> arr) {
-    int signProd = 1;
-    long long sumMag = 0;
+    int product = 1;
+    long long sum = 0;
     
-    if(arr.empty())
-        return -32768;
-        
-    for(int num : arr){
-        if(num == 0)
+    for (int i : arr) {
+        if (i == 0) {
             return 0;
-        signProd *= (num > 0 ? 1 : ((num < 0) ? -1 : 0));
-        sumMag += abs(num);
+        }
+        product *= sign(i);
+        sum += abs(i);
     }
     
-    return signProd * sumMag;
+    return (product == 0) ? -32768 : (sum * product < 0 ? -sum : sum);
+}
+
+int sign(int n) {
+    return (n > 0) ? 1 : ((n < 0) ? -1 : 0);
 }
