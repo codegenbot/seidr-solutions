@@ -23,21 +23,8 @@ namespace boost {
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).good()) {
-            result.push_back(any_cast<int>(value));
-        } else if (any_cast<string>(value).good()) {
-            // Check if integer value exists in the string
-            int num = 0;
-            bool found = false;
-            for (char c : any_cast<string>(value)) {
-                if (c >= '0' && c <= '9') {
-                    num = num * 10 + c - '0';
-                    found = true;
-                }
-            }
-            if (found) {
-                result.push_back(num);
-            }
+        if (boost::any_cast<int>(value).good()) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
