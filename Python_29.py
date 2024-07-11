@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -22,17 +23,22 @@ except Exception as e:
 strings = [input() for _ in range(num_strings)]
 try:
     while True:
-        try:
-            prefix = input("Enter prefix (string): ")
-            if not isinstance(prefix, str):
-                print("Please enter a string.")
-            else:
-                break
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            sys.stdin.readline()  # This ensures you always get at least one iteration of the loop
+        prefix = input("Enter prefix (string): ")
+        if not isinstance(prefix, str):
+            print("Please enter a string.")
+        else:
+            break
 except Exception as e:
     print(f"An error occurred: {e}")
     exit(1)
-
 filter_by_prefix([str(x) for x in strings], prefix)
+
+while True:
+    try:
+        filter_by_prefix([str(x) for x in strings], prefix)
+        repeat = input("Do you want to filter again? (yes/no): ")
+        if repeat.lower() != 'yes':
+            break
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        exit(1)
