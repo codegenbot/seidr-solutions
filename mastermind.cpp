@@ -9,18 +9,14 @@ int main() {
     std::string code, guess;
     std::cin >> code >> guess;
 
-    int whitePegs = 0;
-    int blackPegs = 0;
-
-    for (int i = 0; i < code.length(); ++i) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-        } else if (code.find(guess[i]) != std::string::npos && code[i] != guess[i]) {
-            whitePegs++;
-        }
+    int whitePegs = 0, blackPegs = 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i])
+            ++blackPegs;
+        else if (code.find(guess[i]) != std::string::npos)
+            ++whitePegs;
     }
-
-    std::cout << blackPegs << " " << whitePegs << std::endl;
+    std::cout << whitePegs << " " << blackPegs << std::endl;
 
     return 0;
 }
