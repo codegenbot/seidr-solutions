@@ -1,8 +1,8 @@
+```
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
@@ -14,11 +14,19 @@ int main() {
 
     cout << "Random Number: " << randomNum << endl; 
 
-    string s;
+    int num1, num2;
+    string strInput;
     cout << "Enter two numbers: ";
-    getline(cin, s);
-    int num1 = stoi(s.substr(0, s.find(' ')));
-    int num2 = stoi(s.substr(s.find(' ') + 1));
+    cin >> strInput;
+
+    int spaceIndex = strInput.find(' ');
+    if(spaceIndex != -1) {
+        num1 = stoi(strInput.substr(0, spaceIndex));
+        num2 = stoi(strInput.substr(spaceIndex + 1));
+    } else {
+        cout << "Please enter two numbers separated by a space." << endl;
+        return 1; 
+    }
 
     cout << "Sum of the numbers: " << add(num1, num2) << endl;
 }
