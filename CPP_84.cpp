@@ -1,6 +1,7 @@
 int sum = 0;
-    while (N != 0) {
+    while (N) {
         sum += N % 2;
-        N = N / 2;
+        N /= 2;
     }
-    return bitset<32>(sum).to_string().substr(32 - sum);
+    return to_string(sum);
+}
