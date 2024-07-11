@@ -13,10 +13,9 @@ for (int i = 0; i < 6; ++i) {
     p.push_back({x, y});
 }
 
-auto max_pair = *std::max_element(p.begin(), p.end(),
-                                     [](const auto& a, const auto& b) {
-                                         return a.second < b.second;
-                                     });
+auto max_pair = *std::max_element(p.begin(), p.end(), [](const auto& a, const auto& b) {
+    return a.second < b.second;
+});
 
 min_value = *std::min_element(p.begin(), p.end())->first;
 
