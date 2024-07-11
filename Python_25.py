@@ -1,7 +1,12 @@
+```
+from typing import List
+import math
+
+
 def factorize(n: int) -> List[int]:
     factors = []
     i = 2
-    while i * i <= n:
+    while i <= math.isqrt(n):
         if n % i:
             i += 1
         else:
@@ -10,7 +15,6 @@ def factorize(n: int) -> List[int]:
                 count += 1
                 n //= i
             factors.extend([i] * count)
-            i = 2
     if n > 1:
         factors.append(n)
     return factors
