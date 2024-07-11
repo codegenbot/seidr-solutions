@@ -1,23 +1,16 @@
-def encrypt_and_decrypt(input_string):
-    encrypted_message = ""
-    for char in input_string:
+def process_string(s):
+    encoded_message = ""
+    for char in s:
         if char.isalpha():
-            first_half = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
-            second_half = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-            if char.lower() in "aeiouAEIOU":
-                index = (ord(char.lower()) - 97) % 5
-                encrypted_char = second_half[index]
-                encrypted_message += (
-                    encrypted_char.upper() if char.isupper() else encrypted_char
-                )
-            elif char.lower() in first_half:
-                index = (ord(char.lower()) - 98) % 14
-                encrypted_char = first_half[index]
-                encrypted_message += (
-                    encrypted_char.upper() if char.isupper() else encrypted_char
-                )
+            if char.lower() in 'aeiou':
+                index = ord(char.lower()) - ord('a')
+                encoded_char = chr((index + 2) % 26 + ord('a'))
+                if char.isupper():
+                    encoded_message += encoded_char.upper()
+                else:
+                    encoded_message += encoded_char
             else:
-                encrypted_message += char
+                encoded_message += char.upper() if char.islower() else char
         else:
-            encrypted_message += char
-    return encrypted_message
+            encoded_message += char
+    return encoded_message
