@@ -8,7 +8,7 @@ int main() {
     int n, m;
     cin >> n >> m;
     double result = probability(n, m);
-    std::cout << std::fixed << std::setprecision(6) << result << std::endl;
+    std::cout << std::fixed << std::setiosflags(std::ios_base::floatfield, std::ios_base::scientific) << std::setprecision(2) << result << std::endl;
 }
 
 double probability(int n, int m) {
