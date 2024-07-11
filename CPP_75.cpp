@@ -1,16 +1,48 @@
-#include <cassert>
+#include <cmath>
 
-bool is_multiply_prime(int a) {
-    for (int i = 2; i * i <= a; i++) {
-        while (a % i == 0) {
-            if (!is_prime(i)) return false;
-            a /= i;
+bool is_prime(int n) {
+    if (n <= 1) {
+        return false;
+    }
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
         }
     }
-    return a == 1;
+    return true;
 }
 
-int main() {
-    assert(is_multiply_prime(11 * 13 * 7) == true);
-    return 0;
+bool is_multiply_prime(int a) {
+    for (int i = 2; i <= sqrt(a); i++) {
+        int product = 1;
+        bool found = false;
+        for (int j = 2; j <= sqrt(i); j++) {
+            if (i % j == 0) {
+                product *= j;
+                while (i % j == 0) {
+                    i /= j;
+                }
+                found = true;
+            }
+        }
+        if (!found && i > 1) {
+            return false;
+        }
+        int count = 0;
+        for (int k = 2; k <= sqrt(product); k++) {
+            if (product % k == 0) {
+                product /= k;
+                while (product % k == 0) {
+                    product /= k;
+                }
+                count++;
+            }
+        }
+        if (count >= 3) {
+            int b = a / i;
+            int c = a / product;
+            return is_prime(i) && is_prime(b) && is_prime(c);
+        }
+    }
+    return false;
 }
