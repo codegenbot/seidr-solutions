@@ -20,4 +20,3 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 temp_group = ''
     
     return groups
-"""
