@@ -7,7 +7,7 @@ def minPath(grid, k):
         nonlocal res
         if len(path) == k:
             res.append(sorted(path))
-            return
+            return True
         for x, y in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
             if 0 <= x < n and 0 <= y < n:
                 dfs(x, y, path + [grid[x][y]])
@@ -17,4 +17,4 @@ def minPath(grid, k):
             dfs(i, j, [grid[i][j]])
 
     assert any(len(p) == k for p in res), f"Expected at least one path of length {k}"
-    return sorted(res)[0]
+    return res
