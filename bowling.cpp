@@ -1,3 +1,4 @@
+```
 #include <string>
 
 int bowlingScore(string s) {
@@ -13,9 +14,9 @@ int bowlingScore(string s) {
             lastRoll = true;
         } else {
             int roll1 = s[i] - '0';
-            int roll2 = (i < 9) ? (s[i + 1] - '0') : 0;
+            int roll2 = i+1<10?s[i+1]-'0':10;
             if (lastRoll) {
-                return -1; 
+                return -1; // Invalid input
             }
             score += roll1 + roll2;
             lastRoll = false;
