@@ -1,4 +1,4 @@
-```
+```Python
 import math
 
 
@@ -7,7 +7,7 @@ def is_valid_fraction(fraction):
         a, b = map(int, fraction.split("/"))
         if a == 0:
             return False
-        if b == 0 or (a != 0 and b != 0):
+        if b == 0 or (a != 0 and d != 0):
             return False
         return True
     except ValueError:
