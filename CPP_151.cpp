@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -15,7 +16,7 @@ long long double_the_difference(vector<float> lst) {
 
 }
 
-int calculate_sum(vector<float>& lst, int& odd_sum) {
+void calculate_sum(vector<float>& lst, int& odd_sum) {
     cout << "Enter numbers (enter 'stop' to finish):" << endl;
     while(1) {
         float num;
@@ -31,8 +32,6 @@ int calculate_sum(vector<float>& lst, int& odd_sum) {
                     odd_sum += double_the_difference(lst);
                 }
             }
-        } else {
-            odd_sum += pow(num, 2);
         }
         lst.push_back(num);    
     }
@@ -41,7 +40,7 @@ int calculate_sum(vector<float>& lst, int& odd_sum) {
 }
 
 int main() {
-    vector<double> lst; 
+    vector<float> lst; 
     int odd_sum = 0;
     calculate_sum(lst, odd_sum);
 }
