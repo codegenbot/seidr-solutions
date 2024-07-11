@@ -1,18 +1,20 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
-    if (lst.empty()) return result;
+    if (lst.empty()) return lst;
 
-    for(int num : lst) {
-        if (std::count(result.begin(), result.end(), num) == 0) {
-            result.push_back(num);
+    std::sort(lst.begin(), lst.end());
+
+    for(int i : lst){
+        if(i % 2 == 0) result.push_back(i);
+        else{
+            int temp = *min_element(lst.begin(), lst.end());
+            lst.erase(remove(lst.begin(), lst.end(), temp), lst.end());
+            result.push_back(temp);
         }
     }
-
-    std::sort(result.begin(), result.end());
-    result.erase(std::unique(result.begin(), result.end()), result.end());
 
     return result;
 }
