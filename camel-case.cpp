@@ -2,23 +2,20 @@
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(std::string input) {
+std::string camelCase(std::string input) {
     std::string output;
-    bool firstWord = true;
+    bool first = true;
 
     for (char c : input) {
         if (c == '-') {
-            if (!firstWord)
-                output += char(toupper(c));
-            firstWord = false;
-        } else if (c == ' ') {
-            if (!firstWord)
-                output += ' ';
-            firstWord = false;
-        } else {
-            output += c;
-            firstWord = true;
+            continue;
         }
+        if (!first) {
+            output[0] = toupper(output[0]);
+        } else {
+            first = false;
+        }
+        output += c;
     }
 
     return output;
@@ -26,9 +23,9 @@ std::string kebabToCamel(std::string input) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a string: ";
+    std::cout << "Enter a string in kebab-case: ";
     std::getline(std::cin, input);
-    std::cout << "Camel case: " << kebabToCamel(input) << std::endl;
+    std::cout << "The camelCase version is: " << camelCase(input) << std::endl;
 
     return 0;
 }
