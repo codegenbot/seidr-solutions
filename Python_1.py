@@ -3,20 +3,18 @@ from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    stack = []
-    temp = ''
-    
+    group = ''
+    opened = 0
     for char in paren_string:
-        if char == ' ':
-            continue
-        if char == '(':
-            stack.append(char)
-            temp += char
+        if char == '(': 
+            opened += 1
+            group += '('
         elif char == ')':
-            stack.pop()
-            temp += char
-            if not stack:
-                result.append(temp)
-                temp = ''
-    
+            opened -= 1
+            group += ')'
+            if opened == 0:
+                result.append(group)
+                group = ''
+        else: 
+            continue
     return result
