@@ -1,8 +1,12 @@
+
 #include <vector>
 #include <string>
+#include <cassert>
 
-namespace my_namespace {
-    bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
+namespace contest {
+    bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+        return a == b;
+    }
 }
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
@@ -13,4 +17,9 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
         }
     }
     return result;
+}
+
+int main() {
+    assert(contest::issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
+    return 0;
 }
