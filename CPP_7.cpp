@@ -1,5 +1,4 @@
 #include <vector>
-#include <string>
 #include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
@@ -12,32 +11,44 @@ int main() {
     vector<string> strings;
     string substring;
 
-    // Input
-    cout << "Enter the number of strings: ";
-    int n; cin >> n;
-    for (int i = 0; i < n; i++) {
-        cout << "Enter string " << i + 1 << ": ";
-        getline(cin, strings[i]);
-    }
+    // Read input from user
+    cout << "Enter the list of strings (separated by spaces): ";
+    getline(cin, substring);
+    strings = split(substring);
 
-    cout << "Enter the substring: ";
+    cout << "Enter the substring to filter: ";
     getline(cin, substring);
 
-    // Processing
-    vector<string> result = filter_by_substring(strings, substring);
-    
-    // Output
-    if (result.empty()) {
-        cout << "No strings contain the given substring." << endl;
-    } else if (issame({substring}, result)) {
-        cout << "All strings contain the given substring." << endl;
+    vector<string> filtered_strings = filter_by_substring(strings, substring);
+
+    if (issame(strings, filtered_strings)) {
+        cout << "The filtered list contains the same strings as the original list." << endl;
     } else {
-        cout << "Strings that contain the given substring: ";
-        for (const auto& s : result) {
-            cout << s << " ";
-        }
-        cout << endl;
+        cout << "The filtered list does not contain the same strings as the original list." << endl;
     }
 
     return 0;
+}
+
+vector<string> split(const string& str) {
+    vector<string> tokens;
+    size_t start = 0, end = 0;
+
+    while ((end = str.find(' ', start)) != string::npos) {
+        tokens.push_back(str.substr(start, end - start));
+        start = end + 1;
+    }
+
+    tokens.push_back(str.substr(start));
+    return tokens;
+}
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for (const auto& s : strings) {
+        if (s.find(substring) != string::npos) {
+            result.push_back(s);
+        }
+    }
+    return result;
 }
