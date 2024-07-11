@@ -1,7 +1,5 @@
 ```
-from typing import List
-
-def below_zero(operations: List[str]) -> bool:
+def below_zero(operations: list) -> bool:
     balance = 0
     for operation in operations:
         if operation[0] == "+":
@@ -9,7 +7,6 @@ def below_zero(operations: List[str]) -> bool:
         elif operation[0] == "-":
             balance -= int(operation[1:])
     return balance < 0
-
 
 ops = []
 op = input()
