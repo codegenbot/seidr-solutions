@@ -1,4 +1,3 @@
-```
 def get_odd_collatz(n):
     sequence = [n]
     while n != 1:
