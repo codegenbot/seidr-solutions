@@ -13,13 +13,13 @@ int blackPegs(string code, string guess) {
     vector<char> codeArray(code.begin(), code.end());
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
-            codeArray[i] = '0'; // Mark the correct position
+            codeArray[i] = '0';
         }
     }
     for (int i = 0; i < 4; i++) {
         vector<char>::iterator it = find(codeArray.begin(), codeArray.end(), guess[i]);
         if (it != codeArray.end()) {
-            count++; // Increment count only when correct color and position match
+            count++;
             codeArray.erase(it);
         }
     }
@@ -30,8 +30,8 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     int white = whitePegs(code, guess);
+    cout << white << endl;
     int black = blackPegs(code, guess);
     cout << black << endl;
-    cout << white << endl;
     return 0;
 }
