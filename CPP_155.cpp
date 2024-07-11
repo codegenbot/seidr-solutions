@@ -20,7 +20,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> result = even_odd_count(123456);
-    assert(issame(result, {3, 3}));
+    std::vector<int> count = even_odd_count(123456);
+    assert(issame(count, {3, 3}));
     return 0;
 }
