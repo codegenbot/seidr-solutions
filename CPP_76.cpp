@@ -1,13 +1,4 @@
-if (x == 1)
-    {
-        return true;
-    }
-    
-    int power = 1;
-    while (pow(n, power) < x)
-    {
-        power++;
-    }
-
-    return pow(n, power) == x;
+if (x <= 0 || n <= 0) return false;
+    double power = log(x) / log(n);
+    return power == (int)power;
 }
