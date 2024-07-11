@@ -4,12 +4,16 @@ def total_expenses(expenses: list) -> int:
     for expense in expenses:
         if isinstance(expense, list):
             try:
-                total += sum(int(value) for value in expense)
+                total += sum(int(x) for x in expense)
             except ValueError:
                 pass
-        else:
-            total += int(expense)
+        elif isinstance(expense, dict):
+            try:
+                total += sum(int(value) for value in expense.values())
+            except ValueError:
+                pass
     return total
+
 
 user_input = input("Please enter some values (separated by spaces): ")
 try:
