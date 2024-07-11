@@ -1,5 +1,5 @@
-```
 from typing import List
+
 
 def rolling_max():
     result = []
