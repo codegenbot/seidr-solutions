@@ -1,16 +1,17 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
 using namespace std;
 
-std::vector<int> compare(std::vector<int> a, std::vector<int> b) {
+pair<int,long> compare(vector<int> a, vector<int> b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    return {static_cast<int>(a.size()), static_cast<int>(static_cast<long>(b.size()))};
+    return {a.size(), static_cast<long>(b.size())};
 }
 
 int main() {
-    assert(issame({1,2,3,5},{-1,2,3,4}) == compare({1,2,3,5},{-1,2,3,4}) == vector<int>{2,0,0,1});
+    assert(compare({1,2,3,5},{-1,2,3,4}) == make_pair(2,0));
     return 0;
 }
