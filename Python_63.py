@@ -3,8 +3,6 @@ def fibfib(n: int):
         return n
     else:
         a, b = 0, 1
-        result = []
-        for _ in range(2, n+2): 
-            result.append(b)
+        for _ in range(2, n+1):
             a, b = b, a+b
-        return sum(int(x) for x in str(result[-1]))
+        return b
