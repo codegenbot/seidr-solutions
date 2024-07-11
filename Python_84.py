@@ -1,24 +1,14 @@
-def solve():
+def solve(binary):
     while True:
-        binary = (
-            input("Do you want to convert from binary (yes) or decimal (no)? ").lower()
-            == "yes"
-        )
         try:
             if binary:
-                N = int(input("Enter a {} number: ".format("binary")), 2)
+                N = int(input(f"Enter a {'binary' if binary else 'decimal'} number: "), 2 if binary else 10)
             else:
-                N = float(input("Enter a {} number: ".format("decimal")))
-            print(str(N))
-            cont = input("Do you want to continue? (yes/no) ")
-            if cont.lower() != "yes":
-                break
+                N = float(input(f"Enter a {'decimal' if not binary else 'binary'} number: "))
+            break
         except ValueError:
-            print(
-                "Invalid input! Please enter a valid {}".format(
-                    "binary" if binary else "decimal"
-                )
-            )
+            print(f"Invalid input! Please enter a valid {'binary' if binary else 'decimal'}")
 
+    print(str(N))
 
-solve()
+solve(True)
