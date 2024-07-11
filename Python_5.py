@@ -1,3 +1,5 @@
-return [val for sublist in [[num, delimeter] for num in numbers] for val in sublist][
-    :-1
-]
+result = []
+for num in numbers:
+    result.extend([num, delimeter])
+result.pop()
+return result
