@@ -1,10 +1,8 @@
 ```
-""""""
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
     groups = []
-    
     for char in paren_string:
         if char == ' ': 
             continue
