@@ -1,18 +1,15 @@
-char stack[10000];
-int top = 0;
-
-string match_parens(vector<string> lst){
+int count = 0;
     for (string s : lst) {
         for (char c : s) {
             if (c == '(') {
-                stack[top++] = c;
+                count++;
             } else {
-                if (top == 0) {
+                if (count == 0) {
                     return "No";
                 }
-                top--;
+                count--;
             }
         }
     }
-    return top == 0 ? "Yes" : "No";
+    return (count == 0) ? "Yes" : "No";
 }
