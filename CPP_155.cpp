@@ -24,16 +24,9 @@ vector<int> even_odd_count(int num) {
     result.push_back(count);
     result.push_back(abs(num));
     return result;
-
 }
 
-int main() {
+int main() { 
     assert(issame(even_odd_count(0), vector<int>{1, 0}));
-    int n; 
-    cout << "Enter a number: ";
-    cin >> n;
-    vector<int> res = even_odd_count(n);
-    cout << "Even digits count: " << res[0] << endl;
-    cout << "Absolute value of the number: " << res[1] << endl;
-    
+    return 0; 
 }
