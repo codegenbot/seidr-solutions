@@ -1,7 +1,7 @@
 def decode_cyclic(s: str):
     result = []
     temp = ""
-    for char in s + ' ':  
+    for char in s + ' ': 
         if char == ' ':
             if len(temp) >= 2 and temp[0] == '(' and temp[-1] == ')':
                 if len(result) > 0 and result[-1].endswith(temp[1:-1]):
