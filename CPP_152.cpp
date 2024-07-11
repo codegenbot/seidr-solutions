@@ -9,8 +9,11 @@ bool issame(vector<int> a, vector<int> b) {
     }
     return true;
 }
-
 vector<int> compare(vector<int> game, vector<int> guess) {
+    vector<int> result;
     assert(game.size() == guess.size());
-    return issame(game, guess) ? vector<int>(game.size(), 0) : vector<int>(game.size(), 1);
+    for (int i = 0; i < game.size(); i++) {
+        result.push_back(abs(game[i] - guess[i]));
+    }
+    return result;
 }
