@@ -1,9 +1,10 @@
 def decode_shift(s: str):
-    for i in range(len(s)):
-        if s[i].isalpha():
-            if s[i].isupper():
-                result = chr((ord(s[i]) - ord('A')) % 26 + ord('A'))
-            else:
-                result = chr((ord(s[i]) - ord('a')) % 26 + ord('a'))
-            s = s[:i] + result + s[i+1:]
-    return s
+    shift = int(input("Enter the Caesar cipher shift: "))
+    result = ""
+    for char in s:
+        if char.isalpha():
+            ascii_offset = 97 if char.islower() else 65
+            result += chr((ord(char) - ascii_offset + shift) % 26 + ascii_offset)
+        else:
+            result += char
+    return result
