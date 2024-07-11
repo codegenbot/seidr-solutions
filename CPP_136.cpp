@@ -20,9 +20,9 @@ namespace MyNamespace {
             }
         }
 
-        std::vector<int> result;
-        result.push_back(std::max(max_negative, 0));
-        result.push_back(std::min(min_positive, 1));
+        std::vector<int> result(2);
+        result[0] = std::max(max_negative, 0);
+        result[1] = std::min(min_positive, 1);
 
         return {result};
     }
