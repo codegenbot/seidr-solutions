@@ -1,21 +1,14 @@
-Here is the solution:
-
 vector<int> pluck(vector<int> arr) {
-    vector<int> result;
-    if (arr.empty()) return result;
-
-    int smallest = INT_MAX;
-    int index = -1;
-
+    int min_even = INT_MAX;
+    int min_index = 0;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest) {
-            smallest = arr[i];
-            index = i;
+        if (arr[i] % 2 == 0 && arr[i] < min_even) {
+            min_even = arr[i];
+            min_index = i;
         }
     }
-
-    result.push_back(smallest);
-    result.push_back(index);
-
-    return result;
+    if (min_even == INT_MAX) {
+        return {};
+    }
+    return {{min_even, min_index}};
 }
