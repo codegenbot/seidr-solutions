@@ -5,10 +5,8 @@ def is_palindrome(string: str) -> bool:
 
 def make_palindrome(string: str) -> str:
     if string.ispalindrome():
-        return string + '#' * (len(string) % 2)
+        return string + string[::-1]
     for i in range(len(string)):
-        prefix = string[:i]
-        postfix = string[i:]
-        if postfix == postfix[::-1]:
-            return prefix[::-1] + string + prefix
-    return None
+        if string[i:].is_palindrome():
+            return string[:i] + string[i:][::-1]
+    return string + string[::-1]
