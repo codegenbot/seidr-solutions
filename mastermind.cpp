@@ -1,3 +1,10 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include <algorithm>
+
+using namespace std;
+
 int main() {
     string code, guess;
     cin >> code >> guess;
@@ -18,8 +25,8 @@ int main() {
         white += min(it.second, guessFreq[it.first]);
     }
     
-    cout << white << endl;
-    cout << black << endl;
+    std::cout << white << '\n';
+    std::cout << black << '\n';
     
     return 0;
 }
