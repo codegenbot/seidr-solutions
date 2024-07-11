@@ -1,13 +1,9 @@
-Here is the completed code:
+```
+gcd = lambda a, b: abs(a) if b == 0 else gcd(b, a % b)
+text = input()
+target = input()
 
-def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return abs(a)
+indices = [i for i in range(len(text)) if text.startswith(target, i)]
 
-def indices_of_substring(text, target):
-    result = []
-    for i in range(len(text)):
-        if text[i:i+len(target)] == target:
-            result.append(i)
-    return result
+print(gcd(int(input()), int(input())))
+print(' '.join(map(str, indices)))
