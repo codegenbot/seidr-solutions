@@ -1,12 +1,17 @@
-int prod_signs(vector<int> arr){
-    int product = 1;
-    long long sum = 0;
+#include <vector>
 
-    for(int i : arr){
-        if(i == 0) return -32768;
-        product *= (i > 0 ? 1 : -1);
-        sum += abs(i);
+using namespace std;
+
+int prod_signs(vector<int> arr) {
+    if (arr.empty()) return -32768;
+    int sign_product = 1;
+    long long sum_of_magnitudes = 0;
+    
+    for (int num : arr) {
+        if (num == 0) continue; // skip zero
+        sign_product *= (num > 0 ? 1 : -1);
+        sum_of_magnitudes += abs(num);
     }
-
-    return product * sum;
+    
+    return sign_product * sum_of_magnitudes;
 }
