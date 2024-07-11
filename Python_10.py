@@ -1,22 +1,15 @@
-```python
 def make_palindrome(s: str) -> str:
-    if s == s[::-1]:
-        return s
-    t = list(s)
-    l, r = 0, len(t) - 1
-    while l < r and l + 1 <= r - l:
-        if t[0] != t[r - 1]:
-            mid = (l + r) // 2
-            t.pop(r), t.insert(mid, t[0])
-            l += 1
-            r -= 1
-        else:
-            l, r = l + 1, r - 1
-    while t:
-        if t[0] == t[-1]:
-            t.append(t.pop(0))
-        elif len(t) > len(s):
-            t.insert(0, t.pop())
-        else:
-            t.append(t.pop())
-    return "".join(t)
+    s = list(s)
+    i, j = 0, len(s) - 1
+    while i < j:
+        if s[i] != s[j]:
+            t = s[j]
+            for k in range(len(s) - 1, -1, -1):
+                if s[k] == t:
+                    s[k + 1 :] = list(t * (len(s) - k - 1))
+                    break
+            else:
+                s[: j + 1] = list(t * (j + 1))
+        i += 1
+        j -= 1
+    return "".join(s)
