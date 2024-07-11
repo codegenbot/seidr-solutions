@@ -1,5 +1,3 @@
-#include <vector>
-#include <limits>
 #include <initializer_list>
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
