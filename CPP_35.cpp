@@ -1,4 +1,3 @@
-```c++
 #include <algorithm>
 #include <vector>
 #include <utility>
@@ -15,8 +14,4 @@ int max_value_function() {
     
     std::cout << "Maximum value: " << max_value << std::endl;
     std::cout << "Minimum value: " << min_value << std::endl;
-}
-
-int main() {
-    max_value_function();
 }
