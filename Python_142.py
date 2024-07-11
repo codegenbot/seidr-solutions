@@ -1,4 +1,4 @@
-```python
+```
 def calculate_sum_of_cubes(n):
     total = 0
     for i in range(1, n + 1):
@@ -7,18 +7,12 @@ def calculate_sum_of_cubes(n):
 
 
 def check():
-    while True:
-        try:
-            n = int(input("Enter a number: "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-    
+    n = int(input("Enter a number: "))
     num = calculate_sum_of_cubes(n)
     if num < 1000000:
-        print("The sum of cubes is less than 1 million.")
+        return "The sum of cubes is less than 1 million."
     else:
-        print("The sum of cubes is greater than or equal to 1 million.")
+        return "The sum of cubes is greater than or equal to 1 million."
 
 
-check()
+print(check())
