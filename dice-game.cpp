@@ -13,7 +13,7 @@ int main() {
 double probability(int n, int m) {
     double sum = 0;
     for (int i = 1; i < n; i++) {
-        sum += (n - i) * (m / static_cast<double>(m));
+        sum += (n - i) * (1.0 / (double)m);
     }
     return sum;
 }
