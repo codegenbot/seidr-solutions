@@ -1,18 +1,23 @@
 #include <algorithm>
 #include <vector>
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
-    if (lst.empty()) return result;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
 
-    for(int num : lst) {
-        if (std::count(result.begin(), result.end(), num) == 0) {
-            result.push_back(num);
+std::vector<int> strange_sort_list(std::vector<int> lst) {
+    sort(lst.begin(), lst.end());
+    std::vector<int> result;
+
+    while (!lst.empty()) {
+        if (issame(result, {1})) {
+            result.push_back(*min_element(lst.begin(), lst.end()));
+            lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
+        } else {
+            result.push_back(*max_element(lst.begin(), lst.end()));
+            lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
         }
     }
-
-    std::sort(result.begin(), result.end());
-    result.erase(std::unique(result.begin(), result.end()), result.end());
 
     return result;
 }
