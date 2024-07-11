@@ -1,2 +1,5 @@
-def remove_duplicates(numbers: list[int]): 
-    return list(dict.fromkeys(numbers))
+```
+from typing import List
+
+def remove_duplicates(numbers: List[int]): 
+    return sorted(list(set(numbers)))
