@@ -1,9 +1,11 @@
+#include <string>
+
 bool cycpattern_check(const string& a, const string& b) {
-    int n = a.size();
-    int m = b.size();
-    if (n != m) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
     
-    string doubleA = a + a;
+    string combined = a + a;
     
-    return (doubleA.find(b) != string::npos);
+    return combined.find(b) != string::npos;
 }
