@@ -7,4 +7,4 @@ def snow_day(hours, initial_snow, rate, melt_rate):
             total_snow -= melt_rate
         else:
             break
-    return round(total_snow, 5)
+    return round(total_snow, 2)
