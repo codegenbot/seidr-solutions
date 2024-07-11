@@ -9,14 +9,14 @@ vector<int> order_by_points(vector<int> nums) {
             sum += num % 10;
             num /= 10;
         }
-        pairs.emplace_back(sum, nums[i]);
+        pairs.push_back({sum, i});
     }
 
     sort(pairs.begin(), pairs.end());
 
     vector<int> result;
-    for (const auto& pair : pairs) {
-        result.push_back(pair.second);
+    for (int i = 0; i < pairs.size(); i++) {
+        result.push_back(nums[pairs[i].second]);
     }
 
     return result;
