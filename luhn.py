@@ -8,4 +8,5 @@ def luhn(card_number):
             if num > 9:
                 num -= 9
         total_sum += num
-    return total_sum
+    total_sum %= 10
+    return total_sum if total_sum == 0 else 10 - total_sum
