@@ -1,4 +1,5 @@
-#include <cstdlib>
+#include <cmath>
+#include <algorithm>
 
 float snowDay(int hours, float groundSnow, float rate, float melt) {
     float totalSnow = groundSnow;
