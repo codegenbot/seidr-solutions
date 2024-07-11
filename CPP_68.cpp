@@ -1,7 +1,22 @@
+#include <iostream>
 #include <vector>
 
-std::vector<int> pluck(std::vector<int> arr){
-    std::vector<int> result;
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+vector<int> pluck(vector<int> arr);
+
+int main() {
+    assert(issame(pluck({7, 9, 7, 1}), {}));    
+
+    return 0;
+}
+
+vector<int> pluck(vector<int> arr){
+    vector<int> result;
     int smallest_even = -1;
     int smallest_index = -1;
     
@@ -18,14 +33,4 @@ std::vector<int> pluck(std::vector<int> arr){
     }
     
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {}));
-    
-    return 0;
 }
