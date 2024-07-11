@@ -1,4 +1,8 @@
-def make_palindrome(s: str) -> str:
+```
+def make_palindrome():
+    s = input("Enter a string: ")
+    if s == "":
+        return ""
     if s[0] != s[-1]:
         while len(s) < 2 or s[:1] != s[-1:]:
             s = s[-1] + s
@@ -25,3 +29,5 @@ def make_palindrome(s: str) -> str:
             i += 1
             j -= 1
     return ''.join(s)
+
+print(make_palindrome())
