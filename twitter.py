@@ -1,6 +1,4 @@
 ```
-import unicodedata
-
 def validate_tweet(tweet):
     if len(unicodedata.normalize('NFD', tweet.strip())) > 140:
         return "Too many characters"
