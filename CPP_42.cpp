@@ -13,7 +13,7 @@ vector<int> incr_list(const vector<int>& l) {
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+    return a == b; 
 }
 
 int main() {
