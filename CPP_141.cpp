@@ -1,21 +1,19 @@
 string file_name_check(string file_name){
-    int dot_count = 0, digit_count = 0;
-    bool valid = true;
-
-    for(char c : file_name){
+    bool has_dot = false;
+    int digit_count = 0;
+    for(int i=0; i<file_name.length(); i++){
+        char c = file_name[i];
         if(c == '.'){
-            dot_count++;
-            if(dot_count > 1) valid = false; // more than one dot
-        }else if(isdigit(c)){
+            has_dot = true;
+        }else if(c >= '0' && c <= '9'){
             digit_count++;
-            if(digit_count > 3) valid = false; // more than three digits
-        }else if(!isalpha(c)) {
-            valid = false;
+        }else if((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')){
+            return "No";
         }
     }
-
-    string extension = file_name.substr(file_name.find('.') + 1);
-    if(extension != "txt" && extension != "exe" && extension != "dll") valid = false;
-
-    return valid ? "Yes" : "No";
+    if(!has_dot) return "No";
+    string extension = file_name.substr(file_name.find('.')+1);
+    if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
+    if(digit_count > 3) return "No";
+    return "Yes";
 }
