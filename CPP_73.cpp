@@ -1,5 +1,4 @@
 #include <vector>
-
 int smallest_change(vector<int> arr) {
     int n = arr.size();
     string s = "";
@@ -19,4 +18,3 @@ int smallest_change(vector<int> arr) {
         }
     }
     return changes;
-}
