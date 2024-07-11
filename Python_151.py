@@ -1,4 +1,4 @@
-```
+````
 def double_the_difference():
     sep = input("Enter the separator: ")
     lst = list(map(int, input().split(sep)))
@@ -10,4 +10,5 @@ def check(func):
     print(func())
 
 if __name__ == "__main__":
-    print(check(double_the_difference))
+    check(double_the_difference)
+```
