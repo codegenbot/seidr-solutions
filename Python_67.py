@@ -1,3 +1,4 @@
+```Python
 def fruit_distribution(s, n):
     s = s.lower()
     n = int(n)
