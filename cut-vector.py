@@ -14,9 +14,9 @@ if current_sum == half_sum:
     print(*arr[:idx])
     print(*arr[idx:])
 else:
-    if abs(current_sum - half_sum) <= abs(current_sum - half_sum + arr[idx]):
+    if abs(current_sum - half_sum) < abs(current_sum - half_sum + arr[idx]):
         print(*arr[:idx])
         print(*arr[idx:])
     else:
-        print(*arr[:idx + 1])
-        print(*arr[idx + 1:])
+        print(*arr[: idx + 1])
+        print(*arr[idx + 1 :])
