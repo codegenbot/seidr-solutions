@@ -24,4 +24,4 @@ def calculate_average_and_median() -> Tuple[float, float]:
         return sum(numbers) / len(numbers), statistics.median(sorted(set(numbers)))
 
 average, median = calculate_average_and_median()
-print(f"The average is {average} and the median is {median}."
+print(f"The average is {average} and the median is {median}.")
