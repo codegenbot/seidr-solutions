@@ -1,17 +1,20 @@
+Here is the modified code:
+
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
 
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
+vector<string> indicesOfSubstring(std::string text, std::string target) {
+    vector<std::string> result;
     int n = text.length();
     int m = target.length();
 
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
-            result.push_back(i);
+            result.push_back(to_string(i));
         }
     }
 
@@ -28,5 +31,5 @@ void gcd(int a, int b) {
 }
 
 int main() {
-    gcd(12, 15);
+    gcd(12, 15); // Example usage of the gcd function
 }
