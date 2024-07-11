@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-std::string get_closest_vowel(std::string word){
+std::string get_closest_vowel(std::string word) {
     std::string vowels = "aeiouAEIOU";
     int n = word.length();
     for (int i = n - 2; i > 0; i--) {
