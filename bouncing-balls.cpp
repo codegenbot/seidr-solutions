@@ -9,9 +9,12 @@ int main() {
     std::cin >> start_height;
     std::cin.ignore(256, '\n'); 
     std::cin >> first_bounce_height;
-    std::string height_str = std::to_string(first_bounce_height);
-    std::replace(height_str.begin(), height_str.end(), ',', '.');
-    first_bounce_height = std::stod(height_str);
+    
+    std::string first_bounce_height_str = std::to_string(first_bounce_height);
+    std::replace(first_bounce_height_str.begin(), first_bounce_height_str.end(), ',', '.');
+
+    first_bounce_height = std::stod(first_bounce_height_str);
+
     std::cin.ignore(256, '\n'); 
     std::cin >> num_bounces;
 
