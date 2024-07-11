@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <cstdlib>
+
+using namespace std;
+
 int main() {
     vector<int> nums;
     int num;
