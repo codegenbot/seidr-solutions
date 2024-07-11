@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 #include <cassert>
 
 long long double_the_difference(std::vector<float> lst){
@@ -12,8 +13,9 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> lst = {1.5, 3.0, 2.25, 4.0, 5.5};
+    std::vector<float> lst = {2.0, 3.0, 4.0, 5.0, 6.0};
     long long odd_sum = double_the_difference(lst);
-    assert(odd_sum == 20); // Example assertion, modify as needed
+    assert(odd_sum == 34);
+    
     return 0;
 }
