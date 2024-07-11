@@ -13,7 +13,7 @@ def factorize(n: int) -> List[int]:
                 n //= i
                 count += 1
             factors.append(i)
-            factors.extend([i] * count)
+            factors.append(count)
     if n > 1:
         factors.append(n)
-    return [factor for factor, _ in (list(zip(*[iter(factors)]*2)))]
+    return [factor for factor, count in (factors[i:i+2] for i in range(0, len(factors), 2)) for _ in range(int(factor)**(count-1) if count > 1 else 1)]
