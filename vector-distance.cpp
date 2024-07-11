@@ -1,13 +1,10 @@
-#include <vector>
 #include <iostream>
-#include <iomanip>
 #include <cmath>
-#include <initializer_list>
 
 using namespace std;
 
 double vector_distance(int n) {
-    vector<float> v1(n), v2(n);
+    float v1[100], v2[100];
     for (int i = 0; i < n; i++) {
         cin >> v1[i] >> v2[i];
     }
