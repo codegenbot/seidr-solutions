@@ -1,4 +1,3 @@
-```
 def coin_sums(cents):
     coins = [25, 25, 10, 5]
     coin_counts = [0] * len(coins)
