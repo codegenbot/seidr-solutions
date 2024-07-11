@@ -4,12 +4,12 @@
 
 namespace std {
     bool operator==(const vector<int>& a, const vector<int>& b) {
-        return a == b;
+        return equal(a.begin(), a.end(), b.begin(), b.end());
     }
 }
 
-bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == 2 && (a[0] == 1 && a[1] == 0));
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return (a == b);
 }
 
 std::vector<int> even_odd_count(int num) {
@@ -24,7 +24,7 @@ std::vector<int> even_odd_count(int num) {
     return {count_even, count_odd};
 }
 
-int main() {
-    assert(even_odd_count(0).size() == 2 && even_odd_count(0)[0] == 1 && even_odd_count(0)[1] == 0);
+int mainTest() {
+    assert(even_odd_count(0) == std::vector<int>{1, 0});
     return 0;
 }

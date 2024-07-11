@@ -1,6 +1,12 @@
-```
 #include <iostream>
 #include <vector>
+#include <string>
+
+std::string itoa(int num) {
+    char result[10];
+    sprintf(result, "%d", num);
+    return result;
+}
 
 int prod_signs(int* arr, int n) {
     if (n == 0) return -32768;
@@ -23,10 +29,7 @@ int main() {
     int result = prod_signs(arr, n);
     delete[] arr;
 
-    if(result > 0) {
-        std::cout << "The product of signs is: " << std::to_string(result) << std::endl;
-    } else {
-        std::cout << "The product of signs is: -" << std::endl;
-    }
+    std::string output = (result > 0) ? std::to_string(abs(result)) : "-";
+    std::cout << "The product of signs is: " << output << std::endl;
     return 0;
 }
