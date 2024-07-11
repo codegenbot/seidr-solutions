@@ -1,5 +1,9 @@
+```
 def minPath(n, k):
-    m = [[int(input(f"Enter value at row {i} column {j}: ")) for j in range(1, n+1)] for i in range(1, n+1)]
+    m = [[0] * (n+1) for _ in range(n+1)]  
+    for i in range(1, n+1):  
+        row = [int(input(f"Enter value at row {i}: ")) for _ in range(1, n+1)]
+        m[i] = row
     
     def dfs(i, j, path, visited, m, k):
         if len(path) == k:
