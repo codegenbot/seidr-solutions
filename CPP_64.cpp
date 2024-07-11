@@ -1,6 +1,5 @@
-```cpp
-#include <bits/stdc++.h>
-#pragma GCC diagnostic ignored "-Wpedantic"
+#include <iostream>
+#include <string>
 
 int vowels_count(std::string s) {
     int count = 0;
@@ -13,10 +12,9 @@ int vowels_count(std::string s) {
 }
 
 int main() {
-    std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+    std::string input;
+    getline(std::cin, input);  
     int result = vowels_count(input);
     std::cout << "Number of vowels: " << result << std::endl;
     return 0;
-}
