@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 int bowlingScore(string s) {
@@ -19,7 +20,7 @@ int bowlingScore(string s) {
             }
             score += roll1 + roll2;
             lastRoll = false;
-            if (roll1 + roll2 == 10) { // Next roll is part of this frame
+            if (roll1 + roll2 == 10) { 
                 i++;
             }
         }
