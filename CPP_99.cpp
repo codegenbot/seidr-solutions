@@ -1,11 +1,6 @@
-float num = stof(value);
-    int result = round(num);
-    if (num - result == 0.5 || num - result == -0.5) {
-        if (num > 0) {
-            result = ceil(num);
-        } else {
-            result = floor(num);
-        }
-    }
-    return result;
+int closest_integer(string value){
+    double num = stod(value);
+    int lower = floor(num);
+    int upper = ceil(num);
+    return (abs(num - lower) < abs(num - upper)) ? lower : upper;
 }
