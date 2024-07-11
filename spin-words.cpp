@@ -30,17 +30,16 @@ string spinWords(string str) {
     } else
         result += word + " ";
 
+    while(result.size() > 1 && result.back() == ' ')
+        result.pop_back();
+
     return result;
 }
 
 int main() {
     string str;
-    while(true) {
-        cout << "Enter a sentence (or 'stop' to exit): ";
-        getline(cin, str);
-        if(str == "stop")
-            break;
-        cout << spinWords(str) << endl;
-    }
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
     return 0;
 }
