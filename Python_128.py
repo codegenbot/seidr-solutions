@@ -1,17 +1,9 @@
-```
-    
-    
-
 def product_of_signs(arr):
-    for x in arr:
-        if not isinstance(x, int):
-            return 0
+    arr = set(arr)
+    has_zero = 0 in arr
     result = 1
-    has_zero = False
     for x in arr:
-        if x == 0:
-            has_zero = True
-        elif x < 0:
+        if x < 0:
             result *= -1
         elif x > 0:
             result *= 1
