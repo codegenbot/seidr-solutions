@@ -7,10 +7,10 @@ int main() {
     vector<int> nums;
     string input;
     getline(cin, input);
-    stringstream ss(input);
+    istringstream iss(input);
     int num;
     
-    while (ss >> num) {
+    while (iss >> num) {
         nums.push_back(num);
     }
 
