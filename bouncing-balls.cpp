@@ -14,7 +14,7 @@ int main() {
 
     double distanceTravelled = 0.0; // initialize distance traveled
     for (int i = 1; i <= numBounces; ++i) {
-        distanceTravelled += (startHeight * pow(2, 0.5)) * pow(0.5, i - bouncinessIndex);
+        distanceTravelled += startHeight * std::pow(0.5, 2*i-2*bouncinessIndex);
     }
 
     cout << fixed << setprecision(10) << distanceTravelled << endl;
