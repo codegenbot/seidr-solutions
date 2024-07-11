@@ -1,7 +1,3 @@
-```
-n = int(input("Enter the size of the grid: "))
-k = int(input("Enter the value of k: "))
-
 def minPath(n, k):
     m = [[int(input(f"Enter value at row {i} column {j}: ")) for j in range(1, n+1)] for i in range(1, n+1)]
     
@@ -25,5 +21,8 @@ def minPath(n, k):
             if min_path is None or path < min_path:
                 min_path = path
     return min_path
+
+n = int(input("Enter the size of the grid: "))
+k = int(input("Enter the value of k: "))
 
 print(minPath(n, k))
