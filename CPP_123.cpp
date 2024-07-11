@@ -1,20 +1,20 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) = delete;
-
-vector<int> get_odd_collatz(int n) {
-    vector<int> result;
-    while (n != 1) {
-        if (n % 2 == 0) {
-            n = n / 2;
-        } else {
-            n = 3 * n + 1;
-        }
-        if (n % 2 != 0) {
-            result.push_back(n);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    sort(result.begin(), result.end());
-    return result;
+    return true;
+}
+
+int main() {
+    assert(issame(get_odd_collatz(1), {1}));  
+    return 0;
 }
