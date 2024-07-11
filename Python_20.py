@@ -1,17 +1,14 @@
-def find_closest_elements():
-    try:
-        num_str = input("Enter a comma-separated list of numbers: ")
-        numbers = [float(num) for num in num_str.split(",")]
-        min_diff = float("inf")
-        closest_pair = ()
-        for i in range(len(numbers)):
-            for j in range(i + 1, len(numbers)):
-                diff = abs(numbers[j] - numbers[i])
-                if diff < min_diff:
-                    min_diff = diff
-                    closest_pair = (numbers[i], numbers[j])
-        return closest_pair
-    except ValueError:
-        print("Invalid input. Please enter a comma-separated list of numbers.")
+def find_closest_elements(arr, target):
+    left = 0
+    right = len(arr) - 1
 
-print(find_closest_elements())
+    while True:
+        if left == right:
+            return [arr[left], arr[left]]
+
+        if target < arr[left] + (right - left) // 2 * (arr[right] - arr[left]):
+            right = left + (right - left) // 2
+        else:
+            left = right - (right - left) // 2 + 1
+
+    return [arr[left], arr[right]]
