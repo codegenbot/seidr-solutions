@@ -1,7 +1,16 @@
+```cpp
 #include <iostream>
 #include <vector>
+using std::cout;
+using std::vector;
 
-using namespace std;
+int main() {
+    vector<int> arr = {16, 17, 4, 3, 5, 2};
+    vector<int> result = leaders(arr);
+    for(int i : result)
+        cout << i << " ";
+    return 0;
+}
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
@@ -12,14 +21,6 @@ vector<int> leaders(vector<int>& arr) {
         else 
             maxRight = arr[i];
     }
-    reverse(result.begin(), result.end());
+    std::reverse(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    vector<int> arr = {16,17,4,3,5,2};
-    vector<int> result = leaders(arr);
-    for(int i : result)
-        cout << i << " ";
-    return 0;
 }
