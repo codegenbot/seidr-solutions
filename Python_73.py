@@ -1,8 +1,8 @@
 def smallest_change():
     arr = list(map(str, input("Enter the array: ").split()))
-    left, right = 0, len(arr)-1
+    left, right = 0, len(arr) - 1
     changes = 0
-    
+
     while left < right:
         if arr[left] != arr[right]:
             changes += 1
@@ -16,7 +16,8 @@ def smallest_change():
         else:
             left += 1
             right -= 1
-    
+
     return changes
+
 
 print(smallest_change())
