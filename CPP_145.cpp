@@ -1,18 +1,22 @@
-sort(nums.begin(), nums.end(), [](int a, int b) {
-    int sumA = 0, sumB = 0;
-    if (a < 0) a *= -1;
-    if (b < 0) b *= -1;
-    while (a > 0) {
-        sumA += a % 10;
-        a /= 10;
+struct order_by_points {
+    bool operator()(int a, int b) {
+        int sum_a = 0, sum_b = 0;
+        int temp_a = abs(a), temp_b = abs(b);
+        while (temp_a) {
+            sum_a += temp_a % 10;
+            temp_a /= 10;
+        }
+        while (temp_b) {
+            sum_b += temp_b % 10;
+            temp_b /= 10;
+        }
+        if (sum_a == sum_b) {
+            return a < b;
+        }
+        return sum_a < sum_b;
     }
-    while (b > 0) {
-        sumB += b % 10;
-        b /= 10;
-    }
-    if (sumA == sumB) {
-        return a < b;
-    }
-    return sumA < sumB;
-});
+};
+
+sort(nums.begin(), nums.end(), order_by_points());
+
 return nums;
