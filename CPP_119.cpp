@@ -1,16 +1,18 @@
-bool match_parens(vector<string> lst) {
-    int balance = 0;
-    for (const string& str : lst) {
-        for (char c : str) {
+char stack[10000];
+int top = 0;
+
+string match_parens(vector<string> lst){
+    for (string s : lst) {
+        for (char c : s) {
             if (c == '(') {
-                balance++;
+                stack[top++] = c;
             } else {
-                if (balance == 0) {
-                    return false;
+                if (top == 0) {
+                    return "No";
                 }
-                balance--;
+                top--;
             }
         }
     }
-    return balance == 0;
+    return top == 0 ? "Yes" : "No";
 }
