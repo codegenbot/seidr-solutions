@@ -1,11 +1,11 @@
+```
 from typing import List
-
 
 def remove_duplicates(numbers_str: str) -> List[int]:
     seen = set()
     result = []
     for num in map(int, numbers_str.split(',')):
-        if num not in map(int, list(seen)):
+        if str(num) not in seen:
             seen.add(str(num))
             result.append(num)
     return result
