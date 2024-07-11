@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <climits>
+#include <vector>
 #include <algorithm>
 
 std::vector<int> findLeaders(std::vector<int> nums) {
@@ -21,18 +21,9 @@ std::vector<int> findLeaders(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums;
-    int num;
-    
-    std::cout << "Enter integers (EOF to end): ";
-    
-    while (std::cin >> num) {
-        nums.push_back(num);
-    }
-
+    std::vector<int> nums = {5, 3, 9, 7, 2, 6};
     std::vector<int> leaders = findLeaders(nums);
-
-    std::cout << "Leaders: ";
+    
     for (int leader : leaders) {
         std::cout << leader << " ";
     }
