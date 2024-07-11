@@ -2,10 +2,12 @@
 #include <climits>
 #include <algorithm>
 
+using namespace std;
+
 vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
     int n = nums.size();
-    int maxRight = std::numeric_limits<int>::min();
+    int maxRight = INT_MIN;
     
     for (int i = n - 1; i >= 0; --i) {
         if (nums[i] >= maxRight) {
@@ -14,7 +16,7 @@ vector<int> findLeaders(const vector<int>& nums) {
         }
     }
     
-    std::reverse(leaders.begin(), leaders.end());
+    reverse(leaders.begin(), leaders.end());
     
     return leaders;
 }
