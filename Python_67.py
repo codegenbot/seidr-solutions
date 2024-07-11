@@ -7,4 +7,4 @@ def fruit_distribution(s, n):
     else:
         apples = 0
     oranges = n - apples
-    return oranges:
+    return oranges
