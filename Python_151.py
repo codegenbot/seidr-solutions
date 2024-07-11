@@ -9,7 +9,4 @@ def check(func):
     print(func())
 
 if __name__ == "__main__":
-    def target_func():
-        return double_the_difference()
-    
-    check(target_func)
+    check(double_the_difference)
