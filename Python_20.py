@@ -1,8 +1,11 @@
 ```
-def find_closest_elements():
+from typing import List, Tuple
+
+def find_closest_elements() -> Tuple[float, float]:
     try:
-        num_str = input("Enter a comma-separated list of numbers: ")
-        numbers = [float(num) for num in num_str.split(",")]
+        numbers = list(map(float, input("Enter space-separated numbers: ").split()))
+        if len(numbers) < 2:
+            return (numbers[0], numbers[1])
         min_diff = float("inf")
         closest_pair = ()
         for i in range(len(numbers)):
@@ -13,4 +16,4 @@ def find_closest_elements():
                     closest_pair = (numbers[i], numbers[j])
         return closest_pair
     except ValueError:
-        print("Invalid input. Please enter a comma-separated list of numbers.")
+        return ("Error", "Invalid input. Please enter space-separated float numbers")
