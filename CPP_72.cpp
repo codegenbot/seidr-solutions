@@ -1,17 +1,21 @@
 int sum = 0;
-    for (int i = 0; i < q.size(); i++) {
+    for(int i=0; i<q.size(); i++){
         sum += q[i];
     }
-
-    if (sum > w) {
+    
+    if(q.size() % 2 != 0){
         return false;
     }
-
-    for (int i = 0; i < q.size() / 2; i++) {
-        if (q[i] != q[q.size() - i - 1]) {
+    
+    for(int i=0, j=q.size()-1; i<j; i++, j--){
+        if(q[i] != q[j]){
             return false;
         }
     }
-
-    return true;
+    
+    if(sum <= w){
+        return true;
+    } else {
+        return false;
+    }
 }
