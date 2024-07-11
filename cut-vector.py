@@ -1,22 +1,23 @@
-arr = list(map(int, input().split()))
+n = int(input())
+a = []
+for _ in range(n):
+    a.append(int(input()))
 
-total_sum = sum(arr)
-left_sum = 0
-right_sum = total_sum
+total_sum = sum(a)
+half_sum = total_sum // 2
 
-min_diff = float("inf")
-cut_index = -1
-
-for i in range(len(arr)):
-    left_sum += arr[i]
-    right_sum -= arr[i]
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
-
-subvector1 = arr[:cut_index + 1]
-subvector2 = arr[cut_index + 1:]
-
-print(*subvector1)
-print(*subvector2)
+prefix_sum = 0
+for i, num in enumerate(a):
+    prefix_sum += num
+    if prefix_sum >= half_sum:
+        if prefix_sum == half_sum:
+            print(*a[: i + 1])
+            print(*a[i + 1 :])
+        else:
+            if prefix_sum - half_sum < total_sum - prefix_sum:
+                print(*a[: i + 1])
+                print(*a[i + 1 :])
+            else:
+                print(*a[:i])
+                print(*a[i:])
+        break
