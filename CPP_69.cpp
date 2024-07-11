@@ -1,3 +1,8 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 int search(vector<int> lst) {
     int maxFreq = 0;
     for (int num : lst) {
