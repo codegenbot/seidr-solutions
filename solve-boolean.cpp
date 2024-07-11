@@ -22,7 +22,7 @@ bool evaluateBooleanExpression(string input) {
                 operands.push(operand1 || operand2);
             }
             operators.push(c);
-        } else if (c == '&' && !operators.empty() && operators.top() == '&') {
+        } else if (c == '&') {
             while (!operators.empty() && operators.top() == '&') {
                 char op = operators.top();
                 operators.pop();
