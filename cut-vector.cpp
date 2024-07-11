@@ -1,13 +1,12 @@
 #include <iostream>
 #include <vector>
-
-std::vector<int> nums;
+#include <climits>
 
 int main() {
     int n;
     std::cin >> n;
 
-    nums.resize(n);
+    std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
@@ -15,7 +14,7 @@ int main() {
     int diff = INT_MAX, cutIndex = 0;
     for (int i = 0; i < n - 1; ++i) {
         int leftSum = 0, rightSum = 0;
-        for (int j = 0; j < n; ++j) {
+        for (int j = 0; j < n - 1; ++j) {
             if (j < i) {
                 leftSum += nums[j];
             } else {
@@ -23,7 +22,7 @@ int main() {
             }
         }
 
-        int currentDiff = std::abs(leftSum - rightSum);
+        int currentDiff = abs(leftSum - rightSum);
         if (currentDiff <= diff) {
             diff = currentDiff;
             cutIndex = i;
@@ -34,7 +33,7 @@ int main() {
         std::cout << nums[i] << " ";
     }
     std::cout << std::endl;
-    for (int i = cutIndex + 1; i < n; ++i) {
+    for (int i = cutIndex; i < n; ++i) {
         std::cout << nums[i] << " ";
     }
     return 0;
