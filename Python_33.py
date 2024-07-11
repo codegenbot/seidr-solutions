@@ -1,6 +1,6 @@
 ```
-def sort_third(l):
-    if len(l) < 3:
+def sort_third(lst):
+    if len(lst) < 3:
         return []
-    l.sort(key=lambda x: x[2])
-    return [x[2] for x in l][::3][:1]
+    lst.sort(key=lambda x: x[2])
+    return [x[2] for i, x in enumerate(lst) if (i+1)%3 == 0][:1]
