@@ -1,9 +1,9 @@
+```
+#include <assert.h>
 #include <vector>
-#include <map>
-#include <cassert>
 using namespace std;
 
-bool isSame(vector<int> a, vector<int> b) {
+bool same(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -21,7 +21,7 @@ vector<int> remove_duplicates(vector<int> numbers) {
     return result;
 }
 
-vector<int> main() {
-    assert(isSame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , vector<int>({1, 2, 3, 4, 5}));
-    return remove_duplicates({1, 2, 3, 2, 4, 3, 5});
+int main() {
+    assert(same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), vector<int>{1, 2, 3, 4, 5}));
+    return 0;
 }
