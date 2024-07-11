@@ -1,4 +1,4 @@
-using namespace std;
+Here is the completed code:
 
 string match_parens(vector<string> lst) {
     int open = 0, close = 0;
@@ -8,5 +8,5 @@ string match_parens(vector<string> lst) {
             else if (c == ')') close++;
         }
     }
-    return open == close ? "Yes" : "No";
+    return (open == close) ? "Yes" : "No";
 }
