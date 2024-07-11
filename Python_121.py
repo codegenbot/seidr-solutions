@@ -1,12 +1,10 @@
-```
 def solution():
-    while True:
-        try:
-            nums = list(map(int, input().split()))
-            
-            if len(nums) < 3:
-                return "Invalid input. Please provide at least three numbers."
-                
-            return sum(1 for _ in nums[::2]) / len(nums)
-        except ValueError:
-            print("Invalid input. Please enter three integers separated by spaces.")
+    nums = list(map(int, input().split()))
+
+    if len(nums) < 3:
+        return "Invalid input. Please provide at least three numbers."
+
+    odd_count = sum(1 for _ in nums[::2])
+    return odd_count / len(nums)
+
+print(solution())
