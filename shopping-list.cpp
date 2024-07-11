@@ -23,4 +23,4 @@ int main() {
     cout << total_price << endl;
 
     return 0;
-}  
+}
