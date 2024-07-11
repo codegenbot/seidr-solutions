@@ -1,33 +1,29 @@
-bool issame(const string& a, const string& b) {
-    return a.length() == b.length() && a == b;
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
 }
 
 vector<string> sorted_list_sum(const vector<string>& lst) {
-    vector<string> result = lst;
-    
-    result.erase(remove_if(result.begin(), result.end(), [](const string& s) { return s.length() % 2 != 0; }), result.end());
-    sort(result.begin(), result.end(), [](const string& a, const string& b) {
+    vector<string> sorted_lst = lst;
+    sorted_lst.erase(remove_if(sorted_lst.begin(), sorted_lst.end(), [](const string& s) {
+        return s.length() % 2 != 0;
+    }), sorted_lst.end());
+
+    sort(sorted_lst.begin(), sorted_lst.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
         return a.length() < b.length();
     });
-    
-    return result;
+
+    return sorted_lst;
 }
 
 int main() {
-    vector<string> lst;
-    string input;
-    while (cin >> input) {
-        lst.push_back(input);
-    }
-    
-    vector<string> result = sorted_list_sum(lst);
-    
-    for (const string& s : result) {
-        cout << s << " ";
-    }
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"}));
     
     return 0;
 }
