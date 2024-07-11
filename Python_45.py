@@ -1,3 +1,4 @@
-```
+Here is the solution:
+
 def triangle_area(a, h):
-    return (a * h) / 2
+    return 0.5 * a * h
