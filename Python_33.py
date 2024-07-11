@@ -1,3 +1,3 @@
-```
 def sort_third(l: list):
-    return sorted(l, key=lambda x: (x[2], x))
+    l.sort(key=lambda x: str(x))
+    return l
