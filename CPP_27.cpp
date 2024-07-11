@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 using namespace std;
 
 string flip_case(string str){
@@ -12,7 +13,8 @@ string flip_case(string str){
     return str;
 }
 
-int main(){
+int main() {
     assert(flip_case("Hello, World!") == "hELLO, wORLD!");
+    assert(flip_case("abc123XYZ") == "ABC123xyz");
     return 0;
 }
