@@ -22,8 +22,10 @@ std::vector<int> even_odd_palindrome(int n) {
     return counts;
 }
 
-#include <vector> 
+#include <vector> // Add this line
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) { // Update function signature
     return a == b;
 }
+
+assert(issame(even_odd_palindrome(1), {0, 1}));
