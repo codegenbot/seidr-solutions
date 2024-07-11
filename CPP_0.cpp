@@ -10,8 +10,14 @@ bool has_close_elements(vector<float> numbers, float threshold){
     }
     return false;
 
+}
+
 int main() {
     vector<float> a={1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    cout << has_close_elements(a, 0.1) << endl;
+    if(has_close_elements(a, 0.1)) 
+        cout << "The array contains close elements." << endl;
+    else
+        cout << "The array does not contain close elements." << endl;
+
     return 0;
 }
