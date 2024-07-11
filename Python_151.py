@@ -1,10 +1,12 @@
 ```
-n = int(input("Enter the number of elements in the list: "))
-lst = list(map(int, input(f"Enter {n} space-separated integers: ").split()))
-difference = max(lst) - min(lst)
-double_diff = difference * 2
-print(double_diff)
+def double_the_difference():
+    lst = list(map(int, input().split()))
+    difference = max(lst) - min(lst)
+    double_diff = difference * 2
+    return double_diff
 
 def check(func):
     print(func())
-check(lambda: double_the_difference())
+
+if __name__ == "__main__":
+    check(double_the_difference)
