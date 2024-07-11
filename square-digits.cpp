@@ -2,6 +2,10 @@
 #include <string>
 
 std::string squareDigits(int num) {
+    if (num == 0) {
+        return "0";
+    }
+    
     std::string result = "";
     while (num > 0) {
         int digit = num % 10;
