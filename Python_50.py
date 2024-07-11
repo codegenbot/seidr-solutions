@@ -1,5 +1,5 @@
-```
-def decode_shift(s):
+def decode_shift():
+    s = input("Enter the encoded string: ")
     if s.startswith("25-"):
         shift = int(s[3:])
         s = s[4:]
@@ -7,7 +7,6 @@ def decode_shift(s):
         shift = int(s[3:])
         s = s[4:]
     else:
-        s = input("Enter your encoded message: ")
         while True:
             try:
                 shift = int(input("Enter the shift value (1-25): "))
@@ -20,11 +19,9 @@ def decode_shift(s):
     result = ""
     for ch in s:
         if "a" <= ch <= "z":
-            result += chr((ord(ch) - ord("a") + shift) % 26 + ord("a"))
+            result += chr((ord(ch) - ord('a') + shift) % 26 + ord('a'))
         elif "A" <= ch <= "Z":
-            result += chr((ord(ch) - ord("A") + shift) % 26 + ord("A"))
+            result += chr((ord(ch) - ord('A') + shift) % 26 + ord('A'))
         else:
             result += ch
     return result
-
-print(decode_shift("25-5hello"))
