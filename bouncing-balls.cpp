@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <cmath>
-#include <iomanip>
 using namespace std;
 
 int main() {
@@ -10,15 +9,19 @@ int main() {
 
     cin >> startHeight >> heightAfterFirstBounce >> numBounces;
 
-    double bouncinessIndex = heightAfterFirstBounce / startHeight;
+    if (startHeight <= 0 || heightAfterFirstBounce <= 0) {
+        cout << "Error: Starting height or first bounce height should be positive." << endl;
+    } else {
+        double bouncinessIndex = heightAfterFirstBounce / startHeight;
 
-    double distanceTravelled = 0.0; // initialize distance traveled
-    for (int i = 1; i <= numBounces; ++i) {
-        distanceTravelled += (startHeight * pow(2, 0.5)) * pow(0.5, i - bouncinessIndex);
+        double distanceTravelled = 0.0; // initialize distance traveled
+        for (int i = 1; i <= numBounces; ++i) {
+            distanceTravelled += (startHeight * pow(2, 0.5)) * pow(0.5, i - bouncinessIndex);
+        }
+
+        std::cout << std::fixed << std::setprecision(10);
+        cout << distanceTravelled << endl;
     }
-
-    cout << fixed << setprecision(10); 
-    cout << distanceTravelled << endl;
 
     return 0;
 }
