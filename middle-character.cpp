@@ -2,10 +2,10 @@ int main() {
     string s;
     cin >> s;
     int len = s.length();
-    if (len % 2 == 0) {
-        cout << s.substr(len/2 - 1, 2) << endl;
+    if (len % 2 == 1) {
+        cout << s.substr(len/2, 1);
     } else {
-        cout << s.substr(len/2, 1) << endl;
+        cout << s.substr(len/2 - 1, 2);
     }
     return 0;
 }
