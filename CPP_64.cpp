@@ -1,8 +1,9 @@
-int vowels_count(string s) {
+int vowels_count(std::string s) {
     int count = 0;
-    for (char c : s) {
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-            (c == 'y' && s.find('y') == s.size() - 1)) {
+    for (int i = 0; i < s.length(); i++) { 
+        if (std::tolower(s[i]) == 'a' || std::tolower(s[i]) == 'e' || 
+            std::tolower(s[i]) == 'i' || std::tolower(s[i]) == 'o' || 
+            std::tolower(s[i]) == 'u') {
             count++;
         }
     }
