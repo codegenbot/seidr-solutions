@@ -8,7 +8,7 @@ using namespace std;
 int main() {
     vector<int> input;
     int num;
-    
+
     while (cin >> num || !cin.eof()) {
         input.push_back(num);
     }
