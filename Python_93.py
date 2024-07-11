@@ -4,21 +4,15 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in 'aeiou':
-                if char.lower() == 'a':
-                    result += 'c'
-                elif char.lower() == 'e':
-                    result += 'g'
-                elif char.lower() == 'i':
-                    result += 'k'
-                elif char.lower() == 'o':
-                    result += 'q'
+                if char.isupper():
+                    result += chr((ord(char) - 65 + 3) % 26).lower()
                 else:
-                    result += 'u'
+                    result += 'aeiou'[(ord(char) - 97) % 5].lower()
             else:
                 if char.isupper():
-                    result += chr(ord(char) + 32)
+                    result += chr((ord(char) - 65 + 1) % 26).upper()
                 else:
-                    result += chr(ord(char) - 32)
+                    result += chr(ord(char) + 1)
         else:
             result += char
     return result
