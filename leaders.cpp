@@ -19,23 +19,3 @@ vector<int> findLeaders(const vector<int>& nums) {
     reverse(leaders.begin(), leaders.end());
     return leaders;
 }
-
-int main() {
-    vector<int> nums;
-    int num;
-    
-    cout << "Enter positive integers (0 to end input):" << endl;
-    while (cin >> num && num != 0) {
-        nums.push_back(num);
-    }
-    
-    vector<int> result = findLeaders(nums);
-    
-    cout << "Leaders in the vector are:";
-    for (int leader : result) {
-        cout << " " << leader;
-    }
-    cout << endl;
-    
-    return 0;
-}
