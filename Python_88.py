@@ -9,5 +9,4 @@ def sort_array(user_input=None):
     if n % 2 != 0:
         return [sorted_array[n//2-1], sorted_array[n//2]]
     else:
-        mid = n // 2
-        return [sorted_array[mid - 1], sorted_array[mid]]
+        return [sorted_array[n//2 - 1], sorted_array[n//2]]
