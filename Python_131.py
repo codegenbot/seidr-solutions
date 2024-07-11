@@ -1,4 +1,4 @@
-def product_of_digits(n):
+def digits(n):
     product = 1
     while n > 0:
         digit = n % 10
