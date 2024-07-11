@@ -26,7 +26,7 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y,
     
     for (int i = -1; i <= 1; ++i) {
         for (int j = -1; j <= 1; ++j) {
-            if ((i == 0 || j == 0) && abs(i) + abs(j) == 1) { // only consider the four neighbors
+            if ((i == 0 || j == 0) && abs(i) + abs(j) == 1) { 
                 int newX = x + i;
                 int newY = y + j;
                 
@@ -35,7 +35,7 @@ void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y,
                         visited[newX][newY] = true;
                         (*res).push_back(grid[newX][newY]);
                         dfs(grid, visited, newX, newY, k - 1, res);
-                        visited[newX][newY] = false; // backtracking
+                        visited[newX][newY] = false; 
                     }
                 }
             }
