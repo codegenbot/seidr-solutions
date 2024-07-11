@@ -1,10 +1,8 @@
-```
+```Python
 import re
 
 def fix_spaces(text):
-    text = re.sub(r'\s+', '_', text)
-    text = ' '.join(text.split())
-    return text
+    return re.sub(r'\s+', '_', text).strip()
 
-text = input("Enter the text to fix spaces: ").strip()
+text = input("Enter the text to fix spaces: ")
 print(fix_spaces(text))
