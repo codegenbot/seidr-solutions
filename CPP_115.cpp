@@ -1,11 +1,11 @@
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int count = 0;
-    for (int j = 0; j < grid[0].size(); ++j) {
-        int sum = 0;
-        for (int i = 0; i < grid.size(); ++i) {
-            sum += grid[i][j];
+    int moves = 0;
+    for (int i = 0; i < grid.size(); ++i) {
+        int water_needed = 0;
+        for (int j = 0; j < grid[i].size(); ++j) {
+            water_needed += grid[i][j];
         }
-        count += sum / capacity + (sum % capacity != 0 ? 1 : 0);
+        moves += (water_needed + capacity - 1) / capacity;
     }
-    return count;
+    return moves;
 }
