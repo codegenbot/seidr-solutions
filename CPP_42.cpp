@@ -12,3 +12,24 @@ std::vector<int> incr_list(std::vector<int> l) {
     }
     return result;
 }
+
+std::vector<int> a, b;
+int n;
+
+std::cin >> n;
+for (int i = 0; i < n; ++i) {
+int num;
+std::cin >> num;
+a.push_back(num);
+}
+
+std::cin >> n;
+for (int i = 0; i < n; ++i) {
+int num;
+std::cin >> num;
+b.push_back(num);
+}
+
+bool result = issame(a, b);
+std::vector<int> incremented = incr_list(a);
+
