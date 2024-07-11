@@ -1,3 +1,4 @@
+```
 from typing import List, Tuple
 
 
@@ -6,9 +7,6 @@ def sum_product():
     try:
         numbers = [int(num) for num in numbers]
     except ValueError:
-        return (0, 1)
-
-    if not numbers:
         return (0, 1)
     total_sum = 0
     total_product = 1
