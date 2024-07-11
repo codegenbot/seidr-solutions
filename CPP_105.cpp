@@ -1,29 +1,64 @@
-bool issame(int num1, int num2) {
-    if (num1 == num2) {
-        return true;
+bool issame(int a, int b) {
+    string str1 = "", str2 = "";
+    switch (a) {
+        case 1:
+            str1 = "One";
+            break;
+        case 2:
+            str1 = "Two";
+            break;
+        case 3:
+            str1 = "Three";
+            break;
+        case 4:
+            str1 = "Four";
+            break;
+        case 5:
+            str1 = "Five";
+            break;
+        case 6:
+            str1 = "Six";
+            break;
+        case 7:
+            str1 = "Seven";
+            break;
+        case 8:
+            str1 = "Eight";
+            break;
+        case 9:
+            str1 = "Nine";
+            break;
     }
-    else {
-        return false;
+
+    switch (b) {
+        case 1:
+            str2 = "One";
+            break;
+        case 2:
+            str2 = "Two";
+            break;
+        case 3:
+            str2 = "Three";
+            break;
+        case 4:
+            str2 = "Four";
+            break;
+        case 5:
+            str2 = "Five";
+            break;
+        case 6:
+            str2 = "Six";
+            break;
+        case 7:
+            str2 = "Seven";
+            break;
+        case 8:
+            str2 = "Eight";
+            break;
+        case 9:
+            str2 = "Nine";
+            break;
     }
-}
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            nums.push_back(num);
-        }
-    }
-
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
-
-    vector<string> result;
-    for (int i = 0; i < nums.size() - 1; i++) {
-        if (!issame(stoi(result[i].erase(0, 1)), stoi(result[i+1].erase(0, 1)))) {
-            result.push_back("Zero");
-        }
-    }
-
-    return result;
+    return (str1 == str2);
 }
