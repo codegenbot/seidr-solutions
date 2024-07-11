@@ -13,6 +13,11 @@ int main() {
         }
     }
 
+    cout << results[3] << endl;
+    cout << results[2] << endl;
+    cout << results[1] << endl;
+    cout << results[0] << endl;
+
     int q = results[3];
     int d = (cents + 4) / 10;
     cents %= 10;
