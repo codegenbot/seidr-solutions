@@ -7,7 +7,7 @@ string spinWords(string str) {
     int length = 0;
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
-            while (length > 5) {
+            while (length >= 5) {
                 for (int j = i - 1; j >= i - length - 1; j--) {
                     result += str[j];
                 }
@@ -19,17 +19,19 @@ string spinWords(string str) {
             length++;
         }
     }
-    while (length > 5) {
-        for (int j = i - 1; j >= i - length - 1; j--) {
+    while (length >= 5) {
+        for (int j = str.length() - 1; j >= str.length() - length - 1; j--) {
             result += str[j];
         }
         length = 0;
-        i--;
     }
-    while (i > 0) {
-        i--;
+    if (length >= 5) {
+        for (int j = str.length() - 1; j >= str.length() - length - 1; j--) {
+            result += str[j];
+        }
+    } else {
+        result = str;
     }
-    result += str;
     return result;
 }
 
