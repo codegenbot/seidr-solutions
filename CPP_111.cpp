@@ -1,8 +1,6 @@
 map<char, int> result;
-    stringstream ss(test);
-    string word;
-    while (ss >> word) {
-        for (char c : word) {
+    for (char& c : test) {
+        if (c != ' ') {
             result[c]++;
         }
     }
@@ -10,11 +8,11 @@ map<char, int> result;
     for (const auto& pair : result) {
         maxCount = max(maxCount, pair.second);
     }
-    map<char, int> maxLetters;
+    map<char, int> maxChars;
     for (const auto& pair : result) {
         if (pair.second == maxCount) {
-            maxLetters[pair.first] = pair.second;
+            maxChars[pair.first] = pair.second;
         }
     }
-    return maxLetters;
+    return maxChars;
 }
