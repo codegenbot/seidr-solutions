@@ -13,8 +13,3 @@ vector<int> factorize(int n) {
     }
     return factors;
 }
-
-int main() {
-    // Your main function code here
-    return 0;
-}
