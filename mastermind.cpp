@@ -15,15 +15,15 @@ int whitePegs(std::string code, std::string guess) {
     for (char c : guess) {
         (*guessMap)[c]++;
     }
-    int correctWrong = 0;
-    for (const auto &pair : codeMap) {
-        if ((*guessMap).count(pair.first)) {
-            int codeCount = pair.second;
-            int guessCount = (*guessMap)[pair.first];
-            correctWrong += std::min(codeCount, guessCount);
+    int blackPegs = 0;
+    for (int i = 0; i < 4; i++) {
+        if ((*codeMap)[guess[i]] > 0 && (*guessMap)[guess[i]] == 1) {
+            blackPegs++;
+            (*codeMap)[guess[i]]--;
+            (*guessMap)[guess[i]]--;
         }
     }
-    return correctWrong - count;
+    return count - blackPegs;
 }
 
 int blackPegs(std::string code, std::string guess) {
@@ -34,9 +34,4 @@ int blackPegs(std::string code, std::string guess) {
         }
     }
     return count;
-}
-
-int main() {
-    // Use your whitePegs and blackPegs functions here
-    return 0;
 }
