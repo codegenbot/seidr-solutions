@@ -3,32 +3,22 @@
 #include <cassert>
 #include <algorithm>
 
-namespace my_namespace {
-    bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-        if (a.size() != b.size()) return false;
-        for (size_t i = 0; i < a.size(); ++i) {
-            if (a[i] != b[i]) return false;
-        }
-        return true;
-    }
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    return std::equal(a.begin(), a.end(), b.begin());
+}
 
-    std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-        std::vector<std::string> letter_grades;
-        
-        for (const auto& grade : grades) {
-            if (grade >= 90) {
-                letter_grades.push_back("A");
-            } else if (grade >= 80) {
-                letter_grades.push_back("B");
-            } else if (grade >= 70) {
-                letter_grades.push_back("C");
-            } else if (grade >= 60) {
-                letter_grades.push_back("D");
-            } else {
-                letter_grades.push_back("F");
-            }
-        }
-        
-        return letter_grades;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
+    std::vector<std::string> result;
+    for (float grade : grades) {
+        if (grade >= 4.0) result.push_back("A");
+        else if (grade >= 3.0) result.push_back("B");
+        else if (grade >= 2.0) result.push_back("C");
+        else if (grade >= 1.0) result.push_back("D");
+        else result.push_back("E");
     }
+    return result;
+}
+
+int main() {
+    assert(issame(numerical_letter_grade({0, 0.7}), {"E", "D"}));
 }
