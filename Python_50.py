@@ -1,4 +1,3 @@
-```
 def decode_shift():
     s = input("Enter a string: ")
     shift = int(input("Enter the shift (0-25): "))
