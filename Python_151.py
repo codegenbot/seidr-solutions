@@ -1,6 +1,7 @@
-def double_the_difference(lst):
-    if len(lst) < 2:
-        raise ValueError("List must contain at least two elements")
-    min_val = min(i for i in lst if isinstance(i, int))
-    max_val = max(i for i in lst if isinstance(i, int))
-    return abs(min_val - max_val)
+def double_the_difference():
+    lst = input("Enter a list of integers: ").split(", ")
+    return sum(
+        i**2
+        for i in [int(x) for x in lst]
+        if isinstance(int(x), int) and int(x) >= 0 and int(x) % 2 != 0
+    )
