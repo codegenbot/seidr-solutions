@@ -1,4 +1,11 @@
 ```cpp
+#include <vector>
+#include <string>
+
+bool isEqualTo(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(auto str : strings) {
@@ -7,9 +14,7 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     }
     return result;
 }
-bool isEqualTo(vector<string> a, vector<string> b) {
-    return a == b;
-}
+
 int main() {
     assert(isEqualTo(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
 }
