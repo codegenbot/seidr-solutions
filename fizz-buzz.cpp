@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main() {
-    int x;
+    long long int x;
     std::cin >> x;
     
     if (x % 3 == 0 && x % 5 == 0) {
