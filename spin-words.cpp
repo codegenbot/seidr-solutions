@@ -1,35 +1,29 @@
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string spinWords(std::string str) {
-    std::string result = "";
-    size_t start = 0;
-    
-    while (start < str.length()) {
-        size_t end = str.find(' ', start);
-        
-        if (end == std::string::npos)
-            end = str.length();
-        
-        std::string word = str.substr(start, end - start);
-        
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+string spinWords(string str) {
+    string result = "";
+    string word = "";
+
+    for (int i = 0; i < str.length(); i++) {
+        char c = str[i];
+        if (c == ' ') {
+            if (word.length() >= 5) {
+                for (int j = word.length() - 1; j >= 0; j--)
+                    result += word[j];
+            } else
+                result += word;
+            word = "";
+        } else {
+            word += c;
         }
-        
-        result += word + " ";
-        
-        start = end + 1;
     }
-    
-    return result.substr(0, result.length() - 1);
-}
 
-int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
+    if (word.length() >= 5) {
+        for (int j = word.length() - 1; j >= 0; j--)
+            result += word[j];
+    } else
+        result += word;
 
-    return 0;
+    return result;
 }
