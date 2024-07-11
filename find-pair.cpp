@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <map>
+#include <unordered_map>
 
 int main() {
     int n, target;
@@ -11,11 +11,16 @@ int main() {
     }
     std::cin >> target;
 
-    std::map<int, int> mp;
+    std::unordered_map<int, int> mp;
     for (int i = 0; i < n; ++i) {
         if (mp.find(target - nums[i]) != mp.end() && mp[target - nums[i]] != i) {
-            std::cout << nums[i] << std::endl;
-            std::cout << target - nums[i] << std::endl;
+            if(nums[i] < target - nums[i]){
+                std::cout << nums[i] << std::endl;
+                std::cout << target - nums[i] << std::endl;
+            } else {
+                std::cout << target - nums[i] << std::endl;
+                std::cout << nums[i] << std::endl;
+            }
             break;
         }
         mp[nums[i]] = i;
