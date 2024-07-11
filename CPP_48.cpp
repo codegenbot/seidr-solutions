@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 
@@ -19,9 +20,7 @@ int main() {
     std::cout << "Enter a string: ";
     std::cin >> input;
     
-    std::string processedInput = input;
-
-    if (is_palindrome(processedInput)) {
+    if (is_palindrome(input)) {
         std::cout << "The string is a palindrome." << std::endl;
     } else {
         std::cout << "The string is not a palindrome." << std::endl;
