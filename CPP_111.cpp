@@ -1,19 +1,23 @@
-map<char,int> histogram(string test){
-    map<char, int> freq;
-    int maxFreq = 0;
-    for (char c : test) {
-        if (c != ' ') {
-            freq[c]++;
-            maxFreq = max(maxFreq, freq[c]);
+map<char, int> result;
+    map<char, int> count;
+    
+    for (char ch : test) {
+        if (ch != ' ') {
+            count[ch]++;
         }
     }
     
-    map<char, int> result;
-    for (auto it = freq.begin(); it != freq.end(); ++it) {
-        if (it->second == maxFreq) {
+    int maxCount = 0;
+    for (auto it = count.begin(); it != count.end(); ++it) {
+        if (it->second > maxCount) {
+            maxCount = it->second;
+        }
+    }
+    
+    for (auto it = count.begin(); it != count.end(); ++it) {
+        if (it->second == maxCount) {
             result[it->first] = it->second;
         }
     }
     
     return result;
-}
