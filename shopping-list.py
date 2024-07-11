@@ -9,3 +9,6 @@ def shopping_list():
             total_price += price
 
     return total_price
+
+
+print(shopping_list())
