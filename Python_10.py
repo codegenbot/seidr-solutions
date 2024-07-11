@@ -1,14 +1,12 @@
-def is_palindrome(s: str) -> bool:
-    return s == s[::-1]
-
-
 def make_palindrome(string: str) -> str:
-    if is_palindrome(string):
+    if string == string[::-1]:
         return string + string[::-1]
     else:
-        while not is_palindrome(string):
-            for char in "abcdefghijklmnopqrstuvwxyz":
+        while True:
+            for char in 'abcdefghijklmnopqrstuvwxyz':
                 if string.find(char) == -1:
                     string = string + char
                     break
+            if string == string[::-1]:
+                break
         return string + string[::-1]
