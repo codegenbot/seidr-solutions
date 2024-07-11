@@ -1,7 +1,10 @@
-double num = stod(value);
-    if (num >= 0) {
-        return floor(num + 0.5);
+float num = stof(value);
+int result = round(num);
+if (num - result == 0.5 || num - result == -0.5) {
+    if (num > 0) {
+        result = ceil(num);
     } else {
-        return ceil(num - 0.5);
+        result = floor(num);
     }
 }
+return result;
