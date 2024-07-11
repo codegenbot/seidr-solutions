@@ -16,5 +16,11 @@ def parse_music(music_string: str) -> List[int]:
         if note in notes:
             result.append(notes[note])
         else:
-            i -= len(note)
+            note_value = int(note)
+            for j in range(note_value):
+                if music_string[i].isdigit():
+                    result.extend([4] * (note_value - 1))
+                    result.append(4)
+                    i += 1
+                    break
     return result
