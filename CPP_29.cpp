@@ -6,18 +6,11 @@ bool issame(vector<string> a, vector<string> b){
         return false;
 }
 
-vector<vector<string>> filter_by_prefix(vector<string> strings, string prefix){
-    vector<vector<string>> result;
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
     for(string s : strings){
-        bool same = false;
-        for(auto v : result) {
-            if(issame({s}, v)) {
-                same = true;
-                break;
-            }
-        }
-        if(!same)
-            result.push_back({s});
+        if(s.find(prefix) == 0)
+            result.push_back(s);
     }
     return result;
 }
