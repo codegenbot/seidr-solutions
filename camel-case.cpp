@@ -7,17 +7,14 @@ int main() {
     std::getline(std::cin, input);
 
     bool capitalize = false;
-    bool firstWord = true;
+
     for (char &c : input) {
         if (c == '-') {
             capitalize = true;
         } else if (capitalize) {
             std::cout << (char)toupper(c);
             capitalize = false;
-        } else if (firstWord) {
-            std::cout << c;
-            firstWord = false;
-        } else if (c != ' ') {
+        } else if (c != '-' && c != ' ') {
             std::cout << (char)tolower(c);
         }
     }
