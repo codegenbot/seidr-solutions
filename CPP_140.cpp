@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
-#include <cassert>
+using namespace std;
 
-std::string fix_spaces(const std::string& text) {
-    std::string result = "";
+string fix_spaces(string text) {
+    string result = "";
     int count = 0;
     for (char c : text) {
         if (c == ' ') {
