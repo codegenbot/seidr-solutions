@@ -1,6 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
+#include <boost/convert.hpp>
 
 using namespace std;
 
@@ -21,7 +23,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any("");
+            return boost::any("None");
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
@@ -30,51 +32,62 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (stoi(str) > num) {
             return b;
         }
-       	else if (stoi(str) < num) {
-       		return a;
-       	}
-       	else {
-       		return boost::any("");
-       	}
+        else if (stoi(str) < num) {
+            return a;
+        }
+        else {
+            return boost::any("None");
+        }
     }
-   	else if (a.type() == typeid(string) && b.type() == typeid(int)) {
-   		string str = any_cast<string>(a);
-   		int num = any_cast<int>(b);
-   		if (stoi(str) > num) {
-   			return a;
-   		}
-   		else if (stoi(str) < num) {
-   			return b;
-   		}
-   		else {
-   			return boost::any("");
-   		}
-   	}
-   	else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-   		float fl = any_cast<float>(a);
-   		int num = any_cast<int>(b);
-   		if (fl > num) {
-   			return a;
-   		}
-   		else if (fl < num) {
-   			return b;
-   		}
-   		else {
-   			return boost::any("");
-   		}
-   	}
-   	else if (a.type() == typeid(int) && b.type() == typeid(float)) {
-   		int num = any_cast<int>(a);
-   		float fl = any_cast<float>(b);
-   		if (num > fl) {
-   			return a;
-   		}
-   		else if (num < fl) {
-   			return b;
-   		}
-   		else {
-   			return boost::any("");
-   		}
-   	}
-   	return boost::any("");
+    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string str = any_cast<string>(a);
+        int num = any_cast<int>(b);
+        if (stoi(str) > num) {
+            return a;
+        }
+        else if (stoi(str) < num) {
+            return b;
+        }
+        else {
+            return boost::any("None");
+        }
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        float fl = any_cast<float>(a);
+        int num = any_cast<int>(b);
+        if (fl > num) {
+            return a;
+        }
+        else if (fl < num) {
+            return b;
+        }
+        else {
+            return boost::any("None");
+        }
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        int num = any_cast<int>(a);
+        float fl = any_cast<float>(b);
+        if (num > fl) {
+            return a;
+        }
+        else if (num < fl) {
+            return b;
+        }
+        else {
+            return boost::any("None");
+        }
+    }
+    return boost::any();
+}
+
+int main() {
+    // Your code to read input and call the function.
+    // For example:
+    boost::any a = any_cast<boost::any>(stoi(input));
+    boost::any b = any_cast<boost::any>(stof(input));
+    // Then you can do something with the result
+    // for example, print it out
+    cout << any_cast<string>(compare_one(a, b)) << endl;
+    
 }
