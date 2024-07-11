@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     int sum1 = 0;
@@ -26,4 +27,3 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     if (sum1 < sum2) return lst1;
     else if (sum1 > sum2) return lst2;
     else return lst1;
-}

@@ -10,9 +10,7 @@ int max_value_function() {
     });
     
     int max_value = std::get<0>(max_pair);
-    int min_value = *std::min_element(p.begin(), p.end(), [](const auto& a, const auto& b) {
-        return a.first > b.first;
-    })->first;
+    int min_value = *std::min_element(p.begin(), p.end())->first;
     
     std::cout << "Maximum value: " << max_value << std::endl;
     std::cout << "Minimum value: " << min_value << std::endl;
