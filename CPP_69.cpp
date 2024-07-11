@@ -15,10 +15,7 @@ int search(vector<int> lst) {
 
     int maxFreq = -1;
     for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
-        if (it->second >= it->first && it->first > 0) {
-            maxFreq = it->first;
-            break;
-        }
+        maxFreq = max(maxFreq, it->second);
     }
 
     return maxFreq;
