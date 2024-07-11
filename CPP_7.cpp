@@ -1,43 +1,42 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(vector<string> a,vector<string>b){
     if (a.size() != b.size())
         return false;
     
     for (int i = 0; i < a.size(); i++) {
-        if (find(b.begin(), b.end(), a[i]) == b.end())
+        vector<string>::iterator it = find(b.begin(), b.end(), a[i]);
+        if (it == b.end())
             return false;
     }
     
     return true;
 }
 
-vector<string> filter_by_substring(vector<string> arr, string sub) {
-    vector<string> result;
-    for (auto s : arr) {
-        if (s.find(sub) != string::npos)
-            result.push_back(s);
-    }
-    return result;
-
 int main() {
     int n;
     cin >> n;
+
+    vector<vector<string>> words(2);
+    for(int i = 0; i < 2; ++i){
+        int m;
+        cin >> m;
+        words[i].resize(m);
+        for (int j = 0; j < m; ++j) {
+            string word;
+            cin >> word;
+            words[i].push_back(word);
+        }
+    }
+
+    bool same = issame(words[0],words[1]);
     
-    vector<string> words(n);
-    for(int i = 0; i < n; i++)
-        cin >> words[i];
-        
-    string sub;
-    cin >> sub;
-    
-    if (issame(filter_by_substring(words, sub), filter_by_substring(words, "") ) )
-        cout << "Yes" << endl;
+    if(same)
+        cout << "Same\n";
     else
-        cout << "No" << endl;
+        cout << "Not Same\n";
 
     return 0;
 }
