@@ -1,3 +1,10 @@
+#include <stack>
+#include <string>
+
+bool getBoolValue(char c) {
+    return c == 'T';
+}
+
 string solveBoolean(string expression) {
     stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
@@ -15,9 +22,28 @@ string solveBoolean(string expression) {
             s.push(expression[i]);
         }
     }
-    string result;
+
+    string result = "";
+    bool left, right;
     while (!s.empty()) {
-        result = ((s.top() == 'T') ? "True" : "False") + (result.empty() ? "" : " ");
+        char c = s.top();
         s.pop();
+        if (c == '&') {
+            right = getBoolValue(s.top());
+            s.pop();
+            left = getBoolValue(s.top());
+            s.pop();
+            result = (left && right) ? "True" : "False";
+        } else if (c == '|') {
+            right = getBoolValue(s.top());
+            s.pop();
+            left = getBoolValue(s.top());
+            s.pop();
+            result = (left || right) ? "True" : "False";
+        } else {
+            result = (getBoolValue(c)) ? "True" : "False";
+        }
     }
+
     return result;
+}
