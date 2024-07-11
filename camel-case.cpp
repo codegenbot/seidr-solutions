@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -7,18 +6,20 @@ std::string camelCase(const std::string& s) {
     std::string result;
     bool first = true;
 
-    for (const auto& word : s.split(" ")) { 
-        for (char c : word) {
+    for (char c : s) if (!std::isspace(c)) {
+        if (c == '-') {
             if (!first)
-                result += toupper(c); 
-            else 
+                result += char(toupper(c));
+            else
+                first = false;
+        } else if (::isalnum(c)) {
+            if (first) {
                 result += tolower(c);
-            first = false; 
-
-            if (c != '-')  
-                continue;
+                first = false;
+            } else {
+                result += toupper(c);
+            }
         }
-        first = true; 
     }
 
     return result;
