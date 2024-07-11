@@ -1,22 +1,13 @@
 #include <vector>
 #include <list>
 #include <any>
-#include <iostream>
 #include <cassert>
 
 using namespace std;
 
-vector<int> filter_integers(list<any> values);
-
-bool issame(vector<int> a, vector<int> b);
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
-vector<int> filter_integers(list<any> values){
+vector<int> filter_integers(list<any> values) {
     vector<int> result;
-    for(auto val : values){
+    for(auto val : values) {
         if(val.type() == typeid(int)){
             result.push_back(any_cast<int>(val));
         }
@@ -24,7 +15,11 @@ vector<int> filter_integers(list<any> values){
     return result;
 }
 
-int main(){
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+int main() {
+    assert(issame(filter_integers({any(3), any('c'), any(3), any(3), any('a'), any('b')}), {3, 3, 3}));
     return 0;
 }
