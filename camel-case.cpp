@@ -7,18 +7,18 @@ std::string camelCase(const std::string& str) {
     std::string result;
     std::stringstream ss(str);
     std::string word;
-
-    if (ss >> word) {
-        result = tolower(word);
-    }
-
-    while (ss >> word) {
-        result += toupper(word[0]);
+    
+    while (getline(ss, word, '-')) {
+        if (!result.empty()) {
+            result[0] = toupper(word[0]);
+        } else {
+            result += word;
+        }
         for (size_t i = 1; i < word.size(); ++i) {
             result += tolower(word[i]);
         }
     }
-
+    
     return result;
 }
 
