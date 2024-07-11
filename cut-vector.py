@@ -14,8 +14,8 @@ for i in range(1, len(arr)):
         cut_index = i
 
 if min_diff == 0 or cut_index is not None:
-    subvector1 = arr[:cut_index]
-    subvector2 = arr[cut_index:]
+    subvector1 = arr[:cut_index+1]
+    subvector2 = arr[cut_index+1:]
 
     print(*subvector1)
     print(*subvector2)
