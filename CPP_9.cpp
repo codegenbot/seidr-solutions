@@ -19,6 +19,10 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 int main() {
-    // Main function implementation
+    // Test the rolling_max function
+    std::vector<int> numbers = {3, 1, 5, 2, 4};
+    std::vector<int> expected = {3, 3, 5, 5, 5};
+    assert(issame(rolling_max(numbers), expected));
+
     return 0;
 }
