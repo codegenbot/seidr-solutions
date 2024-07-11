@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -7,18 +6,15 @@ def rolling_max(input_str: str) -> List[int]:
 
     numbers = []
     for num in input_str.split():
-        if not num.isdigit():
-            return []
         numbers.append(int(num))
 
     if len(numbers) <= 1:
         return [0]
 
-    result = []
+    result = []  
     max_so_far = current_max = numbers[0]
     for num in numbers[1:]:
-        if num > current_max:
-            current_max = num
+        current_max = max(current_max, num)
         result.append(current_max)
         max_so_far = max(max_so_far, current_max)
 
