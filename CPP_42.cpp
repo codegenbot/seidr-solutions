@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -16,23 +17,22 @@ std::vector<int> incr_list(std::vector<int> l) {
 int main() {
     std::vector<int> a, b;
     int n;
-
+    
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
         int num;
         std::cin >> num;
         a.push_back(num);
     }
-
+    
     std::cin >> n;
     for (int i = 0; i < n; ++i) {
         int num;
         std::cin >> num;
         b.push_back(num);
     }
-
-    bool result = issame(a, b);
-    std::vector<int> incremented = incr_list(a);
-
+    
+    assert(issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), b));
+    
     return 0;
 }
