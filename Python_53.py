@@ -1,12 +1,9 @@
-```
-def add(x: int, y: int):
-    return x + y
+def add(x: int, y: int) -> int:
+    try:
+        num1 = int(input("Enter first number: "))
+        num2 = int(input("Enter second number: "))
 
-try:
-    num1 = float(input("Enter first number: "))
-    num2 = float(input("Enter second number: "))
-
-    result = add(int(num1), int(num2))
-    print(f"Result: {result}")
-except ValueError:
-    print("Invalid input. Please enter integers.")
+        result = x + y  
+        print(f"Result: {result}")
+    except ValueError:
+        print("Invalid input. Please enter integers.")
