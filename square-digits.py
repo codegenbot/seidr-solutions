@@ -1,5 +1,5 @@
 def square_digits(n):
-    result = ""
+    result = ''
     for char in str(n):
         if char.isdigit():
             result += str(int(char) ** 2)
