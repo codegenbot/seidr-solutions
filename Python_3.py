@@ -1,3 +1,4 @@
+```python
 def below_zero(operations: list) -> bool:
     balance = 0
     for operation in operations:
@@ -6,7 +7,6 @@ def below_zero(operations: list) -> bool:
         elif operation[0] == "-":
             balance -= int(operation[1:])
     return balance < 0
-
 
 ops = []
 while True:
