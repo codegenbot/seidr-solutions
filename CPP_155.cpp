@@ -20,10 +20,9 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    vector<int> output = even_odd_count(0);  
-    cout << "Even: " << output[0] << ", Odd: " << output[1] << endl;
+    assert(abs(even_odd_count(0)[1] - 0) < 1);
     int num; 
     cin >> num;  
-    output = even_odd_count(num);
+    vector<int> output = even_odd_count(num);  
     cout << "Even: " << output[0] << ", Odd: " << output[1] << endl;
 }
