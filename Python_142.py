@@ -1,5 +1,5 @@
-def sum_squares():
-    lst = list(map(int, input("Enter a series of space-separated numbers: ").split()))
+```
+def sum_squares(lst):
     total_sum = 0
     for i in range(len(lst)):
         if i % 3 == 0 and i % 4 != 0:
@@ -8,4 +8,5 @@ def sum_squares():
             total_sum += lst[i] ** 3
     return total_sum
 
-print(sum_squares())
+input_list = list(map(int, input("Enter numbers separated by space: ").split()))
+print(sum_squares(input_list))
