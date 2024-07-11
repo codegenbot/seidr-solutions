@@ -28,3 +28,13 @@ vector<string> split_words(const string& txt) {
     }
     return words;
 }
+
+int main() {
+    string txt;
+    getline(cin, txt);
+    vector<string> result = split_words(txt);
+    for(const string& word : result) {
+        cout << word << " ";
+    }
+    return 0;
+}
