@@ -24,10 +24,10 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
-        pos += 1;
         if (targetLen > 1) {
             pos = pos - 1;
         }
+        pos += 1;
     }
 
     return indices;
@@ -36,7 +36,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 int main() {
     std::string text, target;
     std::cout << "Enter the text: ";
-    std::cin >> text;
+    std::getline(std::cin, text);
     std::cout << "Enter the target: ";
     std::cin >> target;
 
