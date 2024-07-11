@@ -26,18 +26,21 @@ std::string solveBoolean(std::string expression) {
     }
 
     std::string result = "";
-    bool left = false, right = false;
+    bool left, right;
     while (!s.empty()) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            left = getBoolValue('T');
+            left = getBoolValue(s.top());
             right = true;
+            s.pop();
             result = (left && right) ? "True" : "False";
         } else if (c == '|') {
-            left = getBoolValue('T');
+            left = getBoolValue(s.top());
             right = true;
+            s.pop();
             result = (left || right) ? "True" : "False";
+            s.pop(); // Consume the operand
         } else {
             result = (getBoolValue(c)) ? "True" : "False";
         }
