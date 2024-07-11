@@ -1,16 +1,7 @@
-int main() {
-    std::string tweet;
-    if(std::getline(std::cin, tweet)) { 
-        if(tweet.empty()) {
-            std::cout << "You didn't type anything" << std::endl;
-        } else if(tweet.length() > 140) {
-            std::cout << "Too many characters" << std::endl;
-        } else {
-            std::cout << "Your tweet has " << tweet.length() << " characters" << std::endl;
-        }
-    } else { 
-        std::cout << "You didn't type anything" << std::endl;
-    }
-
-    return 0;
+size_t validateTweet(const string& tweet) {
+    if(tweet.empty()) return "You didn't type anything";
+    size_t count = std::accumulate(tweet.begin(), tweet.end(),
+                                    0, [](int c, char ch) { return c + std::char_traits<char>::count(ch); });
+    if(count > 140) return "Too many characters";
+    return to_string(count);
 }
