@@ -1,26 +1,9 @@
-vector<string> sorted_list_sum(vector<string> lst) {
-    sort(lst.begin(), lst.end(),
-        [](const string& a, const string& b) {
-            if (a.length() == b.length()) {
-                return a < b;
-            }
-            return a.length() < b.length();
-        });
-    vector<string> result;
-    for (const string& s : lst) {
-        bool isSame = false;
-        for (int i = 0; i < result.size(); ++i) {
-            if (issame(vector<string>({s}), vector<string>(result[i].split(" ")))) {
-                isSame = true;
-                break;
-            }
-        }
-        if (!isSame)
-            result.push_back(s);
-    }
-    return result;
-}
-
 bool issame(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        sort(a[i].begin(), a[i].end());
+        sort(b[i].begin(), b[i].end());
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
