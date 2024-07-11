@@ -2,12 +2,13 @@
 
 int bowlingScore(std::string s) {
     int score = 0;
+    int roll = 0;
     for(int i = 0; i < s.size(); i++) {
         if(s[i] == '/') {
-            if(i+2<s.size() && (s[i+1]-'0'>=1 || s[i+1]=='X')) {
-                score += roll + (10 - roll);
-            } else {
+            if(roll > 0) {
                 score += roll;
+            } else {
+                score += 10;
             }
             roll = 0;
         } else if('0' <= s[i] && s[i] <= '9') {
@@ -17,5 +18,12 @@ int bowlingScore(std::string s) {
             score += 10;
             roll = 0;
         }
+    }
+    while(roll > 1) {
+        score += 10;
+        roll -= 2;
+    }
+    if(roll == 1) {
+        score += roll;
     }
     return score;
