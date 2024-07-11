@@ -1,8 +1,6 @@
-if (x <= 0 || n <= 0) {
+if (n == 1 && x != 1) {
         return false;
     }
-    
-    double root = pow(x, 1.0 / n);
-    
-    return (pow((int)root, n) == x);
+    int power = log(x) / log(n);
+    return pow(n, power) == x;
 }
