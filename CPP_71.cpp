@@ -21,4 +21,3 @@ int main() {
     else
         std::cout << "The area of the triangle is: " << area << "\n";
     return 0;
-}
