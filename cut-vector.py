@@ -3,19 +3,20 @@ arr = [int(input()) for _ in range(n)]
 
 total_sum = sum(arr)
 half_sum = total_sum // 2
+current_sum = 0
+idx = 0
 
-prefix_sum = 0
-for i in range(n-1):
-    prefix_sum += arr[i]
-    if prefix_sum >= half_sum:
-        if prefix_sum == half_sum:
-            print(*arr[: i + 1])
-            print(*arr[i + 1 :])
-        else:
-            if prefix_sum - half_sum < total_sum - prefix_sum:
-                print(*arr[: i + 1])
-                print(*arr[i + 1 :])
-            else:
-                print(*arr[:i])
-                print(*arr[i:])
-        break
+while idx < n and current_sum < half_sum:
+    current_sum += arr[idx]
+    idx += 1
+
+if current_sum == half_sum:
+    print(*arr[:idx])
+    print(*arr[idx:])
+else:
+    if abs(current_sum - half_sum) <= abs(current_sum - half_sum + arr[idx]):
+        print(*arr[:idx])
+        print(*arr[idx:])
+    else:
+        print(*arr[:idx + 1])
+        print(*arr[idx + 1:])
