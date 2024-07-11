@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -9,7 +8,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int pos = 0; // position in text
 
-    while (true) { 
+    while (pos != string::npos) { 
         pos = text.find(target, pos);
         
         if (pos == string::npos) {
