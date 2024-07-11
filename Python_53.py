@@ -1,8 +1,13 @@
-def add(x, y) -> int:
+def add(x: int, y: int) -> int:
     return x + y
 
-x = int(input("Enter the first number: "))
-y = int(input("Enter the second number: \n"))
+while True:
+    try:
+        x = int(input("Enter the first number: "))
+        y = int(input("Enter the second number: "))
+        break
+    except ValueError:
+        print("Please enter integer values.")
 
 result = add(x, y)
 
