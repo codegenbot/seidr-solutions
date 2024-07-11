@@ -1,5 +1,3 @@
-#include <string>
-
 int bowlingScore(const std::string& s) {
     int score = 0;
     for (int i = 0; i < 10; ++i) {
@@ -29,9 +27,4 @@ int bowlingScore(const std::string& s) {
         }
     }
     return score;
-}
-
-int main() {
-    std::cout << bowlingScore("5/71229/X429-9-27X16") << std::endl; 
-    return 0;
 }
