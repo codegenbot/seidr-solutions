@@ -1,19 +1,17 @@
-int prod_signs(vector<int> arr){
-    if(arr.empty()){
-        return -32768;
-    }
-    int prod_sign = 1;
-    int sum_magnitudes = 0;
+#include <vector>
+
+int prod_signs(std::vector<int> arr){
+    if(arr.empty()) return -32768;
+    
+    int signProduct = 1;
+    int sumMagnitudes = 0;
+    
     for(int num : arr){
-        if(num > 0){
-            prod_sign *= 1;
-            sum_magnitudes += abs(num);
-        } else if(num < 0){
-            prod_sign *= -1;
-            sum_magnitudes += abs(num);
-        } else {
-            prod_sign *= 0;
-        }
+        if(num > 0) signProduct *= 1;
+        else if(num < 0) signProduct *= -1;
+        
+        sumMagnitudes += abs(num);
     }
-    return prod_sign * sum_magnitudes;
+    
+    return signProduct * sumMagnitudes;
 }
