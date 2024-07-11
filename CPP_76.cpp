@@ -1,4 +1,9 @@
-if(x == 1) return true;
+#include <iostream>
+#include <cassert>
+#include <cmath>
+
+bool is_simple_power(int x, int n) {
+    if(x == 1) return true;
     
     for(int i = 2; i <= sqrt(x); i++){
         int p = i;
