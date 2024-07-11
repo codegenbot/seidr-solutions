@@ -1,11 +1,17 @@
 def solve(binary):
     while True:
-        try:
-            if binary:
-                N = int(input("Enter a {} number: ").format('binary' if binary else 'decimal'), 2 if binary else 10)
-            break
-        except ValueError:
-            print("Invalid input! Please enter a valid {}".format('binary' if binary else 'decimal'))
+        if binary:
+            try:
+                N = int(input("Enter a binary number: "), 2)
+                break
+            except ValueError:
+                print("Invalid input! Please enter a valid binary")
+        else:
+            try:
+                N = int(input("Enter a decimal number: "), 10)
+                break
+            except ValueError:
+                print("Invalid input! Please enter a valid decimal")
 
     return str(N)
 
