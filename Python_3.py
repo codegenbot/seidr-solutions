@@ -12,6 +12,11 @@ ops = []
 op = input()
 while op:
     ops.append(op.strip())
-    op = input()
+    while True:
+        try:
+            op = int(input()) if "+" in op else -int(input())
+            break
+        except ValueError:
+            print("Invalid operation. Please enter a number followed by '+' or '-'.")
 
 print(below_zero(ops))
