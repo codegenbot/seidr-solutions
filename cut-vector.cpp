@@ -20,7 +20,7 @@ int main() {
         sum += nums[i];
     }
 
-    int half_sum = sum / 2;
+    int half_sum = (sum + 1) / 2;
     int prefix_sum = 0;
     int cut_idx = -1;
 
@@ -30,11 +30,6 @@ int main() {
             cut_idx = i;
             break;
         }
-    }
-
-    if (cut_idx == -1) {
-        cout << "Cut index not found." << endl;
-        return 0;
     }
 
     vector<int> subvec1(nums.begin(), nums.begin() + cut_idx + 1);
@@ -48,4 +43,4 @@ int main() {
     }
 
     return 0;
-}
+} 
