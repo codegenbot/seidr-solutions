@@ -1,7 +1,7 @@
 #include <vector>
 
-vector<int> even_odd_count(int num) {
-    vector<int> result;
+std::vector<int> even_odd_count(int num) {
+    std::vector<int> result;
     int count = 0;
     while(num != 0) {
         int digit = num % 10;
