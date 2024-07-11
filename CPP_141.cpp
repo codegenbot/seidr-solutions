@@ -13,14 +13,16 @@ std::string file_name_check(std::string filename) {
                 return "No";
         } else if (c == '.') {
             found_dot = true;
-        } else if (!std::isalpha(c)) {
+        } else {
+            if (!std::isalpha(c))
+                valid_prefix = false;
             if (digit_count > 0) {
                 valid_prefix = false;
             }
         }
     }
 
-    if (digit_count <= 3 && found_dot)
+    if (!valid_prefix || digit_count <= 3 && found_dot)
         return "No";
     else
         return "Yes";
