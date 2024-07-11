@@ -11,7 +11,7 @@ bool evaluateBooleanExpression(string input) {
     for (char c : input) {
         if (c == 'T' || c == 'F') {
             operands.push(c == 'T' ? true : false);
-        } else if (c == '|' || (c == '&' && !operators.empty() && operators.top() == '|')) {
+        } else if (c == '&' || (c == '|' && !operators.empty() && operators.top() == '|')) {
             while (!operators.empty() && operators.top() == '|') {
                 char op = operators.top();
                 operators.pop();
@@ -22,15 +22,15 @@ bool evaluateBooleanExpression(string input) {
                 operands.push(operand1 || operand2);
             }
             operators.push(c);
-        } else if (c == '&') {
-            while (!operators.empty() && operators.top() == '&') {
+        } else if (c == '|') {
+            while (!operators.empty() && operators.top() == '|') {
                 char op = operators.top();
                 operators.pop();
                 bool operand1 = operands.top();
                 operands.pop();
                 bool operand2 = operands.top();
                 operands.pop();
-                operands.push(operand1 && operand2);
+                operands.push(operand1 || operand2);
             }
             operators.push(c);
         }
