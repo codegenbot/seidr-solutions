@@ -3,10 +3,9 @@ using namespace std;
 
 int prime_fib(int n) {
     int a = 0, b = 1;
-    int count = 0;
     for (int i = 2; ; i++) {
         int fib = a + b;
-        if (fib > n) break;
+        if (fib > n) return i - 1;
         a = b;
         b = fib;
         bool isPrime = true;
@@ -16,8 +15,8 @@ int prime_fib(int n) {
                 break;
             }
         }
-        if (isPrime) count++;
-        if (count == n) return i;
+        if (!isPrime) continue;
+        return i;
     }
 }
 
