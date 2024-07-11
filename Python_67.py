@@ -1,6 +1,5 @@
-```
-import re
 def fruit_distribution(s,n):
+    import re
     s = s.split()
     apple_count_str = next((s for s in s if 'apples' in s), None)
     if apple_count_str is not None:
