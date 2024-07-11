@@ -13,22 +13,25 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 vector<int> parse_music(string music_string) {
-    vector<int> parsed_music;
-    size_t pos = 0;
-    while ((pos = music_string.find("|")) != string::npos) {
-        string note = music_string.substr(0, pos);
-        music_string.erase(0, pos + 1);
+    vector<int> parsed_notes;
+    int count = 0;
 
-        if (note == "o") {
-            parsed_music.push_back(1);
-        } else if (note == ".") {
-            parsed_music.push_back(2);
-        } else if (note == " ") {
-            parsed_music.push_back(0);
+    for (char c : music_string) {
+        if (c == 'o') count++;
+        else if (c == ' ') {
+            if (count > 0) { 
+                parsed_notes.push_back(count);
+                count = 0;
+            }
+        }
+        else if (isdigit(c)) {
+            parsed_notes.push_back(c - '0');
         }
     }
 
-    return parsed_music;
+    if (count > 0) parsed_notes.push_back(count);
+
+    return parsed_notes;
 }
 
 int main() {
