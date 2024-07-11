@@ -3,13 +3,12 @@ import math
 
 grid = []
 while True:
-    try:
-        row = [int(x) for x in input().split()]
-        grid.append(row)
-    except EOFError:
+    row = input("Enter the row (press 'done' when finished): ")
+    if row.lower() == 'done':
         break
-
-capacity = int(input())
+    grid.append([int(x) for x in row.split()])
+    
+capacity = int(input("Enter the bucket capacity: "))
 
 def max_fill(grid, capacity):
     total_water = sum(sum(row) for row in grid)
