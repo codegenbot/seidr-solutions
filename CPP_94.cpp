@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 using namespace std;
 
@@ -25,6 +26,8 @@ bool isPrime(int n) {
 }
 
 int main(){
+    int result = skjkasdkd({127, 97, 8192});
+    cout << "The sum of digits is: " << result << endl;
     assert(skkkasdkd({127, 97, 8192}) == 10);
     return 0;
 }
