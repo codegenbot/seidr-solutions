@@ -18,10 +18,12 @@ int do_algebra(vector<string> operato, vector<int> operand){
     return result;
 }
 
-int main(){
-    vector<string> operators = {"+", "-", "*", "//", "**"};
-    vector<int> operands = {2, 4, 3};
-    cout << do_algebra(operators, operands) << endl;
-
+int main() {
+    vector<string> operato = {"+", "*", "-"};
+    vector<int> operand = {5, 3, 2, 4};
+    
+    //assert(do_algebra(operato, operand) == 19);
+    cout << do_algebra(operato, operand);
+    
     return 0;
-}
+}  
