@@ -1,6 +1,8 @@
+Here is the modified code without triple quotes and unnecessary comments:
+
+```Python
 from typing import List
 import math
-
 
 def main():
     while True:
@@ -23,6 +25,5 @@ def main():
     if n > 1:
         factors.append(n)
     return factors
-
 
 print(main())
