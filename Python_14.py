@@ -1,4 +1,6 @@
-def all_prefixes(string: str) -> list[str]:
+from typing import List  
+
+def all_prefixes(string: str) -> List[str]:
     if not isinstance(string, str) or len(string) == 0:
         return ['']
     result = []
