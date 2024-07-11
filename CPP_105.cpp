@@ -1,10 +1,11 @@
+```
 #include <vector>
 #include <algorithm>
 #include <string>
 #include <initializer_list>
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
+std::vector<string> by_length(std::vector<int> arr) {
+    std::vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(num);
@@ -15,7 +16,7 @@ vector<string> by_length(vector<int> arr) {
     
     reverse(numbers.begin(), numbers.end());
     
-    vector<string> result;
+    std::vector<string> result;
     for (int num : numbers) {
         switch (num) {
             case 1:
@@ -52,11 +53,11 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3};
-    vector<string> output = by_length(numbers);
+    std::vector<int> numbers = {1, 2, 3};
+    std::vector<string> output = by_length(numbers);
     
     for (const auto &word : output) {
-        cout << word << " ";
+        std::cout << word << " ";
     }
     
     return 0;
