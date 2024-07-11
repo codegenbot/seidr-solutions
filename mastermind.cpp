@@ -1,5 +1,3 @@
-Here is the modified code:
-```cpp
 #include <string>
 
 int whitePegs(string code, string guess) {
@@ -10,6 +8,15 @@ int whitePegs(string code, string guess) {
             codeMap[code[i]]++;
             guessMap[guess[i]]++;
             count++;
+        } else {
+            for (int j = 0; j < 6; j++) {
+                if (code[j] == guess[i] && codeMap[j] < 1) {
+                    codeMap[j]++;
+                    guessMap[j]++;
+                    count++;
+                    break;
+                }
+            }
         }
     }
     for (int i = 0; i < 6; i++) {
@@ -17,8 +24,7 @@ int whitePegs(string code, string guess) {
             return -1;
         }
     }
-    int blackPegsCount = blackPegs(code, guess);
-    return count - blackPegsCount;
+    return count - blackPegs(code, guess);
 }
 
 int blackPegs(string code, string guess) {
