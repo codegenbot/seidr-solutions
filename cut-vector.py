@@ -1,25 +1,16 @@
-n = int(input())
-nums = list(map(int, input().split()))
+if len(nums) < 2:
+    cut_index = None
+else:
+    total_sum = sum(nums)
+    curr_sum = 0
+    cut_index = None
+    min_diff = float('inf')
 
-total_sum = sum(nums)
-left_sum = 0
-right_sum = total_sum
+    for i in range(len(nums) - 1):
+        curr_sum += nums[i]
+        diff = abs(curr_sum - (total_sum - curr_sum))
+        if diff < min_diff:
+            min_diff = diff
+            cut_index = i
 
-min_diff = total_sum
-cut_index = -1
-
-for i in range(n):
-    left_sum += nums[i]
-    right_sum -= nums[i]
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff or left_sum == right_sum:
-        min_diff = diff
-        cut_index = i
-
-subvector1 = nums[:cut_index + 1] if cut_index != -1 else []
-subvector2 = nums[cut_index + 1:] if cut_index != -1 else []
-
-if subvector1:
-    print(*subvector1)
-if subvector2:
-    print(*subvector2)
+cut_index
