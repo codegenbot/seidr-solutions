@@ -9,9 +9,6 @@ def filter_by_prefix(strings: List[str], prefix: str) -> None:
         print("No strings match the given prefix.")
 
 
-stored_strings = []
-
-
 def main():
     while True:
         try:
@@ -22,10 +19,9 @@ def main():
             break
         except ValueError:
             print("Invalid input! Please enter an integer.")
-            sys.stdin.readline()  # Ensure program waits for input
+            continue
 
-    global stored_strings
-    stored_strings = [input() for _ in range(num_strings)]
+    strings = [input() for _ in range(num_strings)]
 
     while True:
         try:
@@ -33,11 +29,11 @@ def main():
             if not prefix.strip():  # Check for empty input
                 print("Please enter a valid prefix.")
                 continue
-            filter_by_prefix([str(x) for x in stored_strings], prefix)
+            filter_by_prefix([str(x) for x in strings], prefix)
             break
         except Exception as e:
             print(f"An error occurred: {e}")
-            sys.stdin.readline()  # Ensure program waits for input
+            continue
 
 
 if __name__ == "__main__":
