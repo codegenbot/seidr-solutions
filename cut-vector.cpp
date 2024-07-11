@@ -1,14 +1,14 @@
 #include <iostream>
 #include <vector>
-
-using namespace std;
+#include <sstream>
 
 int main() {
-    vector<int> nums;
-    string input;
-    getline(cin, input);
-    istringstream iss(input);
+    std::vector<int> nums;
+    std::string line;
+    std::getline(std::cin, line);
+    std::istringstream iss(line);
     int num;
+    
     while (iss >> num) {
         nums.push_back(num);
     }
@@ -31,14 +31,14 @@ int main() {
         }
     }
 
-    vector<int> subvec1(nums.begin(), nums.begin() + cut_idx + 1);
-    vector<int> subvec2(nums.begin() + cut_idx + 1, nums.end());
+    std::vector<int> subvec1(nums.begin(), nums.begin() + cut_idx + 1);
+    std::vector<int> subvec2(nums.begin() + cut_idx + 1, nums.end());
 
     for (int num : subvec1) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
     for (int num : subvec2) {
-        cout << num << endl;
+        std::cout << num << std::endl;
     }
 
     return 0;
