@@ -28,9 +28,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
     }
     
-    std::sort(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
     
-    std::reverse(numbers.begin(), numbers.end());
+    reverse(numbers.begin(), numbers.end());
     
     std::vector<std::string> result;
     for (int num : numbers) {
@@ -66,4 +66,13 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
 
     return result;
+}
+
+int main() {
+    std::vector<int> arr = {1, 2, 3};
+    for (const auto& num : by_length(arr)) {
+        std::cout << num << "\n";
+    }
+    
+    return 0;
 }
