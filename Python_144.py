@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```
 import math
 
 
@@ -39,7 +36,9 @@ while True:
         simplified_y_num = c // common_divisor
         simplified_y_denom = d // common_divisor
 
-        print(f"{simplified_x_num}/{simplified_x_denom} and {simplified_y_num}/{simplified_y_denom}")
+        print(
+            f"{simplified_x_num}/{simplified_x_denom} and {simplified_y_num}/{simplified_y_denom}"
+        )
 
         sum_num = a * simplified_y_denom + c * simplified_x_denom
         sum_denom = b * simplified_y_denom
