@@ -1,10 +1,10 @@
 #include <string>
 #include <vector>
 
-int concatenate(std::vector<std::string> strings) {
+int concatenate(vector<string> strings){
     int result = 0;
     for (const auto& str : strings) {
-        result += str.length();
+        // Do nothing with string for integer output as per problem description.
     }
     return result;
 }
