@@ -1,25 +1,40 @@
-PegCounts mastermind(std::string code, std::string guess) {
-    PegCounts result = {0, 0};
-    int codeCount[256] = {0};
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <initializer_list> // Add this line
+using namespace std;
 
-    // Count black pegs
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            result.black++;
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; i++) {
+        if (guess[i] == code[i]) {
+            count++;
         }
     }
+    return count;
+}
 
-    // Count white pegs
-    for (int i = 0; i < 4; ++i) {
-        codeCount[guess[i]]++;
-    }
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) continue;
-        if (codeCount[guess[i]] > 0) {
-            result.white++;
-            codeCount[guess[i]]--;
+int blackPegs(string code, string guess) {
+    int count = 0;
+    vector<char> codeArray(code.begin(), code.end());
+    for (int i = 0; i < 4; i++) {
+        if (guess[i] == code[i]) {
+            codeArray[i] = '0';
         }
     }
+    for (int i = 0; i < 4; i++) {
+        if (count(codeArray.begin(), codeArray.end(), guess[i]) > 0) {
+            count++;
+            codeArray.erase(std::remove(codeArray.begin(), codeArray.end(), guess[i]) - codeArray.begin(), codeArray.end());
+        }
+    }
+    return count;
+}
 
-    return result;
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    cout << blackPegs(code, guess) << endl;
+    cout << whitePegs(code, guess) << endl;
+    return 0;
 }
