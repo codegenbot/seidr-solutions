@@ -1,5 +1,6 @@
 #include <any>
 #include <string>
+#include <cstdio>
 #include <cassert>
 
 std::any compare_one(const std::any& a, const std::any& b) {
@@ -30,6 +31,6 @@ std::any compare_one(const std::any& a, const std::any& b) {
 }
 
 int main() {
-    assert(std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
+    assert (std::any_cast<std::string>(compare_one(std::string("1"), std::any(1))).empty());
     return 0;
 }
