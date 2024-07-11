@@ -10,7 +10,7 @@ def factorize(n: int) -> List[int]:
             break
         except ValueError:
             print("Invalid input! Please enter a valid integer.")
-    
+
     factors = []
     i = 2
     while i * i <= n:
