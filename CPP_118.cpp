@@ -1,19 +1,25 @@
-#include <string>
-#include <algorithm>
+#include<stdio.h>
+#include<string>
+#include<algorithm>
 using namespace std;
 
-string get_closest_vowel(string word) {
-    for (int i = word.length() - 2; i >= 1; --i) {
-        if (!isalnum(word[i])) continue;
-        if (isvowel(word[i])) return string(1, tolower(word[i]));
-        while (i > 0 && !isalnum(word[i-1])) --i;
-        for (++i; i < word.length() && !isalnum(word[i]); ++i) {}
-        if (!isalnum(word[i-1]) || isvowel(word[i-1])) return string(1, tolower(word[i-1]));
+string get_closest_vowel(string word){
+    for(int i = word.length() - 1; i > 0; i--){
+        if(vowels.find(word[i]) != string::npos){
+            bool is_consonant_left = true;
+            for(int j = i-1; j >= 0; j--){
+                if(!is_vowel(word[j])){
+                    is_consonant_left = false;
+                    break;
+                }
+            }
+            if(is_consonant_left) return string(1, word[i]);
+        }
     }
     return "";
 }
 
-bool isvowel(char c) {
-    c = tolower(c);
-    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+bool is_vowel(char ch){
+    ch = tolower(ch);
+    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
 }
