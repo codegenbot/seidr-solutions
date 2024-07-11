@@ -1,7 +1,6 @@
-```Python
 def digits(n):
-    n = str(abs(n))[::-1]
-    for i in range(len(n)):
-        if n[i] != '0':
+    n = str(abs(n))
+    for i in range(len(n) - 1, -1, -1):
+        if n[i] == "9":
             return int(n[i])
-    return 0
+    return 1
