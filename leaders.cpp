@@ -16,15 +16,15 @@ vector<int> leaders(vector<int>& arr) {
 }
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
-    int max_right = arr[arr.size() - 1];
+    vector<int> leaders;
+    int rightmost = arr.back();
     for (int i = arr.size() - 1; i >= 0; --i) {
-        if (arr[i] >= max_right) {
-            result.push_back(arr[i]);
-            max_right = arr[i];
+        if (arr[i] >= rightmost) {
+            leaders.push_back(arr[i]);
+            rightmost = arr[i];
         }
     }
-    return result;
+    return leaders;
 }
 
 int main() {
