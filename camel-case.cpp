@@ -6,15 +6,20 @@ int main() {
     std::string input;
     std::getline(std::cin, input);
     
-    bool capitalize = true;
+    bool capitalize = false;
     for (char &c : input) {
-        if (capitalize && std::isalpha(c) && !capitalize) {
+        if (std::isalpha(c) && std::islower(c) && capitalize) {
             std::cout << (char)std::toupper(c);
             capitalize = false;
         } else if (c == '-') {
             capitalize = true;
-        } else {
             std::cout << c;
+        } else {
+            if (!capitalize) {
+                std::cout << (char)std::tolower(c);
+            } else {
+                std::cout << c;
+            }
         }
     }
     
