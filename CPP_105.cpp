@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 
-bool isSame(const std::vector<int>& nums) {
+bool allTheSame(const std::vector<int>& nums) {
     if (nums.size() == 0)
         return true;
 
@@ -71,7 +71,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 int main() {
     std::vector<int> arr = {9, 4, 8};
     auto result = by_length(arr);
-    bool same = isSame(result);
+    bool same = allTheSame(result);
     assert(same);
     return 0;
 }
