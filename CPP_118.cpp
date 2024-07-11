@@ -20,5 +20,6 @@ std::string get_closest_vowel(std::string word) {
 }
 
 int main() {
-    // Your code here
+    // Your code goes here
+    return 0;
 }
