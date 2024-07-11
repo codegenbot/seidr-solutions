@@ -2,10 +2,10 @@
 #include <string>
 #include <sstream>
 
-std::string string_to_md5(std::string text) {
+string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    unsigned char md[MD5_DIGEST_LENGTH];
+    unsigned char md[16];
     MD5_CTX c;
     MD5_Init(&c);
     const char* ptr = text.c_str();
@@ -15,8 +15,8 @@ std::string string_to_md5(std::string text) {
     }
     MD5_Final(md, &c);
 
-    std::ostringstream oss;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+    ostringstream oss;
+    for (int i = 0; i < 16; i++) {
         oss << setfill('0') << setw(2) << hex << (int)md[i];
     }
 
