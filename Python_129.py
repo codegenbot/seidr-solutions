@@ -1,7 +1,7 @@
 ```
 def minPath(grid, k):
     n = len(grid)
-    res = []
+    res = None
     visited = [[False] * n for _ in range(n)]
     queue = [(0, 0, [grid[0][0]])]
     
@@ -9,7 +9,7 @@ def minPath(grid, k):
         x, y, path = queue.pop(0)
         if len(path) == k + 1:
             if not res or tuple(sorted(path)) < tuple(sorted(res)):
-                res = sorted(path[:-1])
+                res = list(path[:-1])
             continue
         
         for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
