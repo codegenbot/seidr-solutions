@@ -8,9 +8,10 @@ int main() {
 
     std::vector<int> indices;
     int pos = static_cast<int>(text.find(target, 0));
+    if (pos == std::string::npos) pos = -1;
     while (pos != std::string::npos) {
         indices.push_back(pos);
-        pos = static_cast<int>(text.find(target, pos + target.length()));
+        pos = static_cast<int>(text.find(target, pos + 1));
     }
 
     for (int i = 0; i < indices.size(); ++i) {
