@@ -5,8 +5,8 @@
 
 using namespace std;
 
-bool areEqual(const vector<string>& v1, const vector<string>& v2) {
-    return v1 == v2;
+bool issame(const vector<string>& vec1, const vector<string>& vec2) {
+    return vec1 == vec2;
 }
 
 vector<string> all_prefixes(string str) {
@@ -22,7 +22,7 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    assert(areEqual(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
 
     return 0;
 }
