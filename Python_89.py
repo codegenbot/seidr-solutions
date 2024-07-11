@@ -1,7 +1,6 @@
-```python
 def encrypt(s):
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    result = ''
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    result = ""
     for char in s:
         if char.isalpha():
             index = alphabet.index(char.lower())
