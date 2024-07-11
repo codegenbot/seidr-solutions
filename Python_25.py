@@ -1,4 +1,3 @@
-```
 from typing import List
 import math
 
@@ -14,5 +13,11 @@ def find_prime_numbers(n: int) -> List[int]:
             prime_numbers.append(possiblePrime)
     return prime_numbers
 
-n = 100  
+while True:
+    try:
+        n = int(input("Enter a number: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
 print(find_prime_numbers(n))
