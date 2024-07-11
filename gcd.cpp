@@ -9,7 +9,7 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    string a = "", b = ""; 
+    string a = "", b = ""; // input values as strings
     try {
         cout << "Enter first number: ";
         cin >> a;
@@ -20,7 +20,7 @@ int main() {
             throw invalid_argument("Invalid input");
         }
 
-        int result = gcd(stoi(a), stoi(b)); 
+        int result = gcd(stoi(a), stoi(b)); // convert strings to integers and find GCD
         cout << "GCD: " << result;
     } catch (invalid_argument& e) {
         cerr << "Error: " << e.what() << endl;
