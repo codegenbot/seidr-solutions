@@ -1,12 +1,11 @@
-def add():
-    try:
-        x = int(input("Enter first number: "))
-        y = int(input("Enter second number: "))
-    except ValueError:
-        return -1 * (abs(x) + abs(y))
-    if x < 0 or y < 0:
-        return -1 * (abs(x) + abs(y))
+```
+def add(a, b):
+    if a < 0 or b < 0:
+        return -1 * (abs(a) + abs(b))
     else:
-        return x + y
+        return a + b
 
-print(add())
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+print(add(a, b))
