@@ -5,11 +5,8 @@ vector<int> even_odd_palindrome(int n){
             string rev = s;
             reverse(rev.begin(), rev.end());
             if(s == rev){
-                if(i % 2 == 0){
-                    result[0]++;
-                } else {
-                    result[1]++;
-                }
+                if(i % 2 == 0) result[0]++;
+                else result[1]++;
             }
         }
         return result;
