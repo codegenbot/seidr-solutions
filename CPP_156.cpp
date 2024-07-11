@@ -1,3 +1,8 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
 string int_to_mini_romank(int number){
     vector<pair<int, string>> roman_map = {
         {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
@@ -14,4 +19,11 @@ string int_to_mini_romank(int number){
     }
 
     return result;
+}
+
+int main(){
+    assert(int_to_mini_romank(1000) == "m");
+    // Add more test cases if needed
+
+    return 0;
 }
