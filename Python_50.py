@@ -1,7 +1,7 @@
 ```
 def decode_shift(s: str):
-    shift = int(input("Enter the shift value: "))
     decoded = ""
+    shift = 0
     for ch in s:
         if ch.isalpha():
             if ch.islower():
