@@ -1,3 +1,3 @@
 ```
-def solve(N):
-    return bin(sum(int(i) for i in str(bin(N)[2:]) if i == '1'))[2:]
+def get_binary(N):
+    return ''.join(str((N // (10 ** i)) % 2) for i in reversed(range(len(str(N)))))
