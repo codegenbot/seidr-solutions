@@ -4,7 +4,7 @@ from typing import List, Tuple
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     if isinstance(numbers, tuple) and len(numbers) == 0:
-        return (0, 1)
+        return (0, 1)  
     elif not isinstance(numbers, list):
         return 
     total_sum = 0
