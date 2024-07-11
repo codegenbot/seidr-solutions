@@ -1,8 +1,8 @@
-from mathlib import gcd
+import math
 
 
 def modp(n: int, p: int):
-    if gcd(n, p) == 1:
+    if math.gcd(n, p) == 1:
         return pow(n, p - 2, p)
     else:
         return None
