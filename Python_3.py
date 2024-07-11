@@ -1,12 +1,12 @@
+```
 from typing import List
-
 
 def below_zero(operations: List[str]) -> bool:
     balance = 0
     for operation in operations:
-        if "-" in operation[0] or "+" in operation[0]:
+        if '-' in operation[0] or '+' in operation[0]:
             sign, num = operation[0], int(operation[1:])
-            if sign == "-":
+            if sign == '-':
                 balance -= num
             else:
                 balance += num
@@ -14,12 +14,11 @@ def below_zero(operations: List[str]) -> bool:
             return True
     return False
 
-
 while True:
     operations = input("Enter space separated operations (e.g., -5 +3 -2): ")
-    operations = [op for op in operations.split() if op[0] in "+-" and op != ""]
-    while "" in operations:
-        operations.remove("")
+    operations = [op for op in operations.split() if op[0] in '+-' and op != '']
+    while '' in operations:
+        operations.remove('')
     if len(operations) > 0:
         break
 print(below_zero(operations))
