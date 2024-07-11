@@ -1,16 +1,15 @@
-```
 def separate_paren_groups(paren_string: str) -> list[str]:
-    result = []
+    stack = []
     temp = ""
     for char in paren_string:
-        if char == "(" or char == ")":
+        if char == "(":
+            stack.append(temp)
+            temp = ""
+        elif char == ")":
             if temp != "":
-                result.append(temp)
+                result.append(temp + ")")
             temp = ""
         else:
             temp += char
     if temp != "":
-        result.append(temp)
-    return result
-
-print(separate_paren_groups("( ) (( )) (( )( ))"))
+        result.append(stack.pop() + temp if stack else temp + ")")
