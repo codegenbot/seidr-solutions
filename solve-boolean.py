@@ -1,17 +1,11 @@
-```
-def solve_boolean(expression):
-    def evaluate(node):
-        if node[0] == 'T':
-            return True
-        elif node[0] == 'F':
-            return False
-        else:
-            left = evaluate((node[1],))
-            right = evaluate((node[2],))
-            if node[0] == '|':
-                return left or right
-            else:
-                return left and right
-    
-    nodes = re.findall('[TF]|&|', expression)
-    return evaluate(tuple(nodes))
+def solve_boolean(s):
+    if s == "T":
+        return True
+    elif s == "F":
+        return False
+    elif "&" in s and "|" in s:
+        raise ValueError("Invalid expression")
+    elif "&" in s:
+        return all(c == "T" for c in s)
+    elif "|" in s:
+        return any(c == "T" for c in s)
