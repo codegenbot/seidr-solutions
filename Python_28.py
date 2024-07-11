@@ -1,9 +1,9 @@
 def concatenate(strings: List[str]) -> str:
     if not isinstance(strings, list):
-        return 
+        return
     result = ""
     for s in strings:
         if not isinstance(s, str):
-            return 
+            return
         result += s
     return result
