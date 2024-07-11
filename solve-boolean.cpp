@@ -1,9 +1,5 @@
-bool getBoolValue(char c) {
-    return c == 'T';
-}
-
+```cpp
 string solveBoolean(string expression) {
-    stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
             while (!s.empty() && s.top() == '&') {
@@ -15,27 +11,30 @@ string solveBoolean(string expression) {
                 s.pop();
             }
             s.push('|');
-        } else {
+        } else if (expression[i] == 'T' || expression[i] == 'F') {
             s.push(expression[i]);
         }
     }
-
-    string result = "";
+    string result;
     while (!s.empty()) {
-        char c = s.top();
-        s.pop();
+        char c = s.top(); 
+        s.pop(); 
         if (c == '&') {
-            bool left = getBoolValue('T');
-            bool right = getBoolValue('T');
-            result = (left && right) ? "True" : "False";
-        } else if (c == '|') {
-            left = getBoolValue('T');
-            right = getBoolValue('T');
-            result = (left || right) ? "True" : "False";
+            int left = 0, right = 0;
+            while (!s.empty() && s.top() != '|') {
+                if (s.top() == 'T') {
+                    right++;
+                } else {
+                    left++;
+                }
+                s.pop();
+            }
+            s.pop(); 
+            result = (left > right) ? "True" : "False";
         } else {
-            result = (getBoolValue(c)) ? "True" : "False";
+            result = (c == 'F') ? "False" : "True";
         }
+        result = c + " " + result;
     }
-
     return result;
 }
