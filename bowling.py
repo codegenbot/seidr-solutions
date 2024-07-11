@@ -3,16 +3,14 @@ def calculate_bowling_score(bowls):
     index = 0
     for _ in range(10):
         if bowls[index] == "X":
-            score += 10
             bonus, index = get_strike_bonus(bowls, index)
-            score += bonus
-        elif bowls[index + 1] == "/":
+            score += 10 + bonus
+        elif bowls[index] == "/":
             score += 10
-            bonus = get_spare_bonus(bowls, index + 2)
-            score += bonus
+            score += get_spare_bonus(bowls, index + 1)
             index += 2
         else:
-            score += int(bowls[index]) + int(bowls[index + 1])
+            score += int(bowls[index]) + int(bowls[index + 1]) + get_spare_bonus(bowls, index + 2)
             index += 2
 
     return score
