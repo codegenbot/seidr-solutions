@@ -1,4 +1,6 @@
-```Python
+Here is the corrected version:
+
+```python
 from typing import List
 
 def below_zero() -> bool:
