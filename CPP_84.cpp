@@ -3,5 +3,5 @@ int sum = 0;
         sum += N % 2;
         N /= 2;
     }
-    return bitset<32>(sum).to_string().substr(32 - __builtin_clz(sum));
+    return bitset<sizeof(N) * CHAR_BIT>(sum).to_string();
 }
