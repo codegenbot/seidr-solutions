@@ -1,8 +1,8 @@
-```
+```python
 """
 def minPath(grid, k):
     n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
+    m = [[grid[i][j] for j in range(n)] for i in range(n)]
     dp = [[[float('inf')] * (k + 1) for _ in range(n)] for _ in range(n)]
     dp[0][0][0] = m[0][0]
     for i in range(1, n):
