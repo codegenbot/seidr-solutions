@@ -1,4 +1,3 @@
-```c++
 #include <string>
 #include <iostream>
 
@@ -18,5 +17,4 @@ int main() {
     std::cin >> s;
     int sum = pairedDigits(s);
     std::cout << "\nSum: " << sum;
-    return 0;
 }
