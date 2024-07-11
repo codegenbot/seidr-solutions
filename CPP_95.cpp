@@ -1,8 +1,25 @@
-if(dict.empty()) return false;
-bool lower = true, upper = true;
-for(auto const &pair : dict){
-    if(pair.first != tolower(pair.first[0])) upper = false;
-    if(pair.first != toupper(pair.first[0])) lower = false;
+if (dict.empty()) {
+    return false;
 }
-return lower || upper;
+
+bool is_lower = true;
+bool is_upper = true;
+
+for (const auto &entry : dict) {
+    for (char c : entry.first) {
+        if (!islower(c)) {
+            is_lower = false;
+            break;
+        }
+    }
+
+    for (char c : entry.first) {
+        if (!isupper(c)) {
+            is_upper = false;
+            break;
+        }
+    }
+}
+
+return is_lower || is_upper;
 }
