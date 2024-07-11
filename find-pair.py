@@ -1,10 +1,17 @@
+```
 def find_pair():
-    target = int(input())
-    nums = list(map(int, input().split()))
-    for i in range(len(nums)):
-        for j in range(i + 1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return str(nums[i]) + "\n" + str(nums[j])
+    pair_sum = int(input())
+    num_list = [int(x) for x in input().split()]
+    
+    seen = {}
+    for num in num_list:
+        complement = pair_sum - num
+        if complement in seen:
+            return str(num) + "\n" + str(complement)
+        else:
+            seen[num] = True
+    
+    return str(num) + "\n" + str(pair_sum - int(num))
 
 
 print(find_pair())
