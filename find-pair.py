@@ -10,5 +10,6 @@ def find_pair():
             if complement in seen:
                 pairs.append((complement, num))
             seen.add(num)
-        print(len(pairs))
-        print(*pairs[0], sep=',')
+        print(pairs)
+
+find_pair()
