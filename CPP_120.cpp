@@ -1,24 +1,8 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
 
-using namespace std;
-
-vector<int> issame(const vector<int>& a, const vector<int>& b){
-    sort(a.begin(), a.end(), greater<int>());
-    vector<int> result(a.begin(), a.begin() + b.size());
+std::vector<int> issame(std::vector<int> a, int k) {
+    std::sort(a.begin(), a.end(), std::greater<int>());
+    std::vector<int> result(a.begin(), a.begin() + k);
     return result;
-}
-
-int main() {
-    vector<int> a = {1, 2, 3, -23, 243, -400, 0};
-    vector<int> b = {};
-
-    vector<int> result = issame(a, b);
-    for (int num : result) {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    return 0;
 }
