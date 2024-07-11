@@ -4,12 +4,12 @@
 #include <iostream>
 #include <string>
 
-int add(int x, int y) {
+int add(int x, int int y) {
     return x + y;
 }
 
 int main() {
     std::srand(std::time(0)); 
-    int x = std::rand() % 1000; 
-    std::cout << "Random Number: " << std::to_string(x) << std::endl;
+    int randomNum = std::rand() % 1000; 
+    std::cout << "Random Number: " << std::to_string(randomNum) << std::endl;
 }
