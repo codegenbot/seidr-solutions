@@ -21,7 +21,7 @@ vector<string> all_prefixes(string str) {
     for (int i = 1; i <= str.length(); ++i) {
         string prefix = "";
         for (int j = 0; j < i; ++j) {
-            prefix += str; 
+            prefix = str[0] + prefix;
         }
         result.push_back(prefix);
     }
