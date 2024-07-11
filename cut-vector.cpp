@@ -8,9 +8,13 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
+    char c;
     
     while (cin >> num) {
         nums.push_back(num);
+        if (cin.get(c) && c == '\n') {
+            break;
+        }
     }
     
     int n = nums.size();
