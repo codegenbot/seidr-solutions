@@ -10,9 +10,9 @@ vector<vector<int>> cutVector(vector<int>& nums) {
         else if(diff > 0 && (min_idx == -1 || i < min_idx)) min_idx = i;
     }
     if(min_idx == -1) {
-        vector<int> res(1, nums);
+        vector<int> res(nums);
     } else {
-        vector<int> left(min_idx+1), right(n-min_idx-1);
+        vector<int> left, right;
         for(int i=0; i<=min_idx; i++) left.push_back(nums[i]);
         for(int i=min_idx+1; i<n; i++) right.push_back(nums[i]);
         return {{left}, {right}};
