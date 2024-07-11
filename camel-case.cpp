@@ -1,21 +1,32 @@
 #include <iostream>
 #include <string>
-#include <vector>
-#include <algorithm>
 
-std::string camelCase(const std::string& s) {
-    std::vector<std::string> words;
-    for (const auto& word : s.split '-') {
-        if (!words.empty()) {
-            words.back() + tolower(word[0]) + word.substr(1);
+std::string kebabToCamel(const std::string& str) {
+    if (str.empty()) return str;
+
+    std::string result;
+    bool first = true;
+
+    for (char c : str) {
+        if (c == '-') {
+            first = true;
+        } else if (first) {
+            result += toupper(c);
+            first = false;
         } else {
-            words.push_back(tolower(word));
+            result += tolower(c);
         }
     }
 
-    return words.size() > 0 ? words.back() : "";
+    return result;
 }
 
-std::string_view operator""sv(const char* data, std::size_t length) {
-    return std::string_view(data, length);
+int main() {
+    std::string input;
+    std::cout << "Enter a string in kebab-case: ";
+    std::getline(std::cin, input);
+
+    std::cout << "The camelCase representation is: " << kebabToCamel(input) << std::endl;
+
+    return 0;
 }
