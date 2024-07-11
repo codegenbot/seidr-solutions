@@ -1,6 +1,8 @@
-```
+```Python
 from typing import List
+
 import math
+
 
 def main():
     while True:
@@ -19,13 +21,10 @@ def main():
             while n % i == 0:
                 n //= i
                 count += 1
-            factors.append(i ** count)
+            factors.append(i**count)
     if n > 1:
         factors.append(n)
     return factors
 
-while True:
-    print(main())
-    response = input("Do you want to calculate another number? (yes/no): ")
-    if response.lower() != 'yes':
-        break
+
+print(main())
