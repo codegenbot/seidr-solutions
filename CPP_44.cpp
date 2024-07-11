@@ -5,7 +5,8 @@ using namespace std;
 
 string change_base(int x, int base) {
     if(base > 10) {
-        return "Base must be less than or equal to 10";
+        // handle this case
+        return "Base should be less than or equal to 10";
     }
     string res = "";
     while (x > 0) {
