@@ -1,4 +1,4 @@
-int findLargestNumberOccurrence(std::vector<int> lst) {
+int search(const std::vector<int>& lst) {
     int res = -1;
     for (int num : lst) {
         int freq = 0;
