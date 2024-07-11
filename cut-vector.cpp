@@ -1,24 +1,43 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <cmath>
+
+using namespace std;
+
 int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n);
-    int sum = 0;
-    for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
-        sum += vec[i];
+    vector<int> nums;
+    int num;
+
+    while (cin >> num) {
+        nums.push_back(num);
     }
-    
-    int half_sum = 0;
-    for (int i = 0; i < n; ++i) {
-        half_sum += vec[i];
-        if (2 * half_sum == sum || 2 * half_sum + vec[i + 1] == sum) {
-            for (int j = 0; j <= i; ++j) {
-                cout << vec[j] << endl;
-            }
-            cout << 0 << endl;
-            break;
+
+    int min_diff = INT_MAX;
+    int cut_idx = -1;
+
+    for (int i = 1; i < nums.size(); ++i) {
+        int left_sum = 0, right_sum = 0;
+        for (int j = 0; j < i; ++j) {
+            left_sum += nums[j];
+        }
+        for (int j = i; j < nums.size(); ++j) {
+            right_sum += nums[j];
+        }
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_idx = i;
         }
     }
-    
+
+    for (int i = 0; i < cut_idx; ++i) {
+        cout << nums[i] << endl;
+    }
+    cout << endl;
+    for (int i = cut_idx; i < nums.size(); ++i) {
+        cout << nums[i] << endl;
+    }
+
     return 0;
 }
