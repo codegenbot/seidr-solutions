@@ -1,16 +1,11 @@
-if (x == 1) {
-        return true;
+if (x <= 0 || n <= 0) {
+        return false;
     }
-
-    for (int i = 2; i <= sqrt(x); i++) {
-        int p = i;
-        while (p <= x) {
-            if (p == x) {
-                return true;
-            }
-            p *= i;
-        }
+    
+    int power = 1;
+    while (power < x) {
+        power *= n;
     }
-
-    return false;
+    
+    return power == x;
 }
