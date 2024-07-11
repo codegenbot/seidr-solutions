@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -20,7 +19,7 @@ int main() {
                 ++count;
             } 
             else if (!std::isspace(c) && !std::isalnum(c)) {
-                ++count; // increment count only for non-alphanumeric, non-space characters
+                ++count; 
             }
         }
         
