@@ -1,8 +1,8 @@
 #include <vector>
-#include <cassert>
+#include <algorithm>
 using namespace std;
 
-bool isSame(vector<int> a, vector<int> b) {
+bool areSame(vector<int> a,vector<int>b){
     return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
@@ -19,5 +19,6 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 int main() {
-    assert(isSame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+    assert(areSame(compare({1,2,3,5},{-1,2,3,4}), vector<int>({2,0,0,1})));
     return 0;
+}
