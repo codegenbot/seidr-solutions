@@ -1,15 +1,13 @@
 ```
-def """modp(n: int, p: int)""":
+def modp(n: int, p: int):
     def extended_euclidean(a: int, b: int) -> (int, int):
         if a == 0:
-            return b, 0, 1
+            return b, 0
         else:
-            gcd, y, x = extended_euclidean(b % a, a)
-            return gcd, x - (b // a) * y, y
+            gcd, x, y = extended_euclidean(b % a, a)
+            return gcd, y, x - (b // a) * y
 
-    _, x, _ = extended_euclidean(p, p)
-    if (p - 1) % x == 0:
-        inv_p = x
-    else:
-        raise ValueError(f"{p} is not invertible modulo {p}")
-    return pow(n, inv_p, p)
+    gcd, inv_n, _ = extended_euclidean(n, p)
+    if gcd != 1:
+        raise ValueError(f"{n} is not invertible modulo {p}")
+    return pow(n, inv_n, p)
