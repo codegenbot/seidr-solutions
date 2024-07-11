@@ -8,12 +8,12 @@ for i in range(len(arr)):
     left_sum += arr[i]
     right_sum = total_sum - left_sum
     current_diff = abs(left_sum - right_sum)
-    if current_diff <= min_diff:
+    if current_diff < min_diff:
         min_diff = current_diff
         cut_position = i
 
-    subvector1 = arr[:cut_position + 1]
-    subvector2 = arr[cut_position + 1:]
+subvector1 = arr[:cut_position + 1]
+subvector2 = arr[cut_position + 1:]
 
-    print(subvector1)
-    print(subvector2)
+print(subvector1)
+print(subvector2)

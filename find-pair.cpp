@@ -18,7 +18,6 @@ int main() {
         int complement = target - nums[i];
         if (numIndex.find(complement) != numIndex.end()) {
             std::cout << complement << " " << nums[i] << std::endl;
-            break;
         }
         numIndex[nums[i]] = i;
     }
