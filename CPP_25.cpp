@@ -1,5 +1,7 @@
 #include <vector>
 
+vector<int> factorize(int n);
+
 vector<int> factorize(int n){
     vector<int> factors;
     for(int i=2; i*i<=n; i++){
@@ -14,12 +16,7 @@ vector<int> factorize(int n){
     return factors;
 }
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> factors = factorize(n);
-    for(auto factor : factors){
-        cout << factor << " ";
-    }
+int main(){
+    // Write code here to test the factorize function if needed
     return 0;
 }
