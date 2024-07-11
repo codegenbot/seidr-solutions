@@ -20,3 +20,4 @@ int main() {
     std::cin >> x;
     std::cout << fizzBuzz(x) << std::endl;
     return 0;
+}
