@@ -13,12 +13,8 @@ int main() {
     sha.Calculate((const unsigned char*)s.c_str(), (int)s.size(), md);
 
     for(int i = 0; i < 20; ++i) {
-        if(i<16)
-            ss << std::hex << std::setfill('0') << std::setw(2) << (int)(md[i]);
-        else
-            ss << std::hex << std::setfill('0') << std::setw(2) << (int)((md[i] >> 4) & 15);
-        if(i<19)
-            ss << " ";
+        ss << ((md[i] * 4 > 9 ? std::hex << std::showbase : std::hex << std::noshowbase)
+            << std::setfill('0') << std::setw(2) << (int)(md[i])) << " ";
     }
     std::cout << "The SHA1 is: " << ss.str() << std::endl;
 
