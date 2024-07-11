@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <list>
 #include <boost/any.hpp>
@@ -6,8 +5,9 @@
 std::vector<int> filter_integers(std::list<boost::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value).good()) {
-            result.push_back(boost::any_cast<int>(value));
+        if (value.type() == typeid(int)) {
+            int num = boost::any_cast<int>(value);
+            result.push_back(num);
         }
     }
     return result;
@@ -25,8 +25,9 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-int main() {
-    { 
-        assert(issame(filter_integers({3, boost::any('c'), 3, 3, boost::any('a'), boost::any('b')}) ,{3, 3, 3}));
+int 
+main 
+{
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
