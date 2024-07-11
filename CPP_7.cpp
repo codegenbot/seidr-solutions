@@ -1,23 +1,17 @@
-#include <vector>
-#include <string>
-
-bool same(vector<string> a, vector<string> b){
-    if(a.size() != b.size())
-        return false;
-    for(auto str : a) {
-        if(std::find(b.begin(), b.end(), str) == b.end())
-            return false;
+```cpp
+vector<string> filter_by_substring(vector<string> strings, string substring) {
+    vector<string> result;
+    for(auto str : strings) {
+        if(str.find(substring) != string::npos)
+            result.push_back(str);
     }
-    return true;
+    return result;
 }
 
-int main(){
-    std::vector<std::string> strings = {"hello", "world", "helloworld"};
-    std::string substring = "world";
-    std::vector<std::string> result = filter_by_substring(strings, substring);
-    if(same({substring}, {result[0]}))
-        std::cout << "Strings are the same." << std::endl;
-    else
-        std::cout << "Strings are not the same." << std::endl;
-    return 0;
+bool isEqualTo(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+int main() {
+    assert(isEqualTo(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
 }
