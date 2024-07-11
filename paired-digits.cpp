@@ -1,8 +1,9 @@
 ```
-#include <iostream>
 #include <string>
+#include <cctype>
+#include <iostream>
 
-int pairedDigits(const std::string&);
+int pairedDigits(const std::string& s);
 
 int main() {
     int sum = pairedDigits("123212");
