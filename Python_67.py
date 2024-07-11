@@ -3,8 +3,8 @@ def fruit_distribution(s, n):
     n = int(n)
     words = s.split()
     if len(words) >= 3:  
-        apples = int("".join(filter(str.isdigit, " ".join(words[:-2]))).split()[1])
+        apples = int("".join(filter(str.isdigit, words[:-2])).split()[1])
     else:
         apples = 0
     oranges = n - apples
-    return oranges
+    return oranges:
