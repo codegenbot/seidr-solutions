@@ -1,7 +1,9 @@
 def decipher(cipher1, cipher2, message):
-    mapping = {c.lower(): c for c in cipher1}
+    mapping = {char: cipher2[i] for i, char in enumerate(cipher1)}
     result = ""
-    for char in message:
-        if char.lower() in mapping:
-            result += mapping[char.lower()]
+    for char in message.lower():
+        if char in mapping:
+            result += mapping[char]
+        else:
+            result += char
     return result
