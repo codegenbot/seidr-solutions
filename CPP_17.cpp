@@ -1,15 +1,20 @@
-#include <vector>
-#include <string>
-#include <cassert>
-
 std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> result;
-    size_t pos = 0;
-    while ((pos = music_string.find_first_of("0123456789", pos)) != std::string::npos) {
-        result.push_back(std::stoi(music_string.substr(pos)));
-        pos = music_string.find_first_not_of("0123456789", pos);
+    std::vector<int> parsed_music;
+    int count = 0;
+
+    for (char c : music_string) {
+        if (c == 'o') {
+            count++;
+        } else if (c == '.'){
+            parsed_music.push_back(count);
+            count = 0;
+        }
     }
-    return result;
+    if (count > 0) {
+        parsed_music.push_back(count);
+    }
+
+    return parsed_music;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
