@@ -1,16 +1,12 @@
-#include <string>
-using namespace std;
-
-string solve(string s){
-    bool hasLetters = false;
-    for(char &c : s){
-        if(isalpha(c)){
-            hasLetters = true;
+for (char &c : s) {
+        if (isalpha(c)) {
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if(!hasLetters){
+
+    if (s.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz") == string::npos) {
         reverse(s.begin(), s.end());
     }
+
     return s;
 }
