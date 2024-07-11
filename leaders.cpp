@@ -1,6 +1,5 @@
-```cpp
+#include <iostream>
 #include <vector>
-using namespace std;
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
@@ -21,6 +20,10 @@ std::vector<int> leaders(std::vector<int>& arr) {
 }
 
 int main() {
-    leaders({16, 17, 4, 3, 5, 2, 8, 9, 1, 3});
+    std::vector<int> arr = {17, 28, 4};
+    std::vector<int> result = leaders(arr);
+    for (int num : result) {
+        std::cout << num << " ";
+    }
     return 0;
 }
