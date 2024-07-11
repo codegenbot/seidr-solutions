@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -9,13 +10,12 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a = 0; 
-    int b = 0; 
+    string str1, str2; 
     cout << "Enter first number: ";
-    cin >> a;
+    getline(cin, str1);
     cout << "Enter second number: ";
-    cin >> b;
-    int result = gcd(a, b); 
+    getline(cin, str2);
+    int result = gcd(stoi(str1), stoi(str2)); 
     cout << "GCD: " << result;
     return 0;
 }
