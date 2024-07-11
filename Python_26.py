@@ -3,6 +3,6 @@ from typing import List
 
 def remove_duplicates():
     numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-    print(sorted(set(numbers)))
+    return sorted(set(numbers))
 
-remove_duplicates()
+print(remove_duplicates())
