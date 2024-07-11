@@ -1,3 +1,6 @@
+#include <vector>
+#include <cassert>
+
 bool issame(const vector<int>& a, const vector<int>& b);
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
