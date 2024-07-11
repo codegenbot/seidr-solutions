@@ -1,7 +1,6 @@
 ```
 from typing import List
 
-
 def parse_music(music_string: str) -> List[int]:
     note_lengths = {'o': 4, 'o|': 2, '.|': 1}
     result = []
@@ -11,5 +10,6 @@ def parse_music(music_string: str) -> List[int]:
             i += 3
         else:
             i += 2
-        result.append(note_lengths[music_string[i-1:i+1]])
+        if music_string[i-1:i+1] in note_lengths:
+            result.append(note_lengths[music_string[i-1:i+1][0]])
     return result
