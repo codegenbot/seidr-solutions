@@ -1,11 +1,9 @@
 #include <vector>
 #include <map>
 
-using namespace std;
-
 vector<int> findPair(vector<int>& nums, int target) {
-    map<int, int> mp;
-    vector<int> result;
+    std::map<int, int> mp;
+    std::vector<int> result;
 
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
