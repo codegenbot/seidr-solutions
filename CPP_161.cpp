@@ -1,11 +1,23 @@
-string solve(string s) {
+#include<string>
+using namespace std;
+
+string solve(string s){
     string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
-        } else {
+    bool allNonLetters = true;
+
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            char c = toupper(s[i]);
             result += c;
+            allNonLetters = false;
+        } else {
+            result += s[i];
         }
     }
-    return result.empty() ? string(reverse(s)) : result;
+
+    if(allNonLetters) {
+        reverse(result.begin(), result.end());
+    }
+
+    return result;
 }
