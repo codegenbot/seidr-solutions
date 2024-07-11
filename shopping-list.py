@@ -1,3 +1,4 @@
+```
 n = int(input())
 prices_str = input().split()
 discounts_str = input().split()
