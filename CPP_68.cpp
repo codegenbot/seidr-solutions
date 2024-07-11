@@ -1,7 +1,5 @@
-#include <iostream>
-#include <vector>
-
-std::vector<int> pluck(std::vector<int> arr) {
+```
+vector<int> pluck(vector<int> arr) {
     vector<int> result;
     if (arr.empty()) return result;
 
