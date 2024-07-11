@@ -1,6 +1,7 @@
 ```
 from typing import List
 
+
 def concatenate(strings: List[str]) -> str:
     input_list = input("Enter a list of strings separated by comma (,), or press Enter to finish: ")
     
