@@ -1,5 +1,4 @@
 #include <string>
-#include <cctype>
 
 int main() {
     int sum = pairedDigits("123212");
