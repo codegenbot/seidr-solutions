@@ -8,6 +8,7 @@ bool prime_length(const std::string& str) {
         if (len % i == 0) return false;
     }
     return true;
+
 }
 
 int main() {
