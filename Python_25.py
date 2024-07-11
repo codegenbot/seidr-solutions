@@ -1,6 +1,4 @@
-```
 from typing import List
-
 import math
 
 
@@ -24,7 +22,7 @@ def main():
             factors.append(i**count)
     if n > 1:
         factors.append(n)
-    return tuple(factors)
+    return factors
 
 
 print(main())
