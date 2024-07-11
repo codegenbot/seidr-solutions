@@ -15,9 +15,9 @@ def below_zero(operations: List[str]) -> bool:
 
 
 ops = []
-op = input()
-while op:
-    ops.append(op.strip())
-    op = input()
-
+while True: 
+    op = input().strip()
+    if op.lower() == "stop": 
+        break
+    ops.append(op)
 print(below_zero(ops))
