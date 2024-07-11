@@ -1,3 +1,7 @@
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b); // Function prototype
+
 vector<int> strange_sort_list(vector<int> lst){
     sort(lst.begin(), lst.end());
     vector<int> result;
@@ -11,4 +15,9 @@ vector<int> strange_sort_list(vector<int> lst){
         right--;
     }
     return result;
+}
+
+int main() {
+    // Call strange_sort_list function in main
+    assert(issame(strange_sort_list({111111}), {111111}));
 }
