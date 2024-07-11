@@ -20,13 +20,22 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     result.append(groups + " ")
                     groups = ""
             else:
-                return ["Program did not receive expected input"]
+                return []
         elif c == "(" and not stack:
             return []
 
-    if len(stack) != 0:
-        return ["Program did not receive expected input"]
+    if stack:
+        return []
+    if groups:
+        result.append(groups)
 
+    if not groups and not stack:
+        return [paren_string]
+    if not stack and len(result) == 1:
+        return result[:1]
+
+    if stack:
+        return []
     if groups:
         result.append(groups)
 
