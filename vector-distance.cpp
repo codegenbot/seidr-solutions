@@ -25,7 +25,7 @@ int main() {
     }
 
     distance = sqrt(distance);
-    cout << distance << "\n";
+    cout << fixed << setprecision(6) << distance << "\n";
 
     return 0;
 }
