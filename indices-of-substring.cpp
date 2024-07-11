@@ -14,10 +14,10 @@ int main() {
         return 0;
     }
 
-    for (int i = 0; i <= static_cast<int>(text.size()) - static_cast<int>(target.size()); ++i) {
-        if (text.substr(i, target.size()) == target) {
-            indices.push_back(i);
-        }
+    int pos = 0;
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        indices.push_back(pos);
+        ++pos;  // Move to the next position to allow overlapping targets
     }
 
     for (int i = 0; i < indices.size(); ++i) {
