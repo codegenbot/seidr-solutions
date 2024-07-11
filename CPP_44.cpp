@@ -11,7 +11,7 @@ std::string change_base(int x, int base) {
     return result;
 }
 
-int main() {
+void solve_problem() {
     int x = 42;
     int base = x + 1;
 
@@ -22,6 +22,8 @@ int main() {
     } else {
         std::cout << "Invalid input!" << std::endl;
     }
-    
-    return 0;
+}
+
+void main() {
+    solve_problem();
 }
