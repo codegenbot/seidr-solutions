@@ -1,28 +1,24 @@
-#include <iostream>
 #include <boost/any.hpp>
+#include <string>
 
 int main() {
-    int i = 10;
-    double d = 3.14;
-    std::string s = "Hello, World!";
-    
-    boost::any a1(i);
-    boost::any a2(d);
-    boost::any a3(s);
+    std::string user_input;
+    boost::any input;
 
-    std::cout << "Before conversion:" << std::endl;
-    std::cout << "a1: " << a1.type() << std::endl;
-    std::cout << "a2: " << a2.type() << std::endl;
-    std::cout << "a3: " << a3.type() << std::endl;
+    // Ask the user for some data
+    std::cout << "Please enter your favorite color: ";
+    std::cin >> user_input;
 
-    int iRetrieved = boost::any_cast<int>(a1);
-    double dRetrieved = boost::any_cast<double>(a2);
-    std::string sRetrieved = boost::any_cast<std::string>(a3);
+    // Check if the input is either 'red' or 'green'
+    if (user_input == "red" || user_input == "green") {
+        // Convert the string to a boost::any object
+        input = boost::any(user_input);
 
-    std::cout << "After conversion:" << std::endl;
-    std::cout << "iRetrieved: " << iRetrieved << std::endl;
-    std::cout << "dRetrieved: " << dRetrieved << std::endl;
-    std::cout << "sRetrieved: " << sRetrieved << std::endl;
+        // Print out the input, whether it's 'red', 'green', or something else!
+        std::cout << "You entered: " << boost::any_cast<std::string>(input) << std::endl;
+    } else {
+        std::cout << "Sorry, that's not a valid color." << std::endl;
+    }
 
     return 0;
 }
