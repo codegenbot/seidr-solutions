@@ -19,11 +19,20 @@ vector<string> words_string(string s){
 }
 
 int main() {
-    string input_string;
-    getline(cin, input_string);
-    vector<string> result = words_string(input_string);
-    for (const auto& word : result) {
-        cout << word << " ";
+    string input;
+    cout << "Enter a sentence: ";
+    getline(cin, input);
+
+    vector<string> result = words_string(input);
+
+    if (result.empty()) {
+        cout << "No words detected." << endl;
+    } else {
+        cout << "Words detected:" << endl;
+        for (const string& word : result) {
+            cout << word << endl;
+        }
     }
+
     return 0;
 }
