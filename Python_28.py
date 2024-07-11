@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -13,9 +14,11 @@ def concatenate(strings: List[str]) -> str:
 if __name__ == "__main__":
     strings = input("Enter the strings (comma separated): ")
     
+    # If there's more than one string entered
     if ',' in strings:
         input_list = [s.strip() for s in strings.split(",")]
         print(concatenate(input_list))
         
     else: 
+        # If less than two strings are provided, consider them as single inputs and concatenate accordingly.
         print(concatenate([strings]))
