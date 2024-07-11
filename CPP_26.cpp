@@ -1,9 +1,9 @@
 #include <vector>
 #include <map>
-#include <cassert>
+#include <initializer_list> 
 using namespace std;
 
-bool isSame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -21,7 +21,6 @@ vector<int> remove_duplicates(vector<int> numbers) {
     return result;
 }
 
-vector<int> main() {
-    assert(isSame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , vector<int>({1, 2, 3, 4, 5}));
-    return remove_duplicates({1, 2, 3, 2, 4, 3, 5});
-}
+int main() {
+    assert(isame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 2, 3, 4, 5}));
+    return 0;

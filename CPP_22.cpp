@@ -1,27 +1,43 @@
-#include <iostream>
-#include <list>
 #include <vector>
-#include <any>
+#include <list>
+#include <typeinfo>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
+using namespace std;
 
-std::vector<int> filter_integers(std::list<std::any> values) {
-    std::vector<int> result;
+vector<int> filter_integers(list<any> values) {
+    vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) {
-            int num = std::any_cast<int>(value);
-            bool flag = false;
-            for(const auto& i: result){
-                if(i==num)flag=true;break;
-            }
-            if(!flag)result.push_back(num);
+        any_cast<int>(value);
+        if (typeid(int) == value.type()) {
+            result.push_back(any_cast<int>(value));
         }
     }
     return result;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<any> input_values() {
+    vector<any> values;
+    int val;
+    while (cin >> val) {
+        values.push_back(val);
+    }
+    return values;
+}
+
 int main() {
-    assert (issame(filter_integers({3, 3, 'c', 'a', 'b'}), {1, 2, 3}) == false);
+    vector<any> inputs = input_values();
+    assert(issame(filter_integers(inputs), {3, 3, 3}));
+    return 0;
 }
