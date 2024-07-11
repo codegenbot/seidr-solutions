@@ -1,28 +1,39 @@
-#include <vector>
-#include <algorithm>
+bool issame(const vector<int>& a, const vector<int>& b);
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    int n = grid.size();
+    vector<int> result;
+    int row = 0, col = 0;
+    for (int i = 0; i < k; ++i) {
+        result.push_back(grid[row][col]);
+        if ((row + col) % 2 == 0) {
+            if (col == n - 1) {
+                ++row;
+            } else if (row == 0) {
+                ++col;
+            } else {
+                --row;
+                ++col;
+            }
+        } else {
+            if (row == n - 1) {
+                ++col;
+            } else if (col == 0) {
+                ++row;
+            } else {
+                ++row;
+                --col;
+            }
+        }
+    }
+    return result;
+}
+
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
-    std::vector<int> result;
-    if (grid.empty()) return result;
-    
-    int rows = grid.size();
-    int cols = grid[0].size();
-    
-    int totalSteps = rows * cols * k;
-    
-    while (totalSteps > 0) {
-        for (int i = 0; i < rows; ++i) {
-            for (int j = 0; j < cols; ++j) {
-                result.push_back(grid[i][j]);
-            }
-        }
-        
-        totalSteps -= rows * cols;
-    }
-    
-    return result;
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    return 0;
 }
