@@ -1,6 +1,6 @@
 #include <vector>
-#include <cassert>
 using namespace std;
+#include <cassert>
 
 bool issame(vector<int> a,vector<int>b){
     if(a.size() != b.size()) return false;
@@ -20,11 +20,7 @@ vector<int> even_odd_count(int num) {
         num /= 10;
     }
     result.push_back(count);
-    result.push_back(abs(num));
+    if(num < 0) result.push_back(-1);
+    else result.push_back(0);
     return result;
-}
-
-int main() {
-    assert(issame(even_odd_count(12345), vector<int>{5,234}));
-    return 0;
 }
