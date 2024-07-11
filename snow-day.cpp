@@ -7,3 +7,4 @@ float snowDay(int hours, float groundSnow, float rate, float melt) {
         totalSnow -= std::min(totalSnow, rate * melt);
     }
     return totalSnow;
+}
