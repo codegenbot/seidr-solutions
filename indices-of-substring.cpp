@@ -11,11 +11,9 @@ int main() {
     std::vector<size_t> indices;
     size_t pos = 0;
 
-    while (pos <= text.size() - target.size()) {
-        if (pos == text.find(target, pos)) {
-            indices.push_back(pos);
-        }
-        pos += (pos == text.find(target, pos) ? 1 : target.size());
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        indices.push_back(pos);
+        pos += 1; // Move position forward by 1 for overlapping targets
     }
 
     for (size_t i = 0; i < indices.size(); ++i) {
