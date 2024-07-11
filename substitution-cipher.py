@@ -6,5 +6,5 @@ def decipher(cipher1, cipher2, message):
             index = cipher1.index(char)
             result += cipher2[index]
         except ValueError:  
-            result += char  
+            result += char 
     return result
