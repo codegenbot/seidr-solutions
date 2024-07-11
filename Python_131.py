@@ -1,4 +1,3 @@
-```
 def digits(n):
     n = str(abs(n))
     if n[0] == '-':
