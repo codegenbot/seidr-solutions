@@ -14,6 +14,3 @@ def calculate_average_score():
                 
     average = round(total / student_scores_count, 2)
     return average
-
-average_score = calculate_average_score()
-print(f"The average score is: {average_score}")
