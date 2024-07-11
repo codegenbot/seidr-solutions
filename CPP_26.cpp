@@ -1,10 +1,8 @@
-#include <cassert>
 #include <vector>
-using namespace std;
+#include <unordered_map>
+#include <cassert>
 
-bool isSame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+using namespace std;
 
 vector<int> remove_duplicates(vector<int> numbers) {
     unordered_map<int, bool> seen;
@@ -21,6 +19,6 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 int main() {
-    assert(isSame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), vector<int>({1, 2, 3, 4, 5})));
+    assert(isame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 4, 5}));
     return 0;
 }
