@@ -1,4 +1,3 @@
-```
 from builtins import input
 
 def decode_shift():
