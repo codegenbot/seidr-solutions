@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <map>
 
@@ -16,7 +17,7 @@ int search(vector<int> lst) {
     int maxFreq = -1;
     for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
         if (it->second >= it->first && it->first > 0) {
-            maxFreq = it->second;
+            maxFreq = it->first;
             break;
         }
     }

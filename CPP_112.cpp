@@ -1,41 +1,38 @@
 #include <vector>
 #include <string>
-#include <algorithm>
-
 using namespace std;
+
+bool issame(vector<string> a,vector<string>b){
+    return (a[0] == b[0]) && (a.size() == 2) && ((a[1] == "True" && b[1] == "True") || (a[1] == "False" && b[1] == "False"));
+}
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
-    
-    // Create a set of characters in string c for efficient lookups
-    set<char> c_set(c.begin(), c.end());
-    
-    // Initialize an empty string to store the result
-    string res = "";
-    
-    // Iterate over each character in string s
-    for (char ch : s) {
-        // If the character is not in the set of characters from string c, add it to the result
-        if (c_set.find(ch) == c_set.end()) {
-            res += ch;
+    string t = "";
+    for (char x : s) {
+        bool found = false;
+        for (char y : c) {
+            if (x == y) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            t += x;
         }
     }
-    
-    // Check if the result string is palindrome
-    bool check = true;
-    int left = 0, right = res.length() - 1;
-    while (left < right) {
-        if (res[left] != res[right]) {
-            check = false;
-            break;
-        }
-        left++;
-        right--;
+    string rev = t;
+    reverse(rev.begin(), rev.end());
+    result.push_back(t);
+    if (t == rev) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
     }
-    
-    // Add the result string and the check to the vector
-    result.push_back(res);
-    result.push_back(check ? "True" : "False");
-    
     return result;
+}
+
+int main() {
+    assert(issame({reverse_delete("mamma", "mia"), {"", "True"}});
+    return 0;
 }
