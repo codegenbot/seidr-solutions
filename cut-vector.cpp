@@ -1,35 +1,30 @@
 int main() {
-    int n, total = 0, leftSum = 0, rightSum;
-    vector<int> vec;
-    
+    int n;
     cin >> n;
-    vec.resize(n);
     
-    for (int i = 0; i < n; i++) {
+    vector<int> vec(n);
+    
+    for (int i = 0; i < n; ++i) {
         cin >> vec[i];
-        total += vec[i];
     }
     
-    int minDiff = INT_MAX;
-    int cutIdx = -1;
+    int diff = INT_MAX;
+    int split_idx = -1;
     
-    for (int i = 0; i < n; i++) {
-        leftSum += vec[i];
-        rightSum = total - leftSum;
-        
-        int diff = abs(leftSum - rightSum);
-        
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIdx = i;
+    for (int i = 1; i < n; ++i) {
+        if (abs(accumulate(vec.begin(), vec.begin() + i, 0) - accumulate(vec.begin() + i, vec.end(), 0)) < diff) {
+            diff = abs(accumulate(vec.begin(), vec.begin() + i, 0) - accumulate(vec.begin() + i, vec.end(), 0));
+            split_idx = i;
         }
     }
     
-    for (int i = 0; i <= cutIdx; i++) {
+    for (int i = 0; i < split_idx; ++i) {
         cout << vec[i] << endl;
     }
     
-    for (int i = cutIdx + 1; i < n; i++) {
+    cout << endl;
+    
+    for (int i = split_idx; i < n; ++i) {
         cout << vec[i] << endl;
     }
     
