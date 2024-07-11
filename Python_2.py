@@ -1,4 +1,3 @@
-```
 def truncate_number(number, n):
     return format(round(float(f"{number:.{n}f}"), 2), ".2f")
 
