@@ -1,5 +1,3 @@
-Here's the modified code:
-
 def encrypt(s):
     result = ''
     for char in s:
