@@ -8,8 +8,8 @@ int main() {
 
     bool capitalize = false;
 
-    if (!input.empty()) {
-        std::cout << (char)tolower(input[0]); // Print the first character
+    if (isalpha(input[0])) {
+        std::cout << (char)tolower(input[0]);
     }
 
     for (size_t i = 1; i < input.size(); ++i) {
@@ -17,10 +17,10 @@ int main() {
         if (c == '-') {
             capitalize = true;
         } else if (capitalize) {
-            std::cout << (char)toupper(c); // Capitalize next character
+            std::cout << (char)toupper(c);
             capitalize = false;
-        } else if (c != '-' && c != ' ' && input[i-1] != '-' && input[i-1] != ' ') { // Fix for the issue
-            std::cout << (char)tolower(c); // Print lowercase character
+        } else if (c != '-' && c != ' ') {
+            std::cout << (char)tolower(c);
         }
     }
 
