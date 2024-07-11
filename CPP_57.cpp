@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 bool monotonic(std::vector<int>& l) {
     bool increasing = true;
