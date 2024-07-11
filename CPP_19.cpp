@@ -1,6 +1,3 @@
-````
-#include <string>
-#include <map>
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -26,7 +23,9 @@ string sort_numbers(string numbers) {
     }
 
     // Sort the numbers
-    sort(nums.begin(), nums.end());
+    sort(nums.begin(), nums.end(), [&numMap](string a, string b) {
+        return numMap[a] < numMap[b];
+    });
 
     // Join the sorted numbers back into a single string
     string result = "";
@@ -36,4 +35,3 @@ string sort_numbers(string numbers) {
 
     return result;
 }
-```
