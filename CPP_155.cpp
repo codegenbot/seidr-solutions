@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cassert>
 
@@ -22,13 +21,21 @@ vector<int> even_odd_count(int num) {
         num /= 10;
     }
     result.push_back(count);
-    result.push_back(abs(num));
+    if(count > (abs(num)/10)) result.push_back(1);
+    else result.push_back(0);
     return result;
 }
 
 int main() {
-    vector<int> vec = even_odd_count(12345);
-    for(int i=0; i<vec.size();i++){
-        cout<<vec[i]<<" ";
-    }
+    assert(issame(even_odd_count(0), vector<int>{1,0}));
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    vector<int> res = even_odd_count(num);
+    cout << "Number of even digits: " << res[0] << endl;
+    if(res[1])
+        cout << "The number contains odd digits." << endl;
+    else
+        cout << "The number does not contain odd digits." << endl;
+    return 0;
 }
