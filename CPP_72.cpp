@@ -1,8 +1,8 @@
-int total = 0;
-    for(int i : q){
-        total += i;
+int sum = 0;
+    for (int num : q) {
+        sum += num;
     }
-    if(total > w || q != vector<int>(q.rbegin(), q.rend())){
+    if (sum > w || q != vector<int>(q.rbegin(), q.rend())) {
         return false;
     }
     return true;
