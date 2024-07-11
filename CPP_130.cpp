@@ -19,7 +19,8 @@ std::vector<int> tri(int n) {
                 for (int i = 3; i <= n; ++i) {
                     if (i % 2 == 0) {
                         result.push_back(1 + i / 2);
-                    } else {
+                    }
+                    else {
                         result.push_back(result[i - 1] + result[i - 2] + result[i - 3]);
                     }
                 }
@@ -30,7 +31,7 @@ std::vector<int> tri(int n) {
 }
 
 int main() {
-    assert(issame(tri(1), {3, 1}));
+    assert(issame(tri(1), {3, 1, 1}));
 
     return 0;
 }
