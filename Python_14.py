@@ -1,3 +1,2 @@
 def all_prefixes(string: str) -> List[str]:
-    prefixes = [string[:i+1] for i in range(len(string))]
-    return prefixes
+    return [string[:i] for i in range(1, len(string)+1)]
