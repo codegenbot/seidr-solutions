@@ -11,7 +11,7 @@ def intersperse(numbers: List[int], delimiter: int) -> List[int]:
         result.extend([delimiter, numbers[i-1]])
     # Add the last number of the list
     if numbers[-1] != delimiter: 
-        result.append(delimiter)
+        result.append(delizer)
     result.append(numbers[-1])
     
     return result
