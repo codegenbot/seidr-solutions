@@ -6,5 +6,7 @@ def luhn(card_number):
             num *= 2
             if num > 9:
                 num -= 9
+        else:
+            num
         total_sum += num
     return total_sum
