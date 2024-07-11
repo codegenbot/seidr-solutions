@@ -23,6 +23,6 @@ int main() {
     vector<int> game = vector<int>(4); // initialize the vector with 4 elements
     game[0] = 1; game[1] = 2; game[2] = 3; game[3] = 5;
 
-    assert(issame(compare(game, vector<int>({-1, 2, 3, 4})), vector<int>({2, 0, 0, 1})));
+    assert(issame(compare(game, vector<int>({-1, 2, 3, 4})), {2, 0, 0, 1}));
     return 0;
 }
