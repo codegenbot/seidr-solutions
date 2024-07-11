@@ -1,3 +1,6 @@
+import math
+
+
 def find_zero(xs: list):
     n = len(xs)
     if n % 2 != 0:
@@ -10,22 +13,5 @@ def find_zero(xs: list):
     return round(x, 2)
 
 
-def main():
-    # Get user input
-    user_input = input("Enter coefficients for quadratic equation: ")
-
-    try:
-        # Convert string to list of floats
-        coefficients = [float(num) for num in user_input.split()]
-
-        # Call the function with provided coefficients
-        result = find_zero(coefficients)
-
-        print(f"The zero is {result}")
-
-    except ValueError as e:
-        print(e)
-
-
-if __name__ == "__main__":
-    main()
+xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
+print(find_zero(xs))
