@@ -1,3 +1,4 @@
+```
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
 
