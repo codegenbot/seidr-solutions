@@ -1,6 +1,6 @@
 nums = list(map(int, input().split()))
 cut_index = 0
-min_diff = abs(sum(nums) - nums[0] * 2)
+min_diff = float('inf')
 
 for i in range(1, len(nums)):
     left_sum = sum(nums[:i])
@@ -10,8 +10,8 @@ for i in range(1, len(nums)):
         min_diff = diff
         cut_index = i
 
-subvector1 = nums[: cut_index]
-subvector2 = nums[cut_index :]
+subvector1 = nums[:cut_index]
+subvector2 = nums[cut_index:]
 
 print(*subvector1)
 print(*subvector2)
