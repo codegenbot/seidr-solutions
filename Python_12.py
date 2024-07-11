@@ -17,4 +17,4 @@ for _ in range(num_strings):
             break
         strings.append(user_input)
 longest_string = longest(strings)
-print(f"Longest string: {longest_string}")
+print(longest_string)
