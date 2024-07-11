@@ -1,10 +1,10 @@
 from typing import Any, list
 
-
-def filter_integers() -> list[int]:
-    user_input = input("Enter a list of numbers separated by comma or space: ")
-    values = [eval(value) for value in user_input.split(",")]
+def filter_integers(values: list[Any]) -> list[int]:
     return [value for value in values if isinstance(value, int)]
 
-
-filter_integers()
+if __name__ == "__main__":
+    user_input = input("Enter a list of values (space separated): ")
+    input_values = [x.strip() for x in user_input.split(',')]
+    filtered_values = filter_integers(input_values)
+    print(filtered_values)
