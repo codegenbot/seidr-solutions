@@ -6,8 +6,8 @@ def calculate_total_distance(starting_height, first_bounce_height, num_bounces):
     cumulative_height = starting_height
 
     for _ in range(num_bounces):
-        total_distance += cumulative_height
+        total_distance += cumulative_height  # Travel distance up
         cumulative_height *= bounciness_index
-        total_distance += cumulative_height
+        total_distance += cumulative_height  # Travel distance down
 
     return round(total_distance, 12)
