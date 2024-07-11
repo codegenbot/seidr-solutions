@@ -1,8 +1,14 @@
-```cpp
 #include <string>
 #include <iostream>
 
 using namespace std;
+
+string reverseWord(string str) {
+    string revWord;
+    for (int j = str.length() - 1; j >= 0; j--)
+        revWord += str[j];
+    return revWord;
+}
 
 string spinWords(string str) {
     string result = "";
@@ -11,10 +17,7 @@ string spinWords(string str) {
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
             if (word.length() >= 5) {
-                string revWord;
-                for (int j = word.length() - 1; j >= 0; j--)
-                    revWord += word[j];
-                result += revWord + " ";
+                result += reverseWord(word) + " ";
                 word = "";
             } else
                 result += word + " ";
@@ -24,12 +27,9 @@ string spinWords(string str) {
         }
     }
 
-    if (word.length() >= 5) {
-        string revWord;
-        for (int j = word.length() - 1; j >= 0; j--)
-            revWord += word[j];
-        result += revWord + " ";
-    } else
+    if (word.length() >= 5)
+        result += reverseWord(word) + " ";
+    else
         result += word + " ";
 
     return result;
