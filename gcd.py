@@ -1,11 +1,26 @@
-def gcd(m, n):
-    while n != 0:
-        m, n = n, m % n
-    return abs(m)
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return abs(a)
 
-# Test cases
-print(gcd(1, 1))  # Output: 1
-print(gcd(4, 400000))  # Output: 4
-print(gcd(54, 24))   # Output: 6
-print(gcd(4200, 3528))   # Output: 168
-print(gcd(820000, 63550))  # Output: 2050
+
+def find_indices(text, target):
+    indices = []
+    index = 0
+    while True:
+        index = text.find(target)
+        if index == -1:
+            break
+        indices.append(index + 1)
+        text = text[index + len(target) :]
+    return indices
+
+
+# Testing the functions
+a = int(input())
+b = int(input())
+print(gcd(a, b))
+
+text = input()
+target = input()
+print(find_indices(text, target))
