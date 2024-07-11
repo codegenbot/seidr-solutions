@@ -26,10 +26,10 @@ string spinWords(string str) {
         length = 0;
         i--;
     }
-    while (i >= 0) {
-        result += str[i];
+    while (i > 0) {
         i--;
     }
+    result += str;
     return result;
 }
 
