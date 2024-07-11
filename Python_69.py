@@ -11,7 +11,8 @@ def search():
             lst = [int(x) for x in user_input.split()]
             counter = Counter(lst)
             max_num, _ = counter.most_common(1)[0]
-            print(max_num)
-            return  # You should return when valid input is given.
+            return max_num
         except ValueError:
             print("Invalid input. Please enter a list of numbers separated by space.")
+    print("Program ended.")
+    return None
