@@ -1,9 +1,4 @@
-```Python
-from typing import List
-
-def rolling_max():
-    input_str = input("Please enter some space-separated numbers: ")
-    
+def rolling_max(input_str: str) -> List[int]:
     numbers = []
     for num in input_str.split():
         if not num.isdigit():  
@@ -12,5 +7,3 @@ def rolling_max():
     
     result = [max(numbers[:i+1]) for i in range(len(numbers))]
     return result
-
-print(rolling_max())
