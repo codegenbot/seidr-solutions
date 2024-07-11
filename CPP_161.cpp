@@ -1,11 +1,16 @@
-string solve(string s){
-    string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            result += (s[i] >= 'a' && s[i] <= 'z') ? toupper(s[i]) : tolower(s[i]);
+#include <algorithm>
+using namespace std;
+
+string solve(string s) {
+    string res = "";
+    bool hasLetter = false;
+    for (char c : s) {
+        if (isalpha(c)) {
+            hasLetter = true;
+            res += toupper(c) - ('A'-'a') * islower(c);
         } else {
-            result += s[i];
+            res += c;
         }
     }
-    return result;
+    return hasLetter ? res : string(rbegin(s), rend(s));
 }
