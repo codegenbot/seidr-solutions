@@ -5,7 +5,9 @@ def find_closed_elements(numbers: List[float]) -> Tuple[float, float]:
     if len(numbers) <= 1:
         return ()
     
+    numbers = [float(x) for x in input("Enter numbers separated by space: ").split()]
     numbers.sort()
+    
     closest_pair = (numbers[0], numbers[1])
     min_diff = abs(closest_pair[1] - closest_pair[0])
 
@@ -18,7 +20,3 @@ def find_closed_elements(numbers: List[float]) -> Tuple[float, float]:
             closest_pair = (numbers[i], numbers[i+1])
 
     return closest_pair
-
-numbers = [float(x) for x in input("Enter numbers separated by space: ").split()]
-numbers.sort()
-print(find_closed_elements(numbers))
