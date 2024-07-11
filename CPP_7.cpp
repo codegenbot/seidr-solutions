@@ -1,4 +1,4 @@
-```c++
+```c
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
@@ -42,7 +42,7 @@ int main() {
     vector<string> result;
     
     for (auto s : sets[0]) {
-        if (issame(sets, s)) {
+        if (issame(vector<string>(sets.begin(), sets.end()), s)) {
             result.push_back(s);
         }
     }
