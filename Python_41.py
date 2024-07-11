@@ -1,3 +1,5 @@
-def car_race_collision():
-    n = int(input("Enter the number of cars: "))
-    return n * (n - 1) // 2
+```
+import math
+
+def car_race_collision(n: int):
+    return sum(math.comb(i + 1, 2) for i in range(n))
