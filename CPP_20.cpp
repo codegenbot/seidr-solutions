@@ -27,12 +27,6 @@ int main() {
     vector<float> numbers = {1.1, 2.2, 3.1, 4.1, 5.1};
     pair<float, float> result = find_closest_elements(numbers);
     pair<float, float> expected_result = {3.1, 4.1};
-    
-    if (issame(result, expected_result)) {
-        cout << "Test Passed!" << endl;
-    } else {
-        cout << "Test Failed!" << endl;
-    }
-
+    cout << issame(result, expected_result) << endl;
     return 0;
 }
