@@ -12,7 +12,7 @@ string remove_vowels(string text){
     return result;
 }
 
-int main(){
-    cout << remove_vowels("ybcd") << endl;
+int main() {
+    std::cout << remove_vowels("ybcd") << std::endl;
     return 0;
 }
