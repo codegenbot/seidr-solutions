@@ -2,9 +2,8 @@ from typing import List
 
 
 def all_prefixes(string: str) -> List[str]:
-    prefixes = [""]
+    prefixes = [""]  
     for i in range(len(string)):
-        prefix = string[: i + 1]
-        if len(prefix) > 1 or prefix == string:
-            prefixes.append(prefix)
+        prefix = string[:i + 1]
+        prefixes.append(prefix)
     return prefixes
