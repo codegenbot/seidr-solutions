@@ -9,10 +9,15 @@ int main() {
 
     bounciness_index = first_bounce_height / start_height;
 
-    double current_height = start_height;
-    for (int i = 0; i < num_bounces; ++i) {
-        total_distance += current_height;
-        current_height *= bounciness_index;
+    if (bounciness_index >= 1) {
+        cout << "Invalid input: Bounciness index should be less than 1." << endl;
+        return 1;
+    }
+
+    total_distance = start_height + first_bounce_height;
+
+    for (int i = 2; i < num_bounces; ++i) {
+        total_distance += first_bounce_height * pow(bounciness_index, i);
     }
 
     cout << total_distance << endl;
