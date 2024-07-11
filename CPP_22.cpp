@@ -19,17 +19,14 @@ vector<int> filter_integers(list<any> values){
     return result;
 }
 
-int main(int argc, char* argv[]) {
-    list<any> values;
-    values.push_back(10);
-    values.push_back(20);
-    values.push_back("hello");
-    values.push_back(30);
-
+int main(int argc, char* argv[]){
+    list<any> values = {10, 20, string("hello"), 30, 40};
     vector<int> filtered_values = filter_integers(values);
 
-    for (int val : filtered_values) {
+    for(auto val : filtered_values){
         cout << val << " ";
     }
+    cout << endl;
+
     return 0;
 }
