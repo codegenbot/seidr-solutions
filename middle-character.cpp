@@ -1,16 +1,14 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 int main() {
-    string s;
-    cin >> s;
+    std::string s;
+    std::cin >> s;
     int n = s.size();
     if (n % 2 == 1) {
-        cout << s[n / 2];
+        std::cout << s[n / 2];
     } else {
-        cout << s.substr(n / 2 - 1, 2);
+        std::cout << s.substr(n / 2 - 1, 2);
     }
     return 0;
 }
