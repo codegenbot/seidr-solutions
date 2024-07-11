@@ -1,4 +1,4 @@
-```
+'''
 def main():
     while True:
         try:
@@ -17,3 +17,4 @@ def main():
         except (EOFError, KeyboardInterrupt):
             print("Program terminated/interrupted by user.")
             break
+'''
