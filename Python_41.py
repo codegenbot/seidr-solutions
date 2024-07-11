@@ -1,2 +1,3 @@
+```Python
 def car_race_collision(n: int):
-    return n - 1
+    return n * (n + 1) // 2
