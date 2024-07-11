@@ -1,3 +1,4 @@
+```
 def add():
     while True:
         try:
@@ -8,8 +9,10 @@ def add():
         except ValueError:
             print("Invalid input. Please enter a positive integer.")
             cont = input("Continue? (yes/no): ")
-            if cont.lower() != 'yes':
-                break
+            while cont.lower() != 'yes':
+                print("Please enter 'yes' to continue.")
+                cont = input("Continue? (yes/no): ")
+    return None
 
 result = add()
 print(result)

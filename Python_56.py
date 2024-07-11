@@ -1,8 +1,7 @@
 ```
 def check_brackets():
     expression = input("Enter an expression: ")
-    result = check_brackets(expression)
-    if result:
+    if check_brackets(expression):
         print("Correct Braketting")
     else:
         print("Incorrect Braketting")

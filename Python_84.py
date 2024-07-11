@@ -1,6 +1,5 @@
-```
-def solve(binary):
-    if binary:
+def solve(is_binary):
+    if is_binary:
         num = input("Enter a binary number: ")
         try:
             N = int(num, 2)
@@ -15,4 +14,5 @@ def solve(binary):
         except ValueError:
             print("Invalid decimal input!")
 
-solve(True)
+if __name__ == "__main__":
+    solve(True)
