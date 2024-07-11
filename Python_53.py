@@ -5,5 +5,4 @@ def add():
             y = int(input("Enter second number: "))
         except ValueError:
             print("Invalid input! Please enter a valid integer.")
-        else:
-            print(x + y)
+    return None
