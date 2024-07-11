@@ -1,5 +1,7 @@
+```
 #include <iostream>
 #include <vector>
+#include <string>
 #include <algorithm>
 
 bool will_it_fly(std::vector<int> q, int w) {
@@ -7,7 +9,7 @@ bool will_it_fly(std::vector<int> q, int w) {
     for (int i : q) {
         str += std::to_string(i);
     }
-    if (!str.compare(std::to_string(std::string(str.rbegin(), str.rend())))) return false;
+    if (str != std::string(str.rbegin(), str.rend()).s) return false; 
     int sum = 0;
     for (int i : q) {
         sum += i;
@@ -16,12 +18,16 @@ bool will_it_fly(std::vector<int> q, int w) {
 }
 
 int main() {
-    std::vector<int> q = {4, 3};
-    int w = 6;
+    int n, w;
+    std::cin >> n >> w;
+    std::vector<int> q(n);
+    for (int& i : q) {
+        std::cin >> i;
+    }
     if (will_it_fly(q, w)) {
-        std::cout << "The aircraft will fly." << std::endl;
+        std::cout << "Will it fly\n";
     } else {
-        std::cout << "The aircraft won't fly." << std::endl;
+        std::cout << "Won't it fly\n";
     }
     return 0;
 }
