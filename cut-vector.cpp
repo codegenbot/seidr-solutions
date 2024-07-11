@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <numeric>
@@ -9,8 +8,9 @@ using namespace std;
 int main() {
     vector<int> input;
     int num;
-    
-    while (!cin.eof() && cin >> num) {
+
+    while (cin.good()) {
+        cin >> num;
         input.push_back(num);
     }
 
