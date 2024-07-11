@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -46,7 +46,15 @@ int main() {
     vector<string> result;
     
     for (auto s : sets[0]) {
-        if (issame(sets, s)) {
+        bool found = true;
+        for (int i = 1; i < numSets; i++) {
+            if (!issame(sets[i], s)) {
+                found = false;
+                break;
+            }
+        }
+        
+        if (found) {
             result.push_back(s);
         }
     }

@@ -1,14 +1,25 @@
-```c
+```c++
+#include <unordered_set>
+
 bool issame(vector<int> a, vector<int> b) {
-    return a == b; 
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i])
+            return false;
+    return true;
 }
 
 vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> uniqueNumbers;
+    unordered_set<int> seen;
+    vector<int> result;
+
     for (int num : numbers) {
-        if (find(uniqueNumbers.begin(), uniqueNumbers.end(), num) == uniqueNumbers.end()) {
-            uniqueNumbers.push_back(num);
+        if (seen.find(num) == seen.end()) {
+            seen.insert(num);
+            result.push_back(num);
         }
     }
-    return uniqueNumbers;
+
+    return result;
 }
