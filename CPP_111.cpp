@@ -7,7 +7,26 @@ bool issame(std::map<char, int> a, std::map<char, int> b) {
 }
 
 std::map<char, int> histogram(std::string test) {
-    // Existing function implementation
+    std::map<char, int> freq;
+    for (char c : test) {
+        if (c != ' ') {
+            freq[c]++;
+        }
+    }
+    
+    std::map<char, int> result;
+    int maxFreq = 0;
+    for (const auto& pair : freq) {
+        if (pair.second > maxFreq) {
+            maxFreq = pair.second;
+            result.clear();
+            result[pair.first] = pair.second;
+        } else if (pair.second == maxFreq) {
+            result[pair.first] = pair.second;
+        }
+    }
+    
+    return result;
 }
 
 int main() {
