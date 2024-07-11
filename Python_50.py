@@ -1,4 +1,4 @@
-```
+```Python
 def decode_shift(s: str):
     if s.startswith('25 ') or s.startswith('26 '):
         shift = int(s[:3])
