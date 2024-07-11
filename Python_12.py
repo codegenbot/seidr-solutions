@@ -1,4 +1,4 @@
-```Python
+```
 def longest():
     inputs = []
     while True:
