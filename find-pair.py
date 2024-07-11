@@ -5,5 +5,4 @@ def find_pair():
         for j in range(i + 1, len(nums)):
             if nums[i] + nums[j] == target:
                 return str(nums[i]) + "\n" + str(nums[j])
-    
-print(find_pair())
+    return "No pair found"
