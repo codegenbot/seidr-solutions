@@ -1,8 +1,9 @@
-```
 def sort_array(array):
     array.sort()
-    median = len(array) // 2
-    if len(array) % 2 != 0:
-        return [array[median]]
+    n = len(array)
+    if n % 2 == 0:
+        median1 = array[n // 2 - 1]
+        median2 = array[n // 2]
+        return [median1, median2]
     else:
-        return [array[:median], array[median:]]
+        return [array[n // 2]]
