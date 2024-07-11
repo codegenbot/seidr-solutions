@@ -1,5 +1,5 @@
+```c++
 std::string camelCase(const std::string& s) {
-    std::vector<std::string> groups;
     if (s.find('-') != std::string::npos)
         groups = split(s, '-');
     else
