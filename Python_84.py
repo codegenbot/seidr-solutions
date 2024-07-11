@@ -1,2 +1,2 @@
 def solve(N):
-    return bin(sum(int(b) for b in bin(N)[2:].replace(' ', '')))
+    return bin(sum(int(i) for i in bin(N)[2:].replace(" ", "")))
