@@ -1,11 +1,17 @@
-int n = l.size();
-    for (int i = 0; i < n - 2; ++i) {
-        for (int j = i + 1; j < n - 1; ++j) {
-            for (int k = j + 1; k < n; ++k) {
-                if (l[i] + l[j] + l[k] == 0) {
-                    return true;
-                }
+#include <vector>
+#include <unordered_set>
+
+using namespace std;
+
+bool triples_sum_to_zero(vector<int> l) {
+    for (int i = 0; i < l.size(); ++i) {
+        unordered_set<int> s;
+        for (int j = i + 1; j < l.size(); ++j) {
+            int target = -l[i] - l[j];
+            if (s.count(target) > 0) {
+                return true;
             }
+            s.insert(l[j]);
         }
     }
     return false;
