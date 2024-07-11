@@ -1,8 +1,11 @@
-```python
 def sort_even(l: list):
-    return [
-        (
-            x if i % 2 else min([y for y in l if (i // 2) * 2 < len(l)])
-        )
-        for i, x in enumerate(l)
-    ]
+    even = sorted([x for x in l if x % 2 == 0])
+    result = []
+    idx = 0
+    for x in l:
+        if x % 2 == 0:
+            result.append(even[idx])
+            idx += 1
+        else:
+            result.append(x)
+    return tuple(result)
