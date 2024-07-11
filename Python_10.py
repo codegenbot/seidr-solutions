@@ -28,4 +28,4 @@ def make_palindrome(s: str) -> str:
         left.insert(0, s[-1])
         s = s[:-1]
 
-    return "".join(left + [s[i] for i in range(len(s) - 1, -1, -1)])
+    return "".join(left + list(s))
