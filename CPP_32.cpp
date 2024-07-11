@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -15,7 +16,7 @@ double find_zero(const vector<double>& xs) {
 }
 
 int main() {
-    vector<double> coeffs = {1.0, -2.0, 0.0}; // Example coefficients: x^2 - 2x
+    vector<double> coeffs = {1.0, -2.0, 0.0}; 
     vector<double> solution;
     solution.push_back(find_zero(coeffs));
     assert (abs(poly(coeffs, solution[0])) < 1e-3);
