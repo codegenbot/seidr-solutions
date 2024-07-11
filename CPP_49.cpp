@@ -1,4 +1,7 @@
+```cpp
 int modp(int n, int p) {
+    if (p <= 0)
+        return -1;
     if (n < 0)
         return modp(-n, p);
     long long res = 1;
