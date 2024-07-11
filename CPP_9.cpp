@@ -19,6 +19,5 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 int main(){
-    // Main function implementation here
     return 0;
 }
