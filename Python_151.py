@@ -1,4 +1,3 @@
-```Python
 def check(func):
     print(func())
 
