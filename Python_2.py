@@ -21,3 +21,5 @@ def truncate_number_to_two_decimal_places():
                 break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+
+truncate_number_to_two_decimal_places()
