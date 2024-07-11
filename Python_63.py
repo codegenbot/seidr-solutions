@@ -1,10 +1,10 @@
 def fibfib(n: int):
-    if n <= 0:
-        return 0
-    elif n == 1:
-        return 1
+    if n <= 1:
+        return n
     else:
         a, b = 0, 1
-        for _ in range(2, n+1):
+        result = []
+        for _ in range(2, n+2): 
+            result.append(b)
             a, b = b, a+b
-        return b
+        return sum(int(x) for x in str(result[-1]))
