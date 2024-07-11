@@ -1,12 +1,11 @@
-vector<int> count_palindrome;
-    for(int i=1; i<=n; ++i){
-        if(to_string(i) == string(to_string(i).rbegin(), to_string(i).rend())){
-            if(i % 2 == 0){
-                count_palindrome[0]++;
-            } else{
-                count_palindrome[1]++;
-            }
+int even = 0, odd = 0;
+    for (int i = 1; i <= n; ++i) {
+        string str = to_string(i);
+        string rev_str = str;
+        reverse(rev_str.begin(), rev_str.end());
+        if (str == rev_str) {
+            (i % 2 == 0) ? ++even : ++odd;
         }
     }
-    return count_palindrome;
+    return {even, odd};
 }
