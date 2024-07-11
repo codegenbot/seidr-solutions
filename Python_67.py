@@ -1,6 +1,12 @@
 ```
 def fruit_distribution(s,n):
     s = s.lower()
-    start = s.index("and") + 3
-    apples = int(''.join(filter(str.isdigit, s[:start-1])))
-    return n - apples - int(s[start-1].split()[0])
+    start = s.find('apples') + len('apples')
+    end = s.find(' and ',start)
+    apples = int(s[start:end].strip())
+    
+    start = s.find('oranges') + len('oranges')
+    end = s.find(' and ',start)
+    oranges = int(s[start:end].strip())
+    
+    return n - apples - oranges
