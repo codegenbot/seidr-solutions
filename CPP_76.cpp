@@ -1,8 +1,6 @@
-if(x <= 0 || n <= 0) {
+if (x < 1 || n < 2) {
         return false;
     }
-    
-    double p = log(x) / log(n);
-    
-    return (ceil(p) == floor(p));
+    double power = log(x) / log(n);
+    return power == (int)power;
 }
