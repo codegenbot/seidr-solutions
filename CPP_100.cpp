@@ -1,15 +1,17 @@
+#include <vector>
+
+using namespace std;
+
 vector<int> make_a_pile(int n) {
     vector<int> pile;
-    int stones = n;
-    while (stones > 0) {
-        pile.push_back(stones);
-        if (n % 2 == 1) {
-            n++;
-            stones = n;
+    int stones = 1;
+    for (int i = 0; i < n; i++) {
+        if ((stones % 2) == 1) {
+            pile.push_back(stones);
         } else {
-            n++;
-            stones = n;
+            pile.push_back(stones + 1);
         }
+        stones += 2;
     }
     return pile;
 }
