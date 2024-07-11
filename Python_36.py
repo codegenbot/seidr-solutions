@@ -1,13 +1,5 @@
-while True:
-    try:
-        n = int(input("Enter a number: "))
-        break
-    except ValueError:
-        print("Invalid input. Please enter an integer.")
-
-print(fizz_buzz(n))
-
-def fizz_buzz(n: int):
+```
+def fizz_buzz(n):
     result = []
     for i in range(1, n+1):
         output = ""
@@ -17,3 +9,12 @@ def fizz_buzz(n: int):
             output += "Buzz" if output == "" else " Buzz"
         result.append(output if output else str(i))
     return ''.join(result)
+
+while True:
+    try:
+        n = int(input("Enter a number: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
+print(fizz_buzz(n))
