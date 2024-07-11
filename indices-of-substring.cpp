@@ -9,7 +9,7 @@ int main() {
     getline(cin, text);
     getline(cin, target);
 
-    if (text.empty()) {
+    if (target.empty()) {
         cout << "0";
         return 0;
     }
