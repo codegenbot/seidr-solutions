@@ -1,31 +1,37 @@
-string file_name_check(string file_name){
+Here is the completed code:
+
+string file_name_check(string file_name) {
+    bool valid = true;
+    int dot_count = 0;
     int digit_count = 0;
-    bool found_dot = false;
 
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9')
-            digit_count++;
-        else if(file_name[i] == '.'){
-            found_dot = true;
-        }
-        else if(!found_dot && !isalpha(file_name[i])){
-            return "No";
-        }
-    }
-
-    if(found_dot){
-        string extension = "";
-        for(int i=file_name.length()-1; i>=0; i--){
-            if(file_name[i] == '.')
+    for (char c : file_name) {
+        if (c == '.') {
+            dot_count++;
+            if (dot_count > 1) {
+                valid = false;
                 break;
-            extension = file_name[i]+extension;
+            }
+        } else if (isdigit(c)) {
+            digit_count++;
+            if (digit_count > 3) {
+                valid = false;
+                break;
+            }
+        } else if (!isalpha(c) && c != '.') {
+            valid = false;
+            break;
         }
-        if(extension != "txt" && extension != "exe" && extension != "dll")
-            return "No";
     }
 
-    if(digit_count > 3)
-        return "No";
+    string extension = file_name.substr(file_name.find('.') + 1);
+    if (extension.size() > 0) {
+        if (extension != "txt" && extension != "exe" && extension != "dll") {
+            valid = false;
+        }
+    } else {
+        valid = false;
+    }
 
-    return "Yes";
+    return valid ? "Yes" : "No";
 }
