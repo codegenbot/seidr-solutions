@@ -23,5 +23,10 @@ vector<int> f(int n){
 }
 
 bool issame(vector<int> a, vector<int> b){
-    // Add implementation here
+    return a == b;
+}
+
+int main(){
+    // Main function implementation
+    return 0;
 }
