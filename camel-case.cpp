@@ -1,21 +1,31 @@
 ```cpp
+#include <vector>
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <cctype>
 
-std::string camelCase(const std::string& str) {
+std::string camelCase(const std::string& s) {
     std::string result;
-    std::stringstream ss(str);
-    std::string word;
+    bool first = true;
 
-    if (ss >> word) {
-        result = tolower(word);
-    }
-
-    while (ss >> word) {
-        result += toupper(word[0]);
-        for (size_t i = 1; i < word.size(); ++i) {
-            result += tolower(word[i]);
+    for (char c : s) {
+        if (c == '-') {
+            if (!first) {
+                result += char(toupper(c));
+            }
+            first = false;
+        } else if (std::isspace(c)) {
+            if (!first) {
+                result += char(toupper(c));
+            }
+            first = true;
+        } else {
+            if (first) {
+                result += tolower(c);
+            } else {
+                result += toupper(c);
+            }
+            first = false;
         }
     }
 
@@ -23,9 +33,9 @@ std::string camelCase(const std::string& str) {
 }
 
 int main() {
-    std::string str;
-    while (std::cin >> str) {
-        std::cout << camelCase(str) << '\n';
+    std::string s;
+    while (std::cin >> s) {
+        std::cout << camelCase(s) << std::endl;
     }
     return 0;
 }

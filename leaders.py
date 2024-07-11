@@ -1,6 +1,10 @@
-def leaders(input_list):
-    return [
-        x
-        for i, x in enumerate(input_list)
-        if all(x >= y for y in input_list[i + 1:])
-    ]
+def leaders(arr):
+    n = len(arr)
+    leaders_list = []
+
+    for i in range(n):
+        leaders_list.append(arr[i])
+        while i + 1 < n and arr[i] >= arr[i + 1]:
+            i += 1
+
+    return leaders_list[::-1]
