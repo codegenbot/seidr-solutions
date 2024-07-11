@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <boost/any.hpp>
 
@@ -13,7 +14,7 @@ bool issame(const vector<int>& a, const vector<int>& b) {
     return true;
 }
 
-vector<int> filter_integers(list<boost::any> values) {
+vector<int> filter_integers(list< boost::any > values) {
     vector<int> result;
     for (const auto& value : values) {
         if (boost::any_cast<int>(value).good()) {
