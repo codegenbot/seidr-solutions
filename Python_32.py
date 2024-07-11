@@ -1,16 +1,15 @@
-def find_zero_coeffs(a: float, b: float, c: float):
+def find_zero_coefficients(quad_equation: list):
     """
-    This function calculates the zero of a quadratic equation ax^2 + bx + c = 0.
+    This function takes a list of coefficients from a quadratic equation in the form ax^2 + bx + c = 0 and 
+    returns the value of x where the equation becomes zero.
     
     Args:
-        a (float): The coefficient of x^2 in the equation.
-        b (float): The coefficient of x in the equation.
-        c (float): The constant term in the equation.
-        
+    quad_equation (list): A list containing the coefficients of the quadratic equation in the order [a, b, c]
+    
     Returns:
-        float: The zero of the quadratic equation.
+    float: The value of x where the quadratic equation becomes zero
     """
-    if len([a, b, c]) % 2 != 0:
-        raise ValueError("The coefficients must have an even number of coefficients")
-    max_coeff = abs(max([a, b, c]))
-    return -b / (2 * a)
+    if len(quad_equation) % 2 != 0:
+        raise ValueError("The number of coefficients must be even")
+    max_coeff = abs(max(quad_equation))
+    return -quad_equation[1] / (2 * quad_equation[0])
