@@ -1,12 +1,10 @@
-```
-def calculate_total_amount():
-    total_amount = 0
-    while True:
-        try:
-            amount = float(input("Enter an amount (or 'q' to quit): "))
-            if amount == 'q':
-                break
-            total_amount += amount
-        except ValueError:
-            print("Invalid input. Please enter a number or 'q' to quit.")
-    return total_amount
+def sum_squares(lst):
+    total = 0
+    for num in lst:
+        if num % 4 == 0 and num % 6 != 0:
+            total += num**2
+        elif num % 12 == 0:
+            total += num**3
+        else:
+            total += num**2
+    return total
