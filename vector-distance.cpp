@@ -23,7 +23,7 @@ int main() {
     }
     
     double result = std::sqrt(sum);
-    std::cout << std::fixed << std::setprecision(14) << result << std::endl;
+    std::cout << std::fixed << std::setprecision(17) << result << std::endl;
   
     return 0;
 }
