@@ -15,9 +15,9 @@ def encode(message):
                 result += 'u'
             else:
                 if char.isupper():
-                    result += chr(ord(char) - 3)
+                    result += chr(ord(char) + 32)
                 else:
-                    result += chr(ord(char) + 3)
+                    result += chr(ord(char) - 32)
         else:
             result += char
     return result
