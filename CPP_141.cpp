@@ -1,34 +1,29 @@
-int count_digits(const string& str) {
-    int count = 0;
-    for (char c : str) {
-        if (isdigit(c)) {
-            count++;
-        }
-    }
-    return count;
-}
+#include <string>
+
+using namespace std;
 
 string file_name_check(string file_name) {
+    int digit_count = 0;
+    bool found_dot = false;
+    string prefix = "";
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            digit_count++;
+            if (digit_count > 3) return "No";
+        } else if (c == '.') {
+            found_dot = true;
+        } else if (!found_dot && !isalpha(c)) {
+            return "No";
+        }
+        prefix += c;
+    }
+    if (!found_dot || prefix.empty() || prefix.find('.') != string::npos) {
+        return "No";
+    }
     size_t dot_pos = file_name.find('.');
-    if (dot_pos == string::npos || dot_pos + 1 >= file_name.size()) {
-        return "No";
-    }
-
-    string prefix = file_name.substr(0, dot_pos);
     string suffix = file_name.substr(dot_pos + 1);
-
-    if (!isalpha(prefix[0]) || !isalnum(prefix.substr(1))) {
+    if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
         return "No";
     }
-
-    if (count_digits(file_name) > 3) {
-        return "No";
-    }
-
-    vector<string> valid_suffixes = {"txt", "exe", "dll"};
-    if (find(valid_suffixes.begin(), valid_suffixes.end(), suffix) == valid_suffixes.end()) {
-        return "No";
-    }
-
     return "Yes";
 }
