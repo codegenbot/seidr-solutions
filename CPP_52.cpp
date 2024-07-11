@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 bool below_threshold(std::vector<int> l, int t) {
     for (int num : l) {
@@ -12,6 +14,6 @@ bool below_threshold(std::vector<int> l, int t) {
 }
 
 int main() {
-    std::vector<int> numbers = {1, 8, 4, 10};
-    std::cout << (below_threshold(numbers, 10) ? "False\n" : "True\n");
+    std::vector<int> vec = {1, 8, 4, 10};
+    std::cout << (below_threshold(vec, 10) ? "False\n" : "True\n");
 }
