@@ -1,4 +1,4 @@
-string_to_md5(string text) {
+string string_to_md5(string text) {
     if (text.empty()) return "";
     
     unsigned char md5[MD5_DIGEST_LENGTH];
@@ -8,8 +8,8 @@ string_to_md5(string text) {
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         stringstream ss;
         ss << hex << setfill('0') << setw(2) << (int)md5[i];
-        ss >> ws; 
-        result += ss.str(); 
+        ss >> ws; // consume leading whitespace
+        result += ss.str(); // add the converted string to the result
     }
     
     return result;
