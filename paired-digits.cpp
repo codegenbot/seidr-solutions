@@ -9,3 +9,10 @@ int pairedDigits(const std::string& s) {
     }
     return sum;
 }
+
+int main() {
+    std::string input;
+    cin >> input;
+    int result = pairedDigits(input);
+    return 0;
+}
