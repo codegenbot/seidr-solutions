@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 int score(string s) {
     int total = 0;
     int frame = 0;
@@ -22,6 +26,6 @@ int score(string s) {
 int main() {
     string s;
     cin >> s;
-    cout << score(s) << endl;
+    cout << score(s) << "\n";
     return 0;
 }

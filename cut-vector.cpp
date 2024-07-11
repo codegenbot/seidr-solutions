@@ -1,9 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <cmath>
+
 int main() {
     int n;
-    cin >> n;
-    vector<int> arr(n);
+    std::cin >> n;
+    std::vector<int> arr(n);
     for (int i = 0; i < n; i++) {
-        cin >> arr[i];
+        std::cin >> arr[i];
     }
     
     int min_diff = INT_MAX;
@@ -18,7 +23,7 @@ int main() {
             right_sum += arr[j];
         }
         
-        int diff = abs(left_sum - right_sum);
+        int diff = std::abs(left_sum - right_sum);
         if (diff < min_diff) {
             min_diff = diff;
             cut_index = i;
@@ -26,11 +31,11 @@ int main() {
     }
     
     for (int i = 0; i < cut_index; i++) {
-        cout << arr[i] << endl;
+        std::cout << arr[i] << std::endl;
     }
-    cout << endl;
+    std::cout << std::endl;
     for (int i = cut_index; i < n; i++) {
-        cout << arr[i] << endl;
+        std::cout << arr[i] << std::endl;
     }
     
     return 0;
