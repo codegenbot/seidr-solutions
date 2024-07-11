@@ -13,12 +13,8 @@ def valid_date(date):
             if int(day) > 30 or int(day) < 1:
                 return False
         elif int(month) == 2:
-            if int(year) % 4 != 0:
-                if int(day) > 28 or int(day) < 1:
-                    return False
-            else:
-                if int(day) > 29 or int(day) < 1:
-                    return False
+            if int(day) > 29 or int(day) < 1:
+                return False
         else:
             if int(day) > 31 or int(day) < 1:
                 return False
