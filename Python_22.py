@@ -1,9 +1,11 @@
-```
-def calculate_average_value(values: list[Any]) -> float:
+```python
+def filter_integers(values: list) -> list:
+    return [value for value in values if isinstance(value, int)]
+
+def calculate_average_value(values: list) -> float:
     if not values:
         return 0
-    return sum(filter_integers(values)) / len(values)
-
+    return sum(filter_integers(values)) / len(filter_integers(values))
 
 user_input = input("Please enter some values (separated by spaces): ")
 try:
