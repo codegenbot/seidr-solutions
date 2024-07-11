@@ -9,7 +9,11 @@ int main() {
     vector<int> input;
     int num;
 
-    while (cin >> num) {
+    for (int i = 0; i < 1000; ++i) {
+        cin >> num;
+        if (num == -1) {
+            break;
+        }
         input.push_back(num);
     }
 
@@ -26,7 +30,7 @@ int main() {
         cout << input[i] << endl;
     }
     cout << endl;
-    for (int i = idx; i < input.size(); ++i) {
+    for (int i = idx;  i < input.size(); ++i) {
         cout << input[i] << endl;
     }
 
