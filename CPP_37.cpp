@@ -1,26 +1,35 @@
-vector<float> l_odd;
-    vector<float> l_even;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 2 == 0) {
-            l_even.push_back(l[i]);
-        }
-        else {
-            l_odd.push_back(l[i]);
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
-    sort(l_even.begin(), l_even.end());
-    vector<float> l_sorted;
-    int index_odd = 0;
-    int index_even = 0;
-    for (int i = 0; i < l.size(); ++i) {
-        if (i % 2 == 0) {
-            l_sorted.push_back(l_even[index_even]);
-            ++index_even;
-        }
-        else {
-            l_sorted.push_back(l_odd[index_odd]);
-            ++index_odd;
-        }
-    }
-    return l_sorted;
+    
+    return true;
 }
+
+vector<float> even_indices;
+vector<float> sorted_even_indices;
+
+for (int i = 0; i < l.size(); i++) {
+    if (i % 2 == 0) {
+        even_indices.push_back(l[i]);
+        sorted_even_indices.push_back(l[i]);
+    }
+}
+
+sort(sorted_even_indices.begin(), sorted_even_indices.end());
+
+int sorted_even_idx = 0;
+for (int i = 0; i < l.size(); i++) {
+    if (i % 2 == 0) {
+        l[i] = sorted_even_indices[sorted_even_idx];
+        sorted_even_idx++;
+    }
+}
+
+return l;
