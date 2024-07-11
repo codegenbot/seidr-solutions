@@ -1,15 +1,6 @@
-for(auto ch : c)
-    {
-        s.erase(remove(s.begin(), s.end(), ch), s.end());
-    }
-    
-    string result = s;
-    string result_str = "False";
-    
-    if(result == string(result.rbegin(), result.rend()))
-    {
-        result_str = "True";
-    }
-    
-    return {result, result_str};
+string result = s;
+    result.erase(remove_if(result.begin(), result.end(), [c](char ch) { return c.find(ch) != string::npos; }), result.end());
+    string reversedResult = result;
+    reverse(reversedResult.begin(), reversedResult.end());
+    return {result, result == reversedResult ? "True" : "False"};
 }
