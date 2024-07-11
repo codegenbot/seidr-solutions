@@ -1,11 +1,15 @@
-double number = stod(value);
-    int result = round(number);
-    if (number - result == 0.5) {
-        if (number < 0) {
-            result = ceil(number);
+double num = stod(value);
+    int closestInt = round(num);
+    
+    if (closestInt > num) {
+        return ceil(num);
+    } else if (closestInt < num) {
+        return floor(num);
+    } else {
+        if (num < 0) {
+            return ceil(num);
         } else {
-            result = floor(number);
+            return floor(num);
         }
     }
-    return result;
 }
