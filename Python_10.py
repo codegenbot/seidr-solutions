@@ -1,11 +1,12 @@
-```
+```python
 def make_palindrome(s: str) -> str:
     s = list(s)
-    while len(s) < 2 or s[0] != s[-1]:
-        if len(s) % 2 == 0:
-            mid = len(s) // 2
-            s.insert(mid, s[-1])
+    i, j = 0, len(s) - 1
+    while i < j:
+        if s[i] != s[j]:
+            t = s.pop(j)
+            s.insert(0, t)
         else:
-            s.append(s[0])
-            s.insert(0, s[0])
+            i += 1
+            j -= 1
     return "".join(s)
