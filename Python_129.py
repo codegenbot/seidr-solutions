@@ -3,7 +3,7 @@ def minPath(grid, k):
     n = len(grid)
     m = [[(i * n + j) for j in range(n)] for i in range(n)]
     dp = [[[0] * (k + 1) for _ in range(n)] for _ in range(n)]
-
+    
     for i in range(n):
         for j in range(n):
             if k == 1:
@@ -15,7 +15,7 @@ def minPath(grid, k):
                     if 0 <= ni < n and 0 <= nj < n:
                         min_val = min(min_val, dp[ni][nj][k-1])
                 dp[i][j][k] = m[i][j] + min_val
-
+    
     res = []
     i, j, k = 0, 0, len(grid) ** 2 - 1
     while k > 0:
@@ -25,5 +25,5 @@ def minPath(grid, k):
             if 0 <= ni < n and 0 <= nj < n and dp[ni][nj][k-1] == dp[i][j][k]:
                 i, j, k = ni, nj, k - 1
                 break
-
+    
     return res
