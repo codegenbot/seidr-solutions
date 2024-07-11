@@ -1,6 +1,5 @@
-```
 from typing import List
-
+import math
 
 def find_prime_numbers(n: int) -> List[int]:
     prime_numbers = []
