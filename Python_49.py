@@ -1,8 +1,11 @@
-# Problem description: Complete the following code given the task description and function signature..
+```
 n = int(input("Enter n: "))
 p = int(input("Enter p: "))
 
 def modp(n: int, p: int):
+    if p <= 1:
+        raise ValueError("p should be greater than 1")
+    
     def extended_euclidean(a: int, b: int) -> (int, int):
         if a == 0:
             return b, 0
