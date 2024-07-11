@@ -1,9 +1,14 @@
+#include <vector>
+using namespace std;
+
 bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+    string s = "";
     for (int i : q) {
-        str += to_string(i);
+        s += to_string(i);
     }
-    if (str != reverse(str).s) return false;  // not a palindromic vector
+    if (s != reverse(s).str()) {
+        return false;
+    }
     int sum = 0;
     for (int i : q) {
         sum += i;
