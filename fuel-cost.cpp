@@ -16,7 +16,7 @@ int main() {
     
     int sum = 0;
     for (int num : nums) {
-        sum += floor((num / 3.0)) - 2;
+        sum += (num / 3) - 2;
     }
     
     cout << sum << endl;
