@@ -14,7 +14,7 @@ int main() {
         } else if (capitalize) {
             std::cout << (char)toupper(c);
             capitalize = false;
-        } else if (c != ' ') {
+        } else if (c != '-' && c != ' ') {
             if (firstWord) {
                 std::cout << c;
                 firstWord = false;
