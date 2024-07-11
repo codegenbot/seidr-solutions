@@ -1,3 +1,4 @@
+```
 def minPath(k):
     k = int(input("Enter the size of the grid: "))
     n = k
@@ -15,7 +16,7 @@ def minPath(k):
                 if min_path is None or new_path < min_path:
                     min_path = new_path
         return min_path
-
+    
     min_path = None
     for i in range(n):
         for j in range(n):
