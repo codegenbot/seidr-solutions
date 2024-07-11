@@ -1,5 +1,5 @@
 #include <vector>
-#include <climits> // Include climits here
+#include <climits> 
 using namespace std;
 
 vector<pair<int, int>> pluck(vector<int> arr) {
@@ -16,7 +16,7 @@ vector<pair<int, int>> pluck(vector<int> arr) {
         }
     }
     
-    if (minIndex != -1) result.push_back({minEven, minIndex});
+    if (minIndex != -1) result = {{minEven, minIndex}};
     
     return result;
 }
