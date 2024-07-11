@@ -2,26 +2,32 @@
 #include <vector>
 #include <string>
 
-bool same(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
+bool same(vector<string> a, vector<string> b);
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for(auto str : strings) {
+        if(str.find(substring) != std::string::npos)
+            result.push_back(str);
     }
-    for (int i = 0; i < a.size(); ++i) {
-        if (!filter_by_substring({a[i]}, "same").size()) {
-            return false;
-        }
-    }
-    return true;
+    return result;
 }
 
-int main() {
-    vector<string> strings = {"hello", "world", "same same", "example"};
-    string substring = "same";
-    bool result = same(vector<string>(), strings);
-    if (result) {
-        cout << "Strings are the same." << endl;
-    } else {
-        cout << "Strings are not the same." << endl;
+int main(){
+    int n;
+    cin >> n;
+    vector<string> vec(n);
+    for(int i = 0; i < n; i++){
+        cin >> vec[i];
     }
+    string s1, s2;
+    cin >> s1 >> s2;
+
+    vector<string> res1 = filter_by_substring(vec, s1);
+    vector<string> res2 = filter_by_substring(res1, s2);
+
+    for(auto str : res2)
+        cout << str << endl;
+
     return 0;
 }
