@@ -4,6 +4,8 @@
 
 using namespace std;
 
+vector<int> tri(int n);
+
 vector<int> tri(int n) {
     vector<int> result;
     if (n >= 0) {
@@ -35,6 +37,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(tri(1), {1, 3}));
-    
+
     return 0;
 }
