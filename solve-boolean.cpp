@@ -1,9 +1,3 @@
-```cpp
-bool getBoolValue(char c) {
-    if (c == 'T' || c == 't') return true;
-    else if (c == 'F' || c == 'f') return false;
-}
-
 std::string solveBoolean(std::string expression) {
     std::stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
@@ -23,18 +17,22 @@ std::string solveBoolean(std::string expression) {
     }
 
     std::string result = "";
-    bool left = false, right = false;
     while (!s.empty()) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            result = (getBoolValue(s.top()) && getBoolValue(s.top())) ? "True" : "False";
+            result = (getBoolValue(s.top())) ? "True" : "False";
         } else if (c == '|') {
-            result = (getBoolValue(s.top()) || getBoolValue(s.top())) ? "True" : "False";
+            result = (getBoolValue(s.top())) ? "True" : "False";
         } else {
             result = (getBoolValue(c)) ? "True" : "False";
         }
     }
+}
 
-    return result;
+int getBoolValue(char c) {
+    if (c == 'T')
+        return 1;
+    if (c == 'F')
+        return 0;
 }
