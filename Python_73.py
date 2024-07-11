@@ -1,4 +1,3 @@
-```
 def smallest_change():
     arr = list(map(str, input("Enter the array: ").split()))
     left, right = 0, len(arr)-1
