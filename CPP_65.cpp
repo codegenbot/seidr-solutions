@@ -1,13 +1,14 @@
-string numStr = to_string(x);
-    int n = numStr.size();
-    shift = shift % n;
+#include <string>
+using namespace std;
+
+string circular_shift(int x, int shift) {
+    string num = to_string(x);
+    int n = num.size();
+    shift %= n;
     if (shift == 0) {
-        return numStr;
-    }
-    if (shift > n / 2) {
-        reverse(numStr.begin(), numStr.end());
+        return num;
     } else {
-        rotate(numStr.rbegin(), numStr.rbegin() + shift, numStr.rend());
+        string result = num.substr(n - shift) + num.substr(0, n - shift);
+        return result;
     }
-    return numStr;
 }
