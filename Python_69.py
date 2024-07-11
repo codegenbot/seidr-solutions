@@ -1,15 +1,14 @@
-```
-def search(lst):
-    frequency_dict = {}
-    for num in lst:
-        if num in frequency_dict:
-            frequency_dict[num] += 1
+def mostCommonAfterN(n, nums):
+    count_dict = {}
+    for num in nums:
+        if num not in count_dict:
+            count_dict[num] = 1
         else:
-            frequency_dict[num] = 1
-    
+            count_dict[num] += 1
     max_num = -1
-    for num, freq in frequency_dict.items():
-        if num > 0 and freq >= num:
+    max_count = -1
+    for num, freq in count_dict.items():
+        if freq > max_count and num >= n:
             max_num = num
-    
+            max_count = freq
     return max_num
