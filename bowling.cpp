@@ -4,7 +4,6 @@ using namespace std;
 int calculateScore(string s) {
     int total = 0;
     int frame = 0;
-    
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'X') {
             total += 10;
@@ -28,8 +27,7 @@ int calculateScore(string s) {
         } else if (s[i] >= '1' && s[i] <= '9') {
             total += s[i] - '0';
         }
-        
-        if (frame == 9) {
+        if (frame == 10) {
             break;
         }
     }
