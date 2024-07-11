@@ -10,5 +10,3 @@ def max_water(n, m):
             min_height = min(min_height, column_heights[right])
             max_water = max(max_water, min_height - column_heights[left] if min_height > column_heights[left] else 0)
     return max_water
-
-print(max_water(int(input("Enter number of columns: ")), int(input("Enter number of rows: "))))
