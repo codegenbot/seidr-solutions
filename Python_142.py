@@ -1,9 +1,12 @@
-```
 def sum_squares(lst):
-    total = 0
-    for i in lst:
-        if isinstance(i, int):
-            total += i ** 2
-        elif isinstance(i, str):
-            total += len(i) ** 2
+    total = sum(
+        [
+            (
+                x**2
+                if i % 3 == 0 and i % 4 != 0
+                else x**3 if i % 4 == 0 and i % 3 != 0 else 0
+            )
+            for i, x in enumerate(lst)
+        ]
+    )
     return total
