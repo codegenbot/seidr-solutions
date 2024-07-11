@@ -14,7 +14,3 @@ vector<string> reverse_delete(string s, string c){
     reverse(resultReverse.begin(), resultReverse.end());
     return {result, result == resultReverse ? "True" : "False"};
 }
-
-bool issame(vector<string> a, vector<string> b){
-    // Implement the issame function as needed
-}
