@@ -8,7 +8,7 @@ bool valid_date(string date) {
     }
 
     int month, day, year;
-    if (sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3) {
+    if (sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3 || date.find('-') == string::npos) {
         return false;
     }
 
