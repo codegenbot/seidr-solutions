@@ -9,8 +9,7 @@ def find_closed_elements(numbers: list[float]) -> Tuple[float, float]:
     for i in range(len(numbers)):
         for j in range(i + 1, len(numbers)):
             diff = numbers[j] - numbers[i]
-            if -1 <= diff <= 1:
-                if abs(diff) < min_diff:
-                    min_diff = abs(diff)
-                    min_range = (numbers[i], numbers[j])
-    return min_range
+            if abs(diff) <= 1 and diff < min_diff:
+                min_diff = diff
+                min_range = (numbers[i], numbers[j])
+    return min_range if min_range[0] == min_range[1] else (min_range[0],)
