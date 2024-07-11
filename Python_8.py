@@ -8,13 +8,8 @@ def calculate_average_and_median() -> Tuple[float, float]:
             if not user_input or user_input.lower() == 'q':
                 break
             numbers = [int(num) for num in user_input.split()]
-            if not numbers:
-                return 0.0, 0.0
-            if len(numbers) < 2:  
-                raise ValueError("Please enter at least two numbers")
-            average = sum(numbers) / len(numbers)
-            sorted_numbers = sorted(numbers)
-            median = statistics.median(sorted_numbers)
+            average = sum([num for num in numbers if isinstance(num, int)]) / len([num for num in numbers if isinstance(num, int)])
+            median = statistics.median(sorted(set(numbers)))  # Use set to get unique numbers
             return average, median
         except ValueError:
             print("Invalid input. Please enter numbers separated by space or type 'q' to quit.")
