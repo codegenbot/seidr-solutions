@@ -1,11 +1,16 @@
+Here is the solution:
+
 def solve_boolean(expression):
-    if expression == "T":
+    if expression == 'T':
         return True
-    elif expression == "F":
+    elif expression == 'F':
         return False
-    elif "&" in expression:
-        a, b = expression.split("&")
-        return bool(a) and bool(b)
+    elif '&' in expression and '|' in expression:
+        raise ValueError("Invalid expression")
     else:
-        a, b = expression.split("|")
-        return bool(a) or bool(b)
+        result = True
+        for op, val in zip(['&', '|'], [expression.split(op)[0], expression.split(op)[1]]):
+            if (op == '&') ^ (val == 'T'):
+                result = False
+                break
+        return result
