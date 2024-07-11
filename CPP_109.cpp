@@ -1,24 +1,23 @@
-#include <cassert>
 #include <vector>
 
-bool move_one_ball(std::vector<int> arr) {
+bool move_one_ball(std::vector<int>& arr) {
     int n = arr.size();
     if (n == 0) {
         return true;
     }
-    
-    int min_index = 0;
-    for (int i = 0; i < n; ++i) {
-        if (arr[i] < arr[min_index]) {
-            min_index = i;
+
+    int minIdx = 0;
+    for (int i = 1; i < n; ++i) {
+        if (arr[i] < arr[minIdx]) {
+            minIdx = i;
         }
     }
-    
-    return (arr[min_index] == arr[(min_index + n - 1) % n]);
-}
 
-int main() {
-    assert(move_one_ball({}) == true);
+    for (int i = 0; i < n; ++i) {
+        if (arr[(minIdx + i) % n] != arr[i]) {
+            return false;
+        }
+    }
 
-    return 0;
+    return true;
 }
