@@ -1,2 +1,3 @@
-return 0.5 * a * h;
+float result = 0.5 * a * h;
+    return result;
 }
