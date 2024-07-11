@@ -1,24 +1,27 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool same(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size(); ++i) {
-        if(!a[i].compare(0, a[i].size(), b[i])) return false;
-    }
-    return true;
-}
+bool same(vector<string> a, vector<string> b);
 
 int main() {
-    vector<string> strings = {"apple", "banana", "cat", "dog", "elephant"};
-    string substring = "an";
-    vector<string> result = filter_by_substring(strings, substring);
-    if(same({substring}, {s.substr(1) for s in result})) {
-        cout << "Substrings of the input strings are the same as the given substring" << endl;
-    } else {
-        cout << "Substrings of the input strings are not the same as the given substring" << endl;
+    vector<string> strings;
+    string substring;
+
+    cin >> substring;
+    for(int i = 0; i < 3; ++i) {
+        string s;
+        cin >> s;
+        strings.push_back(s);
     }
+
+    vector<string> result = filter_by_substring(strings, substring);
+
+    for(auto str : result) {
+        if(same({str}, strings)) {
+            cout << str << endl;
+        }
+    }
+
     return 0;
 }
 
@@ -29,4 +32,16 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
             result.push_back(str);
     }
     return result;
+}
+
+bool same(vector<string> a, vector<string> b) {
+    if(a.size() != b.size())
+        return false;
+
+    for(int i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i])
+            return false;
+    }
+
+    return true;
 }
