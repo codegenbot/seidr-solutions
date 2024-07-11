@@ -1,4 +1,8 @@
-if (x < 1 || n < 1) return false;
-    double result = log(x) / log(n);
-    return result == (int)result;
+if (x == 1) return true;
+    for (int i = 2; i * i <= x; ++i) {
+        if (pow(i, n) == x) {
+            return true;
+        }
+    }
+    return false;
 }
