@@ -1,11 +1,13 @@
+import ast
+
+
 def solve_boolean(expression):
-    return eval(
-        expression.replace("T", "'True'")
-        .replace("F", "'False'")
+    return ast.literal_eval(
+        expression.replace("T", "True")
+        .replace("F", "False")
         .replace("|", " or ")
-        .replace("&", " and "),
-        {"True": True, "False": False},
+        .replace("&", " and ")
     )
 
 
-print(solve_boolean(input()))
+print(solve_boolean(input().strip()))
