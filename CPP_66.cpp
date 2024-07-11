@@ -30,10 +30,22 @@ int main() {
             }
         }
         if (digitPos == -1) {
-            int result = digitSum(newInput);
+            std::string digitsOnly;
+            for (char c : newInput) {
+                if(std::isdigit(c)) {
+                    digitsOnly += c;
+                }
+            }
+            int result = digitSum(digitsOnly);
             std::cout << "The sum of digits is: " << result << std::endl;
         } else {
-            int result = digitSum(newInput.substr(0, digitPos));
+            std::string digitsOnly;
+            for (char c : newInput.substr(0, digitPos)) {
+                if(std::isdigit(c)) {
+                    digitsOnly += c;
+                }
+            }
+            int result = digitSum(digitsOnly);
             std::cout << "The sum of digits is: " << result << std::endl;
         }
     } else {
