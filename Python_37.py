@@ -1,7 +1,9 @@
-def sort_even(evens):
-    return merge(evens, [])
+```
+def sort_even_and_odd():
+    evens = sorted([int(input("Enter even numbers (space separated): ")).strip() for _ in range(int(input("How many even numbers: ")))] )
+    odds = sorted([int(input("Enter odd numbers (space separated): ")).strip() for _ in range(int(input("How many odd numbers: ")))])
 
-evens = [2, 4, 6]
-odds = [1, 3, 5]
+    result = merge(evens, odds)
+    return result
 
-print(sort_even(evens))
+print(sort_even_and_odd())
