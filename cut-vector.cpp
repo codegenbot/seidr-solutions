@@ -19,4 +19,20 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     
     return result;
 }
-```
+
+int main() {
+    std::vector<int> arr = {1656, 1405, 5442, 871, 7852, 1210, 4110};
+
+    auto subvectors = cutVector(arr);
+    
+    for (int num : subvectors.first) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+    
+    for (int num : subvectors.second) {
+        std::cout << num << " ";
+    }
+    
+    return 0;
+}
