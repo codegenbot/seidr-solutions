@@ -1,8 +1,25 @@
-#include <string>
-
-int main() {
-    std::string s = "X | X | X | X | X | X | 7/4 | 3/5 | 0/10 | X";
-    int score = bowlingScore(s);
-    std::cout << "The score is: " << score << std::endl;
-    return 0;
+int bowlingScore(const char* s) {
+    int score = 0;
+    for (int i = 0; i < 10; ++i) {
+        if (s[i] == 'X') {
+            score += 30;
+        } else if (isdigit(s[i])) {
+            int roll1 = s[i] - '0';
+            if (i < 8 && s[i + 1] == '/') {
+                int roll2 = s[i + 2] - '0';
+                score += roll1 + roll2;
+            } else {
+                score += roll1 * 2;
+            }
+        } else {
+            int roll1 = s[i] - '0';
+            if (i < 9) {
+                int roll2 = s[i + 1] - '0';
+                score += roll1 + roll2;
+            } else {
+                score += roll1;
+            }
+        }
+    }
+    return score;
 }
