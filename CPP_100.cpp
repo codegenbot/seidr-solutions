@@ -1,15 +1,15 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
+    std::vector<int> pile(n);
     for (int i = 0; i < n; i++) {
-        pile.push_back(8 + 2*i);
+        pile[i] = 2 * i + 8;
     }
     return pile;
 }
