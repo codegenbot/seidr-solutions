@@ -1,23 +1,29 @@
-```
-def encode_cyclic(s: str):
-    encoded_str = ""
-    for i in range(0, len(s), 3):
-        chunk = s[i:i+3]
-        if len(chunk) < 3:
-            chunk += "x" * (3 - len(chunk))
-        encoded_str += "".join([chunk[2], chunk[1], chunk[0]])
-    return encoded_str
+Here is the modified code:
 
-def decode_cyclic(s: str):
-    decoded_str = ""
+```Python
+def encode_cyclic(s):
+    result = ""
     i = 0
     while i < len(s):
-        if s[i] == s[i+1]:
-            decoded_str += s[i] * 2 + s[i+2]
+        if i < len(s) - 2 and s[i] == s[i+1] == s[i+2]:
+            result += s[i] * 3
             i += 3
         else:
-            decoded_str += s[i]
+            result += s[i]
             i += 1
+    return result
+
+def decode_cyclic(s):
+    result = ""
+    i = 0
+    while i < len(s):
+        if i < len(s) - 2 and s[i] * 3 == s[:3]:
+            result += s[i]
+            i += 3
+        else:
+            result += s[i]
+            i += 1
+    return result
 
 if __name__ == "__main__":
     user_input = input("Enter your string: ")
