@@ -1,9 +1,8 @@
-```python
 def minPath(grid, k):
     m = len(grid)
     visited = set()
     shortest_path = None
-    min_length = float('inf')
+    min_length = float("inf")
 
     def dfs(i, j, path, remaining):
         nonlocal shortest_path, min_length
@@ -19,14 +18,13 @@ def minPath(grid, k):
             new_i, new_j = i + x, j + y
             if 0 <= new_i < m and 0 <= new_j < m:
                 if grid[new_i][new_j] == k:
-                    dfs(new_i, new_j, path + [grid[new_i][new_j]], remaining - 1)
-                elif grid[new_i][new_j] == 0:
-                    return
+                    new_path = path + [grid[new_i][new_j]]
+                    dfs(new_i, new_j, new_path, remaining - 1)
         visited.remove((i, j))
 
     for i in range(m):
         for j in range(m):
             if grid[i][j] == k:
-                dfs(i, j, [], 1)
+                dfs(i, j, [], k)
 
-    return shortest_path if shortest_path else None
+    return shortest_path
