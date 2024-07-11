@@ -1,6 +1,5 @@
 ```
 def decode_cyclic():
-    
     s = input("Enter the cyclic string: ")
     result = ""
     i = 0
