@@ -13,7 +13,7 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
     std::vector<int> result;
     int max_level = 0;
     int current_level = 0;
-    for (char c : paren_string) {
+    for(char c : paren_string) {
         if (c == '(') {
             current_level++;
             max_level = std::max(max_level, current_level);
