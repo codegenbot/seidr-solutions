@@ -1,18 +1,16 @@
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 #include <cassert>
+#include <initializer_list>
 
 using namespace std;
 
 pair<int, int> compare(vector<int> a, vector<int> b) {
-    vector<int> c = a;
-    vector<int> d = b;
-    sort(c.begin(), c.end());
-    sort(d.begin(), d.end());
-    if (c.size() < d.size())
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    if (a.size() < b.size())
         return make_pair(1, 0);
-    else if (c.size() > d.size())
+    else if (a.size() > b.size())
         return make_pair(0, 1);
     else
         return make_pair(1, 1);
@@ -20,6 +18,6 @@ pair<int, int> compare(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(compare(vector<int>({1,2,3,5}), vector<int>({-1,2,3,4})) == make_pair(0,1));
+    assert (compare({1,2,3,5},{-1,2,3,4}) == make_pair(0,1));
     return 0;
 }
