@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 
-std::vector<std::string> by_length(std::vector<int> arr){
+std::vector<std::string> by_length(std::vector<int> arr) {
     std::vector<int> sorted_arr;
     std::vector<std::string> result;
     std::map<int, std::string> num_to_str = {
