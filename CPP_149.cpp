@@ -1,36 +1,33 @@
 bool issame(const string& a, const string& b) {
-    return a.length() == b.length();
+    return a.length() == b.length() && a == b;
 }
 
-int sorted_list_sum(const vector<string>& lst) {
-    int sum = 0;
-    for (const string& s : lst) {
-        sum += stoi(s);
-    }
-    return sum;
-}
-
-vector<string> sort_and_filter(vector<string> lst) {
-    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
-    sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
+vector<string> sorted_list_sum(const vector<string>& lst) {
+    vector<string> result = lst;
+    
+    result.erase(remove_if(result.begin(), result.end(), [](const string& s) { return s.length() % 2 != 0; }), result.end());
+    sort(result.begin(), result.end(), [](const string& a, const string& b) {
         if (a.length() == b.length()) {
             return a < b;
         }
         return a.length() < b.length();
     });
-    return lst;
+    
+    return result;
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<string> lst(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> lst[i];
+    vector<string> lst;
+    string input;
+    while (cin >> input) {
+        lst.push_back(input);
     }
     
-    vector<string> sorted_lst = sort_and_filter(lst);
-    cout << sorted_list_sum(sorted_lst) << endl;
+    vector<string> result = sorted_list_sum(lst);
+    
+    for (const string& s : result) {
+        cout << s << " ";
+    }
     
     return 0;
 }
