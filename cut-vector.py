@@ -2,22 +2,15 @@ n = int(input())
 nums = [int(input()) for _ in range(n)]
 
 total_sum = sum(nums)
-left_sum = 0
-right_sum = total_sum
+half_sum = total_sum // 2
 
-min_diff = total_sum
-cut_index = 0
-
-for i in range(n):
-    left_sum += nums[i]
-    right_sum -= nums[i]
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
-
-subvector1 = nums[: cut_index + 1]
-subvector2 = nums[cut_index + 1 :]
-
-print(*subvector1)
-print(*subvector2)
+current_sum = 0
+for i, num in enumerate(nums):
+    current_sum += num
+    if current_sum >= half_sum:
+        if current_sum == half_sum or abs(current_sum - half_sum) < abs(
+            current_sum - num - half_sum
+        ):
+            print(*nums[: i + 1])
+            print(*nums[i + 1 :])
+            break
