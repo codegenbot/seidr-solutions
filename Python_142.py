@@ -7,5 +7,6 @@ def sum_squares(lst):
         elif num % 12 == 0:
             total += num**3
         else:
-            total += num**2
+            if num % 2 == 0:
+                total += num**2
     return total
