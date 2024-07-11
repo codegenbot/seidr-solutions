@@ -1,21 +1,21 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 
 std::string fix_spaces(const std::string& text) {
     std::string result;
-    bool isConsecutive = false;
-    for (char c : text) {
-        if (c == ' ') {
-            if (isConsecutive) {
-                result.pop_back();
-                result += "-";
+    bool consecutive = false;
+    for(char c : text){
+        if(c == ' '){
+            if(!consecutive){
+                result.push_back('_');
+                consecutive = true;
             } else {
-                result += "_";
+                result.push_back('-');
             }
-            isConsecutive = true;
         } else {
-            result += c;
-            isConsecutive = false;
+            result.push_back(c);
+            consecutive = false;
         }
     }
     return result;
