@@ -1,12 +1,11 @@
+```
 from typing import List
 
-
-def rolling_max(numbers: List[int]) -> List[int]:
-    max_seen = float('-inf')
+def rolling_max(numbers: list[int]) -> list[int]:
     result = []
-    
+    max_so_far = numbers[0]
     for num in numbers:
-        max_seen = max(num, max_seen)
-        result.append(max_seen)
-        
+        if num > max_so_far:
+            max_so_far = num
+        result.append(max_so_far)
     return result
