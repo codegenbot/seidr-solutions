@@ -54,6 +54,3 @@ int main() {
     for (string s : result2) {
         cout << s << endl;
     }
-    
-    return 0;
-}
