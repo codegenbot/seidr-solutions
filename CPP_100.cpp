@@ -1,6 +1,6 @@
 #include <vector>
-#include <algorithm>
 #include <cassert>
+#include <algorithm>
 
 std::vector<int> make_a_pile(int n) {
     std::vector<int> stones;
@@ -11,6 +11,6 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert(std::equal(make_a_pile(8).cbegin(), make_a_pile(8).cend(), std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22}.cbegin()));
+    assert(std::equal(make_a_pile(8).begin(), make_a_pile(8).end(), std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22}.begin()));
     return 0;
 }
