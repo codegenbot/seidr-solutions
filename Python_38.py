@@ -1,7 +1,4 @@
-```
 def decode_cyclic(encoded_str):
-    if len(encoded_str) % (len(encoded_str) // 2) != 0:
-        return "Invalid input. Please ensure the length of the encoded string is a multiple of half its length."
     decoded_str = ""
     n = len(encoded_str) // 2
     while n % 2 != 0:
@@ -12,7 +9,7 @@ def decode_cyclic(encoded_str):
         else:
             encoded_str = "1" + encoded_str
     for i in range(0, len(encoded_str), n):
-        bits = encoded_str[i : i + n]
+        bits = encoded_str[i:i+n]
         if bits[0] == "1":
             decoded_str += bits[1:].zfill(n)[::-1]
         else:
