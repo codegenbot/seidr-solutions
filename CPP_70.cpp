@@ -1,13 +1,14 @@
-#include <memory>
+#include <memory_resource>
 #include <algorithm>
-#include <numeric>
 
-bool issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
+bool std::pmr::issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::pmr::vector<int, std::pmr::polymorphic_allocator<int>> strange_sort_list(std::pmr::vector<int, std::pmr::polymorphic_allocator<int>>& lst) {
-    std::pmr::vector<int, std::pmr::polymorphic_allocator<int>> result(lst.get_allocator());
+std::pmr::polymorphic_allocator<int> alloc;
+
+std::pmr::vector<int> strange_sort_list(std::pmr::vector<int> lst) {
+    std::pmr::vector<int> result(alloc);
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
         result.push_back(min_val);
@@ -24,5 +25,6 @@ std::pmr::vector<int, std::pmr::polymorphic_allocator<int>> strange_sort_list(st
 }
 
 int main() {
-    assert(issame(std::pmr::vector<int, std::pmr::polymorphic_allocator<int>>(strange_sort_list({1, 1, 1, 1, 1})), std::pmr::vector<int, std::pmr::polymorphic_allocator<int>>({1, 1, 1, 1, 1})));
+    alloc = std::pmr::polymorphic_allocator<int>();
+    assert(std::pmr::issame(strange_sort_list({1, 1, 1, 1, 1}), std::vector<int>({1, 1, 1, 1, 1})));
 }
