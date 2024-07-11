@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```
 def truncate_number_to_two_decimal_places(number, num_decimal_places=None):
     if not isinstance(number, (int, float)):
         print("Invalid input. Please enter a valid number.")
