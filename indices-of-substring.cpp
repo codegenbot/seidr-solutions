@@ -8,11 +8,9 @@ vector<int> indicesOfSubstring(string text, string target) {
     int m = target.length();
 
     for (int i = 0; i <= n - m; i++) {
-        if (text.substr(i, m) == target) {
-            result.push_back(i);
-            // check for overlapping targets
-            while ((i + m) <= n && text.substr(i, m) == target)
-                i++;
+        size_t found = text.find(target, i);
+        if (found != string::npos) {
+            result.push_back(found);
         }
     }
 
