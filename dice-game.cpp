@@ -8,10 +8,14 @@ int main() {
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
             if (i > j) {
-                probability += 1.0 / (n * m);
+                probability += 1.0;
+            } else if (i == j) {
+                probability += 0.5;
             }
         }
     }
+    
+    probability /= (n * m);
     
     std::cout << probability << std::endl;
     
