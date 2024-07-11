@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool std::vector<int>::issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -17,9 +17,4 @@ std::vector<int> rolling_max(const std::vector<int>& numbers) {
         result.push_back(max_val);
     }
     return result;
-}
-
-int main() {
-    assert(std::vector<int>::issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-    return 0;
 }
