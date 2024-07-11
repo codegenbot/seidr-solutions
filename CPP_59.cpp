@@ -1,5 +1,5 @@
 int factor = 2;
-    while (n > factor) {
+    while (n > 1) {
         if (n % factor == 0) {
             n /= factor;
         } else {
