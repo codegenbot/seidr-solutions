@@ -1,3 +1,6 @@
+import sys
+
+
 def filter_by_prefix(strings, prefix):
     return [s for s in strings if s.startswith(prefix)]
 
@@ -21,6 +24,4 @@ while True:
         print(f"An error occurred: {e}")
         answer = input("Do you want to continue (yes/no)? ")
         if answer.lower() != "yes":
-            import sys
-
             sys.exit()
