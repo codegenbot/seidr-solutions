@@ -8,8 +8,13 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-    while (cin >> num && !cin.fail()) {
+    while (cin >> num && !cin.eof()) {
         nums.push_back(num);
+    }
+
+    if (nums.empty()) {
+        cout << "Input vector is empty" << endl;
+        return 0;
     }
 
     int n = nums.size();
