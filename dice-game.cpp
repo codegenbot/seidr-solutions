@@ -14,7 +14,7 @@ double probability(int n, int m) {
 
 int main() {
     int n, m;
-    std::cin >> n >> m;
-    std::cout << std::fixed << std::setprecision(6) << probability(n, m) << std::endl;
+    cin >> n >> m;
+    cout << fixed << setprecision(6) << probability(n, m) << endl;
     return 0;
 }
