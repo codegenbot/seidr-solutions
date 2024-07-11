@@ -14,7 +14,7 @@ int smallest_change(std::vector<int> arr) {
 int main() {
     using namespace std;
     assert(smallest_change({0, 1}) == 1);
-    vector<int> arr;
+    vector<int> arr(0);
     cout << "Enter the numbers separated by space: ";
     int n;
     cin >> n;
