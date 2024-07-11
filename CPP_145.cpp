@@ -1,8 +1,8 @@
 #include <vector>
 
-extern vector<int> order_by_points(int);
+extern std::vector<int> order_by_points(int);
 
-bool issame(const vector<int>& a, const vector<int>& b){
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
