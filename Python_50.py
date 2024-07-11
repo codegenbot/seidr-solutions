@@ -7,9 +7,10 @@ def decode_shift():
             if 0 <= shift <= 25:
                 break
             else:
-                print("Shift value must be between 0 and 25. Please re-enter.")
+                print("Invalid shift value. Please enter a value within 0-25.")
         except ValueError:
             print("Invalid input. Please enter an integer.")
+
     decoded = ""
     for ch in s:
         if ch.isalpha():
