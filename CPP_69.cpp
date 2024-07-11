@@ -1,18 +1,15 @@
-#include <algorithm>
-#include <vector>
-#include <cassert>
-
-int search(const std::vector<int>& lst) {
-    int maxFreq = -1;
+int search(const vector<int>& lst) {
+    int result = -1;
     for (int num : lst) {
-        int freq = std::count(lst.begin(), lst.end(), num);
-        if (num >= freq && freq > maxFreq) {
-            maxFreq = freq;
+        if (num > 0 && count(lst.begin(), lst.end(), num) >= num) {
+            result = max(result, num);
         }
     }
-    return maxFreq > 0 ? maxFreq : -1;
+    return result;
 }
 
 int main() {
     assert(search({3, 10, 10, 9, 2}) == -1);
+    // Additional test cases can be added here
+    return 0;
 }
