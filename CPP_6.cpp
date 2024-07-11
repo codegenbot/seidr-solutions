@@ -1,17 +1,13 @@
 #include <vector>
 
-bool issame(vector<int> v1, vector<int> v2){
-    if (v1.size() != v2.size()) {
-        return false;
-    }
+bool issame(vector<int> v1, vector<int> v2) {
+    return v1 == v2;
+}
 
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
+vector<int> parse_nested_parens(string paren_string);
 
-    return true;
+int main() {
+    // Implementation of parse_nested_parens function
 }
 
 vector<int> parse_nested_parens(string paren_string){
