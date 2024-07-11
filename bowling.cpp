@@ -1,4 +1,8 @@
-int bowlingScore(const std::string& s) {
+```c++
+#include <iostream>
+#include <string>
+
+int bowlingScore(std::string s) {
     int score = 0;
     for (int i = 0; i < 10; ++i) {
         if (s[i] == 'X') {
@@ -13,8 +17,21 @@ int bowlingScore(const std::string& s) {
             }
         } else {
             int roll1 = s[i] - '0';
-            int roll2 = s[i + 1] - '0';
-            score += roll1 + roll2;
+            if (s[i + 1] == '/') {
+                int roll2 = s[i + 2] - '0';
+                score += roll1 + 10;
+            } else {
+                int roll2 = s[i + 1] - '0';
+                score += roll1 + roll2;
+            }
         }
     }
     return score;
+}
+
+int main() {
+    std::string input = "XXXXXXX/78"; // test input
+    int score = bowlingScore(input);
+    std::cout << "Score: " << score << std::endl;
+    return 0;
+}
