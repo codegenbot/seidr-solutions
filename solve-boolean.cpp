@@ -5,7 +5,7 @@ int main() {
     std::string input;
     std::cin >> input;
 
-    if (input == "t") {
+    if (input == "T") {
         std::cout << "True";
     } else {
         std::cout << "False";
