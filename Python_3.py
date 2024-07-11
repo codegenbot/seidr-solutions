@@ -1,7 +1,10 @@
+```
 def below_zero(operations: List[int]) -> bool:
     if not isinstance(operations, list):
-        return False
+        return None
 
-    balance = sum(i for i in operations if i < 0)
+    for operation in operations:
+        if not isinstance(operation, int):
+            return None
 
-    return balance < 0
+    return any(op < 0 for op in operations)
