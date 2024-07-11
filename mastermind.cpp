@@ -1,20 +1,37 @@
-int mastermind(string code, string guess) {
-    int white = 0;
-    int black = 0;
+#include <vector>
+#include <iostream>
+#include <string>
 
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            black++;
+int countWhitePegs(const std::string& code, const std::string& guess) {
+    int whitePegs = 0;
+    for (char c : code) {
+        if (std::count(guess.begin(), guess.end(), c) > 0 &&
+            std::find(guess.begin(), guess.end(), c) != guess.end()) {
+            ++whitePegs;
         }
     }
+    return whitePegs;
+}
 
-    for (int i = 0; i < 6; i++) {
-        char c = (char)('A' + i);
-        int code_count = count(code.begin(), code.end(), c);
-        int guess_count = count(guess.begin(), guess.end(), c);
-
-        white += min(code_count, guess_count) - black;
+int countBlackPegs(const std::string& code, const std::string& guess) {
+    int blackPegs = 0;
+    for (size_t i = 0; i < code.length(); ++i) {
+        if (code[i] == guess[i]) {
+            ++blackPegs;
+        }
     }
+    return blackPegs;
+}
 
-    return {white, black};
+int main() {
+    std::string code, guess;
+    std::cout << "Enter Mastermind code: ";
+    std::cin >> code;
+    std::cout << "Enter your guess: ";
+    std::cin >> guess;
+    int whitePegs = countWhitePegs(code, guess);
+    int blackPegs = countBlackPegs(code, guess);
+    std::cout << whitePegs << "\n";
+    std::cout << blackPegs << "\n";
+    return 0;
 }
