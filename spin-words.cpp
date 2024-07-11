@@ -1,32 +1,73 @@
-#include <algorithm>
-#include <string>
 #include <iostream>
-
+#include <algorithm>
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            result += " ";
-            continue;
-        }
-        int j = i;
-        while (j < str.length() && str[j] != ' ') {
-            j++;
-        }
-        string word = str.substr(i, j - i);
-        if (word.length() >= 5) {
-            for (int k = word.length() - 1; k >= 0; k--) {
-                result += word[k];
+    bool inWord = false;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i < str.length()) {
+            char c = str[i];
+            if (!inWord && !isSpace(c)) {
+                inWord = true;
             }
-            result += " ";
+            if (inWord) {
+                result += c;
+                if (c == ' ') {
+                    inWord = false;
+                }
+            } else if (isSpace(c)) {
+                result += " ";
+            }
         } else {
-            result += word + " ";
+            if (inWord) {
+                string word = result;
+                reverse(word.begin(), word.end());
+                if (word.length() >= 5) {
+                    result = word + " ";
+                } else {
+                    result = word + " ";
+                }
+                inWord = false;
+            }
+            result += c;
         }
-        i = j;
     }
-    return result.substr(1, result.length() - 2);
+    return result;
+}
+
+string spinWords(string str) {
+    string result = "";
+    bool inWord = false;
+    for (int i = 0; i <= str.length(); i++) {
+        if (i < str.length()) {
+            char c = str[i];
+            if (!inWord && !isSpace(c)) {
+                inWord = true;
+            }
+            if (inWord) {
+                result += c;
+                if (c == ' ') {
+                    inWord = false;
+                }
+            } else if (isSpace(c)) {
+                result += " ";
+            }
+        } else {
+            if (inWord) {
+                string word = result;
+                reverse(word.begin(), word.end());
+                if (word.length() >= 5) {
+                    result = word + " ";
+                } else {
+                    result = word + " ";
+                }
+                inWord = false;
+            }
+            result += c;
+        }
+    }
+    return result;
 }
 
 int main() {
@@ -35,4 +76,3 @@ int main() {
     getline(cin, str);
     cout << "Spun result: " << spinWords(str) << endl;
     return 0;
-}
