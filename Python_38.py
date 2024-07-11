@@ -1,6 +1,6 @@
 def encode_cyclic(s: str):
-    if len(s) < 3:
-        return s
+    if not isinstance(s, str):
+        return "Error: Input must be a string."
     groups = []
     for i in range(0, (len(s) + 2) // 3):
         if i * 3 + 3 > len(s):
@@ -10,10 +10,9 @@ def encode_cyclic(s: str):
     groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
     return "".join(groups)
 
-
 def decode_cyclic(s: str):
-    if len(s) % 3 != 0:
-        return 
+    if not isinstance(s, str):
+        return "Error: Input must be a string."
     result = ""
     i = 0
     while i < len(s):
