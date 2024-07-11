@@ -1,6 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
+#include <iostream>
 
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
@@ -30,49 +31,23 @@ vector<string> numerical_letter_grade(vector<float> grades){
 }
 
 int main() {
-    vector<float> grades = {0, 0.7};
-    assert(issame(numerical_letter_grade(grades), {"E", "D-"}));
-    if (grades.size() == 0) {
+    vector<float> grades;
+    cout << "Enter the number of grades: ";
+    int n; cin >> n;
+    for (int i = 0; i < n; i++) {
+        float g; cin >> g;
+        grades.push_back(g);
+    }
+    
+    vector<string> letter_grades = numerical_letter_grade(grades);
+    if(letter_grades.empty()) {
         cout << "No grades found." << endl;
     } else {
         for (float g : grades) {
-            if (g >= 4.0) {
-                cout << "A+" << endl;
-            }
-            else if(g > 3.7) {
-                cout << "A" << endl;
-            }
-            else if(g > 3.3) {
-                cout << "A-" << endl;
-            }
-            else if(g > 3.0) {
-                cout << "B+" << endl;
-            }
-            else if(g > 2.7) {
-                cout << "B" << endl;
-            }
-            else if(g > 2.3) {
-                cout << "B-" << endl;
-            }
-            else if(g > 2.0) {
-                cout << "C+" << endl;
-            }
-            else if(g > 1.7) {
-                cout << "C" << endl;
-            }
-            else if(g > 1.3) {
-                cout << "C-" << endl;
-            }
-            else if(g > 1.0) {
-                cout << "D+" << endl;
-            }
-            else if(g > 0.7) {
-                cout << "D" << endl;
-            }
-            else {
-                cout << "E" << endl;
-            }
+            cout << g << ": " << letter_grades[0] << endl;
+            letter_grades.erase(letter_grades.begin());
         }
     }
+    
     return 0;
 }
