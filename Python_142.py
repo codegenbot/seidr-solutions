@@ -1,4 +1,4 @@
-```
+'''
 while True:
     try:
         lst = input("Enter a list of numbers separated by spaces: ")
@@ -18,3 +18,4 @@ while True:
             print("Invalid input. Please enter numbers separated by spaces.")
     except EOFError:
         break
+'''
