@@ -10,4 +10,4 @@ def make_palindrome(string: str) -> str:
         postfix = string[i:]
         if postfix == postfix[::-1]:
             prefix = string[:i]
-            return prefix + postfix + postfix[::-1]
+            return prefix + prefix[::-1]
