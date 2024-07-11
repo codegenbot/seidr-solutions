@@ -1,4 +1,6 @@
 ```
+from typing import List
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
@@ -14,12 +16,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if stack: 
                 top = stack.pop()
                 groups[-1] += char
-                if not stack and {')': ')', ']': '[', '}': '{'}[char] == {'(': ')', '[': ']', '{': '}'}[top]:
-                    result.append(groups.pop().strip())
-            elif (stack and ({')': ')', ']': '[', '}': '{'}[char] != {'(': ')', '[': ']', '{': '}'}['({'.index(top)]) 
-                  or {')': ')', ']': '[', '}': '{'}[char].endswith({'(': ')', '[': ']', '{': '}'}[top])):
+                if not stack and {')': ')', ']': '[', '}': '{'}[char] == {')': ')', ']': '[', '}': '{'}[top]:
+                    result.append(groups.pop().lstrip().rstrip())
+            else:
                 while stack and (stack[-1] in ['(', '[']) and {')': ')', ']': '[', '}': '{'}[char] != {'(': ')', '[': ']', '{': '}'}[stack[-1]]:
                     stack.pop()
-                if not stack:
-                    result.append(groups.pop().strip())
+                if not stack and {')': ')', ']': '[', '}': '{'}[char] == {')': ')', ']': '[', '}': '{'}['({'.index(top)]:
+                    result.append(groups.pop().lstrip().rstrip())
     return result
