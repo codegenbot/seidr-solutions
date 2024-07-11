@@ -1,7 +1,6 @@
 ```cpp
 #include <iostream>
 #include <cassert>
-#include <iomanip>
 
 using namespace std;
 
@@ -14,9 +13,10 @@ bool right_angle_triangle(float a, float b, float c) {
 
 int main() {
     assert(right_angle_triangle(2, 2, 10) == false);
+    cin >> ws; // clear any whitespace characters
     cout << "Input the lengths of three sides (a, b, c): ";
     float a, b, c;
-    cin >> setprecision(6) >> a >> b >> c;
+    cin >> a >> b >> c;
     if (right_angle_triangle(a, b, c))
         cout << "The triangle is right-angled." << endl;
     else
