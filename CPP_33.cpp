@@ -4,28 +4,18 @@
 using namespace std;
 
 vector<int> sort_third(vector<int> l) {
-    vector<int> result;
+    vector<vector<int>> groups(3);
     for (int i = 0; i < l.size(); i++) {
-        if (i % 3 == 0) {
-            vector<int> temp;
-            temp.reserve(l.size());
-            for (int j = 0; j < l.size(); j++) {
-                if (j % 3 == 0) {
-                    temp.push_back(l[j]);
-                }
-            }
-            sort(temp.begin(), temp.end());
-            for (int j = 0; j < l.size(); j++) {
-                if (j % 3 == 0) {
-                    result.push_back(temp[0]);
-                    temp.erase(temp.begin());
-                } else {
-                    result.push_back(l[j]);
-                }
-            }
-        } else {
-            result.push_back(l[i]);
-        }
+        groups[i % 3].push_back(l[i]);
+    }
+    
+    for (auto& group : groups) {
+        sort(group.begin(), group.end());
+    }
+
+    vector<int> result;
+    for (const auto& group : groups) {
+        result.insert(result.end(), group.begin(), group.end());
     }
     return result;
 }
