@@ -1,4 +1,3 @@
-```cpp
 string solveBoolean(string expression) {
     stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
@@ -22,4 +21,3 @@ string solveBoolean(string expression) {
         s.pop();
     }
     return result;
-}
