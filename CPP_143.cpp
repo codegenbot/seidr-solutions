@@ -11,8 +11,8 @@ string words_in_sentence(string sentence) {
         else {
             bool isPrime = true;
             int len = 1;
-            for (int j = 2; j * j <= (i+len); j++) {
-                if ((i+len) % j == 0) {
+            for (int j = 2; j * j <= i + len; j++) {
+                if ((i + len) % j == 0) {
                     isPrime = false;
                     break;
                 }
