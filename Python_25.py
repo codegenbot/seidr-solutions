@@ -1,13 +1,14 @@
+```
 def find_prime_numbers(n):
     prime_numbers = []
-    for possiblePrime in range(2, n + 1):
-        isPrime = True
-        for num in range(2, int(possiblePrime ** 0.5) + 1):
-            if possiblePrime % num == 0:
-                isPrime = False
+    for num in range(2, n + 1):
+        is_prime = True
+        for div in range(2, int(num ** 0.5) + 1):
+            if num % div == 0:
+                is_prime = False
                 break
-        if isPrime:
-            prime_numbers.append(possiblePrime)
+        if is_prime:
+            prime_numbers.append(num)
     return prime_numbers
 
 while True:
