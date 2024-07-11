@@ -5,6 +5,8 @@ def find_zero(xs):
     if len(xs) < 3:
         return "Not enough coefficients"
     try:
+        if len(xs) != 3 and len(xs) > 3:
+            return "Invalid input. Please enter exactly three coefficients."
         a, b, c = xs[0], xs[1], xs[2]
         d = sum(xs[3:]) if len(xs) > 3 else 0
     except ValueError:
