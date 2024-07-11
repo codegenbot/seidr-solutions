@@ -9,3 +9,6 @@ def match_parens(lst):
                     return 'No'
                 open_count -= 1
     return 'Yes'
+
+# Test cases
+print(match_parens([")", "("]))  # Output: Yes
