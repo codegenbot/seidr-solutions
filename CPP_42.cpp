@@ -17,12 +17,6 @@ std::vector<int> incr_list(std::vector<int> l){
 }
 
 int main() {
-    std::vector<int> a, b;
-    
-    // Read elements into a and b
-    
-    bool result = issame(a, b);
-    std::vector<int> incremented = incr_list(a);
-    
+    // Your main function code here
     return 0;
 }
