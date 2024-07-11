@@ -33,7 +33,7 @@ int main() {
     string sub;
     cin >> sub;
     
-    if (issame(filter_by_substring(words, sub), filter_by_substring(words, "") ) )
+    if (issame(filter_by_substring(words, sub), filterBySubstring(words, "")) )
         cout << "Yes" << endl;
     else
         cout << "No" << endl;
