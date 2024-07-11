@@ -14,4 +14,3 @@ def find_closest_elements():
         return closest_pair
     except ValueError:
         print("Invalid input. Please enter a comma-separated list of numbers.")
-print(find_closest_elements())
