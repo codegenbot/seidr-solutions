@@ -1,4 +1,4 @@
-```
+```Python
 def add():
     while True:
         try:
