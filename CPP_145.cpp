@@ -1,9 +1,5 @@
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    std::sort(a.begin(), a.end(), [](int a, int b) {
+bool issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int temp_a = abs(a), temp_b = abs(b);
 
