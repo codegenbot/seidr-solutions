@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 
-bool issame(int a, int b) {
-    return a == b;
+bool issame(int x, int y) {
+    return x == y;
 }
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
