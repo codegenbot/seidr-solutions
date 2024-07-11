@@ -1,20 +1,11 @@
-#include <iostream>
-
 int main() {
     int n, m;
-    std::cin >> n >> m;
-
-    double prob = 0.0;
-
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= m; j++) {
-            if (i > j) {
-                prob += 1.0 / (n * m);
-            }
-        }
-    }
-
-    std::cout << prob << std::endl;
-
+    cin >> n >> m;
+    double result;
+    if (n >= m)
+        result = 0.5;
+    else
+        result = (double)(m - n) / m;
+    printf("%.2f\n", result);
     return 0;
 }
