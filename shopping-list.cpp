@@ -19,7 +19,7 @@ int main() {
         total_price += prices[i] * (1.0 - (discounts[i] / 100.0));
     }
 
-    std::cout << "Total discounted price: " << total_price << std::endl;
+    std::cout << "Total discounted price: " << std::fixed << total_price << std::endl;
 
     return 0;
 }
