@@ -19,7 +19,10 @@ int main() {
     std::cin >> std::ws; 
     std::getline(std::cin, input);
     size_t pos = 0;
-    while (pos < input.size() && ::isspace(input[pos])) {
+    while (pos < input.size()) {
+        if (!std::isspace(input[pos])) {
+            break;
+        }
         ++pos;
     }
     input.erase(0, pos);
