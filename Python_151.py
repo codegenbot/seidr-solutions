@@ -1,3 +1,4 @@
+```python
 def double_the_difference(a, b):
     return abs(int(a) - int(b)) * 2
 
