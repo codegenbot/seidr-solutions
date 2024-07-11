@@ -1,35 +1,40 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <algorithm>
-
-using namespace std;
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
-    vector<vector<pair<int, int>>> graph(n);
+    vector<vector<bool>> visited(n, vector<bool>(n));
+    vector<int> res;
+    
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (i > 0) graph[i][j].emplace_back(grid[i - 1][j], i - 1, j);
-            if (i < n - 1) graph[i][j].emplace_back(grid[i + 1][j], i + 1, j);
-            if (j > 0) graph[i][j].emplace_back(grid[i][j - 1], i, j - 1);
-            if (j < n - 1) graph[i][j]..emplace_back(grid[i][j + 1], i, j + 1);
+            if (!visited[i][j]) {
+                dfs(grid, visited, i, j, k, &res);
+            }
         }
     }
-
-    vector<int> res;
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq({{0, 0}});
-    vector<vector<bool>> visited(n, vector<bool>(n));
-    while (!pq.empty()) {
-        auto [val, x, y] = pq.top(); pq.pop();
-        res.push_back(val);
-        if (res.size() == k) break;
-        for (auto &[v, nx, ny] : graph[x][y]) {
-            if (visited[nx][ny]) continue;
-            visited[nx][ny] = true;
-            pq.emplace(v, nx, ny);
-        }
-    }
-
+    
     return res;
+}
+
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>* res) {
+    if (k == 0) {
+        (*res).insert((*res).end(), grid[x].begin(), grid[x].end());
+        return;
+    }
+    
+    for (int i = -1; i <= 1; ++i) {
+        for (int j = -1; j <= 1; ++j) {
+            if ((i == 0 || j == 0) && abs(i) + abs(j) == 1) { 
+                int newX = x + i;
+                int newY = y + j;
+                
+                if (newX >= 0 && newX < grid.size() && newY >= 0 && newY < grid[0].size()) {
+                    if (!visited[newX][newY]) {
+                        visited[newX][newY] = true;
+                        (*res).push_back(grid[newX][newY]);
+                        dfs(grid, visited, newX, newY, k - 1, res);
+                        visited[newX][newY] = false; 
+                    }
+                }
+            }
+        }
+    }
 }
