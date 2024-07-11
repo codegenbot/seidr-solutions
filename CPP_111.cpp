@@ -1,15 +1,16 @@
 map<char, int> histogram(string test) {
-    map<char, int> result;
-    map<char, int> counts;
-
-    for (char c : test) {
-        if (c != ' ') {
-            counts[c]++;
+    map<char, int> hist;
+    istringstream iss(test);
+    string word;
+    while (iss >> word) {
+        for (char c : word) {
+            hist[c]++;
         }
     }
-
+    
+    map<char, int> result;
     int maxCount = 0;
-    for (const auto &pair : counts) {
+    for (const auto& pair : hist) {
         if (pair.second > maxCount) {
             maxCount = pair.second;
             result.clear();
@@ -18,6 +19,6 @@ map<char, int> histogram(string test) {
             result[pair.first] = pair.second;
         }
     }
-
+    
     return result;
 }
