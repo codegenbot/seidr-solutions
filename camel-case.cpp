@@ -1,17 +1,19 @@
 int main() {
-    string s;
-    getline(cin, s);
+    string input;
+    getline(cin, input);
     bool flag = false;
-    for (char &c : s) {
-        if (c == '-') {
+    for (int i = 0; i < input.size(); ++i) {
+        if (input[i] == '-') {
             flag = true;
             continue;
         }
         if (flag) {
-            c = toupper(c);
+            cout << (char)toupper(input[i]);
             flag = false;
+        } else {
+            cout << input[i];
         }
     }
-    cout << s << endl;
+    cout << endl;
     return 0;
 }
