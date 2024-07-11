@@ -1,11 +1,4 @@
+```
 def sort_third(l: list):
-    return [
-        (
-            x
-            if i % 3 != 0
-            else sorted(
-                [y for y in l[: i // 3 * 3 + i % 3 :] + l[i // 3 * 3 + i % 3 :]]
-            )[i % 3]
-        )
-        for i, x in enumerate(l)
-    ]
+    multiples_of_3 = [i for i in l if i % 3 == 0]
+    return [i if i % 3 != 0 else next(sorted(multiples_of_3)) for i in l]
