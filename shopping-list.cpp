@@ -24,5 +24,5 @@ int main() {
 
     cout << fixed << setprecision(2) << total << endl;
 
-    return 0;
+return 0;
 }
