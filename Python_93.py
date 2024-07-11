@@ -8,7 +8,10 @@ def encode(message):
             elif char.isupper():
                 new_char = chr((ord(char.lower()) - 65 + 2) % 26 + 65)
             else:
-                new_char = char.swapcase()
+                if char.islower():
+                    new_char = char.upper()
+                else:
+                    new_char = char.lower()
             result += new_char
         else:
             result += char
