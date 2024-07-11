@@ -1,6 +1,5 @@
 ```
 from typing import List, Tuple
-
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
     numbers = list(map(int, input("Enter a space-separated sequence of numbers: ").split()))
     
