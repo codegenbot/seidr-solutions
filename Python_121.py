@@ -1,3 +1,4 @@
+```
 while True:
     user_input = input("Enter a list of numbers separated by space, or 'q' to quit: ")
 
