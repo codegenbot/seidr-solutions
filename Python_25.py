@@ -2,7 +2,6 @@
 from typing import List
 import math
 
-
 def factorize():
     try:
         n = int(input("Enter a number to factorize: "))
