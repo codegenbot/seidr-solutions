@@ -1,11 +1,15 @@
 ```cpp
-bool issame(vector<string> a,vector<string>b){
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
-    for(string s : strings) {
-        if(s.find(prefix) == 0 || !issame({s}, {prefix})) {
+
+vector<vector<string>> filter_by_prefix(vector<vector<string>> strings, string prefix){
+    vector<vector<string>> result;
+    for(vector<string> s : strings) {
+        if(issame({s},filter_by_prefix({s},prefix))) {
             result.push_back(s);
         }
     }
