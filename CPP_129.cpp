@@ -1,45 +1,35 @@
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n));
-    vector<vector<bool>> visited(n, vector<bool>(n));
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
+    vector<int> res;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (!visited[i][j]) {
+                vector<int> path;
+                dfs(grid, visited, i, j, k, path);
+                if (path.size() == k) {
+                    res = path;
+                    break;
+                }
+            }
+        }
+        if (res.size() == k) break;
+    }
+    return res;
+}
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i == 0 && j == 0) {
-                dp[i][j] = grid[i][j];
-            } else if (i > 0 && j > 0) {
-                dp[i][j] = min({grid[i][j], dp[i-1][j], dp[i][j-1]});
-            } else if (i > 0) {
-                dp[i][j] = grid[i][j];
-            } else {
-                dp[i][j] = grid[i][j];
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int i, int j, int k, vector<int>& path) {
+    if (path.size() == k) return;
+    visited[i][j] = true;
+    path.push_back(grid[i][j]);
+    for (int x = -1; x <= 1; ++x) {
+        for (int y = -1; y <= 1; ++y) {
+            int ni = i + x, nj = j + y;
+            if (ni >= 0 && ni < grid.size() && nj >= 0 && nj < grid[0].size() && !visited[ni][nj]) {
+                dfs(grid, visited, ni, nj, k, path);
+                if (path.size() == k) return;
             }
         }
     }
-
-    vector<int> path;
-    int i = n - 1, j = n - 1;
-    while (k > 0) {
-        if (i > 0 && j > 0) {
-            if (dp[i-1][j] == dp[i][j]) {
-                path.push_back(grid[i][j]);
-                i--;
-            } else if (dp[i][j-1] == dp[i][j]) {
-                path.push_back(grid[i][j]);
-                j--;
-            } else {
-                path.push_back(grid[i][j]);
-                k--;
-            }
-        } else if (i > 0) {
-            path.push_back(grid[i][j]);
-            i--;
-        } else {
-            path.push_back(grid[i][j]);
-            j--;
-        }
-    }
-
-    reverse(path.begin(), path.end());
-    return path;
+    visited[i][j] = false;
 }
