@@ -9,6 +9,7 @@ int pairedDigits(const std::string& s) {
         }
     }
     return sum;
+
 }
 
 int main() {
@@ -18,3 +19,4 @@ int main() {
     int result = pairedDigits(input);
     std::cout << "Sum of paired digits: " << result << std::endl;
     return 0;
+}
