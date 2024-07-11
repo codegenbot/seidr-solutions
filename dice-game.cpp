@@ -3,17 +3,15 @@
 using namespace std;
 
 int main() {
-    double result = getProbability(4, 6); // example input values
+    double result = getProbability(4, 6); 
     cout << "Probability: " << result << endl;
     return 0;
 }
 
 double getProbability(int n, int m) {
-    if(n <= m)
-        return 0.0; 
-    double p = 0;
-    for(int i = 1; i < m; i++) {
-        p += (1.0 * (n - i)) / (n * m);
+    double p = (n - 1.0) / (n * m);
+    for(int i = 2; i < n; i++) {
+        p += ((i * m + n - 1) - (m + n - 1)) / (n * m);
     }
     return p;
 }
