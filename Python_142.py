@@ -1,10 +1,8 @@
 def sum_squares(lst):
     total_sum = 0
-    for i in range(len(lst)):
-        if (i % 3 == 0 and i % 4 != 0) or (i % 4 == 0 and i % 3 != 0):
-            total_sum += lst[i] ** 2
+    for num in lst:
+        if (num + 1) % 3 == 0 and (num + 1) % 4 != 0:
+            total_sum += num ** 2
+        elif (num + 1) % 4 == 0 and (num + 1) % 3 != 0:
+            total_sum += num ** 3
     return total_sum
-
-lst = input("Enter the list of numbers (space-separated): ")
-lst = [int(i) for i in lst.split()]
-print(sum_squares(lst))
