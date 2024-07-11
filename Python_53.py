@@ -1,7 +1,6 @@
 def add(x: int, y: int):
     return x + y
 
-
 try:
     while True:
         num1 = input("Enter first number: ")
@@ -14,7 +13,5 @@ try:
         else:
             print("Invalid input. Please enter integers.")
 
-    result = add(num1, num2)
+    result = add(int(num1), int(num2))
     print(f"Result: {result}")
-except ValueError:
-    print("Invalid input. Please enter integers.")
