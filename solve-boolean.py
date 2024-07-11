@@ -1,10 +1,11 @@
 def solve_boolean(expression):
     return eval(
-        expression.replace("&", "and")
-        .replace("|", "or")
-        .replace("T", "True")
+        expression.replace("T", "True")
         .replace("F", "False")
+        .replace("|", " or ")
+        .replace("&", " and ")
     )
 
-expression = input()
+
+expression = input("Enter a Boolean expression using T, F, |, and &: ")
 print(solve_boolean(expression))
