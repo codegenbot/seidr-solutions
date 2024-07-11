@@ -14,8 +14,11 @@ bool right_angle_triangle(float a, float b, float c) {
 int main() {
     assert(right_angle_triangle(2, 2, 10) == false);
     cout << "Input the lengths of three sides (a, b, c): ";
-    float a, b, c;
-    cin >> static_cast<float>(a) >> static_cast<float>(b) >> static_cast<float>(c);
+    char a_str[3], b_str[3], c_str[4];
+    cin >> a_str >> b_str >> c_str;
+    float a = atof(a_str);
+    float b = atof(b_str);
+    float c = atof(c_str);
     if (right_angle_triangle(a, b, c))
         cout << "The triangle is right-angled." << endl;
     else
