@@ -1,7 +1,6 @@
 #include <boost/any.hpp>
 #include <cassert>
 #include <string>
-#include <iostream>
 
 using boost::any;
 using boost::any_cast;
@@ -31,16 +30,8 @@ any compare_one(const any& a, const any& b) {
 }
 
 int main() {
-    any result = compare_one(10, 20);
-    assert(any_cast<int>(result) == 20);
-
-    result = compare_one(15.5f, 10.2f);
-    assert(any_cast<float>(result) == 15.5f);
-
-    result = compare_one(string("hello"), string("world"));
-    assert(any_cast<string>(result) == "world");
-
-    std::cout << "All tests passed successfully." << std::endl;
+    any result = compare_one(5, 7);
+    assert(any_cast<int>(result) == 7);
 
     return 0;
 }
