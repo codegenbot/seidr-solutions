@@ -8,19 +8,27 @@ bool isValidInput(const std::string& input) {
 int main() {
     std::string code, guess;
     
-    std::cout << "Enter Mastermind code: ";
+    std::cout << "Enter the Mastermind code: ";
     std::cin >> code;
     
-    std::cout << "Enter guess: ";
+    std::cout << "Enter the guess: ";
     std::cin >> guess;
     
     int whitePegs = 0, blackPegs = 0;
-    
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            blackPegs++;
-        } else if (code.find(guess[i]) != std::string::npos) {
-            whitePegs++;
+            ++blackPegs;
+            code[i] = guess[i] = 'x'; // marking correct positions with 'x'
+        }
+    }
+    
+    for (int i = 0; i < 4; ++i) {
+        if (guess[i] != 'x') {
+            int pos = code.find(guess[i]);
+            if (pos != std::string::npos) {
+                ++whitePegs;
+                code[pos] = 'x'; // marking matched colors with 'x'
+            }
         }
     }
     
