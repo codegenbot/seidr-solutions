@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 int main() {
     string digits;
     cin >> digits;
@@ -9,7 +13,7 @@ int main() {
         }
     }
     
-    cout << sum << endl;
+    cout << sum << '\n';
     
     return 0;
 }
