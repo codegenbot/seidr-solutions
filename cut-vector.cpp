@@ -1,14 +1,14 @@
-#include <climits>
 #include <iostream>
 #include <vector>
 #include <numeric>
+#include <climits>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& arr) {
     int n = arr.size();
     int min_diff = INT_MAX;
     std::pair<std::vector<int>, std::vector<int>> result;
     
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i < n-1; i++) {
         int diff = std::abs(std::accumulate(arr.begin(), arr.begin()+i, 0) - std::accumulate(arr.begin()+i, arr.end(), 0));
         if (diff < min_diff) {
             min_diff = diff;
