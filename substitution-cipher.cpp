@@ -4,12 +4,10 @@
 
 int main() {
     std::string cipherMap, input;
-    std::cout << "Enter cipher map: ";
-    std::getline(std::cin, cipherMap);
-    std::cout << "Enter message to decipher: ";
-    std::getline(std::cin, input);
     
-    std::cout << "Deciphered message: " << substitutionCipher(cipherMap, input) << std::endl;
+    std::cin >> cipherMap >> input;
+    
+    std::cout << substitutionCipher(cipherMap, input) << std::endl;
 
     return 0;
 }
