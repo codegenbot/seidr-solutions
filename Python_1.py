@@ -1,6 +1,4 @@
-Here's the modified code:
-
-```python
+```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -18,7 +16,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             stack.pop()
             current_group += char
             if not stack:
-                groups.append(current_group)
+                groups.append(current_group.strip())
                 current_group = ''
     
     return groups
