@@ -1,10 +1,16 @@
+```
 def prime_fib(n: int):
-    a, b = 0, 1
-    fib_numbers = [a, b]
-    while True:
-        a, b = b, a + b
-        if len(fib_numbers) > n and b < 10**6:
-            return fib_numbers[n - 1]
-        elif b >= 10**6:
-            break
-        fib_numbers.append(b)
+    fib = [0, 1]
+    while len(fib) <= n:
+        fib.append(fib[-1] + fib[-2])
+    for i in range(len(fib)):
+        if is_prime(fib[i]):
+            return fib[i]
+
+def is_prime(num: int):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
