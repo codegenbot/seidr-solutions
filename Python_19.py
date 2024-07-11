@@ -14,4 +14,4 @@ while True:
         check(num1, num2)
         break
     except ValueError:
-        print("Invalid input. Please enter a valid number.")
+        print("Invalid input. Please enter a valid integer.")
