@@ -1,4 +1,6 @@
 #include <string>
+#include <cassert>
+
 int is_bored(string S){
     int count = 0;
     string boredom = "I";
@@ -13,10 +15,10 @@ int is_bored(string S){
     }
     
     return count;
+
 }
 
 int main() {
-    #include <cassert>
-    assert(is_bored("You and I are going for a walk") == 0);
+    assert (is_bored("You and I are going for a walk") == 0);
     return 0;
 }
