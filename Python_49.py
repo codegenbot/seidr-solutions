@@ -5,7 +5,7 @@ def modp(n: int, p: int):
             return b, 0, 1
         else:
             gcd, y, x = extended_euclidean(b % a, a)
-            return gcd, y, x - (b // a) * y
+            return gcd, x, y - (b // a) * x
 
     gcd, inv_n, _ = extended_euclidean(n, p)
     if gcd != 1:
