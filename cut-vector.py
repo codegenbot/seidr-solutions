@@ -6,7 +6,7 @@ else:
     total_sum = sum(nums)
     curr_sum = 0
     cut_index = None
-    min_diff = float("inf")
+    min_diff = float('inf')
 
     for i in range(len(nums) - 1):
         curr_sum += nums[i]
@@ -15,4 +15,4 @@ else:
             min_diff = diff
             cut_index = i
 
-nums[: cut_index + 1], nums[cut_index + 1 :]
+cut_index
