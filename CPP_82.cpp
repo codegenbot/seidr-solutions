@@ -20,10 +20,3 @@ bool prime_length(string str) {
     int len = str.length();
     return is_prime(len);
 }
-
-int main() {
-    string input;
-    cin >> input;
-    cout << (prime_length(input) ? "true" : "false") << endl;
-    return 0;
-}
