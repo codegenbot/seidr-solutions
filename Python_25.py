@@ -1,6 +1,6 @@
-```
 from typing import List
 import math
+
 
 def main():
     while True:
@@ -23,6 +23,8 @@ def main():
     if n > 1:
         factors.append(n)
     print(factors)
-    more = input("Enter 'y' to calculate another prime factorization, any other key to exit: ")
-    if more.lower() != 'y':
+    more = input(
+        "Enter 'y' to calculate another prime factorization, any other key to exit: "
+    )
+    if more.lower() != "y":
         return
