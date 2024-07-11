@@ -1,15 +1,11 @@
-```
 def decode_shift(s: str):
     decoded = ""
-    shift = 0
     for ch in s:
         if ch.isalpha():
             if ch.islower():
-                decoded += chr((ord(ch) - ord('a') - shift) % 26 + ord('a'))
+                decoded += chr((ord(ch) - ord('a') + 23) % 26 + ord('a'))
             else:
-                decoded += chr((ord(ch) - ord('A') - shift) % 26 + ord('A'))
-        elif ch.isdigit():
-            decoded += chr(int(ch) - shift)
+                decoded += chr((ord(ch) - ord('A') + 23) % 26 + ord('A'))
         else:
             decoded += ch
     return decoded
