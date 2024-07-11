@@ -16,7 +16,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 groups.pop()
                 groups.pop()
 
-    result = [
-        "".join(group) for group in [groups[i : j + 1] for i, j in enumerate(groups)]
-    ]
+    result = ["".join(group) for group in [groups[i : j + 1] for i, j in enumerate(groups)]]
     return [group for group in result if len([c for c in group if c == "("]) % 2 == 0]
