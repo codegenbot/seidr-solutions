@@ -1,2 +1,9 @@
-def solve_task():
-    return " ".join([k for k, v in num_dict.items() if v == int(i)] for i in [str(x) for x in sorted([num_dict[i] for i in numbers.split()])])
+def main():
+    while True:
+        cont = input("Do you want to compare numbers? (y/n): ")
+        if cont.lower() != "y":
+            break
+        check(solve)
+
+
+main()
