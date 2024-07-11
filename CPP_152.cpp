@@ -1,5 +1,5 @@
-#include <vector> // Include the vector header
-#include <cassert> // Include the assert header
+#include <vector>
+#include <cassert>
 
 std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
     std::vector<int> result;
