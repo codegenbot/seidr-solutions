@@ -1,8 +1,10 @@
 ```cpp
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpedantic"
 #include <algorithm>
 #include <vector>
 
-void max_value_function() {
+int max_value_function() {
     std::vector<std::pair<int, int>> p;
     for (int i = 0; i < 6; ++i) {
         int x, y;
@@ -14,7 +16,7 @@ void max_value_function() {
         return a.second < b.second;
     });
     
-    int max_value = std::get<0>(max_pair);
+    int max_value = std::get<1>(max_pair);
     int min_value = *std::min_element(p.begin(), p.end())->first;
     
     std::cout << "Maximum value: " << max_value << std::endl;
@@ -24,3 +26,4 @@ void max_value_function() {
 int main() {
     max_value_function();
 }
+#pragma GCC diagnostic pop
