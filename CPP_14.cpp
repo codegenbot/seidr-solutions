@@ -9,13 +9,3 @@ vector<string> all_prefixes(string b){
     }
     return result;
 }
-
-int main() {
-    string input;
-    cin >> input;
-    vector<string> prefixes = all_prefixes(input);
-    for (string prefix : prefixes) {
-        cout << prefix << " ";
-    }
-    return 0;
-}
