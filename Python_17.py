@@ -14,8 +14,8 @@ def parse_music(music_string: str) -> List[int]:
                 if len(note) == 1:
                     result.append(beats[0])
                 elif len(note) == 2:
-                    result.append(beats[1] * int(note[0]))
+                    result.append(beats[1])
                 else:
-                    result.append(int(note))
+                    result.append(beats[2])
                 note = ''
     return result
