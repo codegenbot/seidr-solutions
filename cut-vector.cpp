@@ -1,38 +1,45 @@
 #include <iostream>
+#include <vector>
+#include <climits>
+#include <cmath>
+using namespace std;
 
 int main() {
-    std::vector<int> nums;
-    int num;
-    
-    while (std::cin >> num) {
-        nums.push_back(num);
+    vector<int> nums;
+    int n;
+    while (cin >> n) {
+        nums.push_back(n);
     }
-    
-    int min_diff = INT_MAX;
-    int cut_idx = -1;
-    
-    for (int i = 1; i < nums.size(); ++i) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j < i; ++j) {
-            left_sum += nums[j];
+
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
+    }
+
+    int prefixSum = 0;
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+
+    for (int i = 0; i < nums.size(); i++) {
+        prefixSum += nums[i];
+        int diff = abs(sum - 2 * prefixSum);
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
-        for (int j = i; j < nums.size(); ++j) {
-            right_sum += nums[j];
-        }
-        int diff = abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_idx = i;
-        }
     }
-    
-    for (int i = 0; i < cut_idx; ++i) {
-        std::cout << nums[i] << std::endl;
+
+    vector<int> subVector1(nums.begin(), nums.begin() + cutIndex + 1);
+    vector<int> subVector2(nums.begin() + cutIndex + 1, nums.end());
+
+    for (int num : subVector1) {
+        cout << num << " ";
     }
-    std::cout << std::endl;
-    for (int i = cut_idx; i < nums.size(); ++i) {
-        std::cout << nums[i] << std::endl;
+    cout << endl;
+
+    for (int num : subVector2) {
+        cout << num << " ";
     }
-    
+
     return 0;
 }
