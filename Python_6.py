@@ -1,8 +1,3 @@
-````
-from typing import List
-
-def parse_nested_parens(paren_string: str) -> List[int]:
-    """"
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
@@ -17,5 +12,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 level -= 1
             max_level = max(max_level, level)
         result.append(max_level)
-    return result"""
-```
+    print(result)
+
+print(parse_nested_parens("(a(b(c)d)e(f(g))h(i)")
