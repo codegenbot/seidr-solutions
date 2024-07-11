@@ -1,55 +1,45 @@
 #include <boost/any.hpp>
 #include <string>
-#include <vector>
 
 using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (is_any_of<a>(std::string("int")) && is_any_of<b>(std::string("int"))) {
-        int x = boost::any_cast<int>(a);
-        int y = boost::any_cast<int>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any(std::string("None")));
+        int ai = boost::any_cast<int>(a);
+        int bi = boost::any_cast<int>(b);
+        return (ai > bi) ? a : ((bi > ai) ? b : boost::any("None")));
     } else if (is_any_of<a>(std::string("float")) && is_any_of<b>(std::string("float"))) {
-        float x = boost::any_cast<float>(a);
-        float y = boost::any_cast<float>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any(std::string("None")));
-    } else if (is_any_of<a>(std::string("std::string")) && is_any_of<b>(std::string("std::string"))) {
-        std::string x = boost::any_cast<std::string>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any(std::string("None")));
+        float af = boost::any_cast<float>(a);
+        float bf = boost::any_cast<float>(b);
+        return (af > bf) ? a : ((bf > af) ? b : boost::any("None")));
+    } else if (is_any_of<a>(std::string("string")) && is_any_of<b>(std::string("string"))) {
+        string as = boost::any_cast<string>(a);
+        string bs = boost::any_cast<string>(b);
+        return (as > bs) ? a : ((bs > as) ? b : boost::any("None")));
     } else if (is_any_of<a>(std::string("int")) && is_any_of<b>(std::string("float"))) {
-        int x = boost::any_cast<int>(a);
-        float y = boost::any_cast<float>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any(std::string("None")));
+        int ai = boost::any_cast<int>(a);
+        float bf = boost::any_cast<float>(b);
+        return (bf > ai) ? b : ((ai > bf) ? a : boost::any("None")));
     } else if (is_any_of<a>(std::string("float")) && is_any_of<b>(std::string("int"))) {
-        float x = boost::any_cast<float>(a);
-        int y = boost::any_cast<int>(b);
-        return (x > y) ? a : ((x < y) ? b : boost::any(std::string("None")));
-    } else if (is_any_of<a>(std::string("int")) && is_any_of<b>(std::string("std::string"))) {
-        int x = boost::any_cast<int>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        return (x > convert_to_int(y)) ? a : ((x < convert_to_int(y)) ? b : boost::any(std::string("None")));
-    } else if (is_any_of<a>(std::string("float")) && is_any_of<b>(std::string("std::string"))) {
-        float x = boost::any_cast<float>(a);
-        std::string y = boost::any_cast<std::string>(b);
-        return (x > convert_to_float(y)) ? a : ((x < convert_to_float(y)) ? b : boost::any(std::string("None")));
-    } else {
-        return boost::any(std::string("None"));
+        float af = boost::any_cast<float>(a);
+        int bi = boost::any_cast<int>(b);
+        return (af > bi) ? a : ((bi > af) ? b : boost::any("None")));
+    } else if (is_any_of<a>(std::string("int")) && is_any_of<b>(std::string("string"))) {
+        int ai = boost::any_cast<int>(a);
+        string bs = boost::any_cast<string>(b);
+        return (bs > std::to_string(ai)) ? b : ((bs < std::to_string(ai)) ? a : boost::any("None")));
+    } else if (is_any_of<a>(std::string("float")) && is_any_of<b>(std::string("string"))) {
+        float af = boost::any_cast<float>(a);
+        string bs = boost::any_cast<string>(b);
+        return (bs > std::to_string(af)) ? b : ((bs < std::to_string(af)) ? a : boost::any("None")));
+    } else if (is_any_of<a>(std::string("string")) && is_any_of<b>(std::string("int"))) {
+        string as = boost::any_cast<string>(a);
+        int bi = boost::any_cast<int>(b);
+        return (as > std::to_string(bi)) ? a : ((as < std::to_string(bi)) ? b : boost::any("None")));
+    } else if (is_any_of<a>(std::string("string")) && is_any_of<b>(std::string("float"))) {
+        string as = boost::any_cast<string>(a);
+        float bf = boost::any_cast<float>(b);
+        return (as > std::to_string(bf)) ? a : ((as < std::to_string(bf)) ? b : boost::any("None")));
     }
-}
-
-int convert_to_int(const std::string& s) {
-    int x;
-    if (std::istringstream(s) >> x)
-        return x;
-    else
-        throw std::runtime_error("Invalid integer string");
-}
-
-float convert_to_float(const std::string& s) {
-    float x;
-    if (std::istringstream(s) >> x)
-        return x;
-    else
-        throw std::runtime_error("Invalid float string");
+    return a;
 }
