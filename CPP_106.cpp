@@ -1,5 +1,7 @@
 #include <vector>
 
+bool issame(std::vector<int> a, std::vector<int> b);
+
 std::vector<int> f(int n){
     std::vector<int> result;
     for(int i = 1; i <= n; ++i){
