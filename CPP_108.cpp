@@ -1,17 +1,26 @@
-Here is the completed code:
-
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        int sign = abs(num) / pow(10, floor(log10(abs(num)))) * ((num < 0) ? -1 : 1);
-        int sum_digits = 0;
-        int temp = abs(num);
-        while (temp > 0) {
-            sum_digits += temp % 10;
-            temp /= 10;
-        }
-        if (sum_digits > 0 && sign * sum_digits > 0) {
-            count++;
+        if (num >= 0) {
+            int sum = 0;
+            int absNum = num;
+            while (absNum > 0) {
+                int digit = absNum % 10;
+                sum += digit;
+                absNum /= 10;
+            }
+            if (sum > 0) count++;
+        } else {
+            int sum = 0, sign = -1;
+            int absNum = num;
+            while (absNum > 0 || sign == -1) {
+                int digit = absNum % 10;
+                if (sign == -1 && digit != 0)
+                    sign = 1;
+                sum += sign * digit;
+                absNum /= 10;
+            }
+            if (sum > 0) count++;
         }
     }
     return count;
