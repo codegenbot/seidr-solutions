@@ -2,15 +2,11 @@
 from typing import List, Tuple
 
 def find_closed_elements(numbers: List[float]) -> Tuple[float, float]:
-    if not isinstance(numbers, list):
-        return ()
-
-    for num in numbers:
-        if not isinstance(num, (int, float)):
-            return ()
-
     if len(numbers) <= 1:
         return ()
+    
+    if len(numbers) == 2:
+        return (numbers[0], numbers[1])
     
     numbers.sort()
     closest_pair = (numbers[0], numbers[1])
