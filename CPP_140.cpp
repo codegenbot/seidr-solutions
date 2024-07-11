@@ -4,9 +4,8 @@ string result = "";
         if (c == ' ') {
             consecutive_spaces++;
             if (consecutive_spaces > 2) {
-                result.pop_back();
-                result.pop_back();
                 result += "-";
+                consecutive_spaces = 1;
             } else {
                 result += "_";
             }
