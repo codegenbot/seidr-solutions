@@ -1,22 +1,36 @@
-#include <vector>
-#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
+bool isPrime(int num) {
+    if (num <= 1)
+        return false;
+    for (int i = 2; i * i <= num; i++)
+        if (num % i == 0)
+            return false;
+    return true;
+}
 
 int prime_fib(int n) {
-    int a = 0, b = 1, fib = 0;
-    for (int i = 1; ; i++) {
-        if (i == n) return b;
-        fib = a + b;
-        a = b;
-        b = fib;
-        if (!isPrime(fib)) continue;
-        if (++i == n) return fib;
+    int a = 0, b = 1;
+    for (int i = 0; ; i++) {
+        if (isPrime(b)) {
+            if (i == n - 1)
+                return b;
+            int temp = a;
+            a = b;
+            b = temp + b;
+        } else {
+            int temp = a;
+            a = b;
+            b = temp + b;
+        }
     }
 }
 
-bool isPrime(int num) {
-    if (num <= 1) return false;
-    for (int i = 2, sqrt_i = static_cast<int>(sqrt(num)); i <= sqrt_i; i++) {
-        if (!(num % i)) return false;
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        cout << prime_fib(i) << endl;
     }
-    return true;
+    return 0;
 }
