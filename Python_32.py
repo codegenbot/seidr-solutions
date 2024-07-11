@@ -8,11 +8,15 @@ while True:
 import math
 
 def find_zero(xs):
-    try:
+    if len(xs) == 3:
+        a, b, c = map(float, xs)
+        d = 0
+    elif len(xs) == 4:
         a, b, c = map(float, xs[:3])
-        d = sum(map(float, xs[3:])) if len(xs) > 3 else 0
-    except ValueError:
-        return "Invalid input. Please enter only numbers separated by spaces."
+        d = sum(map(float, [xs[3]]))
+    else:
+        return "Invalid input. Please enter exactly three or four coefficients, separated by spaces."
+
     discriminant = b**2 - 4 * a * c
     if discriminant < 0:
         return "No real solutions"
@@ -20,4 +24,4 @@ def find_zero(xs):
     x2 = (-b - math.sqrt(discriminant)) / (2 * a)
     return f"The zeros are {round(x1, 2)} and {round(x2, 2)}"
 
-print(find_zero(map(float, xs)))
+print(find_zero(xs))
