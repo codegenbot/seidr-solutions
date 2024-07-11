@@ -2,12 +2,12 @@
 def minPath(grid, k):
     N = len(grid)
     visited = [[False] * N for _ in range(N)]
-    paths = []
+    path = []
 
     def dfs(i, j, current_path):
-        nonlocal paths
+        nonlocal path
         if len(set(current_path)) == k:
-            paths.append(list(current_path))
+            path.append(list(current_path))
             return True
         for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             ni, nj = i + di, j + dj
@@ -22,5 +22,9 @@ def minPath(grid, k):
     for i in range(N):
         for j in range(N):
             visited[i][j] = True
-            dfs(i, j, [grid[i][j]])
-    return paths
+            if dfs(i, j, [grid[i][j]]):
+                paths = []
+                for p in path:
+                    paths.append(p)
+                return paths
+    return []
