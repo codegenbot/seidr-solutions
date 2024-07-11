@@ -1,5 +1,4 @@
-```
-def separate_paren_groups(paren_string: str) -> List[str]:
+def separate_paren_groups(paren_string: str) -> list:
     def check(paren_string: str):
         output = []
         current_group = ""
