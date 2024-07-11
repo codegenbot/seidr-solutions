@@ -1,5 +1,12 @@
-int* compare(int a[], int b[]) {
-    sort(a, a + sizeof(a) / sizeof(a[0]));
-    sort(b, b + sizeof(b) / sizeof(b[0]));
-    return (int*)new int[]{sizeof(a), sizeof(b)};
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+pair<bool, vector<int>> compare(vector<int> a, vector<int> b) {
+    if (lexicographical_compare(a.begin(), a.end(), b.begin(), b.end())) {
+        return {true, a};
+    } else {
+        return {false, b};
+    }
 }
