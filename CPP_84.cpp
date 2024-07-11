@@ -1,5 +1,3 @@
-```cpp
-#include <iostream>
 #include <string>
 
 string solve(int N){
