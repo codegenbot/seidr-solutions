@@ -14,13 +14,17 @@ int main() {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeFreq[code[i] - 'A']--;
-            guessFreq[guess[i] - 'A']--;
+            codeFreq[code[i] - 'A']++;
+            guessFreq[guess[i] - 'A']++;
         }
     }
     
     for (int i = 0; i < 6; ++i) {
         whitePegs += min(codeFreq[i], guessFreq[i]);
+    }
+    
+    for (char c = 'A'; c <= 'F'; ++c) {
+        whitePegs -= min(codeFreq[c - 'A'], guessFreq[c - 'A']);
     }
     
     cout << whitePegs << endl << blackPegs << endl;
