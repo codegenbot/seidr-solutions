@@ -6,9 +6,8 @@ snow_melt_rate = float(input())
 def snow_day(hours, snow_on_ground, snow_fall_rate, snow_melt_rate):
     snow = snow_on_ground
     for _ in range(int(hours)):
-        new_snow = snow + snow_fall_rate - (snow * snow_melt_rate)
-        snow = new_snow
-    return round(snow, 15)
+        snow = snow + snow_fall_rate - (snow * snow_melt_rate)
+    return round(snow, 16)
 
 result = snow_day(hours, snow_on_ground, snow_fall_rate, snow_melt_rate)
 print(result)
