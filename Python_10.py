@@ -1,3 +1,4 @@
+```
 def make_palindrome(s: str) -> str:
     s = list(s)
     left, right = 0, len(s) - 1
