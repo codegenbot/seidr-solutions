@@ -1,11 +1,10 @@
-def find_pair(target, nums):
-    seen = {}
-    for num in nums:
-        complement = target - num
-        if complement in seen:
-            return f"{num} {complement}"
-        seen[num] = True
+```
+def find_pair(n, nums):
+    nums.sort()
+    for i in range(len(nums)-1):
+        if nums[i+1] + nums[i] == n:
+            return "{} {}".format(nums[i], nums[i+1])
     return "No pair found"
 
-target = int(input())
-print(find_pair(target, [int(x) for x in input().split()]))
+n = int(input())
+print(find_pair(n, [int(x) for x in input().split()]))

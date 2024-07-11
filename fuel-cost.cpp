@@ -1,11 +1,17 @@
 ```cpp
 #include <vector>
 
-int calculateFuelCost(vector<int> prices) {
-    int total = 0;
-    for (int price : prices) {
-        int cost = static_cast<int>(double(price) / 3) - 2;
-        total += cost;
+int totalFuelCost(std::vector<int> fuelCosts) {
+    int sum = 0;
+    for (int cost : fuelCosts) {
+        int newCost = static_cast<int>(cost / 3.0);
+        sum += newCost - 2;
     }
-    return total;
+    return sum;
+}
+
+int main() {
+    std::vector<int> fuelCosts = {1, 2, 3}; 
+    int result = totalFuelCost(fuelCosts);
+    return 0;
 }
