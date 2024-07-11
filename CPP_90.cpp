@@ -2,8 +2,8 @@
 #include <vector>
 #include <algorithm>
 
-int next_smallest(std::vector<int> lst) {
-    std::sort(lst.begin(), lst.end());
+int next_smallest(std::vector<int>& lst) {
+    sort(lst.begin(), lst.end());
     int count = 0;
     int prev = lst[0];
     for (int i = 1; i < lst.size(); ++i) {
@@ -15,12 +15,12 @@ int next_smallest(std::vector<int> lst) {
             prev = lst[i];
         }
     }
-    return -1; // return a default value if no unique smallest element found
+    return -1;
 }
 
 int main() {
-    // Sample test case
-    assert(next_smallest({-35, 34, 12, -45}) == -35);
+    // Add test cases
+    assert (next_smallest({-35, 34, 12, -45}) == -35);
     
     return 0;
 }

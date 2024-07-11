@@ -15,9 +15,10 @@ bool pairs_sum_to_zero(const std::vector<int>& l) {
 
 int main() {
     assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
-    assert(pairs_sum_to_zero({-3, 3, 0, -5, 5}) == true);
-    assert(pairs_sum_to_zero({-2, 4, -4, 2, 0}) == true);
-    assert(pairs_sum_to_zero({1, 2, 3, 4, 5}) == false);
+    // Add more test cases using assert
+    assert(pairs_sum_to_zero({1, -1, 2, -2}) == true);
+    assert(pairs_sum_to_zero({0, 0, 0, 0}) == true);
+    assert(pairs_sum_to_zero({-5, 3, -3, 5, 9}) == true);
     
     return 0;
 }
