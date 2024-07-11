@@ -1,23 +1,24 @@
-```c
-#include <algorithm>
 #include <vector>
+#include <algorithm>
+#include <cassert>
 
-std::vector<int> compare(int a[], int n1, int b[], int n2) {
-    if (n1 != sizeof(a) / sizeof(a[0]) || n2 != sizeof(b) / sizeof(b[0])) {
-        return {0};
-    }
-    std::sort(std::vector<int>(a, a + n1), std::greater<int>());
-    std::sort(std::vector<int>(b, b + n2), std::greater<int>());
+using namespace std;
 
-    int i = 0, j = 0;
-    while (i < n1 && j < n2) {
-        if (a[i] > b[j]) {
-            return {0};
-        } else if (a[i] < b[j]) {
-            return {1};
-        }
-        i++;
-        j++;
-    }
+pair<int, int> compare(vector<int> a, vector<int> b) {
+    vector<int> c = a;
+    vector<int> d = b;
+    sort(c.begin(), c.end());
+    sort(d.begin(), d.end());
+    if (c.size() < d.size())
+        return make_pair(1, 0);
+    else if (c.size() > d.size())
+        return make_pair(0, 1);
+    else
+        return make_pair(1, 1);
 
-    return {0};
+}
+
+int main() {
+    assert (compare({1,2,3,5},{-1,2,3,4}) == make_pair(1,0));
+    return 0;
+}
