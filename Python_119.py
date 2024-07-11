@@ -4,7 +4,7 @@ def match_parens(lst):
         for char in s:
             if char == "(":
                 open_count += 1
-            else:
+            elif char == ")":
                 if open_count <= 0:
                     return "No"
                 open_count -= 1
