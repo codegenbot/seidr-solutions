@@ -1,28 +1,45 @@
 #include <iostream>
 #include <vector>
+#include <climits>
+#include <algorithm>
+using namespace std;
+
+vector<int> findLeaders(const vector<int>& nums) {
+    vector<int> leaders;
+    int n = nums.size();
+    int maxRight = INT_MIN;
+
+    for (int i = n - 1; i >= 0; --i) {
+        if (nums[i] >= maxRight) {
+            maxRight = nums[i];
+            leaders.push_back(nums[i]);
+        }
+    }
+
+    reverse(leaders.begin(), leaders.end());
+    return leaders;
+}
 
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int num;
     
-    std::cout << "Enter positive integers (0 to end input):" << std::endl;
-    while (std::cin >> num && num != 0) {
+    cout << "Enter positive integers (0 to end input, press enter after each number, then Ctrl+D to finish):" << endl;
+    cout.flush();
+    while (cin >> num) {
+        if (num == 0) {
+            break;
+        }
         nums.push_back(num);
     }
     
-    std::vector<int> leaders;
-    int max_right = INT_MIN;
+    vector<int> result = findLeaders(nums);
     
-    for (int i = nums.size()-1; i >= 0; i--) {
-        if (nums[i] >= max_right) {
-            leaders.push_back(nums[i]);
-            max_right = nums[i];
-        }
+    cout << "Leaders in the vector are:";
+    for (int leader : result) {
+        cout << " " << leader;
     }
-    
-    for (int j = leaders.size()-1; j >= 0; j--) {
-        std::cout << leaders[j] << " ";
-    }
+    cout << endl;
     
     return 0;
 }
