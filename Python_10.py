@@ -1,4 +1,3 @@
-```
 def make_palindrome(s: str) -> str:
     if s == s[::-1]:
         return s + s
@@ -6,11 +5,8 @@ def make_palindrome(s: str) -> str:
     result = list(s)
     
     mid = len(result) // 2
-    
-    for i in range(len(result) - 1, mid):
+    for i in range(len(result) - 1, mid, -1):
         if result[0] != result[i]:
-            result.insert(0, result[len(result) - 1])
-            
-            break
-            
+            result.insert(0, result[i])
+    
     return ''.join(result)
