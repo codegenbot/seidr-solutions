@@ -9,16 +9,14 @@ def filter_integers() -> None:
         for user_input in user_inputs:
             if user_input.lower() == 'done':
                 break
+            
             try:
                 values.append(int(user_input))
             except ValueError:
                 print(f"'{user_input}' is not an integer. Skipping...")
 
-        if user_input.lower() == 'done':
-            break
-
-    filtered_values: list[int] = [value for value in values if isinstance(value, int)]
-    
-    print("Filtered integers:", filtered_values)
+        filtered_values: list[int] = [value for value in values if isinstance(value, int)]
+        
+        print("Filtered integers:", filtered_values)
 
 filter_integers()
