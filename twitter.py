@@ -1,2 +1,7 @@
 import re
-f"Your tweet has {len(re.sub(r'\s+', '', tweet))} characters"
+if len(tweet) > 140:
+    return "Too many characters"
+elif len(tweet) == 0:
+    return "You didn't type anything"
+else:
+    return f"Your tweet has {len(re.sub(r'\s+', '', tweet))} characters"
