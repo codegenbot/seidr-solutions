@@ -1,7 +1,15 @@
-```print("""def product_of_signs(arr):
-    if not arr:
-        return None
-    sign_product = 1
-    for num in arr:
-        sign_product *= -1 if num < 0 else 1 if num > 0 else 1
-    return sum(abs(num) for num in arr) * sign_product""")```
+```
+def prod_signs(arr):
+    signs = [1 if x > 0 else -1 if x < 0 else 0 for x in arr]
+    product = 1
+    for sign in signs:
+        if sign != 0:
+            return "Error: The array contains zero"
+        product *= sign
+    return product
+
+def check(product_of_signs):
+    arr = list(map(int, input().split()))
+    print(product_of_signs(arr))
+
+check(prod_signs)
