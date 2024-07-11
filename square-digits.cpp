@@ -6,6 +6,10 @@ int main() {
     std::cin >> num;
     std::string result = "";
     
+    if(num == 0) {
+        result = "0";
+    }
+    
     while (num > 0) {
         int digit = num % 10;
         int square = digit * digit;
