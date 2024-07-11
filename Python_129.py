@@ -1,5 +1,8 @@
+```
 def minPath(grid, k):
     n = len(grid)
+    m = [[i * n + j for j in range(n)] for i in range(n)]
+    res = []
     for _ in range(k):
         cur_min = float("inf")
         min_val = float("inf")
