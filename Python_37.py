@@ -3,9 +3,12 @@ def sort_even(l: list):
     result = []
     idx = 0
     for x in l:
-        if x % 2 == 0 and x != 0:
-            result.append(even[idx])
-            idx += 1
+        if x % 2 == 0:
+            if idx < len(even):
+                result.append(even[idx])
+                idx += 1
+            else:
+                result.append(x)
         else:
             result.append(x)
     return tuple(result)
