@@ -39,5 +39,4 @@ int main() {
     }
 
     cout << "Sum of squared values: " << odd_sum << endl;
-    return 0; 
-}
+    return 0;
