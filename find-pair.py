@@ -1,3 +1,4 @@
+```
 def find_pair():
     pair_sum = int(input())
     num_list = [int(x) for x in input().split()]
@@ -10,4 +11,7 @@ def find_pair():
         else:
             seen[num] = True
     
-    return str(num) + "\n" + str(pair_sum - int(num))
+    return str(num_list[0]) + "\n" + str(pair_sum - int(num_list[0]))
+
+
+print(find_pair())
