@@ -1,5 +1,9 @@
 ```
-def factorize():
+from typing import List
+import math
+
+
+def factorize() -> List[int]:
     n = int(input())
     factors = []
     i = 2
