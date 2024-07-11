@@ -4,9 +4,9 @@ if len(nums) <= 1:
     cut_index = None
 else:
     min_diff = float("inf")
-    for i in range(len(nums)):
+    for i in range(len(nums) - 1):
         diff = abs(sum(nums[: i + 1]) - sum(nums[i + 1 :]))
-        if diff < min_diff:
+        if diff <= min_diff:
             min_diff = diff
             cut_index = i
 
@@ -17,4 +17,3 @@ if cut_index is not None:
     print(*subvector2)
 else:
     print(*nums)
-    print()
