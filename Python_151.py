@@ -1,11 +1,8 @@
-```python
-def double_the_difference(x):
-    if len(x) < 2:
-        return x[0]
-    return (x[1] - x[0]) * 2
-
 def check(lst, func):
-    result = [func(i) for i in lst]
-    return result
+    return func(lst)
+
+def double_the_difference(lst):
+    lst.sort()
+    return (lst[-1] - lst[0]) * 2
 
 print(check([1, 2, 3], lambda x: double_the_difference(x)))
