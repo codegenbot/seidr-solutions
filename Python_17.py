@@ -6,8 +6,11 @@ def parse_music(music_string: str) -> list:
     while i < len(music_string):
         if music_string[i] == '|':
             i += 1
-        note_length = notes.get(music_string[i:i+2], 4)
-        result.append(note_length)
-        i += 2
+        if music_string[i:i+2] in notes:
+            note_length = notes[music_string[i:i+2]]
+            result.append(note_length)
+            i += 2
+        else:
+            i += 1
     return result
-"""
+""``
