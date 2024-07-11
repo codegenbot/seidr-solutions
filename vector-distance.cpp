@@ -1,4 +1,4 @@
-#include <iostream>
+```c
 #include <cmath>
 #include <vector>
 
@@ -15,8 +15,12 @@ int main() {
     int n;
     std::cin >> n; 
     std::vector<float> v1(n), v2(n);
-    for (float& val : v1) { std::cin >> val; }
-    for (float& val : v2) { std::cin >> val; }
+    for (int i = 0; i < n; i++) {
+        float val;
+        std::cin >> val;
+        v1.push_back(val);
+        v2.push_back(val);
+    }
     double dist = vectorDistance(n, v1, v2);
     std::cout << "Euclidean distance: " << dist << std::endl;
     return 0;
