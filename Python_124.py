@@ -1,3 +1,4 @@
+```
 def valid_date(date):
     day, month, year = map(int, date.split('-'))
     if month < 1 or month > 12:
@@ -20,6 +21,3 @@ def main():
                 print(f"The date {date} is not valid.")
             else:
                 print(f"The date {date} is valid.")
-
-if __name__ == "__main__":
-    main()
