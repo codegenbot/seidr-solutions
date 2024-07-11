@@ -4,7 +4,6 @@ import math
 
 def factorize(n: int) -> List[int]:
     i = 2
-    factors = []
     while i * i <= n:
         if n % i:
             i += 1
