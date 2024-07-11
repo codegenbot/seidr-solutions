@@ -1,7 +1,3 @@
-```
-def poly(xs: list, p: float):
-    return sum([coeff * (x - p)**n for n, coeff in enumerate(xs)])
-
 def find_zero(xs: list):
     if len(xs) % 2 != 0:
         return None
@@ -17,6 +13,6 @@ def find_zero(xs: list):
     return round(p, 2)
 
 if __name__ == "__main__":
-    xs = [1, 2, 3]  # input your list here
+    xs = [1, 0.5, 3]
     result = find_zero(xs)
     print(result)
