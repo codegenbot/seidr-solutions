@@ -1,3 +1,4 @@
+```
 while True:
     try:
         xs = [int(i) for i in input("Enter coefficients (a b c [d]): ").split()]
