@@ -12,6 +12,7 @@ bool is_palindrome(std::string s) {
         end--;
     }
     return true;
+
 }
 
 int main() {
