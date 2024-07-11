@@ -1,7 +1,14 @@
-if(array.empty()) return array;
-    if((array.front() + array.back()) % 2 == 0)
-        sort(array.rbegin(), array.rend());
-    else
-        sort(array.begin(), array.end());
-    return array;
+#include <stdio.h>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+vector<int> sort_array(vector<int> array){
+    vector<int> sorted = array;
+    if((sorted.front() + sorted.back()) % 2 == 0){
+        sort(sorted.begin(), sorted.end(), greater<int>());
+    } else {
+        sort(sorted.begin(), sorted.end());
+    }
+    return sorted;
 }
