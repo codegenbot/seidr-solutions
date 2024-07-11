@@ -2,9 +2,9 @@
 #include <vector>
 #include <cassert>
 
-using namespace std;
-
 vector<int> tri(int n);
+
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> tri(int n) {
     vector<int> result;
