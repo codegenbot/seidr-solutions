@@ -1,15 +1,11 @@
-#include<vector>
-#include<algorithm>
-using namespace std;
-
-int search(vector<int> lst) {
-    sort(lst.begin(), lst.end());
-    
-    for (int i = lst.size() - 1; i >= 0; --i) {
-        if (lst[i] > 0 && count(lst.begin(), lst.end(), lst[i]) >= lst[i]) {
-            return lst[i];
+int result = -1;
+    for (int num : lst) {
+        if (num > 0 && num <= lst.size()) {
+            int frequency = count(lst.begin(), lst.end(), num);
+            if (frequency >= num && num > result) {
+                result = num;
+            }
         }
     }
-    
-    return -1;
+    return result;
 }
