@@ -7,7 +7,7 @@ i = 0
 while i < len(text):
     if text.startswith(target, i):
         indices.append(i)
-        i += 1
+        i += len(target)
     else:
         i += 1
 
