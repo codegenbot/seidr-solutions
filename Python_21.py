@@ -11,4 +11,4 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
 
 input_numbers = list(map(float, input().split()))
 output = rescale_to_unit(input_numbers)
-print(*output)
+print(' '.join(str(num) for num in output))
