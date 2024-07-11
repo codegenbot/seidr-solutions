@@ -1,15 +1,17 @@
-#include <string>
-
-using namespace std;
-
 string solve(string s) {
     string result = "";
     for (char c : s) {
-        if (isalpha(c)) {
-            c = (c >= 'a' && c <= 'z') ? c + ('A' - 'a') : c + ('a' - 'A');
-        } else {
+        if (!isalpha(c)) {
             result += c;
+        } else {
+            char newC = tolower(c);
+            newC = (newC == 'z' || newC == 'Z') ? toupper(newC) : tolower(newC);
+            result += newC;
         }
     }
-    return result.empty() ? string(s).reverse() : result;
+    if (result.empty()) {
+        return string(1, s[0]);
+    } else {
+        return result;
+    }
 }
