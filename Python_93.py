@@ -1,7 +1,7 @@
-def encode(message):
+def replace_vowels(input_string):
     vowels = 'aeiouAEIOU'
     encoded_message = ''
-    for char in message:
+    for char in input_string:
         if char.isalpha():
             if char.lower() in vowels:
                 index = ord(char.lower()) - ord('a')
