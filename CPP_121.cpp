@@ -9,11 +9,17 @@ int solution(std::vector<int> lst) {
         }
     }
     return sum;
+
 }
 
 int main() {
-    std::vector<int> lst = {3, 13, 2, 9};
-    int result = solution(lst);
-    std::cout << "The result is: " << result << std::endl;
+    std::vector<int> testVector = {3, 13, 2, 9};
+    int result = solution(testVector);
+    for(int num : testVector){
+        if(num % 2 !=0){
+            std::cout<<num<<" ";
+        }
+    }
+    std::cout << "\nSum: " << result << std::endl;
     return 0;
 }
