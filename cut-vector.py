@@ -3,7 +3,7 @@ arr = list(map(int, input().split()))
 total_sum = sum(arr)
 left_sum = 0
 min_diff = float('inf')
-cut_index = float('inf')
+cut_index = len(arr)
 
 for i in range(len(arr) - 1):
     left_sum += arr[i]
@@ -13,8 +13,10 @@ for i in range(len(arr) - 1):
         min_diff = diff
         cut_index = i + 1
 
-subvector1 = arr[:int(cut_index)]
-subvector2 = arr[int(cut_index):]
+cut_index = int(cut_index)
+
+subvector1 = arr[:cut_index]
+subvector2 = arr[cut_index:]
 
 print(*subvector1)
 print(*subvector2)
