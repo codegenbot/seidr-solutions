@@ -1,6 +1,5 @@
-#include <string>
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 string fix_spaces(string text) {
