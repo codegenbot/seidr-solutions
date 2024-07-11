@@ -1,17 +1,11 @@
-#include <algorithm>
+Here is the completed code:
 
 string exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
-    
     for (int num : lst1) {
         if (num % 2 != 0) {
-            ++oddCount;
+            oddCount++;
         }
     }
-    
-    if (oddCount > (lst2.size() - oddCount)) {
-        return "NO";
-    }
-    
-    return "YES";
+    return oddCount > 0 ? "NO" : "YES";
 }
