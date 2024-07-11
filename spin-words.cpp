@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 
@@ -15,6 +14,7 @@ string spinWords(string str) {
                 for (int j = word.length() - 1; j >= 0; j--)
                     revWord += word[j];
                 result += revWord + " ";
+                word = "";
             } else
                 result += word + " ";
             word = "";
