@@ -6,7 +6,7 @@ string int_to_mini_romank(int number){
     };
 
     string roman = "";
-    for (const auto& pair : roman_map) {
+    for (const auto &pair : roman_map) {
         while (number >= pair.first) {
             roman += pair.second;
             number -= pair.first;
