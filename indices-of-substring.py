@@ -13,4 +13,4 @@ text = input()
 target = input()
 result = indices_of_substring(text, target)
 for index in result:
-    print(index, end=" ")     
+    print(index, end=" ")
