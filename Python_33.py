@@ -1,13 +1,11 @@
+```
 def sort_third(l: list):
-    result = []
-    for i, x in enumerate(l):
-        if i % 3 == 0:
-            if i // 3 * 3 < len(l):
-                sorted_segment = sorted([y for y in l[i//3*3:i+1]])
-                last_element = sorted_segment[-1]
-            else:
-                last_element = None
-        else:
-            last_element = x
-        result.append(last_element)
-    return result
+    """Sorts the third of each consecutive three elements of a list by sorting all previous 'threes' and returns the result."""
+    return [
+        (
+            x
+            if i % 3 != 0 or i >= len(l) - (i % 3)
+            else (sorted([y for y in l[:i // 3 * 3 + i % 3 :]]))[-1] if i // 3 * 3 + i % 3 < len(l) else None
+        )
+        for i, x in enumerate(l)
+    ]
