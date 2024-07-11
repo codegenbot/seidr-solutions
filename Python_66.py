@@ -1,4 +1,4 @@
-```"""
+```
 def digitSum(n):
     sum = 0
     while n > 0:
