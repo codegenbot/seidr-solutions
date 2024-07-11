@@ -1,15 +1,15 @@
 ```
 def rolling_max(input_str: str) -> list[int]:
-    input_str = "".join(filter(str.isdigit, str(input_str)))
+    input_str = "".join(filter(str.isdigit, input_str))
 
     numbers = []
     for num in input_str.split():
         if not num:
-            return [] 
+            return []
         try:
             numbers.append(int(num))
         except ValueError:
-            return [] 
+            return []
 
     if len(numbers) <= 1:
         return [0]
@@ -18,10 +18,10 @@ def rolling_max(input_str: str) -> list[int]:
     max_so_far = current_max = numbers[0]
     for num in numbers[1:]:
         if num > current_max:
-            max_so_far = current_max = num
-        elif num >= current_max:
+            result.append(current_max)
             current_max = num
-        result.append(current_max)
+        else:
+            result.append(current_max)
         max_so_far = max(max_so_far, current_max)
 
     while len(result) < len(numbers):
