@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -20,4 +21,4 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
                 result.append(val)
                 seen.add(val)
 
-    return [round(i, 6) for i in result]
+    return result
