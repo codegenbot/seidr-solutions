@@ -1,3 +1,4 @@
+```
 def find_zero(xs: list):
     n = len(xs)
     if n % 2 != 0:
@@ -5,5 +6,5 @@ def find_zero(xs: list):
     a = xs[0]
     b = xs[1]
     for i in range(2, n):
-        a -= xs[i] / math.pow(b, (i - 1) / 2)
-    return -b / a
+        a -= xs[i] / math.pow(b, (i-1)/2)
+    return -b/a
