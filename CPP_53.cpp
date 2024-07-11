@@ -1,8 +1,8 @@
+```cpp
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
 #include <string>
-#include <sstream>
 
 using namespace std;
 
@@ -10,9 +10,7 @@ int main() {
     srand(time(nullptr)); 
     int randomNum = rand() % 1000; 
 
-    stringstream ss;
-    ss << "Random Number: " << randomNum << endl;
-    cout << ss.str() << endl; 
+    cout << "Random Number: " << randomNum << endl; 
 
     int num1, num2;
     cout << "Enter two numbers: ";
