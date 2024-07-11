@@ -1,9 +1,11 @@
 ```cpp
-int luhn(int cardNumber[]) {
+#include <vector>
+
+int luhn(const std::vector<int>& cardNumber) {
     int sum = 0;
     bool doubleNext = false;
 
-    for (int i = 15; i >= 0; --i) {
+    for (int i = cardNumber.size() - 1; i >= 0; --i) {
         int digit = cardNumber[i];
 
         if (doubleNext) {
@@ -21,8 +23,7 @@ int luhn(int cardNumber[]) {
 }
 
 int main() {
-    // Example usage
     int cardNumber[] = {1, 9, 4, 6, 7, 2, 1, 4, 9, 3, 3, 0, 7, 3, 3, 4};
-    int result = luhn(cardNumber);
+    int result = luhn(std::vector<int>(cardNumber, cardNumber + sizeof(cardNumber)/sizeof(cardNumber[0])));
     return 0;
 }
