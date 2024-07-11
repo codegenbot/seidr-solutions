@@ -12,3 +12,4 @@ int main() {
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     std::cout << "Middle character(s): " << middleCharacter(std::move(input)) << std::endl;
+}
