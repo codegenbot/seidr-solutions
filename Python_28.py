@@ -12,10 +12,11 @@ def concatenate(strings: List[str]) -> str:
 
 
 if __name__ == "__main__":
-    strings = input("Enter the strings (comma separated): ")
-    input_list = [s.strip() for s in strings.split()]
-
-    if not input_list:
-        print(concatenate([]))
-    else:
-        print(concatenate(input_list))
+    while True:
+        try:
+            strings = input("Enter the strings (comma separated): ")
+            input_list = [s.strip() for s in strings.split(",")]
+            print(concatenate(input_list))
+            break
+        except ValueError:
+            print("Invalid input. Please enter comma-separated strings.")
