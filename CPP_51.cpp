@@ -5,11 +5,10 @@ std::string remove_vowels() {
     std::string text;
     std::cout << "Enter a sentence: ";
     std::getline(std::cin, text);
-    std::string result = "";
+    std::string result;
     for (char c : text) {
-        if (!std::string("aeiouAEIOU").find(std::tolower(c)))
-            continue; 
-        result += c;
+        if (!isvowel(std::tolower(c)))
+            result += c; 
     }
     return result;
 }
