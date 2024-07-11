@@ -1,10 +1,10 @@
 def decode_cyclic(s: str):
-    if not isinstance(s, str) or len(s) == 0:
-        return "Error: Input is invalid."
-    
-    s = s * (3 - len(s) % 3)
+    if len(s) % 3 != 0:
+        s = s * (3 - len(s) % 3)
+
     result = ""
     temp = ""
+
     for char in s:
         temp += char
         if len(temp) == 3:
