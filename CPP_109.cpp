@@ -2,7 +2,7 @@
 #include <cassert>
 #include <vector>
 
-bool move_one_ball(std::vector<int> arr) {
+bool move_one_ball(std::vector<int>& arr) {
     int n = arr.size();
     for(int i = 0; i < n; ++i){
         if(std::is_sorted(arr.begin(), arr.end())){
@@ -14,6 +14,7 @@ bool move_one_ball(std::vector<int> arr) {
 }
 
 int main() {
-    assert(move_one_ball({}) == true);
+    std::vector<int> arr = {}; // Create an empty vector
+    assert(move_one_ball(arr) == true); // Pass the vector by reference
     return 0;
 }
