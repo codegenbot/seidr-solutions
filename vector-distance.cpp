@@ -1,10 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <iomanip>
-#include <cmath>
-
-using namespace std;
-
 double vector_distance(int n) {
     vector<float> v1(n), v2(n);
     for (int i = 0; i < n; i++) {
@@ -15,16 +8,9 @@ double vector_distance(int n) {
     }
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        sum += pow(v2[i] - v1[i], 2);
+        double diff = pow(v2[i] - v1[i], 2);
+        sum += diff;
     }
     
     return sqrt(sum);
-}
-
-int main() {
-    int n;
-    cin >> n;
-    
-    cout << fixed << setprecision(10) << vector_distance(n) << endl;
-    return 0;
 }
