@@ -1,29 +1,32 @@
-Here is the modified code:
-
-```Python
+```
 def encode_cyclic(s):
     result = ""
     i = 0
     while i < len(s):
-        if i < len(s) - 2 and s[i] == s[i+1] == s[i+2]:
-            result += s[i] * 3
-            i += 3
+        if len(s) - i >= 2:
+            if s[i+1] == s[i]:
+                result += s[i]*2 + s[(i+2)%len(s)]
+                i += 3
+            else:
+                result += s[i]
+                i += 1
+        elif len(s) - i == 1:
+            result += s[i]
+            i += 1
         else:
             result += s[i]
             i += 1
     return result
 
 def decode_cyclic(s):
-    result = ""
-    i = 0
-    while i < len(s):
-        if i < len(s) - 2 and s[i] * 3 == s[:3]:
-            result += s[i]
-            i += 3
+    groups = []
+    for i in range(0, (len(s) + 2) // 3):
+        if i * 3 + 3 > len(s):
+            groups.append(s[i * 3:])
         else:
-            result += s[i]
-            i += 1
-    return result
+            groups.append(s[(i*3):min((i*3)+3, len(s))])
+    groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
+    return "".join(groups)
 
 if __name__ == "__main__":
     user_input = input("Enter your string: ")
