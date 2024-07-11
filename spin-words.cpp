@@ -26,12 +26,13 @@ std::string spinWords(std::string sentence) {
         if (len >= 5) {
             std::string reversedWord = "";
             for (int j = len; j >= 0; j--) {
-                reversedWord += result[i-j];
+                reversedWord += result[i + j];
             }
             newSentence += reversedWord + " ";
             i += len;
         } else {
-            newSentence += result.substr(0, len + 1);
+            newSentence += result.substr(0, len + 1) + " ";
+            i += len;
         }
     }
     
