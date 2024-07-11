@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -10,5 +9,13 @@ const char* fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        return x < 0 ? "-" + std::to_string(x) : std::to_string(x);
+        return std::to_string(x).c_str();
+}
+
+int main() {
+    int x;
+    std::cout << "Enter an integer: ";
+    std::cin >> x;
+    std::cout << fizzBuzz(x) << std::endl;
+    return 0;
 }
