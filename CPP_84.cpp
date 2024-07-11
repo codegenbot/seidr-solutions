@@ -1,17 +1,19 @@
+```
+#include <iostream>
 #include <string>
-#include <algorithm>
 
-using namespace std;
-
-string solve(int N) {
-    string binary = "";
-    while (N > 0) {
-        if (N % 2 == 1)
-            binary += "1";
-        else
-            binary += "0";
-        N /= 2;
+std::string solve(int N){
+    int sum = 0;
+    while(N > 0){
+        sum += (N & 1);
+        N >>= 1;
     }
-    reverse(binary.begin(), binary.end());
-    return binary;
+    std::string result = "";
+    while(sum > 0){
+        if(sum & 1) result.push_back('1');
+        else result.push_back('0');
+        sum >>= 1;
+    }
+    std::reverse(result.begin(), result.end());
+    return result;
 }
