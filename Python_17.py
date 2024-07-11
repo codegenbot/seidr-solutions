@@ -1,7 +1,5 @@
-Here is the corrected code:
-
 ```
-def parse_music(music_string: str) -> list:
+def parse_music(music_string: str) -> list[int]:
     beats = [4, 2, 1]
     result = []
     i = 0
