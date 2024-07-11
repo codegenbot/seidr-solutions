@@ -1,4 +1,4 @@
-```Python
+```
 def add():
     while True:
         try:
@@ -13,7 +13,7 @@ def add():
 
 def main():
     result = add()
-    print(f"The sum of the numbers is {result}."
+    print(f"The sum of the numbers is {result}.")
 
 
 if __name__ == "__main__":
