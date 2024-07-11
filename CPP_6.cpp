@@ -1,22 +1,34 @@
-vector<int> parse_nested_parens(string paren_string) {
-    vector<int> depths;
-    int max_depth = 0;
-    int curr_depth = 0;
+#include <vector>
+#include <string>
+#include <algorithm>
 
-    for (char c : paren_string) {
-        if (c == '(') {
-            curr_depth++;
-            max_depth = max(max_depth, curr_depth);
-        } else if (c == ')') {
-            curr_depth--;
-        } else if (c == ' ') {
-            depths.push_back(max_depth);
-            max_depth = 0;
-            curr_depth = 0;
+std::vector<int> parse_nested_parens(std::string paren_string){
+    std::vector<int> result;
+    int max_level = 0;
+    int current_level = 0;
+    for(char c : paren_string){
+        if(c == '('){
+            current_level++;
+            max_level = std::max(max_level, current_level);
+        }
+        else if(c == ')'){
+            current_level--;
+        }
+        else if(c == ' '){
+            result.push_back(max_level);
+            max_level = 0;
+            current_level = 0;
         }
     }
+    result.push_back(max_level);
+    return result;
+}
 
-    depths.push_back(max_depth);
+bool issame(const std::vector<int>& a, const std::vector<int>& b){
+    return a == b;
+}
 
-    return depths;
+int main(){
+    assert(issame(parse_nested_parens("(()(())((())))"), {4}));
+    return 0;
 }
