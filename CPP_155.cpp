@@ -2,11 +2,10 @@ int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
+
     vector<int> result = even_odd_count(num);
-    if(issame(result, vector<int>{1,0})) {
-        cout << "The input number is a palindrome." << endl;
-    } else {
-        cout << "The input number is not a palindrome." << endl;
-    }
+    cout << "Even numbers: " << result[0] << endl;
+    cout << "Odd part of the number is: " << result[1] << endl;
+
     return 0;
 }
