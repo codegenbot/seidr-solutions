@@ -8,7 +8,7 @@ def make_palindrome(string: str) -> str:
     i, j = 0, len(right) - 1
     while i < len(left):
         if left[i] != right[j]:
-            if i + 1 >= len(left) or right[j+1] != left[-(i+1)]:
+            if i + 1 >= len(left) or right[j + 1] != left[-(i + 1)]:
                 right.insert(0, left[0])
                 del left[0]
             else:
