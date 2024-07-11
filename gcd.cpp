@@ -1,4 +1,4 @@
-```cpp
+```c++
 int gcd(int a, int b) {
     while (b != 0) {
         int temp = b;
@@ -9,5 +9,9 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    cout << "GCD of 12 and 15 is: " << gcd(12, 15) << endl;
+    int a, b;
+    std::cout << "Enter two integers: ";
+    std::cin >> a >> b;
+    std::cout << "GCD: " << gcd(a, b) << std::endl;
+    return 0;
 }
