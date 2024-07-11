@@ -1,6 +1,5 @@
+#include <iostream>
 #include <algorithm>
-#include <cctype>
-#include <cassert>
 
 std::string solve(const std::string& s) {
     for (char &c : s) {
@@ -14,4 +13,9 @@ std::string solve(const std::string& s) {
     }
     
     return s;
+}
+
+int main() {
+    std::cout << solve("#ccc") << std::endl;
+    return 0;
 }
