@@ -8,15 +8,15 @@ bool is_multiply_prime(int a) {
                 count++;
             }
         }
-        if (count == 0) {
-            for (int k = i; k <= a / i; k++) {
+        if (count == 0 && a != i) { 
+            for (int k = i; k * i <= a; k++) {
                 int count1 = 0;
                 for (int l = 2; l <= k / 2; l++) {
                     if (k % l == 0) {
                         count1++;
                     }
                 }
-                if (count1 == 0 && k * i == a) {
+                if (count1 == 0 && k * i == a) { 
                     return true;
                 }
             }
