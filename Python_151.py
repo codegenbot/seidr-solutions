@@ -4,7 +4,4 @@ def double_the_difference():
     double_diff = difference * 2
     return double_diff
 
-def check(func):
-    print(func())
-
-check(double_the_difference)
+print(double_the_difference())
