@@ -1,4 +1,7 @@
-```
+#include <vector>
+#include <algorithm>
+using namespace std;
+
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int maxRight = arr.back();
@@ -8,5 +11,4 @@ vector<int> leaders(vector<int>& arr) {
         else 
             maxRight = arr[i];
     }
-    return result;
 }
