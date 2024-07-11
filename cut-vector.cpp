@@ -8,11 +8,11 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
+    char c;
     
     while (cin >> num) {
-        if (!cin.eof()) {
-            nums.push_back(num);
-        } else {
+        nums.push_back(num);
+        if (cin.get(c) && c == '\n') {
             break;
         }
     }
