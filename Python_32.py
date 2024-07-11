@@ -1,3 +1,4 @@
+```
 def find_zero(xs):
     if len(xs) != 2:
         return "Error: xs must have exactly 2 coefficients"
