@@ -1,8 +1,4 @@
-if (x == 1) return true;
-    for (int i = 2; i * i <= x; ++i) {
-        if (pow(i, n) == x) {
-            return true;
-        }
-    }
-    return false;
+if (x < 1 || n < 2) return false;
+    int power = round(log(x) / log(n));
+    return pow(n, power) == x;
 }
