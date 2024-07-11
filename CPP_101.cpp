@@ -19,9 +19,10 @@ vector<string> words_string(string s){
 }
 
 int main() {
-    string input = "Hello World! This is a C++ code contest problem.";
-    vector<string> output = words_string(input);
-    for (const auto &word : output) {
+    string input;
+    getline(cin, input);
+    vector<string> words = words_string(input);
+    for(const auto& word : words) {
         cout << word << endl;
     }
     return 0;
