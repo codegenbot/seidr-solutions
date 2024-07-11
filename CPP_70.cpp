@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -23,21 +22,14 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 }
 
 int main() {
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-
-    std::vector<int> vec(n);
-    for(int i=0; i<n; ++i) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> vec[i];
+    std::vector<int> input_vector = {4, 2, 9, 6, 23, 12, 34, 27};
+    std::vector<int> sorted_vector = strange_sort_vector(input_vector);
+    
+    if (issame(sorted_vector, std::vector<int>({2, 4, 6, 9, 12, 23, 27, 34}))) {
+        std::cout << "The vector is correctly sorted." << std::endl;
+    } else {
+        std::cout << "The vector is not correctly sorted." << std::endl;
     }
-
-    std::vector<int> sorted = strange_sort_vector(vec);
-
-    std::cout << "Sorted vector: ";
-    for (int x : sorted) std::cout << x << " ";
-    std::cout << std::endl;
-
+    
     return 0;
 }
