@@ -3,12 +3,12 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::string a, std::string b) {
     if (a.size() != b.size()) {
         return false;
     }
     for (int i = 0; i < a.size(); i++) {
-        if (tolower(a[i]) != tolower(b[i])) {
+        if (std::tolower(a[i]) != std::tolower(b[i])) {
             return false;
         }
     }
@@ -34,7 +34,7 @@ std::vector<std::string> split_words(std::string txt) {
     if (words.empty()) {
         int count = 0;
         for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
+            if (std::islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
@@ -44,6 +44,6 @@ std::vector<std::string> split_words(std::string txt) {
 }
 
 int main() {
-    // Add your main function code here
+    // Implement main function logic here
     return 0;
 }
