@@ -1,8 +1,12 @@
-for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] >= lst[i + 1])
+int count[10] = {0};
+    for(int i=0; i<lst.size(); i++){
+        count[lst[i]]++;
+        if(count[lst[i]] > 1){
             return false;
-        if (i + 2 < lst.size() && lst[i] == lst[i + 1] && lst[i + 1] == lst[i + 2])
+        }
+        if(i > 0 && lst[i] < lst[i-1]){
             return false;
+        }
     }
     return true;
 }
