@@ -1,8 +1,8 @@
 def concatenate_strings(strings):
     return "".join(strings)
 
-# Read input from user
-strings = input("Enter a list of strings separated by space: ").split(" ")
+# Read input from the user
+strings = input("Enter a single string: ").split()
 
 # Call the function with the input
 result = concatenate_strings(strings)
