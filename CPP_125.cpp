@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-vector<string> split_words(string txt) {
+vector<string> split_words(const string& txt) {
     vector<string> result;
     string word = "";
     for (char c : txt) {
