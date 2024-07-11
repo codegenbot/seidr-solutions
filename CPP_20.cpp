@@ -13,6 +13,7 @@ bool issame(vector<float> a, vector<float> b) {
             return false;
     }
     return true;
+}
 
 vector<float> find_closest_elements(vector<float> numbers) {
     if (numbers.size() <= 1) {
@@ -32,10 +33,10 @@ vector<float> find_closest_elements(vector<float> numbers) {
         }
     }
     
-    return {closest_pair.first, closest_pair.second};
+    return vector<float>({closest_pair.first, closest_pair.second});
 }
 
 int main() {
     vector<float> result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
-    assert(issame(result, {2.2, 3.1}));
+    assert(issame(result, {2.2f, 3.1f}));
 }
