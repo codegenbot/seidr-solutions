@@ -1,6 +1,6 @@
 Here is the corrected code:
 
-```
+```python
 from typing import List
 import math
 
