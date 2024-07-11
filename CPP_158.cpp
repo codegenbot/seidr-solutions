@@ -1,9 +1,15 @@
+```
 string find_max(vector<string> words){
-    vector<string>::iterator it = max_element(words.begin(), words.end(),
-        [](const string& a, const string& b) {
-            return count(a.begin(), a.end(), tolower(a[0])) <
-                   count(b.begin(), b.end(), tolower(b[0]));
+    string res = "";
+    int max_uniq = 0;
+    for(auto &s : words) {
+        set<char> uniq(s.begin(), s.end());
+        if(uniq.size() > max_uniq) {
+            max_uniq = uniq.size();
+            res = s;
+        } else if(uniq.size() == max_uniq) {
+            res = min(res, s);
         }
-    );
-    return *it;
+    }
+    return res;
 }
