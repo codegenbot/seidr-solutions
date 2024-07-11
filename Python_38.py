@@ -1,6 +1,5 @@
 ```
 s = input()
-
 def decode_cyclic(s: str):
     cyclic_map = {
         "abc": "1",
