@@ -3,10 +3,6 @@
 #include <ctime>
 #include <iostream>
 
-int add(int x, int y) {
-    return x + y;
-}
-
 int main() {
     std::srand(std::time(0)); 
     int x = std::rand() % 1000; 
