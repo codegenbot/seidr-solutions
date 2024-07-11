@@ -1,6 +1,6 @@
+#include <cassert>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 bool triples_sum_to_zero(std::vector<int> l) {
     std::sort(l.begin(), l.end());
@@ -21,6 +21,7 @@ bool triples_sum_to_zero(std::vector<int> l) {
     return false;
 }
 
+// Test Example
 int main() {
     assert(triples_sum_to_zero({100, 3, 5, -100}) == false);
 
