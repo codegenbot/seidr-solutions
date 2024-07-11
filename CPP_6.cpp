@@ -1,7 +1,9 @@
-namespace std {
-    bool issame(std::vector<int> a, std::vector<int> b){
-        return a == b;
-    }
+#include <vector>
+#include <string>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return std::vector<int>(a.begin(), a.end()) == std::vector<int>(b.begin(), b.end());
 }
 
 std::vector<int> parse_nested_parens(std::string paren_string){
@@ -26,4 +28,4 @@ std::vector<int> parse_nested_parens(std::string paren_string){
     return result;
 }
 
-assert(std::issame(parse_nested_parens("(()(())((())))"), {4, 3, 2, 1}));
+assert(issame(parse_nested_parens("(()(())((())))"), {4, 3, 2, 1}));
