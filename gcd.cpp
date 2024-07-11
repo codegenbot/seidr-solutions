@@ -28,19 +28,15 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    string text = "Hello";
-    string target = "lo";
-    vector<int> result = indicesOfSubstring(text, target);
-    cout << "Indices: ";
-    for (int i : result) {
-        cout << i << " ";
+    string text = "banana";
+    string target = "ana";
+    vector<int> indices = indicesOfSubstring(text, target);
+    for (int i : indices) {
+        cout << i << endl;
     }
-    cout << endl;
-
-    int a = 24;
-    int b = 30;
-    int output = gcd(a, b);
-    cout << "GCD of " << a << " and " << b << " is " << output << endl;
-
+    
+    int a = 48;
+    int b = 16;
+    cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
     return 0;
 }
