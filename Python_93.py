@@ -1,23 +1,10 @@
-```Python
 def encode(message):
-    """
-    This function shifts each letter in the input string by 3 positions.
-    It maintains the case of the original letters.
-
-    Parameters:
-    message (str): The input string to be shifted
-
-    Returns:
-    str: The shifted string
-    """
     result = ""
     for char in message:
         if char.isalpha():
-            if char.isupper():
-                new_char = chr((ord(char) - 65 + 3) % 26 + 65)
-            else:
-                new_char = chr((ord(char) - 97 + 3) % 26 + 97)
-            result += new_char
+            shift = 2
+            ascii_offset = ord('a') if char.islower() else ord('A')
+            result += chr((ord(char) - ascii_offset + shift) % 26 + ascii_offset)
         else:
             result += char
     return result
