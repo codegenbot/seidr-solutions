@@ -1,18 +1,22 @@
 #include <vector>
-#include <cassert>
+
+struct Result {
+    int total;
+    int carrotsLeft;
+};
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-std::vector<int> eat(int number, int need, int remaining) {
-    int totalCarrots = number + remaining;
-    int eatenCarrots = totalCarrots >= need ? need : totalCarrots;
-    int remainingCarrots = totalCarrots >= need ? totalCarrots - need : 0;
-
-    return {eatenCarrots, remainingCarrots};
+Result eat(int number, int need, int remaining) {
+    int total = number + need;
+    int carrotsLeft = std::max(0, remaining - need);
+    return Result{total, carrotsLeft};
 }
 
 int main() {
-    assert (issame(eat(4, 5, 1), {5, 0}));
+    assert(issame({eat(4, 5, 1).total, eat(4, 5, 1).carrotsLeft}, {5, 0}));
+    
+    return 0;
 }
