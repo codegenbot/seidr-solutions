@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cassert>
+#include <cmath>
 
 double median(std::vector<int> l) {
     std::sort(l.begin(), l.end());
