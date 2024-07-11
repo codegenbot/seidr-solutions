@@ -5,9 +5,5 @@ def has_close_values(numbers, threshold):
             return True
     return False
 
-# Input from user
-numbers = [int(x) for x in input().split()]
-threshold = int(input())
-
-# Call the function with user input
-print(has_close_values(numbers, threshold))
+# Call the function with the provided input and return the result
+print(has_close_values([1, 2, 4, 7, 10], 3))
