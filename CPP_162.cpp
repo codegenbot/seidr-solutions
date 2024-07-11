@@ -8,7 +8,7 @@ using namespace std;
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    unsigned char result[EVP_MAX_BLOCK_LENGTH];
+    unsigned char result[MD5_DIGEST_LENGTH];
     EVP_MD_CTX* mdctx = EVP_MD_CTX_create();
     EVP_DigestInit_ex(mdctx, EVP_sha1(), NULL);
     const char* in = text.c_str();
@@ -19,8 +19,9 @@ string string_to_md5(string text) {
     EVP_DigestFinal_ex(mdctx, out, &out_len);
 
     stringstream ss;
-    for (int i = 0; i < out_len; i++) {
-        ss << hex << setfill('0') << fixed << setw(2) << (int)out[i];
+    ss << hex << setfill('0') << fixed << setw(2);
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        ss << static_cast<int>(result[i]);
     }
 
     string str = ss.str();
