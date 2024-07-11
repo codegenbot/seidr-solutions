@@ -1,7 +1,8 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 
-int Strongest_Extension(string class_name, vector<string> extensions) {
+int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = -1;
     string result = "";
     for (string extension : extensions) {
@@ -15,7 +16,9 @@ int Strongest_Extension(string class_name, vector<string> extensions) {
             strongest = strength;
             result = extension;
         } else if (strength == strongest) {
-            result = min(result, extension);
+            if (extension < result) {
+                result = extension;
+            }
         }
     }
     return class_name + "." + result;
