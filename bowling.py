@@ -2,12 +2,12 @@
 def bowling_score(game):
     score = 0
     roll = 0
-    for frame in game.split('\n'):
+    for frame in game.split():
         if '/' in frame:
             first_roll = int(frame.split('/')[0])
-            second_roll = 10 if 'X' in frame else int(frame.split('/')[1].lstrip(' '))
+            second_roll = int(frame.split('/')[1].lstrip('X'))
             if 'X' in frame:
-                score += 10 + (first_roll + (10 if roll < 9 else second_roll))
+                score += 10 + (first_roll + second_roll)
             else:
                 score += first_roll + second_roll
         else:
