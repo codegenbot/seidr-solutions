@@ -1,3 +1,5 @@
+#include <cmath>
+
 bool is_prime(int n) {
     if (n <= 1) {
         return false;
@@ -11,10 +13,9 @@ bool is_prime(int n) {
 }
 
 bool is_multiply_prime(int a) {
-    bool found = false;
     for (int i = 2; i <= sqrt(a); i++) {
         int product = 1;
-        found = false;
+        bool found = false;
         for (int j = 2; j <= sqrt(i); j++) {
             if (i % j == 0) {
                 product *= j;
@@ -44,3 +45,4 @@ bool is_multiply_prime(int a) {
         }
     }
     return false;
+}
