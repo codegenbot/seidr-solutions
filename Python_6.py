@@ -1,10 +1,7 @@
-```
 from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    if len(paren_string) < 2:
-        return []
     for group in paren_string.split():
         level = 0
         max_level = 0
