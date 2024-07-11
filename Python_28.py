@@ -1,2 +1,11 @@
-# Fix the code by using input().strip().split() instead of input().split()
-strings = input("Enter a list of strings separated by space: ").strip().split()
+def concatenate_strings(strings):
+    return "".join(strings)
+
+# Modify input line to read multiple strings
+strings = input("Enter multiple strings separated by space: ").split()
+
+# Call the function with the input
+result = concatenate_strings(strings)
+
+# Output the result
+print(result)
