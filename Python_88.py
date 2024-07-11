@@ -1,4 +1,3 @@
-```
 def sort_array(array):
     if len(array) == 0:
         return array
@@ -9,3 +8,7 @@ def sort_array(array):
     else:
         sorted_array.sort(reverse=True)
     return sorted_array
+
+
+array = [5, 3, 8, 4, 2, 6]
+print(sort_array(array))
