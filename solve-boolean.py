@@ -1,26 +1,26 @@
 ```
 def solve(expression):
     expression = expression.upper()
-    if expression == 'T':
-        return True
+    
+    if "&" in expression:
+        parts = [part.strip() for part in expression.split("&")]
+        return all(solve(part) for part in parts)
+    
+    elif "|" in expression:
+        parts = [part.strip() for part in expression.split("|")]
+        return any(solve(part) for part in parts)
+    
     else:
-        return False
-    elif '&' in expression:
-        left, right = expression.split('&')
-        result1 = solve(left)
-        result2 = solve(right)
-        return result1 and result2
-    elif '|' in expression:
-        left, right = expression.split('|')
-        result1 = solve(left)
-        result2 = solve(right)
-        return result1 or result2
+        if expression == "T":
+            return True
+        else:
+            return False
 
 expression = input()
-while 'T' in expression or 'F' in expression:
-    if 'T' in expression:
-        expression = expression.replace('T', '')
+while "T" in expression or "F" in expression:
+    if "T" in expression:
+        expression = expression.replace("T", "")
     else:
-        expression = expression.replace('F', '')
+        expression = expression.replace("F", "")
 
 print("Result:", "True" if solve(expression) else "False")

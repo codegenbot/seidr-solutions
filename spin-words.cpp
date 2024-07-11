@@ -37,3 +37,4 @@ int main() {
     getline(cin, str);
     cout << "Spun result: " << spinWords(str) << endl;
     return 0;
+}
