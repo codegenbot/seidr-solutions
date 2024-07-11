@@ -1,8 +1,5 @@
-```
-from typing import List
-
-def rolling_max(input_str: str) -> List[int]:
-    input_str = "".join(filter(str.isdigit, input_str))
+def rolling_max(input_str: str) -> list[int]:
+    input_str = "".join(filter(str.isdigit, str(input_str)))
 
     numbers = []
     for num in input_str.split():
