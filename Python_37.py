@@ -3,7 +3,9 @@ def sort_even(l):
 
 
 def task_description():
-    num_list = list(map(int, input("Enter numbers separated by space: ").split()))
+    num_list = [
+        int(i.strip()) for i in input("Enter numbers separated by comma: ").split(",")
+    ]
     print(sort_even(num_list))
 
 
