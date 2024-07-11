@@ -1,5 +1,4 @@
 #include <vector>
-#include <assert.h>
 
 int count_nums(std::vector<int> nums) {
     int count = 0;
@@ -34,6 +33,7 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    assert(count_nums({1}) == 1);
+    int result = count_nums({1});
+    std::cout << "Count of positive sum of digits is: " << result << std::endl;
     return 0;
 }
