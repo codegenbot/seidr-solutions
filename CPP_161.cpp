@@ -8,7 +8,8 @@ for (char &c : s) {
         }
     }
     
-    if (count_if(s.begin(), s.end(), [](char c){ return isalpha(c); }) == 0) {
+    int n = s.size();
+    if (n == 0) {
         reverse(s.begin(), s.end());
     }
     
