@@ -1,12 +1,13 @@
 nums = list(map(int, input().split()))
 
-if len(nums) <= 2:
+if len(nums) <= 1:
     cut_index = None
 else:
     min_diff = float("inf")
+    cut_index = None
     for i in range(len(nums) - 1):
         diff = abs(sum(nums[: i + 1]) - sum(nums[i + 1 :]))
-        if diff < min_diff:
+        if diff <= min_diff:  # include equal case as well
             min_diff = diff
             cut_index = i
 
