@@ -1,5 +1,5 @@
 ```
-def filter_by_prefix():
+def filter_by_prefix() -> None:
     while True:
         try:
             strings = input("Enter strings (comma-separated): ").split(",")
