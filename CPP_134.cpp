@@ -1,12 +1,2 @@
-if (txt.empty()) return false;
-    char lastChar = txt.back();
-    if (isalpha(lastChar)) {
-        int i = txt.length() - 2;
-        while (i >= 0 && txt[i] != ' ') {
-            if (isalpha(txt[i])) return false;
-            i--;
-        }
-        return true;
-    }
-    return false;
+return !txt.empty() && isalpha(txt.back()) && !isalnum(txt[txt.size() - 2]);
 }
