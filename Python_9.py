@@ -1,3 +1,4 @@
+```
 def rolling_max(input_str: str) -> list[int]:
     input_str = "".join(map(str, filter(str.isdigit, input_str))).lstrip("0")
 
