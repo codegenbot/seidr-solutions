@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<int> filter_integers(list<boost::any> values){
+vector<int> filter_integers(list<any> values){
     vector<int> result;
     for(auto& val : values){
         if(val.type() == typeid(int)){
@@ -20,11 +20,18 @@ bool issame(vector<int> a, vector<int> b){
 }
 
 int main(int argc, char* argv[]){
-    list<boost::any> values = {1, "hello", 2, 3.5, 4};
-    vector<int> filtered_values = filter_integers(values);
+    list<any> values;
+    values.push_back(10);
+    values.push_back("hello");
+    values.push_back(20);
     
-    for(int num : filtered_values){
-        cout << num << " ";
+    vector<int> result = filter_integers(values);
+    
+    vector<int> expected = {10, 20};
+    if(issame(result, expected)){
+        cout << "Values are the same." << endl;
+    } else {
+        cout << "Values are different." << endl;
     }
     
     return 0;
