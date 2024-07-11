@@ -1,24 +1,20 @@
 ```
 def bowling_score(frames):
     score = 0
-    frames = frames.split('-')
+    frames = frames.replace('-', '/').split('/')
     for i, f in enumerate(frames):
-        parts = f.split("/")
-        if len(parts) == 1 and parts[0] == 'X':  
+        if f == 'X':
+            if i < 9:
+                score += 10
+            else: 
+                if len(frames) > i+1 and frames[i+1] != 'X':
+                    score += int(frames[i+1]) * 2
+        elif f == '':
             if i < 9:
                 score += 10
             else: 
                 if i + 1 < len(frames):
-                    score += int(frames[i+1].split('/')[0]) * 2
-        elif parts[0] == '':
-            if i < 9:
-                score += 10
-            else: 
-                if i + 1 < len(frames):
-                    score += int(frames[i+1].split('/')[0])
-        elif '/' in parts:  
-            score += 20
-        else: 
-            for part in parts:
-                score += int(part)
+                    score += int(frames[i+1])
+        elif f != '':  
+            score += int(f)
     return score
