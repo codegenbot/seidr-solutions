@@ -30,7 +30,6 @@ int main() {
     std::string substring = "run";
     std::vector<std::string> result = filter_by_substring(strings, substring);
 
-    // Test if the function works correctly
     assert(issame(result, {"grunt", "prune"}));
 
     for (const auto& str : result) {
