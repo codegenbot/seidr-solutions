@@ -1,14 +1,13 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
-#include <cinttypes>
+#include <initializer_list>
 
 using namespace std;
 
-std::vector<uint64_t> indicesOfSubstring(string text, string target) {
-    vector<uint64_t> result;
-    uint64_t pos = 0; // position in text
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int pos = 0; // position in text
 
     while (true) { 
         pos = text.find(target, pos);
@@ -27,8 +26,8 @@ std::vector<uint64_t> indicesOfSubstring(string text, string target) {
 int main() {
     string text = "ABCDEF";
     string target = "CDE";
-    vector<uint64_t> result = indicesOfSubstring(text, target);
-    for (uint64_t i : result) {
+    vector<int> result = indicesOfSubstring(text, target);
+    for (int i : result) {
         cout << i << endl;
     }
 }
