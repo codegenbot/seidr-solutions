@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -17,5 +18,5 @@ bool is_sorted(vector<int> lst){
 
 int main() {
     vector<int> lst = {1,2,3,4};
-    cout << (is_sorted(lst) ? "True" : "False") << std::endl; 
+    cout << (is_sorted(lst) ? "True" : "False") << endl; 
 }
