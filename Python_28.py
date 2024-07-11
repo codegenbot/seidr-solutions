@@ -1,4 +1,7 @@
-from typing import List
-
 def concatenate(strings: List[str]) -> str:
-    return ' '.join(filter(None, strings))
+    if not strings:
+        return ""
+    result = ""
+    for string in strings:
+        result += string + " "
+    return result.strip()
