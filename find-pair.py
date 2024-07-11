@@ -1,12 +1,12 @@
 ```python
 def find_pair(n, nums):
     nums.sort()
-    left = 0
-    right = len(nums) - 1
+    left, right = 0, len(nums)-1
     while left < right:
-        if nums[left] + nums[right] == n:
+        sum_val = nums[left] + nums[right]
+        if sum_val == n:
             return str(nums[left]) + " " + str(nums[right])
-        elif nums[left] + nums[right] < n:
+        elif sum_val < n:
             left += 1
         else:
             right -= 1
