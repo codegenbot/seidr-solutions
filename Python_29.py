@@ -9,8 +9,9 @@ def filter_by_prefix():
         filtered_strings = [s.strip() for s in strings if s.strip().startswith(prefix)]
 
         print(filtered_strings)
-    except ValueError as e:
-        print(f"Error occurred: {e}")
+
+    except ValueError:
+        print("Invalid input. Please enter a comma-separated list of strings.")
 
 
 filter_by_prefix()
