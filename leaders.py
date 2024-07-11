@@ -1,6 +1,5 @@
-def leaders(input_list):
-    return [
-        x
-        for i, x in enumerate(reversed(input_list))
-        if all(x >= y for y in input_list[i + 1 :])
-    ]
+def leaders(input):
+    return [i for i in reversed(input) if all(j <= i for j in input[input.index(i)+1:])]
+
+input = list(map(int, input().split()))
+print(' '.join(map(str, leaders(input))))
