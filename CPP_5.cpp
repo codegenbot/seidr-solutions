@@ -1,17 +1,16 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    return equal(a.begin(), a.end(), b.begin());
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
-vector<int> intersperse(vector<int> numbers, int delimiter) {
-    vector<int> result;
+std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
+    std::vector<int> result;
     for (int i = 0; i < numbers.size(); ++i) {
         result.push_back(numbers[i]);
         if (i < numbers.size() - 1) {
