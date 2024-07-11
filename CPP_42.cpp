@@ -13,16 +13,30 @@ std::vector<int> incr_list(const std::vector<int>& l) {
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+int main() {
+    int n;
+    std::vector<int> a, b;
+    
+    std::cin >> n;
+    a.resize(n);
+    for (int& num : a) {
+        std::cin >> num;
+    }
+
+    std::vector<int> expected;
+    std::cin >> n;
+    expected.resize(n);
+    for (int& num : expected) {
+        std::cin >> num;
+    }
+    
+    bool result = issame(a, expected);
+    std::vector<int> incremented = incr_list(a);
+    
+    std::cout << "Arrays are " << (result ? "equal" : "not equal") << std::endl;
+    for (int num : incremented) {
+        std::cout << num << " ";
+    }
+    
+    return 0;
 }
-
-bool result = issame(a, b);
-std::vector<int> incremented = incr_list(a);
-
-std::cout << "Arrays are " << (result ? "equal" : "not equal") << std::endl;
-for (int num : incremented) {
-    std::cout << num << " ";
-}
-
-return 0;
