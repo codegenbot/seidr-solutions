@@ -1,10 +1,5 @@
 ```
-Enter time at which both cars meet: 
-Enter distance traveled by car 1: 
-Enter total race distance: 
-Enter time at which car 2 meets the finish line: 
-
-def car_race_collision():
+def car_race_collision(time_to_meet_car1):
     time_to_meet_car1 = int(input("Enter time at which both cars meet: "))
 
     while True:
@@ -35,5 +30,3 @@ def car_race_collision():
         return f"Car 1 is moving with a speed of {speed1} km/h and car 2 is moving with a speed of {speed2} km/h."
     else:
         return f"Car 1 is moving with a speed of {speed2} km/h and car 2 is moving with a speed of {speed1} km/h."
-
-print(car_race_collision())
