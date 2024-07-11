@@ -8,10 +8,11 @@ int main() {
         int n = word.size();
         for(int i=n-1; i>=0; --i){
             if(!isalpha(word[i])) continue;
-            if(vowel(tolower(word[i]))){
+            char c = tolower(word[i]);
+            if(vowel(c)){
                 for(int j=i+1; j<n; ++j){
                     if(!isalpha(word[j])) break;
-                    if(vowel(tolower(word[j]))) return to_string(tolower(word[i]));
+                    if(vowel(tolower(word[j]))) return std::string(1, c);
                 }
             }
         }
@@ -19,8 +20,7 @@ int main() {
     }
 
     bool vowel(char c) {
-        return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+        return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
     }
 
     assert(get_closest_vowel("Above") == "o");
