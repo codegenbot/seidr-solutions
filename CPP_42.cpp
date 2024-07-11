@@ -16,21 +16,21 @@ std::vector<int> incr_list(const std::vector<int>& l) {
 int main() {
     int n;
     std::vector<int> a, b;
-
+    
     std::cin >> n;
     a.resize(n);
     for (int& num : a) {
         std::cin >> num;
     }
-
+    
     std::cin >> n;
     b.resize(n);
     for (int& num : b) {
         std::cin >> num;
     }
-
+    
     bool result = issame(a, b);
     std::vector<int> incremented = incr_list(a);
-
+    
     return 0;
 }
