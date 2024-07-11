@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 def rescale_to_unit(numbers: List[float]) -> List[float]:
@@ -10,7 +9,6 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
 
     return [(x - min_num) / (max_num - min_num) for x in numbers]
 
-input_numbers = sys.stdin.readline().strip().split()
-numbers = [float(num) for num in input_numbers]
-result = rescale_to_unit(numbers)
-print(result)
+input_numbers = list(map(float, input("Enter space-separated float numbers: ").split()))
+output = rescale_to_unit(input_numbers)
+print(output)
