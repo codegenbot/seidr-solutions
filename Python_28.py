@@ -1,7 +1,6 @@
+```
 def concatenate(strings: list) -> str:
     if not strings:
         return ""
-    result = ""
-    for string in strings:
-        result += string + " "
-    return result.strip()
+    result = " ".join(map(str, strings))
+    return result
