@@ -11,14 +11,11 @@ while True:
 
 while True:
     try:
-        y = int(input("Enter second number: "))
+        y = float(input("Enter second number: "))  # allow for decimal numbers
         if y < 0:
             print("Please enter a positive number.")
         break
     except ValueError:
-        print("Invalid input. Please enter a valid integer.")
+        print("Invalid input. Please enter a valid integer or a decimal number.")
 
-try:
-    print(add(x, y))
-except TypeError:
-    print("Expected input types not matched.")
+print(add(x, y))
