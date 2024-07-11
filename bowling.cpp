@@ -1,6 +1,7 @@
+```
 #include <string>
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int currentFrame = 1;
     for (char c : s) {
@@ -8,11 +9,10 @@ int bowlingScore(std::string s) {
             score += min(10 - '0', 10);
             currentFrame++;
         } else if (isdigit(c)) {
-            int strike = c - '0';
+            score += c - '0';
             if (currentFrame < 10 && isdigit(s[s.length() - 1])) {
-                score += strike + strike;
-            } else {
-                score += strike;
+                score += 10;
+                break;
             }
         } else if (c == 'X') {
             score += 10;
