@@ -1,7 +1,6 @@
 from typing import Tuple
 import sys
 
-
 def find_closest_elements() -> Tuple[float, float]:
     numbers = [float(num) for num in sys.argv[1:]]
     min_diff = float("inf")
@@ -15,6 +14,5 @@ def find_closest_elements() -> Tuple[float, float]:
                 closest_pair = (numbers[i], numbers[j])
 
     return closest_pair
-
 
 print(find_closest_elements())
