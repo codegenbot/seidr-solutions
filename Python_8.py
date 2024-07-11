@@ -1,3 +1,4 @@
+```
 from typing import List, Tuple
 
 
@@ -14,7 +15,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
 numbers = input("Please enter numbers: ")
 try:
-    result = sum_product(list(map(int, numbers.split(","))))
+    result = sum_product(list(map(int, numbers.split(','))))
 except ValueError:
     print("Invalid input! Please enter comma-separated numbers.")
 else:
