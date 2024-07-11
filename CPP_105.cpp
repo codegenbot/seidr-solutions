@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,6 +8,7 @@ bool issame(int a, int b) {
     if (a > 9 || b > 9) {
         return false;
     }
+    
     vector<string> result = by_length({a, b});
     for (int i = 0; i < min(result.size(), 2); i++) {
         cout << result[i] << " ";
@@ -68,4 +70,5 @@ int main() {
     cout << "Enter two numbers: ";
     cin >> a >> b;
     issame(a, b);
+    return 0;
 }
