@@ -1,6 +1,3 @@
 n = int(input())
-total = 0
-for _ in range(n):
-    num = int(input())
-    total += max(num // 3 - 2, 0)
+total = sum((x // 3 - 2) for x in map(int, input().split()))
 print(total)
