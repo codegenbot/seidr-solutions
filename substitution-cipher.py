@@ -1,6 +1,9 @@
-for char in message.lower():  
-    if char in cipher1.lower():  
-        index = cipher1.index(char)
-        result += cipher2[index]
-    else:
-        result += char
+def substitution_cipher(cipher1, cipher2, message):
+    result = ""
+    for char in message:
+        if char in cipher1 and char in cipher2:
+            index = cipher1.index(char)
+            result += cipher2[index]
+        else:
+            result += char
+    return result
