@@ -1,33 +1,23 @@
+Here is the completed code:
+
 string file_name_check(string file_name){
     int digit_count = 0;
     bool found_dot = false;
-
-    for(int i=0; i<file_name.size(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-        }else if(file_name[i] == '.'){
+    string prefix = "";
+    
+    for(int i=0; i<file_name.length(); i++){
+        char c = file_name[i];
+        if(isdigit(c)) digit_count++;
+        else if(c == '.') {
             found_dot = true;
-        } else {
-            if(!found_dot){
-                return "No";
-            }
+            prefix = file_name.substr(0, i);
         }
+        else if(found_dot) return "No";
     }
-
-    if(digit_count > 3 || !found_dot) return "No";
-
-    size_t dot_pos = file_name.find('.');
-    string ext = file_name.substr(dot_pos + 1);
-
-    vector<string> valid_exts = {"txt", "exe", "dll"};
-
-    for(string s : valid_exts){
-        if(ext == s) break;
-    }
-
-    if(find(valid_exts.begin(), valid_exts.end(), ext) != valid_exts.end()){
-        return "Yes";
-    }else{
-        return "No";
-    }
+    
+    if(digit_count > 3 || !found_dot || prefix.empty() || !isalpha(prefix[0])) return "No";
+    string suffix = file_name.substr(file_name.find('.')+1);
+    if(suffix != "txt" && suffix != "exe" && suffix != "dll") return "No";
+    
+    return "Yes";
 }
