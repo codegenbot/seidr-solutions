@@ -1,29 +1,27 @@
-```cpp
 #include <iostream>
 using namespace std;
 
-int gcd(int a, int b) {
-    while (b != 0)
-        a %= b;
-    return a;
-}
-
 int main() {
-    string a = "", b = ""; // input values as strings
-    try {
-        cout << "Enter first number: ";
-        cin >> a;
-        cout << "Enter second number: ";
-        cin >> b;
+    string text = ""; // input value as a string for the text
+    string target = ""; // input value as a string for the target
+    cout << "Enter the text: ";
+    getline(cin, text);
+    cout << "Enter the target: ";
+    getline(cin, target); // read the target string without reading newline character left in input buffer
 
-        if (a.empty() || b.empty()) {
-            throw invalid_argument("Invalid input");
+    int indices = 0; // initialize an integer to store indices
+    size_t pos = 0; // initialize a position variable for searching within the text
+    
+    while ((pos = text.find(target)) != string::npos) {
+        cout << "Indices: " << pos;
+        indices++;
+        if (indices < 5) { 
+            cout << endl;
+        } else {
+            break;
         }
-
-        int result = gcd(stoi(a), stoi(b)); // convert strings to integers and find GCD
-        cout << "GCD: " << result;
-    } catch (invalid_argument& e) {
-        cerr << "Error: " << e.what() << endl;
+        text.erase(0, pos + target.length()); // remove the target from the front of the remaining string
     }
+
     return 0;
 }
