@@ -1,26 +1,47 @@
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(auto& s : strings) {
-        if(s.find(substring) != string::npos)
-            result.push_back(s);
-    }
-    return result;
-}
+#include <iostream>
+#include <vector>
+#include <string>
 
-bool same(vector<vector<string>> a, vector<string> b) {
-    for (auto& v : a) {
-        bool found = false;
-        for (auto& s : v) {
-            if (find(b.begin(), b.end(), s) != b.end()) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
+bool same(string s1, string s2) {
+    if(s1.length() != s2.length())
+        return false;
+    for(int i = 0; i < s1.length(); i++) {
+        if(s1[i] != s2[i])
             return false;
-        }
     }
     return true;
 }
 
-assert(same(vector<vector<string>>{{"grunt"}, {"prune"}}, vector<string>{"grunt", "prune"}));
+int main() {
+    vector<string> strings;
+    string substring, input;
+    cout << "Enter the number of strings: ";
+    int n;
+    cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        cin >> input;
+        strings.push_back(input);
+    }
+    
+    cout << "Enter the substring to search: ";
+    cin >> substring;
+    
+    vector<string> result = filter_by_substring(strings, substring);
+    
+    for(auto& s : result) {
+        bool found = false;
+        for(int i = 0; i < strings.size(); i++) {
+            if(same(s, strings[i])) {
+                cout << s << endl;
+                found = true;
+                break;
+            }
+        }
+        
+        if(!found)
+            cout << s << endl;
+    }
+    
+    return 0;
+}
