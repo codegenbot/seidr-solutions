@@ -1,14 +1,13 @@
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return result;
+Here is the completed code:
 
-    int minEvenIndex = 0, minEvenValue = *min_element(arr.begin(), arr.end(), [](int a, int b){return a % 2 && b % 2;});
-    
+vector<int> pluck(vector<int> arr) {
+    vector<pair<int, int>> nodes;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] == minEvenValue) {
-            result.push_back({minEvenValue, i});
-            break;
+        if (arr[i] % 2 == 0) { // check if node is even
+            nodes.emplace_back(arr[i], i); // add pair of value and index to the vector
         }
     }
-    return result;
+    if (nodes.empty()) return {};
+    sort(nodes.begin(), nodes.end()); // sort the nodes by their values
+    return {{nodes[0].first, nodes[0].second}}; // return the node with the smallest even value
 }
