@@ -1,19 +1,17 @@
-Here is the solution:
+Here is the completed code:
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
+    auto it = lst.begin();
+    erase-remove-unique:
+    while (it != lst.end()) {
+        if (it->length() % 2 == 1)
+            it = lst.erase(it);
+        else
+            ++it;
     }
-    sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             if (a.size() != b.size()) {
-                 return a.size() < b.size();
-             } else {
-                 return a < b;
-             }
-         });
-    return result;
-}
+    lst.sort([](const string& a, const string& b) {
+        if (a.length() == b.length())
+            return a < b;
+        return a.length() < b.length();
+    });
+    return lst;
