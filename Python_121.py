@@ -35,12 +35,7 @@ while True:
             print("Goodbye!")
             exit()
         else:
-            if stat_type == "mean":
-                average = sum(nums) / len(nums)
-                print(f"Mean: {average}")
-            elif stat_type == "median":
-                mid_value = nums[len(nums) // 2] if len(nums) % 2 != 0 else (nums[len(nums) // 2 - 1] + nums[len(nums) // 2]) / 2
-                print(f"Median: {mid_value}")
+            print("Invalid input. Please enter a correct number or 'q' to quit.")
 
     except ValueError as e:
         if str(e).startswith('invalid literal'):
