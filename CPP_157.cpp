@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 bool right_angle_triangle(float a, float b, float c) {
@@ -14,7 +15,7 @@ int main() {
     char input[100];
     cout << "Input the lengths of three sides (a, b, c): ";
     cin.getline(input, 100);
-    float a = stof(input), b = stof(input + 5), c = stof(input + 11);
+    float a = std::stof(input), b = std::stof(input + 5), c = std::stof(input + 11);
     if (right_angle_triangle(a, b, c))
         cout << "The triangle is right-angled." << endl;
     else
