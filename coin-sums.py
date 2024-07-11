@@ -1,10 +1,13 @@
-cents = int(input("Enter the number of cents: "))
-coins = [0, 0, 0, 0]
-values = [25, 10, 5, 1]
+```
+quarters = cents // 25
+cents %= 25
 
-for value in values:
-    count = min(cents // value, coins[values.index(value)])
-    coins[values.index(value)] = count
-    cents %= value
+dimes = cents // 10
+cents %= 10
 
-print(f"Pennies: {coins[3]}, Nickels: {coins[2]}, Dimes: {coins[1]}, Quarters: {coins[0]}")
+nickels = cents // 5
+cents %= 5
+
+pennies = cents
+
+print(f"Pennies: {pennies}, Nickels: {nickels}, Dimes: {dimes}, Quarters: {quarters}")
