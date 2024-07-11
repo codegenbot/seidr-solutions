@@ -1,6 +1,6 @@
-#include <string>
 #include <cctype>
 #include <iostream>
+#include <string>
 
 std::string camelCase(const std::string& input) {
     std::string output;
@@ -8,9 +8,6 @@ std::string camelCase(const std::string& input) {
 
     for (char c : input) {
         if (c == '-') {
-            if (!firstWord) {
-                output.push_back(' ');
-            }
             output += toupper(c + 1);
             firstWord = false;
         } else if (c == ' ') {

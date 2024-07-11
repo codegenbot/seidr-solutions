@@ -1,6 +1,6 @@
 def leaders(input):
-    max_right = max(input)
-    return [i for i in reversed(input) if i >= max_right]
-
-input = list(map(int, input().split()))
-print(' '.join(map(str, leaders(input))))
+    output = [input[-1]]
+    for i in range(len(input) - 2, -1, -1):
+        if input[i] >= input[i+1]:
+            output.append(input[i])
+    return ' '.join(map(str, reversed(output)))
