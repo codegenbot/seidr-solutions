@@ -1,17 +1,11 @@
-Here is the solution:
+Here is the completed code:
 
-vector<int> result = {lst[0]};
-
-for (int i = 1; i < lst.size(); ++i) {
-    if (lst[i] < *max_element(result.begin(), result.end())) {
-        result.clear();
-        result.push_back(lst[i]);
-    } else if (lst[i] > *result.begin()) {
-        result.erase(result.begin());
+int next_smallest(vector<int> lst){
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    if(sorted.size() < 2) return -1; // Return None
+    for(int i=0; i<sorted.size()-1; i++){
+        if(sorted[i] != sorted[i+1]) return sorted[i+1];
     }
+    return -1; // Return None
 }
-
-if (result.size() == 1)
-    return -1;
-else
-    return *result.begin();
