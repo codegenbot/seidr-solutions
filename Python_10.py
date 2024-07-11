@@ -1,11 +1,9 @@
 def make_palindrome():
-    s = input("Enter a string: ")
-    while not s:
-        print("Invalid input. Please enter a valid string.")
-        s = input("Enter a string: ")
-    if len(s) < 2 or s[0] != s[-1]:
-        while len(s) < 2 or s[0] != s[-1]:
-            s = s[-1] + s[:-1]
+    s = ""
+    if not s:
+        return ""
+    while len(s) < 2 or s[0] != s[-1]:
+        s = s[-1] + s[:-1]
     i, j = 0, len(s) - 1
     while i < j:
         if s[i] != s[j]:
