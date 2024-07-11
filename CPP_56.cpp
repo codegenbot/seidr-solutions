@@ -1,11 +1,12 @@
-bool correct_bracketing(string brackets){
-    stack<char> s;
-    for(char c : brackets){
-        if(c == '<') s.push('<');
-        else if(c == '>'){
-            if(s.empty() || s.top() != '<') return false;
-            s.pop();
-        }
+int count = 0;
+for (int i = 0; i < strlen(brackets); i++) {
+    char bracket = brackets[i];
+    if (bracket == '<') {
+        count++;
+    } else if (bracket == '>') {
+        if (count <= 0)
+            return false;
+        count--;
     }
-    return s.empty();
 }
+return count == 0;
