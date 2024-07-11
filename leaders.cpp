@@ -20,7 +20,7 @@ std::vector<int> leaders(std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
-    std::vector<int> leaders = leaders(arr);
+    vector<int> input = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
+    leaders(input);
     return 0;
 }
