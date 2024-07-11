@@ -1,6 +1,6 @@
 nums = list(map(int, input().split()))
 cut_index = 0
-min_diff = abs(sum(nums[:2]) - sum(nums[2:]))
+min_diff = abs(sum(nums[:1]) - sum(nums[1:]))
 
 for i in range(2, len(nums) - 1):
     left_sum = sum(nums[:i])
