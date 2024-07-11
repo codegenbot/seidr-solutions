@@ -1,6 +1,5 @@
-```cpp
 int gcd(int a, int b) {
     while (b != 0)
-        std::swap(a, b);
+        swap(a, b);
     return a;
 }
