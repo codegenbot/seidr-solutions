@@ -8,7 +8,7 @@ def valid_date(date):
         return False
     if day < 1 or day > 31:
         return False
-    if month in [4,6,9,11] and day > 30:
+    if [4,6,9,11].count(month) and day > 30:
         return False
     if month == 2 and (day < 1 or day > 29):
         if year % 4 != 0:
