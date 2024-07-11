@@ -4,16 +4,8 @@
 
 using namespace std;
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    return v1 == v2;
 }
 
 vector<int> tri(int n) {
@@ -24,10 +16,11 @@ vector<int> tri(int n) {
             result.push_back(1);
             if (n >= 2) {
                 result.push_back(1 + n / 2);
-                for (int i = 3; i <= n; i++) {
+                for (int i = 3; i <= n; ++i) {
                     if (i % 2 == 0) {
                         result.push_back(1 + i / 2);
-                    } else {
+                    }
+                    else {
                         result.push_back(result[i - 1] + result[i - 2] + result[i - 3]);
                     }
                 }
