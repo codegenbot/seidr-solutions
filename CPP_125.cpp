@@ -7,43 +7,59 @@ using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0;
-    while ((pos = txt.find(' ')) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-    }
-    if (txt.empty()) {
-        return result;
-    }
-    result.push_back(txt);
+    size_t pos = 0, prevPos = 0;
 
-    size_t commaPos = 0;
-    while ((commaPos = txt.find(',')) != string::npos) {
-        result.push_back(txt.substr(0, commaPos));
-        txt.erase(0, commaPos + 1);
-    }
-    if (!txt.empty()) {
-        int count = 0;
-        for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                if ((count & 1)) {
-                    result.push_back(to_string(count));
-                    break;
+    while (pos != string::npos) {
+        pos = txt.find(' ', prevPos);
+        if (pos == string::npos) {
+            if (txt.find(',') == string::npos) {
+                int count = 0;
+                for (char c : txt) {
+                    if (c >= 'a' && c <= 'z') {
+                        count += (c - 'a');
+                    }
                 }
-                count++;
+                result.push_back(to_string(count));
+                return result;
+            } else {
+                pos = txt.find(',');
+                break;
             }
         }
+
+        string word = txt.substr(prevPos, pos - prevPos);
+        result.push_back(word);
+
+        prevPos = pos + 1;
     }
+
+    if (pos != string::npos) {
+        string word = txt.substr(prevPos);
+        result.push_back(word);
+    }
+
     return result;
 }
 
 int main() {
-    string txt;
-    cout << "Enter a string: ";
-    getline(cin, txt);
-    vector<string> result = split_words(txt);
-    for (string s : result) {
-        cout << s << endl;
+    // Test cases
+    cout << "{";
+    for (string s : split_words("Hello world!")) {
+        cout << "\"" << s << "\"";
     }
+    cout << "}" << endl;
+
+    cout << "{";
+    for (string s : split_words("Hello,world!")) {
+        cout << "\"" << s << "\"";
+    }
+    cout << "}" << endl;
+
+    cout << "{";
+    for (string s : split_words("abcdef")) {
+        cout << "\"" << s << "\"";
+    }
+    cout << "}" << endl;
+
     return 0;
 }
