@@ -6,5 +6,4 @@ def sort_array(array):
     if n % 2 != 0:
         return [sorted_array[n//2-1], sorted_array[n//2]]
     else:
-        median = (sorted_array[n//2 - 1] + sorted_array[n//2]) / 2
-        return [median]
+        return [sorted_array[n//2-1], sorted_array[n//2]]
