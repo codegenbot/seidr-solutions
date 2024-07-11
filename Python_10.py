@@ -11,11 +11,11 @@ def make_palindrome(s: str) -> str:
             r -= 1
         else:
             l, r = l + 1, r - 1
-    while s_list := list(s):
-        if s_list[0] == t[-1]:
-            t.append(s_list.pop(0))
-        elif len(s_list) > len(t):
-            t.insert(0, s_list.pop(0))
+    while s != "".join(t):
+        if s[0] == t[-1]:
+            t.append(s[:1]) 
+        elif len(s) > len(t):
+            t.insert(0, s[:1])
         else:
-            t.append(s_list.pop())
+            t.append(s[:1])
     return "".join(t)
