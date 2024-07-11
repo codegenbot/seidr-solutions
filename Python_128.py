@@ -1,4 +1,4 @@
-```Python
+```
 def product_of_signs(arr):
     result = 1
     has_zero = False
@@ -7,6 +7,8 @@ def product_of_signs(arr):
             has_zero = True
         elif x < 0:
             result *= -1
+        elif x > 0:
+            result *= 1
     return result if not has_zero else 0
 
 def check():
