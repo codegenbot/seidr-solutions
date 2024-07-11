@@ -1,7 +1,7 @@
-n = int(input())  
-prices_str = input().split()
+n = int(input())
+prices_str, discounts_str = input().split(), input().split()
+
 prices = list(map(float, prices_str))
-discounts_str = input().split()
 discounts = list(map(float, discounts_str))
 
 total_price = sum(
