@@ -1,3 +1,4 @@
+```
 def smallest_change():
     arr = list(map(str, input("Enter numbers separated by space: ").split()))
     left, right = 0, len(arr)-1
