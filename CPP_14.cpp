@@ -3,8 +3,8 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string>, vector<string>);
 vector<string> all_prefixes(string);
+bool issame(vector<string>, vector<string>);
 
 int main() {
     std::string str = "WWW";
@@ -21,7 +21,7 @@ vector<string> all_prefixes(string str) {
     for (int i = 1; i <= str.length(); ++i) {
         string prefix;
         for (int j = 0; j < i; ++j) {
-            prefix += str[j % str.length()];
+            prefix.push_back(str[j % str.length()]);
         }
         result.push_back(prefix);
     }
