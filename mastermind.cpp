@@ -1,9 +1,35 @@
-int main() {
-    std::cout << mastermind("RRRR", "RRRR").at(0) << "\n" << mastermind("RRRR", "RRRR").at(1) << std::endl;
-    std::cout << mastermind("BOYG", "GYOB").at(0) << "\n" << mastermind("BOYG", "GYOB").at(1) << std::endl;
-    std::cout << mastermind("WYYW", "BBOG").at(0) << "\n" << mastermind("WYYW", "BBOG").at(1) << std::endl;
-    std::cout << mastermind("GGGB", "BGGG").at(0) << "\n" << mastermind("GGGB", "BGGG").at(1) << std::endl;
-    std::cout << mastermind("BBBB", "OOOO").at(0) << "\n" << mastermind("BBBB", "OOOO").at(1) << std::endl;
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            count++;
+        }
+    }
+    return count;
+}
 
+int blackPegs(string code, string guess) {
+    int count = 0;
+    vector<char> codeChars(code.begin(), code.end());
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            codeChars.erase-remove(&code[i]);
+            break;
+        }
+    }
+    for (int i = 0; i < 4; i++) {
+        if (count(codeChars.begin(), codeChars.end(), guess[i]) > 0) {
+            count++;
+            codeChars.erase-remove(&guess[i]);
+        }
+    }
+    return count;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    cout << blackPegs(code, guess) << endl;
+    cout << whitePegs(code, guess) << endl;
     return 0;
 }
