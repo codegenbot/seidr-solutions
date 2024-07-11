@@ -3,6 +3,6 @@ def sum_squares(lst):
     for num in lst:
         if isinstance(num, int):
             total += num**2
-        else:
-            print("Invalid input. Only integers are allowed.")
+        elif isinstance(num, str) and num.isdigit():
+            total += int(num) ** 2
     return total
