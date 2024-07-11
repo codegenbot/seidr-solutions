@@ -1,48 +1,29 @@
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<map>
+#include<algorithm>
+using namespace std;
+
 vector<string> by_length(vector<int> arr) {
-    vector<int> nums;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            nums.push_back(num);
-        }
-    }
-
-    sort(nums.begin(), nums.end());
-    reverse(nums.begin(), nums.end());
-
     vector<string> result;
-    for (int num : nums) {
-        string str = "";
-        switch (num) {
-            case 1:
-                str = "One";
-                break;
-            case 2:
-                str = "Two";
-                break;
-            case 3:
-                str = "Three";
-                break;
-            case 4:
-                str = "Four";
-                break;
-            case 5:
-                str = "Five";
-                break;
-            case 6:
-                str = "Six";
-                break;
-            case 7:
-                str = "Seven";
-                break;
-            case 8:
-                str = "Eight";
-                break;
-            case 9:
-                str = "Nine";
-                break;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9) {
+            string s = "";
+            switch (i) {
+                case 1: s = "One"; break;
+                case 2: s = "Two"; break;
+                case 3: s = "Three"; break;
+                case 4: s = "Four"; break;
+                case 5: s = "Five"; break;
+                case 6: s = "Six"; break;
+                case 7: s = "Seven"; break;
+                case 8: s = "Eight"; break;
+                case 9: s = "Nine";
+            }
+            result.push_back(s);
         }
-        result.push_back(str);
     }
-
+    reverse(result.begin(), result.end());
     return result;
 }
