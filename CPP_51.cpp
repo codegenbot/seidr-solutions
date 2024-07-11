@@ -10,10 +10,10 @@ string remove_vowels(string text){
     for(auto c : text) {
         if(c >= 'a' && c <= 'z'){
             if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
-                result += c; 
+                result += static_cast<char>(c); 
             }
         } else {
-            result += c; 
+            result += static_cast<char>(c); 
         }
     }
     return result;
