@@ -1,22 +1,5 @@
-#include <vector>
+#include <vector> // Include the necessary header file
 
-bool issame(std::vector<int> v1, std::vector<int> v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    
-    for (size_t i = 0; i < v1.size(); ++i) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-    
-    return true;
-}
-
-std::vector<int> parse_nested_parens(std::string paren_string);
-
-int main() {
-    // Implementation of parse_nested_parens function can go here
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b){ // Add return type 'bool'
+    return a == b; // Return comparison result
 }
