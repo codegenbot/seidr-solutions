@@ -1,4 +1,5 @@
-def double_the_difference(lst):
-    result = sum(i**2 for i in lst if isinstance(i, int) and i > 0)
-    assert result == 29, f"Expected double the difference of {lst} to be {29} but got {result}"
-    return result
+def check(input_list):
+    difference = abs(max(input_list) - min(input_list))
+    return (difference * 2) + sum(
+        i**2 for i in input_list if isinstance(i, int) and i > 0
+    )
