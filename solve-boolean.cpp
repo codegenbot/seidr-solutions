@@ -1,41 +1,43 @@
 string solveBoolean(string expression) {
-    for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '|') {
-            if (i + 1 < expression.length() && expression[i + 1] == '&') {
-                i++;
-            } else {
-                if (expression[i-1] == '&') {
-                    expression[i] = '&';
-                } else {
-                    expression[i] = '|';
-                }
-            }
-        }
-    }
     stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
-            }
-            s.push('&');
-        } else if (expression[i] == '|') {
-            while (!s.empty()) {
-                s.pop();
+        if (expression[i] == '|') {
+            while (!s.empty() && s.top() != '&') {
+                if (s.top() == 'T') s.pop(), s.push('F');
+                else if (s.top() == 'F') s.pop();
+                else break;
             }
             s.push('|');
+        } 
+        else if (expression[i] == '&') {
+            while (!s.empty() && s.top() != '|') {
+                if (s.top() == 'T' && !s.empty() && s.top() == 'F') {
+                    s.pop();
+                    s.pop();
+                    break;
+                }
+                if (s.top() == 'F' || s.top() == 'T')
+                    s.pop();
+            } 
+            s.push('&');
         } else {
             s.push(expression[i]);
         }
     }
+
     string result;
     while (!s.empty()) {
-        if (s.top() == '&') {
-            result = (result + " & ").substr(2);
-        } else {
-            result = (result + ((char)(s.top()))).substr(0, 3) + ((s.top() == 'T') ? "True" : "False");
+        if (s.top() == '|') {
+            if (!s.empty() && s.top() == '&') {
+                if (!s.empty() && s.top() == 'F' || !s.empty() && s.top() == 'T')
+                    s.pop();
+                else if (!s.empty() && s.top() == 'F') s.pop(), s.push('T');
+                else if (!s.empty() && s.top() == 'T') s.pop(), s.push('F');
+            } 
         }
+        result = ((s.top() == 'T') ? "True" : "False") + (result.empty() ? "" : " ");
         s.pop();
     }
+
     return result;
 }
