@@ -5,6 +5,7 @@ using namespace std;
 
 int main() {
     vector<int> digits(16);
+
     for (int i = 0; i < 16; ++i) {
         cin >> digits[i];
     }
