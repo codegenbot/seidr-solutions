@@ -1,13 +1,10 @@
-```
-from typing import List
-import math
-
-
-def factorize() -> List[int]:
-    """Factorize a number.
+def factorize() -> List[int]: 
+"""Factorize a number.
     This function takes an integer as input and returns a list of its prime factors.
     The input is read from the user.
 """
+from typing import List
+import math
 n = int(input("Enter a number: "))
 factors = []
 i = 2
