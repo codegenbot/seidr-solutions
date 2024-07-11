@@ -5,7 +5,7 @@ def solve(expression):
         return True
     else:
         return False
-    elif '&' in expression:
+    if '&' in expression:
         left, right = expression.split('&')
         result1 = solve(left)
         result2 = solve(right)
