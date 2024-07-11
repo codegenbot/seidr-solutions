@@ -1,9 +1,15 @@
+```
 def sort_third(l):
     result = []
-    for i in range(len(l)):
+    i = 0
+    while i < len(l):
         if i % 3 == 0:
-            chunk = l[:i//3*3+3] if i // 3 * 3 + 3 <= len(l) else l[i//3*3:]
-            result.append(sorted(chunk)[i%3]) if i < 9 else None
+            if i // 3 * 3 + 3 <= len(l):
+                result.append(sorted(l[i//3*3:i//3*3+3])[0])
+            else:
+                result.extend(sorted(l[i:]))
+                break
         else:
             result.append(l[i])
-    return result
+        i += 1
+    return tuple(result)
