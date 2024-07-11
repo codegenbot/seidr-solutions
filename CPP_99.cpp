@@ -1,3 +1,4 @@
-float num = stof(value);
-    return round(num);
+double num = stod(value);
+    int closestInt = static_cast<int>(round(num));
+    return closestInt;
 }
