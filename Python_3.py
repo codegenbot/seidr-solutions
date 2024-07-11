@@ -1,17 +1,12 @@
-def below_zero() -> bool:
-    numbers = []
-
+```
+def below_zero():
+    operations = []
     while True:
-        num = input("Enter a number (or 'stop' to finish): ")
-
-        if num.lower() == "stop":
-            break
         try:
-            num = int(num)
-            numbers.append(num)
+            operation = int(input("Enter a number (or 'stop' to finish): "))
+            if str(operation) == 'stop':
+                break
+            operations.append(operation)
         except ValueError:
-            print(
-                "Invalid input. Please enter a whole number or type 'stop' to finish."
-            )
-
-    return sum(numbers) < 0
+            print("Invalid input. Please enter a number.")
+    return sum(operations) < 0
