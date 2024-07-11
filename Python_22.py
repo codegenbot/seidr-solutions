@@ -1,7 +1,7 @@
 ```
 from typing import Any, list
 
-def filter_integers() -> None:
+def filter_integers() -> list[int]:
     values: list[Any] = []
     
     while True:
@@ -17,5 +17,6 @@ def filter_integers() -> None:
 
     filtered_values: list[int] = [value for value in values if isinstance(value, int)]
     
-    if filtered_values: print("Filtered integers:", filtered_values)
-filter_integers()
+    return filtered_values
+
+print(filter_integers())
