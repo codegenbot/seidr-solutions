@@ -1,9 +1,11 @@
+vector<int> largest_smallest_integers(vector<int> lst);
+
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 vector<int> largest_smallest_integers(vector<int> lst){
-    vector<int> result = {INT_MIN, INT_MAX};
+    vector<int> result = {0, 0};
     int largest_negative = 0;
     int smallest_positive = 0;
     
@@ -16,22 +18,19 @@ vector<int> largest_smallest_integers(vector<int> lst){
         }
     }
     
-    if (largest_negative == 0) {
-        result[0] = 0;
-    } else {
-        result[0] = largest_negative;
-    }
-    
-    if (smallest_positive == 0) {
-        result[1] = 0;
-    } else {
-        result[1] = smallest_positive;
-    }
+    result[0] = largest_negative;
+    result[1] = smallest_positive;
     
     return result;
 }
 
 int main() {
-    // Test the functions here
+    vector<int> input = {1, -2, 3, -4, 5};
+    vector<int> result = largest_smallest_integers(input);
+    
+    for (int num : result) {
+        cout << num << " ";
+    }
+    
     return 0;
 }
