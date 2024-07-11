@@ -1,31 +1,40 @@
-Here is the completed code:
-
-string words_in_sentence(string sentence){
-    vector<string> words = split(sentence, ' ');
+string words_in_sentence(string sentence) {
+    vector<int> primes = getPrimes(sentence.size());
     string result = "";
-    for (string word : words) {
-        if (is_prime(word.length())) {
-            result += word + " ";
+    
+    for (int i = 0; i < sentence.size(); ++i) {
+        if (primes[i] > 0) {
+            size_t start = sentence.find(" ");
+            size_t end = sentence.find(" ", start + 1);
+            if (start != string::npos && end != string::npos) {
+                result += &sentence[start] + 1;
+                sentence.erase(start, end - start);
+            } else {
+                result += sentence.substr(start + 1);
+                sentence.erase(0, sentence.size());
+            }
         }
     }
-    return result.substr(0, result.size() - 1);
+    
+    return result;
 }
 
-vector<string> split(const string& str, char c) {
-    vector<string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(c)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
+vector<int> getPrimes(int n) {
+    vector<bool> isPrime(n+1, true);
+    for (int i = 2; i * i <= n; ++i) {
+        if (isPrime[i]) {
+            for (int j = i*i; j <= n; j += i) {
+                isPrime[j] = false;
+            }
+        }
     }
-    tokens.push_back(str);
-    return tokens;
-}
-
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
+    
+    vector<int> primes;
+    for (int i = 2; i <= n; ++i) {
+        if (isPrime[i]) {
+            primes.push_back(i);
+        }
     }
-    return true;
+    
+    return primes;
 }
