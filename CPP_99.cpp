@@ -1,11 +1,3 @@
-float num = stof(value);
-    int result = round(num);
-    if (num - result == 0.5 || num - result == -0.5) {
-        if (num > 0) {
-            result = ceil(num);
-        } else {
-            result = floor(num);
-        }
-    }
-    return result;
+double num = stod(value);
+    return (num > 0) ? ceil(num) : floor(num);
 }
