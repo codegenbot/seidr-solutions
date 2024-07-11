@@ -16,8 +16,7 @@ int digitSum(std::string s) {
 int main() {
     std::cout << "Enter a string: ";
     std::string input;
-    std::cin >> std::ws; // use ws manipulator to skip whitespace
-    std::getline(std::cin, input);
+    std::cin >> input; 
     if (!input.empty()) { 
         int digitPos = -1;
         for (int i = 0; i < input.size(); ++i) {
