@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <cassert>
-#include <ostream>
 
 using namespace std;
 
@@ -24,12 +24,14 @@ vector<int> even_odd_count(int num) {
     result.push_back(count);
     result.push_back(abs(num));
     return result;
+
 }
 
 int main() {
-    assert(issame(even_odd_count(0), vector<int>(1, 0)));
-    int num; 
-    cin >> num;  
-    vector<int> output = even_odd_count(num);  
-    cout << "Even: " << output[0] << ", Odd: " << output[1] << endl;
+    assert(issame(even_odd_count(0), vector<int>{1, 0}));
+    int n; 
+    cin >> n;  
+    vector<int> res = even_odd_count(n);  
+    for(int i=0;i<res.size();i++) cout << res[i]<<" ";  
+    cout<<endl;
 }
