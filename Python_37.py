@@ -1,11 +1,7 @@
-def merge(evens, odds):
-    i = j = 0
-    result = []
-    while i < len(evens) and j < len(odds):
-        if -abs(odds[j]) >= evens[i]:
-            result.append(evens[i])
-            i += 1
-        else:
-            result.append(odds[j])
-            j += 1
-    return result
+def sort_even(evens):
+    return merge(evens, [])
+
+evens = [2, 4, 6]
+odds = [1, 3, 5]
+
+print(sort_even(evens))
