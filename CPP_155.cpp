@@ -1,12 +1,18 @@
-#include <initializer_list>
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 int issame(const vector<int>& a, const vector<int>& b) {
-    if(a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()))
+    if(a.size() == b.size()) {
+        for (int i = 0; i < a.size(); ++i) {
+            if (a[i] != b[i]) {
+                return -1;
+            }
+        }
         return 0;
-    else
+    } else {
         return -1;
+    }
 }
 
 std::vector<int> even_odd_count(int num) {
