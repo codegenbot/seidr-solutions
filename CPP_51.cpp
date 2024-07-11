@@ -1,8 +1,8 @@
-#include <iostream>
-#include <cctype>
 #include <string>
+#include <iostream>
+#include <ostream>
 
-int main() {
+std::string removeVowels() {
     std::string text;
     std::cout << "Enter a sentence: ";
     std::getline(std::cin, text);
@@ -14,5 +14,10 @@ int main() {
             result += c; 
     }
     std::cout << "Sentence with vowels removed: " << result << std::endl;
+    return result;
+}
+
+int main() {
+    std::string output = removeVowels();
     return 0;
 }
