@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -8,12 +7,17 @@ int main() {
     std::getline(std::cin, text);
     std::getline(std::cin, target);
 
+    if (target.empty()) {
+        std::cout << "Target string is empty." << std::endl;
+        return 0;
+    }
+
     std::vector<size_t> indices;
     size_t pos = 0;
 
-    while ((pos = text.find(target, pos)) < text.size()) {
+    while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
-        pos += 1; // Move position forward by 1 for overlapping targets
+        pos += (target.length() == 1) ? 1 : 0; // Handle overlapping targets
     }
 
     for (size_t i = 0; i < indices.size(); ++i) {
