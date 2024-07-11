@@ -5,8 +5,12 @@ def string_to_md5():
     while True:
         text = input("Enter the text (or 'quit' to exit): ")
         if text.lower() == "quit":
-            print("Goodbye!")
-        elif not text:
+            return None
+        if not text:
             print("Please enter some text.")
         else:
-            return hashlib.md5(text.encode()).hexdigest()
+            result = ""
+            for line in text.split("\n"):
+                if line:
+                    result += hashlib.md5(line.encode()).hexdigest() + "\n"
+            return result.strip()
