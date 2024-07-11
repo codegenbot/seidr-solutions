@@ -1,31 +1,44 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
 
-string words_in_sentence(string sentence){
-    string result = "";
-    for (const auto &word : split(sentence, ' ')) {
-        if (is_prime(word.length())) {
+string words_in_sentence(string sentence) {
+    vector<string> words = split(sentence, ' ');
+    string result;
+
+    for (string word : words) {
+        int length = word.length();
+        bool is_prime = false;
+        for (int i = 2; i <= sqrt(length); i++) {
+            if (length % i == 0) {
+                is_prime = false;
+                break;
+            } else {
+                is_prime = true;
+            }
+        }
+
+        if (is_prime) {
             result += word + " ";
         }
     }
+
     return result.substr(0, result.size() - 1);
 }
 
-vector<string> split(const string &s, char c) {
-    vector<string> v;
-    size_t i = 0;
-    while ((i = s.find(c)) != string::npos) {
-        v.push_back(s.substr(0, i));
-        s.erase(0, i + 1);
-    }
-    v.push_back(s);
-    return v;
-}
+vector<string> split(string sentence, char delimeter) {
+    vector<string> words;
+    string temp;
 
-bool is_prime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i * i <= n; i++)
-        if (n % i == 0)
-            return false;
-    return true;
+    for (char c : sentence) {
+        if (c == delimeter) {
+            words.push_back(temp);
+            temp = "";
+        } else {
+            temp += c;
+        }
+    }
+
+    words.push_back(temp);
+
+    return words;
 }
