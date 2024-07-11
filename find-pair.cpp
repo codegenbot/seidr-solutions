@@ -13,7 +13,7 @@ pair<int, int> findPair(vector<int>& nums, int target) {
         }
         numIndex[nums[i]] = i;
     }
-    return {0, 0};
+    return {};
 }
 
 int main() {
