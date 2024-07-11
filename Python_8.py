@@ -13,14 +13,11 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return total_sum, product if product != 0 else 1
 
 
-while True:
-    try:
-        numbers_str = input("Please enter numbers separated by space: ")
-        numbers = [int(num) for num in numbers_str.split()]
-        break
-    except ValueError:
-        print("Invalid input! Please enter numbers only.")
-
-result = sum_product(numbers)
-total_sum, product = result
-print(f"Total sum is {total_sum} and the product is {product}.")
+numbers = list(map(int, input("Please enter numbers separated by space: ").split()))
+try:
+    result = sum_product(numbers)
+except ValueError:
+    print("Invalid input! Please enter numbers only.")
+else:
+    total_sum, product = result
+    print(f"Total sum is {total_sum} and the product is {product}.")
