@@ -6,6 +6,6 @@ def coin_sums(cents):
         count = cents // coin
         if count > 0:
             total_coins[i] = count
-            cents -= coin * count
+            cents %= coin * count
 
-    return total_coins
+    return " ".join(map(str, total_coins))
