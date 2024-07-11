@@ -3,12 +3,12 @@ def fizz_buzz(n):
     result = []
     for i in range(1, n+1):
         output = ""
-        if i % 3 == 0:
-            output += "Fizz"
-        if i % 5 == 0:
-            output += "Buzz" if output == "" else " Buzz"
         if i % 15 == 0:
-            output += "Fizz Buzz"
+            output += "FizzBuzz"
+        elif i % 5 == 0:
+            output += "Buzz" if output == "" else " Buzz"
+        elif i % 3 == 0:
+            output += "Fizz"
         if not output:
             output = str(i)
         result.append(output)
