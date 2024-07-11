@@ -1,8 +1,9 @@
+#include <iostream>
 #include <vector>
 using namespace std;
 
-bool issame(vector<int> a,vector<int>b){
-    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
 }
 
 vector<int> compare(vector<int> game, vector<int> guess) {
@@ -18,6 +19,6 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 int main() {
-    assert (issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+    assert(issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
     return 0;
 }
