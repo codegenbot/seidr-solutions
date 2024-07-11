@@ -12,3 +12,4 @@ std::vector<float> derivative(const std::vector<float>& xs) {
     }
     return result;
 }
+```
