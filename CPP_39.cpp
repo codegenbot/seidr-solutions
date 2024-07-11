@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
 int prime_fib(int n) {
@@ -27,7 +28,11 @@ int main() {
     int n;
     cout << "Enter the number: ";
     cin >> n;
-    string output = "The " + to_string(n) + "th prime Fibonacci number is: " + to_string(prime_fib(n)) + "\n";
-    cout << output;
+    int result = prime_fib(n);
+    if (result != -1) {
+        cout << "The " << n << "th prime Fibonacci number is: " << to_string(result) << endl;
+    } else {
+        cout << "No such prime Fibonacci number exists." << endl;
+    }
     return 0;
 }
