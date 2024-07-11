@@ -1,4 +1,4 @@
-Here's the modified code:
+Here is the modified code:
 
 def fix_spaces(text):
     text = text.strip().replace(" ", "_")
