@@ -2,18 +2,22 @@
 #include <string>
 
 int main() {
-    std::string str;
-    int val;
+    std::string user_input;
+    boost::any input;
 
-    std::cout << "Enter a string: ";
-    std::cin >> str;
+    // Ask the user for some data
+    std::cout << "Please enter your favorite color: ";
+    std::cin >> user_input;
 
-    try {
-        boost::any a = str;
-        int result = boost::any_cast<int>(a);
-        std::cout << "The integer value is: " << result << std::endl;
-    } catch (boost::bad_any_cast& e) {
-        std::cout << "Invalid input. Please enter an integer." << std::endl;
+    // Check if the input is either 'red' or 'green'
+    if (user_input == "red" || user_input == "green") {
+        // Convert the string to a boost::any object
+        input = boost::any(user_input);
+
+        // Print out the input, whether it's 'red', 'green', or something else!
+        std::cout << "You entered: " << boost::any_cast<std::string>(input) << std::endl;
+    } else {
+        std::cout << "Sorry, that's not a valid color." << std::endl;
     }
 
     return 0;
