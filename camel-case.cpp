@@ -1,34 +1,34 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(const std::string& str) {
-    std::vector<std::string> words;
-    size_t start = 0;
-    for (size_t i = 0; i <= str.size(); ++i) {
-        if (i == str.size() || str[i] == ' ') {
-            words.push_back(str.substr(start, i - start));
-            start = i + 1;
-        }
-    }
+std::string kebabToCamel(std::string input) {
+    std::string output;
+    bool firstWord = true;
 
-    std::string result;
-    for (const auto& word : words) {
-        size_t dashIndex = word.find('-');
-        if (dashIndex != std::string::npos) {
-            result += toUpper(word.substr(0, dashIndex));
-            result += word.substr(dashIndex + 1);
+    for (char c : input) {
+        if (c == '-') {
+            if (!firstWord)
+                output += char(toupper(c));
+            firstWord = false;
+        } else if (c == ' ') {
+            if (!firstWord)
+                output += ' ';
+            firstWord = false;
         } else {
-            result += word;
+            output += c;
+            firstWord = true;
         }
     }
 
-    return result;
+    return output;
 }
 
 int main() {
-    std::cout << kebabToCamel("nospaceordash") << "\n";
-    std::cout << kebabToCamel("two-words") << "\n";
-    std::cout << kebabToCamel("two words") << "\n";
-    std::cout << kebabToCamel("all separate words") << "\n";
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    std::cout << "Camel case: " << kebabToCamel(input) << std::endl;
+
     return 0;
 }
