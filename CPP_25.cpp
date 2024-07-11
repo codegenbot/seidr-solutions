@@ -15,13 +15,11 @@ vector<int> factorize(int n){
 }
 
 int main(){
-    // Function usage example
-    int number = 24;
-    vector<int> primeFactors = factorize(number);
-    for(int factor : primeFactors){
-        cout << factor << " ";
+    // Test the factorize function
+    int num = 60;
+    vector<int> result = factorize(num);
+    for(int i=0; i<result.size(); i++){
+        cout << result[i] << " ";
     }
-    cout << endl;
-    
     return 0;
 }
