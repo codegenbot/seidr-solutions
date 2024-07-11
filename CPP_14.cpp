@@ -19,7 +19,11 @@ int main() {
 vector<string> all_prefixes(string str) {
     vector<string> result;
     for (int i = 1; i <= str.length(); ++i) {
-        result.push_back(str.substr(0, i));
+        string prefix;
+        for (int j = 0; j < i; ++j) {
+            prefix += str.substr(j, 1); // Convert int to char by taking a substring of length 1
+        }
+        result.push_back(prefix);
     }
     return result;
 }
