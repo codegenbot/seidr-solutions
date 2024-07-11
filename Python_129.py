@@ -1,17 +1,31 @@
 ```
 def minPath(grid, k):
     n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
-    res = []
-    for _ in range(k):
-        cur_min = float("inf")
-        cur_cell = None
-        for i in range(n):
-            for j in range(n):
-                if m[i][j] < cur_min:
-                    cur_min = m[i][j]
-                    cur_cell = (i, j)
-        if cur_cell is not None:
-            res.append(cur_min)
-            m[cur_cell[0]][cur_cell[1]] = float("inf")
-    return res
+    m = [[0 for _ in range(n)] for _ in range(n)]
+    
+    for i in range(n):
+        for j in range(n):
+            if grid[i][j] == 1:
+                m[i][j] = 1
+            else:
+                m[i][j] = float('inf')
+    
+    queue = [(0, 0, [grid[0][0]])]
+    visited = set((0, 0))
+    
+    result = []
+    
+    while queue:
+        x, y, path = queue.pop(0)
+        
+        if len(path) == k:
+            result.append(path)
+        
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nx, ny = x + dx, y + dy
+            
+            if 0 <= nx < n and 0 <= ny < n and (nx, ny) not in visited:
+                queue.append((nx, ny, path + [grid[nx][ny]]))
+                visited.add((nx, ny))
+    
+    return result
