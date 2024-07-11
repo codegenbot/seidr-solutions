@@ -1,7 +1,7 @@
+#include <cassert>
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using std::vector;
 
