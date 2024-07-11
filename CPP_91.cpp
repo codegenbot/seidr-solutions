@@ -1,14 +1,17 @@
 int is_bored(string S){
-    int count = 0;
-    bool is_boredom = false;
+    int boredom_count = 0;
+    bool is_i_present = false;
+    
     for (int i = 0; i < S.size(); ++i) {
-        if (S[i] == 'I' && (i == 0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')) {
-            is_boredom = true;
+        if (S[i] == 'I' && (i == 0 || S[i - 1] == '.' || S[i - 1] == '?' || S[i - 1] == '!')) {
+            is_i_present = true;
         }
-        if ((S[i] == '.' || S[i] == '?' || S[i] == '!') && is_boredom) {
-            count++;
-            is_boredom = false;
+        
+        if (is_i_present && (S[i] == '.' || S[i] == '?' || S[i] == '!')) {
+            boredom_count++;
+            is_i_present = false;
         }
     }
-    return count;
+    
+    return boredom_count;
 }
