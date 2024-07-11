@@ -10,7 +10,11 @@ int main() {
     int num;
     
     while (cin >> num) {
-        nums.push_back(num);
+        if (!cin.eof()) {
+            nums.push_back(num);
+        } else {
+            break;
+        }
     }
     
     int n = nums.size();
