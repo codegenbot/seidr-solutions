@@ -1,4 +1,4 @@
-def mastermind(code, guess):
+def get_clue():
     black = 0
     white = 0
 
