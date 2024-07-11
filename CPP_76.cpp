@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cassert>
 #include <cmath>
+#include <cassert>
 
 bool is_simple_power(int x) {
     if(x == 1) return true;
@@ -17,8 +17,7 @@ bool is_simple_power(int x) {
 }
 
 int main() {
-    assert(is_simple_power(1)==true);
-    // Add more test cases here
-
+    assert(is_simple_power(1) == true);
+    
     return 0;
 }
