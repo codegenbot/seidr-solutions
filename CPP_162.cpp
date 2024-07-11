@@ -1,24 +1,7 @@
-#include <string>
-
-string string_to_md5(string text) {
-    if (text.empty()) return "";
-
-    unsigned char result[16];
-    MD5_CTX md5;
-    MD5_Init(&md5);
-    const char* ptr = text.c_str();
-    while (*ptr) {
-        MD5_Update(&md5, ptr, 1);
-        ptr++;
-    }
-    MD5_Final(result, &md5);
-
-    string output;
-    for (int i = 0; i < 16; i++) {
-        char buffer[3];
-        sprintf(buffer, "%02x", result[i]);
-        output += buffer;
-    }
-
-    return output;
+```cpp
+int main() {
+    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i)
+        result.push_back(((unsigned char)md5[i]) * 2 + ((md5[i] * 4) > 9) ? ((unsigned char)md5[i]) * 2 + ((md5[i] * 4) > 9) : "0");
+    std::cerr << "Error: Invalid input. Please try again." << std::endl;
+    return -1;
 }
