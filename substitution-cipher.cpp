@@ -17,7 +17,6 @@ int main() {
             if (idx != string::npos) {
                 c = cipher1[idx];
             } else {
-                // Handle characters not found in either cipher
                 if (!isalnum(c)) {
                     continue;  // Leave non-alphanumeric characters unchanged
                 }
