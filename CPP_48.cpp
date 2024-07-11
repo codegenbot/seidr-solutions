@@ -1,7 +1,8 @@
+```cpp
 #include <iostream>
 #include <string>
 
-bool is_palindrome(const std::string& text){
+bool is_palindrome(std::string text){
     int start = 0;
     int end = text.length() - 1;
 
@@ -21,12 +22,17 @@ int main(){
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     
-    bool result = is_palindrome(input);
+    std::string processedInput = input;
+    while (!processedInput.empty() && processedInput.back() == '\n') {
+        processedInput.pop_back();
+    }
+    
+    bool result = is_palindrome(processedInput);
     
     if(result)
-        std::cout << input << " is a palindrome.";
+        std::cout << processedInput << " is a palindrome.";
     else
-        std::cout << input << " is not a palindrome.";
+        std::cout << processedInput << " is not a palindrome.";
     
     return 0;
 }
