@@ -1,8 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <algorithm>
-using namespace std;
-
 int whitePegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; i++) {
@@ -14,19 +9,28 @@ int whitePegs(string code, string guess) {
 }
 
 int blackPegs(string code, string guess) {
+    int white = whitePegs(code, guess);
     int count = 0;
+    vector<vector<int>> counts(6, vector<int>(4));
+    
     for (int i = 0; i < 4; i++) {
-        int codeCount = count(code.begin(), code.end(), guess[i]);
-        int guessCount = count(guess.begin(), guess.end(), guess[i]);
-        if (code[i] == guess[i]) {
-            codeCount--;
-            guessCount--;
-        }
-        if (codeCount > 0 && guessCount > 0) {
-            count += min(codeCount, guessCount);
+        if (guess[i] == code[i]) continue;
+        for (int j = 0; j < 4; j++) {
+            if (code[j] == guess[i]) {
+                counts[code.find(guess[i])][j]++;
+                if (j < white) {
+                    counts[code.find(guess[i])][j]--;
+                }
+            }
         }
     }
-    return count;
+    
+    for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 4; j++) {
+            count += min(counts[i][j], 1);
+        }
+    }
+    return 4 - white + count;
 }
 
 int main() {
