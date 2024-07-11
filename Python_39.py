@@ -1,11 +1,11 @@
-def nth_paired_prime(n: int):
+def find_nth_prime_fibonacci(n: int):
     a, b = 0, 1
     count = 0
     while True:
-        if is_prime(a) and is_prime(b):
+        if is_prime(b):
             count += 1
             if count == n:
-                return (a, b)
+                return b
         a, b = b, a + b
 
 
