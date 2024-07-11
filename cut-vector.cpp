@@ -8,17 +8,16 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-    
-    while (cin >> num) {
+    while (cin >> num && !cin.eof()) {
         nums.push_back(num);
     }
-    
+
     int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
     }
-    
+
     int prefixSum = 0;
     int minDiff = INT_MAX;
     int cutIndex = -1;
