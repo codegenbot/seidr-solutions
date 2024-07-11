@@ -2,19 +2,18 @@ import math
 
 
 def find_zero():
-    coefficients = input("Enter the coefficients of the polynomial (space-separated): ")
-    coefficients = list(map(float, coefficients.split()))
+    x1 = float(input("Enter the coefficient of the first term: "))
+    x2 = float(input("Enter the coefficient of the second term: "))
+    x3 = float(input("Enter the coefficient of the third term: "))
+    x4 = float(input("Enter the constant term: "))
 
-    try:
-        return round(
-            (
-                -coefficients[1]
-                + math.sqrt(
-                    coefficients[1] ** 2 - 4 * coefficients[0] * coefficients[-1]
-                )
-            )
-            / (2 * coefficients[0]),
-            2,
-        )
-    except ZeroDivisionError:
-        return "This polynomial does not have a zero."
+    a = 1
+    b = -x3
+    c = x2 - (a * x4)
+    d = -x1
+
+    if (b**2) - (4 * a * c) < 0:
+        print("No real solution exists.")
+    else:
+        x = (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
+        return round(x, 2)
