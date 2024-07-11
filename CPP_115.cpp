@@ -1,13 +1,16 @@
-int result = 0;
-        for (const auto &row : grid) {
-            int current_bucket = 0;
-            for (const auto &well : row) {
-                if (well > current_bucket) {
-                    result += (well - current_bucket);
-                    current_bucket = well;
+int total_water = 0;
+        int total_moves = 0;
+        for (int i = 0; i < grid.size(); i++) {
+            for (int j = 0; j < grid[i].size(); j++) {
+                total_water += grid[i][j];
+                if (total_water >= capacity) {
+                    total_moves += total_water / capacity;
+                    total_water %= capacity;
                 }
-                current_bucket = min(current_bucket, well);
             }
         }
-        return result * capacity;
-    }
+        if (total_water > 0) {
+            total_moves += 1;
+        }
+        return total_moves;
+}
