@@ -1,5 +1,6 @@
 int specialFilter(vector<int> nums){
     int count = 0;
+    
     for (int num : nums) {
         if (num > 10) {
             string numStr = to_string(num);
@@ -8,5 +9,6 @@ int specialFilter(vector<int> nums){
             }
         }
     }
+    
     return count;
 }
