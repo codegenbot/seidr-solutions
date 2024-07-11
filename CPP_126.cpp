@@ -1,10 +1,10 @@
-for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] >= lst[i + 1]) {
+vector<int> no_duplicates(lst.begin(), lst.end());
+    sort(no_duplicates.begin(), no_duplicates.end());
+    
+    for (int i = 0; i < no_duplicates.size() - 1; i++) {
+        if (no_duplicates[i] == no_duplicates[i + 1])
             return false;
-        }
-        if (i < lst.size() - 2 && lst[i] == lst[i + 1] && lst[i] == lst[i + 2]) {
-            return false;
-        }
     }
-    return true;
+    
+    return lst == no_duplicates;
 }
