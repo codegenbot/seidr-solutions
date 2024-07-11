@@ -6,10 +6,11 @@ def sort_even(l):
     return evens + odds_pos + neg_odds
 
 while True:
-    user_input = input("Enter numbers separated by space: ")
-    numbers = [int(i) for i in user_input.split()]
-    if numbers:
+    try:
+        user_input = input("Enter numbers separated by space: ")
+        numbers = [int(i) for i in user_input.split()]
         break
-    print("Invalid input. Please enter numeric values separated by spaces.")
+    except ValueError:
+        print("Invalid input. Please enter numeric values separated by spaces.")
 
 print(sort_even(numbers))
