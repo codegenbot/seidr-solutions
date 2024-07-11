@@ -4,6 +4,11 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b);
+std::vector<int> sort_third(std::vector<int> l);
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
 std::vector<int> sort_third(std::vector<int> l) {
     std::vector<int> indices;
@@ -25,8 +30,4 @@ std::vector<int> sort_third(std::vector<int> l) {
     }
 
     return l;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
 }
