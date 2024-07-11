@@ -25,5 +25,5 @@ boost::any compare(boost::any a, boost::any b) {
             return b;
         }
     }
-    assert(false); // Should not reach here
+    assert(false); // Invalid types
 }
