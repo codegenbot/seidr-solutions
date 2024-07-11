@@ -26,7 +26,7 @@ std::vector<int> tri(int n) {
 }
 
 int main() {
-    assert(tri(1) == std::vector<int>({3, 1}));
-
+    assert((tri(1) == std::vector<int>{3, 1}));
+    
     return 0;
 }
