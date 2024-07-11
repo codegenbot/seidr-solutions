@@ -1,14 +1,16 @@
 ```
-def compare_one(a, b):
+def compare_numbers(a, b):
     if isinstance(a, str) and isinstance(b, (int, float)):
-        return a if float(a.replace(',', '.')) > b else None
+        a = float(a.replace(',', '.')) if ',' in a else int(a)
+        return a if a > b else None
     elif isinstance(b, str) and isinstance(a, (int, float)):
-        return b if float(b.replace(',', '.')) > a else None
+        b = float(b.replace(',', '.')) if ',' in b else int(b)
+        return b if b > a else None
     elif isinstance(a, str) and isinstance(b, str):
-        return a if float(a.replace(',', '.')) > float(b.replace(',', '.')) else None
-    elif a > b:
-        return a
-    elif b > a:
-        return b
+        a = float(a.replace(',', '.'))
+        b = float(b.replace(',', '.'))
+        return a if a > b else None
+    elif isinstance(a, (int, float)) and isinstance(b, (int, float)):
+        return a if a > b else None
     else:
         return None
