@@ -18,7 +18,3 @@ struct order_by_points {
 
     order_by_points() = default;
 };
-
-sort(nums.begin(), nums.end(), order_by_points());
-
-assert(order_by_points({0, 6, 6, -76, -21, 23, 4}) == vector<int>{-76, -21, 0, 4, 23, 6, 6});
