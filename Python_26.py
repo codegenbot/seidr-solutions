@@ -5,8 +5,10 @@ def remove_duplicates(numbers_str: str) -> List[int]:
     seen = set()
     result = []
     for num in map(int, numbers_str.split(',')):
-        seen.add(num)
-    return list(seen)
+        if num not in map(int, list(seen)):
+            seen.add(str(num))
+            result.append(num)
+    return result
 
 
 numbers_str = input("Enter numbers separated by commas: ")
