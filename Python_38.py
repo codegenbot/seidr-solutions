@@ -1,3 +1,4 @@
+```
 def decode_cyclic(encoded_str: bytes, key: int) -> str:
     decoded_str = ""
     n = len(encoded_str) // 2
@@ -14,8 +15,8 @@ def decode_cyclic(encoded_str: bytes, key: int) -> str:
             decoded_str += bits[1:].hex()[::-1].ljust(n * 2, "0").decode()
         else:
             decoded_str += bits[1:].hex()[::-1].ljust(n * 2, "0").decode()
-    return decoded_str
+    return decoded_str.strip()
 
-input_bytes = bytes(input("Enter the encoded string: "), 'utf-8')
+encoded_str = input("Enter the encoded string: ")
 key = int(input("Enter the key: "))
-print(decode_cyclic(input_bytes, key))
+print(decode_cyclic(encoded_str.encode(), key))
