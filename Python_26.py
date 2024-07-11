@@ -2,15 +2,17 @@ from typing import List
 
 
 def remove_duplicates(input_string: str) -> List[int]:
-    numbers = []
-    for s in input_string.split(','):
-        try:
-            numbers.append(int(s))
-        except ValueError:
-            pass
-    result = sorted(list(set(numbers)))
+    numbers = list(map(int, ''.join(filter(str.isdigit, input_string.replace(',', ''))).split()))
+    result = sorted(list(set(map(int, numbers))))
     return result
 
 
-result = remove_duplicates(input("Enter your string: "))
+while True:
+    user_input = input("Enter your string (numbers and commas only): ")
+    if all(char in '0123456789, ' for char in user_input):
+        break
+    else:
+        print("Invalid input. Please enter a string with numbers and commas only.")
+
+result = remove_duplicates(user_input)
 print(result)
