@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <vector>
 using namespace std;
 
 float shoppingTrip(vector<float> prices, vector<float> discounts) {
