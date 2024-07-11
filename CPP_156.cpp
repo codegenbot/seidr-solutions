@@ -1,8 +1,6 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <string>
-#include <iostream>
-#include <limits>
 
 using namespace std;
 
@@ -25,7 +23,5 @@ int main() {
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    string result = int_to_mini_roman(num);
-    cout << "Roman numeral: " << result << endl;
+    cout << "Mini Roman: " << int_to_mini_roman(num) << endl;
     return 0;
-}
