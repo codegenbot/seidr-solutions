@@ -1,41 +1,29 @@
-#include <vector>
-#include <string>
+bool issame(vector<string> a, vector<string> b);
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
-}
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    vector<string> result;
 
-std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    std::vector<std::string> result;
-
-    int idx1 = -1, idx2 = -1;
+    int index1 = -1, index2 = -1;
     for (int i = 0; i < planets.size(); ++i) {
         if (planets[i] == planet1) {
-            idx1 = i;
-        } else if (planets[i] == planet2) {
-            idx2 = i;
+            index1 = i;
+        }
+        if (planets[i] == planet2) {
+            index2 = i;
         }
     }
 
-    if (idx1 == -1 || idx2 == -1) {
+    if (index1 == -1 || index2 == -1 || issame(planets, result)) {
         return result;
     }
 
-    if (idx1 < idx2) {
-        for (int i = idx1 + 1; i < idx2; ++i) {
-            result.push_back(planets[i]);
-        }
-    } else {
-        for (int i = idx2 + 1; i < idx1; ++i) {
-            result.push_back(planets[i]);
-        }
+    int start = min(index1, index2);
+    int end = max(index1, index2);
+
+    for (int i = start + 1; i < end; ++i) {
+        result.push_back(planets[i]);
     }
 
     return result;
-}
-
-int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
-    return 0;
 }
