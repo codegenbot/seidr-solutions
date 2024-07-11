@@ -1,4 +1,4 @@
-def valid_date(date: str) -> bool:
+def valid_date(date) -> bool:
     day, month, year = date.split('-')
     if len(day) == 1:
         day = '0' + day
