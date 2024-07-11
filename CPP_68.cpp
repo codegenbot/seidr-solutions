@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <algorithm>
 
 std::vector<int> pluck(std::vector<int> arr) {
     vector<int> result;
@@ -21,4 +21,3 @@ std::vector<int> pluck(std::vector<int> arr) {
     }
 
     return result;
-}
