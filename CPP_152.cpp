@@ -1,19 +1,15 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    vector<int> compare(vector<int> game, vector<int> guess) {
-        vector<int> result;
-        for (size_t i = 0; i < game.size(); ++i) {
-            if (game[i] == guess[i]) {
-                result.push_back(0);
-            } else {
-                result.push_back(abs(game[i] - guess[i]));
-            }
-        }
-        return result;
-    }
+bool issame(vector<int> a, vector<int> b);
 
-int main() {
-    // Main function code here
-    return 0;
+vector<int> compare(vector<int> game, vector<int> guess) {
+    vector<int> result;
+    for (size_t i = 0; i < game.size(); ++i) {
+        if (game[i] == guess[i]) {
+            result.push_back(0);
+        } else {
+            result.push_back(abs(game[i] - guess[i]));
+        }
+    }
+    return result;
 }
