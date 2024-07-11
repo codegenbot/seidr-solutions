@@ -1,4 +1,3 @@
-''' 
 def sort_array(array):
     if len(array) == 0:
         return array
