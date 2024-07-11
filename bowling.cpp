@@ -2,24 +2,21 @@
 
 int bowlingScore(string s) {
     int score = 0;
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == '/') {
-            if(i+1 < s.size() && (s[i+1] >= '0' && s[i+1] <= '9')) {
-                score += (10 - (s[i+1]-'0')) + (i==0 ? 20 : 10);
-            } else if(s[i-1] == 'X') {
-                score += 10;
+    bool lastFrameStrike = false;
+    for (int i = 0; i < 10; ++i) {
+        if (s[i] == 'X') { // strike
+            score += 10 + (i < 9 ? bowlingScore(s.substr(i+1)) : 0);
+        } else if (s[i] == '/') { // spare
+            int j = i + 2;
+            while (j < s.size() && s[j] != 'X' && s[j] != '/') {
+                ++j;
             }
-            i++;
-        } 
-        else if('0' <= s[i] && s[i] <= '9') {
-            int roll = s[i]-'0';
-            if(i+2 < s.size() && (s[i+1]=='0' || s[i+1]=='X')) {
-                score += 10 + roll;
-                i+=2;
-            } else if(i+1<s.size()) {
-                score += roll;
-                i++;
-            }
-        } 
+            score += 10 - s[i-1] - s[i];
+        } else { // regular roll
+            int a = s[i] - '0';
+            int b = s[i+1] - '0';
+            score += a + b;
+        }
+    }
     return score;
 }
