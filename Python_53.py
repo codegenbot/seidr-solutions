@@ -2,7 +2,7 @@
 x = int(input("Enter first number: "))
 y = int(input("Enter second number: "))
 
-def add(x: int, y: int):
+def add(x, y):
     return x + y
 
 result = add(x, y)
