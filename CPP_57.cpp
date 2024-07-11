@@ -3,7 +3,7 @@
 #include <cassert>
 #include <initializer_list>
 
-bool monotonic(vector<float> l) {
+bool monotonic(const vector<float>& l) {
     bool increasing = true;
     bool decreasing = true;
 
