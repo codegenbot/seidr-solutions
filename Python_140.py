@@ -1,10 +1,9 @@
-```
 while True:
     try:
-        text = input("Enter a text: ")
+        text = input("Enter a text (or 'quit' to exit): ")
+        if text.lower() == 'quit':
+            break
         result = fix_spaces(text)
         print(result)
-        print("Please enter text to continue...")
-        break
     except (ValueError, EOFError):
         print("Please enter valid input. Try again!")
