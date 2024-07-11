@@ -34,7 +34,7 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    std::vector<float> result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
+    std::vector<float> result = find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f});
     if (!issame(result, {2.2f, 3.1f})) {
         return 1;
     }
