@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     operations = {"&": lambda a, b: a and b, "|": lambda a, b: a or b}
     precedence = {"&": 1, "|": 0}
