@@ -1,13 +1,31 @@
 #include <iostream>
-#include <string>
+using namespace std;
 
 int main() {
-    std::string input;
-    std::cin >> input;
-    if (input == "T") {
-        std::cout << "True" << std::endl;
+    string expression;
+    cin >> expression;
+
+    bool result = true;
+    if (expression == "f" || expression == "F") {
+        result = false;
+    } else if (expression == "f&f" || expression == "F&F" || expression == "f|f" || expression == "F|F") {
+        result = false;
     } else {
-        std::cout << "False" << std::endl;
+        for (int i = 0; i < expression.size(); ++i) {
+            char c = expression[i];
+            if (c == '&') {
+                result = result && true;
+            } else if (c == '|') {
+                result = result || true;
+            }
+        }
     }
+
+    if (result) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+
     return 0;
 }
