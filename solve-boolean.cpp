@@ -1,12 +1,11 @@
+```cpp
 #include <stack>
 #include <string>
+#include <cctype>
 
 bool getBoolValue(char c) {
-    if (c == 'T' || c == 't')
-        return true;
-    else if (c == 'F' || c == 'f')
-        return false;
-    throw std::runtime_error("Invalid input");
+    if (c == 'T') return true;
+    if (c == 'F') return false;
 }
 
 std::string solveBoolean(std::string expression) {
@@ -33,14 +32,18 @@ std::string solveBoolean(std::string expression) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            left = getBoolValue(s.top());
-            s.pop();
-            right = true;
+            left = true;
+            continue;
         } else if (c == '|') {
-            result = (left && right) ? "True" : "False";
-            return result;
+            right = true;
+            continue;
+        }
+        if ((left && getBoolValue(c)) || (right && !getBoolValue(c))) {
+            result = "True";
+            break;
         } else {
-            right = getBoolValue(c);
+            result = "False";
+            break;
         }
     }
 
