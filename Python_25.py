@@ -1,6 +1,6 @@
+```
 from typing import List
 import math
-
 
 def find_prime_numbers(n: int) -> List[int]:
     prime_numbers = []
@@ -13,3 +13,6 @@ def find_prime_numbers(n: int) -> List[int]:
         if isPrime:
             prime_numbers.append(possiblePrime)
     return prime_numbers
+
+n = int(input("Enter a number: "))
+print(find_prime_numbers(n))
