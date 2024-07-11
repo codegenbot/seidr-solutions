@@ -1,20 +1,21 @@
-#include <algorithm>
-#include <sstream>
-
+#include<string>
+#include<algorithm>
 using namespace std;
 
-string anti_shuffle(string s) {
-    istringstream iss(s);
-    string word;
+string anti_shuffle(string s){
     string result = "";
-
-    while (iss >> word) {
-        string newWord = "";
-        for (char c : word) {
-            newWord += (char)(c);
+    for(int i=0; i<s.length(); i++){
+        if(s[i] == ' '){
+            result += ' ';
+            continue;
         }
-        result += newWord + " ";
+        char temp = s[i];
+        for(char c : s.substr(i+1)){
+            if(c <= temp){
+                temp = c;
+            }
+        }
+        result += temp;
     }
-
-    return result.substr(0, result.length() - 1); // remove trailing space
+    return result;
 }
