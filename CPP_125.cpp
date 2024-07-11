@@ -15,28 +15,16 @@ std::vector<std::string> split_words(std::string txt) {
                 }
             }
             result.push_back(std::to_string(count));
-            break;
-        }
-
-        std::string word = txt.substr(prev_pos, pos - prev_pos);
-        if (count_words(word) == stoi(word)) {
-            result.push_back("Same");
         } else {
-            result.push_back(word);
+            string word = txt.substr(prev_pos, pos - prev_pos);
+            if (count == std::stoi(word)) {
+                result.push_back("same");
+            } else {
+                result.push_back(word);
+            }
+            prev_pos = pos + 1;
         }
-
-        prev_pos = pos + 1;
     }
 
     return result;
-}
-
-int count_words(std::string word) {
-    int count = 0;
-    for (char c : word) {
-        if (islower(c)) {
-            count++;
-        }
-    }
-    return count;
 }
