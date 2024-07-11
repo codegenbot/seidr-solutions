@@ -1,4 +1,3 @@
-```cpp
 string flipCase(string str){
     string result = "";
     for(int i=0; i<str.length(); i++){
@@ -13,5 +12,5 @@ string flipCase(string str){
 }
 
 int main() {
-    assert (flipCase("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+    assert(flipCase("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
 }
