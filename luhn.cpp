@@ -1,17 +1,14 @@
 #include <vector>
 
-long long luhn(std::vector<long long> v) {
-    int sum = 0;
-    for(int i = 0; i < v.size(); i++) {
-        if(i % 2 == 1) {
-            long long num = v[i] * 2;
-            if(num > 9) {
-                num -= 9;
-            }
-            sum += num;
-        } else {
-            sum += v[i];
-        }
+std::vector<long long> luhn(std::vector<long long> cc) {
+    for (int i = cc.size() - 1; i > 0; --i) {
+        if ((cc[i] * 2) >= 10)
+            cc[i] -= 9;
+        cc[i] *= 2;
     }
-    return sum;
+    long long sum = 0;
+    for (long long n : cc) {
+        sum += n;
+    }
+    return {sum};
 }
