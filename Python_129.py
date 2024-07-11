@@ -11,11 +11,10 @@ def minPath(grid, k):
     def dfs(i, j, k, current_path):
         nonlocal path
         if len(current_path) == k:
-            if set(current_path) == n_values:
-                return sorted(list(set(current_path)))
-
+            if set(current_path) == n_values:  
+                return sorted(list(set(current_path)))  
             else:
-                return []
+                return []  
 
         if visited[i][j]:
             return False
