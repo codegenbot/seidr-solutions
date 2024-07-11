@@ -1,20 +1,8 @@
+#include <vector>
 #include <string>
-
-vector<string> by_length(vector<int> arr);
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
+#include <map>
+#include <algorithm>
+#include <cassert>
 
 vector<string> by_length(vector<int> arr){
     vector<string> result;
@@ -38,6 +26,7 @@ vector<string> by_length(vector<int> arr){
     }
 
     sort(filtered_arr.begin(), filtered_arr.end());
+
     reverse(filtered_arr.begin(), filtered_arr.end());
 
     for (int num : filtered_arr) {
@@ -46,5 +35,3 @@ vector<string> by_length(vector<int> arr){
 
     return result;
 }
-
-assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
