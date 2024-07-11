@@ -1,3 +1,6 @@
+#include <vector>
+#include <cmath>
+
 int calculateFuelCost(std::vector<int> numbers) {
     int total = 0;
     for (int number : numbers) {
