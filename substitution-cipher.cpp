@@ -3,8 +3,9 @@
 
 using namespace std;
 
-int main() {
+void decipherMessage() {
     string cipher1, cipher2, message;
+  
     cin >> cipher1 >> cipher2 >> message;
 
     for (char &c : message) {
@@ -15,6 +16,4 @@ int main() {
     }
 
     cout << message << endl;
-
-    return 0;
 }
