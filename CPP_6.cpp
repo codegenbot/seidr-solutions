@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
-#include <cassert>
 #include <algorithm>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
@@ -9,7 +9,8 @@ bool issame(std::vector<int> a, std::vector<int> b){
 
 std::vector<int> parse_nested_parens(std::string paren_string){
     std::vector<int> result;
-    int max_level = 0, current_level = 0;
+    int max_level = 0;
+    int current_level = 0;
     for(char c : paren_string){
         if(c == '('){
             current_level++;
