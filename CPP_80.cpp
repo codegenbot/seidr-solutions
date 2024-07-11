@@ -1,8 +1,24 @@
-int main() {
-    string s;
-    cin >> s;
+#include <stdio.h>
+#include <string>
+using namespace std;
 
-    bool is_happy = (s.length() >= 3) && all_of(s.begin(), s.end(), [a](char c){ return count(c, s.begin(), s.end()) == 1; });
-
-    cout << (is_happy ? "true" : "false") << endl;
+bool is_happy(string s) {
+    if (s.length() < 3)
+        return false;
+    for (int i = 0; i <= s.length() - 3; i++) {
+        string three_chars = s.substr(i, 3);
+        bool unique = true;
+        for (char c : three_chars) {
+            int count = 0;
+            for (int j = 0; j < three_chars.length(); j++) {
+                if (c == three_chars[j])
+                    count++;
+            }
+            if (count > 1)
+                unique = false;
+        }
+        if (!unique)
+            return false;
+    }
+    return true;
 }
