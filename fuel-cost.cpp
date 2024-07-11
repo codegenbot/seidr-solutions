@@ -1,4 +1,4 @@
-int calculateFuelCost(initializer_list<int> numbers) {
+int calculateFuelCost(std::vector<int> numbers) {
     int total = 0;
     for (int number : numbers) {
         int result = static_cast<int>(std::floor(double(number) / 3)) - 2;
