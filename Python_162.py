@@ -1,11 +1,13 @@
 import hashlib
 
 def string_to_md5(text):
-    return hashlib.md5(text.encode()).hexdigest() if text is not None and isinstance(text, str) else None
+    if isinstance(text, str):
+        return hashlib.md5(text.encode()).hexdigest()
+    return None
 
-try:
-    text = input("Enter text to hash: ").strip()
-    md5_hash = string_to_md5(text)
+text = input("Enter text to hash: ").strip()
+md5_hash = string_to_md5(text)
+if md5_hash:
     print("MD5 Hash:", md5_hash)
-except ValueError:
-    print("Error: Program did not receive expected input")
+else:
+    print("Error: Unable to generate MD5 hash")
