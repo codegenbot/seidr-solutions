@@ -1,24 +1,15 @@
-vector<int> result;
-    if (n == 0) {
-        result.push_back(0);
-        return result;
+vector<int> tri(int n){
+    vector<int> result(n + 1);
+    result[0] = 3;
+    if (n > 0) {
+        result[1] = 1;
     }
-    if (n == 1) {
-        result.push_back(3);
-        return result;
-    }
-    result.push_back(3);
-    result.push_back(1);
-    int a = 3, b = 1, c;
     for (int i = 2; i <= n; ++i) {
         if (i % 2 == 0) {
-            c = 1 + i / 2;
+            result[i] = 1 + i / 2;
         } else {
-            c = a + b + 1;
+            result[i] = result[i - 1] + result[i - 2] + result[i + 1];
         }
-        result.push_back(c);
-        a = b;
-        b = c;
     }
     return result;
 }
