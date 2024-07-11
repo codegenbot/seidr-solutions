@@ -9,6 +9,6 @@ bool below_threshold(std::vector<int> l, int t) {
     return true;
 }
 
-void solution() {
+int solution() {
     assert(!below_threshold({1, 8, 4, 10}, 11));
 }
