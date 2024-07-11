@@ -8,9 +8,9 @@ def filter_integers(values: list[Any]) -> list[int]:
 
 user_input = input("Please enter some values (separated by spaces): ")
 try:
-    values = [int(x) for x in user_input.split() if x.isdigit()]
+    values = [int(x) for x in user_input.split()]
 except ValueError as e:
     print(f"Invalid input: {e}")
-    values = []
+    values = [int(x) for x in user_input.split() if x.isdigit()]
 if values:
     print(filter_integers(values))
