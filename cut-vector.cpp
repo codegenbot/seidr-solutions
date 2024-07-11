@@ -1,13 +1,15 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 int main() {
     int n;
-    std::cin >> n;
+    cin >> n;
     
-    std::vector<int> nums(n);
+    vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
     
     int sum = 0;
@@ -27,16 +29,16 @@ int main() {
         }
     }
     
-    if (std::abs(sum - 2 * prefixSum) < std::abs(sum - 2 * (prefixSum - nums[idx]))) {
+    if (abs(sum - 2 * prefixSum) < abs(sum - 2 * (prefixSum - nums[idx]))) {
         for (int i = 0; i <= idx; ++i) {
-            std::cout << nums[i] << std::endl;
+            cout << nums[i] << endl;
         }
-        std::cout << 0 << std::endl;
+        cout << 0 << endl;
     } else {
         for (int i = 0; i < idx; ++i) {
-            std::cout << nums[i] << std::endl;
+            cout << nums[i] << endl;
         }
-        std::cout << 0 << std::endl;
+        cout << 0 << endl;
     }
     
     return 0;
