@@ -1,4 +1,13 @@
+```
 def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
+    # implementation for double_the_difference function goes here
+    if len(lst) < 2:
+        return None
+    first = lst[0]
+    second = lst[-1]
+    diff = abs(first - second)
+    return diff * 2
 
-result = double_the_difference([1, 2, -3, 4, -5])
+def check(lst):
+    result = double_the_difference(lst)
+    return result
