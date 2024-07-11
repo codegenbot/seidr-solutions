@@ -2,6 +2,8 @@
 #include <cassert>
 
 string calculate_binary_avg(int n, int m) {
+    assert(n >= 0 && m >= 0);
+
     if (n > m) {
         return "-1";
     }
