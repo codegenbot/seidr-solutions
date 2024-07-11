@@ -1,10 +1,19 @@
+````
 def find_zero(xs):
-    if len(xs) % 2 != 1 or any(not isinstance(x, int) for x in xs):
-        return "Error: xs must start with 0 and contain only integers"
-    leading_zero = 0
-    for x in xs[1:]:
-        if x != 0:
+    if len(xs) % 2 != 1:
+        return "Error: xs must start with 0"
+    if xs[0] != 0:
+        return "Error: xs must be [0, *coefficients*]"
+    x = xs[1]
+    y = xs[3:]
+    for i in range(len(y)):
+        if y[i] == 0 and (i % 2 == 0 or len(y) % 2 != i):
             return "Error: xs must be [0, *coefficients*]"
-        leading_zero += x
-    max_coeff = max(abs(x) for x in xs[1:])
-    return -xs[-1] / (2 * leading_zero) if abs(leading_zero) == max_coeff else None
+    if sum(y) == 0:
+        return None
+    if x[1:] != y:
+        return None
+    if len(x) % 2 != 0:
+        return None
+    n = int(sum(x) / (sum(y) or 1))
+    return n
