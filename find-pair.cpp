@@ -3,7 +3,8 @@
 #include <map>
 
 int main() {
-    int n, target;
+    int n;
+    int target;
     std::cin >> n;
     std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
