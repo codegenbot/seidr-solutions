@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 
 std::vector<float> rescale_to_unit(std::vector<float> numbers) {
     float min_val = *std::min_element(numbers.begin(), numbers.end());
