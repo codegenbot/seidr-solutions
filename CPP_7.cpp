@@ -1,53 +1,29 @@
-```cpp
+#include <vector>
+#include <string>
+
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
 int main() {
-    vector<string> strings;
-    string substring;
-
-    cout << "Enter the list of strings (space separated): ";
-    getline(cin, substring);
-    strings = split(substring, ' ');
-
-    cout << "Enter the substring: ";
-    cin >> substring;
-
+    vector<string> strings = {"cat", "dog", "bird", "fish"};
+    string substring = "og";
     vector<string> result = filter_by_substring(strings, substring);
 
-    if (issame(result, strings))
-        cout << "The resulting list is empty." << endl;
-    else
-        for (const auto& str : result)
-            cout << str << endl;
+    if (issame(result, strings)) {
+        cout << "The result is the same as the input." << endl;
+    } else {
+        cout << "The result is different from the input." << endl;
+    }
 
     return 0;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring) {
+vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for (const auto& str : strings) {
         if(str.find(substring) != string::npos)
             result.push_back(str);
     }
-    return result;
-}
-
-vector<string> split(string s, char c) {
-    vector<string> result;
-    string temp = "";
-
-    for (char ch : s) {
-        if(ch == c) {
-            result.push_back(temp);
-            temp = "";
-        } else {
-            temp += ch;
-        }
-    }
-
-    result.push_back(temp);
-
     return result;
 }
