@@ -1,13 +1,15 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (!issame(a[i], b[i])) return false;
+bool issame(int a, int b) {
+    if (a == b) {
+        return true;
+    } else {
+        return false;
     }
-    return true;
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
@@ -18,9 +20,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
     }
     
-    std::sort(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
     
-    std::reverse(numbers.begin(), numbers.end());
+    reverse(numbers.begin(), numbers.end());
     
     std::vector<std::string> result;
     for (int num : numbers) {
@@ -59,8 +61,26 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {9, 4, 8};
-    std::vector<std::string> result = by_length(arr);
-    assert(issame(result, {"Nine", "Eight", "Four"}));
+    int n; 
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> arr(n);
+
+    for(int i =0 ;i<n;i++){
+        cin>>arr[i];
+    }
+
+    std::cout<<"The numbers are : "<<endl;
+    for(int i = 0; i <n; i++) {
+        std::cout<<arr[i]<<" ";
+    }
+    std::cout<<std::endl;
+
+    std::vector<std::string> res = by_length(arr);
+    std::cout << "Output: ";
+    for (std::string s : res) {
+        std::cout << s << " ";
+    }
     return 0;
 }

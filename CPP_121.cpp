@@ -1,9 +1,9 @@
-int solution(vector<int> lst) {
-    int sum = 0;
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] % 2 != 0) {
-            sum += lst[i];
+int solution(vector<int> numbers) {
+    int oddSum = 0;
+    for (int i = 0; i < numbers.size(); i++) {
+        if (numbers[i] % 2 != 0) {
+            oddSum += numbers[i];
         }
     }
-    return sum;
+    return oddSum;
 }
