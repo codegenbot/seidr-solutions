@@ -1,15 +1,17 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const vector<int>& a, vector<int> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
+    
     return true;
 }
 
@@ -34,6 +36,6 @@ vector<int> pluck(vector<int> arr){
 }
 
 int main() {
-    // Main function can be added based on requirements
+    // Main function can go here for testing
     return 0;
 }
