@@ -1,6 +1,6 @@
-```c++
+```cpp
 #include <string>
-#include <cmath>
+#include <iostream>
 
 std::string squareDigits(std::string input) {
     std::string output;
@@ -15,5 +15,6 @@ std::string squareDigits(std::string input) {
 }
 
 int main() {
+    std::cout << squareDigits("18") << std::endl;
     return 0;
 }
