@@ -4,17 +4,33 @@
 using namespace std;
 
 int main() {
-    string tweet;
-    cout << "Enter a tweet: ";
-    getline(cin, tweet);
+    string tweet = "";
+    char c;
+    while ((c = cin.get()) && c != '\n') {
+        tweet += c;
+    }
     
     if(tweet.empty()) {
-        return cout << "You didn't type anything" << endl, 0;
+        cout << "You didn't type anything" << endl;
     }
     
-    if(tweet.length() > 140) {
-        return cout << "Too many characters" << endl, 0;
+    else {
+        size_t count = 0;
+        for (char t : tweet) {
+            if (std::isalnum(t) || std::isspace(t)) {
+                ++count;
+            } 
+            else if (!std::isspace(t) && !std::isalnum(t)) {
+                ++count; 
+            }
+        }
+        
+        if(count > 140) {
+            cout << "Too many characters" << endl;
+        }
+        
+        else {
+            cout << "Your tweet has " << count << " characters" << endl;
+        }
     }
-    
-    return cout << "Your tweet has " << tweet.length() << " characters" << endl, 0;
 }
