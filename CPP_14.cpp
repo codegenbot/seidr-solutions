@@ -1,7 +1,7 @@
 #include <vector>
+#include <initializer_list>
 #include <string>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -24,9 +24,10 @@ vector<string> all_prefixes(string str) {
 
 int main() {
     string str = "WWW";
-    if (!issame(all_prefixes(str), {"W", "WW", "WWW"})) {
+    if (!issame(all_prefixes(str), vector<string>{ "W", "WW", "WWW" })) {
         cout << "Error: Expected prefixes are not the same." << endl;
     } else {
         cout << "Test passed!" << endl;
     }
     return 0;
+}
