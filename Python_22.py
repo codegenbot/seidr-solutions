@@ -1,6 +1,5 @@
 ```
 from typing import List
-
 def get_values() -> List[int]:
     result = []
     while True:
