@@ -8,6 +8,7 @@ int main() {
     std::getline(std::cin, target);
     
     std::vector<int> indices;
+    
     size_t targetSize = target.size();
     if(targetSize == 0) {
         for (int i = 0; i < text.size(); ++i) {
@@ -23,6 +24,6 @@ int main() {
             std::cout << indices[i] << " ";
         }
     }
-    
+
     return 0;
 }
