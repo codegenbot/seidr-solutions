@@ -14,18 +14,11 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    float num;
-    long long odd_sum = 0;
-
-    // Read input from user
-    while (std::cin >> num) {
-        lst.push_back(num);
+    float val;
+    while(std::cin >> val) {
+        lst.push_back(val);
     }
-
-    // Calculate the difference and print it
     long long result = double_the_difference(lst);
-
-    std::cout << "The double difference is: " << result << std::endl;
-    
+    std::cout << "The difference is: " << result << "\n";
     return 0;
 }
