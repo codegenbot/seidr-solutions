@@ -1,4 +1,4 @@
-#include <algorithm>
+#include <initializer_list>
 
 float snowDay(int hours, float groundSnow, float rate, float melt) {
     float totalSnow = groundSnow;
@@ -7,4 +7,3 @@ float snowDay(int hours, float groundSnow, float rate, float melt) {
         totalSnow -= std::min(totalSnow, rate * melt);
     }
     return totalSnow;
-}
