@@ -1,4 +1,10 @@
+#include<stdio.h>
+#include<math.h>
+using namespace std;
+
 bool is_simple_power(int x, int n) {
-    double y = pow(n, 1.0);
-    return (int)y == x;
+    if (n == 1)
+        return true;
+    double y = pow(n, ceil(log(x)/log(n)));
+    return y == x;
 }
