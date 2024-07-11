@@ -10,10 +10,16 @@ def substitution_cipher(cipher1, cipher2, message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.isupper():
-                result += chr(ord('A' if char.isupper() else 'a') + (cipher.get(char.lower(), char).ord() - ord('a')))
+            if char.lower() in cipher:
+                if char.isupper():
+                    result += cipher[char.lower()].upper()
+                else:
+                    result += cipher[char.lower()]
             else:
-                result += char
+                if char.isupper():
+                    result += char.upper()
+                else:
+                    result += char.lower()
         else:
             result += char
     return result
