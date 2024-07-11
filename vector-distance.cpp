@@ -1,13 +1,14 @@
+#include <vector>
 #include <iostream>
 #include <cmath>
 
 using namespace std;
 
 double vector_distance(int n) {
-    float v1[100], v2[100];
-    for (int i = 0; i < n; i++) {
-        cin >> v1[i] >> v2[i];
-    }
+    vector<float> v1(n), v2(n);
+    for (auto &x : v1) cin >> x;
+    for (auto &x : v2) cin >> x;
+    
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
         sum += pow(v2[i] - v1[i], 2);
