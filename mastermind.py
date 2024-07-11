@@ -6,5 +6,5 @@ for char in set(guess):
     guess_count = guess.count(char)
 
     black += min(code_count, guess_count)  
-    white += abs(code_count - guess_count)   
+    white += abs(code_count - guess_count)    
 return str(black) + "\n" + str(white)
