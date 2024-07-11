@@ -7,29 +7,44 @@ using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0, prev_pos = 0;
-    
-    while (pos != string::npos) {
-        pos = txt.find(' ', prev_pos);
-        if (pos == string::npos) {
-            if (txt.find(',') == string::npos)
-                return {to_string(count(txt.begin(), txt.end(), c))};
-            pos = txt.find(',');
-        }
-        result.push_back(txt.substr(prev_pos, pos - prev_pos));
-        prev_pos = pos + 1;
+    size_t pos = 0;
+    while ((pos = txt.find(' ')) != string::npos) {
+        result.push_back(txt.substr(0, pos));
+        txt.erase(0, pos + 1);
     }
-    
+    if (txt.empty()) {
+        return result;
+    }
+
+    pos = 0;
+    while ((pos = txt.find(',')) != string::npos) {
+        result.push_back(txt.substr(0, pos));
+        txt.erase(0, pos + 1);
+    }
+    if (!txt.empty()) {
+        int count = 0;
+        for (char c : txt) {
+            if (c >= 'a' && c <= 'z') {
+                if ((count++ % 2 == 0)) {
+                    break;
+                }
+            }
+        }
+        result.push_back(to_string(count));
+    }
+
     return result;
 }
 
 int main() {
-    cout << "Enter a string: ";
     string txt;
+    cout << "Enter a string: ";
     getline(cin, txt);
-    vector<string> res = split_words(txt);
-    for (auto s : res) {
-        cout << s << endl;
+    vector<string> result = split_words(txt);
+
+    for (string str : result) {
+        cout << str << endl;
     }
+
     return 0;
 }
