@@ -1,11 +1,16 @@
+#include <iostream>
+#include <string>
+
 int main() {
-    string s;
-    cin >> s;
+    std::string s;
+    std::cin >> s;
     int len = s.length();
+  
     if (len % 2 == 1) {
-        cout << s.substr(len/2, 1);
+        std::cout << s.substr(len / 2, 1);
     } else {
-        cout << s.substr(len/2 - 1, 2);
+        std::cout << s.substr(len / 2 - 1, 2);
     }
+  
     return 0;
 }
