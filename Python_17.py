@@ -8,6 +8,7 @@ def parse_music(music_string: str) -> List[int]:
             i += 3
         else:
             note_type = music_string[i:i+2]
+            beats = beats_per_note[note_type]
+            result.append(beats)
             i += 2
-            result.append(beats_per_note[note_type])
     return result
