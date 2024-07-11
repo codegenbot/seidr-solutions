@@ -1,38 +1,23 @@
-int count_uppercase_letters(const string& str) {
-    int count = 0;
-    for(char c : str) {
-        if(isupper(c)) {
-            count++;
-        }
-    }
-    return count;
-}
-
-int count_lowercase_letters(const string& str) {
-    int count = 0;
-    for(char c : str) {
-        if(islower(c)) {
-            count++;
-        }
-    }
-    return count;
-}
-
-string Strongest_Extension(string class_name, vector<string> extensions) {
-    string strongest_extension = "";
+string Strongest_Extension(string class_name, vector<string> extensions){
     int max_strength = INT_MIN;
+    string result = "";
     
-    for(const string& extension : extensions) {
-        int cap_letters = count_uppercase_letters(extension);
-        int sm_letters = count_lowercase_letters(extension);
+    for (string ext : extensions) {
+        int CAP = 0, SM = 0;
+        for (char c : ext) {
+            if (isupper(c)) {
+                CAP++;
+            } else if (islower(c)) {
+                SM++;
+            }
+        }
         
-        int strength = cap_letters - sm_letters;
-        
-        if(strength > max_strength || (strength == max_strength && strongest_extension.empty())) {
-            strongest_extension = extension;
+        int strength = CAP - SM;
+        if (strength > max_strength || (strength == max_strength && result.empty())) {
             max_strength = strength;
+            result = ext;
         }
     }
     
-    return class_name + "." + strongest_extension;
+    return class_name + "." + result;
 }
