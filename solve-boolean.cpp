@@ -1,4 +1,6 @@
-stack<char> s;
+```cpp
+string solveBoolean(string expression) {
+    stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
             while (!s.empty() && s.top() == '&') {
@@ -36,4 +38,3 @@ stack<char> s;
         result = c + " " + result;
     }
     return result;
-}
