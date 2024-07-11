@@ -20,4 +20,4 @@ def main():
         factors.append(n)
     return factors
 
-print(main()[0])
+result = main()
