@@ -1,16 +1,16 @@
-def solve_boolean(expression):
-    stack = []
-    for char in expression:
-        if char == 'T':
-            stack.append(True)
-        elif char == 'F':
-            stack.append(False)
-        elif char == '&':
-            right = stack.pop()
-            left = stack.pop()
-            stack.append(left and right)
-        elif char == '|':
-            right = stack.pop()
-            left = stack.pop()
-            stack.append(left or right)
-    return stack[0]
+def solveBoolean(expression):
+    def evaluate(subexpr):
+        if subexpr[0] == "T":
+            return True
+        elif subexpr[0] == "F":
+            return False
+        elif len(subexpr) > 1 and subexpr[1] in ["&", "|"]:
+            return (
+                evaluate(subexpr[:2]) and evaluate(subexpr[2:])
+                if subexpr[1] == "&"
+                else evaluate(subexpr[:2]) or evaluate(subexpr[2:])
+            )
+        else:
+            raise ValueError("Invalid expression")
+
+    return evaluate(expression)
