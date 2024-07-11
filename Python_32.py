@@ -13,7 +13,7 @@ def find_zero(xs):
     d = sum(xs[3:]) if len(xs) > 3 else 0
     discriminant = b**2 - 4 * a * c
     if discriminant < 0:
-        return "No real solutions"
+        return "No real solution"
     x = (-b + math.sqrt(discriminant)) / (2 * a)
     return round(x, 2)
 
