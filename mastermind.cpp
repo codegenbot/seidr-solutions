@@ -10,15 +10,14 @@ int whitePegs(std::string code, std::string guess) {
         }
     }
     for (char c : code) {
-        codeMap[static_cast<int>(c)]++;
+        int asciiVal = static_cast<int>(c); 
+        codeMap[static_cast<char>(asciiVal)]++;
     }
     for (char c : guess) {
-        guessMap[static_cast<int>(c)]++;
+        int asciiVal = static_cast<int>(c);
+        guessMap[static_cast<char>(asciiVal)]++;
     }
-    return std::accumulate(codeMap.begin(), codeMap.end(), 0, 
-                             [&count](int sum, char c) { 
-                                 return sum + (guessMap[static_cast<int>(c)] > 0 ? 1 : 0); 
-                             }) - count; 
+    return count; 
 }
 
 int blackPegs(std::string code, std::string guess) {
@@ -29,9 +28,4 @@ int blackPegs(std::string code, std::string guess) {
         }
     }
     return count;
-}
-
-int main() {
-    // Use your whitePegs and blackPegs functions here
-    return 0;
 }
