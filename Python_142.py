@@ -1,9 +1,9 @@
 ```
 def sum_squares(lst):
-    total = 0
+    total_sum = 0
     for num in lst:
-        if num % 3 == 0 and num % 4 != 0:
-            total += num ** 2
-        elif num % 4 == 0 and num % 3 != 0:
-            total += num ** 3
-    return total
+        if num >= 10:
+            total_sum += num ** 2
+        else:
+            total_sum += num ** 3
+    return total_sum
