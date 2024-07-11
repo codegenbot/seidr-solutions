@@ -1,15 +1,13 @@
 from typing import List
 
 def below_zero() -> bool:
-    while True:
-        try:
-            operations = list(map(int, input("Enter integers separated by spaces: ").split()))
-            break
-        except ValueError:
-            print("Invalid input. Please enter only integers separated by spaces.")
+    operations = list(map(int, input("Enter integers separated by spaces: ").split()))
     balance = 0
-    for operation in operations:
-        balance += operation
+    for operation in range(0, len(operations), 2):
+        if operations[operation] == 1:
+            balance += operations[operation + 1]
+        else:
+            balance -= operations[operation + 1]
         if balance < 0:
             return True
     return False
