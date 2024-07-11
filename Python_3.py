@@ -1,17 +1,17 @@
-```
-def check_speeds(speeds: List[int]) -> str:
-    if not isinstance(speeds, list):
-        return 'invalid input'
-    
-    for speed in speeds:
-        if not isinstance(speed, int) or speed < 0:
-            return 'invalid speed'
+def below_zero() -> bool:
+    numbers = []
 
-    avg = sum(speeds) / len(speeds)
-    
-    if avg < 60:
-        return 'slow'
-    elif avg >= 61 and avg <= 80:
-        return 'average'
-    else:
-        return 'fast'
+    while True:
+        num = input("Enter a number (or 'stop' to finish): ")
+
+        if num.lower() == "stop":
+            break
+        try:
+            num = int(num)
+            numbers.append(num)
+        except ValueError:
+            print(
+                "Invalid input. Please enter a whole number or type 'stop' to finish."
+            )
+
+    return sum(numbers) < 0
