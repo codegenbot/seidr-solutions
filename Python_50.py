@@ -10,7 +10,7 @@ def decode_shift():
         shift = int(s[3:])
         s = s[4:]
     elif s.startswith("26-"):
-        shift = int(s[3:])
+        shift = int(input(f"Enter the shift value: "))
         s = s[4:]
 
     result = ""
@@ -21,5 +21,5 @@ def decode_shift():
             result += chr((ord(ch) - ord('A') + shift) % 26 + ord('A'))
         else:
             result += ch
-
-    print("Decoded string: ", result)
+    print("Enter the decoded string: ")
+    return result
