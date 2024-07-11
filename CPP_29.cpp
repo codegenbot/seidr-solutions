@@ -5,11 +5,12 @@ bool issame(vector<string> a, vector<string> b){
     else
         return false;
 }
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
+
+vector<vector<string>> split(vector<string> strings, string prefix){
+    vector<vector<string>> result;
     for(string s : strings){
         if(s.find(prefix) == 0)
-            result.push_back(s);
+            result.push_back({s});
     }
     return result;
 }
