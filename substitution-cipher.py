@@ -4,15 +4,15 @@ def substitution_cipher(cipher1, cipher2, message):
 
     cipher = {}
     for i in range(len(cipher1)):
-        cipher[cipher1[i].lower()] = cipher2[i].lower()
+        cipher[cipher1[i]] = cipher2[i]
 
     result = ""
     for char in message:
         if char.isalpha():
             if char.isupper():
-                result += chr(ord('A') + (cipher[char.lower()].ord() - ord('a')))
+                result += chr(ord('A' if char.isupper() else 'a') + (cipher.get(char.lower(), char).ord() - ord('a')))
             else:
-                result += cipher.get(char, char)
+                result += chr(ord('A' if char.isupper() else 'a') + (cipher.get(char, char).ord() - ord('a')))
         else:
             result += char
     return result
