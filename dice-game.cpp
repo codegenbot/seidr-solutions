@@ -1,3 +1,4 @@
+````
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -8,7 +9,7 @@ int main() {
     int n, m;
     cin >> n >> m;
     double result = probability(n, m);
-    cout << fixed << setprecision(2) << result << endl;
+    cout << fixed << setprecision(2) << result << std::endl;
 }
 
 double probability(int n, int m) {
@@ -17,3 +18,4 @@ double probability(int n, int m) {
     else
         return static_cast<double>(m + 1) / n;
 }
+```
