@@ -1,2 +1,3 @@
-def car_race_collision(n: int):
-    return sum(1 for i in range(1, n + 1) if i % 2 != 0)
+```
+def car_race_collision(num_cars: int):
+    return num_cars * (num_cars - 1) if num_cars > 1 else 0
