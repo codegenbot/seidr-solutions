@@ -9,18 +9,7 @@ int main() {
     std::string code, guess;
     std::cin >> code >> guess;
 
-    int whitePegs = 0;
-    int blackPegs = 0;
-
-    for (int i = 0; i < code.length(); ++i) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-        } else if (code.find(guess[i]) != std::string::npos) {
-            whitePegs++;
-        }
-    }
-
-    std::cout << blackPegs << " " << whitePegs << std::endl;
+    // Add your logic to calculate the number of white and black pegs
 
     return 0;
 }
