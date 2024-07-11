@@ -1,11 +1,12 @@
 string result = "";
-    for(char ch : s) {
-        if(c.find(ch) == string::npos) {
+    for (char ch : s) {
+        if (c.find(ch) == string::npos) {
             result += ch;
         }
     }
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
-    
-    return {result, (result == reversed) ? "True" : "False"};
+
+    string result_rev = result;
+    reverse(result_rev.begin(), result_rev.end());
+
+    return {result, result == result_rev ? "True" : "False"};
 }
