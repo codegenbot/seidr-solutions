@@ -1,8 +1,10 @@
+```
 from typing import List
 
 
-def concatenate(strings: List[str]) -> str:
-    if not isinstance(strings, list):
-        return "Input must be a list of strings"
-    else:
-        return "".join(map(str, strings))
+def concatenate():
+    try:
+        strings = input("Enter a list of strings (comma-separated): ")
+        return "".join([s.strip() for s in strings.split(",")])
+    except Exception as e:
+        return f"Error: {str(e)}"
