@@ -8,12 +8,13 @@ using namespace std;
 int main() {
     vector<int> input;
     int num;
-    
-    while (!cin.eof()) {
-        cin >> num;
-        if (!cin.fail()) {
-            input.push_back(num);
-        }
+    while (cin >> num) {
+        input.push_back(num);
+    }
+
+    if (input.empty()) {
+        cerr << "Empty input vector" << endl;
+        return 1;
     }
 
     int diff = numeric_limits<int>::max();
