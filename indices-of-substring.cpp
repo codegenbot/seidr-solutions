@@ -8,7 +8,7 @@ int main() {
     std::getline(std::cin, target);
 
     std::vector<size_t> indices;
-  
+
     for (size_t pos = text.find(target, 0); pos != std::string::npos; pos = text.find(target, pos + 1)) {
         indices.push_back(pos);
         if (target.size() == 1) {
