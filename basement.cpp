@@ -7,8 +7,8 @@ int basement(vector<int> nums) {
     for (int i = 0; i < nums.size(); ++i) {
         if (sum + nums[i] < 0) {
             return i;
+            sum += nums[i];
         }
-        sum += nums[i]; // Move this line inside the if block
     }
     return -1;
 }
