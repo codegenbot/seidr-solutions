@@ -12,12 +12,18 @@ try:
     num_strings = int(input("Enter number of strings: "))
 except ValueError:
     print("Invalid input! Please enter an integer.")
-    exit(1)
+num_strings = 0
 
-strings = [input() for _ in range(num_strings)]
+if num_strings > 0:
+    strings = [input() for _ in range(num_strings)]
+else:
+    print("Please enter a positive integer.")
+
 try:
     prefix = input("Enter prefix: ")
 except ValueError:
     print("Invalid input! Please enter a string.")
-    exit(1)
-filter_by_prefix([str(x) for x in strings], str(prefix))
+if not prefix:
+    print("Please enter a non-empty prefix.")
+else:
+    filter_by_prefix([str(x) for x in strings], str(prefix))
