@@ -1,3 +1,5 @@
+Here's the modified code:
+
 ```cpp
 #include <vector>
 
