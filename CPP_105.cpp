@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -53,19 +52,18 @@ bool issame(int a, int b) {
         return result;
     }
 
-#include <iostream>
 int main() {
     try {
         vector<int> numbers = {1, 2, 3};
         vector<string> output = by_length(numbers);
-    
+        
         for (const auto &word : output) {
-            std::cout << word << " ";
+            cout << word << " ";
         }
-    
+        
         return 0;
     } catch (...) {
-        std::cerr << "An error occurred. Please check your input." << std::endl;
-        return -1;
+        cout << "An error occurred. Please ensure that the input is a list of integers between 1 and 9." << endl;
+        return 1; // Return 1 if there was an error
     }
 }
