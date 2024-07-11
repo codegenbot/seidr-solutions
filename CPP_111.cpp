@@ -1,23 +1,11 @@
 #include <map>
 #include <algorithm>
 
-bool issame(const map<char,int>& a, const map<char,int>& b);
+bool issame(const map<char,int>& a, const map<char,int>& b) {
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+}
 
 map<char, int> histogram(string test);
-
-bool issame(const map<char,int>& a, const map<char,int>& b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    
-    for(const auto& pair : a) {
-        if(b.find(pair.first) == b.end() || b.at(pair.first) != pair.second) {
-            return false;
-        }
-    }
-    
-    return true;
-}
 
 map<char, int> histogram(string test) {
     map<char, int> result;
