@@ -13,10 +13,10 @@ int main() {
     
     int sum = 0;
     for (int num : nums) {
-        sum += max(num / 3 - 2, 0);
+        sum += (num / 3) - 2;
     }
     
-    cout << sum << "\n";
+    cout << sum << endl;
     
     return 0;
 }
