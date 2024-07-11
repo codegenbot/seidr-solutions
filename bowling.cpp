@@ -1,6 +1,6 @@
 int main() {
-    string input;
-    cin >> input;
-    cout << score(input) << endl;
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
