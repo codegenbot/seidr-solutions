@@ -1,21 +1,21 @@
-from typing import List
+from typing import Any, list
+
 
 def filter_integers() -> None:
-    values: List[Any] = []  
+    values: list[Any] = []
 
     while True:
         user_input = input("Enter a value (or 'done' if finished): ")
-        
-        if user_input.lower() == 'done':
+
+        if user_input.lower() == "done":
             break
-        
+
         try:
             values.append(int(user_input))
         except ValueError:
-            print(f"'{user_input}' is not an integer. Skipping...")
+            pass
 
-    filtered_values: list[int] = [value for value in values if isinstance(value, int)]
-    
-    print("Filtered integers:", filtered_values)
+    print("Filtered integers:", [value for value in values if isinstance(value, int)])
+
 
 filter_integers()
