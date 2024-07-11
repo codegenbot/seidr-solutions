@@ -1,5 +1,4 @@
-Here's the modified code:
-
+Here's the modified code without leading blank lines and unnecessary characters:
 ```
 def match_parens(lst):
     stack = []
