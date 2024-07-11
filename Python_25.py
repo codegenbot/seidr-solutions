@@ -1,10 +1,11 @@
+```
 from typing import List
 import math
 
 
-def factorize(n: int) -> List[int]:
-    factors = []
+def factorize() -> List[int]:
     num = int(input("Enter a number: "))
+    factors = []
     i = 2
     while i * i <= num:
         if num % i:
