@@ -9,15 +9,15 @@ int main() {
     getline(cin, message);
     
     for (char &c : message) {
-        size_t idx = cipher1.find(c);
-        if (idx != string::npos) {
-            c = cipher2[idx];
-        } else {
-            idx = cipher2.find(c);
+        if (c != ' ') {
+            size_t idx = cipher1.find(c);
             if (idx != string::npos) {
-                c = cipher1[idx];
-            } else { 
-                // Do nothing for characters not found in either cipher
+                c = cipher2[idx];
+            } else {
+                idx = cipher2.find(c);
+                if (idx != string::npos) {
+                    c = cipher1[idx];
+                }
             }
         }
     }
