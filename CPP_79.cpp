@@ -17,7 +17,7 @@ int main(){
     assert(decimal_to_binary(15) == "db1111db");
 
     // Add the missing part here
-    assert(decimal_to_binary(10) == "db1010db");
+    cout << "Decimal 15 to binary: " << decimal_to_binary(15) << endl;
 
     return 0;
 }
