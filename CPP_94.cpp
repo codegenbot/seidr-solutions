@@ -1,13 +1,4 @@
 #include <vector>
-int findMaxPrime(vector<int> lst){
-    int maxPrime = 0;
-    for(int i : lst){
-        if(isPrime(i) && i > maxPrime){
-            maxPrime = i;
-        }
-    }
-    return sumOfDigits(maxPrime);
-}
 
 bool isPrime(int num){
     if(num <= 1) return false;
@@ -24,4 +15,5 @@ int sumOfDigits(int num){
         num /= 10;
     }
     return sum;
+
 }
