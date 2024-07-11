@@ -18,4 +18,3 @@ int bowlingScore(const char* s) {
         }
     }
     return score;
-}
