@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <cassert>
 
 namespace contest {
@@ -17,7 +18,7 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 bool contest::issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 int main() {
