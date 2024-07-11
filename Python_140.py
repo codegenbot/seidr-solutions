@@ -1,10 +1,15 @@
-import re
-
-
+```
 def fix_spaces(text):
-    try:
-        return re.sub(
-            r"\s+", lambda x: "_" if len(x.group().strip()) == 0 else " - ", text
-        )
-    except Exception as e:
-        print(f"Error: {e}")
+    new_text = ""
+    prev_was_space = False
+    for char in text:
+        if char == " ":
+            if not prev_was_space:
+                new_text += "_"
+            else:
+                new_text += "-"
+            prev_was_space = True
+        else:
+            new_text += char
+            prev_was_space = False
+    return new_text
