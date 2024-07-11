@@ -1,27 +1,3 @@
-```
-from collections import deque
-
-def minPath(grid, k):
-    n = len(grid)
-    m = len(grid[0])
-    res = []
-
-    for _ in range(k):
-        queue = deque([(i, j, i * m + j) for i in range(n) for j in range(m)])
-        visited = set()
-        cur_min = float("inf")
-
-        while queue:
-            x, y, cell = queue.popleft()
-
-            if (x, y, cell) not in visited:
-                visited.add((x, y, cell))
-                cur_min = min(cur_min, cell)
-
-        res.append(cur_min)
-
-    return res
-
 n = int(input("Enter the number of rows: "))
 m = int(input("Enter the number of columns: "))
 k = int(input("Enter the value of k: "))
