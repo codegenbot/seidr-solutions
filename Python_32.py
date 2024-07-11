@@ -1,4 +1,3 @@
-```
 def find_zero(xs: list):
     assert len(xs) % 2 == 0, "xs must have even number of coefficients"
     max_coeff = max(abs(x) for x in xs)
