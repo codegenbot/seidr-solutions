@@ -1,3 +1,5 @@
+#include <algorithm> 
+
 struct order_by_points {
     bool operator()(const int& a, const int& b) const {
         int sum_a = 0, sum_b = 0;
@@ -17,6 +19,7 @@ struct order_by_points {
     }
 };
 
-sort(nums.begin(), nums.end(), order_by_points());
+sort(nums.begin(), nums.end(), order_by_points{});
 
-assert(order_by_points()(-76, -21, 0, 6, 6, 23, 4) == vector<int>{-76, -21, 0, 4, 23, 6, 6});
+return nums;
+equal(begin(nums), end(nums), order_by_points{8,8,7,-67,-88,78,2});
