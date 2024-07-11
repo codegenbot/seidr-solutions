@@ -4,11 +4,8 @@
 #include <cmath>
 
 int gcd(int a, int b) {
-    a = std::abs(a);
-    b = std::abs(b);
-    
     if (b == 0) {
-        return a;
+        return std::abs(a);
     }
 
     return gcd(b, a % b);
@@ -20,7 +17,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
-        pos += target.length() > 1 ? 1 : target.size();
+        pos += target.length() > 1 ? 1 : (target.empty() ? 1 : target.size());
     }
 
     return indices;
