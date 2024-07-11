@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -19,9 +18,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 temp = ""
             else:
                 stack.pop()  # remove the '('
-
-    for _ in range(len(stack)):
-        temp += stack.pop()
-    result.append(temp)
 
     return [temp] + result
