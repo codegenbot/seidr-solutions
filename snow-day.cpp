@@ -1,19 +1,17 @@
 #include <iostream>
 #include <algorithm>
 
-using namespace std;
-
 int main() {
     int hours;
     float snow, snow_fall_rate, melt_rate;
-    cin >> hours >> snow >> snow_fall_rate >> melt_rate;
+    std::cin >> hours >> snow >> snow_fall_rate >> melt_rate;
     
     for (int i = 0; i < hours; ++i) {
         snow += snow_fall_rate;
-        snow -= min(snow, melt_rate);
+        snow -= std::min(snow, melt_rate);
     }
     
-    cout << snow << endl;
+    std::cout << snow << std::endl;
     
     return 0;
 }
