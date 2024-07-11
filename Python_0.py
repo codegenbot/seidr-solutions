@@ -5,6 +5,7 @@ def has_close_values(numbers, threshold):
             return True
     return False
 
+
 numbers = list(map(int, input().split()))
 threshold = int(input())
 
