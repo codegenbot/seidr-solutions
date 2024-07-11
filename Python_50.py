@@ -15,5 +15,4 @@ def decode_shift(s: str):
             result += ch
     return result
 
-shifted_s = input("Enter a shifted string (25 or 26 ): ")
-print(decode_shift(shifted_s))
+print(decode_shift(input("Enter a shifted string (25 or 26 ): ")))
