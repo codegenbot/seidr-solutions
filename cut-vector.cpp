@@ -1,30 +1,30 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <climits>
 
 int main() {
     std::vector<int> vec = {2, 5, 7, 3, 8, 4, 6};
-    
-    int cutIndex = 0;
+
     int n = vec.size();
     int minDiff = INT_MAX;
-    
+    int cutIndex = 0;
+
     for (int i = 1; i < n; ++i) {
-        int leftSum = 0, rightSum = 0;
+        int sumLeft = 0, sumRight = 0;
         for (int j = 0; j < i; ++j) {
-            leftSum += vec[j];
+            sumLeft += vec[j];
         }
         for (int j = i; j < n; ++j) {
-            rightSum += vec[j];
+            sumRight += vec[j];
         }
-        
-        if (abs(leftSum - rightSum) < minDiff) {
-            minDiff = abs(leftSum - rightSum);
+        int diff = abs(sumLeft - sumRight);
+        if (diff < minDiff) {
+            minDiff = diff;
             cutIndex = i;
         }
     }
-    
-    std::cout << cutIndex << std::endl;
+
+    std::cout << vec[cutIndex - 1] << std::endl;
     for (int i = 0; i < cutIndex; ++i) {
         std::cout << vec[i] << " ";
     }
@@ -32,6 +32,7 @@ int main() {
     for (int i = cutIndex; i < n; ++i) {
         std::cout << vec[i] << " ";
     }
-    
+    std::cout << std::endl;
+
     return 0;
 }
