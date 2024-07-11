@@ -3,14 +3,7 @@ def decode_shift(s: str):
         shift = int(s[:3])
         s = s[3:]
     else:
-        while True:
-            try:
-                shift = int(input("Enter the shift value (1-25): "))
-                if 0 < shift <= 25:
-                    break
-                print("Invalid input. Please enter a number between 1 and 25.")
-            except ValueError:
-                print("Invalid input. Please enter a number.")
+        shift = int(input("Enter the shift value (1-25): "))
     result = ""
     for ch in s:
         if "a" <= ch <= "z":
