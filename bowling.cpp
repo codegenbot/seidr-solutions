@@ -1,4 +1,3 @@
-```c++
 #include <string>
 
 int bowlingScore(std::string s) {
@@ -9,21 +8,11 @@ int bowlingScore(std::string s) {
             if(roll < 2) {
                 score += 10;
             } else {
-                score += (10 - ('X' - '0'));
+                score += 20 - (10 - (roll * 10 + (s[i-1] - '0'))); 
             }
             roll = 0;
         } else if('0' <= s[i] && s[i] <= '9') {
-            int val = s[i] - '0';
-            if(roll == 1) {
-                if(val + roll > 10) {
-                    score += (10 - (10 - val));
-                } else {
-                    score += val;
-                }
-                roll = 0;
-            } else {
-                roll = roll * 10 + val;
-            }
+            roll = roll * 10 + (s[i] - '0');
         } else if(s[i] == 'X') {
             score += 10;
             roll = 0;
