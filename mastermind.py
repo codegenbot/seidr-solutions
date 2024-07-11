@@ -1,10 +1,19 @@
-black = 0
-white = 0
+def mastermind(code, guess):
+    black = 0
+    white = 0
+    code_count = {char: code.count(char) for char in set(code)}
+    guess_count = {char: guess.count(char) for char in set(guess)}
 
-for char in set(guess):
-    code_count = code.count(char)
-    guess_count = guess.count(char)
+    for i in range(4):
+        if code[i] == guess[i]:
+            black += 1
+            code_count[code[i]] -= 1
+            guess_count[guess[i]] -= 1
 
-    black += min(code_count, guess_count)  
-    white += abs(code_count - guess_count)    
-return str(black) + "\n" + str(white)
+    for char, count in guess_count.items():
+        if count > code_count.get(char, 0):
+            white += min(count, code_count.get(char, 0))
+        else:
+            white += min(count, code_count.get(char, 0))
+
+    return str(black) + "\n" + str(white)
