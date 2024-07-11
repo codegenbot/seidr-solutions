@@ -1,4 +1,4 @@
-for (int i = 0; i < s.length(); ++i) {
+for (int i = 0; i < s.length(); i++) {
         if (isalpha(s[i])) {
             if (islower(s[i])) {
                 s[i] = toupper(s[i]);
@@ -7,13 +7,18 @@ for (int i = 0; i < s.length(); ++i) {
             }
         }
     }
-    
-    size_t l = 0, r = s.length() - 1;
-    while (l < r) {
-        swap(s[l], s[r]);
-        ++l;
-        --r;
+
+    bool hasLetters = false;
+    for (char c : s) {
+        if (isalpha(c)) {
+            hasLetters = true;
+            break;
+        }
     }
-    
+
+    if (!hasLetters) {
+        reverse(s.begin(), s.end());
+    }
+
     return s;
 }
