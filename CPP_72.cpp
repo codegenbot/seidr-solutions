@@ -1,10 +1,9 @@
-int sum = 0;
-    for (int num : q) {
-        sum += num;
+int total = 0;
+    for(int i : q){
+        total += i;
     }
-    if (sum <= w && equal(q.begin(), q.end(), q.rbegin())) {
-        return true;
-    } else {
+    if(total > w || q != vector<int>(q.rbegin(), q.rend())){
         return false;
     }
+    return true;
 }
