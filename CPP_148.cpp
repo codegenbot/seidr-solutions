@@ -9,6 +9,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(vector<string>{"Jupiter", "Makemake"}, vector<string>{}));   
+    assert(issame(vector<string>{"Jupiter", "Makemake"}, vector<string>{}));
+    // add more test cases if needed
     return 0;
 }
