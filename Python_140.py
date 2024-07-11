@@ -7,5 +7,5 @@ def fix_spaces(text):
     text = re.sub(" +", "_", text)
     return text
 
-text = input()
+text = input()  
 print(fix_spaces(text))
