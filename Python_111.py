@@ -1,15 +1,12 @@
-```
 def histogram(test):
     if not test:
         return {}
-    words = test.split()
-    max_count = 0
-    result = {}
-    for word in words:
-        count = words.count(word)
-        if count > max_count:
-            max_count = count
-            result = {word: count}
-        elif count == max_count:
-            result[word] = count
-    return result
+    freq = {}
+    for char in test.split():
+        if char in freq:
+            freq[char] += 1
+        else:
+            freq[char] = 1
+    max_count = max(freq.values())
+    most_freq_chars = [char for char, count in freq.items() if count == max_count]
+    return {char: max_count for char in most_freq_chars}
