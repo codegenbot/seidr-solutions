@@ -1,18 +1,18 @@
 Here is the solution:
 
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int evenCount = 0;
-    for (int i : lst1) {
-        if (i % 2 == 0)
-            evenCount++;
-    }
-    int oddCount = lst1.size() - evenCount;
-    for (int i : lst2) {
-        if (i % 2 != 0 && oddCount > 0) {
-            oddCount--;
-        } else if (i % 2 == 0 && evenCount < lst1.size()) {
-            evenCount++;
+    int even_count = 0;
+    for (int num : lst1) {
+        if (num % 2 == 0) {
+            even_count++;
         }
     }
-    return evenCount == lst1.size() ? "YES" : "NO";
+    for (int i = 0; i < lst2.size(); i++) {
+        if (lst2[i] % 2 == 0) {
+            lst1.push_back(lst2[i]);
+            lst2.erase(lst2.begin() + i);
+            i--;
+        }
+    }
+    return even_count == lst1.size() ? "YES" : "NO";
 }

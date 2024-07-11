@@ -1,7 +1,5 @@
-#include <iostream>
 #include <vector>
-
-int skjkasdkd(std::vector<int> lst){
+int findMaxPrime(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime){
@@ -26,9 +24,4 @@ int sumOfDigits(int num){
         num /= 10;
     }
     return sum;
-}
-
-int main(){
-    assert (skjkasdkd({127, 97, 8192}) == 10);
-    return 0;
 }
