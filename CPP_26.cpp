@@ -1,40 +1,22 @@
-#include<bits/stdc++.h>
-using namespace std;
+```cpp
+#include <vector>
+#include <algorithm>
 
-vector<int> remove_duplicates(vector<int> numbers) {
-    unordered_map<int, bool> seen;
-    vector<int> result;
+bool same(std::vector<int> a,std::vector<int>b){
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+}
 
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::vector<int> uniqueNumbers;
     for (int num : numbers) {
-        if (!seen.count(num) || !seen[num]) {
-            seen[num] = true;
-            result.push_back(num);
+        if (find(uniqueNumbers.begin(), uniqueNumbers.end(), num) == uniqueNumbers.end()) {
+            uniqueNumbers.push_back(num);
         }
     }
-
-    return result;
+    return uniqueNumbers;
 }
 
 int main() {
-    vector<int> input;
-    int n;
-    cout << "Enter the number of elements in the array: ";
-    cin >> n;
-
-    for (int i = 0; i < n; i++) {
-        int num;
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> num;
-        input.push_back(num);
-    }
-
-    vector<int> output = remove_duplicates(input);
-
-    cout << "The array after removing duplicates: ";
-    for (int num : output) {
-        cout << num << " ";
-    }
-    cout << endl;
-
+    assert(same(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 4, 5}));
     return 0;
 }
