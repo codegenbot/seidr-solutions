@@ -1,2 +1,2 @@
 def cycpattern_check(a, b):
-    return len(a) == len(b) and b in (a + a)[:-1] and a in (b + b)[:-1]
+    return len(a) == len(b) and b in (a + a) and a in (b + b) and len(set(a)) == len(set(b))
