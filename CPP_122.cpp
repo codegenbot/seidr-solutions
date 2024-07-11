@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 int add_elements(vector<int> arr, int k) {
     int sum = 0;
