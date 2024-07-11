@@ -1,6 +1,3 @@
-Here is the modified code without triple quotes and unnecessary comments:
-
-```Python
 from typing import List
 import math
 
