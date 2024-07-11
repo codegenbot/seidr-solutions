@@ -1,9 +1,10 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
 
 namespace MyNamespace {
-    bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
+    bool compareVectors(const std::vector<int>& a, const std::vector<int>& b) {
         return std::equal(a.begin(), a.end(), b.begin());
     }
 
@@ -24,10 +25,8 @@ namespace MyNamespace {
 }
 
 int main() {
-    std::vector<int> lst = {-5,-3,-1,0,2};
-    if(MyNamespace::isSame({{0,1}},{MyNamespace::largest_smallest_integers(lst)}) ) {
-        return 0;
-    } else {
-        return 1;
-    }
+    assert(MyNamespace::compareVectors(
+        MyNamespace::largest_smallest_integers({-6, -4, -4, -3, -100, 1}),
+        {{-3, 1}}));
+    return 0;
 }
