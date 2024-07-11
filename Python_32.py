@@ -18,6 +18,5 @@ while True:
             else:
                 result = -b / a
                 print(f"There is one solution: {result}.")
-        continue
     except ValueError:
         print("Invalid input. Please enter exactly 3 or 4 coefficients: ")
