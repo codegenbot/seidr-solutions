@@ -1,2 +1,3 @@
+```
 def modp(n: int, p: int):
-    return pow(pow(n, p - 1, p), 1, p)
+    return pow(n, -1, p) if n != 0 else None
