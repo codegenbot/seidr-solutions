@@ -6,7 +6,7 @@ bool issame(vector<int> a, vector<int> b);
 
 vector<int> filter_integers(list_any values);
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
@@ -20,11 +20,10 @@ vector<int> filter_integers(list_any values){
     return result;
 }
 
-int main() {
+int main(){
     vector<int> a = {1, 2, 3};
     vector<int> b = {1, 2, 3};
-
     assert(issame(a, b));
-
+    
     return 0;
 }
