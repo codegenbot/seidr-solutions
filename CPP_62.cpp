@@ -1,10 +1,10 @@
 #include <vector>
 #include <cassert>
 
-std::vector<float> derivative(const std::vector<float>& xs) {
-    std::vector<float> result;
-    for (size_t i = 1; i < xs.size(); i++) {
-        result.push_back(xs[i] * i);
+int derivative(const std::vector<float>& xs) {
+    int result = 0;
+    for (size_t i = 0; i < xs.size(); i++) {
+        result += xs[i];
     }
     return result;
 }
