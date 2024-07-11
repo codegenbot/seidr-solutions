@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     if expression == "T":
         return True
@@ -12,6 +13,6 @@ def solve_boolean(expression):
                 result = solve_boolean(left) or solve_boolean(right)
             else:
                 result = solve_boolean(left) and solve_boolean(right)
-            if not result:  # short-circuit
+            if not result:  
                 break
         return result
