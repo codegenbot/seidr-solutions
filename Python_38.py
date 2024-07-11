@@ -1,12 +1,15 @@
+Here is the modified code:
+
+```python
 def encode_cyclic(s: str):
     if not isinstance(s, str):
         return "Error: Input must be a string."
     groups = []
     for i in range(0, (len(s) + 2) // 3):
         if i * 3 + 3 > len(s):
-            groups.append(s[i * 3:])
+            groups.append(s[i * 3 :])
         else:
-            groups.append(s[(i * 3):min((i * 3) + 3, len(s))])
+            groups.append(s[(i * 3) : min((i * 3) + 3, len(s))])
     groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
     return "".join(groups)
 
