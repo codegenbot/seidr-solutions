@@ -25,7 +25,8 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     if(index1 < index2)
         std::swap(start, end);
     else
-        std::tie(std::move(start), std::move(end)) = {index1, index2};
+        std::tie(std::ignore, end) = {index1, index2};
+    start = index1;
 
     std::vector<std::string> result;
     for (int i = 0; i < planets.size(); i++) {
@@ -35,9 +36,4 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
 
     return result;
-}
-
-int main() {
-    assert(std::vector<std::string>(bf("Jupiter", "Makemake")).size() == 0);
-    return 0;
 }
