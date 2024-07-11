@@ -1,3 +1,4 @@
+```cpp
 string spinWords(string str) {
     string result = "";
     int i = 0;
@@ -18,5 +19,5 @@ string spinWords(string str) {
             result += word + " ";
         i = pos + 1;
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
