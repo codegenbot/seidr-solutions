@@ -9,4 +9,5 @@ def add():
     else:
         return x + y
 
-print(add())
+result = add()
+print(result)
