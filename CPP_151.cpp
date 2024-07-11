@@ -13,7 +13,8 @@ double double_the_difference(std::vector<float>& lst) {
 }
 
 int main() {
-    std::vector<float> lst = {1.5, 2.0, 3.5, 4.0, 5.5};  // Example initialization
-    assert(double_the_difference(lst) == 8);  // Example assert
+    std::vector<float> lst = {1.5, 2.5, 3.5, 4.5, 5.5};
+    assert(double_the_difference(lst) == 1 + 9 + 25);
+    
     return 0;
 }
