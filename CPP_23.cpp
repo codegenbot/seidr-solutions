@@ -1,4 +1,3 @@
-```cpp
 #include <cstring>
 #include <string>
 
