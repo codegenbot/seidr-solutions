@@ -6,10 +6,14 @@ int fruit_distribution(string s, int n) {
     for (char c : s) {
         if (c == ' ') {
             if (!temp.empty()) {
-                if (temp.find("apples") != string::npos)
-                    total_apples = stoi(temp.substr(0, temp.find(" ")).erase(0, 1));
-                else if (temp.find("oranges") != string::npos)
-                    total_oranges = stoi(temp.substr(0, temp.find(" ")).erase(0, 1));
+                size_t pos = temp.find("apples");
+                if (pos != string::npos) {
+                    total_apples = stoi(temp.substr(0, pos).erase(0, 1));
+                } else {
+                    pos = temp.find("oranges");
+                    if (pos != string::npos)
+                        total_oranges = stoi(temp.substr(0, pos).erase(0, 1));
+                }
                 temp.clear();
             }
         } else {
@@ -17,13 +21,4 @@ int fruit_distribution(string s, int n) {
         }
     }
     
-    // Process the last string
-    if (!temp.empty()) {
-        if (temp.find("apples") != string::npos)
-            total_apples = stoi(temp.substr(0, temp.find(" ")).erase(0, 1));
-        else if (temp.find("oranges") != string::npos)
-            total_oranges = stoi(temp.substr(0, temp.find(" ")).erase(0, 1));
-    }
-    
     return n - total_apples - total_oranges;
-}
