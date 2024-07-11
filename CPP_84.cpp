@@ -14,4 +14,4 @@ std::string solve(int N) {
 int main() {
     assert(solve(963) == "10010");
     return 0;
-}
+}  
