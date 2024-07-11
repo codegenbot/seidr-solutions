@@ -1,11 +1,12 @@
-```
 import re
 
 
-def fix_spaces():
+def fix_spaces(text):
     pattern = r"\s+"
     replacement = "_"
 
-    text = input("Enter a text: ")
     text = re.sub(pattern, replacement, text)
-    print(text)
+    return text
+
+text = input("Enter a text: ")  
+print(fix_spaces(text))
