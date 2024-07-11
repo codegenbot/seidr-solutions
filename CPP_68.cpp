@@ -1,19 +1,15 @@
-#include <vector>
+Here is the completed code:
 
-using namespace std;
-
-vector<pair<int, int>> pluck(vector<int> arr) {
-    if (arr.empty()) return {};
-
-    vector<pair<int, int>> result;
-    pair<int, int> smallest;
-
-    for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] % 2 == 0 && (result.empty() || arr[i] < smallest.first)) {
-            smallest = make_pair(arr[i], i);
+vector<int> pluck(vector<int> arr){
+    vector<pair<int, int>> nodes;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 == 0) {
+            nodes.push_back({arr[i], i});
         }
     }
-
-    result.push_back(smallest);
-    return result;
+    if (nodes.empty()) {
+        return {};
+    }
+    sort(nodes.begin(), nodes.end());
+    return {nodes[0].first, nodes[0].second};
 }
