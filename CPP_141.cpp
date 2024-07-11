@@ -1,40 +1,13 @@
-#include <string>
-#include <cassert>
-
-std::string file_name_check(const std::string& file_name) {
-    int countDigits = 0;
+string file_name_check(string file_name) {
+    if (file_name.empty()) return "No";
     size_t dotPos = file_name.find('.');
+    if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.size() - 1) return "No";
+    string beforeDot = file_name.substr(0, dotPos);
+    string afterDot = file_name.substr(dotPos + 1);
 
-    if (dotPos == std::string::npos || dotPos == 0 || dotPos == file_name.length() - 1) {
-        return std::string("No");
-    }
+    if (beforeDot.find_first_of("0123456789") != string::npos || beforeDot.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") != string::npos) return "No";
+    if (afterDot != "txt" && afterDot != "exe" && afterDot != "dll") return "No";
+    if (count_if(file_name.begin(), file_name.end(), ::isdigit) > 3) return "No";
 
-    for (char c : file_name) {
-        if (c >= '0' && c <= '9') {
-            countDigits++;
-        }
-    }
-
-    if (countDigits > 3) {
-        return std::string("No");
-    }
-
-    std::string prefix = file_name.substr(0, dotPos);
-    std::string suffix = file_name.substr(dotPos + 1);
-
-    if (prefix.empty() || !(isalpha(prefix[0]))) {
-        return std::string("No");
-    }
-
-    if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
-        return std::string("No");
-    }
-
-    return std::string("Yes");
-}
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    // Add more test cases here
-    return 0;
+    return "Yes";
 }
