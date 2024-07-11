@@ -1,2 +1,10 @@
-return unique(lst.begin(), lst.end()) == lst.end() && is_sorted_until(lst.begin(), lst.end());
+for (int i = 0; i < lst.size() - 1; i++) {
+        if (lst[i] >= lst[i + 1]) {
+            return false;
+        }
+        if (i < lst.size() - 2 && lst[i] == lst[i + 1] && lst[i] == lst[i + 2]) {
+            return false;
+        }
+    }
+    return true;
 }
