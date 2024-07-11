@@ -26,19 +26,7 @@ vector<string> bf(string planet1, string planet2) {
             result.push_back(planets[i]);
     }
 
-    sort(result.begin(), result.end(), [](const string& a, const string& b) {
-        int posA = -1;
-        int posB = -1;
-
-        for (int i = 0; i < planets.size(); i++) {
-            if (planets[i] == a)
-                posA = i;
-            else if (planets[i] == b)
-                posB = i;
-        }
-
-        return posA < posB;
-    });
+    sort(result.begin(), result.end());
 
     return result;
 }
