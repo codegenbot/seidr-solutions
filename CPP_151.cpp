@@ -15,14 +15,14 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    float num;
-    std::cout << "Enter numbers (enter 'stop' to finish): ";
-    while (true) {
-        std::cin >> num;
-        if (std::to_string(num) == "stop") break;
-        lst.push_back(num);
+    float n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for(int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> lst[i];
     }
-    long long result = double_the_difference(lst);
-    std::cout << "Double the difference: " << result << std::endl;
+    long long odd_sum = double_the_difference(lst);
+    std::cout << "The sum of squares of positive integers is: " << odd_sum;
     return 0;
 }
