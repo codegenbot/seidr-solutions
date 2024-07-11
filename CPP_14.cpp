@@ -1,7 +1,6 @@
 #include <vector>
 #include <string>
 #include <cassert>
-#include <initializer_list>
 
 using namespace std;
 
@@ -23,6 +22,10 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    if (!issame(all_prefixes("WWW"), {"W", "WW", "WWW"})) {
+        cout << "Error: Expected prefixes are not the same." << endl;
+    } else {
+        cout << "Test passed!" << endl;
+    }
     return 0;
 }
