@@ -1,5 +1,5 @@
 ```
-def car_race_collision(time_to_meet_car1):
+def car_race_collision():
     time_to_meet_car1 = int(input("Enter time at which both cars meet: "))
 
     while True:
