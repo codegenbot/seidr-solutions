@@ -1,3 +1,7 @@
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
     vector<vector<bool>> visited(n, vector<bool>(n));
@@ -12,10 +16,6 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
     }
     
     return res;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
 
 void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>* res) {
