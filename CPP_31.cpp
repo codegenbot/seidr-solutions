@@ -1,7 +1,3 @@
-#include <iostream>
-
-bool is_prime(long long n);
-
 bool is_prime(long long n){
     if(n < 2) return false;
     for(long long i=2; i*i <= n; i++){
@@ -10,7 +6,7 @@ bool is_prime(long long n){
     return true;
 }
 
-int main() {
-    std::cout << is_prime(13441 * 19) << std::endl;
+int main(){
+    assert(is_prime(13441 * 19) == false);
     return 0;
 }
