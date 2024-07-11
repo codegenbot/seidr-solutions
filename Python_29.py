@@ -1,22 +1,20 @@
-from typing import List
-
-
-def filter_by_prefix():
+def filter_by_prefix() -> None:
     while True:
         try:
             strings = input("Enter strings (comma-separated): ").split(",")
             prefix = input("Enter prefix: ")
 
-            if all(s.strip().startswith(prefix) for s in strings):
-                filtered_strings = [s.strip() for s in strings]
-                print(filtered_strings)
-                break
-            else:
-                print(
-                    "Not all strings start with the given prefix. Please enter valid input."
-                )
+            filtered_strings = [
+                s.strip().lower()
+                for s in strings
+                if len(strings) > 1 and s.strip().lower().startswith(prefix.lower())
+            ]
+
+            print(filtered_strings)
+            break
         except ValueError as e:
             print(f"Error occurred: {e}")
+            continue
 
 
 filter_by_prefix()
