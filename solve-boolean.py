@@ -7,5 +7,5 @@ def solve_boolean(expression):
     )
 
 
-expression = input("Enter a Boolean expression using T, F, |, and &: ")
+expression = input()
 print(solve_boolean(expression))
