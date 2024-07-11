@@ -1,8 +1,8 @@
 bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+    string s = "";
     for (int i : q) {
-        str += to_string(i);
+        s += to_string(i);
     }
-    bool is_balanced = str == string(rbegin(str), rend(str));
-    return is_balanced && accumulate(q.begin(), q.end(), 0) <= w;
+    bool balanced = s == reverse(s).str();
+    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
 }
