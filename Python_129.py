@@ -1,4 +1,3 @@
-```
 def minPathSum(grid):
     n = len(grid)
     m = [[0] * n for _ in range(n)]
