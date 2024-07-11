@@ -1,4 +1,3 @@
-```
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1;
@@ -22,7 +21,7 @@ vector<string> bf(string planet1, string planet2) {
 
     vector<string> result;
     for (int i = 0; i < planets.size(); i++) {
-        if ((index1 <= i && i <= index2) || (i >= start && i <= end)) {
+        if ((index1 <= i && i <= index2) || (i >= index1 && i <= index2)) {
             result.push_back(planets[i]);
         }
     }
