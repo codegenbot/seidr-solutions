@@ -23,8 +23,21 @@ namespace boost {
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value).good()) {
-            result.push_back(boost::any_cast<int>(value));
+        if (any_cast<int>(value).good()) {
+            result.push_back(any_cast<int>(value));
+        } else if (any_cast<string>(value).good()) {
+            // Check if integer value exists in the string
+            int num = 0;
+            bool found = false;
+            for (char c : any_cast<string>(value)) {
+                if (c >= '0' && c <= '9') {
+                    num = num * 10 + c - '0';
+                    found = true;
+                }
+            }
+            if (found) {
+                result.push_back(num);
+            }
         }
     }
     return result;
@@ -41,8 +54,6 @@ bool functionIsEqual(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    list<any> values = {3, any('c'), 3, 3, any('a'), any('b')};
-    vector<int> filteredValues = filter_integers(values);
-    assert(functionIsEqual(filteredValues,{3, 3, 3}));
+    assert(functionIsEqual(filter_integers({3, any('c'), 3, 3, any('a'), any('b') }),{3, 3, 3}));
     return 0;
 }
