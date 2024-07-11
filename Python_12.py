@@ -5,7 +5,7 @@ def longest(strings: List[str]) -> Optional[List[str]]:
         return None
     
     strings.sort(key=len)  
-    max_len = len(strings[-1])
+    max_len = len(strings[0])
     results = [strings[0]]  
 
     for s in strings[1:]:
