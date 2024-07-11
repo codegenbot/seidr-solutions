@@ -1,12 +1,10 @@
 from typing import List
 
-def intersperse(list1: List[int], list2: List[int], delimeter: int) -> List[int]:
-    result = [list1[0]]
-    for i in range(0, len(list1), 2):
-        if i < len(list1) - 1:
-            result.extend([list1[i], delimeter])
-        else:
-            result.extend([list1[i]])
-    for num in list2:
-        result.append(num)
+def intersperse(numbers: List[int], delimiter: int) -> List[int]:
+    if len(numbers) < 2:
+        return numbers
+    result = [numbers[0]]
+    for num in numbers[1:-1]:
+        result.extend([num, delimiter])
+    result.extend([numbers[-1]])
     return result
