@@ -1,7 +1,7 @@
-def decode_cyclic(s):
-    if not isinstance(s, str):
-        raise ValueError("Input must be a string")
-
+def decode_cyclic(s: str):
+    if len(s) < 2 or s[0] != s[-1]:  
+        return "Invalid cyclic string"
+    
     result = []
     temp = ""
     for char in s + s:
@@ -10,13 +10,16 @@ def decode_cyclic(s):
             if len(result) > 0 and result[-1] == temp[0]:
                 result.append(temp)
             else:
-                if len(temp) >= 2:  
-                    if temp[0] == temp[2]:  # check for cyclic condition
-                        if temp[2] == '(':
+                if len(temp) >= 2:
+                    if temp[0] == temp[2]:  
+                        if temp[2] == "(":
                             result.append(temp[1:])
                         else:
                             result.append(temp[1] + temp[0])
-                    else:  
-                        result.append(temp[1:])
-                    temp = ""
+                    else:
+                        if len(temp) % 3 == 1 and temp[0] == result[-1]:
+                            result.append(temp[1:] + temp[0])
+                        else:
+                            result.append(temp[1:])
+                temp = ""
     return "".join(result)
