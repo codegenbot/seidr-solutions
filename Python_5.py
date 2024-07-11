@@ -1,6 +1,6 @@
-def process_numbers(numbers, delimiter):
+def create_string(numbers, delimiter):
     result = []
     for num in numbers:
-        result.extend([num, delimiter])
+        result.extend([str(num), delimiter])
     result.pop()
-    return result
+    return ''.join(result)
