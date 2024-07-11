@@ -5,19 +5,20 @@ int main() {
     int cents;
     cin >> cents;
 
-    int coins[4] = {0}; // quarters, dimes, nickles, pennies
+    int pennies = cents / 1;
+    pennies = min(pennies, (cents - pennies) / 1);
+    cout << pennies << endl;
 
-    for (int coin_value = 25; coin_value > 0; coin_value /= 5) {
-        while (cents >= coin_value) {
-            coins[coin_value / 25]++;
-            cents -= coin_value;
-        }
-    }
+    int nickels = (cents - pennies * 100) / 5;
+    nickels = min(nickels, (cents - pennies * 100 - nickels * 50) / 5);
+    cout << nickels << endl;
 
-    cout << coins[3] << endl; // quarters
-    cout << coins[2] << endl; // dimes
-    cout << coins[1] << endl; // nickles
-    cout << coins[0] << endl; // pennies
+    int dimes = (cents - pennies * 100 - nickels * 50) / 10;
+    dimes = min(dimes, (cents - pennies * 100 - nickels * 50 - dimes * 20) / 10);
+    cout << dimes << endl;
+
+    int quarters = (cents - pennies * 100 - nickels * 50 - dimes * 20) / 25;
+    cout << quarters << endl;
 
     return 0;
 }
