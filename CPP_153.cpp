@@ -4,8 +4,8 @@
 
 int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = -1;
-    string result = "";
-    for (string extension : extensions) {
+    std::string result = "";
+    for (std::string extension : extensions) {
         int cap = 0, sm = 0;
         for (char c : extension) {
             if (isupper(c)) cap++;
@@ -16,7 +16,8 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
             strongest = strength;
             result = extension;
         } else if (strength == strongest) {
-            result = min(result, extension);
+            if(extension < result)
+                result = extension;
         }
     }
     return class_name + "." + result;
