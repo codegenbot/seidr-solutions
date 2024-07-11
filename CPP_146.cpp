@@ -1,6 +1,8 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <cassert>
+
+int specialFilter(std::vector<int> nums);
 
 int specialFilter(std::vector<int> nums){
     int count = 0;
@@ -16,6 +18,6 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main() {
-    // Test your specialFilter function here
+    // Your main function implementation
     return 0;
 }
