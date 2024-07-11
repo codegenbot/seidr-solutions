@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cassert>
 
@@ -10,7 +11,7 @@ bool right_angle_triangle(float a, float b, float c) {
         return false;
 }
 
-int main() { 
+int main() {
     assert(right_angle_triangle(2, 2, 10) == false);
     cout << "Input the lengths of three sides (a, b, c): ";
     float a, b, c;

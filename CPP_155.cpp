@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,8 +12,8 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 
 pair<int, int> even_odd_count(int num) {
     pair<int, int> result = {0, 0};
-    string str_num = std::to_string(std::abs(num)); 
-    for (char c : str_num) { 
+    string str_num = to_string(abs(num));
+    for (char c : str_num) {
         if ((c - '0') % 2 == 0)
             ++result.first;
         else
@@ -23,6 +23,11 @@ pair<int, int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0), make_pair(1, 0)));
+    pair<int, int> p = even_odd_count(0);
+    pair<int, int> q({1, 0});
+    if (!issame(vector<int>(p.begin(), p.end()), vector<int>(q.begin(), q.end())))
+        cout << "Failed";
+    else
+        cout << "Passed";
     return 0;
 }
