@@ -39,3 +39,11 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
     
     return res;
 }
+
+int main() {
+    vector<vector<int>> grid = {{5,4},{6,3},{3,2},{1,1}};
+    int k = 3;
+    vector<int> result = minPath(grid,k);
+    for(int i: result) cout << i << " ";
+    return 0;
+}
