@@ -1,6 +1,6 @@
+#include <vector>
 #include <iostream>
 #include <cassert>
-#include <vector>
 
 int specialFilter(std::vector<int> nums){
     int count = 0;
@@ -16,6 +16,6 @@ int specialFilter(std::vector<int> nums){
 }
 
 int main() {
-    // Test cases or input logic can be added here
+    // Code for testing specialFilter function
     return 0;
 }
