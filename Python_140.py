@@ -1,6 +1,5 @@
-Here is the corrected Python code:
+Here is the corrected code:
 
-```
 def fix_spaces(text):
     new_text = ""
     prev_was_space = False
