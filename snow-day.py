@@ -3,6 +3,8 @@ def snow_day(
 ):
     total_snow = initial_snow
     for _ in range(hours):
-        total_snow += (rate_of_fall_inches_per_hour / 12) * (1 / 144)
+        total_snow += (rate_of_fall_inches_per_hour / 12) * (
+            1 / 144
+        )  # Convert inches to feet correctly
         total_snow -= (total_snow * melting_rate_percentage) / 100
     return round(total_snow, 6)
