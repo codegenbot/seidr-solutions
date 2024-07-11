@@ -1,7 +1,5 @@
-Here is the corrected code:
 ```
 from typing import List
-
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
