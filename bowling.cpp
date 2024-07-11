@@ -5,43 +5,47 @@ using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
-    int roll1 = 0;
-    int roll2 = 0;
     int currentFrame = 1;
+    int spare = 0;
     
     for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
-            score += 10 + (currentFrame > 1 ? 10 : 0);
+        if(s[i] == 'X'){
+            score += 10 + currentFrame;
             currentFrame++;
-        } else if (s[i] == '/') {
-            if (i + 2 >= s.length()) {
-                roll1 = 10;
-            } else if (isdigit(s[i+1]) && isdigit(s[i+2])) {
-                roll1 = 10 - (s[i+1] - '0' + s[i+2] - '0');
+            spare = 0;
+        } else if(s[i] == '/'){
+            if(spare > 0) {
+                score += 10;
+                score += (10 - currentFrame);
+                currentFrame = 1;
+                spare = 0;
             } else {
-                roll1 = 10 - (s[i+1] - '0');
-            }
-            score += roll1;
-            currentFrame++;
-        } else {
-            if (isdigit(s[i])) {
-                int num = s[i] - '0';
-                roll1 = num;
+                score += 5 + (s[i+1]-'0');
                 i++;
-                if (i < s.length() && isdigit(s[i])) {
-                    roll2 = s[i] - '0';
-                }
-                score += roll1 + roll2;
+                spare = 1;
+            }
+        } else {
+            if(spare > 0) {
+                score += s[i] - '0';
                 currentFrame++;
             } else {
-                if (roll1 == 10) {
-                    score += 10;
+                int ball = s[i] - '0';
+                score += ball;
+                if(currentFrame == 2) {
+                    if(ball == 1 || (ball + s[i+1] - '0' <= 10)) {
+                        score += ball + s[i+1] - '0';
+                        i++;
+                        currentFrame = 1;
+                    } else {
+                        score += 10;
+                        currentFrame = 1;
+                    }
                 } else {
-                    score += roll1;
+                    currentFrame++;
                 }
-                currentFrame++;
             }
         }
     }
+    
     return score;
 }
