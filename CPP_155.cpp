@@ -2,9 +2,7 @@
 #include <string>
 #include <cassert>
 
-vector<int> even_odd_count(int num);
-
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) { 
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,6 +13,8 @@ bool issame(vector<int> a, vector<int> b) {
     }
     return true;
 }
+
+vector<int> even_odd_count(int num);
 
 vector<int> even_odd_count(int num) {
     vector<int> counts = {0, 0};
@@ -30,6 +30,9 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    // Main function logic here
+    // Test the even_odd_count function
+    vector<int> result = even_odd_count(123456);
+    assert(result[0] == 3 && result[1] == 3);
+
     return 0;
 }
