@@ -7,7 +7,7 @@ bool issame(std::vector<float> v1, std::vector<float> v2) {
     return v1 == v2;
 }
 
-std::vector<float> rescale_to_unit(std::vector<float> numbers) {
+std::vector<float> rescale_to_unit(const std::vector<float>& numbers) {
     float min_val = *min_element(numbers.begin(), numbers.end());
     float max_val = *max_element(numbers.begin(), numbers.end());
     std::vector<float> rescaled;
