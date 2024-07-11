@@ -4,7 +4,7 @@ def decode_cyclic(s: str):
     return "".join(groups)
 
 
-s = input("Enter a string: ")
+s = input("Enter a string: ")  # Add this line to read input from the user
 
 result = decode_cyclic(s)
 print(result)
