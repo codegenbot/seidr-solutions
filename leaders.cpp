@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
@@ -15,6 +16,6 @@ std::vector<int> leaders(std::vector<int>& arr) {
         if(isLeader) result.push_back(arr[i]);
     }
 
-    std::reverse(result.begin(), result.end()); 
+    std::reverse(result.rbegin(), result.rend()); 
     return result;
 }
