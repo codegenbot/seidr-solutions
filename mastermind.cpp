@@ -3,28 +3,24 @@ using namespace std;
 
 string code, guess;
 
-int whitePegs(string c, string g) {
+int whitePegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; i++) {
-        if (c[i] == g[i]) {
+        if (code[i] == guess[i]) {
             count++;
         }
     }
     return count;
 }
 
-int blackPegs(string c, string g) {
+int blackPegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; i++) {
-        bool foundInCode = false;
         for (int j = 0; j < 4; j++) {
-            if (i != j && c[i] == g[j]) {
-                foundInCode = true;
+            if (i != j && code[i] == guess[j]) {
+                count++;
                 break;
             }
-        }
-        if (foundInCode) {
-            count++;
         }
     }
     return count;
@@ -34,6 +30,6 @@ int main() {
     cin >> code >> guess;
     int black = blackPegs(code, guess);
     int white = 4 - black - whitePegs(code, guess);
-    cout << white << endl << black << endl;
+    cout << whitePegs(code, guess) << endl << black << endl;
     return 0;
 }
