@@ -7,7 +7,7 @@ def minPath(grid, k):
     res = []
 
     for _ in range(k):
-        queue = deque([(i, j, i * m + j) for i in range(n) for j in range(m)])
+        queue = deque([(i, j, i*m+j) for i in range(n) for j in range(m)])
         visited = set()
         cur_min = float("inf")
 
