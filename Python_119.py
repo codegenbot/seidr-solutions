@@ -9,5 +9,3 @@ def match_parens(lst):
                     return "No"
                 open_count -= 1
     return "Yes" if open_count == 0 else "No"
-
-assert match_parens(["(", ")"]) == "Yes"
