@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -10,6 +11,7 @@ vector<int> getLeaders(vector<int>& arr) {
             result.push_back(arr[i]);
     }
     return result;
+
 }
 
 int main() {
