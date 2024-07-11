@@ -3,13 +3,11 @@ string encode(string message) {
     for (char c : message) {
         if (isalpha(c)) {
             char base = isupper(c) ? 'A' : 'a';
-            if (c == base) continue;
-            int offset = tolower(c) - base;
-            char newChar = (offset + 2) % 26 >= 13 ? (tolower(c) < 'n' ? 'a' : 'n') : (tolower(c) < 'w' ? 'm' : 'w');
-            result += isupper(c) ? toupper(newChar) : tolower(newChar);
-        } else {
-            result += c;
+            c = (c <= base + 2 && c >= base) ? (isupper(c) ? 'Z' : 'z') : 
+                (c == base + 3 || c == base + 4) ? c : 
+                ((c - base + 1) % 26) + base;
         }
+        result += c;
     }
     return result;
 }
