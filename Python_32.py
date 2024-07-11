@@ -1,6 +1,6 @@
 ```
-xs = list(map(float, input("Enter coefficients (space separated): ").split()))
-try:
-    print(find_zero(xs))
-except ValueError as e:
-    print(str(e))
+def find_zero(xs: list):
+    if len(xs) < 3:
+        raise ValueError("xs must have at least three coefficients")
+    a, b, c = xs[0], xs[1], xs[2]
+    return (-b + (b**2 - 4*a*c)**0.5)/(2*a)
