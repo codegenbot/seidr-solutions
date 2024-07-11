@@ -1,12 +1,15 @@
 ```
 from typing import Tuple
 
-def calculate_average_and_median(numbers: list[int]) -> Tuple[float, float]:
+def calculate_average_and_median() -> Tuple[float, float]:
+    while True:
+        try:
+            numbers = [int(num) for num in input("Enter numbers separated by space: ").split()]
+            break
+        except ValueError:
+            print("Invalid input. Please enter numbers separated by space.")
     if not numbers:
         return 0.0, None
-    for num in numbers:
-        if not isinstance(num, int):
-            raise ValueError("All elements must be integers")
     average = sum(numbers) / len(numbers)
     sorted_numbers = sorted(numbers)
     median = (
@@ -16,20 +19,3 @@ def calculate_average_and_median(numbers: list[int]) -> Tuple[float, float]:
     )
 
     return average, median
-
-def calculate_average_and_median():
-    numbers = []
-    while True:
-        num = input("Enter a number (or 'done' if finished): ")
-        if num.lower() == 'done':
-            break
-        try:
-            numbers.append(int(num))
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-    
-    average, median = calculate_average_and_median(numbers)  # Pass the list to your function
-
-    print(f"Average: {average}, Median: {median}")
-
-calculate_average_and_median()
