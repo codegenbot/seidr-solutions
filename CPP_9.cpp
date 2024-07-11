@@ -1,17 +1,18 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> rolling_max(vector<int> numbers) {
-    vector<int> result;
+std::vector<int> rolling_max(const std::vector<int>& numbers) {
+    std::vector<int> result;
     int n = numbers.size();
     for (int i = 0; i < n; ++i) {
         int max_val = numbers[i];
         for (int j = i + 1; j < n; ++j) {
-            max_val = max(max_val, numbers[j]);
+            max_val = std::max(max_val, numbers[j]);
         }
         result.push_back(max_val);
     }
