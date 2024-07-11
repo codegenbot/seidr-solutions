@@ -1,13 +1,18 @@
-```
 def histogram(test):
     if not test:
         return {}
-    letter_count = {}
-    for letter in test.split():
-        if letter in letter_count:
-            letter_count[letter] += 1
-        else:
-            letter_count[letter] = 1
-    max_count = max(letter_count.values())
-    result = {k: v for k, v in letter_count.items() if v == max_count}
-    return result
+
+    counts = {}
+    for word in test.split():
+        for char in word:
+            if char in counts:
+                counts[char] += 1
+            else:
+                counts[char] = 1
+
+    max_count = max(counts.values())
+    most_common = [k for k, v in counts.items() if v == max_count]
+
+    return {
+        char: count for char, count in zip(most_common, [max_count] * len(most_common))
+    }
