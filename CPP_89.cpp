@@ -1,15 +1,26 @@
-string encrypt(string s) {
-    string result = "";
-    for (char c : s) {
-        if (c >= 'a' && c <= 'z') {
-            char newC = (c - 'a' + 2 * 26) % 26 + 'a';
-            result += newC;
-        } else if (c >= 'A' && c <= 'Z') {
-            char newC = (c - 'A' + 2 * 26) % 26 + 'A';
-            result += newC;
-        } else {
+#include <string>
+
+using namespace std;
+
+class Str {
+public:
+    static string encrypt(string s) {
+        string result = "";
+        for(int i=0; i<s.length(); i++){
+            char c = s[i];
+            if(c >= 'a' && c <= 'm'){
+                c += 4;
+            }
+            else if(c >= 'n' && c <= 'z'){
+                c -= 26 - 4;
+            }
             result += c;
         }
+        return result;
     }
-    return result;
+};
+
+int main() {
+    assert(encrypt("a") == "e");
+    return 0;
 }
