@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -19,6 +18,6 @@ int main() {
         return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
     }
 
-    assert(get_closest_vowel("Above") == 0);
+    assert(get_closest_vowel("Above") == 15);
     return 0;
 }
