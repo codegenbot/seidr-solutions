@@ -1,15 +1,10 @@
-string s = to_string(x);
-    int n = s.size();
-    shift = shift % n;
-    if (shift == 0) {
-        return s;
-    }
+string num_str = to_string(x);
+    int n = num_str.size();
     if (shift > n) {
-        reverse(s.begin(), s.end());
-        return s;
+        reverse(num_str.begin(), num_str.end());
+        return num_str;
     }
-    reverse(s.begin(), s.end());
-    reverse(s.begin(), s.begin() + shift);
-    reverse(s.begin() + shift, s.end());
-    return s;
+    shift %= n;
+    rotate(num_str.rbegin(), num_str.rbegin() + shift, num_str.rend());
+    return num_str;
 }
