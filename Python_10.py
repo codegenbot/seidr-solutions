@@ -4,13 +4,19 @@ def make_palindrome(s: str) -> str:
     i, j = 0, len(s) - 1
     while i < j:
         if s[i] != s[j]:
-            if s[0] == s[j]:
-                s.pop()
-            elif s[-1] == s[i]:
-                s.pop(j)
+            for c in set(s):
+                left, right = 0, len(s) - 1
+                while left < right and s[left] != c:
+                    left += 1
+                while left < right and s[right] != c:
+                    right -= 1
+                if left < right:
+                    s.pop(left)
+                    j -= 1
+                    break
             else:
-                s.insert(0, s[j])
                 s.pop(j)
-        i += 1
-        j -= 1
+        else:
+            i += 1
+            j -= 1
     return ''.join(s)
