@@ -1,3 +1,4 @@
+```python
 from math import sqrt, fsum
 from decimal import Decimal
 
