@@ -1,17 +1,13 @@
 #include <vector>
 #include <string>
-#include <cassert>
 
-using std::string;
-using std::vector;
-
-bool issame(const vector<string>& a, const vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-vector<string> bf(const string& planet1, const string& planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    vector<string> result;
+std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    std::vector<std::string> result;
 
     int idx1 = -1, idx2 = -1;
     for (int i = 0; i < planets.size(); ++i) {
