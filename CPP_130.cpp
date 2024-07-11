@@ -1,18 +1,12 @@
 vector<int> result;
-    result.push_back(3);
     if (n == 0) {
-        return result;
-    }
-    result.push_back(1);
-    if (n == 1) {
-        return result;
-    }
-    result.push_back(2);
-    if (n == 2) {
+        result.push_back(0);
         return result;
     }
     
-    for (int i = 3; i <= n; ++i) {
+    result.push_back(3);
+    
+    for (int i = 2; i <= n; ++i) {
         if (i % 2 == 0) {
             result.push_back(1 + i / 2);
         } else {
