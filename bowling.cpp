@@ -1,40 +1,47 @@
-int score(string input) {
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+int score(const string& input) {
     int totalScore = 0;
-    int frame = 1;
-    int ball = 0;
-    int rolls[21];
+    int frame = 0;
+    int rolls = 0;
+    vector<int> frameScores(10, 0);
 
     for (char c : input) {
         if (c == 'X') {
-            rolls[ball++] = 10;
-            if (frame < 10) {
-                rolls[ball++] = 0;
-            }
+            frameScores[frame] = 10;
+            frame++;
+            rolls = 0;
         } else if (c == '/') {
-            rolls[ball-1] = 10 - rolls[ball-2];
-            if (frame < 10) {
-                rolls[ball++] = 0;
-            }
+            frameScores[frame] = 10 - frameScores[frame];
+            frame++;
+            rolls = 0;
         } else if (c == '-') {
-            rolls[ball++] = 0;
+            rolls++;
+            if (rolls == 2) {
+                frame++;
+                rolls = 0;
+            }
         } else {
-            rolls[ball++] = c - '0';
+            frameScores[frame] += c - '0';
+            rolls++;
+            if (rolls == 2) {
+                frame++;
+                rolls = 0;
+            }
         }
     }
 
-    for (int i = 0; frame < 10 && i < ball; i += 2) {
-        if (rolls[i] == 10) {
-            totalScore += 10 + rolls[i+2] + rolls[i+3];
-        } else if (rolls[i] + rolls[i+1] == 10) {
-            totalScore += 10 + rolls[i+2];
-        } else {
-            totalScore += rolls[i] + rolls[i+1];
+    for (int i = 0; i < 10; i++) {
+        totalScore += frameScores[i];
+        if (i < 9 && frameScores[i] == 10) {
+            totalScore += frameScores[i + 1];
+            if (frameScores[i + 1] == 10) {
+                totalScore += frameScores[i + 2];
+            }
         }
-        frame++;
-    }
-
-    for (int i = ball - 2; i < ball; i++) {
-        totalScore += rolls[i];
     }
 
     return totalScore;
