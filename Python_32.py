@@ -1,6 +1,4 @@
 ```
-import math
-
 def find_zero(xs):
     if len(xs) < 3:
         return "Not enough coefficients"
