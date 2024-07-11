@@ -1,6 +1,6 @@
-Here is the modified code:
+Here is the solution:
 
-```python
+```
 import hashlib
 
 
