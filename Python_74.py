@@ -1,9 +1,10 @@
 def total_match(lst1, lst2):
+    min_length = min(len(lst1), len(lst2)) if len(lst1) and len(lst2) else 0
+    if not (lst1 and lst2) or min_length == 0:
+        return []
     return (
-        min(
-            (lst for lst in (lst1, lst2) if sum(len(s) for s in lst)),
-            key=lambda x: sum(len(s) for s in x),
-        )
-        if len(set(sum(len(s) for s in lst) for lst in (lst1, lst2))) > 1
-        else lst1
+        [s for s in lst1[:min_length]]
+        if sum(len(s) for s in lst1[:min_length])
+        < sum(len(s) for s in lst2[:min_length])
+        else [s for s in lst2[:min_length]]
     )
