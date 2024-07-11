@@ -1,7 +1,5 @@
-if ((array.front() + array.back()) % 2 == 0) {
-        sort(array.rbegin(), array.rend());
-    } else {
-        sort(array.begin(), array.end());
-    }
-    return array;
+sort(array.begin(), array.end(), [&](int a, int b) {
+		return (array.front() + array.back()) % 2 == 0 ? a > b : a < b;
+	});
+	return array;
 }
