@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 using namespace std;
 
 int skjkasdkd(vector<int> lst){
@@ -26,6 +25,8 @@ bool isPrime(int n) {
 }
 
 int main() {
+    vector<int> lst;
+    std::vector<int>::allocator_type a = std::allocator<int>();
     assert(skkkasdkd({127, 97, 8192}) == 10);
     cout << "Hello World!" << endl;
     return 0;
