@@ -1,9 +1,12 @@
-int solution(vector<int> numbers) {
-    int oddSum = 0;
-    for (int i = 0; i < numbers.size(); i++) {
-        if (numbers[i] % 2 != 0) {
-            oddSum += numbers[i];
+```cpp
+#include <vector>
+
+int solution(vector<int> a) {
+    int res = 0;
+    for (int i = 1; i < a.size(); i++) {
+        if ((a[i] % 4 != 0) && (a[i] % 2 != 0)) {
+            res += a[i];
         }
     }
-    return oddSum;
+    return res;
 }
