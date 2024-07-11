@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     def evaluate_expression(expression):
         if expression.startswith("(") and expression.endswith(")"):
