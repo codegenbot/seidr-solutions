@@ -1,6 +1,2 @@
-for(int i = 0; i < lst.size() - 1; ++i){
-    if(lst[i] >= lst[i+1] || count(lst.begin(), lst.end(), lst[i]) > 1){
-        return false;
-    }
+return is_sorted_until(lst.begin(), lst.end(), [](int a, int b){ return (a == b); }) == lst.end();
 }
-return true;
