@@ -12,7 +12,7 @@ std::vector<int> sort_array(std::vector<int> array) {
     return array;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
