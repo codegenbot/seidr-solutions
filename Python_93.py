@@ -1,6 +1,6 @@
-```
+````
 def encode(message):
-    result = ""
+    result = """  
     for char in message:
         if char.isalpha():
             if char.lower() in 'aeiou':
@@ -10,3 +10,4 @@ def encode(message):
         else:
             result += char
     return result
+```
