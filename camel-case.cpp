@@ -1,29 +1,30 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string kebabToCamel(std::string str) {
-    std::string result = "";
-    for (char c : str) {
-        if (c == '-') {
-            if (!result.empty()) {
-                result[0] += 'a';
-            }
-        } else {
-            result += c;
+std::string kebabToCamel(const std::string& s) {
+    std::string result;
+    size_t pos = 0;
+
+    while (pos < s.length()) {
+        size_t nextDashPos = s.find("-", pos);
+        if (nextDashPos == std::string::npos) {
+            result += toupper(s.substr(pos));
+            break;
         }
+
+        size_t wordLength = nextDashPos - pos;
+        result += toupper(s.substr(pos, wordLength));
+        pos = nextDashPos + 1;
     }
+
     return result;
 }
 
 int main() {
-    int testCases;
-    std::cin >> testCases;
-    
-    for(int i = 0; i < testCases; i++) {
-        std::string str;
-        std::cin >> str;
-        std::cout << kebabToCamel(str) << std::endl;
-    }
-    
+    std::string input;
+    std::cin >> input;
+    std::cout << kebabToCamel(input) << std::endl;
+
     return 0;
 }
