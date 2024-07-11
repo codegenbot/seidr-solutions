@@ -1,13 +1,13 @@
-for (char &c : s) {
-    if (isalpha(c)) {
-        if (islower(c)) {
-            c = toupper(c);
-        } else {
-            c = tolower(c);
+string solve(string s){
+    bool hasLetter = false;
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+            hasLetter = true;
         }
     }
+    if(!hasLetter){
+        reverse(s.begin(), s.end());
+    }
+    return s;
 }
-if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
-    reverse(s.begin(), s.end());
-}
-return s;
