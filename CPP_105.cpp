@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -7,8 +8,8 @@ bool issame(int a, int b) {
     return true;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
+vector<string> by_length(vector<int> arr) {
+    vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(num);
@@ -19,7 +20,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     
     reverse(numbers.begin(), numbers.end());
     
-    std::vector<std::string> result;
+    vector<string> result;
     for (int num : numbers) {
         switch (num) {
             case 1:
@@ -56,22 +57,21 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    int n; 
+    int n, a, b; 
     std::cout << "Enter the number of input sets: ";
     std::cin >> n;
 
     for(int i = 0; i < n; ++i) {
         std::cout << "Enter numbers (1-9): ";
-        std::vector<int> arr;
+        vector<int> arr;
         while(true) {
-            int a;
             std::cin >> a;
             if(a >= 1 && a <= 9)
                 break;
             std::cout << "Invalid input. Please enter numbers between 1 and 9: ";
         }
         
-        arr.push_back(a);
+        vector<string> result = by_length(arr);
     }
     
     return 0; 
