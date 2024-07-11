@@ -1,2 +1,2 @@
-def solution(lst):
-    return sum(i for i in lst if i % 2 != 0 and (index := index + 1) % 2 == 0)
+def odd_sum_even_skips(lst):
+    return sum(i for i in lst[1::2] if i % 2 != 0)
