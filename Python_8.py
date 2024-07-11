@@ -1,4 +1,6 @@
-```"
+Here's your corrected code:
+
+````
 from typing import List, Tuple
 
 
@@ -21,4 +23,3 @@ except ValueError:
 else:
     total_sum, product = result
     print(f"Total sum is {total_sum} and the product is {product}.")
-"```
