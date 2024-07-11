@@ -1,27 +1,33 @@
 ```
-def minPath():
-    n = int(input("Enter number of rows in grid: "))
-    m = int(input("Enter number of columns in grid: "))
-    k = int(input("Enter number of paths to calculate: "))
+from collections import deque
 
-    grid = []
-    for _ in range(n):
-        row = list(map(int, input("Enter row values separated by space: ").split()))
-        grid.append(row)
-
+def minPath(grid, k):
+    n = len(grid)
     res = []
+
     for _ in range(k):
-        queue = deque([(i, j, i * n + j) for i in range(n) for j in range(m)])
+        queue = deque([(i, j, i * n + j) for i in range(n) for j in range(n)])
         visited = set()
         cur_min = float("inf")
+
         while queue:
             x, y, cell = queue.popleft()
+
             if (x, y, cell) not in visited:
                 visited.add((x, y, cell))
-                if grid[x][y] < cur_min:
-                    cur_min = grid[x][y]
+                cur_min = min(cur_min, cell)
+
         res.append(cur_min)
 
     return res
 
-print(minPath())
+n = int(input("Enter the number of rows: "))
+m = int(input("Enter the number of columns: "))
+k = int(input("Enter the value of k: "))
+
+grid = [[0 for _ in range(m)] for _ in range(n)]
+for i in range(n):
+    for j in range(m):
+        grid[i][j] = int(input(f"Enter {i*10+j+1}th element of grid: "))
+
+print(minPath(grid, k))
