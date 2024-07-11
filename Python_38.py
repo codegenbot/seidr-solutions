@@ -1,16 +1,21 @@
+Here is the completed code:
+
 def decode_cyclic(s: str):
+    """
+    returns decoded string from cyclically encoded string.
+    """
     result = []
-    group_index = 0
+    group = ''
     for char in s:
-        if group_index < len(result) and len(result[group_index]) >= 3:
-            result[group_index] += char
-            if len(result[group_index]) == 3:
-                group_index += 1
-        else:
-            if not result or group_index == 0:
-                result.append(char)
+        group += char
+        if len(group) == 3:
+            if len(result) % 3 == 0:
+                result.append(group)
             else:
-                result[group_index - 1] += char
-                if len(result[group_index - 1]) == 3:
-                    group_index -= 1
-    return "".join([group[1:] + group[0] for group in result])
+                group = group[1:] + group[0]
+    if group:
+        if len(result) % 3 == 0:
+            result.append(group[:2] + group[-1])
+        else:
+            result.append(group[1:] + group[0])
+    return "".join(result)
