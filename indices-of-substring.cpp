@@ -9,7 +9,7 @@ int main() {
 
     std::vector<int> indices;
 
-    if (target.empty() || text.empty()) {
+    if (target.empty() && !text.empty()) {
         return 1;
     }
 
