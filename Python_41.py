@@ -1,6 +1,2 @@
-```
 def car_race_collision(n: int, m: int):
-    if n < m:
-        return n * m
-    else:
-        return m * (m - 1)
+    return n * (n + m - 1) if m > n else m * (m - 1)
