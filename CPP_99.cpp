@@ -1,3 +1,7 @@
 double num = stod(value);
-    return num >= 0 ? (int)floor(num + 0.5) : (int)ceil(num - 0.5);
+    if (num >= 0) {
+        return floor(num + 0.5);
+    } else {
+        return ceil(num - 0.5);
+    }
 }
