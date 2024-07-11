@@ -35,9 +35,9 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
 int main() {
     std::string text, target;
-    std::cout << "Enter the text: ";
+    std::cout << "Enter the text string: ";
     std::cin >> text;
-    std::cout << "Enter the target: ";
+    std::cout << "Enter the target string: ";
     std::cin >> target;
 
     std::vector<int> result = indicesOfSubstring(text, target);
