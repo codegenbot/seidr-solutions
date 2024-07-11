@@ -1,9 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-    string s;
-    cin >> s;
+int score(string s) {
     int total = 0;
     int frame = 0;
     for (int i = 0; i < s.size(); i++) {
@@ -25,6 +23,12 @@ int main() {
         }
         if (frame == 10) break;
     }
-    cout << total << endl;
+    return total;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
