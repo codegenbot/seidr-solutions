@@ -1,32 +1,18 @@
-int CAP(const string& str) {
-    int count = 0;
-    for (char c : str) {
-        if (isupper(c)) {
-            count++;
-        }
+int CAP = 0, SM = 0, max_strength = INT_MIN;
+string strongest_extension = "";
+for (const auto& ext : extensions) {
+    CAP = SM = 0;
+    for (char c : ext) {
+        if (isupper(c))
+            CAP++;
+        else if (islower(c))
+            SM++;
     }
-    return count;
+    int strength = CAP - SM;
+    if (strength > max_strength || (strength == max_strength && ext < strongest_extension)) {
+        max_strength = strength;
+        strongest_extension = ext;
+    }
 }
-
-int SM(const string& str) {
-    int count = 0;
-    for (char c : str) {
-        if (islower(c)) {
-            count++;
-        }
-    }
-    return count;
-}
-
-string Strongest_Extension(string class_name, vector<string> extensions) {
-    pair<int, string> strongest = {-1, ""};
-    
-    for (string ext : extensions) {
-        int strength = CAP(ext) - SM(ext);
-        if (strength > strongest.first || (strength == strongest.first && ext < strongest.second)) {
-            strongest = {strength, ext};
-        }
-    }
-    
-    return class_name + "." + strongest.second;
+return class_name + "." + strongest_extension;
 }
