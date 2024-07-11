@@ -1,13 +1,18 @@
+````
 string solve(string s) {
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            c = tolower(c);
-            c = (c == 'z') ? 'A' - ('z' - c) : c + 1;
-        }
-        else {
+            result += tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'
+                ? toupper(c)
+                : tolower(c);
+        } else {
             result += c;
         }
     }
-    return result.empty() ? string(s.rbegin(), s.rend()) : result;
+    if (result.length() % 2 != 0) {
+        reverse(result.begin(), result.end());
+    }
+    return result;
 }
+```
