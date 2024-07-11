@@ -13,3 +13,13 @@ vector<int> factorize(int n) {
     }
     return factors;
 }
+
+int main() {
+    int num;
+    cin >> num;
+    vector<int> result = factorize(num);
+    for (int factor : result) {
+        cout << factor << " ";
+    }
+    return 0;
+}
