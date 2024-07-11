@@ -13,4 +13,3 @@ int main() {
     int result = totalFuelCost(costs);
     std::cout << "Total fuel cost: " << result << std::endl;
     return 0;
-}
