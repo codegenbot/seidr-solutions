@@ -1,4 +1,4 @@
-""" 
+```"
 stack = []
 for s in lst:
     for c in s:
