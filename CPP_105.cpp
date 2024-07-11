@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -6,10 +5,12 @@
 bool checkEqual(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size())
         return false;
+    
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i])
             return false;
     }
+    
     return true;
 }
 
@@ -20,11 +21,11 @@ std::vector<std::string> by_length(std::vector<int> arr) {
             numbers.push_back(num);
         }
     }
-
+    
     sort(numbers.begin(), numbers.end());
-
+    
     reverse(numbers.begin(), numbers.end());
-
+    
     std::vector<std::string> result;
     for (int num : numbers) {
         switch (num) {
@@ -57,11 +58,11 @@ std::vector<std::string> by_length(std::vector<int> arr) {
                 break;
         }
     }
-
+    
     return result;
 }
 
 int main() {
-    assert(checkEqual(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
+    assert(checkEqual(by_length({9, 4, 8}), std::vector<std::string>({"Nine", "Four", "Eight"})));
     return 0;
 }
