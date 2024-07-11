@@ -11,4 +11,6 @@ int main() {
         }
         return result;
     }
+
+    return 0;
 }
