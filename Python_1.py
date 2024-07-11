@@ -6,20 +6,17 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     groups = []
     group = ''
     
-    for c in paren_string:
-        if c == ' ':
+    for char in paren_string:
+        if char == ' ':
             continue
-        if c == '(':
-            stack.append(c)
-            group += c
-        elif c == ')':
-            if stack:
+        if char == '(':
+            stack.append(char)
+            group += char
+        elif char == ')':
+            if stack and stack[-1] == '(':
                 stack.pop()
-                group += c
-                if not stack:
-                    groups.append(group)
-                    group = ''
-            else:
-                return []  # invalid parentheses
+                group += char
+                groups.append(group)
+                group = ''
     
     return groups
