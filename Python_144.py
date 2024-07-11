@@ -1,4 +1,3 @@
-```
 import math
 
 
@@ -11,9 +10,8 @@ def is_valid_fraction(fraction):
 
 
 def main():
-    print("Do you want to enter a number or a fraction for x? (1/1 or num): ")
-    choice = input()
-    
+    choice = input("Do you want to enter a number or a fraction for x? (1/1 or num): ")
+
     while True:
         if choice.lower() == "num":
             y = int(input("Please enter the number: "))
@@ -53,7 +51,7 @@ def main():
 
         else:
             a, b = map(
-                int, input("Enter the fraction x (in the format 'a/b'): ").split("/"),
+                int, input("Enter the fraction x (in the format 'a/b'): ").split("/")
             )
             if a == 0:
                 print("Invalid input. Please enter a valid fraction.")
@@ -63,7 +61,9 @@ def main():
                 while True:
                     c, d = map(
                         int,
-                        input("Enter the fraction n (in the format 'a/b'): ").split("/"),
+                        input("Enter the fraction n (in the format 'a/b'): ").split(
+                            "/"
+                        ),
                     )
                     if d == 0:
                         print("Division by zero is not allowed")
