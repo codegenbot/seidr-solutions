@@ -20,14 +20,10 @@ vector<int> findLeaders(vector<int> nums) {
 }
 
 int main() {
-    vector<int> nums;
-    int num;
-    while (cin >> num) {
-        nums.push_back(num);
-    }
+    vector<int> nums = {5, 3, 20, 15, 8, 3};
     vector<int> result = findLeaders(nums);
-    for (int i : result) {
-        cout << i << " ";
+    for (int num : result) {
+        cout << num << " ";
     }
     return 0;
 }
