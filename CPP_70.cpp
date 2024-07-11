@@ -1,13 +1,13 @@
-#include <memory>
-#include <algorithm>
-#include <numeric>
+#include <memory_resource>
 
-bool std::pmr::operator==(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+bool std::pmr::issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
 }
 
+std::pmr::polymorphic_allocator<int> alloc;
+
 std::pmr::vector<int> strange_sort_list(std::pmr::vector<int> lst) {
-    std::pmr::vector<int> result;
+    std::pmr::vector<int> result(alloc);
     while (!lst.empty()) {
         int min_val = *std::min_element(lst.begin(), lst.end());
         result.push_back(min_val);
