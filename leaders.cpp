@@ -4,15 +4,17 @@
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> result;
-    
+
     for(int i=n-1; i>=0; i--) {
         bool isLeader = true;
-        auto it = arr.begin() + (i+1);
-        auto end = arr.end();
-        if(find(it, end, arr[i]) == end) {
-            result.push_back(arr[i]);
+        for(int j=i+1; j<n; j++) {
+            if(arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
         }
+        if(isLeader) result.push_back(arr[i]);
     }
 
-    return result;
+    return std::vector<int>(result.rbegin(), result.rend());
 }
