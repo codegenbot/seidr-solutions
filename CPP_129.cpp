@@ -14,6 +14,10 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
     return res;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>* res) {
     if (k == 0) {
         (*res).insert((*res).end(), grid[x].begin(), grid[x].end());
