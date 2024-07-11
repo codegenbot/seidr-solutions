@@ -1,13 +1,14 @@
-int total_water = 0;
-        int num_buckets = 0;
-        
-        for (int i = 0; i < grid.size(); i++) {
-            for (int j = 0; j < grid[i].size(); j++) {
-                total_water += grid[i][j];
+int total = 0;
+        for (int i = 0; i < grid.size(); ++i) {
+            int current = 0;
+            for (int j = 0; j < grid[i].size(); ++j) {
+                current += grid[i][j];
+                if (current >= capacity) {
+                    total += current / capacity;
+                    current %= capacity;
+                }
             }
+            total += (current > 0) ? 1 : 0;
         }
-        
-        num_buckets = (total_water + capacity - 1) / capacity;
-        
-        return num_buckets;
+        return total;
     }
