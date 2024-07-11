@@ -1,10 +1,6 @@
-```
 from typing import List
 
-def rolling_max(numbers: List[int]) -> List[int]:
-    result = [numbers[0]]
-    max_ = numbers[0]
-    for num in numbers[1:]:
-        max_ = max(max_, num)
-        result.append(max_)
+def rolling_max(input_str: str) -> List[int]:
+    numbers = [int(num) for num in input_str.split()]
+    result = [max(numbers[:i+1]) for i in range(len(numbers))]
     return result
