@@ -6,15 +6,16 @@ def filter_by_prefix():
         strings = input("Enter strings (comma-separated): ").split(",")
         prefix = input("Enter prefix: ")
 
-        filtered_strings = [
-            s.strip()
-            for s in strings
-            if len(strings) > 1 and s.strip().startswith(prefix)
-        ]
+        while not prefix.isalpha():  
+            print("Invalid prefix. Please enter a valid alpha prefix.")
+            prefix = input("Enter prefix: ")
+
+        filtered_strings = [s.strip() for s in strings if s.strip().startswith(prefix)]
 
         print(filtered_strings)
-    except ValueError as e:
-        print(f"Error occurred: {e}")
+
+    except ValueError:
+        print("Invalid input. Please enter a comma-separated list of strings.")
 
 
 filter_by_prefix()
