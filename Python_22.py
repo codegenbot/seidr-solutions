@@ -5,7 +5,7 @@ def filter_integers(values: list[Any]) -> list[int]:
     return [value for value in values if isinstance(value, int)]
 
 if __name__ == "__main__":
-    user_input = input("Enter a list of values (space separated): ")
-    input_values = [x.strip() for x in user_input.split(',')]
-    filtered_values = filter_integers(input_values)
-    print(filtered_values)
+    values = input("Enter comma-separated integers (e.g., 1, 2, 3): ").split(",")
+    values = [int(x) for x in values]
+    result = filter_integers(values)
+    print(result)
