@@ -1,25 +1,60 @@
-#include <iostream>
 #include <vector>
-#include <string>
+#include <iostream>
+using namespace std;
 
-std::vector<int> findIndices(std::string text, std::string target) {
-    std::vector<int> indices;
-    int start = 0;
-    while ((start = text.find(target, start)) != std::string::npos) {
-        indices.push_back(start);
-        start += target.size(); // increment by the size of target for overlapping targets
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    int textSize = text.length();
+    int targetSize = target.length();
+
+    for (int i = 0; i <= textSize - targetSize; i++) {
+        bool isMatch = true;
+        for (int j = 0; j < targetSize; j++) {
+            if (text[i + j] != target[j]) {
+                isMatch = false;
+                break;
+            }
+        }
+        if (isMatch) {
+            indices.push_back(i);
+        }
     }
+
+    return indices;
+}
+
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    int textSize = text.length();
+    int targetSize = target.length();
+
+    for (int i = 0; i <= textSize - targetSize; i++) {
+        bool isMatch = true;
+        for (int j = 0; j < targetSize; j++) {
+            if (text[i + j] != target[j]) {
+                isMatch = false;
+                break;
+            }
+        }
+        if (isMatch) {
+            indices.push_back(i);
+        }
+    }
+
     return indices;
 }
 
 int main() {
-    std::string text;
-    std::cin >> text;
-    std::string target;
-    std::cin >> target;
-    std::vector<int> result = findIndices(text, target);
+    string text, target;
+    int n;
+    cin >> text >> n;
+    getline(cin, target);
+
+    vector<int> result = findIndices(text, target);
+
     for (int i : result) {
-        std::cout << i << std::endl;
+        cout << i << " ";
     }
+    cout << endl;
+
     return 0;
-}
