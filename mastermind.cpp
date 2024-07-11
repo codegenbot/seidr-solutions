@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -23,7 +24,7 @@ int blackPegs(string code, string guess) {
     }
     vector<char> remainingCode(codeArray.begin(), codeArray.end());
     for (char c : guess) {
-        size_t pos = count(remainingCode.begin(), remainingCode.end(), c);
+        size_t pos = distance(remainingCode.begin(), find(remainingCode.begin(), remainingCode.end(), c));
         if (pos != string::npos) {
             count++;
             remainingCode.erase(pos, 1);
