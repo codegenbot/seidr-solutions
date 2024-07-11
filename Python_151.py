@@ -1,6 +1,7 @@
 ```
 def check(input_list):
-    lst = list(map(int, input("Enter a list of integers (space-separated): ").split()))
+    lst = input("Enter a list of integers (space-separated): ")
+    lst = [int(num) for num in lst.split()]
     odd_sum = sum(1 for x in lst if x % 2 != 0)
     result = double_the_difference(lst)
     if result == odd_sum:
