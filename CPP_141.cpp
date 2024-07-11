@@ -1,7 +1,7 @@
 #include <cassert>
 #include <string>
 
-std::string file_name_check(std::string file_name) {
+std::string file_name_check(string file_name) {
     int digit_count = 0;
     bool found_dot = false;
     string prefix = "";
@@ -13,7 +13,7 @@ std::string file_name_check(std::string file_name) {
         }
         prefix += c;
     }
-    return (digit_count <= 3 && found_dot && prefix.find('.') != std::string::npos) ? "Yes" : 
+    return (digit_count <= 3 && found_dot && prefix.find('.') != string::npos) ? "Yes" : 
            (!found_dot && !std::all_of(file_name.begin() + digit_count, file_name.end(), ::isalpha())) ? "No" : "Yes";
 }
 
