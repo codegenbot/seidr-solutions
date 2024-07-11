@@ -1,4 +1,3 @@
-```
 def sort_array(array):
     if len(array) == 0:
         return array
@@ -6,12 +5,8 @@ def sort_array(array):
     if total % 2 != 0:
         return sorted(array)
     else:
-        mid = len(array) // 2
-        median = array[mid]
-        left, right = [], []
-        for num in array:
-            if num < median:
-                left.append(num)
-            elif num > median:
-                right.append(num)
-        return left + [median] + right
+        array.sort()
+        median = array[len(array) // 2]
+        greater_than_or_equal_median = [x for x in array if x >= median]
+        less_than_median = [x for x in array if x < median]
+        return greater_than_or_equal_median + less_than_median
