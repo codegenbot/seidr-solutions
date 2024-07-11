@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 namespace MyNamespace {
     bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
@@ -19,26 +18,15 @@ namespace MyNamespace {
             }
         }
 
-        return {{std::max(max_negative, 0), std::min(min_positive, 1)}};
+        std::vector<int> result;
+        result.push_back(std::max(max_negative, 0));
+        result.push_back(std::min(min_positive, 1));
+
+        return {{result}};
     }
 }
 
 int main() {
-    std::vector<int> v1 = {2, -3, 4, 5};
-    std::vector<int> v2 = {-3, 4, 5, 6};
-
-    if(MyNamespace::isSame(v1, v2)) {
-        std::cout << "v1 and v2 are same" << std::endl;
-    } else {
-        std::cout << "v1 and v2 are different" << std::endl;
-
-        for(int i : MyNamespace::largest_smallest_integers(v1)) {
-            for(int j : i) {
-                std::cout << j << " ";
-            }
-            std::cout << std::endl;
-        }
-    }
-
+    assert(MyNamespace::isSame({std::max(-6, 0), std::min(1, -100)}, {-3, 1}));
     return 0;
 }
