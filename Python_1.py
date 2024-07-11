@@ -20,5 +20,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     current_group = ''
             else:
                 raise ValueError("Unbalanced parentheses")
-    
     return groups
