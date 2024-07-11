@@ -9,9 +9,11 @@ def substitution_cipher(cipher1, cipher2, message):
 
     result = ''
     for char in message:
-        if char.isalpha():
-            shift = 65 if char.isupper() else 97
-            result += chr((ord(char) - shift + (cipher.get(char.upper() if char.isupper() else char.lower(), char).ord() - shift)))
-        else:
+        if char.isalpha():  
+            if char.isupper():
+                result += chr((ord(char) - 65) + (cipher.get(char.upper(), char).ord() - 65))  
+            else:
+                result += chr((ord(char) - 97) + (cipher.get(char.lower(), char).ord() - 97))
+        else:  
             result += char
     return result
