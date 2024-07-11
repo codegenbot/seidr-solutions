@@ -1,19 +1,25 @@
 int main() {
     string input;
     getline(cin, input);
-    bool flag = false;
-    for (int i = 0; i < input.size(); ++i) {
-        if (input[i] == '-') {
-            flag = true;
+    string output;
+    bool capital = false;
+    for (char c : input) {
+        if (c == '-') {
+            capital = true;
             continue;
         }
-        if (flag) {
-            cout << (char)toupper(input[i]);
-            flag = false;
+        if (c == ' ') {
+            capital = false;
+            output += ' ';
+            continue;
+        }
+        if (capital) {
+            output += toupper(c);
+            capital = false;
         } else {
-            cout << input[i];
+            output += tolower(c);
         }
     }
-    cout << endl;
+    cout << output << endl;
     return 0;
 }
