@@ -7,18 +7,14 @@ int main() {
     std::cin >> n;
     std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
-        double input;
-        std::cin >> input;
-        vec1[i] = input;
+        std::cin >> vec1[i];
     }
 
     double m;
     std::cin >> m;
     std::vector<double> vec2(m);
     for (int i = 0; i < m; ++i) {
-        double input;
-        std::cin >> input;
-        vec2[i] = input;
+        std::cin >> vec2[i];
     }
 
     double sum = 0.0;
