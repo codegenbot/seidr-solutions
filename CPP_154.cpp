@@ -1,5 +1,18 @@
-string combined = b + b;
-    if (a.size() != b.size() || a.size() < 1) 
+#include <string>
+#include <cassert>
+
+bool cycpattern_check(std::string a, std::string b) {
+    if (a.length() != b.length()) {
         return false;
-    return combined.find(a) != string::npos;
+    }
+    
+    std::string combined = a + a;
+    
+    return combined.find(b) != std::string::npos;
+}
+
+int main() {
+    assert(cycpattern_check("winemtt", "tinem") == true);
+
+    return 0;
 }
