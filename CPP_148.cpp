@@ -19,7 +19,7 @@ vector<string> issame(string a, string b) {
         }
     }
 
-    if (start == -1 || end == -1) {
+    if (start == -1 || end == -1 || start == end) {
         return result;
     }
 
