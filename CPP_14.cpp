@@ -1,14 +1,24 @@
 #include <vector>
 #include <string>
 
-vector<string> all_prefixes(string b){
+vector<string> all_prefixes(string str){
     vector<string> result;
     string prefix = "";
-    for (char c : b) {
+    for (char c : str) {
         prefix += c;
         result.push_back(prefix);
     }
     return result;
 }
 
-vector<string> all_prefixes(string str);
+int main() {
+    string input;
+    cin >> input;
+    
+    vector<string> prefixes = all_prefixes(input);
+    for (string prefix : prefixes) {
+        cout << prefix << " ";
+    }
+    
+    return 0;
+}
