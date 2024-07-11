@@ -17,7 +17,7 @@ int main() {
         distanceTravelled += (startHeight * pow(2, 0.5)) * pow(0.5, i - bouncinessIndex);
     }
 
-    cout << fixed << setprecision(10); 
+    cout << std::fixed << setprecision(10); 
     cout << distanceTravelled << endl;
 
     return 0;
