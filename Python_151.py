@@ -1,9 +1,9 @@
-```
 def calculate_difference(lst):
-    def double_the_difference():
+    def double_the_difference(lst):
         lst.sort()
         return (lst[-1] - lst[0]) * 2
-    result = double_the_difference()
-    return result
 
-print(calculate_difference([1, 2, 3]))
+    return double_the_difference(lst)
+
+
+print(calculate_difference([10, 20, 30]))
