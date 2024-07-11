@@ -1,3 +1,10 @@
+```cpp
+#pragma GCC diagnostic push
+{
+#pragma GCC diagnostic ignored "-Wstrict-aliasing"
+}
+#include <initializer_list>
+
 #include <vector>
 #include <limits>
 
