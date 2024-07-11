@@ -1,3 +1,4 @@
+```
 def solution():
     try:
         nums = list(map(int, input().split()))
@@ -5,11 +6,10 @@ def solution():
         if len(nums) < 3:
             return "Invalid input. Please provide at least three numbers."
         
-        if not all(isinstance(num, int) for num in nums[:2]):
-            return "First two numbers must be integers."
+        if not all(isinstance(num, int) for num in nums):
+            return "All numbers must be integers."
         
-        return sum(1 for _ in nums[::2]) / len(nums)
+        even_sum = sum(num for num in nums[1::2])
+        return even_sum / len(nums)
     except ValueError:
-        return "Invalid input. Please enter three integers separated by spaces."
-
-print(solution())
+        return "Invalid input. Please enter at least three integers separated by spaces."
