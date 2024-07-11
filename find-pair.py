@@ -1,10 +1,15 @@
+```python
 def find_pair(n, nums):
-    seen = set()
-    for num in nums:
-        complement = n - num
-        if complement in seen:
-            return f"{complement} {num}"
-        seen.add(num)
+    nums.sort()
+    left = 0
+    right = len(nums) - 1
+    while left < right:
+        if nums[left] + nums[right] == n:
+            return str(nums[left]) + " " + str(nums[right])
+        elif nums[left] + nums[right] < n:
+            left += 1
+        else:
+            right -= 1
     return "No pair found"
 
 n = int(input())

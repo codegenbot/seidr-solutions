@@ -9,7 +9,7 @@ string fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else {
-        std::stringstream ss;
+        ostringstream ss;
         ss << x;
         return ss.str();
     }
