@@ -1,19 +1,21 @@
 def below_zero(operations: list) -> bool:
     balance = 0
     for operation in operations:
-        try:
-            if operation[0] == "+":
-                balance += int(operation[1:])
-            elif operation[0] == "-":
-                balance -= int(operation[1:])
-        except (ValueError, IndexError):
-            pass
+        if operation[0] == "+":
+            balance += int(operation[1:])
+        elif operation[0] == "-":
+            balance -= int(operation[1:])
     return balance < 0
 
 ops = []
-op = input()
+op = "+1"
 while op:
     ops.append(op.strip())
-    op = input()
+    while True:
+        try:
+            op = input() if "+" in op else -int(input())
+            break
+        except ValueError:
+            print("Invalid operation. Please enter a number followed by '+' or '-'.")
 
 print(below_zero(ops))
