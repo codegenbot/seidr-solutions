@@ -1,5 +1,6 @@
 ```
 import re
+
 if len(tweet) > 140:
     return "Too many characters"
 elif tweet == "":
