@@ -3,7 +3,7 @@ vector<string> split_words(string txt){
     string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
-            if(!word.empty()){
+            if(word != ""){
                 result.push_back(word);
                 word = "";
             }
@@ -11,17 +11,17 @@ vector<string> split_words(string txt){
             word += c;
         }
     }
-    if(!word.empty()){
+    if(word != ""){
         result.push_back(word);
     }
     if(result.empty()){
-        int oddCount = 0;
+        int oddLowercaseCount = 0;
         for(char c : txt){
             if(islower(c) && (c - 'a') % 2 == 1){
-                oddCount++;
+                oddLowercaseCount++;
             }
         }
-        result.push_back(to_string(oddCount));
+        result.push_back(to_string(oddLowercaseCount));
     }
     return result;
 }
