@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <vector>
+#include <initializer_list>
 
 int main() {
     std::vector<std::pair<int, int>> p;
