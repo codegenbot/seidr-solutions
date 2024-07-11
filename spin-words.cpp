@@ -40,3 +40,4 @@ int main() {
     getline(cin, str);
     cout << spinWords(str) << endl;
     return 0;
+}
