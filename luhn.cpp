@@ -1,3 +1,5 @@
+#include <vector>
+
 int luhn(const std::vector<int>& cc) {
     int sum = 0;
     for (int i = 0; i < cc.size(); ++i) {
