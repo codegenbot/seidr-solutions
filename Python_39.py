@@ -1,12 +1,11 @@
 ```
-def nth_prime(n: int):
-    a, b = 2, 1
-    count = 0
+def prime_fib(n: int):
+    a, b = 1, 1
     while True:
+        if b >= n:
+            return b
         if is_prime(b):
-            count += 1
-            if count == n:
-                return b
+            return b
         a, b = b, a + b
 
 
