@@ -4,20 +4,16 @@
 
 int main() {
     std::string text, target;
-    std::getline(std::cin, text);
-    std::getline(std::cin, target);
+    std::cin >> text >> target;
     
     std::vector<int> indices;
-    int targetLen = target.length();
-    int textLen = text.length();
-    
-    for (int i = 0; i <= textLen - targetLen; ++i) {
-        if (text.substr(i, targetLen) == target) {
-            indices.push_back(i);
-        }
+    size_t pos = text.find(target, 0);
+    while (pos != std::string::npos) {
+        indices.push_back(pos);
+        pos = text.find(target, pos + target.size());
     }
     
-    for (int i = 0; i < indices.size(); ++i) {
+    for (size_t i = 0; i < indices.size(); ++i) {
         std::cout << indices[i] << " ";
     }
     
