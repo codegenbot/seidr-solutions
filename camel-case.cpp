@@ -1,15 +1,12 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
 std::string camelCase(const std::string& s) {
     std::string result;
     bool first = true;
 
     for (char c : s) {
-        if (!first && (c == '-' || c == ' ')) {
+        if (!first && c == '-') {
             result += char(toupper(c));
-            first = false;
+        } else if (!first && c == ' ') {
+            result += char(toupper(c));
         } else if (c == '-') {
             first = false;
         } else if (c == ' ') {
@@ -25,12 +22,4 @@ std::string camelCase(const std::string& s) {
     }
 
     return result;
-}
-
-int main() {
-    std::string s;
-    while (std::getline(std::cin, s)) {
-        std::cout << camelCase(s) << std::endl;
-    }
-    return 0;
 }
