@@ -1,4 +1,3 @@
-```Python
 def find_pair():
     num_cases = int(input())
     for _ in range(num_cases):
@@ -12,5 +11,3 @@ def find_pair():
                 pairs.append((complement, num))
             seen.add(num)
         print(pairs)
-
-find_pair()
