@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdio>
+
 int main() {
     double start_height, first_bounce_height, bounciness_index, total_distance;
     int num_bounces;
@@ -13,7 +15,7 @@ int main() {
         first_bounce_height *= bounciness_index;
     }
 
-    std::cout << std::fixed << total_distance << std::endl;
+    printf("%.15f\n", total_distance);
 
     return 0;
 }
