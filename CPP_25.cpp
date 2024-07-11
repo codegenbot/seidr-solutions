@@ -15,7 +15,7 @@ vector<int> factorize(int n){
 }
 
 int main(){
-    // Function usage example
+    // Test the factorize function
     int num = 60;
     vector<int> result = factorize(num);
     for(int i=0; i<result.size(); i++){
