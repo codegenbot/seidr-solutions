@@ -1,28 +1,20 @@
-Here is the solution:
+```
+from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    result = []
-    stack = []
     groups = []
-    
+    group = ''
+    open_count = 0
     for char in paren_string:
-        if char == ' ':
-            continue
         if char == '(':
-            stack.append(char)
+            open_count += 1
+            group += char
         elif char == ')':
-            while stack and stack[-1] != '(':
-                groups.append(')')
-                stack.pop()
-            if stack:
-                stack.pop()
-            else:
-                raise ValueError("Unbalanced parentheses")
-    
-    for _ in range(len(stack)):
-        groups.append('(')
-        groups.append(')')
-        stack.pop()
-    
-    result = [''.join(group) for group in (groups[i:i+2] for i in range(0, len(groups), 2))]
-    return result
+            open_count -= 1
+            group += char
+            if open_count == 0:
+                groups.append(group)
+                group = ''
+        else:
+            continue
+    return groups
