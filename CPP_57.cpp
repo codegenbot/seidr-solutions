@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cassert>
 #include <iostream>
@@ -20,8 +21,7 @@ bool monotonic(std::vector<float> l) {
 int main() {
     std::vector<float> input;
     std::cout << "Enter the numbers (space separated): ";
-    float x;
-    while(std::cin >> x) {
+    for (float x; std::cin >> x;) {
         input.push_back(x);
     }
     if (monotonic(input)) {
