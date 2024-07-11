@@ -1,8 +1,4 @@
 ```
-def check(func):
-    result = func([1, 2, 3])
-    print(result)
-
 def sum_squares(lst):
     total = 0
     for num in lst:
@@ -13,5 +9,9 @@ def sum_squares(lst):
         else:
             total += num**2
     return total
+
+def check(func):
+    result = func([1, 2, 3])
+    print(result)
 
 check(sum_squares)
