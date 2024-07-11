@@ -1,11 +1,13 @@
-#include <iostream>
 #include <vector>
 #include <string>
+#include <iostream>
 #include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
+
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades);
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
     std::vector<std::string> letter_grades;
@@ -28,6 +30,11 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
 }
 
 int main() {
-    // Add test and main function logic here if needed
+    std::vector<float> grades{3.8, 2.9, 4.0, 1.5};
+    std::vector<std::string> result = numerical_letter_grade(grades);
+    for (const auto& grade : result) {
+        std::cout << grade << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }
