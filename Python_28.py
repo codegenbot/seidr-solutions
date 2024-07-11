@@ -1,7 +1,13 @@
+```
+from typing import List
+
+
 def concatenate(strings: List[str]) -> str:
-    result = ""
-    for string in strings:
-        if not string:
-            return "Please provide some non-empty strings"
-        result += string
-    return result
+    if not strings:
+        return "Please provide some strings"
+    return "".join(s for s in strings)
+
+
+user_input = input("Enter some strings separated by commas: ")
+strings = [s.strip() for s in user_input.split(',')]
+print(concatenate(strings))
