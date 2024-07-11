@@ -32,5 +32,7 @@ vector<int> tri(int n) {
 
 int main() {
     assert(issame(tri(1), {3, 1}));
+    assert(issame(tri(2), {3, 1, 2}));
+  
     return 0;
 }
