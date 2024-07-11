@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -17,6 +16,12 @@ bool is_sorted(vector<int> lst){
     return true;
 
 int main() {
-    vector<int> lst = {1,2,3,4};
+    vector<int> lst;
+    cout << "Enter numbers (space separated): ";
+    for(int i = 0; i < 5; i++){
+        int num;
+        cin >> num;
+        lst.push_back(num);
+    }
     cout << (is_sorted(lst) ? "True" : "False") << endl; 
 }
