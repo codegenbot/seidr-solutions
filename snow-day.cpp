@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -12,7 +13,7 @@ double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proport
         
         if (proportionOfSnowMeltingPerHour > 0.0) {
             if (totalSnow > 0.0) {
-                totalSnow -= totalSnow * proportionOfSnowMeltingPerHour / 100.0; // convert to percentage
+                totalSnow -= totalSnow * proportionOfSnowMeltingPerHour;
             }
         }
     }
@@ -26,7 +27,7 @@ int main() {
 
     cin >> hours >> initialSnow >> rateOfSnowfall >> proportionOfSnowMeltingPerHour;
 
-    cout << fixed << setprecision(2) << snowDay(hours, initialSnow, rateOfSnowfall, proportionOfSnowMeltingPerHour) << endl;
+    cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowfall, proportionOfSnowMeltingPerHour) << endl;
 
     return 0;
 }
