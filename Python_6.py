@@ -3,16 +3,14 @@ from typing import List
 
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
-    for group in paren_string.split():
-        stack = 0
-        level = 0
-        for char in group:
+    for s in paren_string.split():
+        nesting_level = 0
+        max_nesting_level = 0
+        for char in s:
             if char == '(':
-                stack += 1
+                nesting_level += 1
             elif char == ')':
-                stack -= 1
-            if stack == 0:
-                level = max(level, 2)
-                result.append(level)
-                break
+                nesting_level -= 1
+            max_nesting_level = max(max_nesting_level, nesting_level)
+        result.append(max_nesting_level)
     return result
