@@ -4,11 +4,11 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b);
-vector<int> pluck(vector<int> arr);
+bool issame(std::vector<int> a, std::vector<int> b);
+std::vector<int> pluck(std::vector<int> arr);
 
-bool issame(vector<int> a, vector<int> b) {
-    vector<int> pluck(vector<int> arr);
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::vector<int> pluck(std::vector<int> arr);
     
     if (a.size() != b.size()) {
         return false;
@@ -23,8 +23,8 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> pluck(vector<int> arr) {
-    vector<int> result;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
     int smallest_even = -1;
     int smallest_index = -1;
     
