@@ -1,12 +1,11 @@
-from typing import Tuple
-
+```
 def calculate_average_and_median() -> Tuple[float, float]:
-    while True:
-        try:
-            numbers = [int(num) for num in input("Enter numbers separated by space: ").split()]
-            break
-        except ValueError:
-            print("Invalid input. Please enter numbers separated by space.")
+    numbers = input("Enter numbers separated by space: ")
+    try:
+        numbers = [int(num) for num in numbers.split()]
+    except ValueError:
+        print("Invalid input. Please enter numbers separated by space.")
+        return 0.0, None
     if not numbers:
         return 0.0, None
     average = sum(numbers) / len(numbers)
