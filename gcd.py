@@ -1,6 +1,6 @@
 def gcd(a, b):
-    if a == 0 or b == 0:
-        return max(a, b)
+    if b == 0:
+        return a if a != 0 else 1
     while b:
         a, b = b, a % b
-    return a
+    return a if a != 0 else 1
