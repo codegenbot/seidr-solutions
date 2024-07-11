@@ -1,10 +1,18 @@
 Here is the completed code:
 
+```cpp
 bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+    string s = "";
     for (int i : q) {
-        str += to_string(i);
+        s += to_string(i);
     }
-    bool balanced = str == reverse(str).str();
-    return balanced && accumulate(q.begin(), q.end(), 0) <= w;
+    if (!s.compare(to_string(s))) { // check if it's balanced (palindromic)
+        int sum = 0;
+        for (int i : q) {
+            sum += i;
+        }
+        return sum <= w; // check if the sum is less than or equal to the maximum possible weight
+    } else {
+        return false; // not a palindromic vector, so it won't fly
+    }
 }
