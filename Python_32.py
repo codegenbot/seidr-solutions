@@ -11,6 +11,9 @@ while True:
         elif len(xs) == 4:
             a, b, c, d = xs
             result = (c - b) / a
-        break
+        if abs(result) < 0.0001: 
+            print("The equation has no real solutions.")
+        else:
+            print(f"The solution is {result}.")
     except ValueError:
         print("Invalid input. Please enter exactly 3 or 4 coefficients: ")
