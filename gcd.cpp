@@ -24,7 +24,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
         if (targetLen == 1) {
             ++pos;
         } else {
-            pos += 1;
+            pos += targetLen;
         }
     }
     
