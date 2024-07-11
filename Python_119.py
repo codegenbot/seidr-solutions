@@ -8,6 +8,6 @@ def match_parens(lst):
                 open_count -= 1
             elif char == "(":
                 open_count += 1
-        if open_count != 0:
+        if open_count != 0:  # Check for leftover open parentheses
             return "No"
     return "Yes"
