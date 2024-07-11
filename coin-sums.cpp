@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```c++
 #include <iostream>
 using namespace std;
