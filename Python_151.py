@@ -1,6 +1,9 @@
 ```
 def double_the_difference(your_list_here):
-    return abs(sum(your_list_here)) // 2
+    if len(your_list_here) < 2:
+        return None
+    diff = your_list_here[0] - your_list_here[-1]
+    return diff * 2
 
 def check():
     your_list_here = [1, -2, 3, 4, -5]
