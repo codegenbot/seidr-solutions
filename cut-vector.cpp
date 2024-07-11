@@ -1,20 +1,23 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 
 using namespace std;
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> nums(n);
+    vector<int> nums;
+    int num;
+    
+    ifstream inFile("input.txt");
 
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+    while (inFile >> num) {
+        nums.push_back(num);
     }
 
+    int n = nums.size();
     int sum = 0;
-    for (int num : nums) {
-        sum += num;
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
     }
 
     int half_sum = sum / 2;
@@ -27,6 +30,11 @@ int main() {
             cut_idx = i;
             break;
         }
+    }
+
+    if (cut_idx == -1) {
+        cout << "Cut index not found." << endl;
+        return 0;
     }
 
     vector<int> subvec1(nums.begin(), nums.begin() + cut_idx + 1);
