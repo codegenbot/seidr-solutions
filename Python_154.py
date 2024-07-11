@@ -1,7 +1,9 @@
 ```
-def cycpattern_check(a , b):
-    for _ in range(len(b)):
-        if b in a:
+def cycpattern_check(a, b):
+    if b in a:
+        return True
+    for i in range(len(b)):
+        rotated = b[i:] + b[:i]
+        if rotated in a:
             return True
-        b = b[1:] + b[0]
     return False
