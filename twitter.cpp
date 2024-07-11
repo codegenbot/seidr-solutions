@@ -1,5 +1,3 @@
-```
-#include <iostream>
 #include <string>
 
 using namespace std;
@@ -17,8 +15,8 @@ int main() {
         size_t count = 0;
         for (char c : tweet) {
             if (std::isalnum(c) || std::isspace(c)) {
-                ++count; 
-            }  
+                ++count;
+            } 
         }
         
         if(count > 140) {
