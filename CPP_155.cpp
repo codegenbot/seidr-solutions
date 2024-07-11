@@ -1,7 +1,5 @@
-```cpp
-#include <vector>
 #include <cassert>
-
+#include <vector>
 using namespace std;
 
 bool issame(vector<int> a,vector<int>b){
@@ -24,9 +22,9 @@ vector<int> even_odd_count(int num) {
     result.push_back(count);
     result.push_back(abs(num));
     return result;
-
 }
 
 int main() {
-    assert(issame(even_odd_count(0), vector<int>{1,0}));
+    assert(issame(even_odd_count(123), vector<int>{1,2}));
+    return 0;
 }
