@@ -1,9 +1,12 @@
 #include <string>
+#include <vector>
 
-vector<string> all_prefixes(string b){
+vector<string> all_prefixes(string str);
+
+vector<string> all_prefixes(string str){
     vector<string> result;
     string prefix = "";
-    for (char c : b) {
+    for (char c : str) {
         prefix += c;
         result.push_back(prefix);
     }
