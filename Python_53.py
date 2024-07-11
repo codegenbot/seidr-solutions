@@ -1,5 +1,4 @@
-def add(x: int, y: int):
-    if type(x) != int or type(y) != int:
-        return "Invalid input"
-    else:
-        return x + y
+def add():
+    x = int(input("Enter the first integer: "))
+    y = int(input("Enter the second integer: "))
+    return x + y
