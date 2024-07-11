@@ -1,13 +1,9 @@
-```Python
-''
-
-
+```python
 def add(x: int, y: int):
     if x < 0 and y < 0:
         return -1 * (abs(x) + abs(y))
     else:
         return x + y
-
 
 while True:
     try:
@@ -17,4 +13,4 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a whole number.")
 
-print(add(x, y))''
+print(add(x, y))
