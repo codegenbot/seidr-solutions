@@ -1,3 +1,5 @@
+```cpp
+#include <string>
 #include <cctype>
 
 std::string squareDigits(std::string input) {
