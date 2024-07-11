@@ -1,31 +1,31 @@
-bool issame(const string &str1, const string &str2) {
-    return str1 == str2;
-}
+#include <string>
 
-vector<string> split_words(const string &txt) {
-    vector<string> words;
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> split_words(string txt){
+    vector<string> result;
     string word = "";
-    for(char c : txt) {
-        if(c == ' ' || c == ',') {
-            if(!word.empty()) {
-                words.push_back(word);
+    for (char c : txt) {
+        if (c == ' ' || c == ',') {
+            if (!word.empty()) {
+                result.push_back(word);
                 word = "";
             }
         } else {
             word += c;
         }
     }
-    if(!word.empty()) {
-        words.push_back(word);
+    if (!word.empty()) {
+        result.push_back(word);
     }
-    if(words.empty()) {
-        int count = 0;
-        for(char c : txt) {
-            if(islower(c) && (c - 'a') % 2 == 1) {
-                count++;
+    if (result.empty()) {
+        int oddLowercaseCount = 0;
+        for (char c : txt) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
+                oddLowercaseCount++;
             }
         }
-        words.push_back(to_string(count));
+        result.push_back(to_string(oddLowercaseCount));
     }
-    return words;
+    return result;
 }
