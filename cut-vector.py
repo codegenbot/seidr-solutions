@@ -15,7 +15,7 @@ for i in range(n):
         cut_index = i
 
 subvector1 = arr[:cut_index + 1] if sum(arr[:cut_index + 1]) <= sum(arr[cut_index+1:]) else arr[:cut_index + 2]
-subvector2 = arr[cut_index + 1:] if sum(arr[:cut_index + 1]) <= sum(arr[cut_index+1:]) else arr[cut_index + 2:]
+subvector2 = arr[cut_index + 1:] if sum(arr[:cut_index + 1]) <= sum(arr[cut_index+1:]) else arr[cut_index + 1:]
 
 print(*subvector1)
 print(*subvector2)

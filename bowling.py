@@ -1,7 +1,7 @@
 def get_strike_bonus(bowls, index):
     bonus = 10
     num_bonuses = 2
-    if index < 18:
+    if index < 18 and bowls[index] == "X":
         num_bonuses = 1
     while num_bonuses > 0 and index + 1 < len(bowls):
         if bowls[index + 1] == "X":
