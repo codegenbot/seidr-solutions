@@ -1,12 +1,9 @@
-```
-from typing import List
-
-
-def concatenate():
-    strings = input("Please enter a list of strings separated by space: ").split()
+def concatenate(strings: List[str]) -> str:
+    if not isinstance(strings, list):
+        return None
     result = ""
     for s in strings:
+        if not isinstance(s, str):
+            return None
         result += s
     return result
-
-print(concatenate())
