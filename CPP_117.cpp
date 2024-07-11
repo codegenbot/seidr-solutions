@@ -30,7 +30,7 @@ vector<string> select_words(string s, int n) {
 
     for (char c : s) {
         if (c == ' ') {
-            if (consonantCount == n) {
+           if (consonantCount == n) {
                 result.push_back(word);
             }
             word = "";
