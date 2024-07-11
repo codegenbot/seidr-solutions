@@ -1,16 +1,14 @@
 #include <iostream>
 #include <cmath>
-#include <algorithm>
 
 int main() {
     double start_height, bounciness_index, total_distance = 0.0;
-    std::string first_bounce_height;
     int num_bounces;
+    std::string first_bounce_height;
 
     std::cin >> start_height;
     std::cin >> first_bounce_height;
-    std::replace(first_bounce_height.begin(), first_bounce_height.end(), ',', '.');
-    std::cin.ignore(256, '\n'); 
+
     std::cin >> num_bounces;
 
     bounciness_index = std::stod(first_bounce_height) / start_height;
