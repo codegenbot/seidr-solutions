@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 
 vector<int> unique(vector<int> l) {
@@ -11,15 +12,9 @@ vector<int> unique(vector<int> l) {
 
 int main() {
     vector<int> v = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    for (int i : v) {
+    vector<int> res = unique(v);
+    for (int i : res) {
         cout << i << " ";
     }
-    cout << endl;
-
-    vector<int> unique_v = unique(v);
-    for (int i : unique_v) {
-        cout << i << " ";
-    }
-    cout << endl;
     return 0;
 }
