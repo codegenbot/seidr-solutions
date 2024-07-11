@@ -4,30 +4,19 @@
 
 int main() {
     int n, target;
-    std::cin >> n;
+    std::cin >> n >> target; // Read the target integer
     std::vector<int> nums(n);
+    std::map<int, int> numIndex;
+
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
-    }
-    std::cin >> target;
-    
-    std::map<int, int> numIndex;
-    bool pairFound = false;
-    
-    for (int i = 0; i < n; ++i) {
-        int complement = target - nums[i];
-        if (numIndex.find(complement) != numIndex.end()) {
-            if (!pairFound) {
-                pairFound = true;
-            }
-            std::cout << nums[i] << " " << complement << std::endl;
+        if (numIndex.find(target - nums[i]) != numIndex.end()) {
+            std::cout << target - nums[i] << " " << nums[i] << std::endl;
+            return 0;
         }
         numIndex[nums[i]] = i;
     }
-    
-    if (!pairFound) {
-        std::cout << "No pair found." << std::endl;
-    }
-    
+
+    std::cout << "No pair found." << std::endl;
     return 0;
 }
