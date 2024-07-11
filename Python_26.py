@@ -5,4 +5,4 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
         if num not in seen:
             seen.add(num)
             result.append(num)
-    return list(seen)
+    return result
