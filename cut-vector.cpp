@@ -1,16 +1,13 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <numeric>
 
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int n;
-    while (std::cin >> n) {
+    while (cin >> n) {
         nums.push_back(n);
     }
     
-    int total_sum = std::accumulate(nums.begin(), nums.end(), 0);
+    int total_sum = accumulate(nums.begin(), nums.end(), 0);
     int current_sum = 0;
     int min_diff = INT_MAX;
     int cut_index = -1;
@@ -24,15 +21,15 @@ int main() {
         }
     }
     
-    std::vector<int> subvector1(nums.begin(), nums.begin() + cut_index + 1);
-    std::vector<int> subvector2(nums.begin() + cut_index + 1, nums.end());
+    vector<int> subvector1(nums.begin(), nums.begin() + cut_index + 1);
+    vector<int> subvector2(nums.begin() + cut_index + 1, nums.end());
     
     for (int num : subvector1) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     
     for (int num : subvector2) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     
     return 0;
