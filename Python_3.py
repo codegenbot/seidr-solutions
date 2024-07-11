@@ -1,10 +1,10 @@
-from typing import List
+```
+from typing import list
 
-def below_zero() -> bool:
-    operations = [int(x) for x in input("Enter space-separated integers: ").split()]
+def below_zero(operations: list) -> bool:
     balance = 0
     for operation in operations:
-        balance += operation
+        balance += int(operation)
         if balance < 0:
             return True
     return False
