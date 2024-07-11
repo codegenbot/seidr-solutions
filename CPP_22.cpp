@@ -1,13 +1,14 @@
+```cpp
 #include <vector>
 #include <list>
 
 using namespace std;
 
-vector<int> filter_integers(list<any> values) {
+std::vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if constexpr (holds_alternative<int>(value)) {
-            result.push_back(get<int>(value));
+        if (any_cast<int>(value).get<int>()) {
+            result.push_back(any_cast<int>(value));
         }
     }
     return result;
@@ -26,6 +27,6 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, any(int('c')), 3, 3, any(int('a')), any(int('b'))}), {3, 3, 3}));
+    assert(issame(filter_integers({any_cast<int>(3), any_cast<any>('c'), any_cast<int>(3), any_cast<int>(3), any_cast<any>('a'), any_cast<any>('b')}) ,{3, 3, 3}));
     return 0;
 }
