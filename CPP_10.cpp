@@ -13,4 +13,4 @@ std::string make_palindrome(std::string str){
         }
     }
     return ""; // should never reach here
-}
+}   
