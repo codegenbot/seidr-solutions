@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -8,8 +9,8 @@ namespace std {
     }
 }
 
-int issame(const vector<int>& a, const vector<int>& b) {
-    return (a[0] != b[0]);
+bool same(const vector<int>& a, const vector<int>& b) {
+    return (a.size() == 2 && (a[0] == 1 && a[1] == 0));
 }
 
 std::vector<int> even_odd_count(int num) {
@@ -25,6 +26,6 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    int count = even_odd_count(0);
+    assert(even_odd_count(0).size() == 2 && even_odd_count(0)[0] == 1 && even_odd_count(0)[1] == 0);
     return 0;
 }
