@@ -11,7 +11,7 @@ int main() {
     }
     
     if (nums.empty()) {
-        return 0;
+        return 0; // No input provided
     }
     
     int minDiff = INT_MAX;
