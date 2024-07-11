@@ -3,7 +3,6 @@
 int bowlingScore(std::string s) {
     int score = 0;
     int roll = 0;
-    bool spare = false;
 
     for(int i = 0; i <= s.size(); i++) {
         if(i == s.size()) {
@@ -15,10 +14,9 @@ int bowlingScore(std::string s) {
             if(roll < 2) {
                 score += 10;
             } else {
-                score += 10 + (spare ? 10 : (10 - 'X') * 10);
+                score += 10 + roll * 10;
             }
             roll = 0;
-            spare = false;
         } else if('0' <= c && c <= '9') {
             int num = c - '0';
             roll = roll * 10 + num;
@@ -28,9 +26,6 @@ int bowlingScore(std::string s) {
                     score += roll;
                 } else {
                     score += 10;
-                    if(i == s.size() - 2) {
-                        spare = true;
-                    }
                 }
             }
         } else if(c == 'X') {
@@ -40,3 +35,4 @@ int bowlingScore(std::string s) {
     }
 
     return score;
+}
