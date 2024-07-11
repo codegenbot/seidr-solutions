@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -23,4 +22,6 @@ namespace MyNamespace {
     }
 }
 
-assert(MyNamespace::isSame(MyNamespace::largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
+int main() {
+    assert(MyNamespace::isSame(MyNamespace::largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
+}
