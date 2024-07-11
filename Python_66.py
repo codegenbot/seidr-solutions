@@ -1,2 +1,3 @@
+```
 def digitSum(s):
-    return sum(int(c) for c in s if '0' <= c <= '9')
+    return sum(ord(c.upper()) - ord('A') + 1 if c.isalpha() else 0 for c in s)
