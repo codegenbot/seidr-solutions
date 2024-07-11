@@ -17,12 +17,11 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             while stack and stack[-1] != "(":
                 temp_str += stack.pop()
             if stack:
-                temp_str += stack.pop()  # Check if stack is not empty
-            else:
-                result.append(temp_str)
-                temp_str = ""
+                temp_str += stack.pop()
 
-    if temp_str:
-        result.append(temp_str)
+    # Process any remaining characters in the stack
+    while stack:
+        temp_str += stack.pop()
 
-    return [s.strip() for s in result]
+    result = [s.strip() for s in (temp_str + "").split("(")]
+    return result
