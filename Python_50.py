@@ -10,14 +10,6 @@ def decode_shift():
 
     while True:
         s = input("Enter the encoded string (format: '25-' or '26-'): ")
-        if s.startswith("25-") or s.startswith("26-"):
-            break
-        else:
-            print(
-                "Invalid input. Please enter a string that starts with '25-' or '26-'."
-            )
-
-    while True:
         if s.startswith("25-"):
             shift = int(s[3:])
             s = s[4:]
@@ -38,16 +30,13 @@ def decode_shift():
             else:
                 result += ch
 
-        print("Decoded string: ", result)
+        print(f"Decoded string: {result}")
 
-        cont = input("Do you want to decode another string? (yes/no): ")
         while True:
+            cont = input("Do you want to decode another string? (yes/no): ")
             if cont.lower() == "yes":
                 break
             elif cont.lower() == "no":
                 return
             else:
                 print("Invalid input. Please enter 'yes' or 'no'.")
-
-
-decode_shift()
