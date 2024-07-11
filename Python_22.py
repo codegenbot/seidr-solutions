@@ -1,23 +1,19 @@
-``` 
-from typing import Union
+```
+def filter_integers(values: list) -> list:
+    return [value for value in values if isinstance(value, int)]
 
-def calculate_average_value(values: list[Union[int]]) -> float:
+def calculate_average_value(values: list) -> float:
     if not values:
         return 0
-    average = sum(filter_integers(values)) / len(values)
-    return round(average, 2)
+    return sum(filter_integers(values)) / len(filter_integers(values))
 
-
-def filter_integers(lst: list[Union[int]]) -> list[Union[int]]:
-    return [x for x in lst if isinstance(x, int)]
-
-
-user_input = input("Please enter some values (separated by spaces): ")
-try:
-    values = [int(x) for x in user_input.split()]
-except ValueError as e:
-    print(f"Invalid input: {e}")
-    values = []
+while True:
+    user_input = input("Please enter some values (separated by spaces): ")
+    try:
+        values = [int(x) for x in user_input.split()]
+        break
+    except ValueError as e:
+        print(f"Invalid input: {e}")
 if values:
     average_value = calculate_average_value(values)
-    print(f"The average value is {average_value}.")
+    print(f"The average value is {average_value:.2f}.")
