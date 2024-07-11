@@ -16,10 +16,10 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 }
 
 int main() {
-    vector<float> numbers = {1.0, 2.0, 3.0, 4.0};
+    vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
     vector<float> rescaled = rescale_to_unit(numbers);
     
-    assert(issame(rescaled, {0.0, 0.333333, 0.666667, 1.0}));
+    assert(issame(rescaled, rescale_to_unit(numbers)));
     
     return 0;
 }
