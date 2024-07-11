@@ -1,5 +1,11 @@
 bool issame(vector<int> a, vector<int> b);
 
+vector<int> rolling_max(vector<int> numbers);
+
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> rolling_max(vector<int> numbers) {
     vector<int> result;
     int max_so_far = INT_MIN;
@@ -8,10 +14,6 @@ vector<int> rolling_max(vector<int> numbers) {
         result.push_back(max_so_far);
     }
     return result;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
 }
 
 int main() {
