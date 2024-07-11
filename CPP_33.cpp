@@ -1,8 +1,23 @@
-vector<int> result = l;
+vector<int> sort_third(vector<int> l){
+    vector<int> sorted_vals;
+
     for (int i = 0; i < l.size(); ++i) {
-        if ((i + 1) % 3 == 0) {
-            sort(result.begin() + i - 2, result.begin() + i + 1);
+        if (i % 3 == 0) {
+            sorted_vals.push_back(l[i]);
         }
     }
-    return result;
+
+    sort(sorted_vals.begin(), sorted_vals.end());
+    
+    int sortedIndex = 0;
+    for (int i = 0; i < l.size(); ++i) {
+        if (i % 3 == 0) {
+            continue;
+        } else {
+            l[i] = sorted_vals[sortedIndex];
+            sortedIndex++;
+        }
+    }
+    
+    return l;
 }
