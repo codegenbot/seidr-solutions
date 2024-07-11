@@ -1,10 +1,21 @@
+```
 def histogram(test):
     if not test:
         return {}
-
+    
     words = test.split()
-    max_count = max(len(word) for word in set(words))
-    result = {
-        word: len(list(group)) for word, group in itertools.groupby(sorted(words))
-    }
-    return {k: v for k, v in result.items() if v == max_count}
+    max_count = 0
+    result = {}
+    
+    for word in words:
+        if word not in result:
+            result[word] = 1
+        else:
+            result[word] += 1
+        
+        if result[word] > max_count:
+            max_count = result[word]
+    
+    max_count_dict = {k: v for k, v in result.items() if v == max_count}
+    
+    return max_count_dict
