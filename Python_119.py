@@ -1,4 +1,4 @@
-```"
+""" 
 stack = []
 for s in lst:
     for c in s:
@@ -9,4 +9,3 @@ for s in lst:
                 return 'No'
             stack.pop()
 return 'Yes' if len(stack) == 0 else 'No'
-"```
