@@ -1,7 +1,6 @@
-```cpp
+#include <iostream>
 #include <cmath>
 #include <vector>
-#include <iostream>
 
 double vectorDistance(int n, const std::vector<float>& v1, const std::vector<float>& v2) {
     double sum = 0;
