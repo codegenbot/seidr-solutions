@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```
 def check(func):
     result = func()
     return result
@@ -13,4 +12,4 @@ def calculate_sum_of_cubes():
     return sum([i**3 for i in num_list])
 
 
-print(check(calculate_sum_of_cubes))
+print(check(calculate_sum_of_cubes()))
