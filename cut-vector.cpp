@@ -1,38 +1,26 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
-#include <climits>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& arr) {
-    int n = arr.size();
-    int min_diff = INT_MAX;
-    std::pair<std::vector<int>, std::vector<int>> result;
-    
-    for (int i = 1; i < n; i++) {
-        int diff = std::abs(std::accumulate(arr.begin(), arr.begin()+i, 0) - std::accumulate(arr.begin()+i, arr.end(), 0));
-        if (diff < min_diff) {
-            min_diff = diff;
-            result.first = std::vector<int>(arr.begin(), arr.begin()+i);
-            result.second = std::vector<int>(arr.begin()+i, arr.end());
-        }
-    }
-    
-    return result;
-}
+void cutVector(const std::vector<int>& arr, int cut_index) {
+    std::vector<int> left_subvector(arr.begin(), arr.begin() + cut_index);
+    std::vector<int> right_subvector(arr.begin() + cut_index, arr.end());
 
-int main() {
-    std::vector<int> arr = {1656, 1405, 5442, 871, 7852, 1210, 4110};
-
-    auto subvectors = cutVector(arr);
-    
-    for (int num : subvectors.first) {
+    for (const auto& num : left_subvector) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-    
-    for (int num : subvectors.second) {
+
+    for (const auto& num : right_subvector) {
         std::cout << num << " ";
     }
-    
+    std::cout << std::endl;
+}
+
+int main() {
+    std::vector<int> arr = {3, 7, 2, 5, 1};
+    int cut_index = 2;
+
+    cutVector(arr, cut_index);
+
     return 0;
 }
