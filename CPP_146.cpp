@@ -1,6 +1,7 @@
-int count = 0;
+int specialFilter(vector<int> nums){
+    int count = 0;
     for (int num : nums) {
-        if (abs(num) > 10 && (abs(num) % 10) % 2 != 0 && abs(num) / pow(10, (int)log10(abs(num))) % 2 != 0) {
+        if (num > 10 && abs(num) % 2 == 1 && to_string(num).front() % 2 == 1 && to_string(num).back() % 2 == 1) {
             count++;
         }
     }
