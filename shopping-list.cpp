@@ -10,18 +10,11 @@ float calculateTotalPrice(std::vector<float> prices, std::vector<float> discount
 }
 
 int main() {
-    int n;
-    std::cin >> n;
+    std::vector<float> prices = {10.0, 20.0, 30.0};
+    std::vector<float> discounts = {5.0, 10.0, 15.0};
+    float totalPrice = calculateTotalPrice(prices, discounts);
 
-    std::vector<float> prices(n);
-    std::vector<float> discounts(n);
-
-    for (int i = 0; i < n; i++) {
-        std::cin >> prices[i] >> discounts[i];
-    }
-
-    float total = calculateTotalPrice(prices, discounts);
-    std::cout << total << std::endl;
+    std::cout << "Total price after discounts: " << totalPrice << std::endl;
 
     return 0;
 }
