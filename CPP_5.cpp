@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::std::vector<int> a, std::std::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -13,8 +13,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
-    std::vector<int> result;
+std::std::vector<int> intersperse(std::std::vector<int> numbers, int delimiter) {
+    std::std::vector<int> result;
     for (int i = 0; i < numbers.size(); ++i) {
         result.push_back(numbers[i]);
         if (i < numbers.size() - 1) {
