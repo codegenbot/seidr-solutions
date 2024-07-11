@@ -1,8 +1,5 @@
-import ast
-
-
 def solve_boolean(expression):
-    return ast.literal_eval(expression.replace("T", "True").replace("F", "False"))
+    return eval(expression.replace("T", "true").replace("F", "false"))
 
-
-print(solve_boolean(input()))
+expression = input()
+print(solve_boolean(expression))
