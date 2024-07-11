@@ -1,4 +1,4 @@
-#include <vector>
+```cpp
 int luhn(const std::vector<int>& cc) {
     int sum = 0;
     for (int i = 0; i < cc.size(); ++i) {
@@ -9,4 +9,3 @@ int luhn(const std::vector<int>& cc) {
         sum += digit;
     }
     return sum % 10;
-}
