@@ -5,7 +5,7 @@ def spin_words(text):
         if len(word) >= 5:
             rev_word = word[::-1]
             if ' ' in rev_word:  
-                result.append(rev_word.replace(' ', '', 1)) 
+                result.append(rev_word.replace(' ', '', 1))  
             else:
                 result.append(rev_word)
         else:
