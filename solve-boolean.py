@@ -1,5 +1,5 @@
 def solve_boolean(expression):
-    return eval(expression.replace("T", "'true'").replace("F", "'false'"))
+    return eval(expression.replace("T", "True").replace("F", "False"))
 
 expression = input()
 print(solve_boolean(expression))
