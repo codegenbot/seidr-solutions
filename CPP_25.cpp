@@ -13,3 +13,12 @@ vector<int> factorize(int n) {
     }
     return factors;
 }
+
+bool issame(vector<int> a, vector<int> b) {
+    // Function logic
+}
+
+int main() {
+    // Main function logic
+    return 0;
+}
