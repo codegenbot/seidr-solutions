@@ -5,7 +5,7 @@ def solution(lst):
 if __name__ == "__main__":
     user_input = input("Enter space-separated integers: ")
     numbers = user_input.split()
-
+    
     for num in numbers:
         int_num = int(num)
         if not isinstance(int_num, int):
@@ -15,5 +15,7 @@ if __name__ == "__main__":
     
     try:
         print(solution(lst))
-    except ValueError as e:
-        print(f"     {e}")
+    except ValueError as ve:
+        print(str(ve))
+    else:
+        print("     No odd numbers found." if sum(i for i in lst[1::2] if i % 2 != 0) == 0 else "     Sum of odd numbers: {}".format(sum(i for i in lst[1::2] if i % 2 != 0)))

@@ -1,10 +1,10 @@
+```
 def add(x: int, y: int) -> int:
     try:
         num1 = int(input("Enter first number: "))
         num2 = int(input("Enter second number: "))
 
-        result = x + y
+        result = x + y  
         print(f"Result: {result}")
-        return result
     except ValueError:
         print("Invalid input. Please enter integers.")
