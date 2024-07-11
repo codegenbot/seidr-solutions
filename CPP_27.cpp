@@ -1,11 +1,11 @@
-#include <algorithm>
-
-string filp_case(string str){
-    for(int i = 0; i < str.length(); i++) {
-        if(isupper(str[i]))
-            str[i] = tolower(str[i]);
-        else
-            str[i] = toupper(str[i]);
+char temp;
+for(int i = 0; i < str.length(); i++) {
+    temp = str[i];
+    if((temp >= 'a' && temp <= 'z')) {
+        temp -= 32; // convert to uppercase
+    } else if((temp >= 'A' && temp <= 'Z')) {
+        temp += 32; // convert to lowercase
     }
-    return str;
+    str[i] = temp;
 }
+return str;
