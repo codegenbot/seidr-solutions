@@ -1,5 +1,6 @@
 ```cpp
 #include <initializer_list>
+
 int calculateFuelCost(std::initializer_list<int> numbers) {
     int total = 0;
     for (int number : numbers) {
