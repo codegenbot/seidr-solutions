@@ -1,25 +1,29 @@
-#include <string>
-#include <algorithm>
+```cpp
 #include <boost/any.hpp>
-#include <boost/lexical_cast.hpp>
 
-using namespace std;
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return max(a.get<int>(), b.get<int>());
+        return (int)a > (int)b ? a : ((int)a == (int)b) ? boost::any("None") : b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return max(a.get<float>(), b.get<float>());
+        return (float)a > (float)b ? a : ((float)a == (float)b) ? boost::any("None") : b;
     }
-    else if ((a.type() == typeid(string) || a.type() == typeid(wstring)) &&
-             (b.type() == typeid(string) || b.type() == typeid(wstring))) {
-        if (boost::lexical_cast<string>(max(a.get<string>(), b.get<string>())) == "None")
-            return boost::any("None");
-        else
-            return max(a.get<string>(), b.get<string>());
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        return (std::string)a > (std::string)b ? a : ((std::string)a == (std::string)b) ? boost::any("None") : b;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > (int)b ? a : ((float)a == (int)b) ? boost::any("None") : boost::any((boost::any_cast<int>(b)).convert_to BOOST_REFS(float));
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)a > (float)b ? a : ((int)a == (float)b) ? boost::any("None") : boost::any((boost::any_cast<float>(a)).convert_to BOOST_REFS(int));
+    }
+    else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        return std::stof((std::string)a) > (float)b ? a : ((std::stof((std::string)a)) == (float)b) ? boost::any("None") : boost::any((boost::any_cast<float>(b)).convert_to BOOST_REFS(std::string));
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(std::string)) {
+        return (float)a > std::stof((std::string)b) ? a : ((float)a == std::stof((std::string)b)) ? boost::any("None") : boost::any((boost::any_cast<std::string>(a)).convert_to BOOST_REFS(float));
     }
     else {
-        // If the types are not equal, return None
         return boost::any("None");
     }
 }
