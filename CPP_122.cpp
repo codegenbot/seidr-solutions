@@ -1,6 +1,3 @@
-Here's the modified code:
-
-```cpp
 #include <vector>
 #include <string>
 
