@@ -17,7 +17,7 @@ def correct_bracketing(expression):
     
     return True
 
-def check(correct_bracketing):
+def check():
     while True:
         try:
             expression = input("Enter an expression (or 'done' if finished): ")
@@ -30,4 +30,4 @@ def check(correct_bracketing):
         except Exception as e: 
             print(f"Error occurred: {e}")
 
-check(correct_bracketing)
+check()
