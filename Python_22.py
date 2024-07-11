@@ -1,9 +1,8 @@
+```
 from typing import List, Any
 
-
 def filter_integers(values: List[Any]) -> List[int]:
-    filtered_values = []
-    for value in values:
-        if isinstance(value, int) and 1 <= value <= 100:
-            filtered_values.append(value)
-    return filtered_values
+    user_input = input("Enter a list of values (separated by spaces): ")
+    user_values = [value.strip() for value in user_input.split()]
+    
+    return [int(value) for value in user_values if isinstance(int(value), int) and 1 <= int(value) <= 100]
