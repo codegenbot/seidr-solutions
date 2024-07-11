@@ -8,3 +8,4 @@ def encrypt(s):
         else:
             result += char
     return result
+```
