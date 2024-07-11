@@ -1,3 +1,4 @@
+```
 def sum_product():
     numbers = [int(x) for x in input("Enter space-separated integers: ").split()]
     if len(numbers) == 0:
