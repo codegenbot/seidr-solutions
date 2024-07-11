@@ -9,7 +9,7 @@ boost::any compare_one(const boost::any& a, const boost::any& b) {
         } else if (a.type() == typeid(float)) {
             return boost::any_cast<float>(a) > boost::any_cast<float>(b) ? a : b;
         } else if (a.type() == typeid(std::string)) {
-            return std::stof(boost::any_cast<std::string>(a)) > std::stof(boost::any_cast<std::string>(b)) ? a : b;
+            return stof(boost::any_cast<std::string>(a)) > stof(boost::any_cast<std::string>(b)) ? a : b;
         }
     }
     return boost::any();
