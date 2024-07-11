@@ -19,8 +19,8 @@ def separate_paren_groups(paren_string: str) -> list[str]:
                 while temp and temp[0] != "( ":
                     result.append("(" + temp[:4])
                     temp = temp[4:]
-            else:
-                temp += char
+        else:
+            temp += char
     if temp != "":
         result.append(temp)
     return result
