@@ -1,29 +1,12 @@
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-vector<int> make_a_pile(int n);
-
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
-int main() {
-    vector<int> a = make_a_pile(5);
-    vector<int> b = make_a_pile(5);
-
-    if (issame(a, b)) {
-        cout << "The piles are the same." << endl;
-    } else {
-        cout << "The piles are different." << endl;
-    }
-
-    return 0;
-}
-
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    for (int i = 0; i < n; ++i) {
-        pile.push_back(i);
-    }
-    return pile;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    std::vector<int> sorted_a = a;
+    std::vector<int> sorted_b = b;
+    
+    std::sort(sorted_a.begin(), sorted_a.end());
+    std::sort(sorted_b.begin(), sorted_b.end());
+    
+    return sorted_a == sorted_b;
 }
