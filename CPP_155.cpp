@@ -27,16 +27,5 @@ vector<int> even_odd_count(int num) {
 
 int main() {
     assert(issame(even_odd_count(0), vector<int>{1, 0}));
-    
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    vector<int> output = even_odd_count(n);
-    if (output[0] > output[1]) {
-        cout << "Even count is greater." << endl;
-    } else if (output[0] < output[1]) {
-        cout << "Odd count is greater." << endl;
-    } else {
-        cout << "Both counts are equal." << endl;
-    }
+    // Your code here...
 }
