@@ -1,7 +1,18 @@
-if(array.empty()) return array;
-    if((array.front() + array.back()) % 2 == 0)
-        sort(array.begin(), array.end(), greater<int>());
-    else
-        sort(array.begin(), array.end());
-    return array;
+bool isOdd(int num) {
+    return num % 2 != 0;
+}
+
+vector<int> sort_array(vector<int> array){
+    vector<int> sortedArray = array;
+    if (array.empty()) {
+        return sortedArray;
+    }
+
+    if (isOdd(array.front() + array.back())) {
+        sort(sortedArray.begin(), sortedArray.end());
+    } else {
+        sort(sortedArray.rbegin(), sortedArray.rend());
+    }
+
+    return sortedArray;
 }
