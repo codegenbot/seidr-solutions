@@ -1,6 +1,3 @@
-for (int i = 1; i < lst.size(); i++) {
-    if (lst[i] <= lst[i - 1] || count(lst.begin(), lst.end(), lst[i]) > 1) {
-        return false;
-    }
+return (unique(lst.begin(), lst.end()) == lst.end()) && 
+    (is_sorted_until(lst.begin(), lst.end()) == lst.end());
 }
-return true;
