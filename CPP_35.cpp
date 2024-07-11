@@ -1,7 +1,6 @@
-```cpp
 #include <algorithm>
-#include <vector>
 #include <iostream>
+#include <vector>
 
 int max_value = -1;
 int min_value = INT_MAX;
