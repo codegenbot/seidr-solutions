@@ -1,7 +1,4 @@
-```
-#include <vector>
-#include <string>
-
+```cpp
 int Strongest_Extension(string class_name, vector<string> extensions) {
     int strongest = -1;
     string result = "";
