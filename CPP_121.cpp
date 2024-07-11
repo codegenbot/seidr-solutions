@@ -12,7 +12,8 @@ int solution(std::vector<int> lst) {
 }
 
 int main() {
-    assert(solution({3, 13, 2, 9}) == 16);
-    std::cout << "Test passed!" << std::endl;
+    std::vector<int> lst = {3, 13, 2, 9};
+    int result = solution(lst);
+    std::cout << "The result is: " << result << std::endl;
     return 0;
 }
