@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
+#include <cmath>
 #include <limits>
 
 using namespace std;
@@ -9,15 +10,19 @@ int main() {
     vector<int> input;
     int num;
 
-    while (cin >> num || !cin.fail()) {
+    while (cin >> num && num != -1) {
         input.push_back(num);
     }
 
     int diff = numeric_limits<int>::max();
     int idx = 0;
+    
     for (int i = 1; i < input.size(); ++i) {
-        if (abs(accumulate(input.begin(), input.begin() + i, 0) - accumulate(input.begin() + i, input.end(), 0)) < diff) {
-            diff = abs(accumulate(input.begin(), input.begin() + i, 0) - accumulate(input.begin() + i, input.end(), 0));
+        int left_sum = accumulate(input.begin(), input.begin() + i, 0);
+        int right_sum = accumulate(input.begin() + i, input.end(), 0);
+        
+        if (abs(left_sum - right_sum) <= diff) {
+            diff = abs(left_sum - right_sum);
             idx = i;
         }
     }
@@ -26,7 +31,7 @@ int main() {
         cout << input[i] << endl;
     }
     cout << endl;
-    for (int i = idx; i < input.size(); ++i) {
+    for (int i = idx;  i < input.size(); ++i) {
         cout << input[i] << endl;
     }
 
