@@ -1,17 +1,17 @@
 bool issame(vector<int> a, vector<int> b) {
     int sum_a = 0, sum_b = 0;
     for (int num : a) {
-        int curr_num = (num < 0) ? -num : num;
-        while (curr_num > 0) {
-            sum_a += curr_num % 10;
-            curr_num /= 10;
+        if (num < 0) num *= -1;
+        while (num > 0) {
+            sum_a += num % 10;
+            num /= 10;
         }
     }
     for (int num : b) {
-        int curr_num = (num < 0) ? -num : num;
-        while (curr_num > 0) {
-            sum_b += curr_num % 10;
-            curr_num /= 10;
+        if (num < 0) num *= -1;
+        while (num > 0) {
+            sum_b += num % 10;
+            num /= 10;
         }
     }
     return sum_a == sum_b;
