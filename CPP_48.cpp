@@ -17,13 +17,21 @@ bool is_palindrome(std::string text){
 
 }
 
-int main {
+int main(){
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     
-    if(is_palindrome(input))
-        std::cout << "The entered string is a palindrome." << std::endl;
+    if (input.back() == '\n') {
+        input.pop_back(); // remove the newline character
+    }
+    
+    bool result = is_palindrome(input);
+    
+    if(result)
+        std::cout << input << " is a palindrome.";
     else
-        std::cout << "The entered string is not a palindrome." << std::endl;
+        std::cout << input << " is not a palindrome.";
+    
+    return 0;
 }
