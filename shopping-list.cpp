@@ -12,7 +12,7 @@ int main() {
     }
 
     vector<float> discounts(prices.size());
-    for (int i = 0; i < prices.size(); ++i) {
+    for (int i = 0; i < discounts.size(); ++i) {
         cin >> discounts[i];
     }
 
