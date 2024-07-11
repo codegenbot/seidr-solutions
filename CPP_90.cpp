@@ -1,12 +1,13 @@
-Here is the completed code:
+Here is the solution:
 
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // Return None
+int next_smallest(vector<int> lst){
+    if(lst.empty()) return -1; // or return None
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    int i;
-    for(i=0;i<sorted.size()-1;++i)
-        if(sorted[i] != sorted[i+1])
-            break;
-    return (i == sorted.size() - 2) ? sorted[i+1] : -1; // Return None
+    auto it = std::next(std::min_element(sorted.begin(), sorted.end()));
+    if(it == sorted.end()) return -1; // or return None
+    for(auto i : lst){
+        if(i < *it) return i;
+    }
+    return -1; // or return None
 }
