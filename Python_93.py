@@ -4,11 +4,15 @@ def encode(message):
     for char in message:
         if char.isalnum():
             if char.isalpha():
-                shift = 3
-                ascii_offset = 65 if char.isupper() else 97
-                result += chr((ord(char) - ascii_offset + shift) % 26 + ascii_offset)
+                if char.isupper():
+                    result += chr((ord(char) - 65 + 3) % 26 + 65)
+                else:
+                    result += chr((ord(char) - 97 + 3) % 26 + 97)
             else:
-                result += char
+                if char.isdigit():
+                    result += str(int(char) + 3) if int(char) < 9 else '0'
+                else:
+                    result += char
         else:
             result += char
     return result
