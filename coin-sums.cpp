@@ -6,7 +6,7 @@ int main() {
     int cents;
     cin >> cents;
 
-    cout << quarters = cents / 25 << endl;
+    cout << quarters = cents / 25;
     int remainder = cents - (quarters * 25);
     cout << dimes + (remainder >= 10) << endl;
     remainder %= 10;
