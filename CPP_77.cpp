@@ -1,3 +1,4 @@
+```
 bool iscuber(int a){
     int i = 1;
     while (i * i * i <= a) {
@@ -6,3 +7,4 @@ bool iscuber(int a){
         i++;
     }
     return false;
+}
