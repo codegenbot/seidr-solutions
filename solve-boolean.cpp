@@ -1,5 +1,17 @@
-```cpp
 string solveBoolean(string expression) {
+    for (int i = 0; i < expression.length(); i++) {
+        if (expression[i] == '|') {
+            if (i + 1 < expression.length() && expression[i + 1] == '&') {
+                i++;
+            } else {
+                if (expression[i-1] == '&') {
+                    expression[i] = '&';
+                } else {
+                    expression[i] = '|';
+                }
+            }
+        }
+    }
     stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
@@ -18,7 +30,12 @@ string solveBoolean(string expression) {
     }
     string result;
     while (!s.empty()) {
-        result = ((s.top() == 'T') ? "True" : "False") + (result.empty() ? "" : " ");
+        if (s.top() == '&') {
+            result = (result + " & ").substr(2);
+        } else {
+            result = (result + ((char)(s.top()))).substr(0, 3) + ((s.top() == 'T') ? "True" : "False");
+        }
         s.pop();
     }
     return result;
+}
