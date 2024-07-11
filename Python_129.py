@@ -1,29 +1,6 @@
 ```
-def minPath():
-    while True:
-        try:
-            n = int(input("Enter the size of the grid: "))
-            if n < 1:
-                print("Grid size should be at least 1. Please enter again.")
-                continue
-            break
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-
-    while True:
-        try:
-            k = int(input("Enter the value of k: "))
-            if k < 1:
-                print("k should be at least 1. Please enter again.")
-                continue
-            break
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-
-    m = [
-        [int(input(f"Enter value at row {i}, column {j}: ")) for j in range(1, n + 1)]
-        for i in range(1, n + 1)
-    ]
+def minPath(n, k):
+    m = [[int(input(f"Enter value at row {i}, column {j}: ")) for j in range(1, n + 1)] for i in range(1, n + 1)]
 
     def dfs(i, j, path, visited, m, k):
         if len(path) == k:
@@ -47,4 +24,4 @@ def minPath():
     return min_path
 
 
-print(minPath())
+print(minPath(int(input("Enter the size of the grid: ")), int(input("Enter the value of k: "))))
