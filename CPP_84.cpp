@@ -1,14 +1,15 @@
+#include <string>
+
+using namespace std;
+
 string solve(int N) {
-    int sum = 0;
+    string binary = "";
     while (N > 0) {
-        int digit = N & 1;
-        if (digit) sum++;
-        N >>= 1;
+        if (N % 2 == 1)
+            binary += "1";
+        else
+            binary += "0";
+        N /= 2;
     }
-    string result = "";
-    while (sum > 0) {
-        result = (sum & 1 ? "1" : "0") + result;
-        sum >>= 1;
-    }
-    return result;
+    return binary;
 }
