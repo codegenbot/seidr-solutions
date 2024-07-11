@@ -11,7 +11,7 @@ int main() {
     for (int i = 2; i <= num_bounces; ++i) {
         total_distance += 2 * bounce_height / std::pow(bounciness_index, i - 1);
     }
-    
+
     std::cout << total_distance << std::endl;
 
     return 0;
