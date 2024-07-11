@@ -4,7 +4,7 @@
 
 int main() {
     int n, target;
-    std::cin >> n;
+    std::cin >> n >> target; // Read the target integer
     std::vector<int> nums(n);
     std::map<int, int> numIndex;
 
