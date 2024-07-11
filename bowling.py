@@ -1,4 +1,3 @@
-```python
 def bowling_score(bowling):
     score = 0
     strike_count = 0
