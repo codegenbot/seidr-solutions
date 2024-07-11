@@ -1,5 +1,5 @@
-#include <iomanip>
 #include <iostream>
+#include <iomanip>
 
 double probability(int n, int m);
 
@@ -15,3 +15,4 @@ double probability(int n, int m) {
         return 0.0;
     else
         return static_cast<double>(m + 1) / n;
+}
