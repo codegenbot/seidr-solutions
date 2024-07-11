@@ -1,4 +1,5 @@
-def sort_third(l):
+```
+def sort_third(l: list):
     result = []
     for i in range(len(l)):
         if i % 3 == 0:
