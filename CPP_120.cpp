@@ -1,8 +1,3 @@
-vector<int> maximum(vector<int> arr, int k) {
-    sort(arr.begin(), arr.end(), greater<int>());
-    vector<int> res;
-    for (int i = 0; i < k; i++) {
-        res.push_back(arr[i]);
-    }
-    return res;
-}
+sort(arr.rbegin(), arr.rend());
+vector<int> res(arr.begin(), arr.begin() + k);
+return res;
