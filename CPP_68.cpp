@@ -8,8 +8,8 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 
 std::vector<int> pluck(std::vector<int> nums) {
     std::vector<int> result;
-    for (int i = 0; i < nums.size(); ++i) {
-        if (nums[i] % 2 == 0) {
+    for (int i = 0; i < nums.size(); i++) {
+        if (nums[i] % 2 != 0) {
             result.push_back(nums[i]);
         }
     }
@@ -17,7 +17,7 @@ std::vector<int> pluck(std::vector<int> nums) {
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {}));
-
+    assert(issame(pluck({7, 9, 7, 1}), {7, 9, 7, 1}));
+    
     return 0;
 }
