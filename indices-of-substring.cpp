@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <initializer_list>
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -17,11 +18,11 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text, target;
-    cout << "Enter the text: ";
-    getline(cin, text);
-    cout << "Enter the target substring: ";
-    getline(cin, target);
+    string text;
+    cin >> text;
+
+    string target;
+    cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
 
@@ -31,4 +32,3 @@ int main() {
     cout << endl;
 
     return 0;
-}
