@@ -1,15 +1,20 @@
-```
+Here is the corrected code:
+
 def solution(lst):
     return sum(i for i in lst[1::2] if i % 2 != 0)
 
 if __name__ == "__main__":
-    while True:
-        user_input = input("Enter space-separated integers: ")
-        numbers = user_input.split()
+    user_input = input("Enter space-separated integers: ")
+    numbers = user_input.split()
+    
+    for num in numbers:
+        int_num = int(num)
+        if not isinstance(int_num, int):
+            raise ValueError
         
-        try:
-            lst = [int(i) for i in numbers]
-            print(solution(lst))
-            break
-        except ValueError:
-            print("     Invalid input. Please enter only integers.")
+    lst = [int(i) for i in numbers]
+    
+    try:
+        print(sum(i for i in lst if i % 2 != 0))
+    except ValueError:
+        print("     Invalid input. Please enter only integers.")
