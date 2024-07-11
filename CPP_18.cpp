@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int how_many_times(string str, string substring) {
@@ -9,7 +8,7 @@ int how_many_times(string str, string substring) {
         if (pos == 0) {
             str = str.substr(substring.length());
         } else {
-            str.erase(0, pos);
+            str = str.substr(0, pos) + str.substr(pos + substring.length());
         }
     }
     return count;
