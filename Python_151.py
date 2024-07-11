@@ -1,8 +1,11 @@
 """
-Given a list of numbers, find the difference between the maximum and minimum values, double that result, then return it.
+Write a function that calculates the difference between the sum of squares of all even numbers in a given list of integers and the product of their cubes.
 """
+
 def double_the_difference(lst):
-    min_val = min(i for i in lst if isinstance(i, int) and i > 0)
-    max_val = max(i for i in lst if isinstance(i, int) and i > 0)
-    diff = (max_val - min_val) * 2
-    return diff
+    even_sum_of_squares = sum(i**2 for i in lst if isinstance(i, int) and i % 2 == 0)
+    cubes_product = 1
+    for i in lst:
+        if isinstance(i, int):
+            cubes_product *= i ** 3
+    return (even_sum_of_squares - cubes_product) * 2
