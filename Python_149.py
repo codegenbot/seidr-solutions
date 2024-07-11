@@ -1,2 +1,3 @@
-def sorted_list_sum(lst):
-    return sum(int(len(word)) for word in sorted(lst) if len(word) % 2 == 0)
+if __name__ == "__main__":
+    words = input("Enter a list of words separated by space: ").split()
+    print(sorted_list_sum(words))
