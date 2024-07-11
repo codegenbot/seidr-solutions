@@ -1,5 +1,3 @@
-from typing import list
-
 def below_zero(operations: list) -> bool:
     if not isinstance(operations, list):
         return False
