@@ -1,9 +1,13 @@
-string result = "";
+#include <string>
+#include <cassert>
+
+std::string encrypt(const std::string& s) {
+    std::string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            char encrypted = c + 2 * (c >= 'a' ? 1 : -1);
-            if ((c >= 'a' && encrypted > 'z') || (c <= 'Z' && encrypted > 'Z')) {
-                encrypted -= 26;
+            char encrypted = c + 2 * ('z' - c) + 1;
+            if (encrypted > 'z') {
+                encrypted = 'a' + (encrypted - 'z' - 1);
             }
             result += encrypted;
         } else {
@@ -11,4 +15,8 @@ string result = "";
         }
     }
     return result;
+}
+
+int main() {
+    assert (encrypt("a")=="e");
 }
