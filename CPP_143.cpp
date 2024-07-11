@@ -1,22 +1,31 @@
 string words_in_sentence(string sentence){
     string result = "";
-    size_t start = 0;
-    for(size_t i = 0; i < sentence.size(); i++){
-        if(i == sentence.size() - 1 || !isalpha(sentence[i])){
-            string word = sentence.substr(start, i - start);
-            if(isPrime(word.size())){
-                result += word + " ";
-            }
-            start = i + (i != sentence.size() - 1);
+    for(auto word : split(sentence, " ")) {
+        if(is_prime(word.length())) {
+            result += word + " ";
         }
     }
     return result.substr(0, result.size() - 1);
 }
 
-bool isPrime(int n) {
-    if(n <= 1) return false;
-    for(int i = 2; i * i <= n; i++) {
-        if(n % i == 0) return false;
+vector<string> split(const string& str, const string& delimiters) {
+    vector<string> result;
+    auto start = 0;
+    for (auto end = 0; end <= str.size(); ++end) {
+        if (str.find(delimiters, end) != string::npos) {
+            result.push_back(str.substr(start, end - start));
+            start = end + delimiters.size();
+        }
+    }
+    return result;
+}
+
+bool is_prime(int num) {
+    if(num < 2)
+        return false;
+    for(int i = 2; i*i <= num; ++i){
+        if(num % i == 0)
+            return false;
     }
     return true;
 }
