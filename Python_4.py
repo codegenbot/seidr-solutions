@@ -6,6 +6,11 @@ def mean_absolute_deviation(numbers: List[float]) -> float:
     return sum(abs(x - mean) for x in numbers) / len(numbers)
 
 
-numbers = list(map(float, input("Enter numbers separated by space: ").split()))
+# Read input from the user
+numbers = [float(x) for x in input().split()]
+
+# Call the mean_absolute_deviation function with the input numbers
 result = mean_absolute_deviation(numbers)
+
+# Print the result
 print(result)
