@@ -1,6 +1,6 @@
 ```cpp
 #include <vector>
-#include <initializer_list>
+#include <algorithm>
 
 int luhn(const std::vector<int>& cardNumber) {
     int sum = 0;
@@ -23,7 +23,7 @@ int luhn(const std::vector<int>& cardNumber) {
 }
 
 int main() {
-    std::vector<int> cardNumber = {4, 7, 3, 1, 3, 9, 2, 6, 5, 1, 4, 4, 0, 1, 9, 3};
+    std::vector<int> cardNumber = {4, 3, 3, 2, 7, 1, 6, 9, 3, 5, 8, 1, 4, 0, 6, 7};
     int result = luhn(cardNumber);
     return 0;
 }
