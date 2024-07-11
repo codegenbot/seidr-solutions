@@ -4,7 +4,10 @@
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input); 
+    std::cin >> input;
+
+    int ch;
+    while ((ch = std::cin.get()) != '\n' && ch != EOF) {}
 
     if (is_palindrome(input)) {
         std::cout << "The string is a palindrome." << std::endl;
