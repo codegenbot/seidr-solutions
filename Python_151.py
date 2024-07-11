@@ -1,13 +1,11 @@
 ```
-def double_the_difference(lst):
-    difference = max(lst) - min(lst)
-    double_diff = difference * 2
-    return double_diff
+    def double_the_difference():
+        lst = list(map(int, input().split()))
+        difference = max(lst) - min(lst)
+        double_diff = difference * 2
+        return double_diff
 
-import builtins
-def check(func):
-    if len(builtins.input()) > 1:
-        print("Error: Please enter single input.")
-        return None
-    else:
-        return func()
+    def check(func):
+        print(func())
+
+    check(double_the_difference)
