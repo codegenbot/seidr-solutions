@@ -6,17 +6,12 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int pos = 0; // position in text
-
+    
+    int pos = text.find(target);
     while (pos != string::npos) { 
-        pos = text.find(target, pos);
-        
-        if (pos == string::npos) {
-            break;
-        }
-
         result.push_back(pos);
-        pos = text.find(target, pos); // find the next occurrence starting from the last found index
+        pos += target.size(); // move to the next occurrence
+        pos = text.find(target, pos);
     }
     
     return result;
