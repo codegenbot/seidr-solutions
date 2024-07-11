@@ -7,13 +7,15 @@ int gcd(int a, int b) {
     a = std::abs(a);
     b = std::abs(b);
     
-    while (b != 0) {
-        int tmp = b;
-        b = a % b;
-        a = tmp;
+    if (a == 0 || b == 0) {
+        return a == 0 ? b : gcd(b, a % b);
+    }
+    
+    if (a % b == 0) {
+        return b;
     }
 
-    return a;
+    return gcd(b, a % b);
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
