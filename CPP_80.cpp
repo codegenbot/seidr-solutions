@@ -9,7 +9,7 @@ bool is_happy(const string& s) {
         return false;
 
     for(int i = 0; i < s.length() - 2; ++i){
-        if(s[i] == s[i+1] || s[i] == s[i+2] || s[i+1] == s[i+2] || abs((int)s[i] - (int)s[i+1]) == 1 || abs((int)s[i] - (int)s[i+2]) == 1 || abs((int)s[i+1] - (int)s[i+2]) == 1)
+        if(s[i] == s[i+1] || s[i] == s[i+2] || s[i+1] == s[i+2] || abs(static_cast<int>(s[i]) - static_cast<int>(s[i+1])) == 1 || abs(static_cast<int>(s[i]) - static_cast<int>(s[i+2])) == 1 || abs(static_cast<int>(s[i+1]) - static_cast<int>(s[i+2])) == 1)
             return false;
     }
 
