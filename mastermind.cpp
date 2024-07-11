@@ -1,13 +1,16 @@
 #include <iostream>
+#include <string>
+#include <vector>
 #include <algorithm>
+using namespace std;
 
 int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
+    string code, guess;
+    cin >> code >> guess;
     
     int black = 0, white = 0;
-    std::vector<int> codeCount(6, 0);
-    std::vector<int> guessCount(6, 0);
+    vector<int> codeCount(6, 0);
+    vector<int> guessCount(6, 0);
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
