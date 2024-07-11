@@ -1,7 +1,8 @@
 """
-Given a list of integers, find the difference between the maximum value that is doubled and the minimum value.
+Given a list of integers, calculate the difference between the sum of squares of all positive integers in the list and twice the sum of all integers in the list.
 """
+
 def double_the_difference(lst):
-    max_val = max(i for i in lst if isinstance(i, int) and i > 0)
-    min_val = min(i for i in lst if isinstance(i, int) and i > 0)
-    return (max_val * 2) - min_val
+    square_sum = sum(i**2 for i in lst if isinstance(i, int) and i > 0)
+    total_sum = sum(i for i in lst if isinstance(i, int))
+    return abs(square_sum - 2 * total_sum)
