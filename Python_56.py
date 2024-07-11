@@ -1,4 +1,3 @@
-```
 def correct_bracketing(expression):
     stack = []
     for char in expression:
