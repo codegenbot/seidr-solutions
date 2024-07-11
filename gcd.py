@@ -1,6 +1,6 @@
-values = input("Enter two integers (separated by space): ")
-if ' ' not in values:
+values = input("Enter two integers (separated by space): ").split()
+if len(values) != 2:
     print("Invalid input! Please enter exactly two integers.")
 else:
-    a, b = map(int, values.split())
-    print(gcd(a, b))
+    a, _ = map(int, values)
+    print(gcd(a, 1))
