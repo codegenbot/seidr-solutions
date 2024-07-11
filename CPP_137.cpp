@@ -1,4 +1,3 @@
-```cpp
 #include <boost/any.hpp>
 #include <string>
 
@@ -37,11 +36,6 @@ boost::any compare_one(boost::any a, boost::any b) {
     else if (boost::holds_alternative<double>(a) && boost::holds_alternative<double>(b)) {
         double num1 = boost::get<double>(a);
         double num2 = boost::get<double>(b);
-        return num1 > num2 ? a : b;
-    }
-    else if (boost::holds_alternative<int>(a) && boost::holds_alternative<int>(b)) {
-        int num1 = boost::get<int>(a);
-        int num2 = boost::get<int>(b);
         return num1 > num2 ? a : b;
     }
     else {
