@@ -1,21 +1,32 @@
+```
 def minPath(grid, k):
-    N = len(grid)
-    mpath = [[0] * N for _ in range(N)]
+    n = len(grid)
+    total_cells = n * n
+    visited = [[False for _ in range(n)] for _ in range(n)]
+    path = []
 
-    def dfs(i, j, path):
-        if len(path) == k:
-            return path
-        mpath[i][j] = 1
-        res = None
-        for ni, nj in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
-            if 0 <= ni < N and 0 <= nj < N and not mpath[ni][nj]:
-                p = dfs(ni, nj, path + [grid[ni][nj]])
-                if res is None or p and p[-1] < res[-1]:
-                    res = p
-        mpath[i][j] = 0
-        return res
+    def dfs(i, j, current_path, steps):
+        nonlocal path
+        if steps == k:
+            path = current_path[:]
+            return True
+        if steps > k or i < 0 or i >= n or j < 0 or j >= n or visited[i][j]:
+            return False
+        visited[i][j] = True
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            new_i, new_j = i + dx, j + dy
+            if 0 <= new_i < n and 0 <= new_j < n and not visited[new_i][new_j]:
+                dfs(new_i, new_j, current_path + [grid[i][j]], steps + 1)
+        visited[i][j] = False
 
-    for i in range(N):
-        for j in range(N):
-            if len(dfs(i, j, [grid[i][j]])) == k:
-                return dfs(i, j, [grid[i][j]])
+    for i in range(n):
+        for j in range(n):
+            if grid[i][j] == 0:
+                continue
+            path = []
+            visited = [[False for _ in range(n)] for _ in range(n)]
+            dfs(i, j, [grid[i][j]], 1)
+            if path:
+                return sorted(path)
+
+    return []
