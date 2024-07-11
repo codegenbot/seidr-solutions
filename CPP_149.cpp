@@ -1,4 +1,4 @@
-Here is the completed code:
+Here is the solution:
 
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
