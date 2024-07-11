@@ -27,12 +27,3 @@ def solve_quadratic_equation(a, b, c, d=None):
             print(f"There is one solution: {result}.")
         else:
             print("There are no real solutions.")
-
-def main():
-    find_zero = solve_quadratic_equation
-
-def main():
-    find_zero(*map(int, input("Enter coefficients (a b c [d]): ").split())
-
-if __name__ == "__main__":
-    main()
