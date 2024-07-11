@@ -2,7 +2,7 @@
 int main() {
     vector<float> lst;
     long long odd_sum = 0; 
-    cin >> odd_sum;
+    cin >> lst; 
     int result = double_the_difference(lst);
     cout << "The sum of the squares of all positive integers in the list is: " << result << endl;
     return 0;
