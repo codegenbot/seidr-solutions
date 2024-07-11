@@ -1,5 +1,13 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
 
 vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     vector<vector<int>> result;
@@ -10,11 +18,16 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
             }
         }
     }
-    sort(result.begin(), result.end(), [](const vector<int>& a, const vector<int>& b) {
+    sort(result.begin(), result.end(), [](vector<int>& a, vector<int>& b) {
         if (a[0] == b[0]) {
             return a[1] > b[1];
         }
         return a[0] < b[0];
     });
     return result;
+}
+
+int main() {
+    assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3)[0], {2, 2}));
+    return 0;
 }
