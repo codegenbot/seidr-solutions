@@ -1,11 +1,6 @@
 Here is the completed code:
 
 bool iscuber(int a){
-    int i = 1;
-    while (i * i * i <= a) {
-        if (i * i * i == a)
-            return true;
-        i++;
-    }
-    return false;
+    int c = round(cbrt(a));
+    return (c*c*c == a);
 }
