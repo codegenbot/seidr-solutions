@@ -1,15 +1,29 @@
-Here is the solution:
+```
+def solve_boolean(expression):
+    def evaluate_expression(expression):
+        while '|' in expression or '&' in expression:
+            if '|' in expression:
+                left, right = expression.split('|', 1)
+                if '&' in left:
+                    left = evaluate_expression(left)
+                else:
+                    left = not bool(left)
+                if '&' in right:
+                    right = evaluate_expression(right)
+                else:
+                    right = not bool(right)
+                return left or right
+            elif '&' in expression:
+                left, right = expression.split('&', 1)
+                if '&' in left:
+                    left = evaluate_expression(left)
+                else:
+                    left = not bool(left)
+                if '&' in right:
+                    right = evaluate_expression(right)
+                else:
+                    right = not bool(right)
+                return left and right
+        return bool(expression) == 'T'
 
-def solve_boolean(input_str):
-    if input_str == 'T':
-        return True
-    elif input_str == 'F':
-        return False
-    elif '&' in input_str:
-        a, b = input_str.split('&')
-        return solve_boolean(a) and solve_boolean(b)
-    elif '|' in input_str:
-        a, b = input_str.split('|')
-        return solve_boolean(a) or solve_boolean(b)
-    else:
-        raise ValueError("Invalid input")
+    return evaluate_expression(expression).replace('T', True).replace('F', False)
