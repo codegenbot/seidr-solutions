@@ -1,30 +1,15 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
-}
-
-std::vector<float> sort_list(std::vector<float> l) {
-    std::vector<float> even_indices;
-    std::vector<float> sorted_even_indices;
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
     
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            even_indices.push_back(l[i]);
-            sorted_even_indices.push_back(l[i]);
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
         }
     }
     
-    std::sort(sorted_even_indices.begin(), sorted_even_indices.end());
-    
-    int sorted_even_idx = 0;
-    for (int i = 0; i < l.size(); i++) {
-        if (i % 2 == 0) {
-            l[i] = sorted_even_indices[sorted_even_idx];
-            sorted_even_idx++;
-        }
-    }
-    
-    return l;
+    return true;
 }
+
+assert(issame(l, sorted_even_indices));
