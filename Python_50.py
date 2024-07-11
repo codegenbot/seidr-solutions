@@ -1,5 +1,8 @@
-def decode_shift_cipher(s: str): 
+```
+def decode_shift(s: str): 
     if s.startswith('25 '):
+        s = s[3:]
+    elif s.startswith('26 '):
         s = s[3:]
     result = ""
     for ch in s:
@@ -12,4 +15,4 @@ def decode_shift_cipher(s: str):
     return result
 
 shifted_s = input("Enter a shifted string (25 ): ")
-print(decode_shift_cipher(shifted_s))
+print(decode_shift(shifted_s))
