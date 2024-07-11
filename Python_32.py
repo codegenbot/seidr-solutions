@@ -1,15 +1,11 @@
-```Python
+```
 def main():
     while True:
         xs = input("Enter coefficients separated by spaces: ").split()
-        if len(xs) in (3, 4) and all(
-            x.replace(".", "", 1).replace("-", "", 1).isdigit() for x in xs
-        ):
+        if len(xs) in (3, 4) and all(x.replace(".", "", 1).replace("-", "", 1).isdigit() for x in xs):
             xs = [float(x) for x in xs]
             break
-        print(
-            "Invalid input. Please enter exactly three or four coefficients, separated by spaces."
-        )
+        print("Invalid input. Please enter exactly three or four coefficients, separated by spaces.")
 
     import math
 
@@ -17,7 +13,7 @@ def main():
         if len(xs) == 3:
             a, b, c = map(float, xs)
             discriminant = b**2 - 4 * a * c
-            if discrimininant < 0:
+            if discriminant < 0:
                 return "No real solutions"
             x1 = (-b + math.sqrt(discriminant)) / (2 * a)
             x2 = (-b - math.sqrt(discriminant)) / (2 * a)
