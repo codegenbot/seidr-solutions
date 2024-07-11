@@ -5,7 +5,7 @@
 vector<int> parse_music(string music_string);
 
 bool issame(vector<int> a, vector<int> b) {
-    return a == b; // or provide your own comparison logic
+    return a == b; 
 }
 
 vector<int> parse_music(string music_string){ 
