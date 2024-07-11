@@ -1,6 +1,6 @@
 #include <vector>
 #include <list>
-#include <any>
+#include <typeinfo>
 
 using namespace std;
 
