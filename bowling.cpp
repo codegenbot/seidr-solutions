@@ -6,13 +6,13 @@ int bowlingScore(string s) {
     int currentFrame = 1;
 
     for (char c : s) {
-        if (c == 'X') { 
+        if (c == 'X') { // strike
             score += 10 + 10 + 10;
             currentRolls = 2;
-        } else if (c == '/') { 
+        } else if (c == '/') { // spare
             score += 10;
             currentRolls = 2;
-        } else { 
+        } else { // normal roll
             int roll = c - '0';
             score += roll;
             currentRolls++;
