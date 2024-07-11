@@ -1,7 +1,3 @@
-#include <vector>
-#include <string>
-#include <cassert>
-
 std::vector<int> parse_music(std::string music) {
     std::vector<int> result;
     int count = 0;
@@ -18,6 +14,6 @@ std::vector<int> parse_music(std::string music) {
     return result;
 }
 
-bool std::issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
