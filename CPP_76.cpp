@@ -2,10 +2,7 @@ if (x <= 0 || n <= 0) {
         return false;
     }
     
-    int power = 1;
-    while (power < x) {
-        power *= n;
-    }
+    double power = log(x) / log(n);
     
-    return power == x;
+    return (power - (int)power == 0);
 }
