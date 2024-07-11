@@ -1,13 +1,15 @@
 #include <iostream>
 #include <vector>
 #include<fstream>
+#include <climits>
+
 using namespace std;
 
 int main() {
     ifstream file("input.txt");
     vector<int> nums;
     int num;
-
+    
     while (file >> num) {
         nums.push_back(num);
     }
@@ -22,7 +24,7 @@ int main() {
     if (sum % 2 != 0) {
         half_sum++;
     }
-
+    
     int min_diff = INT_MAX;
     int cut_idx = -1;
     int prefix_sum = 0;
