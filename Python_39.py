@@ -1,4 +1,4 @@
-def find_nth_prime_fibonacci(n: int):
+def nth_fibonacci_prime(n: int) -> int:
     a, b = 0, 1
     count = 0
     while True:
@@ -9,7 +9,7 @@ def find_nth_prime_fibonacci(n: int):
         a, b = b, a + b
 
 
-def is_prime(num: int):
+def is_prime(num: int) -> bool:
     if num < 2:
         return False
     for i in range(2, int(num**0.5) + 1):
