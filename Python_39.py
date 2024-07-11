@@ -1,12 +1,20 @@
 def prime_fib(n: int):
-    a, b = 1, 2
-    i = 0
+    a, b = 2, 1
+    count = 0
     while True:
-        if b >= n:
-            return b
-        c = a + b
-        a, b = b, c
-        i += 1
-        if is_prime(c):
-            if i == n - 1:
-                return c
+        if is_prime(b):
+            count += 1
+            if count == n:
+                return b
+        a, b = b, a + b
+        if a > 10:
+            break
+
+
+def is_prime(num: int):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
