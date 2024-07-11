@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -29,4 +30,8 @@ vector<string> sorted_list_sum(vector<string> lst) {
     return result;
 }
 
-vector<string> sorted_list_sum(vector<string> lst);
+int main() {
+    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
+    vector<string> expected = {"ccc", "dd", "aaaa", "bbbb"};
+    assert(issame(sorted_list_sum(lst), expected));
+}
