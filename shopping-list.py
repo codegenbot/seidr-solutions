@@ -1,9 +1,20 @@
-n = int(input())
-prices_str, discounts_str = input().split(), input().split()
+```
+def shopping_list():
+    n = int(input())
+    total_price = 0
 
-prices = list(map(float, prices_str))
-discounts = list(map(float, discounts_str))
+    for _ in range(n):
+        line = input().split()
+        if len(line) != 2:
+            print("Invalid input. Please enter price and discount separately.")
+            return None
+        try:
+            price, discount = float(line[0]), int(line[1])
+            total_price += price * (1 - discount / 100)
+        except ValueError:
+            print("Invalid input. Please ensure that the first value is a number and the second is an integer.")
 
-total_price = sum(price * (1 - discount / 100) for price, discount in zip(prices, discounts))
+    return round(total_price, 1)
 
-print(round(total_price, 2))
+
+print(shopping_list())
