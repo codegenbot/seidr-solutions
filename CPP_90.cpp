@@ -1,9 +1,9 @@
-int next_smallest(vector<int> lst) {
-    if (lst.size() < 2) return -1; // Return None or any sentinel value that you prefer
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    for (int i = 0; i < sorted.size() - 1; i++) {
-        if (sorted[i] != sorted[i + 1]) return sorted[i + 1];
+vector<int>::iterator it = unique(lst.begin(), lst.end());
+if(it != lst.end()){
+    vector<int>::iterator it2 = it;
+    advance(it2, 1);
+    if(it2 != lst.end()){
+        return *it2;
     }
-    return -1; // Return None or any sentinel value that you prefer
 }
+return -1; // or None as per the problem description
