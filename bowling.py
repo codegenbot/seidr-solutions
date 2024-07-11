@@ -1,3 +1,4 @@
+```
 def bowling_score(s):
     score = 0
     rolls = list(map(int, s.replace("X", "10").replace("/","2").split("-")))
@@ -5,18 +6,28 @@ def bowling_score(s):
     while i < len(rolls):
         if rolls[i] == 10:
             # Strike
-            score += 10 + (rolls[i+1] + rolls[i+2] if i+2 < len(rolls) else 0)
-            i += (3 if i+2 < len(rolls) else 1)
-        elif rolls[i] == -1 or rolls[i] == 2:
+            score += 10 + (rolls[i+1]+rolls[i+2])//2*2
+            i += 2
+        elif rolls[i] in [0, 1, 2]:
             # Spare
-            score += 5 + (rolls[i+1] + rolls[i+2] if i+2 < len(rolls) else 0)
-            i += (3 if i+2 < len(rolls) else 1)
-        elif rolls[i] > 9 and (i+1 < len(rolls) and min(rolls[i],10)+(10-rolls[i])//2*2 <= sum(range(11))):
-            # Split the frame into two parts
-            score += min(rolls[i],10)+(10-rolls[i])//2*2
-            i += 1
+            score += 5 + rolls[i+1]
+            i += 2
         else:
-            # Single roll for this frame
-            score += rolls[i]
-            i += 1
+            # Regular frame
+            if i < len(rolls) - 1 and (rolls[i]+rolls[i+1]) > 10:
+                # Split the frame into two parts
+                score += min(10, rolls[i])+(10-min(rolls[i],10))//2*2
+                i += 1
+            elif i < len(rolls) - 1 and (rolls[i]+rolls[i+1]+rolls[i+2]) > 15:
+                score += min(10, rolls[i])
+                score += min(5,10-rolls[i])
+                if rolls[i+2] in [0, 1, 2]:
+                    score += 5 + rolls[i+3]
+                else:
+                    score += min(5,rolls[i+2])+(5-min(rolls[i+2],5))//2*2
+                i += 3
+            else:
+                # Single roll for this frame
+                score += min(10, rolls[i])
+                i += 1
     return score
