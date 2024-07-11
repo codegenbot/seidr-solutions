@@ -7,11 +7,12 @@ def filter_by_prefix():
             strings = input("Enter strings (comma-separated): ").split(",")
             prefix = input("Enter prefix: ")
 
-            filtered_strings = [
-                s.strip()
-                for s in strings
-                if len(strings) > 1 and s.strip().startswith(prefix)
-            ]
+            if len(strings) > 1:
+                filtered_strings = [
+                    s.strip() for s in strings if s.strip().startswith(prefix)
+                ]
+            else:
+                filtered_strings = [s.strip() for s in strings]
 
             print(filtered_strings)
             break
