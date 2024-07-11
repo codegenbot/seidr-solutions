@@ -1,5 +1,3 @@
-Here is the modified code:
-
 from typing import List
 import math
 
@@ -32,7 +30,7 @@ if __name__ == "__main__":
     try:
         num = int(input("Enter a number to factorize: "))
         if num > 1:
-            print(factorize())
+            print(*factorize(), sep=', ')
         else:
             print("Please enter a positive integer greater than 1.")
     except ValueError as e:
