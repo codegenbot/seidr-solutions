@@ -7,28 +7,28 @@ int calculateScore(string s) {
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'X') {
             total += 10;
-            if (frame < 9) {
-                if (s[i + 2] == 'X') {
-                    total += 10;
-                    if (s[i + 4] == 'X') {
-                        total += 10;
-                    } else {
-                        total += s[i + 4] - '0';
-                    }
-                } else if (s[i + 3] == '/') {
-                    total += 10;
-                } else {
-                    total += s[i + 2] - '0' + s[i + 3] - '0';
+            if (i + 2 < s.size() && s[i+2] == 'X') {
+                total += 10;
+            } else if (i + 3 < s.size() && s[i+3] == '/') {
+                total += 10;
+            } else if (i + 2 < s.size()) {
+                if (s[i+1] != '/') {
+                    total += s[i+1] - '0';
+                }
+                if (i + 3 < s.size() && s[i+2] != '/') {
+                    total += s[i+2] - '0';
                 }
             }
             frame++;
         } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0');
-            if (frame == 9) {
-                total += s[i + 1] - '0';
+            total += 10 - (s[i-1] - '0');
+            if (i + 1 < s.size() && s[i+1] != 'X') {
+                total += s[i+1] - '0';
             }
+            frame++;
         } else if (s[i] >= '1' && s[i] <= '9') {
             total += s[i] - '0';
+            frame++;
         }
         if (frame == 10) {
             break;
