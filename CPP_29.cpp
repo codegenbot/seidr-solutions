@@ -10,9 +10,7 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix);
 
 int main() {
-    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
-    
-    // Add more test cases or logic here
+    assert(issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"), {"xxx", "xxxAAA", "xxx"}));
     
     return 0;
 }
