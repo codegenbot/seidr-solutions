@@ -4,9 +4,6 @@ from collections import Counter
 def search():
     while True:
         user_input = input("Enter a list of numbers separated by space: ")
-        if user_input == "":
-            print("No input received.")
-            return None
         try:
             lst = [int(x) for x in user_input.split()]
             counter = Counter(lst)
