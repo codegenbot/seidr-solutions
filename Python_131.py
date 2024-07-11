@@ -1,2 +1,4 @@
 def digits(n):
-    return max(int(digit) for digit in str(abs(n)))
+    while n > 9:
+        n = sum(int(digit) for digit in str(n))
+    return n
