@@ -1,4 +1,3 @@
-```python
 from typing import List
 
 def get_values() -> List[int]:
@@ -7,15 +6,11 @@ def get_values() -> List[int]:
         user_value = input("Enter a value (or 'stop' to finish): ")
         if user_value.lower() == 'stop':
             break
+        if user_value.strip() == '':
+            print("Please enter a valid integer.")
+            continue
         try:
-            value = int(user_value)
-            if value >= 0:  
-                result.append(value)
-            else:
-                print(f"Invalid input: {user_value}. Please enter non-negative integers only. Try again!")
+            result.append(int(user_value))
         except ValueError:
-            if user_value.isdigit():  
-                print("Please enter a value without spaces or symbols.")
-            else:
-                print(f"Invalid input: {user_value}. Please enter integers only. Try again!")
+            print(f"Invalid input: {user_value}. Please enter integers only. Try again!")
     return result
