@@ -1,4 +1,4 @@
-```
+```python
 def bowling_score(game):
     score = 0
     frames = game.upper().split('/')
@@ -10,13 +10,13 @@ def bowling_score(game):
                 first_roll = int(frames[i-1].split()[0])
                 score += 10 + first_roll
             else: 
-                score += 10
+                score += 15
         elif '/' in frame and len(frame) > 2:
-            rolls = list(map(int, frame.split()))
-            if sum(rolls) == 10:
-                score += sum(rolls)
+            first_two_rolls = list(map(int, frame.split()))
+            if sum(first_two_rolls) == 10:
+                score += sum(first_two_rolls)
             else:
-                score += sum(rolls)
+                score += sum(first_two_rolls)
         elif len(frame) == 2:
             rolls = list(map(int, frame.split()))
             if rolls[0] + rolls[1] > 10:
