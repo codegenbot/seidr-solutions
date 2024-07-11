@@ -6,19 +6,21 @@ def bowling_score(s):
     while i < len(rolls):
         if rolls[i] == 10:
             # Strike
-            score += 10 + (rolls[i+1]+min(10,rolls[i+2]))//2*2
+            score += 10
+            if i + 1 < len(rolls):
+                score += rolls[i+1]
+            if i + 2 < len(rolls):
+                score += rolls[i+2]
             i += 2
-        elif rolls[i] == 5 or (rolls[i] + rolls[i+1]) == 10:
+        elif rolls[i] + rolls[i+1] == 10:
             # Spare
-            score += 5 + rolls[i+1]
+            score += 5
+            score += rolls[i+2]
             i += 2
         else:
             # Regular frame
-            if rolls[i] > 0 and rolls[i+1] > 9:
-                score += min(rolls[i], 10) + min(10, rolls[i+1]) + (10 - min(rolls[i+1], 10)) // 2 * 2
-                i += 2
-            else:
-                # Single roll for this frame
-                score += rolls[i] + min(10, rolls[i+1])
-                i += 2
+            score += rolls[i]
+            if rolls[i] < 10:
+                score += rolls[i+1]
+            i += 1
     return score
