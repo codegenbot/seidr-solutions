@@ -1,11 +1,6 @@
-```
-def correct_bracketing(brackets: str):
-    stack = []
-    for bracket in brackets:
-        if bracket == "<":
-            stack.append("<")
-        elif bracket == ">":
-            if len(stack) == 0:
-                return False
-            stack.pop()
-    return len(stack) == 0
+def calculate_average_score(students_scores):
+    total = 0
+    for score in students_scores:
+        total += int(score)
+    average = total / len(students_scores)
+    return str(int(average))
