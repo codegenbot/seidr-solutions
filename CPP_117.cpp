@@ -1,14 +1,16 @@
-bool issame(vector<string> a, vector<string> b) {
+#include <vector>
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
+std::vector<std::string> select_words(std::string s, int n) {
+    std::vector<std::string> result;
     if (s.empty()) {
         return result;
     }
 
-    string word = "";
+    std::string word = "";
     int consonantCount = 0;
 
     for (char c : s) {
