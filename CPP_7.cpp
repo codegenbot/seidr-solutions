@@ -1,13 +1,7 @@
-Here is the modified code:
-
-```cpp
-#include <vector>
-#include <string>
-
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
-    std::vector<std::string> result;
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
     for(auto& s : strings) {
-        if(s.find(substring) != std::string::npos)
+        if(s.find(substring) != string::npos)
             result.push_back(s);
     }
     return result;
@@ -27,10 +21,9 @@ bool same(vector<vector<string>> a, vector<string> b) {
         }
     }
     return true;
-
 }
 
 int main() {
-    assert(same(vector<vector<string>>{{"grunt"}, {"prune"}}, vector<string>{"grunt", "prune"}));
+    assert(same(vector<vector<string>>{{"grunt"}}, vector<string>{"grunt", "prune"}));
     return 0;
 }
