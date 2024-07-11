@@ -1,12 +1,16 @@
-bool will_it_fly(vector<int> q, int w) {
-    int sum = 0;
-    bool balanced = true;
-
-    for (int i = 0; i < q.size(); i++) {
-        sum += q[i];
-        if (q[i] != q[q.size() - i - 1])
-            balanced = false;
+int sum = 0;
+    for (int num : q) {
+        sum += num;
     }
-
-    return balanced && sum <= w;
+    
+    if (sum <= w) {
+        vector<int> reverse_q = q;
+        reverse(reverse_q.begin(), reverse_q.end());
+        
+        if (q == reverse_q) {
+            return true;
+        }
+    }
+    
+    return false;
 }
