@@ -1,5 +1,3 @@
-def double_the_difference(numbers):
-    first_half = sorted([n for n in numbers[:len(numbers)//2]])
-    second_half = sorted([n for n in numbers[len(numbers)//2:]]
-    
-    return (first_half[-1] - second_half[0]) * 2
+def double_the_difference():
+    numbers = list(map(int, input("Enter space-separated integers: ").split()))
+    return sum([i**2 for i in numbers])
