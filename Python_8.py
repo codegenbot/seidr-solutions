@@ -2,10 +2,11 @@
 from typing import List, Tuple
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    if not isinstance(numbers, list):
-        for num in numbers:
-            if not isinstance(num, int):
-                return "Expected input: list of integers"
+    if not numbers:
+        return "Expected input: non-empty list of integers"
+    
+    if not all(isinstance(num, int) for num in numbers):
+        return "Expected input: list of integers"
     
     total_sum = 0
     product = 1
