@@ -3,7 +3,7 @@
 using namespace std;
 
 bool issame(vector<string> a,vector<string>b){
-    return (a[0] == b[0]) && (a.size() == 2) && ((a[1] == "True" && b[1] == "True") || (a[1] == "False" && b[1] == "False"));
+    return (a[0] == b[0]) && (a[1] == b[1]);
 }
 
 vector<string> reverse_delete(string s, string c) {
