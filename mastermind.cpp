@@ -1,13 +1,13 @@
 #include <iostream>
-#include <string>
 #include <vector>
+using namespace std;
 
 int main() {
-    std::string code, guess;
-    std::cin >> code >> guess;
+    string code, guess;
+    cin >> code >> guess;
     
     int whitePegs = 0, blackPegs = 0;
-    std::vector<int> freq(6, 0);
+    vector<int> freq(6, 0);
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
@@ -22,7 +22,7 @@ int main() {
         if (f > 0) whitePegs += f;
     }
     
-    std::cout << whitePegs << "\n" << blackPegs << '\n';
+    cout << whitePegs << "\n" << blackPegs << endl;
     
     return 0;
 }
