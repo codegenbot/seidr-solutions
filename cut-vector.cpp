@@ -20,7 +20,6 @@ int main() {
         prefixSum += nums[i];
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
-        
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
