@@ -3,15 +3,16 @@ def minPath(grid, k):
     n = len(grid)
     res = []
     for _ in range(k):
-        pos = [(i, j) for i in range(n) for j in range(n)]
-        while pos:
-            x, y = pos[0]
-            if grid[x][y] == 1:
-                break
-            pos.pop(0)
-        res.append((x, y))
+        min_val = float('inf')
+        pos = None
         for i in range(n):
             for j in range(n):
-                if (i, j) != (x, y) and grid[i][j] == 1:
+                if grid[i][j] < min_val:
+                    min_val = grid[i][j]
+                    pos = (i, j)
+        res.append(min_val)
+        for i in range(n):
+            for j in range(n):
+                if (i == pos[0] or j == pos[1]):
                     grid[i][j] -= 1
     return res
