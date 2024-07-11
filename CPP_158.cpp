@@ -1,5 +1,4 @@
-#include <string>
-
+```cpp
 std::string find_max(std::vector<std::string> words) {
     std::string result = "";
     int max_unique_chars = 0;
@@ -12,7 +11,7 @@ std::string find_max(std::vector<std::string> words) {
         if (unique_chars.size() > max_unique_chars) {
             max_unique_chars = unique_chars.size();
             result = word;
-        } else if (unique_chars.size() == max_unique_chars && word.compare(result) < 0) {
+        } else if (unique_chars.size() == max_unique_chars && word < result) {
             result = word;
         }
     }

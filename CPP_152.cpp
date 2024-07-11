@@ -1,6 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
+#include <cassert>
 
 using namespace std;
 
@@ -15,6 +16,9 @@ pair<int, int> compare(vector<int> a, vector<int> b) {
         return make_pair(0, 1);
     else
         return make_pair(1, 1);
+
 }
 
-assert (compare(vector<int>( {1, 2, 3, 5} ), vector<int>({-1, 2, 3, 4} )) == make_pair(2,0));
+int main() {
+    assert (compare(vector<int>({1,2,3,5}), vector<int>({-1,2,3,4})) == make_pair(0,1));
+    return 0;
