@@ -3,7 +3,7 @@
 #include <map>
 #include <cassert>
 
-bool issame(const std::map<char, int>& a, const std::map<char, int>& b){
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b) {
     return a == b;
 }
 
@@ -33,6 +33,6 @@ std::map<char, int> histogram(std::string test) {
 }
 
 int main() {
-    assert (issame(histogram("a"), {{'a', 1}}));
+    assert(issame(histogram("a"), {{'a', 1}}));
     return 0;
 }
