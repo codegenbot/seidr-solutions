@@ -1,4 +1,12 @@
-if (n > m) {
+#include <string>
+#include <cmath>
+#include <cassert>
+
+std::string rounded_avg(int n, int m)
+{
+    std::string binary_avg = "";
+    
+    if (n > m) {
         return "-1";
     }
     
@@ -9,9 +17,8 @@ if (n > m) {
     
     int avg = round((double)sum / (m - n + 1));
     
-    string binary_avg = "";
     while (avg > 0) {
-        binary_avg = to_string(avg % 2) + binary_avg;
+        binary_avg = std::to_string(avg % 2) + binary_avg;
         avg /= 2;
     }
     
