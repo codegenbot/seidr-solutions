@@ -1,17 +1,20 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cmath>
+
 int gcd(int a, int b) {
-    a = std::abs(a);
-    b = std::abs(b);
-
-    if (a == 0) return b;
-    if (b == 0) return a;
-
-    while (b != 0) {
-        int tmp = b;
-        b = a % b;
-        a = tmp;
+    int sign = 1;
+    if (a < 0) {
+        sign *= -1;
+        a = -a;
+    }
+    if (b < 0) {
+        sign *= -1;
+        b = -b;
     }
 
-    return a;
+    return b == 0 ? a : gcd(b, a % b);
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
@@ -19,10 +22,30 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     size_t pos = 0;
     size_t targetLen = target.length();
 
-    while ((pos = text.find(target, pos)) != std::string::npos) {
-        indices.push_back(pos);
-        pos += 1;
+    while (pos != text.length()) {
+        pos = text.find(target, pos);
+        if (pos != std::string::npos) {
+            indices.push_back(pos);
+            pos += targetLen == 0 ? 1 : targetLen;
+        }
     }
 
     return indices;
+}
+
+int main() {
+    std::string text = "abracadabra";
+    std::string target = "abra";
+    std::vector<int> result = indicesOfSubstring(text, target);
+    
+    for (int index : result) {
+        std::cout << index << " ";
+    }
+
+    int a = 801456;
+    int b = 55521;
+    int result_gcd = gcd(abs(a), abs(b));
+    std::cout << result_gcd;
+
+    return 0;
 }
