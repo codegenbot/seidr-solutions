@@ -1,4 +1,5 @@
-def parse_music(music_string: str) -> List[int]:
+```
+def parse_music(music_string: str) -> list:
     beats_per_note = {'o': 4, 'o|': 2, '.|': 1}
     music_list = []
     temp = ''
@@ -8,9 +9,6 @@ def parse_music(music_string: str) -> List[int]:
                 music_list.append(beats_per_note[temp])
                 temp = ''
             temp += char
-        else:
-            if temp:
-                break
     if temp:
         music_list.append(beats_per_note[temp])
     return music_list
