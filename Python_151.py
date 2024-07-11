@@ -1,4 +1,3 @@
-def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i > 0)
-
-check(double_the_difference, [1, 3, -5])
+def check(func):
+    result = func([1, -2, 3, 0, -4, 5])
+    print(result)
