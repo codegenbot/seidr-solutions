@@ -1,23 +1,23 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-
-using namespace std;
 
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int n;
-    while (cin >> n) {
-        if (n == -1) break;
+    
+    while (std::cin >> n) {
+        if (n == -1) {
+            break;
+        }
         nums.push_back(n);
     }
     
     int sum = 0;
     for (int num : nums) {
-        sum += (num / 3) - 2;
+        sum += num / 3 - 2;
     }
     
-    cout << sum << "\n";
+    std::cout << sum << std::endl;
     
     return 0;
 }
