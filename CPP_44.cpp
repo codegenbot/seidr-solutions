@@ -1,5 +1,7 @@
+
 #include <string>
 #include <iostream>
+#include <cassert>
 
 std::string change_base(int x, int base) {
     std::string result = "";
@@ -17,16 +19,13 @@ void solve_problem() {
     if (base != 0 && x >= 0) {
         std::string result = change_base(x, base);
         std::cout << "Result: " << result << std::endl;
+        assert(change_base(x, x + 1) == std::to_string(x));
     } else {
         std::cout << "Invalid input!" << std::endl;
     }
 }
 
-void contest_main() {
-    solve_problem();
-}
-
 int main() {
-    contest_main();
+    solve_problem();
     return 0;
 }
