@@ -2,8 +2,6 @@
 def decode_cyclic(s: str):
     result = []
     temp = ""
-    if len(s) % 2 != 0:
-        result.append(s[len(s)//2])
     for char in s + s:
         temp += char
         if len(temp) == 3:
@@ -12,7 +10,9 @@ def decode_cyclic(s: str):
             else:
                 if len(temp) == 2:  
                     result.append(temp)
-                else:
+                elif temp[1:] in s + s:
                     result.append(temp[1:] + temp[0])
+                else:
+                    result.append(temp)
             temp = ""
     return "".join(result)
