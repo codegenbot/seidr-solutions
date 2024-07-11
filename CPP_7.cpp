@@ -3,30 +3,21 @@
 #include <string>
 
 bool same(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
 
 int main() {
-    vector<string> strings = {"apple", "banana", "cherry", "date"};
-    string substring = "an";
-    vector<string> result = filter_by_substring(strings, substring);
+    std::vector<std::string> strings = {"apple", "banana", "cherry"};
+    std::string substring = "an";
     
-    if (same(result, {"banana"})) {
-        for(auto str : result) {
-            cout << str << endl;
+    std::vector<std::string> result = filter_by_substring(strings, substring);
+    
+    for (auto str : result) {
+        if (same({str}, {"apple"})) {
+            std::cout << str << std::endl;
         }
-    } else {
-        cout << "No strings found." << endl;
     }
-
+    
     return 0;
 }
 
