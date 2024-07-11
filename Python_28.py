@@ -7,6 +7,6 @@ def concatenate(strings: List[str]) -> str:
     result = ""
     for s in strings:
         if not isinstance(s, str):
-            return
+            return 
         result += s
     return result
