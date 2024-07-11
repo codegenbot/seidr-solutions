@@ -1,12 +1,3 @@
-def double_the_difference(lst):
-    if not lst:  
-        return 0  
-    
-    odd_sum = sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
-    
-    if len(lst) == 0:  
-        return 0
-    elif sum(1 for i in lst) % 2 == 1:  
-        return odd_sum * 2
-    else:
-        return abs(odd_sum - (sum(i**2 for i in lst) / len(lst)))
+```Python
+def double_the_difference(input_list):
+    return sum(i**2 for i in input_list if isinstance(i, int) and i >= 0 and i % 2 != 0)
