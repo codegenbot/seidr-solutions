@@ -2,8 +2,8 @@
 import re
 
 def fix_spaces(text):
-    text = re.sub(r'\s+', ' ', text)
-    return text.strip()
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
 
 print("Welcome to the space fixing program!")
 
