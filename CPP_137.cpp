@@ -1,40 +1,38 @@
 #include <boost/any.hpp>
 #include <string>
-#include <iostream>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        int i = any_cast<int>(a);
-        float f = any_cast<float>(b);
-        return (i > f) ? a : b;
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        float f = any_cast<float>(a);
-        int i = any_cast<int>(b);
-        return (f > i) ? a : b;
+    else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return max((int)a.convert_to<int>(), (double)b.convert_to<double>());
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(double)) {
+        return max((float)a.convert_to<float>(), (double)b.convert_to<double>());
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string s1 = any_cast<string>(a);
-        string s2 = any_cast<string>(b);
-        if (s1 > s2) return a;
-        else if (s2 > s1) return b;
-        else return boost::any("None");
+        string sa = a.convert_to<string>();
+        string sb = b.convert_to<string>();
+        if (stod(sa) > stod(sb))
+            return a;
+        else if (stod(sa) < stod(sb))
+            return b;
+        else
+            return boost::any("None");
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        string s = any_cast<string>(a);
-        float f = any_cast<float>(b);
-        if (stod(s) > f) return a;
-        else if (f > stod(s)) return b;
-        else return boost::any("None");
+    else if (a.type() == typeid(string)) {
+        string s = a.convert_to<string>();
+        try {
+            float f = stof(s);
+            return b > f ? b : a;
+        } catch (...) {
+            return "None";
+        }
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        float f = any_cast<float>(a);
-        string s = any_cast<string>(b);
-        if (f > stod(s)) return a;
-        else if (stod(s) > f) return b;
-        else return boost::any("None");
+    else {
+        return b > a ? b : a;
     }
-    return a;
 }
