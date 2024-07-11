@@ -1,16 +1,19 @@
 ```cpp
 #include <sstream>
-std::stringstream ss;
+#include <string>
 
-void string_to_md5(char *input) {
-    // existing code...
-    ss << std::hex << std::setfill('0') << std::setw(2) << (int)md5[i];
+std::string string_to_md5(const std::string& s) {
+    // Your md5 implementation goes here...
 }
 
 int main() {
-    char input[256];
+    std::stringstream ss;
+    std::string str;
     std::cout << "Enter a string: ";
-    std::cin.getline(input, 256);
-    string_to_md5(input);
+    std::getline(std::cin, str);
+
+    assert(string_to_md5(str).size() != 0);
+    ss << std::hex << std::setfill('0') << std::setw(2) << (int)str[0];
+
     return 0;
 }
