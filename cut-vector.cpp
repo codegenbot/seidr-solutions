@@ -1,13 +1,12 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
+using namespace std;
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<int> vec(n+1);
+    cin >> n;
+    vector<int> vec(n+1);
     for (int i = 0; i <= n; ++i)
-        std::cin >> vec[i];
+        cin >> vec[i];
     
     pair<vector<int>, vector<int>> res = cutVector(vec);
     
@@ -18,7 +17,7 @@ int main() {
             cout << " ";
     }
     cout << "] [";
-
+    
     for (int num : res.second) {
         cout << num;
         if (&num != &res.second.back())
