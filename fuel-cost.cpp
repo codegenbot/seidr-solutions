@@ -1,15 +1,15 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
-    int n;
-    while (true) {
+    int count, n;
+    
+    cin >> count;
+    for (int i = 0; i < count; ++i) {
         cin >> n;
-        if (n == -1) break;
         nums.push_back(n);
     }
     
