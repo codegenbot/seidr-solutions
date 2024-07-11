@@ -20,13 +20,13 @@ def check():
             expression = input("Enter an expression (or 'done' if finished): ")
             if expression.lower() == "done":
                 break
-            if correct_bracketing(expression):
-                print("Correct bracketing!")
-            else:
-                print("Incorrect bracketting. Try again.")
+            print(
+                "Correct bracketing!"
+                if correct_bracketing(expression)
+                else "Incorrect bracketing. Try again."
+            )
         except Exception as e:
             print(f"Error occurred: {e}")
 
 
-if __name__ == "__main__":
-    check()
+check()
