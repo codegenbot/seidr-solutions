@@ -1,16 +1,21 @@
+```cpp
+#include <string>
+#include <map>
+
 int whitePegs(string code, string guess) {
     int count = 0;
-    vector<int> codeMap(6), guessMap(6);
+    std::map<char, int> codeMap, guessMap;
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
+            codeMap[code[i]]++;
+            guessMap[guess[i]]++;
             count++;
         }
     }
-    for (char c : code) {
-        codeMap[c]++;
-    }
-    for (char c : guess) {
-        guessMap[c]++;
+    for (auto &pair : codeMap) {
+        if (codeMap[pair.first] > 1 || guessMap[pair.first] > 1) {
+            return -1;
+        }
     }
     int blackPegsCount = blackPegs(code, guess);
     return count - blackPegsCount;
