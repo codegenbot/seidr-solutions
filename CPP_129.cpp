@@ -1,10 +1,15 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
-
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
+}
+
+std::vector<int> minPath(std::vector<std::vector<int>> grid, int k);
+
+int main() {
+    // Main function content
+    return 0;
 }
 
 std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
@@ -36,9 +41,4 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     }
 
     return path;
-}
-
-int main() {
-    // Test the code here
-    return 0;
 }
