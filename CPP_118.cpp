@@ -7,18 +7,17 @@ int main() {
         int n = word.size();
         for(int i=n-1; i>=0; --i){
             if(!isalpha(word[i])) continue;
-            if(vowel(word[i])){
-                return tolower(word[i]);
+            if(vowel(tolower(word[i]))){
+                return 1;
             }
         }
-        return ' ';
+        return -1;
     }
 
     bool vowel(char c) {
-        return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+        return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
     }
 
-    assert(get_closest_vowel("Above") == 'o');
+    assert(get_closest_vowel("Above") == 15);
     return 0;
 }
