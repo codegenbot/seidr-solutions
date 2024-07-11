@@ -26,8 +26,16 @@ def factorize():
         print(f"Error: {e}")
 
 
-if __name__ == "__main__":
+def main():
     try:
-        print(*factorize(), sep=', ')
+        num = int(input("Enter a number to factorize: "))
+        if num > 1:
+            print(factorize())
+        else:
+            print("Please enter a positive integer greater than 1.")
     except ValueError as e:
         print(f"Error: {e}")
+
+
+if __name__ == "__main__":
+    main()
