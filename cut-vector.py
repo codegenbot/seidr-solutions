@@ -1,20 +1,16 @@
 n = int(input())
-a = [int(input()) for _ in range(n)]
+arr = [int(input()) for _ in range(n)]
 
-total_sum = sum(a)
-half_sum = total_sum // 2
+total_sum = sum(arr)
+left_sum = 0
+index = 0
 
-curr_sum = 0
-idx = 0
-for i in range(n):
-    curr_sum += a[i]
-    if curr_sum >= half_sum:
-        idx = i
+for i in range(n - 1):
+    left_sum += arr[i]
+    right_sum = total_sum - left_sum
+    if abs(left_sum - right_sum) <= abs(left_sum + arr[i + 1] - right_sum):
         break
+    index = i + 1
 
-if abs(total_sum - 2 * curr_sum) < abs(total_sum - 2 * (curr_sum - a[idx])):
-    print(*a[: idx + 1])
-    print(*a[idx + 1 :])
-else:
-    print(*a[:idx])
-    print(*a[idx:])
+print(arr[: index + 1])
+print(arr[index + 1 :])
