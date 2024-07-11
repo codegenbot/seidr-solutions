@@ -1,8 +1,8 @@
 #include <vector>
-#include <climits> 
+#include <climits> // Include for INT_MIN and INT_MAX
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
-    std::vector<int> result = {INT_MIN, INT_MAX}; 
+    std::vector<int> result = {INT_MIN, INT_MAX}; // Initialize values to INT_MIN and INT_MAX respectively
     int largest_negative = INT_MIN;
     int smallest_positive = INT_MAX;
     
