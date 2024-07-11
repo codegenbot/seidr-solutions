@@ -5,9 +5,7 @@ int main() {
     std::cin >> n >> m;
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
-            if (i > j) {
-                probability += static_cast<double>(n - i) * j / (n * m);
-            }
+            probability += static_cast<double>(n - i) * j / (n * m);
         }
     }
     std::cout << probability << std::endl;
