@@ -1,7 +1,4 @@
 ```
-def truncate_number(number, n):
-    return format(round(float(f"{number:.{n}f}"), 2), ".2f")
-
 def truncate_number_to_two_decimal_places():
     while True:
         try:
@@ -19,10 +16,8 @@ def truncate_number_to_two_decimal_places():
             if n < 0:
                 print("Number of decimal places should be non-negative.")
             else:
-                result = truncate_number(number, min(2, n))
+                result = "{:.{}f}".format(number, min(2, n))
                 print(f"The truncated number is {result}")
                 break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
-
-truncate_number_to_two_decimal_places()
