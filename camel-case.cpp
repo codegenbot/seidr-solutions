@@ -22,3 +22,4 @@ std::string camelCase(const std::string& input) {
     }
 
     return output;
+}
