@@ -1,7 +1,5 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
-#include <cassert>
+#include <vector>
 
 bool move_one_ball(vector<int>& arr) {
     int n = arr.size();
@@ -12,10 +10,4 @@ bool move_one_ball(vector<int>& arr) {
         rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
     return false;
-}
-
-int main() {
-    assert(move_one_ball({}) == true);
-    // Add more test cases here
-    return 0;
 }
