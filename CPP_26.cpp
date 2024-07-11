@@ -1,9 +1,15 @@
+#include <unordered_set>
+
 vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> uniqueNumbers;
+    unordered_set<int> seen;
+    vector<int> result;
+
     for (int num : numbers) {
-        if (find(uniqueNumbers.begin(), uniqueNumbers.end(), num) == uniqueNumbers.end()) {
-            uniqueNumbers.push_back(num);
+        if (seen.find(num) == seen.end()) {
+            seen.insert(num);
+            result.push_back(num);
         }
     }
-    return uniqueNumbers;
+
+    return result;
 }
