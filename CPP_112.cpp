@@ -1,13 +1,9 @@
-Here is the completed code:
-
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
-    
-    // Remove all characters in s that are equal to any character in c
     string temp = "";
-    for (char ch : s) {
+    for (char& ch : s) {
         bool found = false;
-        for (char cc : c) {
+        for (char& cc : c) {
             if (ch == cc) {
                 found = true;
                 break;
@@ -17,14 +13,13 @@ vector<string> reverse_delete(string s, string c) {
             temp += ch;
         }
     }
-    
-    // Check if the result string is palindrome
+    result.push_back(temp);
     string revTemp = temp;
     reverse(revTemp.begin(), revTemp.end());
-    bool isPalindrome = (temp == revTemp);
-    
-    result.push_back(temp);
-    result.push_back(isPalindrome ? "True" : "False");
-    
+    if (temp == revTemp) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
     return result;
 }
