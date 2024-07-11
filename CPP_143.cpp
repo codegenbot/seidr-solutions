@@ -1,40 +1,27 @@
-string result = "";
-    string word = "";
-    for (char c : sentence) {
-        if (c != ' ') {
-            word += c;
-        } else {
-            int word_length = word.length();
-            bool is_prime = true;
-            if (word_length <= 1) {
-                is_prime = false;
-            } else {
-                for (int i = 2; i * i <= word_length; ++i) {
-                    if (word_length % i == 0) {
-                        is_prime = false;
-                        break;
-                    }
-                }
-            }
-            if (is_prime) {
+#include <string>
+
+int is_prime(int num){
+    if(num < 2) return 0;
+    for(int i=2; i*i<=num; i++){
+        if(num % i == 0) return 0;
+    }
+    return 1;
+}
+
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    std::string word = "";
+    for(char c : sentence){
+        if(c == ' '){
+            if(is_prime(word.length())){
                 result += word + " ";
             }
             word = "";
+        } else {
+            word += c;
         }
     }
-    int word_length = word.length();
-    bool is_prime = true;
-    if (word_length <= 1) {
-        is_prime = false;
-    } else {
-        for (int i = 2; i * i <= word_length; ++i) {
-            if (word_length % i == 0) {
-                is_prime = false;
-                break;
-            }
-        }
-    }
-    if (is_prime) {
+    if(is_prime(word.length())){
         result += word;
     }
     return result;
