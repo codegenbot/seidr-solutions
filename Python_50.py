@@ -1,2 +1,2 @@
 def decode_shift(s: str):
-    return "".join([chr(((ord(ch.lower()) - 97 - ord("a")) % 26) + ord("a")) for ch in s])
+    return "".join([chr(((ord(ch) - 97) % 26) + 97)) for ch in s])
