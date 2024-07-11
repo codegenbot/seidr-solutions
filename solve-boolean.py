@@ -3,8 +3,7 @@ def solve_boolean(expression):
         expression.replace("T", "True")
         .replace("F", "False")
         .replace("|", " or ")
-        .replace("&", " and")
+        .replace("&", " and ")
     )
-
 
 print(solve_boolean(input()))
