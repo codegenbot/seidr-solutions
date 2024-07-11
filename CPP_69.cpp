@@ -1,15 +1,24 @@
-Here is the solution:
+#include <vector>
+#include <map>
 
-int search(vector<int> lst){
-    map<int, int> freqMap;
-    for(int i = 0; i < lst.size(); i++){
-        if(freqMap.find(lst[i]) == freqMap.end())
-            freqMap[lst[i]] = 1;
-        else
-            freqMap[lst[i]]++;
+using namespace std;
+
+int search(vector<int> lst) {
+    map<int, int> freq;
+    for (int x : lst) {
+        if (!freq.count(x)) {
+            freq[x] = 1;
+        } else {
+            freq[x]++;
+        }
     }
-    for(map<int, int>::iterator it = freqMap.begin(); it != freqMap.end(); ++it){
-        if(it->second >= it->first)
-            return it->first;
+
+    int result = -1;
+    for (auto p : freq) {
+        if (p.first > 0 && p.second >= p.first) {
+            result = p.first;
+            break;
+        }
     }
-    return -1;
+    return result;
+}
