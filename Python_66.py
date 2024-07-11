@@ -7,15 +7,18 @@ def digitSum(n):
     return sum
 
 while True:
+    user_input = input("Enter a number (or type 'exit' to quit): ")
+    if user_input.lower() == 'exit':
+        break
+    for char in user_input:
+        if not char.isdigit():
+            print("Invalid input. Please enter an integer.")
+            continue
     try:
-        user_input = input("Enter a number (or type 'exit' to quit): ")
-        if user_input.lower() == 'exit':
-            break
-        for char in user_input:
-            if not char.isdigit():
-                print("Invalid input. Please enter an integer.")
-                continue
         n = int(user_input) 
-        print(digitSum(n))
+        if n > 2**31 - 1 or n < -2**31 + 1:
+            print("Invalid input. The number should be within the range of the int type.")
+        else:
+            print(digitSum(n))
     except ValueError:
         print("Invalid input. Please enter a valid number.")
