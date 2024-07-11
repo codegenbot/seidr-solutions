@@ -1,4 +1,6 @@
 ```
+print("Welcome to Prime Number Finder!")
+
 def find_prime_numbers(n):
     prime_numbers = []
     for possiblePrime in range(2, n + 1):
