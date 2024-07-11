@@ -1,4 +1,4 @@
-bool isCircularSorted(vector<int>& arr) {
+bool isCircularSorted(const vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
         if (is_sorted(arr.begin(), arr.end())) {
