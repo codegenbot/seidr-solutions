@@ -1,4 +1,4 @@
-#include <initializer_list>
+```c++
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -15,6 +15,7 @@ double vector_distance(int n) {
     for (int i = 0; i < n; i++) {
         sum += pow(v2[i] - v1[i], 2);
     }
+    
     return sqrt(sum);
 }
 
