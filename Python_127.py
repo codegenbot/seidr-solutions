@@ -1,13 +1,10 @@
-```
-def intersection(interval1, interval2):
-    start = max(interval1[0], interval2[0])
-    end = min(interval1[1], interval2[1])
-    
-    if start <= end:
-        length = end - start + 1
-        for i in range(2, int(length**0.5) + 1):
-            if length % i == 0:
-                return "NO"
-        return "YES"
-    else:
-        return "NO"
+interval1_start = int(input("Enter the start of interval 1: "))
+interval1_end = int(input("Enter the end of interval 1: "))
+
+interval2_start = int(input("Enter the start of interval 2: "))
+interval2_end = int(input("Enter the end of interval 2: "))
+
+interval1 = (interval1_start, interval1_end)
+interval2 = (interval2_start, interval2_end)
+
+print(intersection(interval1, interval2))
