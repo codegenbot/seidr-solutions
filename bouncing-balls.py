@@ -1,7 +1,7 @@
 starting_height, first_bounce_height, num_bounces = map(
     float,
     input(
-        "Enter starting height, first bounce height, and number of bounces (separated by spaces): "
+        "Enter starting height, first bounce height, and number of bounces: "
     ).split(),
 )
 
