@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -21,6 +22,13 @@ std::string camelCase(const std::string& s) {
         return s;
     }
 
+    if (s.find(' ') == std::string::npos && !s.empty()) {
+        std::string lower_s = s;
+        std::transform(lower_s.begin(), lower_s.end(), lower_s.begin(),
+            ::tolower);
+        return camelCase(lower_s);
+    }
+
     std::vector<std::string> groups;
     if (s.find(' ') != std::string::npos)
         groups = split(s, ' ');
@@ -42,12 +50,6 @@ std::string camelCase(const std::string& s) {
 int main() {
     std::string s;
     while (std::getline(std::cin, s)) {
-        if (s.find(' ') == std::string::npos && !s.empty()) {
-            std::string lower_s = s;
-            std::transform(lower_s.begin(), lower_s.end(), lower_s.begin(),
-                ::tolower);
-            s = lower_s;
-        }
         std::cout << camelCase(s) << std::endl;
     }
     return 0;
