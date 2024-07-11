@@ -1,9 +1,11 @@
-string s = to_string(x);
-    int n = s.size();
-    shift %= n;
+string result = to_string(x);
+    int n = result.size();
+    shift = shift % n;
     if (shift == 0) {
-        return s;
+        return result;
     }
-    string result = s.substr(n - shift) + s.substr(0, n - shift);
+    reverse(result.begin(), result.end());
+    reverse(result.begin(), result.begin() + shift);
+    reverse(result.begin() + shift, result.end());
     return result;
 }
