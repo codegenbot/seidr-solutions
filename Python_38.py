@@ -1,3 +1,4 @@
+```
 def decode_cyclic():
     s = input("Enter the cyclic string: ")
     result = ""
@@ -10,7 +11,7 @@ def decode_cyclic():
             if i == 0:
                 break
         return result
-    else:
+    else:  
         return s
 
 print(decode_cyclic())
