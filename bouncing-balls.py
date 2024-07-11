@@ -6,7 +6,6 @@ def calculate_total_distance(starting_height, first_bounce_height, num_bounces):
         total_distance += first_bounce_height
     return total_distance
 
-
 starting_height = float(input())
 first_bounce_height = float(input())
 num_bounces = int(input())
