@@ -1,19 +1,16 @@
-#include <vector>
-#include <boost/any.hpp>
-
-using namespace std;
-
 vector<int> filter_integers(list_any values);
 
 bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
-    for(int i = 0; i < a.size(); ++i){
+    
+    for(size_t i = 0; i < a.size(); ++i){
         if(a[i] != b[i]){
             return false;
         }
     }
+    
     return true;
 }
 
@@ -27,7 +24,7 @@ vector<int> filter_integers(list_any values){
     return result;
 }
 
-int main() {
-    // Your main function code here
+int main(){
+    // Main function code here
     return 0;
 }
