@@ -1,15 +1,9 @@
 double find_zero(vector<double> xs){
-    double zero_point;
-    if (xs.size() % 2 != 0) {
-        return 0;
-    }
+    double a = xs[0];
+    double b = xs[1];
     
-    for (int i = 0; i < xs.size(); i++) {
-        if (xs[i] != 0) {
-            zero_point = i * -1;
-            break;
-        }
-    }
+    if (b == 0)
+       return 0;
     
-    return zero_point;
+    return -a / b;
 }
