@@ -4,4 +4,3 @@ def find_zero(xs: list):
         raise ValueError("xs must have an even number of coefficients")
     max_coeff = abs(max(xs))
     return -xs[1] / (2 * xs[0])
-```
