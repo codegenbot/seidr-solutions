@@ -6,10 +6,6 @@
 
 using namespace std;
 
-bool issame_vectors(vector<string> a, vector<string> b){
-    return a == b;
-}
-
 vector<string> by_length(vector<int> arr){
     vector<int> filtered;
     for (int num : arr) {
@@ -30,10 +26,7 @@ vector<string> by_length(vector<int> arr){
         result.push_back(numToName[num]);
     }
 
-    return result;
-}
+    assert(issame(result, {"Nine", "Eight", "Four"}));
 
-int main(){
-    assert (issame_vectors(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
-    return 0;
+    return result;
 }
