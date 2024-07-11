@@ -1,11 +1,11 @@
 #include <iostream>
-using namespace std;
+#include <cmath>
 
 int main() {
     double startHeight, heightAfterFirstBounce;
     int numBounces;
 
-    cin >> startHeight >> heightAfterFirstBounce >> numBounces;
+    std::cin >> startHeight >> heightAfterFirstBounce >> numBounces;
 
     double bouncinessIndex = heightAfterFirstBounce / startHeight;
 
@@ -14,8 +14,8 @@ int main() {
         distanceTravelled += (startHeight * pow(2, 0.5)) * pow(0.5, i - bouncinessIndex);
     }
 
-    cout << fixed << setprecision(10); // adjust precision
-    cout << distanceTravelled << endl;
+    std::cout << std::fixed << std::setprecision(10); // adjust precision
+    std::cout << distanceTravelled << std::endl;
 
     return 0;
 }
