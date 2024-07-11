@@ -1,36 +1,42 @@
+```
 from typing import List
 import math
 
 
 def factorize():
     try:
-        num = int(input("Enter a number to factorize: "))
-        if not isinstance(num, int):
+        n = int(input("Enter a number to factorize: "))
+        if not isinstance(n, int):
             raise ValueError("Input must be an integer.")
-        if num <= 1:
-            print("Please enter a positive integer greater than 1.")
-            return []
         factors = []
         i = 2
-        while i * i <= num:
-            if num % i:
+        while i * i <= n:
+            if n % i:
                 i += 1
             else:
                 count = 0
-                while num % i == 0:
-                    num //= i
+                while n % i == 0:
+                    n //= i
                     count += 1
                 factors.append(i**count)
                 i += 1
-        if num > 1:
-            factors.append(num)
+        if n > 1:
+            factors.append(n)
         return factors
     except ValueError as e:
         print(f"Error: {e}")
 
 
-if __name__ == "__main__":
+def main():
     try:
-        factorize()
+        num = int(input("Enter a number to factorize: "))
+        if num > 1:
+            print(factorize())
+        else:
+            print("Please enter a positive integer greater than 1.")
     except ValueError as e:
         print(f"Error: {e}")
+
+
+if __name__ == "__main__":
+    main()
