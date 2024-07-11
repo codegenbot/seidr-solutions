@@ -1,17 +1,12 @@
+Here is the completed code:
+
 def decode_cyclic(s: str):
-    result = []
-    temp = ""
-    for char in s:
-        temp += char
-        if len(temp) == 3:
-            if len(result) > 0 and result[-1] == temp[0]:
-                result.append(temp)
-            else:
-                result.append(temp[1:] + temp[0])
-            temp = ""
-    if len(temp) > 0:
-        if len(result) > 0 and result[-1] == temp[0]:
-            result.append(temp)
+    result = ''
+    i = 0
+    while i < len(s):
+        if (i + 3) <= len(s):
+            result += s[i:i+3][1] + s[i:i+3][0]
         else:
-            result.append(temp[1:] + temp[0])
-    return "".join(result)
+            result += s[i:]
+        i += 3
+    return result
