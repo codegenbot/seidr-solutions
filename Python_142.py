@@ -1,4 +1,3 @@
-```
 def sum_squares(lst):
     if not isinstance(lst, list):  
         return "Invalid input. Please provide a list."
