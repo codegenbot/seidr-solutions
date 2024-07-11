@@ -1,10 +1,9 @@
 ```
-from typing import List, Optional
-
-
 def longest(strings: List[str]) -> Optional[List[str]]:
     if not strings:
         return None
+    if len(strings) == 1:
+        return [strings[0]]
 
     strings.sort(key=len)
     max_len = len(strings[-1])
@@ -17,9 +16,3 @@ def longest(strings: List[str]) -> Optional[List[str]]:
             break
 
     return results
-
-
-user_input = input("Please enter a list of strings (comma-separated): ")
-strings = [s.strip() for s in user_input.split(",")]
-
-print(longest(strings))
