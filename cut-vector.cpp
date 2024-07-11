@@ -1,31 +1,43 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+
 int main() {
     int n;
-    cin >> n;
+    std::cin >> n;
     
-    vector<int> vec(n);
-    
+    std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
+        std::cin >> nums[i];
     }
     
-    int diff = INT_MAX;
-    int split_idx = -1;
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
+    }
     
-    for (int i = 1; i < n; ++i) {
-        if (abs(accumulate(vec.begin(), vec.begin() + i, 0) - accumulate(vec.begin() + i, vec.end(), 0)) < diff) {
-            diff = abs(accumulate(vec.begin(), vec.begin() + i, 0) - accumulate(vec.begin() + i, vec.end(), 0));
-            split_idx = i;
+    int target = sum / 2;
+    
+    int prefixSum = 0;
+    int idx = -1;
+    for (int i = 0; i < n; ++i) {
+        prefixSum += nums[i];
+        if (prefixSum >= target) {
+            idx = i;
+            break;
         }
     }
     
-    for (int i = 0; i < split_idx; ++i) {
-        cout << vec[i] << endl;
-    }
-    
-    cout << endl;
-    
-    for (int i = split_idx; i < n; ++i) {
-        cout << vec[i] << endl;
+    if (std::abs(sum - 2 * prefixSum) < std::abs(sum - 2 * (prefixSum - nums[idx]))) {
+        for (int i = 0; i <= idx; ++i) {
+            std::cout << nums[i] << std::endl;
+        }
+        std::cout << 0 << std::endl;
+    } else {
+        for (int i = 0; i < idx; ++i) {
+            std::cout << nums[i] << std::endl;
+        }
+        std::cout << 0 << std::endl;
     }
     
     return 0;
