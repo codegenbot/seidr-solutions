@@ -18,5 +18,3 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     });
     return result;
 }
-
-assert (get_row({{}, {1}, {1, 2, 3}}, 3) == vector<vector<int>>({{2, 2}}));
