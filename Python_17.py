@@ -1,20 +1,20 @@
 ```
+from typing import List
+
+
 def parse_music(music_string: str) -> List[int]:
-    beats = [4, 2, 1]
-    music_list = []
-    i = 0
-    while i < len(music_string):
-        if music_string[i] == '.':
-            music_list.append(1)
-            i += 3
-        elif music_string[i] == 'o':
-            music_list.append(4)
-            i += 2
+    notes = {'o': 4, 'o|': 2, '.|': 1}
+    result = []
+    note = ''
+    for char in music_string:
+        if char == 'o' or char == '.':
+            note += char
+        elif char == '|':
+            if note:
+                result.append(notes[note])
+                note = ''
         else:
-            if music_string[i] == '|':
-                music_list.append(beats[0])
-                i += 5
-            else:
-                music_list.append(beats[1])
-                i += 3
-    return music_list
+            raise ValueError("Invalid input")
+    if note:
+        result.append(notes[note])
+    return result
