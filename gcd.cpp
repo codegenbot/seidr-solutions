@@ -1,41 +1,19 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <string>
+#include<iostream>
+using namespace std;
 
-std::vector<int> findIndices(const std::string& text, const std::string& target) {
-    std::vector<int> indices;
-    size_t pos = 0;
-
-    while ((pos = text.find(target, pos)) != std::string::npos) {
-        indices.push_back(pos);
-        pos += target.size();
-    }
-
-    return indices;
+int gcd(int a, int b) {
+    while (b != 0)
+        a %= b;
+    return a;
 }
 
 int main() {
-    std::string text, target;
-
-    // Get the text and target strings from the user
-    std::cout << "Enter the text: ";
-    std::cin >> text;
-    std::cout << "Enter the target string: ";
-    std::cin >> target;
-
-    // Find the indices of the target in the text
-    auto indices = findIndices(text, target);
-
-    // Print the indices
-    if (indices.empty()) {
-        std::cout << "Target not found." << std::endl;
-    } else {
-        for (int i : indices) {
-            std::cout << i << " ";
-        }
-        std::cout << std::endl;
-    }
-
+    string str1, str2;
+    cout << "Enter the first string: ";
+    getline(cin, str1);
+    cout << "Enter the second string: ";
+    getline(cin, str2);
+    cout << "GCD is: " << gcd(str1.length(),str2.length());
     return 0;
 }
