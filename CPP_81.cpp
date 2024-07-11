@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
@@ -24,18 +24,13 @@ vector<string> numerical_letter_grade(vector<float> grades){
         else if(g>1.3)letter_grades.push_back("C-");
         else if(g>1.0)letter_grades.push_back("D+");
         else if(g>0.7)letter_grades.push_back("D");
-        else letter_grades.push_back("F");
+        else letter_grades.push_back("E");
     }
     return letter_grades;
 }
 
 int main() {
-    vector<float> grades = {0.0, 0.7};
-    vector<string> expected = {"F", "D-"};
-    if(!issame(numerical_letter_grade(grades), expected)) {
-        cout << "Test failed" << endl;
-    } else {
-        cout << "Test passed" << endl;
-    }
+    vector<float> grades = {0, 0.7};
+    cout << endl;
+    assert(issame(numerical_letter_grade(grades), {"E", "D+"}) );
     return 0;
-}
