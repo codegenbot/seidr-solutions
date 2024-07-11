@@ -4,7 +4,7 @@
 #include <cassert>
 
 void sort_even(const std::vector<float>& values) {
-    std::vector<float> temp = values;
+    std::vector<float> temp = values; 
     std::sort(temp.begin(), temp.end(), [](float a, float b) {
         return ((int)a % 2 == 0) && ((int)b % 2 == 0) && (a < b);
     });
