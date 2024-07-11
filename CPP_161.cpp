@@ -1,29 +1,16 @@
-#include <cstddef>
-#include <cassert>
+#include <string>
+#include <algorithm>
 
-std::string solve(const std::string &s) {
-    for (char &c : s) {
-        if (isalpha(c)) {
-            if (islower(c)) {
-                c = toupper(c);
-            } else {
-                c = tolower(c);
-            }
+string solve(string s){
+    bool hasLetters = false;
+    for(char &c : s){
+        if(isalpha(c)){
+            hasLetters = true;
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-
-    size_t i = 0, j = s.size() - 1;
-    while (i < j) {
-        std::swap(s[i], s[j]);
-        i++;
-        j--;
+    if(!hasLetters){
+        reverse(s.begin(), s.end());
     }
-
     return s;
-}
-
-int main() {
-    assert(solve("#ccc") == "#CCC");
-    
-    return 0;
 }
