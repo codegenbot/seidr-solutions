@@ -4,5 +4,5 @@ int basement(vector<int>& arr) {
         sum += arr[i];
         if (sum < 0) return i + 1;
     }
-    return -1; 
+    return -1;
 }
