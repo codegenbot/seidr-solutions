@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -7,8 +6,7 @@ std::string remove_vowels() {
     std::cout << "Enter a sentence: ";
     std::getline(std::cin, text);
     std::string result = "";
-    for (std::string::iterator it = text.begin(); it != text.end(); ++it) {
-        char c = *it;
+    for (char c : text) {
         if (std::tolower(c) != 'a' && std::tolower(c) != 'e'
             && std::tolower(c) != 'i' && std::tolower(c) != 'o'
             && std::tolower(c) != 'u')
