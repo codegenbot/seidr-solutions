@@ -1,30 +1,31 @@
+#include <iostream>
+#include <map>
+#include <algorithm>
+
+using namespace std;
+using std::min;
+
 int main() {
     string code, guess;
     cin >> code >> guess;
     
     int white = 0, black = 0;
-    vector<bool> codeUsed(4, false), guessUsed(4, false);
+    map<char, int> codeFreq, guessFreq;
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black++;
-            codeUsed[i] = true;
-            guessUsed[i] = true;
+            ++black;
+        } else {
+            ++codeFreq[code[i]];
+            ++guessFreq[guess[i]];
         }
     }
-    
-    for (int i = 0; i < 4; ++i) {
-        for (int j = 0; j < 4; ++j) {
-            if (code[i] == guess[j] && !codeUsed[i] && !guessUsed[j]) {
-                white++;
-                codeUsed[i] = true;
-                guessUsed[j] = true;
-                break;
-            }
-        }
+
+    for (auto it = codeFreq.begin(); it != codeFreq.end(); ++it) {
+        white += min(it->second, guessFreq[it->first]);
     }
     
-    cout << white << endl << black << endl;
+    cout << white << "\n" << black << "\n";
     
     return 0;
 }
