@@ -2,7 +2,7 @@ from typing import List
 
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    paren_string = paren_string.strip()  
+    paren_string = paren_string.strip()
     result = []
     stack = []
     groups = ""
@@ -30,19 +30,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if groups:
         result.append(groups)
 
-    if not groups and not stack:
-        return [paren_string]
-    if not stack and len(result) == 1:
-        return result[:1]
-
-    if stack or (not stack and len(result) > 1):
-        return []
-    if groups:
-        result.append(groups)
+    if not stack and len(result) == 0:
+        return ["Error: No parentheses found"]
 
     return [g.strip() for g in result]
-
-
-input_str = input("Enter a string: ")
-result = separate_paren_groups(input_str)
-print(result)
