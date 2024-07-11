@@ -9,8 +9,7 @@ int main() {
     vector<int> input;
     int num;
 
-    while (cin.good()) {
-        cin >> num;
+    while (cin >> num || !cin.fail()) {
         input.push_back(num);
     }
 
