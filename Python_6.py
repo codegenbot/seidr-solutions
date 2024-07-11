@@ -1,6 +1,4 @@
-Here is the solution:
-
-def parse_nested_parens(paren_string: str) -> List[int]:
+def parse_nested_parens(paren_string: str) -> list[int]:
     result = []
     for group in paren_string.split():
         level = 0
