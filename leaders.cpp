@@ -1,36 +1,18 @@
-#include <vector>
-#include <algorithm>
-#include <iostream>
-
-using namespace std;
-
-vector<int> leaders(vector<int>& arr) {
+std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
-    vector<int> result;
-    
-    if (n == 0)
-        return result;
-        
-    int current_leader = arr[n - 1];
-    result.push_back(current_leader);
-    
-    for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] >= current_leader) {
-            current_leader = arr[i];
-            result.push_back(current_leader);
-        }
-    }
-    
-    reverse(result.begin(), result.end());
-    
-    return result;
-}
+    std::vector<int> result;
 
-int main() {
-    vector<int> arr = {12, 10, 8, 6};
-    vector<int> result = leaders(arr);
-    for (int i : result) {
-        cout << i << " ";
+    for(int i=n-1; i>=0; i--) {
+        bool isLeader = true;
+        for(int j=i+1; j<n; j++) {
+            if(arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
+        }
+        if(isLeader) result.push_back(arr[i]);
     }
-    return 0;
+
+    std::reverse(result.begin(), result.end()); 
+    return result;
 }
