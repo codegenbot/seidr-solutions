@@ -1,8 +1,8 @@
-```cpp
+```c++
 #include <vector>
 using namespace std;
 
-vector<int> getLeaders(vector<int>& arr) {
+std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     vector<int> result;
 
@@ -22,6 +22,6 @@ vector<int> getLeaders(vector<int>& arr) {
 
 int main() {
     vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
-    vector<int> result = getLeaders(arr);
+    vector<int> leaderResult = leaders(arr);
     return 0;
 }
