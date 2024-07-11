@@ -1,18 +1,31 @@
-sort(nums.begin(), nums.end(), [](int a, int b) {
-    int sumA = 0, sumB = 0;
-    if (a < 0) a = -a;
-    if (b < 0) b = -b;
-    while (a > 0) {
-        sumA += a % 10;
-        a /= 10;
+#include <stdio.h>
+#include <math.h>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int sum_of_digits(int num) {
+    int sum = 0;
+    num = abs(num);
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
     }
-    while (b > 0) {
-        sumB += b % 10;
-        b /= 10;
+    return sum;
+}
+
+bool compare(int a, int b) {
+    int sum_a = sum_of_digits(a);
+    int sum_b = sum_of_digits(b);
+    if (sum_a == sum_b) {
+        return a < b;
     }
-    if (sumA == sumB) {
-        return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
-    }
-    return sumA < sumB;
-});
-return nums;
+    return sum_a < sum_b;
+}
+
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), compare);
+    return nums;
+}
