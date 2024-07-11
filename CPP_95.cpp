@@ -1,8 +1,19 @@
-if(dict.empty()) return false;
-bool lower = true, upper = true;
-for(auto const &pair : dict){
-    if(pair.first != tolower(pair.first[0])) upper = false;
-    if(pair.first != toupper(pair.first[0])) lower = false;
-}
-return lower || upper;
+bool check_dict_case(map<string,string> dict){
+    if(dict.empty())
+        return false;
+    
+    bool is_lowercase = true;
+    bool is_uppercase = true;
+    
+    for(const auto& pair : dict){
+        for(char c : pair.first){
+            if(islower(c)){
+                is_uppercase = false;
+            } else if(isupper(c)){
+                is_lowercase = false;
+            }
+        }
+    }
+    
+    return is_lowercase || is_uppercase;
 }
