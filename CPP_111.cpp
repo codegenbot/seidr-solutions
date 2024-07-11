@@ -5,8 +5,10 @@
 
 using namespace std;
 
+// Declare issame function signature
 bool issame(map<char,int> a, map<char,int> b);
 
+// Define histogram function
 map<char,int> histogram(string test){
     map<char,int> result;
     stringstream ss(test);
@@ -29,6 +31,7 @@ map<char,int> histogram(string test){
     return maxChars;
 }
 
+// Define issame function
 bool issame(map<char,int> a, map<char,int> b){
     return a == b;
 }
