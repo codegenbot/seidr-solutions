@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -19,8 +18,11 @@ int main() {
 std::vector<std::string> all_prefixes(std::string str) {
     std::vector<std::string> result;
     for (int i = 1; i <= str.length(); ++i) {
-        std::string prefix(str.substr(0, i)); // Create a new string with the correct allocator
-        result.push_back(prefix);
+        std::string prefix;
+        for (int j = 0; j < i; ++j) {
+            prefix += str[j];
+        }
+        result.push_back(std::move(prefix));
     }
     return result;
 }
