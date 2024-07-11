@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -54,12 +53,21 @@ bool issame(int a, int b) {
     }
 
 int main() {
-    vector<int> numbers = {1, 2, 3};
-    vector<string> output = by_length(numbers);
-    
-    for (const auto &word : output) {
-        cout << word << " ";
+    int n, a, b; 
+    std::cout << "Enter the number of input sets: ";
+    std::cin >> n;
+
+    for(int i = 0; i < n; ++i) {
+        std::cout << "Enter numbers (1-9): ";
+        vector<int> arr;
+        while(true) {
+            std::cin >> a;
+            if(a >= 1 && a <= 9)
+                break;
+            std::cout << "Invalid input. Please enter numbers between 1 and 9: ";
+        }
+        
+        by_length(arr);
     }
-    
-    return 0;
+    return 0; 
 }
