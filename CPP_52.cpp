@@ -19,4 +19,5 @@ int original_main() {
     numbers.push_back(10);
 
     std::cout << (below_threshold(numbers, 10) ? "True\n" : "False\n");
+    return 0;
 }
