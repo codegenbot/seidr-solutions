@@ -1,4 +1,3 @@
-```python
 def camel_case(s):
     return "".join(
         word.capitalize() if i > 0 else word.lower()
