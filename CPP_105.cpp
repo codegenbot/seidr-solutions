@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -57,7 +56,7 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    int n, a, b; 
+    int n; 
     std::cout << "Enter the number of input sets: ";
     std::cin >> n;
 
@@ -65,12 +64,14 @@ int main() {
         std::cout << "Enter numbers (1-9): ";
         vector<int> arr;
         while(true) {
+            int a;
             std::cin >> a;
             if(a >= 1 && a <= 9)
                 break;
             std::cout << "Invalid input. Please enter numbers between 1 and 9: ";
         }
         
+        arr.push_back(a);
         vector<string> result = by_length(arr);
     }
     
