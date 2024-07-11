@@ -1,26 +1,26 @@
+#include <vector>
+#include <iostream>
 #include <string>
+
 using namespace std;
 
-bool solveBoolean(string expression) {
-    if (expression == "T" || expression == "t") return true;
-    if (expression == "F" || expression == "f") return false;
-    
-    int i = 0, j = 0;
-    while (i < expression.size()) {
-        if (expression[i] == '|') {
-            j = i + 1;
-            break;
+bool solveBoolean(string s) {
+    bool res = true;
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == 'T') return true;
+        else if(s[i] == 'F') return false;
+        else if(s[i] == '|') continue;
+        else if(s[i] == '&') {
+            res = (res && solveBoolean(s.substr(i+1)));
+            i++;
         }
-        i++;
     }
-    
-    string left = expression.substr(0, i);
-    string right = expression.substr(j);
-    
-    return solveBoolean(left) || solveBoolean(right);
+    return res;
 }
 
 int main() {
-    // Your code to test the function
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False") << endl;
     return 0;
 }
