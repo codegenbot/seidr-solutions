@@ -13,12 +13,3 @@ std::vector<int> rolling_max(std::vector<int> numbers){
     }
     return result;
 }
-
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
-}
-
-int main(){
-    // Your main function code here
-    return 0;
-}
