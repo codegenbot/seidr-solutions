@@ -1,8 +1,9 @@
 #include <vector>
 #include <algorithm>
+#include <functional>
 
-vector<int> issame(vector<int> a, int k) {
-    sort(a.begin(), a.end(), greater<int>());
-    vector<int> result(a.begin(), a.begin() + k);
+std::vector<int> issame(std::vector<int> a, int k) {
+    std::sort(a.begin(), a.end(), std::greater<int>());
+    std::vector<int> result(a.begin(), a.begin() + k);
     return result;
 }
