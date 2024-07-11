@@ -1,3 +1,4 @@
+```
 def fizz_buzz(n: int):
     for i in range(1, n+1):
         if i % 3 == 0:
@@ -8,6 +9,6 @@ def fizz_buzz(n: int):
             output = "Buzz"
         else:
             output = str(i)
-        return output
+        yield output
 
-print(fizz_buzz(int(input("Enter a number: "))))
+print(' '.join(str(x) for x in fizz_buzz(int(input("Enter a number: "))))).
