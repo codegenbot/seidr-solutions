@@ -1,5 +1,8 @@
 from typing import List
 
-
 def all_prefixes(string: str) -> List[str]:
-    return ["" if i == 0 else string[:i] for i in range(len(string) + 1)]
+    result = [string]
+    for i in range(len(string)):
+        prefix = string[:i + 1]
+        result.append(prefix)
+    return result
