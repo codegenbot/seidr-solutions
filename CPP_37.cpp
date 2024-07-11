@@ -30,8 +30,8 @@ void sort_even(vector<float> &l) {
 
 int main() {
     vector<float> values = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    vector<float> copy_values = values;
-    sort_even(copy_values);
-    assert (issame(copy_values, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    vector<float> values_copy = values;
+    sort_even(values_copy);
+    assert(issame(values_copy, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
