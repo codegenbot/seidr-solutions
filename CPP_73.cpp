@@ -1,14 +1,30 @@
+```cpp
 #include <vector>
+#include <iostream>
+#include <climits>
 
-int smallest_change(vector<int> arr) {
-    int min_diff = INT_MAX;
-    for (int i = 0; i < arr.size() - 1; i++) {
-        for (int j = i + 1; j < arr.size(); j++) {
-            int diff = abs(arr[i] - arr[j]);
-            if (diff < min_diff) {
-                min_diff = diff;
-            }
-        }
+using namespace std;
+
+int smallest_change(std::vector<int> arr) {
+    int min = INT_MAX;
+    for (int i : arr) {
+        if (i < min)
+            min = i;
     }
-    return min_diff;
+    return min;
+}
+
+int main() {
+    assert(smallest_change({0, 1}) == 1);
+    vector<int> arr;
+    cout << "Enter the numbers separated by space: ";
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int val;
+        cin >> val;
+        arr.push_back(val);
+    }
+    cout << "The smallest change is: " << smallest_change(arr) << endl;
+    return 0;
 }
