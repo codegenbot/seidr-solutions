@@ -2,21 +2,8 @@ from typing import List
 
 
 def rescale_to_unit():
-    numbers = []
-
-    while True:
-        num = input("Enter a number (or 'done' to finish): ")
-
-        if num.lower() == "done":
-            break
-
-        try:
-            numbers.append(float(num))
-        except ValueError:
-            print("Invalid input. Please enter a valid number.")
-
-    if not numbers:
-        return []
+    numbers = input("Enter numbers separated by space: ").split()
+    numbers = [float(num) for num in numbers]
 
     min_val = min(x for x in numbers if isinstance(x, (int, float)))
     max_val = max(x for x in numbers if isinstance(x, (int, float)))
