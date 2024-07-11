@@ -12,7 +12,7 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-vector<float> sort_vector(vector<float> l) {
+vector<float> sort_even(vector<float> l) {
     vector<float> even_indices;
     vector<float> sorted_even_indices;
     
