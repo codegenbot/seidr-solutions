@@ -5,11 +5,11 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b);
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
-vector<int> filter_integers(list<any> values);
-
-vector<int> filter_integers(list<any> values){
+vector<int> filter_integers(list<boost::any> values){
     vector<int> result;
     for(auto& val : values){
         if(val.type() == typeid(int)){
@@ -19,12 +19,12 @@ vector<int> filter_integers(list<any> values){
     return result;
 }
 
-int main(int argc, char* argv[]){
-    list<any> values = {1, 2, 3, "hello", 4.56, 5};
-    vector<int> filtered = filter_integers(values);
+int main(int argc, char* argv[]) {
+    list<boost::any> values = {1, "Hello", 2, 3.4, 5};
+    vector<int> filtered_values = filter_integers(values);
 
-    for (int num : filtered) {
-        cout << num << " ";
+    for(const auto& val : filtered_values){
+        cout << val << " ";
     }
 
     return 0;
