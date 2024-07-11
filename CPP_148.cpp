@@ -17,16 +17,12 @@ vector<string> bf(string planet1, string planet2) {
         return {};
     }
 
-    int start, end;
-
-    if(index1 < index2)
-        swap(start, end);
-    else
-        std::tie(start, end) = {index1, index2};
+    int start = min(index1, index2);
+    int end = max(index1, index2);
 
     vector<string> result;
     for (int i = 0; i < planets.size(); i++) {
-        if(i >= start && i <= end) {
+        if (i >= start && i <= end) {
             result.push_back(planets[i]);
         }
     }
