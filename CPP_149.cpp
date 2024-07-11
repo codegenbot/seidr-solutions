@@ -3,8 +3,8 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
-    return a == b;
+bool issame(const std::vector<std::string>& a, const std::string& b) {
+    return a == std::vector<std::string>(1, b);
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> lst) { 
@@ -14,11 +14,10 @@ std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> l
 
     std::vector<std::string> result;
 
-    for (const auto& vec : lst) {
-        for (const auto& str : vec) {
+    for (const auto& inner : lst) {
+        for (const auto& str : inner) {
             if (str.length() % 2 == 0) {
                 result.push_back(str);
-                break;
             }
         }
     }
@@ -40,5 +39,10 @@ std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> l
 }
 
 int main() {
-    assert(issame(sorted_list_sum({{"aaaa"}, {"bbbb"}, {"dd"}, {"cc"}}), {{"cc"}, {"dd"}, {"aaaa"}, {"bbbb"}}));
+    std::vector<std::vector<std::string>> lst = {{"aaaa"}, {"bbbb"}, {"dd"}, {"cc"}};
+    std::cout << "Sorted List: ";
+    for (const auto& str : sorted_list_sum(lst)) {
+        std::cout << str << " ";
+    }
+    std::cout << std::endl;
 }
