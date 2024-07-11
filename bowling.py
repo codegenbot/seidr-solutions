@@ -1,19 +1,30 @@
+```python
 def bowling_score(s):
     score = 0
-    rolls = list(map(int, s.split("-")))
-    i = 0
-    while i < len(rolls):
-        if rolls[i] == 10:
-            score += 10 + rolls[i+1]+rolls[i+2]
-            i += 3
-        elif rolls[i] == -1:
-            score += 5 + rolls[i+1] + rolls[i+2]
-            i += 3
-        else:
-            if rolls[i] > 9 or (i+1 < len(rolls) and rolls[i+1] > 9):
-                score += min(rolls[i],10)+(10-rolls[i])//2*2
-                i += 1
+    roll = 0
+    for i, char in enumerate(s):
+        if char.isdigit():
+            roll = int(char)
+        elif char == "/":
+            score += 10 - (10 - roll) // 2 * 2
+            roll = 0
+        elif char == "X":
+            if i < len(s) - 1 and s[i+1] in ["X", "/"]:
+                # Strike with bonus
+                score += 10 + 10
             else:
-                score += rolls[i]
-                i += 1
+                score += 10 + (10 - roll) % 2
+            roll = 0
+        elif char == "-":
+            if roll > 0:
+                score += min(roll, 10)
+            roll = 0
+        else:
+            if roll > 0:
+                score += min(roll, 10) + (10 - roll) // 2 * 2
+            roll = int(char)
+
+    if roll > 0:
+        score += min(roll, 10) + (10 - roll) // 2 * 2
+
     return score
