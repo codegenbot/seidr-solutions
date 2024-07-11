@@ -1,13 +1,16 @@
 from typing import List, Tuple
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    if not all(isinstance(num, int) for num in numbers):
-        return "Expected input: list of integers"
+    if len(numbers) < 2:
+        return "Please enter at least two numbers"
     
     total_sum = 0
     product = 1
     
     for num in numbers:
+        if not isinstance(num, int):
+            return (f"Invalid input: {num}")
+        
         try:
             total_sum += num
             product *= num
