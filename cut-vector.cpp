@@ -2,18 +2,25 @@
 #include <vector>
 
 void cutVector(const std::vector<int>& arr, int cut_index) {
-    std::vector<int> left_subvector(arr.begin(), arr.begin() + cut_index);
-    std::vector<int> right_subvector(arr.begin() + cut_index, arr.end());
+    int n = arr.size();
+    int min_diff = INT_MAX;
+    int optimal_cut_index;
 
-    for (const auto& num : left_subvector) {
-        std::cout << num << " ";
+    for (int i = 1; i < n; i++) {
+        int diff = abs(std::accumulate(arr.begin(), arr.begin() + i, 0) - std::accumulate(arr.begin() + i, arr.end(), 0));
+        if (diff < min_diff) {
+            min_diff = diff;
+            optimal_cut_index = i;
+        }
+    }
+
+    for (int i = 0; i < optimal_cut_index; i++) {
+        std::cout << arr[i] << " ";
     }
     std::cout << std::endl;
-
-    for (const auto& num : right_subvector) {
-        std::cout << num << " ";
+    for (int i = optimal_cut_index; i < n; i++) {
+        std::cout << arr[i] << " ";
     }
-    std::cout << std::endl;
 }
 
 int main() {
