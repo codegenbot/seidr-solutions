@@ -1,12 +1,5 @@
-```
-from typing import Tuple
-import sys
-
-
 def find_closest_elements() -> Tuple[float, float]:
-    numbers = [float(num) for num in sys.argv[1:]]
-    if len(numbers) < 2:
-        return ()
+    numbers = [float(input("Enter a number: ")) for _ in range(2)]
     min_diff = float("inf")
     closest_pair = ()
 
@@ -20,8 +13,4 @@ def find_closest_elements() -> Tuple[float, float]:
     return closest_pair
 
 
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python solution.py <numbers>", file=sys.stderr)
-        sys.exit(1)
-    print(find_closest_elements())
+print(find_closest_elements())
