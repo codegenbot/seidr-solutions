@@ -5,23 +5,28 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-    
-    int min_diff = INT_MAX;
-    int cut_idx = 0;
+    int diff = INT_MAX;
+    int cutIndex = -1;
     for (int i = 1; i < n; ++i) {
-        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_idx = i;
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; ++j) {
+            leftSum += nums[j];
+        }
+        for (int j = i; j < n; ++j) {
+            rightSum += nums[j];
+        }
+        int currentDiff = abs(leftSum - rightSum);
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            cutIndex = i;
         }
     }
-    
-    for (int i = 0; i < cut_idx; ++i) {
+    for (int i = 0; i < cutIndex; ++i) {
         cout << nums[i] << endl;
     }
-    for (int i = cut_idx; i < n; ++i) {
+    cout << endl;
+    for (int i = cutIndex; i < n; ++i) {
         cout << nums[i] << endl;
     }
-    
     return 0;
 }
