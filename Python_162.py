@@ -6,4 +6,5 @@ def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
 text = input("Enter a string: ")
-print(string_to_md5(text))
+md5_hash = string_to_md5(text)
+print(md5_hash)
