@@ -6,7 +6,7 @@ int main() {
     istringstream iss(input);
     
     while (iss >> word) {
-        if (word.length() >= 5) {
+        if (word.size() >= 5) {
             reverse(word.begin(), word.end());
         }
         result += word + " ";
