@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int str_length(string str) {
