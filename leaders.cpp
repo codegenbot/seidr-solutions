@@ -26,13 +26,12 @@ int main() {
     
     std::cout << "Enter integers (EOF to end): ";
     
-    while (std::cin >> num) {
-        nums.push_back(num);
-    }
-
-    if (std::cin.eof()) {
-        std::cin.clear();
-        std::cin.ignore();
+    std::string input;
+    while (std::cin >> input) {
+        if (input == "EOF") {
+            break;
+        }
+        nums.push_back(std::stoi(input));
     }
 
     std::vector<int> leaders = findLeaders(nums);
