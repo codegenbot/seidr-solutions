@@ -12,4 +12,4 @@ else:
             min_diff = diff
             cut_index = i
 
-    print(numbers[:cut_index], numbers[cut_index:])
+    print(numbers[:cut_index + 1], numbers[cut_index + 1:])
