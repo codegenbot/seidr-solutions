@@ -1,4 +1,4 @@
-````
+```
 from typing import List
 
 
@@ -14,10 +14,16 @@ def concatenate(strings: List[str]) -> str:
 if __name__ == "__main__":
     while True:
         strings = input("Enter the strings (comma separated): ") or "default"
-        try:
-            input_list = [s.strip() for s in strings.split(",")]
+        input_list = [s.strip() for s in strings.split(",")]
+        
+        if len(input_list) > 0: 
             if all(isinstance(s, str) for s in input_list):
                 break
-        except ValueError:
-            print("Invalid input. Please enter a list of strings.")
+            else:
+                print("Invalid input. Please enter a list of strings.")
+        else:
+            if strings != "default" and any(char.isalpha() for char in strings):
+                break
+            else:
+                print("Error: No valid input provided")
     print(concatenate(input_list))
