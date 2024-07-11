@@ -1,7 +1,4 @@
-#include <string>
-
-bool is_happy(const std::string& s)
-{
+bool is_happy(const std::string& s){
     if(s.length() < 3)
         return false;
     
@@ -13,9 +10,7 @@ bool is_happy(const std::string& s)
     return true;
 }
 
-int main()
-{
-    // Main function logic goes here
-
+int main() {
+    // Main function code here
     return 0;
 }
