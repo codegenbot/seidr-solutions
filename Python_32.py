@@ -1,12 +1,9 @@
-Here is the completed code:
-
 def find_zero(xs: list):
-    n = len(xs)
-    if n % 2 != 0:
+    if len(xs) % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
-    a = xs[-1]
-    b = -sum([coeff for i, coeff in enumerate(xs) if i % 2 == 1])
-    c = sum([coeff for i, coeff in enumerate(xs) if i % 4 == 3 and coeff != 0])
-    d = -xs[0]
-    x = (-b + math.sqrt(b**2 - 4*a*c)) / (2*a)
-    return round(x, 2)
+    a = xs[0]
+    b = xs[1]
+    c = xs[2] if len(xs) > 2 else 0
+    d = xs[3] if len(xs) > 3 else 0
+    x = -b / (2 * a)
+    return round(x, 2) if abs(c + d * x) < 1e-6 else None
