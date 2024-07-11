@@ -1,19 +1,19 @@
+```
 def make_palindrome():
-    s = ""
-    if not s:
-        return ""
+    s = input("Enter a string: ")
+    while not s:
+        print("Invalid input. Please enter a valid string.")
+        s = input("Enter a string: ")
     while len(s) < 2 or s[0] != s[-1]:
-        s = s[-1] + s[:-1]
-    i, j = 0, len(s) - 1
-    while i < j:
-        if s[i] != s[j]:
-            for c in set(s):
-                if s.index(c) < i or s.rindex(c) > j:
-                    i, j = s.index(c), s.rindex(c)
-                    break
-        else:
-            i += 1
-            j -= 1
+        middle = (len(s)) // 2
+        for i in range(len(s)):
+            if i < middle:
+                j = len(s) - 1 - i
+            else:
+                j = i
+            if s[i] == s[j]:
+                s = s[:i] + s[i:j+1][::-1] + s[i+1:]
+        break
     return s
 
 print(make_palindrome())
