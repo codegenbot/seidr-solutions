@@ -1,7 +1,8 @@
-```cpp
+Here is the modified code:
+
 #include <string>
 
-int bowlingScore(const std::string& s) {
+int bowlingScore(string s) {
     int score = 0;
     int currentRolls = 0;
     int currentFrame = 1;
@@ -29,4 +30,3 @@ int bowlingScore(const std::string& s) {
     }
 
     return score;
-}
