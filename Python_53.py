@@ -10,7 +10,7 @@ while True:
         x = int(input("Enter first number: "))
         y = int(input("Enter second number: "))
 
-        if (x > 0 and y > 0) or (x < 0 and y < 0):
+        if ((x > 0 and y > 0) or (x < 0 and y < 0)):
             print(add(x, y))  
         else:
             print("Invalid input. Please enter both positive or negative numbers.")
