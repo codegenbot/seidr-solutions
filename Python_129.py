@@ -1,11 +1,11 @@
 ```
-def minPath(grid='\n0 1\n1 2', k):
+def minPath(k, grid='\n0 1\n1 2'):
     n = len(grid.split('\n')[1:])
     m = [list(map(int, row.split())) for row in grid.split('\n')[1:]]
     
     def dfs(i, j, path, visited):
         if len(path) == k:
-            return path
+            return sum(path)
         visited.add((i, j))
         min_path = None
         for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
