@@ -7,36 +7,38 @@
 #include <limits>
 #include <initializer_list>
 
-std::vector<float> find_closest_elements(std::initializer_list<float> numbers) {
+std::vector<float> find_closest_elements(std::vector<float> numbers) {
     if (numbers.size() <= 1) {
         return {};
     }
     
     float min_diff = std::numeric_limits<float>::max();
-    auto closest_pair = {*(numbers.begin()), *(--numbers.end())};
+    auto closest_pair = {numbers[0], numbers[0]};
     
-    for (auto it = numbers.begin(); it != --numbers.end(); ++it) {
-        float diff = std::abs(*it - *(--it));
-        if (diff < min_diff) {
-            min_diff = diff;
-            closest_pair = {*it, *(--it)};
+    for (int i = 0; i < numbers.size(); ++i) {
+        for (int j = i + 1; j < numbers.size(); ++j) {
+            float diff = std::abs(numbers[i] - numbers[j]);
+            if (diff < min_diff) {
+                min_diff = diff;
+                closest_pair = {numbers[i], numbers[j]};
+            }
         }
     }
     
-    return {closest_pair.first, closest_pair.second};
+    return {closest_pair[0], closest_pair[1]};
 }
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    if(a.size() != b.size())
+    if (a.size() != b.size())
         return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(std::abs(a[i] - b[i]) > 1e-9)
+    for (int i = 0; i < a.size(); i++) {
+        if (std::abs(a[i] - b[i]) > 1e-9)
             return false;
     }
     return true;
 }
 
 int main() {
-    std::vector<float> result = find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f});
-    assert(issame(result, {2.2f, 3.1f}));
+    std::vector<float> result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
+    assert(issame(result, {2.2, 3.1}));
 }
