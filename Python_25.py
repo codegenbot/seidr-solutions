@@ -3,10 +3,10 @@ from typing import List
 def factorize() -> List[int]:
     while True:
         try:
-            n = int(input("Enter a number to factorize: "))
+            n = int(input())
             break
         except ValueError:
-            pass
+            print("Please enter a valid integer")
     factors = []
     divisor = 2
     while n > 1:
