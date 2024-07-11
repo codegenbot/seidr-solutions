@@ -1,14 +1,48 @@
-#include <boost/any.hpp>
+#include <iostream>
 #include <vector>
 #include <list>
+#include <any>
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
-    std::vector<int> result;
+using namespace std;
+namespace boost {
+    struct any {
+        template<typename T> bool operator!=(T t) const {
+            return !(*this == t);
+        }
+        template<typename T> bool operator==(T t) const {
+            try {
+                T t2 = any_cast<T>(*this);
+                return t == t2;
+            } catch (...) {
+                return false;
+            }
+        }
+    };
+}
+
+vector<int> filter_integers(list<any> values) {
+    vector<int> result;
     for (const auto& value : values) {
-        if (value.type() == typeid(int)) { 
-            int val = boost::any_cast<int>(value);
-            result.push_back(val); 
+        if (boost::any_cast<int>(value).good()) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
+}
+
+bool functionIsEqual(vector<int> a, vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
+}
+
+int main() {
+    list<any> values = {3, any('c'), 3, 3, any('a'), any('b')};
+    vector<int> filteredValues = filter_integers(values);
+    assert(functionIsEqual(filteredValues,{3, 3, 3}));
+    return 0;
 }
