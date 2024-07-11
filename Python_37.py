@@ -1,4 +1,3 @@
-```
 def merge(left, right):
     result = []
     i = j = 0
@@ -22,11 +21,16 @@ def sort_even(evens):
 
 
 evens = list(map(int, input("Enter the even numbers separated by space: ").split()))
-odds = list(map(int, input("Enter the odd numbers separated by space: ").split()))
+odds = []
 
-if len(evens) == 0 and len(odds) != 0:
-    print("Error: No even numbers entered.")
-elif len(odds) == 0 and len(evens) != 0:
-    print("Error: No odd numbers entered.")
-else:
-    print(sort_even(evens + odds))
+while True:
+    try:
+        odd = int(input("Enter the odd numbers separated by space (or 'stop' to finish): "))
+        if odd == 'stop':
+            break
+        odds.append(odd)
+    except ValueError:
+        print('Invalid input. Please enter a valid number or type "stop".')
+
+print(sort_even(evens))
+print(odds)
