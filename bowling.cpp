@@ -1,3 +1,4 @@
+```
 #include <string>
 
 int bowlingScore(const std::string& s) {
@@ -11,21 +12,17 @@ int bowlingScore(const std::string& s) {
                 int roll2 = s[i + 2] - '0';
                 score += roll1 + roll2;
             } else if (i < 9) {
-                if (i >= s.length() - 1) break;
+                if (i >= s.length() - 2) break;
                 int roll2 = s[++i] - '0';
-                if (i >= s.length()) continue;
                 score += roll1 * 2 + roll2;
             } else {
                 score += roll1 * 2;
             }
         } else {
             int roll1 = s[i] - '0';
-            if (i < s.length() - 1) {
-                int roll2 = s[i + 1] - '0';
-                score += roll1 + roll2;
-            } else {
-                score += roll1;
-            }
+            int roll2 = s[i + 1] - '0';
+            if (i >= s.length() - 1) break;
+            score += roll1 + roll2;
         }
     }
     return score;
