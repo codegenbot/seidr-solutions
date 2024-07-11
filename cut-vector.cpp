@@ -1,12 +1,13 @@
 #include <iostream>
 #include <vector>
-#include <sstream>
+
+using namespace std;
 
 int main() {
-    std::vector<int> nums;
-    std::string line;
-    std::getline(std::cin, line);
-    std::istringstream iss(line);
+    vector<int> nums;
+    string input;
+    getline(cin, input);
+    istringstream iss(input);
     int num;
     
     while (iss >> num) {
@@ -31,15 +32,17 @@ int main() {
         }
     }
 
-    std::vector<int> subvec1(nums.begin(), nums.begin() + cut_idx + 1);
-    std::vector<int> subvec2(nums.begin() + cut_idx + 1, nums.end());
+    vector<int> subvec1(nums.begin(), nums.begin() + cut_idx + 1);
+    vector<int> subvec2(nums.begin() + cut_idx + 1, nums.end());
 
     for (int num : subvec1) {
-        std::cout << num << std::endl;
+        cout << num << " ";
     }
+    cout << endl;
     for (int num : subvec2) {
-        std::cout << num << std::endl;
+        cout << num << " ";
     }
+    cout << endl;
 
     return 0;
 }
