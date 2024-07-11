@@ -1,13 +1,15 @@
+Here is the solution:
+
 def is_palindrome(string: str) -> bool:
-    """Test if given string is a palindrome"""
+    """ Test if given string is a palindrome """
     return string == string[::-1]
 
 
 def make_palindrome(string: str) -> str:
-    prefix = ""
-    while True:
-        for i in range(len(string), -1, -1):
-            prefix += string[:i][::-1]
-            suffix = string[i:]
-            if is_palindrome(prefix + suffix):
-                return prefix + suffix
+    s = string.lower()
+    i = len(s) - 1
+    while i >= 0 and s[i] == s[0]:
+        i -= 1
+    prefix = s[:i+1]
+    suffix = s[i::-1]
+    return prefix + suffix
