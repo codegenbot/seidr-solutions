@@ -1,3 +1,5 @@
+```
+```python
 from typing import Tuple
 import statistics
 
@@ -19,3 +21,4 @@ def calculate_average_and_median() -> Tuple[float, float]:
 
 average, median = calculate_average_and_median()
 print(f"The average is {average}, and the median is {median}.")
+```
