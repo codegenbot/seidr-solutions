@@ -1,9 +1,10 @@
+```cpp
 #include <vector>
-using namespace std;
+#include <iostream>
 
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
-    vector<int> result;
+    std::vector<int> result;
 
     for(int i=n-1; i>=0; i--) {
         bool isLeader = true;
@@ -20,8 +21,27 @@ std::vector<int> leaders(std::vector<int>& arr) {
 }
 
 int main() {
-    vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9};
-    vector<int> leadersList = leaders(arr);
-    for(int i: leadersList) cout << i << " ";
+    int n;
+    std::cout << "Enter the number of elements in the array: ";
+    std::cin >> n;
+
+    std::vector<int> arr(n);
+
+    for(int i=0; i<n; i++) {
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> arr[i];
+    }
+
+    std::vector<int> leadersList = leaders(arr);
+    if(leadersList.size() > 0)
+        std::cout << "The leaders in the array are: ";
+    else
+        std::cout << "No leader found in the array.";
+
+    for(int i=0; i<leadersList.size(); i++) {
+        std::cout << leadersList[i] << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
