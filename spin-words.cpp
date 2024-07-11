@@ -1,16 +1,20 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
 int main() {
-    string input;
-    getline(cin, input);
+    std::string input;
+    std::getline(std::cin, input);
     
-    string word;
-    string result = "";
+    std::string word;
+    std::string result = "";
     
     for (int i = 0; i < input.size(); ++i) {
         if (input[i] != ' ') {
             word += input[i];
         } else {
             if (word.size() >= 5) {
-                reverse(word.begin(), word.end());
+                std::reverse(word.begin(), word.end());
             }
             result += word + " ";
             word = "";
@@ -18,11 +22,11 @@ int main() {
     }
     
     if (word.size() >= 5) {
-        reverse(word.begin(), word.end());
+        std::reverse(word.begin(), word.end());
     }
     result += word;
     
-    cout << result << endl;
+    std::cout << result << std::endl;
     
     return 0;
 }
