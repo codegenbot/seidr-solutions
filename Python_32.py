@@ -1,5 +1,5 @@
 ```
-def find_zero(xs: list):
+def find_zero(xs):
     if len(xs) % 2 != 0:
         return None
     a = xs[0]
