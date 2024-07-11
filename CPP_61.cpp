@@ -17,11 +17,7 @@ bool correct_bracketing(const std::string& brackets) {
     return count == 0;
 }
 
-bool solve_problem() {
-    return not correct_bracketing("()()(()())()))()");
-}
-
 int main() {
-    assert(not solve_problem());
+    assert(not correct_bracketing("()()(()())()))()"));
     return 0;
 }
