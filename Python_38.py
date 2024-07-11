@@ -2,9 +2,11 @@
 def decode_cyclic(encoded_str):
     decoded_str = ""
     n = len(encoded_str) // 2
-    if len(encoded_str) % 2:
-        decoded_str += encoded_str[-1]
-        encoded_str = encoded_str[:-1]
+    if len(encoded_str) % 2 != 0:
+        if encoded_str[:1] == "1":
+            encoded_str = "0" + encoded_str
+        else:
+            encoded_str = "1" + encoded_str
     for i in range(0, len(encoded_str), n):
         bits = encoded_str[i : i + n]
         if bits[0] == "1":
