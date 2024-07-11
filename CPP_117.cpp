@@ -28,7 +28,7 @@ vector<string> select_words(string s, int n) {
     }
 
     // Add the last word
-    if (!word.empty() && consonantCount == n) {
+    if (!word.empty()) {
         result.push_back(word);
     }
 
