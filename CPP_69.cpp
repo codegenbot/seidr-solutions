@@ -1,4 +1,6 @@
-int search(const std::vector<int>& lst) {
+#include <vector>
+
+int maximumSpecialNumber(std::vector<int> lst) {
     int res = -1;
     for (int num : lst) {
         int freq = 0;
