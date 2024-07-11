@@ -1,9 +1,10 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> lst) { 
@@ -13,14 +14,26 @@ std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> l
 
     std::vector<std::string> result;
 
-    for (const auto& str : lst[0]) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
+    for (const auto& sub_lst : lst) {
+        bool found_odd = false;
+        for (const auto& str : sub_lst) {
+            if (str.length() % 2 != 0) {
+                found_odd = true;
+                break;
+            }
+        }
+
+        if (!found_odd) {
+            for (const auto& str : sub_lst) {
+                result.push_back(str);
+            }
+        } else if (sub_lst.size() % 2 == 1) {
+            result.insert(result.end(), sub_lst.begin(), sub_lst.end());
         }
     }
 
     if (result.empty()) {
-        throw std::runtime_error("The input list is empty or contains only odd-length strings.");
+        throw std::runtime_error("The input list is empty or contains only strings with even lengths.");
     }
 
     std::sort(result.begin(), result.end(),
