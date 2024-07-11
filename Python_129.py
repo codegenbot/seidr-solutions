@@ -1,7 +1,5 @@
-```
 def minPath(k):
-    k = int(input("Enter the size of the grid: "))
-    n = k
+    n = int(input("Enter the number of rows in the grid: "))
     m = [[int(input(f"Enter value at row {i} column {j}: ")) for j in range(n)] for i in range(n)]
 
     def dfs(i, j, path, visited):
@@ -17,12 +15,6 @@ def minPath(k):
                     min_path = new_path
         return min_path
     
-    min_path = None
-    for i in range(n):
-        for j in range(n):
-            path = dfs(i, j, [], set())
-            if min_path is None or path < min_path:
-                min_path = path
-    return min_path
+    return dfs(0, 0, [], set())
 
 print(minPath(2))
