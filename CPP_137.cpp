@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
@@ -79,15 +78,4 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
     return boost::any();
-}
-
-int main() {
-    // Your code to read input and call the function.
-    // For example:
-    boost::any a = any_cast<boost::any>(stoi(input));
-    boost::any b = any_cast<boost::any>(stof(input));
-    // Then you can do something with the result
-    // for example, print it out
-    cout << any_cast<string>(compare_one(a, b)) << endl;
-    
 }
