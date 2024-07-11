@@ -1,31 +1,36 @@
-string words_in_sentence(string sentence){
-    string result = "";
-    for(auto word : split(sentence, " ")) {
-        if(is_prime(word.length())) {
+#include <vector>
+using namespace std;
+
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+string words_in_sentence(string sentence) {
+    vector<string> words = split(sentence, ' ');
+    string result;
+    for (string word : words) {
+        if (isPrime(word.length())) {
             result += word + " ";
         }
     }
     return result.substr(0, result.size() - 1);
 }
 
-vector<string> split(const string& str, const string& delimiters) {
-    vector<string> result;
-    auto start = 0;
-    for (auto end = 0; end <= str.size(); ++end) {
-        if (str.find(delimiters, end) != string::npos) {
-            result.push_back(str.substr(start, end - start));
-            start = end + delimiters.size();
+vector<string> split(string sentence, char c) {
+    vector<string> words;
+    string temp = "";
+    for (char ch : sentence) {
+        if (ch == c) {
+            words.push_back(temp);
+            temp = "";
+        } else {
+            temp += ch;
         }
     }
-    return result;
-}
-
-bool is_prime(int num) {
-    if(num < 2)
-        return false;
-    for(int i = 2; i*i <= num; ++i){
-        if(num % i == 0)
-            return false;
-    }
-    return true;
+    words.push_back(temp);
+    return words;
 }
