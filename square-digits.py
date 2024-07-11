@@ -1,6 +1,3 @@
+```
 def square_digits(n):
-    result = ''
-    for char in str(n):
-        if char.isdigit():
-            result += str(int(char) ** 2)
-    return result
+    return "".join(map(lambda x: str(int(x) ** 2), str(n)[0:len(str(n))]))
