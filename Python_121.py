@@ -1,4 +1,4 @@
-```Python
+```
 while True:
     user_input = input("Enter a list of numbers separated by space, or 'q' to quit: ")
 
@@ -12,9 +12,7 @@ while True:
             continue
 
         nums = [int(i) for i in user_input.split()]
-        stat_type = input(
-            "Do you want to calculate mean or median? (type 'mean' or 'median'): "
-        ).lower()
+        stat_type = input("Do you want to calculate mean or median? (type 'mean' or 'median'): ").lower()
 
         if stat_type not in ["mean", "median"]:
             print("Invalid input. Please enter 'mean' or 'median'.")
