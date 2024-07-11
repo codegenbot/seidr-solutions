@@ -1,22 +1,17 @@
-#include <vector>
-using namespace std;
-
-bool is_sorted(vector<int> lst);
-
-int main() {
-    vector<int> lst = {1, 2, 3};
-    if(is_sorted(lst)) {
-        cout << "The list is sorted." << endl;
-    } else {
-        cout << "The list is not sorted." << endl;
-    }
-    return 0;
-}
-
-bool is_sorted(vector<int> lst) {
+bool is_sorted(vector<int> lst){
+    if(lst.size() <= 1) return true;
     for(int i = 1; i < lst.size(); i++){
-        if(lst[i] <= lst[i-1]) 
+        if(lst[i] >= lst[i-1]){
+            continue;
+        } else {
+            int count = 0;
+            for(int j = i; j < lst.size(); j++){
+                if(lst[j] == lst[i]) count++;
+                else break;
+            }
+            if(count > 1) return false;
             return false;
+        }
     }
     return true;
 }
