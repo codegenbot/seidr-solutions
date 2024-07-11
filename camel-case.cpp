@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -11,11 +12,10 @@ std::string camelCase(const std::string& input) {
             output += (firstWord ? "" : "") + std::toupper(c);
             firstWord = false;
         } else if (c == ' ') {
-            output += " ";
             firstWord = true;
         } else {
-            output += c;
-            firstWord = true;
+            output += firstWord ? std::string(1, c) : std::string(1, tolower(c));
+            firstWord = false;
         }
     }
 
