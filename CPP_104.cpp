@@ -21,4 +21,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     }
     std::sort(result.begin(), result.end());
     return result;
-}
+} 
