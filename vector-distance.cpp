@@ -18,7 +18,7 @@ int main() {
     for (float& val : v1) { std::cin >> val; }
     for (float& val : v2) { std::cin >> val; }
     if (v1.size() != v2.size()) {
-        std::cerr << "Error: Vectors must have the same size." << std::endl;
+        std::cerr << "Error: Vectors must have the same size.\n";
         return 1;
     }
     double dist = vectorDistance(n, v1, v2);
