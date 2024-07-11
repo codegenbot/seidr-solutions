@@ -15,12 +15,7 @@ int main() {
     else {
         size_t count = 0;
         for (char c : tweet) {
-            if (std::isalnum(c) || std::isspace(c)) {
-                ++count;
-            } 
-            else if (!std::isspace(c) && !std::isalnum(c)) {
-                ++count; 
-            }
+            ++count;
         }
         
         if(count > 140) {
