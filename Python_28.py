@@ -1,14 +1,12 @@
-```
 from typing import List
 
 
 def concatenate() -> str:
-    user_input = input("Please enter multiple strings (separated by space or comma): ")
-    try:
-        input_list = [s.strip() for s in user_input.split(",")]
-    except ValueError:
-        return ""
+    strings = input("Please enter a list of strings separated by space: ").split()
     result = ""
-    for s in input_list:
+    for s in strings:
         result += s
     return result
+
+
+print(concatenate())
