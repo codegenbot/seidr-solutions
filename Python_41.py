@@ -1,11 +1,7 @@
-```
-def car_race_collision(*args):
-    if len(args) != 2:
-        raise TypeError("This function takes exactly two parameters.")
-    n, m = args
+def car_race_collision(n: int, m: int=5):
     if n < m:
         return n * m
     else:
         return m * (m - 1)
 
-print(car_race_collision(10, 5))
+print(car_race_collision(10))
