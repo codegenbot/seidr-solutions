@@ -3,10 +3,7 @@
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
-    vector<int> result;
-    
-    int maxNeg = 0;
-    int minPos = INT_MAX;
+    int maxNeg = 0, minPos = INT_MAX;
     
     for (int num : lst) {
         if (num < 0 && num > maxNeg) {
@@ -16,8 +13,5 @@ vector<int> largest_smallest_integers(vector<int> lst) {
         }
     }
     
-    result.push_back(maxNeg);
-    result.push_back(minPos == INT_MAX ? 0 : minPos);
-    
-    return result;
+    return {(maxNeg >= 0 ? 0 : maxNeg), (minPos <= 0 ? 0 : minPos)};
 }
