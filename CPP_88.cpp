@@ -1,13 +1,8 @@
 if(array.size() == 0) return array;
-    
-    int sum = array.front() + array.back();
-    vector<int> sorted_array = array;
-    
-    if(sum % 2 == 0) {
-        sort(sorted_array.begin(), sorted_array.end(), greater<int>());
+    if((array[0] + array[array.size()-1]) % 2 == 0) {
+        sort(array.rbegin(), array.rend());
     } else {
-        sort(sorted_array.begin(), sorted_array.end());
+        sort(array.begin(), array.end());
     }
-    
-    return sorted_array;
+    return array;
 }
