@@ -1,6 +1,7 @@
-def add(a=None, b=None):
+def add(a=None):
     if a is None:
-        a = int(input("Enter first number: "))
-    if b is None:
-        b = int(input("Enter second number: "))
-    return a + b
+        x = int(input("Enter first number: "))
+        y = int(input("Enter second number: "))
+        return x + y
+    else:
+        return a
