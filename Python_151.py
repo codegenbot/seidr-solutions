@@ -1,1 +1,3 @@
-print(double_the_difference([1, 3, 5], [2, 4, 6]) == (max(2,4,6) - min(1,3,5)) * 2)
+def double_the_difference(lst):
+    return (max(lst) - min(lst)) * 2
+print(double_the_difference([10, 15]))
