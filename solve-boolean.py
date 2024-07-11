@@ -9,7 +9,7 @@ def solve_boolean(expression):
 
     stack = []
     for char in expression:
-        if char == "T" or char == "F":
+        if char in ("T", "F"):
             stack.append(bool(char == "T"))
         elif char in operations:
             b = stack.pop()
@@ -18,4 +18,3 @@ def solve_boolean(expression):
         elif char == "|":
             while len(stack) > 1 and stack[-2] != "&":
                 stack.pop()
-    return stack[0]
