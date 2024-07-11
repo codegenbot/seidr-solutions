@@ -1,4 +1,3 @@
-```python
 def modp(n: int, p: int):
     def gcd(a, b):
         while b:
