@@ -10,14 +10,4 @@ std::string fizzBuzz(int x) {
     else if (x % 5 == 0)
         result = "Buzz";
     else
-        return ""; 
-    return result;
-}
-
-int main() {
-    int x;
-    std::cout << "Enter an integer: ";
-    std::cin >> x;
-    std::cout << fizzBuzz(x) << std::endl;
-    return 0;
-}
+        return ""; // Fix it by adding this line to return an empty string for other cases
