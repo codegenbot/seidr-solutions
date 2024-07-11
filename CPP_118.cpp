@@ -1,20 +1,27 @@
 string get_closest_vowel(string word) {
-    int n = word.size();
-    for(int i=n-1; i>=0; --i){
-        if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u' ||
-           word[i] == 'A' || word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || word[i] == 'U'){
-            for(int j=i+1; j<n; ++j){
-                if(word[j] == 'a' || word[j] == 'e' || word[j] == 'i' || word[j] == 'o' || word[j] == 'u' ||
-                   word[j] == 'A' || word[j] == 'E' || word[j] == 'I' || word[j] == 'O' || word[j] == 'U'){
-                    for(int k=j+1; k<n; ++k){
-                        if(word[k] == 'a' || word[k] == 'e' || word[k] == 'i' || word[k] == 'o' || word[k] == 'u' ||
-                           word[k] == 'A' || word[k] == 'E' || word[k] == 'I' || word[k] == 'O' || word[k] == 'U'){
-                            return string(1,word[i]);
-                        }
-                    }
-                } else {
-                    return string(1,word[i]);
-                }
+    for (int i = word.length() - 1; i >= 0; --i) {
+        if (word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || 
+            word[i] == 'o' || word[i] == 'u' || word[i] == 'A' || 
+            word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || 
+            word[i] == 'U') {
+            int left = i - 1;
+            while (left >= 0 && (word[left] != 'a' && word[left] != 'e' && 
+                word[left] != 'i' && word[left] != 'o' && word[left] != 'u' &&
+                word[left] != 'A' && word[left] != 'E' && word[left] != 'I' && 
+                word[left] != 'O' && word[left] != 'U')) {
+                left--;
+            }
+            int right = i + 1;
+            while (right < word.length() && (word[right] != 'a' && word[right] != 'e' &&
+                word[right] != 'i' && word[right] != 'o' && word[right] != 'u' &&
+                word[right] != 'A' && word[right] != 'E' && word[right] != 'I' && 
+                word[right] != 'O' && word[right] != 'U')) {
+                right++;
+            }
+            if (left >= 0) {
+                return word.substr(left + 1, i - left);
+            } else if (right < word.length()) {
+                return word.substr(0, right);
             }
         }
     }
