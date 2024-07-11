@@ -1,4 +1,3 @@
-```
 def sort_even(numbers):
     return sorted([num for num in numbers if num % 2 == 0])
 
