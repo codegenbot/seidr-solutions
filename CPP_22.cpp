@@ -1,7 +1,6 @@
 #include <boost/any.hpp>
 #include <vector>
 #include <list>
-#include <cassert>
 
 using namespace std;
 
