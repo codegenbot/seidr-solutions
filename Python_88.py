@@ -1,10 +1,11 @@
+```
 def sort_array(array):
     sorted_array = sorted(array)
-    n = len(sorted_array)
-
-    if n % 2 != 0:
-        return [sorted_array[n//2]]
+    middle_index = len(sorted_array) // 2
+    median_first_half = sorted_array[:middle_index]
+    median_second_half = sorted_array[middle_index:]
+    
+    if len(array) % 2 != 0:
+        return [sorted_array[middle_index]]
     else:
-        mid1 = n // 2 - 1
-        mid2 = n // 2
-        return [[sorted_array[mid1], sorted_array[mid2]]]
+        return [median_first_half, median_second_half]
