@@ -1,8 +1,8 @@
+```
 import math
 
-
 def decode_cyclic(encoded_str: str, key: int) -> str:
-    encoded_bytes = bytes(encoded_str.encode(), "utf-8")
+    encoded_bytes = bytes(encoded_str.encode(), 'utf-8')
     decoded_str = ""
     n = len(encoded_str)
     for i in range(n, 1, -1):
@@ -17,16 +17,15 @@ def decode_cyclic(encoded_str: str, key: int) -> str:
         elif encoded_str[:n].encode().hex() != "1" * (n // 4) and key % 2 == 0:
             encoded_bytes = bytes.fromhex("1" + encoded_bytes.hex())
     for i in range(0, len(encoded_bytes), n):
-        bits = encoded_bytes[i : i + n]
+        bits = encoded_bytes[i:i+n]
         if bits[0].hex() == "1":
-            decoded_str += bits[1:].hex()[::-1].ljust(n * 2, "0").decode()
+            decoded_str += bits[1:].hex()[::-1].ljust(n*2,"0").decode()
         else:
-            decoded_str += bits[1:].hex()[::-1].ljust(n * 2, "0").decode()
+            decoded_str += bits[1:].hex()[::-1].ljust(n*2,"0").decode()
     for i in range(0, len(decoded_str), n):
-        if decoded_str[i : i + n] == encoded_str[:key]:
-            return decoded_str[i + n :]
+        if decoded_str[i:i+n] == encoded_str[:key]:
+            return decoded_str[i+n:]
     return decoded_str
-
 
 input_string = input("Enter the encoded string: ")
 key = int(input("Enter the key: "))
