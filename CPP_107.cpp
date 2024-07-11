@@ -1,23 +1,27 @@
 #include <vector>
 
-vector<int> even_odd_palindrome(int n) {
-    int even = 0, odd = 0;
-    for (int i = 1; i <= n; ++i) {
-        string str = to_string(i);
-        string rev = str;
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+vector<int> even_odd_palindrome(int n){
+    vector<int> result(2, 0);
+    for(int i = 1; i <= n; ++i){
+        string num = to_string(i);
+        string rev = num;
         reverse(rev.begin(), rev.end());
-        if (str == rev) {
-            if (i % 2 == 0) {
-                even++;
+        if(num == rev){
+            if(i % 2 == 0){
+                result[0]++;
             } else {
-                odd++;
+                result[1]++;
             }
         }
     }
-
-    return {even, odd};
+    return result;
 }
 
-int main() {
-    assert(even_odd_palindrome(1) == vector<int>{0, 1});
+int main(){
+    assert(issame(even_odd_palindrome(1), {0, 1}));
+    return 0;
 }
