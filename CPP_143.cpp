@@ -1,22 +1,27 @@
 string words_in_sentence(string sentence){
+    vector<string> words = split(sentence);
     string result = "";
-    for (const auto& word : split(sentence, ' ')) {
-        if (is_prime(word.length())) {
-            result += word + " ";
+    for (int i = 0; i < words.size(); i++) {
+        if (is_prime(words[i].length())) {
+            result += words[i] + " ";
         }
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
-vector<string> split(const string& str, char ch) {
-    vector<string> tokens;
-    size_t pos = 0;
-    while ((pos = str.find(ch)) != string::npos) {
-        tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
+vector<string> split(string sentence) {
+    vector<string> words;
+    string word = "";
+    for (char c : sentence) {
+        if (c == ' ') {
+            words.push_back(word);
+            word = "";
+        } else {
+            word += c;
+        }
     }
-    tokens.push_back(str);
-    return tokens;
+    words.push_back(word);
+    return words;
 }
 
 bool is_prime(int n) {
