@@ -1,12 +1,3 @@
-n = int(input("Enter number of rows: "))
-m = int(input("Enter number of columns: "))
-grid = []
-for _ in range(n):
-    row = list(map(str, input().split()))
-    grid.append(row)
-k = int(input("Enter the path length: "))
-
-
 def minPath(grid, k):
     n = len(grid)
     res = []
@@ -20,8 +11,14 @@ def minPath(grid, k):
                 paths.extend(dfs(x, y, path + [grid[x][y]]))
         return paths
 
+    n = int(input("Enter the number of rows: "))
+    m = int(input("Enter the number of columns: "))
+
+    for _ in range(n):
+        grid.append(list(map(str, input(f"Enter row {i+1}: ").split())))
+
     for i in range(n):
         for j in range(m):
             res.extend(dfs(i, j, [grid[i][j]]))
 
-    return min([p[1:] for p in res if len(p) == k])
+    return min([p[1:] for p in res if len(p) == k], default=None)
