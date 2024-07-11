@@ -1,3 +1,4 @@
+```
 import math
 
 
@@ -5,8 +6,6 @@ def find_zero(xs):
     if len(xs) < 3:
         return "Not enough coefficients"
     try:
-        if len(xs) != 3 and len(xs) > 3:
-            return "Invalid input. Please enter exactly three coefficients."
         a, b, c = xs[0], xs[1], xs[2]
         d = sum(xs[3:]) if len(xs) > 3 else 0
     except ValueError:
@@ -18,5 +17,11 @@ def find_zero(xs):
     return round(x, 2)
 
 
-xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
-print(find_zero(xs))
+while True:
+    try:
+        xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
+        if len(xs) > 0:
+            print(find_zero(xs))
+            break
+    except ValueError:
+        print("Invalid input. Please enter only numbers separated by spaces.")
