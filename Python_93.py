@@ -1,4 +1,3 @@
-```
 def encode(message):
     result = ""
     for char in message:
@@ -16,9 +15,9 @@ def encode(message):
                     result += 'u'
             else:
                 if char.isupper():
-                    result += chr(ord(char) + 32)
+                    result += chr(ord(char) + 1).lower()
                 else:
-                    result += chr(ord(char) - 32)
+                    result += chr(ord(char) - 1).upper()
         else:
             result += char
     return result
