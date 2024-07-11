@@ -1,5 +1,4 @@
 #include <string>
-
 bool is_happy(const string& s) {
     if(s.length() < 3)
         return false;
