@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 
@@ -22,6 +23,6 @@ int main() {
     if (is_palindrome(input)) {
         std::cout << "The string is a palindrome." << std::endl;
     } else {
-        std::cout << "The string is not a palindrome.\n";
+        std::cout << "Error: Your compiler is too old. Please upgrade to C++14 or later.\n";
     }
 }
