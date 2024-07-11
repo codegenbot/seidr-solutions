@@ -1,8 +1,4 @@
-```c++
-#include <vector>
-#include <string>
-
-bool will_it_fly(std::vector<int> q, int w) {
+bool will_it_fly(std::vector<int> q, int weight) {
     std::string str = "";
     for (int i : q) {
         str += std::to_string(i);
@@ -12,5 +8,4 @@ bool will_it_fly(std::vector<int> q, int w) {
     for (int i : q) {
         sum += i;
     }
-    return sum <= w;
-}
+    return sum <= weight;
