@@ -3,10 +3,12 @@
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
+    int n = arr.size();
     vector<int> res;
-    for (int i = arr.size() - 1; i >= 0; i--) {
+    
+    for (int i = n - 1; i >= 0; i--) {
         bool leader = true;
-        for (int j = i + 1; j < arr.size(); j++) {
+        for (int j = i + 1; j < n; j++) {
             if (arr[j] >= arr[i]) {
                 leader = false;
                 break;
@@ -14,5 +16,6 @@ vector<int> leaders(vector<int>& arr) {
         }
         if (leader) res.push_back(arr[i]);
     }
+    
     return res;
 }
