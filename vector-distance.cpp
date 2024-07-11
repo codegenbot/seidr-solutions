@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <sstream>
-#include <string>
+#include <cstring>
 using namespace std;
 
 int main() {
@@ -13,15 +12,14 @@ int main() {
         cin >> vec1[i];
     }
 
-    cin.ignore(); // Ignore the comma separator
-    string input;
-    getline(cin, input);
-    stringstream ss(input);
-    vector<float> vec2;
-    float num;
-    while (ss >> num) {
-        vec2.push_back(num);
-        ss.ignore();
+    char comma;
+    for (int i = 0; i < n; ++i) {
+        cin >> vec1[i] >> comma;
+    }
+
+    vector<float> vec2(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> vec2[i];
     }
 
     float sum = 0;
