@@ -1,6 +1,3 @@
-#include <string>
-using namespace std;
-
 string int_to_mini_romank(int n) {
     string roman;
     
