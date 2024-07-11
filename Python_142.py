@@ -1,3 +1,4 @@
+```
 def sum_squares(lst):
     total = 0
     for num in lst:
@@ -6,6 +7,6 @@ def sum_squares(lst):
         elif num % 12 == 0:
             total += num**3
         else:
-            if num % 2 == 0 and num % 3 != 0:
+            if (num % 2 == 0 and num % 3 != 0) or (num % 4 == 0 and num % 6 != 0):
                 total += num**2
     return total
