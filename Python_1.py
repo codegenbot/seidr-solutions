@@ -20,7 +20,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 groups.append(group + ")")
                 group = ""
             else:
-                while stack:
-                    group += stack.pop()
+                group += stack.pop()  # pop remaining '(' at the end
+                groups.append(group)
+                group = ""
 
     return [group] + groups
