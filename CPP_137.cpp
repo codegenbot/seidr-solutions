@@ -6,10 +6,10 @@ using namespace boost;
 
 boost::variant<int, double, std::string> compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
+        return static_cast<boost::variant<int, double, std::string>>(b);
     }
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return b;
+        return static_cast<boost::variant<int, double, std::string>>(b);
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = boost::any_cast<std::string>(a);
@@ -22,22 +22,22 @@ boost::variant<int, double, std::string> compare_one(boost::any a, boost::any b)
             return b;
         }
         else {
-            return std::string("None");
+            return b;
         }
     }
     else if ((a.type() == typeid(double) && b.type() == typeid(std::string)) || 
              (a.type() == typeid(std::string) && b.type() == typeid(double))) {
-        double valA = boost::any_cast<double>(a);
-        double valB = boost::any_cast<double>(b);
+        double numA = boost::any_cast<double>(a);
+        double numB = boost::any_cast<double>(b);
 
-        if (valA > valB) {
+        if (numA > numB) {
             return a;
         }
-        else if (valA < valB) {
+        else if (numA < numB) {
             return b;
         }
         else {
-            return std::string("None");
+            return b;
         }
     }
 
