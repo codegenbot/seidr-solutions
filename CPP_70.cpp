@@ -1,4 +1,3 @@
-```
 #include <algorithm>
 #include <vector>
 
@@ -20,11 +19,10 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    vector<int> vec = {4, 2, 9, 6};
+    vector<int> vec = {5, 3, 8};
     vector<int> sorted_vec = strange_sort_vector(vec);
     for(int num : sorted_vec) {
         cout << num << " ";
     }
-    cout << endl;
     return 0;
 }
