@@ -1,5 +1,4 @@
 #include <string>
-#include <iostream>
 
 std::string file_name_check(std::string filename) {
     int digit_count = 0;
@@ -10,7 +9,7 @@ std::string file_name_check(std::string filename) {
         if (isdigit(c)) {
             digit_count++;
             if (digit_count > 3)
-                return "Invalid";
+                return "No";
         } else if (c == '.') {
             found_dot = true;
         } else {
@@ -20,12 +19,12 @@ std::string file_name_check(std::string filename) {
     }
 
     if (digit_count <= 3 && found_dot && valid_prefix)
-        return "Valid";
+        return "Yes";
     else
-        return "Invalid";
+        return "No";
 }
 
 int main() {
-    std::cout << file_name_check("s.") << std::endl; // Correct usage
+    assert(file_name_check("s.") == "No");
     return 0;
 }
