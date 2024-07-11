@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -8,11 +9,11 @@ vector<int> unique(vector<int> l) {
     return result;
 }
 
-vector<int>::iterator unique_copy(iterator first, iterator last) {
-    map<int, bool> seen;
-    for (auto it = first; it != last; ++it) {
-        if (!seen.insert({*it, true}).second)
-            *it = 0; // replace with a dummy value
+int main() {
+    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    vector<int> output = unique(input);
+    for (int i : output) {
+        cout << i << " ";
     }
-    return first + distance(first, last);
+    return 0;
 }
