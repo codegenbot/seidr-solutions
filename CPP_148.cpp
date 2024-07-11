@@ -1,6 +1,12 @@
-```cpp
-bool issame(vector<string> a, vector<string>b){
-    return a == b;
+#include <vector>
+#include <string>
+
+bool issame(string a, string b) {
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
 }
 
 vector<string> bf(string planet1, string planet2) {
