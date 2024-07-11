@@ -6,7 +6,8 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-    
+
+    // Read input from file
     while (cin >> num) {
         nums.push_back(num);
     }
