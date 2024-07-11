@@ -1,15 +1,13 @@
 #include <vector>
 #include <list>
-#include <typeinfo>
 
 using namespace std;
 
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).type() == typeid(int)) {
-            int casted_value = any_cast<int>(value);
-            result.push_back(casted_value);
+        if constexpr (holds_alternative<int>(value)) {
+            result.push_back(get<int>(value));
         }
     }
     return result;
