@@ -1,4 +1,5 @@
-int main() {
+int main
+{
     std::cout << "Enter a string: ";
     std::string input;
     std::cin >> input;
