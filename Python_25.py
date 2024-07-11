@@ -11,5 +11,16 @@ def find_prime_numbers(n):
             prime_numbers.append(possiblePrime)
     return prime_numbers
 
-n = int(input("Enter an integer: "))
+while True:
+    try:
+        n = int(input("Enter a positive integer: "))
+        if n < 1:
+            print("Please enter a positive integer.")
+        elif n > 1000000:  
+            print("The program might take a long time for large inputs. Try smaller values.")
+        else:
+            break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
 print(find_prime_numbers(n))
