@@ -1,10 +1,11 @@
 def complete_code(numbers, delimiter):
-    numbers = numbers.split()
-    result = []
-    for num in numbers[:-1]:
-        result.extend([num, delimiter])
-    if numbers:
-        result.append(numbers[-1])
-    return result
+    return [
+        elem
+        for sub_list in [[int(num), delimiter] for num in numbers]
+        for elem in sub_list
+    ][:-1]
 
-print(complete_code(input(), input()))
+
+numbers = input().strip().split()
+delimiter = input().strip()
+print(complete_code(numbers, delimiter))
