@@ -6,7 +6,7 @@ def sort_even(l: list):
     i, j = 0, 0
 
     while i < len(evens) and j < len(odds):
-        if evens[i] <= abs(odds[j]):
+        if abs(evens[i]) <= abs(odds[j]):
             result.append(evens[i])
             i += 1
         else:
@@ -15,5 +15,5 @@ def sort_even(l: list):
 
     result.extend(evens[i:])
     result.extend([-x for x in odds[j:]])
-    
+
     return result
