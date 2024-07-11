@@ -1,27 +1,29 @@
-def is_valid_expression(expression):
+```
+def correct_bracketing(expression):
     stack = []
     for char in expression:
-        if char == "(":
+        if char == '(':
             stack.append(char)
-        elif char == ")":
+        elif char == ')':
             if len(stack) == 0:
                 return False
-            stack.pop()
-    return len(stack) == 0
+            else:
+                stack.pop()
+    if len(stack) > 0:
+        return False
+    return True
 
-
-def check(correct_bracketing=None):
+def check(correct_bracketing):
     while True:
         expression = input("Enter an expression (or 'done' if finished): ")
         if expression.lower() == "done":
             break
         try:
-            if correct_bracketing is None or is_valid_expression(expression):
+            if correct_bracketing(expression):
                 print("Correct bracketing!")
             else:
                 print("Incorrect bracketing. Try again.")
         except ValueError:
             print("Invalid input. Please enter a valid mathematical expression.")
 
-
-check()
+check(correct_bracketing)
