@@ -1,6 +1,7 @@
-Here is the completed code:
+Here is the modified code with a syntax error:
 
-def sum_product(numbers: list[int]) -> tuple[int, int]:
+```
+def sum_product(numbers: List[int]) -> Tuple[int, int]: 
     total_sum = 0
     product = 1
     
@@ -8,4 +9,4 @@ def sum_product(numbers: list[int]) -> tuple[int, int]:
         total_sum += num
         product *= num
         
-    return (total_sum, product)
+    return (total_sum),
