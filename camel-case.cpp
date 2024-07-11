@@ -1,18 +1,22 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
 int main() {
-    string input;
-    getline(cin, input);
-    
-    bool isFirst = true;
-    for (char c : input) {
+    std::string input;
+    std::getline(std::cin, input);
+
+    bool capitalize = false;
+    for (char &c : input) {
         if (c == '-') {
-            isFirst = true;
-        } else if (isFirst) {
-            cout << (char)toupper(c);
-            isFirst = false;
+            capitalize = true;
+        } else if (capitalize) {
+            std::cout << (char)std::toupper(c);
+            capitalize = false;
         } else {
-            cout << c;
+            std::cout << c;
         }
     }
-    
+
     return 0;
 }
