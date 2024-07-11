@@ -12,11 +12,11 @@ bool is_sorted(const std::vector<int>& lst) {
 }
 
 int main() {
-    std::vector<int> testList = {1, 2, 3, 4, 5};
-    std::cout << is_sorted(testList) << std::endl;
+    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    std::cout << is_sorted(numbers) << std::endl;
 
-    std::vector<int> testList2 = {1, 2, 3, 3, 4, 5};
-    std::cout << is_sorted(testList2) << std::endl;
+    std::vector<int> numbers2 = {1, 2, 3, 3, 4, 5};
+    std::cout << is_sorted(numbers2) << std::endl;
 
     return 0;
 }
