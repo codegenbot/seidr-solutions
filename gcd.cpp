@@ -4,7 +4,7 @@ using namespace std;
 
 int gcd(int a, int b) {
     while (b != 0)
-        a %= b;
+        b = a % b;
     return a;
 }
 
@@ -14,6 +14,6 @@ int main() {
     getline(cin, str1);
     cout << "Enter the second string: ";
     getline(cin, str2);
-    cout << "GCD is: " << gcd(str1.length(),str2.length());
+    cout << "GCD is: " << gcd(str1.length(), str2.length());
     return 0;
 }
