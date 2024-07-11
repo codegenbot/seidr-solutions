@@ -2,14 +2,11 @@ from typing import List
 import math
 
 
-def factorize():
+def factorize(num: int) -> List[int]:
     try:
-        num = int(input("Enter a number to factorize: "))
-        if not isinstance(num, int):
-            raise ValueError("Input must be an integer.")
         if num <= 1:
-            print("Please enter a positive integer greater than 1.")
-            return []
+            raise ValueError("Number is less than or equal to one.")
+
         factors = []
         i = 2
         while i * i <= num:
@@ -25,15 +22,19 @@ def factorize():
         if num > 1:
             factors.append(num)
         return factors
+
     except ValueError as e:
-        print(f"Error: {e}")
+        return [str(e)]
 
 
 def main():
     try:
-        result = factorize()
-        if result:
-            print("Prime factors are:", *result, sep=", ")
+        user_input = int(input("Enter a number to factorize: "))
+        if not isinstance(user_input, int):
+            raise ValueError("Input must be an integer.")
+        print("The factors of {} are: {}".format(user_input, factorize(user_input)))
+    except ValueError as e:
+        print(f"Error: {e}")
 
 
 if __name__ == "__main__":
