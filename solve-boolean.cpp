@@ -1,42 +1,43 @@
+#include <string>
+
+bool getBoolValue(char c) {
+    return c == 'T';
+}
+
 string solveBoolean(string expression) {
     stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '|') {
-            while (!s.empty() && s.top() != '&') {
-                if (s.top() == 'T') s.pop(), s.push('F');
-                else if (s.top() == 'F') s.pop();
-                else break;
+        if (expression[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
+            }
+            s.push('&');
+        } else if (expression[i] == '|') {
+            while (!s.empty()) {
+                s.pop();
             }
             s.push('|');
-        } 
-        else if (expression[i] == '&') {
-            while (!s.empty() && s.top() != '|') {
-                if (s.top() == 'T' && !s.empty() && s.top() == 'F') {
-                    s.pop();
-                    s.pop();
-                    break;
-                }
-                if (s.top() == 'F' || s.top() == 'T')
-                    s.pop();
-            } 
-            s.push('&');
         } else {
             s.push(expression[i]);
         }
     }
 
-    string result;
+    string result = "";
+    bool left = false, right = false;
     while (!s.empty()) {
-        if (s.top() == '|') {
-            if (!s.empty() && s.top() == '&') {
-                if (!s.empty() && s.top() == 'F' || !s.empty() && s.top() == 'T')
-                    s.pop();
-                else if (!s.empty() && s.top() == 'F') s.pop(), s.push('T');
-                else if (!s.empty() && s.top() == 'T') s.pop(), s.push('F');
-            } 
-        }
-        result = ((s.top() == 'T') ? "True" : "False") + (result.empty() ? "" : " ");
+        char c = s.top();
         s.pop();
+        if (c == '&') {
+            left = getBoolValue('T');
+            right = true;
+            result = (left && right) ? "True" : "False";
+        } else if (c == '|') {
+            left = getBoolValue('T');
+            right = true;
+            result = (left || right) ? "True" : "False";
+        } else {
+            result = (getBoolValue(c)) ? "True" : "False";
+        }
     }
 
     return result;
