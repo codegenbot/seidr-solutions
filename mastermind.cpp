@@ -13,7 +13,7 @@ int blackPegs(std::string code, std::string guess) {
 
 int whitePegs(std::string code, std::string guess) {
     int count = 0;
-    std::vector<int> codeMap(6), guessMap(6);
+    vector<int> codeMap(6), guessMap(6);
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
             count++;
@@ -27,4 +27,3 @@ int whitePegs(std::string code, std::string guess) {
     }
     int blackPegsCount = blackPegs(code, guess);
     return count - blackPegsCount;
-}
