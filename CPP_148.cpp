@@ -1,38 +1,39 @@
 #include <vector>
 #include <string>
 
+bool issame(const std::string& a, const std::string& b) {
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Makemake"};
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    int index1 = -1, index2 = -1;
     
-    int index1 = -1;
     for (int i = 0; i < planets.size(); i++) {
         if (planet1 == planets[i]) {
             index1 = i;
+        } else if (planet2 == planets[i]) {
+            index2 = i;
+        }
+        
+        if (index1 != -1 && index2 != -1) {
             break;
         }
     }
     
-    int index2 = -1;
-    for (int i = 0; i < planets.size(); i++) {
-        if (planet2 == planets[i]) {
-            index2 = i;
-            break;
-        }
+    if (index1 == -1 || index2 == -1) {
+        return {};
     }
     
     std::vector<std::string> result;
-    
-    if (index1 >= 0 && index2 >= 0) {
-        if (index1 > index2) {
-            for (int i = index1; i >= index2 + 1; i--) {
-                result.push_back(planets[i]);
-            }
-        } else if (index1 < index2) {
-            for (int i = index1; i <= index2 - 1; i++) {
-                result.push_back(planets[i]);
-            }
-        } else {
-            return result;
+    for (int i = 0; i < planets.size(); i++) {
+        if (i > index1 && i < index2) {
+            result.push_back(planets[i]);
+        } else if (index1 > i && i > index2) {
+            result.push_back(planets[i]);
         }
     }
     
