@@ -1,3 +1,7 @@
+#include <iostream>
+
+using namespace std;
+
 int score(string s) {
     int total = 0;
     int frame = 1;
@@ -10,7 +14,11 @@ int score(string s) {
 
             if (frame < 10) {
                 total += (s[i + 1] == 'X' ? 10 : (s[i + 1] == '/' ? 10 - (s[i - 1] - '0') : s[i + 1] - '0'));
-                total += (i < s.size() - 2 && s[i + 2] == 'X' ? 10 : s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : s[i + 2] - '0');
+                total += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : s[i + 2] - '0'));
+            }
+
+            if (i + 2 >= s.size()) {
+                break;
             }
 
             isStrike = true;
@@ -22,21 +30,21 @@ int score(string s) {
                 total += (s[i + 1] == 'X' ? 10 : s[i + 1] - '0');
             }
 
+            if (i + 1 >= s.size()) {
+                break;
+            }
+
             isSpare = true;
             frame++;
         } else {
             total += s[i] - '0';
 
-            if (isSpare) {
+            if (isSpare && !isStrike) {
                 total += s[i] - '0';
-            }
-
-            if (isStrike) {
-                total += s[i] - '0';
-                isStrike = false;
             }
 
             isSpare = false;
+            isStrike = false;
 
             if (frame < 10) {
                 if (isSpare) {
@@ -51,4 +59,11 @@ int score(string s) {
     }
 
     return total;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s);
+    return 0;
 }
