@@ -1,7 +1,7 @@
-#include <initializer_list>
-
+```
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 int issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a == b)
@@ -19,7 +19,7 @@ std::vector<int> even_odd_count(int num) {
         else
             ++count_odd;
     }
-    return {std::abs(count_even - count_odd), std::min(count_even, count_odd), std::max(count_even, count_odd)};
+    return {count_even, count_odd};
 }
 
 int main() {

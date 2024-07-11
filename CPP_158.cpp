@@ -1,4 +1,3 @@
-```cpp
 std::string find_max(std::vector<std::string> words) {
     std::string result = "";
     int max_unique_chars = 0;
