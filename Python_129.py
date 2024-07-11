@@ -1,17 +1,28 @@
-```python
-"""
-def minPath(grid, k):
+````
+"""def minPath(grid, k):
     n = len(grid)
-    m = [[grid[i][j] for j in range(n)] for i in range(n)]
+    m = [[0 for _ in range(n)] for _ in range(n)]
     dp = [[[float('inf')] * (k + 1) for _ in range(n)] for _ in range(n)]
+    
+    for i in range(n):
+        for j in range(n):
+            if grid[i][j] == 'O':
+                m[i][j] = 0
+            elif grid[i][j] == 'X':
+                m[i][j] = float('inf')
+            else:
+                m[i][j] = int(grid[i][j])
+    
     dp[0][0][0] = m[0][0]
     for i in range(1, n):
         dp[i][0][0] = min(dp[i-1][0][0], m[i][0])
     for j in range(1, n):
         dp[0][j][0] = min(dp[0][j-1][0], m[0][j])
+    
     for i in range(1, n):
         for j in range(1, n):
             dp[i][j][0] = min(min(dp[i-1][j][0], dp[i][j-1][0]), m[i][j])
+    
     for l in range(1, k + 1):
         for i in range(n):
             for j in range(n):
@@ -22,6 +33,7 @@ def minPath(grid, k):
                     for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                         if 0 <= i + x < n and 0 <= j + y < n:
                             dp[i][j][l] = min(dp[i][j][l], dp[i+x][j+y][l-1] + m[i][j])
+    
     path = []
     i, j = 0, 0
     for _ in range(k):
@@ -40,5 +52,5 @@ def minPath(grid, k):
                 i += 1
             else:
                 j += 1
-    return path
-"""
+    
+    return path"""
