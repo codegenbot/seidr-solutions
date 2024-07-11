@@ -1,15 +1,16 @@
-string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            char encrypted_char = s[i] + 2 * ('z' - s[i] >= 2 ? 2 : -24);
-            if(encrypted_char > 'z'){
+string encrypted = "";
+    for (char c : s) {
+        if (isalpha(c)) {
+            char encrypted_char = c + 2 * ('z' - c) + 1;
+            if (islower(c) && encrypted_char > 'z') {
                 encrypted_char = 'a' + (encrypted_char - 'z' - 1);
+            } else if (isupper(c) && encrypted_char > 'Z') {
+                encrypted_char = 'A' + (encrypted_char - 'Z' - 1);
             }
-            result += encrypted_char;
-        }
-        else{
-            result += s[i];
+            encrypted += encrypted_char;
+        } else {
+            encrypted += c;
         }
     }
-    return result;
+    return encrypted;
 }
