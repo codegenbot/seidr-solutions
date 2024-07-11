@@ -1,11 +1,9 @@
 sort(lst.begin(), lst.end());
-vector<int> result;
+vector<int> res;
 int i = 0, j = lst.size() - 1;
 while (i <= j) {
-    result.push_back(lst[i++]);
-    if (i <= j) {
-        result.push_back(lst[j--]);
-    }
+    res.push_back(lst[i++]);
+    if (i <= j) res.push_back(lst[j--]);
 }
-return result;
+return res;
 }
