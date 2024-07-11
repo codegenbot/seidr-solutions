@@ -15,7 +15,7 @@ int main() {
 
     int sum = 0;
     for (int num : nums) {
-        sum += (num / 3) - 3;
+        sum += (num / 3) * 3 - 2;
     }
 
     cout << sum << "\n";
