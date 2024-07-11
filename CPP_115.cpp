@@ -1,19 +1,13 @@
-int rows = grid.size();
-        int cols = grid[0].size();
-        
-        int total_water = 0;
-        int num_operations = 0;
-        
-        for(int j = 0; j < cols; j++){
-            for(int i = 0; i < rows; i++){
-                total_water += grid[i][j];
+int count = 0;
+        for (const auto& row : grid) {
+            int water_in_row = 0;
+            for (int cell : row) {
+                water_in_row += cell;
             }
-            
-            while(total_water > 0){
-                total_water -= capacity;
-                num_operations++;
+            while (water_in_row > 0) {
+                water_in_row -= capacity;
+                count++;
             }
         }
-        
-        return num_operations;
+        return count;
     }
