@@ -1,12 +1,15 @@
-Here is the solution:
-
-def solve_boolean(expression):
-    if expression == 'T':
+def solve(input_str):
+    if input_str == "T":
         return True
-    elif expression == 'F':
+    elif input_str == "F":
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    else:
-        result = eval(' '.join(map(lambda x: 'True' if x == 'T' else 'False', expression)))
+    elif len(input_str) > 1:
+        result = None
+        for term in input_str.split("&"):
+            if result is None:
+                result = eval(term)
+            else:
+                result = result and eval(term)
         return result
+    else:
+        return eval(input_str)
