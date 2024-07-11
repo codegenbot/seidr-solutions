@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -14,10 +15,10 @@ std::string camelCase(const std::string& s) {
                 result += tolower(c);
             first = false; 
 
-            if (c != '-')  // Ignore '-' characters when converting to camelCase
+            if (c != '-')  
                 continue;
         }
-        first = true; // Reset the flag for each word
+        first = true; 
     }
 
     return result;
