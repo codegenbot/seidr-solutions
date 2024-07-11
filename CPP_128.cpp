@@ -1,13 +1,9 @@
-int prod_signs(vector<int> arr){
-    int sign_product = 1;
-    long long sum_magnitude = 0;
-    
-    for(int num : arr){
-        if(num != 0){
-            sign_product *= (num > 0 ? 1 : -1);
-            sum_magnitude += abs(num);
+int prod_signs(vector<int> arr) {
+    int product = 1;
+    for (int num : arr) {
+        if (num != 0) {
+            product *= (num > 0 ? 1 : -1);
         }
     }
-    
-    return (arr.empty()) ? INT_MIN : sign_product * sum_magnitude;
+    return product * abs(arr.empty() ? INT_MIN : accumulate(arr.begin(), arr.end(), 0));
 }
