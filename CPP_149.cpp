@@ -3,7 +3,7 @@
 #include <string>
 
 bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
-    return a == b;
+    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> lst) { 
@@ -13,12 +13,9 @@ std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> l
 
     std::vector<std::string> result;
 
-    for (const auto& vec : lst) {
-        for (const auto& str : vec) {
-            if (str.length() % 2 == 0) {
-                result.push_back(str);
-                break;
-            }
+    for (const auto& str : lst[0]) {
+        if (str.length() % 2 == 0) {
+            result.push_back(str);
         }
     }
 
