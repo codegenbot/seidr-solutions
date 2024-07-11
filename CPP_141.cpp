@@ -37,5 +37,6 @@ string file_name_check(string file_name) {
 int main() {
     assert(file_name_check("s.") == "No");
     // Add more test cases here
+    
     return 0;
 }
