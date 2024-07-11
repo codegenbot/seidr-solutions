@@ -1,5 +1,10 @@
+Here's the modified code:
+
 ```
 def count_up_to(n):
+    """
+    Returns a list of all prime numbers up to n.
+    """
     def is_prime(num):
         if num < 2:
             return False
