@@ -1,3 +1,4 @@
+```
 def main():
     while True:
         print("Enter date (yyyy-mm-dd):")
@@ -5,7 +6,7 @@ def main():
         if len(date) != 10 or "-" not in date:
             print("Invalid date format! Please use 'yyyy-mm-dd'.")
         else:
-            if valid_date(date):
-                print(f"The date {date} is valid.")
-            else:
+            if not valid_date(date):
                 print(f"The date {date} is not valid.")
+            else:
+                print(f"The date {date} is valid.")
