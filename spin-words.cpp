@@ -2,18 +2,26 @@ int main() {
     string input;
     getline(cin, input);
 
-    string word;
+    string word = "";
+    string result = "";
     for (int i = 0; i < input.length(); ++i) {
-        if (input[i] == ' ' || i == input.length() - 1) {
+        if (input[i] == ' ') {
             if (word.length() >= 5) {
                 reverse(word.begin(), word.end());
             }
-            cout << word << (i == input.length() - 1 ? "" : " ");
-            word.clear();
+            result += word + " ";
+            word = "";
         } else {
             word += input[i];
         }
     }
+
+    if (word.length() >= 5) {
+        reverse(word.begin(), word.end());
+    }
+    result += word;
+
+    cout << result;
 
     return 0;
 }
