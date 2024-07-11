@@ -1,5 +1,4 @@
 #include <iostream>
-
 int main() {
     double start_height, first_bounce_height, bounciness_index, total_distance = 0.0;
     int num_bounces;
