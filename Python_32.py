@@ -1,14 +1,9 @@
-```
-def find_zero(xs):
-    if len(xs) % 2 != 0:
-        return None
-    max_coeff = max([abs(coeff) for coeff in xs])
-    idx = xs.index(max_coeff)
-    p = poly(xs, -max_coeff / xs[idx])
-    while math.isclose(poly(xs, p), 0, abs_tol=1e-6):
-        if len(xs) == 2:
-            return round(p, 2)
-        max_coeff = max([abs(coeff) for coeff in xs])
-        idx = xs.index(max_coeff)
-        p = poly(xs, -max_coeff / xs[idx])
-    return round(p, 2)
+def find_zero(xs: list):
+    """Find zero by calculating -xs[1] / xs[0]
+    This function takes a list of two numbers and returns the value at which the line defined by these two points crosses the x-axis.
+    Args:
+        xs (list): A list containing two numbers
+    Returns:
+        float: The value at which the line crosses the x-axis
+    """
+    return -xs[1] / xs[0]
