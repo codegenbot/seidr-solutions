@@ -28,7 +28,8 @@ def solve_quadratic_equation(a, b, c, d=None):
         else:
             print("There are no real solutions.")
 
-find_zero = solve_quadratic_equation
+def main():
+    find_zero = solve_quadratic_equation
 
 def main():
     find_zero(*map(int, input("Enter coefficients (a b c [d]): ").split())
