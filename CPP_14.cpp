@@ -19,9 +19,9 @@ int main() {
 vector<string> all_prefixes(string str) {
     vector<string> result;
     for (int i = 1; i <= str.length(); ++i) {
-        string prefix;
+        string prefix = "";
         for (int j = 0; j < i; ++j) {
-            prefix += str.substr(j, 1); // Convert int to char by taking a substring of length 1
+            prefix += str[j];
         }
         result.push_back(prefix);
     }
