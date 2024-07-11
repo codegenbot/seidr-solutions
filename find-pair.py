@@ -1,4 +1,3 @@
-```
 def find_pair(n, nums):
     seen = set()
     for num in nums:
