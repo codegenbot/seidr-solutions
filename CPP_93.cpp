@@ -1,11 +1,8 @@
-for (char &c : message) {
+string encode(string message){
+    for (char &c : message) {
         if (isalpha(c)) {
-            if (c >= 'a' && c <= 'z') {
-                c = toupper(c);
-            } else {
-                c = tolower(c);
-            }
-            if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+            c = islower(c) ? toupper(c) : tolower(c);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
                 c += 2;
             }
         }
