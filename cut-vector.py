@@ -12,8 +12,8 @@ for i, num in enumerate(numbers):
         break
 
 if current_sum - half_sum < half_sum - (current_sum - num):
-    print(numbers[:index + 1])
-    print(numbers[index + 1:])
+    print(numbers[: index + 1])
+    print(numbers[index + 1 :])
 else:
     print(numbers[:index])
     print(numbers[index:])
