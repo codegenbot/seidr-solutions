@@ -1,5 +1,6 @@
 ```python
-def sum_product(numbers: list[int]) -> tuple[int, int]:
+def sum_product():
+    numbers = list(map(int, input("Enter space-separated numbers: ").split()))
     if not numbers:
         return 0, 1
     total_sum = 0
