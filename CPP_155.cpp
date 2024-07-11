@@ -1,11 +1,13 @@
+#include <initializer_list>
+
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+int issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a == b)
-        return true;
+        return 0;
     else
-        return false;
+        return -1;
 }
 
 std::vector<int> even_odd_count(int num) {
