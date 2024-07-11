@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <string>
 #include <cctype>
 
@@ -13,6 +13,6 @@ std::string get_closest_vowel(std::string word) {
 }
 
 bool isvowel(char c) {
-    char lower = tolower(c);
-    return (lower == 'a' || lower == 'e' || lower == 'i' || lower == 'o' || lower == 'u');
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
