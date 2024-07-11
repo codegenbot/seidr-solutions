@@ -1,14 +1,13 @@
-string solve(string s){
-    int n = s.size();
-    int count = 0;
-    for(int i=0; i<n; i++){
-        if(isalpha(s[i])){
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
-        } else {
-            count++;
+for(char& c : s){
+        if(isalpha(c)){
+            if(islower(c)){
+                c = toupper(c);
+            } else {
+                c = tolower(c);
+            }
         }
     }
-    if(count == n){
+    if(count_if(s.begin(), s.end(), ::isalpha) == 0){
         reverse(s.begin(), s.end());
     }
     return s;
