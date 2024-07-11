@@ -2,13 +2,10 @@
 #include <numeric>
 #include <algorithm>
 #include <cassert>
-#include <cmath>
 
-bool issame(const vector<int>& a, const vector<int>& b){
-    return accumulate(a.begin(), a.end(), 0) == accumulate(b.begin(), b.end(), 0);
-}
+bool issame(const vector<int>& a, const vector<int>& b);
 
-vector<int> order(vector<int>& nums){
+vector<int> order_by_points(const vector<int>& nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int temp_a = abs(a), temp_b = abs(b);
@@ -26,4 +23,14 @@ vector<int> order(vector<int>& nums){
         return sum_a < sum_b;
     });
     return nums;
+}
+
+int main() {
+    vector<int> test_nums = {123, 111, 321, 222};
+    vector<int> result = order_by_points(test_nums);
+    vector<int> expected_result = {111, 222, 123, 321};
+    
+    assert(result == expected_result);
+    
+    return 0;
 }
