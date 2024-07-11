@@ -1,14 +1,18 @@
 def solve_boolean(expression):
-    if expression == 'T':
+    if expression == "T":
         return True
-    elif expression == 'F':
+    elif expression == "F":
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
-    else:
-        try:
-            result = eval('True' + expression.replace('&', '^').replace('|', '|'))
-            return result
-        except Exception as e:
-            print(f"Error: {str(e)}")
-            return None
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return solve_boolean(left) and solve_boolean(right)
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return solve_boolean(left) or solve_boolean(right)
+
+
+print("Result:", str(solve_boolean("t")))
+print("Result:", str(solve_boolean("f")))
+print("Result:", not bool(solve_boolean("f&f")))
+print("Result:", not bool(solve_boolean("f&t")))
+print("Result:", not bool(solve_boolean("t&f")))
