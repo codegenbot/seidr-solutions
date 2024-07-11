@@ -1,4 +1,3 @@
-```cpp
 string string_xor(string a, string b) {
     string result = "";
     for (int i = 0; i < a.size(); i++) {
@@ -9,7 +8,4 @@ string string_xor(string a, string b) {
         }
     }
     return result;
-}
-int main() {
-    assert (string_xor("0101", "0000") == "0101");
 }
