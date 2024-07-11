@@ -1,6 +1,13 @@
+````
 """
-Given a list of integers, find the difference between the maximum possible value that can be obtained by doubling all positive numbers in the list and the sum of squares of these doubled values.
+Given a list of integers, find the difference between the maximum value and the minimum value, 
+then double that difference.
 """
 def double_the_difference(lst):
-    max_positive = max(i for i in lst if isinstance(i, int) and i > 0)
-    return (max_positive * 2 - max_positive) + sum((i*2)**2 for i in lst if isinstance(i, int) and i > 0)
+    if not all(isinstance(i, int) for i in lst):
+        return "Error: The input list must contain only integers."
+    elif len(lst) < 2:
+        return "Error: The input list must have at least two elements."
+    else:
+        difference = max(lst) - min(lst)
+        return 2 * difference
