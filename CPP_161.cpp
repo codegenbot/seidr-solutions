@@ -1,12 +1,12 @@
 string solve(string s){
-    bool hasLetters = false;
+    bool hasLetter = false;
     for(char &c : s){
         if(isalpha(c)){
-            hasLetters = true;
+            hasLetter = true;
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if(!hasLetters){
+    if(!hasLetter){
         reverse(s.begin(), s.end());
     }
     return s;
