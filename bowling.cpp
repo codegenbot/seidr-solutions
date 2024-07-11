@@ -14,19 +14,14 @@ int bowlingScore(string s) {
             currentFrame++;
             rollsLeftInFrame = 2;
         } else if (s[i] == 'X') {
-            score += 30;
+            score += 10;
             currentFrame++;
             rollsLeftInFrame--;
         } else {
             int currentRoll = s[i] - '0';
-            if (currentRoll + s[i+1] - '0' <= 10) {
-                score += currentRoll + s[i+1] - '0';
-            } else {
-                score += 10;
-            }
+            score += currentRoll;
             rollsLeftInFrame--;
         }
     }
 
     return score;
-}
