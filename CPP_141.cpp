@@ -1,4 +1,4 @@
-#include <cassert>
+#include <string>
 
 bool file_name_check(std::string filename) {
     int digit_count = 0;
@@ -14,6 +14,5 @@ bool file_name_check(std::string filename) {
         }
     }
 
-    assert(digit_count <= 3 && found_dot);
-    return true;
+    return digit_count <= 3 && found_dot;
 }
