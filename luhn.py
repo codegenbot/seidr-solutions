@@ -1,7 +1,7 @@
 def luhn(card_number):
     card_number = [int(x) for x in str(card_number)]
     if len(card_number) != 16:
-        return 
+        return
     total_sum = 0
     for i, num in enumerate(reversed(card_number)):
         if (i % 2 == 1):
