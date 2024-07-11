@@ -1,15 +1,9 @@
-if (txt.empty()) {
+if(txt.empty())
         return false;
-    }
-    
     char lastChar = txt.back();
-    
-    if (isalpha(lastChar)) {
-        size_t found = txt.find_last_of(" ");
-        if (found == string::npos || found == txt.length() - 1) {
+    if(isalpha(lastChar)){
+        if(txt.find_last_of(' ') == txt.length()-1)
             return true;
-        }
     }
-    
     return false;
 }
