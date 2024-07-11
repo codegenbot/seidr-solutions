@@ -1,3 +1,6 @@
+#include <cmath>
+#include <cctype>
+
 bool any_int(float a, float b, float c) {
     if (abs(a - b - c) < 1e-9 && a == static_cast<int>(a) &&
         b == static_cast<int>(b) && c == static_cast<int>(c)) {
