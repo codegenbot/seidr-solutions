@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -21,4 +20,4 @@ for op in input().split():
 while len(ops) > 1: 
     for i in range(len(ops)-1, -1, -1):
         ops.pop() 
-print(below_zero(ops))
+print('''{}''').format(below_zero(ops))
