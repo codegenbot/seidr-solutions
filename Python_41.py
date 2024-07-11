@@ -1,4 +1,3 @@
-```
 def car_race_collision(distance):
     time_to_meet = int(input("Enter time at which both cars meet: "))
     
