@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 
@@ -9,7 +8,7 @@ int issame(const std::vector<int>& a, const std::vector<int>& b) {
         return -1;
 }
 
-std::pair<int, int> even_odd_count(int num) {
+std::vector<int> even_odd_count(int num) {
     int count_even = 0, count_odd = 0;
     std::string str_num = std::to_string(std::abs(num));
     for (char c : str_num) {
@@ -22,6 +21,6 @@ std::pair<int, int> even_odd_count(int num) {
 }
 
 int main(int argc, char* argv[]) {
-    assert(even_odd_count(0) == std::make_pair(1, 0));
+    assert(even_odd_count(0) == std::vector<int>{1, 0});
     return 0;
 }
