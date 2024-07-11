@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -9,7 +10,7 @@ bool issame(vector<string> a, vector<string> b) {
     return a.size() == b.size();
 }
 
-std::vector<std::vector<std::string>> sorted_list_sum(std::vector<std<vector<string>>> lst) {
+std::vector<std::vector<std::string>> sorted_list_sum(std::vector<std::vector<std::string>> lst) {
     std::vector<std::vector<std::string>> result;
 
     for (const auto& str : lst) {
@@ -29,5 +30,5 @@ std::vector<std::vector<std::string>> sorted_list_sum(std::vector<std<vector<str
 }
 
 int main() {
-    assert(issame({{"aaaa", "bbbb"}, {"cc", "dd"}}, {{"ccc", "dd"}, {"aaaa", "bbbb"}}));
+    assert(issame(sorted_list_sum({{"aaaa", "bbbb"}, {"cc", "dd"}}), {{"ccc", "dd"}, {"aaaa", "bbbb"}}));
 }
