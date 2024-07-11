@@ -1,28 +1,15 @@
-int* compare(int a[], int b[]) {
-    bool isSortedA = true;
-    bool isSortedB = true;
+#include <vector>
+#include <algorithm>
 
-    for (int i = 1; i < sizeof(a) / sizeof(a[0]); i++) {
-        if (a[i] < a[i - 1]) {
-            isSortedA = false;
-            break;
-        }
-    }
-
-    for (int i = 1; i < sizeof(b) / sizeof(b[0]); i++) {
-        if (b[i] < b[i - 1]) {
-            isSortedB = false;
-            break;
-        }
-    }
-
-    if (isSortedA && !isSortedB)
-        return new int[]{1};
-    else if (!isSortedA && isSortedB)
-        return new int[]{-1};
-    else if (!isSortedA && !isSortedB)
-        return new int[] {0};
-    else
-        return new int[]{0};
-
+int* compare(vector<int> a, vector<int> b) {
+    if (a.size() != b.size())
+        return nullptr;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] < b[i])
+            return new int{1};
+        else if (a[i] > b[i])
+            return new int{-1};
+    return new int{0};
 }
