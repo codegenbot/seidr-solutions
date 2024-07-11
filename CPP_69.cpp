@@ -1,12 +1,9 @@
-int result = -1;
-    unordered_map<int, int> freq;
-    for (int num : lst) {
-        freq[num]++;
+sort(lst.begin(), lst.end());
+    for (int i = lst.size() - 1; i >= 0; i--) {
+        int num = lst[i];
+        int freq = count(lst.begin(), lst.end(), num);
+        if (num > freq) continue;
+        return num;
     }
-    for (auto& it : freq) {
-        if (it.first > it.second && it.first > 0) {
-            result = max(result, it.first);
-        }
-    }
-    return result;
+    return -1;
 }
