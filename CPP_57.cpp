@@ -1,5 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <assert.h>
 
 bool monotonic(std::vector<float> l) {
     bool increasing = true;
