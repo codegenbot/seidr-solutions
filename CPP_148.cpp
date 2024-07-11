@@ -1,32 +1,19 @@
 #include <vector>
-#include <algorithm>
+#include <string>
 
-using namespace std;
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        int posA = -1;
+        int posB = -1;
 
-vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    vector<string> result;
-
-    int index1 = -1;
-    int index2 = -1;
-
-    for (int i = 0; i < planets.size(); i++) {
-        if (planets[i] == planet1) {
-            index1 = i;
-        } else if (planets[i] == planet2) {
-            index2 = i;
+        for (int j = 0; j < planets.size(); j++) {
+            if (planets[j] == a[i]) posA = j;
+            else if (planets[j] == b[i]) posB = j;
         }
+
+        if ((posA < index1 && posB >= index1) || (posA >= index2 && posB < index2))
+            return false;
     }
-
-    if (index1 == -1 || index2 == -1)
-        return vector<string>();
-
-    for (int i = 0; i < planets.size(); i++) {
-        if (i >= index1 && i <= index2)
-            result.push_back(planets[i]);
-    }
-
-    sort(result.begin(), result.end());
-
-    return result;
+    return true;
 }
