@@ -1,4 +1,3 @@
-#include <vector>
 #include <unordered_map>
 
 int search(std::vector<int> lst) {
