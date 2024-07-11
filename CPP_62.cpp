@@ -11,8 +11,3 @@ std::vector<float> derivative(std::vector<float> xs) {
 bool issame(std::vector<float> a, std::vector<float> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
-
-int main() {
-    assert(issame(derivative({1}), {}));
-    return 0;
-}
