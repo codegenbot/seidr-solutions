@@ -20,13 +20,3 @@ std::vector<int> tri(int n) {
     }
     return result;
 }
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(tri(1), {1, 3}));
-    // Add more test cases here
-    return 0;
-}
