@@ -1,14 +1,30 @@
-vector<int> strange_sort_vector(vector<int> lst) {
-    vector<int> result;
+#include <memory_resource>
+#include <algorithm>
+
+bool same_vectors(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
+    return std::equal(a.begin(), a.end(), b.begin());
+}
+
+std::pmr::polymorphic_allocator<int> alloc;
+
+std::pmr::vector<int> strange_sort_list(std::pmr::vector<int> lst) {
+    std::pmr::vector<int> result(alloc);
     while (!lst.empty()) {
-        int min_val = *min_element(lst.begin(), lst.end());
+        int min_val = *std::min_element(lst.begin(), lst.end());
         result.push_back(min_val);
-        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
+        auto new_end = std::remove(lst.begin(), lst.end(), min_val);
+        lst.erase(new_end, lst.end());
         if (!lst.empty()) {
-            int max_val = *max_element(lst.begin(), lst.end());
+            int max_val = *std::max_element(lst.begin(), lst.end());
             result.push_back(max_val);
-            lst.erase(std::remove(lst.begin(), lst.end(), max_val), lst.end());
+            auto new_end2 = std::remove(lst.rbegin(), lst.rend(), --max_val);
+            lst.erase(new_end2.base(), lst.end());
         }
     }
     return result;
+}
+
+int main() {
+    alloc = std::pmr::polymorphic_allocator<int>();
+    assert(same_vectors({1, 1, 1, 1, 1}, strange_sort_list({1, 1, 1, 1, 1})));
 }
