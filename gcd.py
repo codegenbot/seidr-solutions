@@ -1,3 +1,4 @@
+```python
 def gcd(a, b):
     while b:
         a, b = b, a % b
@@ -13,8 +14,7 @@ def indices_of_substring(text, target):
 
 values = input("Enter two integers (separated by space): ").split()
 if len(values) != 2:
-    a, b = map(int, values)
-    print(gcd(a, b))
+    print("Invalid input! Please enter exactly two integers.")
 else:
     a, b = map(int, values)
     print(gcd(a, b))
