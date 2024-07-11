@@ -1,5 +1,5 @@
 ```
-def find_closest_elements():
+def closest_elements():
     try:
         num_str = input("Enter a comma-separated list of numbers: ")
         numbers = [float(num) for num in num_str.split(",")]
@@ -14,4 +14,4 @@ def find_closest_elements():
         return closest_pair
     except ValueError:
         print("Invalid input. Please enter a comma-separated list of numbers.")
-print(find_closest_elements())
+print(closest_elements())
