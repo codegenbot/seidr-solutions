@@ -1,36 +1,41 @@
-vector<int> minPath(vector<vector<int>>& grid, int k) {
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n, 1e9));
-    vector<int> res;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (k == 1) {
+    vector<vector<int>> dp(n, vector<int>(n));
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == 0 && j == 0) {
                 dp[i][j] = grid[i][j];
+            } else if (i > 0) {
+                dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j];
             } else {
-                int min_val = 1e9;
-                for (int x = -1; x <= 1; ++x) {
-                    for (int y = -1; y <= 1; ++y) {
-                        if (i + x >= 0 && i + x < n && j + y >= 0 && j + y < n) {
-                            min_val = min(min_val, dp[i + x][j + y] + grid[i][j]);
-                        }
+                dp[i][j] = min(dp[i][j-1], dp[i-1][j]) + grid[i][j];
+            }
+        }
+    }
+    
+    int min_val = INT_MAX;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (dp[i][j] == dp[n-1][n-1]) {
+                vector<int> path;
+                int val = grid[i][j];
+                for (int l = 0; l <= k; l++) {
+                    path.push_back(val);
+                    if (l < k) {
+                        if (i > 0) i--;
+                        else if (j > 0) j--;
+                        else break;
                     }
                 }
-                dp[i][j] = min_val;
+                return path;
             }
         }
     }
-    int i = 0, j = 0;
-    for (int _ = 0; _ < k; ++_) {
-        res.push_back(grid[i][j]);
-        vector<pair<int, int>> neighbors = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-        random_shuffle(neighbors.begin(), neighbors.end());
-        for (auto& neighbor : neighbors) {
-            if (i + neighbor.first >= 0 && i + neighbor.first < n && j + neighbor.second >= 0 && j + neighbor.second < n) {
-                if (_ == k - 1 || dp[i][j] != dp[i + neighbor.first][j + neighbor.second]) {
-                    break;
-                }
-            }
-        }
-    }
-    return res;
+    
+    return {};
 }
