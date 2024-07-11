@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 
@@ -13,9 +12,20 @@ int main() {
         cout << "You didn't type anything" << endl;
     }
     
-    else if(tweet.length() > 140) {
-        cout << "Too many characters" << endl;
-    } 
-    else { 
-        cout << "Your tweet has " << tweet.length() << " characters" << endl; 
+    else {
+        size_t count = 0;
+        for (char c : tweet) {
+            if (std::isalnum(c) || std::isspace(c)) {
+                ++count;
+            } 
+        }
+        
+        if(count > 140) {
+            cout << "Too many characters" << endl;
+        }
+        
+        else {
+            cout << "Your tweet has " << count << " characters" << endl;
+        }
     }
+}

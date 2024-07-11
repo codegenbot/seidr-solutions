@@ -1,10 +1,11 @@
+from math import sqrt, fsum
+from decimal import Decimal
+
 n = int(input())
-v1 = list(map(float, input().split()))
+v1 = list(map(Decimal, input().split()))
 m = int(input())
-v2 = list(map(float, input().split()))
+v2 = list(map(Decimal, input().split()))
 
-from math import sqrt
-
-dist = sqrt(sum((a - b) ** 2 for a, b in zip(v1, v2)))
+dist = sqrt(fsum((a - b) ** 2 for a, b in zip(v1, v2)))
 
 print("%.6f" % dist)
