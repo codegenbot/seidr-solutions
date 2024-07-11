@@ -1,9 +1,7 @@
-```
 from typing import Any, list
 
-def filter_integers(values: list[Any]) -> list[int]:
-    return [value for value in values if isinstance(value, int)]
-
-user_input = input("Please enter some values (separated by spaces): ")
-values = [x.strip() for x in user_input.split(",")]
-print(filter_integers(values))
+def filter_integers(values: Any) -> list[int]:
+    if isinstance(values, list):
+        return [value for value in values if isinstance(value, int)]
+    else:
+        raise ValueError("Expected a list input. Received {}".format(type(values)))
