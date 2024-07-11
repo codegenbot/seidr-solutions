@@ -1,8 +1,21 @@
-string find_max(vector<string> words){
-    string result = *max_element(words.begin(), words.end(),
-        [](const string& a, const string& b) {
-            return unordered_map<char, bool>(a.begin(), a.end()).size() <
-                   unordered_map<char, bool>(b.begin(), b.end()).size();
+```cpp
+#include <string>
+#include <vector>
+#include <algorithm>
+
+std::string find_max(std::vector<std::string> words) {
+    std::string result = *std::max_element(words.begin(), words.end(),
+        [](const std::string& a, const std::string& b) {
+            if (a.length() == b.length()) {
+                return a < b;
+            }
+            return a.length() > b.length();
         });
     return result;
+}
+
+int main() {
+    std::vector<std::string> words = {"hello", "world", "abc"};
+    std::cout << find_max(words) << std::endl;
+    return 0;
 }
