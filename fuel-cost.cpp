@@ -1,3 +1,7 @@
+```cpp
+#ifndef __cpp_init_array 201907L
+#endif
+
 #include <vector>
 #include <cmath>
 
@@ -8,4 +12,10 @@ int calculateFuelCost(std::vector<int>& vec) {
         sum += result;
     }
     return sum;
+}
+
+int main() {
+    std::vector<int> vec = {1, 2, 3};
+    int result = calculateFuelCost(vec);
+    return 0;
 }
