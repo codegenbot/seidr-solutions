@@ -8,7 +8,7 @@ while True:
 
 print(fizz_buzz(n))
 
-def fizz_buzz(n):
+def fizz_buzz(n: int):
     result = []
     for i in range(1, n+1):
         output = ""
