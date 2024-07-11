@@ -16,11 +16,9 @@ string remove_vowels(string text) {
     return result;
 }
 
-int main() {
-    string text;
-    cout << "Enter a sentence: ";
-    getline(cin, text);
-    string result = remove_vowels(text); 
-    cout << "Sentence with vowels removed: " << result << endl;
-    return 0;
-}
+string text;
+cout << "Enter a sentence: ";
+getline(cin, text);
+string result = remove_vowels(text); 
+cout << "Sentence with vowels removed: " << result << endl;
+return 0;
