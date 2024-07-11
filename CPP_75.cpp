@@ -2,16 +2,12 @@
 
 bool is_multiply_prime(int a) {
     for (int i = 2; i * i <= a; i++) {
-        if (a % i == 0) {
-            int j = i;
-            while (j * j <= a) {
-                if (a % j == 0) return false;
-                j++;
-            }
-            return true;
+        while (a % i == 0) {
+            if (!is_prime(i)) return false;
+            a /= i;
         }
     }
-    return false;
+    return a == 1;
 }
 
 int main() {
