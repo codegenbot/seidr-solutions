@@ -1,13 +1,6 @@
-````
 """
-Given a list of integers, find the difference between the maximum value and the minimum value, 
-then double that difference.
+Write a function that takes a list of integers as an input and returns the sum of all squares of numbers that are both odd and positive.
 """
+
 def double_the_difference(lst):
-    if not all(isinstance(i, int) for i in lst):
-        return "Error: The input list must contain only integers."
-    elif len(lst) < 2:
-        return "Error: The input list must have at least two elements."
-    else:
-        difference = max(lst) - min(lst)
-        return 2 * difference
+    return sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0 and i > 0)
