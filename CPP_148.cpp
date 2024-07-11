@@ -1,11 +1,16 @@
+#include <iostream>
 #include <string>
+#include <vector>
+#include <cassert>
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
-    // Function body
+bool issame(const vector<string>& a, const vector<string>& b) {
+    return a == b;
 }
 
 int main() {
-    // Test cases
+    assert(issame(vector<string>{"Jupiter", "Makemake"}, {}));
+    
+    return 0;
 }
