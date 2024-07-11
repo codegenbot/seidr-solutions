@@ -8,7 +8,7 @@ std::vector<int> findIndices(std::string text, std::string target) {
     int start = 0;
     while ((start = text.find(target, start)) != std::string::npos) {
         indices.push_back(start);
-        start += 1; // increment by 1 for overlapping targets
+        start += target.size();
     }
     return indices;
 }
