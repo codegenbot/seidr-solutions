@@ -7,9 +7,11 @@ def parse_music(music_string: str) -> List[int]:
         if music_string[i] == '|':
             i += 1
         note = ''
-        while i < len(music_string) and music_string[i] not in ['o', '.']:
+        while i < len(music_string) and music_string[i] not in ['o', '|']:
             note += music_string[i]
             i += 1
         if note in notes:
             result.append(notes[note])
+        else:
+            result.append(0)
     return result
