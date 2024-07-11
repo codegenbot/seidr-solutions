@@ -1,3 +1,4 @@
+```python
 import hashlib
 
 def string_to_md5(text):
@@ -6,7 +7,7 @@ def string_to_md5(text):
     return hashlib.md5(text.encode()).hexdigest()
 
 text = input("Please enter a string: ")
-while text.strip() == "":
+while text.strip() == "":  
     print("Invalid input. Please try again.")
     text = input("Please enter a string: ")
 
