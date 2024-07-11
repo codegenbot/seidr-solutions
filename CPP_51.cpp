@@ -8,9 +8,9 @@ using namespace std;
 string remove_vowels(string text){
     string result;
     for(auto c : text) {
-        if(c >= 'a' && c <= 'z'){
+        if(isalpha(c)){
             if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
-                result += c; 
+                result += tolower(c); 
             }
         } else {
             result += c; 
