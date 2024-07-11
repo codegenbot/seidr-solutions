@@ -1,37 +1,47 @@
-int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-    
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <numeric>
+
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& arr) {
+    int n = arr.size();
     int min_diff = INT_MAX;
-    int cut_index = -1;
+    std::pair<std::vector<int>, std::vector<int>> result;
     
     for (int i = 1; i < n; i++) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j < i; j++) {
-            left_sum += arr[j];
-        }
-        for (int j = i; j < n; j++) {
-            right_sum += arr[j];
-        }
-        
-        int diff = abs(left_sum - right_sum);
+        int diff = std::abs(std::accumulate(arr.begin(), arr.begin()+i, 0) - std::accumulate(arr.begin()+i, arr.end(), 0));
         if (diff < min_diff) {
             min_diff = diff;
-            cut_index = i;
+            result.first = std::vector<int>(arr.begin(), arr.begin()+i);
+            result.second = std::vector<int>(arr.begin()+i, arr.end());
         }
     }
     
-    for (int i = 0; i < cut_index; i++) {
-        cout << arr[i] << endl;
+    return result;
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> arr[i];
     }
-    cout << endl;
-    for (int i = cut_index; i < n; i++) {
-        cout << arr[i] << endl;
+
+    auto result = cutVector(arr);
+
+    std::cout << result.first.size() << std::endl;
+    for (int num : result.first) {
+        std::cout << num << " ";
     }
-    
+    std::cout << std::endl;
+
+    std::cout << result.second.size() << std::endl;
+    for (int num : result.second) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
     return 0;
 }
