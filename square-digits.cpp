@@ -1,17 +1,11 @@
-#include <iostream>
-#include <string>
-
 int main() {
-    std::string input;
-    std::cin >> input;
-
-    std::string output = "";
-    for (char digit : input) {
-        int num = digit - '0';
-        output += std::to_string(num * num);
+    string input;
+    cin >> input;
+    string output = "";
+    for (char c : input) {
+        int digit = c - '0';
+        output += to_string(digit * digit);
     }
-
-    std::cout << output << std::endl;
-
+    cout << output << endl;
     return 0;
 }
