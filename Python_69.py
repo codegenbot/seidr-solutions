@@ -1,12 +1,13 @@
+```
 from collections import Counter
 
 
 def search():
     while True:
         user_input = input("Enter a list of numbers separated by space: ")
-        if user_input == "":
+        if not user_input:  
             print("No input received.")
-            continue
+            return
         try:
             lst = [int(x) for x in user_input.split()]
             counter = Counter(lst)
@@ -14,4 +15,3 @@ def search():
             print(max_num)
         except ValueError:
             print("Invalid input. Please enter a list of numbers separated by space.")
-            continue
