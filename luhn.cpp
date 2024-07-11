@@ -1,8 +1,8 @@
 // Luhn's algorithm verification function
-int luhn(const std::vector<int16_t> cc) {
+int luhn(const std::vector<int16_t> &cc) {
     int sum = 0;
     for (int i = 0; i < cc.size(); ++i) {
-        int digit = cc[i] * ((i + 1) % 2 ? 1 : 2);
+        int digit = cc[i] * (i % 2 ? 1 : 2);
         if (digit > 9) {
             digit -= 9;
         }
