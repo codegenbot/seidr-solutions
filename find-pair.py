@@ -11,5 +11,4 @@ def find_pair():
                 pairs.append((complement, num))
             seen.add(num)
         print(len(pairs))
-        if pairs:
-            print(pairs[0])
+        print(*pairs[0], sep=',')
