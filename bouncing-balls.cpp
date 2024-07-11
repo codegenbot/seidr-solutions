@@ -8,7 +8,7 @@ int main() {
     cin >> start_height >> first_bounce_height >> num_bounces;
 
     bounciness_index = first_bounce_height / start_height;
-    total_distance = start_height + first_bounce_height * 2.0;
+    total_distance = start_height + first_bounce_height;
 
     double current_height = first_bounce_height;
     for (int i = 2; i <= num_bounces; ++i) {
