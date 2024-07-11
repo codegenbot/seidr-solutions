@@ -1,23 +1,26 @@
+```Python
 def add(x, y):
     return x + y
 
-
 while True:
-    try:
-        x = int(input("Enter first number: "))
-        break
-    except ValueError:
-        print("Invalid input. Please enter a valid integer.")
-
-while True:
-    try:
-        y = int(input("Enter second number: "))
-        if y != 0:
+    while True:
+        try:
+            x = int(input("Enter first number: "))
             break
-        else:
-            print("Program terminated.")
-            exit()
-    except ValueError:
-        print("Invalid input. Please enter a valid integer.")
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+    
+    while True:
+        try:
+            y = int(input("Enter second number: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
 
-print(add(x, y))
+    print(f"Result: {add(x, y)}")
+
+    cont = input("Do you want to continue? (y/n): ")
+    if cont.lower() != 'y':
+        break
+
+print("Program ended.")
