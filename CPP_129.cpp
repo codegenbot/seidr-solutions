@@ -1,67 +1,41 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
-    int n = grid.size();
-    vector<int> res;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (grid[i][j] == 1) {
-                vector<vector<int>> tempGrid = grid;
-                int val = 1;
-                res.push_back(val);
-                for (int l = 0; l < k - 1; ++l) {
-                    int minDir = -1;
-                    int minVal = INT_MAX;
-                    for (int dir = 0; dir < 4; ++dir) {
-                        if (dir == 0 && i > 0) {
-                            int newVal = tempGrid[i - 1][j];
-                            if (newVal < minVal) {
-                                minDir = dir;
-                                minVal = newVal;
-                            }
-                        } else if (dir == 1 && j < n - 1) {
-                            int newVal = tempGrid[i][j + 1];
-                            if (newVal < minVal) {
-                                minDir = dir;
-                                minVal = newVal;
-                            }
-                        } else if (dir == 2 && i < n - 1) {
-                            int newVal = tempGrid[i + 1][j];
-                            if (newVal < minVal) {
-                                minDir = dir;
-                                minVal = newVal;
-                            }
-                        } else if (dir == 3 && j > 0) {
-                            int newVal = tempGrid[i][j - 1];
-                            if (newVal < minVal) {
-                                minDir = dir;
-                                minVal = newVal;
-                            }
-                        }
-                    }
-                    if (minDir != -1) {
-                        switch (minDir) {
-                            case 0:
-                                i--;
-                                break;
-                            case 1:
-                                j++;
-                                break;
-                            case 2:
-                                i++;
-                                break;
-                            case 3:
-                                j--;
-                                break;
-                        }
-                    } else
-                        break;
+    vector<int> result;
+    for (int i = 0; i < k; i++) {
+        int minVal = INT_MAX;
+        int row, col;
+        for (int j = 0; j < grid.size(); j++) {
+            for (int x = 0; x < grid[0].size(); x++) {
+                if (grid[j][x] <= minVal) {
+                    minVal = grid[j][x];
+                    row = j;
+                    col = x;
                 }
-                return res;
+            }
+        }
+        result.push_back(minVal);
+        for (int i = 0; i < grid.size(); i++) {
+            for (int x = 0; x < grid[0].size(); x++) {
+                if (i == row && x == col) {
+                    grid[i][x] = INT_MAX;
+                }
             }
         }
     }
-    return res;
+    return result;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    for (auto x : result) {
+        cout << x << " ";
+    }
+    return 0;
 }
