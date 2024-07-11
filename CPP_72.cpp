@@ -1,28 +1,18 @@
 int main() {
     int w;
-    cout << "Enter weight: ";
+    vector<int> q;
+    cout << "Enter the maximum weight (w): ";
     cin >> w;
-    vector<int> q(3);
-    for(int i = 0; i < 3; i++){
-        cout << "Enter the weight of query " << (i+1) << ": ";
-        cin >> q[i];
+    cout << "Enter the weights of quarters: ";
+    for(int i = 0; i < 4; i++) {
+        int x;
+        cin >> x;
+        q.push_back(x);
     }
-    if(will_it_fly(q, w))
-        cout << "It will fly";
-    else
-        cout << "It won't fly";
+    if(will_it_fly(q, w)) {
+        cout << "The combination will fly." << endl;
+    } else {
+        cout << "The combination will not fly." << endl;
+    }
     return 0;
-}
-
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
-    for (int i : q) {
-        str += to_string(i);
-    }
-    if (str != reverse(str).s) return false; // not balanced
-    int sum = 0;
-    for (int i : q) {
-        sum += i;
-    }
-    return sum <= w;
 }
