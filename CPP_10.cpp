@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string>
+#include<algorithm>
 using namespace std;
 
 bool is_palindrome(string str){
@@ -14,18 +15,12 @@ string make_palindrome(string str){
         string prefix = str.substr(0, len);
         string suffix = str.substr(len);
         if(is_palindrome(suffix)){
-            char temp[len+1]; 
-            for(int i = 0; i < len; i++) {
-                temp[i] = prefix[i];
-            }
-            temp[len] = '\0'; 
-            return prefix + string(temp) + suffix;
+            std::string rev = prefix;
+            std::reverse(rev.begin(), rev.end());
+            return prefix + rev + suffix;
         }
     }
-    char temp[str.length() + 1]; 
-    for(int i = 0; i < str.length(); i++) {
-        temp[i] = str[i];
-    }
-    temp[str.length()] = '\0'; 
-    return str + string(temp);
+    std::string rev = str;
+    std::reverse(rev.begin(), rev.end());
+    return str+rev;
 }
