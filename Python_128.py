@@ -1,7 +1,4 @@
 def product_of_signs(arr):
-    for x in arr:
-        if not isinstance(x, int):
-            return 0
     result = 1
     has_zero = False
     for x in arr:
@@ -13,7 +10,6 @@ def product_of_signs(arr):
             result *= 1
     return result if not has_zero else 0
 
-
 def check():
     while True:
         arr = list(map(int, input("Enter numbers separated by space: ").split()))
@@ -22,6 +18,5 @@ def check():
         else:
             print("Invalid input. Please enter numbers only.")
     print(product_of_signs(arr))
-
 
 check()
