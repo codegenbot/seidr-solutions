@@ -1,29 +1,28 @@
-```
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <string>
-
-bool will_it_fly(std::vector<int> q, int w) {
-    std::string str = "";
-    for (int i : q) {
-        str += std::to_string(i);
+int main() {
+    int w;
+    cout << "Enter weight: ";
+    cin >> w;
+    vector<int> q(3);
+    for(int i = 0; i < 3; i++){
+        cout << "Enter the weight of query " << (i+1) << ": ";
+        cin >> q[i];
     }
-    if (str != std::string(str.rbegin(), str.rend())) return false; 
+    if(will_it_fly(q, w))
+        cout << "It will fly";
+    else
+        cout << "It won't fly";
+    return 0;
+}
+
+bool will_it_fly(vector<int> q, int w) {
+    string str = "";
+    for (int i : q) {
+        str += to_string(i);
+    }
+    if (str != reverse(str).s) return false; // not balanced
     int sum = 0;
     for (int i : q) {
         sum += i;
     }
     return sum <= w;
-}
-
-int main() {
-    // function call
-    std::vector<int> q({1,2,3});
-    int w = 6;
-    if(will_it_fly(q,w)) 
-        std::cout << "The plane will fly."<<std::endl;
-    else 
-        std::cout << "The plane won't fly." << std::endl;
-    
 }
