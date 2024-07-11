@@ -1,6 +1,4 @@
-Here is the modified code:
-
-```python
+```
 def encode_cyclic(s: str):
     if not isinstance(s, str):
         return "Error: Input must be a string."
