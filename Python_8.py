@@ -1,6 +1,5 @@
-from typing import Tuple
-
-def calculate_average_and_median(numbers: list[int]) -> Tuple[float, float]:
+```
+def calculate_average_and_median(numbers: list) -> tuple:
     if not isinstance(numbers, list):
         return "Expected input: list of integers"
 
