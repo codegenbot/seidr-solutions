@@ -1,6 +1,8 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cctype>
 
 std::string substitutionCipher(const std::string& cipherMap, const std::string& input) {
     std::string output;
