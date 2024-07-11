@@ -1,3 +1,4 @@
+```c++
 int is_bored(string S) {
     int count = 0;
     for (char c : S) {
