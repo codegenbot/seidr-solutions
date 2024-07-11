@@ -1,3 +1,4 @@
+```Python
 n = int(input())  
 prices_str = input().split()
 prices = list(map(float, prices_str))
