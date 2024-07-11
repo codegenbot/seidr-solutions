@@ -4,12 +4,17 @@ def solve_boolean(expression):
     elif expression == "F":
         return False
     elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid expression")
+        raise Exception("Invalid Expression")
     else:
-        result = True
-        for i, char in enumerate(expression):
-            if char == "&":
-                result &= expression[i - 1] == "T"
-            elif char == "|":
-                result |= expression[i - 1] == "T"
-        return result
+        stack = []
+        for char in expression[::-1]:
+            if char in ["&", "|"]:
+                b = stack.pop()
+                a = stack.pop()
+                if char == "&":
+                    stack.append(a and b)
+                elif char == "|":
+                    stack.append(a or b)
+            else:
+                stack.append(char == "T")
+        return stack[0]
