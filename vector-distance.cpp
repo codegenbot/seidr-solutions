@@ -3,17 +3,22 @@
 #include <cmath>
 
 int main() {
-    int n;
+    double n;
     std::cin >> n;
     std::vector<double> vec1(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> vec1[i];
+        double input;
+        std::cin >> input;
+        vec1[i] = input;
     }
 
-    int m = n;
+    double m;
+    std::cin >> m;
     std::vector<double> vec2(m);
     for (int i = 0; i < m; ++i) {
-        std::cin >> vec2[i];
+        double input;
+        std::cin >> input;
+        vec2[i] = input;
     }
 
     double sum = 0.0;
