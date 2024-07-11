@@ -2,10 +2,10 @@ int modp(int n, int p) {
     if (n < 0)
         return modp(-n, p);
     long long res = 1;
-    for (; n; n >>= 1) {
-        if (n & 1)
-            res = (long long)res * p % p;
-        p = (long long)p * p % p;
+    for (; p; p >>= 1) {
+        if (p & 1)
+            res = (long long)res * n % p;
+        n = (long long)n * n % p;
     }
-    return res;
+    return res % p;
 }
