@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <unordered_map>
 #include <cassert>
@@ -24,8 +23,12 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 vector<int> main() {
-    vector<int> input = {1, 2, 3, 2, 4, 3, 5};
+    vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
     vector<int> expected = {1, 2, 3, 4, 5};
-    assert(isame(remove_duplicates(input), expected));
-    return remove_duplicates({1, 2, 2, 3, 3, 3, 4, 5});
+    
+    if (!issame(remove_duplicates(numbers), expected)) {
+        assert(false);
+    }
+    
+    return numbers;
 }
