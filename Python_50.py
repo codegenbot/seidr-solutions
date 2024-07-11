@@ -1,3 +1,1 @@
-input_str = input("Enter the string to decode: ")
-result = decode_shift(input_str)
-print(result)
+input_str = input("Please enter the encrypted string to decode: ")
