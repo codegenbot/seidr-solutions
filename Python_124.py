@@ -1,4 +1,3 @@
-```
 def valid_date(date):
     day, month, year = date.split('-')
     if len(day) == 1:
@@ -10,10 +9,5 @@ def valid_date(date):
     if (int(month) in [1,3,5,7,8,10,12] and int(day) < 1 or int(day) > 31) or \
        (int(month) in [4,6,9,11] and int(day) < 1 or int(day) > 30) or \
        (int(month) == 2 and int(day) < 1 or int(day) > 29):
-        if int(year) % 4 != 0:
-            return False
-        elif int(year) % 100 == 0 and int(year) % 400 != 0:
-            return False
-        else:
-            return True
+        return False
     return True
