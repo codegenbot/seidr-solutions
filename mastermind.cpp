@@ -1,35 +1,29 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            count++;
-        }
-    }
-    return count;
-}
+#include <string>
+using namespace std;
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    vector<char> codeChars(code.begin(), code.end());
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            codeChars.erase-remove(&code[i]);
-            break;
-        }
-    }
-    for (int i = 0; i < 4; i++) {
-        if (count(codeChars.begin(), codeChars.end(), guess[i]) > 0) {
-            count++;
-            codeChars.erase-remove(&guess[i]);
-        }
-    }
-    return count;
-}
+vector<int> mastermindCodeMaster(string code, string guess) {
+    vector<int> result(2);
+    int black = 0;
+    int white = 0;
 
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    cout << blackPegs(code, guess) << endl;
-    cout << whitePegs(code, guess) << endl;
-    return 0;
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            ++black;
+        }
+    }
+
+    for (char c : code) {
+        int count = 0;
+        for (char d : guess) {
+            if (c == d && code.find(d) != string::npos) {
+                ++count;
+            }
+        }
+        white += min(count, 1);
+    }
+
+    result[0] = 4 - black; // White pegs
+    result[1] = black; // Black pegs
+
+    return result;
 }
