@@ -1,7 +1,15 @@
 #include <vector>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
+}
+
+std::vector<int> tri(int n);
+
+int main() {
+    assert(issame(tri(1), {1, 3}));
+    return 0;
 }
 
 std::vector<int> tri(int n) {
@@ -19,10 +27,4 @@ std::vector<int> tri(int n) {
     }
 
     return tribonacci;
-}
-
-int main() {
-    assert(issame(tri(1), {1, 3}));
-
-    return 0;
 }
