@@ -1,20 +1,39 @@
-bool issame(vector<int> a, vector<int> b) {
+bool issame(const vector<int>& a, const vector<int>& b);
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    int n = grid.size();
+    vector<int> result;
+    int row = 0, col = 0;
+    for (int i = 0; i < k; ++i) {
+        result.push_back(grid[row][col]);
+        if ((row + col) % 2 == 0) {
+            if (col == n - 1) {
+                ++row;
+            } else if (row == 0) {
+                ++col;
+            } else {
+                --row;
+                ++col;
+            }
+        } else {
+            if (row == n - 1) {
+                ++col;
+            } else if (col == 0) {
+                ++row;
+            } else {
+                ++row;
+                --col;
+            }
+        }
+    }
+    return result;
+}
+
+bool issame(const vector<int>& a, const vector<int>& b) {
     return a == b;
 }
 
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    int m = grid.size();
-    int n = grid[0].size();
-    
-    vector<int> path;
-    
-    for (int i = 0; i < m * n - 1; ++i) {
-        path.push_back(grid[i / n][i % n]);
-        if (i > 0 && path[i] < path[i - 1])
-            grid[i / n][i % n] += path[i - 1] - path[i] + k;
-    }
-    
-    path.push_back(grid[(m * n - 1) / n][(m * n - 1) % n]);
-    
-    return path;
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+    return 0;
 }
