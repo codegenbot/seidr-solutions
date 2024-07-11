@@ -1,27 +1,15 @@
-Here's the solution:
+Here is the completed code:
 
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int evenCount = 0;
+    int odd_count = 0;
     for (int num : lst1) {
-        if (num % 2 == 0)
-            evenCount++;
-    }
-    if (evenCount == lst1.size())
-        return "YES";
-    for (int num : lst1) {
-        if (std::find_if(lst2.begin(), lst2.end(), [num](int n) { return n == num; }) != lst2.end()) {
-            lst1.erase(std::remove(lst1.begin(), lst1.end(), num), lst1.end());
-            break;
+        if (num % 2 != 0) {
+            odd_count++;
         }
     }
-    for (int num : lst1) {
-        if (std::find_if(lst2.begin(), lst2.end(), [num](int n) { return n % 2 == 0; }) != lst2.end()) {
-            int temp = *std::find_if(lst2.begin(), lst2.end(), [num](int n) { return n % 2 == 0; });
-            std::replace(lst1.begin(), lst1.end(), num, temp);
-            break;
-        }
-    }
-    if (std::all_of(lst1.begin(), lst1.end(), [](int n) { return n % 2 == 0; }))
+    if (odd_count > (lst1.size() - odd_count)) {
+        return "NO";
+    } else {
         return "YES";
-    return "NO";
+    }
 }
