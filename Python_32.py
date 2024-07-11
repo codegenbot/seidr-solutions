@@ -1,4 +1,6 @@
 ```
+ 
+
 import math
 
 
@@ -23,11 +25,6 @@ while True:
         xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
         if len(xs) > 0:
             print(find_zero(xs))
-            cont = input("Do you want to continue? (y/n): ")
-            while cont.lower() != 'n':
-                xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
-                print(find_zero(xs))
-                cont = input("Do you want to continue? (y/n): ")
             break
-    except ValueError:
-        print("Invalid input. Please enter only numbers separated by spaces.")
+    except:
+        print("Invalid input. Please enter coefficients (space-separated) separated by spaces.")
