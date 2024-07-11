@@ -1,19 +1,8 @@
-def calculate_expression_value(expression: str):
-    stack = []
-    total = 0
-    last_operator = "+"
-
-    for char in expression:
-        if char.isdigit():
-            if last_operator == "+":
-                stack.append(int(char))
-            elif last_operator == "-":
-                stack.append(-int(char))
-            elif last_operator == "*":
-                stack.append(stack.pop() * int(char))
-            elif last_operator == "/":
-                stack.append(int(stack.pop()) // int(char))
+def count_appearances(input_string: str):
+    dictionary = {}
+    for char in input_string:
+        if char in dictionary:
+            dictionary[char] += 1
         else:
-            last_operator = char
-
-    return sum(stack)
+            dictionary[char] = 1
+    return dictionary
