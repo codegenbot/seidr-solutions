@@ -14,14 +14,14 @@ vector<string> split_words(string txt){
     if(!word.empty()){
         result.push_back(word);
     }
-    if(result.empty()){
-        int oddLowercaseCount = 0;
+    if(result.size() == 0){
+        int count = 0;
         for(char c : txt){
-            if(islower(c) && (c - 'a') % 2 == 1){
-                oddLowercaseCount++;
+            if(islower(c) && (c-'a')%2 == 1){
+                count++;
             }
         }
-        result.push_back(to_string(oddLowercaseCount));
+        result.push_back(to_string(count));
     }
     return result;
 }
