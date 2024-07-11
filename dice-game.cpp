@@ -7,4 +7,3 @@ double diceGame(int n, int m) {
         sum += 1.0 / m;
     }
     return sum;
-}
