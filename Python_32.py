@@ -7,5 +7,11 @@ def find_zero(xs):
         if x != 0:
             return "Error: xs must be [0, *coefficients*]"
         leading_zero += x
-    max_coeff = max(abs(x) for x in xs)
-    return -xs[-1] / (2 * leading_zero) if abs(leading_zero) == max_coeff else None
+    max_coeff = max(abs(x) for x in xs[1:])
+    for i in range(len(xs)-2,-1,-1):
+        if abs(xs[i]) == max_coeff:
+            if xs[i] < 0: 
+                return -xs[-1]/(2*leading_zero)
+            else:
+                return xs[-1]/(2*leading_zero)
+    return None
