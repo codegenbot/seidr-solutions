@@ -1,7 +1,5 @@
 // Problem: CPP/29
-// Description: Write a function that takes a vector of strings and a string prefix as input, 
-//             and returns a new vector containing all the strings from the input vector 
-//             that start with the given prefix.
+// Description: Write a function that filters a given vector of strings by prefix and returns the filtered vector.
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
