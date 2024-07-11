@@ -1,3 +1,4 @@
+```
 n = int(input())
 v1 = list(map(float, input().split()))
 m = int(input())
