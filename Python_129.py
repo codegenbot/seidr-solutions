@@ -1,13 +1,12 @@
-```
-"""
 from collections import deque
 
 def minPath(grid, k):
     n = len(grid)
+    m = len(grid[0])
     res = []
 
     for _ in range(k):
-        queue = deque([(i, j, i * n + j) for i in range(n) for j in range(n)])
+        queue = deque([(i, j, i * m + j) for i in range(n) for j in range(m)])
         visited = set()
         cur_min = float("inf")
 
@@ -32,4 +31,3 @@ for i in range(n):
         grid[i][j] = int(input(f"Enter {i*10+j+1}th element of grid: "))
 
 print(minPath(grid, k))
-"""
