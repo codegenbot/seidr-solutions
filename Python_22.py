@@ -1,9 +1,11 @@
 from typing import List
 
-def get_values() -> List:
-    values = input("Enter some values (separated by space): ")
-    return [value for value in values.split() if value.isdigit()]
+
+def get_values() -> List[int]:
+    values = input("Enter some integers (space separated): ").split()
+    return [int(value) for value in values]
+
 
 def filter_integers() -> List[int]:
     result = get_values()
-    return [int(value) for value in result]
+    return [value for value in result if isinstance(value, int)]
