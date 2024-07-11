@@ -1,6 +1,5 @@
-#include <set>
+#include <string>
 #include <vector>
-using namespace std;
 
 std::string find_max(std::vector<std::string> words) {
     std::string result = "";
@@ -14,7 +13,7 @@ std::string find_max(std::vector<std::string> words) {
         if (unique_chars.size() > max_unique_chars) {
             max_unique_chars = unique_chars.size();
             result = word;
-        } else if (unique_chars.size() == max_unique_chars && word.length() > result.length()) {
+        } else if (unique_chars.size() == max_unique_chars && word < result) {
             result = word;
         }
     }
@@ -23,7 +22,15 @@ std::string find_max(std::vector<std::string> words) {
 }
 
 int main() {
-    vector<string> words = {"apple", "banana", "cherry"};
-    cout << find_max(words) << endl;
+    std::vector<std::string> words;
+    std::cout << "Enter words separated by space: ";
+    for (std::string str; std::getline(std::cin, str);) {
+        words.push_back(str);
+    }
+    if (!words.empty()) {
+        std::cout << "The word with maximum unique characters is : " << find_max(words) << std::endl;
+    } else {
+        std::cout << "No input provided." << std::endl;
+    }
     return 0;
 }
