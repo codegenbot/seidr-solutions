@@ -3,13 +3,13 @@
 #include <algorithm>
 #include <cassert>
 
-void sort_even(std::vector<float>& values) {
+void sort_even(std::vector<float> values) {
     std::sort(values.begin(), values.end(), [](float a, float b) {
         return ((int)a % 2 == 0) && ((int)b % 2 == 0) && (a < b);
     });
 }
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
