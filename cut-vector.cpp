@@ -23,20 +23,22 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 int main() {
     int n;
     std::cin >> n;
-    
+
     std::vector<int> arr(n);
     for (int i = 0; i < n; i++) {
         std::cin >> arr[i];
     }
 
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(arr);
-    
-    for (const auto& num : result.first) {
+    auto result = cutVector(arr);
+
+    std::cout << result.first.size() << std::endl;
+    for (int num : result.first) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
-    
-    for (const auto& num : result.second) {
+
+    std::cout << result.second.size() << std::endl;
+    for (int num : result.second) {
         std::cout << num << " ";
     }
     std::cout << std::endl;
