@@ -1,3 +1,4 @@
+```
 while True:
     try:
         lst = input("Enter a list of numbers separated by spaces: ")
@@ -15,5 +16,6 @@ while True:
         lst = [int(i) for i in lst.split()]
         result = sum([i**2 for i in lst])
         print(result)
+        break
     except ValueError:
         print("Invalid input. Please enter numbers separated by spaces.")
