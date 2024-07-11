@@ -1,10 +1,14 @@
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
 bool pairs_sum_to_zero(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    for (int num : s) {
-        if (s.find(-num) != s.end()) return true;
+    vector<int> vec(l);
+    sort(vec.begin(), vec.end());
+    for (int i = 0; i < vec.size() - 1; i++) {
+        if (vec[i] + vec[vec.size() - 1 - i] == 0)
+            return true;
     }
     return false;
 }
