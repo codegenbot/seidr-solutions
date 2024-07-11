@@ -1,13 +1,10 @@
+import sys
 def add(x: int, y: int) -> int:
     return x + y
 
-try:
-    x = int(input())
-    y = int(input())
-    
-    result = add(x, y)
-    
-    print(result)
-    
-except ValueError:
-    print("Error: Please enter valid integers as input.")
+x = int(sys.stdin.readline().strip())
+y = int(sys.stdin.readline().strip())
+
+result = add(x, y)
+
+print(result)
