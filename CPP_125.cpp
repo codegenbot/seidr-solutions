@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-#include <cctype>
 
 std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> result;
@@ -10,8 +9,8 @@ std::vector<std::string> split_words(std::string txt) {
         pos = txt.find_first_of(" ,", prev_pos);
         if (pos == std::string::npos) {
             int count = 0;
-            for (char c : txt.substr(prev_pos)) {
-                if (std::islower(c)) {
+            for (char c : txt) {
+                if (islower(c)) {
                     count++;
                 }
             }
@@ -20,8 +19,8 @@ std::vector<std::string> split_words(std::string txt) {
         }
 
         std::string word = txt.substr(prev_pos, pos - prev_pos);
-        if (count_words(word) == 0) {
-            result.push_back("same");
+        if (count_words(word) == stoi(word)) {
+            result.push_back("Same");
         } else {
             result.push_back(word);
         }
@@ -35,7 +34,7 @@ std::vector<std::string> split_words(std::string txt) {
 int count_words(std::string word) {
     int count = 0;
     for (char c : word) {
-        if (std::islower(c)) {
+        if (islower(c)) {
             count++;
         }
     }
