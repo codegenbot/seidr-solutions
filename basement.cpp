@@ -3,17 +3,16 @@
 using namespace std;
 
 int basement(vector<int>& nums) {
-    int sum = 0, min_sum = 0, res = 0;
+    int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
-        res = min(res, sum - min_sum);
-        min_sum = min(min_sum, sum);
+        if (sum <= 0) return i + 1;
     }
-    return res == 0 ? 0 : res + 1;
+    return 0;
 }
 
 int main() {
-    vector<int> nums = {6, 42, 1, 49, 53, -82, -79};
-    cout << basement(nums) << endl;
+    vector<int> nums = {2, -3, 8, -1, 5};
+    cout << basement(nums) << endl; // Output: 1
     return 0;
 }
