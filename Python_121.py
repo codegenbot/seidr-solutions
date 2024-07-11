@@ -1,8 +1,9 @@
+```
 while True:
     try:
         lst = input("Enter a list of numbers separated by space: ")
-        if len(lst.split()) > 0 or (lst.lower() in ["q", "quit", "exit"]):
-            if lst.lower() in ["q", "quit", "exit"]:
+        if len(lst.split()) > 0 or (lst.lower() in ['q', 'quit', 'exit']):
+            if lst.lower() in ['q', 'quit', 'exit']:
                 break
             lst = [int(num) for num in lst.split()]
             result = sum(i for i in lst if i % 2 != 0)
