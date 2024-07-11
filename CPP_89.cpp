@@ -21,6 +21,6 @@ public:
 };
 
 int main() {
-    assert(encrypt("a") == "e");
+    assert(Str::encrypt("a") == "e");
     return 0;
 }

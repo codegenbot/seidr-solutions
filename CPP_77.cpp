@@ -1,23 +1,17 @@
-// Problem description: Check if the given integer is a perfect cube.
+#include <cmath>
+#include <cassert>
 
 bool iscuber(int a){
-    int i = 0;
-    while (pow(i+1,3) <= a) {
-        if(pow(i+1,3) == a) return true;
+    int i = 1;
+    while (pow(i,3) <= a) {
+        if (pow(i,3) == a) return true;
         i++;
     }
     return false;
+
 }
 
 int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    
-    if(iscuber(n)) 
-        cout << n << " is a perfect cube.";
-    else 
-        cout << n << " is not a perfect cube.";
-    
+    assert (iscuber(1729) == false);
     return 0;
 }
