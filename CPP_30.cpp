@@ -1,6 +1,10 @@
-bool issame(vector<float> a, vector<float> b){
+#include <vector>
+#include <cassert>
+
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
-// In the main function:
-assert(issame(get_positive({}), {}));
+int main() {
+    assert(issame(get_positive({}), {}));
+}
