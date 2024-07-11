@@ -1,3 +1,4 @@
+```
 from typing import List, Tuple
 
 
@@ -13,6 +14,5 @@ def sum_product():
         return total_sum, product
     except ValueError:
         print("Invalid input. Please enter integers separated by spaces.")
-
 
 sum_product()
