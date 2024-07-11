@@ -1,13 +1,12 @@
 digits = list(map(int, input().split()))
-
 total = 0
-for i in range(16):
+for i in range(0, len(digits)):
     if i % 2 == 1:
-        double = digits[i] * 2
-        if double > 9:
-            double -= 9
-        total += double
+        double_digit = digits[i] * 2
+        if double_digit > 9:
+            total += double_digit - 9
+        else:
+            total += double_digit
     else:
         total += digits[i]
-
 print(total)
