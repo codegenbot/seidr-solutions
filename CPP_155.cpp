@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <cassert>
+
 using namespace std;
 
 bool issame(vector<int> a,vector<int>b){
@@ -26,18 +26,7 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(issame(even_odd_count(0), vector<int>{1,0}));
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    vector<int> res = even_odd_count(num);
-    if(res[0] > 0) 
-        cout << "Even numbers are: " << res[0] << endl;
-    else
-        cout << "No even numbers." << endl;
-
-    if(res[1] != 0) 
-        cout << "Odd number is: " << res[1] << endl;
-    else
-        cout << "No odd number." << endl;
+    assert(issame(even_odd_count(12345), vector<int>{3,12345}));
+    cout << "Even number of digits: " << even_odd_count(12345)[0] << endl;
+    cout << "Odd number in input: " << even_odd_count(12345)[1] << endl;
 }
