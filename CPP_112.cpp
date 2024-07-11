@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 vector<string> reverse_delete(string s, string c) {
     string result = "";
