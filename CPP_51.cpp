@@ -12,7 +12,11 @@ std::string remove_vowels(std::string text) {
 
 int main() {
     std::string input;
+    std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    std::cout << remove_vowels(input) << std::endl;
+
+    std::string result = remove_vowels(input);
+    std::cout << "String after removing vowels: " << result << std::endl;
+
     return 0;
 }
