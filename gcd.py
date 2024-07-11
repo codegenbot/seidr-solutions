@@ -1,3 +1,4 @@
+```
 values = input("Enter two integers (separated by space): ").split()
 if len(values) != 2:
     a, b = map(int, values)
@@ -8,8 +9,7 @@ def gcd(a, b):
         a, b = b, a % b
     return a
 
-text, *_ = input("Enter text and target string (separated by space): ").split(maxsplit=1)
-target = _[0]
+text, target = input("Enter text and target string (separated by space): ").split(maxsplit=1)
 print(*indices_of_substring(text, target))
 
 def indices_of_substring(text, target):
