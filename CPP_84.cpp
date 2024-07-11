@@ -3,5 +3,5 @@ int sum = 0;
         sum += N % 2;
         N /= 2;
     }
-    return bitset<sizeof(N) * CHAR_BIT>(sum).to_string();
+    return bitset<sizeof(int)*8>(sum).to_string().substr(sizeof(int)*8-1);
 }
