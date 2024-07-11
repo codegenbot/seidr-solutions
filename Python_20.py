@@ -12,4 +12,5 @@ def find_closest_elements(nums: list)-> tuple:
     
     return closest_pair
 
-print(find_closest_elements([1.1, 2.2, 3.1, 4.1, 5.1]))
+if __name__ == "__main__":
+    print(find_closest_elements([1.1, 2.2, 3.1, 4.1, 5.1]))
