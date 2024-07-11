@@ -1,4 +1,3 @@
-```c
 #include <iostream>
 #include <vector>
 
@@ -24,5 +23,5 @@ int main() {
     delete[] arr;
 
     std::cout << "The product of signs is: " << (result > 0) ? std::to_string(result) : "-" << std::endl;
-    return 0;
+    assert(prod_signs(new int[]{-1, 1, 1, 0}, 4) == 0);
 }
