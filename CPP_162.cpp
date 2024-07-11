@@ -1,4 +1,1 @@
-string result;
-for (int i = 0; i < MD5_DIGEST_LENGTH; ++i)
-    result.push_back((char)(md5[i]));
-return result;
+result.push_back(to_string((int)(unsigned char)md5[i]).c_str());
