@@ -1,4 +1,6 @@
-```
+#include <vector>
+using namespace std;
+
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
     vector<int> leaders;
