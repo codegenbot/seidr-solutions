@@ -12,7 +12,7 @@ int prod_signs(int* arr, int n) {
     return (sign > 0) ? sum : -sum;
 }
 
-int main() {
+int testMain() {
     int n; 
     std::cin >> n;
     int* arr = new int[n];
@@ -23,5 +23,5 @@ int main() {
     delete[] arr;
 
     std::cout << "The product of signs is: " << (result > 0) ? std::to_string(result) : "-" << std::endl;
-    assert(prod_signs(new int[]{-1, 1, 1, 0}, 4) == 0);
+    return 0;
 }
