@@ -1,4 +1,8 @@
-bool monotonic(vector<float> l) {
+#include <vector>
+#include <cassert>
+#include <iostream>
+
+bool monotonic(std::vector<float> l) {
     bool increasing = true;
     bool decreasing = true;
 
@@ -11,4 +15,18 @@ bool monotonic(vector<float> l) {
     }
 
     return increasing || decreasing;
+}
+
+int main_test() {
+    std::vector<float> input;
+    std::cout << "Enter the numbers (space separated): ";
+    float x;
+    while(std::cin >> x) {
+        input.push_back(x);
+    }
+    if (monotonic(input)) {
+        std::cout << "The sequence is monotonic." << std::endl;
+    } else {
+        std::cout << "The sequence is not monotonic." << std::endl;
+    }
 }
