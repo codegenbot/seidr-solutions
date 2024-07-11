@@ -1,15 +1,13 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
 bool issame(vector<string> a, vector<string> b) {
     int sum1 = 0;
-    for (const string& s : a) {
+    for (const std::string& s : a) {
         sum1 += s.length();
     }
     int sum2 = 0;
-    for (const string& s : b) {
+    for (const std::string& s : b) {
         sum2 += s.length();
     }
     return sum1 == sum2;
@@ -18,11 +16,11 @@ bool issame(vector<string> a, vector<string> b) {
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
     if (issame(lst1, lst2)) return lst1;
     int sum1 = 0;
-    for (const string& s : lst1) {
+    for (const std::string& s : lst1) {
         sum1 += s.length();
     }
     int sum2 = 0;
-    for (const string& s : lst2) {
+    for (const std::string& s : lst2) {
         sum2 += s.length();
     }
     if (sum1 < sum2) return lst1;
@@ -31,8 +29,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 }
 
 int main() {
-    vector<string> a = {"this"};
-    vector<string> b = {};
-    assert(issame(total_match(a, b), {}));
+    assert(issame(total_match({"this"}, {}), {}));
     return 0;
 }
