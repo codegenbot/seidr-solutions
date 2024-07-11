@@ -1,4 +1,5 @@
-```
+Here is the corrected code:
+
 def find_prime_numbers(n):
     prime_numbers = []
     for possiblePrime in range(2, n + 1):
@@ -11,12 +12,5 @@ def find_prime_numbers(n):
             prime_numbers.append(possiblePrime)
     return prime_numbers
 
-while True:
-    try:
-        n = int(input("Enter an integer: "))
-        break
-    except ValueError:
-        print("Invalid input. Please enter an integer.")
-        continue
-
+n = int(input("Enter an integer: "))
 print(find_prime_numbers(n))
