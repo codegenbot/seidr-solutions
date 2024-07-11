@@ -1,5 +1,12 @@
-```cpp
+#include <iostream>
 #include <string>
+
+int main() {
+    int sum = pairedDigits("123411");
+    std::cout << "Sum: " << sum << std::endl;
+    return 0;
+
+}
 
 int pairedDigits(std::string s) {
     int sum = 0;

@@ -1,7 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <sstream>
-
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -12,6 +10,8 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
+            // Adjust the starting index to avoid duplicates
+            i += (m - 1); 
         }
     }
 
@@ -19,14 +19,11 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string line, text, target;
-    cout << "Enter a line: ";
-    getline(cin, line);
+    string text;
+    cin >> text;
 
-    stringstream ss(line);
-    cout << "Enter a substring to search for: ";
-    ss >> text >> ws; // Extract first word into 'text'
-    getline(ss, target); // Extract the rest of the line into 'target'
+    string target;
+    cin >> target;
 
     vector<int> indices = indicesOfSubstring(text, target);
 
@@ -34,6 +31,4 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-
-    return 0;
 }
