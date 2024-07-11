@@ -6,15 +6,15 @@ vector<string> bf(string planet1, string planet2) {
 
     int index1 = -1, index2 = -1;
     for (int i = 0; i < planets.size(); ++i) {
-        if (planets[i] == planet1) {
+        if (issame({planets[i]}, {planet1})) {
             index1 = i;
         }
-        if (planets[i] == planet2) {
+        if (issame({planets[i]}, {planet2})) {
             index2 = i;
         }
     }
 
-    if (index1 == -1 || index2 == -1 || issame(planets, result)) {
+    if (index1 == -1 || index2 == -1) {
         return result;
     }
 
