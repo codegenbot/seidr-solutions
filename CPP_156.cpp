@@ -1,4 +1,5 @@
-```c++
+```cpp
+#include <iostream>
 #include <vector>
 #include <string>
 
@@ -17,14 +18,17 @@ string int_to_mini_roman(int number) {
         }
     }
     return roman;
-
 }
 
 int main() {
     int num;
-    cout << "Enter a number: ";
+    cout << "Enter a positive integer: ";
     cin >> num;
-    string result = int_to_mini_roman(num);
-    cout << "The mini Roman numeral for the entered number is: " << result << endl;
+    if(num < 1) {
+        cout << "Invalid input. Please enter a positive integer." << endl;
+        return 1;
+    }
+    string miniRoman = int_to_mini_roman(num);
+    cout << num << " in mini roman numeral is " << miniRoman << endl;
     return 0;
 }
