@@ -6,17 +6,28 @@ int main() {
     int n, target;
     std::cin >> n;
     std::vector<int> nums(n);
-    std::map<int, int> numIndex;
-
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
-        if (numIndex.find(target - nums[i]) != numIndex.end()) {
-            std::cout << target - nums[i] << " " << nums[i] << std::endl;
-            return 0;
+    }
+    std::cin >> target;
+    
+    std::map<int, int> numIndex;
+    bool pairFound = false;
+    
+    for (int i = 0; i < n; ++i) {
+        int complement = target - nums[i];
+        if (numIndex.find(complement) != numIndex.end()) {
+            if (!pairFound) {
+                pairFound = true;
+            }
+            std::cout << nums[i] << " " << complement << std::endl;
         }
         numIndex[nums[i]] = i;
     }
-
-    std::cout << "No pair found." << std::endl;
+    
+    if (!pairFound) {
+        std::cout << "No pair found." << std::endl;
+    }
+    
     return 0;
 }
