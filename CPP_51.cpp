@@ -1,5 +1,7 @@
+```
 #include <string>
 #include <iostream>
+#include <cctype>
 
 using namespace std;
 
@@ -9,7 +11,7 @@ string remove_vowels(string text){
         char c = tolower(text[i]);
         if(c >= 'a' && c <= 'z'){
             if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
-                result += text[i]; // Assign the character
+                result += text[i]; 
             }
         }
     }
@@ -23,4 +25,3 @@ int main(){
     string output = remove_vowels(text);
     cout << "Sentence without vowels: " << output << endl;
     return 0;
-}
