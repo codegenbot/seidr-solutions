@@ -1,14 +1,12 @@
-if (x == 1) {
+if (x <= 0 || n <= 0) {
+        return false;
+    }
+    
+    double result = log(x) / log(n);
+    
+    if (result == (int)result) {
         return true;
+    } else {
+        return false;
     }
-    for (int i = 2; i <= sqrt(x); ++i) {
-        int p = i;
-        while (p <= x) {
-            p *= i;
-            if (p == x) {
-                return true;
-            }
-        }
-    }
-    return false;
 }
