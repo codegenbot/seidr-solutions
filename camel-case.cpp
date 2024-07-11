@@ -7,14 +7,15 @@ int main() {
     std::getline(std::cin, input);
     
     bool capitalize = true;
-    for (char &c : input) {
-        if (capitalize && std::isalpha(c)) {
-            std::cout << (char)std::tolower(c);
+    for (size_t i = 0; i < input.size(); ++i) {
+        char c = input[i];
+        if (capitalize && std::islower(c) && i != 0) {
+            std::cout << (char)std::toupper(c);
             capitalize = false;
         } else if (c == '-' && !capitalize) {
             capitalize = true;
         } else {
-            std::cout << (char)std::toupper(c);
+            std::cout << c;
         }
     }
     
