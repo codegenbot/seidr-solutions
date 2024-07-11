@@ -1,7 +1,9 @@
+#include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
 
-int Strongest_Extension(string class_name, vector<string> extensions) {
+int Strongest_Extension(string class_name,vector<string> extensions){
     int max_strength = -1;
     string strongest_extension;
 
