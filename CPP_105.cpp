@@ -9,7 +9,7 @@ using namespace std;
 
 vector<string> by_length(vector<string> arr) {
     vector<string> filtered;
-    for (string num : arr) { 
+    for (string num : arr) {
         if (stoi(num) >= 1 && stoi(num) <= 9) {
             filtered.push_back(num);
         }
