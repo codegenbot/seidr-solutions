@@ -1,18 +1,20 @@
+```
 def bowling_score(s):
     score = 0
-    rolls = list(map(int, s.replace("X", "10").replace("/", "2").split("-")))
+    rolls = list(map(int, s.split("-")))
     i = 0
     while i < len(rolls):
         if rolls[i] == 10:
-            # Strike
             score += 10 + rolls[i+1]+rolls[i+2]
             i += 3
-        elif rolls[i] == 5 or (i+1 < len(rolls) and rolls[i] + rolls[i+1] <= 10):
-            # Spare
-            score += 5 + rolls[i+1] if i+1 < len(rolls) else 5 + rolls[i]/2
-            i += 2
+        elif rolls[i] == -1:
+            score += 5 + rolls[i+1] + rolls[i+2]
+            i += 3
         else:
-            # Regular frame
-            score += sum(rolls[i:i+2]) 
-            i += 2
+            if rolls[i] > 9 or (i+1 < len(rolls) and rolls[i+1] > 9):
+                score += rolls[i] + (10 - rolls[i]) // 2 * 2
+                i += 1
+            else:
+                score += rolls[i]
+                i += 1
     return score
