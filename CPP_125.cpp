@@ -1,6 +1,6 @@
 #include <string>
 
-bool issame(vector<string> a, vector<string> b){ // Change the function signature
+bool issame(vector<string> a, vector<string> b){
     // Function implementation
 }
 
