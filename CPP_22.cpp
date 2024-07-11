@@ -5,11 +5,15 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> filter_integers(list<any> values);
+
 bool issame(vector<int> a, vector<int> b) {
     if(a.size() != b.size()) {
         return false;
     }
-    for(unsigned int i = 0; i < a.size(); i++) {
+    for(int i = 0; i < a.size(); i++) {
         if(a[i] != b[i]) {
             return false;
         }
@@ -17,10 +21,10 @@ bool issame(vector<int> a, vector<int> b) {
     return true;
 }
 
-vector<int> filter_integers(list<boost::any> values) {
+vector<int> filter_integers(list<any> values){
     vector<int> result;
-    for(auto& val : values) {
-        if(val.type() == typeid(int)) {
+    for(auto& val : values){
+        if(val.type() == typeid(int)){
             result.push_back(boost::any_cast<int>(val));
         }
     }
@@ -28,10 +32,11 @@ vector<int> filter_integers(list<boost::any> values) {
 }
 
 int main(int argc, char* argv[]) {
-    list<boost::any> values_any = {2, "hello", 5, 8, "world", 3};
-    vector<int> filtered_integers = filter_integers(values_any);
-
-    for(auto num : filtered_integers) {
+    list<any> values = {10, string("hello"), 20, 30, string("world"), 40};
+    
+    vector<int> filtered = filter_integers(values);
+    
+    for(auto num : filtered){
         cout << num << " ";
     }
     
