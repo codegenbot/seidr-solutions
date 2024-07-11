@@ -21,18 +21,18 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
 }
 
 int main() {
-    std::vector<int> arr = {1, 3, 5, 7, 9, 11, 13, 15};
-    auto res = cutVector(arr);
+    std::vector<int> arr = {4, 7, 9, 2, 8, 6};
+    auto result = cutVector(arr);
     
-    for (const auto& num : res.first) {
+    for (int num : result.first) {
         std::cout << num << " ";
     }
-    std::cout << std::endl;
+    std::cout << "\n";
     
-    for (const auto& num : res.second) {
+    for (int num : result.second) {
         std::cout << num << " ";
     }
-    std::cout << std::endl;
+    std::cout << "\n";
     
     return 0;
 }
