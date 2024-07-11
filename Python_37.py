@@ -1,3 +1,13 @@
+```
 def sort_even(l: list):
-    return [x if y % 2 != 0 else min([z for z in l if z % 2 == 0]) 
-            for _, y in enumerate(l)]
+    evens = [x for x in l if x % 2 == 0]
+    sorted_evens = sorted(evens)
+    result = []
+    even_index = 0
+    for num in l:
+        if num % 2 == 0:
+            result.append(sorted_evens[even_index])
+            even_index += 1
+        else:
+            result.append(num)
+    return result
