@@ -1,4 +1,3 @@
-```
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -22,5 +21,5 @@ auto max_pair = *std::max_element(p.begin(), p.end(),
 
 min_value = *std::min_element(p.begin(), p.end())->first;
 
-cout << "Maximum value: " << std::get<1>(max_pair) << endl;
-cout << "Minimum value: " << min_value << endl;
+std::cout << "Maximum value: " << std::get<1>(max_pair) << std::endl;
+std::cout << "Minimum value: " << min_value << std::endl;
