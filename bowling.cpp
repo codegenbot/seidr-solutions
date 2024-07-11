@@ -1,39 +1,30 @@
-#include <iostream>
+```cpp
 #include <string>
-
-using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
-    int prevFrame = 0;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
-            score += 30;
-            if(i+1<s.length() && s[i+1] != '/') {
-                if(s[i+1] - '0' + prevFrame + 10 > 10) {
-                    score += 10 + prevFrame;
-                    i++;
-                } else {
-                    score += s[i+1] - '0' + prevFrame + 10;
-                }
+    int currentFrame = 1;
+    for (char c : s) {
+        if (c == '/') {
+            score += min(10 - '0', 10);
+            currentFrame++;
+        } else if (isdigit(c)) {
+            int pin = c - '0';
+            if (currentFrame < 10 && isdigit(s[s.length() - 1])) {
+                score += 10;
+                break;
             }
-        } else if (s[i] == '/') {
-            score += 10 + prevFrame;
-        } else {
-            int currentFrame = s[i] - '0';
-            if(i+1<s.length() && s[i+1] != '/') {
-                currentFrame += s[i+1] - '0';
-                if(currentFrame > 10) {
-                    score += 10 + prevFrame;
-                    i++;
-                } else {
-                    score += currentFrame + prevFrame;
-                }
-            } else {
-                score += currentFrame + prevFrame;
+            score += pin;
+            if (s.length() > 1 && s[s.length() - 2] == '/') {
+                score += pin;
+            } else if (c == 'X') {
+                score += 10;
+                currentFrame++;
+            } else if (c != '-') {
+                score += pin + (c - '0');
+                currentFrame++;
             }
         }
-        prevFrame = currentFrame;
     }
     return score;
 }
