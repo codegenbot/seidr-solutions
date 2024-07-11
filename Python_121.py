@@ -1,13 +1,10 @@
-def solution(input_nums=None):
+def solution(nums):
     while True:
         try:
-            if input_nums is None:
-                nums = list(map(int, input().split()))
-            else:
-                nums = list(map(int, input_nums))
-
+            nums = list(map(int, input().split()))
+            
             if len(nums) < 3:
-                return "Invalid input. Please provide at least three numbers."
+                print("Invalid input. Please provide at least three numbers.")
                 
             return sum(1 for _ in nums[::2]) / len(nums)
         except ValueError:
