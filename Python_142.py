@@ -1,4 +1,3 @@
-```python
 while True:
     try:
         lst = input("Enter a list of numbers separated by spaces: ")
