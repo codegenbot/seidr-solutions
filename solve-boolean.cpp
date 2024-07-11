@@ -28,11 +28,3 @@ std::string solveBoolean(std::string expression) {
             result = (getBoolValue(c)) ? "True" : "False";
         }
     }
-}
-
-int getBoolValue(char c) {
-    if (c == 'T')
-        return 1;
-    if (c == 'F')
-        return 0;
-}
