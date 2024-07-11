@@ -1,6 +1,10 @@
-def double_the_difference(your_list):
-    max_diff = max(your_list) - min(your_list)
-    return 2 * max_diff
+```
+def double_the_difference(your_list_here):
+    min_num = min(your_list_here)
+    max_num = max(your_list_here)
+    difference = abs(max_num - min_num)
+    result = difference * 2
+    return result
 
 def check():
     your_list_here = [1, -2, 3, 4, -5]
