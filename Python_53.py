@@ -1,3 +1,4 @@
+```
 def add(x: int, y: int) -> int:
     try:
         x = int(input("Enter first integer: "))
