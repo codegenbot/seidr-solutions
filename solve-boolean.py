@@ -1,7 +1,14 @@
-def solveBoolean(input_string):
-    if input_string == 'T':
+def solve_boolean(s):
+    if s == 't':
         return True
-    elif input_string == 'F':
+    elif s == 'f':
         return False
-    elif '&' in input_string and '|' in input_string:
-        return eval(input_string.replace('&', 'and').replace('|', 'or'))
+    elif '&' in s and '|' in s:
+        raise ValueError("Invalid input")
+    else:
+        s = s.replace('&', '&')
+        s = s.replace('|', ' or ')
+        if eval(s.lower()):
+            return True
+        else:
+            return False
