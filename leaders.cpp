@@ -10,7 +10,7 @@ vector<int> findLeaders(const vector<int>& nums) {
     int maxRight = INT_MIN;
 
     for (int i = n - 1; i >= 0; --i) {
-        if (nums[i] >= maxRight) {
+        if (nums[i] > maxRight) {
             maxRight = nums[i];
             leaders.push_back(nums[i]);
         }
@@ -26,9 +26,12 @@ int main() {
     
     cout << "Enter positive integers (0 to end input, press enter after each number, then Ctrl+D to finish):" << endl;
     cout.flush();
+
     do {
-        cin >> num;
-        if (cin.eof()) {
+        if (!(cin >> num)) {
+            break;
+        }
+        if (num == 0) {
             break;
         }
         nums.push_back(num);
