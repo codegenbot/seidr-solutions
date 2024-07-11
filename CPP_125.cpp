@@ -1,22 +1,26 @@
 #include <vector>
-#include <string>
-
-vector<string> split_words(string txt) {
-    vector<string> result;
-    string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
+string issame(string txt) {
+    vector<string> split_words(string txt) {
+        vector<string> result;
+        string word = "";
+        for (char c : txt) {
+            if (c == ' ' || c == ',') {
+                if (!word.empty()) {
+                    result.push_back(word);
+                    word = "";
+                }
+            } else {
+                word += c;
             }
-        } else {
-            word += c;
         }
+        if (!word.empty()) {
+            result.push_back(word);
+        }
+        return result;
     }
-    if (!word.empty()) {
-        result.push_back(word);
-    }
+
+    vector<string> result = split_words(txt);
+
     if (result.empty()) {
         int count = 0;
         for (char c : txt) {
