@@ -1,14 +1,12 @@
 #include <string>
 
-int main() {
-    std::string s;
-    std::cout << "Enter a string: ";
-    std::cin >> s;
+std::string middleCharacter(std::string s) {
     int len = s.length();
     if(len % 2 == 0) {
-        std::cout << "The middle characters are: " << s.substr(len/2 - 1, 2) << std::endl;
+        return s.substr(len/2 - 1, 2);
     } else {
-        std::cout << "The middle character is: " << s.substr(len/2, 1) << std::endl;
+        return s.substr(len/2, 1);
     }
-    return 0;
 }
+
+int main() { return 0; }
