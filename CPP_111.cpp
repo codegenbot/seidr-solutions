@@ -24,14 +24,20 @@ map<char, int> histogram(string test){
     return result;
 }
 
-bool issame(map<char, int> a, map<char, int> b) {
+bool issame(map<char, int> a, map<char, int> b);
+
+bool issame(map<char, int> a, map<char, int> b){
     return a == b;
 }
 
 int main() {
     string test = "hello world";
     map<char, int> result = histogram(test);
-    map<char, int> expected = {{'l', 3}, {'o', 2}};
+
+    map<char, int> expected;
+    expected['l'] = 3;
+    expected['o'] = 2;
+
     assert(issame(result, expected));
 
     return 0;
