@@ -1,28 +1,26 @@
 #include <string>
+
 using namespace std;
 
 class Str {
 public:
-    Str() {}
-    Str(string s) : str(s) {}
-
-    string toString() const { return str; }
-
-private:
-    string str;
+    static string encrypt(string s) {
+        string result = "";
+        for(int i=0; i<s.length(); i++){
+            char c = s[i];
+            if(c >= 'a' && c <= 'm'){
+                c += 4;
+            }
+            else if(c >= 'n' && c <= 'z'){
+                c -= 26 - 4;
+            }
+            result += c;
+        }
+        return result;
+    }
 };
 
-Str encrypt(Str s){
-    Str result = Str("");
-    for(int i=0; i<s.toString().length(); i++){
-        char c = s.toString()[i];
-        if(c >= 'a' && c <= 'm'){
-            c += 4;
-        }
-        else if(c >= 'n' && c <= 'z'){
-            c -= 26 - 4;
-        }
-        result.toString() += c;
-    }
-    return result;
+int main() {
+    assert(Str::encrypt("a") == "e");
+    return 0;
 }
