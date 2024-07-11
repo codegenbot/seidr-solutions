@@ -5,16 +5,19 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     product = 1
     
     for num in numbers:
-        total_sum += num
-        product *= num
+        if not isinstance(num, int):
+            return (f"Invalid input: {num}")
+        
+        try:
+            total_sum += num
+            product *= num
+        except ZeroDivisionError:
+            return "Cannot multiply by zero"
+    
+    if product == 0 and total_sum > 0:
+        return total_sum, product
+    
+    if product == 0:
+        return f"Product is zero: {product}"
     
     return total_sum, product
-
-numbers = input("Enter a list of integers separated by commas: ")
-numbers = [int(num) for num in numbers.split(",")]
-
-try:
-    result = sum_product(numbers)
-    print(f"The sum is {result[0]} and the product is {result[1]}.")
-except ValueError as e:
-    print(f"Error: {e}")
