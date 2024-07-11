@@ -7,7 +7,7 @@ for i in range(1, len(nums)):
     if diff <= min_diff:
         min_diff = diff
         cut_index = i
-
+    
 subvector1 = nums[:cut_index]
 subvector2 = nums[cut_index:]
 
