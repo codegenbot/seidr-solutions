@@ -1,7 +1,7 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <climits>
-#include <cassert>
 
 using namespace std;
 
@@ -16,5 +16,13 @@ int smallest_change(std::vector<int> arr) {
 
 int main() {
     assert(smallest_change({0, 1}) == 1);
+    vector<int> arr;
+    cout << "Enter the numbers separated by space: ";
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> arr.push_back(i);
+    }
+    cout << "The smallest change is: " << smallest_change(arr) << endl;
     return 0;
 }
