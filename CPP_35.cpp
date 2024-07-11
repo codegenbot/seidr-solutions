@@ -1,5 +1,1 @@
-#include <algorithm>
-int main() {
-    std::list<std::pair<int, int>> l = {{1,2},{3,4}};
-    return std::max_element(l.begin(), l.end())->first;
-}
+auto max = *std::max_element(map.begin(), map.end(), [](const auto& a, const auto& b) { return a.second > b.second; });
