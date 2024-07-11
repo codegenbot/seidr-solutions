@@ -1,13 +1,15 @@
-'...' 
+```
 from typing import List
 
 def below_zero(operations: List[str]) -> bool:
     balance = 0
     for operation in operations:
-        if operation[0] == '-':
-            balance -= int(operation)
-        else:
-            balance += int(operation)
+        if '-' in operation or '+' in operation:
+            sign, num = operation[0], int(operation[1:])
+            if sign == '-':
+                balance -= num
+            else:
+                balance += num
         if balance < 0:
             return True
     return False
