@@ -1,23 +1,16 @@
-arr = list(map(int, input().split()))
-
-total_sum = sum(arr)
-left_sum = 0
+arr = [3, 1, 2, 4, 3]
 min_diff = float('inf')
-cut_index = None
+cut_position = -1
 
-for i in range(len(arr)):
-    left_sum += arr[i]
-    right_sum = total_sum - left_sum
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
+for i in range(1, len(arr)):
+    left_sum = sum(arr[:i])
+    right_sum = sum(arr[i:])
+    if abs(left_sum - right_sum) < min_diff:
+        min_diff = abs(left_sum - right_sum)
+        cut_position = i
 
-if min_diff == 0 or cut_index is not None:
-    subvector1 = arr[:cut_index+1]
-    subvector2 = arr[cut_index+1:]
+subvector1 = arr[:cut_position]
+subvector2 = arr[cut_position:]
 
-    print(*subvector1)
-    print(*subvector2)
-else:
-    print("No possible cut point found.")
+print(subvector1)
+print(subvector2)
