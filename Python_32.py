@@ -1,14 +1,11 @@
 def find_zero():
-    user_input = input("Enter coefficients (space separated): ")
-    xs = [int(x) for x in user_input.split()]
+    xs = input("Enter coefficients of the polynomial (space separated): ")
     try:
-        result = find_zero(xs)
-        print(result if result is not None else "No real root found.")
-    except ValueError as e:
-        print(f"Error: {e}")
+        xs = list(map(float, xs.split()))
+    except ValueError:
+        print("Invalid input. Please enter numbers only.")
+        return None
 
-
-def find_zero(xs: list):
     n = len(xs)
     if n % 2 != 0:
         raise ValueError("xs must have an even number of coefficients")
@@ -19,4 +16,8 @@ def find_zero(xs: list):
     if c == 0 or b == 0:
         return None
 
-    return -b / (2 * c)
+    result = -b / (2 * c)
+    print("The zero of the polynomial is: ", result)
+
+
+find_zero()
