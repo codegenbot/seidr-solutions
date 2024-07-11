@@ -1,31 +1,42 @@
+#include <iostream>
+#include <vector>
+
 int main() {
     int n;
-    cin >> n;
-    vector<int> nums(n);
+    std::cin >> n;
+    
+    std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+        std::cin >> nums[i];
     }
     
-    int sum = accumulate(nums.begin(), nums.end(), 0);
-    int prefix_sum = 0, min_diff = INT_MAX, cut_index = -1;
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
+    }
     
+    int target = sum / 2;
+    
+    int prefixSum = 0;
+    int idx = -1;
     for (int i = 0; i < n; ++i) {
-        prefix_sum += nums[i];
-        int diff = abs(prefix_sum - (sum - prefix_sum));
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        prefixSum += nums[i];
+        if (prefixSum >= target) {
+            idx = i;
+            break;
         }
     }
     
-    for (int i = 0; i <= cut_index; ++i) {
-        cout << nums[i] << endl;
-    }
-    for (int i = cut_index + 1; i < n; ++i) {
-        if (i != cut_index + 1) {
-            cout << endl;
+    if (abs(sum - 2 * prefixSum) < abs(sum - 2 * (prefixSum - nums[idx]))) {
+        for (int i = 0; i <= idx; ++i) {
+            std::cout << nums[i] << std::endl;
         }
-        cout << nums[i];
+        std::cout << 0 << std::endl;
+    } else {
+        for (int i = 0; i < idx; ++i) {
+            std::cout << nums[i] << std::endl;
+        }
+        std::cout << 0 << std::endl;
     }
     
     return 0;
