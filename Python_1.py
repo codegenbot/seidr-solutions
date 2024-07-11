@@ -2,35 +2,26 @@ from typing import List
 
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    paren_string = paren_string.strip()
-    result = []
-    stack = []
-    groups = ""
-
-    for c in paren_string:
-        if c == " ":
-            continue
-        if c == "(":
-            stack.append(c)
-            groups += c
-        elif c == ")":
-            if stack:
-                stack.pop()
-                groups += c
-                if not stack:
-                    result.append(groups + " ")
-                    groups = ""
+    def check(s):
+        stack = []
+        groups = []
+        for char in s:
+            if char == "(":
+                stack.append(char)
+            elif char == ")":
+                if stack:
+                    stack.pop()
+                else:
+                    groups.append("(" + char)
             else:
-                return []
-        elif c == "(" and not stack:
-            return []
+                if stack:
+                    groups.append("(" + s[1 : s.index(char)] + ")")
+                    s = s[s.index(char) + 1 :]
+        while stack:
+            groups.append("(" + s[: stack.index("(") + 1])
+            s = s[stack.index("(") + 1 :]
+            stack.pop()
+        groups.append(s)
+        return groups
 
-    if stack:
-        return []
-    if groups:
-        result.append(groups)
-
-    if not stack and len(result) == 0:
-        return ["Error: No parentheses found"]
-
-    return [g.strip() for g in result]
+    return check(paren_string)
