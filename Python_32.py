@@ -1,6 +1,5 @@
 ```
 import math
-
 def find_zero(xs):
     n = len(xs)
     if n % 2 != 0:
@@ -21,11 +20,11 @@ def find_zero(xs):
     
     return x1, x2
 
-xs = list(map(float, input("Enter coefficients: ").split()))
-
-try:
-    result = find_zero(xs)
-    if result is not None:
-        print(f"Zeroes are {result[0]} and {result[1]}.")
-except ValueError as e:
-    print(e)
+if __name__ == "__main__":
+    xs = list(map(float, input("Enter coefficients: ").split()))
+    try:
+        result = find_zero(xs)
+        if result is not None:
+            print(f"Zeroes are {result[0]} and {result[1]}.")
+    except ValueError as e:
+        print(e)
