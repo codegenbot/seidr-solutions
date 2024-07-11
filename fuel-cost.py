@@ -1,2 +1,2 @@
-total = sum(num // 3 for num in map(int, input().split())) - 2 * len(input().split())
+total = sum(int(num)//3 - 2 for num in input().split())
 print(total)

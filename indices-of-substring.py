@@ -8,6 +8,6 @@ while True:
     if start_index == -1:
         break
     indices.append(start_index)
-    start_index += 1
+    start_index += len(target)
 
 print(indices)
