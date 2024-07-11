@@ -19,6 +19,7 @@ def decode_shift():
                     break
                 except ValueError:
                     print("Invalid input. Please enter a valid integer.")
+            s = s[4:]
 
         result = ""
         for ch in s:
@@ -32,10 +33,5 @@ def decode_shift():
         print("Decoded string: ", result)
 
         cont = input("Do you want to decode another string? (yes/no): ")
-        while True:
-            if cont.lower() == "yes":
-                break
-            elif cont.lower() == "no":
-                return
-            else:
-                print("Invalid input. Please enter 'yes' or 'no'.")
+        if cont.lower() != "yes":
+            break
