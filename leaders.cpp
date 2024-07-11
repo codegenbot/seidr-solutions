@@ -1,6 +1,4 @@
-#include <vector> 
-#include <algorithm>
-
+#include <vector>
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
     int n = nums.size();
@@ -14,7 +12,7 @@ std::vector<int> findLeaders(std::vector<int> nums) {
         }
     }
 
-    std::reverse(leaders.begin(), leaders.end());
+    reverse(leaders.begin(), leaders.end());
 
     return leaders;
 }
