@@ -2,10 +2,6 @@
 #include <vector>
 #include <cassert>
 
-vector<int> tri(int n);
-
-bool issame(vector<int> a, vector<int> b);
-
 vector<int> tri(int n) {
     vector<int> result;
     if (n >= 0) {
