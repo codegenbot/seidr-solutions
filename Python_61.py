@@ -1,11 +1,11 @@
-```
 def correct_bracketing(brackets: str):
     stack = []
     for bracket in brackets:
         if bracket == "(":
             stack.append(bracket)
         elif bracket == ")":
-            if len(stack) == 0:
+            if len(stack) > 0 and stack.pop() == "(":
+                continue
+            else:
                 return False
-            stack.pop()
     return len(stack) == 0
