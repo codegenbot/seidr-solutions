@@ -27,7 +27,6 @@ def decode_shift(s: str):
 
 while True:
     s = input("Enter a shifted string (25- or 26- ): ")
-    s = s.strip() 
     if s.startswith("25-") or s.startswith("26-"):
         break
     print("Invalid input. Please enter a string that starts with '25-' or '26-'")
