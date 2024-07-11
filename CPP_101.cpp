@@ -6,7 +6,7 @@
 
 using namespace std;
 
-vector<string> words_string(string s){
+vector<string> words_string(string s) {
     vector<string> words;
     stringstream ss(s);
     string word;
@@ -20,19 +20,20 @@ vector<string> words_string(string s){
 
 int main() {
     string input;
-    cout << "Enter a sentence: ";
+    cout << "Enter a string: ";
     getline(cin, input);
-
+    
     vector<string> result = words_string(input);
-
+    
     if (result.empty()) {
-        cout << "No words detected." << endl;
+        cout << "No words found in the input.\n";
     } else {
-        cout << "Words detected:" << endl;
+        cout << "Words in the input: ";
         for (const string& word : result) {
-            cout << word << endl;
+            cout << word << " ";
         }
+        cout << "\n";
     }
-
+    
     return 0;
 }
