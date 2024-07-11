@@ -1,13 +1,11 @@
-int count = 0;
-        for (int j = 0; j < grid[0].size(); j++) {
-            int sum = 0;
-            for (int i = 0; i < grid.size(); i++) {
-                sum += grid[i][j];
-            }
-            while (sum > 0) {
-                sum -= capacity;
-                count++;
-            }
+int max_fill(vector<vector<int>> grid, int capacity) {
+    int total = 0;
+    for (const auto &row : grid) {
+        int row_sum = 0;
+        for (int well : row) {
+            row_sum += well;
         }
-        return count;
+        total += row_sum / capacity + (row_sum % capacity != 0);
     }
+    return total;
+}
