@@ -1,7 +1,9 @@
 #include <iostream>
+using namespace std;
+
 int main() {
     int n, m;
-    std::cin >> n >> m;
+    cin >> n >> m;
     
     double total_outcomes = n * m;
     double favorable_outcomes = 0;
@@ -12,7 +14,7 @@ int main() {
         }
     }
     
-    std::cout << favorable_outcomes / total_outcomes << std::endl;
+    cout << favorable_outcomes / total_outcomes << endl;
     
     return 0;
 }
