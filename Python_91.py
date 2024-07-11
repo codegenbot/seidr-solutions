@@ -1,3 +1,3 @@
 ```
 def is_bored(S):
-    return len([sentence for sentence in S.split('. ') + S.split('? ') + S.split('! ') if sentence and sentence.lower().startswith('i')])
+    return sum(1 for sentence in S.split('. ') if sentence.strip().startswith('I'))
