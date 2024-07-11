@@ -1,5 +1,3 @@
-Here is the modified code:
-
 def decode_cyclic():
     encoded_str = input("Enter the encoded string: ")
     if len(encoded_str) % (len(encoded_str) // 2) != 0:
