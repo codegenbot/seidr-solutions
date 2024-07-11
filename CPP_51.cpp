@@ -1,7 +1,7 @@
 #include <string>
 
-std::string remove_vowels(std::string text) {
-    std::string result = "";
+string remove_vowels(string text) {
+    string result = "";
     for (char c : text) {
         if (!isalpha(c)) {
             result += c;
@@ -11,4 +11,3 @@ std::string remove_vowels(std::string text) {
         result += c;
     }
     return result;
-}
