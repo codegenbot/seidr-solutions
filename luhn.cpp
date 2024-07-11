@@ -1,6 +1,4 @@
-```cpp
 #include <vector>
-#include <iostream>
 
 int luhn(int cardNumber) {
     int sum = 0;
@@ -12,8 +10,8 @@ int luhn(int cardNumber) {
         cardNumber /= 10;
     }
     
-    for (int i = numbers.size() - 1; i >= 0; --i) {
-        int digit = numbers[i];
+    for (int i = numbers.size() - 1; i > 0; --i) {
+        int digit = numbers[i-1];
 
         if ((numbers.size() % 2 == 0 && i % 2 != 0) || (numbers.size() % 2 != 0 && i % 2 == 0)) { 
             digit *= 2;
@@ -28,8 +26,7 @@ int luhn(int cardNumber) {
     return sum;
 }
 
-int main() {
-    int cardNumber = 1234; // input your credit card number here
-    std::cout << luhn(cardNumber) << std::endl;
+int main(int argc, char** argv) {
+    luhn(0);
     return 0;
 }
