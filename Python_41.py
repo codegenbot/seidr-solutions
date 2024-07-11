@@ -1,6 +1,5 @@
-def car_race_collision():
-    distance = float(input("Enter the distance of each segment in kilometers: "))
-    speed1 = float(input("Enter the speed of Car 1 in km/hour: "))
-    speed2 = float(input("Enter the speed of Car 2 in km/hour: "))
-    time_to_collide = (distance / (speed1 + speed2))
-    return time_to_collide
+def car_race_collision(n: int):
+    total_cars = 0
+    for i in range(1, n + 1):
+        total_cars += i * (n - i)
+    return total_cars
