@@ -1,4 +1,7 @@
-`'import math
+Here is the modified code:
+
+```Python
+import math
 
 
 def find_zero(xs):
@@ -24,4 +27,4 @@ while True:
             print(find_zero(xs))
             break
     except:
-        print("Invalid input. Please enter coefficients (space-separated) separated by spaces.")'
+        print("Invalid input. Please enter coefficients (space-separated) separated by spaces.")
