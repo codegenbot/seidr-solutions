@@ -1,18 +1,15 @@
 #include <vector>
 #include <string>
+#include <cassert>
 
-bool issame(string a, string b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); ++i) {
-        if(tolower(a[i]) != tolower(b[i])) {
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    // function implementation
+}
+
+vector<string> split_words(string txt);
+
+int main() {
+    // main function implementation
 }
 
 vector<string> split_words(string txt) {
