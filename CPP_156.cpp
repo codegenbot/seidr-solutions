@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 
@@ -16,13 +17,11 @@ string int_to_roman(int number) {
         }
     }
     return roman;
-
 }
 
 int main() {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    string result = int_to_roman(num);
-    cout << num << " in Roman numerals is " << result << endl;
+    int number;
+    cin >> number;
+    cout << int_to_roman(number) << endl;
     return 0;
+}
