@@ -2,7 +2,9 @@
 #include <vector>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b){
+using namespace std;
+
+bool is_same(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
@@ -14,16 +16,8 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b){
     return true;
 }
 
-std::vector<int> count_up_to(int n);
-
-int main(){
-    assert(issame(count_up_to(101), {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}));
-
-    return 0;
-}
-
-std::vector<int> count_up_to(int n){
-    std::vector<int> primes;
+vector<int> count_up_to(int n){
+    vector<int> primes;
     for(int i=2; i<n; ++i){
         bool is_prime = true;
         for(int j=2; j*j<=i; ++j){
@@ -37,4 +31,10 @@ std::vector<int> count_up_to(int n){
         }
     }
     return primes;
+}
+
+int main(){
+    assert(is_same(count_up_to(101), {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}));
+    
+    return 0;
 }
