@@ -1,6 +1,6 @@
 #include <string>
 
-vector<string> all_prefixes(string b){
+vector<string> all_prefixes(string b) {
     vector<string> result;
     string prefix = "";
     for (char c : b) {
@@ -11,6 +11,7 @@ vector<string> all_prefixes(string b){
 }
 
 int main() {
+    // Test the all_prefixes function
     string input;
     cin >> input;
     vector<string> prefixes = all_prefixes(input);
