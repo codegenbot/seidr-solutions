@@ -7,5 +7,5 @@ def string_to_md5():
     else:
         return None
 
-if __name__ == "__main__":
-    print(string_to_md5())
+result = string_to_md5()
+print(result)
