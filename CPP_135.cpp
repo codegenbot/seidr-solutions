@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 int can_arrange(std::vector<int> arr) {
     for (int i = 1; i < arr.size(); i++) {
@@ -11,7 +11,7 @@ int can_arrange(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {};
-    assert(can_arrange(arr) == -1);
+    assert(can_arrange({}) == -1);
+    // Add your test cases here
     return 0;
 }
