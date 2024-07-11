@@ -2,20 +2,18 @@
 #include <string>
 #include <cassert>
 
-using namespace std;
-
-bool cycpattern_check(const string& a, const string& b) {
+bool cycpattern_check(std::string a, std::string b) {
     int n = a.length();
     int m = b.length();
-    if(n != m) return false;
+    if (n != m) return false;
     
-    string temp = b + b;
+    std::string temp = b + b;
     
-    if(temp.find(a) != string::npos) return true;
+    if (temp.find(a) != std::string::npos) return true;
     
-    for(int i = 1; i < m; ++i){
+    for (int i = 1; i < m; ++i) {
         temp = temp.substr(1) + temp[0];
-        if(temp.find(a) != string::npos) return true;
+        if (temp.find(a) != std::string::npos) return true;
     }
     
     return false;
