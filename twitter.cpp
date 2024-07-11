@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
 
-std::string validateTweet(std::string tweet) {
+string validateTweet(string tweet) {
     if (tweet.empty()) {
         return "You didn't type anything";
     }
@@ -20,10 +19,9 @@ int main() {
     cin >> testCases;
 
     for(int i = 0; i < testCases; i++) {
-        std::string tweet;
+        string tweet;
         cin >> tweet;
-        std::cout << validateTweet(tweet) << std::endl;
+        cout << validateTweet(tweet) << endl;
     }
 
     return 0;
-}
