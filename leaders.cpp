@@ -10,5 +10,3 @@ vector<int> leaders(vector<int>& arr) {
             maxRight = arr[i];
     }
     return result;
-
-}
