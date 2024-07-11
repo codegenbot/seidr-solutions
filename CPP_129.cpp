@@ -1,34 +1,35 @@
+#include <iostream>
 #include <vector>
+#include <queue>
+#include <algorithm>
+
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n, -1));
-    vector<int> res;
+    vector<vector<pair<int, int>>> graph(n);
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (k == 1 || grid[i][j] == 1) {
-                dp[i][j] = 0;
-            } else {
-                int min_val = INT_MAX;
-                if (i > 0) min_val = min(min_val, dp[i - 1][j]);
-                if (j > 0) min_val = min(min_val, dp[i][j - 1]);
-                dp[i][j] = min_val + grid[i][j];
-            }
+            if (i > 0) graph[i][j].emplace_back(grid[i - 1][j], i - 1, j);
+            if (i < n - 1) graph[i][j].emplace_back(grid[i + 1][j], i + 1, j);
+            if (j > 0) graph[i][j].emplace_back(grid[i][j - 1], i, j - 1);
+            if (j < n - 1) graph[i][j]..emplace_back(grid[i][j + 1], i, j + 1);
         }
     }
-    int i = n / 2, j = n / 2;
-    while (k--) {
-        res.push_back(grid[i][j]);
-        if (i > 0 && dp[i - 1][j] < dp[i][j]) {
-            i--;
-        } else if (j > 0 && dp[i][j - 1] < dp[i][j]) {
-            j--;
-        } else {
-            i--;
-            j--;
+
+    vector<int> res;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq({{0, 0}});
+    vector<vector<bool>> visited(n, vector<bool>(n));
+    while (!pq.empty()) {
+        auto [val, x, y] = pq.top(); pq.pop();
+        res.push_back(val);
+        if (res.size() == k) break;
+        for (auto &[v, nx, ny] : graph[x][y]) {
+            if (visited[nx][ny]) continue;
+            visited[nx][ny] = true;
+            pq.emplace(v, nx, ny);
         }
     }
-    reverse(res.begin(), res.end());
+
     return res;
 }
