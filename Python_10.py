@@ -9,4 +9,7 @@ def make_palindrome(s: str) -> str:
         while result[0] != result[i]:
             result.insert(0, result.pop())
     
+    if len(s) % 2 == 1:
+        result.insert(len(result), result.pop(0))
+    
     return ''.join(result)
