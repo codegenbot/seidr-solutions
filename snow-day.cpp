@@ -1,8 +1,15 @@
 #include <iostream>
 using namespace std;
 
-float snowDay(int hours, float groundSnow, float rate, float melt) {
-    return groundSnow + (rate * hours) - (melt * hours);
+double snowDay(int hours, float groundSnow, float rate, float melt) {
+    double totalSnow = 0;
+    for (int i = 0; i < hours; i++) {
+        totalSnow += rate;
+        if (totalSnow > groundSnow) {
+            totalSnow -= melt * (totalSnow - groundSnow);
+        }
+    }
+    return totalSnow;
 }
 
 int main() {
