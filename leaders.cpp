@@ -26,7 +26,7 @@ int main() {
     
     std::cout << "Enter integers (EOF to end): ";
     
-    while (std::cin >> num && !std::cin.eof()) {
+    while (std::cin >> num) {
         nums.push_back(num);
     }
 
