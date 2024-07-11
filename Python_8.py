@@ -23,4 +23,4 @@ while True:
         print("Invalid input! Please enter comma-separated numbers.")
 else:
     total_sum, product = result
-    print(f"Total sum is {total_sum} and the product is {product}.")
+    print(f"Total sum is {total_sum} and the product is {product}.".
