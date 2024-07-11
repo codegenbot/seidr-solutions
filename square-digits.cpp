@@ -11,3 +11,10 @@ std::string squareDigits(std::string input) {
     }
     return output;
 }
+
+int main() {
+    std::string input;
+    std::cout << "Enter a positive integer: ";
+    std::cin >> input;
+    std::cout << squareDigits(input) << std::endl;
+    return 0;
