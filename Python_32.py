@@ -1,3 +1,4 @@
+```
 import math
 
 def find_zero(xs):
@@ -5,7 +6,7 @@ def find_zero(xs):
         return "Not enough coefficients"
     try:
         a, b, c = xs[0], xs[1], xs[2]
-        d = sum(xs[3:]) if len(xs) > 3 else 0
+        d = sum([float(x) for x in xs[3:]])
     except ValueError:
         return "Invalid input. Please enter only numbers separated by spaces."
     discriminant = b**2 - 4 * a * c
@@ -16,5 +17,4 @@ def find_zero(xs):
     return f"The zeros are {round(x1, 2)} and {round(x2, 2)}"
 
 xs = input("Enter coefficients separated by spaces: ").split()
-if xs:
-    print(find_zero(map(float, xs)))
+print(find_zero(map(float, xs)))
