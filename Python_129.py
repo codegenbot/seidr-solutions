@@ -21,7 +21,7 @@ def minPath(n, k):
     min_path = None
     for i in range(1, n+1):
         for j in range(1, n+1):
-            path = dfs(i, j, [], set(), m, k)
+            path = dfs(i, j, [m[i][j]], set([(i,j)]), m, k)
             if min_path is None or path < min_path:
                 min_path = path
     return min_path
