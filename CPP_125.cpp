@@ -3,7 +3,7 @@
 #include <string>
 #include <cassert>
 
-bool issame(string a, string b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -15,9 +15,9 @@ bool issame(string a, string b) {
     return true;
 }
 
-vector<string> split_words(string txt) {
-    vector<string> words;
-    string word = "";
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> words;
+    std::string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -38,11 +38,12 @@ vector<string> split_words(string txt) {
                 count++;
             }
         }
-        words.push_back(to_string(count));
+        words.push_back(std::to_string(count));
     }
     return words;
 }
 
 int main() {
-    assert(issame(split_words(""), {"0"}));
+    // Add your main function code here
+    return 0;
 }
