@@ -1,8 +1,10 @@
-def count_appearances(input_string: str):
-    dictionary = {}
-    for char in input_string:
-        if char in dictionary:
-            dictionary[char] += 1
+def most_common_letter(word: str):
+    letter_count = {}
+    for letter in word:
+        if letter in letter_count:
+            letter_count[letter] += 1
         else:
-            dictionary[char] = 1
-    return dictionary
+            letter_count[letter] = 1
+    max_count = max(letter_count.values())
+    common_letters = [k for k, v in letter_count.items() if v == max_count]
+    return sorted(common_letters)[0]
