@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 
@@ -21,7 +20,7 @@ int luhn(const std::vector<int>& cardNumber) {
 }
 
 int main() {
-    std::vector<int> cardNumber = {4, 3, 7, 2, 1};
+    std::vector<int> cardNumber = {4, 3, 2, 7, 1, 3, 6, 0, 1, 9, 8, 5, 5, 5, 4, 9};
     int result = luhn(cardNumber);
     std::cout << "The Luhn check value is: " << result << std::endl;
     return 0;
