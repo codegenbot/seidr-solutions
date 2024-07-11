@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 int main() {
@@ -11,13 +10,11 @@ int main() {
     bounciness_index = first_bounce_height / start_height;
 
     for (int i = 0; i < num_bounces; ++i) {
-        total_distance += start_height + start_height * bounciness_index;
-        start_height *= 2.0 * bounciness_index;
+        total_distance += start_height * 2.0;
+        start_height *= bounciness_index;
     }
 
-    total_distance += start_height;
-
-    cout << total_distance << endl;
+    cout << total_distance - start_height << endl;
 
     return 0;
 }
