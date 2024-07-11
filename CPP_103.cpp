@@ -1,9 +1,13 @@
 #include <string>
 #include <cassert>
 
-string calculate_binary_avg(int n, int m) {
-    assert(n <= m);
-
+string solve(int n, int m) {
+    assert(n >= 0 && m >= 0);
+    
+    if (n > m) {
+        return "-1";
+    }
+    
     int sum = 0;
     for (int i = n; i <= m; i++) {
         sum += i;
