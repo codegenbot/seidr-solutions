@@ -1,5 +1,6 @@
 from typing import List
 
+
 def rescale_to_unit(numbers: List[float]) -> List[float]:
     if len(numbers) < 2 or not all(isinstance(x, float) for x in numbers):
         return []
