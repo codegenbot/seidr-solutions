@@ -1,7 +1,9 @@
-```
-lst = [int(i) for i in input("Enter elements separated by space: ").split()]
-if len(lst) < 2:
-    print(None)
-else:
+```python
+def double_the_difference(lst):
+    if len(lst) < 2:
+        return None
+    lst = [int(i) for i in lst]
     lst.sort()
-    print((lst[-1] - lst[0]) * 2)
+    return (lst[-1] - lst[0]) * 2
+
+print(double_the_difference(input("Enter elements separated by space: ").split()))
