@@ -6,13 +6,13 @@
 int main() {
     int n;
     std::cin >> n;
+    
     std::vector<float> vec1(n);
-    std::vector<float> vec2(n);
-
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
-
+    
+    std::vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
     }
@@ -24,6 +24,6 @@ int main() {
   
     float result = std::sqrt(sum);
     std::cout << std::fixed << std::setprecision(14) << result << std::endl;
-    
+  
     return 0;
 }
