@@ -7,9 +7,11 @@ bool solveBoolean(string s) {
         if (s[i] == 'f') {
             result = false;
             break;
-        } else if (s[i] == '&') {
+        }
+        else if (s[i] == '&') {
             result &= true;
-        } else if (s[i] == '|') {
+        }
+        else if (s[i] == '|') {
             result |= true;
         }
     }
