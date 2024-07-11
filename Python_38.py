@@ -1,21 +1,10 @@
-def decode_cyclic(input_str):
+def decode_cyclic(encoded_str):
     decoded_str = ""
-    for char in input_str:
-        if char == "0":
-            decoded_str += "5"
-        elif char == "1":
-            decoded_str += "2"
-        elif char == "5":
-            decoded_str += "0"
-        elif char == "2":
-            decoded_str += "1"
+    n = len(encoded_str) // 2
+    for i in range(0, len(encoded_str), n):
+        bits = encoded_str[i : i + n]
+        if bits[0] == "1":
+            decoded_str += bits[1:].zfill(n)[::-1]
+        else:
+            decoded_str += bits[1:][::-1].ljust(n, "0")
     return decoded_str
-
-def check():
-    user_input = input("Enter your input: ")
-    if decode_cyclic(user_input) == user_input:
-        print("Input is correct.")
-    else:
-        print("Input is incorrect.")
-
-check()
