@@ -8,8 +8,8 @@ int main() {
     vector<int> nums;
     int num;
     
-    ifstream inputFile("input.txt");
-
+    ifstream inputFile("input.txt"); // Assuming input is provided in a file called "input.txt"
+    
     while (inputFile >> num) {
         nums.push_back(num);
     }
@@ -26,7 +26,7 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         prefix_sum += nums[i];
-        if (abs(2 * prefix_sum - sum) <= abs(2 * (prefix_sum - nums[i]) - sum)) {
+        if (abs(2*prefix_sum - sum) <= abs(2*(prefix_sum - nums[i]) - sum)) {
             cut_idx = i;
             break;
         }
