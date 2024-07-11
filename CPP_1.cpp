@@ -30,16 +30,14 @@ vector<string> separate_paren_groups(string paren_string) {
 int main() {
     string input;
     cin >> input;
-
+    
     vector<string> groups = separate_paren_groups(input);
-
-    // Example usage of issame function
-    vector<string> a = {"group1", "group2"};
-    vector<string> b = {"group1", "group2"};
-    if (issame(a, b)) {
-        cout << "Vectors are the same" << endl;
+    vector<string> test_groups = separate_paren_groups(input);
+    
+    if (issame(groups, test_groups)) {
+        cout << "Groups are the same." << endl;
     } else {
-        cout << "Vectors are not the same" << endl;
+        cout << "Groups are different." << endl;
     }
 
     return 0;
