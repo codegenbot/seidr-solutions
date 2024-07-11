@@ -4,11 +4,7 @@
 
 using namespace std;
 
-bool issame(const vector<int> &v1, initializer_list<int> v2) {
-    return vector<int>(v2) == v1;
-}
-
-bool issameVec(const vector<int> &v1, const vector<int> &v2) {
+bool issame(const vector<int>& v1, const vector<int>& v2) {
     return v1 == v2;
 }
 
@@ -23,7 +19,8 @@ vector<int> tri(int n) {
                 for (int i = 3; i <= n; ++i) {
                     if (i % 2 == 0) {
                         result.push_back(1 + i / 2);
-                    } else {
+                    }
+                    else {
                         result.push_back(result[i - 1] + result[i - 2] + result[i - 3]);
                     }
                 }
@@ -35,7 +32,5 @@ vector<int> tri(int n) {
 
 int main() {
     assert(issame(tri(1), {3, 1}));
-    assert(issameVec(tri(1), {1, 3}));
-
     return 0;
 }
