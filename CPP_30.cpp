@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -17,6 +16,6 @@ std::vector<float> get_positive(std::vector<float> l) {
 }
 
 int main() {
-    assert(issame(get_positive({}), {}));
+    assert(issame(get_positive({-1, 2, -3, 4, -5}), {2, 4}));
     return 0;
 }
