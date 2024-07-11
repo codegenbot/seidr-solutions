@@ -1,24 +1,21 @@
+```
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
-    
-    for (int i = n - 1; i >= 0; i--) {
-        bool leader = true;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] >= arr[i]) {
-                leader = false;
-                break;
-            }
-        }
-        if (leader) {
-            result.push_back(arr[i]);
+    if(n==0)
+        return result;
+    int maxRightSoFar = arr[n-1];
+    result.push_back(maxRightSoFar);
+    for(int i=n-2; i>=0; i--) {
+        if(arr[i] >= maxRightSoFar) {
+            maxRightSoFar = arr[i];
+            result.push_back(maxRightSoFar);
         }
     }
-    
-    std::reverse(result.begin(), result.end());
     return result;
 }
+
+int main() { leaders(vector<int>()); return 0; }
