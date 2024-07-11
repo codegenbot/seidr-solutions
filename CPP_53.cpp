@@ -1,6 +1,5 @@
 #include <cstdlib>
 
-int randomNumber() {
-    srand(time(0));
-    return rand() % 100;
+int add(int x, int y) {
+    return x + y;
 }
