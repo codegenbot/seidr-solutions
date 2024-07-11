@@ -1,18 +1,16 @@
 int main() {
     int w;
-    vector<int> q;
-    cout << "Enter the weight: ";
+    cout << "Enter weight: ";
     cin >> w;
-    cout << "Enter the qualities (space separated): ";
-    string s;
-    getline(cin, s);
-    vector<string> strVec = split(s, ' ');
-    for (string s : strVec) {
-        int val = stoi(s);
-        q.push_back(val);
+    vector<int> q(3);
+    for(int i = 0; i < 3; i++){
+        cout << "Enter the weight of query " << (i+1) << ": ";
+        cin >> q[i];
     }
-    if (!will_it_fly(q, w)) cout << "It won't fly";
-    else cout << "It will fly";
+    if(will_it_fly(q, w))
+        cout << "It will fly";
+    else
+        cout << "It won't fly";
     return 0;
 }
 

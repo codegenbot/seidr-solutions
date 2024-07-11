@@ -1,12 +1,16 @@
+#include<bits/stdc++.h>
 #include <string>
 
-int vowels_count(string s) {
+int vowels_count(string s){
     int count = 0;
-    for (char c : s) {
-        if ((c == 'a') || (c == 'e') || (c == 'i') || (c == 'o') || (c == 'u')) {
+    for(int i=0; i<s.length(); i++){
+        char c = tolower(s[i]);
+        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
             count++;
-        } else if (c == 'y' && s.back() == 'y') {
+        }
+        else if(i+1 < s.length() && c == 'y' && s[i+1] == '\0'){
             count++;
         }
     }
     return count;
+}
