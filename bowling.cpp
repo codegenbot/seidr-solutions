@@ -14,7 +14,7 @@ int bowlingScore(string s) {
             score += 10 - s[i-1] - s[i];
         } else { // regular roll
             int a = s[i] - '0';
-            int b = s[i+1] - '0';
+            int b = (i < 8 ? s[i+1] - '0' : 0);
             score += a + b;
         }
     }
