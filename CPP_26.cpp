@@ -1,12 +1,8 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
-    return a == b;
-}
-
-vector<int> remove_duplicates(vector<int> numbers) {
-    sort(numbers.begin(), numbers.end());
-    numbers.erase(unique(numbers.begin(), numbers.end()), numbers.end());
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::sort(numbers.begin(), numbers.end());
+    numbers.erase(std::unique(numbers.begin(), numbers.end()), numbers.end());
     return numbers;
 }
