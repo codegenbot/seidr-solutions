@@ -1,6 +1,5 @@
-```cpp
+#include <algorithm>
 int main() {
-    vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    int maxVal = *std::max_element(l.begin(), l.end());
-    return maxVal;
+    std::list<std::pair<int, int>> l = {{1,2},{3,4}};
+    return std::max_element(l.begin(), l.end())->first;
 }
