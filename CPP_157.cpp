@@ -17,3 +17,4 @@ int main() {
         std::cout << "Right-angled triangle." << std::endl;
     else
         std::cout << "Not a right-angled triangle." << std::endl;
+}
