@@ -3,19 +3,18 @@
 
 std::string camelCase(std::string str) {
     std::string result = "";
-    bool capitalizeNext = true;
-
     for (char c : str) {
         if (c == '-') {
-            capitalizeNext = true;
-        } else if (capitalizeNext) {
-            result += toupper(c);
-            capitalizeNext = false;
+            result += c;
+        } else if (c == ' ') {
+            continue;
         } else {
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
+            }
             result += tolower(c);
         }
     }
-
     return result;
 }
 
