@@ -1,15 +1,13 @@
-for (int i = 0; i < s.length(); i++) {
-    if (isalpha(s[i])) {
-        if (islower(s[i])) {
-            s[i] = toupper(s[i]);
+string solve(string s){
+    string res = "";
+    for(int i=0; i<s.size(); i++){
+        if(isalpha(s[i])){
+            res += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
         } else {
-            s[i] = tolower(s[i]);
+            res += s[i];
         }
-    } else {
-        s[i] = s[i];
     }
+    return (res.find_first_of("abcdefghijklmnopqrstuvwxyz") == string::npos) 
+           ? string(res.rbegin(), res.rend()) 
+           : res;
 }
-if (!any_of(s.begin(), s.end(), ::isalpha)) {
-    reverse(s.begin(), s.end());
-}
-return s;
