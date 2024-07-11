@@ -4,15 +4,15 @@ int prod_signs(vector<int> arr) {
 
     for (int num : arr) {
         if (num == 0) {
-            return 0;
+            return -32768; // return -32768 for empty arr.
         }
-        sign_product *= (num > 0 ? 1 : -1);
+        int sign = (num > 0) ? 1 : ((num < 0) ? -1 : 0);
         sum_of_magnitudes += abs(num);
+        sign_product *= sign;
     }
 
     if (arr.empty()) {
-        return -32768;
+        return -32768; // return -32768 for empty arr.
     }
-
-    return sign_product * sum_of_magnitudes;
+    return sum_of_magnitudes * sign_product;
 }
