@@ -1,6 +1,6 @@
-#include <cassert>
 #include <vector>
 #include <map>
+#include <cassert>
 
 using namespace std;
 
@@ -23,5 +23,6 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 int main() {
-    assert(isame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
+    assert(isame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 2, 3, 4, 5}));
     return 0;
+}
