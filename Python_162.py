@@ -1,3 +1,4 @@
+import sys
 import hashlib
 
 def string_to_md5(text):
@@ -5,9 +6,12 @@ def string_to_md5(text):
         return hashlib.md5(text.encode()).hexdigest()
     return None
 
-text = input().strip()
-md5_hash = string_to_md5(text)
-if md5_hash:
-    print(md5_hash)
+text = sys.stdin.readline().strip()
+if text.isalnum():
+    md5_hash = string_to_md5(text)
+    if md5_hash:
+        print("MD5 Hash:", md5_hash)
+    else:
+        print("Error: Unable to generate MD5 hash")
 else:
-    print("Error: Unable to generate MD5 hash")
+    print("Error: Input should contain only alphanumeric characters")
