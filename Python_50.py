@@ -1,3 +1,4 @@
+```
 def decode_shift():
     while True:
         s = input("Enter the encoded string: ")
@@ -5,6 +6,10 @@ def decode_shift():
             break
         else:
             print("Invalid input. Please enter a string that starts with '25-' or '26-'.")
+
+    if not (s.startswith("25-") or s.startswith("26-")):
+        print("Program did not receive expected input.")
+        return
 
     if s.startswith("25-"):
         shift = int(s[3:])
@@ -21,5 +26,4 @@ def decode_shift():
             result += chr((ord(ch) - ord('A') + shift) % 26 + ord('A'))
         else:
             result += ch
-    print("Enter the decoded string: ")
     return result
