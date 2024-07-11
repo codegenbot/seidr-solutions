@@ -1,4 +1,3 @@
-```cpp
 int main() {
     vector<float> lst;
     long long odd_sum = 0;
@@ -8,8 +7,8 @@ int main() {
         cin >> num;
         lst.push_back(num);
     }
-    odd_sum = double_the_difference(lst);
-    cout << "The sum of the squares of all positive integers in the list is: " << odd_sum << endl;
+    long long result = double_the_difference(lst);
+    cout << "The sum of the squares of all positive integers in the list is: " << result << endl;
     return 0;
 }
 
