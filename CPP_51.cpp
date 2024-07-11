@@ -18,7 +18,7 @@ string remove_vowels(string text){
     return result;
 }
 
-int main() { 
+int main() {
     string text;
     cin >> text;
     if(text.empty()) {

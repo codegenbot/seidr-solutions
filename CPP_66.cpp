@@ -16,7 +16,16 @@ int digitSum(std::string s) {
 int main() {
     std::cout << "Enter a string: ";
     std::string input;
-    std::cin >> input; 
+    std::cin >> std::ws; 
+    std::getline(std::cin, input);
+    size_t pos = 0;
+    while (pos < input.size()) {
+        if (!std::isspace(input[pos])) {
+            break;
+        }
+        ++pos;
+    }
+    input.erase(0, pos);
     if (!input.empty()) { 
         int digitPos = -1;
         for (int i = 0; i < input.size(); ++i) {
