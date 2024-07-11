@@ -1,1 +1,1 @@
-f"Your tweet has {len(re.sub(r'\W+', '', tweet)) // 1} characters"
+f"Your tweet has {len(re.sub(r'\W+',''+tweet))//1} characters"
