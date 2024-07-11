@@ -2,14 +2,18 @@
 #include <vector>
 #include <string>
 
-std::string concatenate(std::vector<std::string> strings) {
-    std::string result = "";
-    for (const auto& str : strings) {
-        result += str;
+using namespace std;
+
+string concatenate(vector<string> strings) {
+    string result = "";
+    for (string s : strings) {
+        result += s;
     }
     return result;
+}
 
 int main() {
     assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
+    cout << "Hello, World!" << endl;
     return 0;
 }
