@@ -1,7 +1,17 @@
-def below_zero(operations: List[int]) -> bool:
-    if not isinstance(operations, list):
-        return False
+```
+def check_speeds(speeds: List[int]) -> str:
+    if not isinstance(speeds, list):
+        return 'invalid input'
+    
+    for speed in speeds:
+        if not isinstance(speed, int) or speed < 0:
+            return 'invalid speed'
 
-    balance = sum(i for i in operations if i < 0)
-
-    return balance < 0
+    avg = sum(speeds) / len(speeds)
+    
+    if avg < 60:
+        return 'slow'
+    elif avg >= 61 and avg <= 80:
+        return 'average'
+    else:
+        return 'fast'
