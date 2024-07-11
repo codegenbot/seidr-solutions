@@ -1,10 +1,6 @@
-import re
-
-
+```
+text = input("Enter a string: ")
 def fix_spaces(text):
-    try:
-        return re.sub(
-            r"\s+", lambda x: "_" if len(x.group().strip()) == 0 else " - ", text
-        )
-    except Exception as e:
-        print(f"Error: {e}")
+    text = text.replace(' ', '_')
+    return ''.join(['_' if i > 0 and text[i] == ' ' and text[i - 1] == ' ' else '_' if text[i] == ' ' else text[i] for i in range(len(text))]).replace('__', '_-')
+print(fix_spaces(text))
