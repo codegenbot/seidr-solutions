@@ -10,11 +10,11 @@ def decode_cyclic(encoded_str: str, key: int) -> str:
         elif encoded_str[:n].encode().hex() != "1" * (n // 4) and key % 2 == 0:
             encoded_bytes = bytes.fromhex("1" + encoded_bytes.hex())
     for i in range(0, len(encoded_bytes), n):
-        bits = encoded_bytes[i : i + n]
+        bits = encoded_bytes[i:i+n]
         if bits[0].hex() == "1":
-            decoded_str += bits[1:].hex()[::-1].ljust(n * 2, "0").decode()
+            decoded_str += bits[1:].hex()[::-1].ljust(n*2,"0").decode()
         else:
-            decoded_str += bits[1:].hex()[::-1].ljust(n * 2, "0").decode()
+            decoded_str += bits[1:].hex()[::-1].ljust(n*2,"0").decode()
     return decoded_str
 
 input_string = input("Enter the encoded string: ")
