@@ -30,4 +30,3 @@ int main() {
     std::cin >> message;
     std::cout << "Deciphered message: " << substitutionCipher(cipher1, cipher2, message) << std::endl;
     return 0;
-}
