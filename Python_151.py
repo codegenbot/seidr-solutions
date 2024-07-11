@@ -1,5 +1,8 @@
-def check(input_list):
-    difference = abs(max(input_list) - min(input_list))
-    return (difference * 2) + sum(
-        i**2 for i in input_list if isinstance(i, int) and i > 0
-    )
+def double_the_difference(lst):
+    odd_sum = sum(i for i in lst if i % 2 != 0)
+    even_sum = sum(i for i in lst if i % 2 == 0)
+    return abs(even_sum - 2 * odd_sum)
+
+
+numbers = [1, 3, 5]
+print(double_the_difference(numbers))
