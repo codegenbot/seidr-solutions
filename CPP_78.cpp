@@ -8,3 +8,4 @@ int hex_key(const string& num) {
         }
     }
     return count;
+}
