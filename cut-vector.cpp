@@ -1,23 +1,21 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 
 using namespace std;
 
 int main() {
-    vector<int> nums;
-    string input;
-    getline(cin, input);
-    istringstream iss(input);
-    int num;
+    int n;
+    cin >> n;
     
-    while (iss >> num) {
-        nums.push_back(num);
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
     }
 
-    int n = nums.size();
     int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
+    for (int num : nums) {
+        sum += num;
     }
 
     int half_sum = sum / 2;
@@ -36,13 +34,11 @@ int main() {
     vector<int> subvec2(nums.begin() + cut_idx + 1, nums.end());
 
     for (int num : subvec1) {
-        cout << num << " ";
+        cout << num << endl;
     }
-    cout << endl;
     for (int num : subvec2) {
-        cout << num << " ";
+        cout << num << endl;
     }
-    cout << endl;
 
     return 0;
 }
