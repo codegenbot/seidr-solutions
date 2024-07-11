@@ -12,18 +12,15 @@ std::string solve(std::string s) {
             }
         }
     }
-    if(std::count_if(s.begin(), s.end(), ::isalpha) == 0){
-        std::reverse(s.begin(), s.end());
+    if(count_if(s.begin(), s.end(), ::isalpha) == 0){
+        reverse(s.begin(), s.end());
     }
     return s;
 }
 
 int main() {
     std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
-
-    std::cout << "Result: " << solve(input) << std::endl;
-
+    std::getline(std::cin, input);
+    std::cout << solve(input) << std::endl;
     return 0;
 }
