@@ -14,5 +14,4 @@ int main() {
     int randomNum = rand() % 1000; 
     string strRandomNum = to_string(randomNum); 
     cout << "Random Number: " << strRandomNum << endl;
-    return 0;
 }
