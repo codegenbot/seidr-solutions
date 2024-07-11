@@ -1,4 +1,3 @@
-```
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -6,9 +5,6 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=len)
 
-strings = input("Please enter a list of strings separated by spaces:\n").split()
-while any(not s.isalpha() for s in strings):
-    print("Invalid input. Please enter only letters.")
-    strings = input("Please enter a list of strings separated by spaces:\n").split()
-
+num_strings = int(input("Enter the number of strings: \n"))
+strings = [input("Please enter a string: \n") for _ in range(num_strings)]
 print(longest(strings))
