@@ -6,29 +6,28 @@ int main() {
         nums.push_back(num);
     }
     
-    int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
-    }
+    int sum = accumulate(nums.begin(), nums.end(), 0);
+    int target = sum / 2;
     
     int prefixSum = 0;
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    for (int i = 0; i < n; i++) {
+    int idx = 0;
+    for (int i = 0; i < nums.size(); ++i) {
         prefixSum += nums[i];
-        int suffixSum = sum - prefixSum;
-        int diff = abs(prefixSum - suffixSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+        if (prefixSum >= target) {
+            idx = i;
+            break;
         }
     }
     
-    for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << endl;
+    vector<int> subVec1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> subVec2(nums.begin() + idx + 1, nums.end());
+    
+    for (int i : subVec1) {
+        cout << i << endl;
     }
-    cout << 0 << endl;
+    for (int i : subVec2) {
+        cout << i << endl;
+    }
     
     return 0;
 }
