@@ -1,14 +1,12 @@
-```
-#include <iostream>
 #include <iomanip>
 
 double probability(int n, int m);
 
 int main() {
     int n, m;
-    cin >> n >> m;
+    std::cin >> n >> m;
     double result = probability(n, m);
-    cout << fixed << setprecision(2) << result << endl;
+    std::cout << std::fixed << std::setprecision(2) << result << std::endl;
 }
 
 double probability(int n, int m) {
