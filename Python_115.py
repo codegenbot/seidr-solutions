@@ -1,16 +1,31 @@
-print("Enter the number of rows: ")
-n = int(input()) or -1
-print("Enter the number of columns: ")
-m = int(input()) or -1
-
-while n <= 0 or m <= 0:
-    print("Invalid input! Please enter positive integers.")
-    try:
-        print("Enter the number of rows: ")
-        n = int(input())
-        print("Enter the number of columns: ")
-        m = int(input())
-    except ValueError:
-        pass
-
-print(max_water(n, m))
+def max_water(n, m):
+    max_water = 0
+    for left in range(m):
+        min_height = float("inf")
+        for right in range(left + 1, m):
+            min_height = min(
+                min_height,
+                [
+                    input("Enter the height of column {}: ".format(i)).split()
+                    for i in range(n)
+                ][i][right],
+            )
+            max_water = max(
+                max_water,
+                (
+                    (
+                        min_height
+                        - [
+                            input("Enter the height of column {}: ".format(i)).split()
+                            for i in range(n)
+                        ][i][left]
+                    )
+                    if min_height
+                    > [
+                        input("Enter the height of column {}: ".format(i)).split()
+                        for i in range(n)
+                    ][i][left]
+                    else 0
+                ),
+            )
+    return max_water
