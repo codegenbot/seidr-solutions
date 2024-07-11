@@ -1,6 +1,6 @@
 #include <iostream>
+#include <string>
 #include <vector>
-using namespace std;
 
 int score(string s) {
     int total = 0;
