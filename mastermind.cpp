@@ -1,10 +1,6 @@
-```cpp
-#include <string>
-#include <map>
-
 int whitePegs(string code, string guess) {
     int count = 0;
-    std::map<char, int> codeMap, guessMap;
+    map<char, int> codeMap, guessMap;
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
             codeMap[code[i]]++;
@@ -12,8 +8,8 @@ int whitePegs(string code, string guess) {
             count++;
         }
     }
-    for (auto &pair : codeMap) {
-        if (codeMap[pair.first] > 1 || guessMap[pair.first] > 1) {
+    for (auto it = codeMap.begin(); it != codeMap.end(); ++it) {
+        if (codeMap[it->first] > 1 || guessMap[it->first] > 1) {
             return -1;
         }
     }
