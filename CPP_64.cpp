@@ -1,9 +1,20 @@
-int vowels_count(string s){
+#include <string>
+
+int vowels_count(std::string s){
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
     int count = 0;
     for(char c : s){
-        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || (tolower(c) == 'u' && &c == &s.back())){
+        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
             count++;
         }
     }
+    if (!s.empty() && (s.back() == 'y' || s.back() == 'Y')){
+        count++;
+    }
     return count;
+}
+
+int main(){
+    assert(vowels_count("ACEDY") == 3);
+    return 0;
 }
