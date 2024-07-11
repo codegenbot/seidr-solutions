@@ -7,7 +7,7 @@ void your_code_here() {
     int frame = 0;
 
     for (int i = 0; i < s.size(); i++) {
-        if (((s[i] == 'X') || (s[i] == '/')) && frame < 10) { // Update condition to process frames correctly
+        if ((s[i] == 'X' || s[i] == '/') && frame < 10) {
             total += 10;
 
             if (s[i + 1] == 'X') {
@@ -20,7 +20,7 @@ void your_code_here() {
                     total += (s[i + 2] - '0');
                 }
             } else if (s[i + 1] == '/') {
-                total += 10 - (s[i] - '0'); // Update spare calculation logic here
+                total += 10;
             } else {
                 total += (s[i + 1] - '0');
                 total += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
