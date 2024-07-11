@@ -1,17 +1,21 @@
 ```cpp
-vector<string> filter_by_substring(vector<string> strings, string substring) {
-    vector<string> result;
+#include <vector>
+#include <string>
+
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+    std::vector<std::string> result;
     for(auto str : strings) {
-        if(str.find(substring) != string::npos)
+        if(str.find(substring) != std::string::npos)
             result.push_back(str);
     }
     return result;
 }
 
-bool isEqualTo(vector<string> a, vector<string> b) {
+bool isEqualTo(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
 int main() {
     assert(isEqualTo(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
+    return 0;
 }
