@@ -14,6 +14,6 @@ if __name__ == "__main__":
     lst = [int(i) for i in numbers]
     
     try:
-        print(solution(lst))
+        print(sum(i for i in lst[1::2] if i % 2 != 0))
     except ValueError:
         print("     Invalid input. Please enter only integers.")
