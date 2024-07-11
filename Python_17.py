@@ -1,8 +1,16 @@
-from typing import List
-
-
 def parse_music(music_string: str) -> List[int]:
-    beats = [
-        4 if note == "o" else 2 if note == "o|" else 1 for note in music_string.split()
-    ]
-    return beats
+    note_map = {"o": 4, "o|": 2, ".|": 1}
+    result = []
+    i = 0
+    while i < len(music_string):
+        if music_string[i] == ".":
+            if i + 3 <= len(music_string) and music_string[i : i + 3] in note_map:
+                i += 2
+            else:
+                raise ValueError("Invalid input")
+        elif music_string[i : i + 1] in note_map:
+            result.append(note_map[music_string[i : i + 1]])
+            i += 1
+        else:
+            raise ValueError("Invalid input")
+    return result
