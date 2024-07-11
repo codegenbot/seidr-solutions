@@ -5,14 +5,7 @@ def indices_of_substring():
     indices = [
         i
         for i in range(len(text))
-        if (
-            (
-                len(target) > 0
-                and i + len(target) <= len(text) + 1
-                and text[i : i + len(target)] == target
-            )
-            or target == ""
-        )
+        if text[i : i + len(target)] == target or (target == "" and i + len(target) <= len(text))
     ]
 
     for index in indices:
