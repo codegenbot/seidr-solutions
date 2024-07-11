@@ -1,2 +1,9 @@
-def add(x: int, y: int):
-    return x + y
+```
+def add():
+    while True:
+        try:
+            x = int(input("Enter first number: "))
+            y = int(input("Enter second number: "))
+            return str(x + y)
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
