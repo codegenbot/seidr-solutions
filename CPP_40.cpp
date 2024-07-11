@@ -1,15 +1,20 @@
-bool triples_sum_to_zero(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    for (int i = 0; i < s.size(); i++) {
-        int target = -s[i];
-        bool found = false;
-        for (int j = i + 1; j < s.size(); j++) {
-            if (s.find(target - s[j]) != s.end()) {
-                found = true;
-                break;
+#include <vector>
+#include <algorithm>
+
+bool triples_sum_to_zero(std::vector<int> l) {
+    std::sort(l.begin(), l.end());
+    for (int i = 0; i < l.size(); ++i) {
+        int j = i + 1, k = l.size() - 1;
+        while (j < k) {
+            int target = -(l[i] + l[j]);
+            if (target == l[k]) {
+                return true;
+            } else if (target < l[k]) {
+                ++k;
+            } else {
+                ++j;
             }
         }
-        if (found) return true;
     }
     return false;
 }
