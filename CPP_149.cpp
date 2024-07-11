@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     for (int i = 0; i < a.size() && i < b.size(); i++) {
         if (a[i] != b[i])
             return false;
@@ -10,16 +10,16 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a.size() == b.size();
 }
 
-std::vector<std::vector<std::string>> sorted_list_sum(std::vector<std::string> lst) {
-    std::vector<std::vector<std::string>> result;
+vector<vector<string>> sorted_list_sum(vector<string> lst) {
+    vector<vector<string>> result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0)
-            result.push_back({str});
+            result.push_back({{str}});
     }
 
     std::sort(result.begin(), result.end(),
-              [](const std::vector<std::string>& a, const std::vector<std::string>& b) {
+              [](const auto &a, const auto &b) {
                   if (a.size() != b.size())
                       return a.size() - b.size();
                   else
