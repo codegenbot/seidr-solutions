@@ -1,32 +1,24 @@
-```
-def minPath(grid, k):
-    n = len(grid)
-    total_cells = n * n
-    visited = [[False for _ in range(n)] for _ in range(n)]
-    path = []
+Here is the solution:
 
-    def dfs(i, j, current_path, steps):
-        nonlocal path
-        if steps == k:
-            path = current_path[:]
-            return True
-        if steps > k or i < 0 or i >= n or j < 0 or j >= n or visited[i][j]:
-            return False
+def minPath(grid, k):
+    N = len(grid)
+    visited = [[False for _ in range(N)] for _ in range(N)]
+    paths = []
+    def dfs(i, j, path, length):
+        if length == k:
+            paths.append(path[:])
+            return
+        if length > k or visited[i][j]:
+            return 
         visited[i][j] = True
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            new_i, new_j = i + dx, j + dy
-            if 0 <= new_i < n and 0 <= new_j < n and not visited[new_i][new_j]:
-                dfs(new_i, new_j, current_path + [grid[i][j]], steps + 1)
+        for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            ni, nj = i + di, j + dj
+            if 0 <= ni < N and 0 <= nj < N:
+                dfs(ni, nj, path + [grid[ni][nj]], length + 1)
         visited[i][j] = False
 
-    for i in range(n):
-        for j in range(n):
-            if grid[i][j] == 0:
-                continue
-            path = []
-            visited = [[False for _ in range(n)] for _ in range(n)]
-            dfs(i, j, [grid[i][j]], 1)
-            if path:
-                return sorted(path)
+    for i in range(N):
+        for j in range(N):
+            dfs(i, j, [grid[i][j]], 0)
 
-    return []
+    return min(paths)
