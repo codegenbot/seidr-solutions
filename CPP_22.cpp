@@ -1,5 +1,4 @@
 #include <vector>
-#include <list>
 #include <boost/any.hpp>
 #include <cassert>
 
@@ -26,6 +25,6 @@ int main(){
     vector<int> b = {1, 2, 3};
 
     assert(issame(a, b));
-
+    
     return 0;
 }
