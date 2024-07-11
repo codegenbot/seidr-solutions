@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 def rounded_avg(n, m):
     if n > m:
         return -1
