@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 using namespace std;
@@ -13,8 +14,7 @@ vector<string> odd_count(vector<string> lst){
                 odd_count++;
             }
         }
-        string res = "the number of odd elements " + to_string(odd_count) + " in the string " + str + " of the input.";
-        result.push_back(res);
+        result.push_back("the number of odd elements " + to_string(odd_count) + " in the string " + str + " of the input.");
     }
     return result;
 }
@@ -29,6 +29,8 @@ int main(){
         "the number of odd elements 2 in the string 137 of the input.",
         "the number of odd elements 2 in the string 314 of the input."
     }));
+    
+    cout << "All test cases passed successfully!" << endl;
 
     return 0;
 }
