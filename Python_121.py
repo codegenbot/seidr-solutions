@@ -1,9 +1,14 @@
-def solution(lst):
+```
+def solution(nums):
     try:
-        lst = list(map(int, input().split()))
+        nums = list(map(int, input().split()))
         
-        if len(lst) != 3 or not all(isinstance(num, int) for num in lst):
-            return "Invalid input. Please enter exactly three integers."
-
+        if len(nums) < 3:
+            return "Invalid input. Please provide at least three numbers."
+        
+        if not all(isinstance(num, int) for num in nums[:2]):
+            return "First two numbers must be integers."
+        
+        return sum(1 for _ in nums[::2]) / len(nums)
     except ValueError:
         return "Invalid input. Please enter three integers separated by spaces."
