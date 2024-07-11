@@ -1,7 +1,7 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
+#include <boost/convert.hpp>
 
 using namespace std;
 
@@ -22,7 +22,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any("None");
+            return boost::any("");
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
@@ -35,7 +35,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return a;
         }
         else {
-            return boost::any("None");
+            return boost::any("");
         }
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
@@ -48,7 +48,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any("None");
+            return boost::any("");
         }
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
@@ -61,7 +61,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any("None");
+            return boost::any("");
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -74,7 +74,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any("None");
+            return boost::any("");
         }
     }
     return boost::any();
