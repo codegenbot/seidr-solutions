@@ -5,33 +5,35 @@ int bowlingScore(string s) {
     int score = 0;
     int currentRolls = 0;
     int currentFrame = 1;
-
+    int roll = 0;
     for (char c : s) {
         if (c == 'X') { // strike
             score += 10 + 10 + 10;
             currentRolls = 2;
         } else if (c == '/') { // spare
-            int nextChar = s.find('/');
-            int bonus = (nextChar != string::npos) ? 10 - (nextChar > 0 ? s[nextChar - '0'] : 0) : 10;
-            score += 10 + bonus;
+            score += 10;
             currentRolls = 2;
-        } else { // normal roll
-            int roll = c - '0';
-            if (currentRolls == 1 && s[s.length() - 2] == '/') {
-                score += roll + 10 - '0' - '0';
-                break;
-            }
-            score += roll;
+        } else if (c >= '0' && c <= '9') {
+            roll = (roll * 10) + (c - '0');
             currentRolls++;
-            if (currentRolls == 2) {
+        } else {
+            if (currentRolls == 1) {
+                score += roll;
+            }
+            if (c == 'X') { // strike
+                score += 10 + 10;
+                currentRolls = 2;
+            } else if (c == '/') { // spare
+                score += 10;
+                currentRolls = 2;
+            } else {
+                score += roll;
+                currentRolls++;
+            }
+            if (currentFrame < 10) {
                 currentFrame++;
             }
         }
-
-        if (currentFrame > 9) {
-            break;
-        }
     }
-
     return score;
 }
