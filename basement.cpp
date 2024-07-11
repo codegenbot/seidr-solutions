@@ -7,15 +7,14 @@ int basement(vector<int> nums) {
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         if (sum < 0) {
-            return i;
+            return i + 1;
         }
     }
     return 0;
 }
 
 int main() {
-    vector<int> test_input = {2, 3, -1, 5, -7};
-    int result = basement(test_input);
-    cout << "Result: " << result << endl;
+    vector<int> nums = {18, 84, 87, 16, 61, 100, -18, -19, 0, 18, 88, -100, -85, -7, -37, -77, -63, -67, -65};
+    cout << basement(nums) << endl;
     return 0;
 }
