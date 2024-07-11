@@ -1,5 +1,2 @@
 def sort_third(l: list):
-    even = [(x, i+1) for i, x in enumerate(l) if (i+1) % 3 == 0]
-    mid = [(x, i+1) for i, x in enumerate(l) if (i+1) % 3 != 0]
-    
-    return [x for _, x in sorted(even + mid)]
+    return sorted([x for i, x in enumerate(l) if (i+1) % 3 == 0] + [y for i, y in enumerate(l) if (i+1) % 3 != 0])
