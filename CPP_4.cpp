@@ -1,11 +1,17 @@
-float mean_absolute_deviation(vector<float> numbers) {
-    float sum = 0.0;
-    for (float num : numbers) {
-        sum += abs(num - mean(numbers));
-    }
-    return sum / numbers.size();
+#include <initializer_list>
+
+#include <vector>
+#include <numeric>
+#include <cmath>
+
+float mean(std::vector<float> numbers) {
+    return std::accumulate(numbers.begin(), numbers.end(), 0.0) / numbers.size();
 }
 
-float mean(vector<float> numbers) {
-    return accumulate(numbers.begin(), numbers.end(), 0.0) / numbers.size();
+float mean_absolute_deviation(std::vector<float> numbers) {
+    float sum = 0.0;
+    for (float num : numbers) {
+        sum += std::abs(num - mean(numbers));
+    }
+    return sum / numbers.size();
 }
