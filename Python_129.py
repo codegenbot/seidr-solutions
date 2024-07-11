@@ -1,24 +1,36 @@
 def minPath(grid, k):
     n = len(grid)
-    visited = [[False] * n for _ in range(n)]
-    path = []
-
-    def dfs(x, y, curr_path):
-        nonlocal path
-        if len(curr_path) == k:
-            path = sorted(curr_path)
-            return True
-
-        visited[x][y] = True
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            nx, ny = x + dx, y + dy
-            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
-                dfs(nx, ny, curr_path + [grid[nx][ny]])
-        visited[x][y] = False
-
+    m = [[0] * n for _ in range(n)]
     for i in range(n):
         for j in range(n):
-            if not visited[i][j]:
-                dfs(i, j, [])
+            m[i][j] = grid[i][j]
 
-    return path
+    res = []
+    visited = set()
+    dfs(0, 0, k, m, res, visited)
+    return res
+
+
+def dfs(i, j, k, m, res, visited):
+    if len(res) == k:
+        return
+    if (i, j) in visited or i < 0 or i >= len(m) or j < 0 or j >= len(m[0]):
+        return
+
+    for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+        ni, nj = i + x, j + y
+        if 0 <= ni < len(m) and 0 <= nj < len(m[0]) and (ni, nj) not in visited:
+            res.append(m[ni][nj])
+            visited.add((ni, nj))
+            dfs(ni, nj, k, m, res, visited)
+            res.pop()
+            visited.remove((ni, nj))
+
+    if len(res) == 0:
+        return
+
+    min_val = min(res[:k])
+    for i in range(len(res)):
+        if res[i] < min_val:
+            res[:] = [min_val]
+            break
