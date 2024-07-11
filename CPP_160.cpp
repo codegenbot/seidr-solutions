@@ -1,17 +1,19 @@
-int do_algebra(vector<string> operator_, vector<int> operand) {
+int do_algebra(vector<string> operato, vector<int> operand) {
     int result = 0;
+    int temp = operand[0];
     for (int i = 1; i < operand.size(); i++) {
-        if (*operator_.begin() == "+") {
-            result += operand[i];
-        } else if (*operator_.begin() == "-") {
-            result -= operand[i];
-        } else if (*operator_.begin() == "*") {
-            result *= operand[i];
-        } else if (*operator_.begin() == "//") {
-            result = result / operand[i];
-        } else if (*operator_.begin() == "**") {
-            result = pow(result, operand[i]);
+        if (*min_element(operato.begin(), operato.end()) == "+") {
+            result += temp + operand[i];
+        } else if (*min_element(operato.begin(), operato.end()) == "-") {
+            result -= temp - operand[i];
+        } else if (*min_element(operato.begin(), operato.end()) == "*") {
+            result *= temp * operand[i];
+        } else if (*min_element(operato.begin(), operato.end()) == "//") {
+            result = temp / (int)round((double)operand[i]);
+        } else if (*min_element(operato.begin(), operato.end()) == "**") {
+            result = pow(temp, operand[i]);
         }
+        operato.erase(min_element(operato.begin(), operato.end()));
     }
     return result;
 }
