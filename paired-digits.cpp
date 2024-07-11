@@ -1,3 +1,4 @@
+```
 #include <string>
 
 int pairedDigits(std::string s) {
