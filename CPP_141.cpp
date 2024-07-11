@@ -1,7 +1,6 @@
-```cpp
 #include <string>
 
-bool file_name_check(std::string filename) {
+bool file_name_check(string filename) {
     int digit_count = 0;
     bool found_dot = false;
     bool valid_prefix = true;
