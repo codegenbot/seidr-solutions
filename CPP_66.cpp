@@ -1,8 +1,7 @@
 int sum = 0;
-    for (char c : s) {
-        if (isupper(c)) {
-            sum += c;
+        for (char c : s) {
+            if (isupper(c)) {
+                sum += static_cast<int>(c);
+            }
         }
-    }
-    return sum;
-}
+        return sum;
