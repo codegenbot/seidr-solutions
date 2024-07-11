@@ -1,7 +1,9 @@
-```
 from typing import List
 
+
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    if len(set(numbers)) != len(numbers):
-        numbers = list(dict.fromkeys(numbers))
-    return numbers
+    result = []
+    for num in numbers:
+        if num not in result:
+            result.append(num)
+    return result
