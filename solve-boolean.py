@@ -8,7 +8,7 @@ def solve_boolean(expression):
         for op in ["&", "|"]:
             if op in expression and expression.count(op) > 1:
                 expressions = expression.split(op)
-                result = {op: lambda a, b: a and b}[op](*[bool(s) == "t" for s in expressions])
+                result = eval(" ".join(map(str, [bool(s) for s in expressions])))
                 expression = str(result)
 
     return expression == "t"
