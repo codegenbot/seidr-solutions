@@ -3,33 +3,31 @@
 
 std::string spinWords(std::string str) {
     std::string result = "";
-    size_t start = 0;
+    std::string word = "";
     
-    while (start < str.length()) {
-        size_t end = str.find(' ', start);
-        
-        if (end == std::string::npos)
-            end = str.length();
-        
-        std::string word = str.substr(start, end - start);
-        
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+    for (char c : str) {
+        if (c == ' ') {
+            if (word.length() >= 5) {
+                std::reverse(word.begin(), word.end());
+            }
+            result += word + " ";
+            word = "";
+        } else {
+            word += c;
         }
-        
-        result += word + " ";
-        
-        start = end + 1;
+    }
+    
+    if (word.length() >= 5) {
+        std::reverse(word.begin(), word.end());
     }
     
     return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    std::cout << spinWords("a") << std::endl; // a
-    std::cout << spinWords("this is a test") << std::endl; // this is a test
-    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
-    std::cout << spinWords("hi") << std::endl; // hi
-
+    std::string str;
+    while (std::cout << "Enter a string: ", std::getline(std::cin, str)) {
+        std::cout << "Spin words: " << spinWords(str) << std::endl;
+    }
     return 0;
 }
