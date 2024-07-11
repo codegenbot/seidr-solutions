@@ -10,6 +10,6 @@ def make_palindrome(s: str) -> str:
             result.insert(0, result.pop())
 
     if len(s) % 2 == 1:
-        result.insert(mid, result.pop(0))
+        return s + s
 
     return "".join(result)
