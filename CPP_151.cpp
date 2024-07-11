@@ -1,12 +1,13 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
 using namespace std;
 
-long double double_the_difference(vector<float> lst) {
-    long double sum = 0;
-    for (float num : lst) {
+long long double_the_difference(vector<double> lst) {
+    long long sum = 0;
+    for (double num : lst) {
         if (num > 0 && abs(num - lround(num)) < 1e-9) {
             sum += pow(num, 2);
         }
@@ -16,12 +17,12 @@ long double double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst; 
-    long double odd_sum = 0;
+    vector<double> lst; 
+    int odd_sum = 0;
     
     cout << "Enter numbers (enter 'stop' to finish):" << endl;
     while(1) {
-        float num;
+        double num;
         
         cin >> num;
         
