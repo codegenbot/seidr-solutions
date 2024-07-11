@@ -1,4 +1,8 @@
-bool will_it_fly(std::vector<int> q, int weight) {
+#include <vector>
+#include <string>
+#include <initializer_list>
+
+bool will_it_fly(std::vector<int> q, int w) {
     std::string str = "";
     for (int i : q) {
         str += std::to_string(i);
@@ -8,4 +12,5 @@ bool will_it_fly(std::vector<int> q, int weight) {
     for (int i : q) {
         sum += i;
     }
-    return sum <= weight;
+    return sum <= w;
+}
