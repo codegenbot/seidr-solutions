@@ -1,8 +1,5 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
-
-using namespace std;
 
 vector<int> incr_list(vector<int> l)
 {
