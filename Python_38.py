@@ -1,24 +1,29 @@
 def decode_cyclic(s: str):
-    result = []
+    s = s * (3 - len(s) % 3)
+    result = ""
     temp = ""
-    for char in s + ' ':  
-        if char == ' ':
-            if len(temp) >= 2 and temp[0] == '(' and temp[-1] == ')':
-                if len(result) > 0 and result[-1].endswith(temp[1:-1]):
-                    temp = ""
+    for char in s + s:
+        temp += char
+        if len(temp) == 3:
+            if len(result) > 0 and result[-1] == temp[0]:
+                result += temp
+            else:
+                if temp[0] == temp[2]:  
+                    if temp[2] == "(":
+                        result += "(" + temp[1:]
+                    else:
+                        result += temp[1:] + temp[0]
                 else:
-                    result.append(result[-1] + temp[1:-1] + (temp[0] if temp[2] == ')' else ''))
-            elif len(temp) >= 3 and temp[0] == temp[2]:
-                if temp[2] == '(':
-                    result.append(temp[1:])
-                else:
-                    result.append(temp[1] + temp[0])
-            else:  
-                if len(temp) % 3 == 1 and temp[0] == result[-1][0]:
-                    result.append(temp[1:] + temp[0])
-                else:
-                    result.append(temp)
+                    if len(temp) % 3 == 1 and temp[0] == result[-1]:
+                        result += temp[1:] + temp[0]
+                    else:
+                        result += temp
             temp = ""
+    if temp:
+        if len(result) > 0 and result[-1] == temp[0]:
+            result += temp
+        elif len(temp) % 3 == 1 and temp[0] == result[-1]:
+            result += temp[1:] + temp[0]
         else:
-            temp += char
-    return "".join(result).strip()
+            result += temp
+    return result

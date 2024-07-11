@@ -1,10 +1,13 @@
+import re
+
 def encode(message):
+    vowels = "aeiouAEIOU"
     result = ""
-    for char in message:
-        if not char.isalnum():
-            result += char
+    for char in re.sub('[^a-zA-Z]', '', message):
+        if char.lower() in vowels:
+            index = ord(char.lower()) - 97
+            new_char = chr((index + 2) % 26 + 97)
         else:
-            if char.isupper():
-                result += chr((ord(char) - ord("A") + 3) % 26 + ord("A"))
-            else:
-                result += chr((ord(char) - ord("a") + 3) % 26 + ord("a"))
+            new_char = char.swapcase()
+        result += new_char
+    return result
