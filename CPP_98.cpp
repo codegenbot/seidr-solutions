@@ -1,8 +1,8 @@
-int count_upper(string s){
+int count_upper(const string& s) {
     int count = 0;
+    string vowels = "AEIOU";
     for (int i = 0; i < s.length(); i += 2) {
-        char c = s[i];
-        if (c >= 'A' && c <= 'Z' && (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')) {
+        if (vowels.find(s[i]) != string::npos) {
             count++;
         }
     }
