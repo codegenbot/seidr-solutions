@@ -1,8 +1,10 @@
+```python
 def double_the_difference(list1, list2):
-    min_val = min(min(list1), min(list2))
-    max_val = max(max(list1), max(list2))
-    difference = abs(min_val - max_val)
+    difference = abs(max(list2) - min(list1))
     return difference * 2
 
 
-print(double_the_difference([1, 3, 5], [8, 4, 7]))
+list1 = [int(i) for i in input("Enter elements of List 1 (space-separated): ").split()]
+list2 = [int(i) for i in input("Enter elements of List 2 (space-separated): ").split()]
+
+print(double_the_difference(list1, list2))
