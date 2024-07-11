@@ -1,8 +1,6 @@
 def solve_boolean(expression):
-    allowed_chars = set("TF|&")
-    return eval(''.join([c for c in expression if c in allowed_chars]))
+    return eval("(" + expression.replace("T", "True").replace("F", "False").replace("|", "or").replace("&", "and") +")
 
-# Read input from user
 expression = input()
 result = solve_boolean(expression)
 print(result)
