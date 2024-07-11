@@ -13,10 +13,11 @@ std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> l
 
     std::vector<std::string> result;
 
-    for (const auto& inner : lst) {
-        for (const auto& str : inner) {
+    for (const auto& vec : lst) {
+        for (const auto& str : vec) {
             if (str.length() % 2 == 0) {
                 result.push_back(str);
+                break;
             }
         }
     }
