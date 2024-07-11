@@ -1,21 +1,25 @@
 #include <iostream>
+#include <vector>
 
 bool is_prime(int n) {
-    if (n < 2) return false;
-    for (int i = 2; i * i <= n; ++i) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) return false;
     }
     return true;
 }
 
 bool is_multiply_prime(int a) {
-    for (int i = 2; i <= a / 3; ++i) {
-        if (is_prime(i) && a % i == 0) {
-            int b = a / i;
-            for (int j = i + 1; j <= b / 2; ++j) {
-                if (is_prime(j) && b % j == 0 && is_prime(b / j)) {
-                    return true;
-                }
+    if (a <= 1 || a >= 100) return false;
+    std::vector<int> primes;
+    for (int i = 2; i <= a; i++) {
+        if (is_prime(i)) primes.push_back(i);
+    }
+    if (primes.size() < 3) return false;
+    for (int i = 0; i < primes.size(); i++) {
+        for (int j = i + 1; j < primes.size(); j++) {
+            for (int k = j + 1; k < primes.size(); k++) {
+                if (primes[i] * primes[j] * primes[k] == a) return true;
             }
         }
     }
@@ -26,6 +30,10 @@ int main() {
     int num;
     std::cout << "Enter a number less than 100: ";
     std::cin >> num;
-    std::cout << (is_multiply_prime(num) ? "true" : "false") << std::endl;
+    if (is_multiply_prime(num)) {
+        std::cout << "true\n";
+    } else {
+        std::cout << "false\n";
+    }
     return 0;
 }
