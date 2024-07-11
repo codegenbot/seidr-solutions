@@ -1,8 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
 
-using boost::any;
-
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return (int)typeid(double)>a.type()) ? &b : &a;
