@@ -1,2 +1,7 @@
-return str.length();
+#include <cassert>
+#include <string>
+#include <cstring>
+
+int getLength(const std::string& str) {
+    return str.length();
 }
