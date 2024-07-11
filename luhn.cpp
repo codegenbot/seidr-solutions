@@ -1,19 +1,14 @@
 #include <vector>
 
-std::vector<long long> luhn(std::vector<long long> cardNumber) {
-    int sum = 0;
-    bool doubleNext = false;
-
-    for (int i = cardNumber.size() - 1; i >= 0; --i) {
-        int digit = cardNumber[i];
-        if (doubleNext) {
-            digit *= 2;
-            if (digit > 9)
-                digit -= 9;
-        }
-        sum += digit;
-        doubleNext = !doubleNext;
+std::vector<long long> luhn(std::vector<long long> cc) {
+    for (int i = cc.size() - 1; i > 0; --i) {
+        if ((cc[i] * 2) >= 10)
+            cc[i] -= 9;
+        cc[i] *= 2;
     }
-
+    long long sum = 0;
+    for (long long n : cc) {
+        sum += n;
+    }
     return {sum};
 }
