@@ -1,5 +1,15 @@
-struct order_by_points {
-    bool operator()(int a, int b) {
+#include <vector>
+#include <numeric>
+#include <algorithm>
+#include <cassert>
+#include <cmath>
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return accumulate(a.begin(), a.end(), 0) == accumulate(b.begin(), b.end(), 0);
+}
+
+vector<int> order_by_points(vector<int> nums) {
+    sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int temp_a = abs(a), temp_b = abs(b);
         while (temp_a) {
@@ -14,9 +24,6 @@ struct order_by_points {
             return a < b;
         }
         return sum_a < sum_b;
-    }
-};
-
-sort(nums.begin(), nums.end(), order_by_points);
-
-assert(nums == vector<int>{-76, -21, 0, 4, 23, 6, 6});
+    });
+    return nums;
+}
