@@ -1,12 +1,11 @@
-```cpp
 #include <iostream>
+
 double probability(int n, int m);
 
 int main() {
     int n, m;
     std::cin >> n >> m;
-    double result = probability(n, m);
-    std::cout << std::setf(std::ios_base::fixed) << std::setprecision(2) << result << std::endl;
+    std::cout << std::fixed << << probability(n, m) << std::endl;
 }
 
 double probability(int n, int m) {
@@ -14,4 +13,3 @@ double probability(int n, int m) {
         return 0.0;
     else
         return (m + 1.0) / n;
-}
