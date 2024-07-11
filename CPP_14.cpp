@@ -5,7 +5,6 @@
 
 std::vector<std::string> all_prefixes(std::string str) {
     std::vector<std::string> result;
-    result.reserve(str.length() + 1);
     for (int i = 0; i <= str.length(); ++i) {
         std::string prefix(str.substr(0, i));
         result.push_back(prefix);

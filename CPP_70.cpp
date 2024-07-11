@@ -1,25 +1,28 @@
-#include <pmr.h>
+#include <memory>
 #include <algorithm>
+#include <numeric>
 
-bool issame(const pmr_vector<int>& a, const pmr_vector<int>& b) {
+bool std::pmr::issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
     return a == b;
 }
 
-pmr_vector<int> strange_sort_list(pmr_vector<int> lst) {
-    pmr_vector<int> result;
+std::pmr::vector<int> strange_sort_list(std::pmr::vector<int> lst) {
+    std::pmr::vector<int> result;
     while (!lst.empty()) {
-        int min_val = *min_element(lst.begin(), lst.end());
+        int min_val = *std::min_element(lst.begin(), lst.end());
         result.push_back(min_val);
-        lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
+        auto new_end = std::remove(lst.begin(), lst.end(), min_val);
+        lst.erase(new_end, lst.end());
         if (!lst.empty()) {
-            int max_val = *max_element(lst.begin(), lst.end());
+            int max_val = *std::max_element(lst.begin(), lst.end());
             result.push_back(max_val);
-            lst.erase(std::remove(lst.end() - 1, lst.begin() - 1, --max_val), lst.end());
+            auto new_end2 = std::remove(lst.rbegin(), lst.rend(), --max_val);
+            lst.erase(new_end2.base(), lst.end());
         }
     }
     return result;
 }
 
 int main() {
-    assert(issame(pmr_vector<int>(strange_sort_list({1, 1, 1, 1, 1})), pmr_vector<int>({1, 1, 1, 1, 1})));
+    assert(std::pmr::issame(std::pmr::vector<int>(strange_sort_list({1, 1, 1, 1, 1})), std::pmr::vector<int>({1, 1, 1, 1, 1})));
 }
