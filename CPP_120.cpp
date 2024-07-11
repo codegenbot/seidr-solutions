@@ -1,9 +1,14 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    sort(a.begin(), a.end());
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::sort(a.begin(), a.end());
     return a == b;
+}
+
+std::vector<int> maximum(std::vector<int> arr, int k) {
+    std::sort(arr.begin(), arr.end(), std::greater<int>());
+    return std::vector<int>(arr.begin(), arr.begin() + k);
 }
 
 int main() {
