@@ -2,17 +2,21 @@
 #include <string>
 #include <cassert>
 
-std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> parsed_music;
+using namespace std;
+
+vector<int> parse_music(string music_string) {
+    vector<int> parsed_music;
     size_t pos = 0;
-    while ((pos = music_string.find("|", pos)) != std::string::npos) {
-        parsed_music.push_back(std::stoi(music_string.substr(pos - 1, 1)));
+    while ((pos = music_string.find("|", pos)) != string::npos) {
+        if (pos > 0 && isdigit(music_string[pos - 1])) {
+            parsed_music.push_back(music_string[pos - 1] - '0');
+        }
         pos++;
     }
     return parsed_music;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
