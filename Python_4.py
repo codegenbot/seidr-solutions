@@ -1,19 +1,23 @@
 ```
 from typing import List
 
-def mean_absolute_deviation():
-    numbers = input("Enter numbers separated by space: ").split()
+def mean_absolute_deviation(numbers: List[float]) -> float:
+    if not numbers:
+        return float('nan')
     
-    try:
-        numbers = [float(num) for num in numbers]
-        
-        if not numbers:
-            return float('nan')
-        
-        mean = sum(numbers) / len(numbers)
-        mad = sum(abs(num - mean) for num in numbers) / len(numbers)
-        return mad if len(numbers) > 0 else float('nan')
-    except ValueError:
-        return "Invalid input. Please enter only numbers."
+    mean = sum(numbers) / len(numbers)
+    mad = sum(abs(num - mean) for num in numbers) / len(numbers)
+    return mad if len(numbers) > 0 else float('nan')
 
-print(mean_absolute_deviation())
+def main():
+    while True:
+        user_input = input("Enter a list of numbers separated by spaces: ")
+        try:
+            numbers = [float(x) for x in user_input.split()]
+            print(mean_absolute_deviation(numbers))
+            break
+        except ValueError:
+            print("Invalid input. Please enter numbers separated by spaces.")
+
+if __name__ == "__main__":
+    main()
