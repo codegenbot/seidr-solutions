@@ -1,7 +1,4 @@
-```
-#include <CryptoPP/SHA1.h>
-#include <iostream>
-#include <sstream>
+#include <cryptoppSHA.h>
 
 int main() {
     std::cout << "Enter a string: ";
