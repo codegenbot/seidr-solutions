@@ -21,7 +21,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-bool main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 2, 2, 2, 2}));
-    return true;
+void main() {
+    assert(issame(parse_music("o| .| o| .| o o| o o|"),
+                   {2, 1, 2, 1, 2, 2, 2, 2}));
 }
