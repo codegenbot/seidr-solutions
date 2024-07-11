@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+
 using namespace std;
 
 std::string int_to_mini_romank(int number){
