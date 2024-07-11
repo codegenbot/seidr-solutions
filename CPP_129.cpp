@@ -1,7 +1,6 @@
-```cpp
 #include <algorithm>
 #include <vector>
-#include <climits>
+#include <climits>  // Include this for INT_MAX declaration
 
 using namespace std;
 
