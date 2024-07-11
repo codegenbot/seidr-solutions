@@ -1,13 +1,13 @@
+```
 from typing import List
 
 def all_prefixes():
+    result = []
     while True:
-        try:
-            s = input("Please enter a string: ")
+        s = input("Please enter a string (or 'stop' to finish): ")
+        if s.lower() == 'stop':
             break
-        except ValueError:
-            print("Invalid input! Please enter a valid string.")
-
-    return [s[:i] for i in range(1, len(s) + 1)]
+        result.append([s[:i] for i in range(1, len(s) + 1)])
+    return result
 
 print(all_prefixes())
