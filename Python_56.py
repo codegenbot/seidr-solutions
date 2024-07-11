@@ -1,4 +1,3 @@
-```
 def calculate_average_score():
     total = 0
     student_scores_count = int(input("Enter the number of students: "))
@@ -12,8 +11,6 @@ def calculate_average_score():
             except ValueError:
                 print("Invalid input. Please enter an integer.")
                 
-    if student_scores_count > 0:
-        average = total / student_scores_count
-        return str(int(average)).strip('.0')
-    else:
-        return "No scores entered."
+    average = total / student_scores_count
+    
+    return str(int(average)).strip('.0')
