@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def get_values() -> List[int]:
@@ -33,3 +32,5 @@ def get_values() -> List[int]:
                             continue
         result.append(val)
     return result
+
+print(get_values())
