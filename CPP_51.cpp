@@ -4,7 +4,7 @@ std::string remove_vowels(std::string text){
     for (char c : text) {
         if (!isalpha(c)) {
             result += c;
-        } else if (!std::strncasecmp(&c, "aeiouAEIOU", 6)) {
+        } else if (!strncasecmp(&c, "aeiouAEIOU", 6)) {
             continue;
         }
         result += c;
