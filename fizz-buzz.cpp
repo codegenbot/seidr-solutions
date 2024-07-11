@@ -1,7 +1,3 @@
-```cpp
-#include <iostream>
-#include <string>
-
 const char* fizzBuzz(int x) {
     if (x % 15 == 0)
         return "FizzBuzz";
@@ -10,5 +6,5 @@ const char* fizzBuzz(int x) {
     else if (x % 5 == 0)
         return "Buzz";
     else
-        return std::to_string(x).c_str();
+        return x < 0 ? "-" + std::to_string(x) : std::to_string(x);
 }
