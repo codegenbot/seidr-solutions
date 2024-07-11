@@ -1,4 +1,4 @@
-def solve(binary=False):
+def solve():
     while True:
         try:
             N = int(input("Enter a number: "))
@@ -6,9 +6,6 @@ def solve(binary=False):
         except ValueError:
             print("Invalid input! Please enter a whole number.")
             
-    if binary:
-        return bin(N)[2:]
-    else:
-        return str(N)
+    return bin(N)[2:]
 
 print(solve())
