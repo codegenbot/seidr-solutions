@@ -1,12 +1,9 @@
 ```
 from typing import List
 
-def all_prefixes():
-    s = input("Enter a string: ")
+def all_prefixes(string: str) -> List[str]:
     prefixes = [""]
-    for i in range(len(s)):
-        prefix = s[:i+1]
+    for i in range(len(string)):
+        prefix = string[:i+1]
         prefixes.append(prefix)
-    print(prefixes)
-
-all_prefixes()
+    return prefixes

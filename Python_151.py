@@ -1,6 +1,11 @@
-def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i > 0)
-
-test_list = [1, -2, 3, 4, 5]
-result = double_the_difference(test_list)
-print(result)
+```
+    def double_the_difference():
+        lst = list(map(int, input().split()))
+        difference = max(lst) - min(lst)
+        double_diff = difference * 2
+        return double_diff
+    
+    def check(func):
+        print(func())
+    
+    check(double_the_difference)
