@@ -1,10 +1,10 @@
-#include <iostream>
 #include <boost/any.hpp>
-#include <string>
 #include <cassert>
+#include <string>
+
 using namespace std;
 
-boost::any compare_one(const boost::any& a, const boost::any& b) {
+boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
             return a;
@@ -26,5 +26,10 @@ boost::any compare_one(const boost::any& a, const boost::any& b) {
             return b;
         }
     }
-    return "None";
+    return boost::any();
+}
+
+int main() {
+    assert(boost::any_cast<string>(compare_one(string("1"), string("2"))) == "2");
+    return 0;
 }
