@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 
 int luhn(const std::vector<int16_t>& cc) {
