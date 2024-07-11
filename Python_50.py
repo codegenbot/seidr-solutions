@@ -1,3 +1,4 @@
+```
 def decode_shift():
     while True:
         s = input("Enter the encoded string: ")
@@ -20,5 +21,13 @@ def decode_shift():
         elif "A" <= ch <= "Z":
             result += chr((ord(ch) - ord('A') + shift) % 26 + ord('A'))
         else:
-            result += ch
+            if ch.isalpha():
+                for i in range(shift):
+                    if "a" <= ch <= "z":
+                        result += chr((ord(ch) - ord('a') + 26) % 26 + ord('a'))
+                    elif "A" <= ch <= "Z":
+                        result += chr((ord(ch) - ord('A') + 26) % 26 + ord('A'))
+            else:
+                result += ch
+
     return result
