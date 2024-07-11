@@ -1,4 +1,3 @@
-"""
 import math
 
 def find_zero(xs):
@@ -18,4 +17,3 @@ def find_zero(xs):
 
 xs = input("Enter coefficients separated by spaces: ").split()
 print(find_zero(map(float, xs)))
-"""
