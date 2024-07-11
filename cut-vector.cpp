@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <cmath>
 
 int main() {
     int n;
@@ -24,7 +23,7 @@ int main() {
         }
 
         int currentDiff = abs(leftSum - rightSum);
-        if (currentDiff < diff) {
+        if (currentDiff <= diff) {
             diff = currentDiff;
             cutIndex = i;
         }
