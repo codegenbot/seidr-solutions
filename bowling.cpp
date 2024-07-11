@@ -14,15 +14,31 @@ int bowlingScore(string s) {
             currentRolls = 2;
         } else { // normal roll
             int roll = c - '0';
-            score += roll;
-            currentRolls++;
-            if (currentRolls == 2) {
+            if (currentRolls == 1) {
+                if (roll + currentRolls >= 10) {
+                    score += 10;
+                } else {
+                    score += roll;
+                }
                 currentFrame++;
+            } else {
+                score += roll;
             }
+            currentRolls++;
         }
 
         if (currentFrame > 9) {
             break;
+        }
+    }
+
+    for (; currentRolls < 2; currentRolls++) {
+        if (c == 'X') {
+            score += 10 + 10;
+        } else if (c == '/') {
+            score += 10;
+        } else {
+            score += c - '0';
         }
     }
 
