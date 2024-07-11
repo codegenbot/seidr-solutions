@@ -11,5 +11,5 @@ def rolling_max(numbers: List[int]) -> List[int]:
             max_ending_here = num
         elif num > max_so_far:
             max_so_far = num
-        result.append(max(num, max_so_far))
+        result.append(max(max_ending_here, max_so_far))
     return result
