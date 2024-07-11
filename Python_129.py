@@ -13,20 +13,18 @@ def minPath(grid, k):
             neighbors.append((i, j + 1))
         return neighbors
 
-    def dfs(i, j, path):
+    def dfs(i, j, path, visited):
         if len(path) == k:
             return path
 
         for ni, nj in get_neighbors(i, j):
-            if grid[ni][nj] not in path:
-                res = dfs(ni, nj, path + [grid[ni][nj]])
+            if grid[ni][nj] not in visited:
+                res = dfs(ni, nj, path + [grid[ni][nj]], visited | {grid[ni][nj]})
                 if res:
                     return res
 
-        return None
-
     for i in range(N):
         for j in range(N):
-            res = dfs(i, j, [grid[i][j]])
+            res = dfs(i, j, [grid[i][j]], {grid[i][j]})
             if res:
                 return res
