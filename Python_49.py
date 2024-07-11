@@ -1,3 +1,4 @@
+```
 def modp(n: int, p: int):
     def extended_euclidean(a: int, b: int) -> (int, int):
         if a == 0:
