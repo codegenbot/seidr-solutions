@@ -1,3 +1,4 @@
+```
 #include <boost/any.hpp>
 
 using namespace std;
@@ -19,7 +20,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any("Strings are equal");
+            return boost::any("");
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
@@ -28,12 +29,12 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (stoi(str) > num) {
             return b;
         }
-       	else if (stoi(str) < num) {
+        else if (stoi(str) < num) {
             return a;
         }
-		else {
-			return boost::any("Integers are equal");
-		}
+        else {
+            return boost::any("");
+        }
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
         string str = any_cast<string>(a);
@@ -41,12 +42,12 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (stoi(str) > num) {
             return a;
         }
-		else if (stoi(str) < num) {
-			return b;
-		}
-		else {
-			return boost::any("Integers are equal");
-		}
+        else if (stoi(str) < num) {
+            return b;
+        }
+        else {
+            return boost::any("");
+        }
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
         float fl = any_cast<float>(a);
@@ -54,12 +55,12 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (fl > num) {
             return a;
         }
-		else if (fl < num) {
-			return b;
-		}
-		else {
-			return boost::any("Floats are equal");
-		}
+        else if (fl < num) {
+            return b;
+        }
+        else {
+            return boost::any("");
+        }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(float)) {
         int num = any_cast<int>(a);
@@ -67,12 +68,12 @@ boost::any compare_one(boost::any a, boost::any b) {
         if (num > fl) {
             return a;
         }
-		else if (num < fl) {
-			return b;
-		}
-		else {
-			return boost::any("Floats are equal");
-		}
+        else if (num < fl) {
+            return b;
+        }
+        else {
+            return boost::any("");
+        }
     }
     return boost::any();
 }
