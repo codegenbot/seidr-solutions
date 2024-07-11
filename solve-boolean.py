@@ -1,27 +1,25 @@
 def solve_boolean(expression):
     operations = {"&": lambda a, b: a and b, "|": lambda a, b: a or b}
-    precedence = {"&": 1, "|": 0}
+    precedence = {"&": 1, "|" : 2}
 
-    if expression.startswith(("T", "F")):
-        return bool(expression == "T")
+    if expression == "t":
+        return True
+    elif expression == "f":
+        return False
 
     stack = []
     for char in expression:
         if char in ["T", "F"]:
             stack.append(bool(char == "T"))
         elif char == "(":
-            stack.append(char)
+            stack.append("(")
         elif char == ")":
             while stack and stack[-1] != "(":
-                b = stack.pop()
-                a = stack.pop()
-                stack.append(operations[char](a, b))
-        elif char in operations:
-            while (
-                len(stack) > 0
-                and stack[-1] != "("
-                and precedence[char] <= precedence.get(stack.pop(), 2)
-            ):
-                pass
-
-    return stack[0]
+                if stack[-1] == "&":
+                    b = stack.pop()
+                    a = stack.pop()
+                    stack.append(operations["&"](a, b))
+                elif stack[-1] == "|":
+                    b = stack.pop()
+                    a = stack.pop()
+                    stack.append(operations["|"](a, b))
