@@ -2,26 +2,29 @@
 
 int bowlingScore(string s) {
     int score = 0;
-    int i = 0;
-    while (i < s.length()) {
+    string temp;
+    for (int i = 0; i < 10; i++) {
         if (s[i] == '/') {
-            int firstRoll = stoi(s.substr(0, i));
-            int secondRoll = stoi(s.substr(i + 1, s.find('/') - i - 1));
-            if (firstRoll + secondRoll >= 10) {
-                score += 10;
-                i = s.find('/', i);
-            } else {
-                score += firstRoll + secondRoll;
-                i = i + s.find('/') - i;
-            }
+            temp = s.substr(0, i);
+            s.erase(0, i + 1);
         } else {
-            int roll = stoi(s.substr(i, 1));
-            if (roll == 10) {
-                score += 10;
-                i++;
+            temp += s[i];
+            s.erase(0, 1);
+        }
+        int firstRoll = stoi(temp);
+        if (firstRoll == 10) {
+            score += 10;
+        } else {
+            if (s.length() >= 2 && (stoi(s.substr(0, 2)) == firstRoll + 10)) {
+                s.erase(0, 2);
+                score += firstRoll + 10;
             } else {
-                score += roll;
-                i++;
+                int secondRoll = stoi(s);
+                if (firstRoll + secondRoll > 10) {
+                    score += 10;
+                } else {
+                    score += firstRoll + secondRoll;
+                }
             }
         }
     }
