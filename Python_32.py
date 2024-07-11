@@ -1,3 +1,4 @@
+```
 def main():
     import math
 
@@ -24,3 +25,6 @@ def main():
                 break
         except:
             print("Invalid input. Please enter coefficients (space-separated) separated by spaces.")
+
+if __name__ == "__main__":
+    main()
