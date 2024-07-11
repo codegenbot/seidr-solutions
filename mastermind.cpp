@@ -16,14 +16,13 @@ int whitePegs(string code, string guess) {
 int blackPegs(string code, string guess) {
     int count = 0;
     vector<char> codeArray(code.begin(), code.end());
-    for (int i = 0; i < 4; i++) {
-        if (guess[i] == code[i]) {
-            codeArray[i] = '0';
+    for (int j = 0; j < 4; j++) {
+        if (guess[j] == code[j]) {
+            codeArray[j] = '0';
         }
     }
     for (int i = 0; i < 4; i++) {
-        int pegCount = 0;
-        if (pegCount = std::count(codeArray.begin(), codeArray.end(), guess[i])) > 0) {
+        if (find(codeArray.begin(), codeArray.end(), guess[i]) != codeArray.end()) {
             count++;
             codeArray.erase(remove(codeArray.begin(), codeArray.end(), guess[i]), codeArray.end());
         }
