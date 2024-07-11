@@ -5,7 +5,9 @@
 
 using namespace std;
 
-bool issame(const map<char, int>& a, const map<char, int>& b){
+map<char, int> histogram(string test);
+
+bool issame(const std::map<char, int>& a, const std::map<char, int>& b){
     return a == b;
 }
 
@@ -13,6 +15,7 @@ map<char, int> histogram(string test) {
     map<char, int> result;
     istringstream iss(test);
     string word;
+    
     while (iss >> word) {
         for (char c : word) {
             result[c]++;
