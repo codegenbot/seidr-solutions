@@ -19,10 +19,10 @@ int main() {
     std::vector<int> arr;
     std::cout << "Enter the numbers separated by space: ";
     int n;
-    cin >> n;
+    std::cin >> n;
     for (int i = 0; i < n; i++) {
         int val;
-        cin >> val;
+        std::cin >> val;
         arr.push_back(val);
     }
     std::cout << "The smallest change is: " << smallest_change(arr) << std::endl;
