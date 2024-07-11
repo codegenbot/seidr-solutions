@@ -12,12 +12,3 @@ std::string decimal_to_binary(int decimal){
     }
     return binary;
 }
-
-int main(){
-    assert(decimal_to_binary(15) == "db1111db");
-
-    // Add the missing part here
-    cout << "Decimal 15 to binary: " << decimal_to_binary(15) << endl;
-
-    return 0;
-}
