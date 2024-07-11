@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 int totalFuelCost(std::vector<int> fuelCosts) {
     int sum = 0;
