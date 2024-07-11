@@ -21,6 +21,5 @@ std::string rounded_avg(int n, int m) {
 
 int main() {
     std::string result = rounded_avg(5, 5);
-    std::cout << result << std::endl;
     return 0;
 }
