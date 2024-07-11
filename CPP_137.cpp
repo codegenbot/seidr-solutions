@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-boost::any compare_one(boost::any a, boost::any b) {
+boost::any compare_one(const boost::any& a, const boost::any& b) {
     assert(a.type() == b.type());
 
     if (a.type() == typeid(int)) {
