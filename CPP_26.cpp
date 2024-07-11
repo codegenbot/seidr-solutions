@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <map>
+#include <initializer_list> // Include this line
 using namespace std;
 
 bool issame(vector<int> a, vector<int> b) {
@@ -22,7 +22,5 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> numbers = {1, 2, 3, 2, 4, 3, 5};
-    assert(isame(remove_duplicates(numbers) , vector<int>{1, 2, 3, 4, 5}));
+    assert(isame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}) , {1, 2, 3, 4, 5}));
     return 0;
-}
