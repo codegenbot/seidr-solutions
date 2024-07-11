@@ -1,35 +1,18 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
-#include <string>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size())
-        return false;
-    
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i])
-            return false;
+std::vector<int> parse_music(std::string music) {
+    std::vector<int> result;
+    size_t pos = 0;
+    while ((pos = music.find("|")) != std::string::npos) {
+        result.push_back(pos);
+        music.erase(0, pos + 1);
     }
-    
-    return true;
-}
-
-std::vector<int> parse_music(const std::string& music) {
-    std::vector<int> parsed;
-    for (char c : music) {
-        if (c == 'o') {
-            parsed.push_back(1);
-        } else if (c == '|') {
-            parsed.push_back(0);
-        } else if (c == ' ') {
-            // Do nothing for space character
-        }
-    }
-    return parsed;
+    return result;
 }
 
 int main() {
-    assert(issame(parse_music("o|.o|.o o|o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
-    // Add more test cases as needed
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
     return 0;
 }
