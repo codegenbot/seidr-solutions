@@ -13,12 +13,11 @@ def product_of_signs(arr):
 
 def check():
     while True:
-        arr = list(map(int, input("Enter numbers separated by space: ").split()))
-        if all(isinstance(x, int) for x in arr):
+        try:
+            arr = list(map(int, input("Enter numbers separated by space: ").split()))
+            print(product_of_signs(arr))
             break
-        else:
-            print("Invalid input. Please enter numbers only.")
-
-    print(product_of_signs(arr))
+        except ValueError:
+            print("Invalid input. Please enter only integers separated by spaces.")
 
 check()
