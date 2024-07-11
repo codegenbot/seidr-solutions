@@ -1,4 +1,5 @@
-def main():
+```
+if __name__ == "__main__":
     while True:
         try:
             lst = input("Enter a list of numbers separated by spaces: ")
@@ -18,6 +19,3 @@ def main():
                 print("Invalid input. Please enter numbers separated by spaces.")
         except EOFError:
             break
-
-if __name__ == "__main__":
-    main()
