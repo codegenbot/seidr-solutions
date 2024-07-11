@@ -10,9 +10,11 @@ int main() {
     for (char &c : input) {
         if (c == '-') {
             capitalize = true;
-        } else {
-            std::cout << (capitalize ? (char)std::tolower(c) : c);
+        } else if (capitalize) {
+            std::cout << (capitalize ? (char)std::toupper(c) : c);
             capitalize = false;
+        } else {
+            std::cout << c;
         }
     }
     
