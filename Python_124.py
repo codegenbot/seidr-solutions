@@ -1,13 +1,14 @@
 ```
 def valid_date(date):
-    year, month, day = date.split("-")
-    if not (year.isdigit() and month.isdigit() and day.isdigit()):
+    day, month, year = map(int, date.split('-'))
+    if month < 1 or month > 12:
         return False
-    if int(year) < 1000 or int(month) < 1 or int(day) < 1:
+    elif day < 1 or day > 31:
         return False
-    if int(month) > 12 or int(day) > 31:
+    elif (month in [1,3,5,7,8,10,12] and day > 31) or (month in [4,6,9,11] and day > 30):
         return False
-    return True
+    else:
+        return True
 
 def main():
     while True:
@@ -20,6 +21,3 @@ def main():
                 print(f"The date {date} is not valid.")
             else:
                 print(f"The date {date} is valid.")
-
-if __name__ == "__main__":
-    main()
