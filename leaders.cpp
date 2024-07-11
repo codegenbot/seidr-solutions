@@ -1,5 +1,8 @@
 #include <vector>
-#include <initializer_list>
+#include <algorithm>
+
+#pragma GCC target "C++11"
+
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -18,3 +21,8 @@ vector<int> leaders(vector<int>& arr) {
     }
     
     return res;
+}
+
+int main() {
+    return 0;
+}
