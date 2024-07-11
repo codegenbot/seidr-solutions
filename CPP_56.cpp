@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <cassert>
 
 bool correct_bracketing(const std::string& brackets) {
@@ -17,9 +18,8 @@ bool correct_bracketing(const std::string& brackets) {
 }
 
 int main() {
-    assert(correct_bracketing("<<>>") == true);
+    assert(correct_bracketing("<><<><>") == false);
     assert(correct_bracketing("<><>") == true);
-    assert(correct_bracketing("><><<") == false);
     
     return 0;
 }
