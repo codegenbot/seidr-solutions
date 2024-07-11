@@ -1,3 +1,7 @@
+#include <vector>
+
+bool issame(vector<int> a, vector<int> b);
+
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
     for (size_t i = 0; i < game.size(); ++i) {
@@ -8,4 +12,9 @@ vector<int> compare(vector<int> game, vector<int> guess) {
         }
     }
     return result;
+}
+
+int main() {
+    // Your main function code here
+    return 0;
 }
