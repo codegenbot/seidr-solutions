@@ -1,9 +1,6 @@
-from typing import List
-
-
 def concatenate(strings: List[str]) -> str:
-    concatenated_string = ""
+    result = ""
     for string in strings:
         if string:
-            concatenated_string += string
-    return concatenated_string
+            result += string
+    return result
