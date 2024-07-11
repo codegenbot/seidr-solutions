@@ -1,9 +1,8 @@
-```
 def simplify(x, n):
-    x_denominator, x_numerator = map(int, x.split('/'))
-    n_denominator, n_numerator = map(int, n.split('/'))
+    x_num, x_denom = map(int, x.split("/"))
+    n_num, n_denom = map(int, n.split("/"))
 
-    product_numerator = x_numerator * n_numerator
-    product_denominator = x_denominator * n_denominator
+    product_num = x_num * n_num
+    product_denom = x_denom * n_denom
 
-    return product_numerator == product_denominator
+    return product_num == product_denom
