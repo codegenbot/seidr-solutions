@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 using namespace std;
 
 int main() {
@@ -14,7 +15,7 @@ int main() {
             capitalize = true;
         } else if (c != ' ') {
             if (capitalize) {
-                output += std::toupper(c);
+                output += toupper(c);
                 capitalize = false;
             } else {
                 output += c;
@@ -22,7 +23,7 @@ int main() {
         }
     }
     
-    std::cout << output << std::endl;
+    cout << output << endl;
     
     return 0;
 }
