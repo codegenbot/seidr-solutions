@@ -1,43 +1,21 @@
-string spinWords(string str) {
-    string result = "";
-    string word = "";
-
-    for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            if (word.length() >= 5) {
-                string revWord;
-                for (int j = word.length() - 1; j >= 0; j--)
-                    revWord += word[j];
-                result += revWord + " ";
-                word = "";
-            } else
-                if (!word.empty()) {
-                    result += word + " ";
-                    word = "";
-                }
-        } else {
-            word += str[i];
-        }
-    }
-
-    if (word.length() >= 5) {
-        string revWord;
-        for (int j = word.length() - 1; j >= 0; j--)
-            revWord += word[j];
-        result += revWord + " ";
-    } else
-        if (!word.empty()) {
-            result += word + " ";
-            word = "";
-        }
-
-    return result.substr(0, result.length()); // Remove trailing space
-}
+#include <iostream>
+#include <string>
 
 int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
+    std::string result = "hello world";
+    for (int i = 0; i < result.size(); ++i) {
+        if (result[i] == ' ') {
+            int j = i - 1;
+            while (j >= 0 && ((result[j] > ' '))) {
+                --j;
+            }
+            std::string temp(result, j + 1, i);
+            if (temp.length() >= 5) {
+                std::reverse(temp.begin(), temp.end());
+            }
+            result.replace(i - temp.length() + 1, temp.length(), temp);
+        }
+    }
+    std::cout << result << std::endl;
     return 0;
 }
