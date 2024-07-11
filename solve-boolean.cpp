@@ -35,4 +35,3 @@ std::string solveBoolean(std::string expression) {
     }
 
     return result;
-}
