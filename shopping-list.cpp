@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <vector> // Include the vector header
 using namespace std;
 
 int main() {
