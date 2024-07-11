@@ -1,10 +1,5 @@
+phi = (1 + 5**0.5) / 2
+
+
 def fibfib(n: int):
-    if n <= 1:
-        return n
-    elif n == 2:
-        return 1
-    else:
-        a, b = 0, 1
-        for _ in range(3, n+1):  
-            a, b = b, a + b
-        return b
+    return int((phi**n - (1 - phi) ** n) ** 0.5 / 5**0.5)
