@@ -76,5 +76,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any(any_cast<int>(a));
         }
     }
-    return boost::any();
+    else {
+        return boost::any();
+    }
 }
