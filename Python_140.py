@@ -8,11 +8,7 @@ def fix_spaces(text):
 print("Welcome to the space fixing program!")
 
 while True:
-    try:
-        text = input("Enter the text to fix spaces: ")
-        if not text.strip():  
-            print("Please enter a non-empty string.")
-        else:
-            break
-    except Exception as e:
-        print(f"Invalid input. {e}. Please enter a string.")
+    text = input("Enter the text to fix spaces (or 'q' to quit): ")
+    if text.lower() == 'q':
+        break
+    print(fix_spaces(text))
