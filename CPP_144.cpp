@@ -1,24 +1,38 @@
 #include <string>
-#include <iostream>
+#include <vector>
 
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = stoi(getNumerator(x));
-    int b = stoi(getDenominator(x));
-    int c = stoi(getNumerator(n));
-    int d = stoi(getDenominator(n));
+    int numeratorX = 0, denominatorX = 1;
+    int numeratorN = 0, denominatorN = 1;
 
-    return (a * d) == (b * c);
+    // parse fraction x
+    size_t pos = x.find('/');
+    numeratorX = stoi(x.substr(0, pos));
+    denominatorX = stoi(x.substr(pos + 1));
+
+    // parse fraction n
+    pos = n.find('/');
+    numeratorN = stoi(n.substr(0, pos));
+    denominatorN = stoi(n.substr(pos + 1));
+
+    int commonDivisor = gcd(denominatorX, denominatorN);
+    int numeratorXNew = numeratorX / commonDivisor;
+    int denominatorXNew = denominatorX / commonDivisor;
+
+    if (numeratorN % denominatorXNew != 0) {
+        return false;
+    }
+
+    return true;
 }
 
-string getNumerator(string s) {
-    size_t pos = s.find('/');
-    return s.substr(0, pos);
-}
-
-string getDenominator(string s) {
-    size_t pos = s.find '/';
-    string temp = s.substr(pos + 1);
-    return temp;
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
