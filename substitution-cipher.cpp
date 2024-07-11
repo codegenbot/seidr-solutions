@@ -1,3 +1,4 @@
+```cpp
 std::string substitutionCipher(const std::string& cipherMap, const std::string& input) {
     std::string output;
     for (int i = 0; i < input.length(); ++i) {
@@ -9,7 +10,7 @@ std::string substitutionCipher(const std::string& cipherMap, const std::string& 
             int index = c - 'A';
             output += cipherMap[index];
         } else {
-            output += input[i]; // if the character is not a letter, just add it to the output as it is
+            output += input[i]; 
         }
     }
     return output;
