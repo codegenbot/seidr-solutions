@@ -1,15 +1,10 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string>b) {
-    // Your implementation here
-}
-
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    std::vector<string> result;
+    std::vector<std::string> result;
     for (float grade : grades) {
-        string letterGrade;
+        std::string letterGrade;
         if (grade >= 4.0)
             letterGrade = "A+";
         else if (grade > 3.7)
@@ -33,13 +28,14 @@ std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
         else if (grade > 0.7)
             letterGrade = "D";
         else
-            letterGrade = "F";
+            letterGrade = "E";
         result.push_back(letterGrade);
     }
     return result;
 }
 
 int main() {
-    assert(numerical_letter_grade({4, 3.5}) == {"A+", "B+"});
+    std::vector<float> grades = {0, 0.7};
+    assert(numerical_letter_grade(grades) == std::vector<std::string>({"E", "D-"}));
     return 0;
 }
