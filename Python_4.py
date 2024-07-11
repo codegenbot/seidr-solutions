@@ -1,5 +1,6 @@
-```''
-def mean_absolute_deviation(numbers:`python List[float]`):`python -> float`
-    mean = sum(numbers) / len(numbers)
-    return sum(abs(num - mean) for num in numbers) / len(numbers)
-''
+```Python
+def mean_absolute_deviation():
+    numbers = list(map(float, input("Enter space-separated numbers: ").split()))
+    return sum(numbers) / len(numbers), sum(abs(num - sum(numbers)/len(numbers)) for num in numbers) / len(numbers)
+
+mean_absolute_deviation()
