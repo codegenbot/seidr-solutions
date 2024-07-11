@@ -1,5 +1,16 @@
-int* compare(int a[], int b[]) {
-    sort(a, a + sizeof(a) / sizeof(a[0]));
-    sort(b, b + sizeof(b) / sizeof(b[0]));
-    return (int*)new int[]{sizeof(a), sizeof(b)};
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+std::vector<int> compare(std::vector<int> a, std::vector<int> b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    return {static_cast<int>(a.size()), static_cast<int>(static_cast<long>(b.size()))};
+}
+
+int main() {
+    assert(issame({1,2,3,5},{-1,2,3,4}) == compare({1,2,3,5},{-1,2,3,4}) == vector<int>{2,0,0,1});
+    return 0;
 }
