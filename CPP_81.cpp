@@ -1,7 +1,6 @@
-```cpp
+```
 #include <vector>
 #include <string>
-#include <iostream>
 
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) return false;
@@ -25,18 +24,18 @@ vector<string> numerical_letter_grade(vector<float> grades){
         else if(g>1.3)letter_grades.push_back("C-");
         else if(g>1.0)letter_grades.push_back("D+");
         else if(g>0.7)letter_grades.push_back("D");
-        else letter_grades.push_back("E");
+        else letter_grades.push_back("F");
     }
     return letter_grades;
 }
 
 int main() {
-    vector<float> grades = {0, 0.7};
-    vector<string> expectedLetterGrades = {"E", "D-"};
-    if (!issame(numerical_letter_grade(grades), expectedLetterGrades)) {
-        std::cout << "Test failed!" << std::endl;
+    vector<float> grades = {0.0, 0.7};
+    vector<string> expected = {"F", "D-"};
+    if(!issame(numerical_letter_grade(grades), expected)) {
+        cout << "Test failed" << endl;
     } else {
-        std::cout << "Test passed!" << std::endl;
+        cout << "Test passed" << endl;
     }
     return 0;
 }
