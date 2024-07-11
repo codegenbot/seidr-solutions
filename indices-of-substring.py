@@ -1,8 +1,8 @@
-def indices_of_substring(text, target):
-    import re
+import re
 
-    text_cleaned = re.sub(r"[^a-zA-Z0-9, ]", "", text.lower())
-    target_cleaned = re.sub(r"[^a-zA-Z0-9, ]", "", target.lower())
+def indices_of_substring(text, target):
+    text_cleaned = re.sub(r"[^a-zA-Z0-9 ]", "", text.lower())
+    target_cleaned = re.sub(r"[^a-zA-Z0-9]", "", target.lower())
 
     indices = [
         i
@@ -11,3 +11,8 @@ def indices_of_substring(text, target):
     ]
 
     return indices
+
+text = input("Enter the text string: ")
+target = input("Enter the target string: ")
+result = indices_of_substring(text, target)
+print(result)
