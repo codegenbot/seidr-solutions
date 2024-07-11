@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 pair<float, float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
@@ -16,4 +22,12 @@ bool issame(pair<float, float> a, pair<float, float> b) {
     return a.first == b.first && a.second == b.second;
 }
 
-assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {3.1, 4.1}));
+int main() {
+    vector<float> numbers = {1.1, 2.2, 3.1, 4.1, 5.1};
+    pair<float, float> result = find_closest_elements(numbers);
+
+    pair<float, float> expected_result = {4.1, 5.1};
+    assert(issame(result, expected_result));
+
+    return 0;
+}
