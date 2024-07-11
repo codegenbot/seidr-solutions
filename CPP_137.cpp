@@ -1,35 +1,29 @@
 #include <boost/any.hpp>
+#include <string>
+#include <algorithm>
 
-using namespace boost;
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<string>(a)) {
-        string str1 = any_cast<string>(a);
-        if (is_any_of<string>(b)) {
-            string str2 = any_cast<string>(b);
-            return (stod(str2) > stod(str1)) ? b : ((stod(str2) < stod(str1)) ? a : boost::any("None"));
-        } else {
-            double d = any_cast<double>(b);
-            if (d > stod(str1))
-                return b;
-            else if (d < stod(str1))
-                return a;
-            else
-                return boost::any("None");
-        }
-    } else {
-        double d1 = any_cast<double>(a);
-        if (is_any_of<string>(b)) {
-            string str2 = any_cast<string>(b);
-            return (stod(str2) > d1) ? b : ((stod(str2) < d1) ? a : boost::any("None"));
-        } else {
-            double d2 = any_cast<double>(b);
-            if (d2 > d1)
-                return b;
-            else if (d2 < d1)
-                return a;
-            else
-                return boost::any("None");
-        }
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return (string)b;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        return max((float)a.convert_to<float>(), stof(b.convert_to<string>()));
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return (string)b > a.convert_to<string>() ? b : "None";
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return max((int)a, (int)b) ? boost::any(a) : boost::any("None");
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return max((float)a, (float)b) ? boost::any(a) : boost::any("None");
+    }
+    else {
+        return "None";
     }
 }
