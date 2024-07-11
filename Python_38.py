@@ -1,7 +1,4 @@
-```
 def decode_cyclic(s: str):
-    if len(s) <= 1:
-        return s
     s = s * (3 - len(s) % 3)
     result = []
     temp = ""
@@ -22,11 +19,6 @@ def decode_cyclic(s: str):
                     else:
                         result.append(temp[1:])
             temp = ""
-    if temp:
-        if len(result) > 0 and result[-1] == temp[0]:
-            result.append(temp)
-        elif len(temp) % 3 == 1 and temp[0] == result[-1]:
-            result.append(temp[1:] + temp[0])
-        else:
-            result.append(temp)
+    if temp: 
+        result.append(temp)
     return "".join(result)
