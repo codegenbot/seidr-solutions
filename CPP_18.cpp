@@ -1,7 +1,6 @@
-```cpp
 #include <string>
 
-int how_many_times(string str, string substring) {
+int how_many_times(std::string str, std::string substring) {
     int count = 0;
     size_t pos = 0;
 
@@ -11,4 +10,8 @@ int how_many_times(string str, string substring) {
     }
 
     return count;
+}
+
+int main() {
+    assert(how_many_times("john doe", "john") == 1);
 }
