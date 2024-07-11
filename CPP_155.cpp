@@ -22,6 +22,7 @@ pair<int, int> even_odd_count(int num) {
 }
 
 int main() {
-    assert(even_odd_count(0) == make_pair(1, 0));
+    pair<int,int> counts = even_odd_count(0);
+    assert(counts == make_pair(1, 0));
     return 0;
 }

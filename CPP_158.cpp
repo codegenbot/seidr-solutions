@@ -8,14 +8,14 @@ std::string find_max(std::vector<std::string> words) {
     int max_unique_chars = 0;
 
     for (const auto& word : words) {
-        std::set<char> unique_chars;
+        std::set<char> charSet;
         for (char c : word) {
-            unique_chars.insert(c);
+            charSet.insert(c);
         }
-        if (unique_chars.size() > max_unique_chars) {
-            max_unique_chars = unique_chars.size();
+        if (charSet.size() > max_unique_chars) {
+            max_unique_chars = charSet.size();
             result = word;
-        } else if (unique_chars.size() == max_unique_chars && word.length() > result.length()) {
+        } else if (charSet.size() == max_unique_chars && word.length() > result.length()) {
             result = word;
         }
     }
