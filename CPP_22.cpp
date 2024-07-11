@@ -2,19 +2,20 @@
 #include <vector>
 #include <list>
 
-bool issame(const boost::any& a, const boost::any& b) {
-    if (!a.type() == b.type()) return false;
-    return boost::any_cast<const vector<int>&>(a) == boost::any_cast<const vector<int>&>(b);
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
-vector<int> filter_integers(list<any> values) {
+vector<int> filter_integers(list< boost::any > values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (is_same<list<any>, list<int>>::value || issame(value, make_any<int>(0))) {
-            int val = boost::any_cast<int>(value);
-            if (!val) continue;
-            result.push_back(val);
+        if(boost::any_cast<int>(value).good() && isnumeric(boost::any_cast<int>(value))) {
+            result.push_back(boost::any_cast<int>(value));
         }
     }
     return result;
+}
+
+bool isnumeric(int num) {
+    return true;
 }
