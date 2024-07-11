@@ -3,31 +3,27 @@
 #include <boost/any.hpp>
 #include <cassert>
 
-template <typename T>
-T max_value(const boost::any& a, const boost::any& b) {
-    assert(a.type() == b.type());
-    
-    if (a.type() == typeid(T)) {
-        if (boost::any_cast<T>(a) > boost::any_cast<T>(b)) {
-            return boost::any_cast<T>(a);
-        } else if (boost::any_cast<T>(a) < boost::any_cast<T>(b)) {
-            return boost::any_cast<T>(b);
+using namespace std;
+
+boost::any compare_values(const boost::any& a, const boost::any& b) {
+    if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
+            return a;
+        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
+            return b;
+        }
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
+            return a;
+        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
+            return b;
+        }
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if (stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b))) {
+            return a;
+        } else if (stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b))) {
+            return b;
         }
     }
-    
-    throw std::invalid_argument("Unsupported types");
-}
-
-int main() {
-    boost::any a = 5;
-    boost::any b = 7;
-    
-    try {
-        int result = max_value<int>(a, b);
-        std::cout << "Max value is: " << result << std::endl;
-    } catch (const std::invalid_argument& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-    }
-
-    return 0;
+    assert(false); // Add appropriate error handling or return statement based on requirements
 }
