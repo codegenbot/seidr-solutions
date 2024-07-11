@@ -1,6 +1,4 @@
-Here is the modified code:
-
-def parse_music(music_string: str) -> list:
+def parse_music(music_string: str) -> List[int]:
     beats = [4, 2, 1]
     result = []
     i = 0
