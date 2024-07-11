@@ -14,3 +14,5 @@ def filter_by_prefix() -> None:
             break
         except ValueError as e:
             print(f"Error occurred: {e}")
+
+filter_by_prefix()
