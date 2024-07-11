@@ -1,5 +1,6 @@
-def truncate_number() -> str:
-    number = float(input("Enter the number to be truncated: "))
-    n = int(input("Enter the number of decimal places to truncate: "))
+```
+def truncate_number(number: float = None, n: int) -> float:
+    if number is None:
+        raise ValueError("Number is required")
     multiplier = 10**-n
-    return str(round(number * multiplier) / multiplier)
+    return round(number * multiplier) / multiplier
