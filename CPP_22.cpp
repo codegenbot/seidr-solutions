@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <list>
 #include <typeindex>
