@@ -4,8 +4,8 @@
 #include <string>
 #include <cassert>
 
-bool issame(const std::map<char, int>& a, const std::map<char, int>& b){
-    return a == b;
+bool isSame(const std::map<char, int>& a, const std::map<char, int>& b){
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::map<char, int> histogram(std::string test) {
@@ -33,6 +33,7 @@ std::map<char, int> histogram(std::string test) {
     return mostRepeatedChars;
 }
 
-void main() {
-    assert(issame(histogram("a"), {{'a', 1}}));
+int main() {
+    assert(isSame(histogram("a"), {{'a', 1}}));
+    return 0;
 }
