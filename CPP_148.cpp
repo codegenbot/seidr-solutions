@@ -3,11 +3,14 @@ vector<string> bf(string planet1, string planet2) {
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
-        if (planets[i] == planet1) {
+        if (planet1 == planets[i]) {
             index1 = i;
-        } else if (planets[i] == planet2) {
+        }
+        else if (planet2 == planets[i]) {
             index2 = i;
         }
+        
+        if (index1 != -1 && index2 != -1) break;
     }
     
     if (index1 == -1 || index2 == -1)
