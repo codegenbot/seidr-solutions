@@ -1,11 +1,14 @@
-```
-def solve():
+def solve(binary=False):
     while True:
-        N = input("Enter a number: ")
-        if N.isdigit():
-            return convert_to_binary(N)
-
-def convert_to_binary(n):
-    return bin(int(n))[2:]
+        try:
+            N = int(input("Enter a number: "))
+            break
+        except ValueError:
+            print("Invalid input! Please enter a whole number.")
+            
+    if binary:
+        return bin(N)[2:]
+    else:
+        return str(N)
 
 print(solve())
