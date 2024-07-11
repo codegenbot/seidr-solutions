@@ -2,6 +2,7 @@
 #include <cassert>
 
 string circular_shift(int x, int shift) {
+    assert(shift >= 0);
     string num = to_string(x);
     int n = num.size();
     shift %= n;
