@@ -9,13 +9,12 @@ bool issame(const std::string& str1, const std::string& str2) {
 std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring);
 
 int main() {
-    std::vector<std::string> words = {"apple", "banana", "orange", "grape", "melon"};
-    std::string key = "an";
+    // Example usage of the filter_by_substring function
+    std::vector<std::string> strings = {"apple", "banana", "cherry", "orange"};
+    std::vector<std::string> filtered = filter_by_substring(strings, "an");
 
-    std::vector<std::string> filtered_words = filter_by_substring(words, key);
-
-    for (const auto& word : filtered_words) {
-        std::cout << word << std::endl;
+    for (const auto& str : filtered) {
+        std::cout << str << std::endl;
     }
 
     return 0;
