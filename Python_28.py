@@ -8,5 +8,4 @@ def concatenate(strings: List[str]) -> str:
     for s in strings:
         if not isinstance(s, str):
             return None
-        result += s
     return result
