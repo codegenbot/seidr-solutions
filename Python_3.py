@@ -1,7 +1,6 @@
-from typing import List
+from typing import list
 
-
-def below_zero(operations: List[int]) -> bool:
+def below_zero(operations: list[int]) -> bool:
     balance = 0
     for op in operations:
         balance += op
