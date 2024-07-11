@@ -11,7 +11,7 @@ int main() {
 
     double bouncinessIndex = heightAfterFirstBounce / startHeight;
 
-    double distanceTravelled = 0.0; 
+    double distanceTravelled = 0.0; // initialize distance traveled
     cout << fixed; 
     cout << setprecision(10); 
     for (int i = 1; i <= numBounces; ++i) {
