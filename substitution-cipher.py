@@ -1,10 +1,12 @@
 def decipher(cipher1, cipher2, message):
-    mapping = {c.lower(): d for c,d in zip(cipher1, cipher2)}
+    mapping = {c.lower(): c for c in cipher1}
     result = ""
     for char in message:
-        if char.isalpha():
-            if char.lower() in mapping:
-                result += mapping[char.lower()] if char.islower() else mapping[char.lower()].upper()
+        if char.isalpha() and (char.lower() in mapping or char.upper() in mapping):
+            if char.islower():
+                result += mapping[char.lower()]
             else:
-                result += char
+                result += mapping[char.lower()].upper()
+        else:
+            result += char
     return result
