@@ -1,9 +1,14 @@
-int main() {
-    std::cout << mastermind("RRRR", "RRRR").at(0) << "\n" << mastermind("RRRR", "RRRR").at(1) << std::endl;
-    std::cout << mastermind("BOYG", "GYOB").at(0) << "\n" << mastermind("BOYG", "GYOB").at(1) << std::endl;
-    std::cout << mastermind("WYYW", "BBOG").at(0) << "\n" << mastermind("WYYW", "BBOG").at(1) << std::endl;
-    std::cout << mastermind("GGGB", "BGGG").at(0) << "\n" << mastermind("GGGB", "BGGG").at(1) << std::endl;
-    std::cout << mastermind("BBBB", "OOOO").at(0) << "\n" << mastermind("BBBB", "OOOO").at(1) << std::endl;
+int mastermind(string code, string guess) {
+    int white = 0;
+    int black = 0;
 
-    return 0;
+    for(int i=0; i<4; ++i) {
+        if(code[i] == guess[i]) {
+            ++black;
+        } else if(count(guess.begin(), guess.end(), code[i]) > 0) {
+            ++white;
+        }
+    }
+
+    return make_pair(white, black).second;
 }
