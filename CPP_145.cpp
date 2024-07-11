@@ -1,8 +1,4 @@
 struct order_by_points {
-    std::vector<int> nums;
-
-    order_by_points(const std::vector<int>& input_nums) : nums(input_nums) {}
-
     bool operator()(const int& a, const int& b) const {
         int sum_a = 0, sum_b = 0;
         int temp_a = abs(a), temp_b = abs(b);
@@ -21,7 +17,6 @@ struct order_by_points {
     }
 };
 
-std::vector<int> nums = {0, 6, 6, -76, -21, 23, 4};
-std::sort(nums.begin(), nums.end(), order_by_points(nums));
+sort(nums.begin(), nums.end(), order_by_points);
 
 return nums;
