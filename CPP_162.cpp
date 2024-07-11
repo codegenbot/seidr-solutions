@@ -1,3 +1,8 @@
+```cpp
+#include "/path/to/cryptopp/sha1.h"
+#include <iostream>
+#include <sstream>
+
 int main() {
     std::cout << "Enter a string: ";
     std::string s;
