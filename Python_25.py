@@ -1,6 +1,7 @@
 from typing import List
 import math
 
+
 def factorize():
     try:
         num = int(input("Enter a number to factorize: "))
@@ -27,10 +28,13 @@ def factorize():
     except ValueError as e:
         print(f"Error: {e}")
 
+
 def main():
-    result = factorize()
-    if result:
-        print("Prime factors are:", *result, sep=", ")
+    try:
+        result = factorize()
+        if result:
+            print("Prime factors are:", *result, sep=", ")
+
 
 if __name__ == "__main__":
     main()
