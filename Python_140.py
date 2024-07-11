@@ -1,6 +1,5 @@
 import re
 
-
 def fix_spaces(text):
     pattern = r"\s+"
     replacement = "_"
