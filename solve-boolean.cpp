@@ -1,15 +1,10 @@
-bool evaluateBooleanExpression(string expression) {
-    if (expression == "t") {
-        return true;
-    } else if (expression == "f") {
-        return false;
+int main() {
+    string str;
+    cin >> str;
+    if (str == "t") {
+        cout << "True";
     } else {
-        char op = expression[1];
-        if (op == '&') {
-            return (expression[0] == 't' && expression[2] == 't');
-        } else if (op == '|') {
-            return (expression[0] == 't' || expression[2] == 't');
-        }
+        cout << "False";
     }
-    return false;
+    return 0;
 }
