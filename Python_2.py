@@ -1,4 +1,3 @@
-```
 def truncate_number_to_two_decimal_places():
     while True:
         try:
