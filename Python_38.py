@@ -1,6 +1,8 @@
 def decode_cyclic(s: str):
     result = ""
     i = 0
+    if len(s) % 3 != 0:
+        result += s[:len(s)%3]
     while i < len(s):
         if i + 3 <= len(s):
             group = s[i : i + 3]
