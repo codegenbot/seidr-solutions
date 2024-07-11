@@ -1,12 +1,12 @@
 ```
 def prime_fib(n: int):
-    a, b = 2, 3
-    count = 1
+    a, b = 1, 2
+    i = 0
     while True:
         if is_prime(b):
-            if count == n:
+            i += 1
+            if i == n:
                 return b
-            count += 1
         a, b = b, a + b
 
 def is_prime(num: int):
