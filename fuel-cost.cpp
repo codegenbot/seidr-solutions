@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <cmath>
 
 using namespace std;
 
@@ -14,7 +14,7 @@ int main() {
     
     int sum = 0;
     for (int num : nums) {
-        sum += (num / 3) - 2 + (num % 3 == 2); // Include the adjustment for proper rounding down
+        sum += (int)floor(num / 3.0) - 2;
     }
     
     cout << sum << "\n";
