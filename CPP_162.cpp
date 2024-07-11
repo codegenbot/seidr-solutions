@@ -1,9 +1,10 @@
-```
-#include <algorithm>
 #include <string>
-#include <md5.h>
+#include <iostream>
+#include <iomanip>
 
-std::string string_to_md5(std::string text) {
+using namespace std;
+
+string string_to_md5(string text) {
     if (text.empty()) return "";
 
     unsigned char result[16];
@@ -16,11 +17,11 @@ std::string string_to_md5(std::string text) {
     }
     MD5_Final(result, &md5);
 
-    std::string output;
+    string output;
     for (int i = 0; i < 16; i++) {
-        char buffer[3];
-        sprintf(buffer, "%02x", result[i]);
-        output += buffer;
+        ostringstream buffer;
+        buffer << setfill('0') << setw(2) << hex << static_cast<int>(result[i]);
+        output += buffer.str();
     }
 
     return output;
