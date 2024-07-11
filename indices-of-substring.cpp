@@ -7,10 +7,9 @@ int main() {
     std::cin >> text >> target;
 
     std::vector<int> indices;
-    int pos = static_cast<int>(text.find(target, 0));
-    while (pos != std::string::npos) {
+    int pos = std::string::npos;
+    while ((pos = static_cast<int>(text.find(target, pos + 1))) != std::string::npos) {
         indices.push_back(pos);
-        pos = static_cast<int>(text.find(target, pos + 1));
     }
 
     for (int i = 0; i < indices.size(); ++i) {
