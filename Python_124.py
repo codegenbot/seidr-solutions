@@ -1,4 +1,3 @@
-```
 def valid_date(date):
     year, month, day = map(int, date.split("-"))
     if month < 1 or month > 12:
@@ -11,23 +10,24 @@ def valid_date(date):
         return False
     return True
 
-while True: 
+
+while True:
     print("Enter date (yyyy-mm-dd):")
     date = input()
-    while not date.strip():
-        print("Program did not receive expected input. Please try again.")
-        date = input()
 
-    if len(date) != 10 or "-" not in date:
-        print("Invalid date format! Please use 'yyyy-mm-dd'.")
-    else: 
-        try:
-            year, month, day = map(int, date.split("-"))
-        except ValueError:
-            print("Invalid date input! Please enter a valid date (yyyy-mm-dd).")
+    while True:
+        if len(date) != 10 or "-" not in date:
+            print("Invalid date format! Please use 'yyyy-mm-dd'.")
+            date = input()
         else:
-            if not valid_date(date):
-                print(f"The date {date} is not valid.")
+            try:
+                year, month, day = map(int, date.split("-"))
+            except ValueError:
+                print("Invalid date input! Please enter a valid date (yyyy-mm-dd).")
+                date = input()
             else:
-                print(f"The date {date} is valid.")
-                break
+                if not valid_date(date):
+                    print(f"The date {date} is not valid.")
+                else:
+                    print(f"The date {date} is valid.")
+                    break
