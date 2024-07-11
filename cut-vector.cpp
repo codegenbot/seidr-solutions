@@ -31,9 +31,9 @@ int main() {
     }
     
     for (int i = 0; i <= cut_index; ++i) {
-        cout << nums[i] << std::endl;
+        std::cout << nums[i] << std::endl;
     }
-    cout << 0 << std::endl;
+    std::cout << 0 << std::endl;
     
     return 0;
 }
