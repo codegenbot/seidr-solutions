@@ -1,4 +1,4 @@
-```
+````
 def sum_squares(lst):
     total = 0
     for i, num in enumerate(lst):
