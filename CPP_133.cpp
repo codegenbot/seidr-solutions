@@ -6,4 +6,4 @@ int sum_squares(const vector<float>& lst){
         sum += round(num) * round(num);
     }
     return sum;
-}
+}   
