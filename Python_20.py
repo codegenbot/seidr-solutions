@@ -1,6 +1,6 @@
 def find_closest_elements():
-    num_string = input("Enter a space-separated sequence of numbers: ")
-    numbers = list(map(int, num_string.split()))
+    user_input = input("Enter a space-separated sequence of numbers: ")
+    numbers = list(map(int, user_input.split()))
     
     min_diff = float('inf')
     closest_pair = (None, None)
