@@ -1,33 +1,14 @@
-#include <vector>
-#include <iostream> 
-using namespace std;
-
-vector<vector<int>> cutVector(vector<int>& nums) {
+std::vector<std::vector<int>> cutVector(std::vector<int>& nums) {
     int n = nums.size();
-    int min_diff = INT_MAX, idx = -1;
-    
-    for(int i=0; i<n-1; i++){
-        if(abs(nums[i+1] - nums[i]) <= min_diff){
-            min_diff = abs(nums[i+1] - nums[i]);
-            idx = i;
+    int min_diff = INT_MAX;
+    int index = 0;
+    for(int i=1; i<n; i++){
+        if(abs(nums[i] - nums[i-1]) < min_diff){
+            min_diff = abs(nums[i] - nums[i-1]);
+            index = i;
         }
     }
-    
-    vector<int> left(nums.begin(), nums.begin()+idx+1);
-    vector<int> right(nums.begin()+idx, nums.end());
-    
+    std::vector<int> left(std::vector<int>(nums.begin(), nums.begin()+index));
+    std::vector<int> right(std::vector<int>(nums.begin()+index, nums.end()));
     return {{left}, {right}};
-}
-
-int main() {
-    vector<int> nums = {6513, 1688};
-    vector<vector<int>> result = cutVector(nums);
-    for(int i=0; i<result.size(); i++) {
-        cout << "Subvector " << (i+1) << ": ";
-        for(int j=0; j<result[i].size(); j++) {
-            cout << result[i][j] << " ";
-        }
-        cout << endl;
-    }
-    return 0;
 }
