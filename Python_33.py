@@ -1,10 +1,9 @@
 def sort_third(l: list):
-    """This function sorts the third element of each group of three elements in the input list."""
     return [
         (
             x
             if i % 3 != 0 or i >= len(l) - (i % 3)
-            else (sorted([y for y in l[:i // 3 * 3 + i % 3 :]]))[-1] if i // 3 * 3 + i % 3 < len(l) else None
+            else None if i // 3 * 3 + i % 3 >= len(l) else (sorted([y for y in l[:min(i // 3 * 3 + i % 3, len(l))]]))[-1]
         )
         for i, x in enumerate(l)
     ]
