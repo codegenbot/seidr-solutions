@@ -8,7 +8,9 @@ int main() {
 
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
-            probability += static_cast<double>(n - i) / n * static_cast<double>(m) / m;
+            if (i > j) {
+                probability += static_cast<double>(n - i) * (m - j) / (n * m);
+            }
         }
     }
     
