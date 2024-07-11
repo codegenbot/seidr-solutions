@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 bool simplify(string x, string n){
     int num1 = stoi(x.substr(0, x.find('/')));
     int den1 = stoi(x.substr(x.find('/') + 1));
