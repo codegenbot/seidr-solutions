@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,18 +16,7 @@ int main() {
 
     vector<string> result = select_words(input, n);
 
-    vector<string> expected = {"b", "c", "d", "f"};
-    cout << "Expected: ";
-    for (const string& word : expected) {
-        cout << word << " ";
-    }
-    cout << endl;
-
-    cout << "Output: ";
-    for (const string& word : result) {
-        cout << word << " ";
-    }
-    cout << endl;
+    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
 
     return 0;
 }
