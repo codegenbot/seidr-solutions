@@ -2,6 +2,8 @@
 #include <vector>
 #include <cassert>
 
+using namespace std;
+
 std::vector<int> tri(int n) {
     std::vector<int> result;
     if (n >= 0) {
