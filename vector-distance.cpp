@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+
 using namespace std;
 
 int main() {
@@ -17,9 +18,8 @@ int main() {
         cin >> vec2[i];
     }
 
-    float sum;
+    float sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum = 0;
         sum += pow(vec1[i] - vec2[i], 2.0);
     }
 
