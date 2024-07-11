@@ -1,12 +1,12 @@
-for (char &c : message) {
-        if (isalpha(c)) {
-            if (c >= 'a' && c <= 'z') {
-                c = toupper(c);
-            } else {
+for(auto &c : message){
+        if(isalpha(c)){
+            if(isupper(c)){
                 c = tolower(c);
+            } else {
+                c = toupper(c);
             }
-            if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
-                c += 2;
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+                c = c + 2;
             }
         }
     }
