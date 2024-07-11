@@ -7,7 +7,8 @@ using namespace std;
 int main() {
     vector<int> nums;
     int n;
-    while (cin >> n) {
+    while (true) {
+        cin >> n;
         if (n == -1) break;
         nums.push_back(n);
     }
