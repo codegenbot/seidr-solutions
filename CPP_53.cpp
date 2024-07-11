@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int sum(int a, int b) {
+int add(int a, int b) {
     return a + b;
 }
 
@@ -19,7 +19,8 @@ int main() {
     cout << "Enter two numbers: ";
     cin >> num1 >> num2;
 
-    cout << "Sum of the numbers: " << sum(num1, num2) << endl; 
+    int sum = add(num1, num2); 
+    cout << "Sum of the numbers: " << sum << endl; 
 
     return 0;
 }
