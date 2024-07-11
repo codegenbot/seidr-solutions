@@ -15,3 +15,4 @@ std::string bytesToHexString(unsigned char* input, int length) {
         output += (std::hex << std::setfill('0') << std::setw(2) << (int)input[i]).str();
     }
     return output;
+}
