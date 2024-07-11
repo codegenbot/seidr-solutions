@@ -17,3 +17,7 @@ vector<int> even_odd_palindrome(int n) {
     
     return {even, odd};  // Return a vector<int>
 }
+
+int main() {
+    assert(even_odd_palindrome(1) == vector<int>{0, 1});  // Compare vectors using ==
+}
