@@ -1,10 +1,10 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
 bool issame(int a, int b) {
+    vector<string> result;
     if (a == b) {
         return true;
     } else {
@@ -12,19 +12,19 @@ bool issame(int a, int b) {
     }
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
+vector<string> by_length(vector<int> arr) {
+    vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(num);
         }
     }
     
-    std::sort(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
     
-    std::reverse(numbers.begin(), numbers.end());
+    reverse(numbers.begin(), numbers.end());
     
-    std::vector<std::string> result;
+    vector<string> result;
     for (int num : numbers) {
         switch (num) {
             case 1:
@@ -65,21 +65,21 @@ int main() {
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
 
-    std::vector<int> arr(n);
+    vector<int> arr(n);
 
     for(int i =0 ;i<n;i++){
         cin>>arr[i];
     }
 
-    std::cout<<"The numbers are : "<<std::endl;
+    cout<<"The numbers are : "<<endl;
     for(int i = 0; i <n; i++) {
-        std::cout<<arr[i]<<" ";
-    }std::cout<<std::endl;
+        cout<<arr[i]<<" ";
+    }cout<<endl;
 
-    std::vector<std::string> res = by_length(arr);
-    std::cout << "Output: ";
-    for (const auto& s : res) {
-        std::cout << s << " ";
+    vector<string> res = by_length(arr);
+    cout << "Output: ";
+    for (string s : res) {
+        cout << s << " ";
     }
     return 0;
 }
