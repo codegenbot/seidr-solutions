@@ -5,22 +5,16 @@
 #include <set>
 #include <cassert>
 
-bool issame(const std::vector<int> &a, const std::vector<int> &b) {
-    std::vector<int> a_sorted = a;
-    std::sort(a_sorted.begin(), a_sorted.end());
-
-    std::vector<int> b_sorted = b;
-    std::sort(b_sorted.begin(), b_sorted.end());
-
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
     std::vector<int> result;
-    std::set_intersection(a_sorted.begin(), a_sorted.end(), b_sorted.begin(), b_sorted.end(), std::back_inserter(result));
+    std::set_intersection(a.begin(), a.end(), b.begin(), b.end(), std::back_inserter(result));
     result.erase(std::unique(result.begin(), result.end()), result.end());
-
     return result.empty();
 }
 
 int main() {
-    assert(issame({4, 3, 2, 8}, {}) == true);
-
+    assert(issame(std::vector<int>{4, 3, 2, 8}, std::vector<int>{}) == true);
     return 0;
 }
