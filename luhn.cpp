@@ -1,22 +1,24 @@
-```cpp
+```
 #include <vector>
-
 int luhn(const std::vector<int>& cardNumber) {
+    if(cardNumber.size() != 16){
+        throw std::invalid_argument("Invalid credit card number. The length must be 16.");
+    }
     int sum = 0;
     bool doubleNext = false;
 
-    for (int i = cardNumber.size() - 1; i > 0; --i) {
-        if (i % 2 != 0 || !doubleNext) {
-            sum += cardNumber[i-1];
-        } else {
-            int digit = cardNumber[i-1] * 2;
+    for (int i = cardNumber.size() - 1; i >= 0; --i) {
+        int digit = cardNumber[i];
+
+        if ((cardNumber.size() % 2 == 0 && i % 2 != 0) || (cardNumber.size() % 2 != 0 && i % 2 == 0)) { 
+            digit *= 2;
             if (digit > 9) {
                 digit -= 9;
             }
-            sum += digit;
-            doubleNext = true;
         }
+
+        sum += digit;
     }
 
-    return sum % 10 == 0 ? 0 : -1; // Return 0 if valid, and -1 if invalid
+    return sum;
 }
