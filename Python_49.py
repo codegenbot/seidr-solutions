@@ -3,12 +3,12 @@ def modp(n: int, p: int):
         if a == 0:
             return b, 0, 1
         else:
-            gcd, x, y = extended_euclidean(b % a, a)
-            return gcd, y, x - (b // a) * y
+            gcd, y, x = extended_euclidean(b % a, a)
+            return gcd, x - (b // a) * y, y
 
-    gcd, _, _ = extended_euclidean(p, p)
-    if (p - 1) % gcd == 0:
-        inv_p = 1
+    _, x, _ = extended_euclidean(p, p)
+    if (p - 1) % x == 0:
+        inv_p = x
     else:
         raise ValueError(f"{p} is not invertible modulo {p}")
     return pow(n, inv_p, p)
