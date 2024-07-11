@@ -1,5 +1,3 @@
 def fruit_distribution(s, n):
-    s = s.replace("apples and", "apples ").replace("oranges", "oranges ")
-    apples = int(s.split()[1].split(" ")[0])
-    oranges = int(s.split()[3].split(" ")[0])
-    return n - apples - oranges
+    s = s.replace("apples", "0").replace("oranges", "0")
+    return n - sum(int(x) for x in re.findall("[0-9]+", s))
