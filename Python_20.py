@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```
 Problem: Write a function that finds two elements in a sorted array that have values closest to a given target value.
 
 def find_closest_elements(arr, target):
