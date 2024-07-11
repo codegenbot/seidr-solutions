@@ -1,3 +1,6 @@
+from typing import List
+
+
 def rescale_to_unit(numbers: List[float]) -> List[float]:
     if len(numbers) < 2:
         return []
@@ -11,9 +14,7 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
 
 
 # Read input from user
-numbers = [
-    float(x) for x in input("Enter a list of numbers separated by spaces: ").split()
-]
+numbers = [float(x) for x in input("Enter numbers separated by space: ").split()]
 # Call the function with user input
-output = rescale_to_unit(numbers)
-print(output)
+result = rescale_to_unit(numbers)
+print(result)
