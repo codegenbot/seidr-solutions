@@ -7,23 +7,15 @@ def parse_music(music_string: str) -> List[int]:
     result = []
     note = ''
     for char in music_string:
-        if char in ['o', '.']:
+        if char == 'o' or char == '.':
             note += char
-        elif note and (note[0] == 'o' or note[-1] == '.'):
-            if len(note) == 3:
-                result.append(beats[0])
-            elif len(note) == 2:
-                result.append(beats[1])
-            else:
-                result.append(beats[2])
-            note = ''
         else:
-            pass
-    if note and (note[0] == 'o' or note[-1] == '.'):
-        if len(note) == 3:
-            result.append(beats[0])
-        elif len(note) == 2:
-            result.append(beats[1])
-        else:
-            result.append(beats[2])
+            if note:
+                if len(note) == 1:
+                    result.append(beats[0])
+                elif len(note) == 2:
+                    result.append(beats[1])
+                else:
+                    result.append(beats[2])
+                note = ''
     return result
