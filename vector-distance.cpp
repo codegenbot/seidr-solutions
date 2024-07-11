@@ -6,19 +6,19 @@ int main() {
     double n;
     std::cin >> n;
     std::vector<double> vec1(n);
-    for (int i = 0; i < n; ++i) {
+    for (double i = 0; i < n; ++i) {
         std::cin >> vec1[i];
     }
 
     double m;
     std::cin >> m;
     std::vector<double> vec2(m);
-    for (int i = 0; i < m; ++i) {
+    for (double i = 0; i < m; ++i) {
         std::cin >> vec2[i];
     }
 
     double sum = 0.0;
-    for (int i = 0; i < n; ++i) {
+    for (double i = 0; i < n; ++i) {
         sum += std::pow(vec1[i] - vec2[i], 2);
     }
 
