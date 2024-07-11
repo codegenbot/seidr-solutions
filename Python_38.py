@@ -14,9 +14,11 @@ def decode_cyclic(s: str):
                     else:
                         result.append(temp[1:] + temp[0])
                 else:
-                    if len(temp) % 3 == 1 and temp[0] in result[-1]:
+                    if len(temp) % 3 == 1 and temp[0] == result[-1]:
                         result.append(temp[1:] + temp[0])
-                    elif temp[0] != "": 
-                        result.append(temp)
-                    temp = ""
-    return "".join(result).strip("(")")
+                    else:
+                        result.append(temp[1:])
+            temp = ""
+    if temp: 
+        result.append(temp)
+    return "".join(result)
