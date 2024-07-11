@@ -1,15 +1,13 @@
-````
 #include <iostream>
 #include <iomanip>
-using namespace std;
 
 double probability(int n, int m);
 
 int main() {
     int n, m;
-    cin >> n >> m;
+    std::cin >> n >> m;
     double result = probability(n, m);
-    cout << fixed << setprecision(2) << result << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << result << std::endl;
 }
 
 double probability(int n, int m) {
@@ -18,4 +16,3 @@ double probability(int n, int m) {
     else
         return static_cast<double>(m + 1) / n;
 }
-```
