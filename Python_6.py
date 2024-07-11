@@ -9,7 +9,6 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             stack.append(1)
         elif char == ')':
             if stack:
-                stack.pop()
-            else:
-                stack.append(0)
-    return [i for i, _ in enumerate(stack) if _]
+                result.append(stack.pop())
+    return [x + 1 for x in reversed(result)]
+```
