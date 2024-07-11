@@ -9,17 +9,17 @@ def separate_paren_groups(paren_string: str) -> list[str]:
         elif temp == "":
             temp += char
         else:
-            if char == "(" and not temp.startswith("("):
-                result.append(temp + "(")
-                temp = ""
-            elif char == ")" and not temp.endswith(")"):
-                while temp and temp[-1] != "(":
+            if char == "(" and (temp and temp[-1] == ")"):
+                if temp:
                     result.append(temp)
-                    temp = temp[:-1]
-                result.append("(" + temp + ")")
-                temp = ""
-            else:
-                temp += char
+                temp = "( "
+            elif char == ")" and not temp.startswith("( "):
+                temp += ")"
+                while temp and temp[0] != "( ":
+                    result.append("(" + temp[:4])
+                    temp = temp[4:]
+        else:
+            temp += char
     if temp != "":
         result.append(temp)
     return result
