@@ -1,6 +1,6 @@
 def factorize(n: int) -> List[int]:
-    i = 2
     factors = []
+    i = 2
     while i * i <= n:
         if n % i:
             i += 1
