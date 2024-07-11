@@ -1,10 +1,7 @@
-```
-from typing import List, Optional
-
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
-        return ''
-    
+        return None
+
     max_len = 0
     result = None
 
@@ -13,4 +10,4 @@ def longest(strings: List[str]) -> Optional[str]:
             max_len = len(s)
             result = s
 
-    return result
+    return result if max_len != 0 else None
