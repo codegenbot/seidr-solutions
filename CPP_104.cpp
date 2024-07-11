@@ -12,7 +12,7 @@ std::vector<int> unique_digits(std::vector<int> x){
         bool hasEvenDigit = false;
         int temp = num;
         while (temp > 0) {
-            if (temp % 2 == 0 || temp % 10 == 0) {
+            if (temp % 2 != 0) {
                 hasEvenDigit = true;
                 break;
             }
