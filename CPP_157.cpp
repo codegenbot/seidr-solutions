@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 bool right_angle_triangle(float a, float b, float c) {
@@ -18,3 +17,4 @@ int main() {
         cout << "The triangle is right-angled." << endl;
     else
         cout << "The triangle is not right-angled." << endl;
+}
