@@ -1,15 +1,16 @@
-```
-def modp(n: int, p: int):
-    def extended_euclidean(a: int, b: int) -> (int, int):
-        if a == 0:
-            return b, 0, 1
-        else:
-            gcd, y, x = extended_euclidean(b % a, a)
-            return gcd, x - (b // a) * y, y
-
-    _, x, _ = extended_euclidean(p, p)
-    if (p - 1) % x == 0:
-        inv_p = x
+```Python
+def extended_gcd(a, b):
+    if a == 0:
+        return b, 0, 1
     else:
-        raise ValueError(f"{p} is not invertible modulo {p}")
-    return pow(n, inv_p, p)
+        gcd, x, y = extended_gcd(b % a, a)
+        return gcd, y - (b // a) * x, x
+
+def modp(n: int, p: int):
+    gcd_p, inv_p, _ = extended_gcd(p, p)
+    if gcd_p == 1:
+        return pow(n, inv_p, p)
+    else:
+        return None
+
+print(modp(31, 5))
