@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <bitset>
 
 std::string solve(int N) {
@@ -11,6 +12,6 @@ std::string solve(int N) {
 }
 
 int main() {
-    std::cout << solve(963) << std::endl;
+    assert(solve(963) == "10010");
     return 0;
 }
