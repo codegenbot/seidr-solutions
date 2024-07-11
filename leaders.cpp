@@ -1,5 +1,6 @@
 #include <vector>
-#include <algorithm> // Add this line for reverse function
+#include <algorithm>
+
 using namespace std;
 
 vector<int> findLeaders(vector<int> nums) {
