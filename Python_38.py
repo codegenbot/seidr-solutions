@@ -1,4 +1,3 @@
-```
 def encode_cyclic(s: str):
     if len(s) < 3:
         return s
@@ -14,7 +13,7 @@ def encode_cyclic(s: str):
 
 def decode_cyclic(s: str):
     if len(s) % 3 != 0:
-        return ""
+        return 
     result = ""
     i = 0
     while i < len(s):
