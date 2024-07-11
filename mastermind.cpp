@@ -17,14 +17,17 @@ int blackPegs(string code, string guess) {
     vector<char> codeArray(code.begin(), code.end());
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
-            code.replace(i, 1, "x");
-        }
-    }
-    for (int i = 0; i < 4; i++) {
-        vector<char>::iterator it = find(codeArray.begin(), codeArray.end(), guess[i]);
-        if (it != codeArray.end()) {
-            count++;
-            codeArray.erase(it);
+            code.erase(i, 1);
+            i--;
+        } else {
+            for (int j = 0; j < 6; j++) {
+                vector<char>::iterator it = find(codeArray.begin(), codeArray.end(), 'ABCDEF'[j]);
+                if (it != codeArray.end()) {
+                    count++;
+                    codeArray.erase(it);
+                    break;
+                }
+            }
         }
     }
     return count;
