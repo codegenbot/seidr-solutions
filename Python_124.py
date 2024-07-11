@@ -1,4 +1,3 @@
-```
 def valid_date(date):
     day, month, year = date.split('-')
     if len(date) != 10 or not all(part.isdigit() for part in date.split('-')):
