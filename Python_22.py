@@ -2,4 +2,5 @@ from typing import List, Any
 
 
 def filter_integers(values: List[Any]) -> list:
-    return [value for value in values if isinstance(value, int)]
+    values = input("Enter comma-separated integers (or any other data type): ").split(",")
+    return [value for value in map(lambda x: int(x) if x else None, values) if isinstance(int(value), int)]
