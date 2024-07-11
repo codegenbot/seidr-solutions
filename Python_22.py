@@ -1,12 +1,15 @@
-```Python
-def filter_integers(values: list) -> list:
-    return [value for value in values if isinstance(value, int)]
+```
+from typing import Any
 
-
-def calculate_average_value(values: list) -> float:
+def calculate_average_value(values: list[Any]) -> float:
     if not values:
         return 0
-    return sum(filter_integers(values)) / len(filter_integers(values))
+    average = sum(filter_integers(values)) / len(values)
+    return round(average, 2)
+
+
+def filter_integers(lst: list[int]) -> list[int]:
+    return [x for x in lst if isinstance(x, int)]
 
 
 user_input = input("Please enter some values (separated by spaces): ")
@@ -17,4 +20,4 @@ except ValueError as e:
     values = []
 if values:
     average_value = calculate_average_value(values)
-    print(f"The average value is {average_value:.2f}.")
+    print(f"The average value is {average_value}.")
