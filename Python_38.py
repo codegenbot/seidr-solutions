@@ -1,7 +1,5 @@
-s = input()
-
-
-def decode_cyclic(s: str):
+```
+def decode_cyclic(s):
     cyclic_map = {
         "abc": "1",
         "edf": "2",
@@ -37,4 +35,4 @@ def decode_cyclic(s: str):
     return result
 
 
-print(decode_cyclic(s))
+print(decode_cyclic(input("Enter a string: ")))
