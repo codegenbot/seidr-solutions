@@ -1,13 +1,11 @@
-bool issame(string s1, string s2) {
-    int count = 0;
-    for (int i = 0; i < min(s1.length(), s2.length()); i++) {
-        if (s1[i] == s2[i]) {
-            count++;
-        } else {
-            break;
+bool issame(const string& s1, const string& s2) {
+    vector<char> v1(s1), v2(s2);
+    for (int i = 0; i < s1.length(); i++) {
+        if (v1[i] != v2[i]) {
+            return false;
         }
     }
-    return count > 0;
+    return true;
 }
 
 vector<string> sorted_list_sum(vector<string> lst) {
