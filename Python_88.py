@@ -2,10 +2,8 @@
 def sort_array(array):
     if len(array) == 0:
         return array
-    total = array[0] + array[-1]
-    sorted_array = array.copy()
-    if total % 2 != 0:
-        sorted_array.sort()
+    sum_first_last = array[0] + array[-1]
+    if sum_first_last % 2 != 0:
+        return sorted(array)
     else:
-        sorted_array.sort(reverse=True)
-    return sorted_array
+        return sorted(array, reverse=True)
