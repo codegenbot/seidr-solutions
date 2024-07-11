@@ -1,20 +1,30 @@
 def decode_shift():
     while True:
-        s = input("Enter the encoded string (format: '25-' or '26-'): ")
-        if s.startswith("25-") or s.startswith("26-"):
+        cont = input("Do you want to decode a string? (yes/no): ")
+        if cont.lower() == "yes":
             break
+        elif cont.lower() == "no":
+            return
         else:
-            print(
-                "Invalid input. Please enter a string that starts with '25-' or '26-'."
-            )
+            print("Invalid input. Please enter 'yes' or 'no'.")
 
     while True:
-        if s.startswith("25-"):
+        encoding_type = input("Enter the type of encoding ('25-' for Caesar Cipher, '26-' for Vigenere Cipher): ")
+        if encoding_type == "25-":
+            s = input("Enter the encoded string: ")
             shift = int(s[3:])
             s = s[4:]
-        elif s.startswith("26-"):
-            shift = int(input(f"Enter the shift value: "))
-            s = s[4:]
+        elif encoding_type == "26-":
+            while True:
+                try:
+                    shift = int(input(f"Enter the shift value: "))
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter a valid integer.")
+            s = input("Enter the encoded string: ")
+        else:
+            print("Invalid input. Please enter '25-' or '26-'.")
+            return
 
         result = ""
         for ch in s:
@@ -25,8 +35,13 @@ def decode_shift():
             else:
                 result += ch
 
-        print("Decoded string: ", result)
+        print(f"Decoded string: {result}")
 
-        cont = input("Do you want to decode another string? (yes/no): ")
-        if cont.lower() != "yes":
-            break
+        while True:
+            cont = input("Do you want to decode another string? (yes/no): ")
+            if cont.lower() == "yes":
+                break
+            elif cont.lower() == "no":
+                return
+            else:
+                print("Invalid input. Please enter 'yes' or 'no'."
