@@ -1,4 +1,8 @@
 ```
+def is_valid_fraction(fraction):
+    parts = fraction.split("/")
+    return len(parts) == 2 and all(part.strip().isdigit() for part in parts)
+
 while True:
     x = input("Enter the fraction x (in the format 'a/b'): ")
     n = input("Enter the fraction n (in the format 'a/b'): ")
@@ -9,8 +13,8 @@ while True:
     while not is_valid_fraction(n):
         n = input("Invalid input. Enter the fraction n (in the format 'a/b'): ")
 
-    x_num, x_denom = map(int, x.split('/'))
-    y_num, y_denom = map(int, n.split('/'))
+    x_num, x_denom = map(int, x.split("/"))
+    y_num, y_denom = map(int, n.split("/"))
 
     if x_denom == 0 or y_denom == 0:
         print("Error: Division by zero is not allowed")
