@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     score = 0
     frames = frames.replace("-", "/").split("/")
@@ -5,11 +6,11 @@ def bowling_score(frames):
         if f == "X":
             score += 10
             if i < len(frames) - 1:
-                score += int(flatten(f).lstrip("0")) if flatten(f).else 0
+                score += int(f"{f[1:]}" or 0)
         elif f.strip() == "":
             score += 10
             if i < len(frames) - 1:
-                score += int(frames[i + 1])
+                score += int(f"{frames[i + 1]}" or 0)
         else:
             rolls = [int(roll) for roll in f.split(" ")]
             if sum(rolls) == 10:
@@ -17,8 +18,3 @@ def bowling_score(frames):
             else:
                 score += sum(rolls)
     return score
-
-def flatten(f):
-    while "" in f and len(f) > 0:
-        f = f.replace("", "0")
-    return f
