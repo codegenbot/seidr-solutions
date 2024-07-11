@@ -1,1 +1,1 @@
-assert(issame("Jupiter", "Makemake").empty());
+assert(issame("Jupiter", "Neptune").empty());
