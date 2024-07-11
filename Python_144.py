@@ -1,4 +1,5 @@
 ```
+```
 import math
 
 
@@ -49,3 +50,4 @@ while True:
             simplified_sum_num = sum_num // common_divisor
             simplified_sum_denom = sum_denom // common_divisor
             print(f"Sum: {simplified_sum_num}/{simplified_sum_denom}")
+```
