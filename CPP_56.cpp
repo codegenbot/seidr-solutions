@@ -1,12 +1,13 @@
-int count = 0;
-    for (char c : brackets) {
-        if (c == '<') {
+bool correct_bracketing(string brackets){
+    int count = 0;
+    for (char bracket : brackets) {
+        if (bracket == '<') {
             count++;
-        } else if (c == '>') {
-            if (count == 0) {
+        } else if (bracket == '>') {
+            count--;
+            if (count < 0) {
                 return false;
             }
-            count--;
         }
     }
     return count == 0;
