@@ -6,7 +6,7 @@ using namespace std;
 int main() {
     vector<int> digits(16);
     for (int i = 0; i < 16; ++i) {
-        cin >> digits[i];
+        std::cin >> digits[i];
     }
     
     int sum = 0;
@@ -19,7 +19,7 @@ int main() {
         }
     }
     
-    cout << sum << endl;
+    std::cout << sum << std::endl;
     
     return 0;
 }
