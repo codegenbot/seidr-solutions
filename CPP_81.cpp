@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -34,13 +35,13 @@ int main() {
     assert(issame(numerical_letter_grade(grades), {"E", "D-"}));
     for (float g : grades) {
         if (g == 0) {
-            std::cout << "No grades found." << std::endl;
+            cout << "No grades found." << endl;
             return 0;
         }
     }
-    vector<string> result = numerical_letter_grade(grades);
-    for (string s : result) {
-        std::cout << s << std::endl;
+    vector<string> letterGrade = numerical_letter_grade({1.0, 2.3, 3.7, 4.0});
+    for(string s : letterGrade){
+        cout << s << endl;
     }
     return 0;
 }
