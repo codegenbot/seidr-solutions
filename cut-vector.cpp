@@ -1,21 +1,16 @@
 #include <iostream>
-#include <vector>
-#include <climits>
-#include <cmath>
-
-using namespace std;
 
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int num;
-
-    while (cin >> num) {
+    
+    while (std::cin >> num) {
         nums.push_back(num);
     }
-
+    
     int min_diff = INT_MAX;
     int cut_idx = -1;
-
+    
     for (int i = 1; i < nums.size(); ++i) {
         int left_sum = 0, right_sum = 0;
         for (int j = 0; j < i; ++j) {
@@ -24,20 +19,20 @@ int main() {
         for (int j = i; j < nums.size(); ++j) {
             right_sum += nums[j];
         }
-        int diff = abs(left_sum - right_sum);
+        int diff = std::abs(left_sum - right_sum);
         if (diff < min_diff) {
             min_diff = diff;
             cut_idx = i;
         }
     }
-
+    
     for (int i = 0; i < cut_idx; ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
-    cout << endl;
+    std::cout << std::endl;
     for (int i = cut_idx; i < nums.size(); ++i) {
-        cout << nums[i] << endl;
+        std::cout << nums[i] << std::endl;
     }
-
+    
     return 0;
 }
