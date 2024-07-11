@@ -4,6 +4,6 @@ int my_strlen(string str) {
 }
 
 int main() {
-    assert(my_strlen("asdasnakj") == 13);
+    assert(my_strlen("asdasnakj") == 13); 
     return 0;
 }
