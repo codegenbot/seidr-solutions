@@ -1,22 +1,19 @@
 def decode_cyclic():
-    try:
-        s = input("Enter the cyclic string: ")
-        result = ""
-        i = 0
-        if len(s) <= 1:
-            return s
-        while True:
-            if i == 0:
-                group = s[i] + ''.join([s[(i+1)%len(s)], next(reversed(s[i]))]) + s[i]
-            else:
-                group = s[i%len(s)] + ''.join([s[(i-1)%len(s)], next(reversed(s[i%len(s)]))]) + s[i%len(s)]
-            if i > 0:
-                result += group[-1] + group[1:-1][::-1] + group[0]
-            else:
-                result = group
-            i = (i+1)%len(s)
-            if i == 0:
-                break
-        return result
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    s = input("Enter the cyclic string: ")
+    result = ""
+    i = 0
+    if len(s) <= 1:
+        return s
+    while True:
+        if i == 0:
+            group = s[i] + ''.join([s[(i+1)%len(s)], s[:i+1][::-1][0]]) + s[i]
+        else:
+            group = s[i%len(s)] + ''.join([s[(i-1)%len(s)], s[:i][::-1][0]]) + s[i%len(s)]
+        if i > 0:
+            result += group[-1] + group[1:-1][::-1] + group[0]
+        else:
+            result = group
+        i = (i+1)%len(s)
+        if i == 0:
+            break
+    return result
