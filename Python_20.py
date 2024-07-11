@@ -1,5 +1,5 @@
 ```
-def find_closest_elements():
+def find_closest_elements() -> (float, float):
     try:
         num_str = input("Enter a comma-separated list of numbers: ")
         numbers = [float(num) for num in num_str.split(",")]
