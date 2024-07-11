@@ -20,9 +20,9 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
     while (k > 0) {
         res.push_back(grid[i][j]);
         if (i < n - 1 && j < n - 1)
-            if ((dp[i + 1][j] <= dp[i][j + 1]) && (dp[i + 1][j] <= dp[i][j]) && (dp[i + 1][j] <= dp[i][j - 1]))
+            if (dp[i + 1][j] <= dp[i][j + 1] && dp[i + 1][j] <= dp[i][j] && dp[i + 1][j] <= dp[i][j - 1])
                 i++;
-            else if ((dp[i][j + 1] <= dp[i][j]) && (dp[i][j + 1] <= dp[i + 1][j]) && (dp[i][j + 1] <= dp[i - 1][j]))
+            else if (dp[i][j + 1] <= dp[i][j] && dp[i][j + 1] <= dp[i + 1][j] && dp[i][j + 1] <= dp[i - 1][j])
                 j++;
             else
                 j--;
