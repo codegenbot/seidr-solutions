@@ -13,13 +13,11 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 std::vector<std::vector<std::string>> sorted_list_sum(std::vector<std::string> lst) {
     std::vector<std::vector<std::string>> result;
 
-    // Remove strings with odd lengths from the list
     for (const auto& str : lst) {
         if (str.length() % 2 == 0)
             result.push_back({str});
     }
 
-    // Sort the resulted lists by length and then alphabetically
     std::sort(result.begin(), result.end(),
               [](const std::vector<std::string>& a, const std::vector<std::string>& b) {
                   if (a.size() != b.size())
