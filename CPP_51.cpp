@@ -1,11 +1,10 @@
-#include <string>
 #include <iostream>
+#include <string>
 
 std::string removeVowels() {
     std::string text;
     std::cout << "Enter a sentence: ";
     std::getline(std::cin, text);
-    text.erase(std::remove(text.rbegin(), text.rend(), '\n'), text.rend());
     std::string result = "";
     for (char c : text) {
         if (std::tolower(c) != 'a' && std::tolower(c) != 'e'
@@ -14,9 +13,4 @@ std::string removeVowels() {
             result += c; 
     }
     return result;
-}
-
-int main() {
-    std::cout << "Sentence with vowels removed: " << removeVowels() << std::endl;
-    return 0;
 }
