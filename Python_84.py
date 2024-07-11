@@ -1,3 +1,1 @@
-```
-def solve(N):
-    return ''.join(format(i, 'b').zfill(4) for i in str(N))
+return ''.join(str((N // (10 ** i)) % 2) for i in reversed(range(len(str(N)))))
