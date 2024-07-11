@@ -1,6 +1,12 @@
-```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
+
+namespace std {
+    bool operator==(const vector<int>& a, const vector<int>& b) {
+        return a == b;
+    }
+}
 
 int issame(int a, int b) {
     return (a != b);
@@ -21,6 +27,6 @@ std::vector<int> even_odd_count(int num) {
 int main() {
     std::vector<int> count = even_odd_count(0);
     int same_or_diff = (count[0] != count[1]) ? 1 : 0;
-    assert(same_or_diff == 0); // or any other desired comparison
+    assert(same_or_diff == 0); 
     return 0;
 }
