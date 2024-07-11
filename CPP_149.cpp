@@ -1,13 +1,16 @@
+Here is the completed code:
+
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto new_lst = lst;
-    new_lst.erase(remove_if(new_lst.begin(), new_lst.end(),
-        [](const string& str){ return str.length() % 2 != 0; }), new_lst.end());
-    sort(new_lst.begin(), new_lst.end(),
-        [](const string& a, const string& b) {
-            if (a.length() == b.length()) {
-                return a < b;
-            }
-            return a.length() < b.length();
-    });
-    return new_lst;
-}
+    vector<string> result;
+    for (const string& str : lst) {
+        if (str.length() % 2 == 0)
+            result.push_back(str);
+    }
+    sort(result.begin(), result.end(), 
+         [](const string& a, const string& b) {
+             if (a.length() != b.length())
+                 return a.length() < b.length();
+             else
+                 return a < b;
+         });
+    return result;
