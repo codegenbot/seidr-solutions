@@ -4,8 +4,8 @@
 
 int main() {
     std::string text, target;
-
-    if (!std::getline(std::cin, text) || !std::getline(std::cin, target)) {
+    if (!(std::getline(std::cin, text) && std::getline(std::cin, target))) {
+        std::cerr << "Error reading input." << std::endl;
         return 1;
     }
 

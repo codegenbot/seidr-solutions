@@ -10,7 +10,7 @@ vector<int> findLeaders(const vector<int>& nums) {
     int maxRight = INT_MIN;
 
     for (int i = n - 1; i >= 0; --i) {
-        if (nums[i] >= maxRight) {
+        if (nums[i] > maxRight) {
             maxRight = nums[i];
             leaders.push_back(nums[i]);
         }
@@ -28,9 +28,6 @@ int main() {
     while (cin >> num && num != 0) {
         nums.push_back(num);
     }
-
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     
     vector<int> result = findLeaders(nums);
     
