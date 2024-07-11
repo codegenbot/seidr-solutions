@@ -30,6 +30,5 @@ def get_value(bowl):
     else:
         return int(bowl)
 
-
 bowls = input()
 print(bowling_score(bowls))
