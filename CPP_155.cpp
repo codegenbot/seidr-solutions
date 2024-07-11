@@ -21,17 +21,21 @@ vector<int> even_odd_count(int num) {
         num /= 10;
     }
     result.push_back(count);
-    if(num < 0) result.push_back(-1); else result.push_back(1);
+    if(count > (abs(num)/10)) result.push_back(1);
+    else result.push_back(0);
     return result;
 }
 
 int main() {
     assert(issame(even_odd_count(0), vector<int>{1,0}));
-    int num; 
+    int num;
     cout << "Enter a number: ";
     cin >> num;
-    vector<int> output = even_odd_count(num);
-    cout << "Even count: " << output[0] << endl;
-    if(output[1] < 0) cout << "Odd part is negative." << endl; else cout << "Odd part is positive." << endl;
+    vector<int> res = even_odd_count(num);
+    cout << "Number of even digits: " << res[0] << endl;
+    if(res[1])
+        cout << "The number contains odd digits." << endl;
+    else
+        cout << "The number does not contain odd digits." << endl;
     return 0;
 }
