@@ -1,4 +1,8 @@
+```
 def decode_shift():
+    """
+    Docstring explaining your code
+    """
     s = input("Please enter a string: ")
     shift = int(input("Enter the shift value (0-25): "))
     decoded = ""
