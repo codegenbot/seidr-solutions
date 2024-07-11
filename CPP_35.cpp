@@ -1,5 +1,6 @@
 #include <vector>
 #include <cassert>
+#include <cmath>
 
 float max_element(const std::vector<float>& l) {
     float max_val = l[0];
