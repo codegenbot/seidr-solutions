@@ -1,17 +1,11 @@
-string solve(string s) {
+string solve(string s){
     string result = "";
-    for (char c : s) {
-        if (!isalpha(c)) {
-            result += c;
+    for(int i=0; i<s.size(); i++){
+        if(isalpha(s[i])){
+            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
         } else {
-            char newC = tolower(c);
-            newC = (newC == 'z' || newC == 'Z') ? toupper(newC) : tolower(newC);
-            result += newC;
+            result += s[i];
         }
     }
-    if (result.empty()) {
-        return string(1, s[0]);
-    } else {
-        return result;
-    }
+    return result;
 }
