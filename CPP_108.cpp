@@ -1,32 +1,56 @@
-int count_nums(vector<int> nums) {
+#include <iostream>
+#include <vector>
+
+int count_nums(std::vector<int> n) {
     int count = 0;
-    for (int num : nums) {
-        if (num >= 0) {
+    for (int num : n) {
+        if (num > 0) {
             int sum = 0;
-            bool hasNegative = false;
-            while (num > 0 || hasNegative) {
+            bool negative = false;
+            while (num != 0) {
                 int digit = num % 10;
                 if (digit < 0) {
-                    hasNegative = true;
+                    digit = -digit;
+                    negative = !negative;
+                }
+                sum += digit;
+                num /= 10;
+            }
+            if (!negative && sum > 0 || negative && sum >= 1) {
+                count++;
+            }
+        } else {
+            int sum = 0;
+            bool negative = true;
+            while (num != 0) {
+                int digit = num % 10;
+                if (digit < 0) {
                     digit = -digit;
                 }
                 sum += digit;
                 num /= 10;
             }
-            if (sum > 0) count++;
-        } else {
-            int sum = 0;
-            bool hasNegative = true;
-            while (num < 0 || hasNegative) {
-                int digit = -(num % 10);
-                if (digit >= 0) {
-                    hasNegative = false;
-                }
-                sum += digit;
-                num /= 10;
+            if (sum > 0) {
+                count++;
             }
-            if (sum > 0) count++;
         }
     }
     return count;
+}
+
+int main() {
+    int size;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> size;
+    
+    std::vector<int> numbers(size);
+    
+    for(int i = 0; i < size; i++) {
+        std::cout << "Enter number " << i + 1 << ": ";
+        std::cin >> numbers[i];
+    }
+    
+    int result = count_nums(numbers);
+    std::cout << "The count of positive integers is: " << result;
+    return 0;
 }
