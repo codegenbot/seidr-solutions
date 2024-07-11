@@ -1,16 +1,12 @@
-from typing import List
-
-
-def find_gcd(a: int, b: int) -> int:
-    if a == 0:
-        return abs(b)
-    elif b == 0:
-        return abs(a)
-
-    temp = 0
-    while b != 0:
-        temp = b
-        b = a % b
-        a = temp
-
-    return abs(a)
+```
+def find_primes(n: int) -> List[int]:
+    primes = []
+    for possiblePrime in range(2, n + 1):
+        isPrime = True
+        for num in range(2, math.isqrt(possiblePrime) + 1):
+            if possiblePrime % num == 0:
+                isPrime = False
+                break
+        if isPrime:
+            primes.append(possiblePrime)
+    return primes
