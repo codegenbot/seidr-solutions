@@ -1,14 +1,15 @@
-int result = -1;
-    for (int num : lst) {
-        int freq = 0;
-        for (int n : lst) {
-            if (n == num) {
-                freq++;
-            }
-        }
-        if (freq >= num && num > result) {
-            result = num;
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+int search(vector<int> lst) {
+    sort(lst.begin(), lst.end());
+    
+    for (int i = lst.size() - 1; i >= 0; --i) {
+        if (lst[i] > 0 && count(lst.begin(), lst.end(), lst[i]) >= lst[i]) {
+            return lst[i];
         }
     }
-    return result;
+    
+    return -1;
 }
