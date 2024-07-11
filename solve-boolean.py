@@ -5,7 +5,7 @@ def solve_boolean(expression):
         .replace("|", "or")
         .replace("&", "and")
     )
-    return eval("(" + replaced_expression + ")")
+    return eval(replaced_expression)
 
 
 expression = input()

@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <climits> // for INT_MAX
-#include <cmath>   // for abs
+#include <climits>
+#include <cstdlib>
+
 using namespace std;
 
 int main() {
