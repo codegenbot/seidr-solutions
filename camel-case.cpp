@@ -7,12 +7,12 @@ std::string camelCase(std::string str) {
         if (c == '-') {
             result += c;
         } else if (c == ' ') {
-            result += c;
+            continue;
         } else {
             if (!result.empty()) {
-                result[0] = toupper(result[0]);
+                result[0] -= 32; // Convert to uppercase
             }
-            result += tolower(c);
+            result += c;
         }
     }
     return result;
