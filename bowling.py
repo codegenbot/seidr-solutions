@@ -1,42 +1,22 @@
 ```
-def bowling_score(games):
+def bowling_score(s):
     score = 0
-    frame = 1
-    for char in games + 'X':
-        if char.isdigit():
-            count = int(char)
-            while count > 0 and frame < 10:
-                if count >= 2:
-                    score += 10
-                    frame += 1
-                    count -= 2
+    rolls = s.split('/')
+    for i in range(10):
+        if len(rolls[i]) == 1 or (len(rolls) > i+1 and len(rolls[i+1]) == 1):
+            if len(rolls[i]) == 1:
+                score += 10
+            else:
+                score += int(rolls[i])
+        elif len(rolls[i]) == 2:
+            roll = sum(map(int, rolls[i]))
+            if i < 8 and (len(rolls) > i+1 and len(rolls[i+1]) in [1, 2]):
+                if sum(map(int, rolls[i:i+2])) == 10:
+                    score += roll + int(rolls[i+1])
                 else:
-                    score += count
-                    frame += 1
-                    count = 0
-            if frame == 10:
-                break
-        elif char == 'X':
-            if frame < 9:
-                score += 10
-                frame += 1
-            else:
-                score += 10
-                while frame < 10 and games[frames.index(char) - 1].isdigit():
-                    count = int(games[frames.index(char) - 1])
-                    while count > 0 and frame < 10:
-                        if count >= 2:
-                            score += 10
-                            frame += 1
-                            count -= 2
-                        else:
-                            score += count
-                            frame += 1
-                            count = 0
-        elif char == '/':
-            count = int(games[:games.index(char)].count('X')) + int(games[:games.index(char)].count(str(int(games[:games.index(char)]) - 10)))
-            if count >= 10:
-                score += 10
-            else:
-                score += count
+                    score += roll
+            elif roll < 10:
+                score += roll
+        else:
+            score += int(rolls[i]) * 2
     return score
