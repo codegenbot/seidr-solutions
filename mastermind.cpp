@@ -14,18 +14,19 @@ int whitePegs(string code, string guess) {
 }
 
 int blackPegs(string code, string guess) {
-    vector<char> codeArray(code.begin(), code.end());
     int count = 0;
+    vector<char> codeArray(code.begin(), code.end());
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
             codeArray[i] = '0';
         }
     }
     for (int i = 0; i < 4; i++) {
-        char c = guess[i];
-        auto it = remove(codeArray.begin(), codeArray.end(), c) - codeArray.begin();
-        codeArray.erase(it, codeArray.end());
-        if (it != codeArray.begin()) count++;
+        vector<char>::iterator it = find(codeArray.begin(), codeArray.end(), guess[i]);
+        if (it != codeArray.end()) {
+            count++;
+            codeArray.erase(it);
+        }
     }
     return count;
 }
@@ -33,8 +34,14 @@ int blackPegs(string code, string guess) {
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int black = 4 - whitePegs(code, guess);
+    int white = whitePegs(code, guess);
+    int black = 0;
+    for(int i = 0; i < 4; i++) {
+        if(guess[i] == code[i]) {
+            black++;
+        }
+    }
     cout << black << endl;
-    cout << whitePegs(code, guess) << endl;
+    cout << white << endl;
     return 0;
 }
