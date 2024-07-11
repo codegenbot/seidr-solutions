@@ -1,3 +1,4 @@
+```
 def check():
     num_terms = int(input("Enter the number of terms: "))
     i = 1
@@ -14,3 +15,6 @@ def check():
         print("The sum of cubes is less than 1 million.")
     else:
         print("The sum of cubes exceeds 1 million.")
+
+
+check()
