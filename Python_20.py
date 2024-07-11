@@ -1,3 +1,4 @@
+```
 def find_closest_elements():
     numbers = list(map(float, input("Enter space-separated numbers: ").split()))
     numbers.sort()
@@ -11,3 +12,5 @@ def find_closest_elements():
             closest_pair = (numbers[i], numbers[i+1])
 
     return closest_pair
+
+print(find_closest_elements())
