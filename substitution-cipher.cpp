@@ -1,22 +1,19 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cctype>
 
 std::string substitutionCipher(const std::string& cipherMap, const std::string& input) {
     std::string output;
     for (char c : input) {
+        char newChar = '\0';
         if (c >= 'a' && c <= 'z') {
             int index = tolower(c) - 'a';
-            char newChar = cipherMap[index];
-            output += newChar;
+            newChar = cipherMap[index];
         } else if (c >= 'A' && c <= 'Z') {
             int index = tolower(c) - 'a';
-            char newChar = cipherMap[index];
-            output += newChar;
-        } else {
-            output += c;
+            newChar = cipherMap[index] + ('A' - 'a');
         }
+        output += (newChar == '\0') ? c : newChar;
     }
     return output;
 }
@@ -26,3 +23,4 @@ int main() {
     std::cin >> cipherMap >> input;
     std::cout << substitutionCipher(cipherMap, input) << std::endl;
     return 0;
+}
