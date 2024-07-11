@@ -1,4 +1,4 @@
-#include <string> // Required header for std::to_string
+#include <string>
 #include <iostream>
 #include <cassert>
 
@@ -17,14 +17,14 @@ void solve_problem() {
 
     if (base != 0 && x >= 0) {
         std::string result = change_base(x, base);
-        assert(change_base(x, std::to_string(x + 1)) == std::to_string(x)); // Updated assert statement
+        assert(change_base(x, std::to_string(x + 1)) == std::to_string(x));
         std::cout << "Result: " << result << std::endl;
     } else {
         std::cout << "Invalid input!" << std::endl;
     }
 }
 
-int main() { // Updated main function signature
+int main() {
     solve_problem();
     return 0;
 }
