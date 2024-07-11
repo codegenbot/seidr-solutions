@@ -1,4 +1,4 @@
-```python
+```
 def product_of_signs(arr):
     result = 1
     has_zero = False
