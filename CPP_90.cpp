@@ -1,11 +1,12 @@
-Here is the completed function:
+Here is the completed code:
 
-int next_smallest(vector<int> lst) {
-    vector<int> v = lst;
-    if(v.size() < 2) return -1; // or any other value that represents None
-    sort(v.begin(), v.end());
-    for(int i=1; i<v.size(); i++) {
-        if(v[i] != v[0]) return v[i];
+int next_smallest(vector<int> lst){
+    if(lst.empty()) return 0; // Return None
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    for(int i=1;i<sorted.size();i++){
+        if(sorted[0] != sorted[i])
+            return sorted[i];
     }
-    return -1; // or any other value that represents None
+    return 0; // Return None
 }
