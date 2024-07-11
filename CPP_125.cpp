@@ -40,9 +40,9 @@ vector<string> split_words(string txt) {
         }
     }
     return result;
+}
 
 int main() {
-    // Test cases
     string test1 = "Hello world!";
     vector<string> result1 = split_words(test1);
     for (string s : result1) {
