@@ -1,12 +1,3 @@
-```
-def check_brackets():
-    expression = input("Enter an expression: ")
-    result = check_brackets(expression)
-    if result:
-        print("Correct Braketting")
-    else:
-        print("Incorrect Braketting")
-
 def check_brackets(expression):
     stack = []
     for char in expression:
@@ -19,4 +10,5 @@ def check_brackets(expression):
                 return False
     return len(stack) == 0
 
-check_brackets()
+expression = "(a + b) * (c - d)"
+print(check_brackets(expression))
