@@ -1,9 +1,4 @@
-```cpp
-#include <iostream>
-#include <vector>
-using namespace std;
-
-int skjkasdkd(vector<int> lst){
+int maxPrimeSum(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
@@ -23,10 +18,4 @@ bool isPrime(int n) {
         if (n % i == 0) return false;
     }
     return true;
-}
-
-int main() {
-    assert(skkkasdkd({127, 97, 8192}) == 10);
-    cout << "Hello World!" << endl;
-    return 0;
 }
