@@ -1,15 +1,16 @@
+```cpp
 #include <string>
+#include <iostream>
 
 std::string fizzBuzz(int x) {
-    std::string result;
     if (x % 15 == 0)
         return "FizzBuzz";
+    else if (x % 5 == 0)
+        return x % 3 == 0 ? "Fizz" : "Buzz";
     else if (x % 3 == 0)
         return "Fizz";
-    else if (x % 5 == 0)
-        return "Buzz";
     else
-        return std::move(std::to_string(x));
+        return std::to_string(x);
 }
 
 int main() {
