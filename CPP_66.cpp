@@ -13,9 +13,13 @@ int digitSum(std::string s) {
 }
 
 int main() {
-    char input[1000]; 
+    std::string input;
     std::cout << "Enter a string: ";
-    std::cin.getline(input, 1000); 
+    std::getline(std::cin, input);
+    // Check if the last character of the string is a newline
+    if (input.back() == '\n') {
+        input.pop_back();
+    }
     int result = digitSum(input);
     std::cout << "The sum of digits is: " << result << std::endl;
     return 0;
