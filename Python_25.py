@@ -1,3 +1,4 @@
+```
 from typing import List
 import math
 
@@ -29,14 +30,8 @@ def factorize():
         print(f"Error: {e}")
 
 
-def main():
-    try:
-        result = factorize()
-        if result:
-            print("Prime factors are:", *result, sep=", ")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-
 if __name__ == "__main__":
-    main()
+    try:
+        print(factorize())
+    except ValueError as e:
+        print(f"Error: {e}")
