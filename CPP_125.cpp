@@ -3,10 +3,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(string a, string b);
-
-vector<string> split_words(string txt);
-
 bool issame(string a, string b) {
     if (a.size() != b.size()) {
         return false;
@@ -17,6 +13,12 @@ bool issame(string a, string b) {
         }
     }
     return true;
+}
+
+vector<string> split_words(string txt);
+
+int main() {
+    assert(issame(split_words(""), {"0"}));
 }
 
 vector<string> split_words(string txt) {
@@ -45,8 +47,4 @@ vector<string> split_words(string txt) {
         words.push_back(to_string(count));
     }
     return words;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
 }
