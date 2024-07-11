@@ -1,26 +1,12 @@
-```
-from typing import List, Tuple
+def find_closest_elements(nums):
+    nums.sort()
+    closest_pair = (nums[0], nums[1])
+    min_diff = abs(nums[1] - nums[0])
 
-def find_closest_elements(nums: List[int], target: int) -> Tuple[int, int]:
-    left = 0
-    right = len(nums) - 1
-    closest_pair = (nums[left], nums[right])
-    closest_diff = abs(target - nums[left]) + abs(target - nums[right])
-
-    while left <= right:
-        if abs(target - nums[left]) <= abs(target - nums[right]):
-            if target - nums[left] > 0:
-                right -= 1
-            else:
-                left += 1
-        else:
-            if target - nums[right] > 0:
-                left += 1
-            else:
-                right -= 1
-
-        if abs(target - nums[left]) + abs(target - nums[right]) < closest_diff:
-            closest_pair = (nums[left], nums[right])
-            closest_diff = abs(target - nums[left]) + abs(target - nums[right])
+    for i in range(1, len(nums) - 1):
+        diff = nums[i+1] - nums[i]
+        if diff < min_diff:
+            min_diff = diff
+            closest_pair = (nums[i], nums[i+1])
 
     return closest_pair
