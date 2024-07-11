@@ -9,6 +9,7 @@ bool isPrime(int n) {
             return false;
     }
     return true;
+
 }
 
 bool prime_length(string str) {
