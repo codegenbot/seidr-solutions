@@ -2,12 +2,14 @@
 #include <string>
 #include <cassert>
 
-vector<int> even_odd_count(int num);
-
 bool issame(vector<int> a, vector<int> b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-       if(a[i] != b[i]) return false;
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
     }
     return true;
 }
@@ -26,6 +28,6 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    // Main function implementation
+    // Test code here
     return 0;
 }
