@@ -1,5 +1,4 @@
-```
-def add(x: int, y: int) -> int:
+def add() -> None:
     try:
         num1 = int(input("Enter first number: "))
         num2 = int(input("Enter second number: "))
