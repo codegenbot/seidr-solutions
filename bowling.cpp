@@ -10,23 +10,30 @@ int score(string s) {
         if (s[i] == '/') {
             total += 10 - (s[i - 1] - '0');
             total += (i + 1 < s.size()) ? (s[i + 1] == 'X' ? 10 : (s[i + 1] - '0')) : 0;
-            if (frame < 9 && i + 1 < s.size()) {
+            if (frame < 9) {
                 i++; // Skip next character
             }
             frame++;
         } else if (s[i] == 'X') {
             total += 10;
-            if (frame < 9 && i + 2 < s.size()) {
-                total += (s[i + 1] == 'X') ? 10 : (s[i + 1] - '0');
-                total += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
+            if (frame < 9) {
+                if (i + 2 < s.size()) {
+                    total += (s[i + 1] == 'X') ? 10 : (s[i + 1] - '0');
+                    if (s[i + 1] == 'X' && s[i + 2] == 'X') {
+                        total += 10; // Handle double strike
+                    } else {
+                        total += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
+                    }
+                }
             }
             frame++;
         } else if (s[i] == '-') {
             total += 0;
         } else {
-            total += s[i] - '0';
+            total += (s[i] - '0') * ((i + 1 < s.size()) ? ((s[i + 1] == 'X') ? 10 : 1) : 1);
             if (frame < 9 && i + 1 < s.size() && s[i + 1] == '/') {
                 total += 10 - (s[i] - '0');
+                i++; // Skip next character
             }
         }
     }
