@@ -1,3 +1,4 @@
+```
 def paired_digits(digits):
     total = 0
     for i in range(len(digits) - 1):
