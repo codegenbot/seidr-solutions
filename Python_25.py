@@ -1,9 +1,4 @@
-```
-def calculate_factors():
-    num = int(input("Enter a number: "))
-    factors = factorize(num)
-    print("Factors of {} are {}".format(num, ', '.join(map(str, factors))))
-
+```python
 from typing import List
 import math
 
@@ -20,3 +15,7 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.append(n)
     return factors
+
+if __name__ == "__main__":
+    num = int(input("Enter a number to factorize: "))
+    print(factorize(num))
