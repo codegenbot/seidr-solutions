@@ -1,32 +1,53 @@
-```cpp
+```c++
+#include <stack>
+#include <string>
+
+bool getBoolValue(char c) {
+    if (c == 'T')
+        return true;
+    else if (c == 'F')
+        return false;
+    return false; 
+}
+
 std::string solveBoolean(std::string expression) {
-    std::string result = "True";
-    bool left = false, right = false;
-    
+    std::stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
-            if (getBoolValue(left) && getBoolValue(right)) {
-                result = "True";
-            } else {
-                result = "False";
+            while (!s.empty() && s.top() == '&') {
+                s.pop();
             }
-            left = right = false;
+            s.push('&');
         } else if (expression[i] == '|') {
-            if (getBoolValue(left) || getBoolValue(right)) {
-                result = "True";
-            } else {
-                result = "False";
+            while (!s.empty()) {
+                s.pop();
             }
-            left = right = false;
+            s.push('|');
         } else {
-            bool value = getBoolValue(expression[i]);
-            if (value) {
-                left = right = true;
-            } else {
-                left = right = false;
-            }
+            s.push(expression[i]);
         }
     }
-    
+
+    std::string result = "";
+    bool left = false, right = false;
+    while (!s.empty()) {
+        char c = s.top();
+        s.pop();
+        if (c == '&') {
+            if(getBoolValue(s.top())) return "True";
+            else return "False";
+        } else if (c == '|') {
+            if(getBoolValue(s.top())) return "True";
+            else return "False";
+        } else {
+            result = (getBoolValue(c)) ? "True" : "False";
+        }
+    }
+
     return result;
+}
+
+int main() {
+    std::cout << solveBoolean("T&T") << std::endl;  // Example usage
+    return 0;
 }
