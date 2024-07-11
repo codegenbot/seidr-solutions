@@ -1,7 +1,7 @@
 #include <vector>
 #include <cmath>
 
-double poly(std::vector<double> coefficients, double x) {
+double poly(vector<double> coefficients, double x) {
     double result = 0.0;
     for (int i = 0; i < coefficients.size(); ++i) {
         result += coefficients[i] * pow(x, i);
@@ -16,7 +16,7 @@ double find_zero(std::vector<double> coeffs){
 }
 
 int main() {
-    std::vector<double> coeffs = {1, -1, 1}; // Example coefficients for ax^2 - x + 1
+    std::vector<double> coeffs = {1, -1, 1};
     double solution = find_zero(coeffs);
     assert (std::abs(poly(coeffs, solution)) < 1e-3);
     
