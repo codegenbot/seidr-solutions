@@ -1,4 +1,3 @@
-```
 def add(x, y):
     return x + y
 
@@ -14,14 +13,12 @@ while True:
         y = int(input("Enter second number: "))
         if y < 0:
             print("Please enter a positive number.")
-        break
+        else:
+            break
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
 
 try:
-    if isinstance(x, int) and isinstance(y, int):
-        print(add(x, y))
-    else:
-        print("Expected input types not matched.")
-except TypeError as e:
-    print(e)
+    print(add(x, y))
+except TypeError:
+    print("Expected input types not matched.")
