@@ -7,12 +7,11 @@ def string_to_md5(text):
     return hashlib.md5(text.encode('utf-8')).hexdigest()
 
 print("Enter 'quit' to stop.")
-
 while True:
     try:
-        text = input("\n\nEnter a string: ")
+        text = input("Enter a string: ")
         if text.lower() == "quit":
             break
         print(string_to_md5(text))
-    except ValueError:
-        print("Invalid input. Please enter a string.")
+    except ValueError as e:
+        print(f"Invalid input. Please enter a string. {e}")
