@@ -8,15 +8,15 @@ vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int pos = 0; // position in text
 
-    while (pos != -1) { 
+    while (true) { 
         pos = text.find(target, pos);
         
-        if (pos == -1) {
+        if (pos != -1) {
+            result.push_back(pos);
+            pos += target.size(); // move to the next occurrence
+        } else {
             break;
         }
-
-        result.push_back(pos);
-        pos += target.size(); // move to the next occurrence
     }
     
     return result;
