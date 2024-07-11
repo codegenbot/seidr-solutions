@@ -15,7 +15,7 @@ int main() {
     else {
         size_t count = 0;
         for (char c : tweet) {
-            if (std::isalnum(c)) {
+            if(std::isalnum(c)) {
                 ++count;
             } 
         }
