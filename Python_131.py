@@ -1,4 +1,3 @@
-```Python
 def digits(n):
     count = 0
     while n > 0:
