@@ -7,9 +7,8 @@ cut_position = -1
 for i in range(len(arr)):
     left_sum += arr[i]
     right_sum = total_sum - left_sum
-    current_diff = abs(left_sum - right_sum)
-    if current_diff <= min_diff:
-        min_diff = current_diff
+    if abs(left_sum - right_sum) <= min_diff:
+        min_diff = abs(left_sum - right_sum)
         cut_position = i
 
 subvector1 = arr[:cut_position + 1]
