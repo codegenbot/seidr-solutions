@@ -1,20 +1,21 @@
 #include <vector>
-#include <iostream>
+#include <iostream> 
 using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
     vector<int> left;
-    int minDiff = INT_MAX;
+    vector<int> right;
     for(int i=0; i<n-1; i++){
-        if(abs(nums[i+1] - nums[i]) <= abs(nums[1] - nums[0])){
-            minDiff = abs(nums[i+1] - nums[i]);
-        } else {
+        if(abs(nums[i+1] - nums[i]) >= abs(nums[n-1] - nums[0])){
             break;
+        } else {
+            left.push_back(nums[i]);
         }
-        left.push_back(nums[i]);
     }
-    return {{left}, {vector<int>(nums.begin()+left.size(), nums.end())}};
+    for(int i=left.size(); i<n; i++) right.push_back(nums[i]);
+    
+    return {{left}, {right}};
 }
 
 int main() {
