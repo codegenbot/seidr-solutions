@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int main() {
     int n;
     cin >> n;
@@ -18,7 +22,7 @@ int main() {
         sum += digit;
     }
     
-    cout << sum << endl;
+    cout << sum << "\n";
     
     return 0;
 }
