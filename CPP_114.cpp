@@ -13,7 +13,7 @@ long long minSubArraySum(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert(minSubArraySum({1, -1}) == -1);
+    assert (minSubArraySum({1, -1}) == -1);
     
     return 0;
 }
