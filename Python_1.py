@@ -4,20 +4,23 @@ from typing import List
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
-    temp = ''
+    groups = []
     
     for char in paren_string:
         if char == ' ':
             continue
         if char == '(':
             stack.append(char)
-            temp += char
         elif char == ')':
-            if stack and stack[-1] == '(':
+            if stack:
                 stack.pop()
-                temp += char
-                result.append(temp)
-                temp = ''
             else:
-                return []
+                groups.append(''.join(stack))
+                result.append(''.join(stack + [char]))
+                stack = []
+    
+    if stack:
+        groups.append(''.join(stack))
+        result.append(''.join(stack + ['']))  # Add the last group with a closing parenthesis
+    
     return result
