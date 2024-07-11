@@ -1,3 +1,4 @@
+#include <string>
 #include <openssl/md5.h>
 #include <sstream>
 #include <iomanip>
