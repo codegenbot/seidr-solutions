@@ -1,21 +1,15 @@
+```Python
 from typing import List
 
-
 def below_zero() -> bool:
-    temperatures = input("Enter temperatures separated by spaces: ").split()
-    balance = 0
-    for temp in temperatures:
+    while True:
         try:
-            temperature = int(temp)
-            if temperature < 0:
-                return True
-            else:
-                balance += temperature
-                if balance >= 0:
+            temperatures = list(map(int, input("Enter temperatures separated by spaces: ").split()))
+            balance = 0
+            for temp in temperatures:
+                if temp < 0:
                     return False
+                balance += temp
+            return True
         except ValueError:
             print("Invalid input. Please enter only numbers separated by spaces.")
-    return True
-
-
-print(below_zero())
