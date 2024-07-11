@@ -17,7 +17,6 @@ int main() {
     vector<float> lst = {}; // declare and initialize lst
     long long odd_sum = 0; 
 
-    // use the function without calling it here
     int result = double_the_difference(lst); 
     odd_sum = result;
     
