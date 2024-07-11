@@ -1,13 +1,16 @@
-string solve(string s){
-    string res = "";
-    for(int i=0; i<s.size(); i++){
-        if(isalpha(s[i])){
-            res += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+string solve(string s) {
+    string result = "";
+    bool hasLetter = false;
+
+    for (char c : s) {
+        if (!isalpha(c)) {
+            result += c;
+            hasLetter = false;
         } else {
-            res += s[i];
+            hasLetter = true;
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         }
     }
-    return (res.find_first_of("abcdefghijklmnopqrstuvwxyz") == string::npos) 
-           ? string(res.rbegin(), res.rend()) 
-           : res;
+
+    return hasLetter ? s : string(result.rbegin(), result.rend());
 }
