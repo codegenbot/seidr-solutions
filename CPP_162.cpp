@@ -11,7 +11,7 @@ string string_to_md5(string text) {
     string result;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         stringstream ss;
-        ss << std::hex << std::setfill('0') << std::setw(2) << (int)md5[i];
+        ss << hex << setfill('0') << setw(2) << int(md5[i]);
         result += ss.str();
     }
     
