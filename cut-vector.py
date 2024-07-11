@@ -1,16 +1,15 @@
 arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
-min_diff = total_sum
+min_diff = float('inf')
 cut_position = 0
 
-for i in range(len(arr)):
+for i in range(1, len(arr)):
     current_diff = abs(2 * sum(arr[:i]) - total_sum)
-    if current_diff <= min_diff:
+    if current_diff < min_diff:
         min_diff = current_diff
         cut_position = i
 
-cut_position = cut_position + 1
 subvector1 = arr[:cut_position]
 subvector2 = arr[cut_position:]
 
