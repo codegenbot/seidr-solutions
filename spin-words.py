@@ -1,4 +1,4 @@
-def spin_words(text):
+def spin_words(text): 
     words = text.split()
     result = []
     for word in words:
