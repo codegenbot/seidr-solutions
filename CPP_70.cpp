@@ -1,7 +1,7 @@
+```
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include <initializer_list>
 
 using namespace std;
 
@@ -28,6 +28,8 @@ vector<int> strange_sort_list(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = {1, 1, 1, 1, 1};
+    vector<int> lst;
+    for (int i : {1, 1, 1, 1, 1}) 
+        lst.push_back(i);
     assert(same_vectors({1, 1, 1, 1, 1}, strange_sort_list(lst)));
 }
