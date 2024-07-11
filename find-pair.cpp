@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <unordered_map>
 #include <iostream>
@@ -30,4 +29,3 @@ int main() {
     cout << result.first << endl;
     cout << result.second << endl;
     return 0;
-}
