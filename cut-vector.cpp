@@ -6,37 +6,28 @@ int main() {
         cin >> nums[i];
     }
     
-    int min_diff = INT_MAX;
-    int cut_index = -1;
-    
+    int diff = INT_MAX;
+    int cutIndex = -1;
     for (int i = 1; i < n; ++i) {
-        int sum_left = 0;
-        int sum_right = 0;
-        
+        int leftSum = 0, rightSum = 0;
         for (int j = 0; j < i; ++j) {
-            sum_left += nums[j];
+            leftSum += nums[j];
         }
-        
         for (int j = i; j < n; ++j) {
-            sum_right += nums[j];
+            rightSum += nums[j];
         }
-        
-        int diff = abs(sum_left - sum_right);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+        if (abs(leftSum - rightSum) < diff) {
+            diff = abs(leftSum - rightSum);
+            cutIndex = i;
         }
     }
     
-    for (int i = 0; i < cut_index; ++i) {
+    for (int i = 0; i < cutIndex; ++i) {
         cout << nums[i] << endl;
     }
-    
-    cout << endl;
-    
-    for (int i = cut_index; i < n; ++i) {
+    cout << 0 << endl;
+    for (int i = cutIndex; i < n; ++i) {
         cout << nums[i] << endl;
     }
-    
     return 0;
 }
