@@ -1,22 +1,16 @@
-```
 def solve_boolean(expression):
     operations = {"&": lambda a, b: a and b, "|": lambda a, b: a or b}
-    precedence = {"&": 1, "|": 0}
 
     if expression == "t":
         return True
     elif expression == "f":
         return False
 
-    stack = []
-    for char in expression:
-        if char == "T" or char == "F":
-            stack.append(bool(char == "T"))
-        elif char in operations:
-            b = stack.pop()
-            a = stack.pop()
-            stack.append(operations[char](a, b))
-        elif char == "|":
-            while len(stack) > 1 and stack[-2] != "&":
-                stack.pop()
-    return stack[0]
+    while "&" in expression or "|" in expression:
+        for op in ["&", "|"]:
+            if op in expression:
+                result = operations[op](expression.replace(op, "True").count("t"), 
+                                         expression.count(op) - expression.replace(op, "True").count("t"))
+                expression = str(result)
+
+    return eval(expression)
