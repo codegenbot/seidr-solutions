@@ -1,11 +1,8 @@
-```
-from your_module_name import check
+def check(lst, f):
+    print(f(lst))
 
-def double_the_difference():
-    def inner(lst):
-        lst.sort()
-        return (lst[-1] - lst[0]) * 2
-    return inner
+def double_the_difference(lst):
+    lst.sort()
+    return (lst[-1] - lst[0]) * 2
 
-double_the_difference = double_the_difference()
-check([1, 2, 3], double_the_difference())
+check([1, 2, 3], double_the_difference)
