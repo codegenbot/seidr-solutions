@@ -1,5 +1,14 @@
-#include <iostream>
+```c++
 #include <string>
+
+int main() {
+    std::string cipherMap = "abcdefghijklmnopqrstuvwxyz";
+    std::string input = "gurpenml";
+
+    std::string result = substitutionCipher(cipherMap, input);
+    std::cout << result << std::endl;
+    return 0;
+}
 
 std::string substitutionCipher(const std::string& cipherMap, const std::string& input) {
     std::string output;
@@ -15,14 +24,4 @@ std::string substitutionCipher(const std::string& cipherMap, const std::string& 
         output += (newChar == '\0') ? c : newChar;
     }
     return output;
-}
-
-int main() {
-    std::string cipherMap = "abcdefghijklmnopqrstuvwxyz"; // replace with actual cipher map
-    std::string input = "hello"; // replace with actual input string
-
-    std::string output = substitutionCipher(cipherMap, input);
-    std::cout << output << std::endl;
-
-    return 0;
 }
