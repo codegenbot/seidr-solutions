@@ -1,16 +1,16 @@
 vector<int> unique_digits(vector<int> x){
     vector<int> result;
-    for (int num : x) {
-        int copy_num = num;
-        bool has_even_digit = false;
-        while (copy_num > 0) {
-            if (copy_num % 2 == 0) {
-                has_even_digit = true;
+    for (int num : x){
+        int temp = num;
+        bool hasEvenDigit = false;
+        while (temp > 0){
+            if (temp % 2 == 0){
+                hasEvenDigit = true;
                 break;
             }
-            copy_num /= 10;
+            temp /= 10;
         }
-        if (!has_even_digit) {
+        if (!hasEvenDigit){
             result.push_back(num);
         }
     }
