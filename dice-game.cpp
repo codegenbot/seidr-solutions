@@ -1,7 +1,6 @@
+```cpp
 double getProbability(int n, int m) {
-    double p = 0;
-    for(int i = 1; i < n; i++) {
-        p += (1.0 / n) * (1.0 / m);
-    }
-    return p;
+    double totalOutcomes = n * m;
+    double favorableOutcomes = (n - 1) * m;
+    return 1.0 * favorableOutcomes / totalOutcomes;
 }
