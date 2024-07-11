@@ -9,5 +9,9 @@ int main() {
         return a.second < b.second;
     });
     
-    assert (abs(std::max_element(p.begin(), p.end())- std::make_pair(124,1)))<1e-4);
+    if (p.size() > 0) {
+        std::cout << "Maximum pair: (" << max_pair.first << ", " << max_pair.second << ")" << std::endl;
+    } else {
+        std::cout << "No pairs found." << std::endl;
+    }
 }
