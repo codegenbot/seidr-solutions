@@ -1,7 +1,7 @@
+#include <boost/config.hpp>
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
-#include <boost/config.hpp>
 
 using namespace std;
 
