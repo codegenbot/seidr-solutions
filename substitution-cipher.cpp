@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -6,6 +5,7 @@ std::string substitutionCipher(const std::string& cipherMap, const std::string& 
     int mapIndex = 0;
     std::map<char, char> cipherTable;
 
+    // Initialize cipher table
     for (char c : cipherMap) {
         if (mapIndex <= 'z' - 'a') { 
             cipherTable['a' + mapIndex] = c;
@@ -20,7 +20,7 @@ std::string substitutionCipher(const std::string& cipherMap, const std::string& 
         if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) { 
             output += cipherTable[(isupper(c)) ? toupper(c) : tolower(c)];
         } else {
-            output += c; // If the character is not in alphabet, add it as is
+            output += c; 
         }
     }
     return output;
