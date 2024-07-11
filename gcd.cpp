@@ -1,11 +1,12 @@
+Here is the modified code:
+
+```cpp
 #include <vector>
 
 int gcd(int a, int b) {
     if (b == 0) return a;
     else return gcd(b, a % b);
 }
-
-using namespace std;
 
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
