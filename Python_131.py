@@ -1,6 +1,5 @@
+```python
 def digits(n):
-    product = 1
-    while n:
-        product *= n % 10
-        n //= 10
-    return product
+    while n > 9:
+        n = sum(int(digit) for digit in str(n))
+    return n
