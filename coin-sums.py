@@ -1,3 +1,4 @@
+```
 cents = int(input("Enter the number of cents: "))
 quarters = cents // 25
 cents %= 25
