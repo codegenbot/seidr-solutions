@@ -1,6 +1,5 @@
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
 using namespace std;
 
@@ -21,6 +20,9 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 int main() {
-    assert(issame(compare(vector<int>{1, 2, 3, 5}, vector<int>{{-1, 2, 3, 4}}), vector<int>{{2, 0, 0, 1}}));
+    vector<int> game = vector<int>(4); // initialize the vector with 4 elements
+    game[0] = 1; game[1] = 2; game[2] = 3; game[3] = 5;
+
+    assert(issame(compare(game, vector<int>({-1, 2, 3, 4})), {2, 0, 0, 1}));
     return 0;
 }
