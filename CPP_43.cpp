@@ -1,10 +1,11 @@
-#include <vector>
-using namespace std;
-
-bool pairs_sum_to_zero(vector<int> l) {
-    set<int> s(l.begin(), l.end());
-    for (int num : s) {
-        if (s.find(-num) != s.end()) return true;
+```cpp
+bool found = false;
+for (int i = 0; i < l.size() && !found; i++) {
+    for (int j = i + 1; j < l.size(); j++) {
+        if (-l[i] == l[j]) {
+            found = true;
+            break;
+        }
     }
-    return false;
 }
+return found;
