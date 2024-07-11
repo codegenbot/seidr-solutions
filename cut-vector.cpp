@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
+vector<pair<int,int>> cutVector(vector<int>& nums) {
     int minDiff = INT_MAX;
     int cutIndex = -1;
     
@@ -14,11 +14,15 @@ pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
         }
     }
     
-    vector<int> left, right;
-    left.assign(cutIndex+1, nums.begin());
-    right.assign(nums.size()-cutIndex-1, nums.begin()+cutIndex+1);
+    vector<int> left(cutIndex+1), right(nums.size()-cutIndex-1);
+    for(int i=0; i<=cutIndex; i++){
+        left.push_back(nums[i]);
+    }
+    for(int i=cutIndex+1; i<nums.size(); i++){
+        right.push_back(nums[i]);
+    }
     
-    return {left, right};
+    return {{left.begin(), left.end()}, {right.begin(), right.end()}};
 }
 
 int main() {
