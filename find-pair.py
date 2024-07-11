@@ -1,9 +1,9 @@
 ```
-def find_pair(target, nums):
+def find_pair(n, nums):
     seen = set()
     for num in nums:
-        if (target - num) in seen:
-            return f"{target - num} {num}"
+        if (n - num) in seen:
+            return f"{n - num} {num}"
         seen.add(num)
     return "No pair found"
 
