@@ -1,6 +1,6 @@
 nums = list(map(int, input().split()))
 cut_index = 0
-min_diff = float("inf")
+min_diff = float('inf')
 
 for i in range(1, len(nums)):
     left_sum = sum(nums[:i])
