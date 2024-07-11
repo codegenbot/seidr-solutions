@@ -1,13 +1,13 @@
-```
 from typing import List
 
 
-def concatenate(strings: List[str]) -> str:
-    if not isinstance(strings, list):
+def concatenate() -> str:
+    user_input = input("Please enter multiple strings (separated by space or comma): ")
+    try:
+        input_list = [s.strip() for s in user_input.split(",")]
+    except ValueError:
         return "Error: Input must be a list of strings."
     result = ""
-    for s in strings:
-        if not isinstance(s, str):
-            return "Error: All elements must be strings."
+    for s in input_list:
         result += s
     return result
