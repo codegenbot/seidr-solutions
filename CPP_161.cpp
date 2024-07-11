@@ -1,11 +1,16 @@
-string solve(string s){
-    string result = "";
-    for(int i = 0; i < s.length(); i++){
-        if(isalpha(s[i])){
-            result += (islower(s[i]) ? toupper(s[i]) : tolower(s[i]));
+string solve(string s) {
+    string res = "";
+    for (char c : s) {
+        if (isalpha(c)) {
+            res += tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u'
+                ? toupper(c)
+                : tolower(c);
         } else {
-            result += s[i];
+            res += c;
         }
     }
-    return result;
+    if (res.empty()) {
+        reverse(res.begin(), res.end());
+    }
+    return res;
 }
