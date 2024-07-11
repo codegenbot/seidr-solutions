@@ -3,21 +3,19 @@
 using namespace std;
 
 int next_smallest(vector<int> lst) {
-    int result = -1;
-    for (int i = 0; i < lst.size(); i++) {
-        bool flag = true;
-        for (int j = 0; j < lst.size(); j++) {
-            if (i != j && lst[i] > lst[j]) {
-                flag = false;
-                break;
-            }
+    vector<int> sorted = lst;
+    sort(sorted.begin(), sorted.end());
+    int res = -1;
+    for (int i = sorted.size() - 2; i >= 0; i--) {
+        if (sorted[i] < sorted[sorted.size()-1]) {
+            res = sorted[i];
+            break;
         }
-        if (flag) return lst[i];
     }
-    return result;
+    return res;
 }
 
 int main() {
-    assert(next_smallest({-35, 34, 12, -45}) == -1);
+    assert(next_smallest({-35, 34, 12, -45}) == -35);
     return 0;
 }
