@@ -1,6 +1,7 @@
 #include <iostream>
 
 double getProbability(int n, int m) {
+    if(m >= n) return 0;
     return 1.0 * (n - m) / (n * m);
 }
 
