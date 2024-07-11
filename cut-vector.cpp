@@ -1,6 +1,10 @@
-#include <climits>
 #include <iostream>
-#include <cstdlib>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <climits>
+
+using namespace std;
 
 int main() {
     vector<int> nums;
