@@ -1,4 +1,4 @@
-Here's the modified code:
+Here is the corrected code:
 
 ```
 def minPath(grid, k):
