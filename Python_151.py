@@ -1,11 +1,7 @@
 """
-Given a list of integers, find the difference between the maximum value and the minimum value. 
-Return this difference multiplied by 2.
+Given a list of integers, find the difference between the maximum value that is doubled and the minimum value.
 """
 def double_the_difference(lst):
-    if not all(isinstance(i, int) for i in lst):
-        return "Invalid input: The list must contain only integers."
-    elif len(lst) == 0:
-        return "Invalid input: The list cannot be empty."
-    else:
-        return 2 * (max(lst) - min(lst))
+    max_val = max(i for i in lst if isinstance(i, int) and i > 0)
+    min_val = min(i for i in lst if isinstance(i, int) and i > 0)
+    return (max_val * 2) - min_val
