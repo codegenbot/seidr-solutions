@@ -1,6 +1,6 @@
 #include <vector>
 
-int luhn(const std::vector<int>& cc) {
+int luhn(std::vector<int> cc) {
     int sum = 0;
     for (int i = 0; i < cc.size(); ++i) {
         int digit = cc[i] * (i % 2 ? 1 : 2);
