@@ -1,20 +1,17 @@
-Here is the completed code:
+Here's the completed code:
 
 bool is_sorted(vector<int> lst){
-    if (lst.size() <= 1) return true;
-    for(int i = 0; i < lst.size() - 1; ++i){
-        if(lst[i] >= lst[i+1]){
-            vector<int> dup;
-            bool found = false;
-            for(int j = 0; j < lst.size(); ++j){
-                if(lst[j] == lst[i]) {
-                    found = true;
-                    dup.push_back(lst[j]);
-                }
-            }
-            if(found && (dup.size() > 1)) return false;
-        } else {
+    for(int i = 1; i < lst.size(); i++){
+        if(lst[i-1] >= lst[i]){
             return false;
         }
     }
-    return true;
+    vector<int> temp(lst.begin(), lst.end());
+    sort(temp.begin(), temp.end());
+    int count = 0;
+    for(int i = 0; i < temp.size() - 1; i++){
+        if(temp[i] == temp[i+1])
+            count++;
+    }
+    return count == 0 || (count > 0 && temp[0] != temp[temp.size()-1]);
+}
