@@ -1,10 +1,6 @@
-expression = input()
+def solve_boolean(expression):
+    return eval(expression.replace("T", "True").replace("F", "False"))
 
-if expression == "t":
-    print(True)
-elif expression == "f":
-    print(False)
-else:
-    operands = expression.split("&")
-    result = all(operand == "t" for operand in operands)
-    print(result)
+
+input_str = input()
+print(solve_boolean(input_str))
