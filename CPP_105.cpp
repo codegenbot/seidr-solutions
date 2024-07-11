@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
 
 bool isSame(const std::vector<int>& nums) {
     if (nums.size() == 0)
@@ -20,8 +19,8 @@ bool isSame(const std::vector<int>& nums) {
     return allSame;
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(num);
@@ -32,7 +31,7 @@ vector<string> by_length(vector<int> arr) {
     
     reverse(numbers.begin(), numbers.end());
     
-    vector<string> result;
+    std::vector<std::string> result;
     for (int num : numbers) {
         switch (num) {
             case 1:
@@ -69,16 +68,9 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {1, 2, 3};
-    vector<string> output = by_length(arr);
-    for (string str : output) {
-        cout << str << endl;
-    }
-    
-    if (isSame(by_length(arr))) {
-        cout << "The numbers are the same." << endl;
-    } else {
-        cout << "The numbers are different." << endl;
+    std::vector<int> arr = {1, 2, 3};
+    for (std::string str : by_length(arr)) {
+        std::cout << str << std::endl;
     }
     
     return 0;
