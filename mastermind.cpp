@@ -1,33 +1,26 @@
 #include <iostream>
-#include <map>
-#include <algorithm>
-using namespace std;
-bool isValidInput(const string& input) {
-    return input.length() == 4 && input.find_first_not_of("ABCDEF") == string::npos && input.find(' ') == string::npos;
+#include <string>
+
+bool isValidInput(const std::string& input) {
+    return input.length() == 4 && input.find_first_not_of("ABCDEF") == std::string::npos && input.find(" ") == std::string::npos;
 }
+
 int main() {
-    string code, guess;
-    do {
-        cout << "Enter the code (4 characters from A to F): ";
-        cin >> code;
-    } while (!isValidInput(code));
-    do {
-        cout << "Enter your guess (4 characters from A to F): ";
-        cin >> guess;
-    } while (!isValidInput(guess));
-    map<char, int> codeFreq, guessFreq;
-    int whitePegs = 0, blackPegs = 0;
-    for (int i = 0; i < 4; ++i) {
+    std::string code, guess;
+    std::cin >> code >> guess;
+
+    int whitePegs = 0;
+    int blackPegs = 0;
+
+    for (int i = 0; i < code.length(); ++i) {
         if (code[i] == guess[i]) {
             blackPegs++;
-        } else {
-            codeFreq[code[i]]++;
-            guessFreq[guess[i]]++;
+        } else if (code.find(guess[i]) != std::string::npos) {
+            whitePegs++;
         }
     }
-    for(const auto& pair : codeFreq) {
-        whitePegs += min(codeFreq[pair.first], guessFreq[pair.first]);
-    }
-    cout << whitePegs << endl << blackPegs << endl;
+
+    std::cout << blackPegs << " " << whitePegs << std::endl;
+
     return 0;
 }
