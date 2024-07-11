@@ -3,6 +3,7 @@ def solve_boolean(expression):
     return eval(expression)
 
 
+# Read input from user
 expression = input()
 result = solve_boolean(expression)
 print(result)
