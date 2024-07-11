@@ -3,4 +3,4 @@ def calculate_snow_hours(hours, snow_on_ground, snow_fall_rate, snow_melt_propor
     for _ in range(hours):
         snow += snow_fall_rate
         snow -= snow * snow_melt_proportion
-    return round(snow, 15)
+    return snow
