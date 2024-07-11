@@ -33,7 +33,7 @@ int main() {
             std::string digitsOnly;
             for (char c : newInput) {
                 if(std::isdigit(c)) {
-                    digitsOnly += std::to_string(c);
+                    digitsOnly += c;  // Directly append the digits
                 }
             }
             int result = digitSum(digitsOnly);
@@ -42,7 +42,7 @@ int main() {
             std::string digitsOnly;
             for (char c : newInput.substr(0, digitPos)) {
                 if(std::isdigit(c)) {
-                    digitsOnly += std::to_string(c);
+                    digitsOnly += c;  // Directly append the digits
                 }
             }
             int result = digitSum(digitsOnly);
