@@ -1,15 +1,19 @@
+Here is the modified code:
+
+```cpp
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
+#include <boost/converter.hpp>
 
 using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any((long)b.convert_to<int>());
+        return b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return a;
+        return b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str1 = any_cast<string>(a);
@@ -21,7 +25,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return a;
+            return boost::any("None");
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
@@ -34,7 +38,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return a;
         }
         else {
-            return a;
+            return boost::any("None");
         }
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
@@ -47,7 +51,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return a;
+            return boost::any("None");
         }
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
@@ -60,7 +64,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return a;
+            return boost::any("None");
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -73,8 +77,17 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return a;
+            return boost::any("None");
         }
     }
     return boost::any();
+}
+
+int main() {
+    boost::any a = 1;
+    boost::any b = 2.0f;
+    boost::any result = compare_one(a, b);
+    std::cout << "Result: " << any_cast<std::string>(result) << std::endl;
+
+    return 0;
 }
