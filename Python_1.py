@@ -3,9 +3,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     temp = ""
     for char in paren_string:
         if char == "(":
-            temp += char
-        elif char == ")":
-            temp += char
-            result.append(temp)
             temp = ""
+        elif char == ")":
+            result.append(temp + ")")
+        else:
+            temp += char
     return result
