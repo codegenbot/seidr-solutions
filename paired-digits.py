@@ -1,8 +1,3 @@
 ```
-def paired_digits(digits):
-    total = 0
-    for i in range(len(digits)):
-        for j in range(i + 1, len(digits)):
-            if digits[i] == digits[j]:
-                total += int(digits[i])
-    return str(total)
+def paired_digits(s):
+    return sum(int(d1) for d1, d2 in zip(s, s[1:] + '0') if d1 == d2)
