@@ -4,6 +4,10 @@ string result = "";
             result += ch;
         }
     }
-    string palindrome = (result == string(result.rbegin(), result.rend())) ? "True" : "False";
-    return {result, palindrome};
+    string reverse_result = result;
+    reverse(reverse_result.begin(), reverse_result.end());
+    vector<string> output;
+    output.push_back(result);
+    output.push_back(result == reverse_result ? "True" : "False");
+    return output;
 }
