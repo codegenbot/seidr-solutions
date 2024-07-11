@@ -15,4 +15,4 @@ int main() {
     std::cout << total_distance << std::endl;
     
     return 0;
-}
+} 
