@@ -1,7 +1,6 @@
-```
-import hashlib
-
+```python
 def string_to_md5():
+    import hashlib
     for _ in range(3):
         while True:
             try:
