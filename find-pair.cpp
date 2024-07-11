@@ -16,4 +16,3 @@ std::pair<int, int> findPair(vector<int>& nums, int target) {
         }
     }
     return {0, 0};
-}
