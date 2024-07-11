@@ -1,8 +1,4 @@
 def sorted_list_sum(lst):
-    words = sorted([(len(word), len(word) % 2 != 0) for word in lst])
-    odd_words = [word for length, parity in words if not parity]
-    even_words = [word for length, parity in words if parity]
-    return [
-        "".join([word[i] for word in even_words])
-        + "".join([word[i] for word in odd_words])
-    ][0]
+    odd_words = sorted([word for word in lst if len(word) % 2 != 0], key=len)
+    even_words = sorted([word for word in lst if len(word) % 2 == 0], key=len)
+    return odd_words + even_words
