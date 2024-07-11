@@ -1,8 +1,11 @@
 ```
-int Strongest_Extension(string class_name, vector<vector<char>> extensions) {
+#include <vector>
+#include <string>
+
+int Strongest_Extension(string class_name, vector<string> extensions) {
     int strongest = -1;
     string result = "";
-    for (vector<char> extension : extensions) {
+    for (string extension : extensions) {
         int cap = 0, sm = 0;
         for (char c : extension) {
             if (isupper(c)) cap++;
@@ -11,9 +14,9 @@ int Strongest_Extension(string class_name, vector<vector<char>> extensions) {
         int strength = cap - sm;
         if (strength > strongest) {
             strongest = strength;
-            result = string(1, c) + "";
+            result = extension;
         } else if (strength == strongest) {
-            result = min(result, string(extension.begin(), extension.end()));
+            result = min(result, extension);
         }
     }
     return class_name + "." + result;
