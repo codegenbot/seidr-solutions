@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 
-// Define get_odd_collatz function here
 std::vector<int> get_odd_collatz(int n) {
     std::vector<int> result;
     while (n != 1) {
@@ -20,5 +19,4 @@ std::vector<int> get_odd_collatz(int n) {
 
 int main() {
     assert(get_odd_collatz(1) == std::vector<int>({1}));  
-    return 0;
 }
