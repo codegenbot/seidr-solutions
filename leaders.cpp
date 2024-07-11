@@ -18,4 +18,3 @@ vector<int> leaders(vector<int>& arr) {
     }
     
     return res;
-}
