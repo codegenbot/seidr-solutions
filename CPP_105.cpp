@@ -1,16 +1,16 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 
-bool checkRow(const std::vector<int>& row) {
-    if (row.size() == 0)
+bool isSame(const std::vector<int>& nums) {
+    if (nums.size() == 0)
         return true;
 
-    int first = row[0];
+    int first = nums[0];
     bool allSame = true;
     
-    for (int num : row) {
+    for (int num : nums) {
         if (num != first) {
             allSame = false;
             break;
@@ -20,19 +20,19 @@ bool checkRow(const std::vector<int>& row) {
     return allSame;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
+vector<string> by_length(vector<int> arr) {
+    vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(num);
         }
     }
     
-    std::sort(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
     
-    std::reverse(numbers.begin(), numbers.end());
+    reverse(numbers.begin(), numbers.end());
     
-    std::vector<std::string> result;
+    vector<string> result;
     for (int num : numbers) {
         switch (num) {
             case 1:
@@ -69,9 +69,17 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {1, 2, 3};
-    auto result = by_length(arr);
-    bool same = checkRow(result);
-    assert(same);
+    vector<int> arr = {1, 2, 3};
+    vector<string> output = by_length(arr);
+    for (string str : output) {
+        cout << str << endl;
+    }
+    
+    if (isSame(by_length(arr))) {
+        cout << "The numbers are the same." << endl;
+    } else {
+        cout << "The numbers are different." << endl;
+    }
+    
     return 0;
 }
