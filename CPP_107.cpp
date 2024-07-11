@@ -1,4 +1,4 @@
-#include <vector>  // Add this line at the beginning of the code
+#include <vector>
 
 vector<int> even_odd_palindrome(int n) {
     int even = 0, odd = 0;
@@ -14,10 +14,10 @@ vector<int> even_odd_palindrome(int n) {
             }
         }
     }
-    
-    return {even, odd};  // Return a vector<int>
+
+    return {even, odd};
 }
 
 int main() {
-    assert(even_odd_palindrome(1) == vector<int>{0, 1});  // Compare vectors using ==
+    assert(even_odd_palindrome(1) == vector<int>{0, 1});
 }
