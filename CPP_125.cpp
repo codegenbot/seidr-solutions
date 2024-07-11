@@ -1,15 +1,12 @@
 vector<string> result;
     string word = "";
-    bool hasWhitespace = false;
-    for(char c : txt){
+    for (char c : txt) {
         if (c == ' ') {
-            hasWhitespace = true;
             if (!word.empty()) {
                 result.push_back(word);
                 word = "";
             }
         } else if (c == ',') {
-            hasWhitespace = true;
             if (!word.empty()) {
                 result.push_back(word);
                 word = "";
@@ -18,18 +15,20 @@ vector<string> result;
             word += c;
         }
     }
-    if (hasWhitespace || txt.find(',') != string::npos) {
-        if (!word.empty()) {
-            result.push_back(word);
-        }
-    } else {
-        int count = 0;
+    if (!word.empty()) {
+        result.push_back(word);
+    }
+    if (result.empty()) {
+        int count_odd_letters = 0;
         for (char c : txt) {
-            if (islower(c) && ((c - 'a') % 2 == 1)) {
-                count++;
+            if (islower(c)) {
+                int order = c - 'a';
+                if (order % 2 != 0) {
+                    count_odd_letters++;
+                }
             }
         }
-        result.push_back(to_string(count));
+        result.push_back(to_string(count_odd_letters));
     }
     return result;
 }
