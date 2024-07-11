@@ -1,7 +1,7 @@
-def main():
-    strings = input().split()
-    result = longest(strings)
-    print(result)
+from typing import List, Optional
 
-if __name__ == "__main__":
-    main()
+def longest(strings: List[str]) -> Optional[str]:
+    if not strings:
+        return None
+    max_length = max(len(s) for s in strings)
+    return next((s for s in strings if len(s) == max_length), None)
