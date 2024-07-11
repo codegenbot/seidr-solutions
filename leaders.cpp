@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -13,13 +12,3 @@ vector<int> leaders(vector<int>& arr) {
     }
     reverse(result.begin(), result.end());
     return result;
-}
-
-int main() {
-    vector<int> arr = {1, 3, 4, 2};
-    vector<int> leadersVector = leaders(arr);
-    for (int i : leadersVector) {
-        cout << i << " ";
-    }
-    return 0;
-}
