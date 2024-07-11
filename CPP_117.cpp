@@ -13,16 +13,10 @@ int main() {
     int n;
     getline(cin, input);
     cin >> n;
-  
+
     vector<string> result = select_words(input, n);
 
-    // Custom validation or manual check
-    vector<string> expected_output = {"b", "c", "d", "f"};
-    if (result == expected_output) {
-        cout << "Test Passed\n";
-    } else {
-        cout << "Test Failed\n";
-    }
+    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
 
     return 0;
 }
