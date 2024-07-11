@@ -1,12 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
-
-bool issame(const vector<string>& vec1, const vector<string>& vec2) {
-    return vec1 == vec2;
-}
 
 vector<string> all_prefixes(string str) {
     vector<string> result;
@@ -21,7 +18,9 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+    vector<string> expected = {"W", "WW", "WWW"};
+    vector<string> result = all_prefixes("WWW");
+    assert(result == expected);
 
     return 0;
-}
+}  
