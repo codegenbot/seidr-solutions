@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
-using namespace std;
 
-int skjkasdkd(vector<int> lst){
+int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
@@ -25,8 +23,10 @@ bool isPrime(int n) {
     return true;
 }
 
+std::vector<int>::allocator_type a = std::allocator<int>();
+std::vector<int> lst(a);
 int main() {
     assert(skkkasdkd({127, 97, 8192}) == 10);
-    cout << "Hello World!" << endl;
+    std::cout << "Hello World!" << std::endl;
     return 0;
 }
