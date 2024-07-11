@@ -19,3 +19,4 @@ int main() {
     int result = vowels_count(input);
     std::cout << "Number of vowels: " << result << std::endl;
     return 0;
+}
