@@ -1,4 +1,3 @@
-```
 from typing import List, Any
 
 
@@ -10,7 +9,21 @@ def get_values() -> List[Any]:
             )
             values = [value.strip() for value in values.split(",")]
             print("Input received:", values)
-            if values:
+            if all(
+                value.isdigit()
+                or (
+                    value.replace(
+                        ".",
+                        "",
+                    )
+                    .replace(
+                        "-",
+                        "",
+                    )
+                    .isdigit()
+                )
+                for value in values
+            ):
                 return [
                     (
                         int(value)
@@ -23,10 +36,5 @@ def get_values() -> List[Any]:
                 ]
         except ValueError as e:
             print(
-                f"Invalid input. Please enter integers and/or strings separated by commas: {e}"
+                "Invalid input. Please enter integers and/or strings separated by commas."
             )
-
-
-def filter_integers():
-    result = get_values()
-    return result
