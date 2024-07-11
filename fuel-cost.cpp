@@ -1,7 +1,3 @@
-```cpp
-#ifndef __cpp_init_array 201907L
-#endif
-
 #include <vector>
 #include <cmath>
 
