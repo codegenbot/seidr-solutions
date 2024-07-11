@@ -1,6 +1,7 @@
-bool issame(vector<string> a, vector<string> b);
+#include <vector>
+#include <string>
 
-vector<string> split_words(string txt) {
+vector<string> split_words(const string& txt) {
     vector<string> result;
     string word = "";
     for (char c : txt) {
@@ -16,6 +17,11 @@ vector<string> split_words(string txt) {
     if (!word.empty()) {
         result.push_back(word);
     }
+    return result;
+}
+
+vector<string> issame(const string& txt) {
+    vector<string> result = split_words(txt);
     if (result.empty()) {
         int count = 0;
         for (char c : txt) {
@@ -26,9 +32,4 @@ vector<string> split_words(string txt) {
         result.push_back(to_string(count));
     }
     return result;
-}
-
-int main() {
-    // Test cases here
-    return 0;
 }
