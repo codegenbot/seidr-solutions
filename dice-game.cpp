@@ -9,13 +9,9 @@ int main() {
 }
 
 double getProbability(int n, int m) {
-    double p = 0.0;
-    for(int i = 1; i < n; i++) {
-        for(int j = 1; j < m; j++) {
-            if(i > j) {
-                p += (1.0 / n) * (1.0 / m);
-            }
-        }
+    double p = (n - 1.0) / (n * m);
+    for(int i = 2; i < n; i++) {
+        p += ((i * m + n - 1) - (m + n - 1)) / (n * m);
     }
     return p;
 }
