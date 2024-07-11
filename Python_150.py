@@ -1,4 +1,3 @@
-```
 def x_or_y(n, x, y):
     def is_prime(num):
         if num < 2:
