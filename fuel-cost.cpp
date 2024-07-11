@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+
 int totalFuelCost(std::vector<int> fuelCosts) {
     int sum = 0;
     for (int cost : fuelCosts) {
@@ -13,3 +15,4 @@ int main() {
     int result = totalFuelCost(costs);
     std::cout << "Total fuel cost: " << result << std::endl;
     return 0;
+}
