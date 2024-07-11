@@ -16,4 +16,13 @@ double vector_distance(int n) {
         sum += pow(v2[i] - v1[i], 2);
     }
     
-    return sqrt(sum);
+    return sqrt(sum); 
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    double result = vector_distance(n);
+    std::cout << "Euclidean Distance: " << result << std::endl;
+    return 0;
+}
