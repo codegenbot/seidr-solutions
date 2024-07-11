@@ -4,10 +4,10 @@ string int_to_mini_roman(int number) {
                                             {50, "L"}, {40, "XL"}, {10, "X"},
                                             {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"}};
     string roman = "";
-    for (auto& pair : romanMap) {
-        while (number >= pair.first) {
-            number -= pair.first;
-            roman += pair.second;
+    for (const auto &p : romanMap) {
+        while (number >= p.first) {
+            number -= p.first;
+            roman += p.second;
         }
     }
     return roman;
