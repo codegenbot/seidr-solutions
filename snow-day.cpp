@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 
 float snowDay(int hours, float groundSnow, float rate, float melt) {
