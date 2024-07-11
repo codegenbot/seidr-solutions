@@ -12,39 +12,48 @@ vector<string> split_words(string txt) {
         result.push_back(txt.substr(0, pos));
         txt.erase(0, pos + 1);
     }
-    if (txt.empty()) {
-        return result;
-    }
+    if (txt.empty()) return result;
 
-    pos = 0;
-    while ((pos = txt.find(',')) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-    }
-    if (!txt.empty()) {
+    if (result.size() == 0) {
         int count = 0;
         for (char c : txt) {
             if (c >= 'a' && c <= 'z') {
-                if ((count++ % 2 == 0)) {
+                if ((count % 2) == 1) {
+                    result.push_back(to_string(count));
+                    break;
+                }
+                count++;
+            } else {
+                string temp = "";
+                while (pos < txt.size() && txt[pos] != ' ') {
+                    temp += txt[pos];
+                    pos++;
+                }
+                if (!temp.empty()) {
+                    result.push_back(temp);
+                }
+                pos--;
+                while (pos >= 0 && txt[pos] == ' ') {
+                    pos--;
+                }
+                if (pos >= 0) {
+                    txt.erase(0, pos + 1);
+                } else {
                     break;
                 }
             }
         }
-        result.push_back(to_string(count));
     }
 
+    result.push_back(txt);
     return result;
 }
 
 int main() {
-    string txt;
-    cout << "Enter a string: ";
-    getline(cin, txt);
-    vector<string> result = split_words(txt);
-
-    for (string str : result) {
-        cout << str << endl;
+    string input = "Hello world!";
+    vector<string> output = split_words(input);
+    for (string s : output) {
+        cout << s << endl;
     }
-
     return 0;
 }
