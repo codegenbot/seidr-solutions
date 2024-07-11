@@ -1,9 +1,10 @@
 ```cpp
 #include <vector>
 #include <cassert>
-#include <initializer_list>
+#include <vector>
+#include <iostream>
 
-bool monotonic(vector<float> l) {
+bool monotonic(std::vector<float> l) {
     bool increasing = true;
     bool decreasing = true;
 
@@ -20,12 +21,14 @@ bool monotonic(vector<float> l) {
 
 int main() {
     assert(monotonic({9, 9, 9, 9}) == true);
-    vector<float> input;
-    cout << "Enter the numbers (space separated): ";
-    for (float x : cin >> input) {}
+    std::vector<float> input;
+    std::cout << "Enter the numbers (space separated): ";
+    for (float x; std::cin >> x;) {
+        input.push_back(x);
+    }
     if (monotonic(input)) {
-        cout << "The sequence is monotonic." << endl;
+        std::cout << "The sequence is monotonic." << std::endl;
     } else {
-        cout << "The sequence is not monotonic." << endl;
+        std::cout << "The sequence is not monotonic." << std::endl;
     }
 }
