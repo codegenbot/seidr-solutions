@@ -1,9 +1,6 @@
-#include <cassert>
 #include <string>
 
-int digitSum(std::string s);
-
-int digitSum(std::string s){
+int digitSum(const string& s){
     int sum = 0;
     for(char c : s){
         if(isupper(c)){
@@ -11,11 +8,4 @@ int digitSum(std::string s){
         }
     }
     return sum;
-}
-
-int main() {
-    assert(digitSum("AaBbCc") == 6);
-    assert(digitSum("HELLO") == 52);
-
-    return 0;
 }
