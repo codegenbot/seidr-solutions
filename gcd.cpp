@@ -1,15 +1,22 @@
 ```cpp
+#include <vector>
+
 int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+    if (b == 0) return a;
+    else return gcd(b, a % b);
 }
 
-int main() {
-    int num1, num2;
-    std::cout << "Enter two numbers: ";
-    std::cin >> num1 >> num2;
-    std::cout << "The GCD of " << num1 << " and " << num2 << " is: " << gcd(num1, num2) << std::endl;
-    return 0;
+using namespace std;
+
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    for (int i = 0; i <= text.length() - target.length(); i++) {
+        int j = 0;
+        while (j < target.length()) {
+            if (text[i + j] != target[j]) break;
+            j++;
+        }
+        if (j == target.length()) indices.push_back(i);
+    }
+    return indices;
 }
