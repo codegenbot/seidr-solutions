@@ -12,19 +12,19 @@ int whitePegs(std::string code, std::string guess) {
     }
     for (char c : code) {
         int asciiVal = static_cast<int>(c); 
-        codeMap[asciiVal]++;
+        codeMap[static_cast<int>(c)]++;
     }
     for (char c : guess) {
         int asciiVal = static_cast<int>(c);
-        guessMap[asciiVal]++;
+        guessMap[static_cast<int>(c)]++;
     }
-    int correctWrong = 0;
+    int correctWrongPegs = 0;
     for (int i = 0; i < 6; i++) {
         if (codeMap[i] > 0 && guessMap[i] > 0) {
-            correctWrong++;
+            correctWrongPegs += codeMap[i];
         }
     }
-    return count + correctWrong;
+    return 4 - count + correctWrongPegs;
 }
 
 int blackPegs(std::string code, std::string guess) {
