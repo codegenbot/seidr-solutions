@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def get_values() -> List[int]:
@@ -13,4 +14,5 @@ def get_values() -> List[int]:
                 print(f"Invalid input: {value}. Please enter integers only.")
         if all(val.replace(".", "", 1).replace("-", "", 1).isdigit() for val in user_values.split()):
             break
+        user_values = input("Enter some values (separated by space), 'stop' to finish: ")
     return result
