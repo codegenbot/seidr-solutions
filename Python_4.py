@@ -1,4 +1,3 @@
-```
 def mean_absolute_deviation(numbers: List[float]) -> float:
     if not numbers or len(numbers) == 0:
         return float('nan')
