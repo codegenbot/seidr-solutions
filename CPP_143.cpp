@@ -1,43 +1,29 @@
-#include <vector>
-#include <algorithm>
-
-string words_in_sentence(string sentence) {
-    vector<int> wordLengths;
+string words_in_sentence(string sentence){
     string result = "";
-    
-    for (const auto &word : split(sentence, ' ')) {
-        int length = word.length();
-        bool isPrime = true;
-        
-        if (length > 1) {
-            for (int i = 2; i * i <= length; ++i) {
-                if (length % i == 0) {
-                    isPrime = false;
-                    break;
+    int count = 0;
+    for(int i=0; i<sentence.length(); i++){
+        if(sentence[i] == ' '){
+            count++;
+        }
+        else{
+            if(count > 0){
+                if(isPrime(stoi(&sentence[i-count]))){
+                    result += &sentence[i-count];
+                    while (&sentence[i] != &sentence[i-count]+1 && &sentence[i] != ' '){
+                        i++;
+                    }
                 }
-            }
-            
-            if (isPrime) {
-                result += word + " ";
-                wordLengths.push_back(length);
+                count = 0;
             }
         }
     }
-    
-    return result.substr(0, result.size() - 1);
+    return result;
 }
 
-vector<string> split(const string &sentence, char delimiter) {
-    vector<string> result;
-    size_t start = 0;
-    size_t end = sentence.find(delimiter);
-    
-    while (end != string::npos) {
-        result.push_back(sentence.substr(start, end - start));
-        start = end + 1;
-        end = sentence.find(delimiter, start);
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) return false;
     }
-    
-    result.push_back(sentence.substr(start));
-    return result;
+    return true;
 }
