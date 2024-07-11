@@ -1,24 +1,28 @@
 int main() {
     string input;
     getline(cin, input);
-
-    string word, result;
-    bool first = true;
-
-    for (int i = 0; i <= input.size(); i++) {
-        if (i == input.size() || input[i] == ' ') {
-            if (word.size() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            result += (first ? "" : " ") + word;
+    
+    vector<string> words;
+    string word = "";
+    for (int i = 0; i < input.size(); ++i) {
+        if (input[i] == ' ') {
+            words.push_back(word);
             word = "";
-            first = false;
         } else {
             word += input[i];
         }
     }
-
-    cout << result << endl;
-
+    words.push_back(word);
+    
+    for (int i = 0; i < words.size(); ++i) {
+        if (words[i].size() >= 5) {
+            reverse(words[i].begin(), words[i].end());
+        }
+        cout << words[i];
+        if (i < words.size() - 1) {
+            cout << " ";
+        }
+    }
+    
     return 0;
 }
