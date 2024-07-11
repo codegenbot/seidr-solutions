@@ -3,18 +3,13 @@
 #include <cassert>
 
 std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> result;
-    std::string delimiter = "| ";
+    std::vector<int> parsed_music;
     size_t pos = 0;
-    while ((pos = music_string.find(delimiter)) != std::string::npos) {
-        std::string token = music_string.substr(0, pos);
-        if (token == "o")
-            result.push_back(2);
-        else if (token == ".")
-            result.push_back(1);
-        music_string.erase(0, pos + delimiter.length());
+    while ((pos = music_string.find("|", pos)) != std::string::npos) {
+        parsed_music.push_back(std::stoi(music_string.substr(pos - 1, 1)));
+        pos++;
     }
-    return result;
+    return parsed_music;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -22,6 +17,6 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 2, 2, 2, 2}));
+    assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
     return 0;
 }
