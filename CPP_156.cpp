@@ -1,20 +1,57 @@
 #include <string>
 
 std::string int_to_mini_roman(int number) {
-    if (number < 1 || number > 3999)
-        return "Input value out of range";
-
-    std::string roman;
-
-    const int values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    const char *roman_chars[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-
-    for (int i = 0; i < sizeof(values) / sizeof(int); i++) {
-        while (number >= values[i]) {
-            roman += roman_chars[i];
-            number -= values[i];
+    std::string roman = "";
+    
+    while (number > 0) {
+        if (number >= 1000) {
+            roman += "M";
+            number -= 1000;
+        } else if (number >= 900) {
+            roman += "CM";
+            number -= 900;
+        } else if (number >= 500) {
+            roman += "D";
+            number -= 500;
+        } else if (number >= 400) {
+            roman += "CD";
+            number -= 400;
+        } else if (number >= 100) {
+            if (number >= 90) {
+                roman += "XC";
+                number -= 90;
+            } else {
+                roman += "C";
+                number -= 100;
+            }
+        } else if (number >= 90) {
+            roman += "XM";
+            number -= 90;
+        } else if (number >= 50) {
+            roman += "L";
+            number -= 50;
+        } else if (number >= 40) {
+            roman += "XL";
+            number -= 40;
+        } else if (number >= 10) {
+            if (number >= 9) {
+                roman += "IX";
+                number -= 9;
+            } else {
+                roman += "X";
+                number -= 10;
+            }
+        } else if (number >= 5) {
+            roman += "V";
+            number -= 5;
+        } else if (number >= 4) {
+            roman += "IV";
+            number -= 4;
+        } else {
+            roman += "I";
+            number -= 1;
         }
     }
-
+    
     return roman;
 }
