@@ -28,7 +28,7 @@ int main() {
         }
     }
     
-    if (abs(sum - 2 * prefixSum) < abs(sum - 2 * (prefixSum - nums[idx]))) {
+    if (std::abs(sum - 2 * prefixSum) < std::abs(sum - 2 * (prefixSum - nums[idx]))) {
         for (int i = 0; i <= idx; ++i) {
             std::cout << nums[i] << std::endl;
         }
