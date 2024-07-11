@@ -9,8 +9,8 @@ def quadratic_equation(a=None, b=None, c=None, d=None):
             a, b, c = map(int, xs[0:3])
             d = int(xs[3]) if len(xs) == 4 else None
             break
-        except ValueError as e:
-            print(e)
+        except ValueError:
+            print("Invalid input. Please enter coefficients (a b c [d]).")
     p = (b**2) - (4 * a * c)
     if d is not None and d != 0:
         if p >= 0:
