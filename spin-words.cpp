@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -27,7 +26,7 @@ string spinWords(string str) {
         } else {
             result += word + " ";
         }
-        i = j + 1;
+        i = j;
     }
     return result;
 }
@@ -37,5 +36,3 @@ int main() {
     cout << "Enter a string of words: ";
     getline(cin, str);
     cout << "Spun result: " << spinWords(str) << endl;
-    return 0;
-}
