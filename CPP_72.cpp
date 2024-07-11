@@ -1,15 +1,13 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
 
-bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+bool will_it_fly(std::vector<int> q, int w) {
+    std::string str = "";
     for (int i : q) {
-        str += to_string(i);
+        str += std::to_string(i);
     }
-    if (!str.compare(to_string(reverse(str)))) return false;
+    if (str != std::to_string(std::reverse(str).begin(), std::reverse(str).end())) return false;
     int sum = 0;
     for (int i : q) {
         sum += i;
@@ -18,19 +16,22 @@ bool will_it_fly(vector<int> q, int w) {
 }
 
 int main() {
-    vector<int> q;
+    std::vector<int> q;
     int w;
-    cout << "Enter the number of quarters: ";
-    cin >> w;
-    cout << "Enter the weights: ";
-    for (int i = 0; i < w; i++) {
-        int weight;
-        cin >> weight;
-        q.push_back(weight);
+    std::cout << "Enter the weight limit: ";
+    std::cin >> w;
+    for(int i = 0 ; i < 5 ; i++) {
+        std::cout << "Enter the weight of package " << i+1 << ": ";
+        int p;
+        std::cin >> p;
+        q.push_back(p);
     }
-    if(will_it_fly(q, w))
-        cout << "The plane will fly.\n";
-    else
-        cout << "The plane won't fly.\n";
+    
+    if(will_it_fly(q, w)) {
+        std::cout << "The packages can be delivered." << std::endl;
+    } else {
+        std::cout << "The packages cannot be delivered." << std::endl;
+    }
+
     return 0;
 }
