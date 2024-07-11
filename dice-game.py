@@ -1,6 +1,2 @@
-n = int(input())
-m = int(input())
-probability = sum(1 for i in range(1, n + 1) for j in range(1, m + 1) if i > j) / (
-    n * m
-)
-print(round(probability, 2))
+n, m = int(input()), int(input())
+print('{:.2f}'.format((n-1) / (n * m)))
