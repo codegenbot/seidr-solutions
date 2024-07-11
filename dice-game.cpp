@@ -1,18 +1,21 @@
+```c++
 #include <iostream>
 using namespace std;
 
 int main() {
-    int n; cout << "Enter the number of sides on Peter's die: "; cin >> n;
-    int m; cout << "Enter the number of sides on Colin's die: "; cin >> m;
-    double result = getProbability(n, m);
-    cout << "The probability is: " << result << endl;
+    double result = getProbability(4, 6); 
+    cout << "Probability: " << result << endl;
     return 0;
 }
 
 double getProbability(int n, int m) {
     double p = 0.0;
     for(int i = 1; i < n; i++) {
-        p += (1.0 / n) * ((n-i) / m);
+        for(int j = 1; j < m; j++) {
+            if(i > j) {
+                p += (1.0 / n) * (1.0 / m);
+            }
+        }
     }
     return p;
 }
