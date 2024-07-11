@@ -1,4 +1,4 @@
-```cpp
+```
 #include <boost/any.hpp>
 
 using namespace std;
@@ -20,7 +20,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return a;  // Return 'a' instead of boost::any("")
+            return boost::any("");
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
@@ -33,7 +33,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return a;
         }
         else {
-            return a;  // Return 'a' instead of boost::any("")
+            return boost::any("");
         }
     }
     else if (a.type() == typeid(string) && b.type() == typeid(int)) {
@@ -46,7 +46,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return a;  // Return 'a' instead of boost::any("")
+            return boost::any("");
         }
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
@@ -59,7 +59,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return a;  // Return 'a' instead of boost::any("")
+            return boost::any("");
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(float)) {
@@ -72,8 +72,8 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return a;  // Return 'a' instead of boost::any("")
+            return boost::any("");
         }
     }
-    return a;  // If none of the above conditions are met, return 'a'
+    return boost::any();
 }
