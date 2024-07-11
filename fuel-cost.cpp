@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cmath>
 
@@ -12,7 +11,7 @@ int calculateFuelCost(std::vector<int>& vec) {
 }
 
 int main() {
-    std::vector<int> vec = {1, 2, 3};
+    std::vector<int> vec = {10,20,30};
     int result = calculateFuelCost(vec);
     return 0;
 }
