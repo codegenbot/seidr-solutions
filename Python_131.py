@@ -14,3 +14,4 @@ for digit in str(n):
         product *= int(digit)
 
 print(product)
+print(expected_product == product)
