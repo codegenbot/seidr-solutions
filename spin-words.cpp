@@ -1,9 +1,3 @@
-```c++
-#include <string>
-#include <iostream>
-
-using namespace std;
-
 string spinWords(string str) {
     string result = "";
     string word = "";
@@ -37,7 +31,7 @@ string spinWords(string str) {
             word = "";
         }
 
-    return result.substr(0, result.length()); 
+    return result.substr(0, result.length()); // Remove trailing space
 }
 
 int main() {
