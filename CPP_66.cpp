@@ -18,7 +18,11 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    int result = digitSum(input.erase(0, input.find_first_not_of("0123456789")));
-    std::cout << "The sum of digits is: " << result << std::endl;
+    if (!input.empty()) { 
+        int result = digitSum(input.erase(0, input.find_first_not_of("0123456789")));
+        std::cout << "The sum of digits is: " << result << std::endl;
+    } else {
+        std::cout << "Error: Empty input." << std::endl;
+    }
     return 0;
 }
