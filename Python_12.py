@@ -1,9 +1,7 @@
 from typing import List, Optional
 
-def longest(strings: List[str]) -> Optional[str]:
+def longest(strings: List[str]) -> Optional[List[str]]:
     if not strings:
         return None
-    return max(strings, key=len)
-
-strings = input("Please enter a list of strings separated by spaces:\n").split()
-print(longest(strings))
+    max_len = max(len(s) for s in strings)
+    return [s for s in strings if len(s) == max_len]
