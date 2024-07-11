@@ -1,7 +1,16 @@
+```
 def add(x: int, y: int):
-    return x + y
+    if x < 0 and y < 0:
+        return -1 * (abs(x) + abs(y))
+    else:
+        return x + y
 
+while True:
+    try:
+        x = int(input("Enter first number: "))
+        y = int(input("Enter second number: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a whole number.")
 
-print(add(2, 3))
-print(add(-1, 1))
-print(add(10, -5))
+print(add(x, y))
