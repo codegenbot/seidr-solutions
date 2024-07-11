@@ -8,9 +8,7 @@ vector<vector<int>> cutVector(vector<int> &nums) {
     vector<vector<int>> result;
     
     for (int i = 1; i < n; ++i) {
-        if (abs(nums[i] - nums[i-1]) == 0) continue;
-        if ((i > 1 && abs(nums[i] - nums[i-1]) <= abs(nums[i-1] - nums[i-2])) ||
-            (i == 1 || abs(nums[i] - nums[i-1]) < abs(nums[i-1] - nums[i-2]))) {
+        if (abs(nums[i] - nums[i-1]) <= 0 || abs(nums[i] - nums[0]) <= abs(nums[i-1] - nums[0])) {
             result.push_back({nums.begin(), nums.begin() + i});
             nums.erase(nums.begin(), nums.begin() + i);
             break;
