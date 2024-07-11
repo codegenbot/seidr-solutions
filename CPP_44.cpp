@@ -1,7 +1,5 @@
-#include <iostream>
 #include <string>
 #include <cassert>
-
 using namespace std;
 
 int main() {
@@ -13,12 +11,4 @@ int main() {
         }
         return result;
     }
-
-    // Test the function
-    int num = 42;
-    int base = 2;
-    string result = change_base(num, base);
-    cout << result << endl;
-
-    return 0;
-}  
+}
