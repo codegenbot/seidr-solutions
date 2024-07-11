@@ -1,10 +1,13 @@
-string solve(string s){
+#include<string>
+using namespace std;
+
+string solve(string s) {
     string result = "";
-    for(int i=0; i<s.size(); i++){
-        if(isalpha(s[i])){
-            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+    for (char c : s) {
+        if (isalpha(c)) {
+            result += tolower(c) == 'a' ? toupper(c) : tolower(c);
         } else {
-            result += s[i];
+            result += c;
         }
     }
     return result;
