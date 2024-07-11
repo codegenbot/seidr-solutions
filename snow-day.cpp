@@ -1,5 +1,5 @@
-#include <iostream>
-#include <algorithm>
+#include<iostream>
+#include<algorithm>
 
 int main() {
     int hours;
