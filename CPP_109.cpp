@@ -1,10 +1,20 @@
-bool move_one_ball(vector<int>& arr) {
+#include <algorithm>
+#include <cassert>
+#include <vector>
+
+bool move_one_ball(const std::vector<int>& arr) {
     int n = arr.size();
-    for (int i = 0; i < n; ++i) {
-        if (is_sorted(arr.begin(), arr.end())) {
+    for(int i = 0; i < n; ++i){
+        if(std::is_sorted(arr.begin(), arr.end())){
             return true;
         }
-        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
+        std::vector<int> temp = arr;
+        std::rotate(temp.rbegin(), temp.rbegin() + 1, temp.rend());
     }
     return false;
+}
+
+int main() {
+    assert(move_one_ball({}) == true);
+    return 0;
 }
