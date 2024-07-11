@@ -1,3 +1,3 @@
-```
 def rounded_avg(n, m):
-    return format((int(n) ^ int(m)), "b").zfill(9)
+    avg = round((float(n) + float(m)) / 2.0)
+    return bin(avg)[2:].zfill(9)
