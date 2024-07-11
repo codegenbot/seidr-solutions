@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 bool pairs_sum_to_zero(const std::vector<int>& l) {
     for (int i = 0; i < l.size(); i++) {
@@ -13,13 +12,15 @@ bool pairs_sum_to_zero(const std::vector<int>& l) {
     return false;
 }
 
-// int main() {
-//     assert (pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
-// }
-
 int main() {
-    assert(pairs_sum_to_zero({1, -1, 2, -2}) == true);
-    assert(pairs_sum_to_zero({3, 4, 5, 6}) == false);
+    std::vector<int> input;
+    int num;
+    while (std::cin >> num) {
+        input.push_back(num);
+    }
+    
+    bool result = pairs_sum_to_zero(input);
+    std::cout << std::boolalpha << result << std::endl;
     
     return 0;
 }
