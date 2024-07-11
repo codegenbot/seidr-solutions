@@ -1,7 +1,8 @@
+```cpp
 #include <algorithm>
 #include <vector>
 
-int max_value_function() {
+void max_value_function() {
     std::vector<std::pair<int, int>> p;
     for (int i = 0; i < 6; ++i) {
         int x, y;
