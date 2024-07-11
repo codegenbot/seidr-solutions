@@ -5,5 +5,5 @@ def double_the_difference(lst):
     lst.sort()
     return (lst[-1] - lst[0]) * 2
 
-result = double_the_difference(input("Enter elements separated by space: ").split())
+result = double_the_difference(input("Enter elements separated by comma: ").split(','))
 print(result)
