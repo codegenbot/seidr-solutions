@@ -5,4 +5,4 @@ def dice_game(n, m):
         for j in range(1, min(i, m) + 1):
             if i > j:
                 favorable_outcomes += 1
-    print(favorable_outcomes / total_outcomes)
+    return favorable_outcomes / total_outcomes
