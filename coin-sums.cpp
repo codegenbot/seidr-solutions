@@ -1,14 +1,22 @@
-int pennies = cents / 1;
-pennies = min(pennies, (cents - pennies) / 1);
-cout << pennies << endl;
+#include <iostream>
+using namespace std;
 
-int nickels = (cents - pennies * 100) / 5;
-nickels = min(nickels, (cents - pennies * 100 - nickels * 50) / 5);
-cout << nickels << endl;
+int main() {
+    int cents;
+    cin >> cents;
 
-int dimes = (cents - pennies * 100 - nickels * 50) / 10;
-dimes = min(dimes, (cents - pennies * 100 - nickels * 50 - dimes * 20) / 10);
-cout << dimes << endl;
+    int pennies = cents / 100;
+    int remainCents = cents % 100;
+    int nickels = remainCents / 25;
+    remainCents %= 25;
+    int dimes = remainCents / 10;
+    remainCents %= 10;
+    int quarters = remainCents / 5;
 
-int quarters = (cents - pennies * 100 - nickels * 50 - dimes * 20) / 25;
-cout << quarters << endl;
+    cout << pennies << endl;
+    cout << nickels << endl;
+    cout << dimes << endl;
+    cout << quarters << endl;
+
+    return 0;
+}

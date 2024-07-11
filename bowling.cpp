@@ -1,33 +1,32 @@
-```c++
 #include <string>
 
 int bowlingScore(std::string s) {
     int score = 0;
-    int roll = 0;
     for(int i = 0; i < s.size(); i++) {
         if(s[i] == '/') {
-            if(roll < 2) {
+            if(i > 0 && s[i - 1] == 'X') {
+                score += 30;
+            } else if(i > 0 && s[i - 1] == 'X' || s[i - 1] == '/') {
                 score += 10;
-            } else {
-                score += (10 - ('X' - '0'));
             }
-            roll = 0;
-        } else if('0' <= s[i] && s[i] <= '9') {
-            int val = s[i] - '0';
-            if(roll == 1) {
-                if(val + roll > 10) {
-                    score += (10 - (10 - val));
-                } else {
-                    score += val;
-                }
-                roll = 0;
-            } else {
-                roll = roll * 10 + val;
-            }
+            i++;
         } else if(s[i] == 'X') {
             score += 10;
-            roll = 0;
+            continue;
+        } else if('0' <= s[i] && s[i] <= '9') {
+            int roll = (s[i] - '0');
+            if(i < s.size() - 1) {
+                i++;
+                if(s[i] == '/') {
+                    score += (roll * 10);
+                } else if(s[i] == 'X') {
+                    score += (roll * 10) + 10;
+                } else {
+                    roll = roll * 10 + (s[i] - '0');
+                }
+            } else {
+                score += roll * 10;
+            }
         }
     }
     return score;
-}
