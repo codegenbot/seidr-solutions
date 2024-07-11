@@ -1,4 +1,5 @@
 ```
+import math
 def find_zero(xs):
     n = len(xs)
     if n % 2 != 0:
@@ -24,6 +25,9 @@ if __name__ == "__main__":
     try:
         result = find_zero(xs)
         if result is not None:
-            print(f"Zeroes are {result[0]} and {result[1]}.")
+            if result[0] == result[1]:
+                print(f"The only zero is {result[0]}.")
+            else:
+                print(f"Zeroes are {result[0]} and {result[1]}.")
     except ValueError as e:
         print(e)
