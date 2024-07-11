@@ -1,4 +1,3 @@
-```
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -17,4 +16,3 @@ int main() {
         cout<< "The given sides form a right-angled triangle." << endl;  
     else
         cout << "The given sides do not form a right-angled triangle." << endl;
-}
