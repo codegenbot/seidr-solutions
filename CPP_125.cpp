@@ -45,5 +45,3 @@ vector<string> split_words(string txt) {
     
     return words;
 }
-
-assert(issame("", "0"));
