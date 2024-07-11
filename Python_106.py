@@ -1,4 +1,5 @@
 ```
+import math
 def f(n):
     result = []
     for i in range(1, n+1):
@@ -7,7 +8,3 @@ def f(n):
         else:
             result.append(sum(range(1, i+1)))
     return result
-
-import math
-def factorial(x):
-    return math.factorial(x)
