@@ -1,6 +1,8 @@
+```cpp
+#include <iostream>
 #include <vector>
 
-int solution(vector<int> lst) {
+int solution(std::vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
@@ -11,14 +13,8 @@ int solution(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int num;
-        cin >> num;
-        lst.push_back(num);
-    }
-    cout << solution(lst) << endl;
+    std::vector<int> lst = {4,3,5,8};
+    int result = solution(lst);
+    std::cout << "The sum of the odd numbers is: " << result << std::endl;
     return 0;
 }
