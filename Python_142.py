@@ -1,8 +1,9 @@
 def sum_squares(lst):
     total = 0
-    for num in lst:
-        if isinstance(num, int):
-            total += num**2
-        else:
-            print("Invalid input. Only integers are allowed.")
+    for i in range(len(lst)):
+        if (i % 3 == 0 and i % 4 != 0) or (i % 4 == 0 and i % 3 != 0):
+            if i % 3 == 0 and i % 4 != 0:
+                total += lst[i]**2
+            else:
+                total += lst[i]**3
     return total
