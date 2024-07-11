@@ -5,7 +5,6 @@ def solution(lst):
     elif len(lst) % 2 != 0:
         return sum(i for i in lst if i % 2 != 0)
     else:
-        if len(lst) > 1 and lst[len(lst)//2] % 2 != 0:
-            return sum(i for i in lst if i % 2 != 0)
-        else:
-            return 0
+        first_half_sum = sum(i for i in lst[:len(lst)//2] if i % 2 != 0)
+        second_half_sum = sum(i for i in lst[len(lst)//2:] if i % 2 != 0)
+        return abs(first_half_sum - second_half_sum)
