@@ -1,16 +1,15 @@
-Here is the solution:
-
+```cpp
 int smallest_change(vector<int> arr) {
-    int n = arr.size();
-    vector<vector<int>> dp(n, vector<int>(n, 0));
-    for (int i = n - 1; i >= 0; --i) {
-        for (int j = i; j < n; ++j) {
-            if (arr[i] == arr[j]) {
-                dp[i][j] = dp[i + 1][j - 1];
-            } else {
-                dp[i][j] = min(dp[i + 1][j], dp[i][j - 1]) + 1;
-            }
+    string str = "";
+    for (int i : arr) {
+        str += to_string(i);
+    }
+    int n = str.length();
+    int ans = 0;
+    for (int i = 0; i < n / 2; i++) {
+        if (str[i] != str[n - i - 1]) {
+            ans++;
         }
     }
-    return dp[0][n - 1];
+    return ans;
 }
