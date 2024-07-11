@@ -2,9 +2,10 @@
 #include <string>
 
 int main() {
-    std::string s = "X||X|/8-4/X/6|1-2/9";
+    std::string s = "X|9/-5/8-7/X|/3-1/4-2/7-X|-1-|8-5/-9/6-X";
     int score = bowlingScore(s);
-    std::cout << "The total score is: " << score << "\n";
+    std::cout << "The score is: " << score << std::endl;
+    return 0;
 }
 
 int bowlingScore(std::string s) {
