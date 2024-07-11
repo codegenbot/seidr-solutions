@@ -25,7 +25,7 @@ bool isPrime(int n) {
     return true;
 }
 
-int mainFunc() {
+int main_function() {
     assert(skkkasdkd({127, 97, 8192}) == 10);
     cout << "Hello World!" << endl;
     return 0;
