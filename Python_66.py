@@ -1,15 +1,14 @@
-```
-import re
-
 def digitSum(n):
-    return sum(int(c) for c in re.sub(r'\D', '', str(n)))
+    return sum(int(c) for c in str(n))
 
 while True:
     user_input = input("Enter a number (or type 'exit' to quit): ")
     if user_input.lower() == 'exit':
         break
-    try:
+    for char in user_input:
+        if not char.isdigit():
+            print("Invalid input. Please enter an integer.")
+            break
+    else:
         n = int(user_input)
         print(digitSum(n))
-    except ValueError:
-        print("Invalid input. Please enter an integer.")
