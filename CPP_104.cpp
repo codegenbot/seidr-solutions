@@ -1,9 +1,9 @@
 vector<int> result;
     for (int num : x) {
-        int temp = num;
         bool hasEvenDigit = false;
+        int temp = num;
         while (temp > 0) {
-            if (temp % 2 == 0) {
+            if ((temp % 10) % 2 == 0) {
                 hasEvenDigit = true;
                 break;
             }
