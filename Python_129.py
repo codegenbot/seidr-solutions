@@ -8,13 +8,10 @@ def minPath(grid, k):
         cur_cell = None
         for i in range(n):
             for j in range(n):
-                if grid[i][j] < cur_min:
-                    cur_min = grid[i][j]
+                if m[i][j] < cur_min:
+                    cur_min = m[i][j]
                     cur_cell = (i, j)
         res.append(cur_min)
         if cur_cell is not None:
-            for i in range(n):
-                for j in range(n):
-                    if (i, j) == cur_cell:
-                        m[i][j] = float("inf")
+            m[cur_cell[0]][cur_cell[1]] = float("inf")
     return res
