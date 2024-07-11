@@ -1,7 +1,3 @@
-vector<float> v;
+Here is the solution:
 
-cin >> v[0] >> v[1] >> v[2];
-
-float max_value = *max_element(v.begin(), v.end());
-
-return max_value;
+return *max_element(l.begin(), l.end());
