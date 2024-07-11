@@ -3,8 +3,8 @@ def simplify(x, n):
     x_num, x_denom = map(int, [i for i in x.split('/')])
     n_num, n_denom = map(int, [i for i in n.split('/')])
     
-    if str(x_num/x_denom) == str(n_num/n_denom):
-        return False
+    if (x_num / x_denom) * (n_num / n_denom) == 0:
+        return bool(int(x_num / x_denom) * int(n_num / n_denom))
     else:
         gcd = lambda a, b: a if not b else gcd(b, a % b)
         common_divisor = gcd(x_denom, n_denom)
