@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 
 using namespace std;
@@ -7,7 +8,9 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (cin >> num && num != -1) {
+    ifstream inputFile("input.txt");
+
+    while (inputFile >> num) {
         nums.push_back(num);
     }
 
@@ -23,7 +26,7 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         prefix_sum += nums[i];
-        if (prefix_sum >= half_sum) {
+        if (abs(2 * prefix_sum - sum) <= abs(2 * (prefix_sum - nums[i]) - sum)) {
             cut_idx = i;
             break;
         }
@@ -39,5 +42,6 @@ int main() {
         cout << num << endl;
     }
 
+    inputFile.close();
     return 0;
 }
