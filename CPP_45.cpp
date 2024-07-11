@@ -1,1 +1,1 @@
-return (a*h)/2.0f;
+return 0.5 * a * h;
