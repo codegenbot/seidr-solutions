@@ -1,24 +1,23 @@
 int main() {
     string input;
     getline(cin, input);
-
-    stringstream ss(input);
-    string word;
-    bool first = true;
-    while (getline(ss, word, ' ')) {
-        stringstream ss_word(word);
-        string subword;
-        bool first_subword = true;
-        while (getline(ss_word, subword, '-')) {
-            if (!first && !first_subword) {
-                subword[0] = toupper(subword[0]);
-            }
-            cout << subword;
-            first_subword = false;
+    vector<string> words;
+    string word = "";
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] != ' ' && input[i] != '-') {
+            word += input[i];
+        } else {
+            words.push_back(word);
+            word = "";
         }
-        first = false;
-        cout << " ";
     }
+    words.push_back(word);
 
+    cout << words[0];
+    for (int i = 1; i < words.size(); i++) {
+        string firstLetter = words[i].substr(0, 1);
+        string restOfWord = words[i].substr(1);
+        cout << char(toupper(firstLetter[0])) << restOfWord;
+    }
     return 0;
 }
