@@ -1,9 +1,7 @@
 ```
 def sort_even(l):
-    even_numbers = [x for x in l if x % 2 == 0]
+    even_numbers = sorted([x for x in l if x % 2 == 0])
     other_numbers = [x for x in l if x % 2 != 0]
-
-    even_numbers.sort()
     
     result = []
     even_index = 0
@@ -13,5 +11,5 @@ def sort_even(l):
             even_index += 1
         else:
             result.append(num)
-
+    
     return result
