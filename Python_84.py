@@ -1,8 +1,7 @@
-```python
 def solve():
+    N = input("Enter a number: ")
     def convert_to_binary(n):
-        return bin(n)[2:]
-    N = convert_to_binary(int(input("Enter a binary number: ")))
-    return N
+        return bin(int(n))[2:]
+    return convert_to_binary(N)
 
 print(solve())
