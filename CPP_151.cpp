@@ -22,11 +22,11 @@ int main() {
     while(1) {
         string str;
 
-        cin >> str; 
+        cin >> str; // Read as string
 
         if(str == "stop") break;
 
-        float num = stof(str); 
+        float num = stof(str); // Convert string to float
 
         if(num > 0 && modf(num, &num) == 0.0) {
             odd_sum = 0; 
