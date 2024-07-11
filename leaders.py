@@ -1,5 +1,3 @@
+```
 def leaders(input):
-    return [i for i in reversed(input) if all(j <= i for j in input[input.index(i)+1:])]
-
-input = list(map(int, input().split()))
-print(' '.join(map(str, leaders(input))))
+    return [input[i] for i in range(len(input)-1, -1, -1) if all(input[j] <= input[i] for j in range(i+1, len(input)))]
