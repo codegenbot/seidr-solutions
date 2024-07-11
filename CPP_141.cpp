@@ -1,29 +1,31 @@
+Here is the completed code:
+
 string file_name_check(string file_name){
-    int digit_count = 0;
-    bool dot_found = false;
-    for(int i = 0; i < file_name.size(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-        } else if(file_name[i] == '.'){
-            dot_found = true;
+    int dot_count = 0;
+    bool starts_with_letter = false;
+    for(int i=0; i<file_name.size(); i++){
+        if(file_name[i] == '.'){
+            dot_count++;
+            if(dot_count > 1) return "No";
+        }
+        else if(isdigit(file_name[i])){
+            if(count(file_name.begin(), file_name.end(), '0') > 3) return "No";
+        }
+        else{
+            starts_with_letter = true;
+            break;
         }
     }
-
-    if(digit_count > 3 || !dot_found) {
-        return "No";
+    string suffix = "";
+    for(int i=file_name.size()-1; i>=0; i--){
+        if(file_name[i] == '.'){
+            break;
+        }
+        suffix += file_name[i];
     }
-
-    string before_dot = file_name.substr(0, file_name.find('.'));
-    string after_dot = file_name.substr(file_name.find('.') + 1);
-
-    if(before_dot.empty() || (!isalpha(before_dot[0]) && !isupper(before_dot[0]))) {
-        return "No";
+    if(suffix.length() > 0){
+        if(starts_with_letter && (suffix.length() == 3 && (suffix == "txt" || suffix == "exe" || suffix == "dll"))) return "Yes";
+        else return "No";
     }
-
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    if(find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end()) {
-        return "No";
-    }
-
-    return "Yes";
+    else return "No";
 }
