@@ -1,18 +1,20 @@
-#include <string>
+#include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 using namespace std;
 
-string concatenate(const vector<string>& strings) {
+string concatenate(vector<string> strings){
     string result;
-    for (const string& s : strings) {
+    for(const string& s : strings){
         result += s;
     }
     return result;
 }
 
-int main() {
+int main(){
     assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
+    
     return 0;
 }
