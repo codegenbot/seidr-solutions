@@ -1,14 +1,14 @@
-if (arr.empty()) {
+int result = 0;
+    int signMultiplier = 1;
+    
+    if(arr.empty()){
         return -32768;
     }
-
-    int product = 1;
-    int sum = 0;
-
-    for (int num : arr) {
-        sum += abs(num);
-        product *= (num == 0) ? 0 : (num > 0 ? 1 : -1);
+    
+    for(int num : arr){
+        result += abs(num);
+        signMultiplier *= (num > 0) - (num < 0);
     }
-
-    return sum * product;
+    
+    return result * signMultiplier;
 }
