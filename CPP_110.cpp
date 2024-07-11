@@ -1,17 +1,20 @@
-bool hasOdd(vector<int> v) {
-    for (int num : v) {
-        if (num % 2 != 0)
-            return true;
-    }
-    return false;
-}
+Here's the completed code:
 
 string exchange(vector<int> lst1, vector<int> lst2) {
-    vector<int> lst1_copy(lst1);
-    sort(lst1_copy.begin(), lst1_copy.end());
-    
-    if (!hasOdd(lst1_copy))
+    int evenCount = 0;
+    for (int num : lst1) {
+        if (num % 2 == 0)
+            evenCount++;
+    }
+    if (evenCount == lst1.size())
         return "YES";
     else
-        return "NO";
+        for (int num : lst1) {
+            if (find(lst2.begin(), lst2.end(), num) != lst2.end()) {
+                lst2.erase(remove(lst2.begin(), lst2.end(), num), lst2.end());
+                if (evenCount + 1 == lst1.size())
+                    return "YES";
+            }
+        }
+    return "NO";
 }
