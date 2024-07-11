@@ -10,7 +10,7 @@ string getNumerator(string s) {
 }
 
 string getDenominator(string s) {
-    size_t pos = s.find('/');
+    size_t pos = s.find '/';
     string temp = s.substr(pos + 1);
     return temp;
 }
