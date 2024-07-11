@@ -1,4 +1,4 @@
-n = int(input())
+`n = int(input())
 nums = list(map(int, input().split()))
 
 total_sum = sum(nums)
@@ -22,4 +22,4 @@ subvector1 = nums[: cut_index]
 subvector2 = nums[cut_index:]
 
 print(*subvector1)
-print(*subvector2)
+print(*subvector2)`
