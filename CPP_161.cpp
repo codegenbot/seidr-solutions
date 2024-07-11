@@ -1,18 +1,23 @@
-for (int i = 0; i < s.size(); ++i) {
-    if (isalpha(s[i])) {
-        if (islower(s[i])) {
-            s[i] = toupper(s[i]);
-        } else {
-            s[i] = tolower(s[i]);
+#include <algorithm>
+#include <cassert>
+#include <cctype>
+#include <string>
+
+using namespace std;
+
+string solve(const string& s) {
+    string result = s;
+    
+    transform(result.begin(), result.end(), result.begin(), [](char c) {
+        if (isalpha(c)) {
+            return islower(c) ? toupper(c) : tolower(c);
         }
+        return c;
+    });
+
+    if (count_if(result.begin(), result.end(), isalpha) == 0) {
+        reverse(result.begin(), result.end());
     }
+    
+    return result;
 }
-
-int left = 0, right = s.size() - 1;
-while (left < right) {
-    swap(s[left], s[right]);
-    left++;
-    right--;
-}
-
-return s;
