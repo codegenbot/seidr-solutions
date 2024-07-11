@@ -1,4 +1,3 @@
-```
 def sum_squares(lst):
     total_sum = 0
     for num in lst:
@@ -7,3 +6,5 @@ def sum_squares(lst):
         else:
             total_sum += num
     return total_sum
+
+print(sum_squares([1, 4, -3, 9, -10]))
