@@ -1,7 +1,9 @@
+Here is the modified code:
+
+```python
 from typing import List
 
 import math
-
 
 def main():
     while True:
@@ -25,5 +27,4 @@ def main():
         factors.append(n)
     return factors
 
-
-print(main())
+print(main())```
