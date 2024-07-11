@@ -1,4 +1,4 @@
-```
+````
 #include <vector>
 #include <string>
 
@@ -20,9 +20,10 @@ string int_to_mini_roman(int number) {
 }
 
 int main() {
-    int n;
-    cout << "Enter a number: ";
-    cin >> n;
-    cout << "Roman numerals: " << int_to_mini_roman(n) << endl;
+    int num;
+    cout << "Enter a positive integer: ";
+    cin >> num;
+    cout << "Roman representation: " << int_to_mini_roman(num) << endl;
     return 0;
 }
+```
