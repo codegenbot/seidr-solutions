@@ -1,29 +1,24 @@
+Here is the completed code:
+
 string file_name_check(string file_name){
-    int digit_count = 0;
-    bool dot_found = false;
-    for(int i = 0; i < file_name.size(); i++){
-        if(isdigit(file_name[i])){
-            digit_count++;
-        } else if(file_name[i] == '.'){
-            dot_found = true;
+    int digitCount = 0;
+    bool foundDot = false;
+    for(int i=0; i<file_name.length(); i++){
+        char c = file_name[i];
+        if(c >= '0' && c <= '9'){
+            digitCount++;
+            if(digitCount > 3) return "No";
+        }
+        else if(c == '.'){
+            foundDot = true;
+        }
+        else if(!foundDot){
+            if((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) return "No";
         }
     }
-
-    if(digit_count > 3 || !dot_found) {
-        return "No";
-    }
-
-    string before_dot = file_name.substr(0, file_name.find('.'));
-    string after_dot = file_name.substr(file_name.find('.') + 1);
-
-    if(before_dot.empty() || (!isalpha(before_dot[0]) && !isupper(before_dot[0]))) {
-        return "No";
-    }
-
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    if(find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end()) {
-        return "No";
-    }
-
+    if(foundDot) {
+        string extension = file_name.substr(file_name.find('.') + 1);
+        if(extension != "txt" && extension != "exe" && extension != "dll")
+            return "No";
+    } else return "No";
     return "Yes";
-}
