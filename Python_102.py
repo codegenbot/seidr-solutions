@@ -1,10 +1,7 @@
-```
 def choose_num(x, y):
-    if x % 2 == 0 and y % 2 == 0:
-        return max(x, y)
-    elif x % 2 == 0:
+    if x % 2 == 0 and x <= y:
         return x
-    elif y % 2 == 0:
+    elif y % 2 == 0 and x < y:
         return y
     else:
         return -1
