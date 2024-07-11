@@ -31,4 +31,3 @@ int main() {
     else
         cout << (is_sorted(lst) ? "True" : "False") << endl; 
     return 0;
-}
