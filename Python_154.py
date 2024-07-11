@@ -1,5 +1,4 @@
-'''
-
+```
 def cycpattern_check(a, b):
     if len(b) > len(a) // 2:
         return False
@@ -9,4 +8,6 @@ def cycpattern_check(a, b):
             return True
     return False
 
-'''
+if __name__ == "__main__":
+    print(cycpattern_check("ab", "abc"))  
+    print(cycpattern_check("ab", "abcd"))
