@@ -7,8 +7,9 @@ def bowling_score(frames):
             if len(frame) > 2:
                 score += int("1" + frame[3].strip())
         elif "/" in frame:
-            a, b = map(int, frame.replace("/", "+").split("+"))
-            score += a + b
+            scores = [int(x.strip()) for x in frame.replace("/", "+").split("+")]
+            score += sum(scores)
         else:
-            score += sum(map(int, frame.split()))
+            rolls = [int(x.strip()) for x in frame.split()]
+            score += sum(rolls)
     return score
