@@ -13,9 +13,8 @@ def factorize(n: int) -> List[int]:
 
 while True:
     try:
-        n = int(input('Enter an integer value: ').strip())
+        n = int(input("Enter an integer: ").strip())
+        print(factorize(n))
         break
     except ValueError:
-        print('Please enter a valid integer value.')
-
-print(factorize(n))
+        print("Please enter an integer value.")
