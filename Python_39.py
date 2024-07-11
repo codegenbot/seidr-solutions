@@ -1,14 +1,12 @@
-```
 def prime_fib(n: int):
-    a, b = 0, 1
-    for _ in range(n*2):  
-        a, b = b, a+b
-        if b > 1000000:  
-            break
+    a, b = 1, 1
     while True:
         if is_prime(b):
             return b
-        b += 1
+        a, b = b, a + b
+        if b > n:
+            break
+
 
 def is_prime(num: int):
     if num < 2:
