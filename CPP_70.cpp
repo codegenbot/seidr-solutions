@@ -1,3 +1,6 @@
+#include <vector>
+#include <algorithm>
+
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
     while (!lst.empty()) {
@@ -6,10 +9,9 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
         lst.erase(min_iter);
 
         if (!lst.empty()) {
-            // Remove this block
-            // auto max_iter = std::max_element(lst.begin(), lst.end());
-            // result.push_back(*max_iter);
-            // lst.erase(max_iter);
+            auto max_iter = std::max_element(lst.begin(), lst.end());
+            result.push_back(*max_iter);
+            lst.erase(max_iter);
         }
     }
     return result;
