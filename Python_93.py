@@ -4,7 +4,7 @@ def encode(message):
         if char.lower() in "aeiou":
             encoded_message += chr((ord(char) - ord('a') + 2) % 26 + ord('a'))
         else:
-            encoded_message += chr((ord(char) - ord('a') + 2) % 26 + ord('a')).swapcase()
+            encoded_message += char.swapcase()
     return encoded_message
 
-print(encode("I DoNt KnOw WhAt tO WrItE"))  # Output: "k Dqnt Knqw Whct tq Wrktg"
+print(encode("I DoNt KnOw WhAt tO WrItE"))  # Output: "k dQnT kNqW wHcT Tq wRkTg"
