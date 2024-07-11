@@ -3,7 +3,7 @@ from typing import List, Tuple
 
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
-    if len(set(numbers)) != len(numbers):  # Check for duplicates
+    if len(set(numbers)) != len(numbers):  
         numbers = list(set(numbers))
     
     numbers.sort()
