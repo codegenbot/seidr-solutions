@@ -1,22 +1,20 @@
-int main() {
-    int n, target;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
-    }
-    cin >> target;
-    
-    map<int, int> seen;
-    for (int i = 0; i < n; ++i) {
+#include <vector>
+#include <map>
+using namespace std;
+
+vector<int> findPair(vector<int>& nums, int target) {
+    map<int, int> mp;
+    vector<int> result;
+
+    for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
-        if (seen.find(complement) != seen.end()) {
-            cout << complement << endl;
-            cout << nums[i] << endl;
+        if (mp.find(complement) != mp.end()) {
+            result.push_back(complement);
+            result.push_back(nums[i]);
             break;
         }
-        seen[nums[i]] = i;
+        mp[nums[i]] = i;
     }
-    
-    return 0;
+
+    return result;
 }
