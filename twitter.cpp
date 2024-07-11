@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -13,18 +14,19 @@ int main() {
     
     else {
         size_t count = 0;
-        for (char c : tweet) {
-            if (std::isalnum(c) || std::isspace(c)) {
+        string temp = tweet; // copy the original tweet to avoid changing it
+        for (char c : temp) {
+            if (!std::isalnum(c) && !std::isspace(c)) { // check if character is not alphanumeric and not a space
                 ++count;
-            } 
+            }
         }
-        
+
         if(count > 140) {
             cout << "Too many characters" << endl;
         }
         
         else {
-            cout << "Your tweet has " << count << " characters" << endl;
+            cout << "Your tweet has " << (tweet.length() - count) << " characters" << endl;
         }
     }
 }
