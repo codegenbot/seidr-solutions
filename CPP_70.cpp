@@ -25,9 +25,3 @@ vector<int> strange_sort_list(vector<int> lst) {
     }
     return result;
 }
-
-int main() {
-    vector<int> lst;
-    for (int i : {1, 1, 1, 1, 1}) 
-        lst.push_back(i);
-    assert(same_vectors({1, 1, 1, 1, 1}, strange_sort_list(lst)));
