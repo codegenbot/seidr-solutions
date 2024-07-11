@@ -1,7 +1,7 @@
-```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
+#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b) {
     for (int i = 0; i < a.size() && i < b.size(); i++) {

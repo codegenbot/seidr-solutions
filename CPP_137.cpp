@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
@@ -10,7 +9,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         return b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return a;
+        return b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str1 = any_cast<string>(a);
