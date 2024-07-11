@@ -17,5 +17,4 @@ def get_values() -> List[int]:
 
 
 def filter_integers() -> List[int]:
-    result = get_values()
-    return [value for value in result if isinstance(value, int)]
+    return [int(value) for value in get_values() if value.isdigit()]
