@@ -34,5 +34,4 @@ int main() {
     }
 
     cout << "Sum of squared values: " << double_the_difference(lst) << endl;
-    return 0; 
-}
+    return 0;
