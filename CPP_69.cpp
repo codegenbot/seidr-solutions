@@ -22,3 +22,4 @@ int search(vector<int> lst) {
     }
 
     return maxFreq;
+}
