@@ -1,47 +1,46 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <cassert>
 
 using namespace std;
 
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+vector<string> separate_paren_groups(string paren_string);
+
+int main() {
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
+    return 0;
+}
+
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
-    string current_group = "";
-    int count = 0;
+    string current_group;
+    int open_count = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (count > 0) {
+            if (open_count > 0) {
                 current_group += c;
             }
-            count++;
-        }
-        else if (c == ')') {
-            count--;
-            if (count > 0) {
-                current_group += c;
-            }
-            if (count == 0 && !current_group.empty()) {
+            open_count++;
+        } else if (c == ')') {
+            open_count--;
+            if (open_count == 0) {
                 result.push_back(current_group);
                 current_group = "";
+            } else {
+                current_group += c;
             }
         }
     }
 
     return result;
-}
-
-int main() {
-    string input;
-    cout << "Enter the string of nested parentheses: ";
-    getline(cin, input);
-
-    vector<string> groups = separate_paren_groups(input);
-
-    cout << "Separated groups: ";
-    for (string group : groups) {
-        cout << group << " ";
-    }
-
-    return 0;
 }
