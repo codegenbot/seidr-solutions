@@ -1,5 +1,7 @@
-from collections import deque
+Here is the modified code:
 
+```python
+from collections import deque
 
 def minPath(grid, k):
     n = len(grid)
@@ -12,7 +14,7 @@ def minPath(grid, k):
             x, y, cell = queue.popleft()
             if (x, y, cell) not in visited:
                 visited.add((x, y, cell))
-                if grid[x][y] < cur_min:
-                    cur_min = grid[x][y]
+                if cell < cur_min:
+                    cur_min = cell
             res.append(cur_min)
     return res
