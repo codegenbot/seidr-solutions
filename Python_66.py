@@ -1,3 +1,4 @@
+```Python
 def digitSum(n):
     sum = 0
     while n > 0:
@@ -12,7 +13,10 @@ while True:
     for char in user_input:
         if not char.isdigit():
             print("Invalid input. Please enter an integer.")
-            break
+            continue  # Skip the rest of the loop and ask for new input.
     else:
-        n = int(user_input) 
-        print(digitSum(n))
+        try:
+            n = int(user_input) 
+            print(digitSum(n))
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
