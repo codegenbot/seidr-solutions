@@ -17,5 +17,7 @@ while op:
             break
         except ValueError:
             print("Invalid operation. Please enter a number followed by '+' or '-'.")
+    if op.strip() == "":
+        break
 
 print(below_zero(ops))
