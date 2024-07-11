@@ -4,14 +4,14 @@
 using namespace std;
 
 pair<int, int> compare(vector<int> a, vector<int> b) {
-    vector<int> c = a;
-    vector<int> d = b;
-    sort(c.begin(), c.end());
-    sort(d.begin(), d.end());
-    if (c.size() < d.size())
-        return make_pair(1, 0);
-    else if (c.size() > d.size())
-        return make_pair(0, 1);
-    else
-        return make_pair(1, 1);
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    
+    if(count(a.begin(), a.end(), 1) > count(b.begin(), b.end(), -1)){
+        return make_pair(1,0);
+    } else if(count(b.begin(), b.end(), -1) > count(a.begin(), a.end(), 1)) {
+        return make_pair(0,1);
+    } else {
+        return make_pair(0,0);
+    }
 }
