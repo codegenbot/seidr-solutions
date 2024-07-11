@@ -3,18 +3,18 @@
 #include <vector>
 
 int main() {
-    std::string text, target;
-    std::cin >> text >> target;
+    string text, target;
+    cin >> text >> target;
     
-    std::vector<int> indices;
+    vector<int> indices;
     size_t pos = text.find(target, 0);
-    while(pos != std::string::npos) {
+    while (pos != std::string::npos) {
         indices.push_back(pos);
         pos = text.find(target, pos + 1);
     }
     
-    for(int i : indices) {
-        std::cout << i << " ";
+    for (int i : indices) {
+        cout << i << " ";
     }
     
     return 0;
