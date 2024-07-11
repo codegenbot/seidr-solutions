@@ -11,3 +11,4 @@ string solveBoolean(string s) {
         }
     }
     return result ? "True" : "False";
+}
