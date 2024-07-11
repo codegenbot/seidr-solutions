@@ -1,24 +1,16 @@
 #include <vector>
 using namespace std;
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int start = 0;
-    while ((start = text.find(target, start)) != string::npos) {
-        indices.push_back(start);
-        start += 1; // increment by 1 for overlapping targets
-    }
-    return indices;
-}
+vector<int> indicesOfSubstring(string text, string target) {
+    vector<int> result;
+    int n = text.length();
+    int m = target.length();
 
-int main() {
-    string text;
-    cin >> text;
-    string target;
-    cin >> target;
-    vector<int> result = findIndices(text, target);
-    for (int i : result) {
-        cout << i << endl;
+    for (int i = 0; i <= n - m; i++) {
+        if (text.substr(i, m) == target) {
+            result.push_back(i);
+        }
     }
-    return 0;
+
+    return result;
 }
