@@ -3,6 +3,8 @@ def is_nested(string):
     for bracket in string:
         if bracket == '[':
             stack.append(bracket)
-        elif bracket == ']' and stack:
+        elif bracket == ']' and stack and stack[-1] == '[':
             stack.pop()
-    return len(stack) < 2
+        else:
+            return False
+    return len(stack) == 0
