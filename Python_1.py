@@ -1,4 +1,3 @@
-```
 from typing import List, Iterator
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -24,4 +23,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if current_group:
         result.append(current_group)
     
-    return [group for group in map(''.join, (iter(group) for group in result)) if group]
+    return [''.join(group) for group in (group for group in result)]
