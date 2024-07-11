@@ -2,8 +2,8 @@
 #include <vector>
 
 int main() {
-    std::vector<float> prices = {12.72f, 2.69f, 34.4f, 27.85f, 22.36f, 31.04f, 11.14f, 6.97f, 25.34f, 3.05f, 40.18f};
-    std::vector<float> discounts = {53.1f, 36.18f, 87.73f, 7.54f, 18.97f, 98.24f, 64.56f, 99.0f, 90.76f, 87.22f, 70.2f};
+    std::vector<float> prices = {11, 12.72, 2.69, 34.4, 27.85, 22.36, 31.04, 11.14, 6.97, 25.34, 3.05, 40.18};
+    std::vector<float> discounts = {53.1, 36.18, 87.73, 7.54, 18.97, 98.24, 64.56, 99.0, 90.76, 87.22, 70.2};
 
     float total_price = 0.0f;
     for (int i = 0; i < prices.size(); ++i) {
