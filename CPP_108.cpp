@@ -1,8 +1,11 @@
-int count_nums(vector<int> n) {
+#include <vector>
+#include <cmath>
+
+int count_nums(const std::vector<int>& n) {
     int count = 0;
     for (int num : n) {
         int sum = 0;
-        int numCopy = abs(num);
+        int numCopy = std::abs(num);
         while (numCopy > 0) {
             sum += numCopy % 10;
             numCopy /= 10;
