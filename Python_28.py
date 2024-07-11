@@ -1,1 +1,3 @@
-strings = input("Enter multiple strings separated by space: ").split()
+strings = input().strip().split()
+result = concatenate_strings(strings)
+print(result)
