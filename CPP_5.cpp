@@ -1,10 +1,13 @@
-vector<int> intersperse(vector<int> numbers, int delimeter){
-    vector<int> result;
-    for(int i = 0; i < numbers.size(); ++i){
-        result.push_back(numbers[i]);
-        if(i < numbers.size() - 1){
-            result.push_back(delimeter);
-        }
-    }
-    return result;
-}
+vector<int> interspersed;
+	if (numbers.empty()) {
+		return interspersed;
+	}
+
+	int n = numbers.size();
+	for (int i = 0; i < n - 1; ++i) {
+		interspersed.push_back(numbers[i]);
+		interspersed.push_back(delimeter);
+	}
+	interspersed.push_back(numbers[n - 1]);
+
+	return interspersed;
