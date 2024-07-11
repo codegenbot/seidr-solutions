@@ -1,10 +1,9 @@
-```
 def decipher(cipher1, cipher2, message):
     result = ""
     for char in message.lower():
-        if char.isalpha():  
-            diff = ord(cipher2[0]) - ord(cipher1[0]) 
-            result += chr((ord(char) - ord(cipher1[0])) % 26 + diff)  
-        else:  
+        index = cipher1.get(char)
+        if index is None:
             result += char
+        else:
+            result += cipher2[index]
     return result
