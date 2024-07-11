@@ -1,15 +1,19 @@
+```
 cents = int(input("Enter the amount in cents: "))
-remaining_cents = cents
+coins = [0, 0, 0, 0] 
 
-quarters = remaining_cents // 25
-remaining_cents %= 25
+while cents > 0:
+    if cents >= 25:
+        coins[0] += 1
+        cents -= 25
+    elif cents >= 10:
+        coins[1] += 1
+        cents -= 10
+    elif cents >= 5:
+        coins[2] += 1
+        cents -= 5
+    else:
+        coins[3] += 1
+        cents -= 1
 
-dimes = remaining_cents // 10
-remaining_cents %= 10
-
-nickels = remaining_cents // 5
-remaining_cents %= 5
-
-pennies = remaining_cents
-
-print(f"Quarters: {quarters}, Dimes: {dimes}, Nickels: {nickels}, Pennies: {pennies}")
+print(f"Quarters: {coins[0]}, Dimes: {coins[1]}, Nickels: {coins[2]}, Pennies: {coins[3]}")
