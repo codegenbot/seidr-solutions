@@ -1,9 +1,9 @@
 ```
 def double_the_difference(numbers):
-    even_sum = sum(num for num in numbers if int(num) % 2 == 0)
-    square_sum = sum(int(num) ** 2 for num in numbers)
-    average = even_sum / len([num for num in numbers if int(num) % 2 == 0])
-    return (square_sum - (2 * average * len(numbers))) 
+    even_numbers = [n for n in numbers if n % 2 == 0]
+    average_even = sum(map(int, even_numbers)) / len(even_numbers)
+    difference_sum_of_squares_twice_average_even = (sum(map(lambda x: x ** 2, map(int, numbers))) - 2 * average_even * len(numbers)) * 2
+    return difference_sum_of_squares_twice_average_even
 
 def check():
     numbers = input("Enter a list of integers separated by space: ").split()
