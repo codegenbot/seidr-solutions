@@ -17,4 +17,3 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x) {
              else return a[1] > b[1];
          });
     return result;
-}
