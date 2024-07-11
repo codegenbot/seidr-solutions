@@ -1,4 +1,6 @@
-```
 def leaders(input):
-    output = [i for i in reversed(input) if i >= max(input[input.index(i)+1:])]
-    return ' '.join(map(str, output))
+    output = [input[-1]]
+    for i in range(len(input) - 2, -1, -1):
+        if input[i] >= input[i + 1]:
+            output.append(input[i])
+    return " ".join(map(str, reversed(output)))
