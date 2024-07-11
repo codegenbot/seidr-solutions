@@ -2,25 +2,25 @@ vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
-    int index1 = -1, index2 = -1;
-
-    for (int i = 0; i < planets.size(); i++) {
+    int range_start = -1, range_end = -1;
+    for (int i = 0; i < planets.size(); ++i) {
         if (planets[i] == planet1) {
-            index1 = i;
+            range_start = i;
         }
         if (planets[i] == planet2) {
-            index2 = i;
+            range_end = i;
         }
     }
 
-    if (index1 == -1 || index2 == -1) {
+    if (range_start == -1 || range_end == -1) {
         return result;
     }
 
-    int start = min(index1, index2);
-    int end = max(index1, index2);
+    if (range_start > range_end) {
+        swap(range_start, range_end);
+    }
 
-    for (int i = start + 1; i < end; i++) {
+    for (int i = range_start + 1; i < range_end; ++i) {
         result.push_back(planets[i]);
     }
 
