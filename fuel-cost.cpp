@@ -5,7 +5,6 @@ using namespace std;
 
 int main() {
     vector<int> nums;
-    
     int input;
     while (cin >> input) {
         nums.push_back(input);
