@@ -1,3 +1,8 @@
-if(x <= 0 || n <= 0) return false;
-double res = log(x) / log(n);
-return (int)res == res;
+if (x == 1) {
+        return true;
+    }
+    
+    double result = log(x) / log(n);
+    
+    return (result == (int)result);
+}
