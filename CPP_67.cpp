@@ -1,44 +1,29 @@
-#include<stdio.h>
-#include<string>
-using namespace std;
-
 int fruit_distribution(string s, int n) {
-    size_t pos = 0;
-    int apples = 0, oranges = 0;
-
-    while ((pos = s.find("apples", pos)) != string::npos) {
-        if (s.substr(pos, "apples".length()).find("and") == string::npos) {
-            pos = s.find(" and ", pos);
-            if (pos == string::npos) {
-                pos = s.find(" apples", pos);
-            } else {
-                break;
+    int total_apples = 0;
+    int total_oranges = 0;
+    
+    string temp = "";
+    for (char c : s) {
+        if (c == ' ') {
+            if (!temp.empty()) {
+                if (temp.find("apples") != string::npos)
+                    total_apples = stoi(temp.substr(0, temp.find(" ")).erase(0, 1));
+                else if (temp.find("oranges") != string::npos)
+                    total_oranges = stoi(temp.substr(0, temp.find(" ")).erase(0, 1));
+                temp.clear();
             }
+        } else {
+            temp += c;
         }
-        int start = pos + 6; // "apples" length is 6
-        while (s[start] >= '0' && s[start] <= '9') {
-            start++;
-        }
-        apples = stoi(s.substr(start - position, pos - start));
-        break;
     }
-
-    while ((pos = s.find("oranges", pos)) != string::npos) {
-        if (s.substr(pos, "oranges".length()).find("and") == string::npos) {
-            pos = s.find(" and ", pos);
-            if (pos == string::npos) {
-                pos = s.find(" oranges", pos);
-            } else {
-                break;
-            }
-        }
-        int start = pos + 7; // "oranges" length is 7
-        while (s[start] >= '0' && s[start] <= '9') {
-            start++;
-        }
-        oranges = stoi(s.substr(start - position, pos - start));
-        break;
+    
+    // Process the last string
+    if (!temp.empty()) {
+        if (temp.find("apples") != string::npos)
+            total_apples = stoi(temp.substr(0, temp.find(" ")).erase(0, 1));
+        else if (temp.find("oranges") != string::npos)
+            total_oranges = stoi(temp.substr(0, temp.find(" ")).erase(0, 1));
     }
-
-    return n - apples - oranges;
+    
+    return n - total_apples - total_oranges;
 }
