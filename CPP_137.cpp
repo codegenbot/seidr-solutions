@@ -1,8 +1,7 @@
-#include <iostream>
 #include <boost/any.hpp>
 #include <string>
 
-boost::any compare_one(const boost::any &a, const boost::any &b) {
+boost::any compare_one(const boost::any& a, const boost::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
             return a;
@@ -23,9 +22,4 @@ boost::any compare_one(const boost::any &a, const boost::any &b) {
         }
     }
     return boost::any{};
-}
-
-int main() {
-    // Input handling and function calls can be added here as needed
-    return 0;
 }
