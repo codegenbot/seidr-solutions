@@ -1,5 +1,3 @@
-n = int(input("Enter the value of n: "))
-
 def is_prime(num):
     if num < 2:
         return False
@@ -23,3 +21,7 @@ def prime_fib(n: int):
             if n == 0:
                 return fib_num
         i += 1
+
+n = int(input("Enter the value of 'n': "))
+result = prime_fib(n)
+print(result)
