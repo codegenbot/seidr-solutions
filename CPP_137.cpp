@@ -25,13 +25,6 @@ boost::any compare(boost::any a, boost::any b) {
             return b;
         }
     }
-    assert(false); // Error if types are not int, float, or string
+    assert(false); // Invalid comparison
 }
 
-int main() {
-    boost::any a = 10;
-    boost::any b = 20;
-    cout << boost::any_cast<int>(compare(a, b)) << endl;
-
-    return 0;
-}
