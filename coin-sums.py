@@ -7,4 +7,6 @@ for value in values:
         coins[values.index(value)] += count
         cents %= value
 
-print(f"Pennies: {coins[3]}, Nickels: {coins[2]}, Dimes: {coins[1]}, Quarters: {coins[0]}")
+print(
+    f"Pennies: {coins[3]}, Nickels: {coins[2]}, Dimes: {coins[1]}, Quarters: {coins[0]}"
+)
