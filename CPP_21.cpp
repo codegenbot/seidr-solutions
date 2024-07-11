@@ -22,11 +22,11 @@ std::vector<float> rescale_to_unit(std::vector<float> numbers) {
 
 int main() {
     std::vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
-    std::vector<float> expected = {0.0, 0.25, 0.5, 0.75, 1.0};
+    std::vector<float> expected_rescaled = {0.0, 0.25, 0.5, 0.75, 1.0};
     
     std::vector<float> rescaled = rescale_to_unit(numbers);
     
-    assert(issame(rescaled, expected));
+    assert(issame(rescaled, expected_rescaled));
     
     return 0;
 }
