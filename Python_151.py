@@ -7,6 +7,5 @@ def check(odd_sum):
     return double_the_difference(lst) == odd_sum
 
 
-# Define the 'lst' list before calling the check function
 lst = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 check(double_the_difference(lst))
