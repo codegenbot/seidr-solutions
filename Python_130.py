@@ -1,15 +1,13 @@
-```
 def tri(n):
     if n == 0:
         return [3]
     elif n == 1:
-        return [1, 3]
+        return [3, 1]
     else:
-        sequence = [1, 3]
-        while len(sequence) < n + 1:
-            if len(sequence) % 2 == 0:
-                sequence.append(1 + (len(sequence) // 2))
+        sequence = [3, 1]
+        for i in range(2, n + 1):
+            if i % 2 == 0:
+                sequence.append(i // 2 + 1)
             else:
-                last_even_index = len(sequence) - 1
-                sequence.append(sequence[last_even_index] + sequence[last_even_index - 1] + sequence[last_even_index - 2])
+                sequence.append(sum(sequence[i - 1 : i + 1]))
         return sequence
