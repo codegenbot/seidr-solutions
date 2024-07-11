@@ -29,14 +29,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     != {"(": ")", "[": "]", "{": "}"}[stack[-1]]
                 ):
                     stack.pop()
-                if (
-                    not stack
-                    and {")": ")", "]": "[", "}": "{"}[char]
-                    == {")": ")", "]": "[", "}": "{"}["({".index(top)]
-                ):
-                    result.append(groups.pop().lstrip().rstrip())
-    if groups:
-        while stack and (stack[-1] in ["(", "["]):
-            stack.pop()
-        if not stack and len(stack) == 0:
-            result.append(groups[0].lstrip().rstrip())
+                if not stack:
+                    result.append(groups[-1].lstrip().rstrip())
