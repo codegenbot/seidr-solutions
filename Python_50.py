@@ -1,9 +1,12 @@
-def decode_shift(s: str):
-    if s.startswith("25-"):
-        shift = int(s[3:])
+```
+def decode_shift():
+    t = input("Enter a type of shift (25- or 26- ): ")
+    s = input("Enter a shifted string (" + t + " ): ")
+    if t.startswith("25-"):
+        shift = int(t[3:])
         s = s[4:]
-    elif s.startswith("26-"):
-        shift = int(s[3:])
+    elif t.startswith("26-"):
+        shift = int(t[3:])
         s = s[4:]
     else:
         while True:
@@ -24,10 +27,5 @@ def decode_shift(s: str):
             result += ch
     return result
 
-while True:
-    s = input("Enter a shifted string (25- or 26- ): ")
-    if s.startswith("25-") or s.startswith("26-"):
-        break
-    print("Invalid input. Please enter a string that starts with '25-' or '26-'")
 
-print(decode_shift(s))
+print(decode_shift())
