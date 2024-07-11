@@ -23,6 +23,7 @@ vector<string> filter_by_substring(vector<string> arr, string sub) {
     return result;
 
 }
+
 int main() {
     int n;
     cin >> n;
