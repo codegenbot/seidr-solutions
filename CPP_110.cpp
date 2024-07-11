@@ -1,15 +1,16 @@
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int oddCount = 0;
+    int even_count = 0;
     for (int num : lst1) {
-        if (num % 2 != 0) {
-            oddCount++;
-        }
+        if (num % 2 == 0)
+            even_count++;
     }
     for (int num : lst2) {
-        if (num % 2 != 0) {
-            if (oddCount == 0) return "NO";
-            else oddCount--;
+        if (num % 2 == 0) {
+            even_count--;
+            break;
+        } else {
+            even_count++;
         }
     }
-    return oddCount == 0 ? "YES" : "NO";
+    return even_count >= 0 ? "YES" : "NO";
 }
