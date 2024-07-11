@@ -1,4 +1,3 @@
-```
 while True:
     try:
         xs = [int(i) for i in input("Enter coefficients (a b c [d]): ").split()]
@@ -10,10 +9,10 @@ while True:
             print(f"The solution is {result}.")
         elif len(xs) == 4:
             a, b, c, d = xs
-            p = (b**2) - (4*a*c)
+            p = (b**2) - (4 * a * c)
             if p >= 0:
-                r1 = (-b + p**(0.5)) / (2 * a)
-                r2 = (-b - p**(0.5)) / (2 * a)
+                r1 = (-b + p ** (0.5)) / (2 * a)
+                r2 = (-b - p ** (0.5)) / (2 * a)
                 print(f"The solutions are {r1} and {r2}.")
             else:
                 result = -b / a
