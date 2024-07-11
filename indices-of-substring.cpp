@@ -10,11 +10,14 @@ int main() {
     getline(cin, target);
 
     vector<int> indices;
-    size_t pos = text.size() - 1;
+    size_t pos = text.size() - target.size();
 
     while ((pos = text.rfind(target, pos)) != string::npos) {
         indices.push_back(pos);
-        pos -= target.size();
+        if (pos == 0) {
+            break;
+        }
+        pos--;
     }
 
     for (int i : indices) {
