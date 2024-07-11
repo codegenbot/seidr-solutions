@@ -18,3 +18,6 @@ def find_zero():
         return None
     n = int(sum(x) / (sum(y) or 1))
     return n
+
+
+find_zero()
