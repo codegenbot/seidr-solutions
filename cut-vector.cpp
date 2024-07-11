@@ -8,9 +8,9 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     int min_diff = INT_MAX;
     std::pair<std::vector<int>, std::vector<int>> result;
     
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i < n; i++) {
         int diff = std::abs(std::accumulate(arr.begin(), arr.begin()+i, 0) - std::accumulate(arr.begin()+i, arr.end(), 0));
-        if (diff < min_diff) {
+        if (diff < min_diff || (diff == min_diff && std::accumulate(arr.begin(), arr.begin()+i, 0) == std::accumulate(arr.begin()+i, arr.end(), 0))) {
             min_diff = diff;
             result.first = std::vector<int>(arr.begin(), arr.begin()+i);
             result.second = std::vector<int>(arr.begin()+i, arr.end());
