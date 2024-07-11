@@ -1,5 +1,5 @@
 bool issame(vector<int> b) {
-    for (int i = 1; i < b.size(); ++i) {
+    for (int i = 1; i < b.size(); i++) {
         if (b[i] != b[0]) {
             return false;
         }
@@ -10,11 +10,11 @@ bool issame(vector<int> b) {
 vector<int> parse_music(string music_string);
 
 int main() {
-    string input;
-    cin >> input;
-    vector<int> result = parse_music(input);
-    for (int num : result) {
-        cout << num << " ";
+    string music_string;
+    cin >> music_string;
+    vector<int> result = parse_music(music_string);
+    for (int beat : result) {
+        cout << beat << " ";
     }
     return 0;
 }
