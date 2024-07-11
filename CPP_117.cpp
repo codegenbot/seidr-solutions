@@ -33,6 +33,4 @@ std::vector<std::string> select_words(std::string s, int n) {
     return result;
 }
 
-int main() {
-    assert(select_words("a b c d e f", 1) == std::vector<std::string>{"b", "c", "d", "f"});
-}
+assert(select_words("a b c d e f", 1) == std::vector<std::string>{"b", "c", "d", "f"});
