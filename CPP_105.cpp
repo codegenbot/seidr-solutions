@@ -1,7 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -30,12 +30,28 @@ vector<string> by_length(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {5, 9, 8, 2, 4};
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for(int i=0; i<n; i++) {
+        cin >> arr[i];
+    }
+
     vector<string> result = by_length(arr);
-    bool same = issame(result, {"Nine", "Eight", "Five"});
-    if (same)
-        cout << "The output is the same." << endl;
+
+    bool same = true;
+    int m;
+    cin >> m;
+    vector<int> arr2(m);
+    for(int i=0; i<m; i++) {
+        cin >> arr2[i];
+    }
+    vector<string> result2 = by_length(arr2);
+
+    if(issame(result, result2))
+        cout << "Same" << endl;
     else
-        cout << "The output is not the same." << endl;
+        cout << "Not Same" << endl;
+
     return 0;
 }
