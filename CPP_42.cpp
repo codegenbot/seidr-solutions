@@ -32,6 +32,7 @@ int main() {
     bool result = issame(a, b);
     std::vector<int> incremented = incr_list(a);
     
+    // Output result
     std::cout << "Arrays are " << (result ? "equal" : "not equal") << std::endl;
     for (int num : incremented) {
         std::cout << num << " ";
