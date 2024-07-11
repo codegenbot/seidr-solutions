@@ -1,5 +1,11 @@
+```python
 phi = (1 + 5**0.5) / 2
 
 
 def fibfib(n: int):
-    return int((phi**n - (1 - phi) ** n) ** 0.5 / 5**0.5)
+    result = []
+    a, b = 0, 1
+    for _ in range(n):
+        result.append(a)
+        a, b = b, a + b
+    return result

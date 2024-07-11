@@ -1,3 +1,4 @@
+```
 def sort_array(array):
     if len(array) == 0:
         return array
@@ -6,4 +7,4 @@ def sort_array(array):
         return [array[-1]]
     else:
         mid = len(array) // 2
-        return array[:mid] + [[array[mid - 1], array[mid]]]
+        return [array[:mid], array[mid:]]
