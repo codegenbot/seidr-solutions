@@ -1,6 +1,7 @@
 #include <vector>
-using namespace std;
 #include <cassert>
+
+using namespace std;
 
 bool issame(vector<int> a,vector<int>b){
     if(a.size() != b.size()) return false;
@@ -20,7 +21,14 @@ vector<int> even_odd_count(int num) {
         num /= 10;
     }
     result.push_back(count);
-    if(num < 0) result.push_back(-1);
-    else result.push_back(0);
+    result.push_back(abs(num));
     return result;
+}
+
+int main() {
+    vector<int> output1 = even_odd_count(123456789);
+    cout << "Even numbers: " << output1[0] << endl;
+    cout << "Last odd number: " << output1[1] << endl;
+
+    return 0;
 }
