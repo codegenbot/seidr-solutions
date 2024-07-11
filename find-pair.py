@@ -1,3 +1,4 @@
+```
 def find_pair(n):
     s = []
     for _ in range(n):
@@ -20,3 +21,6 @@ def find_pair(n):
             right -= 1
         else:
             left += 1
+
+
+find_pair(int(input()))
