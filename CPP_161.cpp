@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <cctype>
 
 std::string solve(std::string s) {
     for(char& c : s){
@@ -12,19 +11,15 @@ std::string solve(std::string s) {
             }
         }
     }
-    if(count_if(s.begin(), s.end(), ::isalpha) == 0){
-        reverse(s.begin(), s.end());
+    if(std::count_if(s.begin(), s.end(), ::isalpha) == 0){
+        std::reverse(s.begin(), s.end());
     }
     return s;
 }
 
 int main() {
     std::string input;
-    std::cout << "Enter a string: ";
-    std::cin >> input;
-
-    std::string result = solve(input);
-    std::cout << "Result: " << result << std::endl;
-
+    std::getline(std::cin, input);
+    std::cout << solve(input) << std::endl;
     return 0;
 }
