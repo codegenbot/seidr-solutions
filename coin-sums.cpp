@@ -5,20 +5,23 @@ int main() {
     int cents;
     cin >> cents;
 
-    int pennies = cents / 100;
-    cents %= 100;
+    int pennies = cents / 1;
+    cents %= 1; 
+    cout << pennies << endl;
 
-    int nickels = cents / 20; // 5 cents * 4 per nickel
-    cents %= 20;
+    if (cents >= 5) {
+        int nickels = cents / 5;
+        cents %= 5; 
+        cout << nickels << endl;
+    }
 
-    int dimes = cents / 10; // 1 dime = 10 cents, 2 dimes = 20 cents
-    cents %= 10;
+    if (cents >= 10) {
+        int dimes = cents / 10;
+        cents %= 10; 
+        cout << dimes << endl;
+    }
 
     int quarters = cents / 25;
-    
-    cout << pennies << endl;
-    cout << nickels << endl;
-    cout << dimes << endl;
     cout << quarters << endl;
 
     return 0;
