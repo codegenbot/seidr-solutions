@@ -1,12 +1,10 @@
 int sum = 0;
-    bool balanced = true;
-    
     for (int i = 0; i < q.size(); i++) {
         sum += q[i];
-        if (q[i] != q[q.size() - 1 - i]) {
-            balanced = false;
-        }
     }
     
-    return balanced && sum <= w;
+    vector<int> reversed_q = q;
+    reverse(reversed_q.begin(), reversed_q.end());
+    
+    return sum <= w && q == reversed_q;
 }
