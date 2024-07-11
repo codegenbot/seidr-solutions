@@ -1,10 +1,8 @@
+```
 def solve():
-    N = int(input("Enter a number: "))
-    binary = convert_to_binary(N)
-    if len(binary) % 2 == 0:
-        return "Even"
-    else:
-        return "Odd"
-
+    N = input("Enter a number: ")
+    def convert_to_binary(n):
+        return bin(int(n))[2:]
+    return convert_to_binary(N)
 
 print(solve())
