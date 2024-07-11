@@ -1,34 +1,19 @@
-Here is the solution:
-
-bool solveBoolean(string s) {
-    stack<char> st;
-    bool res = false;
+bool solveBoolean(string booleanExpression) {
+    stack<char> expression;
     
-    for(int i=0; i<s.length(); i++) {
-        if(s[i] == '&') {
-            while(!st.empty() && st.top() == '&') {
-                st.pop();
+    for(int i = 0; i < booleanExpression.length(); i++) {
+        if(booleanExpression[i] == '&') {
+            while(!expression.empty() && expression.top() == '&') {
+                expression.pop();
             }
-            if(st.empty()) {
-                res = true;
-            } else {
-                res = (st.top() == 'T');
+        } else if (booleanExpression[i] == '|') {
+            while(!expression.empty() && expression.top() == '|') {
+                expression.pop();
             }
-            st.push('&');
-        } else if(s[i] == '|') {
-            while(!st.empty() && st.top() == '|') {
-                st.pop();
-            }
-            if(st.empty()) {
-                res = false;
-            } else {
-                res = (st.top() == 'T');
-            }
-            st.push('|');
         } else {
-            st.push(s[i]);
+            expression.push(booleanExpression[i]);
         }
     }
     
-    return res;
+    return expression.top() == 'T';
 }
