@@ -2,7 +2,7 @@
 def minPath(grid, k):
     m = len(grid)
     visited = set()
-    shortest_path = []
+    shortest_path = None
     min_length = float('inf')
 
     def dfs(i, j, path, remaining):
