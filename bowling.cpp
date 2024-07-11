@@ -1,32 +1,45 @@
-int scoreBowlingRound(const string& bowls) {
-    int score = 0;
+int score(string s) {
+    int total = 0;
     int frame = 1;
-    int bowlIndex = 0;
-
-    for (int i = 0; i < 10; ++i) {
-        if (bowls[bowlIndex] == 'X') {
-            score += 10;
-            score += (bowls[bowlIndex + 1] == 'X') ? 10 : (bowls[bowlIndex + 1] == '/') ? 10 - (bowls[bowlIndex + 2] - '0') : bowls[bowlIndex + 1] - '0';
-            score += (bowls[bowlIndex + 2] == 'X') ? 10 : (bowls[bowlIndex + 2] == '/') ? 10 - (bowls[bowlIndex + 3] - '0') : bowls[bowlIndex + 2] - '0';
-            bowlIndex++;
-        } else if (bowls[bowlIndex + 1] == '/') {
-            score += 10;
-            score += (bowls[bowlIndex + 2] == 'X') ? 10 : bowls[bowlIndex + 2] - '0';
-            bowlIndex += 2;
+    int ball = 0;
+    int rolls[22] = {0};
+    
+    for (char c : s) {
+        if (c == 'X') {
+            rolls[ball++] = 10;
+            if (frame < 10) {
+                rolls[ball++] = 0;
+            }
+            frame++;
+        } else if (c == '/') {
+            rolls[ball - 1] = 10 - rolls[ball - 2];
+            if (frame < 10) {
+                rolls[ball++] = 0;
+            }
+            frame++;
+        } else if (c == '-') {
+            rolls[ball++] = 0;
         } else {
-            score += (bowls[bowlIndex] == '-') ? 0 : bowls[bowlIndex] - '0';
-            score += (bowls[bowlIndex + 1] == '-') ? 0 : bowls[bowlIndex + 1] - '0';
-            bowlIndex += 2;
+            rolls[ball++] = c - '0';
         }
-        frame++;
     }
-
-    return score;
+    
+    for (int i = 0; i < 20; i += 2) {
+        if (rolls[i] == 10) {
+            total += 10 + rolls[i + 2] + rolls[i + 4];
+        } else if (rolls[i] + rolls[i + 1] == 10) {
+            total += 10 + rolls[i + 2];
+        } else {
+            total += rolls[i] + rolls[i + 1];
+        }
+    }
+    
+    return total;
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-    cout << scoreBowlingRound(bowls) << endl;
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
