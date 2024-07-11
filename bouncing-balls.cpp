@@ -1,4 +1,4 @@
-```c++
+```
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -19,7 +19,8 @@ int main() {
 
     double bounciness = bouncinessIndex(heightAfterFirstBounce, startingHeight);
 
-    cout << fixed << setprecision(4) << endl;
+    streamsize precision = cout.precision();
+    cout << fixed << setiosflags(ios::fixed) << showpoint << precision;
     
     cout << bounciness << endl;
     cout << totalDistance(numBounces, bounciness) << endl;
