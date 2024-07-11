@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -36,4 +37,4 @@ int main() {
     cout << "Enter a string of words: ";
     getline(cin, str);
     cout << "Spun result: " << spinWords(str) << endl;
-    return 0;}
+    return 0; }
