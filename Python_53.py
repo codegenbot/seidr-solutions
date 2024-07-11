@@ -1,6 +1,4 @@
-Here is the modified code:
-
-# This is a simple calculator program.
+```
 x = int(input("Enter first number: "))
 y = int(input("Enter second number: "))
 
