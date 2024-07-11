@@ -1,33 +1,25 @@
 ```cpp
+#include "cryptopp/sha.h"
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <iomanip>
-#include "md5.h"
-
-using namespace std;
-
-void string_to_md5(string input, unsigned char* md5) {
-    MD5(input.c_str(), strlen(input.c_str()), md5);
-}
+#include <string>
+#include <sstream>
 
 int main() {
-    string input;
-    cout << "Enter your password: ";
-    getline(cin, input);
+    std::cout << "Enter a string: ";
+    std::string s;
+    std::getline(std::cin, s);
     
+    std::stringstream ss;
+    CryptoPP::SHA1 sha;
     unsigned char md5[16];
-    string_to_md5(input, md5);
+    sha.Calculate((const unsigned char*)s.c_str(), (int)s.size(), md5);
 
-    vector<string> result;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i)
-        result.push_back(setw(2) << hex << setfill('0') << (int)(md5[i]));
-    
-    cout << "MD5: ";
-    for (string s : result) {
-        cout << s;
+    for(int i = 0; i < 16; ++i) {
+        ss << ((md5[i] * 4 > 9 ? std::hex << std::showbase : std::hex << std::noshowbase)
+            << std::setfill('0') << std::setw(2) << (int)(md5[i]));
     }
-    cout << endl;
 
+    std::cout << "The MD5 is: " << ss.str() << std::endl;
+    
     return 0;
 }
