@@ -1,17 +1,3 @@
-```
 def words_in_sentence(sentence):
-    prime_words = [word for word in sentence.split() if is_prime(len(word))]
-    return ' '.join(prime_words)
-
-def is_prime(n):
-    if n <= 1:
-        return False
-    if n == 2:
-        return True
-    if n % 2 == 0:
-        return False
-    max_divisor = int(n**0.5) + 1
-    for d in range(3, max_divisor, 2):
-        if n % d == 0:
-            return False
-    return True
+    primes = [i for i in range(2, 101) if all(i % j for j in range(2, int(i**0.5) + 1))]
+    return " ".join([word for word in sentence.split() if len(word) in primes])
