@@ -1,16 +1,16 @@
 #include <iostream>
-#include <fstream>
 #include <vector>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
+    string input;
+    getline(cin, input);
+    istringstream iss(input);
     int num;
     
-    ifstream inputFile("input.txt"); // Assuming input is provided in a file called "input.txt"
-    
-    while (inputFile >> num) {
+    while (iss >> num) {
         nums.push_back(num);
     }
 
@@ -42,6 +42,5 @@ int main() {
         cout << num << endl;
     }
 
-    inputFile.close();
     return 0;
 }
