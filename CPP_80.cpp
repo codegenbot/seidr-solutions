@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include <cassert>
+
 using namespace std;
 
 bool is_happy(const string& s) {
