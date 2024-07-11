@@ -1,6 +1,9 @@
-```cpp
 #include <vector>
 #include <string>
+
+bool same_vectors(const std::vector<int>& a, const std::vector<int>& b) {
+    return (a == b);
+}
 
 std::vector<int> even_odd_count(int num) {
     int count_even = 0, count_odd = 0;
@@ -14,11 +17,7 @@ std::vector<int> even_odd_count(int num) {
     return {count_even, count_odd};
 }
 
-bool isSame(std::vector<int> a, std::vector<int> b) {
-    return (a[0] == b[0]) && (a[1] == b[1]);
-}
-
 int main() {
-    assert(isSame(even_odd_count(0), {1, 0}));
+    assert(even_odd_count(0) == std::vector<int>{1, 0});
     return 0;
 }
