@@ -1,7 +1,5 @@
-#include <string>
-
 int main() {
-    std::string output = squareDigits("153"); // replace with your desired input
+    std::string output = squareDigits("493193"); 
     return 0;
 
 }
