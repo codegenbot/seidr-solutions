@@ -18,7 +18,9 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
 
-try:
-    print(add(x, y))
-except TypeError:
-    print("Expected input types not matched.")
+while True:
+    try:
+        print(add(x, y))
+        break
+    except TypeError:
+        print("Expected input types not matched.")

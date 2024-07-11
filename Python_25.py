@@ -1,3 +1,4 @@
+```
 from typing import List
 import math
 
@@ -28,6 +29,10 @@ def factorize():
 
 if __name__ == "__main__":
     try:
-        print(*factorize(), sep=', ')
+        num = int(input("Enter a number to factorize: "))
+        if num > 1:
+            print(factorize())
+        else:
+            print("Please enter a positive integer greater than 1.")
     except ValueError as e:
         print(f"Error: {e}")
