@@ -4,17 +4,11 @@ def filter_by_prefix(strings, prefix):
 
 while True:
     try:
-        while True:
-            num_strings = input("Enter number of strings (integer): ")
-            if num_strings.isdigit() and int(num_strings) > 0:
-                break
-            else:
-                print("Please enter a positive integer.")
-
-        stored_strings = [input() for _ in range(int(num_strings))]
+        num_strings = int(input("Enter number of strings (integer): "))
+        stored_strings = [input() for _ in range(num_strings)]
 
         prefix = input("Enter prefix (string): ")
-        filtered_strings = filter_by_prefix([str(x) for x in stored_strings], prefix)
+        filtered_strings = filter_by_prefix(stored_strings, prefix)
         if filtered_strings:
             print("\n".join(filtered_strings))
     except Exception as e:
