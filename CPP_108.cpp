@@ -22,3 +22,4 @@ int count_nums(std::vector<int> n) {
         }
     }
     return count;
+}
