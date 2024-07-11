@@ -1,6 +1,6 @@
 ```
 def prime_fib(n: int):
-    a, b = 2, 3
+    a, b = 0, 1
     count = 1
     while True:
         if is_prime(b):
