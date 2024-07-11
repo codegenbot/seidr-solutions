@@ -17,7 +17,7 @@ int main() {
     int n;
     getline(cin, input);
     cin >> n;
-  
+
     vector<string> result = select_words(input, n);
 
     assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
