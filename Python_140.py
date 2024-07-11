@@ -1,4 +1,4 @@
-Here's the corrected code:
+Here is the modified code:
 
 ```python
 def fix_spaces(text):
