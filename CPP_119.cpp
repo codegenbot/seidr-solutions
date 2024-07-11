@@ -8,18 +8,17 @@ string match_parens(vector<string> lst){
         for(char c : s){
             if(c == '('){
                 open++;
-            }else{
-                if(open > 0){
-                    open--;
-                }else{
-                    close++;
-                }
+            } else if(open > 0){
+                open--;
+            } else {
+                close++;
             }
         }
     }
-    if(open == 0 && close <= 1){
+    
+    if(open == 0 && close == 0 && close <= 1){
         return "Yes";
-    }else{
+    } else {
         return "No";
     }
 }
