@@ -1,14 +1,9 @@
 string find_max(vector<string> words){
-    string max_word = *words.begin();
-    int max_unique_chars = 0;
-
-    for(const auto& word : words){
-        int unique_chars = std::unordered_set<char>(word.begin(), word.end()).size();
-        if(unique_chars > max_unique_chars || (unique_chars == max_unique_chars && word < max_word)){
-            max_word = word;
-            max_unique_chars = unique_chars;
+    string result = *min_element(words.begin(), words.end());
+    for(string word : words){
+        if(count(word.begin(), word.end, word[0]) == 1 && count(word.begin(), word.end(), '#') < count(result.begin(), result.end(), '#')){
+            result = word;
         }
     }
-
-    return max_word;
+    return result;
 }
