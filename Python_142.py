@@ -11,14 +11,18 @@ def main():
                 input_str = input("Enter a list of numbers separated by spaces: ")
             if input_str.strip():
                 lst = [int(i) for i in input_str.split()]
-                break
+                if lst:
+                    break
+                else:
+                    print("No input received.")
+                    return
             else:
                 print("Invalid input. Please enter numbers separated by spaces.")
         except ValueError:
             print("Invalid input. Please enter numbers separated by spaces.")
 
     if not lst:
-        return 0
+        print("No input received.")
     else:
         print(sum_squares(lst))
 
