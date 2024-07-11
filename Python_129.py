@@ -22,7 +22,7 @@ def shortestPathLength(grid):
 
         visited.remove((row, col))
         nonlocal minPathLength
-        minPathLength = min(minPathLength, path_length) if minPathLength > path_length else minPathLength
+        minPathLength = min(minPathLength, path_length + 1) if (row, col) in [(r, c) for r in range(rows) for c in range(cols) if grid[r][c] == 1] else minPathLength
 
     for row in range(rows):
         for col in range(cols):
