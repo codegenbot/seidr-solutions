@@ -1,13 +1,25 @@
 def add():
     while True:
-        try:
-            x = int(input("Enter first number: "))
-            y = int(input("Enter second number: "))
-            if x >= 0 and y >= 0:
-                return x + y
-        except ValueError:
-            print("Invalid input. Please enter a positive integer.")
-            cont = input("Continue? (yes/no): ")
-            while True:
-                if cont.lower() != 'yes':
-                    return None
+        x = None
+        y = None
+        while x is None or y is None:
+            try:
+                print("Enter first number: ")
+                x = int(input())
+                if x < 0:
+                    print("Invalid input. Please enter a positive integer.")
+                    x = None
+
+                print("Enter second number: ")
+                y = int(input())
+                if y < 0:
+                    print("Invalid input. Please enter a positive integer.")
+                    y = None
+            except ValueError:
+                print("Invalid input. Please enter a positive integer.")
+
+        return x + y
+
+result = add()
+if result is not None:
+    print(result)
