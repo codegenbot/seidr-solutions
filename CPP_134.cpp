@@ -1,5 +1,2 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    char lastChar = txt.back();
-    return isalpha(lastChar) && !isalnum(lastChar);
-}
+string txt = txt.substr(0, txt.find_last_of(' ') - 1);
+return (txt.empty() || !isalpha(txt.back()));
