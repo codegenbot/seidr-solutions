@@ -1,3 +1,3 @@
-def paired_digits(digits): 
-    total = sum(int(digit) for i, digit in enumerate(digits) if i < len(digits)-1 and digit == digits[i+1])
+def paired_digits(digits):
+    total = sum(int(digit1) for digit1, digit2 in zip(digits, digits[1:]) if str(digit1) == str(digit2))
     return str(total)
