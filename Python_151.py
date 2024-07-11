@@ -4,5 +4,4 @@ def double_the_difference(lst):
     return abs(even_sum - 2 * odd_sum)
 
 
-numbers = [1, 3, 5]
-print(double_the_difference(numbers))
+print(double_the_difference([1, 3, 5]))
