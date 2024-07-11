@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) { return a == b; }
+bool issame(const std::vector<int>& a, const std::vector><int>& b) { return a == b; }
 
 std::vector<int> strange_sort_vector(std::vector<int> lst) {
     std::vector<int> result;
