@@ -1,7 +1,16 @@
 ```
-def find_max_min(lst):
-    return str(min(lst)) + ' and ' + str(max(lst))
-
-n = int(input("Enter the number of elements: "))
-lst = [int(x) for x in input(f"Enter {n} space-separated integers: ").split()]
-print(find_max_min(lst))
+def match_parens(lst):
+    stack = []
+    for s in lst:
+        for c in s:
+            if c == '(':
+                stack.append(c)
+            elif c == ')':
+                if len(stack) == 0:
+                    return 'No'
+                else:
+                    stack.pop()
+    if len(stack) == 0:
+        return 'Yes'
+    else:
+        return 'No'
