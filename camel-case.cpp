@@ -1,7 +1,5 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <cctype>
 
 std::string camelCase(const std::string& input) {
     std::string output;
@@ -9,13 +7,22 @@ std::string camelCase(const std::string& input) {
 
     for (char c : input) {
         if (c == '-') {
-            output += (firstWord ? "" : "") + std::toupper(c);
+            if (!firstWord) {
+                output += toupper(c + 1);
+            }
             firstWord = false;
         } else if (c == ' ') {
+            if (!firstWord) {
+                output += " ";
+            }
             firstWord = true;
         } else {
-            output += firstWord ? std::string(1, c) : std::string(1, tolower(c));
-            firstWord = false;
+            if (!firstWord) {
+                output += std::toupper(c);
+                firstWord = true;
+            } else {
+                output += c;
+            }
         }
     }
 
