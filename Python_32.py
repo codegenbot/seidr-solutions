@@ -1,4 +1,5 @@
-def find_zero(xs: list):
+```
+def find_zero(xs):
     if len(xs) % 2 != 0:
         return None
     max_coeff = max([abs(coeff) for coeff in xs])
