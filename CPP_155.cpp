@@ -1,4 +1,15 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
+}
+
 pair<int, int> even_odd_count(int num) {
     pair<int, int> result = {0, 0};
     string str_num = std::to_string(std::abs(num)); 
@@ -9,4 +20,9 @@ pair<int, int> even_odd_count(int num) {
             ++result.second;
     }
     return result;
+}
+
+int main() {
+    assert(issame(even_odd_count(0), make_pair(1, 0)));
+    return 0;
 }
