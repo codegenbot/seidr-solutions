@@ -4,6 +4,7 @@ def snow_day(hours, snow_on_ground, snow_fall_rate, snow_melt_proportion):
         snow_on_ground -= snow_on_ground * snow_melt_proportion
     return snow_on_ground
 
+
 hours = int(input())
 snow_on_ground = float(input())
 snow_fall_rate = float(input())
