@@ -1,47 +1,32 @@
 ```
 def decode_cyclic(s: str):
+    if len(s) <= 1:
+        return s
     s = s * (3 - len(s) % 3)
-    result = ""
+    result = []
     temp = ""
-    for char in s:
+    for char in s + s:
         temp += char
         if len(temp) == 3:
-            if temp[0] == '(' and temp[1] == temp[2]:
-                while True:
-                    if result and result[-1] != '(':
-                        result += temp[1:]
-                        break
-                    else:
-                        result += temp[1:]
-                        break
-            elif temp[0] == temp[2]:
-                if temp[0] == '(':
-                    result += temp[1:-1]
-                else:
-                    result += temp[1:] + temp[0]
+            if len(result) > 0 and result[-1] == temp[0]:
+                result.append(temp)
             else:
-                if len(temp) % 3 == 1 and temp[0] == result[-1]:
-                    result += temp[1:] + temp[0]
+                if temp[0] == temp[2]:  
+                    if temp[2] == "(":
+                        result.append("(" + temp[1:])
+                    else:
+                        result.append(temp[1:] + temp[0])
                 else:
-                    result += temp
+                    if len(temp) % 3 == 1 and temp[0] == result[-1]:
+                        result.append(temp[1:] + temp[0])
+                    else:
+                        result.append(temp[1:])
             temp = ""
     if temp:
-        if temp[0] == '(' and temp[1] == temp[2]:
-            while True:
-                if result and result[-1] != '(':
-                    result += temp[1:]
-                    break
-                else:
-                    result += temp[1:]
-                    break
-        elif temp[0] == temp[2]:
-            if temp[0] == '(':
-                result += temp[1:-1]
-            else:
-                result += temp[1:] + temp[0]
+        if len(result) > 0 and result[-1] == temp[0]:
+            result.append(temp)
+        elif len(temp) % 3 == 1 and temp[0] == result[-1]:
+            result.append(temp[1:] + temp[0])
         else:
-            if len(temp) % 3 == 1 and temp[0] == result[-1]:
-                result += temp[1:] + temp[0]
-            else:
-                result += temp
-    return result
+            result.append(temp)
+    return "".join(result)
