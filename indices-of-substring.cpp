@@ -1,22 +1,24 @@
+```cpp
 #include <vector>
 #include <string>
 #include <iostream>
+#include <cstdint>
 
 using namespace std;
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    int pos = 0; // position in text
+std::vector<uint64_t> indicesOfSubstring(string text, string target) {
+    vector<uint64_t> result;
+    uint64_t pos = 0; // position in text
 
     while (true) { 
         pos = text.find(target, pos);
         
-        if (pos != -1) {
-            result.push_back(pos);
-            pos += target.size(); // move to the next occurrence
-        } else {
+        if (pos == string::npos) {
             break;
         }
+
+        result.push_back(pos);
+        pos += target.size(); // move to the next occurrence
     }
     
     return result;
@@ -25,8 +27,8 @@ vector<int> indicesOfSubstring(string text, string target) {
 int main() {
     string text = "ABCDEF";
     string target = "CDE";
-    vector<int> result = indicesOfSubstring(text, target);
-    for (int i : result) {
+    vector<uint64_t> result = indicesOfSubstring(text, target);
+    for (uint64_t i : result) {
         cout << i << endl;
     }
 }
