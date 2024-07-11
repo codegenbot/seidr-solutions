@@ -4,7 +4,10 @@ from typing import List
 def rescale_to_unit(numbers: List[float]) -> List[float]:
     if not numbers:
         return []
-    elif any(not isinstance(num, (int, float)) for num in numbers):
-        raise ValueError("Input list must contain only floats")
-    else:
-        return [(x - min(numbers)) / (max(numbers) - min(numbers)) for x in numbers]
+
+    min_val = min(numbers)
+    max_val = max(numbers)
+
+    if min_val == max_val:
+        return [1.0] * len(numbers)
+    return [(x - min_val) / (max_val - min_val) for x in numbers]
