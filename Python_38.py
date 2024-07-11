@@ -1,10 +1,8 @@
 def decode_cyclic():
     def check(n):
-        if n < 2:
-            return None
-        for i in range(1, n):
-            if pow(i, n, n) != i:
-                return i
-        return None
+        if n < 26:
+            return chr(64 + n)
+        else:
+            return chr((n - 26) % 26 + 64)
 
     return check
