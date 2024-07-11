@@ -1,5 +1,6 @@
-#include <iostream>
+#include <algorithm>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -32,6 +33,6 @@ int main() {
     string str;
     cout << "Enter a string of words: ";
     getline(cin, str);
-    cout << "Spun result: " << spinWords(str) << endl;
+    cout << "Spun result: " << spinWords(str) << std::endl;
     return 0;
 }
