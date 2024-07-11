@@ -1,4 +1,3 @@
-```
 import sys
 from typing import List
 
@@ -10,20 +9,31 @@ def filter_by_prefix(strings: List[str], prefix: str) -> None:
         print("No strings match the given prefix.")
 
 
-while True:
-    try:
-        num_strings = int(input("Enter number of strings (integer): "))
-        break
-    except ValueError:
-        print("Invalid input! Please enter an integer.")
-        sys.stdin.readline()  # Ensure program waits for input
+stored_strings = []
 
-strings = [input() for _ in range(num_strings)]
-while True:
-    try:
-        prefix = input("Enter prefix (string): ")
-        filter_by_prefix([str(x) for x in strings], prefix)
-        break
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        sys.stdin.readline()  # Ensure program waits for input
+
+def main():
+    while True:
+        try:
+            while True:
+                num_strings = input("Enter number of strings (integer): ")
+                if num_strings.isdigit() and int(num_strings) > 0:
+                    break
+                else:
+                    print("Please enter a positive integer.")
+            stored_strings = [input() for _ in range(int(num_strings))]
+
+            while True:
+                prefix = input("Enter prefix (string): ")
+                if len(prefix.strip()) > 0:
+                    filter_by_prefix([str(x) for x in stored_strings], prefix)
+                    break
+                else:
+                    print("Please enter a valid prefix.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            sys.stdin.readline()  # Ensure program waits for input
+
+
+if __name__ == "__main__":
+    main()
