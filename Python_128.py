@@ -1,4 +1,4 @@
-```
+```python
 def prod_signs(arr):
     if not arr:
         return None
