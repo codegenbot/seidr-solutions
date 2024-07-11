@@ -1,15 +1,20 @@
-Here is the solution:
-
 def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    elif '&' in expression:
-        a, b = expression.split('&')
-        return solve_boolean(a) and solve_boolean(b)
-    elif '|' in expression:
-        a, b = expression.split('|')
-        return solve_boolean(a) or solve_boolean(b)
-    else:
-        raise Exception("Invalid input")
+    def or_gate(a, b):
+        return a or b
+
+    def and_gate(a, b):
+        return a and b
+
+    ops = {'|': or_gate, '&': and_gate}
+
+    result = True
+    for char in expression:
+        if char in ['T', 't']:
+            result = char.upper() == 'T'
+        elif char in ['F', 'f']:
+            result = not (char.upper() == 'T')
+        else:
+            operand1 = result
+            result = ops[char](result, char == '&')
+
+    return result
