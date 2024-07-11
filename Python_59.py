@@ -1,6 +1,6 @@
 ```
 def largest_prime_factor(n: int):
-    i = n // 2
+    i = n - 1
     while i > 1:
         if n % i == 0 and is_prime(i):
             return i
