@@ -6,6 +6,7 @@ def complete_code(numbers, delimiter):
         result.append(numbers[-1])
     return result
 
+
 numbers = input().split()
 delimiter = input()
 print(complete_code(numbers, delimiter))
