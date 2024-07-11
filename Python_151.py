@@ -1,4 +1,4 @@
-def double_the_difference(lst):
-    if len(lst) < 2:
-        raise ValueError("List should have at least two elements")
-    return abs(sum(i**2 for i in lst) - sum(sorted(lst)[0], sorted(lst)[-1]))
+def double_the_difference(lst, target_diff):
+    evens = [i for i in lst if isinstance(i, int) and i % 2 == 0]
+    pairs = [(a, b) for a in evens for b in evens if abs(a - b) == target_diff]
+    return sum([pair[0] ** 2 + pair[1] ** 2 for pair in pairs])
