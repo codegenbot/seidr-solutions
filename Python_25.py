@@ -1,17 +1,24 @@
-Here is the modified code:
+def find_smallest_substring(s: str) -> str:
+    if not s:
+        return ""
 
-from typing import List
-import math
+    char_count = {}
+    for char in s:
+        if char in char_count:
+            char_count[char] += 1
+        else:
+            char_count[char] = 1
 
-def calculate_surface_area(radius: float, height: float) -> float:
-    while True:
-        try:
-            radius = float(input("Enter the radius of the cylinder: "))
-            height = float(input("Enter the height of the cylinder: "))
-            break
-        except ValueError:
-            print("Invalid input! Please enter valid numbers for both radius and height.")
+    min_length = float("inf")
+    result = ""
+    left = 0
 
-    pi = math.pi
-    surface_area = 2 * pi * radius * (radius + height)
-    return surface_area
+    for right, char in enumerate(s):
+        while all(count > 0 for count in char_count.values()):
+            if right - left + 1 < min_length:
+                min_length = right - left + 1
+                result = s[left : right + 1]
+            char_count[s[left]] -= 1
+            left += 1
+
+    return result
