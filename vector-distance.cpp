@@ -1,3 +1,4 @@
+```c++
 #include <cmath>
 #include <vector>
 
@@ -12,23 +13,23 @@ double vectorDistance(int n, const std::vector<float>& v1, const std::vector<flo
 
 int main() {
     int n;
-    std::vector<float> v1;
-    std::vector<float> v2;
-
+    std::vector<float> v1, v2;
     std::cout << "Enter the dimension: ";
     std::cin >> n;
-
-    for (int i = 0; i < n; i++) {
-        float val;
-        std::cout << "Enter value for v1 and v2 at index " << i << ": ";
-        std::cin >> val;
-        v1.push_back(val);
-        v2.push_back(val);
+    
+    for(int i = 0; i < n; i++) {
+        float x;
+        std::cout << "Enter vector1 value at dimension " << i << ": ";
+        std::cin >> x;
+        v1.push_back(x);
+        
+        std::cout << "Enter vector2 value at dimension " << i << ": ";
+        std::cin >> x;
+        v2.push_back(x);
     }
-
-    double distance = vectorDistance(n, v1, v2);
-
-    std::cout << "The Euclidean distance is: " << distance << std::endl;
+    
+    double result = vectorDistance(n, v1, v2);
+    std::cout << "The Euclidean distance is: " << result << std::endl;
 
     return 0;
 }
