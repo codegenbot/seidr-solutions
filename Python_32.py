@@ -23,6 +23,8 @@ def main():
                 x2 = (-b - math.sqrt(discriminant)) / (2 * a)
                 return f"The zeros are {round(x1, 2)} and {round(x2, 2)}"
             elif len(xs) == 4:
+                if len(xs[0]) > 1 or len(xs[1]) > 1:
+                    return "Invalid input"
                 a, b, c, d = map(float, xs)
                 x1 = (-b + math.sqrt(b**2 - 4 * a * c + 4 * a * d)) / (2 * a)
                 x2 = (-b - math.sqrt(b**2 - 4 * a * c + 4 * a * d)) / (2 * a)
