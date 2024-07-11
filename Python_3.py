@@ -1,16 +1,12 @@
 from typing import List
 
-
-def below_zero(operations: List[int]) -> None:
+def below_zero() -> bool:
+    operations = list(map(int, input("Enter integers separated by spaces: ").split()))
     balance = 0
-    for op in operations:
-        print(f"Enter operation ({op}):")
-        balance += op
+    for operation in operations:
+        balance += operation
         if balance < 0:
-            print("Yes, there are operations below zero.")
-            return
-    print("No, there are no operations below zero.")
+            return True
+    return False
 
-
-# Testing the function
-below_zero([1, -2, 3, -4, 5])
+print(below_zero())
