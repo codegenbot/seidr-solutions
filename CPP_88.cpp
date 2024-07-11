@@ -1,12 +1,9 @@
-if (array.empty()) {
-        return {};
-    }
-    
+sort(array.begin(), array.end(), [&](int a, int b) {
     if ((array.front() + array.back()) % 2 == 0) {
-        sort(array.begin(), array.end(), greater<int>());
+        return a > b;
     } else {
-        sort(array.begin(), array.end());
+        return a < b;
     }
-    
-    return array;
+});
+return array;
 }
