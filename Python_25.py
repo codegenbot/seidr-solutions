@@ -1,6 +1,7 @@
 from typing import List
 import math
 
+
 def factorize() -> List[int]:
     while True:
         try:
