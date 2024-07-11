@@ -1,3 +1,4 @@
+```c
 #include <iostream>
 #include <vector>
 
@@ -22,9 +23,6 @@ int main() {
     int result = prod_signs(arr, n);
     delete[] arr;
 
-    std::string output = (result > 0) ? "The product of signs is: " : "The product of signs is -";
-    output += std::to_string(result);
-
-    std::cout << output << '\n';
+    std::cout << "The product of signs is: " << (result > 0) ? std::to_string(result) : "-" << std::endl;
     return 0;
 }
