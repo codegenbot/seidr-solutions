@@ -17,8 +17,11 @@ bool is_simple_power(int x) {
 }
 
 int main() {
-    assert(is_simple_power(1) == true);
-    assert(is_simple_power(12) == false);
+    assert(is_simple_power(1)==true);
+    assert(is_simple_power(4)==true);
+    assert(is_simple_power(9)==true);
+    assert(is_simple_power(16)==true);
+    assert(is_simple_power(27)==true);
     
     return 0;
 }
