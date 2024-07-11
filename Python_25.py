@@ -4,11 +4,9 @@ def factorize() -> List[int]:
     while True:
         try:
             n = int(input("Enter a number to factorize: "))
-            if n <= 0:
-                raise ValueError
             break
         except ValueError:
-            print("Please enter a valid positive integer")
+            print("Please enter a valid integer")
     factors = []
     divisor = 2
     while n > 1:
@@ -19,4 +17,4 @@ def factorize() -> List[int]:
             divisor += 1
     return factors
 
-print(factorize())
+print(factorize())  
