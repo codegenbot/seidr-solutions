@@ -6,9 +6,8 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
         return []
     min_val = min(numbers)
     max_val = max(numbers)
-
-    # check for division by zero
-    if max_val - min_val == 0:
-        return numbers
-
-    return [(x - min_val) / (max_val - min_val) for x in numbers]
+    return (
+        [1.0 / 1.0]
+        if min_val == max_val
+        else [(x - min_val) / (max_val - min_val) for x in numbers]
+    )
