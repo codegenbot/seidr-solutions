@@ -1,4 +1,4 @@
-````
+```python
 from collections import deque
 
 def minPath(grid, k):
@@ -31,4 +31,4 @@ for i in range(n):
     for j in range(m):
         grid[i][j] = int(input(f"Enter {i*10+j+1}th element of grid: "))
 
-print(minPath(grid, k))
+print(minPath(grid, k))```
