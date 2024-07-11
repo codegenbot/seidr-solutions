@@ -2,8 +2,6 @@
 #include <vector>
 #include <string>
 
-vector<string> filter_by_substring(vector<string> strings, string substring);
-
 vector<string> filter_by_substring(vector<string> strings, string substring){
     vector<string> result;
     for(const auto& str : strings){
@@ -15,6 +13,6 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
 }
 
 int main() {
-    // Your main function code here
+    // Code logic within main function if needed
     return 0;
 }
