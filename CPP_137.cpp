@@ -1,5 +1,6 @@
 #include <boost/any.hpp>
-#include <cassert>
+#include <algorithm>
+#include <string>
 
 boost::any compare_one(const boost::any &a, const boost::any &b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -23,11 +24,11 @@ boost::any compare_one(const boost::any &a, const boost::any &b) {
         if (strB.find_first_of(".,") != std::string::npos) {
             std::replace(strB.begin(), strB.end(), ',', '.');
         }
-        if (stof(strA) > stof(strB)) {
+        if (std::stof(strA) > std::stof(strB)) {
             return a;
-        } else if (stof(strA) < stof(strB)) {
+        } else if (std::stof(strA) < std::stof(strB)) {
             return b;
         }
     }
-    return boost::any();
+    return "None";
 }
