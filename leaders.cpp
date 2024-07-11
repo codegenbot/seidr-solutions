@@ -11,8 +11,15 @@ vector<int> leaders(vector<int>& arr) {
         else 
             maxRight = arr[i];
     }
+    reverse(result.begin(), result.end());
     return result;
-
 }
 
-int main() { leaders(vector<int>{4,5,3,2,1}); return 0; }
+int main() {
+    vector<int> arr = {17, 112, 5, 13, 15};
+    vector<int> result = leaders(arr);
+    for (int x : result) {
+        cout << x << " ";
+    }
+    return 0;
+}
