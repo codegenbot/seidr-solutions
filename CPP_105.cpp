@@ -1,24 +1,19 @@
 vector<string> by_length(vector<int> arr){
-    map<int, string> numToString = {
-        {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
-        {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"},
-        {9, "Nine"}
-    };
+    vector<string> result;
+    map<int, string> num_to_str = {{1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"}, {5, "Five"}, {6, "Six"}, {7, "Seven"}, {8, "Eight"}, {9, "Nine"}};
 
-    vector<int> sortedArr;
+    vector<int> sorted_filtered_arr;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            sortedArr.push_back(num);
+            sorted_filtered_arr.push_back(num);
         }
     }
 
-    sort(sortedArr.begin(), sortedArr.end());
+    sort(sorted_filtered_arr.begin(), sorted_filtered_arr.end());
+    reverse(sorted_filtered_arr.begin(), sorted_filtered_arr.end());
 
-    reverse(sortedArr.begin(), sortedArr.end());
-
-    vector<string> result;
-    for (int num : sortedArr) {
-        result.push_back(numToString[num]);
+    for (int num : sorted_filtered_arr) {
+        result.push_back(num_to_str[num]);
     }
 
     return result;
