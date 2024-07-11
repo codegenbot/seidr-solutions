@@ -9,8 +9,3 @@ bool is_happy(const std::string& s){
     
     return true;
 }
-
-int main() {
-    // Main function code here
-    return 0;
-}
