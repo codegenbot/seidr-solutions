@@ -25,4 +25,4 @@ def minPath(k):
                 min_path = path
     return min_path
 
-print(minPath(2))
+print(minPath(int(input("Enter the value of k: "))))
