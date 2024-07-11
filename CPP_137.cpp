@@ -1,7 +1,6 @@
 #include <boost/any.hpp>
 #include <string>
 #include <cassert>
-
 using namespace std;
 
 boost::any compare_one(const boost::any &a, const boost::any &b) {
@@ -26,3 +25,5 @@ boost::any compare_one(const boost::any &a, const boost::any &b) {
     }
     return boost::any{};
 }
+
+assert(compare_one(std::string("1"), 1).empty());
