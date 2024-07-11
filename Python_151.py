@@ -1,8 +1,5 @@
 """
-Given a list of integers, calculate the difference between the sum of the squares of all positive numbers and twice the product of the given positive numbers.
+Given a list of integers, this function calculates the total sum of all positive squares that are multiples of 3.
 """
-
 def double_the_difference(lst):
-    pos_sum_squares = sum(i**2 for i in lst if isinstance(i, int) and i > 0)
-    pos_product = eval('*'.join(str(i) for i in lst if isinstance(i, int) and i > 0))
-    return pos_sum_squares - 2 * pos_product
+    return 2 * (sum(i**2 for i in lst if isinstance(i, int) and i % 3 == 0 and i > 0))
