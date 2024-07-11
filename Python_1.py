@@ -1,4 +1,5 @@
-```
+from typing import List
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
@@ -20,4 +21,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     
     if not stack:
         result.append(''.join(groups))
-    return [group for group in result if group]
+    return [''.join(group) for group in set(result) if group]
