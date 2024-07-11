@@ -1,24 +1,46 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> res;
-    for (int i = 0; i < grid.size(); i++) {
-        for (int j = 0; j < grid[0].size(); j++) {
-            if (res.size() == k) return res;
-            bool found = false;
-            for (int x = max(0, i-1); x <= min(grid.size()-1, i+1); x++) {
-                for (int y = max(0, j-1); y <= min(grid[0].size()-1, j+1); j++) {
-                    if (x != i || y != j) {
-                        found = true;
-                        res.push_back(grid[x][y]);
-                        break;
-                    }
+    for (int i = 0; i < k; ++i) {
+        int maxVal = -1;
+        int maxRow = -1;
+        int maxCol = -1;
+        for (int j = 0; j < grid.size(); ++j) {
+            for (int col = 0; col < grid[j].size(); ++col) {
+                if (grid[j][col] > maxVal && !find(res.begin(), res.end(), grid[j][col])) {
+                    maxVal = grid[j][col];
+                    maxRow = j;
+                    maxCol = col;
                 }
-                if (found) break;
+            }
+        }
+        res.push_back(maxVal);
+        for (int i = 0; i < grid.size(); ++i) {
+            if (i == maxRow) {
+                continue;
+            }
+            for (int j = 0; j < grid[i].size(); ++j) {
+                if (j == maxCol) {
+                    continue;
+                }
+                grid[i][j] -= maxVal;
             }
         }
     }
-    return {};
+    return res;
+}
+
+int main() {
+    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
+    int k = 3;
+    vector<int> res = minPath(grid, k);
+    for (int i : res) {
+        cout << i << " ";
+    }
+    return 0;
 }
