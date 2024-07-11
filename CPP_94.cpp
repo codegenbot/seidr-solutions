@@ -24,10 +24,9 @@ bool isPrime(int n) {
     return true;
 }
 
-vector<int> lst;
-std::vector<int>::allocator_type a = std::allocator<int>();
 int main() {
-    assert(skkkasdkd({127, 97, 8192}) == 10);
+    vector<int> lst = {127, 97, 8192}; // Correct way
+    assert(skkkasdkd(lst) == 10);
     cout << "Hello World!" << endl;
     return 0;
 }
