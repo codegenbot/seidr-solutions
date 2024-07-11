@@ -2,20 +2,25 @@
 #include <string>
 
 int main() {
-    std::string result = "hello world";
-    for (int i = 0; i < result.size(); ++i) {
-        if (result[i] == ' ') {
-            int j = i - 1;
-            while (j >= 0 && ((result[j] > ' '))) {
-                --j;
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+
+    std::string output = "";
+    size_t start = 0;
+    for (size_t i = 0; i <= input.size(); i++) {
+        if (i == input.size() || input[i] == ' ') {
+            size_t length = i - start;
+            std::string word = input.substr(start, length);
+            if (word.size() >= 5) {
+                std::reverse(word.begin(), word.end());
             }
-            std::string temp(result, j + 1, i);
-            if (temp.length() >= 5) {
-                std::reverse(temp.begin(), temp.end());
-            }
-            result.replace(i - temp.length() + 1, temp.length(), temp);
+            output += word + " ";
+            start = i + 1;
         }
     }
-    std::cout << result << std::endl;
+
+    std::cout << "Output: " << output << std::endl;
+
     return 0;
 }
