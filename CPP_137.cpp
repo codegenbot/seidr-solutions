@@ -6,52 +6,18 @@ using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max((int)a.convertible_to<int>(), (float)b.convertible_to<float>());
+        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        return max((float)a.convert_to<float>(), stof(b.convert_to<string>().erase(0, 1).erase(b.convert_to<string>().length() - 1, 1)));
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return (stof(a.convert_to<string>().erase(0, 1).erase(a.convert_to<string>().length() - 1, 1)) > stof(b.convert_to<string>().erase(0, 1).erase(b.convert_to<string>().length() - 1, 1))) ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        return (int)a.convert_to<int>() > stof(b.convert_to<string>().erase(0, 1).erase(b.convert_to<string>().length() - 1, 1)) ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return (int)a.convert_to<int>() > (int)b.convert_to<int>() ? a : b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a.convert_to<float>() > (int)b.convert_to<int>() ? a : b;
+    } else {
+        return boost::any("None");
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return max((float)a.convertible_to<float>(), (string)b.convertible_to<string>());
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        if ((int)a.convertible_to<int>() > (string)b.convertible_to<string>())
-            return a;
-        else
-            return b;
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        if ((string)a.convertible_to<string>() > (float)b.convertible_to<float>())
-            return a;
-        else
-            return b;
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int x = (int)a.convertible_to<int>();
-        int y = (int)b.convertible_to<int>();
-        if (x > y)
-            return a;
-        else if (x < y)
-            return b;
-        else
-            return boost::any("None");
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        float x = (float)a.convertible_to<float>();
-        float y = (float)b.convertible_to<float>();
-        if (x > y)
-            return a;
-        else if (x < y)
-            return b;
-        else
-            return boost::any("None");
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string x = (string)a.convertible_to<string>();
-        string y = (string)b.convertible_to<string>();
-        if (x > y)
-            return a;
-        else if (x < y)
-            return b;
-        else
-            return boost::any("None");
-    }
-    return boost::any();
 }
