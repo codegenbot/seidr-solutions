@@ -1,4 +1,3 @@
-```
 from typing import List, Any
 
 
@@ -35,9 +34,19 @@ def get_values() -> List[Any]:
                     )
                     for value in values
                 ]
+            else:
+                print(
+                    "Invalid input. Please enter integers and/or strings separated by commas."
+                )
+                values = input(
+                    "Enter a list of integers and/or strings separated by commas: "
+                )
         except ValueError as e:
             print(
                 f"Invalid input. Please enter integers and/or strings separated by commas: {e}"
+            )
+            values = input(
+                "Enter a list of integers and/or strings separated by commas: "
             )
 
 
