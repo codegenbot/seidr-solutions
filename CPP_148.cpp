@@ -5,8 +5,7 @@ vector<string> bf(string planet1, string planet2) {
     for (int i = 0; i < planets.size(); i++) {
         if (planet1 == planets[i]) {
             index1 = i;
-        }
-        else if (planet2 == planets[i]) {
+        } else if (planet2 == planets[i]) {
             index2 = i;
         }
         
@@ -16,10 +15,8 @@ vector<string> bf(string planet1, string planet2) {
     if (index1 == -1 || index2 == -1) return {};
     
     vector<string> result;
-    for (int i = 0; i < planets.size(); i++) {
-        if (i > index1 && i < index2) {
-            result.push_back(planets[i]);
-        }
+    for (int i = index1 + 1; i < index2; i++) {
+        result.push_back(planets[i]);
     }
     
     return result;
