@@ -1,4 +1,4 @@
-```python
+```
 from collections import Counter
 
 def search():
