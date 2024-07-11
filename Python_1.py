@@ -1,28 +1,31 @@
-Here is the solution:
+from typing import List
+
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    result = []
     stack = []
     groups = []
-    
-    for char in paren_string:
-        if char == ' ':
+    group = ""
+
+    for c in paren_string:
+        if c == " ":
             continue
-        if char == '(':
-            stack.append(char)
-        elif char == ')':
-            while stack and stack[-1] != '(':
-                groups.append(')')
-                stack.pop()
+        if c == "(":
+            stack.append(c)
+            group += c
+        elif c == ")":
             if stack:
                 stack.pop()
+                group += c
+                if not stack:
+                    groups.append(group)
+                    group = ""
             else:
-                raise ValueError("Unbalanced parentheses")
-    
-    for _ in range(len(stack)):
-        groups.append('(')
-        groups.append(')')
-        stack.pop()
-    
-    result = [''.join(group) for group in (groups[i:i+2] for i in range(0, len(groups), 2))]
-    return result
+                return []  # unmatched ')'
+
+    if stack:  # unmatched '('
+        for _ in range(len(stack)):
+            group += ")"
+            stack.pop()
+        groups.append(group)
+
+    return [g.strip() for g in groups]
