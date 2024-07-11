@@ -9,17 +9,10 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-vector<vector<string>> filter_by_substring(vector<vector<string>> strings, string substring){
-    vector<vector<string>> result;
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
     for (const auto& s : strings) {
-        bool found = false;
-        for(const auto& str : s) {
-            if(str.find(substring) != string::npos) {
-                found = true;
-                break;
-            }
-        }
-        if(found) {
+        if (s.find(substring) != string::npos) {
             result.push_back(s);
         }
     }
