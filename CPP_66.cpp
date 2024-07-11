@@ -1,18 +1,3 @@
-```cpp
-#include <iostream>
-#include <string>
-
-int digitSum(const std::string& str) {
-    int sum = 0;
-    for (char c : str) {
-        if (std::isdigit(c)) {
-            int digitValue = c - '0';
-            sum += digitValue;
-        }
-    }
-    return sum;
-}
-
 int main() {
     std::cout << "Enter a string: ";
     std::string input;
