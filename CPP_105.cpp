@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 
 bool issame(int a, int b) {
     vector<string> by_length(vector<int> arr) {
@@ -53,11 +55,10 @@ bool issame(int a, int b) {
 
 int main() {
     vector<int> arr = {5, 3, 4};
-    vector<string> output = by_length(arr);
+    auto output = by_length(arr);
     
     for (auto& str : output) {
         cout << str << endl;
     }
     
     return 0;
-}
