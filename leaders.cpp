@@ -19,5 +19,8 @@ std::vector<int> leaders(std::vector<int>& arr) {
     return result;
 }
 
-std::vector<int> arr = {16, 17, 4, 3, 5, 2, 8, 9, 1, 3};
-std::vector<int> leadersResult = leaders(arr);
+vector<int> arr = vector<int>(16, 17, 4, 3, 5, 2, 8, 9, 1, 3);
+std::cout << "Leaders: ";
+for (int i : leaders(arr)) {
+    std::cout << i << " ";
+}
