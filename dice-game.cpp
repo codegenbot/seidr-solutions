@@ -1,16 +1,7 @@
-```cpp
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
-
 double getProbability(int n, int m) {
-    return 1.0 * (n - 1) / (n + m - 1);
-}
-
-int main() {
-    int n, m;
-    cin >> n >> m;
-    cout << fixed << setprecision(1) << getProbability(n, m) << endl;
-    return 0;
+    double probability = 0;
+    for (int i = n; i < m; ++i) {
+        probability += 1.0 * (m - i) / (n * m);
+    }
+    return probability;
 }
