@@ -1,16 +1,13 @@
-#include <algorithm>
-#include <iostream>
-#include <vector>
-#include <initializer_list>
+using namespace std;
 
 int max_value = -1;
 int min_value = INT_MAX;
 
-std::vector<std::pair<int, int>> p;
+vector<pair<int, int>> p;
 
 for (int i = 0; i < 6; ++i) {
     int x, y;
-    std::cin >> x >> y;
+    cin >> x >> y;
     p.push_back({x, y});
 }
 
@@ -19,7 +16,7 @@ auto max_pair = *std::max_element(p.begin(), p.end(),
                                          return a.second < b.second;
                                      });
 
-min_value = *std::min_element(p.begin(), p.end())->first;
+min_value = (*std::min_element(p.begin(), p.end()))->first;
 
-std::cout << "Maximum value: " << std::get<1>(max_pair) << std::endl;
-std::cout << "Minimum value: " << min_value << std::endl;
+cout << "Maximum value: " << std::get<1>(max_pair) << endl;
+cout << "Minimum value: " << min_value << endl;
