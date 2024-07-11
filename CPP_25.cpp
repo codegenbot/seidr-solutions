@@ -13,3 +13,15 @@ vector<int> factorize(int n) {
     }
     return factors;
 }
+
+int main() {
+    // Test the factorize function
+    int num = 36;
+    vector<int> result = factorize(num);
+
+    for (int factor : result) {
+        cout << factor << " ";
+    }
+
+    return 0;
+}
