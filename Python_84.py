@@ -1,7 +1,7 @@
 ```
 def solve(is_binary):
     if is_binary:
-        num = input("Enter a binary number: ")
+        num = input("Enter a binary number (0s and 1s): ")
         try:
             N = int(num, 2)
             print(N)
@@ -12,10 +12,10 @@ def solve(is_binary):
             cont = input("Do you want to continue? (y/n): ")
             if cont.lower() != 'y':
                 break
-            while True:
-                try:
-                    N = float(input("Enter a decimal number: "))
-                    print(N)
-                    break
-                except ValueError:
-                    print("Invalid input! Please enter a valid decimal number.")
+            N = float(input("Enter a decimal number: "))
+            print(N)
+
+if __name__ == "__main__":
+    solve(True)  
+    print()
+    solve(False)
