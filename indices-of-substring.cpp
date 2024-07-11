@@ -1,9 +1,6 @@
-Here is the modified code:
-
 #include <iostream>
 #include <string>
 #include <vector>
-
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -11,20 +8,23 @@ vector<int> findIndices(string text, string target) {
     int start = 0;
     while ((start = text.find(target, start)) != string::npos) {
         indices.push_back(start);
-        start += 1; // increment by 1 for overlapping targets
+        start += target.length(); // increment by the length of the target for overlapping targets
     }
     return indices;
 }
 
 int main() {
+    vector<int> result;
+
     string text;
     cin >> text;
 
     string target;
     cin >> target;
-    
-    vector<int> result = findIndices(text, target);
+
+    result = findIndices(text, target);
     for (int i : result) {
         cout << i << endl;
     }
     return 0;
+}
