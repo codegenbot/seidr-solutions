@@ -1,12 +1,11 @@
-vector<int> counts = {0, 0};
-    while (num != 0) {
-        int digit = abs(num) % 10;
-        if (digit % 2 == 0) {
-            counts[0]++;
+string num_str = to_string(abs(num));
+    vector<int> count(2, 0); // index 0 for even count, index 1 for odd count
+    for (char c : num_str) {
+        if (c - '0' % 2 == 0) {
+            count[0]++;
         } else {
-            counts[1]++;
+            count[1]++;
         }
-        num /= 10;
     }
-    return counts;
+    return count;
 }
