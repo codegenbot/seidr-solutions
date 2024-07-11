@@ -1,21 +1,24 @@
 Here is the solution:
 
-vector<string> sorted_list_sum(vector<string> lst){
-    // Remove strings with odd lengths from the vector
-    for(auto it = lst.begin(); it != lst.end();){
-        if(it->size() % 2 != 0) {
-            it = lst.erase(it);
-        } else {
-            ++it;
+vector<string> sorted_list_sum(vector<string> lst) {
+    vector<string> result;
+
+    // Remove strings with odd lengths
+    for (const string& str : lst) {
+        if (str.length() % 2 == 0) {
+            result.push_back(str);
         }
     }
 
-    // Sort the vector based on length and then alphabetically
-    sort(lst.begin(), lst.end(),
-         [](const string& a, const string& b){
-             if(a.size() == b.size()) return a < b;
-             return a.size() < b.size();
+    // Sort the resulted vector by length and then alphabetically
+    sort(result.begin(), result.end(),
+         [](const string& a, const string& b) {
+             if (a.length() != b.length()) {
+                 return a.length() < b.length();
+             } else {
+                 return a < b;
+             }
          });
 
-    return lst;
+    return result;
 }
