@@ -1,6 +1,10 @@
-def paired_digits(digits): 
+def paired_digits(digits):
     total = 0
-    for i in range(len(digits) - 2):
-        if str(digits[i]) == str(digits[i+2]):
-            total += int(str(digits[i]))
+    i = 0
+    while i < len(digits) - 1:
+        if str(digits[i]) == str(digits[i+1]):
+            total += int(str(digits[i])) * 2
+            i += 1
+        else:
+            i += 1
     return str(total)
