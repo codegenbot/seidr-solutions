@@ -1,9 +1,14 @@
-```
 from typing import List
 import math
 
+
 def main():
-    n = int(input("Enter a number: "))
+    while True:
+        try:
+            n = int(input("Enter a number: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
     factors = []
     i = 2
     while i * i <= n:
@@ -14,8 +19,11 @@ def main():
             while n % i == 0:
                 n //= i
                 count += 1
-            factors.append(i ** count)
-            i = 2  
+            factors.append(i**count)
+            i = 2
     if n > 1:
         factors.append(n)
     return factors
+
+
+print(main())
