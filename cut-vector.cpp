@@ -1,28 +1,41 @@
 #include <vector>
+#include <iostream>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
-    int n = nums.size();
-    int min_diff = INT_MAX;
-    int cut_index = 0;
-
-    for (int i = 1; i < n; i++) {
-        int diff = abs(nums[i] - nums[0]);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_index = i;
+vector<pair<vector<int>, vector<int>>> cutVector(vector<int>& nums) {
+    int minDiff = INT_MAX;
+    int cutIndex = -1;
+    
+    for(int i=0; i<nums.size()-1; i++){
+        int diff = abs(nums[i] - nums[i+1]);
+        if(diff < minDiff){
+            minDiff = diff;
+            cutIndex = i;
         }
     }
+    
+    vector<int> left, right;
+    left.assign(cutIndex+1, nums.begin());
+    right.assign(nums.size()-cutIndex-1, nums.begin()+cutIndex+1);
+    
+    return {{left, vector<int>(left.begin(), left.end())}, {vector<int>(right.begin(), right.end()), right}};
+}
 
-    vector<int> left = {nums[0]};
-    for (int i = 1; i <= cut_index; i++) {
-        left.push_back(nums[i]);
+int main() {
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for(int i=0; i<n; i++){
+        cin >> nums[i];
     }
-
-    vector<int> right = {nums[cut_index + 1]};
-    for (int i = cut_index + 2; i < n; i++) {
-        right.push_back(nums[i]);
-    }
-
-    return make_pair(left, right);
+    pair<vector<int>, vector<int>> result = cutVector(nums);
+    cout << "1 ";
+    for(auto x: result.first.first) {
+        cout << x << " ";
+    }cout<<endl;
+    cout << "0 ";
+    for(auto x: result.second.second) {
+        cout << x << " ";
+    }cout<<endl;
+    return 0;
 }
