@@ -7,8 +7,10 @@ def fix_spaces(text):
 
 print("Welcome to the space fixing program!")
 
+text = ""
 while True:
-    text = input("Enter the text to fix spaces (or 'q' to quit): ")
-    if text.lower() == 'q':
+    line = input("Enter a line of text (or 'q' if you're done): ")
+    if line.lower() == 'q':
         break
-    print(fix_spaces(text))
+    text += line + " "
+print(fix_spaces(text))
