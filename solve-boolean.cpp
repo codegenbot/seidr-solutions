@@ -1,5 +1,5 @@
-#include <stack>
 #include <string>
+#include <stack>
 
 bool getBoolValue(char c) {
     return c == 'T';
@@ -24,21 +24,17 @@ string solveBoolean(string expression) {
     }
 
     string result = "";
-    bool left, right;
+    bool left = false, right = false;
     while (!s.empty()) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            right = getBoolValue(s.top());
-            s.pop();
             left = getBoolValue(s.top());
-            s.pop();
+            right = true;
             result = (left && right) ? "True" : "False";
         } else if (c == '|') {
-            right = getBoolValue(s.top());
-            s.pop();
             left = getBoolValue(s.top());
-            s.pop();
+            right = true;
             result = (left || right) ? "True" : "False";
         } else {
             result = (getBoolValue(c)) ? "True" : "False";
@@ -46,4 +42,3 @@ string solveBoolean(string expression) {
     }
 
     return result;
-}
