@@ -5,7 +5,7 @@ int calculateScore(string s) {
     int score = 0;
     int frame = 1;
     int i = 0;
-
+    
     while (frame <= 10) {
         if (s[i] == 'X') {
             score += 10;
@@ -20,7 +20,7 @@ int calculateScore(string s) {
         }
         frame++;
     }
-
+    
     return score;
 }
 
