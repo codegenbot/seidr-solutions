@@ -1,6 +1,5 @@
 #include <cstring>
 
-int main(){
-    char str[] = "Hello, World!";
-    return strlen(str);
+int calculateStringLength(const std::string& str) {
+    return str.length();
 }
