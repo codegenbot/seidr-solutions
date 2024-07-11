@@ -5,7 +5,7 @@ def decode_cyclic():
     i = 0
     while i < len(s):
         if i + 2 <= len(s):  
-            group = s[i:i+3]
+            group = s[i:]
         else:
             group = s[i:]
         if len(group) >= 3: 
@@ -14,7 +14,7 @@ def decode_cyclic():
             result += group[1] + group[0] + 'z'
         else:
             result += group
-        i += 3
+        i += 1
     return result
 
 print(decode_cyclic())
