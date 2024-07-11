@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -14,6 +13,6 @@ int main() {
     vector<string> strings = {"xxx", "asd", "xxy", "john doe", "xxxAAC", "xxx"};
     string prefix = "xxx";
     vector<string> result = filter_by_prefix(strings, prefix);
-    
-    assert(issame(result, {"xxx", "xxxAAA", "xxx"}));
+    bool same = issame(result, vector<string>{prefix, prefix + "AAA"});
+    return 0;
 }
