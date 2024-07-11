@@ -4,6 +4,13 @@
 
 using namespace std;
 
+int gcd(int a, int b) {
+    if (b == 0) {
+        return a;
+    }
+    return gcd(b, a % b);
+}
+
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> indices;
     int n = text.size();
@@ -11,7 +18,7 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= n - m; ++i) {
         bool found = true;
         for (int j = 0; j < m; ++j) {
-            if (i + j < n && text[i + j] == target[j]) {
+            if (i + j < n && text[i + j] != target[j]) {
                 found = false;
                 break;
             }
@@ -21,4 +28,16 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
     }
     return indices;
+}
+
+int main() {
+    int text, target;
+    cin >> text >> target;
+
+    vector<int> result = indicesOfSubstring(to_string(text), to_string(target));
+    for (int i : result) {
+        cout << i << " ";
+    }
+    
+    return 0;
 }
