@@ -1,2 +1,1 @@
-```
-return "".join([chr(((ord(ch) - 97 - (0 if ch.isalpha() else 1)) % 26) + 97) for ch in s])
+return "".join([(chr(((ord(ch) - 97 - (0 if ch.isalpha() else 1)) % 26) + 97)) if ch.isalpha() else ch for ch in s])
