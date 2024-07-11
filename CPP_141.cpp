@@ -1,37 +1,20 @@
 Here is the completed code:
 
-string file_name_check(string file_name) {
-    bool valid = true;
-    int dot_count = 0;
-    int digit_count = 0;
+```cpp
+bool hasDigit = false;
+int dotCount = 0;
 
-    for (char c : file_name) {
-        if (c == '.') {
-            dot_count++;
-            if (dot_count > 1) {
-                valid = false;
-                break;
-            }
-        } else if (isdigit(c)) {
-            digit_count++;
-            if (digit_count > 3) {
-                valid = false;
-                break;
-            }
-        } else if (!isalpha(c) && c != '.') {
-            valid = false;
-            break;
-        }
+for (char c : file_name) {
+    if (c >= '0' && c <= '9') {
+        if (!hasDigit) hasDigit = true; // first digit encountered, check not exceeded
+        else return "No"; // more than one digit found
+    } else if (c == '.') dotCount++;
+    else if (!isalpha(c)) { // not a letter and not a digit
+        if (dotCount != 1) return "No";
+        string extension = file_name.substr(file_name.find('.') + 1);
+        if (extension != "txt" && extension != "exe" && extension != "dll") return "No";
     }
-
-    string extension = file_name.substr(file_name.find('.') + 1);
-    if (extension.size() > 0) {
-        if (extension != "txt" && extension != "exe" && extension != "dll") {
-            valid = false;
-        }
-    } else {
-        valid = false;
-    }
-
-    return valid ? "Yes" : "No";
 }
+
+if (hasDigit || dotCount > 1) return "No";
+return "Yes";
