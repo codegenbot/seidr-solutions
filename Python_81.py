@@ -1,4 +1,3 @@
-```
 def numerical_letter_grade(grades):
     letter_grades = []
     for grade in grades:
@@ -25,5 +24,5 @@ def numerical_letter_grade(grades):
         elif grade > 0.7:
             letter_grades.append('D')
         else:
-            letter_grades.append('E')
+            letter_grades.append('F')
     return letter_grades
