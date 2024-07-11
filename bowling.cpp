@@ -1,57 +1,23 @@
-int bowlingScore(string str) {
+int bowling(string s) {
     int score = 0;
-    int frame = 0;
-
-    for(int i = 0; i < str.length(); i++) {
-        if(str[i] == 'X') {
-            score += 10 + nextFrameBonus();
-            frame++;
-        } else if(str[i] == '/') {
-            int pins1 = nextPins();
-            int pins2 = nextPins();
-            if(pins1 + pins2 == 10) {
-                score += pins1 + pins2;
-            } else {
-                score += pins1 + pins2;
-            }
-            frame++;
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == '/') {
+            int first = s.substr(0, i).count('X');
+            int second = s.substr(i + 1).find('/'); // find the next '/'
+            score += first * 10 + (second != string::npos ? (10 - second) : 10);
+            s.erase(0, second == string::npos ? i + 1 : second);
+        } else if (s[i] == 'X') {
+            score += 10;
+            s.erase(0, i + 1);
         } else {
-            int pins1 = str[i] - '0';
-            int pins2 = nextPins();
-            if(pins1 + pins2 == 10) {
-                score += pins1 + pins2;
-            } else {
-                score += pins1 + pins2;
+            int sum = 0;
+            while (i < 9 && s[i] != '/') {
+                sum += s[i] - '0';
+                i++;
             }
-            frame++;
+            if (s[i] == '/') i++; // skip '/'
+            score += sum;
         }
     }
-
     return score;
-}
-
-int nextFrameBonus() {
-    int str = "";
-    for(int i = 0; i < str.length(); i++) {
-        if(str[i] == 'X') {
-            continue;
-        } else if(str[i] == '/') {
-            break;
-        } else {
-            str += str[i];
-        }
-    }
-    return (str[0] - '0') * 10 + (str[1] - '0');
-}
-
-int nextPins() {
-    int str = "";
-    for(int i = 0; i < str.length(); i++) {
-        if(str[i] == 'X' || str[i] == '/') {
-            break;
-        } else {
-            str += str[i];
-        }
-    }
-    return (str[0] - '0') * 10 + (str[1] - '0');
 }
