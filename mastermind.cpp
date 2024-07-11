@@ -1,8 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <algorithm>
-using namespace std;
-
 int whitePegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; i++) {
@@ -18,13 +13,14 @@ int blackPegs(string code, string guess) {
     vector<char> codeArray(code.begin(), code.end());
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
-            codeArray[i] = '0';
+            code.replace(i, 1, "x");
         }
     }
-    for (int j = 0; j < 4; j++) {
-        if (find(codeArray.begin(), codeArray.end(), guess[j]) != codeArray.end()) {
+    for (int i = 0; i < 4; i++) {
+        vector<char>::iterator it = find(codeArray.begin(), codeArray.end(), guess[i]);
+        if (it != codeArray.end()) {
             count++;
-            codeArray.erase(remove(codeArray.begin(), codeArray.end(), guess[j]), codeArray.end());
+            codeArray.erase(it);
         }
     }
     return count;
@@ -33,7 +29,9 @@ int blackPegs(string code, string guess) {
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << blackPegs(code, guess) << endl;
-    cout << 4 - whitePegs(code, guess) << endl;
+    int white = whitePegs(code, guess);
+    int black = blackPegs(code, guess);
+    cout << black << endl;
+    cout << white << endl;
     return 0;
 }
