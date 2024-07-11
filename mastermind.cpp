@@ -10,10 +10,10 @@ int whitePegs(string code, string guess) {
         }
     }
     for (char c : code) {
-        codeMap[c]++;
+        codeMap[c - '0']++;
     }
     for (char c : guess) {
-        guessMap[c]++;
+        guessMap[c - '0']++;
     }
     int blackPegsCount = blackPegs(code, guess);
     return count - blackPegsCount;
