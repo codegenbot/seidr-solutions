@@ -18,4 +18,3 @@ for i in range(n-1):
             else:
                 print(*arr[:i])
                 print(*arr[i:])
-        break
