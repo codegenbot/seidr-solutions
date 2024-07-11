@@ -20,11 +20,11 @@ vector<string> reverse_delete(string s, string c) {
             result.push_back(string(1, x));
         }
     }
-    string t = "";
+    string rev = "";
     for (int i = result.size() - 1; i >= 0; i--) {
-        t += result[i];
+        rev += result[i];
     }
-    if (t == string(reverse_begin(t), reverse_end(t))) {
+    if (rev == string(result[0])) {
         result.push_back("True");
     } else {
         result.push_back("False");
