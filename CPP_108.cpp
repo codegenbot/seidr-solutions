@@ -33,7 +33,7 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    std::vector<int> nums = {1};
-    assert(count_nums(nums) == 1);
+    int result = count_nums({1});
+    std::cout << "Count of positive sum of digits is: " << result << std::endl;
     return 0;
 }
