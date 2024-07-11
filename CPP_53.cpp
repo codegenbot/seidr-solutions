@@ -1,3 +1,5 @@
+```cpp
+#include <cstdlib>
 #include <ctime>
 #include <iostream>
 
@@ -6,7 +8,7 @@ int add(int x, int y) {
 }
 
 int main() {
-    srand(static_cast<unsigned>(time(0))); 
-    int x = rand() % 1000; 
+    std::srand(std::time(0)); 
+    int x = std::rand() % 1000; 
     std::cout << "Random Number: " << x << std::endl;
 }
