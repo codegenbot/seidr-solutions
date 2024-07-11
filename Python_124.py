@@ -26,13 +26,3 @@ def main():
         print(f"The date {date} is not valid.")
     else:
         print(f"The date {date} is valid.")
-
-def valid_date(date):
-    try:
-        year, month, day = map(int, date.split('-'))
-        return True
-    except ValueError:
-        return False
-
-if __name__ == "__main__":
-    main()
