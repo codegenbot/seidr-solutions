@@ -6,11 +6,11 @@ std::string substitutionCipher(const std::string& cipherMap, const std::string& 
     std::string output;
     for (char c : input) {
         if (c >= 'a' && c <= 'z') {
-            int index = c - 'a';
+            int index = tolower(c) - 'a';
             char newChar = cipherMap[index];
             output += newChar;
         } else if (c >= 'A' && c <= 'Z') {
-            int index = c - 'A';
+            int index = tolower(c) - 'a';
             char newChar = cipherMap[index];
             output += newChar;
         } else {
