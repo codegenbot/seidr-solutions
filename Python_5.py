@@ -1,4 +1,4 @@
-def complete_code(numbers, delimiter):
+def format_numbers(numbers, delimiter):
     result = []
     for num in numbers[:-1]:
         result.extend([num, delimiter])
@@ -6,9 +6,8 @@ def complete_code(numbers, delimiter):
         result.append(numbers[-1])
     return result
 
-# Input
-numbers = input("Enter numbers separated by space: ").split()
-delimiter = input("Enter delimiter: ")
-
-# Output
-print(complete_code(numbers, delimiter))
+# Call the function with appropriate arguments
+numbers = [1, 2, 3, 4, 5]
+delimiter = ','
+output = format_numbers(numbers, delimiter)
+print(output)
