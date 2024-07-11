@@ -5,6 +5,4 @@ def dice_game(n, m):
         for j in range(1, min(i, m) + 1):
             if i > j:
                 favorable_outcomes += 1
-    print(
-        f"Probability that Peter rolls strictly higher than Colin: {favorable_outcomes / total_outcomes}"
-    )
+    print(favorable_outcomes / total_outcomes)
