@@ -12,11 +12,11 @@ def bowling_score(game):
             else: 
                 score += 10
         elif '/' in frame and len(frame) > 2:
-            first_two_rolls = list(map(int, frame.split()))
-            if sum(first_two_rolls) == 10:
-                score += sum(first_two_rolls)
+            rolls = list(map(int, frame.split()))
+            if sum(rolls) == 10:
+                score += sum(rolls)
             else:
-                score += sum(first_two_rolls)
+                score += sum(rolls)
         elif len(frame) == 2:
             rolls = list(map(int, frame.split()))
             if rolls[0] + rolls[1] > 10:
