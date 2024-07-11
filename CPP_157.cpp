@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
-#include <cmath>
+
+using namespace std;
 
 bool right_angle_triangle(float a, float b, float c) {
     if (a * a + b * b == c * c || a * a + c * c == b * b || b * b + c * c == a * a)
@@ -8,16 +10,14 @@ bool right_angle_triangle(float a, float b, float c) {
         return false;
 }
 
-int main() {
+int main
+{
     assert(right_angle_triangle(2, 2, 10) == false);
-
-    float side1, side2, side3;
-    std::cout << "Enter the three sides of triangle (a, b, c): ";
-    std::cin >> side1 >> side2 >> side3;
-    if (right_angle_triangle(side1, side2, side3))
-        std::cout << "Right-angled triangle." << std::endl;
+    cout << "Input the lengths of three sides (a, b, c): ";
+    float a, b, c;
+    cin >> a >> b >> c;
+    if (right_angle_triangle(a, b, c))
+        cout << "The triangle is right-angled." << endl;
     else
-        std::cout << "Not a right-angled triangle." << std::endl;
-
-    return 0;
+        cout << "The triangle is not right-angled." << endl;
 }
