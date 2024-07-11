@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// Define the type of the return value according to the function signature
 boost::any compare(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
@@ -25,5 +26,19 @@ boost::any compare(boost::any a, boost::any b) {
             return b;
         }
     }
-    assert(false); // Invalid types
+    assert(false);  // Unreachable code if types are not handled correctly
+}
+
+// Example usage:
+int main() {
+    boost::any result = compare(5, 10);
+    if (result.type() == typeid(int)) {
+        cout << boost::any_cast<int>(result) << endl;
+    } else if (result.type() == typeid(float)) {
+        cout << boost::any_cast<float>(result) << endl;
+    } else if (result.type() == typeid(string)) {
+        cout << boost::any_cast<string>(result) << endl;
+    }
+
+    return 0;
 }
