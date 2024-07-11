@@ -1,4 +1,3 @@
-```
 def car_race_collision():
     time_to_meet_car1 = int(input("Enter time at which both cars meet: "))
 
@@ -14,16 +13,13 @@ def car_race_collision():
 
     while True:
         try:
+            distance = float(input("Enter total race distance: "))
             time_to_meet_car2 = int(input("Enter time at which car 2 meets the finish line: "))
-            if time_to_meet_car1 == 0 or time_to_meet_car2 == 0:
-                print("Invalid input. Time to meet cannot be zero.")
+            speed2 = (distance - speed1 * time_to_meet_car1) / time_to_meet_car2
+            if speed2 < 0:
+                print("Invalid input. Car's speed cannot be negative.")
             else:
-                distance = float(input("Enter total race distance: "))
-                speed2 = (distance - speed1 * time_to_meet_car1) / time_to_meet_car2
-                if speed2 < 0:
-                    print("Invalid input. Car's speed cannot be negative.")
-                else:
-                    break
+                break
         except ValueError:
             print("Invalid input. Please enter valid integers.")
 
