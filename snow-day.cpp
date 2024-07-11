@@ -8,11 +8,12 @@ int main() {
 
     for (int i = 0; i < hours; ++i) {
         snow_on_ground += snow_fall_rate; // Add new snow
-        float melted_snow = snow_on_ground * (1 - snow_melt_rate); // Calculate amount of snow melting
-        snow_on_ground -= melted_snow; // Remove melted snow
     }
 
-    cout << snow_on_ground << "\n";
+    float total_melted_snow = snow_on_ground * snow_melt_rate; // Calculate total amount of snow melting
+    float final_snow_on_ground = snow_on_ground - total_melted_snow; // Update final snow on the ground after melting
+
+    cout << final_snow_on_ground << "\n";
 
     return 0;
 }
