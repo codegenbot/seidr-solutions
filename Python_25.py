@@ -3,13 +3,6 @@ import math
 
 
 def factorize(n: int) -> List[int]:
-    while True:
-        try:
-            n = int(input())
-            break
-        except ValueError:
-            print("Invalid input! Please enter a valid integer.")
-
     factors = []
     i = 2
     while i * i <= n:
@@ -25,3 +18,7 @@ def factorize(n: int) -> List[int]:
     if n > 1:
         factors.append(n)
     return [int(factor) for factor in set(map(str, factors))]
+
+
+n = int(input("Enter a number: "))
+print(factorize(n))
