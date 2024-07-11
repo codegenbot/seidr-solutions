@@ -5,3 +5,4 @@ int totalFuelCost(std::vector<int> fuelCosts) {
         sum += newCost;
     }
     return sum;
+}
