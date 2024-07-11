@@ -1,34 +1,15 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
 int main() {
-    std::vector<float> lst;
-    long long odd_sum = 0;
+    vector<float> lst;
+    long long odd_sum = 0; 
+    float dll;
 
-    int size;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> size;
+    cin >> dll;
+    lst.push_back(dll);
 
-    for(int i=0; i<size; i++) {
-        float num;
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> num;
-        lst.push_back(num);
-    }
-
-    long long sum = double_the_difference(lst);
-
-    if(sum > 0) {
-        std::cout << "The absolute difference is: " << sum << std::endl;
-    } else {
-        std::cout << "No elements with positive integer values and odd were found." << std::endl;
-    }
-
-    return 0;
+    cout << double_the_difference(lst);
 }
 
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && floor(num) == num) { 
