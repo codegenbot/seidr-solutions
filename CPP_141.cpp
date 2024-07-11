@@ -1,34 +1,20 @@
-int digits_count = 0;
-    bool dot_found = false;
-    string before_dot = "";
-    string after_dot = "";
-    
+int digit_count = 0;
+    int dot_count = 0;
+    int letter_count = 0;
+
     for (char c : file_name) {
-        if (c >= '0' && c <= '9') {
-            digits_count++;
+        if (isdigit(c)) {
+            digit_count++;
         } else if (c == '.') {
-            if (dot_found || before_dot.empty()) {
-                return "No";
-            }
-            dot_found = true;
-        } else if (dot_found) {
-            after_dot += c;
-        } else {
-            before_dot += c;
+            dot_count++;
+        } else if (isalpha(c)) {
+            letter_count++;
         }
     }
-    
-    if (digits_count > 3 || !dot_found || before_dot.empty() || after_dot.empty()) {
+
+    if (digit_count > 3 || dot_count != 1 || letter_count == 0 || file_name.find('.') == 0 || (file_name.find('.') == file_name.size() - 1) || (file_name.substr(file_name.find('.') + 1) != "txt" && file_name.substr(file_name.find('.') + 1) != "exe" && file_name.substr(file_name.find('.') + 1) != "dll")) {
         return "No";
+    } else {
+        return "Yes";
     }
-    
-    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
-        return "No";
-    }
-    
-    if ((before_dot[0] < 'a' || before_dot[0] > 'z') && (before_dot[0] < 'A' || before_dot[0] > 'Z')) {
-        return "No";
-    }
-    
-    return "Yes";
 }
