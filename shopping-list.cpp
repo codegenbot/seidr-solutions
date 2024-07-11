@@ -10,13 +10,13 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
     }
-    
-    float total_price = 0;
+
+    float total = 0.0;
     for (int i = 0; i < n; ++i) {
-        total_price += prices[i] * (1 - discounts[i] / 100);
+        total += prices[i] * (100 - discounts[i]) / 100.0;
     }
-    
-    cout << total_price << endl;
-    
+
+    cout << total << endl;
+
     return 0;
 }
