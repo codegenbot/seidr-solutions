@@ -1,5 +1,5 @@
 numbers = list(map(int, input().split()))
-threshold = int(input())
+threshold = int(input().strip())
 
 
 def has_close_values(numbers, threshold):
