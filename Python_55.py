@@ -7,5 +7,8 @@ def main():
             a, b = b, a+b
         return b
 
-    if __name__ == "__main__":
-        main()
+    num = int(input("Enter the number of terms: "))
+    series = ""
+    for i in range(num):
+        series += str(fib(i)) + " "
+    print(series)
