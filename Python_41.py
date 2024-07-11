@@ -1,4 +1,4 @@
 def car_race_collision():
     n = int(input("Enter the number of cars: "))
     m = int(input("Enter the number of roads: "))
-    return m * (m - 1) // 2
+    return min(n - 1, m) * (n - min(n - 1, m)) // 2
