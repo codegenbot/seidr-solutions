@@ -1,9 +1,4 @@
-from typing import List, Any
-
-
 def filter_integers(values: List[Any]) -> List[int]:
-    integer_values = []
-    for value in values:
-        if isinstance(value, int) and 1 <= value <= 100:
-            integer_values.append(value)
-    return integer_values
+    user_input = input("Enter comma-separated values (e.g., 1,2,3): ")
+    entered_values = [int(x) for x in user_input.split(",") if x.isdigit()]
+    return [value for value in entered_values if 1 <= value <= 100]
