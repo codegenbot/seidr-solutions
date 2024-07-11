@@ -9,8 +9,8 @@ int main() {
     
     string input;
     getline(cin, input);
-    istringstream iss(input);
-    while (iss >> num) {
+    stringstream ss(input);
+    while (ss >> num) {
         nums.push_back(num);
     }
 
