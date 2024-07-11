@@ -1,4 +1,4 @@
-```Python
+```
 def solution(lst):
     """
     Your problem description here
