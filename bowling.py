@@ -10,13 +10,13 @@ def bowling_score(frames):
             score += int(frame[0]) + int(frame[1])
             roll += 1
         else:
-            first_roll = int(frame[0])
-            second_roll = int(frame[1:])
+            first_roll = int(frame[:2])
+            second_roll = int(frame[2:])
             if first_roll == 10:
                 score += 10 + int(second_roll)
                 roll += 1
-            elif first_roll + int(second_roll[0]) <= 10:
-                score += first_roll + int(second_roll[0])
+            elif first_roll + int(second_roll) <= 10:
+                score += first_roll + int(second_roll)
                 roll += 1
             else:
                 score += 10 + int(second_roll)
