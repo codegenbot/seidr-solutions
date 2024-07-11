@@ -5,6 +5,8 @@ std::string camelCase(const std::string& input) {
     std::string output;
     bool firstWord = true;
 
+    char nextChar = ' ';
+
     for (char c : input) {
         if (c == '-') {
             if (!firstWord) {
@@ -16,14 +18,11 @@ std::string camelCase(const std::string& input) {
                 }
             }
         } else if (c == ' ') {
+            nextChar = c;
             continue;
         } else {
-            if (!firstWord) {
-                output.push_back(char(toupper(c)));
-            } else {
-                output += c;
-                firstWord = false;
-            }
+            output.push_back(c);
+            nextChar = c;
         }
     }
 
