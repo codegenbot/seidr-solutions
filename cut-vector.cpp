@@ -2,17 +2,16 @@
 #include <vector>
 #include <climits>
 #include <cmath>
+#include <fstream>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
     int num;
-    while (!cin.eof()) {
-        cin >> num;
-        if (!cin.eof()) {
-            nums.push_back(num);
-        }
+    ifstream inputFile("input.txt");
+    while (inputFile >> num) {
+        nums.push_back(num);
     }
     
     int n = nums.size();
