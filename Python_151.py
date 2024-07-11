@@ -1,8 +1,4 @@
-```
-def double_the_difference(lst):
-    if not isinstance(lst, list):
-        raise TypeError("Input should be a list")
-    for i in lst:
-        if not isinstance(i, int) or i < 0 or i % 2 == 0:
-            raise ValueError("List should only contain positive odd integers")
-    return sum(i**2 for i in lst)
+def double_the_difference():
+    lst = input("Enter a list of integers (space-separated): ")
+    lst = [int(i) for i in lst.split()]
+    return sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
