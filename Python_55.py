@@ -3,5 +3,8 @@ def fib(n: int):
         return n
     a, b = 1, 1
     for _ in range(2, n + 1):
-        a, b = b, a + b if n > 2 else 1, 1
-    return b
+        if n > 2:
+            a, b = b, a + b
+        else:
+            a, b = 1, 1
+    return a
