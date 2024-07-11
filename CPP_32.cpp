@@ -1,15 +1,11 @@
 double find_zero(vector<double> xs){
-    if (xs.size() % 2 != 0) {
-        return -1;
+    double sum = 0;
+    int i;
+    for (i=0;i<xs.size();i++)
+    {
+        if(i%2!=0) // only consider odd coefficients
+            continue;
+        sum+=xs[i]/xs[0];
     }
-    
-    double a = xs[0];
-    double b = 0;
-    for (int i = 1; i < xs.size(); i++) {
-        if (i % 2 == 1) {
-            b += xs[i] / pow(-a, (i + 1) / 2.0);
-        }
-    }
-    
-    return -b / a;
+    return -sum;
 }
