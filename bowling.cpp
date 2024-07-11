@@ -1,30 +1,17 @@
-int score(string bowls) {
+int score(string rolls) {
     int totalScore = 0;
-    int frame = 1;
+    int frameIndex = 0;
     
-    for (int i = 0; i < bowls.size(); ++i) {
-        if (bowls[i] == 'X') {
-            totalScore += 10;
-            if (frame < 10) {
-                totalScore += (bowls[i+1] == 'X') ? 10 : (bowls[i+1] - '0');
-                if (bowls[i+2] == '/') {
-                    totalScore += 10 - (bowls[i+1] == 'X' ? 0 : (bowls[i+1] - '0'));
-                } else if (bowls[i+2] == 'X') {
-                    totalScore += 10;
-                } else {
-                    totalScore += (bowls[i+2] == '-' ? 0 : (bowls[i+2] - '0'));
-                }
-            }
-            frame++;
-        } else if (bowls[i] == '/') {
-            totalScore += 10 - (bowls[i-1] - '0');
-            totalScore += (bowls[i+1] == 'X') ? 10 : (bowls[i+1] - '0');
-            frame++;
-        } else if (bowls[i] == '-') {
-            // do nothing for a miss
+    for (int frame = 0; frame < 10; ++frame) {
+        if(rolls[frameIndex] == 'X') {
+            totalScore += 10 + (rolls[frameIndex + 1] == 'X' ? 10 + (rolls[frameIndex + 2] == 'X' ? 10 : (rolls[frameIndex + 2] == '-' ? 0 : rolls[frameIndex + 2] - '0')) : (rolls[frameIndex + 1] == '/' ? 10 : (rolls[frameIndex + 1] == '-' ? 0 : rolls[frameIndex + 1] - '0') + (rolls[frameIndex + 2] == '-' ? 0 : rolls[frameIndex + 2] - '0')));
+            frameIndex++;
+        } else if (rolls[frameIndex + 1] == '/') {
+            totalScore += 10 + (rolls[frameIndex + 2] == 'X' ? 10 : (rolls[frameIndex + 2] == '-' ? 0 : rolls[frameIndex + 2] - '0'));
+            frameIndex += 2;
         } else {
-            totalScore += bowls[i] - '0';
-            frame++;
+            totalScore += (rolls[frameIndex] == '-' ? 0 : rolls[frameIndex] - '0') + (rolls[frameIndex + 1] == '-' ? 0 : rolls[frameIndex + 1] - '0');
+            frameIndex += 2;
         }
     }
     
@@ -32,10 +19,10 @@ int score(string bowls) {
 }
 
 int main() {
-    string bowls;
-    cin >> bowls;
-
-    cout << score(bowls) << endl;
-
+    string rolls;
+    getline(cin, rolls);
+    
+    cout << score(rolls) << endl;
+    
     return 0;
 }
