@@ -1,3 +1,4 @@
+```
 def encode(message):
     vowels = 'aeiouAEIOU'
     result = ''
@@ -8,8 +9,7 @@ def encode(message):
                 new_char = chr((index + 2) % 26 + 97)
             else:
                 new_char = char.swapcase()
-        else: 
-            # Check for non-alphanumeric characters
-            new_char = char
-        result += new_char
+            result += new_char
+        else:
+            result += char
     return result
