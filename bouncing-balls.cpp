@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 #include <cmath>
@@ -23,4 +24,3 @@ int main() {
     cout << fixed << setprecision(4) << totalDistance(numBounces, bounciness) << endl;
 
     return 0;
-}
