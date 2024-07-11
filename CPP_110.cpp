@@ -1,4 +1,4 @@
-Here's the solution:
+Here is the solution:
 
 string exchange(vector<int> lst1, vector<int> lst2) {
     int oddCount = 0;
@@ -10,9 +10,6 @@ string exchange(vector<int> lst1, vector<int> lst2) {
     for (int num : lst2) {
         if (num % 2 != 0) {
             oddCount--;
-            break;
-        } else {
-            oddCount++;
         }
     }
     return oddCount == 0 ? "YES" : "NO";
