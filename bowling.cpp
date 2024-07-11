@@ -1,46 +1,32 @@
-int score(string input) {
-    int totalScore = 0;
-    int frame = 1;
-    int ball = 0;
-    vector<int> scores(21, 0);
-
-    for (char c : input) {
-        if (c == 'X') {
-            scores[ball] = 10;
-            scores[ball + 1] = 0;
-            ball += 2;
+int bowlingScore(const string& s) {
+    int score = 0;
+    int frame = 0;
+    for (int i = 0; i < s.size(); ++i) {
+        if (s[i] == 'X') {
+            score += 10;
+            if (frame < 10) {
+                score += (s[i + 1] == 'X') ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10);
+                score += (s[i + 2] == 'X') ? 10 : (isdigit(s[i + 2]) ? s[i + 2] - '0' : 10);
+                frame++;
+            }
+        } else if (s[i] == '/') {
+            score += 10 - (s[i - 1] - '0');
+            score += (s[i + 1] == 'X') ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10);
             frame++;
-        } else if (c == '/') {
-            scores[ball] = 10 - scores[ball - 1];
-            ball++;
-            frame++;
-        } else if (c == '-') {
-            scores[ball] = 0;
-            ball++;
-        } else {
-            scores[ball] = c - '0';
-            ball++;
-            if (frame % 2 == 0) {
+        } else if (isdigit(s[i])) {
+            score += s[i] - '0';
+            if (frame < 10 && s[i + 1] == '/') {
+                score += 10 - (s[i] - '0');
                 frame++;
             }
         }
     }
-
-    for (int i = 0; i < 10; i++) {
-        int frameScore = scores[i * 2] + scores[i * 2 + 1];
-        if (frameScore == 10) {
-            totalScore += frameScore + scores[i * 2 + 2];
-        } else {
-            totalScore += frameScore;
-        }
-    }
-
-    return totalScore;
+    return score;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << score(input) << endl;
+    string s;
+    cin >> s;
+    cout << bowlingScore(s) << endl;
     return 0;
 }
