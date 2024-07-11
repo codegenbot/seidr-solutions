@@ -36,3 +36,4 @@ int main() {
     cout << "Enter a string of words: ";
     getline(cin, str);
     cout << "Spun result: " << spinWords(str) << endl;
+}
