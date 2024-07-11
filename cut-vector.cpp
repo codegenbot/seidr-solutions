@@ -1,33 +1,35 @@
 int main() {
     int n;
     cin >> n;
+    
     vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
     
-    int diff = INT_MAX;
-    int idx = -1;
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
+    }
     
-    for (int i = 1; i < n; ++i) {
-        int left_sum = 0, right_sum = 0;
-        for (int j = 0; j < i; ++j) {
-            left_sum += nums[j];
-        }
-        for (int j = i; j < n; ++j) {
-            right_sum += nums[j];
-        }
-        
-        if (abs(left_sum - right_sum) < diff) {
-            diff = abs(left_sum - right_sum);
+    int target = sum / 2;
+    int prefixSum = 0;
+    int idx = -1;
+    for (int i = 0; i < n; ++i) {
+        prefixSum += nums[i];
+        if (prefixSum >= target) {
             idx = i;
+            break;
         }
+    }
+    
+    if (abs(prefixSum - target) < abs(prefixSum - target - nums[idx])) {
+        ++idx;
     }
     
     for (int i = 0; i < idx; ++i) {
         cout << nums[i] << endl;
     }
-    cout << endl;
     for (int i = idx; i < n; ++i) {
         cout << nums[i] << endl;
     }
