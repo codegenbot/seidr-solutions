@@ -4,6 +4,7 @@ def valid_date(date):
     
     if len(date) != 9:
         return False
+    
     if len(date_parts) != 3:
         return False
     
