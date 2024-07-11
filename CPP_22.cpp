@@ -9,8 +9,3 @@ vector<int> filter_integers(list_any values){
     }
     return result;
 }
-
-int main(){
-    // Your main function code here
-    return 0;
-}
