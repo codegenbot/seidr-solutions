@@ -5,9 +5,8 @@ int max_fill(vector<vector<int>> grid, int capacity) {
     }
     
     int buckets_needed = total_water / capacity;
-    if (total_water % capacity > 0) {
-        buckets_needed++;
-    }
+    if (total_water % capacity != 0)
+        ++buckets_needed;
     
     return buckets_needed;
 }
