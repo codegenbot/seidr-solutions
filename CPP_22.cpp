@@ -1,18 +1,16 @@
-vector<int> filter_integers(list_any values);
+bool issame(vector<int> a, vector<int> b);
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i=0; i<a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
+vector<int> filter_integers(list_any values){
+    vector<int> result;
+    for(auto& val : values){
+        if(typeid(int) == val.type()){
+            result.push_back(boost::any_cast<int>(val));
         }
     }
-    return true;
+    return result;
 }
 
-int main(){
-    // Your main function code here
+int main() {
+    // Main function implementation here
     return 0;
 }
