@@ -1,16 +1,29 @@
 #include <iostream>
+#include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
-std::vector<std::string> select_words(std::string s, int n);
+using namespace std;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+vector<string> select_words(string s, int n);
+
+int main() {
+    string input;
+    int n;
+    getline(cin, input);
+    cin >> n;
+  
+    vector<string> result = select_words(input, n);
+
+    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
+
+    return 0;
 }
 
-std::vector<std::string> select_words(std::string s, int n) {
-    std::vector<std::string> result;
-    std::string word = "";
+vector<string> select_words(string s, int n) {
+    vector<string> result;
+    string word = "";
     int consonantCount = 0;
 
     for (char c : s) {
@@ -21,7 +34,7 @@ std::vector<std::string> select_words(std::string s, int n) {
             word = "";
             consonantCount = 0;
         } else if (isalpha(c)) {
-            if (std::tolower(c) != 'a' && std::tolower(c) != 'e' && std::tolower(c) != 'i' && std::tolower(c) != 'o' && std::tolower(c) != 'u') {
+            if (tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && tolower(c) != 'o' && tolower(c) != 'u') {
                 consonantCount++;
             }
             word += c;
