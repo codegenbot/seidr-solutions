@@ -2,8 +2,8 @@ from typing import List
 
 
 def rescale_to_unit(numbers: List[float]) -> List[float]:
-    min_val = float("inf")
-    max_val = float("-inf")
+    min_val = float('inf')
+    max_val = float('-inf')
 
     for num in numbers:
         if num < min_val:
