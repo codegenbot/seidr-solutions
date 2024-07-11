@@ -1,13 +1,16 @@
 ```
-def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string
+def make_palindrome(s: str) -> str:
+    if s == s[::-1]:
+        return s + s
 
-    new_str = ""
-    for i in range(len(string)):
-        if i < len(string) - i - 1 and string[i:] == string[i:][::-1]:
-            new_str += string[i]
+    result = []
+    for i in range(len(s)):
+        result.append(s[i])
+        if i < len(s) - i - 1 and s[:i+1] == s[:i+1][::-1]:
+            for j in range(i, -1, -1):
+                result.append(s[j])
         else:
-            new_str += string[-i-1]
+            for j in range(len(s)-i-1, -1, -1):
+                result.append(s[j])
 
-    return new_str + new_str[::-1]
+    return "".join(result)
