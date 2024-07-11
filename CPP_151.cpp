@@ -1,9 +1,4 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <cmath>
-
-long long double_the_difference(std::vector<float> lst) {
+long long double_the_difference(std::vector<float> lst){
     long long sum = 0;
     for(float x : lst) {
         if(x > 0 && (int)x == x) { 
@@ -13,9 +8,4 @@ long long double_the_difference(std::vector<float> lst) {
         }
     }
     return sum;
-}
-
-int main() {
-    std::vector<float> lst;  
-    // ... use the function ...
 }
