@@ -1,8 +1,8 @@
 string find_max(vector<string> words){
-    string result = *minmax_element(words.begin(), words.end(),
-        [](const auto& a, const auto& b) {
-            return tuple_size<>{}, distance(a.begin(), unique(a.begin(), a.end())) <
-                distance(b.begin(), unique(b.begin(), b.end()));
-    })->first;
-    return result;
+    string max_str = *max_element(words.begin(), words.end(), 
+                                  [](const string& s1, const string& s2){
+                                      return (s1.size() < s2.size()) ||
+                                             ((s1.size() == s2.size()) && (s1 < s2));
+                                  });
+    return max_str;
 }
