@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -31,3 +30,4 @@ int main() {
     else
         cout << (is_sorted(lst) ? "True" : "False") << endl; 
     return 0;
+}
