@@ -1,5 +1,4 @@
-```
-def max_occurrence(lst):
+def search(lst):
     frequency_dict = {}
     for num in lst:
         if num > 0:
@@ -8,7 +7,9 @@ def max_occurrence(lst):
             else:
                 frequency_dict[num] = 1
     max_num = -1
+    max_count = 0
     for key, value in frequency_dict.items():
-        if key >= value and key > max_num:
+        if key >= value and key > 0 and key > max_num:
             max_num = key
+            max_count = value
     return max_num
