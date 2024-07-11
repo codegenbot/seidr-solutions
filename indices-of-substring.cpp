@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -8,9 +7,11 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i + m <= n; i++) {
+    for (int i = 0; i <= n - m; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
+            // Adjust the starting index to avoid duplicates
+            i += (m - 1); 
         }
     }
 
