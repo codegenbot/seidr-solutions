@@ -1,5 +1,10 @@
 ```
-gcd = lambda a, b: abs(a) if b == 0 else gcd(b, a % b)
+# Here is the solution:
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return abs(a)
+
 text = input()
 target = input()
 
