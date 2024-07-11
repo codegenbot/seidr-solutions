@@ -2,18 +2,23 @@
 #include <string>
 using namespace std;
 
-string match_parens(vector<string> lst){
-    int openCount = 0, closeCount = 0;
+string match_parens(vector<string> lst) {
+    int balance = 0;
     for (const string& str : lst) {
         for (char c : str) {
             if (c == '(') {
-                openCount++;
-            } else if (openCount > 0) {
-                openCount--;
+                balance++;
             } else {
-                closeCount++;
+                if (balance == 0) {
+                    return "No";
+                }
+                balance--;
             }
         }
     }
-    return (openCount == 0 && closeCount <= 1) ? "Yes" : "No";
+    if (balance == 0) {
+        return "Yes";
+    } else {
+        return "No";
+    }
 }
