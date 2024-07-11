@@ -1,3 +1,5 @@
+#include <cassert>
+#include <vector>
 using namespace std;
 
 bool isSame(vector<int> a, vector<int> b) {
