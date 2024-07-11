@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib>
+#include <climits>
 
 int main() {
     int n;
@@ -11,11 +11,19 @@ int main() {
         std::cin >> nums[i];
     }
 
-    int diff = std::abs(nums[0] - nums[n-1]);
-    int cutIndex = 0;
-    for (int i = 1; i < n - 1; ++i) {
-        int currentDiff = std::abs(std::accumulate(nums.begin(), nums.begin() + i, 0) - std::accumulate(nums.begin() + i, nums.end(), 0));
-        if (currentDiff < diff) {
+    int diff = INT_MAX, cutIndex = 0;
+    for (int i = 0; i < n - 1; ++i) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < n - 1; ++j) {
+            if (j <= i) {
+                leftSum += nums[j];
+            } else {
+                rightSum += nums[j];
+            }
+        }
+
+        int currentDiff = abs(leftSum - rightSum);
+        if (currentDiff <= diff) {
             diff = currentDiff;
             cutIndex = i;
         }
