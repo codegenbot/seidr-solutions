@@ -11,7 +11,7 @@ float triangle_area(float a, float b, float c) {
     }
 }
 
-int main() {
+int calculateAndPrintArea() {
     float a, b, c;
     std::cout << "Enter the lengths of three sides of a triangle: ";
     std::cin >> std::fixed >> std::showpoint >> a >> b >> c; 
@@ -21,3 +21,4 @@ int main() {
     else
         std::cout << "The area of the triangle is: " << area << "\n";
     return 0;
+}
