@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+#include <vector>
 
 std::vector<std::string> select_words(std::string s, int n);
 
