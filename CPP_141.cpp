@@ -1,3 +1,5 @@
+Here is the completed code:
+
 string file_name_check(string file_name){
     int digit_count = 0;
     bool found_dot = false;
