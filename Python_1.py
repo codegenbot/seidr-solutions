@@ -1,27 +1,27 @@
+```
 def separate_paren_groups(paren_string: str) -> list[str]:
     result = []
     temp = ""
+    stack = []
+    
     for char in paren_string:
-        if char == "(" or char == ")":
+        if char == "(":
             if temp != "":
                 result.append(temp)
             temp = ""
-        elif temp == "":
-            temp += char
-        else:
-            if char == "(" and not temp.startswith("("):
-                result.append(temp + "(")
-                temp = ""
-            elif char == ")" and not temp.endswith(")"):
-                while temp and temp[-1] != "(":
-                    result.append(temp)
-                    temp = temp[:-1]
-                result.append("(" + temp + ")")
-                temp = ""
+            stack.append("(")
+        elif char == ")":
+            stack.pop()
+            if stack and stack[-1] == "(":
+                temp += ")"
             else:
-                temp += char
+                if temp != "":
+                    result.append(temp)
+                temp = ""
+    
     if temp != "":
         result.append(temp)
+    
     return result
 
 print(separate_paren_groups("( ) (( )) (( )( ))"))
