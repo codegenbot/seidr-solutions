@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm> 
 #include <cctype>
 
 using namespace std;
@@ -9,7 +10,7 @@ bool isvowel(char c) {
            tolower(c) >= 'a' && tolower(c) <= 'z';
 }
 
-std::string get_closest_vowel(std::string word) {
+string get_closest_vowel(string word) {
     int left = 0, right = word.size() - 1;
     while (left < right) {
         if (!isvowel(word[left])) ++left;
@@ -21,6 +22,6 @@ std::string get_closest_vowel(std::string word) {
 
 int main() {
     assert(get_closest_vowel("Above") == "o");
-    cout << get_closest_vowel("Above") << endl; // test your function
+    cout << get_closest_vowel("Above") << endl; 
     return 0;
 }
