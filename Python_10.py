@@ -1,4 +1,7 @@
+```
 def make_palindrome(s: str) -> str:
+    if s == "":
+        return ""
     if s[0] != s[-1]:
         while len(s) < 2 or s[:1] != s[-1:]:
             s = s[-1] + s
