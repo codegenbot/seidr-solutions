@@ -7,10 +7,11 @@ int basement(vector<int>& nums) {
     int sum = 0, min_sum = 0, res = INT_MAX;
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
-        res = min(res, i - min_sum);
-        min_sum = min(min_sum, i);
+        if (sum < 0) {
+            res = min(res, i);
+        }
     }
-    return res < 0 ? -1 : res + 1;
+    return res == INT_MAX ? -1 : res;
 }
 
 int main() {
