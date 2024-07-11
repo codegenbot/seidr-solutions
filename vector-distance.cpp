@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath>
+#include <bits/initializer_list.h>
 
 using namespace std;
 
@@ -11,8 +12,9 @@ double vector_distance(int n) {
         cin >> v1[i] >> v2[i];
     }
     double sum = 0.0;
-    for (auto x : v1)
-        sum += pow(v2.at(i) - x, 2);
+    for (int i = 0; i < n; i++) {
+        sum += pow(v2[i] - v1[i], 2);
+    }
     
     return sqrt(sum);
 }
