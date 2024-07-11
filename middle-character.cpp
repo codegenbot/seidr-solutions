@@ -1,13 +1,11 @@
 int main() {
-    string input;
-    cin >> input;
+    string s;
+    cin >> s;
     
-    int n = input.length();
-    
-    if (n % 2 == 1) {
-        cout << input[n/2];
+    if (s.size() % 2 == 0) {
+        cout << s.substr(s.size() / 2 - 1, 2);
     } else {
-        cout << input.substr(n/2 - 1, 2);
+        cout << s.substr(s.size() / 2, 1);
     }
     
     return 0;
