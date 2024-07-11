@@ -21,8 +21,7 @@ string int_to_mini_romank(int number){
 
 int main() {
     int number;
-    std::cin >> number;
-    std::cout << int_to_mini_romank(number) << std::endl;
-    
+    cin >> number;
+    cout << int_to_mini_romank(number) << endl;
     return 0;
 }
