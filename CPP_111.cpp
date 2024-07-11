@@ -1,10 +1,4 @@
-#include <iostream>
-#include <map>
-#include <cassert>
-
 map<char, int> histogram(string test);
-
-bool issame(map<char, int> a, map<char, int> b);
 
 map<char, int> histogram(string test){
     map<char, int> result;
@@ -35,15 +29,10 @@ bool issame(map<char, int> a, map<char, int> b) {
 }
 
 int main() {
-    string input = "hello world";
-    map<char, int> result = histogram(input);
-    map<char, int> expected = {
-        {'l', 3},
-        {'o', 2}
-    };
-    assert(issame(result, expected));
+    map<char, int> result = histogram("hello there");
+    map<char, int> expected = {{'e', 3}, {'h', 2}, {'l', 2}, {'o', 1}, {'r', 1}, {'t', 1}};
 
-    cout << "Test passed successfully!" << endl;
+    assert(issame(result, expected));
 
     return 0;
 }
