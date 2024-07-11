@@ -1,4 +1,3 @@
-```
 def sum_squares(lst):
     return sum(i**2 for i in lst)
 
@@ -12,4 +11,5 @@ while True:
             print("Invalid input. Please enter numbers separated by spaces.")
     except ValueError:
         print("Invalid input. Please enter numbers separated by spaces.")
+
 print(sum_squares(lst))
