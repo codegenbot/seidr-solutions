@@ -1,5 +1,9 @@
-string vowels = "aeiouAEIOU";
-    text.erase(std::remove_if(text.begin(), text.end(), 
-        [&](char c){ return vowels.find(c) != std::string::npos; }), text.end());
-    return text;
+string result = text;
+    string vowels = "aeiouAEIOU";
+    
+    for(char vowel : vowels) {
+        result.erase(remove(result.begin(), result.end(), vowel), result.end());
+    }
+    
+    return result;
 }
