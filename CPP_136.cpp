@@ -7,7 +7,7 @@ namespace MyNamespace {
         return std::equal(a.begin(), a.end(), b.begin());
     }
 
-    std::vector<int> largest_smallest_integers(std::vector<int> lst) {
+    std::vector<std::vector<int>> largest_smallest_integers(std::vector<int> lst) {
         int max_negative = 0;
         int min_positive = INT_MAX;
 
@@ -19,17 +19,8 @@ namespace MyNamespace {
             }
         }
 
-        std::vector<int> result;
-        if (max_negative > 0) {
-            result.push_back(INT_MAX);
-        } else {
-            result.push_back(max_negative);
-        }
-        if (min_positive < 1) {
-            result.push_back(INT_MIN);
-        } else {
-            result.push_back(min_positive);
-        }
-        return result;
+        return {{std::max(max_negative, 0), std::min(min_positive, 1)}};
     }
 }
+
+assert(MyNamespace::isSame(MyNamespace::largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
