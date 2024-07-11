@@ -22,7 +22,7 @@ int main() {
     for(int i = 0; i < testCases; i++) {
         std::string tweet;
         cin >> tweet;
-        std::cout << validateTweet(tweet) << endl;
+        std::cout << validateTweet(tweet) << std::endl;
     }
 
     return 0;
