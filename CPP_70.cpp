@@ -1,13 +1,16 @@
 sort(lst.begin(), lst.end());
-vector<int> result;
-int i = 0, j = lst.size() - 1;
-while (i <= j) {
-    result.push_back(lst[i]);
-    if (i != j) {
-        result.push_back(lst[j]);
+    vector<int> result;
+    int left = 0, right = lst.size() - 1;
+    bool odd = true;
+    while (left <= right) {
+        if (odd) {
+            result.push_back(lst[left]);
+            left++;
+        } else {
+            result.push_back(lst[right]);
+            right--;
+        }
+        odd = !odd;
     }
-    i++;
-    j--;
-}
-return result;
+    return result;
 }
