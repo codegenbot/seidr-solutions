@@ -1,4 +1,5 @@
-from typing import List, Any
+```
+from typing import List
 
 def filter_integers():
     while True:
