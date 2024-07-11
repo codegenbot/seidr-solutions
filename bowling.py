@@ -1,31 +1,42 @@
 def bowling_score(bowls):
     score = 0
     frame = 1
-    ball = 0
-    rolls = []
+    bowl_count = 0
+    spare = False
 
-    for b in bowls:
-        if b == "/":
-            rolls.append(10 - rolls[-1])
-        elif b == "X":
-            rolls.extend([10, 0])
+    for bowl in bowls:
+        if bowl == "X":
+            score += 10
+            if frame < 10:
+                score += 10 if bowls[bowl_count + 1] == "X" else 0
+                score += (
+                    10
+                    if bowls[bowl_count + 2] == "X" or bowls[bowl_count + 2] == "/"
+                    else int(bowls[bowl_count + 2])
+                )
+                frame += 1
+        elif bowl == "/":
+            score += 10 - int(bowls[bowl_count - 1])
+            score += 10 if bowls[bowl_count + 1] == "X" else int(bowls[bowl_count + 1])
         else:
-            rolls.append(int(b))
+            score += int(bowl)
 
-    for i in range(len(rolls)):
-        score += rolls[i]
-        if frame < 10 and rolls[i] == 10:
-            score += rolls[i + 1] + rolls[i + 2]
-        elif frame < 10 and rolls[i] + rolls[i - 1] == 10:
-            score += rolls[i + 1]
-        if rolls[i] == 10 or ball == 1:
-            frame += 1
-            ball = 0
+        if bowl == "/":
+            spare = True
         else:
-            ball += 1
+            spare = False
+
+        if frame < 10:
+            if bowl != "X":
+                bowl_count += 1
+            if bowl != "/" and not spare:
+                frame += 1
 
     return score
 
 
-bowls = input()
+# Read input from user
+bowls = input().strip()
+
+# Calculate and print the score
 print(bowling_score(bowls))
