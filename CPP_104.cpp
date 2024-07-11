@@ -1,18 +1,17 @@
+sort(x.begin(), x.end());
 vector<int> result;
-    for (int num : x) {
-        bool hasEvenDigit = false;
-        int temp = num;
-        while (temp > 0) {
-            if ((temp % 10) % 2 == 0) {
-                hasEvenDigit = true;
-                break;
-            }
-            temp /= 10;
+for(int num : x){
+    int temp = num;
+    bool hasEvenDigit = false;
+    while(temp > 0){
+        if(temp % 2 == 0){
+            hasEvenDigit = true;
+            break;
         }
-        if (!hasEvenDigit) {
-            result.push_back(num);
-        }
+        temp /= 10;
     }
-    sort(result.begin(), result.end());
-    return result;
+    if(!hasEvenDigit){
+        result.push_back(num);
+    }
 }
+return result;
