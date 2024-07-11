@@ -1,10 +1,16 @@
 ```
-def find_closest_elements()-> tuple:
-    num1 = float(input("Enter the first number: "))
-    num2 = float(input("Enter the second number: "))
-    if abs(num1 - num2) < 0.00001:
-        return (num1, num2)
-    elif num1 < num2:
-        return (num1, num2)
-    else:
-        return (num2, num1)
+def find_closest_elements(nums: list)-> tuple:
+    nums.sort()
+    min_diff = float('inf')
+    closest_pair = ()
+    
+    for i in range(len(nums)-1):
+        diff = nums[i+1] - nums[i]
+        if diff < min_diff:
+            min_diff = diff
+            closest_pair = (nums[i], nums[i+1])
+    
+    return closest_pair
+
+if __name__ == "__main__":
+    print(find_closest_elements([1.1, 2.2, 3.1, 4.1, 5.1]))
