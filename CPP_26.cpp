@@ -2,18 +2,9 @@
 #include <unordered_set>
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size())
-        return false;
-    for (int i = 0; i < a.size(); ++i)
-        if (a[i] != b[i])
-            return false;
-    return true;
-}
-
-vector<int> remove_duplicates(vector<int> numbers) {
-    unordered_set<int> seen;
-    vector<int> result;
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::unordered_set<int> seen;
+    std::vector<int> result;
 
     for (int num : numbers) {
         if (seen.find(num) == seen.end()) {
@@ -23,4 +14,13 @@ vector<int> remove_duplicates(vector<int> numbers) {
     }
 
     return result;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] != b[i])
+            return false;
+    return true;
 }
