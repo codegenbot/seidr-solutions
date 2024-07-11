@@ -1,6 +1,6 @@
-def solution(user_input=None):
+def solution():
     try:
-        lst = list(map(int, user_input.split()))
+        lst = list(map(int, input().split()))
     except ValueError:
         return "Invalid input. Please enter integers only."
     

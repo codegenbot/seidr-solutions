@@ -1,19 +1,17 @@
-```
-    def minPathSum(grid):
-    n = len(grid)
-    m = [[0] * n for _ in range(n)]
-    min_path_sum = float("inf")
+def minPathSum(grid):
+    m = len(grid)
+    n = len(grid[0])
+    
+    for i in range(1, m):
+        grid[i][0] += grid[i-1][0]
+        
+    for j in range(1, n):
+        grid[0][j] += grid[0][j-1]
+        
+    for i in range(1, m):
+        for j in range(1, n):
+            grid[i][j] += min(grid[i-1][j], grid[i][j-1])
+            
+    return grid[m-1][n-1]
 
-    def dfs(i, j, path_sum):
-        nonlocal min_path_sum
-        if (i, j) == (n - 1, n - 1):
-            min_path_sum = min(min_path_sum, path_sum + grid[i][j])
-        for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-            ni, nj = i + x, j + y
-            if 0 <= ni < n and 0 <= nj < n:
-                dfs(ni, nj, path_sum + grid[i][j])
-
-    for i in range(n):
-        for j in range(n):
-            dfs(i, j, 0)
-    return min_path_sum
+minPath = minPathSum([[1,3,1],[1,5,1],[4,2,1]])
