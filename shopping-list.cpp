@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 int main() {
-    int n;
+    int n;  // Change float to int
     std::cin >> n;
 
     std::vector<float> prices(n);
