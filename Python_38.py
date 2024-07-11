@@ -5,12 +5,8 @@ def decode_cyclic(s: str):
         temp += char
         if len(temp) >= 3:
             result.append(temp[1] + temp[0])
-            temp = temp[1:] if len(temp) > 2 else ""
+            temp = temp[1:]
     if temp:
-        if len(temp) == 1:
-            return temp
-        elif len(temp) == 2:
-            result.extend([temp[1], temp[0]])
-        else:
+        if len(temp) > 0:
             result.append(temp)
     return "".join(result)
