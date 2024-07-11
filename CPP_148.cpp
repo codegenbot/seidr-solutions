@@ -1,4 +1,7 @@
-```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
 std::vector<std::string> issame(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1;
@@ -33,4 +36,9 @@ std::vector<std::string> issame(std::string planet1, std::string planet2) {
     }
 
     return result;
+}
+
+int main() {
+    assert (issame("Jupiter", "Makemake") == {});
+    return 0;
 }
