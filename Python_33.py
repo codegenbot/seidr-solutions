@@ -1,18 +1,12 @@
 ```
-def sort_third(l):
-    index_dict = {x: i for i, x in enumerate(l)}
+def sort_third(l: list):
+    indices = {x: i for i, x in enumerate(l)}
+    min_val = float('inf')
     result = []
     for i, x in enumerate(sorted(l)):
-        if i % 3 == 0:
-            result.append(x)
-        else:
-            min_val = float('inf')
-            prev_index = index_dict[x]
-            next_index = (i + 1) % len(l)
-            for j, y in enumerate(l):
-                if abs(j - prev_index) < abs(min_val - i) and y <= x:
-                    min_val = j
-                elif abs(j - next_index) < abs(min_val - i) and y >= x:
-                    min_val = j
-            result.append(l[min_val])
+        if (i) % 3 == 0:
+            min_val = l[indices[x]]
+        elif x < min_val:
+            min_val = x
+        result.append(x)
     return result
