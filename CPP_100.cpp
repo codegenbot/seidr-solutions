@@ -14,3 +14,5 @@ std::vector<int> make_a_pile(int n){
     }
     return result;
 }
+
+bool issame(std::vector<int> a, std::vector<int> b){
