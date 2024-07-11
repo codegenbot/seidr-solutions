@@ -1,7 +1,8 @@
+from typing import List
+
 def get_values() -> List[int]:
     result = []
-    n = int(input("Enter the number of values: "))
-    for _ in range(n):
+    while True:
         user_value = input("Enter a value (or 'stop' to finish): ")
         if user_value.lower() == 'stop':
             break
@@ -9,7 +10,12 @@ def get_values() -> List[int]:
             print("Please enter a valid integer.")
             continue
         try:
-            result.append(int(user_value))
+            val = int(user_value)
         except ValueError:
-            print(f"Invalid input: {user_value}. Please enter integers only. Try again!")
+            try:
+                val = float(user_value)  # allow floats
+            except ValueError:
+                print(f"Invalid input: {user_value}. Please enter integers or decimals only. Try again!")
+                continue
+        result.append(val)
     return result
