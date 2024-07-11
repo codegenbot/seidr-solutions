@@ -1,5 +1,5 @@
-#include <cassert>
 #include <vector>
+#include <cassert>
 
 bool below_threshold(std::vector<int> l, int t) {
     for (int num : l) {
