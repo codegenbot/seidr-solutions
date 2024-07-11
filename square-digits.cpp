@@ -18,6 +18,6 @@ int main() {
     // Read user input
     // For simplicity let it be hardcoded for now
     input = "123";
-    std::cout << squareDigits(input) << std::endl;  
+    std::cout << squareDigits(input) << std::endl;  // Call the function and print output
     return 0;
 }
