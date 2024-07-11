@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -37,4 +36,5 @@ int main() {
     }
 
     cout << "Sum of squared values: " << double_the_difference(lst) << endl;
-    return 0;
+    return 0; 
+}
