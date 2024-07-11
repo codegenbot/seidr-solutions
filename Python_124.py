@@ -15,14 +15,22 @@ def valid_date(date):
 def main():
     while True:
         print("Enter date (yyyy-mm-dd):")
-        date = input()
-        if len(date) != 10 or "-" not in date:
-            print("Invalid date format! Please use 'yyyy-mm-dd'.")
-        else:
-            if not valid_date(date):
-                print(f"The date {date} is not valid.")
+        try:
+            date = input()
+            if len(date) != 10 or "-" not in date:
+                print("Invalid date format! Please use 'yyyy-mm-dd'.")
             else:
-                print(f"The date {date} is valid.")
+                day, month, year = map(int, date.split("-"))
+                if year < 1000 or year > 9999:
+                    print("Invalid year! Please enter a year between 1000 and 9999.")
+                elif not valid_date(date):
+                    print(f"The date {date} is not valid.")
+                else:
+                    print(f"The date {date} is valid.")
+        except ValueError:
+            print(
+                "Invalid input. Please enter a valid date in the 'yyyy-mm-dd' format."
+            )
 
 
 if __name__ == "__main__":
