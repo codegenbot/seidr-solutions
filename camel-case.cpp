@@ -1,40 +1,16 @@
-#include <iostream>
-#include <string>
+Here is the solution:
 
-std::string kebabToCamel(const std::string& s) {
-    std::vector<std::string> words;
-    std::stringstream ss(s);
-    std::string word;
-
-    while (ss >> word) {
-        if (!word.empty()) {
-            words.push_back(word);
+string camelCase(string s) {
+    string result = "";
+    size_t prev = 0;
+    for (size_t i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            result += toupper(s.substr(prev + 1, i - prev).c_str())[0];
+            prev = i + 1;
         }
     }
-
-    std::string result = "";
-    for (int i = 0; i < words.size(); i++) {
-        if (i > 0) {
-            result += charToUpper(words[i][0]) + words.substr(i).c_str();
-        } else {
-            result += words[0];
-        }
+    if (prev < s.length()) {
+        result += toupper(s.substr(prev).c_str());
     }
-
     return result;
-}
-
-char toUpper(char c) {
-    if (c >= 'a' && c <= 'z') {
-        return static_cast<char>(c - ('a' - 'A'));
-    }
-    return c;
-}
-
-int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << kebabToCamel(s) << std::endl;
-    }
-    return 0;
 }
