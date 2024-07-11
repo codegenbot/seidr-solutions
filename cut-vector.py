@@ -1,6 +1,8 @@
 numbers = list(map(int, input().split()))
-if len(numbers) < 2:
-    print([], numbers)
+if len(numbers) == 1:
+    print(numbers, [])
+elif len(numbers) == 2:
+    print(numbers, [])
 else:
     min_diff = float('inf')
     cut_index = 0
