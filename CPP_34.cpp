@@ -10,10 +10,10 @@ vector<int> unique(vector<int> l) {
 }
 
 int main() {
-    vector<int> input = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> output = unique(input);
-    for (int i : output) {
-        cout << i << " ";
+    vector<int> numbers = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    for (int num : unique(numbers)) {
+        cout << num << " ";
     }
+    cout << endl;
     return 0;
 }
