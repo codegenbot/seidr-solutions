@@ -1,10 +1,11 @@
-```Python
+```
 from typing import List
 
 
 def all_prefixes(string: str) -> List[str]:
-    prefixes = []
-    for i in range(len(string)+1):
-        prefix = string[:i]
-        prefixes.append(prefix)
+    prefixes = [""]
+    for i in range(len(string)):
+        prefix = string[: i + 1]
+        if len(prefix) > 0:
+            prefixes.append(prefix)
     return prefixes
