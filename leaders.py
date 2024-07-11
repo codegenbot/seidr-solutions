@@ -1,4 +1,7 @@
-```
 def leaders(input):
-    leaders = [input[i] for i in range(len(input)-1, -1, -1) if all(x <= input[i] for x in input[i+1:])]
-    return ' '.join(map(str, leaders))
+    result = [
+        input[i]
+        for i in range(len(input) - 1, -1, -1)
+        if all(input[j] <= input[i] for j in range(i + 1, len(input)))
+    ]
+    return " ".join(map(str, result))
