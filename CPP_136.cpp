@@ -24,21 +24,10 @@ namespace MyNamespace {
 }
 
 int main() {
-    std::vector<int> v1 = {2, -3, 4, 5};
-    std::vector<int> v2 = {-3, 4, 5, 6};
-
-    if(MyNamespace::isSame(v1, v2)) {
-        std::cout << "v1 and v2 are same" << std::endl;
+    std::vector<int> lst = {-5,-3,-1,0,2};
+    if(MyNamespace::isSame({{0,1}},{MyNamespace::largest_smallest_integers(lst)}) ) {
+        return 0;
     } else {
-        std::cout << "v1 and v2 are different" << std::endl;
-
-        for(int i : MyNamespace::largest_smallest_integers(v1)) {
-            for(int j : i) {
-                std::cout << j << " ";
-            }
-            std::cout << std::endl;
-        }
+        return 1;
     }
-
-    return 0;
 }
