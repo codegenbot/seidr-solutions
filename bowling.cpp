@@ -1,39 +1,60 @@
-#include <iostream>
+```cpp
 #include <string>
-
-using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
-    int prevFrame = 0;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == 'X') {
-            score += 30;
-            if(i+1<s.length() && s[i+1] != '/') {
-                if(s[i+1] - '0' + prevFrame + 10 > 10) {
-                    score += 10 + prevFrame;
-                    i++;
+    int currentFrame = 1;
+    for (char c : s) {
+        if (c == '/') {
+            score += min(10 - '0', 10);
+            currentFrame++;
+        } else if (isdigit(c)) {
+            int strikeOrSpare = 0;
+            while (currentFrame < 2 || isdigit(s[s.length() - 1])) {
+                if (c == 'X') {
+                    score += 10;
+                    strikeOrSpare = 2;
+                    break;
                 } else {
-                    score += s[i+1] - '0' + prevFrame + 10;
+                    score += c - '0';
+                    if (isdigit(s[s.length() - 1])) {
+                        int nextRoll = s.back() - '0';
+                        s.pop_back();
+                        if (c + nextRoll > 10) {
+                            score += 10;
+                        } else {
+                            score += c - '0' + nextRoll;
+                        }
+                        currentFrame++;
+                    } else {
+                        break;
+                    }
                 }
             }
-        } else if (s[i] == '/') {
-            score += 10 + prevFrame;
-        } else {
-            int currentFrame = s[i] - '0';
-            if(i+1<s.length() && s[i+1] != '/') {
-                currentFrame += s[i+1] - '0';
-                if(currentFrame > 10) {
-                    score += 10 + prevFrame;
-                    i++;
+            while (strikeOrSpare--) {
+                currentFrame++;
+                if (s.empty() || s.back() == '/') {
+                    break;
+                } else if (isdigit(s.back())) {
+                    score += s.back() - '0';
+                    s.pop_back();
+                    if (!s.empty() && isdigit(s.back())) {
+                        int nextRoll = s.back() - '0';
+                        s.pop_back();
+                        if (score + nextRoll > 10) {
+                            score += 10;
+                        } else {
+                            score += nextRoll;
+                        }
+                    }
                 } else {
-                    score += currentFrame + prevFrame;
+                    break;
                 }
-            } else {
-                score += currentFrame + prevFrame;
             }
+        } else if (c == 'X') {
+            score += 10;
+            currentFrame++;
         }
-        prevFrame = currentFrame;
     }
     return score;
 }
