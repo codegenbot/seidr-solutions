@@ -12,10 +12,5 @@ if len(nums) > 1:
 subvector1 = nums[: cut_index + 1] if cut_index is not None else nums
 subvector2 = nums[cut_index + 1 :] if cut_index is not None else []
 
-if len(subvector2) == 1:
-    cut_index += 1
-    subvector1 = nums[: cut_index]
-    subvector2 = nums[cut_index:]
-
 print(*subvector1)
 print(*subvector2)
