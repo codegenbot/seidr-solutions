@@ -1,4 +1,3 @@
-```
 def solve(s):
     result = ""
     for char in s:
