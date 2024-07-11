@@ -1,7 +1,4 @@
-```cpp
-bool is_simple_power(int x, int n) {
-    double log_x = log(x);
-    double log_n = log(n);
-    
-    return (log_x / log_n) == round(log_x / log_n);
-}
+Here is the solution:
+
+bool is_simple_power(int x, int n){
+    return pow(n, ceil(log2(x))) == x;
