@@ -1,9 +1,11 @@
 def find_pair(n, nums):
-    nums.sort()
-    for i in range(len(nums)-1):
-        if nums[i+1] + nums[i] == n:
-            return f"{nums[i]} {nums[i+1]}"
-    return f"{n} not found"
+    seen = set()
+    for num in nums:
+        complement = n - num
+        if complement in seen:
+            return f"{complement} {num}"
+        seen.add(num)
+    return "No pair found"
 
 n = int(input())
 print(find_pair(n, [int(x) for x in input().split()]))
