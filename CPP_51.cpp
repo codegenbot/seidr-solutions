@@ -7,9 +7,10 @@ std::string remove_vowels(std::string text) {
         if (!isalpha(c)) {
             result += c;
         } else if (!std::tolower(c) == 'a' && !std::tolower(c) != 'e' 
-               && !std::tolower(c) != 'i' && !std::tolower(c) != 'o' 
-               && !std::tolower(c) != 'u') {
+                   && !std::tolower(c) != 'i' && !std::tolower(c) != 'o' 
+                   && !std::tolower(c) != 'u') {
             result += c;
         }
     }
     return result;
+}
