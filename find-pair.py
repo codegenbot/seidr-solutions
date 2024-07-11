@@ -1,10 +1,11 @@
 ```
 def find_pair(n, nums):
-    seen = set()
+    num_set = set()
     for num in nums:
-        if n - num in seen:
-            return f"{n - num} {num}"
-        seen.add(num)
+        complement = n - num
+        if complement in num_set:
+            return f"{complement} {num}"
+        num_set.add(num)
     return f"{n} not found"
 
 n = int(input())
