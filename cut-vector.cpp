@@ -3,27 +3,17 @@
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
     int minDiff = INT_MAX;
-    int splitIndex = 0;
+    int idx = -1;
 
-    for (int i = 1; i < vec.size(); i++) {
-        int leftSum = 0, rightSum = 0;
-
-        for (int j = 0; j < i; j++) {
-            leftSum += vec[j];
-        }
-
-        for (int j = i; j < vec.size(); j++) {
-            rightSum += vec[j];
-        }
-
-        int diff = abs(leftSum - rightSum);
-        if (diff < minDiff) {
+    for (int i = 0; i < vec.size() - 1; ++i) {
+        int diff = abs(vec[i] - vec[i + 1]);
+        if (diff <= minDiff) {
             minDiff = diff;
-            splitIndex = i;
+            idx = i;
         }
     }
 
-    return {std::vector<int>(vec.begin(), vec.begin() + splitIndex), std::vector<int>(vec.begin() + splitIndex, vec.end())};
+    return {std::vector<int>(vec.begin(), vec.begin() + idx), std::vector<int>(vec.begin() + idx, vec.end())};
 }
 
 int main() {
