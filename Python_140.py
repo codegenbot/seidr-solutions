@@ -1,14 +1,14 @@
+```
 import re
 
 def fix_spaces(text):
-    text = re.sub(r'\s+', '_', text)
-    text = ' '.join(text.split())
-    return text
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()
 
 while True:
     try:
-        text = input("Enter the text to fix spaces: ").strip()
+        text = input("Enter the text to fix spaces: ")
         print(fix_spaces(text))
         break
-    except:
-        print("Invalid input. Please enter a string.")
+    except Exception as e:
+        print(f"Invalid input. {e}. Please enter a string.")
