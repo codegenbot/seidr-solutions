@@ -1,5 +1,6 @@
 #include <any>
 #include <cstdio>
+#include <string>
 
 std::any compare_one(const std::any& a, const std::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -16,8 +17,8 @@ std::any compare_one(const std::any& a, const std::any& b) {
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         float num1, num2;
-        if (std::sscanf(std::any_cast<std::string>(a).c_str(), "%f", &num1) == 1 &&
-            std::sscanf(std::any_cast<std::string>(b).c_str(), "%f", &num2) == 1) {
+        if (sscanf(std::any_cast<std::string>(a).c_str(), "%f", &num1) == 1 &&
+            sscanf(std::any_cast<std::string>(b).c_str(), "%f", &num2) == 1) {
             if (num1 > num2) {
                 return a;
             } else if (num1 < num2) {
