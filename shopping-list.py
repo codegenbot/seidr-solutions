@@ -1,6 +1,6 @@
 ```
 n = int(input())
-prices, discounts = [float(x) for x in input().split()], [float(x) for x in input().split()]
+prices, discounts = map(float, input().split()), map(float, input().split())
 
 total_price = 0
 for i in range(n):
