@@ -7,8 +7,6 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a == b;
 }
 
-std::vector<std::vector<std::string>> input = {{"aaaa"}, {"bbbb"}, {"dd"}, {"cc"}};
-
 std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> lst) { 
     if (lst.empty()) {
         return {};
@@ -26,9 +24,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> l
         }
 
         if (!found_odd) {
-            for (const auto& str : sub_lst) {
-                result.push_back(str);
-            }
+            result.insert(result.end(), sub_lst.begin(), sub_lst.end());
         }
     }
 
@@ -49,5 +45,5 @@ std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> l
 }
 
 int main() {
-    assert(issame(sorted_list_sum(input), {"cc", "dd", "aaaa", "bbbb"}));
+    assert(issame(sorted_list_sum({{"aaaa"}, {"bbbb"}, {"dd"}, {"cc"}}), {{"cc"},{"dd"},{"aaaa"},{"bbbb"}}));
 }
