@@ -12,4 +12,4 @@ def calculate_sum_of_cubes():
     return sum([i**3 for i in num_list])
 
 
-print(check(lambda: calculate_sum_of_cubes()))
+print(check(calculate_sum_of_cubes))
