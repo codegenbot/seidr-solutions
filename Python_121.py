@@ -8,6 +8,4 @@ while True:
             print("Goodbye!")
             exit()
         else:
-            print("Invalid input. Please enter a correct number.")
-    except ValueError:
-        print("Invalid input. Please enter a correct number.")
+            print("Invalid input. Please enter a correct number or 'q' to quit.")
