@@ -6,5 +6,6 @@ def solve_boolean(expression):
         .replace("&", " and ")
     )
 
+
 expression = input("Enter a Boolean expression using T, F, |, and &: ")
 print(solve_boolean(expression))
