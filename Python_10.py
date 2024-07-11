@@ -9,6 +9,4 @@ def make_palindrome(string: str) -> str:
     for i in range(len(string)):
         postfix = string[i:]
         if postfix == postfix[::-1]:
-            prefix = string[:i][::-1]
-            return prefix + postfix
-    return string + string[::-1]
+            return string + postfix[::-1]
