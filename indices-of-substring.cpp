@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,11 +10,11 @@ int main() {
     getline(cin, target);
 
     vector<int> indices;
-    size_t pos = text.size();
+    size_t pos = 0;
 
-    while ((pos = text.rfind(target, pos)) != string::npos) {
+    while ((pos = text.find(target, pos)) != string::npos) {
         indices.push_back(pos);
-        pos -= 1;
+        pos += 1; // Increment by 1 to allow overlapping occurrences
     }
 
     for (int i : indices) {
