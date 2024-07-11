@@ -14,14 +14,10 @@ bool pairs_sum_to_zero(const std::vector<int>& l) {
 }
 
 int main() {
-    std::vector<int> input;
-    int num;
-    while (std::cin >> num) {
-        input.push_back(num);
-    }
-    
-    bool result = pairs_sum_to_zero(input);
-    std::cout << std::boolalpha << result << std::endl;
-    
+    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
+    assert(pairs_sum_to_zero({1, -1, 2, -2, 3, -3}) == true);
+    assert(pairs_sum_to_zero({0, 0, 0, 0}) == true);
+    assert(pairs_sum_to_zero({5, 6, 7, 8}) == false);
+  
     return 0;
 }
