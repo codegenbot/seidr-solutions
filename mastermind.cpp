@@ -3,24 +3,22 @@ int main() {
     cin >> code >> guess;
     
     int white = 0, black = 0;
-    vector<int> count(6, 0);
+    map<char, int> codeCount, guessCount;
     
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
             ++black;
         } else {
-            ++count[code[i] - 'A'];
+            ++codeCount[code[i]];
+            ++guessCount[guess[i]];
         }
     }
     
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] != guess[i] && count[guess[i] - 'A'] > 0) {
-            ++white;
-            --count[guess[i] - 'A'];
-        }
+    for (auto& it : codeCount) {
+        white += min(it.second, guessCount[it.first]);
     }
     
-    cout << white << "\n" << black << "\n";
+    cout << white << endl << black << endl;
     
     return 0;
 }
