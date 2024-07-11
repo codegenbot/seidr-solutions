@@ -1,13 +1,11 @@
 ```
-def double_the_difference(lst):
+def double_the_difference():
+    lst = list(map(int, input().split()))
     difference = max(lst) - min(lst)
     double_diff = difference * 2
     return double_diff
 
 def check(func):
-    lst = [1,3,5,6]
-    result = func(lst)
-    print("Input:", lst)
-    print("Output:", result)
+    print(func())
 
-check(double_the_difference())
+check(double_the_difference)
