@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -38,8 +37,12 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     if stack or (not stack and len(result) > 1):
         return []
-    
     if groups:
-        result.append(groups.strip())
+        result.append(groups)
 
     return [g.strip() for g in result]
+
+
+input_str = input("Enter a string: ")
+result = separate_paren_groups(input_str)
+print(result)
