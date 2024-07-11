@@ -1,4 +1,4 @@
-```python
+```Python
 def encode(message):
     vowels = 'aeiouAEIOU'
     result = ''
