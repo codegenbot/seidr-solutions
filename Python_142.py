@@ -1,11 +1,10 @@
-```
-def sum_squares():
-    num = int(input("Enter a number: "))
-    if num % 4 == 0:
-        return num**2
-    elif num % 3 == 0 and num % 4 != 0:
-        return num**3
-    else:
-        return num**2
-
-print(sum_squares())
+def sum_squares(lst):
+    total = 0
+    for num in lst:
+        if num % 4 == 0 and num % 6 != 0:
+            total += num**2
+        elif num % 12 == 0:
+            total += num**3
+        else:
+            total += num**2
+    return total
