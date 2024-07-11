@@ -1,3 +1,4 @@
+```
 from collections import Counter
 
 
@@ -13,4 +14,7 @@ def search():
             max_num, _ = counter.most_common(1)[0]
             return max_num
         except ValueError:
-            print("Invalid input. Please enter a list of numbers separated by space.")
+            print(
+                "Invalid input. Please enter a list of numbers separated by space."
+            )
+            continue
