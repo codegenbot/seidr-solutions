@@ -8,11 +8,9 @@ bool iscuber(int a){
         i++;
     }
     return false;
-
 }
 
 int main() {
-    // your code here
     assert (iscuber(1729) == false);
     return 0;
 }
