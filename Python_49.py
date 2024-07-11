@@ -1,2 +1,5 @@
+import math
+
+
 def modp(n: int, p: int):
-    return pow(n, 1 / p, p)
+    return int(math.pow(n, p) % p)
