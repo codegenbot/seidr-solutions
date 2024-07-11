@@ -1,3 +1,6 @@
+Here's the modified code:
+
+```
 def match_parens(lst):
     stack = []
     for s in lst:
@@ -5,7 +8,7 @@ def match_parens(lst):
             if c == '(':
                 stack.append(c)
             elif c == ')':
-                if stack and stack[-1] == '(':
+                if stack:
                     stack.pop()
                 else:
                     return 'No'
