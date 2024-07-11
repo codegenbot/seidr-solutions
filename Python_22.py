@@ -1,4 +1,5 @@
-from typing import List, Any
+```
+from typing import List
 
 def filter_integers():
     values = input("Enter a list of integers and/or strings separated by commas: ")
