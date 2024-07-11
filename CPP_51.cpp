@@ -9,3 +9,4 @@ string remove_vowels(string text){
         }
     }
     return result;
+}
