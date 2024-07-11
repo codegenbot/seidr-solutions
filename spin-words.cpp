@@ -1,7 +1,4 @@
 ```c++
-#include <string>
-using namespace std;
-
 string spinWords(string str) {
     string result = "";
     string word = "";
@@ -13,6 +10,7 @@ string spinWords(string str) {
                 for (int j = word.length() - 1; j >= 0; j--)
                     revWord += word[j];
                 result += revWord + " ";
+                word = "";
             } else
                 result += word + " ";
             word = "";
@@ -30,4 +28,4 @@ string spinWords(string str) {
         result += word;
 
     return result;
-}
+};
