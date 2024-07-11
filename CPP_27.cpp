@@ -14,19 +14,17 @@ std::string flip_case(std::string str){
     return str;
 }
 
-void solve_problem(){
+void solve_problem() {
     std::string input;
-    std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    
     std::string result = flip_case(input);
-    std::cout << "Result: " << result << std::endl;
+    std::cout << result << std::endl;
 }
 
 int main() {
     assert(flip_case("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
     
     solve_problem();
-    
+
     return 0;
 }
