@@ -39,18 +39,20 @@ int count_nums(std::vector<int> n) {
 }
 
 int main() {
-    int size;
+    int n;
     std::cout << "Enter the number of elements: ";
-    std::cin >> size;
+    std::cin >> n;
     
-    std::vector<int> numbers(size);
+    std::vector<int> nums(n);
     
-    for(int i = 0; i < size; i++) {
-        std::cout << "Enter number " << i + 1 << ": ";
-        std::cin >> numbers[i];
+    for(int i=0; i<n; i++) {
+        std::cout << "Enter element " << (i+1) << ": ";
+        std::cin >> nums[i];
     }
     
-    int result = count_nums(numbers);
-    std::cout << "The count of positive integers is: " << result;
+    int result = count_nums(nums);
+    
+    std::cout << "Number of positive integers with even number of digits: " << result << std::endl;
+    
     return 0;
 }
