@@ -22,7 +22,8 @@ bool contest::issame(const std::vector<std::string>& a, const std::vector<std::s
 }
 
 int main() {
-    assert(contest::issame(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx"),
-                          std::vector<std::string>{"xxx", "xxxAAA", "xxx"}));
+    std::vector<std::string> expected = {"xxx", "xxxAAA", "xxx"};
+    std::vector<std::string> result = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx"}, "xxx");
+    assert(contest::issame(result, expected));
     return 0;
 }
