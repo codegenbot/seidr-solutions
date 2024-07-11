@@ -1,10 +1,10 @@
 def find_zero(xs: list):
-    """Solves the equation xs[0]*x + xs[1] = 0.
+    """Find the point where the line defined by (x1, y1) and (x2, y2) intersects the x-axis.
 
     Args:
-        xs (list): A list of two numbers representing the coefficients of the linear equation.
+        xs (list): A list of two tuples, each containing an x-coordinate and a y-coordinate.
 
     Returns:
-        float: The solution to the equation, or None if the equation has no real solution.
+        float: The x-coordinate of the intersection point.
     """
-    return -xs[1] / xs[0]
+    return -xs[1][1] / xs[0][0]
