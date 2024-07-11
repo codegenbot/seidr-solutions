@@ -1,6 +1,4 @@
-```cpp
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wpedantic"
+```
 #include <algorithm>
 #include <vector>
 
@@ -26,4 +24,3 @@ int max_value_function() {
 int main() {
     max_value_function();
 }
-#pragma GCC diagnostic pop
