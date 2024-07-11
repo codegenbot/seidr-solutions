@@ -2,8 +2,8 @@
 #include <string>
 
 int main() {
-    string input;
-    getline(cin, input);
+    std::string input;
+    std::getline(std::cin, input);
 
     bool capitalize = true;
     for (char& c : input) {
@@ -11,10 +11,10 @@ int main() {
             capitalize = true;
         } else if (c != ' ') {
             if (capitalize) {
-                cout << (char)toupper(c);
+                std::cout << (char)toupper(c);
                 capitalize = false;
             } else {
-                cout << c;
+                std::cout << c;
             }
         }
     }
