@@ -1,4 +1,5 @@
-def solution():
+```
+def solution(lst):
     lst = list(map(int, input("Enter numbers separated by space: ").split()))
     if not lst:
         return 0

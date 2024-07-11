@@ -1,4 +1,5 @@
-def minPathSum(grid):
+```
+    def minPathSum(grid):
     n = len(grid)
     m = [[0] * n for _ in range(n)]
     min_path_sum = float("inf")
