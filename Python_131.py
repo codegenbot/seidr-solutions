@@ -4,6 +4,7 @@ while True:
         break
     except ValueError:
         print("Invalid input. Please enter an integer.")
+
 expected_product = int(input("Enter the product of non-zero digits: "))
 product = 1
 for digit in str(n):
