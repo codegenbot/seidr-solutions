@@ -1,24 +1,32 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include <algorithm>
+
+using namespace std;
+
 int main() {
     string code, guess;
     cin >> code >> guess;
-
-    int black_pegs = 0, white_pegs = 0;
-    map<char, int> code_freq, guess_freq;
-
+    
+    int black = 0, white = 0;
+    map<char, int> codeFreq, guessFreq;
+    
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            black_pegs++;
+            ++black;
         } else {
-            code_freq[code[i]]++;
-            guess_freq[guess[i]]++;
+            ++codeFreq[code[i]];
+            ++guessFreq[guess[i]];
         }
     }
-
-    for (auto &p : code_freq) {
-        white_pegs += min(p.second, guess_freq[p.first]);
+    
+    for (auto& it : codeFreq) {
+        white += min(it.second, guessFreq[it.first]);
     }
-
-    cout << white_pegs << endl << black_pegs << endl;
-
+    
+    std::cout << white << '\n';
+    std::cout << black << '\n';
+    
     return 0;
 }
