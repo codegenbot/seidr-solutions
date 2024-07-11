@@ -1,27 +1,14 @@
-```python
+```
 def solve(expression):
     expression = expression.upper()
-    
     if "&" in expression:
-        parts = [part.strip() for part in expression.split("&")]
-        return all(solve(part) for part in parts)
-    
+        operator, *operands = expression.split("&")
+        operands = [solve(op) for op in operands]
+        return all(operands)
     elif "|" in expression:
-        parts = [part.strip() for part in expression.split("|")]
-        return any(solve(part) for part in parts)
-    
-    else:
-        if expression == "T":
-            return True
-        else:
-            return False
+        operator, *operands = expression.split("|")
+        operands = [solve(op) for op in operands]
+        return any(operands)
 
 expression = input()
-while "T" in expression or "F" in expression:
-    if "T" in expression:
-        expression = expression.replace("T", "")
-    else:
-        # You can implement this function to remove non-boolean characters
-        expression = expression.remove_non_boolean_char(expression)
-
 print("Result:", "True" if solve(expression) else "False")
