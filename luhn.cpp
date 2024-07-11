@@ -1,4 +1,3 @@
-```cpp
 int luhn(const std::vector<int>& cardNumber) {
     int sum = 0;
     bool doubleNext = false;
@@ -7,12 +6,6 @@ int luhn(const std::vector<int>& cardNumber) {
         int digit = cardNumber[i];
 
         if ((cardNumber.size() % 2 == 0 && i % 2 != 0) || (cardNumber.size() % 2 != 0 && i % 2 == 0)) { 
-            doubleNext = true;
-        } else {
-            doubleNext = false;
-        }
-
-        if (doubleNext) {
             digit *= 2;
             if (digit > 9) {
                 digit -= 9;
