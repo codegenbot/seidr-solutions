@@ -1,6 +1,6 @@
 ```c++
-#include <string>
 #include <iostream>
+#include <string>
 
 int bowlingScore(std::string s) {
     int score = 0;
@@ -30,7 +30,7 @@ int bowlingScore(std::string s) {
 }
 
 int main() {
-    std::string input = "XXXXXXX/78";
+    std::string input = "XXXXXXX/78"; 
     int score = bowlingScore(input);
     std::cout << "Score: " << score << std::endl;
     return 0;
