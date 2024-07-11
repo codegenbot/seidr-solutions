@@ -1,4 +1,4 @@
-```
+```python
 def max_water(n, m):
     for _ in range(n):
         column_heights = list(map(int, input("Enter the height of columns (space separated): ").split()))
@@ -10,3 +10,7 @@ def max_water(n, m):
             min_height = min(min_height, column_heights[right])
             max_water = max(max_water, min_height - column_heights[left] if min_height > column_heights[left] else 0)
     return max_water
+
+n = int(input("Enter number of columns: "))
+m = int(input("Enter number of rows: "))
+print(max_water(n, m))
