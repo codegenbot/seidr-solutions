@@ -15,6 +15,11 @@ vector<int> factorize(int n){
 }
 
 int main(){
-    // Your main function code here
+    int num;
+    cin >> num;
+    vector<int> result = factorize(num);
+    for(int i=0; i<result.size(); i++){
+        cout << result[i] << " ";
+    }
     return 0;
 }
