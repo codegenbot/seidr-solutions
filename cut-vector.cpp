@@ -1,15 +1,18 @@
 #include <iostream>
-#include <fstream>
 #include <vector>
-#include <cmath>
+#include <sstream>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
-    int num;
+    string input;
     
-    while (cin >> num) {
+    getline(cin, input);
+    istringstream iss(input);
+    int num;
+
+    while (iss >> num) {
         nums.push_back(num);
     }
 
@@ -20,17 +23,14 @@ int main() {
     }
 
     int half_sum = sum / 2;
-    
     int prefix_sum = 0;
     int cut_idx = -1;
-    int min_diff = INT_MAX;
 
     for (int i = 0; i < n; i++) {
         prefix_sum += nums[i];
-        int diff = abs(prefix_sum - (sum - prefix_sum));
-        if (diff < min_diff) {
-            min_diff = diff;
+        if (prefix_sum >= half_sum) {
             cut_idx = i;
+            break;
         }
     }
 
@@ -38,11 +38,13 @@ int main() {
     vector<int> subvec2(nums.begin() + cut_idx + 1, nums.end());
 
     for (int num : subvec1) {
-        cout << num << endl;
+        cout << num << " ";
     }
+    cout << endl;
     for (int num : subvec2) {
-        cout << num << endl;
+        cout << num << " ";
     }
+    cout << endl;
 
     return 0;
 }
