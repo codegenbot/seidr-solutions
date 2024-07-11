@@ -1,8 +1,11 @@
-def minPath():
-    n = int(input("Enter the size of the grid: "))
-    k = int(input("Enter the value of k: "))
+```
+import random
+
+def minPath(m, k):
+    k = 10
+    n = 4
     
-    m = [[int(input(f"Enter value at row {i} column {j}: ")) for j in range(n)] for i in range(n)]
+    m = [[random.randint(0, 100) for j in range(n)] for i in range(n)]
     
     def dfs(i, j, path, visited, m, k):
         if len(path) == k:
@@ -24,3 +27,5 @@ def minPath():
             if min_path is None or path < min_path:
                 min_path = path
     return min_path
+
+print(minPath(None, None))
