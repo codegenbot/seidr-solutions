@@ -1,4 +1,4 @@
-#include <vector> // Include the necessary header file for vector
+#include <vector>
 
 int solutions(std::vector<int> lst) {
     int sum = 0;
@@ -11,6 +11,6 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    assert(solutions({3, 13, 2, 9}) == 3); // Adjust the function call
+    assert(solutions({3, 13, 2, 9}) == 3);
     return 0;
 }
