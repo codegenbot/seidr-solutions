@@ -2,14 +2,10 @@
 #include <algorithm>
 
 bool issame(const map<char,int>& a, const map<char,int>& b) {
-    return a == b;
+    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
 }
 
 map<char, int> histogram(string test);
-
-int main() {
-    // Add main function code here
-}
 
 map<char, int> histogram(string test) {
     map<char, int> result;
