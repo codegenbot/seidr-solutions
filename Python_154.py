@@ -1,6 +1,6 @@
-```
-def cycpattern_check(a , b):
-    for i in range(len(b)):
-        if b[i:] + b[:i] in a:
+def cycpattern_check(a, b):
+    for _ in range(len(b)):
+        if b in a:
             return True
+        b = b[1:] + b[0]
     return False
