@@ -5,12 +5,9 @@ def minPath(grid, k):
     shortest_path = None
     min_length = float('inf')
 
-    def dfs(i, j, path, remaining):
+    def dfs(i, j, path):
         nonlocal shortest_path, min_length
-        if remaining == 0:
-            if len(path) < min_length:
-                min_length = len(path)
-                shortest_path = path[:]
+        if len(path) > min_length:
             return
         if (i, j) in visited:
             return
@@ -19,16 +16,17 @@ def minPath(grid, k):
             new_i, new_j = i + x, j + y
             if 0 <= new_i < m and 0 <= new_j < m:
                 if grid[new_i][new_j] == k:
-                    new_path = path + [grid[new_i][new_j]]
-                    dfs(new_i, new_j, new_path, remaining - 1)
+                    dfs(new_i, new_j, path + [k])
+                elif len(path) < min_length:
+                    dfs(new_i, new_j, path)
         visited.remove((i, j))
 
     for i in range(m):
         for j in range(m):
             if grid[i][j] == k:
-                dfs(i, j, [], k)
+                dfs(i, j, [])
+                if len(shortest_path) > 0 and len(shortest_path) < min_length:
+                    min_length = len(shortest_path)
+                shortest_path = []
 
-    if shortest_path is not None:
-        return shortest_path
-    else:
-        return []
+    return shortest_path
