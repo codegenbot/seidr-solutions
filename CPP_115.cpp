@@ -1,16 +1,18 @@
 Here is the completed code:
 
+```cpp
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int n = grid.size();
-    int total_water = 0;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < grid[i].size(); j++) {
-            if (grid[i][j] == 1) {
-                total_water++;
+    int max = 0;
+    for (const auto& row : grid) {
+        int fill = 0;
+        for (int water : row) {
+            if (water == 1) {
+                fill += min(water, capacity);
+                capacity -= min(water, capacity);
             }
         }
+        max += fill;
+        capacity = capacity >= capacity ? capacity : capacity; 
     }
-
-    int steps = -(-total_water / capacity);
-    return steps;
+    return max;
 }
