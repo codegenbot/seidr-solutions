@@ -1,7 +1,7 @@
 from typing import List
 import math
 
-def factorize() -> List[int]:
+def main():
     n = int(input("Enter a number: "))
     factors = []
     i = 2
@@ -13,10 +13,10 @@ def factorize() -> List[int]:
             while n % i == 0:
                 n //= i
                 count += 1
-            factors.append(i ** count)
-            i = 2  
+            for _ in range(count):
+                factors.append(i)
     if n > 1:
         factors.append(n)
-    return factors
+    return sorted(set(factors))
 
-print(factorize())
+print(main())
