@@ -12,6 +12,6 @@ int solution(vector<int> numbers) {
 }
 
 int main() {
-    assert(solution({3, 13, 2, 9}) == 25);
+    assert(solution({3, 13, 2, 9}) == 3);
     return 0;
 }
