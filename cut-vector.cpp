@@ -5,12 +5,12 @@ using namespace std;
 
 int main() {
     vector<int> nums;
-    int num;
-    
     string input;
     getline(cin, input);
-    stringstream ss(input);
-    while (ss >> num) {
+    istringstream iss(input);
+    int num;
+    
+    while (iss >> num) {
         nums.push_back(num);
     }
 
