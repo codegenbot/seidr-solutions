@@ -1,4 +1,3 @@
-```cpp
 bool issame(vector<string> a, vector<string> b) {
     if(a.size() != b.size()) {
         return false;
@@ -9,11 +8,4 @@ bool issame(vector<string> a, vector<string> b) {
         }
     }
     return true;
-}
-
-int main() {
-    vector<string> a = {"hello", "world", "cpp"};
-    vector<string> b = {"hello", "world", "cpp"};
-    assert(issame(a, b));
-    return 0;
 }
