@@ -1,14 +1,10 @@
+Here is the completed code:
+
 bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+    string s = "";
     for (int i : q) {
-        str += to_string(i);
+        s += to_string(i);
     }
-    if (str != std::string(str.rbegin(), str.end())) {
-        return false;
-    }
-    int sum = 0;
-    for (int i : q) {
-        sum += i;
-    }
-    return sum <= w;
+    bool isBalanced = s == string(rbegin(s), rend(s));
+    return isBalanced && accumulate(q.begin(), q.end(), 0) <= w;
 }
