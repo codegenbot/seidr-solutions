@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -19,15 +18,11 @@ vector<int> indicesOfSubstring(std::string text, std::string target) {
     return result;
 }
 
-void gcd(int a, int b) {
+long long gcd(long long a, long long b) {
     while (b != 0) {
-        int temp = b;
+        long long temp = b;
         b = a % b;
         a = temp;
     }
-    cout << a << endl;
-}
-
-int main() {
-    gcd(12, 15); // Example usage of the gcd function
+    return a;
 }
