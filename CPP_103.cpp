@@ -1,7 +1,11 @@
 #include <string>
 #include <cmath>
 
-std::string round_avg(int n, int m) {
+std::string rounded_avg(int n, int m) {
+    if (n > m) {
+        return "-1";
+    }
+
     int sum = 0;
     for (int i = n; i <= m; i++) {
         sum += i;
@@ -19,6 +23,6 @@ std::string round_avg(int n, int m) {
 }
 
 int main() {
-    assert(round_avg(5, 5) == "101");
+    assert(rounded_avg(5, 5) == "101");
     return 0;
 }
