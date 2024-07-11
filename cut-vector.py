@@ -1,4 +1,5 @@
 numbers = list(map(int, input().split()))
+
 subvector1 = []
 subvector2 = []
 
