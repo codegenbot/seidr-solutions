@@ -22,11 +22,11 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
     size_t pos = 0;
     size_t targetLen = target.length();
 
-    while ((pos = text.find(target, pos)) != std::string::npos) {
-        indices.push_back(pos);
-        pos += 1;
-        if (targetLen > 1) {
-            pos = pos - 1;
+    while (pos != text.length()) {
+        pos = text.find(target, pos);
+        if (pos != std::string::npos) {
+            indices.push_back(pos);
+            pos += targetLen == 0 ? 1 : targetLen;
         }
     }
 
@@ -41,6 +41,11 @@ int main() {
     for (int index : result) {
         std::cout << index << " ";
     }
-    
+
+    int a = 801456;
+    int b = 55521;
+    int result_gcd = gcd(abs(a), abs(b));
+    std::cout << result_gcd;
+
     return 0;
 }
