@@ -1,10 +1,12 @@
-#include <vector>
-#include <cmath>
-
 int main() {
     vector<float> lst;
     long long odd_sum = 0; 
-    int result = double_the_difference(lst);
+    float dll;
+
+    cin >> dll;
+    lst.push_back(dll);
+
+    cout << double_the_difference(lst);
 }
 
 long long double_the_difference(vector<float> lst) {
