@@ -21,4 +21,5 @@ def main():
             factors.append(i**count)
     if n > 1:
         factors.append(n)
-    print(factors)
+    for factor in set(factors):
+        print("Prime Factors of", n, "are:", factor)
