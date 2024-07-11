@@ -1,6 +1,4 @@
-#include <vector>
-#include <string>
-#include <namespace>
+#include <using namespace std>;
 
 using namespace std;
 
@@ -10,4 +8,3 @@ string concatenate(vector<string> strings){
         result += s;
     }
     return result;
-}
