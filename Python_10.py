@@ -1,7 +1,4 @@
-def is_palindrome(string: str) -> bool:
-    return string == string[::-1]
-
-
+```
 def make_palindrome(string: str) -> str:
-    reverse_string = string[::-1]
-    return "".join(list(string) + list(reverse_string))
+    s = ''.join(e for e in string if e.isalnum()).lower()
+    return s + s[::-1]
