@@ -1,7 +1,7 @@
 arr = [3, 1, 2, 4, 3]
 total_sum = sum(arr)
 left_sum = 0
-min_diff = float('inf')
+min_diff = total_sum
 cut_position = -1
 
 for i in range(len(arr)):
@@ -12,8 +12,8 @@ for i in range(len(arr)):
         min_diff = current_diff
         cut_position = i
 
-    subvector1 = arr[:cut_position + 1]
-    subvector2 = arr[cut_position + 1:]
+subvector1 = arr[:cut_position+1]
+subvector2 = arr[cut_position+1:]
 
-    print(subvector1)
-    print(subvector2)
+print(subvector1)
+print(subvector2)
