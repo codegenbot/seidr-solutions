@@ -1,34 +1,39 @@
 ```cpp
 #include <string>
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int currentFrame = 1;
     for (char c : s) {
         if (c == '/') {
-            int rolls = 2;
-            while (rolls--) {
-                if (s.substr(s.find('/'), 3).find('X') != std::string::npos) {
-                    score += 10;
-                } else if (isdigit(s[s.find('/') + 1])) {
-                    score += min(10 - '0', 10);
-                } else {
-                    int roll = s[s.find('/') + 1] - '0';
-                    if (roll == 1) rolls--;
-                    score += roll;
-                }
-            }
+            int spare = 10 - '0';
+            score += spare;
             currentFrame++;
         } else if (isdigit(c)) {
-            score += c - '0';
-            if (currentFrame < 10 && isdigit(s[s.length() - 1])) {
-                score += 10;
-                break;
+            int strike = c - '0';
+            score += strike;
+            if (currentFrame < 10) {
+                char nextChar = s[s.length() - 1];
+                if (isdigit(nextChar) || nextChar == '/') {
+                    if (nextChar == 'X') {
+                        score += 10;
+                    } else {
+                        int bonus = c - '0';
+                        score += bonus;
+                    }
+                    break;
+                } else {
+                    if (c == 'X' || (c >= '1' && c <= '9')) {
+                        currentFrame++;
+                    }
+                }
             }
         } else if (c == 'X') {
             score += 10;
             currentFrame++;
-        } 
+        } else if (c == '-') {
+            continue;
+        }
     }
     return score;
 }
