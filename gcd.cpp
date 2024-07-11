@@ -16,12 +16,15 @@ int gcd(int a, int b) {
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
+    size_t pos = 0;
     size_t targetLen = target.length();
-    size_t textLen = text.length();
 
-    for (size_t i = 0; i <= textLen - targetLen; ++i) {
-        if (text.substr(i, targetLen) == target) {
-            indices.push_back(i);
+    while ((pos = text.find(target, pos)) != std::string::npos || targetLen == 1) {
+        indices.push_back(pos);
+        if (targetLen == 1) {
+            ++pos;
+        } else {
+            pos += targetLen;
         }
     }
     
