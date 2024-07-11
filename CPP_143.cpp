@@ -1,30 +1,28 @@
-string words_in_sentence(string sentence){
+#include<string>
+using namespace std;
+
+string words_in_sentence(string sentence) {
     string result = "";
-    int i = 0;
-    
-    while(i < sentence.length()){
-        int j = i + 1;
-        
-        while(j <= sentence.length() && !ispunct(sentence[j])){
-            j++;
+    int count = 0;
+    for (int i = 0; i < sentence.size(); i++) {
+        if (sentence[i] == ' ') {
+            count++;
         }
-        
-        if(j > i){
-            string word = sentence.substr(i, j - i);
-            
-            for(int k = 2; k*k <= (int)word.length(); k++){
-                if((int)word.length() % k == 0){
+        else {
+            bool isPrime = true;
+            int len = 1;
+            for (int j = 2; j * j <= (i+len); j++) {
+                if ((i+len) % j == 0) {
+                    isPrime = false;
                     break;
                 }
+                len++;
             }
-            
-            if(k * k > (int)word.length()){
-                result += word + " ";
+            if (isPrime) {
+                result += sentence.substr(i, len) + " ";
+                count = 0;
             }
         }
-        
-        i = j;
     }
-    
-    return result.substr(0, result.length()-1);
+    return result.substr(0, result.size() - 1);
 }
