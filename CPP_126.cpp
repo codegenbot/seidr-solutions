@@ -10,19 +10,19 @@ bool is_sorted(vector<int> lst){
         if(lst[i-1] > lst[i]){
             return false;
         }
-        else if(find(lst.begin(), lst.end(), lst[i]) != lst.end() && lst.count(lst[i]) > 1){
+        else if(std::count(lst.begin(), lst.end(), lst[i]) > 1){
             return false;
         }
     }
     return true;
 
-int main() {
+int main {
     vector<int> lst;
     int num;
     
     cout << "Enter numbers, enter -1 to stop: ";
     
-    while((cin >> num) && (num != -1)){
+    while(cin >> num && num != -1) {
         lst.push_back(num);
     }
     
