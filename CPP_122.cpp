@@ -1,7 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+
+int add_elements(std::vector<int> arr, int k);
 
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
@@ -15,20 +16,24 @@ int add_elements(std::vector<int> arr, int k) {
 
 int main() {
     std::vector<int> arr;
-    int k;
+    int n, k;
 
-    std::cout << "Enter number of elements: ";
+    // Input number of elements and the number to consider
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    std::cout << "Enter k: ";
     std::cin >> k;
 
-    arr.resize(k);
-
-    for (int i = 0; i < k; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> arr[i];
+    // Input array elements
+    for (int i = 0; i < n; i++) {
+        int element;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> element;
+        arr.push_back(element);
     }
 
-    int result = add_elements(arr, k);
-    std::cout << "Sum of elements <= 2: " << result << std::endl;
+    // Call the function and print the result
+    std::cout << "The sum of elements less than or equal to 2 digits is: " << add_elements(arr, k) << std::endl;
 
     return 0;
 }
