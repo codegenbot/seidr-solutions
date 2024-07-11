@@ -1,15 +1,19 @@
-int count = 0;
-    for (string s : lst) {
-        for (char c : s) {
+#include <vector>
+#include <string>
+using namespace std;
+
+string match_parens(vector<string> lst){
+    int openCount = 0, closeCount = 0;
+    for (const string& str : lst) {
+        for (char c : str) {
             if (c == '(') {
-                count++;
+                openCount++;
+            } else if (openCount > 0) {
+                openCount--;
             } else {
-                if (count == 0) {
-                    return "No";
-                }
-                count--;
+                closeCount++;
             }
         }
     }
-    return (count == 0) ? "Yes" : "No";
+    return (openCount == 0 && closeCount <= 1) ? "Yes" : "No";
 }
