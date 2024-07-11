@@ -21,6 +21,7 @@ while "T" in expression or "F" in expression:
     if "T" in expression:
         expression = expression.replace("T", "")
     else:
-        expression = expression
+        # You can implement this function to remove non-boolean characters
+        expression = expression.remove_non_boolean_char(expression)
 
 print("Result:", "True" if solve(expression) else "False")
