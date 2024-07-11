@@ -22,4 +22,3 @@ int fruit_distribution(string s, int n) {
     }
     
     return n - total_apples - total_oranges;
-}
