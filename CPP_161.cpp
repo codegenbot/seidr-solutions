@@ -1,16 +1,13 @@
+#include <algorithm>
+
 string solve(string s) {
     string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            c = tolower(c);
-            if (c >= 'a' && c <= 'z') {
-                result += toupper(c);
-            } else {
-                result += tolower(c);
-            }
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
             result += c;
         }
     }
-    return result;
+    return result.empty() ? string(s).reverse() : result;
 }
