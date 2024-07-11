@@ -1,9 +1,5 @@
-```
+````
 def encode(message):
-    """
-    This function takes a string as input and applies Caesar Cipher encryption.
-    It shifts each letter by three positions in the alphabet and keeps non-alphanumeric characters unchanged.
-    """
     result = ""
     prev_alnum = False
     for char in message:
