@@ -1,11 +1,12 @@
 def has_close_values(numbers, threshold):
-    for i in range(len(numbers)):
-        for j in range(i+1, len(numbers)):
-            if abs(numbers[i] - numbers[j]) < threshold:
-                return True
+    numbers.sort()
+    for i in range(len(numbers) - 1):
+        if abs(numbers[i] - numbers[i + 1]) < threshold:
+            return True
     return False
 
+print("Enter numbers separated by space:")
 numbers = list(map(int, input().split()))
-threshold = int(input())
+threshold = int(input("Enter threshold value: "))
 
 print(has_close_values(numbers, threshold))
