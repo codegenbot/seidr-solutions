@@ -13,4 +13,3 @@ int luhn(std::vector<short> cc) {
     }
 
     return sum;
-}
