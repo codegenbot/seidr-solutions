@@ -1,4 +1,3 @@
-```cpp
 int vowels_count(string s) {
     int count = 0;
     for (char c : s) {
