@@ -1,9 +1,3 @@
-```c++
-#include <string>
-#include <iostream>
-
-using namespace std;
-
 string spinWords(string str) {
     string result = "";
     string word = "";
@@ -37,12 +31,4 @@ string spinWords(string str) {
         result.erase(pos, 1);
     }
     return result;
-}
-
-int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
-    return 0;
 }
