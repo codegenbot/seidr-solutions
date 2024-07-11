@@ -18,7 +18,7 @@ int main() {
             }
             frame++;
         } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0') + ((i + 1 < s.size()) ? (s[i + 1] == 'X' ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10)) : 0);
+            total += 10 - (s[i-1] == 'X' ? 10 : (s[i-1] == '/' ? (isdigit(s[i - 2]) ? s[i - 2] - '0' : 0) : s[i - 1] - '0'));
             if (frame < 9) {
                 total += (s[i + 1] == 'X') ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10);
             }
