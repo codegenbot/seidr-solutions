@@ -8,6 +8,7 @@ def prime_fib(n: int):
             if count == n:
                 return b
         a, b = b, a + b
+
 def is_prime(num: int):
     if num < 2:
         return False
