@@ -1,7 +1,2 @@
 def indices_of_substring(text, target):
-    return [i for i in range(len(text) - len(target) + 1) if text[i:i + len(target)] == target]
-
-text = input().strip()
-target = input().strip()
-result = indices_of_substring(text, target)
-print(*result)
+    return [i for i in range(len(text) - len(target) + 2) if text[i:i + len(target)] == target]
