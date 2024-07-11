@@ -4,8 +4,15 @@ def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
 def make_palindrome(string: str) -> str:
-    s = string.lower()
-    i = len(s) - 1
-    while i >= 0 and s[i] == s[0]:
-        i -= 1
-    return string + s[:i+1][::-1]
+    if string.islower():
+        i = len(string) - 1
+        while i > 0 and string[0] != string[i]:
+            i -= 1
+        palindrome = string[:i+1] + string[:i+1][::-1]
+    else:
+        string = string.lower()
+        i = len(string) - 1
+        while i > 0 and string[0] != string[i]:
+            i -= 1
+        palindrome = string[:i+1] + string[:i+1][::-1].upper()
+    return palindrome
