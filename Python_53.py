@@ -1,3 +1,4 @@
+```
 def add():
     total = 0
     while True:
