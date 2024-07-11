@@ -8,3 +8,4 @@ def decipher(cipher1, cipher2, message):
         else:
             result += char
     return result
+"""
