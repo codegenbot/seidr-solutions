@@ -1,18 +1,18 @@
 #include <vector>
 #include <iostream>
+#include <iomanip>
 #include <cmath>
 
 using namespace std;
 
 double vector_distance(int n) {
     vector<float> v1(n), v2(n);
-    for (auto &x : v1) cin >> x;
-    for (auto &x : v2) cin >> x;
-    
-    double sum = 0.0;
     for (int i = 0; i < n; i++) {
-        sum += pow(v2[i] - v1[i], 2);
+        cin >> v1[i] >> v2[i];
     }
+    double sum = 0.0;
+    for (auto x : v1)
+        sum += pow(v2.at(i) - x, 2);
     
     return sqrt(sum);
 }
