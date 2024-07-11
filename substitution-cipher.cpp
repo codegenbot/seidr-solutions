@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -27,4 +26,3 @@ int main() {
     std::cin >> cipherMap >> input;
     std::cout << substitutionCipher(cipherMap, input) << std::endl;
     return 0;
-}
