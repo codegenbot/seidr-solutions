@@ -1,31 +1,32 @@
 int main() {
-    vector<int> input;
-    int num;
-    
-    while (cin >> num) {
-        input.push_back(num);
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
     }
-
-    int n = input.size();
-    int sum = accumulate(input.begin(), input.end(), 0);
-
-    vector<vector<int>> dp(n + 1, vector<int>((sum / 2) + 1));
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= sum / 2; j++) {
-            dp[i][j] = dp[i - 1][j];
-            if (j >= input[i - 1]) {
-                dp[i][j] = max(dp[i][j], dp[i - 1][j - input[i - 1]] + input[i - 1]);
-            }
+    
+    int sum = accumulate(nums.begin(), nums.end(), 0);
+    int prefix_sum = 0, min_diff = INT_MAX, cut_index = -1;
+    
+    for (int i = 0; i < n; ++i) {
+        prefix_sum += nums[i];
+        int diff = abs(prefix_sum - (sum - prefix_sum));
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
-
-    int diff = sum - 2 * dp[n][sum / 2];
-    int first_half = dp[n][sum / 2];
-    int second_half = sum - first_half;
-
-    cout << first_half << endl;
-    cout << second_half << endl;
-    cout << diff << endl;
-
+    
+    for (int i = 0; i <= cut_index; ++i) {
+        cout << nums[i] << endl;
+    }
+    for (int i = cut_index + 1; i < n; ++i) {
+        if (i != cut_index + 1) {
+            cout << endl;
+        }
+        cout << nums[i];
+    }
+    
     return 0;
 }
