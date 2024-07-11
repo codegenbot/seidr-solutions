@@ -1,4 +1,3 @@
-```c
 #include <vector>
 #include <string>
 
@@ -24,7 +23,7 @@ vector<string> numerical_letter_grade(vector<float> grades){
         else if(g>1.3)letter_grades.push_back("C-");
         else if(g>1.0)letter_grades.push_back("D+");
         else if(g>0.7)letter_grades.push_back("D");
-        else letter_grades.push_back("E");
+        else letter_grades.push_back("F");
     }
     return letter_grades;
 }
