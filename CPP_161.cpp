@@ -1,12 +1,24 @@
-for (int i = 0; i < s.size(); ++i) {
-        if (isalpha(s[i])) {
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+std::string solve(std::string s){
+    int n = s.size();
+    int count = 0;
+    for(int i=0; i<n; i++){
+        if(isalpha(s[i])){
             s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+        } else {
+            count++;
         }
     }
-
-    if (count_if(s.begin(), s.end(), ::isalpha) == 0) {
-        reverse(s.begin(), s.end());
+    if(count == n){
+        std::reverse(s.begin(), s.end());
     }
-
     return s;
+}
+
+int main(){
+    assert (solve("#ccc") == "#CCC");
+    return 0;
 }
