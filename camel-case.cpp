@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
     string input;
-    getline(cin, input);
+    getline(std::cin, input);
     
     bool capitalize = true;
     for (char c : input) {
