@@ -1,7 +1,2 @@
-def leaders(input):
-    result = [
-        input[i]
-        for i in range(len(input) - 1, -1, -1)
-        if all(input[j] <= input[i] for j in range(i + 1, len(input)))
-    ]
-    return " ".join(map(str, result))
+def leaders(arr):
+    return [max(arr[i:]) for i in range(len(arr))]
