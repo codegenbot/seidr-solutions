@@ -5,15 +5,12 @@ def string_to_md5(text):
         return hashlib.md5(text.encode()).hexdigest()
     return None
 
-while True:
-    text = input("Enter input: ").strip()
-    if not text.replace(" ", "").isalnum():
-        print("Error: Input should not contain whitespace characters. Please try again.")
+text = input("Enter input: ").encode('raw_unicode_escape').strip()
+if text.isascii():
+    md5_hash = string_to_md5(text)
+    if md5_hash:
+        print("MD5 Hash:", md5_hash)
     else:
-        break
-
-md5_hash = string_to_md5(text)
-if md5_hash:
-    print("MD5 Hash:", md5_hash)
+        print("Error: Unable to generate MD5 hash")
 else:
-    print("Error: Unable to generate MD5 hash")
+    print("Error: Input should contain only ASCII characters")
