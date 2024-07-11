@@ -2,17 +2,19 @@ import math
 
 
 def find_zero():
-    x = float(input("Enter the coefficients of polynomial (space separated): "))
-    xs = list(map(float, x.split()))
-    n = len(xs)
-    if n % 2 != 0:
-        raise ValueError("xs must have even number of coefficients")
-    a = xs[n // 2]
-    b = -sum([coeff for i, coeff in enumerate(xs[: n // 2]) if i % 2 == 1])
-    c = sum([coeff for i, coeff in enumerate(xs[: n // 2]) if i % 2 == 0])
-    d = -a
-    x = (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
-    return round(x, 2)
+    coefficients = input("Enter the coefficients of the polynomial (space-separated): ")
+    coefficients = list(map(float, coefficients.split()))
 
-
-print(find_zero())
+    try:
+        return round(
+            (
+                -coefficients[1]
+                + math.sqrt(
+                    coefficients[1] ** 2 - 4 * coefficients[0] * coefficients[-1]
+                )
+            )
+            / (2 * coefficients[0]),
+            2,
+        )
+    except ZeroDivisionError:
+        return "This polynomial does not have a zero."
