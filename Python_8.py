@@ -1,22 +1,20 @@
-```
-from typing import Tuple
+```Python
+import statistics
 
 def calculate_average_and_median() -> Tuple[float, float]:
-    results = []
     while True:
         try:
-            numbers = [int(num) for num in input("Enter numbers separated by space: ").split()]
-            results.append(sum(numbers) / len(numbers))
+            user_input = input("Enter numbers separated by space (or type 'q' to quit): ")
+            if not user_input or user_input.lower() == 'q':
+                break
+            numbers = [int(num) for num in user_input.split()]
+            if not numbers:
+                return None, None
+            average = sum(numbers) / len(numbers)
+            if len(numbers) == 0:  
+                return 0.0, 0.0
             sorted_numbers = sorted(numbers)
-            median = (sorted_numbers[len(sorted_numbers)//2] 
-                      if len(sorted_numbers)%2 != 0 
-                      else (sorted_numbers[len(sorted_numbers)//2 - 1] + sorted_numbers[len(sorted_numbers)//2]) / 2)
-            results.append(median)
+            median = statistics.median(sorted_numbers)
+            return average, median
         except ValueError:
-            print("Invalid input. Please enter numbers separated by space.")
-        
-        cont = input("Do you want to continue? (yes/no): ")
-        if cont.lower() != "yes":
-            break
-    
-    return tuple(results)
+            print("Invalid input. Please enter numbers separated by space or type 'q' to quit.")
