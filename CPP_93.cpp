@@ -1,12 +1,10 @@
-for (char& c : message) {
-        if (isalpha(c)) {
-            c = isupper(c) ? tolower(c) : toupper(c);
-            if (c == 'a') c = 'c';
-            else if (c == 'e') c = 'g';
-            else if (c == 'i') c = 'k';
-            else if (c == 'o') c = 'q';
-            else if (c == 'u') c = 'w';
+for (char &c : message) {
+    if (isalpha(c)) {
+        c = islower(c) ? toupper(c) : tolower(c);
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            c += 2;
         }
     }
-    return message;
+}
+return message;
 }
