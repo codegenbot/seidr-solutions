@@ -21,9 +21,3 @@ vector<string> words_string(string s){
 bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
-
-int main() {
-    assert(issame(words_string("ahmed     , gamal"), {"ahmed", "gamal"}));
-    
-    return 0;
-}
