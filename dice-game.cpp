@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 int main() {
     int n, m;
@@ -8,11 +9,11 @@ int main() {
     
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
-            probability += static_cast<double>(n - i) / n * static_cast<double>(m - j) / (n * m);
+            probability += (static_cast<double>(n - i) / n) * (static_cast<double>(m - j) / m);
         }
     }
     
-    std::cout << probability << std::endl;
+    std::cout << std::fixed << probability << std::endl;
     
     return 0;
 }
