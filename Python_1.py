@@ -38,10 +38,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     if stack or (not stack and len(result) > 1):
         return []
-    if groups:
-        result.append(groups)
-
+    
     if groups:
         result.append(groups.strip())
 
-    return [g for g in result if g]
+    return [g.strip() for g in result]
