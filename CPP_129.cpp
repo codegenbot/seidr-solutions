@@ -1,35 +1,54 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n, false));
+    vector<vector<int>> dp(n, vector<int>(n));
     vector<int> res;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (!visited[i][j]) {
-                vector<int> path;
-                dfs(grid, visited, i, j, k, path);
-                if (path.size() == k) {
-                    res = path;
-                    break;
-                }
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == 0 && j == 0) {
+                dp[i][j] = grid[i][j];
+            } else if (i > 0) {
+                dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j];
+            } else {
+                dp[i][j] = min(dp[i][j-1], dp[i-1][j]) + grid[i][j];
             }
         }
-        if (res.size() == k) break;
     }
+    
+    int i = n - 1, j = n - 1;
+    while (k > 0) {
+        res.push_back(grid[i][j]);
+        if (i > 0 && j > 0) {
+            if (dp[i-1][j] < dp[i][j-1]) {
+                i--;
+            } else {
+                j--;
+            }
+        } else if (i > 0) {
+            i--;
+        } else {
+            j--;
+        }
+        k--;
+    }
+    
+    reverse(res.begin(), res.end());
     return res;
 }
 
-void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int i, int j, int k, vector<int>& path) {
-    if (path.size() == k) return;
-    visited[i][j] = true;
-    path.push_back(grid[i][j]);
-    for (int x = -1; x <= 1; ++x) {
-        for (int y = -1; y <= 1; ++y) {
-            int ni = i + x, nj = j + y;
-            if (ni >= 0 && ni < grid.size() && nj >= 0 && nj < grid[0].size() && !visited[ni][nj]) {
-                dfs(grid, visited, ni, nj, k, path);
-                if (path.size() == k) return;
-            }
-        }
+int main() {
+    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    
+    for (int i : result) {
+        cout << i << " ";
     }
-    visited[i][j] = false;
+    cout << endl;
+    
+    return 0;
 }
