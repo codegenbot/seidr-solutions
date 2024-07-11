@@ -1,7 +1,7 @@
-#include <cassert>
 #include <vector>
-#include <algorithm>
+#include <cassert>
 #include <string>
+#include <algorithm>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
