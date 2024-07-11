@@ -1,4 +1,4 @@
-```python
+```Python
 from typing import List, float
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
