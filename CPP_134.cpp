@@ -1,5 +1,3 @@
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.empty()) return false;
-    char lastChar = txt.back();
-    return isalpha(lastChar) && !isalnum(txt.back());
-}
+size_t lastSpace = txt.find_last_of(' ');
+return (lastSpace == string::npos || txt.back() >= 'a' && txt.back() <= 'z') ||
+       (txt.empty());
