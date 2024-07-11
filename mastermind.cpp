@@ -1,25 +1,27 @@
-#include <string>
-using namespace std;
-
-int mastermind(string code, string guess) {
-    int black = 0;
+int numWhitePegs(string code, string guess) {
     int white = 0;
-    
-    for(int i=0; i<4; i++) {
-        if(code[i] == guess[i]) {
+    for (char c : code) {
+        if (count(guess.begin(), guess.end(), c) > 0 && find(code.begin(), code.end(), c) != code.end()) {
+            white++;
+        }
+    }
+    return white;
+}
+
+int numBlackPegs(string code, string guess) {
+    int black = 0;
+    for (char c : guess) {
+        if (count(code.begin(), code.end(), c) > 0 && find(guess.begin(), guess.end(), c) != guess.end()) {
             black++;
         }
     }
-    
-    for(int i=0; i<6; i++) {
-        int count = 0;
-        for(int j=0; j<4; j++) {
-            if(guess[j] == char(i) + 'A') {
-                count++;
-            }
-        }
-        white += (count > 1 ? min(count-1, code.count(char(i) + 'A')) : 0);
-    }
-    
-    return black << 2 | white;
+    return black;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    cout << numWhitePegs(code, guess) << endl;
+    cout << numBlackPegs(code, guess) << endl;
+    return 0;
 }
