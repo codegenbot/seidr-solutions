@@ -27,4 +27,3 @@ int main() {
         string output = remove_vowels(text);
         cout << "Sentence without vowels: " << output << endl;
     }
-}
