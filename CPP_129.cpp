@@ -1,42 +1,39 @@
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
     vector<vector<int>> dp(n, vector<int>(n));
-    
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (k == 1) {
+    vector<vector<bool>> visited(n, vector<bool>(n));
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == 0 || j == 0) {
                 dp[i][j] = grid[i][j];
             } else {
-                int min_val = INT_MAX;
-                if (i > 0) min_val = min(min_val, dp[i-1][j]);
-                if (j > 0) min_val = min(min_val, dp[i][j-1]);
-                if (i < n - 1) min_val = min(min_val, dp[i+1][j]);
-                if (j < n - 1) min_val = min(min_val, dp[i][j+1]);
-                dp[i][j] = grid[i][j] + min_val;
-            }
-        }
-    }
-    
-    int min_val = INT_MAX;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (dp[i][j] < min_val) {
-                min_val = dp[i][j];
-                vector<int> path;
-                int curr_i = i, curr_j = j;
-                for (int l = 0; l <= k; ++l) {
-                    path.push_back(grid[curr_i][curr_j]);
-                    if (k > 1 && l < k) {
-                        if (i > 0 && dp[i-1][j] == min_val - grid[curr_i][curr_j]) curr_i--;
-                        else if (j > 0 && dp[i][j-1] == min_val - grid[curr_i][curr_j]) curr_j--;
-                        else if (i < n - 1 && dp[i+1][j] == min_val - grid[curr_i][curr_j]) curr_i++;
-                        else if (j < n - 1 && dp[i][j+1] == min_val - grid[curr_i][curr_j]) curr_j++;
+                int minVal = INT_MAX;
+                for (int x = -1; x <= 1; x++) {
+                    for (int y = -1; y <= 1; y++) {
+                        if ((x == 0 && y == 0) || i + x < 0 || j + y < 0 || i + x >= n || j + y >= n)
+                            continue;
+                        if (!visited[i + x][j + y]) {
+                            minVal = min(minVal, dp[i + x][j + y] + grid[i][j]);
+                        }
                     }
                 }
-                return path;
+                dp[i][j] = minVal;
             }
         }
     }
-    
-    return {};
+
+    vector<int> res;
+    int val = INT_MAX;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (dp[i][j] == grid[i][j]) {
+                res.push_back(grid[i][j]);
+                k--;
+                if (k == 0) return res;
+            }
+        }
+    }
+
+    return res;
 }
