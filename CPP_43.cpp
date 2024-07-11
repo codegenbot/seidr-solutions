@@ -1,12 +1,8 @@
-Here is the completed code:
-```c++
 bool pairs_sum_to_zero(vector<int> l) {
-    unordered_set<int> s(l.begin(), l.end());
-    for (int i = 0; i < l.size(); i++) {
-        int target = -l[i];
-        if (s.count(target) && l[i] != target) {
+    sort(l.begin(), l.end());
+    for (int i = 0; i < l.size() / 2; i++) { 
+        if (l[i] + l[l.size() - 1 - i] == 0)
             return true;
-        }
     }
     return false;
 }
