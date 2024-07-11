@@ -1,19 +1,18 @@
-```cpp
 #include <iostream>
 #include <cmath> 
 #include <iomanip> 
 
 int main() { 
     double startHeight; 
-    cin >> startHeight;
+    std::cin >> startHeight;
     
     double firstBounceHeight;
-    cin >> firstBounceHeight;
+    std::cin >> firstBounceHeight;
     
     double bouncinessIndex = firstBounceHeight / startHeight;
     
     int numBounces;
-    cin >> numBounces;
+    std::cin >> numBounces;
     
     double totalDistance = 0.0;
     for(int i = 1; i <= numBounces; i++) {
