@@ -1,6 +1,7 @@
 def mastermind(code, guess):
     black = 0
     white = 0
+    code_count = {char: code.count(char) for char in set(code)}
     for i in range(4):
         if code[i] == guess[i]:
             black += 1
