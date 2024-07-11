@@ -1,24 +1,23 @@
-Here is the completed code:
-
 ```
 from typing import List
-import re
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    paren_string = re.sub(r'\s+', '', paren_string)
-    groups = []
     stack = []
-    current_group = ''
+    groups = []
+    group = ''
     
     for char in paren_string:
+        if char == ' ':
+            continue
+        
         if char == '(':
             stack.append(char)
-            current_group += char
+            group += char
         elif char == ')':
-            stack.pop()
-            current_group += char
-            if not stack:
-                groups.append(current_group)
-                current_group = ''
+            if stack and stack[-1] == '(':
+                stack.pop()
+                group += char
+                groups.append(group)
+                group = ''
     
     return groups
