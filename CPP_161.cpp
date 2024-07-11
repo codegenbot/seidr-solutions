@@ -1,16 +1,18 @@
-for (int i = 0; i < s.size(); ++i) {
+string solve(string s){
+    string result = s;
+    int n = s.size();
+    bool hasLetter = false;
+    
+    for (int i = 0; i < n; ++i) {
         if (isalpha(s[i])) {
-            if (islower(s[i])) {
-                s[i] = toupper(s[i]);
-            } else {
-                s[i] = tolower(s[i]);
-            }
+            hasLetter = true;
+            result[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
         }
     }
     
-    if (count_if(s.begin(), s.end(), ::isalpha) == 0) {
-        reverse(s.begin(), s.end());
+    if (!hasLetter) {
+        reverse(result.begin(), result.end());
     }
     
-    return s;
+    return result;
 }
