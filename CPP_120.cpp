@@ -1,8 +1,17 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <functional>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    return a == b;
+using namespace std;
+
+bool issame(vector<int> a, int k){
+    sort(a.begin(), a.end(), greater<int>());
+    vector<int> result(a.begin(), a.begin() + k);
+    return result;
+}
+
+int main(){
+    // Write your test cases here
+    return 0;
 }
