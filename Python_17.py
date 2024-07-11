@@ -1,17 +1,14 @@
-```
 from typing import List
 
 
 def parse_music(music_string: str) -> List[int]:
-    music_notes = {'o': 4, 'o|': 2, '.|': 1}
+    notes = music_string.split()
     beats = []
-    i = 0
-    while i < len(music_string):
-        note = ''
-        while i < len(music_string) and music_string[i] != '|':
-            note += music_string[i]
-            i += 1
-        if i < len(music_string):
-            i += 1
-        beats.append(music_notes[note])
+    note_dict = {"o": 4, "o|": 2, ".|": 1}
+
+    for note in notes:
+        if note not in note_dict:
+            raise ValueError(f"Unknown note {note}")
+        beats.append(note_dict[note])
+
     return beats
