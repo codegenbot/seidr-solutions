@@ -2,9 +2,8 @@ from typing import List, Tuple
 
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
-    if not all(isinstance(num, int) for num in numbers):
-        raise ValueError("All elements of the list must be integers")
-
+    if not all(isinstance(n, int) for n in numbers):
+        raise ValueError("Input list must contain only integers.")
     total_sum = 0
     product = 1
 
