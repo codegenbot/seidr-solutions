@@ -2,29 +2,25 @@
 #include <vector>
 using namespace std;
 
-struct Item {
-    float price;
-    float discount;
-};
-
 int main() {
     int n;
     cin >> n;
     
-    vector<Item> items(n);
+    vector<float> prices(n);
+    vector<float> discounts(n);
 
     for (int i = 0; i < n; ++i) {
-        cin >> items[i].price;
+        cin >> prices[i];
     }
 
     for (int i = 0; i < n; ++i) {
-        cin >> items[i].discount;
+        cin >> discounts[i];
     }
 
     float total_price = 0.0;
     for (int i = 0; i < n; ++i) {
-        float discount_amount = items[i].price * (items[i].discount / 100.0f);
-        total_price += items[i].price - discount_amount;
+        float discount_amount = prices[i] * (discounts[i] / 100.0f);
+        total_price += prices[i] - discount_amount;
     }
 
     cout.precision(2);
