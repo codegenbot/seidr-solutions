@@ -21,13 +21,6 @@ def minPath(grid, k):
 
     return res
 
-n = int(input("Enter the number of rows: "))
-m = int(input("Enter the number of columns: "))
-k = int(input("Enter the value of k: "))
-
-grid = [[0 for _ in range(m)] for _ in range(n)]
-for i in range(n):
-    for j in range(m):
-        grid[i][j] = int(input(f"Enter {i*10+j+1}th element of grid: "))
-
+grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+k = 1
 print(minPath(grid, k))
