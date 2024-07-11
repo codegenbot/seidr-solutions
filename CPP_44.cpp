@@ -1,3 +1,30 @@
-result = std::std::to_string(x % base) + result;
-        
-        int contest_main() {
+#include <string>
+#include <iostream>
+#include <cassert>
+
+std::string change_base(int x, int base) {
+    std::string result = "";
+    while (x > 0) {
+        result = std::to_string(x % base) + result;
+        x /= base;
+    }
+    return result;
+}
+
+void solve_problem() {
+    int x = 42;
+    int base = x + 1;
+
+    if (base != 0 && x >= 0) {
+        std::string result = change_base(x, base);
+        assert(change_base(x, x + 1) == std::__cxx11::to_string(x)); // Add assert check
+        std::cout << "Result: " << result << std::endl;
+    } else {
+        std::cout << "Invalid input!" << std::endl;
+    }
+}
+
+int main(int argc, char* argv[]) {
+    solve_problem();
+    return 0;
+}
