@@ -6,6 +6,7 @@
 int main() {
     std::vector<int> nums;
     int num;
+    
     while (std::cin >> num) {
         nums.push_back(num);
     }
@@ -24,11 +25,14 @@ int main() {
     for (int i = 0; i < cutIndex; ++i) {
         std::cout << nums[i] << '\n';
     }
-    std::cout << '\n';
+    
+    std::cout << 0 << '\n';
+    
     for (int i = cutIndex; i < nums.size(); ++i) {
         std::cout << nums[i] << '\n';
     }
-    std::cout << '\n';
     
+    std::cout << 0 << '\n';
+
     return 0;
 }
