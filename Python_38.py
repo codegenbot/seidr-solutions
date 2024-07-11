@@ -10,5 +10,4 @@ def check(n):
             return i
     return None
 
-result = decode_cyclic()()
-print(result)
+print(decode_cyclic()())
