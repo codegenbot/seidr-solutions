@@ -1,13 +1,22 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
-std::vector<int> compare(std::vector<int> a, std::vector<int> b) {
+std::vector<int> compare(vector<int> a, vector<int> b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    return {a.size() - count(a.begin(), a.end(), 0), b.size() - count(b.begin(), b.end(), 0)};
+    return {a.size(), b.size()};
+}
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size())
+        return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
 }
 
 int main() {

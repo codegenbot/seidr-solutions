@@ -1,27 +1,30 @@
-```
-#include <algorithm>
+```c++
+#include <iostream>
+#include <iomanip>
+#include <sstream>
 #include <string>
-#include <md5.h>
+#include "md5.h"
 
-std::string string_to_md5(std::string text) {
-    if (text.empty()) return "";
+std::string string_to_md5(const std::string& s) {
+    MD5_CTX c;
+    unsigned char md5[MD5_DIGEST_LENGTH];
+    const char* p = s.c_str();
+    size_t len = s.length();
+    MD5Update(&c, p, len);
+    MD5Final(&c, md5);
 
-    unsigned char result[16];
-    MD5_CTX md5;
-    MD5_Init(&md5);
-    const char* ptr = text.c_str();
-    while (*ptr) {
-        MD5_Update(&md5, ptr, 1);
-        ptr++;
-    }
-    MD5_Final(result, &md5);
+    std::ostringstream os;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i)
+        os << std::setw(2) << std::setfill('0') << std::hex << static_cast<int>(md5[i]);
 
-    std::string output;
-    for (int i = 0; i < 16; i++) {
-        char buffer[3];
-        sprintf(buffer, "%02x", result[i]);
-        output += buffer;
-    }
+    return os.str();
+}
 
-    return output;
+int main() {
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+    
+    std::cout << "MD5: " << string_to_md5(input) << "\n";
+    return 0;
 }
