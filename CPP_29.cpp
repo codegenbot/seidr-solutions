@@ -1,10 +1,8 @@
 #include <vector>
 #include <string>
 
-namespace contest {
-    bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-        return a == b;
-    }
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
