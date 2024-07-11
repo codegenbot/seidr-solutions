@@ -6,50 +6,50 @@ string int_to_mini_romank(int n) {
     
     while (n > 0) {
         if (n >= 1000) {
-            roman += "m";
+            roman += "M";
             n -= 1000;
         } else if (n >= 900) {
-            roman += "cm";
+            roman += "CM";
             n -= 900;
         } else if (n >= 500) {
-            roman += "d";
+            roman += "D";
             n -= 500;
         } else if (n >= 400) {
-            roman += "cd";
+            roman += "CD";
             n -= 400;
         } else if (n >= 100) {
             while (n >= 100) {
-                roman += "c";
+                roman += "C";
                 n -= 100;
             }
         } else if (n >= 90) {
-            roman += "cx";
+            roman += "XC";
             n -= 90;
         } else if (n >= 50) {
-            roman += "l";
+            roman += "L";
             n -= 50;
         } else if (n >= 40) {
-            roman += "xl";
+            roman += "XL";
             n -= 40;
         } else if (n >= 10) {
             while (n >= 10) {
-                roman += "x";
+                roman += "X";
                 n -= 10;
             }
         } else if (n >= 9) {
-            roman += "ix";
+            roman += "IX";
             n -= 9;
         } else if (n >= 5) {
             while (n >= 5) {
-                roman += "v";
+                roman += "V";
                 n -= 5;
             }
         } else if (n >= 4) {
-            roman += "iv";
+            roman += "IV";
             n -= 4;
         } else {
             while (n > 0) {
-                roman += "i";
+                roman += "I";
                 n--;
             }
         }
