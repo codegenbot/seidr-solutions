@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -19,6 +18,17 @@ namespace MyNamespace {
             }
         }
 
-        return {{(max_negative > 0 ? std::numeric_limits<int>::max() : max_negative), (min_positive < 1 ? std::numeric_limits<int>::min() : min_positive)}};
+        std::vector<int> result;
+        if (max_negative > 0) {
+            result.push_back(INT_MAX);
+        } else {
+            result.push_back(max_negative);
+        }
+        if (min_positive < 1) {
+            result.push_back(INT_MIN);
+        } else {
+            result.push_back(min_positive);
+        }
+        return result;
     }
 }

@@ -1,21 +1,33 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
+
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size())
+        return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (a[i] != b[i])
             return false;
-        }
     }
     return true;
 }
 
-void runTests() {
-    assert(issame({1,2,3,5},{-1,2,3,4}) == vector<bool>({{!(1==-1),!((2-2)!=0),!((3-3)!=0),!(5!=4)}}));
-    // Add your own test cases here if needed
+std::vector<int> compare(std::vector<int> a, std::vector<int> b) {
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    vector<int> res(3);
+    res[0] = a.size();
+    res[1] = b.size();
+    if (!issame(a, b))
+        res[2] = 0;
+    else
+        res[2] = 1;
+    return res;
 }
 
 int main() {
-    runTests();
+    assert(issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
     return 0;
 }
