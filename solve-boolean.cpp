@@ -1,12 +1,4 @@
-```cpp
-#include <stack>
 #include <string>
-#include <cctype>
-
-bool getBoolValue(char c) {
-    if (c == 'T') return true;
-    if (c == 'F') return false;
-}
 
 std::string solveBoolean(std::string expression) {
     std::stack<char> s;
@@ -32,18 +24,17 @@ std::string solveBoolean(std::string expression) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            left = true;
-            continue;
+            if (s.top() == 'T')
+                result = "True";
+            else
+                result = "False";
         } else if (c == '|') {
-            right = true;
-            continue;
-        }
-        if ((left && getBoolValue(c)) || (right && !getBoolValue(c))) {
-            result = "True";
-            break;
+            if (s.top() == 'F')
+                result = "True";
+            else
+                result = "False";
         } else {
-            result = "False";
-            break;
+            result = s.top() == 'T' ? "True" : "False";
         }
     }
 
