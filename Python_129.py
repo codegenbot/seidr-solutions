@@ -19,7 +19,7 @@ def minPath(grid, k):
             new_i, new_j = i + dx, j + dy
             if 0 <= new_i < m and 0 <= new_j < m:
                 if grid[new_i][new_j] == k:
-                    dfs(new_i, new_j, path+[grid[new_i][new_i]], remaining - 1)
+                    dfs(new_i, new_j, path+[grid[new_i][new_j]], remaining - 1)
                 elif grid[new_i][new_j] == 0:
                     return
         visited.remove((i, j))
