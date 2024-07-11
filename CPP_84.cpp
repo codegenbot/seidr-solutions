@@ -18,9 +18,5 @@ string solve(int N) {
 
 int main() {
     assert(solve(963) == "10010");
-    int N;
-    cout << "Enter a number: ";
-    cin >> N;
-    cout << "Binary representation of the number is " << solve(N);
     return 0;
 }
