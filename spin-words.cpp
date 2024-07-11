@@ -1,5 +1,6 @@
-#include <iostream>
+#include <algorithm>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -30,10 +31,28 @@ string spinWords(string str) {
     return result;
 }
 
+string spinWords(string str) {
+    string spun = "";
+    size_t start = 0;
+    while (start < str.length()) {
+        size_t end = start;
+        while (end < str.length() && str[end] != ' ') {
+            end++;
+        }
+        string word = str.substr(start, end - start);
+        if (word.length() >= 5) {
+            spun += string(reverse(word)) + " ";
+        } else {
+            spun += word + " ";
+        }
+        start = end + 1;
+    }
+    return spun;
+}
+
 int main() {
     string str;
     cout << "Enter a string of words: ";
     getline(cin, str);
     cout << "Spun result: " << spinWords(str) << endl;
     return 0;
-}
