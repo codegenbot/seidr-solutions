@@ -1,4 +1,3 @@
-```
 def modp(n: int, p: int):
     if n > 0:
         return pow(n, -1, p)
