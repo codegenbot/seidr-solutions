@@ -1,3 +1,4 @@
+```
 def sum_squares(lst):
     return sum(i**2 for i in lst)
 
@@ -20,7 +21,11 @@ def main():
     if not lst:
         print("Please enter some numbers.")
     else:
-        print(sum_squares(lst))
+        result = sum_squares(lst)
+        if result is None:  
+            print("Please enter some numbers.")
+        else:
+            print(result)
 
 
 main()
