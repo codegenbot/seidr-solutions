@@ -1,10 +1,9 @@
-float num = stof(value);
-int result = round(num);
-if (num - result == 0.5 || num - result == -0.5) {
-    if (num > 0) {
-        result = ceil(num);
+double num = stod(value);
+    int lower = floor(num);
+    int upper = ceil(num);
+    if (num - lower < upper - num) {
+        return lower;
     } else {
-        result = floor(num);
+        return upper;
     }
 }
-return result;
