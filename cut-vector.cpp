@@ -5,26 +5,26 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
-
-    int left_sum = 0, right_sum = 0;
-    int left_idx = 0, right_idx = n - 1;
-
-    while (left_idx < right_idx) {
-        if (left_sum < right_sum) {
-            left_sum += nums[left_idx++];
-        } else {
-            right_sum += nums[right_idx--];
+    
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
+    }
+    
+    int prefix_sum = 0;
+    for (int i = 0; i < n; ++i) {
+        prefix_sum += nums[i];
+        if (prefix_sum * 2 >= sum) {
+            cout << i + 1 << endl;
+            for (int j = 0; j <= i; ++j) {
+                cout << nums[j] << endl;
+            }
+            for (int j = i + 1; j < n; ++j) {
+                cout << 0 << endl;
+            }
+            break;
         }
     }
-
-    cout << left_idx << endl;
-    for (int i = 0; i < left_idx; ++i) {
-        cout << nums[i] << endl;
-    }
-    cout << right_sum << endl;
-    for (int i = right_idx + 1; i < n; ++i) {
-        cout << nums[i] << endl;
-    }
-
+    
     return 0;
 }
