@@ -1,6 +1,8 @@
-#include <iostream>
-#include <string>
+```cpp
 #include <vector>
+#include <string>
+#include <iostream>
+
 using namespace std;
 
 vector<int> findIndices(string text, string target) {
@@ -20,9 +22,10 @@ vector<int> findIndices(string text, string target) {
 
 int main() {
     int n;
-    cin >> n;
     string text;
-    cin >> text;
+    cin >> n;
+    cin.ignore();
+    getline(cin, text);
     vector<int> result = findIndices(text, text.substr(0, n));
     for (int i : result) {
         cout << i << endl;
