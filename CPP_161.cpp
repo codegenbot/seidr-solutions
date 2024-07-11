@@ -1,11 +1,14 @@
-for (int i = 0; i < s.size(); ++i) {
-    if (isalpha(s[i])) {
-        s[i] = isupper(s[i]) ? tolower(s[i]) : toupper(s[i]);
+for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            if(islower(s[i])){
+                s[i] = toupper(s[i]);
+            } else {
+                s[i] = tolower(s[i]);
+            }
+        }
     }
+    if(count_if(s.begin(), s.end(), isalpha) == 0){
+        reverse(s.begin(), s.end());
+    }
+    return s;
 }
-
-if (count_if(s.begin(), s.end(), [](char c) { return isalpha(c); }) == 0) {
-    reverse(s.begin(), s.end());
-}
-
-return s;
