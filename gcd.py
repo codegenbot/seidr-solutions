@@ -1,11 +1,22 @@
-Here is the solution:
-
+```
 def gcd(a, b):
     while b:
         a, b = b, a % b
-    return a
+    return abs(a)
 
-first_num = int(input())
-second_num = int(input())
+def find_indices(text, target):
+    result = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            result.append(i)
+    return result
 
-print(gcd(first_num, second_num))
+a = int(input())
+b = int(input())
+
+print(gcd(a,b))
+
+text = input()
+target = input()
+
+print(find_indices(text, target))
