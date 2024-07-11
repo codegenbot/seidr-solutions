@@ -22,13 +22,15 @@ vector<int> findLeaders(vector<int> nums) {
 int main() {
     vector<int> nums;
     int num;
-    while (!cin.eof()) {
-        cin >> num;
+    while (cin >> num) {
         nums.push_back(num);
+        if(cin.peek() == '\n') break; // Stop reading input when encountering newline
     }
+    
     vector<int> result = findLeaders(nums);
     for (int i : result) {
         cout << i << " ";
     }
+    
     return 0;
 }
