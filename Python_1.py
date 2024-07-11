@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -18,5 +17,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if not stack:
                 groups.append(current_group)
                 current_group = ''
-
     return [group.strip() for group in groups]
