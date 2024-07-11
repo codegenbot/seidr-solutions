@@ -1,4 +1,3 @@
-```
 int count = 0;
 for (int i = 0; i < strlen(brackets); i++) {
     char bracket = brackets[i];
