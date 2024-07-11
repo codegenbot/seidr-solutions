@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -15,8 +14,7 @@ vector<int> findLeaders(vector<int> nums) {
             leaders.push_back(maxRight);
         }
     }
-    reverse(leaders.begin(), leaders.end());
-    return leaders;
+    return vector<int>(leaders.rbegin(), leaders.rend());
 }
 
 int main() {
@@ -25,6 +23,7 @@ int main() {
     while (cin >> num) {
         nums.push_back(num);
     }
+
     vector<int> result = findLeaders(nums);
     for (int i : result) {
         cout << i << " ";
