@@ -3,13 +3,16 @@
 
 std::string middleCharacter(std::string s) {
     int len = s.length();
-    return len % 2 == 0 ? s.substr(len/2-1, 2) : (len % 2 == 1 ? s.substr(len/2, 1) : s.substr(len/2-1, 2));
+    if(len % 2 == 0)
+        return s.substr(len/2-1, 2);
+    else 
+        return s.substr(len/2, 1);
 }
 
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+    input = std::getline(std::cin, input); // Remove the extra newline char
     std::cout << "Middle character(s): " << middleCharacter(input) << std::endl;
     return 0;
 }
