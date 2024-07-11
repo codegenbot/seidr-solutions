@@ -8,3 +8,4 @@ string longest(vector<string> strings){
         else if(s.length() == result.length()) result = s;
     }
     return result;
+}
