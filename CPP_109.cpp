@@ -3,9 +3,6 @@ bool move_one_ball(const vector<int>& arr) {
     if (n == 0) {
         return true;
     }
-    if (n == 1) {
-        return true;
-    }
     
     int min_index = 0;
     for (int i = 0; i < n; ++i) {
@@ -14,5 +11,11 @@ bool move_one_ball(const vector<int>& arr) {
         }
     }
     
-    return (arr[min_index] == arr[(min_index + 1) % n]);
+    return (arr[min_index] == arr[(min_index + n - 1) % n]);
+}
+
+int main() {
+    assert(move_one_ball({}) == true);
+    
+    return 0;
 }
