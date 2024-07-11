@@ -1,7 +1,6 @@
 #include <string>
 
-vector<string> by_length(vector<int> arr);
-vector<vector<string>> issame(vector<vector<int>> arr);
+vector<string> issame(vector<string> arr);
 
 vector<string> by_length(vector<int> arr){
     vector<int> filtered;
