@@ -1,6 +1,7 @@
 #include <cstring>
 
+// Task description or function implementation here
 int main(){
-    char str[] = "Hello, World!";
+    char str[] = "example";
     return strlen(str);
 }
