@@ -2,9 +2,8 @@
 def find_pair(n, nums):
     seen = set()
     for num in nums:
-        complement = n - num
-        if complement in seen:
-            return f"{num} {complement}"
+        if n - num in seen:
+            return f"{n - num} {num}"
         seen.add(num)
     return f"{n} not found"
 
