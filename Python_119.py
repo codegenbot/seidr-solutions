@@ -1,5 +1,7 @@
+```
 def find_max_min(lst):
-    if len(lst) == 0:
-        return "The list is empty."
-    else:
-        return str(min(lst)) + " and " + str(max(lst))
+    return str(min(lst)) + ' and ' + str(max(lst))
+
+user_input = input("Enter numbers separated by space: ")
+numbers = [int(num) for num in user_input.split()]
+print(find_max_min(numbers))
