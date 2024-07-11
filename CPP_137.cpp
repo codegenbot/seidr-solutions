@@ -1,25 +1,29 @@
 if (a.type() == typeid(int) && b.type() == typeid(int)) {
-    if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
-        return a;
-    } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
-        return b;
-    }
-} else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-    if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
-        return a;
-    } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
-        return b;
-    }
-} else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-    float num1, num2;
-    if (sscanf(boost::any_cast<string>(a).c_str(), "%f", &num1) == 1 &&
-        sscanf(boost::any_cast<string>(b).c_str(), "%f", &num2) == 1) {
-        if (num1 > num2) {
+        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
             return a;
-        } else if (num1 < num2) {
+        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
+            return b;
+        }
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        if (boost::any_cast<float>(a) > boost::any_cast<float>(b)) {
+            return a;
+        } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
+            return b;
+        }
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+        if (strA.find_first_of(".,") != string::npos) {
+            replace(strA.begin(), strA.end(), ',', '.');
+        }
+        if (strB.find_first_of(".,") != string::npos) {
+            replace(strB.begin(), strB.end(), ',', '.');
+        }
+        if (stof(strA) > stof(strB)) {
+            return a;
+        } else if (stof(strA) < stof(strB)) {
             return b;
         }
     }
-}
-return "None";
+    return "None";
 }
