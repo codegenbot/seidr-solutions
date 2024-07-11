@@ -1,7 +1,7 @@
-```
-def product_of_digits(expected_product):
+def product_of_digits(n):
     while True:
         try:
+            expected_product = int(input("Enter the product of non-zero digits: "))
             n = int(input("Enter a number: "))
             break
         except ValueError:
@@ -14,5 +14,4 @@ def product_of_digits(expected_product):
     
     return expected_product == product
 
-expected_product = int(input("Enter the product of non-zero digits: "))
-print(product_of_digits(expected_product))
+print(product_of_digits(None))
