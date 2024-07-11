@@ -1,9 +1,5 @@
 ```
 def digits(n):
-    if len(str(n)) == 1: 
-        return 0
-    product = 1
-    while n:
-        product *= n % 10
-        n //= 10
-    return product
+    while n > 9:
+        n = sum(int(digit) for digit in str(n))
+    return n
