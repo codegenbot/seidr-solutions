@@ -22,6 +22,6 @@ double vector_distance(int n) {
 int main() {
     int n;
     std::cin >> n;
-    std::cout << vector_distance(n) << std::endl;
+    double result = vector_distance(n);
+    std::cout << "Euclidean distance: " << result << std::endl;
     return 0;
-}
