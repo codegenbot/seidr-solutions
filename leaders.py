@@ -1,6 +1,3 @@
-def leaders(input):
-    output = [input[-1]]
-    for i in range(len(input) - 2, -1, -1):
-        if input[i] >= input[i+1]:
-            output.append(input[i])
-    return ' '.join(map(str, reversed(output)))
+input_str = input()
+input_list = list(map(int, input_str.split()))
+print(' '.join(leaders(input_list)))

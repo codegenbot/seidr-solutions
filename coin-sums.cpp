@@ -1,4 +1,4 @@
-```c++
+```
 #include <iostream>
 using namespace std;
 
@@ -6,13 +6,23 @@ int main() {
     int cents;
     cin >> cents;
 
-    cout << quarters = cents / 25;
-    int remainder = cents - (quarters * 25);
-    cout << dimes + (remainder >= 10) << endl;
-    remainder %= 10;
-    cout << nickels + (remainder >= 5) << endl;
-    remainder %= 5;
-    cout << pennies + remainder << endl;
+    int quarters = min(cents / 25, (cents - (cents % 25)) / 25);
+    quarters = quarters - (cents / 25); 
+    cents %= 25; 
+
+    int dimes = min((cents - (quarters * 25)) / 10, ((cents - (quarters * 25)) % 20) / 10);
+    dimes = dimes - ((cents - (quarters * 25)) / 10);
+    cents %= 10;
+
+    int nickels = min((cents - (dimes * 10)) / 5, ((cents - (dimes * 10)) % 5));
+    nickels = nickels - ((cents - (dimes * 10)) / 5); 
+    cents %= 5; 
+
+    int pennies = cents;
+    cout << quarters << endl;
+    cout << dimes << endl;
+    cout << nickels << endl;
+    cout << pennies << endl;
 
     return 0;
 }
