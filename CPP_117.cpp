@@ -33,6 +33,6 @@ vector<string> select_words(string s, int n) {
 
 int main() {
     assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
-    cout << "Test passed!" << endl;
+    cout << "Test passed!" << endl; // Optional message for successful test case
     return 0;
 }
