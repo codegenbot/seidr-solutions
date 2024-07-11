@@ -10,17 +10,16 @@ vector<string> bf(string planet1, string planet2) {
         }
     }
     
-    if (index1 == -1 || index2 == -1)
+    if (index1 == -1 || index2 == -1) {
         return {};
+    }
     
     vector<string> result;
     for (int i = 0; i < planets.size(); i++) {
-        if (i >= index1 && i <= index2) {
+        if ((i >= index1 && i <= index2) || (i > index2 && i < index1)) {
             result.push_back(planets[i]);
         }
     }
-    
-    sort(result.begin(), result.end());
     
     return result;
 }
