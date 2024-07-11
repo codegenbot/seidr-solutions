@@ -1,6 +1,6 @@
-```
 def find_zero():
-    xs = list(map(int, input("Enter the coefficients: ").split()))
+    inp = input("Enter the coefficients: ")
+    xs = list(map(int, inp.split()))
     if len(xs) % 2 != 1:
         return "Error: xs must start with 0"
     if xs[0] != 0:
