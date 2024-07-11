@@ -1,20 +1,13 @@
+#include <string>
+#include <cctype>
+
 bool check_if_last_char_is_a_letter(const std::string& txt) {
-    if (txt.empty()) {
-        return false;
-    }
-    
+    if(txt.empty()) return false;
     char lastChar = txt.back();
-    
-    if (isalpha(lastChar)) {
-        for (int i = txt.size() - 2; i >= 0; i--) {
-            if (txt[i] == ' ') {
-                return true;
-            } else if (isalpha(txt[i])) {
-                return false;
-            }
+    if(isalpha(lastChar)){
+        if(txt.find_last_of(" ") == txt.length() - 1){
+            return true;
         }
-        return true;
     }
-    
     return false;
 }
