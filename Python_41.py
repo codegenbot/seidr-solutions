@@ -1,5 +1,5 @@
 ```
-def car_race_collision():
+`def car_race_collision():
     time_to_meet_car1 = int(input("Enter time at which both cars meet: "))
 
     while True:
@@ -29,4 +29,4 @@ def car_race_collision():
     elif speed1 > speed2:
         return f"{speed1} {speed2}"
     else:
-        return f"{speed2} {speed1}"
+        return f"{speed2} {speed1}"`
