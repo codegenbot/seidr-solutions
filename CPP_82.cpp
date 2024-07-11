@@ -1,14 +1,10 @@
-```cpp
-bool isPrime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i * i <= n; i++)
-        if (n % i == 0)
-            return false;
-    return true;
-}
+Here is the completed code:
 
 bool prime_length(string str) {
-    int length = str.length();
-    return isPrime(length);
+    int len = str.length();
+    for (int i = 2; i <= sqrt(len); ++i) {
+        if (len % i == 0)
+            return false;
+    }
+    return true;
 }
