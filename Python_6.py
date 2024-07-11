@@ -13,6 +13,3 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             max_nesting_level = max(max_nesting_level, nesting_level)
         result.append(max_nesting_level + 1)  
     return result
-
-paren_string = "((()))"
-print(parse_nested_parens(paren_string))
