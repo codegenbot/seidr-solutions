@@ -3,10 +3,10 @@ int count = 0;
         if (bracket == '<') {
             count++;
         } else if (bracket == '>') {
+            if (count == 0) {
+                return false;
+            }
             count--;
-        }
-        if (count < 0) {
-            return false;
         }
     }
     return count == 0;
