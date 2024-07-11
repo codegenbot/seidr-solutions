@@ -8,7 +8,7 @@ def sort_numbers():
 
 
 def solve():
-    sorted_nums = sorted([num_dict()[i] for i in sort_numbers()])
+    sorted_nums = sorted(num_dict().values()) + sorted(map(int, sort_numbers().split()))
     result = " ".join(str(num) for num in sorted_nums)
     return result
 
