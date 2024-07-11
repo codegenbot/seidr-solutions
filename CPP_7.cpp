@@ -8,38 +8,10 @@ bool issame(vector<string> a, vector<string> b) {
     });
 }
 
-int main() {
-    int num_strings;
-    cin >> num_strings;
-
-    vector<string> strings(num_strings);
-
-    for (int i = 0; i < num_strings; ++i) {
-        cin >> strings[i];
-    }
-
-    string substring;
-    cin >> substring;
-
-    vector<string> result = filter_by_substring(strings, substring);
-    bool same = issame(result, strings);
-
-    if (same) {
-        for (const auto& s : result) {
-            cout << s << " ";
-        }
-        cout << endl;
-    } else {
-        cout << "No match found" << endl;
-    }
-
-    return 0;
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
+vector<vector<string>> filter_by_substring(vector<vector<string>> strings, string substring){
+    vector<vector<string>> result;
     for (const auto& s : strings) {
-        if (s.find(substring) != string::npos) {
+        if(issame(s, filter_by_substring({s}, substring))) {
             result.push_back(s);
         }
     }
