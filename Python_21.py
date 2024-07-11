@@ -1,4 +1,4 @@
-def rescale_to_unit():
+def rescale_to_unit() -> List[float]:
     user_input = input("Enter numbers (comma-separated): ")
     numbers = [float(num) for num in user_input.split(",")]
 
@@ -9,5 +9,6 @@ def rescale_to_unit():
     max_val = max(numbers)
 
     if min_val == max_val:
-        return [0.0] * len(numbers)
+        return [0.0] * len(numbers)  # or any other value
+
     return [(x - min_val) / (max_val - min_val) for x in numbers]
