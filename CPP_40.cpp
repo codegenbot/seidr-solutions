@@ -1,4 +1,9 @@
-sort(l.begin(), l.end());
+#include <cassert>
+#include <vector>
+#include <algorithm>
+
+bool triples_sum_to_zero(std::vector<int> l) {
+    std::sort(l.begin(), l.end());
     for (int i = 0; i < l.size() - 2; ++i) {
         int left = i + 1;
         int right = l.size() - 1;
