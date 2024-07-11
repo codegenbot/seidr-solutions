@@ -1,4 +1,3 @@
-```python
 def solve(is_binary):
     if is_binary:
         num = input("Enter a binary number: ")
@@ -9,11 +8,8 @@ def solve(is_binary):
             print("Invalid binary input!")
     else:
         while True:
-            N = float(input("Enter a decimal number: "))
-            print(N)
             cont = input("Do you want to continue? (y/n): ")
             if cont.lower() != 'y':
                 break
-
-if __name__ == "__main__":
-    solve(True)
+            N = float(input("Enter a decimal number: "))
+            print(N)
