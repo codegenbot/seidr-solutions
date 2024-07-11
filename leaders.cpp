@@ -1,7 +1,10 @@
 #include <vector>
+#include <climits>
+#include <algorithm>
+using namespace std;
 
-std::vector<int> findLeaders(const std::vector<int>& nums) {
-    std::vector<int> leaders;
+vector<int> findLeaders(const vector<int>& nums) {
+    vector<int> leaders;
     int n = nums.size();
     int maxRight = INT_MIN;
     
