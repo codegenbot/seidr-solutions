@@ -1,6 +1,6 @@
 def complete_code(numbers, delimiter):
     result = []
     for num in numbers:
-        result.append(num)
-        result.append(delimiter)
-    return result[:-1]
+        result.extend([num, delimiter])
+    result.pop()
+    return result
