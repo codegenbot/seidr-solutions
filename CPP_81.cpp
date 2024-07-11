@@ -29,6 +29,6 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    // Your main function implementation here
+    // Code to test the functions
     return 0;
 }
