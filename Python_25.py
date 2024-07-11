@@ -1,7 +1,6 @@
-from typing import List
+def find_prime_factors(n: int) -> List[int]:
+    prime_factors = []
 
-def factorize(n: int) -> List[int]:
-    factors = []
     i = 2
     while i * i <= n:
         if n % i:
@@ -12,7 +11,9 @@ def factorize(n: int) -> List[int]:
             while n % i == 0:
                 n //= i
                 count += 1
-            factors.extend([i] * count)
+            prime_factors.extend([i] * count)
+
     if n > 1:
-        factors.append(n)
-    return sorted(factors)
+        prime_factors.append(n)
+
+    return [int(factor) for factor in set(map(str, prime_factors))]
