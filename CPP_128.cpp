@@ -1,20 +1,12 @@
-Here is the solution:
-
-```cpp
-#include <vector>
-
-using namespace std;
-
 int prod_signs(vector<int> arr) {
-    int product = 1;
-    long long sum = 0; // to avoid overflow for large sums
-
-    if (arr.empty()) return -32768;
+    int sign_product = 1;
+    long long sum_magnitude = 0;
 
     for (int num : arr) {
-        product *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
-        sum += abs(num);
+        if (num == 0) continue;
+        sign_product *= sign(num);
+        sum_magnitude += abs(num);
     }
 
-    return product * sum;
+    return sign_product * sum_magnitude > 0 ? sum_magnitude : -32768;
 }
