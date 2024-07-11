@@ -1,14 +1,7 @@
 #include <vector>
 #include <string>
-#include <algorithm>
 
-namespace std {
-    bool operator==(const vector<int>& a, const vector<int>& b) {
-        return a == b;
-    }
-}
-
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool same_vectors(const std::vector<int>& a, const std::vector<int>& b) {
     return (a == b);
 }
 

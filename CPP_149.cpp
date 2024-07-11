@@ -3,8 +3,8 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& c) {
-    return a == c;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) { 
@@ -17,7 +17,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
     }
 
     std::sort(result.begin(), result.end(),
-              [](const std::string& a, const std::string& b) { 
+              [](const string& a, const string& b) { 
                   if (a.size() != b.size()) {
                       return a.size() < b.size();
                   } else {
