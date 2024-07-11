@@ -1,14 +1,14 @@
 from typing import List
 
 def filter_integers() -> None:
-    values: List = []
-    
+    values: List[Any] = []  
+
     while True:
-        user_input = input("Enter a value (or 'done' if finished): ")
-        
+        user_input = input("Enter a value (or 'done' if finished): ")        
+
         if user_input.lower() == 'done':
-            break
-        
+            break        
+
         try:
             values.append(int(user_input))
         except ValueError:
