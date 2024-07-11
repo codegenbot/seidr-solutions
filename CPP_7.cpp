@@ -17,5 +17,5 @@ bool isEqualTo(const std::vector<std::string>& a, const std::vector<std::string>
 
 int main() {
     assert(isEqualTo(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    return 0;
+    //...
 }
