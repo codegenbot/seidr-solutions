@@ -1,4 +1,5 @@
-```
+import math
+
 def find_zero(xs):
     if len(xs) < 3:
         return "Not enough coefficients"
@@ -15,4 +16,5 @@ def find_zero(xs):
     return f"The zeros are {round(x1, 2)} and {round(x2, 2)}"
 
 xs = input("Enter coefficients separated by spaces: ").split()
-print(find_zero(map(float, xs)))
+if xs:
+    print(find_zero(map(float, xs)))
