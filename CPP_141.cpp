@@ -1,6 +1,12 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cassert>
+using namespace std;
+
 string file_name_check(string file_name) {
     if (file_name.empty()) return "No";
-    size_t dotPos = file_name.find('.');
+    int dotPos = file_name.find('.');
     if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.size() - 1) return "No";
     string beforeDot = file_name.substr(0, dotPos);
     string afterDot = file_name.substr(dotPos + 1);
@@ -10,4 +16,9 @@ string file_name_check(string file_name) {
     if (count_if(file_name.begin(), file_name.end(), ::isdigit) > 3) return "No";
 
     return "Yes";
+}
+
+int main() {
+    assert(file_name_check("s.") == "No");
+    return 0;
 }
