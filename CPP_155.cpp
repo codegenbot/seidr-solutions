@@ -1,10 +1,7 @@
-```cpp
 #include <vector>
 #define _MSC_VER 1900
-#include <initializer_list>
-
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()))
+    if(a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()))
         return true;
     else
         return false;
@@ -19,7 +16,7 @@ int even_odd_count(int num) {
         else
             ++count_odd;
     }
-    return count_even;
+    return std::max(count_even, count_odd);
 }
 
 int main() {
