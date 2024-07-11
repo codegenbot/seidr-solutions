@@ -1,6 +1,7 @@
+```cpp
+#include <iostream>
 #include <cassert>
 #include <cmath>
-#include <iostream>
 
 float triangle_area(float a, float b, float c) {
     if ((a + b > c) && (a + c > b) && (b + c > a)) {
@@ -14,7 +15,11 @@ float triangle_area(float a, float b, float c) {
 int main() {
     float a, b, c;
     std::cout << "Enter the lengths of three sides of a triangle: ";
-    std::cin >> a >> b >> c;
+    std::string s;
+    std::cin >> s;
+    a = std::stof(s);
+    b = std::stof(s);
+    c = std::stof(s);
     if (triangle_area(a, b, c) == -1.0f)
         std::cout << "Not a valid triangle.\n";
     else
