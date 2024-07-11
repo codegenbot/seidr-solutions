@@ -1,11 +1,6 @@
 def complete_code(numbers, delimiter):
-    result = []
-    for num in numbers[:-1]:
-        result.extend([num, delimiter])
-    if numbers:
-        result.append(numbers[-1])
-    return result
+    return [elem for sub_list in [[int(num), delimiter] for num in numbers.split()] for elem in sub_list][:-1]
 
-numbers = input().split()
-delimiter = input()
+numbers = input().strip()
+delimiter = input().strip()
 print(complete_code(numbers, delimiter))
