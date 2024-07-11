@@ -1,6 +1,7 @@
-```
-def double_the_difference(lst):
-    lst.sort()
-    return (lst[-1] - lst[0]) * 2
+def calculate_difference():
+    def double_the_difference(lst):
+        lst.sort()
+        return (lst[-1] - lst[0]) * 2
+    return double_the_difference
 
-print(double_the_difference([1, 2, 3]))
+print(calculate_difference()([1, 2, 3]))
