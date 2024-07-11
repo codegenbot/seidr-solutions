@@ -1,14 +1,9 @@
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    coin_counts = [0] * len(coins)
-
+    results = []
     for i in range(len(coins)):
-        while cents >= coins[i]:
-            cents -= coins[i]
-            coin_counts[i] += 1
-
-    return tuple(coin_counts)
-
-
-cents = int(input())
-print(*coin_sums(cents))
+        count = cents // coins[i]
+        if count > 0:
+            results.append(count)
+            cents %= coins[i]
+    return results
