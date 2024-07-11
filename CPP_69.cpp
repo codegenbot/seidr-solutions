@@ -1,14 +1,9 @@
-int res = -1;
+int search(vector<int> lst) {
+    int result = -1;
     for (int num : lst) {
-        int freq = 0;
-        for (int n : lst) {
-            if (n == num) {
-                freq++;
-            }
-        }
-        if (num > 0 && freq >= num && num > res) {
-            res = num;
+        if (num > result && count(lst.begin(), lst.end(), num) >= num) {
+            result = num;
         }
     }
-    return res;
+    return result;
 }
