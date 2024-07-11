@@ -4,23 +4,20 @@ using namespace std;
 std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
     std::vector<int> result;
-
-    for(int i=n-1; i>=0; i--) {
-        bool isLeader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
-                isLeader = false;
-                break;
-            }
+    int lastLeader = arr[n-1];
+    
+    for(int i=n-2; i>=0; i--) {
+        if(arr[i] >= lastLeader) {
+            result.push_back(arr[i]);
+            lastLeader = arr[i];
         }
-        if(isLeader) result.push_back(arr[i]);
     }
 
     return result;
 }
 
-vector<int> arr = vector<int>(16, 17, 4, 3, 5, 2, 8, 9, 1, 3);
-std::cout << "Leaders: ";
-for (int i : leaders(arr)) {
-    std::cout << i << " ";
+int main() {
+    vector<int> arr = vector<int>(16, 17, 4, 3, 5, 2, 8, 9, 1, 3);
+    leaders(arr);
+    return 0;
 }
