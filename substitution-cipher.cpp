@@ -5,10 +5,14 @@ std::string substitutionCipher(const std::string& cipherMap, const std::string& 
         char newChar = '\0';
         if (c >= 'a' && c <= 'z') {
             int index = tolower(c) - 'a';
-            newChar = cipherMap[index];
+            if (index < cipherMap.size()) {
+                newChar = cipherMap[index];
+            }
         } else if (c >= 'A' && c <= 'Z') {
             int index = tolower(c) - 'a';
-            newChar = toupper(cipherMap[index] - ('A' - 'a'));
+            if (index < cipherMap.size()) {
+                newChar = toupper(cipherMap[index] - ('A' - 'a'));
+            }
         }
         output += (newChar == '\0') ? c : newChar;
     }
