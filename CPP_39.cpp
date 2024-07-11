@@ -1,25 +1,21 @@
-int prime_fib(int n) {
-    int a = 0, b = 1, fib = 0;
-    for (int i = 1; ; i++) {
-        if (i == n) {
-            return b;
-        }
-        fib = a + b;
-        a = b;
-        b = fib;
-        if (!isPrime(fib)) {
-            continue;
-        }
-        if (++i == n) {
-            return fib;
-        }
-    }
-}
+#include <cstdio>
+using namespace std;
 
-bool isPrime(int num) {
-    if (num <= 1) return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) return false;
+int prime_fib(int n) {
+    int a = 0, b = 1;
+    for (int i = 0; i < n; i++) {
+        if (i % 2 == 0) return a;
+        int temp = a;
+        a = b;
+        for (int j = 3; j * j <= a + b; j++) {
+            if (a % j == 0 || b % j == 0) {
+                a = temp;
+                b = temp + 1;
+                i--;
+                break;
+            }
+        }
+        b += a;
     }
-    return true;
+    return a;
 }
