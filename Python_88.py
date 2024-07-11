@@ -1,4 +1,3 @@
-```
 def sort_array(user_input=None):
     if user_input is None:
         array = list(map(int, input("Enter space-separated numbers: ").split()))
@@ -14,5 +13,4 @@ def sort_array(user_input=None):
         median = (sorted_array[n//2 - 1] + sorted_array[n//2]) / 2.0
         return [[median]]
 
-if __name__ == "__main__":
-    sort_array()
+sort_array([21, 14, 23, 11])
