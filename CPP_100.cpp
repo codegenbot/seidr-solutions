@@ -1,23 +1,28 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) {
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
         return false;
     }
-    
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
             return false;
         }
     }
     return true;
 }
 
-int main() {
-    std::vector<int> expected = {3, 4, 5, 6, 7};
-    std::vector<int> result = make_a_pile(3);
-    assert(issame(result, expected));
-    
-    return 0;
+vector<int> make_a_pile(int n){
+    vector<int> result;
+    result.push_back(n);
+    for(int i=1; i<n; i++){
+        if(n % 2 == 0){
+            n += 2;
+        } else {
+            n += 1;
+        }
+        result.push_back(n);
+    }
+    return result;
 }
