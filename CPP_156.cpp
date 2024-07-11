@@ -25,3 +25,4 @@ int main() {
     cin >> num;
     cout << "Mini Roman: " << int_to_mini_roman(num) << endl;
     return 0;
+}
