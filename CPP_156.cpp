@@ -1,3 +1,4 @@
+```
 #include <string>
 using namespace std;
 
@@ -7,9 +8,7 @@ string int_to_mini_romank(int n) {
     } else if (n >= 1000) {
         return "m";
     } else if (n >= 200) {
-        string s = to_string(n / 200);
-        char c = (n % 200 > 0)? 'k' : ' ';
-        return s + "c" + c;
+        return to_string(n / 200) + "c" + string(1, 'k' - (n % 200 > 0));
     } else if (n >= 20) {
         return to_string(n / 10) + "x";
     } else {
@@ -18,7 +17,6 @@ string int_to_mini_romank(int n) {
 }
 
 int main() {
-    string result = int_to_mini_romank(1000);
-    cout << result << endl;
+    cout << int_to_mini_romank(1000) << endl;
     return 0;
 }
