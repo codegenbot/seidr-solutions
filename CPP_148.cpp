@@ -1,12 +1,11 @@
 #include <vector>
 #include <string>
-using std::string;
 
-bool issame(const std::vector<string>& a, const std::vector<string>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-std::vector<string> bf(const string& planet1, const string& planet2) {
+std::vector<std::string> bf(const std::string& planet1, const std::string& planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
@@ -37,6 +36,6 @@ std::vector<string> bf(const string& planet1, const string& planet2) {
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
+    assert (issame(bf("Jupiter", "Makemake"), {}));
     return 0;
 }
