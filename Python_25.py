@@ -1,12 +1,17 @@
-```
-def find_primes(n: int) -> List[int]:
-    primes = []
-    for possiblePrime in range(2, n + 1):
-        isPrime = True
-        for num in range(2, math.isqrt(possiblePrime) + 1):
-            if possiblePrime % num == 0:
-                isPrime = False
-                break
-        if isPrime:
-            primes.append(possiblePrime)
-    return primes
+def find_prime_factors(n: int) -> List[int]:
+    i = 2
+    factors = []
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            count = 0
+            while n % i == 0:
+                count += 1
+                n //= i
+            for _ in range(count):
+                factors.append(i)
+            i += 1
+    if n > 1:
+        factors.append(n)
+    return factors
