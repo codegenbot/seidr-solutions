@@ -1,3 +1,3 @@
 def middle_character(s):
     length = len(s)
-    return s[length//2].center(1 if len(s)%2 else 2, '0').replace('0', '')
+    return s[length//2] if length % 2 else s[length//2-1:length//2+1]
