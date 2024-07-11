@@ -1,7 +1,5 @@
-I'd be happy to help! Here's the modified code:
-
-```python
 from typing import List
+
 
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
@@ -9,12 +7,12 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     groups = ""
 
     for c in paren_string:
-        if c == ' ':
+        if c == " ":
             continue
-        if c == '(':
+        if c == "(":
             stack.append(c)
             groups += c
-        elif c == ')':
+        elif c == ")":
             if stack:
                 stack.pop()
                 groups += c
@@ -23,10 +21,14 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     groups = ""
             else:
                 return []
-        elif c == '(' and not stack:
+        elif c == ")" and stack:
+            while stack:
+                groups += stack.pop()
             result.append(groups + c)
             groups = ""
-
+        elif c == "(" and not stack:
+            result.append(groups + c)
+            groups = ""
     if stack:
         return []
     return [groups] + result
