@@ -1,4 +1,3 @@
-```
 def double_the_difference(lst):
     if len(lst) < 2:
         return None
@@ -6,4 +5,5 @@ def double_the_difference(lst):
     lst.sort()
     return (lst[-1] - lst[0]) * 2
 
-print(double_the_difference(input("Enter elements separated by space: ").split()))
+result = double_the_difference(input("Enter elements separated by space: ").split())
+print(result)
