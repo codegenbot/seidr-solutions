@@ -1,26 +1,25 @@
+#include <climits>
 #include <iostream>
 #include <vector>
-#include <climits>
-using namespace std;
 
 int main() {
-    vector<int> nums;
+    std::vector<int> nums;
     int num;
-    
-    while (cin >> num) {
+
+    while (std::cin >> num) {
         nums.push_back(num);
     }
-    
+
     int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; ++i) {
         sum += nums[i];
     }
-    
+
     int prefix_sum = 0;
     int min_diff = INT_MAX;
     int cut_index = -1;
-    
+
     for (int i = 0; i < n; ++i) {
         prefix_sum += nums[i];
         int diff = std::abs(sum - 2 * prefix_sum);
@@ -29,11 +28,11 @@ int main() {
             cut_index = i;
         }
     }
-    
+
     for (int i = 0; i <= cut_index; ++i) {
         std::cout << nums[i] << std::endl;
     }
     std::cout << 0 << std::endl;
-    
+
     return 0;
 }
