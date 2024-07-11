@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
@@ -8,7 +9,7 @@ std::string remove_vowels() {
     std::getline(std::cin, text);
     std::string result = "";
     for (char c : text) {
-        if (!std::string("aeiouAEIOU").find(std::tolower(c)))
+        if (!std::string(1, "aeiouAEIOU").c_str()->find(std::tolower(c)))
             continue; 
         result += c;
     }
@@ -16,6 +17,7 @@ std::string remove_vowels() {
 }
 
 int main() {
-    assert(remove_vowels() == "Hello World!");
+    std::string result = remove_vowels();
+    assert(result == "ybcd");
     return 0;
 }
