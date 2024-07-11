@@ -1,19 +1,29 @@
-int digitCount = 0;
-    for(char c : file_name){
-        if(isdigit(c)){
-            digitCount++;
+int count_digits = 0;
+    for (char c : file_name) {
+        if (c >= '0' && c <= '9') {
+            count_digits++;
         }
     }
-    if(digitCount > 3){
+
+    if (count_digits > 3) {
         return "No";
     }
-    if(file_name.find(".") == string::npos || file_name.find(".") == 0 || file_name.find_last_of(".") == file_name.length()-1){
+
+    int dot_pos = file_name.find(".");
+    if (dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
         return "No";
     }
-    string name = file_name.substr(0, file_name.find("."));
-    string extension = file_name.substr(file_name.find(".")+1);
-    if(name.empty() || !isalpha(name[0]) || extension != "txt" || extension != "exe" || extension != "dll"){
+
+    string before_dot = file_name.substr(0, dot_pos);
+    string after_dot = file_name.substr(dot_pos + 1);
+
+    if (before_dot[0] < 'a' || (before_dot[0] > 'z' && before_dot[0] < 'A') || before_dot[0] > 'Z') {
         return "No";
     }
+
+    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
+        return "No";
+    }
+
     return "Yes";
 }
