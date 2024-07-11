@@ -1,25 +1,13 @@
 #include <iostream>
 #include <string>
-#include <openssl/md5.h>
+#include <cryptopp/sha.h>
 
-using namespace std;
-
-string string_to_md5(string text) {
-    if (text.empty()) return "";
-
-    unsigned char md5[MD5_DIGEST_LENGTH];
-    MD5_CTX ctx;
-    MD5_Init(&ctx);
-    const char* p = text.c_str();
-    while (*p) {
-        MD5_Update(&ctx, p, 1);
-        p++;
-    }
-    MD5_Final(md5, &ctx);
-
-    string result;
-    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i)
-        result.push_back(to_string((int)md5[i]).c_str());
-
+std::string string_to_md5(const std::string& s) {
+    CryptoPP::SHA1 sha;
+    unsigned char md5[16];
+    sha.Calculate(s, (int)s.size(), md5);
+    std::string result;
+    for (int i = 0; i < 16; ++i)
+        result.push_back(((unsigned char)md5[i]) * 2 + ((md5[i] * 4) > 9) ? ((unsigned char)md5[i]) * 2 + ((md5[i] * 4) > 9) : "0");
     return result;
 }
