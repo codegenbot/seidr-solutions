@@ -1,32 +1,40 @@
 int main() {
-    vector<int> vec;
+    vector<int> nums;
     int num;
+    
+    // Read input numbers
     while (cin >> num) {
-        vec.push_back(num);
+        nums.push_back(num);
     }
     
-    int sum = accumulate(vec.begin(), vec.end(), 0);
-    int target = sum / 2;
-    int prefix_sum = 0;
-    int idx = 0;
-    for (int i = 0; i < vec.size(); i++) {
-        prefix_sum += vec[i];
-        if (prefix_sum >= target) {
-            idx = i;
-            break;
+    int n = nums.size();
+    
+    int diff = INT_MAX;
+    int cutIdx = -1;
+    
+    for (int i = 0; i < n - 1; ++i) {
+        int leftSum = 0, rightSum = 0;
+        
+        for (int j = 0; j <= i; ++j) {
+            leftSum += nums[j];
+        }
+        
+        for (int j = i + 1; j < n; ++j) {
+            rightSum += nums[j];
+        }
+        
+        if (abs(leftSum - rightSum) < diff) {
+            diff = abs(leftSum - rightSum);
+            cutIdx = i;
         }
     }
     
-    if (idx == vec.size() - 1 || abs(2*prefix_sum - sum) < abs(2*(prefix_sum - vec[idx]) - sum)) {
-        for (int i = 0; i <= idx; i++) {
-            cout << vec[i] << endl;
-        }
-        cout << 0 << endl;
-    } else {
-        for (int i = 0; i <= idx - 1; i++) {
-            cout << vec[i] << endl;
-        }
-        cout << vec[idx] << endl;
+    for (int i = 0; i <= cutIdx; ++i) {
+        cout << nums[i] << endl;
+    }
+    
+    for (int i = cutIdx + 1; i < n; ++i) {
+        cout << nums[i] << endl;
     }
     
     return 0;
