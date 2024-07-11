@@ -1,4 +1,3 @@
-```
 def car_race_collision(n: int):
     track_length = n
     total_collisions = 0
