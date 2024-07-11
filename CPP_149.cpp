@@ -6,31 +6,21 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
     return a == b;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> lst) { 
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) { 
     if (lst.empty()) {
         return {};
     }
 
     std::vector<std::string> result;
 
-    for (const auto& sub_lst : lst) {
-        bool found_odd = false;
-        for (const auto& str : sub_lst) {
-            if (str.length() % 2 != 0) {
-                found_odd = true;
-                break;
-            }
-        }
-
-        if (!found_odd) {
-            for (const auto& str : sub_lst) {
-                result.push_back(str);
-            }
+    for (const auto& str : lst) {
+        if (str.length() % 2 == 0) {
+            result.push_back(str);
         }
     }
 
     if (result.empty()) {
-        throw std::runtime_error("The input list is empty or contains only strings with even lengths.");
+        throw std::runtime_error("The input list is empty or contains only odd-length strings.");
     }
 
     std::sort(result.begin(), result.end(),
