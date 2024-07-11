@@ -1,3 +1,4 @@
+```
 def decipher(cipher1, cipher2, message):
     mapping = {char: cipher2[i] for i, char in enumerate(cipher1)}
     result = ""
@@ -5,5 +6,5 @@ def decipher(cipher1, cipher2, message):
         if char in mapping:
             result += mapping[char]
         else:
-            result += char
+            result += char  
     return result
