@@ -1,3 +1,4 @@
 def truncate_number(number: float) -> float:
-    multiplier = 10 ** (number.as_integer().log10() + 1)
-    return int(multiplier * number) / multiplier
+    integer_part = int(abs(number))
+    fractional_part = abs(number) - integer_part
+    return 0 if fractional_part < 1e-6 else number
