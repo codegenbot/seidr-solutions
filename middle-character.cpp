@@ -2,11 +2,13 @@ int main() {
     string s;
     cin >> s;
     
-    if(s.length() % 2 == 0) {
-        cout << s.substr(s.length()/2 - 1, 2);
+    int len = s.length();
+    
+    if (len % 2 == 1) {
+        cout << s.substr(len/2, 1);
     } else {
-        cout << s[s.length()/2];
+        cout << s.substr(len/2 - 1, 2);
     }
-
+    
     return 0;
 }
