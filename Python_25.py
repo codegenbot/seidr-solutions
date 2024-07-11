@@ -1,15 +1,15 @@
 ```
 def find_prime_numbers(n):
-    result = [2]  
-    for possiblePrime in range(3, n + 1):
+    prime_numbers = []
+    for possiblePrime in range(2, n + 1):
         isPrime = True
-        for num in range(3, int(possiblePrime ** 0.5) + 1):
+        for num in range(2, int(possiblePrime ** 0.5) + 1):
             if possiblePrime % num == 0:
                 isPrime = False
                 break
         if isPrime:
-            result.append(possiblePrime)
-    return result
+            prime_numbers.append(possiblePrime)
+    return prime_numbers
 
 while True:
     try:
