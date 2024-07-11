@@ -1,23 +1,16 @@
-vector<pair<int, string>> roman_numerals = {
-        {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"},
-        {100, "c"}, {90, "xc"}, {50, "l"}, {40, "xl"},
-        {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
+string int_to_mini_romank(int number){
+    string roman = "";
+    vector<pair<int, string>> roman_numerals = {
+        {1000, "m"}, {900, "cm"}, {500, "d"}, {400, "cd"}, {100, "c"},
+        {90, "xc"}, {50, "l"}, {40, "xl"}, {10, "x"}, {9, "ix"}, {5, "v"}, {4, "iv"}, {1, "i"}
     };
 
-    string result = "";
-    
-    for (const auto& rn : roman_numerals) {
-        while (number >= rn.first) {
-            result += rn.second;
-            number -= rn.first;
-        }
-    }
-    
-    for (char& c : result) {
-        if (c >= 'A' && c <= 'Z') {
-            c += 32; // Convert to lowercase
+    for (const auto& numeral : roman_numerals) {
+        while (number >= numeral.first) {
+            roman += numeral.second;
+            number -= numeral.first;
         }
     }
 
-    return result;
+    return roman;
 }
