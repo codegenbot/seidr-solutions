@@ -1,15 +1,19 @@
 #include <iostream>
 #include <cmath>
+#include <algorithm>
 
 int main() {
     double start_height, first_bounce_height, bounciness_index, total_distance = 0.0;
     int num_bounces;
-    std::string num_bounces_str;
 
-    std::cin >> start_height >> first_bounce_height;
-    std::cin >> num_bounces_str;
-    num_bounces_str.replace(num_bounces_str.find(','), 1, ".");
-    num_bounces = std::stoi(num_bounces_str);
+    std::cin >> start_height;
+    std::cin.ignore(256, '\n'); 
+    std::cin >> first_bounce_height;
+    std::string height_str = std::to_string(first_bounce_height);
+    std::replace(height_str.begin(), height_str.end(), ',', '.');
+    first_bounce_height = std::stod(height_str);
+    std::cin.ignore(256, '\n'); 
+    std::cin >> num_bounces;
 
     bounciness_index = first_bounce_height / start_height;
 
