@@ -7,16 +7,17 @@ using namespace std;
 int main() {
     vector<int> nums;
     int n;
-    while (cin >> n) {
+    while (!cin.eof()) {
+        cin >> n;
         nums.push_back(n);
     }
     
     int sum = 0;
     for (int num : nums) {
-        sum += (num / 3) - 2;
+        sum += max(num / 3 - 2, 0);
     }
     
-    cout << sum << endl;
+    cout << sum << "\n";
     
     return 0;
 }
