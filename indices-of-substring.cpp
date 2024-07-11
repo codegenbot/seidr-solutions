@@ -1,9 +1,4 @@
-Here is the modified code with the necessary #include statements:
-
-```cpp
 #include <vector>
-#include <initializer_list>
-#include <string>
 #include <iostream>
 
 using namespace std;
@@ -17,6 +12,7 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
             i += m; 
+            if ((i + m - 1) > n) break;
         } else {
             i++; 
         }
