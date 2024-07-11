@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -8,11 +9,13 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    string str1 = "", str2 = ""; 
+    int a = 0; 
+    int b = 0; 
     cout << "Enter first number: ";
-    cin >> str1;
+    cin >> a;
     cout << "Enter second number: ";
-    cin >> str2;
-    int result = gcd(stoi(str1), stoi(str2)); 
+    cin >> b;
+    int result = gcd(a, b); 
     cout << "GCD: " << result;
     return 0;
+}
