@@ -13,5 +13,5 @@ while True:
         if text.lower() == "quit":
             break
         print(string_to_md5(text))
-    except ValueError:
-        print("Invalid input. Please enter a string.")
+    except ValueError as e:
+        print(f"Invalid input. Please enter a string. {e}")
