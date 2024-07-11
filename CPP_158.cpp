@@ -1,19 +1,36 @@
+```cpp
+#include <iostream>
 #include <string>
 #include <vector>
+#include <unordered_set>
 
-std::string find_max(std::vector<std::string> words){
-    string result = *max_element(words.begin(), words.end(),
-        [](const std::string& a, const std::string& b) {
-            if (a.size() == b.size()) {
-                return a > b;
-            }
-            return a.size() < b.size();
-        });
-    for(const auto &word : words){
-        set<char> unique_chars(word.begin(), word.end());
-        if(unique_chars.size() > result.find_first_of(word[0])){
+std::string find_max(std::vector<std::string> words) {
+    std::string result = words[0];
+    int maxUniqueChars = 0;
+
+    for (const auto& word : words) {
+        std::unordered_set<char> uniqueChars(word.begin(), word.end());
+        if (uniqueChars.size() > maxUniqueChars) {
+            maxUniqueChars = uniqueChars.size();
             result = word;
         }
     }
+
     return result;
+}
+
+int main() {
+    std::vector<std::string> words;
+    // get input from user
+    int n;
+    std::cin >> n;
+    for(int i=0; i<n; i++) {
+        std::string s;
+        std::cin >> s;
+        words.push_back(s);
+    }
+
+    std::cout << "The maximum word is: " << find_max(words) << std::endl;
+
+    return 0;
 }
