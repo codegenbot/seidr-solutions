@@ -11,3 +11,6 @@ def search(lst):
         if key > 0 and value >= key:
             max_num = key
     return max_num
+
+lst = list(map(int, input("Enter a space-separated list of numbers: ").split()))
+print(search(lst))
