@@ -1,4 +1,5 @@
 #include <string>
+#include <stack>
 
 bool getBoolValue(char c) {
     return c == 'T';
@@ -27,21 +28,15 @@ std::string solveBoolean(std::string expression) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            bool left = getBoolValue(s.top());
+            bool left = getBoolValue('T');
             bool right = getBoolValue(s.top());
-            s.pop();
             s.pop();
             result = (left && right) ? "True" : "False";
         } else if (c == '|') {
-            while (getBoolValue(s.top()) != c) {
-                if (s.empty())
-                    break;
-                s.pop();
-            }
-            if (!s.empty() && getBoolValue(s.top()))
-                result = "True";
-            else
-                result = "False";
+            left = getBoolValue('T');
+            right = getBoolValue(s.top());
+            s.pop();
+            result = (left || right) ? "True" : "False";
         } else {
             result = (getBoolValue(c)) ? "True" : "False";
         }
