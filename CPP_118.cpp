@@ -1,4 +1,5 @@
 #include <string>
+using namespace std;
 
 string get_closest_vowel(const string& word) {
     string vowels = "AEIOUaeiou";
