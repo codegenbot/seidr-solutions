@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <cassert>
+#include <iostream>
 #include <ostream>
 
 using namespace std;
@@ -27,6 +27,16 @@ vector<int> even_odd_count(int num) {
     return result;
 }
 
-auto [even, odd] = even_odd_count(cin >> ws >>stoi(&n)); 
-cout << "Number of Even digits: " << even << endl;
-cout << "Absolute value of the remaining Number: " << odd << endl;
+int main() {
+    assert(issame(even_odd_count(0), vector<int>{1,0}));
+
+    int n; 
+    cin >> n; 
+
+    auto [even, odd] = even_odd_count(n);
+
+    cout << "Number of Even digits: " << even << endl;
+    cout << "Absolute value of the remaining Number: " << odd << endl;
+
+    return 0;
+}
