@@ -1,5 +1,4 @@
-```
-def is_nested(string):
+def is_nested((char) for char in string):
     stack = []
     for char in string:
         if char == '[':
