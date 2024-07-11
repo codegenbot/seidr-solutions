@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 std::string substitutionCipher(const std::string& cipherMap, const std::string& input) {
     std::string output;
     for (char c : input) {
@@ -13,6 +16,9 @@ std::string substitutionCipher(const std::string& cipherMap, const std::string& 
 
 int main() {
     std::string cipherMap = "abcdefghijklmnopqrstuvwxyz"; 
-    std::string input = "bzjyvlaopidqguscxrtwk" + std::string("eogfmptnxqhijzkusrvld") + std::string("ijalbwwxcz");
+    std::string input = "bzjyvlaopidqguscxrtwk"
+                  + std::string("eogfmptnxqhijzkusrvld")
+                  + "ijalbwwxcz";
     std::cout << substitutionCipher(cipherMap, input) << std::endl;
     return 0;
+}
