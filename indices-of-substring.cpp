@@ -1,11 +1,12 @@
 #include <vector>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int pos = 0; 
+    int pos = 0; // position in text
 
     while (pos != string::npos) { 
         pos = text.find(target, pos);
@@ -15,7 +16,7 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
 
         result.push_back(pos);
-        pos += target.size(); 
+        pos += target.size(); // move to the next occurrence
     }
     
     return result;
