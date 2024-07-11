@@ -1,3 +1,4 @@
+```
 import math
 
 
@@ -16,18 +17,20 @@ def is_valid_fraction(fraction):
 while True:
     x = input("Enter the fraction x (in the format 'a/b'): ").strip()
     while not is_valid_fraction(x):
-        x = input("Invalid input. Enter the fraction x (in the format 'a/b'): ").strip()
+        print("Invalid input. Please enter a valid fraction.")
+        x = input("Enter the fraction x (in the format 'a/b'): ").strip()
 
     a, b = map(int, x.split("/"))
 
     n = input("Enter the fraction n (in the format 'a/b'): ").strip()
     while not is_valid_fraction(n):
-        n = input("Invalid input. Enter the fraction n (in the format 'a/b'): ").strip()
+        print("Invalid input. Please enter a valid fraction.")
+        n = input("Enter the fraction n (in the format 'a/b'): ").strip()
 
     c, d = map(int, n.split("/"))
 
     if b == 0 or d == 0:
-        print("Error: Division by zero is not allowed")
+        print("Division by zero is not allowed")
     else:
         common_divisor = math.gcd(b, d)
         simplified_x_num = a * (d // common_divisor)
@@ -47,7 +50,7 @@ while True:
         sum_denom = b * simplified_y_denom
 
         if sum_denom == 0:
-            print("Error: Division by zero is not allowed")
+            print("Division by zero is not allowed")
         else:
             common_divisor = math.gcd(sum_num, sum_denom)
             simplified_sum_num = sum_num // common_divisor
