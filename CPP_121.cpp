@@ -1,10 +1,11 @@
+```cpp
 #include <vector>
 
-int solution(std::vector<int> arr) {
+int solution(vector<int> lst) {
     int sum = 0;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 != 0) {
-            sum += arr[i];
+    for (int i = 1; i < lst.size(); i++) {
+        if (lst[i] % 2 != 0) {
+            sum += lst[i];
         }
     }
     return sum;
