@@ -1,5 +1,9 @@
+```python
+n = int(input("Enter n: "))
+p = int(input("Enter p: "))
+
 def modp(n: int, p: int):
-    def extended_euclidean(a: int, b: int) -> tuple:
+    def extended_euclidean(a: int, b: int) -> (int, int):
         if a == 0:
             return b, 0
         else:
@@ -11,4 +15,4 @@ def modp(n: int, p: int):
         raise ValueError(f"{n} is not invertible modulo {p}")
     return pow(n, inv_n, p)
 
-print(modp(int(input("Enter n: ")), int(input("Enter p: "))))
+print(modp(n, p))
