@@ -7,7 +7,7 @@ bool will_it_fly(std::vector<int> q, int w) {
     for (int i : q) {
         str += std::to_string(i);
     }
-    if (str != std::to_string(std::reverse(str).begin(), std::reverse(str).end())) return false;
+    if (!str.compare(std::to_string(std::string(str.rbegin(), str.rend())))) return false;
     int sum = 0;
     for (int i : q) {
         sum += i;
@@ -16,22 +16,12 @@ bool will_it_fly(std::vector<int> q, int w) {
 }
 
 int main() {
-    std::vector<int> q;
-    int w;
-    std::cout << "Enter the weight limit: ";
-    std::cin >> w;
-    for(int i = 0 ; i < 5 ; i++) {
-        std::cout << "Enter the weight of package " << i+1 << ": ";
-        int p;
-        std::cin >> p;
-        q.push_back(p);
-    }
-    
-    if(will_it_fly(q, w)) {
-        std::cout << "The packages can be delivered." << std::endl;
+    std::vector<int> q = {4, 3};
+    int w = 6;
+    if (will_it_fly(q, w)) {
+        std::cout << "The aircraft will fly." << std::endl;
     } else {
-        std::cout << "The packages cannot be delivered." << std::endl;
+        std::cout << "The aircraft won't fly." << std::endl;
     }
-
     return 0;
 }
