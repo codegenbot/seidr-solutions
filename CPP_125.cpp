@@ -1,26 +1,26 @@
-#include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
-bool issame(std::string a, std::string b) {
-    if (a.size() != b.size()) {
+bool issame(string a, string b) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (std::tolower(a[i]) != std::tolower(b[i])) {
+    
+    for(int i = 0; i < a.size(); ++i) {
+        if(tolower(a[i]) != tolower(b[i])) {
             return false;
         }
     }
+    
     return true;
 }
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> words;
-    std::string word = "";
-    for (char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
+vector<string> split_words(string txt) {
+    vector<string> words;
+    string word = "";
+    for(char c : txt) {
+        if(c == ' ' || c == ',') {
+            if(!word.empty()) {
                 words.push_back(word);
                 word = "";
             }
@@ -28,22 +28,22 @@ std::vector<std::string> split_words(std::string txt) {
             word += c;
         }
     }
-    if (!word.empty()) {
+    
+    if(!word.empty()) {
         words.push_back(word);
     }
-    if (words.empty()) {
+    
+    if(words.empty()) {
         int count = 0;
-        for (char c : txt) {
-            if (std::islower(c) && (c - 'a') % 2 == 1) {
+        for(char c : txt) {
+            if(islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
-        words.push_back(std::to_string(count));
+        words.push_back(to_string(count));
     }
+    
     return words;
 }
 
-int main() {
-    // Implement main function logic here
-    return 0;
-}
+assert(issame("", "0"));
