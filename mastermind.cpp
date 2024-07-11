@@ -1,19 +1,17 @@
+```cpp
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
 int whitePegs(string code, string guess) {
     int count = 0;
-    vector<char> codeMap(6), guessMap(6);
-    for (int i = 0; i < 4; i++) {
-        if (guess[i] == code[i]) {
-            codeMap[code[i]]++;
-            guessMap[guess[i]]++;
+    for (char c : guess) {
+        if (code.find(c) != -1 && code.find(c) != code.find(guess[0])) {
             count++;
         }
     }
-    for (int i = 0; i < 6; i++) {
-        if (codeMap[i] > 1 || guessMap[i] > 1) {
-            return -1;
-        }
-    }
-    return count - blackPegs(code, guess);
+    return count;
 }
 
 int blackPegs(string code, string guess) {
@@ -21,7 +19,18 @@ int blackPegs(string code, string guess) {
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
             count++;
+            code.replace(i, 1, "x");
         }
     }
     return count;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    int white = whitePegs(code, guess);
+    int black = blackPegs(code, guess);
+    cout << black << endl;
+    cout << white << endl;
+    return 0;
 }
