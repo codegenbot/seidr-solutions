@@ -1,4 +1,3 @@
-```
 std::vector<std::vector<int>> cutVector(std::vector<int>& nums) {
     int n = nums.size();
     int min_diff = INT_MAX;
