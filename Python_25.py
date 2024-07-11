@@ -8,7 +8,7 @@ def factorize(n: int) -> List[int]:
             factors.append(divisor)
             n //= divisor
         else:
-            divisor += 1
+             divisor += 1
     return factors
 
 n = int(input().strip())
