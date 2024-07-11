@@ -1,14 +1,4 @@
 ```cpp
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for (const auto& str : strings) {
-        if (str.find(substring) != string::npos) {
-            result.push_back(str);
-        }
-    }
-    return result;
-}
-
 bool areEqual(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
@@ -19,8 +9,4 @@ bool areEqual(vector<string> a, vector<string> b) {
     }
     
     return true;
-}
-
-int main() {
-    assert(areEqual(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
 }
