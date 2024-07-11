@@ -1,3 +1,5 @@
+Here is the completed code:
+
 string file_name_check(string file_name){
     int digit_count = 0;
     bool found_dot = false;
@@ -9,10 +11,11 @@ string file_name_check(string file_name){
         else if(file_name[i] == '.'){
             found_dot = true;
         }
-        else if(!found_dot && !isalpha(file_name[i])) return "No";
+        else if(found_dot && (i != file_name.length()-4 || !string(file_name.substr(i)).compare("txt") && !string(file_name.substr(i)).compare("exe") && !string(file_name.substr(i)).compare("dll"))){
+            return "No";
+        }
     }
-    if(!found_dot || file_name.find('.') == string::npos) return "No";
-    string extension = file_name.substr(file_name.find('.')+1);
-    if(extension != "txt" && extension != "exe" && extension != "dll") return "No";
+    if(!found_dot) return "No";
+    if(digit_count > 0) return "No";
     return "Yes";
 }
