@@ -31,4 +31,3 @@ def get_values() -> List[int]:
                             print(f"Invalid input: {user_value}. Please enter integers or decimals only. Try again!")
                             continue
         result.append(val)
-    return result
