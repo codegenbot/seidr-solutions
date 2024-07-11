@@ -1,25 +1,42 @@
-Here is the solution to the problem:
-
-def bowling_score(frames):
+```
+def bowling_score(games):
     score = 0
-    roll = 0
-    for frame in frames.split('/'):
-        if len(frame) == 1:
-            if int(frame) != 10:
-                score += min(10, int(frame))
+    frame = 1
+    for char in games + 'X':
+        if char.isdigit():
+            count = int(char)
+            while count > 0 and frame < 10:
+                if count >= 2:
+                    score += 10
+                    frame += 1
+                    count -= 2
+                else:
+                    score += count
+                    frame += 1
+                    count = 0
+            if frame == 10:
+                break
+        elif char == 'X':
+            if frame < 9:
+                score += 10
+                frame += 1
             else:
                 score += 10
-        elif len(frame) == 2:
-            total_pins = int(frame[0]) + int(frame[1])
-            if total_pins < 10:
-                score += total_pins
-            else:
+                while frame < 10 and games[frames.index(char) - 1].isdigit():
+                    count = int(games[frames.index(char) - 1])
+                    while count > 0 and frame < 10:
+                        if count >= 2:
+                            score += 10
+                            frame += 1
+                            count -= 2
+                        else:
+                            score += count
+                            frame += 1
+                            count = 0
+        elif char == '/':
+            count = int(games[:games.index(char)].count('X')) + int(games[:games.index(char)].count(str(int(games[:games.index(char)]) - 10)))
+            if count >= 10:
                 score += 10
-                roll += 1
-        elif len(frame) == 3 and str(roll).zfill(2):
-            total_pins = int(frame[0]) + int(frame[1]) + int(frame[2])
-            if total_pins < 10:
-                score += total_pins
             else:
-                score += 10
+                score += count
     return score
