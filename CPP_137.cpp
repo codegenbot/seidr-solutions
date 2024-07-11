@@ -1,29 +1,28 @@
-if (a.type() == typeid(int)) {
-    if (b.type() == typeid(float))
-        return b;
-    else if (b.type() == typeid(string))
-        return b;
-    else if (b.type() == typeid(int)) {
-        int int_a = boost::any_cast<int>(a);
-        int int_b = boost::any_cast<int>(b);
-        if (int_a < int_b) return b;
-        else if (int_a > int_b) return a;
-        else return "None";
+if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
+            return a;
+        } else if (boost::any_cast<int>(a) < boost::any_cast<int>(b)) {
+            return b;
+        } else {
+            return "None";
+        }
+    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        if (boost::any_cast<double>(a) > boost::any_cast<double>(b)) {
+            return a;
+        } else if (boost::any_cast<double>(a) < boost::any_cast<double>(b)) {
+            return b;
+        } else {
+            return "None";
+        }
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if (stod(boost::any_cast<string>(a)) > stod(boost::any_cast<string>(b))) {
+            return a;
+        } else if (stod(boost::any_cast<string>(a)) < stod(boost::any_cast<string>(b))) {
+            return b;
+        } else {
+            return "None";
+        }
+    } else {
+        return "None";
     }
-} else if (a.type() == typeid(float)) {
-    if (b.type() == typeid(float)) {
-        float float_a = boost::any_cast<float>(a);
-        float float_b = boost::any_cast<float>(b);
-        if (float_a < float_b) return b;
-        else if (float_a > float_b) return a;
-        else return "None";
-    } else if (b.type() == typeid(string))
-        return b;
-} else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-    string str_a = boost::any_cast<string>(a);
-    string str_b = boost::any_cast<string>(b);
-    if (str_a < str_b) return b;
-    else if (str_a > str_b) return a;
-    else return "None";
 }
-return "None";
