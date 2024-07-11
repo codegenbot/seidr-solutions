@@ -1,4 +1,4 @@
-def add(a, b):
+def add():
     try:
         x = int(input("Enter first number: "))
         y = int(input("Enter second number: "))
