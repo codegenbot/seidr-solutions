@@ -4,7 +4,7 @@
 
 bool issame(vector<string> a, vector<string> b){
     return a == b;
-} 
+}
 
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
@@ -25,7 +25,7 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     if (start > end) {
-        swap(start, end);
+        std::swap(start, end);
     }
 
     for (int i = start + 1; i < end; ++i) {
@@ -36,5 +36,5 @@ vector<string> bf(string planet1, string planet2) {
 }
 
 int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {})); 
+    assert(issame(bf("Jupiter", "Makemake"), {}));
 }
