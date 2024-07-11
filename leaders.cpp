@@ -25,12 +25,6 @@ int main() {
     while (cin >> num) {
         nums.push_back(num);
     }
-
-    if (!cin.eof()) {
-        cin.clear();
-        cin.ignore();
-    }
-
     vector<int> result = findLeaders(nums);
     for (int i : result) {
         cout << i << " ";
