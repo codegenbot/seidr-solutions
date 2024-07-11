@@ -1,2 +1,10 @@
-```c++
-return (digit_count <= 3 && found_dot && valid_prefix) ? "Yes" : (!found_dot && !std::all_of(file_name.begin() + digit_count, file_name.end(), ::isalpha())) ? "No" : "Yes";
+int file_name_check(string filename) {
+    size_t dot = filename.find('.');
+    size_t space = filename.find(' ');
+    if (dot == string::npos && space == string::npos)
+        return "Yes";
+    else if (dot != string::npos && space == string::npos)
+        return "Yes";
+    else
+        return "No";
+}
