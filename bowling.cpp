@@ -1,58 +1,33 @@
-int score(const string& bowls) {
-    int totalScore = 0;
-    int frame = 1;
-    int rolls = 0;
-    int frameScore = 0;
-    int prevRoll = 0;
-    bool isSpare = false;
-    bool isStrike = false;
-    
-    for (char c : bowls) {
-        if (c == 'X') {
-            totalScore += 10;
-            if (frame < 10) {
-                if (isStrike) {
-                    totalScore += 10;
-                }
-                isStrike = true;
-                rolls = 0;
-                frame++;
+int score(string s) {
+    int total = 0;
+    int frame = 0;
+    for(int i = 0; i < s.size(); i++) {
+        if(s[i] == 'X') {
+            total += 10;
+            total += (s[i+2] == 'X') ? 10 : (isdigit(s[i+1]) ? s[i+1]-'0' : 10-s[i+1]+'0');
+            total += (isdigit(s[i+1]) && s[i+2] == '/') ? s[i+2]-'0' : 0;
+            frame++;
+        } else if(isdigit(s[i])) {
+            total += s[i]-'0';
+            if(s[i+1] == '/') {
+                total += 10-s[i]-'0';
+            } else if(isdigit(s[i+1])) {
+                total += s[i+1]-'0';
             }
-        } else if (c == '/') {
-            totalScore += 10 - prevRoll;
-            if (frame < 10) {
-                if (isSpare) {
-                    totalScore += 10 - prevRoll;
-                }
-                isSpare = true;
-                rolls = 0;
-                frame++;
-            }
-        } else if (c == '-') {
-            rolls++;
-            if (rolls == 2) {
-                frame++;
-                rolls = 0;
-            }
-        } else {
-            int pins = c - '0';
-            totalScore += pins;
-            if (frame < 10) {
-                if (isSpare) {
-                    totalScore += pins;
-                    isSpare = false;
-                }
-                if (isStrike) {
-                    totalScore += pins;
-                }
-                rolls++;
-                if (rolls == 2) {
-                    frame++;
-                    rolls = 0;
-                }
-            }
-            prevRoll = pins;
+            frame++;
+        } else if(s[i] == '/') {
+            total += 10-s[i-1]+'0';
+            total += (isdigit(s[i+1])) ? s[i+1]-'0' : 10-s[i+1]+'0';
+            frame++;
         }
+        if(frame == 10) break;
     }
-    return totalScore;
+    return total;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
+    return 0;
 }
