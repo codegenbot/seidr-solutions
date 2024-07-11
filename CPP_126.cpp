@@ -1,25 +1,22 @@
-#include <iostream>
-#include <vector>
-
-int main() {
-    std::vector<int> lst;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        int temp;
-        std::cout << "Enter element " << (i+1) << ": ";
-        std::cin >> temp;
-        lst.push_back(temp);
+int main(){
+    vector<int> lst;
+    cout<<"Enter elements for list (space separated): ";
+    string input;
+    getline(cin,input);
+    size_t pos = 0;
+    while((pos=input.find(" "))!=-1){
+        int val = stoi(input.substr(0,pos));
+        lst.push_back(val);
+        input.erase(0,pos+1);
     }
+    int val =stoi(input);
+    lst.push_back(val);
     
-    bool isSorted = is_sorted(lst);
-    
-    if(isSorted)
-        std::cout << "The list is sorted.\n";
+    bool result = is_sorted(lst);
+    if(result)
+        cout<<"The list is sorted.\n";
     else
-        std::cout << "The list is not sorted.\n";
+        cout<<"The list is not sorted.\n";
     
     return 0;
 }
