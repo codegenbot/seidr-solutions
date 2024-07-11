@@ -8,9 +8,14 @@ bool is_palindrome(string str){
 }
 
 string make_palindrome(string str){
-    int i=str.length()-1;
-    while(i>=0&&is_palindrome(str.substr(0,i+1))){
-        i--;
+    if(is_palindrome(str)) return str; // If input string is already palindrome, just return it
+    for(int i = 0; i < str.length(); i++){
+        string suffix = str.substr(i);
+        if(is_palindrome(suffix)){
+            string prefix = str.substr(0, i);
+            reverse(prefix.begin(), prefix.end());
+            return prefix + suffix + prefix;
+        }
     }
-    return str.substr(0,i+1)+reverse(str.substr(i+1)).to_string();
+    return str; // If no palindromic suffix found, just return the original string
 }
