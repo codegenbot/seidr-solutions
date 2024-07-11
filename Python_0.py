@@ -1,6 +1,3 @@
-numbers = list(map(int, input().split()))
-threshold = int(input())
-
 def has_close_values(numbers, threshold):
     numbers.sort()
     for i in range(len(numbers) - 1):
@@ -8,4 +5,4 @@ def has_close_values(numbers, threshold):
             return True
     return False
 
-print(has_close_values(numbers, threshold))
+print(has_close_values([1, 2, 4, 7, 10], 3))
