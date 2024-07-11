@@ -1,13 +1,14 @@
-```"""
-def parse_music(music_string: str) -> List[int]:
+```python
+""" 
+def parse_music(music_string: str) -> list:
     notes = {'o': 4, 'o|': 2, '.|': 1}
     result = []
     i = 0
     while i < len(music_string):
         if music_string[i] == '|':
             i += 1
-        note_length = notes[music_string[i:i+2]]
-        result.append(note_length)
+        note_length = notes.get(music_string[i:i+2], [notes[n] for n in notes][0])
+        result.append(note_length[0] if isinstance(note_length, list) else note_length)
         i += 2
     return result
-"""
+""""
