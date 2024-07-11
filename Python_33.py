@@ -1,2 +1,6 @@
+```
 def sort_third(l: list):
-    return [sorted([i for i in l if i % 3 == 0])[i % 3] if i % 3 == 0 else i for i in l]
+    return [
+        i if j % 3 != 0 else min(sorted([i for i in l if i % 3 == 0]), default=l[j%3])[j%3]
+        for j, i in enumerate(l)
+    ]
