@@ -1,4 +1,3 @@
-
 starting_height = float(input())
 height_after_first_bounce = float(input())
 num_bounces = int(input())
