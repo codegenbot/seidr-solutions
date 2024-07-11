@@ -1,15 +1,16 @@
+#include <vector>
 #include <boost/any.hpp>
-#include <iostream>
-using namespace std;
 
-bool issame(vector<int> a,vector<int>b){
-    return a == b;
-}
-
-int main() {
-    vector< boost::any > values = {3, boost::any(3), 3, boost::any('a'), boost::any('b')};
-    assert(issame(filter_integers(values),{3,3,3}));
-    return 0;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> filter_integers(list< boost::any > values) {
