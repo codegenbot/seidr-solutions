@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -22,10 +21,12 @@ int blackPegs(string code, string guess) {
             codeArray[i] = '0';
         }
     }
-    for (int i = 0; i < 4; i++) {
-        if (std::count(codeArray.begin(), codeArray.end(), guess[i]) > 0) {
+    vector<char> remainingCode(codeArray.begin(), codeArray.end());
+    for (char c : guess) {
+        size_t pos = count(remainingCode.begin(), remainingCode.end(), c);
+        if (pos != string::npos) {
             count++;
-            codeArray.erase(std::remove(codeArray.begin(), codeArray.end(), guess[i]) - codeArray.begin(), codeArray.end());
+            remainingCode.erase(pos, 1);
         }
     }
     return count;
@@ -36,4 +37,5 @@ int main() {
     cin >> code >> guess;
     cout << blackPegs(code, guess) << endl;
     cout << whitePegs(code, guess) << endl;
+    return 0;
 }
