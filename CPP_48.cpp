@@ -1,15 +1,11 @@
-```cpp
 #include <string>
 #include <iostream>
 
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::cin >> input;
-    
-    int ch;
-    while ((ch = cin.get()) != '\n' && ch != EOF) {}
-    
+    std::getline(std::cin, input); 
+
     if (is_palindrome(input)) {
         std::cout << "The string is a palindrome." << std::endl;
     } else {
