@@ -11,5 +11,3 @@ bool issame(vector<float> a, vector<float> b) {
     
     return true;
 }
-
-assert(issame(l, sorted_even_indices));
