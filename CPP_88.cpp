@@ -1,18 +1,20 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
+using namespace std;
 
-std::vector<int> sort_array(std::vector<int> array) {
-    int sum = array.front() + array.back();
-    if (sum % 2 == 0) {
-        std::sort(array.rbegin(), array.rend());
-    } else {
-        std::sort(array.begin(), array.end());
-    }
-    return array;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+vector<int> sort_array(vector<int> array) {
+    int sum = array.front() + array.back();
+    if (sum % 2 == 0) {
+        sort(array.rbegin(), array.rend());
+    } else {
+        sort(array.begin(), array.end());
+    }
+    return array;
 }
 
 int main() {
