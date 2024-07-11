@@ -13,11 +13,14 @@ def bowling_score(s):
             else:
                 score += 5
             i += 2
-        else:
-            if i+2 < len(rolls) and min(rolls[i:i+3]) >= 5:
-                score += sum(rolls[i:i+3])
-                i += 3
-            else:
-                score += rolls[i]
+        elif rolls[i] <= 1:
+            while i < len(rolls) and rolls[i] <= 1:
                 i += 1
+            if i >= len(rolls):
+                break
+            score += sum(rolls[i-1:i+1])
+            i += 1
+        else:
+            score += rolls[i] + (10 - rolls[i]) // 2 * 2
+            i += 1
     return score
