@@ -18,10 +18,12 @@ def product_of_signs(arr):
 def check():
     while True:
         arr = list(map(int, input("Enter numbers separated by space: ").split()))
-        if len(arr) > 0 and all(isinstance(x, int) for x in arr):
+        if len(arr) == 0:
+            print("Please enter some numbers.")
+        elif all(isinstance(x, int) for x in arr):
             break
         else:
-            print("Invalid input. Please enter non-empty sequence of integers.")
+            print("Invalid input. Please enter numbers only.")
     print(product_of_signs(arr))
 
 
