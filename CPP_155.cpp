@@ -1,9 +1,11 @@
-```cpp
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+#include <vector>
+#include <string>
+
+int issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()))
-        return true;
+        return 0;
     else
-        return false;
+        return -1;
 }
 
 std::vector<int> even_odd_count(int num) {
@@ -19,6 +21,6 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main(int argc, char* argv[]) {
-    assert(std::vector<int>(issame(even_odd_count(0), std::vector<int>{1, 0})) == std::vector<int>{1, 0});
+    assert(even_odd_count(0) == std::vector<int>{1, 0});
     return 0;
 }
