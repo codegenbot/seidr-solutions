@@ -16,14 +16,5 @@ def bowling_score(bowls):
             frame += 1
     return score
 
-
-def bonus(bowls, i):
-    if bowls[i] == "X":
-        return 10
-    elif bowls[i] == "/":
-        return 10 - int(bowls[i - 1])
-    else:
-        return int(bowls[i])
-
 bowls = input()
 print(bowling_score(bowls))
