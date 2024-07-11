@@ -19,8 +19,8 @@ std::string file_name_check(std::string filename) {
         }
     }
 
-    if (digit_count <= 3 && found_dot && valid_prefix)
-        return "Yes";
-    else
+    if (digit_count <= 3 && found_dot)
         return "No";
+    else
+        return "Yes";
 }
