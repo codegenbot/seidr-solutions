@@ -1,22 +1,17 @@
-```
-def decode_cyclic(encoded_str: bytes, key: int) -> str:
+def decode_cyclic(encoded_str: str, key: int) -> str:
+    encoded_bytes = bytes(encoded_str.encode(), 'utf-8')
     decoded_str = ""
-    n = len(encoded_str) // 2
+    n = len(encoded_bytes) // 8
     while n % 2 != 0:
         n //= 2
-    if len(encoded_str) % n != 0:
-        if encoded_str[:n].hex() == "1" * (n // 4) and key % 2 != 0:
-            encoded_str = bytes.fromhex("0" + encoded_str.hex())
-        elif encoded_str[:n].hex() != "1" * (n // 4) and key % 2 == 0:
-            encoded_str = bytes.fromhex("1" + encoded_str.hex())
-    for i in range(0, len(encoded_str), n):
-        bits = encoded_str[i : i + n]
-        if bits[0].hex() == "1":
-            decoded_str += bits[1:].hex()[::-1].ljust(n * 2, "0").decode()
+    for i in range(0, len(encoded_bytes), n):
+        bits = encoded_bytes[i:i+n]
+        if bits[0] ^ key:
+            decoded_str += ''.join(format(int.from_bytes(bits[1:], 'big'), '08b')[::-1].ljust(n*8,'0').encode())
         else:
-            decoded_str += bits[1:].hex()[::-1].ljust(n * 2, "0").decode()
-    return decoded_str.strip()
+            decoded_str += ''.join(format(int.from_bytes(bits[1:], 'big'), '08b')[::-1].ljust(n*8,'0').encode())
+    return decoded_str
 
-encoded_str = input("Enter the encoded string: ")
+input_string = input("Enter the encoded string: ")
 key = int(input("Enter the key: "))
-print(decode_cyclic(encoded_str.encode(), key))
+print(decode_cyclic(input_string, key))
