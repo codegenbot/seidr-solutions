@@ -7,7 +7,7 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& c
 }
 
 std::vector<std::string>(std::pmr::memory_resource()) sorted_list_sum(std::vector<std::string>(std::pmr::memory_resource()) lst) { 
-    std::vector<std::string>(std::pmr::memory_resource{}) result;
+    std::vector<std::string>(std::pmr::memory_resource()) result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
