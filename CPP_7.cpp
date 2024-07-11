@@ -1,5 +1,5 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
@@ -8,26 +8,32 @@ bool issame(vector<string> a, vector<string> b) {
     });
 }
 
-int main() {
-    vector<string> strings;
-    cout << "Enter number of strings: ";
-    int n; cin >> n;
-    for (int i = 0; i < n; i++) {
-        string str;
-        cout << "Enter string " << i+1 << ": ";
-        getline(cin, str);
-        strings.push_back(str);
+int main(){
+    int num_strings;
+    std::cout << "Enter the number of strings: ";
+    std::cin >> num_strings;
+
+    vector<string> strings(num_strings);
+    for (auto &s : strings) {
+        std::cout << "Enter string " << (strings.begin() - s.begin()) + 1 << ": ";
+        std::cin >> s;
     }
 
-    string substring;
-    cout << "Enter the substring: ";
-    getline(cin, substring);
+    int num_substrings;
+    std::cout << "Enter the number of substrings: ";
+    std::cin >> num_substrings;
 
-    vector<string> result = filter_by_substring(strings, substring);
-    if (issame(result, strings)) {
-        cout << "The resulting list contains all original strings." << endl;
+    vector<string> substrings(num_substrings);
+    for (auto &s : substrings) {
+        std::cout << "Enter substring " << (substrings.begin() - s.begin()) + 1 << ": ";
+        std::cin >> s;
+    }
+
+    vector<string> filtered_strings = filter_by_substring(strings, substrings[0]);
+    if(issame(filtered_strings, strings)) {
+        cout << "All strings contain the substring: " << substrings[0] << endl;
     } else {
-        cout << "The resulting list is different from the original list." << endl;
+        cout << "Not all strings contain the substring: " << substrings[0] << endl;
     }
 
     return 0;
