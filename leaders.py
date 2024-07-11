@@ -1,3 +1,3 @@
 input_str = input()
 input_list = list(map(int, input_str.split()))
-print(' '.join(map(str, [x for i,x in enumerate(reversed(input_list)) if all(x>=y for y in input_list[i+1:]))]))
+print(' '.join([str(i) for i in input_list if all(j <= i for j in input_list[input_list.index(i)+1:]))])
