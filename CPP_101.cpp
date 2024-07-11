@@ -19,11 +19,11 @@ vector<string> words_string(string s){
 }
 
 int main() {
-    string input;
-    getline(cin, input);
-    vector<string> words = words_string(input);
-    for(const auto& word : words) {
-        cout << word << endl;
+    string input_string;
+    getline(cin, input_string);
+    vector<string> result = words_string(input_string);
+    for (const auto& word : result) {
+        cout << word << " ";
     }
     return 0;
 }
