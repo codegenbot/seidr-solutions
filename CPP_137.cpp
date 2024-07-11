@@ -1,6 +1,7 @@
 #include <boost/any.hpp>
 #include <string>
 #include <cassert>
+
 using namespace std;
 
 boost::any compare_one(const boost::any &a, const boost::any &b) {
@@ -16,14 +17,12 @@ boost::any compare_one(const boost::any &a, const boost::any &b) {
         } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
             return b;
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        if (stof(boost::any_cast<std::string>(a)) > stof(boost::any_cast<std::string>(b))) {
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        if (stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b))) {
             return a;
-        } else if (stof(boost::any_cast<std::string>(a)) < stof(boost::any_cast<std::string>(b))) {
+        } else if (stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b))) {
             return b;
         }
     }
     return boost::any{};
 }
-
-assert(compare_one(std::string("1"), 1).empty());
