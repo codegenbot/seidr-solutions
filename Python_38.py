@@ -1,8 +1,14 @@
-````
+```
+import math
+
 def decode_cyclic(encoded_str: str, key: int) -> str:
     encoded_bytes = bytes(encoded_str.encode(), 'utf-8')
     decoded_str = ""
-    n = len(encoded_str) // 2
+    n = len(encoded_str)
+    for i in range(n, 1, -1):
+        if math.gcd(len(encoded_str), i) == i:
+            n = i
+            break
     while n % 2 != 0:
         n //= 2
     if len(encoded_str) % n != 0:
