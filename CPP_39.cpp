@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 bool isPrime(int num) {
@@ -11,24 +12,25 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
-    int fibNum = 0, prevFibNum = 1, count = 0;
-    while (true) {
-        int newFibNum = fibNum + prevFibNum;
-        if (isPrime(newFibNum)) {
-            fibNum = newFibNum;
-            count++;
-            if (count == n)
-                return fibNum;
+    int a = 0, b = 1;
+    for (int i = 0; ; i++) {
+        if (isPrime(b)) {
+            if (i == n - 1)
+                return b;
+            int temp = a;
+            a = b;
+            b = temp + b;
+        } else {
+            int temp = a;
+            a = b;
+            b = temp + b;
         }
-        prevFibNum = fibNum;
-        fibNum = newFibNum;
     }
 }
 
 int main() {
-    int n;
-    cout << "Enter the number: ";
-    cin >> n;
-    cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << endl;
+    for (int i = 1; i <= 5; i++) {
+        cout << prime_fib(i) << endl;
+    }
     return 0;
 }
