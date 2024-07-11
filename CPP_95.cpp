@@ -5,9 +5,7 @@ bool check_dict_case(map<string,string> dict){
     bool all_upper = true;
     
     for(auto const& pair : dict){
-        string key = pair.first;
-        
-        for(char c : key){
+        for(char c : pair.first){
             if(islower(c)){
                 all_upper = false;
             } else if(isupper(c)){
