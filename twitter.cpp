@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -17,7 +16,7 @@ int main() {
         size_t count = 0;
         string temp = tweet; // copy the original tweet to avoid changing it
         for (char c : temp) {
-            if (!std::isalnum(c) && !std::isspace(c)) { 
+            if (!std::isalnum(c) && !std::isspace(c)) { // check if character is not alphanumeric and not a space
                 ++count;
             }
         }
