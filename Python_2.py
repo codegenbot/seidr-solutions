@@ -1,6 +1,4 @@
-```
-def truncate_number(number: float = None, n: int) -> float:
-    if number is None:
-        raise ValueError("Number is required")
-    multiplier = 10**-n
-    return round(number * multiplier) / multiplier
+def calculate_average_age(ages):
+    if not ages:
+        raise ValueError("Ages list is required")
+    return sum(ages) / len(ages)
