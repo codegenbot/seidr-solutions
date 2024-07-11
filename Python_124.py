@@ -1,17 +1,14 @@
 ```
 def valid_date(date):
     date_parts = date.split("-")
-    
-    if len(date) != 9:
-        return False
-    
     if len(date_parts) != 3:
         return False
-    
     month = int(date_parts[0])
     day = int(date_parts[1])
     year = int(date_parts[2])
 
+    if len(date) != 9:
+        return False
     if month < 1 or month > 12:
         return False
     if (
