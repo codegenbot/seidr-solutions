@@ -1,40 +1,37 @@
+#include <iostream>
 #include <vector>
-#include <string>
 #include <cassert>
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
+vector<int> parse_music(string music_string);
+
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> parse_music(string music_string) {
-    vector<int> parsed_notes;
-    int count = 0;
-
-    for (char c : music_string) {
-        if (c == 'o') count++;
-        else if (c == ' ') {
-            if (count > 0) { 
-                parsed_notes.push_back(count);
-                count = 0;
-            }
-        }
-        else if (isdigit(c)) {
-            parsed_notes.push_back(c - '0');
+    vector<int> beats;
+    int i = 0;
+    while (i < music_string.size()) {
+        if (music_string[i] == 'o' && music_string[i + 1] == '|') {
+            beats.push_back(2);
+            i += 2;
+        } else if (music_string[i] == '.' && music_string[i + 1] == '|') {
+            beats.push_back(1);
+            i += 2;
+        } else {
+            beats.push_back(4);
+            i++;
         }
     }
+    return beats;
+}
 
-    if (count > 0) parsed_notes.push_back(count);
-
-    return parsed_notes;
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
 int main() {
     assert(issame(parse_music("o| .| o| .| o o| o o|"), {2, 1, 2, 1, 4, 2, 4, 2}));
+    cout << "Test Passed!";
     return 0;
 }
