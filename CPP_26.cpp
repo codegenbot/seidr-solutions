@@ -1,15 +1,15 @@
-#include <vector>
-#include <unordered_map>
 #include <cassert>
+#include <vector>
+#include <map>
 
 using namespace std;
 
-bool isSame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
-vector<int> removeDuplicates(vector<int> numbers) {
-    unordered_map<int, bool> seen;
+vector<int> remove_duplicates(vector<int> numbers) {
+    map<int, bool> seen;
     vector<int> result;
 
     for (int num : numbers) {
@@ -22,7 +22,6 @@ vector<int> removeDuplicates(vector<int> numbers) {
     return result;
 }
 
-int mainFunc() {
-    assert(isSame(removeDuplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
+int main() {
+    assert(isame(remove_duplicates({1, 2, 3, 2, 4, 3, 5}), {1, 2, 3, 4, 5}));
     return 0;
-}
