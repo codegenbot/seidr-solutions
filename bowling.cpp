@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
 int score(string s) {
@@ -6,7 +8,7 @@ int score(string s) {
     int frame = 1;
     int ball = 0;
     vector<int> points(22, 0);
-
+    
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'X') {
             points[ball] = 10;
@@ -32,7 +34,7 @@ int score(string s) {
             }
         }
     }
-
+    
     for (int i = 0; i < 10; i++) {
         if (s[i] == 'X') {
             total += 10 + points[2*i+2] + points[2*i+3];
@@ -42,7 +44,7 @@ int score(string s) {
             total += points[2*i] + points[2*i+1];
         }
     }
-
+    
     return total;
 }
 
