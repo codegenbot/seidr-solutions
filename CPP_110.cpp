@@ -1,18 +1,9 @@
-Here is the solution:
+#include <vector>
+#include <string>
 
-string exchange(vector<int> lst1, vector<int> lst2) {
-    int even_count = 0;
+std::string exchange(std::vector<int> lst1, std::vector<int> lst2) {
     for (int num : lst1) {
-        if (num % 2 == 0) {
-            even_count++;
-        }
+        if (num % 2 != 0) return "NO";
     }
-    for (int i = 0; i < lst2.size(); i++) {
-        if (lst2[i] % 2 == 0) {
-            lst1.push_back(lst2[i]);
-            lst2.erase(lst2.begin() + i);
-            i--;
-        }
-    }
-    return even_count == lst1.size() ? "YES" : "NO";
+    return "YES";
 }
