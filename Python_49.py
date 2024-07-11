@@ -1,4 +1,5 @@
-def modp(n: int, p: int):
+```
+def """Modular Power (modp)""":
     def extended_euclidean(a: int, b: int) -> (int, int):
         if a == 0:
             return b, 0, 1
