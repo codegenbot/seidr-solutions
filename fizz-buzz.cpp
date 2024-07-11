@@ -7,8 +7,7 @@ std::string fizzBuzz(int x) {
     else if (x % 3 == 0)
         return (x % 5 == 0) ? "FizzBuzz" : "Fizz";
     else
-        std::string str = (x % 5 == 0) ? "Buzz" : std::to_string(x);
-        return str;
+        return (x % 5 == 0) ? "Buzz" : std::to_string(x);
 }
 
 int main() {
