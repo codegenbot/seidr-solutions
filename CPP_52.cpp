@@ -10,19 +10,16 @@ bool below_threshold(vector<int> numbers, int threshold) {
 
 int main() {
     assert(not(below_threshold({1, 8, 4, 10}, 10)));
-    vector<int> numbers;
-    int threshold;
-    cout << "Enter number of elements: ";
-    cin >> numbers.size();
-    for (int i = 0; i < numbers.size(); i++) {
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> numbers[i];
+    cout << "Enter the number of elements in the array: ";
+    int n; cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i+1 << ": ";
+        cin >> arr[i];
     }
-    cout << "Enter the threshold: ";
-    cin >> threshold;
-    if (below_threshold(numbers, threshold)) {
-        cout << "All elements are below the threshold." << endl;
+    if(below_threshold(arr, 5)) {
+        cout << "All numbers are below the threshold.\n";
     } else {
-        cout << "Not all elements are below the threshold." << endl;
+        cout << "At least one number is not below the threshold.\n";
     }
 }
