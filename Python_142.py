@@ -1,8 +1,9 @@
+Here is the solution to the problem:
+
+```python
 def sum_squares(lst):
-    total_sum = 0
-    for num in lst:
-        if isinstance(num, int):
-            total_sum += num**2
-        else:
-            total_sum += num ** (len(str(num)))
-    return total_sum
+    total = 0
+    for i in range(len(lst)):
+        if i % 3 == 0:
+            total += lst[i] ** 2 if i % 4 != 0 else lst[i] ** 3
+    return total
