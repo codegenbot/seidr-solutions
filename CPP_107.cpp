@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const std::string &str){
+bool issame(const std::string& str){
     return std::equal(str.begin(), str.begin() + str.size() / 2, str.rbegin());
 }
 
