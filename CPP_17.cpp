@@ -1,14 +1,30 @@
-bool issame(vector<int> b){
-    return b[0] == b[1];
+bool issame(vector<int> b) {
+    for (int i = 0; i < b.size(); ++i) {
+        if (b[i] != b[0]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> parse_music(string music_string);
-vector<int> parse_music(string music_string){ 
+
+int main() {
+    string music = "o|.o|o";
+    vector<int> beats = parse_music(music);
+    for (int beat : beats) {
+        cout << beat << " ";
+    }
+    cout << endl;
+    return 0;
+}
+
+vector<int> parse_music(string music_string) {
     vector<int> beats;
     string note = "";
     for (char c : music_string) {
         if (c == 'o') {
-            if (note == "o|") {
+            if (issame(beats)) {
                 beats.push_back(2);
             } else if (note == ".|") {
                 beats.push_back(1);
