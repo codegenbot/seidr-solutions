@@ -1,5 +1,4 @@
-```
-def sum_of_two_numbers():
+def calculator():
     def add(x, y):
         return x + y
 
