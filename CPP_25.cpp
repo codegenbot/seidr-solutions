@@ -3,13 +3,11 @@
 
 std::vector<int> factorize(int num) {
     std::vector<int> factors;
-    factors.push_back(2);
-    factors.push_back(3);
-    factors.push_back(3);
+    // logic to find factors of 'num'
     return factors;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
