@@ -1,6 +1,12 @@
 #include <iostream>
 using namespace std;
 
+int gcd(int a, int b) {
+    while (b != 0)
+        a %= b;
+    return a;
+}
+
 int main() {
     string text = ""; // input value as a string for the text
     string target = ""; // input value as a string for the target
