@@ -1,3 +1,6 @@
+Here's the modified code:
+
+```
 import re
 
 def parse_nested_parens(paren_string: str) -> list:
