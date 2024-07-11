@@ -11,6 +11,8 @@ int sum_squares(std::vector<int> lst){
         sum += lst[i];
     }
     return sum;
-}
+} 
 
-int custom_main() {
+int main() {
+    // Main function code goes here if needed
+}
