@@ -1,11 +1,15 @@
-string encrypt(string s){
+Here is the solution:
+
+```cpp
+string encrypt(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        char c = s[i];
-        if(c >= 'a' && c <= 'm'){
-            result += (char)(c - 2);
-        } else if(c >= 'n' && c <= 'z'){
-            result += (char)(c + 20);
+    for (char c : s) {
+        if (c >= 'a' && c <= 'z') {
+            char newC = (c - 'a' + 2 * 26) % 26 + 'a';
+            result += newC;
+        } else if (c >= 'A' && c <= 'Z') {
+            char newC = (c - 'A' + 2 * 26) % 26 + 'A';
+            result += newC;
         } else {
             result += c;
         }
