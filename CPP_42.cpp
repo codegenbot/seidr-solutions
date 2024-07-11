@@ -1,7 +1,11 @@
-vector<int> incr_list(vector<int> l) {
+#include <vector>
+
+using namespace std;
+
+vector<int> incr_list(vector<int> l){
     vector<int> result;
     for(int i : l) {
-        result.push_back(i);
+        result.push_back(i++);
     }
     return result;
 }
