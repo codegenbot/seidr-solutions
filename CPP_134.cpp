@@ -1,14 +1,32 @@
-if(txt.empty()){
+#include <iostream>
+#include <string>
+#include <cctype>
+#include <cassert>
+
+bool check_if_last_char_is_a_letter(const std::string& txt) {
+    if (txt.empty()) {
         return false;
     }
     
     char lastChar = txt.back();
     
-    if(isalpha(lastChar)){
-        int spaceIndex = txt.find_last_of(" ");
-        if(spaceIndex == string::npos || spaceIndex < txt.size()-1)
-            return true;
+    if (isalpha(lastChar)) {
+        for (int i = txt.size() - 2; i >= 0; i--) {
+            if (txt[i] == ' ') {
+                return true;
+            } else if (isalpha(txt[i])) {
+                return false;
+            }
+        }
+        return true;
     }
     
     return false;
+}
+
+int main() {
+    assert(check_if_last_char_is_a_letter("apple pi e ") == false);
+    // Add more test cases as needed
+    
+    return 0;
 }
