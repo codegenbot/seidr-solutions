@@ -19,7 +19,7 @@ def encode(message):
                 if char.isupper():
                     result += chr(ord(char) + 32)
                 else:
-                    result += chr(ord(char) - 32)
+                    result += char.translate(non_vowel_map)
         else:
             result += char
-    return result.replace("c", vowel_map['a']).replace("g", vowel_map['e']).replace("k", vowel_map['i']).replace("q", vowel_map['o']).replace("u", vowel_map['u'])
+    return result
