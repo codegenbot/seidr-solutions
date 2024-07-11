@@ -31,6 +31,6 @@ vector<string> by_length(vector<int> arr){
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    // Your implementation of issame function
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
