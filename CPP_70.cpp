@@ -10,8 +10,6 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return true;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst);
-
 int main() {
     std::vector<int> input = {3, 1, 4, 1, 5, 9, 2, 6};
     std::vector<int> output = strange_sort_list(input);
