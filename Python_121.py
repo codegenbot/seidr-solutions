@@ -1,4 +1,4 @@
-```Python
+```
 def solution(lst):
     try:
         lst = list(map(int, lst))
