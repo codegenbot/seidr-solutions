@@ -1,7 +1,7 @@
-int result = 0;
-    for (float num : lst) {
-        int rounded = ceil(num);
-        result += rounded * rounded;
+int sum_squares(vector<float> lst){
+    int sum = 0;
+    for(float num : lst){
+        sum += ceil(num) * ceil(num);
     }
-    return result;
+    return sum;
 }
