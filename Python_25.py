@@ -1,7 +1,12 @@
-def factorize(n: int) -> List[int]:
-    if not isinstance(n, int):
-        return ["Error: Input must be an integer."]
+```
+from typing import List
+
+
+def main():
+    n = int(input("Enter a number: "))
     try:
+        if not isinstance(n, int):
+            raise ValueError("Input must be an integer.")
         factors = []
         i = 2
         while i * i <= n:
@@ -16,6 +21,9 @@ def factorize(n: int) -> List[int]:
                 i += 1
         if n > 1:
             factors.append(n)
-        return factors
+        print(f"The factors of {n} are: {factors}")
     except ValueError as e:
         print(f"Error: {e}")
+
+if __name__ == "__main__":
+    main()
