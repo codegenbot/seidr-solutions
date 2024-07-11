@@ -12,15 +12,16 @@ int main() {
     }
     std::cin >> target;
     
-    std::map<long long, int> numIndex;
+    std::map<long long, std::vector<int>> numIndex;
     for (int i = 0; i < n; ++i) {
         long long complement = target - nums[i];
         if (numIndex.find(complement) != numIndex.end()) {
-            std::cout << nums[i] << " " << complement << std::endl;
-            return 0;
+            for (int index : numIndex[complement]) {
+                std::cout << complement << " " << nums[i] << std::endl;
+            }
         }
-        numIndex[nums[i]] = i;
+        numIndex[nums[i]].push_back(i);
     }
-    std::cout << "No pair found." << std::endl;
+    
     return 0;
 }
