@@ -1,6 +1,7 @@
-if (x <= 0 || n <= 0) {
-        return false;
+if (n == 1) {
+        return x == 1;
     }
-    double power = log(x) / log(n);
-    return power == (int)power;
+    
+    double result = log(x) / log(n);
+    return (result - (int)result) == 0;
 }
