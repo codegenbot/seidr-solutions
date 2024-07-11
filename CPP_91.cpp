@@ -11,6 +11,7 @@ int is_bored(string S) {
         pos += 1;
     }
     return count;
+
 }
 
 int main() {
