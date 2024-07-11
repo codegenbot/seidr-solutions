@@ -1,3 +1,6 @@
+#include <iostream>
+#include <vector>
+#include <string>
 
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
@@ -11,7 +14,7 @@ int main() {
     for (const auto& word : filtered_words) {
         std::cout << word << std::endl;
     }
-
+    
     return 0;
 }
 
