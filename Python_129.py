@@ -13,6 +13,6 @@ def minPath(grid, k):
         res.append(min_val)
         for i in range(n):
             for j in range(n):
-                if (i == pos[0] or j == pos[1]):
-                    grid[i][j] -= 1
+                if (i, j) == pos:
+                    grid[i][j] += 1
     return res
