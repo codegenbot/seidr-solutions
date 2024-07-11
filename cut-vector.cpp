@@ -32,18 +32,13 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; i++) {
-        std::cout << nums[i];
-        if (i < cutIndex) {
-            std::cout << " ";
-        }
+        std::cout << nums[i] << " ";
     }
-    std::cout << std::endl << "2" << std::endl;
+    
+    std::cout << std::endl << "------------" << std::endl;
     
     for (int i = cutIndex + 1; i < n; i++) {
-        std::cout << nums[i];
-        if (i < n - 1) {
-            std::cout << " ";
-        }
+        std::cout << nums[i] << " ";
     }
     
     return 0;
