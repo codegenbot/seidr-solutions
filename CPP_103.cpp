@@ -1,11 +1,15 @@
 if (n > m) {
         return "-1";
     }
-    int sum = 0, count = 0;
+    int sum = 0;
     for (int i = n; i <= m; i++) {
         sum += i;
-        count++;
     }
-    int avg = round((double)sum / count);
-    string binary_avg = bitset<32>(avg).to_string();
-    return binary_avg.substr(binary_avg.find('1'));
+    int avg = round(sum / (m - n + 1.0));
+    string binaryStr = "";
+    while (avg > 0) {
+        binaryStr = to_string(avg % 2) + binaryStr;
+        avg /= 2;
+    }
+    return binaryStr;
+}
