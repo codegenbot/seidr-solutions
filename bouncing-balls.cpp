@@ -5,7 +5,7 @@ int main() {
     double startHeight, heightAfterFirstBounce;
     int numBounces;
 
-    std::cin >> startHeight >> heightAfterFirstBounce >> numBounces;
+    cin >> startHeight >> heightAfterFirstBounce >> numBounces;
 
     double bouncinessIndex = heightAfterFirstBounce / startHeight;
 
@@ -14,8 +14,8 @@ int main() {
         distanceTravelled += (startHeight * pow(2, 0.5)) * pow(0.5, i - bouncinessIndex);
     }
 
-    std::cout << std::fixed << std::setprecision(10); // adjust precision
-    std::cout << distanceTravelled << std::endl;
+    cout << fixed << setprecision(10); // adjust precision
+    cout << distanceTravelled << endl;
 
     return 0;
 }
