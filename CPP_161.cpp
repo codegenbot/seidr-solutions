@@ -1,15 +1,11 @@
-string solve(string s) {
+string solve(string s){
     string result = "";
-    bool hasLetter = false;
-
-    for (char c : s) {
-        if (isalpha(c)) { // Check if character is a letter
-            hasLetter = true;
-            result += toupper(islower(c)) ? tolower(c) : toupper(c);
+    for(int i=0; i<s.size(); i++){
+        if(isalpha(s[i])){
+            result += (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
         } else {
-            result += c;
+            result += s[i];
         }
     }
-
-    return hasLetter ? result : string(result.rbegin(), result.rend());
+    return result;
 }
