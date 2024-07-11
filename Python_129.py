@@ -13,6 +13,7 @@ def shortestPathLength(grid):
         for j in range(m):
             if grid[i][j] == 1:
                 queue.append(((i,j),0))
+                break
     while queue:
         (x,y), step = queue.pop(0)
         if x==0 and y==m-1:
