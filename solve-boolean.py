@@ -1,12 +1,17 @@
+```
 def solve_boolean(expression):
     def evaluate(expression):
         if expression == 'T':
             return True
         elif expression == 'F':
             return False
-        
+
         result = None
         operator = ''
+        stack = []
+        operator_stack = []
+        precedence = {'|': 1, '&': 2}
+        
         for char in expression:
             if char.upper() == 'T':
                 stack.append(True)
@@ -26,17 +31,5 @@ def solve_boolean(expression):
             apply_operator()
 
         return stack[0]
-
-    stack = []
-    operator_stack = []
-    precedence = {'|': 1, '&': 2}
-    def apply_operator():
-        operand2 = stack.pop()
-        operand1 = stack.pop()
-        if operator_stack[-1] == '|':
-            stack.append(operand1 or operand2)
-        elif operator_stack[-1] == '&':
-            stack.append(operand1 and operand2)
-        operator_stack.pop()
 
     return evaluate(expression)
