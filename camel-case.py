@@ -1,13 +1,5 @@
-```
 def camel_case(input_str):
-    result = ""
-    i = 0
-    while i < len(input_str):
-        if input_str[i] == '-':
-            result += input_str[i+1].upper()
-            i += 2
-        else:
-            if i > 0:
-                result += input_str[i].upper()
-            i += 1
+    result = input_str.split("-")[0].title()
+    for word in input_str.replace("-", " ").split()[1:]:
+        result += word[0].upper() + word[1:].lower()
     return result
