@@ -1,24 +1,14 @@
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <cassert>
 
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
-vector<string> bf(string planet1, string planet2);
-
-int main() {
-    assert(issame(bf("Jupiter", "Makemake"), {}));
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
     int start = -1, end = -1;
-    for (int i = 0; i < 8; ++i) {
+    for (int i = 0; i < planets.size(); ++i) {
         if (planets[i] == planet1) {
             start = i;
         }
@@ -28,7 +18,7 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     if (start == -1 || end == -1) {
-        return result;
+        return {};
     }
 
     if (start > end) {
@@ -40,4 +30,16 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
