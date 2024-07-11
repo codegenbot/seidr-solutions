@@ -1,4 +1,3 @@
-```
 def decode_shift():
     while True:
         cont = input("Do you want to decode a string? (yes/no): ")
@@ -41,11 +40,14 @@ def decode_shift():
 
         print("Decoded string: ", result)
 
+        cont = input("Do you want to decode another string? (yes/no): ")
         while True:
-            cont = input("Do you want to decode another string? (yes/no): ")
             if cont.lower() == "yes":
                 break
             elif cont.lower() == "no":
                 return
             else:
-                print("Invalid input. Please enter 'yes' or 'no'."
+                print("Invalid input. Please enter 'yes' or 'no'.")
+
+
+decode_shift()
