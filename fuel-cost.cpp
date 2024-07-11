@@ -1,13 +1,18 @@
+```cpp
 #include <vector>
 #include <cmath>
 
 int calculateFuelCost(std::vector<int>& vec) {
     int sum = 0;
     for (int num : vec) {
-        int result = (num / 3);
-        result = static_cast<int>(std::lround((double)result)); 
-        result -= 2; 
+        int result = static_cast<int>(std::lround((double)num / 3)) - 2; 
         sum += result;
     }
     return sum;
+}
+
+int main() {
+    std::vector<int> vec = {1, 2, 3};
+    int result = calculateFuelCost(vec);
+    return 0;
 }
