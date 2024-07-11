@@ -11,8 +11,4 @@ int main() {
         }
         return result;
     }
-
-    // Add test cases here if needed
-
-    return 0;
 }
