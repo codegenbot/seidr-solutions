@@ -1,7 +1,7 @@
 #include <memory_resource>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool same_vectors(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -25,6 +25,6 @@ std::pmr::vector<int> strange_sort_list(std::pmr::vector<int> lst) {
 }
 
 int main() {
-    alloc = polymorphic_allocator<int>();
-    assert(issame(strange_sort_list({1, 1, 1, 1, 1}), vector<int>({1, 1, 1, 1, 1})));
+    alloc = std::pmr::polymorphic_allocator<int>();
+    assert(same_vectors({1, 1, 1, 1, 1}, strange_sort_list({1, 1, 1, 1, 1})));
 }
