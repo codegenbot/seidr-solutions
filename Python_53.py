@@ -1,8 +1,8 @@
 def add(x: int, y: int) -> int:
     try:
-        if not isinstance(x, int) or not isinstance(y, int):
-            raise TypeError
-        result = x + y  
+        x = int(x)
+        y = int(y)
+        result = x + y
         print(f"Result: {result}")
-    except TypeError:
+    except ValueError:
         print("Invalid input. Please enter integers.")
