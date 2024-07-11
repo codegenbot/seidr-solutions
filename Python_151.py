@@ -1,8 +1,7 @@
 """
-Given a list of integers, find the difference between the sum of squares of all positive even numbers and the sum of squares of all positive odd numbers.
+Given a list of integers, find the difference between the sum of squares of all positive numbers and twice the product of all positive numbers.
 """
 
 def double_the_difference(lst):
-    even_sum = sum(i**2 for i in lst if isinstance(i, int) and i % 2 == 0)
-    odd_sum = sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
-    return (even_sum - odd_sum) * 2
+    pos_nums = [i for i in lst if isinstance(i, int) and i > 0]
+    return sum(i**2 for i in pos_nums) - 2 * math.prod(pos_nums)
