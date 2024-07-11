@@ -3,8 +3,8 @@ def decode_cyclic(s: str):
     result = []
     temp = ""
     for char in s:
-        if len(temp) % 3 == 0 and temp:
-            result.append(temp[1:] + temp[0])
+        if len(temp) == 2:
+            result.append(str((int(temp[0]) - int(temp[1])) % 9))
             temp = ""
         else:
             temp += char
