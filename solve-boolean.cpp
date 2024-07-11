@@ -1,4 +1,3 @@
-```cpp
 std::string solveBoolean(std::string expression) {
     std::stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
@@ -29,8 +28,3 @@ std::string solveBoolean(std::string expression) {
             result = (getBoolValue(c)) ? "True" : "False";
         }
     }
-}
-
-bool getBoolValue(char c) {
-    return c == 'T';
-}
