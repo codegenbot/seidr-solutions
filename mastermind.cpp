@@ -1,24 +1,26 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            count++;
-        }
-    }
-    return count;
-}
+int mastermind(string code, string guess) {
+    int black = 0;
+    int white = 0;
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    map<char, int> codeCount, guessCount;
-    for (int i = 0; i < 4; ++i) {
-        codeCount[code[i]]++;
-        guessCount[guess[i]]++;
-    }
-    for (auto it = codeCount.begin(); it != codeCount.end(); ++it) {
-        if (guessCount.find(it->first) != guessCount.end() && guessCount[it->first] == it->second) {
-            count++;
+    for (int i = 0; i < 4; i++) {
+        if (code[i] == guess[i]) {
+            black++;
         }
     }
-    return 4 - count;
+
+    for (char c : code) {
+        int count = 0;
+        for (char d : guess) {
+            if (c == d) {
+                count++;
+            }
+        }
+        if (count > 1) {
+            white += count - 1;
+        } else if (count == 1) {
+            white++;
+        }
+    }
+
+    return black + white;
 }
