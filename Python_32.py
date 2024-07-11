@@ -1,16 +1,9 @@
-```
 def find_zero():
     coeffs = list(map(int, input("Enter the coefficients: ").split()))
     if len(coeffs) % 2 != 1:
-        return 
+        return "Error: xs must start with 0"
 
     x = [0]
-    y = []
+    y = [sum([coeff * (i+1)**(len(coeffs)-1-j) for j, coeff in enumerate(coeffs)]) for i in range(len(coeffs))]
 
-    for i in range(len(coeffs)):
-        if i % 2 == 0:
-            y.append(0)
-        else:
-            y.append(coeffs[i] * x[-1])
-
-    return y
+    return list(zip(x, y))
