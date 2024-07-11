@@ -3,9 +3,9 @@
 
 using namespace std;
 
-int main() {
-    vector<int> digits(16);
+vector<int> digits(16);
 
+int main() {
     for (int i = 0; i < 16; ++i) {
         cin >> digits[i];
     }
