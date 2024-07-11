@@ -8,3 +8,4 @@ def f(n):
         else:
             result.append(sum(range(1, i + 1)))
     return result
+print(f(5))
