@@ -1,4 +1,4 @@
-Here's the corrected code:
+Here is the corrected code:
 
 ```
 from typing import List
