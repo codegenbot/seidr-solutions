@@ -21,9 +21,9 @@ int main() {
                 ++count;
             } 
             else if (!std::isspace(t) && !std::isalnum(t)) {
-                ++count; // increment count only for non-alphanumeric, non-space characters
+                ++count; 
             }
-       
+        }
         
         if(count > 140) {
             cout << "Too many characters" << endl;
