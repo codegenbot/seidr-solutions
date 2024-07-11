@@ -14,10 +14,10 @@ int main() {
         return 0;
     }
 
-    std::size_t pos = text.find(target, 0);
-    while (pos != std::string::npos) {
-        indices.push_back(static_cast<int>(pos));
-        pos = text.find(target, (pos == 0) ? 1 : pos + 1);
+    for (int i = 0; i <= static_cast<int>(text.size()) - static_cast<int>(target.size()); ++i) {
+        if (text.substr(i, target.size()) == target) {
+            indices.push_back(i);
+        }
     }
 
     for (int i = 0; i < indices.size(); ++i) {
