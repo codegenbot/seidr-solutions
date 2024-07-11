@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <climits>
 
 int main() {
     std::vector<int> nums;
