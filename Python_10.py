@@ -1,22 +1,17 @@
-```
-def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string
+def make_palindrome(s: str) -> str:
+    if s == s[::-1]:
+        return s
 
-    left = list(string)
-    right = "".join(list(reversed(string)))
+    new_s = list(s)
+    left, right = 0, len(new_s) - 1
+    while left < right:
+        if new_s[left] != new_s[right]:
+            for i in range(len(new_s)):
+                if new_s[i] == new_s[right]:
+                    new_s.insert(0, new_s[i])
+                    new_s.pop(right)
+                    break
+        left += 1
+        right -= 1
 
-    i, j = 0, len(right) - 1
-    while i < len(left):
-        if left[i] != right[j]:
-            if j > 0:
-                left.insert(0, right[j])
-                j -= 1
-            else:
-                left.insert(i+1, right[0])
-                break
-        else:
-            i += 1
-            j -= 1
-
-    return "".join(left) + right
+    return "".join(new_s)
