@@ -2,7 +2,7 @@
 def sum_squares(lst):
     total = 0
     for num in lst:
-        if isinstance(num, int):
+        if isinstance(num, int) and isinstance(lst, list):
             if num % 2 == 0 and num % 3 != 0:
                 total += num**2
             elif (num % 4 == 0 and num % 6 != 0) or (num % 4 == 0 and num % 6 == 0):
@@ -11,5 +11,5 @@ def sum_squares(lst):
                 else:
                     total += num**3
         else:
-            print("Invalid input: {}".format(num))
+            return "Invalid input. Please provide a list of integers."
     return total
