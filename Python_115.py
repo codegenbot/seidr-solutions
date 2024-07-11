@@ -11,6 +11,6 @@ def max_fill(grid, capacity):
             h2 = grid[r][c+1]
             if h1 < h2:
                 d = h2 - h1
-                total_water += d
+                total_water += d * (h1 + h2)
     buckets_needed = math.ceil(total_water / float(capacity))
     return buckets_needed
