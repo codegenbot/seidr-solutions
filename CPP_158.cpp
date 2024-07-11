@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -19,8 +20,17 @@ std::string find_max(std::vector<std::string> words) {
 }
 
 int main() {
-    // test the function
-    std::vector<std::string> words = {"apple", "banana", "cherry"};
-    std::cout << find_max(words) << std::endl;
+    std::vector<std::string> words;
+    // get input from user
+    int n;
+    std::cin >> n;
+    for(int i=0; i<n; i++) {
+        std::string s;
+        std::cin >> s;
+        words.push_back(s);
+    }
+
+    std::cout << "The maximum word is: " << find_max(words) << std::endl;
+
     return 0;
 }
