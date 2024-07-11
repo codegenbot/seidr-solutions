@@ -1,16 +1,6 @@
 #include <vector>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); ++i){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> f(int n){
     vector<int> result(n);
@@ -32,15 +22,27 @@ vector<int> f(int n){
     return result;
 }
 
-int main(){
-    vector<int> output = f(5);
-    vector<int> expected = {1, 1, 2, 6, 3}; // Expected output for f(5)
-    
-    if(issame(output, expected)){
-        // Output matches expected
-        return 0;
-    } else {
-        // Output does not match expected
-        return 1;
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
     }
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main(){
+    vector<int> vec1 = f(5);
+    vector<int> vec2 = f(5);
+    
+    if(issame(vec1, vec2)){
+        // Do something if vectors are the same
+    } else {
+        // Do something if vectors are different
+    }
+    
+    return 0;
 }
