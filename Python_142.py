@@ -1,4 +1,5 @@
-```
+Here is the modified code:
+
 def check(func):
     result = func()
     return result
