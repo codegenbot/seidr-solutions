@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <cassert>
-#include <ctime>
 
 int add(int x, int y) {
     return x + y;
