@@ -1,4 +1,4 @@
-vector<string> all_prefixes(string str) {
+vector<string> all_prefixes(string str){
     vector<string> result;
     string prefix = "";
     for (char c : str) {
