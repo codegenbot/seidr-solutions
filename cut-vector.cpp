@@ -9,22 +9,21 @@ int main() {
     for (int i = 0; i <= n; ++i)
         std::cin >> vec[i];
     
-    std::pair<std::vector<int>, std::vector<int>> res = cutVector(vec);
+    pair<vector<int>, vector<int>> res = cutVector(vec);
     
-    std::cout << "[";
+    cout << "[";
     for (int num : res.first) {
-        std::cout << num;
+        cout << num;
         if (&num != &res.first.back())
-            std::cout << " ";
+            cout << " ";
     }
-    std::cout << "] [";
+    cout << "] [";
 
     for (int num : res.second) {
-        std::cout << num;
+        cout << num;
         if (&num != &res.second.back())
-            std::cout << " ";
+            cout << " ";
     }
     
-    std::cout << "]" << std::endl;
-    
+    cout << "]" << endl;
 }
