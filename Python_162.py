@@ -1,6 +1,5 @@
 import hashlib
 
-
 def string_to_md5():
     while True:
         text = input("Enter the text (or 'quit' to exit): ")
