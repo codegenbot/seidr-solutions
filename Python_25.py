@@ -31,7 +31,7 @@ if __name__ == "__main__":
     try:
         num = int(input("Enter a number to factorize: "))
         if num > 1:
-            print(factorize())
+            print(' -> '.join(map(str, factorize())))
         else:
             print("Please enter a positive integer greater than 1.")
     except ValueError as e:
