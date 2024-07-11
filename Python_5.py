@@ -1,6 +1,6 @@
-from typing import list
+from typing import List
 
-def intersperse(numbers: list[int], delimiter: int) -> list[int]:
+def intersperse(numbers: List[int], delimiter: int) -> List[int]:
     result = [numbers[0]]
     for num in numbers[1:]:
         result.extend([num, delimiter])
