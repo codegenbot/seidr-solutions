@@ -1,4 +1,3 @@
-```
 def add(x, y):
     return x + y
 
@@ -11,12 +10,12 @@ while True:
 
 while True:
     try:
-        y = int(input("Enter second number: "))
+        y = float(input("Enter second number: "))
         if y < 0:
             print("Please enter a positive number.")
         break
     except ValueError:
-        print("Invalid input. Please enter a valid integer.")
+        print("Invalid input. Please enter a valid integer or a decimal number.")
 
 try:
     print(add(x, y))
