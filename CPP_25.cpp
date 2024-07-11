@@ -1,11 +1,4 @@
 #include <vector>
-using namespace std;
-
-vector<int> factorize(int n);
-
-int main() {
-    // Code using factorize function
-}
 
 vector<int> factorize(int n){
     vector<int> factors;
@@ -19,4 +12,14 @@ vector<int> factorize(int n){
         factors.push_back(n);
     }
     return factors;
+}
+
+int main(){
+    int num;
+    cin >> num;
+    vector<int> result = factorize(num);
+    for(int i=0; i<result.size(); i++){
+        cout << result[i] << " ";
+    }
+    return 0;
 }
