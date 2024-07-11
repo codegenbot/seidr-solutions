@@ -4,7 +4,7 @@ v = [int(input()) for _ in range(n)]
 total_sum = sum(v)
 left_sum = 0
 min_diff = total_sum
-cut_index = 0
+cut_index = -1
 
 for i in range(n):
     left_sum += v[i]
@@ -14,8 +14,5 @@ for i in range(n):
         min_diff = diff
         cut_index = i
 
-subvector1 = v[: cut_index + 1]
-subvector2 = v[cut_index + 1 :]
-
-print(*subvector1)
-print(*subvector2)
+print(*v[: cut_index + 1])
+print(*v[cut_index + 1 :])
