@@ -1,4 +1,7 @@
-```cpp
+#include <vector>
+#include <iostream>
+#include <string>
+
 std::string substitutionCipher(const std::string& cipherMap, const std::string& input) {
     std::string output;
     for (char c : input) {
@@ -8,9 +11,18 @@ std::string substitutionCipher(const std::string& cipherMap, const std::string& 
             newChar = cipherMap[index];
         } else if (c >= 'A' && c <= 'Z') {
             int index = tolower(c) - 'a';
-            newChar = toupper(cipherMap[index] - ('A' - 'a'));
+            newChar = cipherMap[index] + ('A' - 'a');
+        } else { 
+            newChar = c;
         }
         output += (newChar == '\0') ? c : newChar;
     }
     return output;
+}
+
+int main() {
+    std::string cipherMap, input;
+    std::cin >> cipherMap >> input;
+    std::cout << substitutionCipher(cipherMap, input) << std::endl;
+    return 0;
 }
