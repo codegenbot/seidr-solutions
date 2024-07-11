@@ -1,8 +1,10 @@
+Here is the completed code:
+
 float max_element(vector<float> l){
-    float maxi = l[0];
+    float max = l[0];
     for(int i=1; i<l.size(); i++){
-        if(l[i] > maxi)
-            maxi = l[i];
+        if(l[i] > max)
+            max = l[i];
     }
-    return maxi;
+    return max;
 }
