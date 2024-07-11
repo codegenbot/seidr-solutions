@@ -18,7 +18,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if not stack:
                 result.append(temp + " ")
                 temp = ""
-        else:
-            temp += char
 
     return [x.strip() for x in result]
