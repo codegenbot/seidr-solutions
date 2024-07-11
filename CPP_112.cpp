@@ -1,9 +1,11 @@
-string result = "";
-    for (char ch : s) {
-        if (c.find(ch) == string::npos) {
-            result += ch;
+vector<string> reverse_delete(string s, string c){
+        string result;
+        for(char ch : s){
+            if(c.find(ch) == string::npos){
+                result += ch;
+            }
         }
+        string rev = result;
+        reverse(rev.begin(), rev.end());
+        return {result, result == rev ? "True" : "False"};
     }
-    string palindromeCheck = (result == string(result.rbegin(), result.rend())) ? "True" : "False";
-    return {result, palindromeCheck};
-}
