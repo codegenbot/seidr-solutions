@@ -1,8 +1,8 @@
-```
+```python
 def double_the_difference(numbers):
     even_sum = sum(i for i in numbers if i % 2 == 0)
     square_sum = sum(i ** 2 for i in numbers)
-    return abs(square_sum - (2 * even_sum))  
+    return abs(square_sum - (2 * even_sum))
 
 def check():
     numbers = input("Enter a list of integers separated by space: ").split()
