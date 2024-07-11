@@ -1,20 +1,10 @@
 #include <string>
 
+bool issame(vector<string> a,vector<string> b);
+
 vector<string> by_length(vector<int> arr);
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<string> by_length(vector<int> arr) {
+vector<string> by_length(vector<int> arr){
     vector<string> result;
     vector<int> filtered_arr;
     map<int, string> num_to_name = {
@@ -45,5 +35,3 @@ vector<string> by_length(vector<int> arr) {
 
     return result;
 }
-
-assert(issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
