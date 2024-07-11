@@ -1,7 +1,8 @@
+```
 def digitSum(s):
     total = 0
     for char in s:
-        if char.isdigit() or ('a' <= char <= 'z' or 'A' <= char <= 'Z'):
+        if char.isalnum():
             if char.isdigit():
                 total += int(char)
             elif 'a' <= char <= 'z':

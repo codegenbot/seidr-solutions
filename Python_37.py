@@ -3,8 +3,15 @@ def sort_even(l):
 
 
 def task_description():
-    num_list = list(map(int, input("Enter numbers separated by space: ").split()))
-    print(sort_even(num_list))
+    while True:
+        try:
+            num_list = list(
+                map(int, input("Enter numbers separated by space: ").split())
+            )
+            print(sort_even(num_list))
+            break
+        except ValueError:
+            print("Invalid input. Please enter only numbers separated by space.")
 
 
 if __name__ == "__main__":
