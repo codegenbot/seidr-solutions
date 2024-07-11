@@ -5,6 +5,6 @@ def decipher(cipher1, cipher2, message):
         if char != ' ':  
             if char in mapping:
                 result += mapping[char]
-            else:  
+            else:  # if the character is not mapped, add it as it is
                 result += char
     return result
