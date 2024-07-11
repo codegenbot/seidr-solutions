@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
     return a == b;
@@ -15,4 +15,3 @@ int maximum(std::vector<int> a, int defaultValue) {
 }
 
 assert(issame(std::vector<int>({1, 2, 3, -23, 243, -400, 0}), std::vector<int>()));
-```
