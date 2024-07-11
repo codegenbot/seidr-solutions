@@ -4,7 +4,7 @@ def below_zero():
     while True:
         try:
             operation = int(input("Enter a number (or 'stop' to finish): "))
-            if str(operation) == 'stop':
+            if operation == 'stop':
                 break
             operations.append(operation)
         except ValueError:
