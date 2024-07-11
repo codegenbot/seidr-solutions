@@ -1,5 +1,5 @@
 def double_the_difference(lst):
-    if len(lst.split(",")) > 1:
+    if "," in lst:
         try:
             lst = [int(i.strip()) for i in lst.split(",")]
             lst.sort()
