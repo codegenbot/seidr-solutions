@@ -6,14 +6,14 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
-    for(int i = 0; i < n; ++i) {
-        pile.push_back(i*2 + 8);
+    std::vector<int> pile(n);
+    for (int i = 0; i < n; ++i) {
+        pile[i] = 8 + 2 * i;
     }
     return pile;
 }
 
 int main() {
-    assert(issame(make_a_pile(8) , std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
     return 0;
 }
