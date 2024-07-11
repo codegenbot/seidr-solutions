@@ -1,16 +1,15 @@
+```
 def sort_even(l):
     evens = sorted([x for x in l if x % 2 == 0])
-    odds_pos = sorted([x for x in l if 1 <= x < 0 or x > 0 and x % 2 != 0])
-    neg_odds = sorted([-x for x in l if x < 0 and abs(x) % 2 != 0], key=lambda x: -abs(x))
+    odds_pos = sorted([x for x in l if x > 0 and x % 2 != 0])
+    neg_odds = sorted([-x for x in l if x < 0 and x % 2 != 0], key=lambda x: -abs(x))
     return evens + odds_pos + neg_odds
 
-numbers = []
 while True:
-    try:
-        user_input = input("Enter numbers separated by space: ")
-        numbers = [int(i) for i in user_input.split()]
+    user_input = input("Enter numbers separated by space: ")
+    numbers = [int(i) for i in user_input.split()]
+    if numbers:
         break
-    except ValueError:
-        print("Invalid input. Please enter numeric values separated by spaces.")
+    print("Invalid input. Please enter numeric values separated by spaces.")
 
 print(sort_even(numbers))
