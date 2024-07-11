@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 int totalFuelCost(std::vector<int> fuelCosts) {
     int sum = 0;
@@ -12,20 +12,19 @@ int totalFuelCost(std::vector<int> fuelCosts) {
 
 int main() {
     std::vector<int> costs;
-    int n;
+    int num;
     
-    std::cout << "Enter the number of fuel costs: ";
-    std::cin >> n;
-    
-    costs.resize(n);
-    
-    for(int i = 0; i < n; ++i) {
-        std::cout << "Enter cost #" << (i+1) << ": ";
-        std::cin >> costs[i];
+    while (true) {
+        std::cout << "Enter a positive integer (-1 to quit): ";
+        std::cin >> num;
+        
+        if (num < 0) break;
+        
+        costs.push_back(num);
     }
     
     int result = totalFuelCost(costs);
     std::cout << "Total fuel cost: " << result << std::endl;
-    
+
     return 0;
 }
