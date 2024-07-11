@@ -1,5 +1,5 @@
 starting_height = float(input())
-bounciness_index = 0.6
+bounciness_index = starting_height / float(input())
 num_bounces = int(float(input()))
 total_distance = starting_height
 
