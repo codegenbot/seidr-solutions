@@ -1,4 +1,3 @@
-```
 while True:
     user_input = input("Enter a list of numbers separated by space, or 'q' to quit: ")
     if user_input.lower() in ["q", "quit", "exit"]:
@@ -23,7 +22,7 @@ while True:
                 exit()
             else:
                 print("Invalid input. Please enter 'mean', 'median' or 'q' to quit.")
-        elif lst.lower() in ["q", "quit", "exit"]:
+        elif user_input.lower() in ["q", "quit", "exit"]:
             print("Goodbye!")
             exit()
         else:
