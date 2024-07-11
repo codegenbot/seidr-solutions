@@ -27,7 +27,7 @@ int main() {
         prefixSum += nums[i];
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
-        if (diff <= minDiff) { // Change to <= for inclusivity
+        if (diff < minDiff) { // Change to < for exclusivity
             minDiff = diff;
             cutIndex = i;
         }
@@ -37,7 +37,7 @@ int main() {
         cout << nums[i] << " ";
     }
     cout << endl;
-    for (int i = cutIndex + 1; i < n; i++) {
+    for (int i = cutIndex; i < n; i++) {
         cout << nums[i] << " ";
     }
 
