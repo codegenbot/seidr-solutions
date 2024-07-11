@@ -1,16 +1,12 @@
-```
+```Python
 from typing import List
 
 def below_zero() -> bool:
-    while True:
-        temperatures = list(map(int, input("Enter temperatures separated by spaces: ").split()))
-        balance = 0
-        for temp in temperatures:
-            balance += temp
-            if balance >= 0:
-                print("Invalid inputs. Try again.")
-                break
-        else:
-            return False
+    temperatures = list(map(int, input("Enter temperatures separated by spaces: ").split()))
+    max_temp = max(temperatures)
+    min_temp = min(temperatures)
+    average_temp = (max_temp - min_temp) / (len(temperatures) - 1)
+    
+    return average_temp <= 0
 
 print(below_zero())
