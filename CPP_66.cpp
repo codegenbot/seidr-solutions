@@ -19,26 +19,23 @@ int main() {
     std::cin >> std::ws; 
     std::getline(std::cin, input);
     size_t pos = 0;
-    while (pos < input.size()) {
-        if (!std::isspace(input[pos])) {
-            break;
-        }
+    while (pos < input.size() && ::isspace(input[pos])) {
         ++pos;
     }
-    input.erase(0, pos);
-    if (!input.empty()) { 
+    std::string newInput = input.substr(pos);
+    if (!newInput.empty()) { 
         int digitPos = -1;
-        for (int i = 0; i < input.size(); ++i) {
-            if (!std::isdigit(input[i])) {
+        for (int i = 0; i < newInput.size(); ++i) {
+            if (!std::isdigit(newInput[i])) {
                 digitPos = i;
                 break;
             }
         }
         if (digitPos == -1) {
-            int result = digitSum(input);
+            int result = digitSum(newInput);
             std::cout << "The sum of digits is: " << result << std::endl;
         } else {
-            int result = digitSum(input.substr(0, digitPos));
+            int result = digitSum(newInput.substr(0, digitPos));
             std::cout << "The sum of digits is: " << result << std::endl;
         }
     } else {
