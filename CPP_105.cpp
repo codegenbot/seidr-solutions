@@ -1,13 +1,14 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 
 bool issame(int a, int b) {
     return true;
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<int> numbers;
+std::vector<std::string> by_length(std::vector<int> arr) {
+    std::vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(num);
@@ -18,7 +19,7 @@ vector<string> by_length(vector<int> arr) {
     
     reverse(numbers.begin(), numbers.end());
     
-    vector<string> result;
+    std::vector<std::string> result;
     for (int num : numbers) {
         switch (num) {
             case 1:
@@ -61,7 +62,7 @@ int main() {
 
     for(int i = 0; i < n; ++i) {
         std::cout << "Enter numbers (1-9): ";
-        vector<int> arr;
+        std::vector<int> arr;
         while(true) {
             int a;
             std::cin >> a;
@@ -71,7 +72,6 @@ int main() {
         }
         
         arr.push_back(a);
-        vector<string> result = by_length(arr);
     }
     
     return 0; 
