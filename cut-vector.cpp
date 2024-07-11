@@ -1,37 +1,36 @@
 int main() {
+    vector<int> numbers;
     int n;
-    vector<int> nums;
-
     cin >> n;
-    nums.resize(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+
+    for (int i = 0; i < n; i++) {
+        int num;
+        cin >> num;
+        numbers.push_back(num);
     }
 
-    int totalSum = accumulate(nums.begin(), nums.end(), 0);
-    int leftSum = 0, rightSum = totalSum;
     int minDiff = INT_MAX;
-    int cutIdx = 0;
+    int cutIndex = 0;
 
-    for (int i = 0; i < n; ++i) {
-        leftSum += nums[i];
-        rightSum -= nums[i];
-
-        int diff = abs(leftSum - rightSum);
+    for (int i = 1; i < n; i++) {
+        int diff = abs(accumulate(numbers.begin(), numbers.begin() + i, 0) - accumulate(numbers.begin() + i, numbers.end(), 0));
         if (diff < minDiff) {
             minDiff = diff;
-            cutIdx = i;
+            cutIndex = i;
+        }
+        if (diff == 0) {
+            break;
         }
     }
 
-    vector<int> subVec1(nums.begin(), nums.begin() + cutIdx + 1);
-    vector<int> subVec2(nums.begin() + cutIdx + 1, nums.end());
-
-    for (int num : subVec1) {
-        cout << num << endl;
+    for (int i = 0; i < cutIndex; i++) {
+        cout << numbers[i] << endl;
     }
-    for (int num : subVec2) {
-        cout << num << endl;
+
+    cout << endl;
+
+    for (int i = cutIndex; i < n; i++) {
+        cout << numbers[i] << endl;
     }
 
     return 0;
