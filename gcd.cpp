@@ -7,8 +7,12 @@ int gcd(int a, int b) {
     a = std::abs(a);
     b = std::abs(b);
     
-    if (b == 0) {
-        return a;
+    if (a == 0 || b == 0) {
+        return a + b;
+    }
+    
+    if (a % b == 0) {
+        return b;
     }
 
     return gcd(b, a % b);
@@ -21,7 +25,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
-        pos += 1; // Increment position to handle overlapping substrings
+        pos += targetLen > 1 ? 1 : targetLen;
     }
 
     return indices;
