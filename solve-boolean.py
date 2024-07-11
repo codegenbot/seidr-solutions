@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     def evaluate_expression(expression):
         if expression == "T":
@@ -6,9 +7,9 @@ def solve_boolean(expression):
             return "F"
         elif "&" in expression:
             left, right = expression.split("&")
-            return ("T" if "T" in evaluate_expression(left) else "F") + (("T" if "T" in evaluate_expression(right) else "F") if eval("True and " + str(evaluate_expression(right)) ) else "")
+            return "(" + str(evaluate_expression(left)) + " & " + str(evaluate_expression(right)) + ")"
         elif "|" in expression:
             left, right = expression.split("|")
-            return ("T" if "T" in evaluate_expression(left) else "F") + (("T" if "T" in evaluate_expression(right) else "F") if eval("True or " + str(evaluate_expression(right)) ) else "")
+            return "(" + str(evaluate_expression(left)) + " | " + str(evaluate_expression(right)) + ")"
 
     return evaluate_expression(expression)
