@@ -1,10 +1,12 @@
-```cpp
 #include <iostream>
 #include <cmath>
 
 int main() {
     double startHeight, heightAfterFirstBounce;
     std::cin >> startHeight >> heightAfterFirstBounce;
-    double bounciness = pow(heightAfterFirstBounce / startHeight, 0.5);
-    std::cout << std::fixed << std::setprecision(15) << bounciness;
+    double bouncinessIndex = pow(heightAfterFirstBounce / startHeight, 0.5);
+    double distance = startHeight * (1 + bouncinessIndex) + 
+                      (startHeight - startHeight * bouncinessIndex) *
+                      (pow(bouncinessIndex, 2 * (5 - 1) + 1));
+    std::cout << distance;
 }
