@@ -16,5 +16,6 @@ string get_closest_vowel(string word){
 int main() {
     string word;
     cin >> word;
-    cout << get_closest_vowel(word);
+    cout << get_closest_vowel(word) << endl;
+    return 0;
 }
