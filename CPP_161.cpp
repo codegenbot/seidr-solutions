@@ -1,14 +1,12 @@
 string solve(string s){
-    int n = s.size();
-    int count = 0;
-    for(int i=0; i<n; i++){
-        if(isalpha(s[i])){
-            s[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
-        } else {
-            count++;
+    bool hasLetters = false;
+    for(char &c : s){
+        if(isalpha(c)){
+            hasLetters = true;
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if(count == n){
+    if(!hasLetters){
         reverse(s.begin(), s.end());
     }
     return s;
