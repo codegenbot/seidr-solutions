@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <sstream>
 
 bool will_it_fly(std::vector<int> q, int w) {
     std::string str = "";
