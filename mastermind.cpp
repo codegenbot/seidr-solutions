@@ -1,16 +1,7 @@
-using namespace std;
+#include <vector>
+#include <string>
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; i++) {
-        if (guess[i] == code[i]) {
-            count++;
-        }
-    }
-    return count;
-}
-
-int whitePegs(std::string code, std::string guess) {
+int whitePegs(string code, string guess) {
     int count = 0;
     vector<char> codeMap(6), guessMap(6);
     for (int i = 0; i < 4; i++) {
@@ -26,4 +17,14 @@ int whitePegs(std::string code, std::string guess) {
         }
     }
     return count - blackPegs(code, guess);
+}
+
+int blackPegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; i++) {
+        if (guess[i] == code[i]) {
+            count++;
+        }
+    }
+    return count;
 }
