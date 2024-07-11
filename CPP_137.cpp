@@ -5,7 +5,7 @@
 
 using namespace std;
 
-boost::any compare_values(const boost::any& a, const boost::any& b) {
+boost::any compare(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
             return a;
@@ -25,5 +25,5 @@ boost::any compare_values(const boost::any& a, const boost::any& b) {
             return b;
         }
     }
-    assert(false); // Add appropriate error handling or return statement based on requirements
+    assert(false); // This line should not be reached
 }
