@@ -1,3 +1,8 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
 int gcd(int a, int b) {
     if (b == 0) {
         return a;
@@ -24,4 +29,13 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
     }
     
     return indices;
+}
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+   
+    cout << gcd(a, b) << endl;
+    
+    return 0;
 }
