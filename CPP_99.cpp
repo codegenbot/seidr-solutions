@@ -1,5 +1,8 @@
 double num = stod(value);
-    int lower = floor(num);
-    int upper = ceil(num);
-    return (num - lower < upper - num) ? lower : upper;
+    int rounded = round(num);
+    if (num - rounded == 0.5) {
+        return (num > 0) ? ceil(num) : floor(num);
+    } else {
+        return round(num);
+    }
 }
