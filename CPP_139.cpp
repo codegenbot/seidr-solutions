@@ -3,10 +3,11 @@ long long special_factorial(int n) {
         return 1;
     long long result = 1;
     for(int i = n; i > 0; --i) {
-        result *= i;
+        long long multiplier = 1;
         for(int j = i - 1; j > 0; --j) {
-            result *= j;
+            multiplier *= j;
         }
+        result *= (long long)i * multiplier;
     }
     return result;
 }
