@@ -4,4 +4,5 @@ def double_the_difference(lst):
 
 
 lst = [1,2,3]
+
 double_the_difference(lst)
