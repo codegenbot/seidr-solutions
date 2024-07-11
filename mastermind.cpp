@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <iostream>
 
 int whitePegs(std::string code, std::string guess) {
     int count = 0;
@@ -17,7 +18,13 @@ int whitePegs(std::string code, std::string guess) {
         int asciiVal = static_cast<int>(c);
         guessMap[asciiVal]++;
     }
-    return count;
+    int white = 0;
+    for (int i = 0; i < 6; i++) {
+        if (guessMap[i] && codeMap[i]) {
+            white--;
+        }
+    }
+    return count + white;
 }
 
 int blackPegs(std::string code, std::string guess) {
@@ -31,9 +38,7 @@ int blackPegs(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "ABCN";
-    std::string guess1 = "ABCD";
-    std::cout << whitePegs(code, guess1) << " White Pegs and " << blackPegs(code, guess1) << " Black Pegs.\n";
-
+    std::cout << "White pegs: " << whitePegs("abc1", "1231") << std::endl;
+    std::cout << "Black pegs: " << blackPegs("abc1", "1231") << std::endl;
     return 0;
 }
