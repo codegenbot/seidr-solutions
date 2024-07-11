@@ -29,3 +29,13 @@ std::map<char, int> histogram(std::string test){
 
     return result;
 }
+
+int main() {
+    // Test your functions here
+    std::map<char, int> test1 = histogram("hello world");
+    std::map<char, int> test2 = histogram("cpp contest");
+    
+    assert(issame(test1, test2) == false);
+
+    return 0;
+}
