@@ -1,8 +1,8 @@
 n = int(input())
 a = []
-
 for _ in range(n):
-    a.append(int(input()))
+    num = int(input())
+    a.append(num)
 
 total_sum = sum(a)
 half_sum = total_sum // 2
