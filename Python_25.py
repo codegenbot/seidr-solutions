@@ -18,6 +18,6 @@ def factorize(n: int) -> List[int]:
                 factors.extend([i] * count)
         if n > 1:
             factors.append(n)
-    except TypeError:
-        return "Input must be an integer"
+    except ZeroDivisionError:
+        return "Input must be a positive integer"
     return [int(factor) for factor in set(map(str, factors))]
