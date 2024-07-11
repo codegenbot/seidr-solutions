@@ -1,6 +1,7 @@
 #include <cassert>
 #include <vector>
 #include <algorithm>
+#include <string>
 
 std::vector<int> even_odd_palindrome(int n) {
     std::vector<int> counts(2);
