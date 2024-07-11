@@ -1,3 +1,4 @@
+```
 def decode_cyclic():
     s = input("Enter the cyclic string: ")
     result = ""
@@ -8,7 +9,12 @@ def decode_cyclic():
                 group = s[i:i+3]
             else:
                 group = s[i:] + s[:i+1]
-            result += group[-1] + group[1:-1][::-1] + group[0]
+            if len(group) >= 3:
+                result += group[1] + group[0] + group[2]
+            elif len(group) == 2:
+                result += group[1] + group[0] + "z"
+            else:
+                result += group
             i = (i+3)%len(s)
             if i == 0:
                 break
