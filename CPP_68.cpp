@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -22,8 +21,8 @@ std::vector<int> pluck(std::vector<int> arr) {
 }
 
 int main() {
-    vector<int> input;
+    std::vector<int> input;
     // read input from user and store in 'input' variable
-    vector<int> result = pluck(input);
+    std::vector<int> result = pluck(input);
     return 0;
 }
