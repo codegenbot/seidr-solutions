@@ -5,15 +5,19 @@ def minPath(grid, k):
     def dfs(i, j, path):
         if len(path) == k:
             return [path]
-        paths = []
         for x, y in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
             if 0 <= x < n and 0 <= y < n and grid[x][y] not in path:
-                paths.extend(dfs(x, y, path + [grid[x][y]]))
-        return paths
+                paths = dfs(x, y, path + [grid[x][y]])
+                for p in paths:
+                    res.append(p)
+        return None
 
     for i in range(n):
         for j in range(n):
-            res.extend(dfs(i, j, [grid[i][j]]))
+            dfs(i, j, [grid[i][j]])
 
-    shortest_path = min(res, key=lambda p: (len(p), tuple(sorted(p))))
-    return "".join(shortest_path)
+    min_path = min((p for p in res if len(p) == k and p is not None), default=None)
+    if min_path is not None:
+        return min_path[1:]
+    else:
+        return []
