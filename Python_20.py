@@ -1,12 +1,8 @@
 ```
-def find_closest_elements(numbers: list) -> tuple:
-    min_diff = float('inf')
-    closest_pair = ()
-    
-    for i in range(len(numbers)-1):
-        diff = abs(numbers[i] - numbers[i+1])
-        if diff < min_diff:
-            min_diff = diff
-            closest_pair = (numbers[i], numbers[i+1])
-            
-    return closest_pair
+def find_closest_elements(nums: list)-> tuple:
+    nums = sorted(set(nums))
+    if len(nums) == 1:
+        return (nums[0], nums[0])
+    return (nums[0], nums[-1])
+
+print(find_closest_elements([1.1, 2.2, 3.1, 4.1, 5.1]))
