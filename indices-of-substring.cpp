@@ -5,13 +5,9 @@
 int main() {
     std::string text, target;
 
-    // Read text by skipping leading whitespace
-    std::cin >> std::ws;
-    std::getline(std::cin, text);
-
-    // Read target by skipping leading whitespace
-    std::cin >> std::ws;
-    std::getline(std::cin, target);
+    if (!std::getline(std::cin, text) || !std::getline(std::cin, target)) {
+        return 1;
+    }
 
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
