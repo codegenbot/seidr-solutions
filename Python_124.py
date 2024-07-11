@@ -1,3 +1,4 @@
+```
 def valid_date(date):
     parts = date.split('-')
     if len(parts) != 3:
@@ -10,10 +11,3 @@ def valid_date(date):
        (month == 2 and day > 29):
         return False
     return True
-
-print("Enter date (yyyy-mm-dd):")
-date = input()
-if valid_date(date):
-    print(f"The date {date} is valid.")
-else:
-    print(f"The date {date} is not valid.")
