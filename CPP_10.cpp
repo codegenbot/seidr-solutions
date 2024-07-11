@@ -1,6 +1,5 @@
-#include<stdio.h>
+#include <algorithm>
 #include<string>
-#include<algorithm> // include this header file
 using namespace std;
 
 bool is_palindrome(string str){
