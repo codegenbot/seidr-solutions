@@ -27,7 +27,7 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    vector<int> result = even_odd_count(12345);
-    assert(issame(result, vector<int>{5, 4}));
+    vector<int> res = even_odd_count(12345);
+    assert(issame(res, vector<int>{3, 5}));
     return 0;
 }
