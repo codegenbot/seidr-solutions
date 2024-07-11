@@ -1,16 +1,10 @@
 ```cpp
-#include <algorithm>
-#include <vector>
-#include <string>
-
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& c) {
+    return a == c;
 }
 
-std::pmr::pooled_memory_resource pmr;
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) { 
-    std::pmr::memory_resource* res = &pmr;
-    std::vector<std::string> result(res);
+    std::vector<std::string> result;
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
