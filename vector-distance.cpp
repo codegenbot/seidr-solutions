@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cstring>
 using namespace std;
 
 int main() {
@@ -12,13 +11,10 @@ int main() {
         cin >> vec1[i];
     }
 
-    char comma;
-    for (int i = 0; i < n; ++i) {
-        cin >> vec1[i] >> comma;
-    }
-
+    cin >> n;
     vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
+        cin.ignore(1, ',');  // Modify input separator from space to comma
         cin >> vec2[i];
     }
 
