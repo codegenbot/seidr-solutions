@@ -1,4 +1,3 @@
-```
 def add():
     while True:
         try:
@@ -6,4 +5,7 @@ def add():
             y = int(input("Enter second number: "))
             return x + y
         except ValueError:
-            print("Invalid input. Please enter integers.")
+            print("Invalid input. Please enter an integer.")
+
+result = add()
+print(result)
