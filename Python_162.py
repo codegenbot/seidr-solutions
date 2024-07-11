@@ -5,7 +5,7 @@ def string_to_md5(text):
         return hashlib.md5(text.encode()).hexdigest()
     return None
 
-text = input("Enter input: ").encode('raw_unicode_escape').strip()
+text = input("Enter input: ").strip()
 if text.isascii():
     md5_hash = string_to_md5(text)
     if md5_hash:
