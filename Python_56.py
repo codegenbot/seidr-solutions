@@ -4,6 +4,7 @@ def calculate_average_score():
     
     for _ in range(student_scores_count):
         score = input(f"Enter the score for student {_ + 1}: ")
+        
         while True:
             try:
                 total += int(score)
