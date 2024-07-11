@@ -1,10 +1,8 @@
-```cpp
 #include <string>
-#include <iostream>
 
 int main() {
     int x;
-    std::cout << "Enter a number: ";
+    std::cout << "Enter an integer: ";
     std::cin >> x;
     if (x % 15 == 0)
         std::cout << "FizzBuzz";
@@ -14,5 +12,6 @@ int main() {
         std::cout << "Buzz";
     else
         std::cout << x;
+    std::cout << std::endl;
     return 0;
 }
