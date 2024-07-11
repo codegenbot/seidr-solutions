@@ -1,9 +1,14 @@
-```
 #include <string>
 #include <iostream>
 #include <cctype>
 
-using namespace std;
+int main() {
+    using namespace std;
+    string text;
+    cout << "Enter a sentence: ";
+    getline(cin, text);
+    cout << "Sentence without vowels: " << remove_vowels(text) << endl;
+}
 
 string remove_vowels(string text){
     string result;
@@ -17,12 +22,4 @@ string remove_vowels(string text){
         }
     }
     return result;
-}
-
-int main() {
-    string text;
-    cout << "Enter a sentence: ";
-    getline(cin, text);
-    string output = remove_vowels(text);
-    cout << "Sentence without vowels: " << output << endl;
 }
