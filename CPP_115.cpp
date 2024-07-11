@@ -6,5 +6,6 @@ int rows = grid.size();
                 total_water += grid[i][j];
             }
         }
-        return (total_water + capacity - 1) / capacity;
+        int buckets_needed = (total_water + capacity - 1) / capacity;
+        return buckets_needed;
     }
