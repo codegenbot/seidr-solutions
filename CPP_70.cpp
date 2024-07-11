@@ -1,15 +1,16 @@
 #include <vector>
-#include <algorithm> // Add for using sort function
+#include <algorithm> // for sort
+#include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) { // Define issame with correct signature
-    // Implement the function logic
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst); // Function prototype
+vector<int> strange_sort_list(vector<int> lst);
 
-std::vector<int> strange_sort_list(std::vector<int> lst){
-    std::sort(lst.begin(), lst.end()); // Use std::sort
-    std::vector<int> result;
+vector<int> strange_sort_list(vector<int> lst){
+    sort(lst.begin(), lst.end());
+    vector<int> result;
     int left = 0, right = lst.size() - 1;
     while (left <= right) {
         result.push_back(lst[left]);
@@ -23,6 +24,7 @@ std::vector<int> strange_sort_list(std::vector<int> lst){
 }
 
 int main() {
-    // Call the strange_sort_list function in main
-    assert(issame(strange_sort_list({111111}), {111111}));
+    vector<int> result = strange_sort_list({111111});
+    assert(issame(result, {111111}));
+    return 0;
 }
