@@ -1,6 +1,5 @@
-```
 def make_palindrome():
-    s = input("Enter a string: ")
+    s = ""
     if not s:
         return ""
     while len(s) < 2 or s[0] != s[-1]:
