@@ -11,17 +11,18 @@ def decode_cyclic():
                 if len(s) <= 1:
                     return s
                 while i > 0:
-                    if i == 1:
-                        group = s[i-1] + ''.join([s[0], next(reversed(s))[0]]) + s[i-1]
-                    else:
-                        group = s[(i-1)%len(s)] + ''.join([s[(i-2)%len(s)], next(reversed(s[(i-1)%len(s)]))]) + s[(i-1)%len(s)]
-                    if i > 1:
-                        result += group[-1] + group[1:-1][::-1] + group[0]
-                    else:
-                        result = group
+                    try:
+                        if i == 1:
+                            group = s[i-1] + ''.join([s[0], next(reversed(s))[0]]) + s[i-1]
+                        else:
+                            group = s[(i-1)%len(s)] + ''.join([s[(i-2)%len(s)], next(reversed(s[(i-1)%len(s)]))]) + s[(i-1)%len(s)]
+                        if i > 1:
+                            result += group[-1] + group[1:-1][::-1] + group[0]
+                        else:
+                            result = group
+                    except IndexError:
+                        print("Invalid string. Please enter a string with at least two characters.")
                     i = (i-1)
                 return result
         except ValueError:
             print("Invalid input. Please enter a number.")
-        else:
-            print("Program did not receive expected input")
