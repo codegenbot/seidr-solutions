@@ -1,12 +1,11 @@
 ```cpp
 #include <iostream>
-#include <sstream>
-using namespace std;
+#include <string>
 
-int digitSum(string s) {
+int digitSum(const std::string& str) {
     int sum = 0;
-    for (char c : s) {
-        if (isdigit(c)) {
+    for (char c : str) {
+        if (std::isdigit(c)) {
             sum += (c - '0');
         }
     }
@@ -14,14 +13,14 @@ int digitSum(string s) {
 }
 
 int main() {
-    cout << "Enter a string: ";
-    string input;
-    cin >> input;
+    std::cout << "Enter a string: ";
+    std::string input;
+    std::cin >> input;
     size_t pos = 0;
     while (pos < input.size() && ::isspace(input[pos])) {
         ++pos;
     }
-    string newInput = input.substr(pos);
+    std::string newInput = input.substr(pos, input.size() - pos);
     if (!newInput.empty()) { 
         int digitPos = -1;
         for (int i = 0; i < newInput.size(); ++i) {
@@ -32,13 +31,13 @@ int main() {
         }
         if (digitPos == -1) {
             int result = digitSum(newInput);
-            cout << "The sum of digits is: " << result << endl;
+            std::cout << "The sum of digits is: " << result << std::endl;
         } else {
             int result = digitSum(newInput.substr(0, digitPos));
-            cout << "The sum of digits is: " << result << endl;
+            std::cout << "The sum of digits is: " << result << std::endl;
         }
     } else {
-        cout << "Error: Empty input." << endl;
+        std::cout << "Error: Empty input." << std::endl;
     }
     return 0;
 }
