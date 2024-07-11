@@ -1,17 +1,16 @@
 Here is the completed code:
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = lst.begin();
-    erase-remove-unique:
-    while (it != lst.end()) {
-        if (it->length() % 2 == 1)
-            it = lst.erase(it);
-        else
-            ++it;
-    }
-    lst.sort([](const string& a, const string& b) {
-        if (a.length() == b.length())
-            return a < b;
-        return a.length() < b.length();
-    });
+    auto it = remove_if(lst.begin(), lst.end(),
+        [](const string& s) { return s.length() % 2 != 0; });
+    lst.erase(it, lst.end());
+    sort(lst.begin(), lst.end(),
+        [](const string& a, const string& b) {
+            if (a.length() == b.length()) {
+                return a < b;
+            } else {
+                return a.length() < b.length();
+            }
+        });
     return lst;
+}
