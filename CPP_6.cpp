@@ -2,7 +2,7 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool std::issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
@@ -28,4 +28,4 @@ std::vector<int> parse_nested_parens(std::string paren_string){
     return result;
 }
 
-assert(issame(parse_nested_parens("(()(())((())))"), {4, 3, 2, 1}));
+std::assert(std::issame(parse_nested_parens("(()(())((())))"), {4, 3, 2, 1}));
