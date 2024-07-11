@@ -17,7 +17,6 @@ int main() {
             if (idx != string::npos) {
                 c = cipher1[idx];
             } 
-            // Do not change character if not found in either cipher
         }
     }
     
