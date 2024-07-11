@@ -8,21 +8,20 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-    
     while (cin >> num) {
         nums.push_back(num);
     }
-    
+
     int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
     }
-    
+
     int prefixSum = 0;
     int minDiff = INT_MAX;
     int cutIndex = -1;
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < n; i++) {
         prefixSum += nums[i];
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
@@ -31,7 +30,7 @@ int main() {
             cutIndex = i;
         }
     }
-    
+
     for (int i = 0; i <= cutIndex; i++) {
         cout << nums[i] << " ";
     }
@@ -39,7 +38,6 @@ int main() {
     for (int i = cutIndex + 1; i < n; i++) {
         cout << nums[i] << " ";
     }
-    cout << endl;
-    
+
     return 0;
 }
