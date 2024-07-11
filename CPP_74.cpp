@@ -1,11 +1,11 @@
-```c++
+#include <initializer_list>
 #include <vector>
 #include <string>
 #include <cassert>
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool my_issame(vector<string> a, vector<string> b) {
     int sum1 = 0;
     for (const string& s : a) {
         sum1 += s.length();
@@ -18,7 +18,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 vector<string> total_match(vector<string> lst1, vector<string> lst2) {
-    if (issame(lst1, lst2)) return lst1;
+    if (my_issame(lst1, lst2)) return lst1;
     int sum1 = 0;
     for (const string& s : lst1) {
         sum1 += s.length();
@@ -35,6 +35,6 @@ vector<string> total_match(vector<string> lst1, vector<string> lst2) {
 int main_func() {
     vector<string> a = {"this"};
     vector<string> b = {};
-    assert(issame(total_match(a, b), {}));
+    assert(my_issame(total_match(a, b), {}));
     return 0;
 }
