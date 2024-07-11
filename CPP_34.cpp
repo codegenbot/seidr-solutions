@@ -13,7 +13,4 @@ std::vector<int> taskFunction(const std::vector<int>& l) {
     return sortedList;
 }
 
-#include <algorithm> // Added include for std::unique
-
-// Removed the redundant int main() function block
 ```
