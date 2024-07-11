@@ -1,9 +1,14 @@
 from typing import List
 
 
-def rescale_to_unit():
-    numbers = input("Enter numbers separated by space: ").split()
-    numbers = [float(num) for num in numbers]
+def rescale_to_unit(numbers: List[float]) -> List[float]:
+    numbers = [
+        float(input(f"Enter a number {i+1} (or 'q' to quit): "))
+        for i in range(len(numbers))
+    ]
+
+    if not numbers:
+        return []
 
     min_val = min(x for x in numbers if isinstance(x, (int, float)))
     max_val = max(x for x in numbers if isinstance(x, (int, float)))
