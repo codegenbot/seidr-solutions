@@ -1,4 +1,5 @@
-using namespace std;
+#include <stack>
+#include <string>
 
 bool getBoolValue(char c) {
     return c == 'T';
