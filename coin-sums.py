@@ -1,5 +1,6 @@
 cents = int(input("Enter the number of cents: "))
 coins = [0, 0, 0, 0]
+
 values = [25, 10, 5, 1]
 for value in values:
     count = cents // value
