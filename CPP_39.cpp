@@ -1,21 +1,20 @@
-#include <cstdio>
-using namespace std;
+#include <cmath>
 
 int prime_fib(int n) {
     int a = 0, b = 1;
-    for (int i = 0; i < n; i++) {
-        if (i % 2 == 0) return a;
-        int temp = a;
+    for (int i = 2; ; i++) {
+        int fib = a + b;
+        if (fib >= n) break;
         a = b;
-        for (int j = 3; j * j <= a + b; j++) {
-            if (a % j == 0 || b % j == 0) {
-                a = temp;
-                b = temp + 1;
-                i--;
-                break;
-            }
-        }
-        b += a;
+        b = fib;
+        if (isPrime(fib)) return fib;
     }
-    return a;
+}
+
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) return false;
+    }
+    return true;
 }
