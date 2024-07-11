@@ -1,12 +1,7 @@
-def find_max_value():
-    input_list = []
-    while True:
-        user_input = input("Enter a number (or 'stop' to finish): ")
-        if user_input.lower() == 'stop':
-            break
-        try:
-            num = int(user_input)
-            input_list.append(num)
-        except ValueError:
-            print("Invalid input. Please enter a number or type 'stop' to finish.")
-    return max(input_list)
+def calculate_median(numbers: List[int]) -> float:
+    numbers.sort()
+    if len(numbers) % 2 == 0:
+        median = (numbers[len(numbers)//2 - 1] + numbers[len(numbers)//2]) / 2
+    else:
+        median = numbers[len(numbers)//2]
+    return median
