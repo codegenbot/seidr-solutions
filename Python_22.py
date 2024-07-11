@@ -1,6 +1,6 @@
 from typing import Any, list
 
-def filter_integers() -> None:
+def filter_integers() -> list[int]:
     values: list[Any] = []
     
     while True:
@@ -14,6 +14,6 @@ def filter_integers() -> None:
         except ValueError:
             print(f"'{user_input}' is not an integer. Skipping...")
 
-    print("Filtered integers:", [value for value in set(values) if isinstance(value, int)])
+    return [value for value in values if isinstance(value, int)]
 
-filter_integers()
+print(filter_integers())
