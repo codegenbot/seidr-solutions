@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -6,15 +5,8 @@
 std::string substitutionCipher(const std::string& cipherMap, const std::string& input) {
     std::string output;
     for (char c : input) {
-        if (c >= 'a' && c <= 'z') {
-            char newChar = cipherMap[(c - 'a')];
-            output += newChar;
-        } else if (c >= 'A' && c <= 'Z') {
-            char newChar = cipherMap[(c - 'A')];
-            output += newChar;
-        } else {
-            output += c;
-        }
+        char newChar = cipherMap[(c >= 'a' && c <= 'z') ? (c - 'a') : ((c >= 'A' && c <= 'Z') ? (c - 'A') : c)];
+        output += newChar;
     }
     return output;
 }
