@@ -1,9 +1,14 @@
+```
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
 #include <string>
 
 using namespace std;
+
+int add(int x, int int y) {
+    return x + y;
+}
 
 int main() {
     srand(time(nullptr)); 
