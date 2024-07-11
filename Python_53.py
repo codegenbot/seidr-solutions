@@ -3,7 +3,7 @@ def add(x: int, y: int) -> int:
 
 try:
     x = int(input())
-    y = int(input()
+    y = int(input())
     
     result = add(x, y)
     
