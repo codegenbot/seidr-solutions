@@ -1,4 +1,3 @@
-```
 import hashlib
 
 text = input("Enter some text: ")
