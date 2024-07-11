@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```
 def decode_shift():
     s = input("Please enter a string: ")
@@ -14,9 +16,9 @@ def decode_shift():
     for ch in s:
         if ch.isalpha():
             if ch.islower():
-                decoded += chr((ord(ch) - ord("a") + shift) % 26 + ord("a"))
+                decoded += chr((ord(ch) - ord('a') + shift) % 26 + ord('a'))
             else:
-                decoded += chr((ord(ch) - ord("A") + shift) % 26 + ord("A"))
+                decoded += chr((ord(ch) - ord('A') + shift) % 26 + ord('A'))
         else:
             decoded += ch
     return decoded
