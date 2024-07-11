@@ -1,15 +1,12 @@
-#include<vector>
-#include<algorithm>
-using namespace std;
-
-int search(vector<int> lst) {
-    sort(lst.begin(), lst.end());
-    
-    for (int i = lst.size() - 1; i >= 0; --i) {
-        if (lst[i] > 0 && count(lst.begin(), lst.end(), lst[i]) >= lst[i]) {
-            return lst[i];
+int res = -1;
+    unordered_map<int, int> freq;
+    for (int num : lst) {
+        freq[num]++;
+    }
+    for (auto it = freq.begin(); it != freq.end(); it++) {
+        if (it->first > it->second && it->second > res) {
+            res = it->second;
         }
     }
-    
-    return -1;
+    return res == -1 ? -1 : res;
 }
