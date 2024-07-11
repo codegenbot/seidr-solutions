@@ -1,8 +1,7 @@
-```
-def sort_third(l: list):
+def sort_third(lst: list):
     result = []
-    for i in range(0, len(l), 3):
-        temp = l[i:i+3]
+    for i in range(0, len(lst), 3):
+        temp = lst[i:i+3]
         if temp:
             result.append(sorted(temp)[0])
         else:
