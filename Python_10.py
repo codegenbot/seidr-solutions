@@ -1,17 +1,17 @@
+```
 def make_palindrome(s: str) -> str:
     s = list(s)
+    
     left, right = 0, len(s) - 1
     
     while right > left:
         if s[left] != s[right]:
-            if s[0] == s[right]:  
-                s.pop()               
-                right -= 1            
-            elif s[-1] == s[left]:  
-                s.pop()               
-                left += 1            
-            else:
-                s.insert(0, s.pop(right))  
+            # Find the first matching character from the right
+            for i in range(len(s), 0, -1):
+                if s[i-1] == s[left]:
+                    s.pop(i-1)
+                    break
+            
         else:
             left += 1
             right -= 1
