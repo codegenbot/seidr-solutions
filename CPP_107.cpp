@@ -1,13 +1,16 @@
-int even = 0, odd = 0;
+int count = 0;
+    vector<int> res(2, 0);
     for (int i = 1; i <= n; ++i) {
-        string num = to_string(i);
-        if (num == string(num.rbegin(), num.rend())) {
+        string s = to_string(i);
+        string rev = s;
+        reverse(rev.begin(), rev.end());
+        if (s == rev) {
             if (i % 2 == 0) {
-                even++;
+                res[0]++;
             } else {
-                odd++;
+                res[1]++;
             }
         }
     }
-    return {even, odd};
+    return res;
 }
