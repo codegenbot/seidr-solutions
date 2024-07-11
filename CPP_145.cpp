@@ -1,9 +1,5 @@
-vector<int> order_by_points(vector<int> nums) {
-    auto find_index = [&](int num) {
-        return distance(nums.begin(), find(nums.begin(), nums.end(), num));
-    };
-
-    sort(nums.begin(), nums.end(), [&](int a, int b) {
+bool issame(vector<int> a, vector<int> b) {
+    sort(a.begin(), a.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int temp_a = abs(a), temp_b = abs(b);
 
@@ -18,11 +14,16 @@ vector<int> order_by_points(vector<int> nums) {
         }
 
         if (sum_a == sum_b) {
-            return find_index(a) < find_index(b);
+            return a < b;
         }
 
         return sum_a < sum_b;
     });
 
-    return nums;
+    return a == b;
+}
+
+int main() {
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    return 0;
 }
