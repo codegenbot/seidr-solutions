@@ -1,4 +1,6 @@
 from typing import List, Any
 
 def filter_integers(values: List[Any]) -> list:
-    return [value for value in values if isinstance(value, int) and value >= 0]
+    if not isinstance(values, list):
+        raise ValueError("Expected a list of values")
+    return [value for value in values if isinstance(value, int)]
