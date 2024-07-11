@@ -1,4 +1,5 @@
-def find_closest_elements():
+```
+def find_closest_elements(numbers):
     numbers = list(map(float, input("Enter space-separated numbers: ").split()))
     numbers.sort()
     closest_pair = (numbers[0], numbers[1])
