@@ -1,5 +1,4 @@
-Here's the corrected code:
-
+```
 n = int(input("Enter the size of the grid: "))
 k = int(input("Enter the value of k: "))
 
