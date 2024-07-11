@@ -1,23 +1,19 @@
-map<char, int> result;
-    map<char, int> count;
-    
-    for (char ch : test) {
-        if (ch != ' ') {
-            count[ch]++;
+map<char, int> histogram(string test) {
+    map<char, int> counts;
+    for (char c : test) {
+        if (c != ' ') {
+            counts[c]++;
         }
     }
-    
-    int maxCount = 0;
-    for (auto it = count.begin(); it != count.end(); ++it) {
-        if (it->second > maxCount) {
-            maxCount = it->second;
+
+    map<char, int> result;
+    int max_count = 0;
+    for (const auto& entry : counts) {
+        if (entry.second >= max_count) {
+            max_count = entry.second;
+            result[entry.first] = entry.second;
         }
     }
-    
-    for (auto it = count.begin(); it != count.end(); ++it) {
-        if (it->second == maxCount) {
-            result[it->first] = it->second;
-        }
-    }
-    
+
     return result;
+}
