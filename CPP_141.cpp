@@ -1,34 +1,23 @@
-int count_digits(const string& s) {
-    int count = 0;
-    for (char c : s) {
-        if (isdigit(c)) {
-            count++;
-        }
+```cpp
+int digit_count = 0;
+bool has_dot = false;
+size_t dot_index = file_name.find(".");
+if (dot_index != string::npos) {
+    has_dot = true;
+    size_t prefix_len = dot_index;
+    for (char c : file_name.substr(0, prefix_len)) {
+        if (!isalpha(c)) return "No";
     }
-    return count;
+    string suffix = file_name.substr(dot_index + 1);
+    for (char c : suffix) {
+        if (!isalnum(c) && c != '.') return "No";
+    }
+    if (suffix == "txt" || suffix == "exe" || suffix == "dll") return "Yes";
 }
-
-string file_name_check(string file_name) {
-    int digit_count = count_digits(file_name);
-    bool has_dot = false;
-    string before_dot, after_dot;
-
-    size_t dot_pos = file_name.find('.');
-    if (dot_pos != string::npos) {
-        before_dot = file_name.substr(0, dot_pos);
-        after_dot = file_name.substr(dot_pos + 1);
-        has_dot = true;
-    }
-
-    if (!has_dot || before_dot.empty() || !isalpha(before_dot[0])) {
-        return "No";
-    }
-    if (digit_count > 3) {
-        return "No";
-    }
-    if (!(after_dot == "txt" || after_dot == "exe" || after_dot == "dll")) {
-        return "No";
-    }
-
-    return "Yes";
+for (char c : file_name) {
+    if (isdigit(c)) digit_count++;
+    if (c == '.') has_dot = true;
 }
+if (!has_dot) return "No";
+if (digit_count > 3) return "No";
+return "Yes";
