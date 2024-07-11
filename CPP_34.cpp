@@ -8,8 +8,17 @@ bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-vector<int> getUniqueVector(vector<int> l){
+int main() {
+    vector<int> l = {4, 2, 1, 2, 3, 4, 1};
     sort(l.begin(), l.end());
     l.erase(unique(l.begin(), l.end()), l.end());
-    return l;
+
+    vector<int> a = {1, 2, 3, 4};
+    vector<int> b = {4, 3, 2, 1};
+
+    if (issame(a, b)) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
