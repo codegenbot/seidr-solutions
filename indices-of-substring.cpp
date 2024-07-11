@@ -11,7 +11,7 @@ int main() {
     while (pos != std::string::npos) {
         indices.push_back(static_cast<int>(pos));
         pos = text.find(target, pos + 1);
-        if (text.substr(pos, target.size()) != target) {
+        if (text[pos - 1] == target[0]) {
             // Skip the found position by one
             pos += 1;
         }
