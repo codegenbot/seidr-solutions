@@ -1,8 +1,8 @@
-bool issame(vector<float> v1, vector<float> v2) {
-    return v1 == v2;
+bool issame(vector<float>& numbers1, vector<float>& numbers2) {
+    return numbers1 == numbers2;
 }
 
-vector<float> rescale_to_unit(vector<float> numbers) {
+vector<float> rescale_to_unit(vector<float>& numbers) {
     float min_val = *min_element(numbers.begin(), numbers.end());
     float max_val = *max_element(numbers.begin(), numbers.end());
     vector<float> rescaled;
