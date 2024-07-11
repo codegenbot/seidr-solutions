@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
-#include <cassert>
+
+bool is_simple_power(double x, double n);
 
 bool is_simple_power(double x, double n) {
     if (x <= 0 || n <= 0) {
