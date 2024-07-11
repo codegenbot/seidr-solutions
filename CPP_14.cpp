@@ -18,8 +18,12 @@ int main() {
 
 vector<string> all_prefixes(string str) {
     vector<string> result;
-    for (int i = 0, len = str.length(); i <= len; ++i) {
-        result.push_back(str.substr(0, i+1));
+    for (int i = 1; i <= str.length(); ++i) {
+        string prefix = "";
+        for (int j = 0; j < i; ++j) {
+            prefix += str[j];
+        }
+        result.push_back(prefix);
     }
     return result;
 }
