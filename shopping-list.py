@@ -1,3 +1,4 @@
+```
 def shopping_list():
     n = int(input())
     prices, discounts = [float(x) for x in input().split()], [float(x) for x in input().split()]
