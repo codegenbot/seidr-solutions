@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -10,3 +11,4 @@ int search(vector<int> lst) {
         maxFreq = max(maxFreq, count(lst.begin(), lst.end(), num));
     }
     return -1;
+}
