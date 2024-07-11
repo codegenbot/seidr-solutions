@@ -9,8 +9,12 @@ string fix_spaces(string text){
                 i++;
                 count++;
             }
-            if(count > 2)result += '-';
-            else result += '_';
+            if(count > 2){
+                result += '-';
+            }else{
+                result += '_';
+            }
+            i--;
         }else{
             result += text[i];
         }
