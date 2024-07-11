@@ -2,7 +2,6 @@
 #include <vector>
 #include <limits>
 #include <cctype>
-#include <cassert>
 
 using namespace std;
 
