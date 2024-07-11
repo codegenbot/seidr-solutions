@@ -21,6 +21,16 @@ def sort_even(evens):
 
 
 evens = list(map(int, input("Enter the even numbers separated by space: ").split()))
-odds = list(map(int, input("Enter the odd numbers separated by space: ").split()))
+odds = []
+
+while True:
+    try:
+        odd = int(input("Enter the odd numbers separated by space (or 'stop' to finish): "))
+        if odd == 'stop':
+            break
+        odds.append(odd)
+    except ValueError:
+        print('Invalid input. Please enter a valid number or type "stop".')
 
 print(sort_even(evens))
+print(odds)
