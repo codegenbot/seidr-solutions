@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
@@ -61,6 +62,7 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
         else {
             return boost::any(any_cast<int>(a));
+        }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(float)) {
         int num = any_cast<int>(a);
@@ -73,6 +75,11 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
         else {
             return boost::any(any_cast<int>(a));
+        }
     }
     return boost::any();
+}
+
+int main() {
+    // Code to test the function
 }
