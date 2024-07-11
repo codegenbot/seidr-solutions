@@ -1,4 +1,2 @@
-```
 def solve(N):
-    total_sum = sum(int(b) for b in bin(N)[2:])
-    return format(total_sum, 'b')
+    return bin(sum(int(i) for i in str(bin(N)[2:]))) [2:]
