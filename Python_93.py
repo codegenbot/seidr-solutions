@@ -1,3 +1,4 @@
+```
 def encode(message):
     vowels = 'aeiouAEIOU'
     result = ''
@@ -8,7 +9,9 @@ def encode(message):
                 new_char = chr((index + 2) % 26 + 97)
             else:
                 new_char = char.swapcase()
-            result += new_char
-        else:
-            result += char
+        elif char.isalnum(): 
+            new_char = char  
+        else: 
+            new_char = char    
+        result += new_char
     return result
