@@ -13,3 +13,5 @@ def mastermind(code, guess):
             seen_chars.add(g1)
             
     return black_pegs, white_pegs
+
+print(mastermind("WGYO", "WGYO"))
