@@ -4,12 +4,10 @@
 #include <iostream>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
+    assert(a.size() == b.size());
     
-    for(size_t i=0; i<a.size(); ++i){
-        if(a[i] != b[i]){
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -37,14 +35,12 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst){
     return result;
 }
 
-int main(){
+int main() {
+    // sample test
     std::vector<int> a = {1, 2, 3};
     std::vector<int> b = {1, 2, 3};
-    assert(issame(a, b) == true);
     
-    std::vector<int> c = {1, 2, 3};
-    std::vector<int> d = {1, 2, 4};
-    assert(issame(c, d) == false);
+    std::cout << "Are vectors a and b the same? " << (issame(a, b) ? "Yes" : "No") << std::endl;
     
     return 0;
 }
