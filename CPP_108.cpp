@@ -1,30 +1,30 @@
 int count_nums(vector<int> nums) {
     int count = 0;
     for (int num : nums) {
-        bool has_positive_sum_of_digits = false;
-        if (num >= 0) {
-            int sum = 0;
-            while (num > 0) {
-                int digit = num % 10;
-                sum += digit;
-                num /= 10;
-            }
-            has_positive_sum_of_digits = sum > 0;
-        } else {
-            int sum = 0, sign = -1;
-            while (num < 0) {
-                int digit = (num % 10) * sign;
-                if (digit < 0) {
-                    sign = -sign;
-                    digit = -digit;
+        if (num > 0) {
+            bool has_sum_greater_than_zero = false;
+            long abs_num = labs(num);
+            while (abs_num > 0) {
+                int digit = abs_num % 10;
+                if (digit != 0 || num < 0) {
+                    has_sum_greater_than_zero = true;
+                    break;
                 }
-                sum += digit;
-                num /= 10;
+                abs_num /= 10;
             }
-            has_positive_sum_of_digits = sum > 0;
-        }
-        if (has_positive_sum_of_digits) {
-            count++;
+            if (has_sum_greater_than_zero) count++;
+        } else if (num < 0) {
+            bool has_sum_greater_than_zero = false;
+            long abs_num = labs(num);
+            while (abs_num > 0) {
+                int digit = abs_num % 10;
+                if (digit != 0 || num > 0) {
+                    has_sum_greater_than_zero = true;
+                    break;
+                }
+                abs_num /= 10;
+            }
+            if (has_sum_greater_than_zero) count++;
         }
     }
     return count;
