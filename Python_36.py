@@ -1,14 +1,12 @@
-```
 def fizz_buzz(n: int):
-    result = 0
+    result = ""
     for i in range(1, n+1):
-        if i % 3 == 0:
-            if i % 5 == 0:
-                result += 1
-            else:
-                result += 1/3
+        if i % 3 == 0 and i % 5 == 0:
+            result += "FizzBuzz "
+        elif i % 3 == 0:
+            result += "Fizz "
         elif i % 5 == 0:
-            result += 1/5
+            result += "Buzz "
         else:
-            result += 1
-    return int(result)
+            result += str(i) + " "
+    return result.strip()
