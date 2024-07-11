@@ -1,18 +1,9 @@
-string numStr = to_string(x);
-    int n = numStr.size();
-    shift = shift % n;
-
+string num_str = to_string(x);
+    int n = num_str.length();
+    shift %= n;
     if (shift == 0) {
-        return numStr;
+        return num_str;
     }
-
-    string result;
-    if (shift < n) {
-        result = numStr.substr(n - shift) + numStr.substr(0, n - shift);
-    } else {
-        reverse(numStr.begin(), numStr.end());
-        result = numStr;
-    }
-
+    string result = num_str.substr(n - shift) + num_str.substr(0, n - shift);
     return result;
 }
