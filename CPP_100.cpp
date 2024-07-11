@@ -1,10 +1,8 @@
 #include <vector>
 
-std::vector<int> make_a_pile(int n);
-
 bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<int> make_a_pile(int n){
+vector<int> make_a_pile(int n){
     std::vector<int> result;
     result.push_back(n);
     for (int i = 1; i < n; ++i) {
