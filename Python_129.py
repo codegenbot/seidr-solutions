@@ -25,5 +25,5 @@ def shortestPathLength(grid):
         for col in range(cols):
             if grid[row][col] == 1:
                 dfs(row, col, 0)
-                minPathLength = min(minPathLength, path_length) if path_length else minPathLength
+                minPathLength = min(minPathLength, len(visited))
     return minPathLength
