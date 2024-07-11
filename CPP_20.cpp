@@ -4,6 +4,7 @@
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 }
 #include <initializer_list>
+#pragma GCC diagnostic pop
 
 #include <vector>
 #include <limits>
