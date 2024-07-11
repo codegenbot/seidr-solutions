@@ -1,7 +1,7 @@
 def match_parens():
-    lst = input("Enter a string of parentheses: ").split()
+    lst = input("Enter a list of strings: ")
     stack = []
-    for s in lst:
+    for s in lst.split(','):
         for c in s:
             if c == '(':
                 stack.append(c)
