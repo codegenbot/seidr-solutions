@@ -1,15 +1,15 @@
-int balance = 0;
+int cnt = 0;
     for (string s : lst) {
         for (char c : s) {
             if (c == '(') {
-                balance++;
+                cnt++;
             } else {
-                if (balance == 0) {
+                if (cnt == 0) {
                     return "No";
                 }
-                balance--;
+                cnt--;
             }
         }
     }
-    return (balance == 0) ? "Yes" : "No";
+    return cnt == 0 ? "Yes" : "No";
 }
