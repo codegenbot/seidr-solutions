@@ -7,12 +7,12 @@ def substitution_cipher(cipher1, cipher2, message):
         cipher[cipher1[i]] = cipher2[i]
 
     result = ""
-    for char in message:
+    for i, char in enumerate(message):
         if char.isalpha():
             if char.isupper():
-                result += chr(ord('A') + (cipher.get(char.lower(), char).lower().ord() - ord('a')))
+                result += chr((ord(char) - 65) + (cipher.get(char.lower(), char).lower().ord() - 65)).upper()
             else:
-                result += chr(ord('a') + (cipher.get(char, char).ord() - ord('a')))
+                result += chr((ord(char) - 97) + (cipher.get(char, char).ord() - 97))
         else:
             result += char
     return result
