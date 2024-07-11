@@ -19,6 +19,7 @@ def factorize(n: int) -> List[int]:
         factors.append(n)
     return factors
 
+
 num = int(input("Enter a number: "))
 factors = factorize(num)
 print(factors)
