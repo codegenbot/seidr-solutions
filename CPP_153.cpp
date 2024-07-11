@@ -1,17 +1,20 @@
 int Strongest_Extension(string class_name,vector<string> extensions){
-    int max_strength = -1;
-    string strongest_extension;
-    for(auto extension: extensions){
-        int upper_count = 0, lower_count = 0;
-        for(char c : extension){
-            if(isupper(c)) upper_count++;
-            else if(islower(c)) lower_count++;
+    int max_strength = -INT_MAX;
+    string strongest_ext = "";
+
+    for (const auto& ext : extensions) {
+        int cap = 0, sm = 0;
+        for (char c : ext) {
+            if (isupper(c)) cap++;
+            else if (islower(c)) sm++;
         }
-        int strength = upper_count - lower_count;
-        if(strength > max_strength || (strength == max_strength && extension < strongest_extension)){
+        int strength = cap - sm;
+
+        if (strength > max_strength) {
             max_strength = strength;
-            strongest_extension = extension;
+            strongest_ext = ext;
         }
     }
-    return class_name + "." + strongest_extension;
+
+    return class_name + "." + strongest_ext;
 }
