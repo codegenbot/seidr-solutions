@@ -7,7 +7,6 @@ def check(num1, num2):
     else:
         print("Both numbers are equal.")
 
-num1 = int(input("Enter the first number: "))
-num2 = int(input("Enter the second number: "))
-
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
 check(num1, num2)
