@@ -1,15 +1,18 @@
-```
 def max_water(n, m):
-    row_values = list(map(int, input(f"Enter {n} row values separated by space: ").split()))
-    column_values = list(map(int, input(f"Enter {m} column values separated by space: ").split()))
+    row_values = list(
+        map(int, input(f"Enter {n} row values separated by space: ").split())
+    )
+    column_values = list(
+        map(int, input(f"Enter {m} column values separated by space: ").split())
+    )
 
     grid = [[0] * (m) for _ in range(n)]
 
-    for i in range(1, n):
-        for j in range(1, m):
-            left_min = min(column_values[:j]) if j > 0 else float("inf")
+    for i in range(n):
+        for j in range(m):
+            left_min = min(column_values[: j + 1]) if j > 0 else float("inf")
             right_min = min(column_values[j:]) if j < m - 1 else float("inf")
-            top_min = min(row_values[:i]) if i > 0 else float("inf")
+            top_min = min(row_values[: i + 1]) if i > 0 else float("inf")
             bottom_min = min(row_values[i:]) if i < n - 1 else float("inf")
             grid[i][j] = min(left_min, right_min, top_min, bottom_min)
 
@@ -32,7 +35,10 @@ m = int(input("Enter the number of columns: ")) or -1
 
 while n <= 0 or m <= 0:
     print("Invalid input! Please enter positive integers.")
-    n = int(input("Enter the number of rows: ")) or -1
-    m = int(input("Enter the number of columns: ")) or -1
+    try:
+        n = int(input("Enter the number of rows: "))
+        m = int(input("Enter the number of columns: "))
+    except ValueError:
+        pass
 
 print(max_water(n, m))
