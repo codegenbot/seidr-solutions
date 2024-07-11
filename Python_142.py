@@ -1,11 +1,14 @@
-```
+Here is the modified code:
+
+```Python
 def sum_squares(lst):
-    total_sum = 0
-    for num in lst:
-        if num % 3 == 0 and num % 4 != 0:
-            total_sum += num ** 2
-        elif num % 4 == 0 and num % 3 != 0:
-            total_sum += num ** 3
-        elif num % 3 == 0 and num % 4 == 0:
-            total_sum += num ** 3.5
-    return total_sum
+    return sum(i**2 for i in lst)
+
+while True:
+    lst = input("Enter a list of numbers separated by spaces: ")
+    try:
+        lst = [int(i) for i in lst.split()]
+        break
+    except ValueError:
+        print("Invalid input. Please enter numbers separated by spaces.")
+print(sum_squares(lst))
