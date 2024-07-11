@@ -4,10 +4,11 @@ def is_palindrome(string: str) -> bool:
 
 
 def make_palindrome(string: str) -> str:
-    if string.isalnum() == False:
-        raise ValueError("Input must be alphanumeric")
-    reverse = string[::-1]
+    if string == string[::-1]:
+        return string + string[::-1]
     for i in range(len(string)):
-        if string[i:] + reverse[:i] == string + reverse[len(string) - i :]:
-            return string + reverse[len(string) - i :]
-    return string + reverse
+        postfix = string[i:]
+        if postfix == postfix[::-1]:
+            prefix = string[:i][::-1]
+            return prefix + postfix
+    return string + "#" + string[::-1]
