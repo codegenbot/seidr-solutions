@@ -1,14 +1,19 @@
-n = int(input())
-v = [int(input()) for _ in range(n)]
-diff = sum(v)
-half_diff = sum(v) / 2
-for i in range(n):
-    if sum(v[: i + 1]) >= half_diff:
-        if abs(sum(v[: i + 1]) - half_diff) < abs(sum(v[:i]) - half_diff):
-            print(*v[: i + 1])
-            print(*v[i + 1 :])
-            break
-        else:
-            print(*v[:i])
-            print(*v[i:])
-            break
+numbers = list(map(int, input().split()))
+
+total_sum = sum(numbers)
+half_sum = total_sum // 2
+current_sum = 0
+index = 0
+
+for i, num in enumerate(numbers):
+    current_sum += num
+    if current_sum >= half_sum:
+        index = i
+        break
+
+if current_sum - half_sum < half_sum - (current_sum - num):
+    print(numbers[: index + 1])
+    print(numbers[index + 1 :])
+else:
+    print(numbers[:index])
+    print(numbers[index:])
