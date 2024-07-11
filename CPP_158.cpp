@@ -1,6 +1,4 @@
 #include <string>
-#include <vector>
-#include <unordered_set>
 
 string find_max(vector<string> words){
     string result = words[0];
