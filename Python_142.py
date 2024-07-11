@@ -11,13 +11,17 @@ def main():
                 print("Invalid input. Please enter only digits and spaces.")
                 lst = input("Enter a list of numbers separated by spaces: ")
 
-            lst = [int(i) for i in lst.split()]
-            result = sum([i**2 for i in lst])
-            print(result)
-        except ValueError:
-            print("Invalid input. Please enter numbers separated by spaces.")
-        except (EOFError, KeyboardInterrupt):
-            print("Program terminated/interrupted by user.")
+            try:
+                lst = [int(i) for i in lst.split()]
+                result = sum([i**2 for i in lst])
+                print(result)
+            except ValueError:
+                print("Invalid input. Please enter numbers separated by spaces.")
+        except EOFError as e:
+            print("Program terminated by user.")
+            break
+        except KeyboardInterrupt as e:
+            print("Program interrupted by user.")
             break
 
 if __name__ == "__main__":
