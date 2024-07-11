@@ -13,15 +13,7 @@ double poly(std::vector<double> xs, double x){
 double find_zero(std::vector<double> xs){
     double a = xs[0];
     double b = xs[1];
-    double c = xs[2];
-    double discriminant = b*b - 4*a*c;
-    double root1 = (-b + sqrt(discriminant)) / (2*a);
-    double root2 = (-b - sqrt(discriminant)) / (2*a);
-    if (std::abs(poly(xs, root1)) < 1e-3) {
-        return root1;
-    } else {
-        return root2;
-    }
+    return -a / b;
 }
 
 int main(){
