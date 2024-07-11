@@ -26,10 +26,8 @@ int main() {
     cout << gcd(a, b) << endl;
 
     string text, target;
-    vector<int> result;
-
     cin >> text >> target;
-    result = indicesOfSubstring(text, target);
+    vector<int> result = indicesOfSubstring(text, target);
     for (int idx : result) {
         cout << idx << " ";
     }
