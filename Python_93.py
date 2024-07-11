@@ -1,8 +1,7 @@
 ```
-message = input("Enter your message: ")
 def encode(message):
     result = ""
-    for char in message:
+    for char in input("Enter your message: "):
         if char.isalpha():
             if char.isupper():
                 result += chr((ord(char) - 65 + 2) % 26 + 65)
@@ -11,4 +10,3 @@ def encode(message):
         else:
             result += char
     return result
-print(encode(message))
