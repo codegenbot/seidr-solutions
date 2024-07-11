@@ -3,13 +3,13 @@
 #include <cassert>
 
 std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> parsed_music;
+    std::vector<int> result;
     size_t pos = 0;
-    while ((pos = music_string.find("|", pos)) != std::string::npos) {
-        parsed_music.push_back(std::stoi(music_string.substr(pos - 1, 1)));
-        pos++;
+    while ((pos = music_string.find_first_of("0123456789", pos)) != std::string::npos) {
+        result.push_back(std::stoi(music_string.substr(pos)));
+        pos = music_string.find_first_not_of("0123456789", pos);
     }
-    return parsed_music;
+    return result;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
