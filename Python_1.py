@@ -4,23 +4,19 @@ from typing import List
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
-    groups = []
+    temp = ''
     
     for char in paren_string:
         if char == ' ':
             continue
         if char == '(':
             stack.append(char)
-            groups.append('(')
+            temp += char
         elif char == ')':
-            if stack:
-                stack.pop()
-                groups.append(')')
-            else:
-                groups.append(')')
-        
-        if not stack:
-            result.append(''.join(groups))
-            groups = []
+            stack.pop()
+            temp += char
+            if not stack:
+                result.append(temp)
+                temp = ''
     
     return result
