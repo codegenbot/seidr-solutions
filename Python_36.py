@@ -1,4 +1,7 @@
 ```
+ 
+ 
+
 while True:
     try:
         n = int(input("Enter a number: "))
