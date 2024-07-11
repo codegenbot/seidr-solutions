@@ -23,9 +23,16 @@ int main() {
     
     std::sort(nums.begin(), nums.end());
     
-    stdVectorInt obj;
-    bool same = obj.issame(nums, nums);
+    bool same = issame(nums, nums);
     if (same)
+        std::cout << "The sorted array is the same as the original one.\n";
+    else
+        std::cout << "The sorted array is different from the original one.\n";
+
+    stdVectorInt obj;
+    bool same2 = obj.issame(nums, nums);
+    
+    if (same2)
         std::cout << "The sorted array is the same as the original one.\n";
     else
         std::cout << "The sorted array is different from the original one.\n";
@@ -40,8 +47,8 @@ int main() {
 }
 
 std::vector<int> order_by_points(std::vector<int> nums) {
-    std::vector<std::pair<int, size_t>> pairs;
-    for (size_t i = 0; i < nums.size(); ++i) {
+    std::vector<std::pair<int, int>> pairs;
+    for (int i = 0; i < nums.size(); ++i) {
         int sum = 0;
         int num = abs(nums[i]);
         while (num > 0) {
