@@ -1,4 +1,4 @@
- n = int(input())
+n = int(input())
 arr = [int(input()) for _ in range(n)]
 total_sum = sum(arr)
 left_sum = 0
