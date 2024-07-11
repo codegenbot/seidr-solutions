@@ -1,12 +1,12 @@
 #include <vector>
 
-bool issame(vector<int> v1, vector<int> v2){
-    if (v1.size() != v2.size()) {
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
         return false;
     }
 
-    for (int i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
             return false;
         }
     }
@@ -17,6 +17,6 @@ bool issame(vector<int> v1, vector<int> v2){
 vector<int> parse_nested_parens(string paren_string);
 
 int main() {
-    // Call parse_nested_parens function here
+    // Call parse_nested_parens and issame functions here
     return 0;
 }
