@@ -1,6 +1,6 @@
-#include <string>
+using namespace std;
 
-int whitePegs(string code, string guess) {
+int whitePegs(std::string code, std::string guess) {
     int count = 0;
     vector<char> codeMap(6), guessMap(6);
     for (int i = 0; i < 4; i++) {
@@ -8,15 +8,6 @@ int whitePegs(string code, string guess) {
             codeMap[code[i]]++;
             guessMap[guess[i]]++;
             count++;
-        } else {
-            for (int j = 0; j < 6; j++) {
-                if (code[j] == guess[i] && codeMap[j] < 1) {
-                    codeMap[j]++;
-                    guessMap[j]++;
-                    count++;
-                    break;
-                }
-            }
         }
     }
     for (int i = 0; i < 6; i++) {
@@ -27,7 +18,7 @@ int whitePegs(string code, string guess) {
     return count - blackPegs(code, guess);
 }
 
-int blackPegs(string code, string guess) {
+int blackPegs(std::string code, std::string guess) {
     int count = 0;
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
