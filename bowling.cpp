@@ -1,50 +1,39 @@
-int score(const string& input) {
-    int totalScore = 0;
-    int frame = 0;
-    int rolls = 0;
-    vector<int> frameScores(10, 0);
+int score(string s) {
+    int total = 0;
+    int frame = 1;
+    int ball = 0;
+    int frames[10][2] = {0};
 
-    for (char c : input) {
+    for (char c : s) {
         if (c == 'X') {
-            frameScores[frame] = 10;
+            frames[frame-1][0] = 10;
+            frames[frame-1][1] = 0;
             frame++;
-            rolls = 0;
         } else if (c == '/') {
-            frameScores[frame] = 10 - frameScores[frame];
+            frames[frame-1][1] = 10 - frames[frame-1][0];
             frame++;
-            rolls = 0;
         } else if (c == '-') {
-            rolls++;
-            if (rolls == 2) {
-                frame++;
-                rolls = 0;
-            }
+            frames[frame-1][ball] = 0;
+            ball++;
         } else {
-            frameScores[frame] += c - '0';
-            rolls++;
-            if (rolls == 2) {
-                frame++;
-                rolls = 0;
-            }
+            frames[frame-1][ball] = c - '0';
+            ball++;
+        }
+
+        if (frame > 10) break;
+        if (ball == 2 || frames[frame-1][0] == 10) {
+            total += frames[frame-1][0] + frames[frame-1][1];
+            ball = 0;
+            frame++;
         }
     }
 
-    for (int i = 0; i < 10; i++) {
-        totalScore += frameScores[i];
-        if (i < 9 && frameScores[i] == 10) {
-            totalScore += frameScores[i + 1];
-            if (frameScores[i + 1] == 10) {
-                totalScore += frameScores[i + 2];
-            }
-        }
-    }
-
-    return totalScore;
+    return total;
 }
 
 int main() {
-    string input;
-    cin >> input;
-    cout << score(input) << endl;
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
