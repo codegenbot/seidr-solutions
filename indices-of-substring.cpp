@@ -10,6 +10,7 @@ int main() {
 
     vector<int> indices;
     int pos = text.find(target, 0);
+
     while (pos != string::npos) {
         indices.push_back(pos);
         pos = text.find(target, pos + 1);
