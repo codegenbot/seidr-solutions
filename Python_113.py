@@ -1,2 +1,2 @@
 def odd_count(lst):
-    return [f"the number of odd elements {str(i+1)}n the str{i+1}ng {i+1} of the {i+1)nput." for i in range(len(lst[0]))]
+    return [f"the number of odd elements {str(i+1).replace('1','1').replace('2','2').replace('3','3').replace('4','4').replace('5','5').replace('6','6').replace('7','7').replace('8','8').replace('9','9').replace('0','0')+"n the str"+str(i+1)+"ng "+str(i+1)+" of the "+str(i+1)+"put." for i in range(len(lst[0])) if int(lst[0][i])]
