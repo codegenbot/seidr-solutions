@@ -7,9 +7,11 @@ using namespace std;
 vector<int> findLeaders(const vector<int>& nums) {
     vector<int> leaders;
     int n = nums.size();
+    int maxRight = INT_MIN;
 
     for (int i = n - 1; i >= 0; --i) {
-        if (leaders.empty() || nums[i] >= leaders.back()) {
+        if (nums[i] > maxRight) {
+            maxRight = nums[i];
             leaders.push_back(nums[i]);
         }
     }
