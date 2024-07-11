@@ -1,7 +1,18 @@
-def calculate_factors():
-    num = int(input("Enter a number: "))
+def factorize(n: int) -> List[int]:
+    if n < 2:
+        return []
     factors = []
-    for i in range(1, num + 1):
-        if num % i == 0:
-            factors.append(i)
-    print("Factors of {} are {}".format(num, ', '.join(map(str, set(factors)))))
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            factors.append(i ** count)
+            i += 1
+    if n > 1:
+        factors.append(n)
+    return factors
