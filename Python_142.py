@@ -1,9 +1,9 @@
 ```
 def sum_squares(lst):
-    total = 0
-    for i, num in enumerate(lst):
-        if i % 3 == 0:
-            total += num ** 2
-        elif i % 4 == 0 and i % 3 != 0:
-            total += num ** 3
-    return total
+    total_sum = 0
+    for num in lst:
+        if isinstance(num, int):
+            total_sum += num ** 2
+        elif isinstance(num, str) and num.isdigit():
+            total_sum += int(num) ** 2
+    return total_sum
