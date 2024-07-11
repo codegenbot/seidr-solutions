@@ -13,4 +13,4 @@ def solve(expression):
         return solve(left) or solve(right)
 
 expression = input()
-print("Result:", "True" if solve(expression) else "False")
+print("Result:", "True" if evaluate(expression) else "False")
