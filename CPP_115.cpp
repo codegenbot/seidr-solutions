@@ -4,7 +4,8 @@ int count = 0;
             for (int i = 0; i < grid.size(); i++) {
                 sum += grid[i][j];
             }
-            count += sum / capacity + (sum % capacity != 0);
+            int buckets = (sum + capacity - 1) / capacity;
+            count += buckets;
         }
         return count;
     }
