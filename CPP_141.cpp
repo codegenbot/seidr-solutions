@@ -1,23 +1,18 @@
-```cpp
-int digit_count = 0;
-bool has_dot = false;
-size_t dot_index = file_name.find(".");
-if (dot_index != string::npos) {
-    has_dot = true;
-    size_t prefix_len = dot_index;
-    for (char c : file_name.substr(0, prefix_len)) {
-        if (!isalpha(c)) return "No";
+string file_name_check(string file_name){
+    int digit_count = 0;
+    for(int i=0; i<file_name.length(); i++){
+        if(isdigit(file_name[i])){
+            digit_count++;
+            if(digit_count > 3)
+                return "No";
+        }
+        else if(file_name[i] == '.'){
+            string ext = file_name.substr(i+1);
+            if(ext != "txt" && ext != "exe" && ext != "dll")
+                return "No";
+        }
     }
-    string suffix = file_name.substr(dot_index + 1);
-    for (char c : suffix) {
-        if (!isalnum(c) && c != '.') return "No";
-    }
-    if (suffix == "txt" || suffix == "exe" || suffix == "dll") return "Yes";
+    if(digit_count > 3 || file_name.find('.') == string::npos)
+        return "No";
+    return "Yes";
 }
-for (char c : file_name) {
-    if (isdigit(c)) digit_count++;
-    if (c == '.') has_dot = true;
-}
-if (!has_dot) return "No";
-if (digit_count > 3) return "No";
-return "Yes";
