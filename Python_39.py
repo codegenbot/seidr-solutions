@@ -1,15 +1,15 @@
 ```
 def prime_fib(n: int):
-    primes = [1]
     a, b = 1, 1
-    while len(primes) < n:
-        if is_prime(b):
-            primes.append(b)
+    primes = [1]
+    while True:
         a, b = b, a + b
         if b > 1000000:
             break
-    return primes[-1]
-
+        if is_prime(b):
+            primes.append(b)
+        if len(primes) == n:
+            return primes[-1]
 
 def is_prime(num: int):
     if num < 2:
