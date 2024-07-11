@@ -1,8 +1,16 @@
-for (char i : c) {
-        s.erase(remove(s.begin(), s.end(), i), s.end());
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> reverse_delete(string s, string c){
+    string result = "";
+    for(char ch : s){
+        if(c.find(ch) == string::npos){
+            result += ch;
+        }
     }
-    string result = s;
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
-    return { result, result == reversed ? "True" : "False" };
+    string resultReverse = result;
+    reverse(resultReverse.begin(), resultReverse.end());
+    return {result, result == resultReverse ? "True" : "False"};
 }
