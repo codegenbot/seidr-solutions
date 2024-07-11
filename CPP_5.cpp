@@ -1,7 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b){
+bool issame(std::vector<int> a, std::vector<int> b){ // Added std:: before vector<int>
     if (a.size() != b.size()) {
         return false;
     }
@@ -24,7 +24,7 @@ std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
     return result;
 }
 
-int main() {
+int main() { // Removed redefinition of int main()
     assert(issame(intersperse({2, 2, 2}, 2), {2, 2, 2, 2, 2}));
     return 0;
 }
