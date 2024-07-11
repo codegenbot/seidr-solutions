@@ -1,5 +1,6 @@
+```
 def rolling_max(input_str: str) -> list[int]:
-    input_str = "".join(filter(str.isdigit, input_str)).lstrip('0')
+    input_str = "".join(str(i) for i in filter(str.isdigit, input_str)).lstrip('0')
 
     numbers = []
     for num in input_str.split():
