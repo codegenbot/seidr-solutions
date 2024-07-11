@@ -1,4 +1,3 @@
-```cpp
 int whitePegs(string code, string guess) {
     int count = 0;
     vector<int> codeMap(6), guessMap(6);
