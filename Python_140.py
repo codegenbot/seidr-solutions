@@ -1,4 +1,7 @@
-import re
+Here is the corrected code:
 
-def fix_spaces(text):
-    return re.sub(r'_', ' ', text)
+```python
+import re
+def fix_spaces():
+    text = input("Enter some text: ")
+    return re.sub(r'\s+', '_', text)
