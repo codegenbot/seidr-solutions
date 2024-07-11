@@ -27,7 +27,14 @@ int main() {
     int n;
     cout << "Enter the number: ";
     cin >> n;
-    string output = "The " + to_string(n) + "th prime Fibonacci number is: " + std::to_string(prime_fib(n)) + "\n";
+    string output = to_string(n);
+    if (n == 1) {
+        output += "st prime Fibonacci number is: " + to_string(prime_fib(1));
+    } else if (n == 2) {
+        output += "nd prime Fibonacci number is: " + to_string(prime_fib(2));
+    } else {
+        output += "th prime Fibonacci number is: " + to_string(prime_fib(n));
+    }
     cout << output;
     return 0;
 }
