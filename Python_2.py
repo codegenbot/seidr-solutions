@@ -1,8 +1,8 @@
-def truncate_number_to_two_decimal_places():
-    number = float(input("Enter a number: "))
-    n = int(input("Enter the number of decimal places: "))
-    if n < 0:
-        print("Number of decimal places should be non-negative.")
-    else:
-        result = truncate_number(number, n)
-        print(f"The truncated number is {result:.{n}f}")
+```python
+def truncate_number(number: float = None, n: int) -> float:
+    if number is None:
+        raise ValueError("Number is required")
+    print("Enter a number:")
+    number = float(input())
+    multiplier = 10**-n
+    return round(number * multiplier) / multiplier
