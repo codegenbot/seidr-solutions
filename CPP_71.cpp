@@ -13,12 +13,13 @@ float triangle_area(float a, float b, float c) {
 }
 
 int main() {
-    float a, b, c;
+    int a, b, c;
     std::cout << "Enter the lengths of three sides of a triangle: ";
     std::cin >> a >> b >> c;
-    if (triangle_area(a, b, c) == -1.0f)
+    float area = triangle_area(a, b, c);
+    if (area == -1.0f)
         std::cout << "Not a valid triangle.\n";
     else
-        std::cout << "The area of the triangle is: " << triangle_area(a, b, c) << "\n";
+        std::cout << "The area of the triangle is: " << area << "\n";
     return 0;
 }
