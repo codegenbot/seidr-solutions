@@ -15,11 +15,11 @@ std::vector<std::vector<std::string>> sorted_list_sum(std::vector<std::string> l
 
     for (const auto& str : lst) {
         if (str.length() % 2 == 0)
-            result.emplace_back({str});
+            result.push_back({str});
     }
 
     std::sort(result.begin(), result.end(),
-              [](const auto& a, const auto& b) {
+              [](const std::vector<std::string>& a, const std::vector<std::string>& b) {
                   if (a.size() != b.size())
                       return a.size() - b.size();
                   else
