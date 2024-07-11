@@ -7,7 +7,7 @@ def sort_even(l):
 while True:
     user_input = input("Enter numbers separated by space: ")
     numbers = [int(i) for i in user_input.split()]
-    if numbers:
+    if len(set(str(i) for i in numbers)) == len(numbers):
         break
     print("Invalid input. Please enter numeric values separated by spaces.")
 
