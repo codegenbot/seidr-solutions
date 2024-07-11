@@ -1,8 +1,5 @@
-```
-from typing import List
-import math
-
-def find_prime_numbers(n: int) -> List[int]:
+def find_prime_numbers() -> None:
+    n = int(input("Enter a number: "))
     prime_numbers = []
     for possiblePrime in range(2, n + 1):
         isPrime = True
@@ -12,7 +9,4 @@ def find_prime_numbers(n: int) -> List[int]:
                 break
         if isPrime:
             prime_numbers.append(possiblePrime)
-    return prime_numbers
-
-n = int(input("Enter a number: "))
-print(find_prime_numbers(n))
+    print(prime_numbers)
