@@ -1,4 +1,3 @@
-```Python
 n = int(input("Enter n: "))
 p = int(input("Enter p: "))
 
@@ -8,11 +7,14 @@ def modp(n: int, p: int):
             return b, 0
         else:
             gcd, x, y = extended_euclidean(b % a, a)
-            return gcd, y, x - (b // a) * y
+            return gcd, x - (b // a) * y, y
 
     gcd, inv_n, _ = extended_euclidean(n, p)
     if gcd != 1:
         raise ValueError(f"{n} is not invertible modulo {p}")
-    return pow(n, inv_n, p)
+    result = pow(n, inv_n, p)
+    while result < 0 or result > p - 1:
+        result += p
+    return result
 
 print(modp(n, p))
