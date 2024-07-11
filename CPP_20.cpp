@@ -24,9 +24,14 @@ bool issame(pair<float, float> a, pair<float, float> b) {
 }
 
 int main() {
-    vector<float> numbers = {1.1, 2.2, 3.1, 4.1, 5.1};
-    pair<float, float> result = find_closest_elements(numbers);
+    pair<float, float> result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
     pair<float, float> expected_result = {3.1, 4.1};
-    cout << issame(result, expected_result) << endl;
+
+    if (issame(result, expected_result)) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
+    }
+
     return 0;
 }
