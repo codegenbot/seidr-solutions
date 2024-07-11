@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     operations = {"&": lambda a, b: a and b, "|": lambda a, b: a or b}
     precedence = {"&": 1, "|": 0}
@@ -35,7 +34,7 @@ def solve_boolean(expression):
 
     while len(stack) > 0 and stack[-1] in precedence:
         top = stack.pop()
-        if top == "": 
+        if top == "(": 
             break
         stack.append(operations[stack.pop()](stack.pop(), stack.pop()))
 
