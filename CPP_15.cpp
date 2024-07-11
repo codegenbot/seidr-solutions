@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 
 string string_sequence(int n) {
