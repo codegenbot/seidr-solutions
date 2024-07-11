@@ -1,6 +1,8 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cctype>
 
 std::string camelCase(const std::string& s) {
     std::string result;
