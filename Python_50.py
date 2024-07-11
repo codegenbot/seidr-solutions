@@ -1,5 +1,5 @@
-```
-def """decode_shift(s: str): 
+```Python
+def decode_shift(s: str):
     if s.startswith('25 '):
         s = s[3:]
     result = ""
