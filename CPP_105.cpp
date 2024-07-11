@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -72,7 +71,10 @@ int main() {
             std::cout << "Invalid input. Please enter numbers between 1 and 9: ";
         }
         
-        vector<string> result = by_length(arr);
+        vector<string> output = by_length({a});
+        for(string str : output) {
+            std::cout << str << endl;
+        }
     }
     
     return 0; 
