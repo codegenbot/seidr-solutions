@@ -6,12 +6,15 @@ def bowling_score(bowls):
         if bowls[bowl_index] == "X":
             score += 10
             if frame < 10:
-                score += get_value(bowls[bowl_index + 1])
-                score += get_value(bowls[bowl_index + 2])
+                if bowl_index + 1 < len(bowls):
+                    score += get_value(bowls[bowl_index + 1])
+                if bowl_index + 2 < len(bowls):
+                    score += get_value(bowls[bowl_index + 2])
                 bowl_index += 1
         elif bowls[bowl_index] == "/":
             score += 10 - get_value(bowls[bowl_index - 1])
-            score += get_value(bowls[bowl_index + 1])
+            if bowl_index + 1 < len(bowls):
+                score += get_value(bowls[bowl_index + 1])
         else:
             score += get_value(bowls[bowl_index])
         bowl_index += 1
@@ -29,6 +32,7 @@ def get_value(bowl):
         return 0
     else:
         return int(bowl)
+
 
 bowls = input()
 print(bowling_score(bowls))
