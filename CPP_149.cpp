@@ -1,5 +1,6 @@
-Here is the completed code:
+Problem description: Complete the following code given the task description and function signature..
 
+Current code:
 vector<string> sorted_list_sum(vector<string> lst) {
     vector<string> result;
 
@@ -18,3 +19,4 @@ vector<string> sorted_list_sum(vector<string> lst) {
     });
 
     return result;
+}
