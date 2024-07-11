@@ -2,14 +2,14 @@
 #include <iostream>
 using namespace std;
 
-vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
-    int maxRight = arr.back();
+vector<string> leaders(vector<int>& arr) {
+    vector<string> result;
+    int maxRight = to_string(arr.back());
     for(int i = arr.size() - 1; i >= 0; i--) {
-        if(arr[i] >= maxRight)
-            result.push_back(arr[i]);
+        if(to_string(arr[i]) >= maxRight)
+            result.push_back(to_string(arr[i]));
         else 
-            maxRight = arr[i];
+            maxRight = to_string(arr[i]);
     }
     reverse(result.begin(), result.end());
     return result;
@@ -17,8 +17,8 @@ vector<int> leaders(vector<int>& arr) {
 
 int main() {
     vector<int> arr = {16, 17, 4, 3, 5, 2};
-    vector<int> result = leaders(arr);
-    for(int i : result)
+    vector<string> result = leaders(arr);
+    for(string i : result)
         std::cout << i << " ";
     return 0;
 }
