@@ -1,4 +1,3 @@
-```
 def find_prime_numbers(n):
     prime_numbers = []
     for possiblePrime in range(2, n + 1):
