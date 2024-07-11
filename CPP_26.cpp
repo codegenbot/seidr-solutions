@@ -1,41 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
-
 using namespace std;
 
-bool issame(int x, int y) {
-    if(x == y)
-        return true;
-    else
+bool isSame(vector<int> v1, vector<int> v2) {
+    if (v1.size() != v2.size())
         return false;
-}
-
-int main() {
-    vector<int> numbers;
-    int n;
-    
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        int num;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> num;
-        numbers.push_back(num);
+    for (int i = 0; i < v1.size(); i++) {
+        if (v1[i] != v2[i])
+            return false;
     }
-    
-    vector<int> result = remove_duplicates(numbers);
-
-    cout << "After removing duplicates: ";
-    for (int num : result) {
-        if(issame(result[0], num)) {
-            cout << num << " ";
-        } else {
-            break;
-        }
-    }
-    return 0;
+    return true;
 }
 
 vector<int> remove_duplicates(vector<int> numbers) {
@@ -50,4 +25,30 @@ vector<int> remove_duplicates(vector<int> numbers) {
     }
 
     return result;
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    vector<int> numbers(n);
+
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i+1 << ": ";
+        cin >> numbers[i];
+    }
+
+    vector<int> res = remove_duplicates(numbers);
+    
+    if (!res.empty()) {
+        cout << "Duplicates removed: ";
+        for (int num : res) {
+            cout << num << " ";
+        }
+        cout << endl;
+    } else
+        cout << "No duplicates found" << endl;
+
+    return 0;
 }
