@@ -1,17 +1,21 @@
-bool issame(vector<int> a, vector<int> b);
+#include <iostream>
+#include <vector>
+#include <climits>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
+using namespace std;
+
+vector<int> largest_smallest_integers(vector<int> lst);
+
+int main() {
+    vector<int> input = {3, -5, 2, -8, 4, -7};
+    vector<int> output = largest_smallest_integers(input);
     
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
+    if(output[0] == -5 && output[1] == 2) {
+        cout << "Output is correct" << endl;
+    } else {
+        cout << "Output is incorrect" << endl;
     }
-    
-    return true;
+    return 0;
 }
 
 vector<int> largest_smallest_integers(vector<int> lst){
