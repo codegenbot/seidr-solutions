@@ -1,6 +1,7 @@
-if (x < 1 || n < 2) {
+if (x <= 0 || n <= 0) {
         return false;
     }
-    double root = pow(x, 1.0/n);
-    return (pow(round(root), n) == x);
+    
+    double res = log(x) / log(n);
+    return (res - (int)res == 0);
 }
