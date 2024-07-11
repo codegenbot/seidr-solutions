@@ -10,8 +10,9 @@ int fizz_buzz(int n) {
 
 bool countSeven(int num) {
     while (num > 0) {
-        if (num % 10 == 7)
+        if (num % 10 == 7) {
             return true;
+        }
         num /= 10;
     }
     return false;
