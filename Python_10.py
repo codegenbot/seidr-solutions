@@ -3,7 +3,7 @@ def make_palindrome(s: str) -> str:
         return s
     t = list(s)
     l, r = 0, len(t) - 1
-    while l < r:
+    while l < r and l + 1 <= r - l + 1:
         if t[0] != t[r - l + 1]:
             mid = (l + r) // 2
             t.pop(r), t.insert(mid, t[0])
