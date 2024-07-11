@@ -9,3 +9,4 @@ int vowels_count(string s) {
         }
     }
     return count;
+}
