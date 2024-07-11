@@ -1,10 +1,5 @@
 def match_parens():
-    lst = []
-    while True:
-        s = input("Enter a string (or 'stop' if finished): ")
-        if s.lower() == 'stop':
-            break
-        lst.append(s)
+    lst = input("Enter a string of parentheses: ").split()
     stack = []
     for s in lst:
         for c in s:
