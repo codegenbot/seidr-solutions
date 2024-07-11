@@ -1,5 +1,5 @@
-#include <vector>
-#include <algorithm>
+Here is the modified code:
+
 #include <string>
 
 string intersection(vector<int> interval1, vector<int> interval2){
@@ -17,4 +17,3 @@ string intersection(vector<int> interval1, vector<int> interval2){
     }
     
     return "YES";
-}
