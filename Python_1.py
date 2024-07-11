@@ -1,6 +1,4 @@
-from typing import List
-
-def separate_paren_groups(paren_string: str) -> List[str]:
+def separate_paren_groups(paren_string: str) -> list: 
     result = []
     stack = []
     groups = []
@@ -16,4 +14,3 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 groups[-1] += char
                 if not stack and {')': ')', ']': '[', '}': '{'}[char] == {')': ')', ']': '[', '}': '{'}[top]:
                     result.append(groups.pop().lstrip().rstrip())
-    return result
