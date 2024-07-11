@@ -1,34 +1,25 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 
 bool issame(int a, int b) {
-    if (a > 9 || b > 9) {
-        return false;
-    }
-    std::vector<std::string> result = by_length({a, b});
-    for (int i = 0; i < std::min(result.size(), 2); i++) {
-        std::cout << result[i] << " ";
-    }
-    std::cout << std::endl;
-    return true;
+    // Empty function for now
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
+vector<string> by_length(vector<int> arr) {
+    vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(num);
         }
     }
     
-    std::sort(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
     
-    std::reverse(numbers.begin(), numbers.end());
+    reverse(numbers.begin(), numbers.end());
     
-    std::vector<std::string> result;
+    vector<string> result;
     for (int num : numbers) {
         switch (num) {
             case 1:
@@ -62,4 +53,15 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
     
     return result;
+}
+
+int main() {
+    vector<int> arr = {5, 3, 4};
+    auto output = by_length(arr);
+    
+    for (auto& str : output) {
+        cout << str << endl;
+    }
+    
+    return 0;
 }
