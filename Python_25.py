@@ -1,3 +1,4 @@
+```
 while True:
     try:
         n = int(input("Enter a positive integer: "))
