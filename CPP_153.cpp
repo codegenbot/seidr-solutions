@@ -1,6 +1,6 @@
-#include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
 
 string Strongest_Extension(string class_name, vector<string> extensions);
 
@@ -28,6 +28,6 @@ string Strongest_Extension(string class_name, vector<string> extensions){
 }
 
 int main() {
-    // Main function code (if any)
+    // Your main function code here
     return 0;
 }
