@@ -22,7 +22,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         leftSum += vec[i];
         rightSum -= vec[i];
-        int diff = abs(leftSum - rightSum);
+        int diff = std::abs(leftSum - rightSum);
         if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
