@@ -1,13 +1,10 @@
 ```
-average_score = None
-while True:
-    name = input("Enter name (or press Enter to quit): ")
-    if name == "":
-        break
-
+def calculate_average_score():
     total = 0
     student_scores_count = int(input("Enter the number of students: "))
-
+    
+    print(f"Enter the scores for {student_scores_count} students:")
+    
     for _ in range(student_scores_count):
         while True:
             try:
@@ -18,8 +15,7 @@ while True:
                 print("Invalid input. Please enter a valid floating point number.")
                 
     average = round(total / student_scores_count, 2)
-    if average_score is None:
-        average_score = average
-    else:
-        average_score += f", {average}"
+    return average
+
+average_score = calculate_average_score()
 print(f"The average score is: {average_score}")
