@@ -1,5 +1,6 @@
 ```
-from typing import List
+from typing import Dict
+
 import math
 
 
@@ -8,7 +9,7 @@ def factorize():
         n = int(input("Enter a number to factorize: "))
         if not isinstance(n, int):
             raise ValueError("Input must be an integer.")
-        factors = []
+        factors = {}
         i = 2
         while i * i <= n:
             if n % i:
@@ -18,11 +19,17 @@ def factorize():
                 while n % i == 0:
                     n //= i
                     count += 1
-                factors.append(i**count)
+                if i in factors:
+                    factors[i] += count
+                else:
+                    factors[i] = count
                 i += 1
         if n > 1:
-            factors.append(n)
-        return factors
+            if n in factors:
+                factors[n] += 1
+            else:
+                factors[n] = 1
+        return dict(sorted(factors.items()))
     except ValueError as e:
         print(f"Error: {e}")
 
