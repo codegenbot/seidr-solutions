@@ -1,24 +1,21 @@
 #include <vector>
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b) {
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+void runTests() {
+    assert(issame({1,2,3,5},{-1,2,3,4}) == vector<bool>({{!(1==-1),!((2-2)!=0),!((3-3)!=0),!(5!=4)}}));
+    // Add your own test cases here if needed
+}
+
 int main() {
-    vector<vector<bool>> result;
-    for (const auto& p : {{1,2,3,5},{-1,2,3,4}}) {
-        vector<bool> temp;
-        for (int i = 0; i < p.size(); i++) {
-            if(p[i] == 1){
-                temp.push_back(p[i] == -1 || p[i+1] != p[0]+i);
-            } else {
-                temp.push_back(p[i] == p[0]+(i-1));
-            }
-        }
-        result.push_back(temp);
-    }
-    for (const auto& r : result) {
-        for (bool b : r) {
-            cout << (b ? 0 : 1);
-        }
-        cout << endl;
-    }
+    runTests();
     return 0;
 }
