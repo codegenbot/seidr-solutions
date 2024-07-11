@@ -1,6 +1,7 @@
+```
 def decode_cyclic(s: str):
     if len(s) <= 1:
-        raise ValueError("Input should be at least two characters")
+        raise ValueError("Input string length should be greater than 1")
     result = ''
     while len(s) > 1:
         group = s[:2]
