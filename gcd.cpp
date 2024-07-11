@@ -4,29 +4,22 @@
 #include <cmath>
 
 int gcd(int a, int b) {
-    int sign = 1;
-    if (a < 0) {
-        sign *= -1;
-        a = -a;
-    }
-    if (b < 0) {
-        sign *= -1;
-        b = -b;
-    }
-
+    a = std::abs(a);
+    b = std::abs(b);
+    
     return b == 0 ? a : gcd(b, a % b);
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
+    size_t pos = 0;
     size_t targetLen = target.length();
-    
-    for (size_t i = 0; i <= text.length() - targetLen; ++i) {
-        if (text.substr(i, targetLen) == target) {
-            indices.push_back(i);
-        }
+
+    while ((pos = text.find(target, pos)) != std::string::npos) {
+        indices.push_back(pos);
+        pos += 1; // Update to consider overlapping occurrences
     }
-    
+
     return indices;
 }
 
