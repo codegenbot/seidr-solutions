@@ -17,3 +17,31 @@ vector<int> findLeaders(const vector<int>& nums) {
     reverse(leaders.begin(), leaders.end());
     return leaders;
 }
+
+int main() {
+    vector<int> nums;
+    int num;
+    
+    cout << "Enter positive integers (0 to end input, press enter after each number, then Ctrl+D to finish):" << endl;
+    cout.flush();
+
+    do {
+        if (!(cin >> num)) {
+            break;
+        }
+        if (num == 0) {
+            break;
+        }
+        nums.push_back(num);
+    } while (true);
+    
+    vector<int> result = findLeaders(nums);
+    
+    cout << "Leaders in the vector are:";
+    for (int leader : result) {
+        cout << " " << leader;
+    }
+    cout << endl;
+    
+    return 0;
+}
