@@ -1,4 +1,4 @@
-```
+```python
 def fizz_buzz(n):
     result = []
     for i in range(1, n+1):
