@@ -7,9 +7,9 @@ int main() {
     cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
     for (int i = 0; i < hours; ++i) {
-        float newly_added_snow = snow_fall_rate; // Calculate amount of new snow added in the current hour
-        float melted_snow = (snow_on_ground + newly_added_snow) * snow_melt_rate; // Calculate amount of snow melting
-        snow_on_ground += newly_added_snow - melted_snow; // Update snow amount on the ground
+        snow_on_ground += snow_fall_rate; // Add new snow
+        float melted_snow = snow_on_ground * (1 - snow_melt_rate); // Calculate amount of snow melting
+        snow_on_ground -= melted_snow; // Remove melted snow
     }
 
     cout << snow_on_ground << "\n";
