@@ -1,4 +1,4 @@
-Here is the completed code:
+Here is the solution:
 
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
     total_sum = 0
@@ -8,4 +8,4 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         total_sum += num
         product *= num
         
-    return (total_sum, product)
+    return (total_sum, product) if numbers else (0, 1)
