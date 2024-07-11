@@ -4,8 +4,8 @@ def sort_third(l: list):
             x
             if i % 3 != 0
             else sorted(
-                [y for y in l if (i - 1) // 3 * 3 + j == i - 1 and j % 3 != 0][::-1]
-            )[0]
+                [y for y in l if (i - l.index(y)) % 3 == 1 or (i - l.index(y)) % 3 == 2]
+            )
         )
         for i, x in enumerate(l)
     ]
