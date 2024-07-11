@@ -1,5 +1,7 @@
+```
+input_str = input("Enter numbers separated by space: ")
 try:
-    input_list = list(map(int, input("Enter numbers separated by space: ").split()))
+    input_list = list(map(int, input_str.split()))
 except ValueError:
     print("Invalid input. Please enter numbers separated by spaces.")
     exit()
