@@ -1,18 +1,17 @@
-#include <vector>
-#include <algorithm>
+#include <memory>
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::pmr_vector<int>& a, const std::pmr_vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> strange_sort_list(std::vector<int> lst) {
-    std::vector<int> result;
+std::pmr_vector<int> strange_sort_list(std::pmr_vector<int> lst) {
+    std::pmr_vector<int> result;
     while (!lst.empty()) {
-        int min_val = *min_element(lst.begin(), lst.end());
+        int min_val = *std::min_element(lst.begin(), lst.end());
         result.push_back(min_val);
         lst.erase(std::remove(lst.begin(), lst.end(), min_val), lst.end());
         if (!lst.empty()) {
-            int max_val = *max_element(lst.begin(), lst.end());
+            int max_val = *std::max_element(lst.begin(), lst.end());
             result.push_back(max_val);
             lst.erase(std::remove(lst.end() - 1, lst.begin() - 1, --max_val), lst.end());
         }
@@ -21,5 +20,5 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
 }
 
 int main() {
-    assert(strange_sort_list({11111}) == {11111});
+    assert(issame(std::pmr_vector<int>(strange_sort_list({1, 1, 1, 1, 1})), std::pmr_vector<int>({1, 1, 1, 1, 1})));
 }
