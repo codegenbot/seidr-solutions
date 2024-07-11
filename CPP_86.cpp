@@ -1,4 +1,4 @@
-string anti_shuffle(const string& s){
+string anti_shuffle(const string& s) {
     string result = "";
     string word = "";
     for(char c : s){
