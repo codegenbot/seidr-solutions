@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 vector<int> unique(vector<int> l) {
@@ -11,10 +10,10 @@ vector<int> unique(vector<int> l) {
 }
 
 int main() {
-    vector<int> vec = {5, 3, 5, 2, 3, 3, 9, 0, 123};
-    vector<int> result = unique(vec);
-    for (int i : result) {
+    vector<int> v = {5, 3, 5, 2, 3, 3, 9, 0, 123};
+    for (int i : v) {
         cout << i << " ";
     }
+    cout << endl;
     return 0;
 }
