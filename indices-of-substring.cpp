@@ -5,8 +5,8 @@ using namespace std;
 
 int main() {
     string text, target;
-    getline(cin, text); // Read text first
-    getline(cin, target); // Then read target
+    getline(cin, text);
+    getline(cin, target);
 
     vector<int> indices;
     int pos = text.find(target, 0);
