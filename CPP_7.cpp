@@ -2,27 +2,27 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::string& str1, const std::string& str2) {
+bool issame(const string& str1, const string& str2) {
     return str1 == str2;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring);
+vector<string> filter_by_substring(vector<string> strings, string substring);
 
 int main() {
-    std::vector<std::string> strings = {"apple", "banana", "cherry", "date"};
-    std::vector<std::string> filtered_strings = filter_by_substring(strings, "a");
-
-    for (const auto& str : filtered_strings) {
-        std::cout << str << " ";
+    vector<string> strings = {"apple", "banana", "cherry", "date"};
+    string substring = "an";
+    vector<string> result = filter_by_substring(strings, substring);
+    
+    for (const auto& str : result) {
+        cout << str << " ";
     }
-
     return 0;
 }
 
-std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring) {
-    std::vector<std::string> result;
+vector<string> filter_by_substring(vector<string> strings, string substring) {
+    vector<string> result;
     for (const auto& str : strings) {
-        if (str.find(substring) != std::string::npos) {
+        if (str.find(substring) != string::npos) {
             result.push_back(str);
         }
     }
