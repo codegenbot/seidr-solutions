@@ -1,5 +1,4 @@
 def sort_even(l: list):
     return [
-        i if i % 2 else sorted([x for x in l[1:] if (y := i // 2) * 2 == y])[y]
-        for i, y in enumerate(l)
+        i if i % 2 != 0 else j for i, j in zip(l, sorted([j for j in l if j % 2 == 0]))
     ]
