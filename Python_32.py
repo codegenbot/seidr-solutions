@@ -1,15 +1,18 @@
-def find_zero_coefficients(quad_equation: list):
+def find_zero_of_polynomial(xs):
     """
-    This function takes a list of coefficients from a quadratic equation in the form ax^2 + bx + c = 0 and 
-    returns the value of x where the equation becomes zero.
-    
+    Calculate the zero of a polynomial given its coefficients.
+
+    The input is a list xs representing the coefficients of a polynomial
+    with an even number of terms. For example, [1, -4, 6, -4] represents
+    the polynomial x^3 - 4x^2 + 6x - 4.
+
     Args:
-    quad_equation (list): A list containing the coefficients of the quadratic equation in the order [a, b, c]
-    
+        xs: A list of coefficients of a polynomial
+
     Returns:
-    float: The value of x where the quadratic equation becomes zero
+        The zero of the given polynomial
     """
-    if len(quad_equation) % 2 != 0:
-        raise ValueError("The number of coefficients must be even")
-    max_coeff = abs(max(quad_equation))
-    return -quad_equation[1] / (2 * quad_equation[0])
+    if len(xs) % 2 != 0:
+        raise ValueError("xs must have an even number of coefficients")
+    max_coeff = abs(max(xs))
+    return -xs[1] / (2 * xs[0])
