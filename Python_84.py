@@ -1,4 +1,3 @@
-```python
 def solve(is_binary):
     if is_binary:
         num = input("Enter a binary number: ")
