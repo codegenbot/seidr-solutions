@@ -5,17 +5,32 @@ int main() {
     int cents;
     cin >> cents;
 
-    int max_quarters = min(cents / 25, 99); // maximum quarters is 99 (3 times 25)
+    int max_quarters = min(cents / 25, 99);
     int quarters = max_quarters;
     cents %= 25;
 
-    int dimes = min(cents / 10, max_quarters + (cents / 25));
-    cents %= 10;
-
-    int nickles = min(cents / 5, dimes + (cents / 10));
-    cents %= 5;
-
-    int pennies = cents;
+    if (cents > 0) {
+        int max_dimes = min(cents / 10, 9);
+        int dimes = max_dimes;
+        cents %= 10;
+        
+        if (cents > 0) {
+            int max_nickles = min(cents / 5, 4);
+            int nickles = max_nickles;
+            cents %= 5;
+            
+            if (cents > 0) {
+                pennies = cents;
+            }
+        } else {
+            pennies = 0;
+        }
+    } else {
+        quarters = 0;
+        dimes = 0;
+        nickles = 0;
+        pennies = 0;
+    }
 
     cout << quarters << endl;
     cout << dimes << endl;
