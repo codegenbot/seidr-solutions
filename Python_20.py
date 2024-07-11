@@ -1,4 +1,3 @@
-```
 def find_closest_elements():
     arr = [1.1, 2.2, 3.1, 4.1, 5.1]
     target = float(input("Enter the target: "))
