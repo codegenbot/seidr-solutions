@@ -8,7 +8,9 @@ using namespace std;
 string longest(vector<string> strings);
 
 int main(){
-    assert(longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    // Test the function longest from the main function
+    assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    // Add more test cases if needed
     return 0;
 }
 
