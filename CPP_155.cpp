@@ -1,24 +1,16 @@
 ```cpp
 #include <vector>
 #include <cassert>
-#include <ostream>
+#include <iostream>
 
 using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
 
 vector<int> even_odd_count(int num) {
     vector<int> result;
     int count = 0;
-    while (num != 0) {
+    while(num != 0) {
         int digit = num % 10;
-        if (digit % 2 == 0)
+        if(digit % 2 == 0)
             count++;
         num /= 10;
     }
@@ -27,6 +19,11 @@ vector<int> even_odd_count(int num) {
     return result;
 }
 
-auto [even, odd] = even_odd_count(cin >> ws >>stoi(&n)); 
-cout << "Number of Even digits: " << even << endl;
-cout << "Absolute value of the remaining Number: " << odd << endl;
+int main() {
+    vector<int> output = even_odd_count(0);  
+    cout << "Even: " << output[0] << ", Odd: " << output[1] << endl;
+    int num; 
+    cin >> num;  
+    output = even_odd_count(num);
+    cout << "Even: " << output[0] << ", Odd: " << output[1] << endl;
+}
