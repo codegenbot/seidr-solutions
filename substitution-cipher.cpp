@@ -4,8 +4,18 @@
 
 std::string substitutionCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
     std::string result;
-    for (const char& c : message) {
-        result += cipher2[cipher1.find(std::string(1, c))];
+    for (char c : message) {
+        bool found = false;
+        for (int i = 0; i < cipher1.size(); i++) {
+            if (c == cipher1[i]) {
+                result += cipher2[i];
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            result += c;
+        }
     }
     return result;
 }
