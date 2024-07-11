@@ -1,16 +1,15 @@
-def solveBoolean(expression):
-    def evaluate(subexpr):
-        if subexpr[0] == "T":
-            return True
-        elif subexpr[0] == "F":
-            return False
-        elif len(subexpr) > 1 and subexpr[1] in ["&", "|"]:
-            return (
-                evaluate(subexpr[:2]) and evaluate(subexpr[2:])
-                if subexpr[1] == "&"
-                else evaluate(subexpr[:2]) or evaluate(subexpr[2:])
-            )
-        else:
-            raise ValueError("Invalid expression")
-
-    return evaluate(expression)
+def solve_boolean(s):
+    if s == 'T':
+        return True
+    elif s == 'F':
+        return False
+    elif '&' in s and '|' in s:
+        raise ValueError("Invalid expression")
+    else:
+        result = True
+        for i, c in enumerate(s):
+            if c == '&':
+                result &= eval(s[:i].replace('&', 'and').replace('|', 'or')) 
+            elif c == '|':
+                result |= eval(s[:i].replace('&', 'and').replace('|', 'or')) 
+        return result
