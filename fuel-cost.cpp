@@ -1,5 +1,5 @@
+```
 #include <vector>
-using namespace std;
 
 int calculateFuelCost(vector<int> numbers) {
     int sum = 0;
@@ -11,3 +11,4 @@ int calculateFuelCost(vector<int> numbers) {
         sum += result;
     }
     return sum;
+}
