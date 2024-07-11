@@ -5,7 +5,7 @@ total_sum = sum(arr)
 half_sum = total_sum // 2
 
 prefix_sum = 0
-for i in range(n - 1):
+for i in range(n-1):
     prefix_sum += arr[i]
     if prefix_sum >= half_sum:
         if prefix_sum == half_sum:
@@ -16,6 +16,6 @@ for i in range(n - 1):
                 print(*arr[: i + 1])
                 print(*arr[i + 1 :])
             else:
-                print(*arr[: i])
+                print(*arr[:i])
                 print(*arr[i:])
         break
