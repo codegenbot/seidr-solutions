@@ -1,8 +1,27 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+Here is the modified code:
+```cpp
+#include <string>
 
 int whitePegs(string code, string guess) {
+    int count = 0;
+    vector<char> codeMap(6), guessMap(6);
+    for (int i = 0; i < 4; i++) {
+        if (guess[i] == code[i]) {
+            codeMap[code[i]]++;
+            guessMap[guess[i]]++;
+            count++;
+        }
+    }
+    for (int i = 0; i < 6; i++) {
+        if (codeMap[i] > 1 || guessMap[i] > 1) {
+            return -1;
+        }
+    }
+    int blackPegsCount = blackPegs(code, guess);
+    return count - blackPegsCount;
+}
+
+int blackPegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
@@ -10,35 +29,4 @@ int whitePegs(string code, string guess) {
         }
     }
     return count;
-}
-
-int blackPegs(string code, string guess) {
-    int count = 0;
-    vector<char> codeArray(code.begin(), code.end());
-    for (int i = 0; i < 4; i++) {
-        if (guess[i] == code[i]) {
-            code.erase(i, 1);
-            i--;
-        } else {
-            for (int j = 0; j < 6; j++) {
-                vector<char>::iterator it = find(codeArray.begin(), codeArray.end(), 'ABCDEF'[j]);
-                if (it != codeArray.end()) {
-                    count++;
-                    codeArray.erase(it);
-                    break;
-                }
-            }
-        }
-    }
-    return count;
-}
-
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    int white = whitePegs(code, guess);
-    int black = blackPegs(code, guess);
-    cout << black << endl;
-    cout << white << endl;
-    return 0;
 }
