@@ -1,28 +1,34 @@
-def calculate_bowling_score(bowls):
+def calculate_bowling_score(rolls):
     score = 0
-    frames = [[] for _ in range(10)]
-    frame_index = 0
-    for bowl in bowls:
-        if bowl == "X":
-            frames[frame_index].append(10)
-            frame_index += 1
-        elif bowl == "/":
-            frames[frame_index].append(10 - frames[frame_index][-1])
-            frame_index += 1
-        else:
-            frames[frame_index].append(int(bowl))
+    frame = 1
+    roll_index = 0
 
-    for frame in frames:
-        score += sum(frame[:2])
-        if len(frame) == 1 and frame_index < 9:
-            if frames[frame_index + 1]:
-                score += sum(frames[frame_index + 1][:2])
-        elif len(frame) == 2 and sum(frame) == 10 and frame_index < 9:
-            if frames[frame_index + 1]:
-                score += frames[frame_index + 1][0]
+    for _ in range(10):
+        if rolls[roll_index] == "X":
+            score += 10 + sum(
+                convert_to_int(rolls[roll_index + 1 : roll_index + 3], "X")
+            )
+            roll_index += 1
+        elif rolls[roll_index + 1] == "/":
+            score += 10 + convert_to_int(rolls[roll_index + 2], "/")
+            roll_index += 2
+        else:
+            score += convert_to_int(rolls[roll_index], rolls[roll_index + 1])
+            roll_index += 2
+
+        frame += 1
 
     return score
 
 
-bowls_input = input()
-print(calculate_bowling_score(bowls_input))
+def convert_to_int(roll, symbol):
+    if roll == symbol:
+        return 10
+    elif roll == "-":
+        return 0
+    else:
+        return int(roll)
+
+
+rolls = input()
+print(calculate_bowling_score(rolls))
