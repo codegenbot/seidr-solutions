@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cassert>
+#include <iostream>
 #include <bitset>
 
 std::string solve(int N) {
@@ -8,5 +8,5 @@ std::string solve(int N) {
         bit_sum[N % 2];
         N /= 2;
     }
-    return bit_sum.to_string().substr(sizeof(int)*8-5);
+    return bit_sum.to_string().substr(sizeof(int)*8 - 5);
 }
