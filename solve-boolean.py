@@ -15,7 +15,7 @@ def solve_boolean(expression):
             b = stack.pop()
             a = stack.pop()
             stack.append(operations[char](a, b))
-        elif char == "&":
-            while len(stack) > 1 and stack[-2] != "|":
+        elif char == "|":
+            while len(stack) > 1 and stack[-2] != "&":
                 stack.pop()
     return stack[0]
