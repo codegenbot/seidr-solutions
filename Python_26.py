@@ -1,3 +1,9 @@
-def remove_duplicates(input_string: str) -> List[int]:
-    numbers = list(map(int, input_string.split()))
+from typing import List
+
+
+def remove_duplicates() -> List[int]:
+    numbers = list(map(int, "123,456,789".split(',')))
     return sorted(set(numbers))
+
+
+print(remove_duplicates())
