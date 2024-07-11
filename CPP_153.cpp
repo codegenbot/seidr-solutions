@@ -1,4 +1,4 @@
-```
+```cpp
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int max_strength = 0;
     std::string strongest_extension;
