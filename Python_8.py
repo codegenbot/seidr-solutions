@@ -13,14 +13,13 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     return total_sum, product if product != 0 else 1
 
 
-while True:
+numbers = input('Please enter numbers: ')
+if ',' not in numbers:
+    print("Invalid input! Please enter comma-separated numbers.")
+else:
     try:
-        numbers = str(input('Please enter numbers: '))
-        numbers = numbers.strip().replace(',', '')
         result = sum_product(list(map(int, numbers.split(','))))
-        break
+        total_sum, product = result
+        print(f"Total sum is {total_sum} and the product is {product}.")
     except ValueError:
         print("Invalid input! Please enter comma-separated numbers.")
-else:
-    total_sum, product = result
-    print(f"Total sum is {total_sum} and the product is {product}.".
