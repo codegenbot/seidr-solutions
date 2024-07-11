@@ -1,15 +1,6 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string>) {
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != planets[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Makemake"};
     
