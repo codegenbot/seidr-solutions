@@ -6,8 +6,4 @@ def sort_array(user_input=None):
     sorted_array = sorted(array)
     n = len(sorted_array)
 
-    if n % 2 != 0:
-        return sorted_array[:n//2]+sorted_array[n//2+1:]
-    else:
-        mid = n // 2
-        return sorted_array[:mid]
+    return sorted_array[:n//2+1]
