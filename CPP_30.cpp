@@ -1,15 +1,5 @@
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
-    for (float num : l) {
-        if (num > 0) {
-            result.push_back(num);
-        }
-    }
-    return result;
-}
-
 bool issame(vector<float> a, vector<float> b){
-    return a == b;
+    return abs(a.size() - b.size()) < 1e-9 && equal(a.begin(), a.end(), b.begin(), [](float x, float y){ return abs(x - y) < 1e-9; });
 }
 
 // In the main function:
