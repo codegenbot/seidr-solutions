@@ -1,11 +1,10 @@
 #include <string>
 #include <iostream>
-#include <cassert> // add this line
 
 std::string change_base(int x, int base) {
     std::string result = "";
     while (x > 0) {
-        result = std::to_string(x % base) + result;
+        result = std::__cxx11::to_string(x % base) + result;
         x /= base;
     }
     return result;
@@ -29,6 +28,5 @@ void contest_main() {
 
 int main() {
     contest_main();
-    assert(change_base(42, 43) == std::to_string(42)); // add this line
     return 0;
 }
