@@ -14,10 +14,7 @@ int main() {
 
     while ((pos = text.rfind(target, pos)) != string::npos) {
         indices.push_back(pos);
-        if (pos == 0) {
-            break;
-        }
-        pos--;
+        pos -= target.size();
     }
 
     for (int i : indices) {
