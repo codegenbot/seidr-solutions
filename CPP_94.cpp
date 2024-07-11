@@ -1,5 +1,7 @@
-#include<vector>
-#include<cmath>
+```cpp
+#include <vector>
+#include <iostream>
+
 using namespace std;
 
 int skjkasdkd(vector<int> lst){
