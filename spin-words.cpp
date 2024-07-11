@@ -1,19 +1,35 @@
-```c++
 #include <iostream>
 #include <algorithm>
 using namespace std;
 
 string spinWords(string str) {
+    using namespace std;
     string result = "";
-    int start = 0;
-    for(int end = 0; end <= str.length(); end++){
-        if(end == str.length() || str[end] == ' '){
-            string word = str.substr(start, end - start);
-            if(word.length() >= 5)
+    for (int i = 0; i < str.length(); i++) {
+        if (i < str.length() - 1 && str[i + 1] == ' ') {
+            int pos = i;
+            string word = str.substr(pos);
+            if (word.length() >= 5)
                 result.append(string(word.rbegin(), word.rend()) + " ");
             else
                 result.append(word + " ");
-            start = end + 1;
+            i += word.length();
+        } else {
+            if (str.find(" ", i) == -1 || i == str.length() - 1) {
+                string word = str.substr(i);
+                if (word.length() >= 5)
+                    result.append(string(word.rbegin(), word.rend()) + " ");
+                else
+                    result.append(word + " ");
+                break;
+            }
+            int pos = str.find(" ", i);
+            string word = str.substr(i, pos - i);
+            if (word.length() >= 5)
+                result.append(string(word.rbegin(), word.rend()) + " ");
+            else
+                result.append(word + " ");
+            i = pos;
         }
     }
     return result;
@@ -23,6 +39,5 @@ int main() {
     string str;
     cout << "Enter a string of words: ";
     getline(cin, str);
-    cout << "Spun result: " << spinWords(str) << endl;
+    cout << "Spun result: " << spinWords(str) << std::endl;
     return 0;
-}
