@@ -1,17 +1,15 @@
-sort(nums.begin(), nums.end(), [](int a, int b){
-    int sum_a = 0, sum_b = 0;
-    int temp_a = abs(a), temp_b = abs(b);
-    while(temp_a > 0){
-        sum_a += temp_a % 10;
-        temp_a /= 10;
+sort(nums.begin(), nums.end(), [](const int& num1, const int& num2) {
+    int sum1 = abs(num1);
+    while(num1) {
+        sum1 += abs(num1%10);
+        num1 /= 10;
     }
-    while(temp_b > 0){
-        sum_b += temp_b % 10;
-        temp_b /= 10;
+    int sum2 = abs(num2);
+    while(num2) {
+        sum2 += abs(num2%10);
+        num2 /= 10;
     }
-    if(sum_a == sum_b){
-        return a < b;
-    }
-    return sum_a < sum_b;
+    return sum1 == sum2 ? find(nums.begin(), nums.end(), num1) < find(nums.begin(), nums.end(), num2) : sum1 < sum2;
 });
+
 return nums;
