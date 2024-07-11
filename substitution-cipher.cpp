@@ -1,19 +1,15 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-void decipherMessage() {
-    string cipher1, cipher2, message;
-  
-    cin >> cipher1 >> cipher2 >> message;
-
+int main() {
+    std::string cipher1, cipher2, message;
+    std::cin >> cipher1 >> cipher2 >> message;
     for (char &c : message) {
         size_t index = cipher2.find(c);
-        if (index != string::npos) {
+        if (index != std::string::npos) {
             c = cipher1[index];
         }
     }
-
-    cout << message << endl;
+    std::cout << message << std::endl;
+    return 0;
 }
