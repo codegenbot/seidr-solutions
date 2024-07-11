@@ -1,5 +1,4 @@
 #include <vector>
-
 bool will_it_fly(std::vector<int> q, int w) {
     int sum = 0;
     for(int i = 0; i < q.size(); i++) {
@@ -14,6 +13,4 @@ bool will_it_fly(std::vector<int> q, int w) {
         }
     }
     return true;
-} 
-
-assert(will_it_fly({5}, 5) == true);
+}
