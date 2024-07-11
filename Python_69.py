@@ -1,10 +1,14 @@
+```
 from collections import Counter
 
 
 def search():
     while True:
-        user_input = input("Enter a list of numbers separated by space: ")
-        if user_input == "":
+        user_input = input("Enter a list of numbers separated by space or type 'exit' to quit: ")
+        if user_input.lower() == "exit":
+            print("Exiting the program.")
+            return None
+        elif user_input == "":
             print("No input received.")
             continue
         try:
