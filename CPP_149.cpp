@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -5,6 +6,8 @@
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
+
+std::vector<std::vector<std::string>> input = {{"aaaa"}, {"bbbb"}, {"dd"}, {"cc"}};
 
 std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> lst) { 
     if (lst.empty()) {
@@ -43,4 +46,8 @@ std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> l
               });
 
     return result;
+}
+
+int main() {
+    assert(issame(sorted_list_sum(input), {"cc", "dd", "aaaa", "bbbb"}));
 }
