@@ -1,4 +1,5 @@
 ```cpp
+#include <initializer_list>
 #include <vector>
 #include <iostream>
 #include <iomanip>
@@ -9,9 +10,7 @@ using namespace std;
 double vector_distance(int n) {
     vector<float> v1(n), v2(n);
     for (int i = 0; i < n; i++) {
-        float x, y;
-        cin >> x >> y;
-        v1[i] = v2[i] = (x + y) / 2.0f;
+        cin >> v1[i] >> v2[i];
     }
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
