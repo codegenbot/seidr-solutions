@@ -1,3 +1,13 @@
+int whitePegs(string code, string guess) {
+    int count = 0;
+    for (int i = 0; i < 4; i++) {
+        if (guess[i] == code[i]) {
+            count++;
+        }
+    }
+    return count;
+}
+
 int blackPegs(string code, string guess) {
     int blackCount = 0;
     vector<char> codeArray(code.begin(), code.end());
@@ -9,4 +19,13 @@ int blackPegs(string code, string guess) {
         }
     }
     return blackCount;
+}
+
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    int black = blackPegs(code, guess);
+    cout << black << endl;
+    cout << whitePegs(code, guess) << endl;
+    return 0;
 }
