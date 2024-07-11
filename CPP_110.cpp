@@ -7,13 +7,12 @@ string exchange(vector<int> lst1, vector<int> lst2) {
             even_count++;
         }
     }
-    if (even_count == lst1.size()) {
-        return "YES";
-    }
-    for (int num : lst2) {
-        if (std::find(lst1.begin(), lst1.end(), num) != lst1.end() && num % 2 != 0) {
-            return "NO";
+    for (int i = 0; i < lst2.size(); i++) {
+        if (lst2[i] % 2 == 0) {
+            lst1.push_back(lst2[i]);
+            lst2.erase(lst2.begin() + i);
+            i--;
         }
     }
-    return "YES";
+    return even_count == lst1.size() ? "YES" : "NO";
 }
