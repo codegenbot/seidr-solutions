@@ -1,8 +1,11 @@
 def find_zero(xs: list):
-    """Find the zero point on the line defined by (x1, y1) and (x2, y2).
+    """
+    Calculate the zero point based on two input values.
+
     Args:
-        xs (list): A list of two points [(x1, y1), (x2, y2)].
+        xs (list): A list containing two numbers for x0 and x1.
+
     Returns:
-        float: The zero point on the line.
+        float: The calculated zero point value.
     """
     return -xs[1] / xs[0]
