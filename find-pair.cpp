@@ -1,25 +1,26 @@
 int main() {
-    int n;
+    int n, a, b, target;
+    vector<int> nums;
     cin >> n;
-    
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+    for (int i = 0; i < n; ++i) {
+        int num;
+        cin >> num;
+        nums.push_back(num);
     }
-    
-    int target;
     cin >> target;
     
-    map<int, int> numToIndex;
-    for (int i = 0; i < n; i++) {
-        int complement = target - nums[i];
-        if (numToIndex.find(complement) != numToIndex.end()) {
-            cout << nums[numToIndex[complement]] << endl;
-            cout << nums[i] << endl;
+    map<int, int> hash;
+    for (int i = 0; i < nums.size(); ++i) {
+        int diff = target - nums[i];
+        if (hash.find(diff) != hash.end()) {
+            a = diff;
+            b = nums[i];
             break;
         }
-        numToIndex[nums[i]] = i;
+        hash[nums[i]] = i;
     }
+    
+    cout << a << endl << b << endl;
     
     return 0;
 }
