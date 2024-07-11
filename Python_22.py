@@ -1,17 +1,15 @@
-```
+```Python
 from typing import List
 
 def get_values() -> List[int]:
     result = []
     while True:
-        values = input("Enter some values (separated by space), 'stop' to finish: ")
-        if values.lower() == 'stop':
+        user_value = input("Enter a value (or 'stop' to finish): ")
+        if user_value.lower() == 'stop':
             break
-        for value in values.split():
-            if value.isdigit():
-                result.append(int(value))
-            else:
-                print(f"Invalid input: {value}. Please enter integers only.")
-        if all(val.replace(".", "", 1).replace("-", "", 1).isdigit() for val in values.split()):
-            break
+        try:
+            int(user_value)
+            result.append(int(user_value))
+        except ValueError:
+            print(f"Invalid input: {user_value}. Please enter integers only. Try again!")
     return result
