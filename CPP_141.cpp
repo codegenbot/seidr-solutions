@@ -1,29 +1,34 @@
 int digitCount = 0;
-    for(char c : file_name){
-        if(isdigit(c)){
+    int dotIndex = -1;
+
+    for (int i = 0; i < file_name.length(); i++) {
+        if (file_name[i] >= '0' && file_name[i] <= '9') {
             digitCount++;
+            if (digitCount > 3) {
+                return "No";
+            }
+        } else if (file_name[i] == '.') {
+            if (dotIndex == -1) {
+                dotIndex = i;
+            } else {
+                return "No";
+            }
         }
     }
 
-    if(digitCount > 3){
+    if (dotIndex == -1 || dotIndex == 0 || dotIndex == file_name.length() - 1) {
         return "No";
     }
 
-    size_t dotPos = file_name.find(".");
-    if(dotPos == string::npos || dotPos == 0 || dotPos == file_name.size()-1){
-        return "No";
+    string extension = file_name.substr(dotIndex + 1);
+    string validExtensions[] = {"txt", "exe", "dll"};
+    for (const auto &ext : validExtensions) {
+        if (extension == ext) {
+            if ((file_name[0] >= 'a' && file_name[0] <= 'z') || (file_name[0] >= 'A' && file_name[0] <= 'Z')) {
+                return "Yes";
+            }
+        }
     }
 
-    string firstName = file_name.substr(0, dotPos);
-    string secondName = file_name.substr(dotPos + 1);
-
-    if(!isalpha(firstName[0])){
-        return "No";
-    }
-
-    if(secondName == "txt" || secondName == "exe" || secondName == "dll"){
-        return "Yes";
-    } else {
-        return "No";
-    }
+    return "No";
 }
