@@ -1,10 +1,17 @@
-def prime_fib(n: int):
-    a, b = 0, 1
-    primes = []
-    while len(primes) < n:
-        if b > 1000000:  # stop when Fibonacci number exceeds 10^6
-            break
-        if is_prime(b):
-            primes.append(b)
-        a, b = b, a + b
-    return primes[-1]
+Here is the corrected code:
+
+def prime_fib(n: int): 
+    fib = [0, 1] 
+    while len(fib) <= n: 
+        fib.append(fib[-1] + fib[-2]) 
+    for i in range(len(fib)): 
+        if is_prime(fib[i]): 
+            return fib[i]
+
+def is_prime(num: int): 
+    if num < 2: 
+        return False 
+    for i in range(2, int(num**0.5) + 1): 
+        if num % i == 0: 
+            return False 
+    return True
