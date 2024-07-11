@@ -1,16 +1,16 @@
 ```
 def parse_music(music_string: str) -> List[int]:
-    beats = [4, 2, 1]  # legend
+    note_durations = {'o': 4, 'o|': 2, '.|': 1}
     result = []
-    i = 0
-    while i < len(music_string):
-        if music_string[i:i+2] == 'o|':
-            result.append(beats[1])
-            i += 2
-        elif music_string[i] == '.':
-            result.append(beats[2])
-            i += 3
-        else:
-            result.append(beats[0])
-            i += 2
+    current_note = ''
+    for char in music_string:
+        if char in note_durations:
+            if current_note:
+                result.append(note_durations[current_note])
+            current_note = char
+        elif char == ' ' and current_note:
+            result.append(note_durations[current_note])
+            current_note = ''
+    if current_note:
+        result.append(note_durations[current_note])
     return result
