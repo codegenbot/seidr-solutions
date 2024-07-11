@@ -1,9 +1,7 @@
-
-#include <iostream>
-#include <vector>
-#include <string>
-#include <cassert>
-#include <algorithm>
+#include<iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
 
 using namespace std;
 
@@ -14,21 +12,16 @@ int main() {
     int n;
     getline(cin, input);
     cin >> n;
-
+  
     vector<string> result = select_words(input, n);
 
-    vector<string> expected = {"b", "c", "d", "f"};
-    cout << "Expected: ";
-    for (const string& word : expected) {
-        cout << word << " ";
-    }
-    cout << endl;
+    vector<string> expected_result = {"b", "c", "d", "f"};
 
-    cout << "Output: ";
-    for (const string& word : result) {
-        cout << word << " ";
+    if(result == expected_result) {
+        cout << "Test Passed" << endl;
+    } else {
+        cout << "Test Failed" << endl;
     }
-    cout << endl;
 
     return 0;
 }
