@@ -1,9 +1,8 @@
-def substitution_cipher(cipher1, cipher2, message):
-    mapping = {char: other for char, other in zip(cipher1, cipher2)}
-    result = ""
-    for char in message:
-        if char in mapping:
-            result += mapping[char]
-        else:
-            result += char
-    return result
+message = input("Enter the message: ")
+result = ""
+for char in message.lower():
+    if char in cipher1.lower():
+        index = cipher1.index(char)
+        result += cipher2[index]
+    else:
+        result += char

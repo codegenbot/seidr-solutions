@@ -1,9 +1,10 @@
 def spin_words(text):
     words = text.split()
     result = []
+    temp_result = ''
     for word in words:
         if len(word) >= 5:
-            result.append(word[::-1])
+            temp_result += word[::-1] + ' '
         else:
-            result.append(word)
-    return ' '.join(' '.join(result).split())
+            temp_result += word + ' '
+    return temp_result.strip()
