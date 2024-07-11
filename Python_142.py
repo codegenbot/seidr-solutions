@@ -1,6 +1,7 @@
+```
 def sum_squares(lst):
     total_sum = 0
-    for num in map(int, lst.split()):
+    for num in map(int, input().split()):
         if num >= 10:
             total_sum += num ** 2
         else:
