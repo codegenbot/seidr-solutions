@@ -1,6 +1,5 @@
-def car_race_collision():
-    n = int(input("Enter a number: "))
+def car_race_collision(distance):
     total_distance = 0
-    for i in range(1, n+1):
+    for i in range(1, distance+1):
         total_distance += i
     return total_distance
