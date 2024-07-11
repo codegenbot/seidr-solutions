@@ -16,6 +16,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 int main() {
     std::vector<float> test_values = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
     sort_even(test_values);
-    assert(issame(test_values, test_values));
+    std::vector<float> expected_values = {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10};
+    assert(issame(test_values, expected_values));
     return 0;
 }
