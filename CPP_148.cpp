@@ -2,25 +2,16 @@ vector<string> bf(string planet1, string planet2){
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
-    int start = -1, end = -1;
-    for (int i = 0; i < planets.size(); ++i) {
-        if (planets[i] == planet1) {
-            start = i;
-        } else if (planets[i] == planet2) {
-            end = i;
+    if(std::find(planets.begin(), planets.end(), planet1) != planets.end() && std::find(planets.begin(), planets.end(), planet2) != planets.end()){
+        int start_index = std::distance(planets.begin(), std::find(planets.begin(), planets.end(), planet1));
+        int end_index = std::distance(planets.begin(), std::find(planets.begin(), planets.end(), planet2));
+        
+        int min_index = min(start_index, end_index);
+        int max_index = max(start_index, end_index);
+
+        for(int i = min_index + 1; i < max_index; ++i){
+            result.push_back(planets[i]);
         }
-    }
-
-    if (start == -1 || end == -1) {
-        return result;
-    }
-
-    if (start > end) {
-        swap(start, end);
-    }
-
-    for (int i = start + 1; i < end; ++i) {
-        result.push_back(planets[i]);
     }
 
     return result;
