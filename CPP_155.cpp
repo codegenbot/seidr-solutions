@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -23,11 +23,11 @@ pair<int, int> even_odd_count(int num) {
 }
 
 int main() {
-    pair<int, int> expected = {1, 0};
-    if (!issame({0, 0}, make_pair(1, 0)))
-        cout << "Test failed: Expected {"<< 0 << ", " << 0 << "}" 
-             << ", got {" << 1 << ", " << 0 << "}";
+    pair<int, int> p = even_odd_count(0);
+    pair<int, int> q({1, 0});
+    if (!issame(vector<int>(p.begin(), p.end()), vector<int>(q.begin(), q.end())))
+        cout << "Failed";
     else
-        cout << "Test passed";
+        cout << "Passed";
     return 0;
 }
