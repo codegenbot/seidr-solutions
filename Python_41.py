@@ -1,10 +1,9 @@
-```
+```python
 def car_race_collision():
-    total_distance = float(input("Enter the total race distance: "))
-    time_at_meet = int(input("Enter time at which both cars meet: "))
+    time_to_meet = int(input("Enter time at which both cars meet: "))
     
-    speed1 = (float(input("Enter distance traveled by car 1: "))) / time_at_meet
-    speed2 = (total_distance - float(input("Enter distance traveled by car 2: "))) / time_at_meet
+    speed1 = float(input("Enter distance traveled by car 1: ")) / time_to_meet
+    speed2 = (float(input("Enter total race distance: ")) - speed1 * time_to_meet) / time_to_meet
     
     if abs(speed1 - speed2) == 0:
         return f"Both cars are traveling at the same speed."
