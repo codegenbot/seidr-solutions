@@ -9,6 +9,20 @@ def filter_by_prefix(strings: List[str], prefix: str) -> None:
 
 
 num_strings = int(input("Enter number of strings: "))
+while True:
+    try:
+        if num_strings <= 0:
+            raise ValueError
+        break
+    except ValueError:
+        print("Please enter a positive integer.")
 strings = [input() for _ in range(num_strings)]
 prefix = input("Enter prefix: ")
+while True:
+    try:
+        if len(prefix) == 0:
+            raise ValueError
+        break
+    except ValueError:
+        print("Please enter a non-empty prefix.")
 filter_by_prefix(strings, prefix)
