@@ -3,24 +3,23 @@
 #include <iostream>
 #include <cctype>
 
-using namespace std;
-
-string remove_vowels(string text) {
-    string result;
-    for (char c : text) { 
-        if (!std::ioupper(c) == 'A' && !std::ioupper(c) != 'E'
-            && !std::ioupper(c) != 'I' && !std::ioupper(c) != 'O'
-            && !std::ioupper(c) != 'U')
-            result.push_back(std::tolower(c)); 
+std::string remove_vowels(std::string text) {
+    std::string result;
+    for (int i = 0; i < text.length(); i++) {
+        char c = text[i];
+        if (std::tolower(c) != 'a' && std::tolower(c) != 'e'
+            && std::tolower(c) != 'i' && std::tolower(c) != 'o'
+            && std::tolower(c) != 'u')
+            result.push_back(c); 
     }
     return result;
 }
 
 int main() {
-    string text;
-    cout << "Enter a sentence: ";
-    getline(cin, text);
-    string result = remove_vowels(text); 
-    cout << "Sentence with vowels removed: " << result << endl;
+    std::string text;
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, text);
+    std::string result = remove_vowels(text); 
+    std::cout << "Sentence with vowels removed: " << result << std::endl;
     return 0;
 }
