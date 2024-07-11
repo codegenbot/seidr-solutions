@@ -4,11 +4,11 @@
 
 namespace std {
     bool operator==(const vector<int>& a, const vector<int>& b) {
-        return a == b;
+        return equal(a.begin(), a.end(), b.begin(), b.end());
     }
 }
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return (a == b);
 }
 
