@@ -10,7 +10,7 @@ int main() {
     std::cout << (capitalize ? (char)std::tolower(input[0]) : input[0]);
 
     for (size_t i = 1; i < input.length(); ++i) {
-        if (input[i] == '-' || input[i] == ' ') {
+        if (input[i] == '-' || input[i] == ' ' || input[i] == '_') {
             capitalize = true;
         } else if (capitalize) {
             std::cout << (char)std::toupper(input[i]);
