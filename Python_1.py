@@ -1,5 +1,6 @@
+```
 def separate_paren_groups(paren_string: str) -> list:
-    def check():
+    def check(paren_string: str):
         output = []
         current_group = ""
         for char in paren_string:
@@ -16,4 +17,4 @@ def separate_paren_groups(paren_string: str) -> list:
             output.append(current_group)
         return output
 
-    return check()
+    return check(paren_string)
