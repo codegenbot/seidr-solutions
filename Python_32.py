@@ -1,12 +1,37 @@
+import math
+
+
 def find_zero():
-    x1 = float(input("Enter coefficient of x^2: "))
-    b1 = float(input("Enter coefficient of x: "))
-    c1 = float(input("Enter constant term: "))
-    
-    a = x1
-    b = -b1
-    c = c1
-    
-    d = -a
-    x = (-b + math.sqrt(b**2-4*a*c)) / (2*a)
-    return round(x, 2)
+    n = int(input("Enter the number of coefficients: "))
+    xs = []
+
+    for i in range(n):
+        coeff = float(input(f"Enter coefficient {i+1}: "))
+        xs.append(coeff)
+
+    try:
+        return round(
+            (
+                xs[n // 2]
+                - (-sum([coeff for i, coeff in enumerate(xs[: n // 2]) if i % 2 == 1]))
+                + math.sqrt(
+                    (
+                        -sum(
+                            [
+                                coeff
+                                for i, coeff in enumerate(xs[: n // 2])
+                                if i % 2 == 1
+                            ]
+                        )
+                    )
+                    ** 2
+                    - 4
+                    * xs[n // 2]
+                    * sum([coeff for i, coeff in enumerate(xs[: n // 2]) if i % 2 == 0])
+                )
+            )
+            / (2 * xs[n // 2]),
+            2,
+        )
+    except ValueError as e:
+        return str(e)
