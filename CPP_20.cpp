@@ -1,11 +1,5 @@
-```cpp
-#pragma GCC diagnostic push
-{
-#pragma GCC diagnostic ignored "-Wstrict-aliasing"
-}
 #include <vector>
 #include <limits>
-#include <initializer_list>
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
     if (numbers.size() <= 1) {
@@ -13,7 +7,7 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
     }
     
     float min_diff = std::numeric_limits<float>::max();
-    auto closest_pair = {numbers[0], numbers[0]};
+    std::pair<float, float> closest_pair;
     
     for (int i = 0; i < numbers.size(); ++i) {
         for (int j = i + 1; j < numbers.size(); ++j) {
@@ -25,14 +19,14 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
         }
     }
     
-    return {closest_pair[0], closest_pair[1]};
+    return {closest_pair.first, closest_pair.second};
 }
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    if (a.size() != b.size())
+    if(a.size() != b.size())
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > 1e-9)
+    for(int i = 0; i < a.size(); i++) {
+        if(std::abs(a[i] - b[i]) > 1e-9)
             return false;
     }
     return true;
@@ -40,5 +34,8 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 
 int main() {
     std::vector<float> result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
-    assert(issame(result, {2.2, 3.1}));
+    if (!issame(result, {std::vector<float>{2.2, 3.1}})) {
+        return 1;
+    }
+    return 0;
 }
