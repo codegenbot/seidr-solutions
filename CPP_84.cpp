@@ -1,8 +1,12 @@
-int sum = 0;
-    int n = N;
-    while (n > 0) {
-        sum += n % 2;
-        n /= 2;
+int sumOfDigitsInBinary(int num) {
+    int sum = 0;
+    while (num > 0) {
+        sum += num % 2;
+        num /= 2;
     }
-    return bitset<sizeof(int)*8>(sum).to_string().substr(std::bitset<sizeof(int)*8>(sum).to_string().find('1'));
+    return sum;
+}
+
+string solve(int N) {
+    return bitset<16>(sumOfDigitsInBinary(N)).to_string().substr(16-ceil(log2(sumOfDigitsInBinary(N))));
 }
