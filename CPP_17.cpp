@@ -8,7 +8,7 @@ vector<int> parse_music(string music_string){
             if (music_string[i - 1] == 'o') {
                 beats.back() = 2;
             } else {
-                beats.push_back(1);
+                beats.back() = 1;
             }
         }
     }
