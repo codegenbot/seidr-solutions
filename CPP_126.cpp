@@ -1,4 +1,5 @@
 ```cpp
+#include <initializer_list>
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -16,19 +17,16 @@ bool is_sorted(vector<int> lst){
     }
     return true;
 
-int main() {
+int main(){
     vector<int> lst;
-    int num;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+    lst.resize(n);
     
-    cout << "Enter numbers, enter -1 to stop: ";
-    
-    while((cin >> num) && (num != -1)){
-        lst.push_back(num);
+    for(int i = 0; i < n; i++){
+        cin >> lst[i];
     }
-    
-    if(lst.empty())
-        cout << "List is empty." << endl;
-    else
-        cout << (is_sorted(lst) ? "True" : "False") << endl; 
-    return 0;
+
+    cout << (is_sorted(lst) ? "True" : "False") << endl; 
 }

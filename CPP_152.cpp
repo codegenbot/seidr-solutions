@@ -4,13 +4,13 @@
 
 using namespace std;
 
-pair<int, pair<int, int>> compare(vector<int> a, vector<int> b) {
+std::vector<int> compare(std::vector<int> a, std::vector<int> b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    return {a.size(), {b.size(), make_pair(0, 0)}};
+    return {static_cast<int>(a.size()), static_cast<int>(static_cast<long>(b.size()))};
 }
 
 int main() {
-    assert(compare({1,2,3,5},{-1,2,3,4})==make_pair(2, make_pair(0, 0)));
+    assert(issame({1,2,3,5},{-1,2,3,4}) == compare({1,2,3,5},{-1,2,3,4}) == vector<int>{2,0,0,1});
     return 0;
 }
