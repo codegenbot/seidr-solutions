@@ -7,10 +7,10 @@ int main() {
     double probability = 0.0;
     
     for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= m; ++j) {
-            probability += static_cast<double>(n - i) / n * static_cast<double>(m) / (n * m);
-        }
+        probability += static_cast<double>(i - 1) / n;
     }
+    
+    probability *= static_cast<double>(m) / n;
     
     std::cout << probability << std::endl;
     
