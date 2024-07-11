@@ -1,6 +1,8 @@
 #include <vector>
 #include <iostream>
 #include <pair>
+#include <algorithm>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int>& nums) {
