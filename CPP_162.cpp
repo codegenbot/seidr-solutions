@@ -15,6 +15,6 @@ std::string string_to_md5(std::string text) {
         sprintf(temp, "%02x", result[i]);
         hashValue += temp;
     }
-    
+
     return hashValue;
 }
