@@ -1,14 +1,5 @@
-def indices_of_substring(text, target):
-    result = []
-    pos = 0
-    while True:
-        pos = text.find(target, pos)
-        if pos == -1: 
-            break
-        result.append(pos) 
-        pos += len(target)
+```
+def indices_of_substring(text):
+    target = input()
+    result = [i for i in range(len(text)) if text.startswith(target, i)]
     return result
-
-text = input()
-target = input()
-print(indices_of_substring(text, target))
