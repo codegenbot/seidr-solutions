@@ -5,9 +5,9 @@ def modp(n: int, p: int):
             return b, 0, 1
         else:
             gcd, y, x = extended_euclidean(b % a, a)
-            return gcd, x - (b // a) * y, y
+            return gcd, x, y
 
-    gcd, inv_n, _ = extended_euclidean(n, p)
-    if gcd != 1:
-        raise ValueError(f"{n} is not invertible modulo {p}")
-    return pow(n, -1, p)
+    _, inv_n, _ = extended_euclidean(n, p)
+    if inv_n < 0:
+        inv_n += p
+    return pow(n, inv_n, p)
