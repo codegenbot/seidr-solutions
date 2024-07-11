@@ -1,11 +1,7 @@
-```cpp
 #include <iostream>
 
 double getProbability(int n, int m) {
-    if(m > n){
-        std::swap(n,m);
-    }
-    return 1.0 * (n - m + 1) / (n * m);
+    return 1.0 * (n - m) / (n * m);
 }
 
 int main() {
