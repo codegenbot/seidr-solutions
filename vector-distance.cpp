@@ -1,6 +1,4 @@
-#include <iostream>
 #include <vector>
-#include <cmath>
 using namespace std;
 
 double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
@@ -11,6 +9,9 @@ double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
     return sqrt(sum);
 }
 
+#include <iostream>
+#include <iomanip>
+
 int main() {
     int n;
     cin >> n;
@@ -20,4 +21,3 @@ int main() {
     }
     cout << fixed << setprecision(10) << vectorDistance(v1, v2) << endl;
     return 0;
-}
