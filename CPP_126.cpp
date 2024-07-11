@@ -1,7 +1,7 @@
+#include <initializer_list>
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
