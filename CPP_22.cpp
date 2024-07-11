@@ -1,6 +1,7 @@
+```
 #include <vector>
 #include <list>
-#include <typeinfo>
+#include <any>
 
 using namespace std;
 
@@ -27,6 +28,7 @@ bool issame(vector<int> a, vector<int> b) {
 }
 
 int main() {
-    assert(issame(filter_integers({3, any('c'), 3, 3, any('a'), any('b')}), {3, 3, 3}));
+    vector<int> values = {3, any('c'), 3, 3, any('a'), any('b')};
+    assert(issame(filter_integers(values), vector<int>{3, 3, 3}));
     return 0;
 }
