@@ -1,20 +1,24 @@
-```
-def add_and_display():
+def add_numbers():
+    def add(x, y):
+        return x + y
+
     while True:
         try:
             x = int(input("Enter first number: "))
-            break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+        else:
+            if x < 0:
+                print("Please enter a positive number.")
+                continue
+            break
 
     while True:
         try:
             y = int(input("Enter second number: "))
-            if y < 0:
-                print("Please enter a positive number.")
-            break
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
+        else:
+            break
 
-    result = x + y
-    print(f"The sum of {x} and {y} is {result}")
+    print(add(x, y))
