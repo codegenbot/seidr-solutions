@@ -7,7 +7,7 @@ def decode_shift():
         elif cont.lower() == "no":
             return
         else:
-            print("Invalid input. Please enter 'yes' or 'no'.")
+            print("Invalid input. Please enter 'yes' or 'no'.") 
 
     while True:
         encoding_type = input("Enter the type of encoding ('25-' for Caesar Cipher, '26-' for Vigenere Cipher): ")
