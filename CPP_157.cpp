@@ -17,5 +17,5 @@ int main() {
     if (right_angle_triangle(a, b, c))
         cout << "The triangle is right-angled." << endl;
     else
-        cout << "Invalid input! Please enter three distinct positive values for the sides of the triangle." << endl;
+        cout << "The triangle is not right-angled." << endl;
 }
