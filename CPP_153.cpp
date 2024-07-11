@@ -1,26 +1,19 @@
-Here is the completed code:
-
 int Strongest_Extension(string class_name,vector<string> extensions){
-    int strongest_strength = 0;
+    int strongest_strength = -1;
     string strongest_extension;
-    
-    for(auto extension:extensions){
+
+    for(auto extension : extensions){
         int cap = 0, sm = 0;
-        
-        for(int i=0; i<extension.length(); i++){
-            if(toupper(extension[i]) >= 'A' && toupper(extension[i]) <= 'Z')
-                cap++;
-            else
-                sm++;
+        for(char c : extension){
+            if(isupper(c)) cap++;
+            else if(islower(c)) sm++;
         }
-        
-        double strength = (double)cap - sm;
-        
+        int strength = cap - sm;
         if(strength > strongest_strength){
             strongest_strength = strength;
             strongest_extension = extension;
         }
     }
-    
+
     return class_name + "." + strongest_extension;
 }
