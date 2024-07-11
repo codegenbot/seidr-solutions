@@ -14,15 +14,13 @@ def separate_paren_groups(paren_string: str) -> list[str]:
                 if temp:
                     result.append(temp)
                 temp = "( "
-            elif char == ")" and not temp.startswith("( "):
+            if char == ")" and not temp.startswith("( "):
                 temp += ")"
                 while temp and temp[0] != "( ":
                     result.append("(" + temp[:4])
                     temp = temp[4:]
-        else:
-            temp += char
     if temp != "":
         result.append(temp)
     return result
 
-print(separate_paren_groups("( ) (( )) (( )( ))"))
+print("(( ) (( )) (( )( )))")
