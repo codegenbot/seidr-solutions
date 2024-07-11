@@ -4,12 +4,11 @@ while True:
         break
     print("Invalid input. Please enter exactly three or four coefficients, separated by spaces.")
 
-x = list(map(float, xs))
 import math
 
 def find_zero(xs):
     try:
-        a, b, c = xs[0], xs[1], xs[2]
+        a, b, c = map(float, [xs[0], xs[1], xs[2]])
         d = sum(map(float, xs[3:])) if len(xs) > 3 else 0
     except ValueError:
         return "Invalid input. Please enter only numbers separated by spaces."
@@ -20,4 +19,4 @@ def find_zero(xs):
     x2 = (-b - math.sqrt(discriminant)) / (2 * a)
     return f"The zeros are {round(x1, 2)} and {round(x2, 2)}"
 
-print(find_zero(x))
+print(find_zero(xs))
