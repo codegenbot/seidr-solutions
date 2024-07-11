@@ -3,9 +3,9 @@ def is_palindrome(string: str) -> bool:
 
 
 def make_palindrome(string: str) -> str:
-    if is_palindrome(string):
-        return string + string
+    if string == string[::-1]:
+        return string + string[::-1]
     for i in range(len(string)):
         postfix = string[i:]
-        if is_palindrome(postfix):
+        if postfix == postfix[::-1]:
             return string + postfix[::-1]
