@@ -28,5 +28,16 @@ while True:
                     print(f"Median: {nums[mid]}")
                 else:
                     print(f"Median: {(nums[mid-1] + nums[mid]) / 2}")
+            elif user_input.lower() in ["q", "quit", "exit"]:
+                print("Goodbye!")
+                exit()
+            else:
+                print("Invalid input. Please enter 'mean', 'median' or 'q' to quit.")
+        elif user_input.lower() in ["q", "quit", "exit"]:
+            print("Goodbye!")
+            exit()
+        else:
+            print("Invalid input. Please enter a correct number or 'q' to quit.")
+
     except Exception as e:
         print(f"Error: {e}")
