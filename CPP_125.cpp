@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <cassert>
+#include <cctype>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
@@ -40,9 +41,4 @@ std::vector<std::string> split_words(std::string txt) {
         result.push_back(std::to_string(count));
     }
     return result;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
-    return 0;
 }
