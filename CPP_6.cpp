@@ -10,8 +10,9 @@ vector<int> parse_nested_parens(string paren_string) {
 
     for (char c : paren_string) {
         if (c == '(') {
-            nesting_levels.push(1);
-            max_nesting = max(max_nesting, 1);
+            nesting_levels.push(max_nesting + 1);
+            max_nesting = max_nesting + 1;
+            result.push_back(max_nesting);
         } else if (c == ')') {
             int level = nesting_levels.top();
             nesting_levels.pop();
