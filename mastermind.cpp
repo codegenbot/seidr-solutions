@@ -26,4 +26,4 @@ int main() {
     cout << whitePegs << endl << blackPegs << endl;
     
     return 0;
-}  
+}
