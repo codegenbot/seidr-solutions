@@ -8,6 +8,10 @@ def cycpattern_check(a, b):
             return True
     return False
 
-if __name__ == "__main__":
-    print(cycpattern_check("ab", "abc"))  
-    print(cycpattern_check("ab", "abcd"))
+def check():
+    a = input("Enter the string: ")
+    b = input("Enter the pattern to be checked: ")
+    result = cycpattern_check(a, b)
+    print("Is cyclic pattern present?" if result else "Cyclic pattern is not present")
+
+check()
