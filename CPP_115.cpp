@@ -1,16 +1,10 @@
-int total_water = 0;
-        int total_moves = 0;
-        for (int i = 0; i < grid.size(); i++) {
-            for (int j = 0; j < grid[i].size(); j++) {
+int wells = grid.size();
+        int cols = grid[0].size();
+        int total_water = 0;
+        for (int i = 0; i < wells; ++i) {
+            for (int j = 0; j < cols; ++j) {
                 total_water += grid[i][j];
-                if (total_water >= capacity) {
-                    total_moves += total_water / capacity;
-                    total_water %= capacity;
-                }
             }
         }
-        if (total_water > 0) {
-            total_moves += 1;
-        }
-        return total_moves;
-}
+        return (total_water + capacity - 1) / capacity;
+    }
