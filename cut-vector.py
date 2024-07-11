@@ -14,10 +14,10 @@ for i in range(n):
     diff = abs(left_sum - right_sum)
     if diff < min_diff or left_sum == right_sum:
         min_diff = diff
-        cut_index = (i, i)
+        cut_index = (i, diff)
 
-subvector1 = nums[:cut_index[0] + 1]
-subvector2 = nums[cut_index[0] + 1:]
+subvector1 = nums[:cut_index[0]+1]
+subvector2 = nums[cut_index[0]+1:]
 
 print(*subvector1)
 print(*subvector2)
