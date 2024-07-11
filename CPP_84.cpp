@@ -1,6 +1,5 @@
+```c++
 #include <string>
-#include <algorithm>
-
 using namespace std;
 
 string solve(int N) {
