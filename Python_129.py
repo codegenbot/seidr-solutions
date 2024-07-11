@@ -1,7 +1,13 @@
 ```
-def minPath(k, grid='\n0 1\n1 2'):
-    n = len(grid.split('\n')[1:])
-    m = [list(map(int, row.split())) for row in grid.split('\n')[1:]]
+def minPath():
+    k = int(input("Enter the number of steps: "))
+    grid = []
+    for _ in range(3):
+        row = input().split()
+        grid.append(list(map(int, row)))
+    
+    n = len(grid)
+    m = [list(map(int, row)) for row in grid]
     
     def dfs(i, j, path, visited):
         if len(path) == k:
