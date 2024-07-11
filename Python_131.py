@@ -5,6 +5,6 @@ def digits(n):
         if digit != 0:
             product *= digit
         elif product == 1: 
-            product = 1  # or whatever value makes sense in your context.
+            product = 1  
         n //= 10
     return product
