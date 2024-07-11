@@ -1,6 +1,9 @@
+```
 def hex_key(num):
-    hex_map = {'0': '000', '1': '0011', '2': '0010', '3': '0100', 
-               '4': '0111', '5': '0101', '6': '0110', '7': '1000',
-               '8': '1011', '9': '1001', 'A': '1100', 'B': '1111', 
-               'C': '1101', 'D': '1010', 'E': '1100', 'F': '1111'}
-    return ''.join(hex_map.get(c, c) for c in num.upper().replace(' ', ''))
+    count = 0
+    for digit in num:
+        if digit.upper() == 'B' or digit.upper() == 'D':
+            count += 1
+        elif int(digit, 16) > 1 and all(int(digit, 16) % i for i in range(2, int(digit, 16)**0.5 + 1)):
+            count += 1
+    return count
