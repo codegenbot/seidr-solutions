@@ -1,4 +1,3 @@
-```
 #include <cmath>
 
 bool isPrime(int num);
