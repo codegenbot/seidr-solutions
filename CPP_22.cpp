@@ -13,11 +13,11 @@ namespace boost {
             try {
                 T t2 = any_cast<T>(*this);
                 return t == t2;
-            } catch (...) {
-                return false;
-            }
         }
-    };
+    catch (...) {
+        return false;
+    }
+}
 }
 
 vector<int> filter_integers(list<any> values) {

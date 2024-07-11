@@ -1,4 +1,3 @@
-```cpp
 bool issame(vector<string> a, vector<string> b){
     if(a == b)
         return true;
@@ -6,30 +5,28 @@ bool issame(vector<string> a, vector<string> b){
         return false;
 }
 
-vector<vector<string>> group_by_prefix(vector<vector<string>>& strings) {
-    unordered_map<string, vector<string>> mp;
-    for (auto& s : strings) {
-        string prefix = s[0];
-        mp[prefix].push_back(s);
-    }
-    vector<vector<string>> result;
-    for (auto& p : mp) {
-        if (!issame(result, {{p.first}})) {
-            result.push_back({p.first});
-        }
-        for (auto& str : p.second) {
-            bool found = false;
-            for (int i = 0; i < result.size(); ++i) {
-                if (issame({str}, result[i])) {
-                    result[i].push_back(str);
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                result.push_back({str});
-            }
+vector<string> filter_by_prefix(vector<string> strings, string prefix){
+    vector<string> result;
+    for(string s : strings){
+        if(s.find(prefix) == 0 || issame(split(s), split(prefix))){
+            result.push_back(s);
         }
     }
     return result;
+}
+
+vector<string> split(string str, char ch){
+    vector<string> tokens;
+    string token;
+    for(int i = 0; i <= str.length(); i++){
+        if(str[i] == ch || i == str.length()){
+            token += ch;
+            tokens.push_back(token);
+            token = "";
+        }
+        else{
+            token += str[i];
+        }
+    }
+    return tokens;
 }
