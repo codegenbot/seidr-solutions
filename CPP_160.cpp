@@ -1,19 +1,17 @@
-int do_algebra(vector<string> operato, vector<int> operand) {
-    int result = 0;
-    int temp = operand[0];
-    for (int i = 1; i < operand.size(); i++) {
-        if (*min_element(operato.begin(), operato.end()) == "+") {
-            result += temp + operand[i];
-        } else if (*min_element(operato.begin(), operato.end()) == "-") {
-            result -= temp - operand[i];
-        } else if (*min_element(operato.begin(), operato.end()) == "*") {
-            result *= temp * operand[i];
-        } else if (*min_element(operato.begin(), operato.end()) == "//") {
-            result = temp / (int)round((double)operand[i]);
-        } else if (*min_element(operato.begin(), operato.end()) == "**") {
-            result = pow(temp, operand[i]);
+long long do_algebra(vector<string> operator_, vector<int> operand) {
+    long long result = (long long)operand[0];
+    for (int i = 1; i < operator_.size(); ++i) {
+        if (operator_[i] == "+") {
+            result += (long long)operand[i + 1];
+        } else if (operator_[i] == "-") {
+            result -= (long long)operand[i + 1];
+        } else if (operator_[i] == "*") {
+            result *= (long long)operand[i + 1];
+        } else if (operator_[i] == "//") {
+            result = result / (long long)operand[i + 1];
+        } else if (operator_[i] == "**") {
+            result = pow((double)result, (double)operand[i + 1]);
         }
-        operato.erase(min_element(operato.begin(), operato.end()));
     }
     return result;
 }
