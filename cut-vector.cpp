@@ -1,35 +1,44 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <numeric>
+#include <cmath>
 
-void cutVector(const std::vector<int>& arr, int cut_index) {
+void cutVector(const std::vector<int>& arr) {
     int n = arr.size();
+    int optimal_cut_index = 0;
     int min_diff = INT_MAX;
-    int optimal_cut_index;
 
     for (int i = 1; i < n; i++) {
-        int diff = abs(std::accumulate(arr.begin(), arr.begin() + i, 0) - std::accumulate(arr.begin() + i, arr.end(), 0));
+        int sum_left = 0, sum_right = 0;
+        for (int j = 0; j < n; j++) {
+            if (j < i)
+                sum_left += arr[j];
+            else
+                sum_right += arr[j];
+        }
+        int diff = std::abs(sum_left - sum_right);
         if (diff < min_diff) {
             min_diff = diff;
             optimal_cut_index = i;
         }
     }
 
-    for (int i = 0; i < optimal_cut_index; i++) {
-        std::cout << arr[i] << " ";
+    std::vector<int> left(arr.begin(), arr.begin() + optimal_cut_index);
+    std::vector<int> right(arr.begin() + optimal_cut_index, arr.end());
+
+    for (int num : left) {
+        std::cout << num << " ";
     }
     std::cout << std::endl;
-    for (int i = optimal_cut_index; i < n; i++) {
-        std::cout << arr[i] << " ";
+    
+    for (int num : right) {
+        std::cout << num << " ";
     }
 }
 
 int main() {
     std::vector<int> arr = {3, 7, 2, 5, 1};
-    int cut_index = 2;
 
-    cutVector(arr, cut_index);
+    cutVector(arr);
 
     return 0;
 }
