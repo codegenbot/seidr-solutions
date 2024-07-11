@@ -1,11 +1,15 @@
-string solve(string s) {
+string solve(string s){
     string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            result += (c >= 'a' && c <= 'z') ? char(c - ('a' - 'A')) : char(c + ('a' - 'A'));
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            char temp = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+            result += temp;
         } else {
-            result += c;
+            result += s[i];
         }
+    }
+    if(result.length() == 0) {
+        reverse(s.begin(), s.end());
     }
     return result;
 }
