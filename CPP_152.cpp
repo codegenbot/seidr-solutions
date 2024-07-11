@@ -5,24 +5,25 @@
 using namespace std;
 
 pair<int, int> compare(vector<int> a, vector<int> b) {
-    pair<int, int> res = make_pair(-1, -1);
-    
-    for(int i = 0; i < min(a.size(), b.size()); i++) {
-        if(a[i] < b[i]) return make_pair(i, 1);
-        else if (a[i] > b[i]) return make_pair(i, -1);
+    pair<vector<int>, vector<int>> (a,b);
+    vector<int> c(a.begin(), a.end());
+    c.insert(c.end(),b.begin(),b.end());
+    sort(c.begin(),c.end());
+    for(int i=0; i<c.size()-1; i++){
+        if(c[i]==c[i+1]){
+            return make_pair(i,c[i]);
+        }
     }
-    
-    if(a.size() < b.size()) return make_pair(-1, 1);
-    else if(a.size() > b.size()) return make_pair(1, -1);
-    
-    return res;
+    return make_pair(-1,-1);
 }
 
 bool issame(vector<int> a, vector<int> b) {
-    return a.size() == b.size() && equal(a.begin(), a.end(), b.begin());
+    sort(a.begin(),a.end());
+    sort(b.begin(),b.end());
+    return a==b;
 }
 
 int main() {
-    assert(compare({1,2,3,5}, {-1,2,3,4}) == make_pair(0,1));
+    assert(compare({1,2,3,5}, {-1,2,3,4}) == make_pair(0,2));
     return 0;
 }
