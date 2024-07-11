@@ -4,7 +4,7 @@
 int vowels_count(std::string s){
     int count = 0;
     for(char c : s){
-        if(std::tolower(c) == 'a' || std::tolower(c) == 'e' || std::tolower(c) == 'i' || std::tolower(c) == 'o' || (std::tolower(c) == 'u' && c == s.back())){
+        if(tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || (tolower(c) == 'u' && c == s.back())){
             count++;
         }
     }
@@ -12,6 +12,6 @@ int vowels_count(std::string s){
 }
 
 int main(){
-    assert(vowels_count("ACEDY") == 3);
+    assert (vowels_count("ACEDY") == 3);
     return 0;
 }
