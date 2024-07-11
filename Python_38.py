@@ -1,4 +1,6 @@
-def decode_cyclic(encoded_str):
+```
+def decode_cyclic():
+    encoded_str = input("Enter the encoded string: ")
     if len(encoded_str) % (len(encoded_str) // 2) != 0:
         return "Invalid input. Please ensure the length of the encoded string is a multiple of half its length."
     decoded_str = ""
@@ -17,3 +19,5 @@ def decode_cyclic(encoded_str):
         else:
             decoded_str += bits[1:][::-1].ljust(n, "0")
     return decoded_str
+
+print(decode_cyclic())
