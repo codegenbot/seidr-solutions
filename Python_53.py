@@ -6,3 +6,4 @@ def add():
             return x + y
         except ValueError:
             print("Invalid input. Please enter an integer.")
+            break
