@@ -1,4 +1,3 @@
-```Python
 from typing import Optional
 
 
