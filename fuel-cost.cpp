@@ -4,18 +4,15 @@
 using namespace std;
 
 int main() {
-    vector<long long> nums;
-    long long n;
+    vector<int> nums;
+    int n;
     while (cin >> n) {
         nums.push_back(n);
-        if (cin.peek() == '\n') {
-            break;
-        }
     }
 
-    long long sum = 0;
-    for (long long num : nums) {
-        sum += (num / 3) - 2;
+    int sum = 0;
+    for (int num : nums) {
+        sum += static_cast<int>(static_cast<int>(num / 3) - 2);
     }
 
     cout << sum << "\n";

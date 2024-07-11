@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+#include <cmath>
 
 int main() {
     int n;
@@ -12,9 +13,9 @@ int main() {
     }
 
     int diff = INT_MAX, cutIndex = 0;
-    for (int i = 0; i < n - 1; ++i) {
+    for (int i = 0; i < n; ++i) {
         int leftSum = 0, rightSum = 0;
-        for (int j = 1; j < n; ++j) {
+        for (int j = 0; j < n; ++j) {
             if (j <= i) {
                 leftSum += nums[j];
             } else {
@@ -23,7 +24,7 @@ int main() {
         }
 
         int currentDiff = abs(leftSum - rightSum);
-        if (currentDiff <= diff) {
+        if (currentDiff < diff) {
             diff = currentDiff;
             cutIndex = i;
         }
