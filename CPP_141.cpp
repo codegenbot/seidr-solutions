@@ -1,36 +1,24 @@
-string file_name_check(string file_name) {
-    int digit_count = 0;
+string file_name_check(string file_name){
     int dot_count = 0;
+    int digit_count = 0;
+    bool starts_with_letter = false;
 
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            digit_count++;
-        } else if (c == '.') {
+    for(int i = 0; i < file_name.length(); i++){
+        if(file_name[i] == '.'){
             dot_count++;
+        } else if(isdigit(file_name[i])){
+            digit_count++;
+        } else if(isalpha(file_name[i])){
+            starts_with_letter = true;
         }
     }
 
-    string before_dot = "";
-    string after_dot = "";
-
-    size_t pos = file_name.find('.');
-    if (pos != string::npos) {
-        before_dot = file_name.substr(0, pos);
-        after_dot = file_name.substr(pos + 1);
-
-        if (before_dot.empty() || !isalpha(before_dot[0])) {
-            return "No";
-        }
-
-        vector<string> allowed_extensions = {"txt", "exe", "dll"};
-        if (find(allowed_extensions.begin(), allowed_extensions.end(), after_dot) == allowed_extensions.end()) {
-            return "No";
-        }
-    } else {
-        before_dot = file_name;
+    if(dot_count > 1 || digit_count > 3 || !starts_with_letter){
+        return "No";
     }
 
-    if (digit_count > 3 || dot_count != 1) {
+    string extension = file_name.substr(file_name.find('.') + 1);
+    if(extension != "txt" && extension != "exe" && extension != "dll"){
         return "No";
     }
 
