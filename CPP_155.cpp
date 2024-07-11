@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -9,7 +8,7 @@ namespace std {
     }
 }
 
-bool same(const vector<int>& a, const vector<int>& b) {
+bool is_same(const std::vector<int>& a, const std::vector<int>& b) {
     return (a.size() == 2 && (a[0] == 1 && a[1] == 0));
 }
 
