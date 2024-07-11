@@ -4,10 +4,28 @@
 using namespace std;
 
 bool simplify(string x, string n) {
-    int a = stoi(strtok((x.substr(1)).c_str(), "/"));
-    int b = stoi(strtok(NULL, "/"));
-    int c = stoi(strtok((n.substr(1)).c_str(), "/"));
-    int d = stoi(strtok(NULL, "/"));
+    int a = 0, b = 0, c = 0, d = 0;
+    
+    // Convert fractions to integers
+    size_t pos = x.find('/');
+    a = stoi(x.substr(0, pos));
+    b = stoi(x.substr(pos + 1));
 
-    return (a * c) % (b * d) == 0;
+    pos = n.find('/');
+    c = stoi(n.substr(0, pos));
+    d = stoi(n.substr(pos + 1));
+
+    // Check if the product of fractions is an integer
+    int numerator = a * c;
+    int denominator = b * d;
+
+    return (numerator == denominator);
+}
+
+int main() {
+    cout << simplify("1/5", "5/1") << endl;  // true
+    cout << simplify("1/6", "2/1") << endl;  // false
+    cout << simplify("7/10", "10/2") << endl;  // false
+
+    return 0;
 }
