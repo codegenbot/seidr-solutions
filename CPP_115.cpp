@@ -1,17 +1,11 @@
-int total_fill = 0;
-        for (int i = 0; i < grid.size(); i++) {
-            int well_fill = 0;
-            for (int j = 0; j < grid[i].size(); j++) {
-                well_fill += grid[i][j];
+int rows = grid.size();
+        int cols = grid[0].size();
+        int count = 0;
+        for (int j = 0; j < cols; ++j) {
+            int sum = 0;
+            for (int i = 0; i < rows; ++i) {
+                sum += grid[i][j];
             }
-            total_fill += well_fill;
+            count += (sum + capacity - 1) / capacity;
         }
-
-        int moves = 0;
-        while (total_fill > 0) {
-            total_fill -= capacity;
-            moves++;
-        }
-
-        return moves;
-    }
+        return count;
