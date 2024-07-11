@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -14,7 +15,7 @@ long double double_the_difference(vector<float> lst) {
     return sum;
 }
 
-int mainFunction() {
+int main() {
     vector<float> lst;
     long double odd_sum = 0;
 
