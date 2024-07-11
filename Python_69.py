@@ -14,3 +14,4 @@ def search():
             print(max_num)
         except ValueError:
             print("Invalid input. Please enter a list of numbers separated by space.")
+            continue
