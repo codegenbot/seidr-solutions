@@ -3,7 +3,7 @@ from typing import List
 
 def concatenate(strings: List[str]) -> str:
     if isinstance(strings, list):
-        return "".join(sorted(strings))
+        return "".join(strings)
     elif isinstance(strings, str):
         return strings
     else:
