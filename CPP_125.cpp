@@ -1,5 +1,9 @@
 #include <string>
 
+bool issame(vector<string> a, vector<string> b){
+   /* Function implementation */
+}
+
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
@@ -26,10 +30,6 @@ vector<string> split_words(string txt){
         result.push_back(to_string(count));
     }
     return result;
-}
-
-bool issame(vector<string> a, vector<string> b){
-    // Function implementation
 }
 
 int main(){
