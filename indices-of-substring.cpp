@@ -10,7 +10,7 @@ int main() {
     int pos = static_cast<int>(text.find(target, 0));
     while (pos != std::string::npos) {
         indices.push_back(pos);
-        pos = static_cast<int>(text.find(target, pos + 1));
+        pos = static_cast<int>(text.find(target, pos + target.length()));
     }
 
     for (int i = 0; i < indices.size(); ++i) {
