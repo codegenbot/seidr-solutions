@@ -6,5 +6,7 @@ def has_close_values(numbers, threshold):
     return False
 
 
-# Call the function with the provided input and return the result
-print(has_close_values([1, 2, 4, 7, 10], 3))
+numbers = list(map(int, input("Enter numbers separated by space: ").split()))
+threshold = int(input("Enter threshold value: "))
+
+print(has_close_values(numbers, threshold))
