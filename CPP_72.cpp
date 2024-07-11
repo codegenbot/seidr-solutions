@@ -2,7 +2,17 @@ int sum = 0;
     for (int num : q) {
         sum += num;
     }
-    vector<int> reversed_q = q;
-    reverse(reversed_q.begin(), reversed_q.end());
-    return sum <= w && q == reversed_q;
+
+    if (sum > w) {
+        return false;
+    }
+
+    vector<int> rev_q = q;
+    reverse(rev_q.begin(), rev_q.end());
+
+    if (q != rev_q) {
+        return false;
+    }
+
+    return true;
 }
