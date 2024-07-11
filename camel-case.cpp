@@ -1,7 +1,7 @@
+#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cctype>
 
 std::vector<std::string> split(const std::string& s, char c) {
     std::vector<std::string> result;
@@ -17,8 +17,8 @@ std::vector<std::string> split(const std::string& s, char c) {
 }
 
 std::string camelCase(const std::string& s) {
-    if (s.find(' ') == std::string::npos && !s.empty()) {
-        return std::string(1, std::tolower(s[0], std::locale())) + s.substr(1);
+    if (s.empty()) {
+        return s;
     }
 
     std::vector<std::string> groups;
@@ -30,9 +30,9 @@ std::string camelCase(const std::string& s) {
     std::string result;
     for (int i = 0; i < groups.size(); ++i) {
         if (i > 0)
-            result += char(std::toupper(groups[i][0], std::locale()));
+            result += char(toupper(groups[i][0]));
         else
-            result += std::string(1, std::tolower(groups[i][0], std::locale()));
+            result += tolower(groups[i][0]);
         result += groups[i].substr(1);
     }
 
@@ -42,6 +42,12 @@ std::string camelCase(const std::string& s) {
 int main() {
     std::string s;
     while (std::getline(std::cin, s)) {
+        if (s.find(' ') == std::string::npos && !s.empty()) {
+            std::string lower_s = s;
+            std::transform(lower_s.begin(), lower_s.end(), lower_s.begin(),
+                ::tolower);
+            s = lower_s;
+        }
         std::cout << camelCase(s) << std::endl;
     }
     return 0;
