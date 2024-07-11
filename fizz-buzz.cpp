@@ -1,8 +1,7 @@
 int main() {
     int x;
     cin >> x;
-    
-    if (x % 3 == 0 && x % 5 == 0) {
+    if (x % 15 == 0) {
         cout << "FizzBuzz";
     } else if (x % 3 == 0) {
         cout << "Fizz";
@@ -11,6 +10,5 @@ int main() {
     } else {
         cout << x;
     }
-    
     return 0;
 }
