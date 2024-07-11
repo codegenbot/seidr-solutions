@@ -1,6 +1,6 @@
-```
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -27,6 +27,5 @@ vector<int> strange_sort_list(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = {1, 1, 1, 1, 1};
-    assert(same_vectors({1, 1, 1, 1, 1}, strange_sort_list(lst)));
+    assert(same_vectors({1, 1, 1, 1, 1}, strange_sort_list({1, 1, 1, 1, 1})));
 }
