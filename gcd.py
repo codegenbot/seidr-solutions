@@ -5,10 +5,7 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-text = input()
-target = input()
+a = int(input())
+b = int(input())
 
-indices = [i for i in range(len(text)) if text.startswith(target, i)]
-
-print(gcd(int(input()), int(input())))
-print(' '.join(map(str, indices)))
+print(gcd(a, b))
