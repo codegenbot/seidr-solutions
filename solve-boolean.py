@@ -8,10 +8,10 @@ def solve_boolean(expression):
             return True
         elif expression == 'F':
             return False
-
+        
         if expression[0] == '(':
             return evaluate(expression[1:-1])
-
+        
         for char in expression:
             if char.upper() == 'T':
                 stack.append(True)
