@@ -8,3 +8,6 @@ def make_palindrome(string: str) -> str:
     for i in range(len(string), -1, -1):
         if string[:i] + string[i:][::-1] == string:
             return string[:i] + string[i:][::-1]
+
+print(is_palindrome("radar"))
+print(make_palindrome("hello"))
