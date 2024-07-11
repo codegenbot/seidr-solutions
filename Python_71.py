@@ -1,22 +1,11 @@
-def main():
-    a = float(input("Enter the first side of the triangle: "))
-    b = float(input("Enter the second side of the triangle: "))
-    c = float(input("Enter the third side of the triangle: "))
-
-    area = triangle_area(a, b, c)
-
-    if area == -1:
-        print("These sides do not form a valid triangle.")
-    else:
-        print(f"The area of the triangle is {area}.")
-
-
-def triangle_area(a, b, c):
+def triangle_area():
+    a = float(input("Enter side a: "))
+    b = float(input("Enter side b: "))
+    c = float(input("Enter side c: "))
+    
     if a + b > c and a + c > b and b + c > a:
         s = (a + b + c) / 2
-        return round((s * (s - a) * (s - b) * (s - c)) ** 0.5, 2)
+        area = round((s * (s - a) * (s - b) * (s - c)) ** 0.5, 2)
     else:
-        return -1
-
-
-main()
+        area = -1
+    return area
