@@ -16,7 +16,9 @@ std::vector<std::string> split(const std::string& s, char c) {
 }
 
 std::string camelCase(const std::string& s) {
-    std::vector<std::string> groups = split(s, s.find(' ') == std::string::npos ? '-' : ' ');
+    std::vector<std::string> groups;
+    groups = split(s, s.find(' ') == std::string::npos ? '-' : ' ');
+
     std::string result;
     for (int i = 0; i < groups.size(); ++i) {
         if (i > 0)
