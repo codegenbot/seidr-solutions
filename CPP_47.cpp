@@ -4,9 +4,6 @@
 #include <cassert>
 
 double median(std::vector<int> l) {
-    // Add your test case here
-    assert (std::abs((7) - 7) < 1e-4);
-    
     std::sort(l.begin(), l.end());
     int n = l.size();
     if (n % 2 == 0) {
@@ -16,7 +13,8 @@ double median(std::vector<int> l) {
     }
 }
 
-int main() {
-    std::cout << "Median: " << median({8, 1, 3, 9, 9, 2, 7}) << std::endl;
-    return 0;
-}
+// int main() {
+//     // Add or modify your test cases here
+//     assert (std::abs(median({8, 1, 3, 9, 9, 2, 7}) - 7) < 1e-4);
+//     return 0;
+// }
