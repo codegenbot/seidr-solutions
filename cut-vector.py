@@ -1,7 +1,5 @@
-# Read input vector from user
 nums = list(map(int, input().split()))
 
-# Perform cut-vector calculation
 if len(nums) < 2:
     cut_index = None
 else:
@@ -17,5 +15,4 @@ else:
             min_diff = diff
             cut_index = i
 
-# Output the resulting subvectors
 nums[: cut_index + 1], nums[cut_index + 1 :]
