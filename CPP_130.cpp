@@ -29,5 +29,5 @@ int main() {
     assert(issame(tri(2), {1, 3, 2}));
     assert(issame(tri(3), {1, 3, 2, 3}));
     // Add more test cases as needed
-    return 0;  
+    return 0;
 }
