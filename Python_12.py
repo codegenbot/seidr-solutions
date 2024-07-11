@@ -1,7 +1,7 @@
 ```
-from typing import List, Union
+from typing import Union
 
-def longest(strings: List[str]) -> Union[str, None]:
+def longest(strings: list[str]) -> Union[str, None]:
     if not strings:
         return None
     max_len = 0
