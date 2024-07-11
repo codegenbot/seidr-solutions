@@ -1,4 +1,6 @@
-def check(f):
-    print(f())
+```
+def main():
+    check(solve)
 
-check(solve())
+if __name__ == "__main__":
+    main()
