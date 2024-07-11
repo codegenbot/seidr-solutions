@@ -17,11 +17,11 @@ vector<int> indicesOfSubstring(std::string text, std::string target) {
     return result;
 }
 
-void gcd(int a, int b) {
+int gcd(int a, int b) {
     while (b != 0) {
         int temp = b;
         b = a % b;
         a = temp;
     }
-    cout << a << endl;
+    return a;
 }
