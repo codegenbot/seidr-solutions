@@ -7,9 +7,11 @@ int main() {
     
     std::cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
     
-    for (int i = 0; hours > 0; ++i) {
-        snow_on_ground = snow_on_ground + snow_fall_rate - (snow_fall_rate * snow_melt_rate);
-        --hours;
+    for (int i = 0; i < hours; ++i) {
+        snow_on_ground = snow_on_ground + snow_fall_rate - (snow_on_ground * snow_melt_rate);
+        if (hours > 0) {
+            --hours;
+        }
     }
     
     std::cout << std::fixed << std::setprecision(10) << snow_on_ground << std::endl;
