@@ -1,3 +1,4 @@
+````
 def decode_cyclic(encoded_str: str, key: int) -> str:
     encoded_bytes = bytes(encoded_str.encode(), 'utf-8')
     decoded_str = ""
