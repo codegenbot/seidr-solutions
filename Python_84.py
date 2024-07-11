@@ -1,7 +1,12 @@
-def convert_to_binary(N):
-    return "".join(str((N // (10**i)) % 2) for i in reversed(range(len(str(N)))))
+def solve(binary):
+    while True:
+        try:
+            if binary:
+                N = int(input("Enter a {} number: ").format('binary' if binary else 'decimal'), 2 if binary else 10)
+            break
+        except ValueError:
+            print("Invalid input! Please enter a valid {}".format('binary' if binary else 'decimal'))
 
+    return str(N)
 
-if __name__ == "__main__":
-    N = int(input("Enter a number: "))
-    print(convert_to_binary(N))
+print(solve(True))
