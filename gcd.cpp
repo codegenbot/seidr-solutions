@@ -1,17 +1,10 @@
-int gcd(int a, int b) {
-    if (b == 0) return a;
-    return gcd(b, a % b);
-}
+#include <iostream>
+#include <algorithm>
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> indices;
-    int tlen = target.length();
-    for (int i = 0; i <= text.length() - tlen; ++i) {
-        if (text.substr(i, tlen) == target) {
-            for (int j = 0; j < tlen; ++j) {
-                indices.push_back(i + j);
-            }
-        }
-    }
-    return indices;
+int main() {
+    int a, b;
+    std::cin >> a >> b;
+    int result = std::__gcd(a, b);
+    std::cout << result << std::endl;
+    return 0;
 }
