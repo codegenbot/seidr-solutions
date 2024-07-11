@@ -1,10 +1,17 @@
 int main() {
-    string s1, s2, s3;
-    cin >> s1 >> s2 >> s3;
+    string s, t, u;
+    cin >> s >> t >> u;
     
-    for (char c : s3) {
-        cout << s2[s1.find(c)];
+    for (char &c : u) {
+        for (size_t i = 0; i < s.size(); ++i) {
+            if (u[i] == s[i]) {
+                c = t[i];
+                break;
+            }
+        }
     }
+    
+    cout << u;
     
     return 0;
 }
