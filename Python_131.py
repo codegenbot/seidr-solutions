@@ -1,4 +1,7 @@
+```Python
 def digits(n):
-    while n > 9:
-        n = sum(int(digit) for digit in str(n))
-    return n
+    n = str(abs(n))
+    if n[0] == '-':
+        return max(int(digit) for digit in n[1:])
+    else:
+        return max(int(digit) for digit in n)
