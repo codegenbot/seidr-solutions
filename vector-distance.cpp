@@ -24,7 +24,7 @@ int main() {
     }
 
     float distance = sqrt(sum);
-    cout << distance << endl;
+    std::cout << distance << std::endl;
 
     return 0;
 }
