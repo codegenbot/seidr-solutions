@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <vector>
 
 using namespace std;
@@ -18,10 +19,10 @@ int main() {
 
     float total = 0.0;
     for (int i = 0; i < n; ++i) {
-        total += prices[i] * (1 - discounts[i] / 100.0);
+        total += prices[i] * (1 - (discounts[i] / 100.0));
     }
 
-    cout << fixed << total << endl;
+    cout << fixed << setprecision(2) << total << endl;
 
     return 0;
 }
