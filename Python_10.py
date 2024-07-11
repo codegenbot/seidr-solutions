@@ -1,13 +1,10 @@
-```
-def is_palindrome(string: str) -> bool:
-    return string == string[::-1]
-
-
 def make_palindrome(string: str) -> str:
     if is_palindrome(string):
-        return string + string
+        return string + string[::-1]
     else:
-        half = len(string) // 2
-        prefix = string[:half][::-1]
-        postfix = string[half:][::-1]
-        return prefix + string + postfix
+        while not is_palindrome(string):
+            for char in 'abcdefghijklmnopqrstuvwxyz':
+                if string.find(char) == -1:
+                    string = string + char
+                    break
+        return string + string[::-1]
