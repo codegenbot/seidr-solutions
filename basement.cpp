@@ -3,14 +3,14 @@
 using namespace std;
 
 int basement(vector<int> nums) {
-    int sum = 0;
-    int negIndex = -1;
+    long long sum = 0;
+    int negIndex = nums.size();
     for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
-        if (sum < 0) {
-            negIndex = i;
+        if (sum < 0) { // Handle integer overflow
+            negIndex = i - 1;
             break;
         }
+        sum += nums[i];
     }
     return negIndex;
 }
