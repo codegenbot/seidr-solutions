@@ -1,13 +1,13 @@
 def find_closest_elements() -> tuple:
     numbers = []
-    
-    while True:
+
+    while len(numbers) < 2:
         try:
             num = float(input("Enter a number: "))
             numbers.append(num)
         except ValueError:
             print("Invalid input. Please enter a valid number.")
-    
+
     min_diff = float("inf")
     closest_pair = ()
 
