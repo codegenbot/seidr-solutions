@@ -1,4 +1,4 @@
-```
+```cpp
 #include <string>
 #include <iostream>
 
@@ -23,3 +23,4 @@ int main(){
     string output = remove_vowels(text);
     cout << "Sentence without vowels: " << output << endl;
     return 0;
+}
