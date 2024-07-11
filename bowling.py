@@ -1,24 +1,23 @@
-```
 def bowling_score(frames):
     score = 0
-    current_frame = 1
-    for i in range(0, len(frames), 2):
+    i = 0
+    while i < len(frames):
         if frames[i] == 'X':
-            score += 10 + get_bonus(frames[i+1:i+3])
-            current_frame += 1
-        elif frames[i] == '/':
-            parts = frames[i-1:i+1].split('/')
-            score += 10 - int(parts[0]) + get_bonus(frames[i+1:])
-            current_frame += 1
-        else:
+            if i+1 >= len(frames) or frames[i+1] != '-':
+                score += 10
+            else:
+                score += 10
+                i += 2
+        elif '/' in frames[i:i+2]:
             parts = frames[i:i+2].split('/')
-            score += sum(map(int, parts))
-            if current_frame == 10:
-                return score
-    return score
+            score += int(parts[0]) + int(parts[1])
+            i += 2
+        else:
+            if len(frames[i:i+2]) == 3: 
+                score += 10 + int(frames[i+1])
+                i += 2
+            else:
+                score += sum(int(part) for part in frames[i:i+2])
+                i += 2
 
-def get_bonus(frames):
-    if 'X' in frames or '/' in frames:
-        return 10 + int(frames[0])
-    else:
-        return sum(map(int, frames))
+    return score
