@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
 bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> sort_array(std::vector<int> array) {
@@ -20,6 +15,7 @@ std::vector<int> sort_array(std::vector<int> array) {
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
+    // Add your comparison logic here
     return a == b;
 }
 
