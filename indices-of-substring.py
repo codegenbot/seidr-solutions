@@ -11,8 +11,3 @@ def indices_of_substring(text, target):
     ]
 
     return indices
-
-text = input("Enter the text string: ")
-target = input("Enter the target string: ")
-result = indices_of_substring(text, target)
-print(result)
