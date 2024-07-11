@@ -1,4 +1,3 @@
-```
 def remove_duplicates(input_string):
     if isinstance(input_string, list):
         input_string = ','.join(map(str, input_string))
