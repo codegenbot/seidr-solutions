@@ -1,5 +1,8 @@
 #include <vector>
+#include <algorithm>
+
 #pragma GCC target "C++11"
+
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
