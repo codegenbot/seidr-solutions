@@ -1,7 +1,9 @@
-def calculate_factors():
-    num = int(input("Enter a number: "))
-    factors = []
-    for i in range(1, num + 1):
-        if num % i == 0:
-            factors.append(i)
-    print("Factors of {} are {}".format(num, ', '.join(map(str, set(factors)))))
+from typing import List
+import math
+
+
+def print_fibonacci(n: int) -> None:
+    a, b = 0, 1
+    for _ in range(n):
+        print(a)
+        a, b = b, a + b
