@@ -1,4 +1,5 @@
 #include <iostream>
+#include <map>
 #include <string>
 #include <cctype>
 
@@ -27,21 +28,7 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     map<string, string> dict;
-
-    cout << "Enter key-value pairs for the dictionary. Use 'quit' to stop input." << endl;
-    while (true) {
-        string key, value;
-        cout << "Key: ";
-        cin >> key;
-        if (key == "quit")
-            break;
-        cout << "Value: ";
-        cin >> value;
-        dict.insert(make_pair(key, value));
-    }
-
-    bool result = check_dict_case(dict);
-    cout << (result ? "All keys are in the same case." : "Dictionary has mixed-case keys.") << endl;
-
+    // Your code here...
+    cout << check_dict_case(dict) << endl;
     return 0;
 }
