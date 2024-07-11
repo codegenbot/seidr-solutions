@@ -1,11 +1,11 @@
+#include <climits>
 #include <iostream>
 #include <vector>
-#include <climits>
 
 int main() {
     std::vector<int> nums;
     int num;
-
+    
     while (std::cin >> num) {
         nums.push_back(num);
     }
@@ -33,6 +33,6 @@ int main() {
         std::cout << nums[i] << std::endl;
     }
     std::cout << 0 << std::endl;
-
+    
     return 0;
 }
