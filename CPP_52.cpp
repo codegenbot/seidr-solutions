@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -14,5 +13,5 @@ bool below_threshold(std::vector<int> l, int t) {
 }
 
 int main() {
-    std::cout << (below_threshold({1, 8, 4, 10}, 10) ? "False\n" : "True\n");
+    assert(not(below_threshold({1, 8, 4, 10}, 10)));
 }
