@@ -8,7 +8,7 @@ int main() {
     int num;
     while (std::cin >> num || !std::cin.eof()) {
         if (std::cin.fail()) {
-            break; // Exit loop if input fails
+            break;
         }
         nums.push_back(num);
     }
