@@ -1,18 +1,29 @@
-def get_strike_bonus(bowls, index):
-    bonus = 0
-    if bowls[index] == "X":
-        if index + 2 < len(bowls):
-            bonus += (
-                10
-                if bowls[index + 1] == "X"
-                else int(bowls[index + 1]) if bowls[index + 1].isdigit() else 0
-            )
-            if bowls[index + 1] == "X" and (bowls[index + 2] == "X" or bowls[index + 2] == "/"):
-                bonus += 10
+def calculate_bowling_score(bowls):
+    total_score = 0
+    frame = 1
+    ball = 1
+    index = 0
+
+    while frame <= 10:
+        if bowls[index] == "X":
+            total_score += 10
+            total_score += get_strike_bonus(bowls, index)[0]
+            index += 1
+            ball = 1
+            frame += 1
+        elif bowls[index] == "/":
+            total_score += 10 - int(bowls[index - 1])
+            total_score += int(bowls[index + 1])
+            index += 2
+            ball = 1
+            frame += 1
+        else:
+            total_score += int(bowls[index])
+            if ball == 1:
+                ball = 2
             else:
-                bonus += (
-                    10
-                    if bowls[index + 2] == "X"
-                    else int(bowls[index + 2]) if bowls[index + 2].isdigit() else 0
-                )
-    return bonus
+                ball = 1
+                frame += 1
+            index += 1
+
+    return total_score
