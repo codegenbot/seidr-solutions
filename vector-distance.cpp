@@ -4,33 +4,31 @@
 using namespace std;
 
 double vectorDistance(const vector<float>& v1, const vector<float>& v2) {
-    double sum = 0;
-    for (int i = 0; i < v1.size(); ++i) {
+    double distance = 0.0;
+    for (int i = 0; i < v1.size(); i++) {
         float diff = v1[i] - v2[i];
-        sum += diff * diff;
+        distance += pow(diff, 2);
     }
-    return sqrt(sum);
+    return sqrt(distance);
 }
 
 int main() {
     int n;
     cin >> n;
 
-    vector<float> vec1(n), vec2(n);
-
-    for (int i = 0; i < n; ++i) {
-        float x;
-        cin >> x;
-        vec1[i] = x;
+    vector<float> vec1(n);
+    for (float& val : vec1) {
+        cin >> val;
     }
 
-    for (int i = 0; i < n; ++i) {
-        float x;
-        cin >> x;
-        vec2[i] = x;
+    vector<float> vec2(n);
+    for (float& val : vec2) {
+        cin >> val;
     }
 
-    cout << setprecision(10) << vectorDistance(vec1, vec2) << endl;
+    double distance = vectorDistance(vec1, vec2);
+
+    cout << fixed << setprecision(10) << distance << endl;
 
     return 0;
 }
