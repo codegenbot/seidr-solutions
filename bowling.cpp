@@ -12,16 +12,15 @@ int main() {
         if (s[i] == 'X') {
             total += 10;
             if (frame < 9) {
-                total += (s[i + 1] == 'X' || s[i + 1] == '/') ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 0);
-                total += (s[i + 2] == 'X' || s[i + 2] == '/') ? 10 : (isdigit(s[i + 2]) ? s[i + 2] - '0' : 0);
+                total += (s[i + 2] == 'X') ? 10 : (isdigit(s[i + 2]) ? s[i + 2] - '0' : 10);
             } else if (frame == 9) {
-                total += ((s[i + 1] == 'X' || s[i + 1] == '/') + (s[i + 2] == 'X' || s[i + 2] == '/')) * 10;
+                total += ((s[i + 1] == 'X') + (s[i + 2] == 'X')) * 10;
             }
             frame++;
         } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0') + ((i + 1 < s.size()) ? (s[i + 1] == 'X' ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 0)) : 0);
+            total += 10 - (s[i - 1] - '0') + ((i + 2 < s.size()) ? (s[i + 2] == 'X' ? 10 : (isdigit(s[i + 2]) ? s[i + 2] - '0' : 0)) : 0);
             if (frame < 9) {
-                total += (s[i + 1] == 'X' || s[i + 1] == '/') ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 0);
+                total += (s[i + 1] == 'X') ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 10);
             }
             frame++;
         } else if (isdigit(s[i])) {
