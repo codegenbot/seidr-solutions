@@ -1,15 +1,9 @@
-```
-def sort_third(l):
+def sort_third(l: list):
     result = []
-    i = 0
-    while i < len(l):
+    for i in range(len(l)):
         if i % 3 == 0:
-            if i // 3 * 3 + 3 <= len(l):
-                result.append(sorted(l[i//3*3:i//3*3+3])[0])
-            else:
-                result.extend(sorted(l[i:]))
-                break
+            temp = l[i:i+3]
+            result.append(sorted(temp)[0] if temp else None)
         else:
             result.append(l[i])
-        i += 1
     return tuple(result)
