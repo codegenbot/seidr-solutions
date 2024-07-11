@@ -1,5 +1,4 @@
 #include <vector>
-#include <map>
 #include <string>
 
 std::string int_to_mini_roman(int number) {
