@@ -2,5 +2,7 @@
 def concatenate(strings: list) -> str:
     if not strings:
         return ""
-    result = " ".join(map(str, strings))
-    return result
+    result = ""
+    for string in strings:
+        result += string
+    return result.strip()
