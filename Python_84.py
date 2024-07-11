@@ -1,11 +1,15 @@
-```
+```Python
 def solve(is_binary):
     if is_binary:
-        num = int(input("Enter a binary number: "), 2)
-        print(num)
+        num = input("Enter a binary number: ")
+        try:
+            N = int(num, 2)
+            print(N)
+        except ValueError:
+            print("Invalid binary input!")
     else:
-        num = float(input("Enter a decimal number: "))
-        print(num)
+        N = float(input("Enter a decimal number: "))
+        print(N)
 
 if __name__ == "__main__":
     solve(True)
