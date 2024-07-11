@@ -1,14 +1,12 @@
 int main() {
-    int n;
+    int num;
     cout << "Enter a number: ";
-    cin >> n;
-    
-    vector<int> result = even_odd_count(n);
-    if(issame(even_odd_count(n),vector<int>{0,n})) {
-        cout << "Even and odd counts are the same for " << n << endl;
+    cin >> num;
+    vector<int> result = even_odd_count(num);
+    if(issame(result, vector<int>{1,0})) {
+        cout << "The input number is a palindrome." << endl;
     } else {
-        cout << "Even count: " << result[0] << ", Odd count: " << result[1] << endl;
+        cout << "The input number is not a palindrome." << endl;
     }
-    
     return 0;
 }
