@@ -31,7 +31,5 @@ def bowling_score(frames):
             i += 2
     return score
 
-frames = input()
-frames = frames.replace(",", "")  
-frames = frames.upper()  
+frames = input().replace(",", "").upper()
 print(bowling_score(frames))
