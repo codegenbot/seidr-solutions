@@ -3,10 +3,12 @@ def make_palindrome():
     while not s:
         print("Invalid input. Please enter a valid string.")
         s = input("Enter a string: ")
-    char = ''
-    while len(s) < 2 or s[0] != s[-1]:
-        char += '#'
-        s = char + s + char
-    return s
+
+    if len(s) < 2 or s[0] != s[-1]:
+        new_s = s + s[::-1]
+    else:
+        new_s = s
+    return new_s
+
 
 print(make_palindrome())
