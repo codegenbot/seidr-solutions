@@ -3,7 +3,7 @@ subvector1 = []
 subvector2 = []
 min_diff = float("inf")
 
-if len(numbers) >= 1:
+if len(numbers) >= 2:
     for cut_index in range(1, len(numbers)+1):
         sum1 = sum(numbers[:cut_index])
         sum2 = sum(numbers[cut_index:])
