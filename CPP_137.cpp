@@ -1,6 +1,5 @@
 #include <any>
 #include <string>
-#include <cassert>
 #include <cstdio>
 
 std::any compare_one(const std::any& a, const std::any& b) {
