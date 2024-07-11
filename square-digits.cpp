@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 
 std::string squareDigits(std::string input) {
@@ -6,7 +7,7 @@ std::string squareDigits(std::string input) {
         int digit = c - '0';
         result += std::to_string(digit * digit);
     }
-    return result; 
+    return result;
 }
 
 int main() {
