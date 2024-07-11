@@ -2,27 +2,21 @@ Here is the completed code:
 
 int skjkasdkd(vector<int> lst){
     int max_prime = 0;
-    for(int i=0; i<lst.size(); i++){
-        if(isPrime(lst[i])){
-            if(lst[i] > max_prime)
-                max_prime = lst[i];
+    for(int i=2; i<=*max_element(lst.begin(),lst.end()); i++){
+        bool is_prime = true;
+        for(int j=2; j*j <= i;j++){
+            if(i%j == 0) {
+                is_prime = false;
+                break;
+            }
+        }
+        if(is_prime && i > max_prime){
+            max_prime = i;
         }
     }
-    return sumOfDigits(max_prime);
-}
-
-int isPrime(int n) {
-    if (n <= 1) return 0;
-    for (int i = 2; i * i <= n; i++) 
-        if (n % i == 0) return 0;
-    return 1;
-}
-
-int sumOfDigits(int n) {
-    int sum = 0;
-    while(n > 0){
-        sum += n % 10;
-        n /= 10;
+    int sum_of_digits = 0;
+    while(max_prime>0) {
+        sum_of_digits += (max_prime%10);
+        max_prime /= 10;
     }
-    return sum;
-}
+    return sum_of_digits;
