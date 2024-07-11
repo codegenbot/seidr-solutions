@@ -3,11 +3,7 @@ from typing import List
 
 def below_zero() -> bool:
     operations = list(map(int, input("Enter integers separated by spaces: ").split()))
-    for operation in operations:
-        balance = 0
-        balance += operation
-        if balance < 0:
-            return True
-    return False
+    below_zero_readings = [op for op in operations if op < 0]
+    return len(below_zero_readings) > 0
 
 print(below_zero())
