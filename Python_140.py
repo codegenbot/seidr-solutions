@@ -1,7 +1,10 @@
 import re
 
+
 def fix_spaces(text):
-    if type(text) != str:
-        return "Invalid Input: Please enter a string."
-    text = re.sub(' +', '_', text)
+    pattern = r"\s+"
+    replacement = "_"
+    
+    text = input("Enter a text: ")  # Get user input
+    text = re.sub(pattern, replacement, text)
     return text
