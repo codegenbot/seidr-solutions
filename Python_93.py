@@ -3,21 +3,15 @@ def encode(message):
     for char in message:
         if char.isalnum():
             if char.isalpha():
-                if char.isupper():
-                    if ord(char) - 65 + 3 <= 26:
-                        result += chr((ord(char) - 65 + 3) % 26 + 65)
-                    else:
-                        result += chr((ord(char) - 65 - 25) % 26 + 65)
+                if ord(char) - 65 + 3 <= 26:
+                    result += chr((ord(char) - 65 + 3) % 26 + 65)
                 else:
-                    if ord(char) - 97 + 3 <= 26:
-                        result += chr((ord(char) - 97 + 3) % 26 + 97)
-                    else:
-                        result += chr((ord(char) - 97 - 25) % 26 + 97)
-            else:
-                if ord(char) in (32, 95): 
-                    result += char
+                    result += chr((ord(char) - 65 - 25) % 26 + 65)
+            elif char.isdigit():
+                if int(char) + 3 <= 9:
+                    result += str(int(char) + 3)
                 else:
-                    result += char
+                    result += str(int(char) - 9)
         else:
             result += char
     return result
