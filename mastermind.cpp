@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 int main() {
@@ -14,7 +13,7 @@ int main() {
         if (code[i] == guess[i]) {
             blackPegs++;
         } else {
-            codeFreq[code[i] - 'A']--;
+            codeFreq[code[i] - 'A']++;
             guessFreq[guess[i] - 'A']--;
         }
     }
