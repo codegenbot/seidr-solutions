@@ -6,15 +6,17 @@ int main() {
     string input;
     getline(cin, input);
 
-    bool capitalize = false;
+    bool capitalize = true;
     for (char& c : input) {
         if (c == '-') {
             capitalize = true;
-        } else if (c != ' ' && capitalize) {
-            cout << (char)toupper(c);
-            capitalize = false;
         } else if (c != ' ') {
-            cout << c;
+            if (capitalize) {
+                cout << (char)toupper(c);
+                capitalize = false;
+            } else {
+                cout << c;
+            }
         }
     }
 
