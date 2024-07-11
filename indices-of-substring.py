@@ -2,7 +2,7 @@ def indices_of_substring():
     text = input().strip()
     target = input().strip()
     
-    if len(target) > len(text) - 1:
+    if len(target) > len(text):
         return [0]
     
     if target == "":
