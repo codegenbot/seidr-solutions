@@ -17,10 +17,4 @@ def solve(expression):
         return result1 or result2
 
 expression = input()
-while 'T' in expression or 'F' in expression:
-    if 'T' in expression:
-        expression = expression.replace('T', '')
-    else:
-        expression = expression.replace('F', '')
-
 print("Result:", "True" if solve(expression) else "False")
