@@ -1,7 +1,6 @@
-print("Press enter to continue or type 'exit' to quit.")
-user_input = input()
-if user_input.lower() == "exit":
-    print("Exiting program. Goodbye!")
-    sys.exit()
-else:
-    main()
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        sys.stdin.readline()
