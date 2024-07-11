@@ -1,8 +1,6 @@
-float max_num = l[0];
-    for (float num : l) {
-        if (num > max_num) {
-            max_num = num;
-        }
+float max_val = l[0];
+    for (int i = 1; i < l.size(); i++) {
+        max_val = max(max_val, l[i]);
     }
-    return max_num;
+    return max_val;
 }
