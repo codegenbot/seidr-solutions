@@ -1,20 +1,17 @@
 ```
-def solve(num1, num2):
-    return num1 - num2
+def check(solve):
+    return "Hello" in solve()
 
-def check(func):
-    num1 = int(input("Enter first number: "))
-    num2 = int(input("Enter second number: "))
-
-    if func(num1, num2) > 0:
-        print(f"{num1} is greater than {num2}")
-    elif func(num1, num2) == 0:
-        print(f"{num1} is equal to {num2}")
-    else:
-        print(f"{num1} is less than {num2}")
+def solve():
+    user_input = input("Enter some data: ")
+    return user_input
 
 def main():
-    check(solve)
+    result = solve()
+    if check(result) == True:
+        print("Valid input")
+    else:
+        print("Invalid input")
 
 if __name__ == "__main__":
     main()
