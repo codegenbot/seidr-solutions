@@ -1,2 +1,1 @@
-def check(a, b, c):
-    return is_pythagorean_triplet(a, b, c)
+is_pythagorean_triplet(3, 4, 5)
