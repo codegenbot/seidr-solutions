@@ -2,8 +2,8 @@ from typing import List
 
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    groups = []
     stack = []
+    groups = []
     current_group = ""
 
     for char in paren_string:
@@ -13,17 +13,12 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             stack.append(char)
             current_group += char
         elif char == ")":
-            while stack and stack[-1] != "(":
-                current_group += stack.pop()
-            if stack:
-                current_group += stack.pop()  # Remove the matching opening parenthesis
-            else:
-                groups.append(current_group[1:])  # Add the complete group to the result
+            if stack and stack[-1] == "(":
+                stack.pop()
+                current_group += char
+                groups.append(current_group)
                 current_group = ""
-            while stack:  # Pop all remaining characters from the stack
-                current_group += stack.pop()
+            else:
+                current_group += char
 
-    if current_group:
-        groups.append(current_group[1:])  # Add the last group to the result
-
-    return [group for group in groups]  # Remove the extra [1:-1]
+    return groups
