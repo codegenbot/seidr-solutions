@@ -1,11 +1,14 @@
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<string>
+#include<cmath>
+
+using namespace std;
 
 bool is_prime(int n) {
     if (n <= 1) {
         return false;
     }
-    for (int i = 2; i * i <= n; i++) {
+    for (int i = 2; i <= sqrt(n); i++) {
         if (n % i == 0) {
             return false;
         }
@@ -14,5 +17,13 @@ bool is_prime(int n) {
 }
 
 bool prime_length(string str) {
-    return is_prime(str.length());
+    int len = str.length();
+    return is_prime(len);
+}
+
+int main() {
+    string input;
+    cin >> input;
+    cout << (prime_length(input) ? "true" : "false") << endl;
+    return 0;
 }
