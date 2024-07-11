@@ -9,3 +9,8 @@ string get_closest_vowel(string word) {
     }
     return "";
 }
+
+int main() {
+    assert(get_closest_vowel("Above") == "o");
+    return 0;
+}
