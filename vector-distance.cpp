@@ -6,6 +6,7 @@
 int main() {
     int n;
     std::cin >> n;
+    
     std::vector<float> vec1(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> vec1[i];
