@@ -1,8 +1,8 @@
 def solve_boolean(expression):
-    mapping = {'T': True, 'F': False, '|': 'or', '&': 'and'}
-    for key, value in mapping.items():
-        expression = expression.replace(key, str(value))
-    return eval(expression)
+    expression = expression.replace("T", "True").replace("F", "False")
+    expression = expression.replace("&", " and ").replace("|", " or ")
+    
+    return str(eval(expression))
 
 expression = input()
 print(solve_boolean(expression))
