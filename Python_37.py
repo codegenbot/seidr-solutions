@@ -1,9 +1,11 @@
-```
-def merge(lst1, lst2):
-    return [i for i in sorted([i for sublst in [lst1, lst2] for i in sublst])]
+def merge(left, right):
+    return left + right
 
 def sort_even(evens):
-    return merge(evens, [])
+    evens.sort()
+    sorted_evens = [x for x in evens if x % 2 == 0]
+    odd_nums = [x for x in evens if x % 2 != 0]
+    return merge(sorted_evens, odd_nums)
 
 evens = [2, 4, 6]
 odds = [1, 3, 5]
