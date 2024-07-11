@@ -19,7 +19,14 @@ int main() {
     std::string input;
     std::getline(std::cin, input);
     if (!input.empty()) { 
-        size_t pos = input.find_if_not([&](char c){return std::isdigit(c);});
+        bool foundNonDigit = false;
+        for (char c : input) {
+            if (!std::isdigit(c)) {
+                foundNonDigit = true;
+                break;
+            }
+        }
+        size_t pos = foundNonDigit ? input.find_first_not_of("0123456789") : std::string::npos;
         if (pos == std::string::npos) {
             int result = digitSum(input);
             std::cout << "The sum of digits is: " << result << std::endl;
