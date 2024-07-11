@@ -1,4 +1,3 @@
-```
 def concatenate(strings: str) -> str:
     try:
         result = [s.strip() for s in strings.split(",")]
