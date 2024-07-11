@@ -3,7 +3,7 @@ string match_parens(vector<string> lst) {
     for (const string& s : lst) {
         for (char c : s) {
             if (c == '(') open++;
-            else close++;
+            else if (c == ')') close++;
         }
     }
     return (open == close) ? "Yes" : "No";
