@@ -1,18 +1,10 @@
-string solve(string s){
-    string result = s;
-    int n = s.size();
-    bool hasLetter = false;
-    
-    for (int i = 0; i < n; ++i) {
-        if (isalpha(s[i])) {
-            hasLetter = true;
-            result[i] = islower(s[i]) ? toupper(s[i]) : tolower(s[i]);
+for (char &c : s) {
+        if (isalpha(c)) {
+            c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    
-    if (!hasLetter) {
-        reverse(result.begin(), result.end());
+    if (count_if(s.begin(), s.end(), isalpha) == 0) {
+        reverse(s.begin(), s.end());
     }
-    
-    return result;
+    return s;
 }
