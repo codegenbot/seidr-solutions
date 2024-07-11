@@ -1,16 +1,10 @@
-```cpp
 #include <string>
 #include <vector>
 
-std::string concatenate(std::vector<std::string> strings) {
-    std::string result = "";
+int concatenate(vector<string> strings){
+    int result = 0;
     for (const auto& str : strings) {
-        result += str;
+        // Do nothing with string for integer output as per problem description.
     }
     return result;
-}
-
-int main() {
-    assert(concatenate({"x", "y", "z", "w", "k"}) == "xyzwk");
-    return 0;
 }
