@@ -1,18 +1,10 @@
 from typing import List
-import heapq
-
 
 def rolling_max(numbers: List[int]) -> List[int]:
     result = []
-    max_heap = []
-
+    max_so_far = numbers[0]
     for num in numbers:
-        heapq.heappush(max_heap, -num)
-
-        if len(max_heap) > 1:
-            result.append(-heapq.heappop(max_heap))
-
-    while max_heap:
-        result.append(-heapq.heappop(max_heap))
-
+        if num > max_so_far:
+            max_so_far = num
+        result.append(max_so_far)
     return result
