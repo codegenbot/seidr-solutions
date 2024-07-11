@@ -3,11 +3,11 @@
 #include <cassert>
 #include <iostream>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
-std::vector<std::string> split_words(std::string txt){
+std::vector<std::string> split_words(std::string txt) {
     std::vector<std::string> result;
     std::string word = "";
     for (char c : txt) {
