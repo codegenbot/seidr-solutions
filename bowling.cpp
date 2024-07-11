@@ -1,7 +1,7 @@
 ```cpp
 int bowlingScore() {
     int score = 0;
-    std::string s = "X|7/6|8-3|5|-1|9-1|7|-4|0|10";
+    std::string s = "X|7/6|8-3|5|-1|9-1|7|-4|0|10"; 
     for (int i = 0; i < 10; ++i) {
         if (s[i] == 'X') {
             score += 30;
