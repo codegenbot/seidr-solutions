@@ -1,14 +1,13 @@
-vector<pair<float, float>> closest_pairs;
+#include <algorithm>
 
-for (int i = 0; i < numbers.size() - 1; ++i) {
-    for (int j = i + 1; j < numbers.size(); ++j) {
-        closest_pairs.push_back({numbers[i], numbers[j]});
+vector<pair<float, float>> find_closest_elements(vector<float> numbers) {
+    pair<float, float> closest = {numbers[0], numbers[1]};
+    for (int i = 0; i < numbers.size() - 1; i++) {
+        for (int j = i + 1; j < numbers.size(); j++) {
+            if (abs(numbers[j] - numbers[i]) < abs(closest.second - closest.first)) {
+                closest = {numbers[i], numbers[j]};
+            }
+        }
     }
+    return {{closest.first, closest.second}};
 }
-
-sort(closest_pairs.begin(), closest_pairs.end(),
-    [](const pair<float, float>& a, const pair<float, float>& b) {
-        return abs(a.first - a.second) > abs(b.first - b.second);
-    });
-
-return vector<float>{closest_pairs[0].first, closest_pairs[0].second};
