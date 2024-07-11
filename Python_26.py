@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -8,7 +9,8 @@ def remove_duplicates(input_string: str) -> List[int]:
             numbers.append(int(s))
         except ValueError:
             pass
-    return list(set(sorted(numbers)))
+    result = sorted(list(set(numbers)))
+    return result
 
 
 result = remove_duplicates(input("Enter a list of integers (comma separated): "))
