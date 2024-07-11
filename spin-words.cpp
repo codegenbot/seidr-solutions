@@ -1,8 +1,7 @@
-```c++
 #include <string>
 #include <iostream>
 
-using namespace std;
+using std;
 
 string spinWords(string str) {
     string result = "";
@@ -15,6 +14,7 @@ string spinWords(string str) {
                 for (int j = word.length() - 1; j >= 0; j--)
                     revWord += word[j];
                 result += revWord + " ";
+                word = "";
             } else
                 result += word + " ";
             word = "";
@@ -40,4 +40,3 @@ int main() {
     getline(cin, str);
     cout << spinWords(str) << endl;
     return 0;
-}
