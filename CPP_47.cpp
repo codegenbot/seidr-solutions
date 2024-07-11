@@ -1,5 +1,3 @@
-Here is the solution:
-
 float median(vector<float> l) {
     sort(l.begin(), l.end());
     int n = l.size();
