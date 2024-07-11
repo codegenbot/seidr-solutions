@@ -1,8 +1,9 @@
-int add_elements(vector<int> arr,int k){
+int add_elements(vector<int> arr, int k) {
     int sum = 0;
-    for(int i=0; i<k; i++){
-        if(log10(arr[i])+1 <= 2) // check if number has at most two digits
+    for (int i = 0; i < k && i < arr.size(); i++) {
+        if (to_string(arr[i]).size() <= 2) {
             sum += arr[i];
+        }
     }
     return sum;
 }
