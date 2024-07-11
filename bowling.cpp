@@ -1,3 +1,4 @@
+```cpp
 int bowlingScore() {
     int score = 0;
     std::string s = "X|7/6|8-3|5|-1|9-1|7|-4|0|10";
@@ -23,4 +24,3 @@ int bowlingScore() {
         }
     }
     return score;
-}
