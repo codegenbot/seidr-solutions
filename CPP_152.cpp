@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -23,17 +22,4 @@ int compare(vector<int> a, vector<int> b) {
             }
             return 0;
         }
-}
-
-int main() {
-    vector<int> a = {1,2,3};
-    vector<int> b = {1,2,4};
-    
-    int result = compare(a,b);
-    
-    assert(result == -1); // Test the function
-    
-    cout << "The output is: " << result << endl;
-    
-    return 0;
 }
