@@ -10,21 +10,7 @@ def get_values() -> List[Any]:
             )
             values = [value.strip() for value in values.split(",")]
             print("Input received:", values)
-            if all(
-                value.isdigit()
-                or (
-                    value.replace(
-                        ".",
-                        "",
-                    )
-                    .replace(
-                        "-",
-                        "",
-                    )
-                    .isdigit()
-                )
-                for value in values
-            ):
+            if values:
                 return [
                     (
                         int(value)
@@ -43,5 +29,4 @@ def get_values() -> List[Any]:
 
 def filter_integers():
     result = get_values()
-    if result is not None:
-        return result
+    return result
