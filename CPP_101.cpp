@@ -19,10 +19,11 @@ vector<string> words_string(string s){
 }
 
 int main() {
-    string input = "Hello World 2022";
+    string input = "Hello world, this is a test string.";
     vector<string> output = words_string(input);
-    for (string word : output) {
-        cout << word << " ";
+    for (const auto& word : output) {
+        cout << word << endl;
     }
+
     return 0;
 }
