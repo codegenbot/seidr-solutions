@@ -24,7 +24,8 @@ int main() {
     int n;
     cin >> n;
 
+    using namespace std;
+    
     cout << fixed << setprecision(10) << vectorDistance(n) << endl;
     
     return 0;
-}

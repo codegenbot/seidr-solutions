@@ -12,7 +12,7 @@ double snowDay(int hours, float initialSnow, float rateOfSnowfall, float proport
         
         if (proportionOfSnowMeltingPerHour > 0.0) {
             if (totalSnow > 0.0) {
-                totalSnow -= totalSnow * proportionOfSnowMeltingPerHour / 100.0; 
+                totalSnow -= totalSnow * proportionOfSnowMeltingPerHour;
             }
         }
     }
@@ -26,7 +26,7 @@ int main() {
 
     cin >> hours >> initialSnow >> rateOfSnowfall >> proportionOfSnowMeltingPerHour;
 
-    cout << fixed << setprecision(2) << snowDay(hours, initialSnow, rateOfSnowfall, proportionOfSnowMeltingPerHour) << endl;
+    std::cout << std::fixed << std::setprecision(10) << snowDay(hours, initialSnow, rateOfSnowfall, proportionOfSnowMeltingPerHour) << endl;
 
     return 0;
 }
