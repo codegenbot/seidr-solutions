@@ -7,7 +7,7 @@ vector<int> result;
     if (n == 1) {
         return result;
     }
-    result.push_back(2);
+    result.push_back(1);
     if (n == 2) {
         return result;
     }
