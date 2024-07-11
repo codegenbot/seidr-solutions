@@ -1,7 +1,5 @@
-int main() {
-    std::cout << pairedDigits("121212"); 
-    return 0;
-}
+```
+#include <string>
 
 int pairedDigits(std::string s) {
     int sum = 0;
@@ -11,4 +9,9 @@ int pairedDigits(std::string s) {
         }
     }
     return sum;
+
+}
+
+int main() { 
+    return pairedDigits("your_string"); 
 }
