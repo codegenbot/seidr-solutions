@@ -2,14 +2,14 @@
 #include <algorithm>
 #include <cassert>
 
-std::vector<int> pluck(std::vector<int> v) {
+std::vector<int> std::vector<int>::pluck(std::vector<int> v) {
     return v;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool std::vector<int>::issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 int main() {
-    assert(issame(pluck({7, 9, 7, 1}), {}));
+    assert(std::vector<int>::issame(std::vector<int>::pluck({7, 9, 7, 1}), std::vector<int>()));
 }
