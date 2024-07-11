@@ -9,9 +9,10 @@ bool is_palindrome(string str){
 
 string make_palindrome(string str){
     int i=str.size()-1;
-    while(i>=0 && str[i]==str[0])
+    while(i>=0 && str[i]==str[0]){
         i--;
-    if(i<0)
-        return str+str;
-    return str.substr(0,i+1)+reverse(str.substr(i+1)).toString();
+    }
+    string palin = str.substr(0, i+1);
+    if(is_palindrome(palin)) return str + str.substr(0,i+1);
+    return str + str.substr(i+1).reverse();
 }
