@@ -1,3 +1,3 @@
 def fix_spaces(text):
-    text = "".join("_" if not char.isalnum() else char for char in text)
-    return text
+    text = " ".join(char if char.isalnum() else "_" for char in text).replace(" ", "_")
+    return text.strip().lower()
