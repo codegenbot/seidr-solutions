@@ -1,9 +1,9 @@
 def basement(nums):
     total = 0
-    found = None
+    found_basement_index = None
     for i, num in enumerate(nums):
         total += num
         if total < 0:
-            found = i + 1
+            found_basement_index = i + 1
             break
-    return found if found is not None else -1
+    return found_basement_index
