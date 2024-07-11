@@ -1,16 +1,10 @@
-def solve_boolean(boolean_str):
-    stack = []
-    for char in boolean_str:
-        if char == "T":
-            stack.append(True)
-        elif char == "F":
-            stack.append(False)
-        elif char == "|":
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a or b)
-        elif char == "&":
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(a and b)
-    return stack[0]
+def solve_boolean(s):
+    if s == "T":
+        return True
+    elif s == "F":
+        return False
+    elif "&" in s and "|" in s:
+        raise Exception("Invalid expression")
+    else:
+        result = eval(" ".join(map(lambda x: str(x), list(s))))
+        return result
