@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <cassert>
 
@@ -28,16 +27,15 @@ vector<int> even_odd_count(int num) {
 
 int main() {
     assert(issame(even_odd_count(0), vector<int>{1, 0}));
-    
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    
-    vector<int> result = even_odd_count(num);
-    if (issame(result, vector<int>{0, 0})) {
-        cout << "The given number is even.\n";
+    int n; cin >> n;
+    cout << "Even digits: ";
+    for (int i = 0; i < even_odd_count(n)[0]; i++) {
+        cout << (even_odd_count(n)[1] / 10) % 10 << " ";
     }
-    else {
-        cout << "The given number is odd.\n";
+    cout << endl;
+    cout << "Odd digits: ";
+    for (int i = 0; i < even_odd_count(n)[0]; i++) {
+        cout << (even_odd_count(n)[1] / 10) % 10 << " ";
     }
+    cout << endl;
 }
