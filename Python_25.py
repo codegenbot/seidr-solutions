@@ -1,19 +1,16 @@
-```
 from typing import List
 
-def prime_factors(n: int) -> List[int]:
-    factors = []
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            count = 0
-            while n % i == 0:
-                count += 1
-                n //= i
-            factors.append(i ** count)
-            i = 2
-    if n > 1:
-        factors.append(n)
-    return factors
+
+def find_gcd(a: int, b: int) -> int:
+    if a == 0:
+        return abs(b)
+    elif b == 0:
+        return abs(a)
+
+    temp = 0
+    while b != 0:
+        temp = b
+        b = a % b
+        a = temp
+
+    return abs(a)
