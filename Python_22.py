@@ -6,10 +6,17 @@ def get_values() -> List[int]:
     while True:
         user_value = input("Enter a value (or 'stop' to finish): ")
         if user_value.lower() == 'stop':
-            print("Values entered, program will now return.")
             break
+        if user_value.strip() == '':
+            print("Please enter a valid integer.")
+            continue
         try:
-            result.append(int(user_value))
+            val = int(user_value)
         except ValueError:
-            print(f"Invalid input: {user_value}. Please enter integers only. Try again!")
+            try:
+                val = float(user_value)  # allow floats
+            except ValueError:
+                print(f"Invalid input: {user_value}. Please enter integers or decimals only. Try again!")
+                continue
+        result.append(val)
     return result
