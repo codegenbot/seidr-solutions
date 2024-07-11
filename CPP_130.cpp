@@ -1,10 +1,6 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
-    // Function code here
-}
-
 vector<int> tri(int n) {
     vector<int> res;
     res.push_back(3);
@@ -23,7 +19,16 @@ vector<int> tri(int n) {
     return res;
 }
 
+bool issame(vector<int> a, vector<int> b) {
+    // Function code here
+}
+
 int main() {
-    // Function call to tri() and any further processing
+    int n;
+    cin >> n;
+    vector<int> result = tri(n);
+    for (int num : result) {
+        cout << num << " ";
+    }
     return 0;
 }
