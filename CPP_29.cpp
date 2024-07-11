@@ -7,11 +7,11 @@ bool issame(vector<string> a, vector<string> b);
 vector<string> filter_by_prefix(vector<string> strings, string prefix);
 
 int main() {
-    // Your main function code here
+    // Main function code
 }
 
 bool issame(vector<string> a, vector<string> b) {
-    // Your issame function code here
+    // issame function code
 }
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
