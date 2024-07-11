@@ -3,6 +3,7 @@ from typing import List
 
 import math
 
+
 def main():
     while True:
         try:
@@ -24,5 +25,6 @@ def main():
     if n > 1:
         factors.append(n)
     return factors
+
 
 print(main())
