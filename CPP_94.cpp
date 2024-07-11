@@ -1,10 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-
 using namespace std;
 
-int findMaxPrimeSum(vector<int> lst){
+int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
     for(int i : lst){
         if(isPrime(i) && i > maxPrime)
@@ -26,8 +25,8 @@ bool isPrime(int n) {
     return true;
 }
 
-int main() {
-    assert(findMaxPrimeSum({127, 97, 8192}) == 10);
+int main_function() {
+    assert(skkkasdkd({127, 97, 8192}) == 10);
     cout << "Hello World!" << endl;
     return 0;
 }
