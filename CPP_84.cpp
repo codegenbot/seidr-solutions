@@ -1,7 +1,4 @@
 ```c++
-#include <string>
-using namespace std;
-
 string solve(int N) {
     string binary = "";
     while (N > 0) {
