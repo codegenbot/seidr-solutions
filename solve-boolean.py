@@ -6,10 +6,14 @@ def solve(expression):
         return False
     elif '&' in expression:
         left, right = expression.split('&')
-        return solve(left) and solve(right)
+        result1 = solve(left)
+        result2 = solve(right)
+        return result1 and result2
     elif '|' in expression:
         left, right = expression.split('|')
-        return solve(left) or solve(right)
+        result1 = solve(left)
+        result2 = solve(right)
+        return result1 or result2
 
-expression = input()
+expression = input("Enter a Boolean expression (T/F/&) : ")
 print("Result:", "True" if solve(expression) else "False")

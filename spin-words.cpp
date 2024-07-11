@@ -1,14 +1,16 @@
+#include <iostream>
 #include <algorithm>
 #include <string>
-#include <iostream>
 
 using namespace std;
 
 string spinWords(string str) {
     string result = " ";
-    for (int i = 0; i < str.length(); i++) {
+    int i = 0;
+    while (i <= str.length()) {
         if (str[i] == ' ') {
             result += " ";
+            i++;
             continue;
         }
         int j = i;
@@ -26,13 +28,12 @@ string spinWords(string str) {
         }
         i = j;
     }
-    return result.substr(1, result.length() - 2);
+    return result;
 }
 
 int main() {
     string str;
     cout << "Enter a string of words: ";
     getline(cin, str);
-    cout << "Spun result: " << spinWords(str) << std::endl;
+    cout << "Spun result: " << spinWords(str) << endl;
     return 0;
-}
