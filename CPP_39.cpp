@@ -1,3 +1,11 @@
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) return false;
+    }
+    return true;
+}
+
 int prime_fib(int n) {
     int a = 0, b = 1, fib = 1;
     while (fib <= n) {
@@ -9,12 +17,4 @@ int prime_fib(int n) {
         fib = a + b;
     }
     return -1; // not found
-}
-
-bool isPrime(int num) {
-    if (num <= 1) return false;
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) return false;
-    }
-    return true;
 }
