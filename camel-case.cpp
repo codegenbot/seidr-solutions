@@ -1,17 +1,21 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string str) {
+std::string camelCase(std::string s) {
     std::string result = "";
-    for (char c : str) {
-        if (c == '-') {
-            result += char(toupper(str[str.find(c) + 1]));
-            str.erase(str.find(c), 1);
-        } else if (c == ' ') {
-            result += char(toupper(c));
-            str.erase(0, 1);
-        } else {
-            result += c;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] == '-') i++;
+            if (i < s.length()) {
+                result += s[i].toUpperCase();
+                i++;
+            }
+        } else if (s[i] != ' ') {
+            if (!result.empty()) {
+                result[0] = toupper(result[0]);
+            }
+            result += s[i];
         }
     }
     return result;
