@@ -1,6 +1,7 @@
 ```
-def car_race_collision(time_to_meet_car1):
-    time_to_meet_car1 = int(input("Enter time at which both cars meet: "))
+def car_race_collision(time_to_meet_car1=None):
+    if time_to_meet_car1 is None:
+        time_to_meet_car1 = int(input("Enter time at which both cars meet: "))
 
     while True:
         try:
