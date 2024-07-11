@@ -1,10 +1,16 @@
-sort(nums.begin(), nums.end(), [](const int& a, const int& b) {
-    int sumA = 0, sumB = 0;
-    if (a < 0) sumA -= a;
-    else sumA += a;
-    if (b < 0) sumB -= b;
-    else sumB += b;
-    if (sumA == sumB) return &a - &b;
-    return sumA < sumB;
+sort(nums.begin(), nums.end(), [](int a, int b) {
+    int sum_a = 0, sum_b = 0;
+    if (a < 0) a = -a;
+    if (b < 0) b = -b;
+    while (a > 0) {
+        sum_a += a % 10;
+        a /= 10;
+    }
+    while (b > 0) {
+        sum_b += b % 10;
+        b /= 10;
+    }
+    if (sum_a == sum_b) return false;
+    return sum_a < sum_b;
 });
 return nums;
