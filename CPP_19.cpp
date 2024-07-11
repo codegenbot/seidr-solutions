@@ -1,6 +1,7 @@
+#include <string>
+#include <map>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 string sort_numbers(string numbers) {
@@ -10,7 +11,6 @@ string sort_numbers(string numbers) {
     vector<string> nums;
     string temp;
 
-    // Split the input string into individual numbers
     for (int i = 0; i < numbers.size(); i++) {
         if (numbers[i] == ' ') {
             continue;
@@ -23,12 +23,8 @@ string sort_numbers(string numbers) {
         nums.push_back(temp);
     }
 
-    // Sort the numbers
-    sort(nums.begin(), nums.end(), [&numMap](string a, string b) {
-        return numMap[a] < numMap[b];
-    });
+    sort(nums.begin(), nums.end());
 
-    // Join the sorted numbers back into a single string
     string result = "";
     for (const auto& num : nums) {
         result += num + " ";
