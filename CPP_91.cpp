@@ -1,6 +1,5 @@
-#include <iostream>
+```
 #include <string>
-using namespace std;
 
 int is_bored(string S) {
     int count = 0;
@@ -16,3 +15,4 @@ int is_bored(string S) {
         }
     }
     return count;
+}
