@@ -1,7 +1,7 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <initializer_list>
 using namespace std;
 
 int whitePegs(string code, string guess) {
@@ -22,12 +22,10 @@ int blackPegs(string code, string guess) {
             codeArray[i] = '0';
         }
     }
-    vector<char> remainingCode(codeArray.begin(), codeArray.end());
-    for (char c : guess) {
-        size_t pos = distance(remainingCode.begin(), find(remainingCode.begin(), remainingCode.end(), c));
-        if (pos != string::npos) {
+    for (int i = 0; i < 4; i++) {
+        if (count(codeArray.begin(), count(codeArray.begin(), codeArray.end(), guess[i]) - 1, guess[i]) > 0) {
             count++;
-            remainingCode.erase(pos, 1);
+            codeArray.erase(std::remove(codeArray.begin(), codeArray.end(), guess[i]) - codeArray.begin(), codeArray.end());
         }
     }
     return count;
