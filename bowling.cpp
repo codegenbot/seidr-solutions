@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int score(string s) {
+int score(const string& s) {
     int total = 0;
     int frame = 0;
     for (int i = 0; i < s.size(); i++) {
@@ -34,7 +34,7 @@ int score(string s) {
 
 int main() {
     string s;
-    cin >> s;
-    cout << score(s) << endl;
+    std::cin >> s;
+    std::cout << score(s) << std::endl;
     return 0;
 }
