@@ -9,7 +9,6 @@ int count_upper(string s) {
         }
     }
     return count;
-
 }
 
 int main() {
