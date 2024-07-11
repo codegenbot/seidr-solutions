@@ -3,7 +3,7 @@ from typing import List
 
 def rescale_to_unit(numbers: List[float]) -> List[float]:
     if len(numbers) == 0:
-        return []  
+        return []
     numbers = sorted(set(numbers))  # Remove duplicates and sort the list
     min_val = min(numbers)
     max_val = max(numbers)
