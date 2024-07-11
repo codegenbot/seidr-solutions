@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -6,9 +5,9 @@ int luhn(const std::vector<int>& cardNumber) {
     int sum = 0;
     bool doubleNext = false;
 
-    for (int i = cardNumber.size() - 1; i >= 0; --i) {
-        int digit = cardNumber[i];
-
+    for (int i = cardNumber.size() - 1; i > 0; --i) {
+        int digit = cardNumber[std::distance(cardNumber.rbegin(), cardNumber.rend()) - i];
+        
         if ((cardNumber.size() % 2 == 0 && i % 2 != 0) || (cardNumber.size() % 2 != 0 && i % 2 == 0)) { 
             digit *= 2;
             if (digit > 9) {
@@ -22,8 +21,5 @@ int luhn(const std::vector<int>& cardNumber) {
     return sum;
 }
 
-int main() {
-    std::vector<int> cardNumber = {4, 3, 3, 2, 7, 1, 6, 9, 3, 5, 8, 1, 4, 0, 6, 7};
-    int result = luhn(cardNumber);
-    return 0;
-}
+std::vector<int> cardNumber = {4, 3, 3, 0, 7, 3, 3, 4, 1, 9, 4, 6, 7, 2, 1, 4, 9};
+int result = luhn(cardNumber);
