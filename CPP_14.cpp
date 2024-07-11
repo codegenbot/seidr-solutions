@@ -1,9 +1,18 @@
+#include <vector>
+using namespace std;
+
+bool issame(string s1, string s2){
+    return s1 == s2;
+}
+
 vector<string> all_prefixes(string str){
-    vector<string> prefixes;
+    vector<string> result;
     string prefix = "";
+    
     for (char c : str) {
         prefix += c;
-        prefixes.push_back(prefix);
+        result.push_back(prefix);
     }
-    return prefixes;
+    
+    return result;
 }
