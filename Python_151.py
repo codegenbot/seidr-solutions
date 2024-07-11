@@ -1,3 +1,6 @@
-def check():
-    lst = [int(i) for i in input("Enter elements separated by space: ").split()]
-    return double_the_difference(lst)
+def double_the_difference(lst):
+    if len(lst) < 2:
+        return 0
+    first = min(lst)
+    second = max(lst)
+    return (second - first) * 2
