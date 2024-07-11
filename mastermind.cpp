@@ -1,5 +1,5 @@
-#include <vector>
 #include <string>
+#include <vector>
 
 int whitePegs(std::string code, std::string guess) {
     int count = 0;
