@@ -1,5 +1,6 @@
-#include <string>
 #include <cctype>
+#include <iostream>
+#include <string>
 
 std::string camelCase(const std::string& input) {
     std::string output;
