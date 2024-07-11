@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -14,10 +15,10 @@ def below_zero(operations: List[str]) -> bool:
 
 
 while True:
-    operations = input("Enter space separated operations (e.g., -5 +3 -2): ")
-    operations = [op.strip() for op in operations.split(" ") if op.strip()]
+    operations = input().split()
     while "" in operations:
         operations.remove("")
+    operations = [op.strip() for op in operations]
     if len(operations) > 0:
         break
 print(below_zero([op for op in operations]))
