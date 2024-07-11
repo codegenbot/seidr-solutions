@@ -1,12 +1,20 @@
-def find_pair():
-    n = int(input())
-    pair_sum = int(input())
-    num_list = [int(x) for x in input().split()]
-    for i in range(len(num_list)):
-        for j in range(i + 1, len(num_list)):
-            if num_list[i] + num_list[j] == pair_sum:
-                return str(num_list[i]) + "\n" + str(num_list[j])
-    return "No such pair found"
+def find_pair(n):
+    s = []
+    for _ in range(n):
+        a = int(input())
+        s.append(a)
+    s.sort()
+    left, right = 0, len(s) - 1
+    while left < right:
+        total = s[left] + s[right]
+        if total == 0:
+            print(f"{s[left]}")
+            print(f"{s[right]}")
+            return
+        elif total > 0:
+            right -= 1
+        else:
+            left += 1
 
 
-print(find_pair())
+find_pair(int(input()))
