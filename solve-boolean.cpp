@@ -2,20 +2,28 @@
 using namespace std;
 
 bool solveBoolean(string s) {
-    bool res = false;
-    for (char c : s) {
-        if (c == 'T')
-            res = true;
-        else if (c == 'F')
-            return false;
-        else if (c == '&') {
-            bool temp = res;
-            res = false;
-        }
-        else if (c == '|') {
-            bool temp = res;
-            res = true;
+    stack<char> st;
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] == '&') {
+            while(!st.empty() && st.top() == '&') {
+                st.pop();
+            }
+            if(st.empty()) return false;
+            st.push('&');
+        } else if(s[i] == '|') {
+            while(!st.empty() && st.top() == '|') {
+                st.pop();
+            }
+            if(st.empty()) return true;
+            st.push('|');
+        } else {
+            st.push(s[i]);
         }
     }
-    return res;
+    while(!st.empty()) {
+        if(st.top() == '&') return false;
+        if(st.top() == '|') return true;
+        st.pop();
+    }
+    return st.top() == 'T';
 }
