@@ -1,4 +1,4 @@
-#include <iostream>
+```#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -14,7 +14,9 @@ bool has_close_elements(vector<float> numbers, float threshold){
 
 int main() {
     vector<float> a={1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    if(!has_close_elements(a, 0.5)) cout << "No close elements found!" << endl;
-    else cout << "Close elements found!" << endl;
+    if (!has_close_elements(a, 0.5)) 
+        cout << "No close elements found." << endl;
+    else
+        cout << "Close elements found." << endl;
     return 0;
 }
