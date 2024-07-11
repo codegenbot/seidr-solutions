@@ -14,5 +14,4 @@ def string_to_md5():
             return hashlib.md5(text.encode()).hexdigest()
 
 
-result = string_to_md5()
-print(f"MD5: {result}")
+print(string_to_md5())
