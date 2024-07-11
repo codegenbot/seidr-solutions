@@ -34,5 +34,7 @@ string spinWords(string str) {
 int main() {
     string str;
     cout << "Enter a string of words: ";
+    str = spinWords(str);
     getline(cin, str);
-    cout << "Spun result: " << spinWords(str) << endl;
+    cout << "Spun result: " << str << endl;
+    return 0;
