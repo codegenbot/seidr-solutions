@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -7,7 +6,7 @@ namespace MyNamespace {
         return std::equal(a.begin(), a.end(), b.begin());
     }
 
-    std::vector<std::vector<int>> largest_smallest_integers(std::vector<int> lst) {
+    std::vector<std::vector<int>> MyNamespace::largest_smallest_integers(std::vector<int> lst) {
         int max_negative = 0;
         int min_positive = INT_MAX;
 
@@ -24,6 +23,6 @@ namespace MyNamespace {
 }
 
 int main() {
-    assert(MyNamespace::isSame(MyNamespace::largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {std::max(-6,0), std::min(1,-100)}));
+    assert(MyNamespace::isSame(MyNamespace::largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
     return 0;
 }
