@@ -1,3 +1,4 @@
+# Problem description: Complete the following code given the task description and function signature..
 n = int(input("Enter n: "))
 p = int(input("Enter p: "))
 
