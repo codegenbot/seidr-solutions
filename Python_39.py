@@ -15,4 +15,5 @@ def prime_fib(n: int):
             count += 1
             if count == n:
                 return b
-        a, b = b, a + b
+        b = a + b
+        a = a + b
