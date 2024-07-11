@@ -1,5 +1,5 @@
-```
-import math
-
 def car_race_collision(n: int):
-    return sum(math.comb(i + 1, 2) for i in range(n))
+    if n <= 1:
+        return 0
+    else:
+        return (n - 2) * (n - 1) // 2
