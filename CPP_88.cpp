@@ -1,12 +1,23 @@
-if (array.empty()) {
-        return array;
-    }
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
 
-    if ((array.front() + array.back()) % 2 == 0) {
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
+vector<int> sort_array(vector<int> array) {
+    int sum = array.front() + array.back();
+    if (sum % 2 == 0) {
         sort(array.rbegin(), array.rend());
     } else {
         sort(array.begin(), array.end());
     }
-
     return array;
+}
+
+int main() {
+    assert(issame(sort_array({21, 14, 23, 11}), {23, 21, 14, 11}));
+    return 0;
 }
