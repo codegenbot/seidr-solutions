@@ -1,20 +1,8 @@
 from typing import List
 
-
 def rescale_to_unit(numbers: List[float]) -> List[float]:
-    if len(numbers) < 2:
+    if len(numbers) < 2 or not all(isinstance(x, float) for x in numbers):
         return []
     min_num = min(numbers)
     max_num = max(numbers)
-    return (
-        [(x - min_num) / (max_num - min_num) for x in numbers]
-        if all(isinstance(x, float) for x in numbers)
-        else []
-    )
-
-
-# Read input from user
-numbers = [float(x) for x in input("Enter numbers separated by space: ").split()]
-# Call the function with user input
-result = rescale_to_unit(numbers)
-print(result)
+    return [(x - min_num) / (max_num - min_num) for x in numbers]
