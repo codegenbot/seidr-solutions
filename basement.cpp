@@ -1,5 +1,7 @@
 #include <vector>
 
+using namespace std;
+
 int basement(std::vector<int> nums) {
     int sum = 0;
     int negIndex = nums.size();
