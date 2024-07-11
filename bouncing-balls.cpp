@@ -18,7 +18,7 @@ int main() {
 
     double bounciness = bouncinessIndex(heightAfterFirstBounce, startingHeight);
 
-    std::cout << fixed << setprecision(4) << std::endl;
+    cout << fixed << setiosflags(ios::fixed) << showpoint << std::setprecision(4);
     
     cout << bounciness << endl;
     cout << totalDistance(numBounces, bounciness) << endl;

@@ -1,3 +1,17 @@
-if (numMap.find(complement) != numMap.end()) {
-    return {min, max};
+````
+#include <unordered_map>
+#include <vector>
+
+std::pair<int, int> findPair(std::vector<int>& nums, int target) {
+    std::unordered_map<int, int> numMap;
+    for (int i = 0; i < nums.size(); i++) {
+        int complement = target - nums[i];
+        if (numMap.find(complement) != numMap.end()) {
+            int min = (nums[i] < complement ? nums[i] : complement);
+            int max = (nums[i] > complement ? nums[i] : complement);
+            return {min, max};
+        }
+        numMap[nums[i]] = i;
+    }
+    return {-1, -1};
 }
