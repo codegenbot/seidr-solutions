@@ -3,24 +3,19 @@
 string string_to_md5(string text) {
     if (text.empty()) return "";
 
-    unsigned char md[16];
-    unsigned char* ptr = NULL;
-    EVP_MD_CTX ctx;
-    EVP_PKEY *pkey = EVP_pkey_new();
-    EVP_MD *mdh = EVP_get_md5();
-
-    EVP_DigestInit_ex(&ctx, mdh, 0);
-    EVP_DigestUpdate(&ctx, text.c_str(), text.size());
-    EVP_DigestFinal_ex(&ctx, md, &ptr);
+    unsigned char md[MD5_DIGEST_LENGTH];
+    MD5_CTX ctx;
+    MD5_Init(&ctx);
+    const char* str = text.c_str();
+    size_t len = text.length();
+    MD5_Update(&ctx, str, len);
+    MD5_Final(md, &ctx);
 
     string result;
-    for (int i = 0; i < 16; ++i) {
+    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
         char buff[3];
         sprintf(buff, "%02x", md[i]);
         result += buff;
     }
-
-    EVP_PKEY_free(pkey);
-    EVP_MD_free(mdh);
     return result;
 }
