@@ -5,9 +5,10 @@ vector<string> by_length(vector<int> arr) {
             numbers.push_back(num);
         }
     }
-    
+
     sort(numbers.begin(), numbers.end());
-    
+    reverse(numbers.begin(), numbers.end());
+
     vector<string> result;
     for (int num : numbers) {
         string str = "";
@@ -42,8 +43,6 @@ vector<string> by_length(vector<int> arr) {
         }
         result.push_back(str);
     }
-    
-    reverse(result.begin(), result.end());
-    
+
     return result;
 }
