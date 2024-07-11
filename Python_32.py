@@ -1,4 +1,5 @@
-def quadratic_equation():
+```
+def solve_quadratic_equation():
     while True:
         print("Enter coefficients (a b c [d]): ")
         try:
@@ -37,3 +38,6 @@ def quadratic_equation():
             print(f"There is one solution: {result}.")
         else:
             print("There are no real solutions.")
+
+if __name__ == "__main__":
+    solve_quadratic_equation()
