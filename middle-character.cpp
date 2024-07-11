@@ -1,9 +1,10 @@
+```cpp
 #include <string>
 #include <iostream>
 
-std::string middleCharacter(std::string inputStr) {
-    int len = inputStr.length();
-    return len % 2 == 0 ? inputStr.substr(len/2-1, 2) : inputStr.substr(len/2, 1);
+std::string middleCharacter(std::string str) {
+    int len = str.length();
+    return len % 2 == 0 ? str.substr(len/2-1, 2) : str.substr(len/2, 1);
 }
 
 int main() {
