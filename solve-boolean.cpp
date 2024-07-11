@@ -1,21 +1,26 @@
+#include <vector>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 bool solveBoolean(string s) {
-    stack<char> st;
-    for (int i = 0; i < s.length(); i++) {
-        if (s[i] == '|') {
-            bool a = st.top() == 'T';
-            st.pop();
-            bool b = st.top() == 'T';
-            st.pop();
-            st.push(a || b ? 'T' : 'F');
-        } else if (s[i] == '&') {
-            bool a = st.top() == 'T';
-            st.pop();
-            bool b = st.top() == 'T';
-            st.pop();
-            st.push(a && b ? 'T' : 'F');
-        } else {
-            st.push(s[i]);
+    bool res = true;
+    for(int i=0; i<s.length(); i++) {
+        if(s[i] == 'T') return true;
+        else if(s[i] == 'F') return false;
+        else if(s[i] == '|') continue;
+        else if(s[i] == '&') {
+            res = (res && solveBoolean(s.substr(i+1)));
+            i++;
         }
     }
-    return st.top() == 'T';
+    return res;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << (solveBoolean(s) ? "True" : "False") << endl;
+    return 0;
 }
