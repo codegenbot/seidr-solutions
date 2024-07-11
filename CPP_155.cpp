@@ -1,7 +1,8 @@
+```cpp
 #include <vector>
 #include <string>
 
-int issame(const vector<int>& a, const vector<int>& b) {
+int issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a == b)
         return 0;
     else
