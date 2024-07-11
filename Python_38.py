@@ -1,20 +1,19 @@
-```
 def decode_cyclic():
     s = input("Enter the cyclic string: ")
     result = ""
-    i = 0
+    i = 1
     while i < len(s):
         if i + 2 <= len(s):
-            group = s[i:i+3]
+            group = s[i:]
         else:
-            group = s[i:] + s[:i+1]
+            group = s[i:] + s[:i]
         if len(group) >= 3:
             result += group[1] + group[0] + group[2]
         elif len(group) == 2:
             result += group[1] + group[0] + "z"
         else:
             result += group
-        i = (i+3)%len(s)
+        i += 1
     return result
 
 
