@@ -1,48 +1,39 @@
-Here is the completed code:
+Here is the solution:
 
 ```cpp
-#include <boost/lexical_cast.hpp>
+#include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return boost::any((int)boost::any_cast<float>(b) > (int)a ? boost::any(b) : ("None"));
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        int x = boost::any_cast<int>(a);
+        double y = boost::any_cast<double>(b);
+        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return boost::any((float)boost::any_cast<int>(a) > (float)b ? boost::any(a) : ("None"));
+    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        int x = boost::any_cast<int>(a);
+        string y = boost::any_cast<string>(b);
+        return (stoi(y) > x) ? a : ((stoi(y) < x) ? b : boost::any("None"));
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(float)) {
-        try {
-            float x = boost::lexical_cast<float>(boost::any_cast<string>(a));
-            return boost::any(x > (float)b ? a : "None");
-        } catch (...) {
-            return boost::any("None");
-        }
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        try {
-            float x = boost::lexical_cast<float>(boost::any_cast<string>(b));
-            return boost::any(x > (float)a ? b : "None");
-        } catch (...) {
-            return boost::any("None");
-        }
+    else if (a.type() == typeid(double) && b.type() == typeid(string)) {
+        double x = boost::any_cast<double>(a);
+        string y = boost::any_cast<string>(b);
+        return (stod(y) > x) ? a : ((stod(y) < x) ? b : boost::any("None"));
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        if (*boost::any_cast<string>(a) >= *boost::any_cast<string>(b))
-            return a;
-        else
-            return b;
+        string x = boost::any_cast<string>(a);
+        string y = boost::any_cast<string>(b);
+        return (stod(y) > stod(x)) ? a : ((stod(y) < stod(x)) ? b : boost::any("None"));
     }
     else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        if ((int)a > (int)b)
-            return a;
-        else
-            return "None";
+        int x = boost::any_cast<int>(a);
+        int y = boost::any_cast<int>(b);
+        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        if ((float)a > (float)b)
-            return a;
-        else
-            return "None";
+    else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        double x = boost::any_cast<double>(a);
+        double y = boost::any_cast<double>(b);
+        return (x > y) ? a : ((x < y) ? b : boost::any("None"));
     }
-    return "None";
+    else
+        return boost::any("Invalid input");
 }
