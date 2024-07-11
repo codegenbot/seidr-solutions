@@ -1,4 +1,5 @@
-```
+    from typing import List
+
 def rescale_to_unit(numbers: List[float]) -> List[float]:
     if not all(isinstance(x, (int, float)) for x in numbers):
         return "Invalid input. Please provide valid floating point or integer values."
@@ -9,4 +10,6 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
         max_val = max(numbers)
         if max_val - min_val == 0:
             return ["All values are equal, cannot rescale"]
-        return [(x - min_val) / (max_val - min_val) for x in numbers]
+        return [x - min_val for x in numbers]
+        result = [(x - min_val) / (max_val - min_val) for x in numbers]
+        return result
