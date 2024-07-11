@@ -1,5 +1,3 @@
-#include <string>
-
-int str_length(string str) {
+int my_strlen(string str){
     return str.length();
 }
