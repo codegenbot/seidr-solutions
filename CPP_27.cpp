@@ -14,11 +14,8 @@ string flip_case(string str){
 }
 
 int main(){
-    string input;
-    cin >> input;
-    
-    string result = flip_case(input);
-    assert(result == "hELLO");
-    
+    string str = "Hello World";
+    string flipped = flip_case(str);
+    assert(flipped == "hELLO wORLD");
     return 0;
 }
