@@ -6,12 +6,10 @@ int main() {
     float snow_on_ground, snow_fall_rate, snow_melt_rate;
     cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
-    float net_change_per_hour = snow_fall_rate - snow_melt_rate;
-    float total_net_change = hours * net_change_per_hour;
+    float net_change_per_hour = snow_fall_rate - (snow_on_ground * snow_melt_rate);
+    float final_snow_on_ground = snow_on_ground + (net_change_per_hour * hours);
 
-    snow_on_ground += total_net_change;
-
-    cout << snow_on_ground << "\n";
+    cout << final_snow_on_ground << "\n";
 
     return 0;
 }
