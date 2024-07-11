@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <string>
-using namespace std;
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
