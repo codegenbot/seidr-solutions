@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -47,7 +46,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
             sum += num % 10;
             num /= 10;
         }
-        pairs.emplace_back(sum, i);
+        pairs.emplace_back(num, i);
     }
     std::sort(pairs.begin(), pairs.end());
     std::vector<int> result;
