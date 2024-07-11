@@ -1,5 +1,4 @@
 digits = list(map(int, input().split()))
-
 total = 0
 for i in range(len(digits)):
     if (i+1) % 2 == 0:
@@ -10,5 +9,4 @@ for i in range(len(digits)):
             total += double_digit
     else:
         total += digits[i]
-
 print(total)
