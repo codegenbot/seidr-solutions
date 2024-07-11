@@ -1,13 +1,4 @@
 #include <vector>
-using namespace std;
-
-bool issame(vector<int> a,vector<int>b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size();i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
 
 vector<int> even_odd_count(int num) {
     vector<int> result;
@@ -21,9 +12,4 @@ vector<int> even_odd_count(int num) {
     result.push_back(count);
     result.push_back(abs(num));
     return result;
-}
-
-int main() {
-    assert(issame(even_odd_count(0), vector<int>{1,0}));
-    // Your code here...
 }
