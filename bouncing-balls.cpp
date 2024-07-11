@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 using namespace std;
 
 int main() {
@@ -19,8 +20,9 @@ int main() {
             distanceTravelled += (startHeight * pow(2, 0.5)) * pow(0.5, i - bouncinessIndex);
         }
 
-        std::cout << std::fixed << std::setprecision(10);
+        cout << std::fixed << std::setprecision(10); 
         cout << distanceTravelled << endl;
+        cout << std::defaultfloat; 
     }
 
     return 0;
