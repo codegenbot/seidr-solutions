@@ -11,11 +11,13 @@ def concatenate(strings: List[str]) -> str:
 
 
 if __name__ == "__main__":
-    input_list = [s.strip() for s in input("Enter the strings (comma separated): ").split(",")]
+    input_str = input("Enter the strings (comma separated): ")
+    user_input_list = [s.strip() for s in input_str.split(",")]
     while True:
-        if all(isinstance(s, str) for s in input_list):
+        if all(isinstance(s, str) for s in user_input_list):
             break
         else:
             print("Invalid input. Please enter a list of strings.")
-            input_list = [s.strip() for s in input("Enter the strings (comma separated): ").split(",")]
-    print(concatenate(input_list))
+            input_str = input("Enter the strings (comma separated): ")
+            user_input_list = [s.strip() for s in input_str.split(",")]
+    print(concatenate(user_input_list))
