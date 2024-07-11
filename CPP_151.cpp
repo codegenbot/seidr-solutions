@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -18,16 +17,16 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst;
 
-    int n; // number of elements in the list
+    int n;
     cin >> n;
 
-    for(int i = 0; i < n; i++) {
-        float x; // read a float number from user input
+    for(int i = 0; i < n; ++i) {
+        float x;
         cin >> x;
         lst.push_back(x);
     }
 
-    cout << double_the_difference(lst) << endl;
+    cout << "The difference is: " << double_the_difference(lst) << endl;
 
     return 0;
 }
