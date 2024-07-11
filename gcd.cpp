@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <string>
 using namespace std;
@@ -22,24 +21,6 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    int a, b;
-    string text, target;
-    
-    // Read input for gcd
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
-
-    // Read input for indicesOfSubstring
-    cin.ignore(); // Ignore the newline character
-    getline(cin, text);
-    cin >> target;
-    vector<int> result = indicesOfSubstring(text, target);
-
-    // Output the result
-    for (int idx : result) {
-        cout << idx << " ";
-    }
-    cout << endl;
-    
+    // Add test cases if needed
     return 0;
 }
