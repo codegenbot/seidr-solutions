@@ -1,17 +1,17 @@
 #include <vector>
 #include <algorithm>
-#include <assert.h>
+#include <string>
 
-bool issame() {
+bool issame(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1;
     int index2 = -1;
 
     for (int i = 0; i < planets.size(); i++) {
-        if (index1 == -1 && planets[i] == "Earth") {
+        if (planet1 == planets[i]) {
             index1 = i;
         }
-        else if (index2 == -1 && planets[i] == "Mars") {
+        else if (planet2 == planets[i]) {
             index2 = i;
         }
     }
@@ -24,7 +24,7 @@ bool issame() {
     int end = max(index1, index2);
 
     for (int i = 0; i < planets.size(); i++) {
-        if ((i >= start && i <= end) != issame()) {
+        if ((i >= start && i <= end) != issame(planets[i], planet1)) {
             return false;
         }
     }
@@ -61,9 +61,4 @@ vector<string> bf(string planet1, string planet2) {
     }
 
     return result;
-}
-
-int main() {
-    assert(bf("Jupiter", "Makemake") == {});
-    return 0;
 }
