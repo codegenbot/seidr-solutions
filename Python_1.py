@@ -19,3 +19,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             else:
                 if stack and stack[-1] != "(":
                     temp += stack.pop()
+
+    return [temp] + result
