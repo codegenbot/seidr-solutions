@@ -7,5 +7,10 @@ def below_zero(operations: list) -> bool:
             balance -= int(operation[1:])
     return balance < 0
 
-ops = [input().strip() for _ in range(int(input()))]
+ops = []
+op = input()
+while op:
+    ops.append(op.strip())
+    op = input()
+
 print(below_zero(ops))
