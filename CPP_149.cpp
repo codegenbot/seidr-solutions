@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -19,13 +20,13 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
             result.push_back({str});
     }
 
-    sort(result.begin(), result.end(),
-         [](const vector<string>& a, const vector<string>& b) {
-             if (a.size() != b.size())
-                 return a.size() - b.size();
-             else
-                 return a[0] < b[0];
-         });
+    std::sort(result.begin(), result.end(),
+              [](const vector<string>& a, const vector<string>& b) {
+                  if (a.size() != b.size())
+                      return a.size() - b.size();
+                  else
+                      return a[0] < b[0];
+              });
 
     return result;
 }
