@@ -1,6 +1,2 @@
-```
 def solution(lst):
-    """
-    Your problem description here
-    """
     return sum(i for i in lst[1::2] if i % 2 != 0)
