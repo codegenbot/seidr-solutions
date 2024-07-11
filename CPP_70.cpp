@@ -18,7 +18,7 @@ int main() {
     std::vector<int> expected = {1, 6, 1, 5, 2, 4, 3, 9};
     
     assert(issame(output, expected));
-
+    
     return 0;
 }
 
