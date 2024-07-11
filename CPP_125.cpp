@@ -13,10 +13,13 @@ vector<string> split_words(string txt) {
         if (pos == string::npos) {
             pos = txt.find(',');
         }
+        if (pos == string::npos)
+            break;
         result.push_back(txt.substr(prev_pos, pos - prev_pos));
         prev_pos = pos + 1;
     }
     
+    result.push_back(txt.substr(prev_pos));
     return result;
 }
 
