@@ -1,3 +1,4 @@
+```
 def double_the_difference():
     lst = list(map(int, input().split()))
     difference = max(lst) - min(lst)
