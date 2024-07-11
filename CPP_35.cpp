@@ -1,7 +1,1 @@
-#include <algorithm>
-#include <vector>
-
-int main() {
-    std::vector<int> l = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
-    return *std::max_element(l.begin(), l.end());
-}
+auto max = *std::max_element(map.begin(), map.end(), [](const auto& a, const auto& b) { return a.second > b.second; });
