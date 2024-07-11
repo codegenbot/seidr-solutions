@@ -15,11 +15,9 @@ float triangle_area(float a, float b, float c) {
 int main() {
     float a, b, c;
     std::cout << "Enter the lengths of three sides of a triangle: ";
-    std::string s;
-    std::cin >> s;
-    a = std::stof(s);
-    b = std::stof(s);
-    c = std::stof(s);
+    std::cin >> a >> std::ws;
+    std::cin >> b >> std::ws;
+    std::cin >> c;
     if (triangle_area(a, b, c) == -1.0f)
         std::cout << "Not a valid triangle.\n";
     else
