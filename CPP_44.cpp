@@ -14,21 +14,17 @@ std::string change_base(int x, int base) {
 void solve_problem() {
     int x = 42;
     int base = x + 1;
-    
+
     if (base != 0 && x >= 0) {
         std::string result = change_base(x, base);
-        assert(change_base(x, x + 1) == std::std::to_string(x)); // Add assert check
+        assert(change_base(x, x + 1) == std::__cxx11::to_string(x)); // Add assert check
         std::cout << "Result: " << result << std::endl;
     } else {
         std::cout << "Invalid input!" << std::endl;
     }
 }
 
-void contest_main() {
+int main(int argc, char* argv[]) {
     solve_problem();
-}
-
-int main() {
-    contest_main();
     return 0;
 }
