@@ -1,3 +1,6 @@
+#include <iostream>
+using namespace std;
+
 int score(string s) {
     int total = 0;
     int frame = 0;
@@ -8,7 +11,7 @@ int score(string s) {
             total += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 3] - '0') : s[i + 2] - '0');
             frame++;
         } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0');
+            total += 10 - (s[i - 1] - '0') + (s[i + 1] == 'X' ? 10 : s[i + 1] - '0');
         } else if (s[i] >= '0' && s[i] <= '9') {
             total += s[i] - '0';
         }
@@ -20,6 +23,6 @@ int score(string s) {
 int main() {
     string s;
     cin >> s;
-    cout << score(s) << endl;
+    cout << score(s) << "\n";
     return 0;
 }
