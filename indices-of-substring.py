@@ -5,11 +5,10 @@ def indices_of_substring():
     indices = [
         i
         for i in range(len(text) - len(target) + 1)
-        if text[i:i + len(target)] == target
+        if i == 0 or text[i:i + len(target)] == target
     ]
 
     for index in indices:
         print(index)
-
 
 indices_of_substring()
