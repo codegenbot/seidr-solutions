@@ -1,2 +1,7 @@
 ```
-"Your tweet has {} characters".format(len(re.sub(r'\W+', '', tweet))) if (140 > len(tweet) >= 1) else "Too many characters" if (len(tweet) > 140) else "You didn't type anything"
+if len(re.sub(r'\W+', '', tweet)) > 140:
+    return "Too many characters"
+elif not tweet:
+    return "You didn't type anything"
+else:
+    return f"Your tweet has {len(tweet)} characters"
