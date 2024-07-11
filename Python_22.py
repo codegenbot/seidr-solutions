@@ -1,4 +1,4 @@
-```
+``` 
 from typing import Union
 
 def calculate_average_value(values: list[Union[int]]) -> float:
@@ -8,7 +8,7 @@ def calculate_average_value(values: list[Union[int]]) -> float:
     return round(average, 2)
 
 
-def filter_integers(lst: list[int]) -> list[int]:
+def filter_integers(lst: list[Union[int]]) -> list[Union[int]]:
     return [x for x in lst if isinstance(x, int)]
 
 
