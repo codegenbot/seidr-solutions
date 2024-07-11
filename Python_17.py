@@ -1,13 +1,18 @@
 ```
+from typing import List
+
+
 def parse_music(music_string: str) -> List[int]:
     result = []
-    note_dict = {'o': 4, 'o|': 2, '.|': 1}
-    current_note = ''
-    for char in music_string:
-        if char == ' ':
-            result.append(note_dict.get(current_note, 0))
-            current_note = ''
-        elif char in note_dict:
-            current_note += char
-    result.append(note_dict.get(current_note, 0))
+    i = 0
+    while i < len(music_string):
+        if music_string[i] == 'o':
+            result.append(4)
+            i += 3
+        elif music_string[i:i+2] == 'o|':
+            result.append(2)
+            i += 2
+        elif music_string[i:i+3] == '.|__':
+            result.append(1)
+            i += 3
     return result
