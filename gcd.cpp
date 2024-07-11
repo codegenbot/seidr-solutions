@@ -7,8 +7,8 @@ int gcd(int a, int b) {
 
 int main() {
     int num1, num2;
-    std::cout << "Enter two numbers: ";
+    std::cout << "Enter two integers: ";
     std::cin >> num1 >> num2;
-    std::cout << "GCD of " << num1 << " and " << num2 << " is: " << gcd(num1, num2) << std::endl;
+    std::cout << "GCD of " << num1 << " and " << num2 << " is " << gcd(num1, num2) << std::endl;
     return 0;
 }
