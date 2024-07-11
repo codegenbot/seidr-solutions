@@ -21,12 +21,3 @@ vector<int> f(int n){
     }
     return result;
 }
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
-int main(){
-    // Main function implementation
-    return 0;
-}
