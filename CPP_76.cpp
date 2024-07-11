@@ -1,7 +1,7 @@
-if (x <= 0 || n <= 0) {
-        return false;
+if (n == 1) {
+        return x == 1;
     }
     
-    double res = log(x) / log(n);
-    return (res - (int)res == 0);
+    double root = pow(x, 1.0/n);
+    return (pow(int(root + 0.5), n) == x);
 }
