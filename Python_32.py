@@ -1,6 +1,7 @@
-def find_zero(xs: list):
+def find_zero(xs):
     if len(xs) % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
-    if xs[0] == 0:
-        raise ValueError("xs cannot start with zero coefficient")
-    return -xs[-1] / xs[0]
+    result = 0
+    for i in range(1, len(xs), 2):
+        result += (-1)**((i+1)//2) * xs[i] / (xs[0]**((i+1)//2))
+    return result
