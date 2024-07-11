@@ -17,5 +17,4 @@ def decode_cyclic():
         i = (i+3)%len(s)
     return result
 
-
 print(decode_cyclic())
