@@ -3,20 +3,34 @@
 
 int bowlingScore(std::string s) {
     int score = 0;
-    int roll = 0;
+    int roll1 = 0;
+    int roll2 = 0;
+    int roll3 = 0;
     for(int i = 0; i < s.size(); i++) {
         if(s[i] == '/') {
-            if(roll < 2) {
-                score += (10 - '0') * 10 + (s[i-1] - '0');
+            if(roll1 + roll2 < 10) {
+                score += roll1 + roll2 + (10 - '0') - '0';
             } else {
-                score += (10 - 'X') * 10;
+                score += roll1 + roll2 + 10;
             }
-            roll = 0;
+            roll1 = roll2 = 0;
         } else if('0' <= s[i] && s[i] <= '9') {
-            roll = roll * 10 + (s[i] - '0');
+            roll3 = roll3 * 10 + (s[i] - '0');
+            if(roll1 == 0) {
+                roll1 = roll2;
+                roll2 = roll3;
+                roll3 = 0;
+            }
         } else if(s[i] == 'X') {
             score += 10;
-            roll = 0;
+            roll1 = roll2 = roll3 = 0;
+        }
+    }
+    if(roll1 + roll2 > 0) {
+        if(roll1 + roll2 < 10) {
+            score += roll1 + roll2 + (10 - '0') - '0';
+        } else {
+            score += roll1 + roll2 + 10;
         }
     }
     return score;
