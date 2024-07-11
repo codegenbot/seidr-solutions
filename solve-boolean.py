@@ -1,24 +1,22 @@
+```
 def solve(expression):
-    if expression == "T":
+    expression = expression.upper()
+    if expression == 'T':
         return True
-    elif expression == "F":
+    elif expression == 'F':
         return False
-    elif "&" in expression:
-        left, right = expression.split("&")
+    elif '&' in expression:
+        left, right = expression.split('&')
         return solve(left) and solve(right)
-    elif "|" in expression:
-        left, right = expression.split("|")
+    elif '|' in expression:
+        left, right = expression.split('|')
         return solve(left) or solve(right)
-    elif "(" in expression:
-        i = expression.index("(")
-        j = expression.index(")")
-        return (solve(expression[:i]), solve(expression[i + 1 : j]))[
-            expression[i + 1 : j].index("&") == expression[i + 1 : j].index("|")
-        ][0]
 
+expression = input()
+while 't' in expression.lower() or 'f' in expression.lower():
+    if 'T' in expression:
+        expression = expression.replace('T', '')
+    else:
+        expression = expression.replace('F', '')
 
-print("Result:", "True" if solve("t") else "False")
-print("Result:", "True" if solve("f") else "False")
-print("Result:", "False" if solve("f&f") else "True")
-print("Result:", "False" if solve("f&t") else "True")
-print("Result:", "False" if solve("t&f") else "True")
+print("Result:", "True" if solve(expression) else "False")
