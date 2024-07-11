@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 
 std::vector<int> leaders(std::vector<int>& arr) {
