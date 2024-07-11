@@ -20,10 +20,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             result.append(''.join(groups))
             groups = []
     
-    if groups:  
+    if not stack:
         result.append(''.join(groups))
-    
-    if stack:
-        result.append(''.join(groups))
-    
     return [group for group in result if group]
