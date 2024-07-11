@@ -1,23 +1,23 @@
-```cpp
 #include <string>
 
-int bowlingScore(const std::string& s) {
+int bowlingScore(std::string s) {
     int score = 0;
     int currentFrame = 1;
     for (char c : s) {
         if (c == '/') {
-            int roll = s.find('/');
-            score += min(10 - (roll - '0'), 10);
+            score += std::min(10 - '0', 10);
             currentFrame++;
         } else if (isdigit(c)) {
-            int value = c - '0';
+            int strike = c - '0';
             if (currentFrame < 10 && isdigit(s[s.length() - 1])) {
-                value += s[s.length() - 1] - '0';
-                score += 10;
+                score += strike + 10;
+                while (s.length() > s.find_first_of("/X") + 1) {
+                    s.erase(0, 1);
+                }
+                currentFrame++;
             } else {
-                score += value;
+                score += strike;
             }
-            currentFrame++;
         } else if (c == 'X') {
             score += 10;
             currentFrame++;
