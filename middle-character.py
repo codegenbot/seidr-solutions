@@ -1,6 +1,8 @@
-def middle_character(input_string):
-    length = len(input_string)
+Here is the solution:
+
+def middle_character(s):
+    length = len(s)
     if length % 2 == 0:
-        return input_string[length // 2 - 1: length // 2 + 1]
+        return s[length//2 - 1:length//2 + 1]
     else:
-        return input_string[length // 2]
+        return s[length//2]
