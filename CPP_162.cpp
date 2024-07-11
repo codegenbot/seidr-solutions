@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <sstream>
 
@@ -8,16 +7,15 @@ string string_to_md5(string text) {
     if (text.empty()) return "";
 
     MD5_CTX ctx;
-    unsigned char md[16];
-    stringstream ss;
-
+    unsigned char result[16];
     MD5_Init(&ctx);
-    MD5_Update(&ctx, text.c_str(), text.size());
-    MD5_Final(md, &ctx);
+    const char* cstr = text.c_str();
+    MD5_Update(&ctx, cstr, text.size());
+    MD5_Final(result, &ctx);
 
+    stringstream ss;
     for (int i = 0; i < 16; ++i) {
-        sprintf("%02x", md[i]);
-        ss << hex << setfill('0') << setw(2);
+        ss << setfill(2) << setw(2) << hex << (int)result[i];
     }
 
     return ss.str();
