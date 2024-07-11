@@ -6,4 +6,4 @@ if all(ch.islower() or ch.isspace() for ch in input_str):
     result = decode_shift(input_str)
     print(result)
 else:
-    print("Input string should contain only lowercase alphabets and saces.")
+    print("Input string should contain only lowercase alphabets and spaces.")
