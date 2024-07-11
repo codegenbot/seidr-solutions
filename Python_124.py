@@ -23,7 +23,7 @@ def valid_date(date):
     return True
 
 def is_leap(year):
-    if int(year) % 4 == 0 and (int(year) % 100 != 0 or int(year) % 400 == 0):
+    if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
         return True
     else:
         return False
