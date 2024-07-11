@@ -15,6 +15,7 @@ int main() {
     double bouncinessIndex = pow(heightAfterFirstBounce / startHeight, 0.5);
 
     int numBounces;
+
     std::cin >> numBounces;
 
     if(std::cin.fail()) {
@@ -22,9 +23,9 @@ int main() {
         return 1; // Exit with error code
     }
 
-    double totalDistance = (startHeight + heightAfterFirstBounce) * pow(2, numBounces - 1);
+    double totalDistance = (1 + numBounces) * startHeight * pow(bouncinessIndex, 2);
 
-    std::cout << "The total distance is: " << totalDistance << std::endl;
+    std::cout << "The total distance traveled by the ball is: " << totalDistance << std::endl;
 
     return 0;
 }
