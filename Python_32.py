@@ -1,5 +1,6 @@
 ```
 import math
+
 def find_zero(xs):
     n = len(xs)
     if n % 2 != 0:
