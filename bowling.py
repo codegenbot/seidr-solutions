@@ -25,5 +25,6 @@ def bonus(bowls, i):
     else:
         return int(bowls[i])
 
+
 bowls = input()
 print(bowling_score(bowls))
