@@ -1,30 +1,25 @@
-```cpp
 #include <iostream>
 #include <string>
 
 std::string substitutionCipher(const std::string& cipherMap, const std::string& input) {
     std::string output;
     for (char c : input) {
-        char newChar = '\0';
-        if (c >= 'a' && c <= 'z') {
-            int index = tolower(c) - 'a';
-            newChar = cipherMap[index];
-        } else if (c >= 'A' && c <= 'Z') {
-            int index = toupper(c) - 'A';
-            newChar = toupper(cipherMap[index] - ('A' - 'a'));
+        if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z') {
+            int index = isupper(c) ? tolower(c) - 'a' : c - 'A';
+            output += cipherMap.at(index);
+        } else {
+            output += c;
         }
-        output += (newChar == '\0') ? c : newChar;
     }
     return output;
 }
 
 int main() {
-    std::string cipherMap, input;
-    std::cout << "Enter the cipher map: ";
-    std::getline(std::cin, cipherMap);
-    std::cout << "Enter the message to be deciphered: ";
-    std::getline(std::cin, input);
+    std::string cipherMap = "bzjyvlaopidqguscxrtwk"; 
+    std::string input = "eogfmptnxqhijzkusrvldijnalbwwxcz"; 
+
     std::string output = substitutionCipher(cipherMap, input);
-    std::cout << "Deciphered message: " << output << std::endl;
+    std::cout << output << std::endl;
+
     return 0;
 }
