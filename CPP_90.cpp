@@ -1,18 +1,17 @@
-Here is the completed code:
+Here is the solution:
 
-int next_smallest(vector<int> lst) {
-    if (lst.empty()) return -1; // Return None as per problem statement
-    vector<int> sorted = lst;
-    sort(sorted.begin(), sorted.end());
-    int count = 0;
-    for(int i=0; i<sorted.size();i++){
-        for(int j=i+1; j<sorted.size();j++){
-            if(sorted[i] == sorted[j]){
-                count++;
-            }
-        }
-        if(count > 1) return -1; // Return None as per problem statement
-        if(i < sorted.size() - 1 && sorted[i] != sorted[i+1]) return sorted[i];
+vector<int> result = {lst[0]};
+
+for (int i = 1; i < lst.size(); ++i) {
+    if (lst[i] < *max_element(result.begin(), result.end())) {
+        result.clear();
+        result.push_back(lst[i]);
+    } else if (lst[i] > *result.begin()) {
+        result.erase(result.begin());
     }
-    return -1; // Return None as per problem statement
 }
+
+if (result.size() == 1)
+    return -1;
+else
+    return *result.begin();
