@@ -4,21 +4,33 @@
 using namespace std;
 
 string sort_numbers(string numbers) {
-    map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                 {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                 {"eight", 8}, {"nine", 9}};
+    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+                                {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+                                {"eight", 8}, {"nine", 9}};
 
-    string result = "";
-    for (char c : numbers) {
-        if (c == ' ') {
+    vector<string> numVec;
+    string temp;
+
+    for (int i = 0; i < numbers.length(); i++) {
+        if (numbers[i] == ' ') {
             continue;
         }
-        string num = "";
-        while (c != ' ' && c != '\0') {
-            num += c;
-            c = getchar();
+        for (auto it = numMap.begin(); it != numMap.end(); it++) {
+            if (it->first.find(numbers.substr(i, string::npos)) != string::npos) {
+                temp = it->first;
+                i += temp.length();
+                break;
+            }
         }
-        result += num_map[num] < result.length() ? num + " " : result.substr(0, result.find(" ")) + " " + num;
+        numVec.push_back(temp);
     }
-    return result.substr(0, result.size() - 1);
+
+    sort(numVec.begin(), numVec.end());
+
+    string result;
+    for (auto str : numVec) {
+        result += str + " ";
+    }
+
+    return result.substr(0, result.length() - 1);
 }
