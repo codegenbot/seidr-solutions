@@ -1,9 +1,9 @@
-int n = arr.size();
-    for (int i = 0; i < n; ++i) {
-        if (is_sorted(arr.begin(), arr.end())) {
-            return true;
+int minIndex = -1;
+    int n = arr.size();
+    for (int i = 0; i < n; i++) {
+        if (arr[i] < arr[(i + 1) % n]) {
+            minIndex = i;
         }
-        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
-    return false;
+    return minIndex == -1 || minIndex == n - 1;
 }
