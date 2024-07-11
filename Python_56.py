@@ -1,26 +1,28 @@
-```
 def calculate_average_scores():
-    average_score = None
+    scores = []
     while True:
-        name = input("Enter name (or press Enter to quit): ")
-        if name == "":
+        score = input("Enter a score (or 'done' if finished): ")
+        if score.lower() == "done":
             break
+        try:
+            scores.append(float(score))
+        except ValueError:
+            print("Invalid score. Please enter a number.")
+    if not scores:
+        return "No scores entered."
+    average = sum(scores) / len(scores)
+    return f"Average score: {average:.2f}"
 
-        total = 0
-        student_scores_count = int(input("Enter the number of students: "))
 
-        for _ in range(student_scores_count):
-            while True:
-                try:
-                    score = float(input(f"Enter the score for student {_ + 1}: "))
-                    total += score
-                    break
-                except ValueError:
-                    print("Invalid input. Please enter a valid floating point number.")
-
-        average = round(total / student_scores_count, 2)
-        if average_score is None:
-            average_score = str(average)
-        else:
-            average_score += f", {str(average)}"
-    print(f"The average score is: {average_score}")
+def check(correct_bracketing):
+    while True:
+        expression = input("Enter an expression (or 'done' if finished): ")
+        if expression.lower() == "done":
+            break
+        try:
+            if correct_bracketing(expression):
+                print("Correct bracketing!")
+            else:
+                print("Incorrect bracketing. Try again.")
+        except ValueError:
+            print("Invalid input. Please enter a valid mathematical expression.")
