@@ -1,49 +1,35 @@
 #include <iostream>
 #include <string>
 
-std::string spinWords(std::string sentence) {
+std::string spinWords(std::string str) {
     std::string result = "";
-    std::string word;
+    size_t start = 0;
     
-    for (int i = 0; i < sentence.length(); i++) {
-        if (sentence[i] == ' ') {
-            result += word + " ";
-            word.clear();
-        } else {
-            word += sentence[i];
-        }
-    }
-    
-    result += word;
-    
-    std::string newSentence = "";
-    int len;
-    
-    for (int i = 0; i < result.length(); i++) {
-        if (result[i] == ' ') {
-            len = i;
-        } else if (i > len && result[i - 1] != ' ') {
-            len = i;
+    while (start < str.length()) {
+        size_t end = str.find(' ', start);
+        
+        if (end == std::string::npos)
+            end = str.length();
+        
+        std::string word = str.substr(start, end - start);
+        
+        if (word.length() >= 5) {
+            std::reverse(word.begin(), word.end());
         }
         
-        if (len >= 5) {
-            for (int j = len; j >= 0; j--) {
-                newSentence += result[j];
-            }
-            newSentence += " ";
-            len++;
-        } else {
-            newSentence += result.substr(0, len + 1);
-        }
+        result += word + " ";
+        
+        start = end + 1;
     }
     
-    return newSentence;
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
-    std::cout << spinWords("this is a test") << std::endl;
-    std::cout << spinWords("hi") << std::endl;
-    std::cout << spinWords("a") << std::endl;
-    std::cout << spinWords("this is another test") << std::endl;
+    std::cout << spinWords("a") << std::endl; // a
+    std::cout << spinWords("this is a test") << std::endl; // this is a test
+    std::cout << spinWords("this is another test") << std::endl; // this is rehtona test
+    std::cout << spinWords("hi") << std::endl; // hi
+
     return 0;
 }
