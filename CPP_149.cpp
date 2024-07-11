@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -8,8 +7,8 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) { 
-    if (lst.empty()) {
-        return {};
+    if (std::all_of(lst.begin(), lst.end(), [](const std::string& str){return str.length() % 2 != 0;})){
+        throw std::runtime_error("The input list must have at least one string with an odd length.");
     }
 
     std::vector<std::string> result;
@@ -18,10 +17,6 @@ std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
         if (str.length() % 2 == 0) {
             result.push_back(str);
         }
-    }
-
-    if (result.empty()) {
-        throw std::runtime_error("The input list is empty or contains only odd-length strings.");
     }
 
     std::sort(result.begin(), result.end(),
