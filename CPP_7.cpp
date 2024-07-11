@@ -1,41 +1,40 @@
 ```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
 
 bool issame(vector<string> a,vector<string> b){
-    if(a.size()!=b.size())
+    if(a.size() != b.size())
         return false;
-    sort(a.begin(),a.end());
-    sort(b.begin(),b.end());
-    for(int i=0;i<a.size();i++){
-        if(a[i]!=b[i])
+
+    for (int i = 0; i < a.size(); i++) {
+        if (find(b.begin(), b.end(), a[i]) == b.end())
             return false;
     }
+
     return true;
 }
 
 int main(){
-    vector<string> a,b;
     int n;
-    cout<<"Enter number of strings: "<<endl;
-    cin>>n;
-    
+    std::cin >> n;
+    vector<string> a,b;
+
     for(int i=0;i<n;i++){
-        string s;
-        cout<<"Enter string ";
-        cin>>s;
-        if(i<5)
-            a.push_back(s);
-        else
-            b.push_back(s);
+        string temp;
+        cin>>temp;
+        if(i<n/2) a.push_back(temp);
+        else b.push_back(temp);
     }
-    
-    //check if a and b are same or not
-    bool check = issame(a,b);
-    
-    if(check)
-        cout<<"Vectors a and b are the same"<<endl;
-    else
-        cout<<"Vectors a and b are different"<<endl;
+
+    // Check if lists are same
+    bool flag = issame(a, b);
+
+    // Print the result
+    if(flag) 
+        std::cout << "Lists are same.\n";
+    else    
+        std::cout << "Lists are not same.\n";
+
+    return 0;
 }
