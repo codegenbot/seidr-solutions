@@ -3,4 +3,4 @@ def remove_duplicates(input_string):
         input_string = ','.join(map(str, input_string))
     
     input_list = [int(x) for x in input_string.split(",")]
-    return sorted(list(set(input_list)))
+    return sorted(dict.fromkeys(map(str, input_list)).values())
