@@ -17,6 +17,9 @@ while True:
     else:
         try:
             n = int(user_input) 
-            print(digitSum(n))
+            if n > 2**31 - 1 or n < -2**31 + 1:
+                print("Invalid input. The number should be within the range of the int type.")
+            else:
+                print(digitSum(n))
         except ValueError:
             print("Invalid input. Please enter a valid number.")
