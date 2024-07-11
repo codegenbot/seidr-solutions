@@ -2,25 +2,21 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     return a == b;
 }
 
-std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> lst) { 
-    if (lst.empty()) {
-        return {};
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) { 
+    if (std::all_of(lst.begin(), lst.end(), [](const std::string& str){return str.length() % 2 != 0;})){
+        throw std::runtime_error("The input list must have at least one string with an odd length.");
     }
 
     std::vector<std::string> result;
 
-    for (const auto& str : lst[0]) {
+    for (const auto& str : lst) {
         if (str.length() % 2 == 0) {
             result.push_back(str);
         }
-    }
-
-    if (result.empty()) {
-        throw std::runtime_error("The input list is empty or contains only odd-length strings.");
     }
 
     std::sort(result.begin(), result.end(),

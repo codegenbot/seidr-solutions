@@ -1,15 +1,12 @@
+```c++
 #include <vector>
 #include <string>
-#include <algorithm>
 
-namespace std {
-    bool operator==(const vector<int>& a, const vector<int>& b) {
-        return a == b;
-    }
-}
-
-int issame(int a, int b) {
-    return (a != b);
+int issame(const vector<int>& a, const vector<int>& b) {
+    if(a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()))
+        return 0;
+    else
+        return -1;
 }
 
 std::vector<int> even_odd_count(int num) {
@@ -24,9 +21,7 @@ std::vector<int> even_odd_count(int num) {
     return {count_even, count_odd};
 }
 
-int main() {
-    std::vector<int> count = even_odd_count(0);
-    int same_or_diff = (count[0] != count[1]) ? 1 : 0;
-    assert(same_or_diff == 0); 
+int main(int argc, char* argv[]) {
+    assert(even_odd_count(0) == std::vector<int>{1, 0});
     return 0;
 }
