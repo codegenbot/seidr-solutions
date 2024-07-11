@@ -1,5 +1,10 @@
 def solve_boolean(expression):
-    mapping = {'T': 'True', 'F': 'False', '|': 'or', '&': 'and'}
-    return eval(' '.join(mapping.get(c, c) for c in expression))
+    return eval(
+        expression.replace("T", "True")
+        .replace("F", "False")
+        .replace("|", " or ")
+        .replace("&", " and "),
+        {"True": True, "False": False}
+    )
 
 print(solve_boolean(input()))
