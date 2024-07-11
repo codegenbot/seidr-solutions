@@ -1,14 +1,9 @@
-```
 def int_to_mini_roman(number):
-    roman = {
-        1: 'i', 4: 'iv', 5: 'v', 9: 'ix',
-        10: 'x', 40: 'xl', 50: 'l', 90: 'xc',
-        100: 'c', 400: 'cd', 500: 'd', 900: 'cm',
-        1000: 'm'
-    }
-    result = ''
-    for value in sorted(roman.keys(), reverse=True):
-        while number >= value:
-            result += roman[value]
-            number -= value
-    return result.lower()
+    roman = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+    mini_roman = ""
+
+    for i in range(1000, 0, -1):
+        while number >= i:
+            number -= i
+            mini_roman += list(roman.keys())[list(roman.values()).index(i)].lower()
+    return mini_roman
