@@ -1,27 +1,19 @@
-#include <vector>
-#include <iostream>
 #include <string>
+using namespace std;
 
-std::string kebabToCamel(const std::string& s) {
-    std::string result;
-    for (const auto& word : s.split(" ")) {
-        if (!result.empty()) {
-            result[0] = toupper(word[0]);
-            result += std::string(1, word).substr(1);
+string camelCase(string s) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == '-') {
+            i++;
+            while (i < s.length() && s[i] != ' ') i++;
+            result += toupper(s[i]);
+        } else if (s[i] == ' ') {
+            continue;
         } else {
-            result = word;
+            if (!result.empty()) result[0] = tolower(s[i]);
+            else result += s[i];
         }
     }
     return result;
-}
-
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        string s;
-        cin >> s;
-        cout << kebabToCamel(s) << endl;
-    }
-    return 0;
 }
