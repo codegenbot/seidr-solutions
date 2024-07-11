@@ -1,3 +1,4 @@
+```python
 def encode(message):
     vowels = "aeiouAEIOU"
     result = ""
@@ -6,7 +7,7 @@ def encode(message):
             if char.lower() in vowels:
                 new_char = chr((ord(char.lower()) - 97 + 3) % 26 + 97)
             else:
-                new_char = chr((ord(char.lower()) - 96 + 3) % 26 + 96)
+                new_char = chr((ord(char.lower()) - 65 + 3) % 26 + 65)
             result += new_char
         else:
             result += char
