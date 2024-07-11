@@ -1,6 +1,7 @@
 ```cpp
 #include <string>
 #include <cctype>
+#include <limits>
 
 int digitSum(std::string s) {
     int sum = 0;
@@ -15,9 +16,11 @@ int digitSum(std::string s) {
 int main() {
     std::cout << "Enter a string: ";
     std::string input;
-    std::cin >> input;
-    while (input.back() == ' ') {
-        input.pop_back();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    if (!(std::cin >> std::ws).get()) {
+        input = "";
+    } else {
+        std::getline(std::cin, input);
     }
     if (!input.empty()) { 
         int digitPos = -1;
