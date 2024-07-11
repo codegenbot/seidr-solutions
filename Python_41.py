@@ -1,5 +1,8 @@
-def car_race_collision(distance):
-    for i in range(1, int((distance / 2) ** 0.5) + 1):
-        if i * (i + 1) > distance:
-            return i * (i - 1)
-    return distance
+def car_race_collision():
+    distance = int(input("Enter distance between two cars: "))
+    time_to_meet = int(input("Enter time at which both cars meet: "))
+    
+    speed1 = distance / time_to_meet
+    speed2 = (distance - speed1 * time_to_meet) / time_to_meet
+    
+    return speed1, speed2
