@@ -27,14 +27,6 @@ int main() {
     int n;
     cout << "Enter the number: ";
     cin >> n;
-    if(n < 1) {
-        cout << "Please enter a positive integer." << endl;
-    } else {
-        int result = prime_fib(n);
-        if(result != -1)
-            cout << n << "th prime Fibonacci number is: " << result << "\n";
-        else
-            cout << "No such number exists." << endl;
-    }
+    cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << "\n";
     return 0;
 }
