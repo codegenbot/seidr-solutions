@@ -1,3 +1,4 @@
+```
 def make_palindrome(s: str) -> str:
     if s == s[::-1]:
         return s
@@ -9,17 +10,17 @@ def make_palindrome(s: str) -> str:
     while i < len(left):
         if left[i] != right[j]:
             if j > 0:
-                if left[0] == right[j - 1]:
+                if left[0] == right[j-1]:
                     left.insert(0, right[j])
                     break
                 else:
-                    left.insert(0, right[j - 1])
+                    left.insert(0, right[j-1])
                     j -= 1
             else:
                 if len(left) >= 2 and left[0] != right[0]:
                     left.insert(0, right[0])
                 else:
-                    left.insert(0, "a")
+                    left.insert(0, 'a')
         else:
             i += 1
             j -= 1
