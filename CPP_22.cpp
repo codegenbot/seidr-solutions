@@ -1,7 +1,7 @@
 #include <vector>
-#include <list>
-#include <boost/any.hpp>
 #include <cassert>
+#include <boost/any.hpp>
+#include <typeinfo>
 
 bool issame(vector<int> a, vector<int> b);
 
@@ -22,10 +22,7 @@ vector<int> filter_integers(list_any values){
 }
 
 int main(){
-    vector<int> v1 = {1, 2, 3};
-    vector<int> v2 = {1, 2, 3};
-
-    assert(issame(v1, v2));
-    
-    return 0;
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {1, 2, 3};
+    assert(issame(a, b) == true);
 }
