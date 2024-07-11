@@ -1,4 +1,3 @@
-```c++
 #include <cmath>
 #include <cassert>
 
