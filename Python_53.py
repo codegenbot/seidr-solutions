@@ -1,13 +1,9 @@
 def add(x, y) -> int:
     return x + y
 
-try:
-    x = int(input("Enter the first number: "))
-    y = int(input("Enter the second number: "))
+x = int(input("Enter the first number: "))
+y = int(input("Enter the second number: \n"))
 
-    result = add(x, y)
+result = add(x, y)
 
-    print(result)
-
-except ValueError:
-    print("Please enter valid integers as input.")
+print(result)
