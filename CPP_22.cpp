@@ -1,19 +1,16 @@
-```c++
 #include <vector>
 #include <list>
 #include <any>
 #include <assert.h>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
 
-std::vector<int> filter_integers(std::list<std::any> values) {
-    std::vector<int> result;
+vector<any> filter_integers(list<any> values) {
+    vector<any> result;
     for (const auto& value : values) {
-        int i = boost::any_cast<int>(value);
-        if (!std::holds_alternative<std::monostate>(value)) {
-            result.push_back(i);
+        any_cast<int>(value);
+        if (any_cast<int>(value)) {
+            result.push_back(any_cast<any>(static_cast<int>(value)));
         }
     }
     return result;
@@ -21,4 +18,5 @@ std::vector<int> filter_integers(std::list<std::any> values) {
 
 int main() {
     assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    return 0;
 }
