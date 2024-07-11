@@ -1,3 +1,8 @@
-```
 def how_many_times(string: str, substring: str) -> int:
-    return len([s for s in range(len(string)) if string.startswith(substring, s)])
+    return len(
+        [
+            i
+            for i in range(len(string) - len(substring) + 1)
+            if string[i : i + len(substring)] == substring
+        ]
+    )
