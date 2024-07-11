@@ -1,8 +1,8 @@
 arr = [3, 1, 2, 4, 3]
-min_diff = float('inf')
-cut_position = -1
+min_diff = abs(sum(arr)-sum(arr[:])*2)
+cut_position = 1
 
-for i in range(1, len(arr)):
+for i in range(1, len(arr)+1):
     left_sum = sum(arr[:i])
     right_sum = sum(arr[i:])
     if abs(left_sum - right_sum) < min_diff:
