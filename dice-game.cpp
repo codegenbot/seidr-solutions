@@ -1,17 +1,13 @@
-```c
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 int main() {
-    int n; 
-    int m; 
-
-    cout << "Enter the number of sides for Peter's die: ";
+    int n = 0; // user input for Peter's die
+    int m = 0; // user input for Colin's die
+    cout << "Enter the number of sides on Peter's die: ";
     cin >> n;
-    
-    cout << "Enter the number of sides for Colin's die: ";
+    cout << "Enter the number of sides on Colin's die: ";
     cin >> m;
-    
     double result = getProbability(n, m);
     cout << "The probability is: " << result << endl;
     return 0;
