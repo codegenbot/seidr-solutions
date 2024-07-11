@@ -1,4 +1,4 @@
-def car_race_collision(n: int, m: int) -> int:
+def car_race_collision(n: int, m: int):
     if n < m:
         return n * m
     else:
