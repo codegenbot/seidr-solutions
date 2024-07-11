@@ -6,19 +6,16 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
-    if (lst.empty()) return {};
+    sort(lst.begin(), lst.end());
+    std::vector<int> result;
 
-    std::sort(lst.begin(), lst.end());
-
-    for (int i = 0; i < lst.size(); i++) {
-        if (i % 2 == 0)
-            result.push_back(lst[0]);
-        else
-            result.push_back(lst.back());
-        if (i % 2 != 0) {
-            lst.erase(lst.begin());
+    while (!lst.empty()) {
+        if (issame(result, {1})) {
+            result.push_back(*min_element(lst.begin(), lst.end()));
+            lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
         } else {
-            lst.pop_back();
+            result.push_back(*max_element(lst.begin(), lst.end()));
+            lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
         }
     }
 
