@@ -18,14 +18,16 @@ std::string substitutionCipher(const std::string& cipherMap, const std::string& 
 }
 
 int main() {
-    std::string cipherMap = "abcdefghijklmnopqrstuvwxyz"; // replace with actual cipher map
-    std::string input = "hello"; // replace with actual input string
+    std::string cipherMap = "abcdefghijklmnopqrstuvwxyz"; 
+    std::string input;
 
     if(input.size() == 0) {
         std::cout << "No message to decipher." << std::endl;
     } else {
+        std::cout << "Enter a message to decipher: ";
+        std::cin >> input;
         std::string output = substitutionCipher(cipherMap, input);
-        std::cout << output << std::endl;
+        std::cout << "Deciphered message: " << output << std::endl;
     }
 
     return 0;
