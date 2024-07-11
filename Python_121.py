@@ -1,5 +1,5 @@
-Here is the modified code:
+Here is the modified code that solves the problem:
 
-```
+```python
 def solution(lst):
     return sum(i for i in lst[1::2] if i % 2 != 0)
