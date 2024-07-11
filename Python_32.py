@@ -1,7 +1,6 @@
 ```
 import math
-
-def find_zero(xs: list):
+def find_zero(xs):
     n = len(xs)
     if n % 2 != 0:
         raise ValueError("xs must have an even number of coefficients")
@@ -21,11 +20,14 @@ def find_zero(xs: list):
     
     return x1, x2
 
-xs = list(map(float, input("Enter coefficients: ").split()))
-
-try:
-    result = find_zero(xs)
-    if result is not None:
-        print(f"Zeroes are {result[0]} and {result[1]}.")
-except ValueError as e:
-    print(e)
+if __name__ == "__main__":
+    xs = list(map(float, input("Enter coefficients: ").split()))
+    try:
+        result = find_zero(xs)
+        if result is not None:
+            if result[0] == result[1]:
+                print(f"The only zero is {result[0]}.")
+            else:
+                print(f"Zeroes are {result[0]} and {result[1]}.")
+    except ValueError as e:
+        print(e)
