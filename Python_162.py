@@ -6,7 +6,7 @@ def string_to_md5(text):
     return None
 
 text = input("Enter the input string: ")
-if all(char.isprintable() for char in text):
+if all(ord(char) >= 32 and ord(char) <= 127 for char in text):
     md5_hash = string_to_md5(text)
     if md5_hash:
         print("MD5 Hash:", md5_hash)
