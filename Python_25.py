@@ -1,19 +1,28 @@
 ```
+from typing import List
+import math
+
+
 def factorize(n: int) -> List[int]:
-    if not isinstance(n, int):
-        return ["Error: Input must be an integer"]
+    while True:
+        try:
+            n = int(input())
+            break
+        except ValueError:
+            print("Invalid input! Please enter a valid integer.")
+    
     factors = []
     i = 2
     while i * i <= n:
         if n % i:
             i += 1
         else:
+            n //= i
             count = 0
             while n % i == 0:
-                count += 1
                 n //= i
-            factors.append(i * count)
-            i += 1
+                count += 1
+            factors.extend([i] * count)
     if n > 1:
         factors.append(n)
-    return factors
+    return [int(factor) for factor in set(map(str, factors))]
