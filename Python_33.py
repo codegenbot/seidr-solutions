@@ -1,5 +1,13 @@
-def sort_third(l: list):
-    return [
-        x if i % 3 != 0 else sorted([j for j in l if (i - j) % 3 != 0])[::-1].pop(0)
-        for i, x in enumerate(l)
-    ]
+def sort_third(l):
+    res = []
+    others = [x for i, x in enumerate(l) if i % 3 != 0]
+    sorted_others = sorted(others)
+    
+    for i, x in enumerate(l):
+        if i % 3 == 0:
+            res.append(x)
+        else:
+            res.append(sorted_others[0])
+            if i % 3 < 2:
+                sorted_others = sorted_others[1:]
+    return res
