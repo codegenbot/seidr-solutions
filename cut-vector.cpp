@@ -1,6 +1,6 @@
+#include <climits>
 #include <iostream>
 #include <vector>
-#include <climits>
 
 using namespace std;
 
@@ -15,7 +15,7 @@ int main() {
     int n = nums.size();
     int diff = INT_MAX;
     int cutIndex = -1;
-    
+
     for (int i = 1; i < n; ++i) {
         int sum1 = 0;
         int sum2 = 0;
