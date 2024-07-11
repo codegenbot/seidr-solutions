@@ -1,11 +1,9 @@
-```
-import math
-
+```Python
 def sum_squares(lst):
     total_sum = 0
     for num in lst:
-        if math.isclose(num ** 0.5, int(num ** 0.5)):
+        if isinstance(num, complex): 
+            total_sum += num.real ** 2 + (num.imag ** 2) * 1j 
+        else: 
             total_sum += num ** 2
-        else:
-            total_sum += num
     return total_sum
