@@ -1,4 +1,5 @@
 Here is the modified code:
+
 ```
 from typing import List
 
@@ -9,8 +10,8 @@ def rolling_max():
     T = int(input())
     
     for _ in range(T):
-        print(f"Enter {len(result) + 1} numbers separated by space: ")
         while True:
+            print(f"Enter {len(result) + 1} numbers separated by space: ")
             try:
                 numbers = list(map(int, input().split()))
                 if not numbers:
