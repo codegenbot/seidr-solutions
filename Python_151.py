@@ -8,4 +8,5 @@ def double_the_difference():
 def check(func):
     print(func())
 
-check(double_the_difference)
+if __name__ == "__main__":
+    check(double_the_difference)
