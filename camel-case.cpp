@@ -10,7 +10,7 @@ int main() {
         if (c == '-') {
             capitalize = true;
         } else if (c != ' ') {
-            std::cout << (capitalize && islower(c) && (!isupper(c) || (std::prev(&c) != &input[0] && islower(*std::prev(&c))) ? (char)toupper(c) : c);
+            std::cout << ((capitalize && islower(c) && (!isupper(c) || (!isupper(c) && capitalize))) ? (char)toupper(c) : c);
             capitalize = false;
         }
     }
