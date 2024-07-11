@@ -12,7 +12,7 @@ int main() {
         }
     }
 
-    cout << message << '\n';
+    cout << message << "\n";
 
     return 0;
 }
