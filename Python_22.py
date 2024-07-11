@@ -1,7 +1,7 @@
 ```
-from typing import List
+from typing import List, Any
 
-def filter_integers():
+def get_values() -> List[Any]:
     while True:
         try:
             values = input("Enter a list of integers and/or strings separated by commas: ")
@@ -13,3 +13,8 @@ def filter_integers():
                 print("Invalid input. Please enter integers and/or strings separated by commas.")
         except ValueError as e:
             print(f"Invalid input. Please enter integers and/or strings separated by commas: {e}")
+
+def filter_integers():
+    result = get_values()
+    if result is not None:
+        return result
