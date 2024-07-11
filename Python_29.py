@@ -1,4 +1,4 @@
+```python
 from typing import List
 
-def filter_by_prefix(strings: list, prefix: str) -> list:
-    return [s for s in strings if s.startswith(prefix)]
+filtered_strings = filter_by_prefix([input() for _ in range(int(input("Enter number of strings: ")))], input("Enter prefix: "))
