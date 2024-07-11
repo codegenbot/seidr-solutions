@@ -4,10 +4,18 @@
 
 int main() {
     double startHeight, heightAfterFirstBounce;
-    std::cin >> startHeight >> heightAfterFirstBounce;
+    std::cin >> startHeight >> ' ' >> heightAfterFirstBounce;
     double bouncinessIndex = pow(heightAfterFirstBounce / startHeight, 0.5);
-    double distance = startHeight * (1 + bouncinessIndex) + 
-                      (startHeight - startHeight * bouncinessIndex) *
-                      (pow(bouncinessIndex, 2 * (5 - 1) + 1));
-    std::cout << distance;
+    
+    int numBounces;
+    std::cin >> numBounces;
+    
+    double totalDistance = 0;
+    for(int i=1; i<=numBounces; i++){
+        double height = startHeight * pow(bouncinessIndex, 2*i);
+        totalDistance += 2*startHeight + (height - startHeight); // Calculate the distance travelled in each bounce
+    }
+    
+    std::cout << "The total distance traveled is: " << totalDistance << std::endl;
+    return 0;
 }
