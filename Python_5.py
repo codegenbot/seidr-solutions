@@ -1,2 +1,6 @@
 def complete_code(numbers, delimiter):
-    return [num for num in numbers] + [delimiter] * (len(numbers) - 1) if numbers else []
+    result = []
+    for num in numbers:
+        result.append(num)
+        result.append(delimiter)
+    return result[:-1]
