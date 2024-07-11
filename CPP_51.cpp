@@ -5,12 +5,12 @@
 using namespace std;
 
 string remove_vowels(string text){
-    string result = "";
+    string result(text.length(), ' '); // Initialize with spaces
     for(size_t i = 0; i < text.length(); i++){
-        char c = isalpha(text[i]) ? tolower(text[i]) : text[i];
+        char c = tolower(text[i]);
         if(c >= 'a' && c <= 'z'){
             if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
-                result += text[i];
+                result[i] = text[i]; // Assign the character
             }
         }
     }
