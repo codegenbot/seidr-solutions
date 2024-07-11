@@ -1,8 +1,11 @@
-Here is the solution:
+def gcd(m, n):
+    while n != 0:
+        m, n = n, m % n
+    return abs(m)
 
-def gcd(a, b):
-    while b != 0:
-        a, b = b, a % b
-    return abs(a)
-
-print(gcd(int(input()), int(input())))
+def indices_of_substring(text, target):
+    result = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            result.append(i)
+    return result
