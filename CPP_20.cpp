@@ -1,6 +1,4 @@
 #include <initializer_list>
-#include <vector>
-#include <limits>
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
     if (numbers.size() <= 1) {
