@@ -1,4 +1,6 @@
-```
 def digits(n):
     n = str(abs(n))
-    return max(int(digit) for digit in n if digit != '0')
+    for i in range(len(n) - 1, -1, -1):
+        if n[i] != "0":
+            return int(n[i])
+    return 1
