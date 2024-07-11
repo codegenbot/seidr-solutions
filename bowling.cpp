@@ -9,20 +9,17 @@ int bowlingScore(string s) {
             score += 10 + (i < 8 ? 10 : 0);
             lastRoll = true;
         } else if (s[i] == '/') { // Spare
-            int j = i + 1;
-            while(j < 11 && s[j] != 'X' && s[j] != '/')
-                j++;
-            score += 10 - (s[j-1] - '0');
+            score += 10;
             lastRoll = true;
         } else {
             int roll1 = s[i] - '0';
-            int roll2 = s[i + 1] - '0';
+            int roll2 = (i < 9) ? (s[i + 1] - '0') : 0;
             if (lastRoll) {
                 return -1; // Invalid input
             }
             score += roll1 + roll2;
             lastRoll = false;
-            if (roll1 + roll2 == 10) { // Next two rolls are not part of this frame
+            if (roll1 + roll2 == 10) { // Next roll is part of this frame
                 i++;
             }
         }
