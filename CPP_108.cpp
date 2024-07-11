@@ -1,18 +1,17 @@
-int count_nums(vector<int> n){
-        int count = 0;
-        for(int num : n){
-            if(num == 0){
-                continue;
-            }
-            int sum = 0;
-            int temp = abs(num);
-            while(temp > 0){
-                sum += temp % 10;
-                temp /= 10;
-            }
-            if(sum > 0){
-                count++;
-            }
+int count = 0;
+    for (int num : n) {
+        int sum = 0;
+        int temp = num; // Copy of the number
+
+        while (temp != 0) {
+            sum += abs(temp % 10); // Get the absolute value of the last digit
+            temp /= 10; // Remove the last digit
         }
-        return count;
+        
+        if (sum > 0) {
+            count++;
+        }
     }
+    
+    return count;
+}
