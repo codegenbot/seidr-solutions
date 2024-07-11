@@ -1,16 +1,16 @@
 ```
 def bowling_score(frames):
     score = 0
-    frames = frames.replace("-", "/").split("/")
+    frames = list(map(str.strip, frames.split("/")))
     for i, f in enumerate(frames):
         if f == "X":
             score += 10
             if i < len(frames) - 1:
-                score += int(f"{f[1:]}" or 0)
-        elif f.strip() == "":
+                score += int(frames[i + 1].lstrip("0")) if frames[i + 1] else 0
+        elif f == "":
             score += 10
             if i < len(frames) - 1:
-                score += int(f"{frames[i + 1]}" or 0)
+                score += int(frames[i + 1]) if frames[i + 1] else 0
         else:
             rolls = [int(roll) for roll in f.split(" ")]
             if sum(rolls) == 10:
