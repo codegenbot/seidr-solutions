@@ -1,5 +1,4 @@
 #include <vector>
-#include <utility>
 
 std::pair<int, int> sum_product(const std::vector<int>& numbers) {
     int sum = 0;
@@ -10,5 +9,5 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
         product *= num;
     }
     
-    return {sum, product};
+    return std::pair<int, int>{sum, product};
 }
