@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <iostream>
 
@@ -6,9 +7,11 @@ using namespace std;
 string remove_vowels(string text){
     string result = "";
     for(size_t i = 0; i < text.length(); i++){
-        char c = tolower(text[i]);
-        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
-            result += text[i];
+        char c = isalpha(text[i]) ? tolower(text[i]) : text[i];
+        if(c >= 'a' && c <= 'z'){
+            if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
+                result += text[i];
+            }
         }
     }
     return result;
