@@ -1,10 +1,9 @@
 def substitution_cipher(cipher1, cipher2, message):
+    mapping = {char: other for char, other in zip(cipher1, cipher2)}
     result = ""
     for char in message:
-        if char.isalpha():
-            ascii_offset = 65 if char.isupper() else 97
-            index = ord(char) - ascii_offset
-            result += chr((ord(cipher2[index % len(cipher2)]) - ascii_offset))
+        if char in mapping:
+            result += mapping[char]
         else:
             result += char
     return result
