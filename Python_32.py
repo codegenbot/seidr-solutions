@@ -1,3 +1,4 @@
+```
 def solve_quadratic_equation(a, b, c, d=None):
     p = (b**2) - (4 * a * c)
     if d is not None and d != 0:
@@ -26,26 +27,3 @@ def solve_quadratic_equation(a, b, c, d=None):
             print(f"There is one solution: {result}.")
         else:
             print("There are no real solutions.")
-
-
-def main():
-    while True:
-        try:
-            find_zero = input("Enter coefficients (a b c [d]): ").split()
-            if len(find_zero) > 4:
-                a, b, c, d = map(int, find_zero[:4])
-                break
-            elif len(find_zero) == 3:
-                a, b, c = map(int, find_zero)
-                d = None
-                break
-            else:
-                print("Invalid input. Please enter a, b, and c.")
-        except ValueError:
-            print("Invalid input. Please enter numbers.")
-
-    solve_quadratic_equation(a, b, c, d)
-
-
-if __name__ == "__main__":
-    main()
