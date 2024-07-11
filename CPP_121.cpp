@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 int solutions(std::vector<int> lst) {
@@ -11,6 +12,7 @@ int solutions(std::vector<int> lst) {
 }
 
 int main() {
-    assert(solutions({3, 13, 2, 9}) == 3);
-    // rest of your code...
+    std::vector<int> numbers = {3, 13, 2, 9};
+    assert(solutions(numbers) == 3);
+    return 0;
 }
