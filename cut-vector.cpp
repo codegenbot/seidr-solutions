@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <climits>
 #include <numeric>
@@ -18,21 +17,4 @@ std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& 
     }
     
     return result;
-}
-
-int main() {
-    std::vector<int> arr = {4, 7, 9, 2, 8, 6};
-    auto result = cutVector(arr);
-    
-    for (int num : result.first) {
-        std::cout << num << " ";
-    }
-    std::cout << "\n";
-    
-    for (int num : result.second) {
-        std::cout << num << " ";
-    }
-    std::cout << "\n";
-    
-    return 0;
 }
