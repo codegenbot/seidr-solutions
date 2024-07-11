@@ -1,11 +1,12 @@
-```cpp
+```
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 #include <initializer_list>
 
 bool issame(int a, int b) {
-    vector<string> by_length(vector<int> arr) {
+    vector<string> by_length(initializer_list<int> arr) {
         vector<int> numbers;
         for (int num : arr) {
             if (num >= 1 && num <= 9) {
@@ -55,16 +56,14 @@ bool issame(int a, int b) {
 
 int main() {
     vector<int> numbers = {1, 2, 3};
-    try {
-        vector<string> output = by_length(numbers);
+    vector<string> output = by_length({numbers});
     
+    if (output.empty()) {
+        std::cerr << "Error: Input array is empty.\n";
+    } else {
         for (const auto &word : output) {
-            cout << word << " ";
+            std::cout << word << " ";
         }
-    
-    } catch (...) {
-        cerr << "Error: invalid input" << endl;
-        return 1;
     }
     
     return 0;
