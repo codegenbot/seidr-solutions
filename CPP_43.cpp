@@ -1,13 +1,12 @@
-#include<stdio.h>
-#include<vector>
-using namespace std;
+#include <unordered_set>
+
 bool pairs_sum_to_zero(vector<int> l){
-    for(int i = 0; i < l.size(); ++i){
-        for(int j = i+1; j < l.size(); ++j){
-            if(l[i] + l[j] == 0){
-                return true;
-            }
+    unordered_set<int> set;
+    for(int num : l){
+        if(set.count(-num) > 0){
+            return true;
         }
+        set.insert(num);
     }
     return false;
 }
