@@ -1,16 +1,23 @@
-Here is the solution:
-
-string solve(string s){
+string solve(string s) {
     string result = "";
-    for(int i=0; i<s.length();i++){
-        if(isalpha(s[i])){
-            char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
+    bool foundLetter = false;
+
+    for (char c : s) {
+        if (!isalpha(c)) {
             result += c;
-        }
-        else{
-            result += s[i];
+            foundLetter = false;
+        } else {
+            if (!foundLetter) {
+                foundLetter = true;
+                result += toupper(c);
+            } else {
+                result += tolower(c);
+            }
         }
     }
-    if(result.empty()) reverse(result.begin(), result.end());
+
+    if (!foundLetter)
+        reverse(result.begin(), result.end());
+
     return result;
 }
