@@ -8,7 +8,7 @@ def bowling_score(s):
             # Strike
             score += 10 + (rolls[i+1]+rolls[i+2])//2*2
             i += 2
-        elif rolls[i] in [1, 2]:
+        elif rolls[i] in [1,2]:
             # Spare
             score += 5 + rolls[i+1]
             i += 2
