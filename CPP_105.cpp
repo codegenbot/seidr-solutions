@@ -7,6 +7,7 @@ bool issame(int a, int b) {
     if (a > 9 || b > 9) {
         return false;
     }
+    
     vector<string> result = by_length({a, b});
     for (int i = 0; i < min(result.size(), 2); i++) {
         cout << result[i] << " ";
@@ -17,6 +18,7 @@ bool issame(int a, int b) {
 
 vector<string> by_length(vector<int> arr) {
     vector<int> numbers;
+    
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(num);
@@ -28,6 +30,7 @@ vector<string> by_length(vector<int> arr) {
     reverse(numbers.begin(), numbers.end());
     
     vector<string> result;
+    
     for (int num : numbers) {
         switch (num) {
             case 1:
