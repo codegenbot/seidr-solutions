@@ -1,10 +1,10 @@
-```
 while True:
     xs = input("Enter coefficients separated by spaces: ").split()
     if len(xs) >= 3 and all(x.replace('.', '', 1).replace('-', '', 1).isdigit() for x in xs):
         break
     print("Invalid input. Please enter exactly three or four coefficients, separated by spaces.")
 
+x = list(map(float, xs))
 import math
 
 def find_zero(xs):
@@ -20,4 +20,4 @@ def find_zero(xs):
     x2 = (-b - math.sqrt(discriminant)) / (2 * a)
     return f"The zeros are {round(x1, 2)} and {round(x2, 2)}"
 
-print(find_zero(map(float, xs)))
+print(find_zero(x))
