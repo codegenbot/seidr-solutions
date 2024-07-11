@@ -2,8 +2,8 @@
 #include <algorithm>
 #include <numeric>
 
-bool std::pmr::issame(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+bool std::pmr::operator==(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b) {
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::pmr::vector<int> strange_sort_list(std::pmr::vector<int> lst) {
