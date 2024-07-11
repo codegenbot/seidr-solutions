@@ -1,32 +1,45 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cassert>
-
-bool issame(std::vector<float> v1, std::vector<float> v2) {
-    return v1 == v2;
-}
-
-std::vector<float> rescale_to_unit(std::vector<float> numbers) {
-    float min_val = *min_element(numbers.begin(), numbers.end());
-    float max_val = *max_element(numbers.begin(), numbers.end());
-    std::vector<float> rescaled;
-    
-    for (float num : numbers) {
-        float scaled = (num - min_val) / (max_val - min_val);
-        rescaled.push_back(scaled);
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) {
+        return false;
     }
     
-    return rescaled;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+vector<float> rescale_to_unit(vector<float> numbers) {
+    float min_val = numbers[0];
+    float max_val = numbers[0];
+    for (float num : numbers) {
+        if (num < min_val) {
+            min_val = num;
+        }
+        if (num > max_val) {
+            max_val = num;
+        }
+    }
+    
+    vector<float> rescaled_numbers;
+    for (float num : numbers) {
+        float rescaled_num = (num - min_val) / (max_val - min_val);
+        rescaled_numbers.push_back(rescaled_num);
+    }
+    
+    return rescaled_numbers;
 }
 
 int main() {
-    std::vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
-    std::vector<float> expected_rescaled = {0.0, 0.25, 0.5, 0.75, 1.0};
+    vector<float> input_numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
+    vector<float> rescaled_numbers = rescale_to_unit(input_numbers);
     
-    std::vector<float> rescaled = rescale_to_unit(numbers);
+    vector<float> expected_output = {0.0, 0.25, 0.5, 0.75, 1.0};
     
-    assert(issame(rescaled, expected_rescaled));
+    bool result = issame(rescaled_numbers, expected_output);
     
     return 0;
 }
