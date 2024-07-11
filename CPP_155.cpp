@@ -1,11 +1,42 @@
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+vector<int> even_odd_count(int num) {
+    vector<int> result;
+    int count = 0;
+    while (num != 0) {
+        int digit = num % 10;
+        if (digit % 2 == 0)
+            count++;
+        num /= 10;
+    }
+    result.push_back(count);
+    result.push_back(abs(num));
+    return result;
+}
+
 int main() {
-    int num;
+    assert(issame(even_odd_count(0), vector<int>{1, 0}));
+    
+    int n;
     cout << "Enter a number: ";
-    cin >> num;
-
-    vector<int> result = even_odd_count(num);
-    cout << "Even numbers: " << result[0] << endl;
-    cout << "Odd part of the number is: " << result[1] << endl;
-
-    return 0;
+    cin >> n;
+    vector<int> output = even_odd_count(n);
+    if (output[0] > output[1]) {
+        cout << "Even count is greater." << endl;
+    } else if (output[0] < output[1]) {
+        cout << "Odd count is greater." << endl;
+    } else {
+        cout << "Both counts are equal." << endl;
+    }
 }
