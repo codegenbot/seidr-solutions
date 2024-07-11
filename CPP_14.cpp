@@ -1,4 +1,5 @@
 #include <vector>
+#include <initializer_list>
 #include <string>
 #include <iostream>
 
@@ -22,7 +23,8 @@ vector<string> all_prefixes(string str) {
 }
 
 int main() {
-    if (!issame(all_prefixes("WWW"), vector<string>{ "W", "WW", "WWW" })) {
+    string str = "WWW";
+    if (!issame(all_prefixes(str), vector<string>{ "W", "WW", "WWW" })) {
         cout << "Error: Expected prefixes are not the same." << endl;
     } else {
         cout << "Test passed!" << endl;
