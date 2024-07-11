@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
@@ -12,10 +13,11 @@ def minPath(grid, k):
         for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             ni, nj = i + x, j + y
             if 0 <= ni < n and 0 <= nj < n:
-                for p in dfs(ni, nj, path + [m[ni][nj]]):
+                new_path = path + [m[ni][nj]]
+                if len(new_path) == k:
+                    return [[new_path]]
+                for p in dfs(ni, nj, new_path):
                     min_path.append(p)
-        if len(path) + 1 == k: 
-            return [[path]]
         memo[(i, j)] = min_path
         return min_path
 
