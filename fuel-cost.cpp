@@ -17,7 +17,7 @@ int main() {
         sum += (num / 3) - 2;
     }
     
-    std::cout << sum << std::endl;
+    std::cout << sum * 3 << std::endl;
     
     return 0;
 }
