@@ -1,3 +1,4 @@
+```
 from math import sqrt
 
 v1 = list(map(float, input().split()))
