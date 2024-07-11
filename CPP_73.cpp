@@ -5,7 +5,9 @@
 #include <climits>
 #include <cassert>
 
-int smallest_change(std::vector<int> arr) {
+using namespace std;
+
+int smallest_change(vector<int> arr) {
     int min = INT_MAX;
     for (int i : arr) {
         if (i < min)
@@ -26,4 +28,5 @@ int main() {
         arr.push_back(val);
     }
     cout << "The smallest change is: " << smallest_change(arr) << endl;
+    return 0;
 }
