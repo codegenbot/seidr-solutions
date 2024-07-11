@@ -1,9 +1,13 @@
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1]
+
+
 def make_palindrome(string: str) -> str:
-    prefix = ""
-    while not is_palindrome(prefix + string):
-        if string:  
-            prefix += string[0]
-            string = string[1:]
-        else:
+    if string == string[::-1]:
+        return string
+    new_string = ""
+    for char in string:
+        new_string = char + new_string
+        if new_string == new_string[::-1]:
             break
-    return prefix + string + prefix[::-1]
+    return string + new_string
