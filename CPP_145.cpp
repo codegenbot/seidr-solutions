@@ -1,8 +1,8 @@
 bool issame(const vector<int>& a, const vector<int>& b){
-    return accumulate(a.begin(), a.end(), 0) == accumulate(b.begin(), b.end(), 0);
+    return a == b;
 }
 
-sort(nums.begin(), nums.end(), [](int a, int b) {
+sort(nums.begin(), nums.end(), [order_by_points](int a, int b) {
     int sum_a = 0, sum_b = 0;
     int temp_a = abs(a), temp_b = abs(b);
     while (temp_a) {
@@ -13,9 +13,10 @@ sort(nums.begin(), nums.end(), [](int a, int b) {
         sum_b += temp_b % 10;
         temp_b /= 10;
     }
-    if (sum_a == sum_b) {
+    if (issame(order_by_points(a), order_by_points(b))) {
         return a < b;
     }
     return sum_a < sum_b;
-}, issame);
+});
+
 return nums;
