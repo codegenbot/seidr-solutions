@@ -1,7 +1,7 @@
 def solve(expression):
-    if expression in {'T', 't'}:
+    if expression == 'T':
         return True
-    elif expression in {'F', 'f'}:
+    elif expression == 'F':
         return False
     elif '&' in expression:
         left, right = expression.split('&')
@@ -10,8 +10,4 @@ def solve(expression):
         left, right = expression.split('|')
         return solve(left) or solve(right)
 
-print("Result:", "True" if solve('t') else "False")
-print("Result:", "True" if solve('f') else "False")
-print("Result:", "False" if solve('f&f') else "True")
-print("Result:", "False" if solve('f&t') else "True")
-print("Result:", "False" if solve('t&f') else "True")
+return {'T': True, 'F': False}[expression]
