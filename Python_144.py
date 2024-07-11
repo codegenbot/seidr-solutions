@@ -10,7 +10,8 @@ def is_valid_fraction(fraction):
 
 
 def main():
-    choice = input("Do you want to enter a number or a fraction for x? (1/1 or num): ")
+    print("Do you want to enter a number or a fraction for x? (1/1 or num): ")
+    choice = input()
 
     while True:
         if choice.lower() == "num":
@@ -53,10 +54,7 @@ def main():
             a, b = map(
                 int, input("Enter the fraction x (in the format 'a/b'): ").split("/")
             )
-            if a == 0:
-                print("Invalid input. Please enter a valid fraction.")
-                continue
-            if b == 1:
+            if is_valid_fraction(str(a) + "/" + str(b)):
                 y = int(input("Please enter the number: "))
                 while True:
                     c, d = map(
