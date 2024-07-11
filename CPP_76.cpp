@@ -1,14 +1,8 @@
-if (x == 1) {
-        return true;
+if(x <= 0 || n <= 0) {
+        return false;
     }
-    for (int i = 2; i * i <= x; i++) {
-        int p = i;
-        while (p <= x) {
-            p *= i;
-            if (p == x) {
-                return true;
-            }
-        }
-    }
-    return false;
+    
+    double p = log(x) / log(n);
+    
+    return (ceil(p) == floor(p));
 }
