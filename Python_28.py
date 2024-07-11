@@ -1,17 +1,7 @@
-```
 from typing import List
 
 
 def concatenate():
-    num_strings = 0
-    strings = []
-    
-    while True:
-        user_input = input("Enter a string ('stop' to finish): ")
-        
-        if user_input.lower() == 'stop':
-            break
-        
-        strings.append(user_input)
-        
-    return "".join(strings)
+    num_strings = int(input("Enter the number of strings: "))
+    strings = [input() for _ in range(num_strings)]
+    return " ".join(strings)
