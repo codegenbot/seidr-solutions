@@ -1,8 +1,12 @@
 int prod_signs(vector<int> arr) {
-    long long product = 1;
+    int product = 1;
+    long long sum = 0;
     for (int num : arr) {
-        if (num == 0) return 0; // 0 sign has no effect, so we can stop here
+        if (num == 0) {
+            return 0;
+        }
         product *= (num > 0 ? 1 : -1);
+        sum += abs(num);
     }
-    return product * abs(arr.empty() ? 0 : *max_element(arr.begin(), arr.end()));
+    return (arr.empty()) ? -32768 : product * sum;
 }
