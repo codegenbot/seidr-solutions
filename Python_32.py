@@ -1,10 +1,9 @@
 Here is the solution:
 
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        return None
-    a = xs[0]
-    b = xs[1] if len(xs) > 1 else 0
-    c = -xs[-1] / (a * math.pow(xs[-2], len(xs)-2))
-    x = (-b + math.sqrt(b**2 - 4*a*c)) / (2*a)
+    n = len(xs)
+    if n % 2 != 0:
+        raise ValueError("xs must have even number of coefficients")
+    largest_coeff_index = xs.index(max(xs))
+    x = -xs[largest_coeff_index] / xs[largest_coeff_index + 1]
     return round(x, 2)
