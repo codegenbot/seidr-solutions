@@ -7,6 +7,6 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    assert(issame(filter_by_prefix({"abc", "abcd", "xyz"}, "ab"), filter_by_prefix({"xyz", "xyyz", "pqr"}, "ab")));
+    assert(issame(filter_by_prefix({"hello", "world", "hell"}, "hel"), filter_by_prefix({"helloworld", "hellomoon", "helloagain"}, "hel")) == true);
     return 0;
 }
