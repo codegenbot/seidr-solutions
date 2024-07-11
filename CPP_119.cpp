@@ -13,5 +13,5 @@ int open = 0;
             }
         }
     }
-    return (open == 0 && close <= 1) ? "Yes" : "No";
+    return (open == 0 && close == 0) ? "Yes" : "No";
 }
