@@ -3,12 +3,14 @@
 #include <cassert>
 
 std::vector<int> even_odd_count(int num);
-bool issame(std::vector<int> a, std::vector<int> b);
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
 int main() {
-    std::vector<int> even_odd_count(int num);
-    std::vector<int> result = even_odd_count(123456789);
-    assert(issame(result, {4, 5}));
+    std::vector<int> count = even_odd_count(123456789);
+    assert(issame(count, {4, 5}));
     return 0;
 }
 
@@ -23,8 +25,4 @@ std::vector<int> even_odd_count(int num){
         }
     }
     return result;
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
 }
