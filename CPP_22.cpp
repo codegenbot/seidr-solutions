@@ -15,11 +15,13 @@ vector<int> filter_integers(list<any> values){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 int main(){
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    list<any> input_values = {any(3), any('c'), any(3), any(3), any('a'), any('b')};
+    vector<int> expected_output = {3, 3, 3};
+    
+    vector<int> filtered_result = filter_integers(input_values);
+    
+    assert(filtered_result == expected_output);
+    
     return 0;
 }
