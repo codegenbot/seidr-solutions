@@ -3,10 +3,11 @@ string fix_spaces(string text){
     for(int i=0; i<text.length(); i++){
         if(text[i] == ' ' && (result.empty() || result.back() != ' ')){
             result += text[i];
-        }else if(text[i] == ' ' && !result.empty() && result.back() == ' '){
-            if(result.size() > 2) result.pop_back();
-            else result += '-';
-        }else{
+        }
+        else if(text[i] == ' ' && result.back() == ' '){
+            result += '-';
+        }
+        else{
             result += text[i];
         }
     }
