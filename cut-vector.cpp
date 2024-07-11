@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
 #include <limits>
+#include <numeric>
 
 using namespace std;
 
@@ -10,11 +10,6 @@ int main() {
     int num;
     while (cin >> num) {
         input.push_back(num);
-    }
-
-    if (input.empty()) {
-        cerr << "Empty input vector" << endl;
-        return 1;
     }
 
     int diff = numeric_limits<int>::max();
