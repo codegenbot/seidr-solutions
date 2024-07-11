@@ -1,38 +1,36 @@
+```
 def solve_boolean(expression):
     operations = {"&": lambda a, b: a and b, "|": lambda a, b: a or b}
+    precedence = {"&": 1, "|": 0}
 
-    def evaluate_expression(expression):
-        stack = []
-        for char in expression:
-            if char in ["T", "F"]:
-                stack.append(bool(char == "T"))
-            elif char == "(":
+    stack = []
+    for char in expression:
+        if char in ["T", "F"]:
+            stack.append(bool(char == "T"))
+        elif char in ["(", ")"]:
+            if char == "(":
                 stack.append(char)
-            elif char == ")":
+            else:
                 while len(stack) > 0 and stack[-1] != "(":
                     top = stack.pop()
-                    if top == "(":
+                    if top == ")": 
                         break
                     b = stack.pop()
                     a = stack.pop()
-                    stack.append(operations[char](a, b))
-            elif char in operations:
-                while (
-                    len(stack) > 0
-                    and stack[-1] != "("
-                    and precedence.get(char, 2) <= precedence.get(stack.pop(), 2)
-                ):
-                    pass
+                    stack.append(operations["|"](a, b))
+                stack.pop()  # Remove the opening parenthesis
+        else:
+            while len(stack) > 0 and stack[-1] in precedence and precedence[stack[-1]] >= {"&": 1, "|": 0}.get(char, 2):
+                top = stack.pop()
+                if top == "(": 
+                    break
+                stack.append(operations[char](stack.pop(), stack.pop()))
+            stack.append(char)
 
-        return stack[0]
+    while len(stack) > 0 and stack[-1] in precedence:
+        top = stack.pop()
+        if top == "": 
+            break
+        stack.append(operations[stack.pop()](stack.pop(), stack.pop()))
 
-    precedence = {"&": 1, "|": 0}
-
-    if expression == "t":
-        return True
-    elif expression == "f":
-        return False
-
-    result = evaluate_expression(expression)
-
-    return result
+    return stack[0]
