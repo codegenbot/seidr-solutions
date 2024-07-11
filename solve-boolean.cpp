@@ -1,5 +1,5 @@
-#include <stack>
 #include <string>
+#include <stack>
 
 bool getBoolValue(char c) {
     return c == 'T';
