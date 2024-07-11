@@ -27,8 +27,10 @@ std::vector<std::string> split_words(std::string txt){
         for(char c : txt){
             if(std::islower(c) && (c - 'a') % 2 == 1){
                 oddLowercaseLetters++;
+
             }
         }
+
         result.push_back(std::to_string(oddLowercaseLetters));
     }
     return result;
