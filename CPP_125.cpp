@@ -1,64 +1,36 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+Here is the completed code:
 
-using namespace std;
-
+```cpp
 vector<string> split_words(string txt) {
     vector<string> result;
-    string word = "";
-    
-    for (char c : txt) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
-        } else if (c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
-        } else {
-            word += c;
-        }
+    size_t pos = 0;
+
+    while ((pos = txt.find(' ')) != string::npos) {
+        result.push_back(txt.substr(0, pos));
+        txt.erase(0, pos + 1);
     }
-    
-    if (!word.empty()) {
-        result.push_back(word);
-    } else {
-        int count = 0;
-        for (char c = 'a'; c <= 'z'; ++c) {
-            if (txt.find(c) != string::npos) {
+
+    if (txt.empty()) return result;
+
+    result.push_back(txt);
+
+    else {
+        size_t commaPos = 0;
+        while ((commaPos = txt.find(',')) != string::npos) {
+            result.push_back(txt.substr(0, commaPos));
+            txt.erase(0, commaPos + 1);
+        }
+
+        if (!txt.empty()) {
+            int count = 0;
+            for (char c : txt) {
+                if (c >= 'a' && c <= 'z') {
+                    if ((count % 2) == 1) return {to_string(count)};
+                }
                 count++;
             }
         }
-        result.push_back(to_string(count));
     }
-    
+
     return result;
-}
-
-int main() {
-    // Test cases
-    cout << "{";
-    for (string word : split_words("Hello world!")) {
-        cout << "\"" << word << "\"";
-    }
-    cout << "}" << endl;
-
-    cout << "{";
-    for (string word : split_words("Hello,world!")) {
-        cout << "\"" << word << "\"";
-    }
-    cout << "}" << endl;
-
-    cout << "{";
-    for (string word : split_words("abcdef")) {
-        cout << "\"" << word << "\"";
-    }
-    cout << "}" << endl;
-    
-    return 0;
 }
