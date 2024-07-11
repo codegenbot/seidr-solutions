@@ -2,6 +2,21 @@
 def add(x, y):
     return x + y
 
-x = int(input("Enter first number: "))
-y = int(input("Enter second number: "))
+while True:
+    try:
+        x = int(input("Enter first number: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+
+while True:
+    try:
+        y = int(input("Enter second number: "))
+        if y < 0:
+            print("Please enter a positive number.")
+            continue
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+
 print(add(x, y))
