@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+#include <cstdlib>
 
 int main() {
     std::vector<int> nums;
@@ -21,7 +22,7 @@ int main() {
         for (int j = i; j < nums.size(); ++j) {
             right_sum += nums[j];
         }
-        int diff = abs(left_sum - right_sum);
+        int diff = std::abs(left_sum - right_sum);
         if (diff < min_diff) {
             min_diff = diff;
             cut_idx = i;
