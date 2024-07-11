@@ -1,14 +1,11 @@
 int count = 0;
-        for (const auto &row : grid) {
-            int current = 0;
-            for (int well : row) {
-                current += well;
-                if (current >= capacity) {
-                    count++;
-                    current = 0;
-                }
+        for (int j = 0; j < grid[0].size(); j++) {
+            int sum = 0;
+            for (int i = 0; i < grid.size(); i++) {
+                sum += grid[i][j];
             }
-            if (current > 0) {
+            while (sum > 0) {
+                sum -= capacity;
                 count++;
             }
         }
