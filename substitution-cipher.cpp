@@ -22,6 +22,7 @@ int main() {
     std::string str3 = "ijalbwwxcz";
 
     std::string input = str1 + str2 + str3;
+    
     std::cout << substitutionCipher(cipherMap, input) << std::endl;
     return 0;
 }
