@@ -1,4 +1,3 @@
-```
 from typing import List, Tuple
 
 
@@ -8,7 +7,7 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
 
     for num in numbers:
         if not isinstance(num, int):
-            raise TypeError("All elements of the list must be integers.")
+            raise TypeError("All elements must be integers")
         total_sum += num
         product *= num
 
