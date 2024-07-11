@@ -1,19 +1,42 @@
-def bowling(score_string):
+```
+def bowling_score(games):
     score = 0
-    frame_scores = []
-    for i in range(1, len(score_string) + 1):
-        if score_string[i - 1].isdigit():
-            current_frame_score = int(score_string[:i])
-            frame_scores.append(current_frame_score)
-            score += current_frame_score
-            if i < len(score_string) and (score_string[i] == "/"):
-                continue
+    frame = 1
+    for char in games + 'X':
+        if char.isdigit():
+            count = int(char)
+            while count > 0 and frame < 10:
+                if count >= 2:
+                    score += 10
+                    frame += 1
+                    count -= 2
+                else:
+                    score += count
+                    frame += 1
+                    count = 0
+            if frame == 10:
+                break
+        elif char == 'X':
+            if frame < 9:
+                score += 10
+                frame += 1
             else:
-                score += min(frame_scores[-2:]).copy()
-                del frame_scores[-1]
-        elif score_string[i - 1] == "X":
-            score += 10 + min(frame_scores).copy() if frame_scores else 10
-            frame_scores = []
-        elif score_string[i - 1].isdigit():
-            continue
+                score += 10
+                while frame < 10 and games[frames.index(char) - 1].isdigit():
+                    count = int(games[frames.index(char) - 1])
+                    while count > 0 and frame < 10:
+                        if count >= 2:
+                            score += 10
+                            frame += 1
+                            count -= 2
+                        else:
+                            score += count
+                            frame += 1
+                            count = 0
+        elif char == '/':
+            count = int(games[:games.index(char)].count('X')) + int(games[:games.index(char)].count(str(int(games[:games.index(char)]) - 10)))
+            if count >= 10:
+                score += 10
+            else:
+                score += count
     return score
