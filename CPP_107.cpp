@@ -1,5 +1,4 @@
 #include <vector>
-
 vector<int> even_odd_palindrome(int n){
     vector<int> res(2, 0);
     for(int i = 1; i <= n; ++i){
