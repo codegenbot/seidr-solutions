@@ -1,16 +1,17 @@
 Here is the solution:
 
+```python
+from typing import List
+import math
+
+
 def factorize(n: int) -> List[int]:
-    i = 2
     factors = []
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-            while n % i == 0:
-                n //= i
+    for i in range(2, math.isqrt(n) + 1):
+        while n % i == 0:
+            if i not in factors or n // i not in (factors[i] * 10 + x for x in range(10)):
                 factors.append(i)
+            n //= i
     if n > 1:
         factors.append(n)
-    return factors
+    return [i ** f for _, f in [(n, factors.count(i)) for i in set(factors)]]
