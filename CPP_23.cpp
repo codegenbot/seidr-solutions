@@ -1,2 +1,2 @@
-return str.length();
-}
+#include <iostream>
+#include <cstring>
