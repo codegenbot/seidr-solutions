@@ -17,7 +17,7 @@ std::vector<std::string> split(const std::string& s, char c) {
 
 std::string camelCase(const std::string& s) {
     if (s.find(' ') == std::string::npos && !s.empty()) {
-        for (char c : s) {
+        for (char &c : std::string(1) + s) {
             c = std::tolower(c);
         }
         return s;
@@ -47,3 +47,4 @@ int main() {
         std::cout << camelCase(s) << std::endl;
     }
     return 0;
+}
