@@ -8,15 +8,16 @@ using namespace std;
 string remove_vowels(string text){
     string result;
     for(auto c : text) {
-        if(c >= 'a' && c <= 'z'){
-            if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
-                result += c; 
-            }
-        } else {
+        if(!isvowel(c)) {
             result += c; 
         }
     }
     return result;
+}
+
+bool isvowel(char c) {
+    c = tolower(c);
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
 }
 
 int main() {}
