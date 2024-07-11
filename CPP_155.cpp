@@ -1,5 +1,5 @@
 #include <vector>
-vector<int> countEvenAndOddDigits(int num) {
+vector<int> countEvenOddDigits(int num) {
     vector<int> counts(2, 0);
     string numStr = to_string(abs(num));
     for (char c : numStr) {
