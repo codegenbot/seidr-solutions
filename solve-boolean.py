@@ -4,13 +4,11 @@ def solve_boolean(expression):
     operator_stack = []
 
     def evaluate(expression):
-        nonlocal stack
-        nonlocal operator_stack
-        
         if expression == 'T':
-            stack.append(True)
+            return True
         elif expression == 'F':
-            stack.append(False)
+            return False
+        pass
 
         if expression[0] == '(':
             return evaluate(expression[1:-1])
