@@ -1,4 +1,3 @@
-```Python
 def solve(binary):
     while True:
         try:
