@@ -1,13 +1,18 @@
-int is_bored(string S){
+#include <string>
+using namespace std;
+
+int is_bored(string S) {
     int count = 0;
-    string boredom = "I";
-    size_t pos = 0;
-    while ((pos = S.find(" ", pos)) != string::npos) {
-        if (S.substr(0, pos).compare(boredom) == 0) {
-            count++;
-            break;
+    string sentence;
+    for (char c : S) {
+        if (c == '.' || c == '?' || c == '!') {
+            if (!sentence.empty() && sentence[0] == 'I') {
+                count++;
+            }
+            sentence.clear();
+        } else {
+            sentence += c;
         }
-        pos++;
     }
     return count;
 }
