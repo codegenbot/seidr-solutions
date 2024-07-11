@@ -1,8 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <algorithm>
-using namespace std;
-
 int whitePegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; i++) {
@@ -15,10 +10,17 @@ int whitePegs(string code, string guess) {
 
 int blackPegs(string code, string guess) {
     int count = 0;
+    vector<char> codeArray(code.begin(), code.end());
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
-            count++;
-            code.replace(i, 1, "x");
+            codeArray[i] = '0'; // Mark the correct position
+        }
+    }
+    for (int i = 0; i < 4; i++) {
+        vector<char>::iterator it = find(codeArray.begin(), codeArray.end(), guess[i]);
+        if (it != codeArray.end()) {
+            count++; // Increment count only when correct color and position match
+            codeArray.erase(it);
         }
     }
     return count;
