@@ -7,8 +7,8 @@ int main() {
         cin >> num;
         lst.push_back(num);
     }
-    long long result = double_the_difference(lst);
-    cout << "The sum of the squares of all positive integers in the list is: " << result << endl;
+    odd_sum = double_the_difference(lst);
+    cout << "The sum of the squares of all positive integers in the list is: " << odd_sum << endl;
     return 0;
 }
 
