@@ -1,13 +1,12 @@
 sort(numbers.begin(), numbers.end());
 float min_diff = numbers[1] - numbers[0];
-float n1 = numbers[0], n2 = numbers[1];
-
-for (int i = 1; i < numbers.size() - 1; i++) {
-    if (numbers[i + 1] - numbers[i] < min_diff) {
-        min_diff = numbers[i + 1] - numbers[i];
-        n1 = numbers[i];
-        n2 = numbers[i + 1];
+pair<float, float> result(numbers[0], numbers[1]);
+for(size_t i = 1; i < numbers.size() - 1; ++i){
+    float diff = numbers[i + 1] - numbers[i];
+    if(diff < min_diff){
+        min_diff = diff;
+        result.first = numbers[i];
+        result.second = numbers[i + 1];
     }
 }
-
-return {n1, n2};
+return {result.first, result.second};
