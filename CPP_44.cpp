@@ -23,3 +23,8 @@ void solve_problem() {
         std::cout << "Invalid input!" << std::endl;
     }
 }
+
+int main() {
+    solve_problem();
+    return 0;
+}
