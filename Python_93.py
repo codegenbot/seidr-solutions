@@ -1,6 +1,4 @@
-Here is the revised function:
-
-```python
+```
 def encode(message):
     result = ""
     for char in message:
