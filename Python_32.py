@@ -1,4 +1,4 @@
-```
+```Python
 import math
 
 def find_zero(a: float, b: float):
