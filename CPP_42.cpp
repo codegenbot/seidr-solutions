@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int>& a, std::vector<int>& b) {
     return a == b;
 }
 
@@ -31,12 +31,6 @@ int main() {
     
     bool result = issame(a, b);
     std::vector<int> incremented = incr_list(a);
-    
-    // Output result
-    std::cout << "Arrays are " << (result ? "equal" : "not equal") << std::endl;
-    for (int num : incremented) {
-        std::cout << num << " ";
-    }
     
     return 0;
 }
