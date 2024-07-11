@@ -10,3 +10,6 @@ def solve(expression):
     elif '|' in expression:
         left, right = expression.split('|')
         return solve(left) or solve(right)
+
+expression = input()
+print("Result:", "True" if solve(expression) else "False")
