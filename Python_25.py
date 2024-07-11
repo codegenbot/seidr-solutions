@@ -1,9 +1,7 @@
 ```
 from typing import List
-import math
 
-
-def factorize(n: int) -> List[int]:
+def prime_factors(n: int) -> List[int]:
     factors = []
     i = 2
     while i * i <= n:
@@ -15,7 +13,7 @@ def factorize(n: int) -> List[int]:
                 count += 1
                 n //= i
             factors.append(i ** count)
-            i += 1
+            i = 2
     if n > 1:
         factors.append(n)
     return factors
