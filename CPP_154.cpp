@@ -1,6 +1,6 @@
 #include <string>
 
-bool cycpattern_check(const string& a, const string& b) {
+bool cycpattern_check(const string &a, const string &b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -8,8 +8,4 @@ bool cycpattern_check(const string& a, const string& b) {
     string combined = a + a;
     
     return combined.find(b) != string::npos;
-}
-
-int main() {
-    // Your main function code here
 }
