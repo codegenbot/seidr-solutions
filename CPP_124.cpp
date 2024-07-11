@@ -1,4 +1,5 @@
 #include <string>
+#include <cstdio>
 using namespace std;
 
 bool valid_date(string date) {
@@ -8,7 +9,7 @@ bool valid_date(string date) {
     }
 
     int month, day, year;
-    if (sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3 || date.find('-') == string::npos) {
+    if (sscanf(date.c_str(), "%d-%d-%d", &month, &day, &year) != 3) {
         return false;
     }
 
