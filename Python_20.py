@@ -1,8 +1,9 @@
+```
 from typing import List, Tuple
 
 def find_closed_elements(numbers: List[float]) -> Tuple[float, float]:
     if len(numbers) <= 1:
-        return ()
+        return (float('nan'), float('inf'))
     
     numbers.sort()
     closest_pair = (numbers[0], numbers[1])
@@ -10,9 +11,7 @@ def find_closed_elements(numbers: List[float]) -> Tuple[float, float]:
 
     for i in range(1, len(numbers) - 1):
         diff = abs(numbers[i+1] - numbers[i])
-        if diff <= min_diff:
-            if i > 0 and abs(numbers[i+1]-numbers[i]) == min_diff:
-                continue
+        if diff < min_diff:
             min_diff = diff
             closest_pair = (numbers[i], numbers[i+1])
 
