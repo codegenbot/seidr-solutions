@@ -1,6 +1,7 @@
+```
 import hashlib
 
-def string_to_md5():
+def main():
     while True:
         text = input("Enter the text (or 'quit' to exit): ")
         if text.lower() == 'quit':
@@ -8,5 +9,8 @@ def string_to_md5():
         if not text:
             print("Please enter some text.")
         else:
-            md5_hash = hashlib.md5(text.encode()).hexdigest()
-            return md5_hash
+            result = hashlib.md5(text.encode()).hexdigest()
+            print(result)
+
+if __name__ == "__main__":
+    main()
