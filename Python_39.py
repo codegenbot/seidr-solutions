@@ -1,4 +1,4 @@
-def nth_fibonacci_prime(n: int):
+def find_nth_prime_fibonacci(n: int):
     a, b = 0, 1
     count = 0
     while True:
