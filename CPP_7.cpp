@@ -1,5 +1,6 @@
+#include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -21,25 +22,25 @@ vector<string> filter_by_substring(vector<string> arr, string sub) {
     }
     return result;
 
+}
 int main() {
-    vector<string> inputArr, outputArr;
-    cout << "Enter the size of the array: ";
-    int n; cin >> n;
+    int n;
+    cin >> n;
     
-    for(int i=0; i<n; i++) {
-        string str; cin >> str;
-        inputArr.push_back(str);
+    vector<string> strngs(n);
+    
+    for(int i = 0; i < n ; i++){
+        cin >> strngs[i];
     }
     
-    cout << "Enter the substring to filter: ";
-    string sub; cin >> sub;
+    string sub_str;
+    cin >> sub_str;
     
-    outputArr = filter_by_substring(inputArr, sub);
-    
-    if(issame(inputArr, outputArr))
-        cout << "Filtering result is same as original array.\n";
-    else
-        cout << "The filtered array is different from the original array.\n";
+    if(issame(strngs, filter_by_substring(strngs,sub_str))){
+        cout << "Yes" << endl;
+    } else{
+        cout << "No" << endl;
+    }
     
     return 0;
 }
