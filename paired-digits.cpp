@@ -2,6 +2,7 @@ int main() {
     int sum = pairedDigits("123212");
     std::cout << "Sum: " << sum << std::endl;
     return 0;
+
 }
 
 int pairedDigits(const std::string& s) {
@@ -12,4 +13,3 @@ int pairedDigits(const std::string& s) {
         }
     }
     return sum;
-}
