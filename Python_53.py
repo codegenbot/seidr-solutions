@@ -1,3 +1,4 @@
+```
 def add() -> None:
     try:
         num1 = int(input("Enter first number: "))
