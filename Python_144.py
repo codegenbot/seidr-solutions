@@ -1,6 +1,3 @@
-import math
-
-
 def is_valid_fraction(fraction):
     try:
         a, b = map(int, fraction.split("/"))
