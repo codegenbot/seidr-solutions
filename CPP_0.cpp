@@ -1,8 +1,7 @@
 #include <vector>
-using namespace std;
-
 #include <iostream>
-#include <limits>
+
+using namespace std;
 
 bool has_close_elements(vector<float> numbers, float threshold){
     for(int i = 0; i < numbers.size(); i++){
@@ -16,8 +15,6 @@ bool has_close_elements(vector<float> numbers, float threshold){
 
 int main() {
     vector<float> a={1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    if (!has_close_elements(a, 0.5)) {
-        cout << "No two elements are close enough." << endl;
-    }
+    cout << has_close_elements(a, 0.5) << endl;
     return 0;
 }
