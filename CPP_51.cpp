@@ -5,9 +5,9 @@ string remove_vowels(string text) {
     for (char c : text) {
         if (!isalpha(c)) {
             result += c;
-        } else if (strncasecmp(&c, "aeiouAEIOU", 6) != 0) {
-            result += c;
+        } else if (!strncasecmp(&c, "aeiouAEIOU", 6)) {
+            continue;
         }
+        result += c;
     }
     return result;
-}
