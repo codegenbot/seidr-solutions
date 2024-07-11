@@ -1,8 +1,6 @@
-```cpp
 #include <string>
-#include <cctype>
 
-int vowels_count(const std::string& s){
+int vowels_count(std::string s){
     int count = 0;
     for(int i=0; i<s.length(); i++){
         char c = tolower(s[i]);
@@ -14,8 +12,3 @@ int vowels_count(const std::string& s){
         }
     }
     return count;
-}
-
-int main(){
-    assert(vowels_count("ACEDY") == 3);
-}

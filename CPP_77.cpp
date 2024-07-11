@@ -1,6 +1,6 @@
+```cpp
 #include <cmath>
-#include <cassert>
-
+#include <cassert> 
 using namespace std;
 
 bool iscuber(int a){
@@ -14,6 +14,6 @@ bool iscuber(int a){
 }
 
 int main() {
-    assert(iscuber(1729) == false);
+    assert (iscuber(1729) == false);
     return 0;
 }

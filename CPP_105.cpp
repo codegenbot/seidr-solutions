@@ -1,15 +1,12 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <string>
 
-bool checkEqual(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size())
+bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
+    if (vec1.size() != vec2.size())
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+    for (int i = 0; i < vec1.size(); ++i)
+        if (vec1[i] != vec2[i])
             return false;
-    }
     return true;
 }
 
@@ -21,47 +18,43 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
     }
 
-    sort(numbers.begin(), numbers.end());
-
-    reverse(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end());
+    std::reverse(numbers.begin(), numbers.end());
 
     std::vector<std::string> result;
     for (int num : numbers) {
+        std::string str;
         switch (num) {
             case 1:
-                result.push_back("One");
+                str = "One";
                 break;
             case 2:
-                result.push_back("Two");
+                str = "Two";
                 break;
             case 3:
-                result.push_back("Three");
+                str = "Three";
                 break;
             case 4:
-                result.push_back("Four");
+                str = "Four";
                 break;
             case 5:
-                result.push_back("Five");
+                str = "Five";
                 break;
             case 6:
-                result.push_back("Six");
+                str = "Six";
                 break;
             case 7:
-                result.push_back("Seven");
+                str = "Seven";
                 break;
             case 8:
-                result.push_back("Eight");
+                str = "Eight";
                 break;
             case 9:
-                result.push_back("Nine");
+                str = "Nine";
                 break;
         }
+        result.push_back(str);
     }
 
     return result;
-}
-
-int main() {
-    assert(checkEqual(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
-    return 0;
 }
