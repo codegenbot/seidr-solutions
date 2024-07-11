@@ -12,3 +12,4 @@ def encode(message):
             result += new_char
         else:
             result += char
+    return result
