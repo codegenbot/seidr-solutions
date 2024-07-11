@@ -1,36 +1,30 @@
-#include <algorithm>
+```cpp
+#include <string>
 using namespace std;
 
 string spinWords(string str) {
-    string result = " ";
-    for (int i = 0; i < str.length(); i++) {
-        if (i < str.length() - 1 && str[i + 1] == ' ') {
-            int pos = i;
-            string word = str.substr(pos);
-            if (word.length() >= 5)
-                result.append(string(word.rbegin(), word.rend()) + " ");
-            else
-                result.append(word + " ");
-            i += word.length();
-        } else {
-            if (str.find(" ", i) == -1 || i == str.length() - 1) {
-                string word = str.substr(i);
-                if (word.length() >= 5)
-                    result.append(string(word.rbegin(), word.rend()) + " ");
-                else
-                    result.append(word + " ");
-                break;
-            }
-            int pos = str.find(" ", i);
-            string word = str.substr(i, pos - i);
-            if (word.length() >= 5)
-                result.append(string(word.rbegin(), word.rend()) + " ");
-            else
-                result.append(word + " ");
-            i = pos;
+    string result = "";
+    int i = 0;
+    while (i < str.length()) {
+        if (str.find(" ", i) == -1 || str.length() - 1 == i) {
+            string word = str.substr(i);
+            if (word.length() >= 5) {
+                reverse(word.begin(), word.end());
+                result += word + " ";
+            } else
+                result += word + " ";
+            break;
         }
+        int pos = str.find(" ", i);
+        string word = str.substr(i, pos - i);
+        if (word.length() >= 5) {
+            reverse(word.begin(), word.end());
+            result += word + " ";
+        } else
+            result += word + " ";
+        i = pos + 1;
     }
-    return result;
+    return result.substr(0, result.length() - 1);
 }
 
 int main() {
