@@ -4,9 +4,12 @@ def solve_boolean(expression):
             return True
         elif expression == 'F':
             return False
-        
+
         result = None
         operator = ''
+        stack = []
+        operator_stack = []
+
         for char in expression:
             if char.upper() == 'T':
                 stack.append(True)
@@ -27,8 +30,6 @@ def solve_boolean(expression):
 
         return stack[0]
 
-    stack = []
-    operator_stack = []
     precedence = {'|': 1, '&': 2}
     def apply_operator():
         operand2 = stack.pop()
