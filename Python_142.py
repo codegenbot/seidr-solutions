@@ -1,11 +1,10 @@
 def check(func):
-    result = func()
-    return result
+    func()
 
 
-def calculate_sum_of_cubes():
+def sum_squares():
     num_list = list(map(int, input("Enter space-separated integers: ").split()))
-    return sum([i**3 for i in num_list])
+    return sum([i**2 for i in num_list])
 
 
-print(f"{check(calculate_sum_of_cubes)}")
+print(f"{check(sum_squares)}")
