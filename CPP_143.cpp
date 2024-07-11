@@ -1,40 +1,29 @@
-string words_in_sentence(string sentence) {
-    vector<int> primes = getPrimes(sentence.size());
-    string result = "";
-    
-    for (int i = 0; i < sentence.size(); ++i) {
-        if (primes[i] > 0) {
-            size_t start = sentence.find(" ");
-            size_t end = sentence.find(" ", start + 1);
-            if (start != string::npos && end != string::npos) {
-                result += &sentence[start] + 1;
-                sentence.erase(start, end - start);
-            } else {
-                result += sentence.substr(start + 1);
-                sentence.erase(0, sentence.size());
-            }
-        }
-    }
-    
-    return result;
+#include<stdio.h>
+#include<string>
+using namespace std;
+
+bool isPrime(int n) {
+    if (n <= 1)
+        return false;
+    for (int i = 2; i * i <= n; i++)
+        if (n % i == 0)
+            return false;
+    return true;
 }
 
-vector<int> getPrimes(int n) {
-    vector<bool> isPrime(n+1, true);
-    for (int i = 2; i * i <= n; ++i) {
-        if (isPrime[i]) {
-            for (int j = i*i; j <= n; j += i) {
-                isPrime[j] = false;
-            }
+string words_in_sentence(string sentence) {
+    vector<string> words;
+    string word;
+    istringstream iss(sentence);
+    while (getline(iss, word, ' '))
+        words.push_back(word);
+
+    string result;
+    for (const auto& word : words) {
+        if (isPrime(word.length())) {
+            result += word + " ";
         }
     }
-    
-    vector<int> primes;
-    for (int i = 2; i <= n; ++i) {
-        if (isPrime[i]) {
-            primes.push_back(i);
-        }
-    }
-    
-    return primes;
+
+    return result.substr(0, result.size() - 1);
 }
