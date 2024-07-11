@@ -13,7 +13,7 @@ int main() {
         pos = text.find(target, pos + 1);
     }
     
-    for (int i = 0; i < indices.size()-target.size()+1; ++i) {
+    for (int i = 0; i < indices.size() - target.size() + 1; ++i) {
         cout << indices[i] << " ";
     }
     
