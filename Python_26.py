@@ -1,12 +1,12 @@
-```
 from typing import List
 
 
-def remove_duplicates(numbers: List[int]) -> List[int]:
+def remove_duplicates() -> List[int]:
+    numbers_str = input("Enter numbers separated by commas: ")
+    numbers = list(map(int, numbers_str.split(',')))
     seen = set()
     result = []
-    numbers_str = input("Enter numbers separated by spaces: ")
-    for num in map(int, numbers_str.split()):
+    for num in numbers:
         if str(num) not in seen:
             seen.add(str(num))
             result.append(num)
