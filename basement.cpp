@@ -1,14 +1,12 @@
 #include <vector>
+using namespace std;
 
-int basement(std::vector<int>& nums) {
+int basementIndex(vector<int> nums) {
     int sum = 0;
-    int index = -1; 
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
-        if (sum < 0) {
-            index = i + 1; 
-            break;
-        }
+        if (sum < 0)
+            return i;
     }
-    return index == -1 ? -1 : index; 
+    return -1; // or throw an exception, depending on the desired behavior
 }
