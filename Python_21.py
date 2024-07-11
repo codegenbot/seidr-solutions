@@ -5,5 +5,3 @@ def rescale_to_unit():
             return rescale_to_unit(numbers)
         except ValueError:
             print("Invalid input. Please enter a list of floats separated by spaces.")
-
-rescale_to_unit()
