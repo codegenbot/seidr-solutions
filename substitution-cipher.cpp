@@ -19,4 +19,3 @@ int main() {
     std::string input = "bzjyvlaopidqguscxrtwk eogfmptnxqhijzkusrvld ijalbwwxcz";
     std::cout << substitutionCipher(cipherMap, input) << std::endl;
     return 0;
-}
