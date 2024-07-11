@@ -14,13 +14,11 @@ int main() {
         } else if (capitalize) {
             std::cout << (char)toupper(c);
             capitalize = false;
-        } else if (c != '-' && c != ' ') {
-            if (firstWord) {
-                std::cout << c;
-                firstWord = false;
-            } else {
-                std::cout << (char)tolower(c);
-            }
+        } else if (firstWord) {
+            std::cout << c;
+            firstWord = false;
+        } else if (c != ' ') {
+            std::cout << (char)tolower(c);
         }
     }
 
