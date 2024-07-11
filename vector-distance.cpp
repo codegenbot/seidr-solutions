@@ -1,12 +1,12 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <cmath>
 
 double vector_distance(int n) {
     std::vector<float> v1(n), v2(n);
     for (int i = 0; i < n; i++) {
         float v1i, v2i;
-        cin >> v1i >> v2i;
+        std::cin >> v1i >> v2i;
         v1[i] = v1i; 
         v2[i] = v2i; 
     }
@@ -17,4 +17,12 @@ double vector_distance(int n) {
     }
     
     return sqrt(sum); // Calculate Euclidean distance
+}
+
+int main() {
+    int n;
+    std::cin >> n;
+    double result = vector_distance(n);
+    std::cout << "Euclidean Distance: " << result << std::endl;
+    return 0;
 }
