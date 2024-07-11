@@ -1,6 +1,4 @@
-def complete_code(numbers, delimiter):
-    return [int(num) for num in numbers.split(delimiter)]
-
-numbers = input().strip()
-delimiter = input().strip()
+# Fix to read input as integer numbers
+numbers = list(map(int, input().split()))
+delimiter = input()
 print(complete_code(numbers, delimiter))
