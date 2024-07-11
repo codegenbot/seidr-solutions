@@ -13,3 +13,4 @@ int main() {
     cin >> g >> r >> m;
     cout << fixed << setprecision(10) << snowDay(h, g, r, m) << endl;
     return 0;
+}
