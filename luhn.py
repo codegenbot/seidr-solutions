@@ -1,5 +1,4 @@
 digits = list(map(int, input().split()))
-digits = digits[::-1]
 
 total = 0
 for i in range(len(digits)):
