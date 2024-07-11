@@ -1,24 +1,30 @@
-string words_in_sentence(string sentence){
+#include <algorithm>
+#include <cctype>
+using namespace std;
+
+string words_in_sentence(string sentence) {
     string result = "";
-    size_t pos = 0;
-    while ((pos = sentence.find(' ')) != string::npos) {
-        string word = sentence.substr(0, pos);
-        if (is_prime(word.length())) {
-            result += word + " ";
-        }
-        sentence.erase(0, pos + 1);
-    }
-    if (!sentence.empty()) {
-        if (is_prime(sentence.length())) {
-            result += sentence;
+    int len = 0;
+    for (char c : sentence + " ") {
+        if (isspace(c)) {
+            bool prime = true;
+            len = 0;
+            while (len > 1 && prime) {
+                len++;
+                if (!isprime(len))
+                    prime = false;
+            }
+            if (!prime)
+                continue;
+            result += ' ';
         } else {
-            result = sentence;
+            len++;
         }
     }
-    return result;
+    return result.substr(1);
 }
 
-bool is_prime(int n) {
+bool isprime(int n) {
     if (n <= 1)
         return false;
     for (int i = 2; i * i <= n; i++) {
