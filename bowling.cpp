@@ -1,23 +1,47 @@
-int bowlingScore(std::string s) {
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int bowlingScore(string s) {
     int score = 0;
-    for (int i = 0; i < 10; i++) {
+    int roll1 = 0;
+    int roll2 = 0;
+    int currentFrame = 1;
+    
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'X') {
-            score += 30;
+            score += 10 + (currentFrame > 1 ? 10 : 0);
+            currentFrame++;
         } else if (s[i] == '/') {
-            score += 10 + (10 - (i > 0 ? s[i-1] - '0' : 0));
+            if (i + 2 >= s.length()) {
+                roll1 = 10;
+            } else if (isdigit(s[i+1]) && isdigit(s[i+2])) {
+                roll1 = 10 - (s[i+1] - '0' + s[i+2] - '0');
+            } else {
+                roll1 = 10 - (s[i+1] - '0');
+            }
+            score += roll1;
+            currentFrame++;
         } else {
-            int currentFrame = 0;
-            for (int j = i; j < 10 && j <= i+1; j++) {
-                if (s[j] == 'X') {
-                    score += 30;
-                    break;
-                } else if (s[j] == '/') {
-                    score += 10 + currentFrame;
-                    break;
-                } else {
-                    currentFrame += s[j] - '0';
+            if (isdigit(s[i])) {
+                int num = s[i] - '0';
+                roll1 = num;
+                i++;
+                if (i < s.length() && isdigit(s[i])) {
+                    roll2 = s[i] - '0';
                 }
+                score += roll1 + roll2;
+                currentFrame++;
+            } else {
+                if (roll1 == 10) {
+                    score += 10;
+                } else {
+                    score += roll1;
+                }
+                currentFrame++;
             }
         }
     }
     return score;
+}
