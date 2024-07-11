@@ -1,19 +1,14 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+v = [int(input()) for _ in range(n)]
 
-total_sum = sum(arr)
+total_sum = sum(v)
 half_sum = total_sum // 2
 
 prefix_sum = 0
-min_diff = total_sum
-result_idx = -1
-
-for idx, num in enumerate(arr):
+for i, num in enumerate(v):
     prefix_sum += num
-    diff = abs(total_sum - 2 * prefix_sum)
-    if diff < min_diff:
-        min_diff = diff
-        result_idx = idx
-
-print(*arr[: result_idx + 1], sep="\n")
-print(*arr[result_idx + 1 :], sep="\n")
+    if prefix_sum >= half_sum:
+        if prefix_sum == half_sum or abs(prefix_sum - half_sum) < abs(prefix_sum - num - half_sum):
+            print(*v[: i + 1])
+            print(*v[i + 1 :])
+            break
