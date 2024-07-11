@@ -1,8 +1,6 @@
 ```
-def find_zero(xs: list):
-    assert len(xs) % 2 == 0, "xs must have even number of coefficients"
-    a = xs[0]
-    b = xs[1]
-    c = xs[2] if len(xs) > 2 else 0
-    zero_point = (-b + (b**2 - 4*a*c)**0.5) / (2 * a)
-    return zero_point
+def find_zero(xs):
+    if len(xs) % 2 != 0:
+        return "Error: xs must have an even number of coefficients"
+    max_coeff = max(abs(x) for x in xs)
+    return -xs[1] / (2 * xs[0]) if max_coeff == abs(xs[0]) else 1
