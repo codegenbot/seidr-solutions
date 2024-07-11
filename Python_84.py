@@ -1,14 +1,15 @@
+```
 def solve(binary):
     while True:
         try:
             if binary:
-                N = int(input("Enter a {} number: ".format('binary' if binary else 'decimal')), 2 if binary else 10)
+                N = int(input(f"Enter a {'binary' if binary else 'decimal'} number: "))
             else:
-                N = float(input("Enter a {} number: ").format('decimal'))
+                N = float(input(f"Enter a {'decimal' if not binary else 'binary'} number: "))
             break
         except ValueError:
-            print("Invalid input! Please enter a valid {}".format('binary' if binary else 'decimal'))
+            print(f"Invalid input! Please enter a valid {'binary' if binary else 'decimal'}")
 
-    print(N)
+    print(str(N))
 
 solve(True)
