@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm> // for isvowel function
 #include <cctype>
 
 using namespace std;
