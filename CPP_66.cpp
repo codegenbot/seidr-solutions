@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <cctype>
 #include <limits>
@@ -14,19 +13,11 @@ int digitSum(std::string s) {
 }
 
 int main() {
-    std::cin >> std::ws;
-    std::cout << "Enter a string: ";
     std::string input;
-    std::getline(std::cin, input);
+    std::cin >> input;  
     if (!input.empty()) { 
-        size_t pos = input.find_first_not_of("0123456789");
-        if (pos == std::string::npos) {
-            int result = digitSum(input);
-            std::cout << "The sum of digits is: " << result << std::endl;
-        } else {
-            int result = digitSum(input.substr(0, pos));
-            std::cout << "The sum of digits is: " << result << std::endl;
-        }
+        int result = digitSum(input);
+        std::cout << "The sum of digits is: " << result << std::endl;
     } else {
         std::cout << "Error: Empty input." << std::endl;
     }
