@@ -8,12 +8,10 @@ string match_parens(vector<string> lst){
         for (char c : str) {
             if (c == '(') {
                 openCount++;
+            } else if (openCount > 0) {
+                openCount--;
             } else {
-                if (openCount > 0) {
-                    openCount--;
-                } else {
-                    closeCount++;
-                }
+                closeCount++;
             }
         }
     }
