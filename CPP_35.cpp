@@ -10,6 +10,6 @@ float find_max(const std::vector<float>& l) {
 
 int main() {
     assert(abs(find_max({5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10}) - 124) < 1e-4);
-
+    
     return 0;
 }
