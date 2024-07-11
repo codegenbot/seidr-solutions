@@ -1,22 +1,28 @@
 ```
+from typing import List
+
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
-    temp = ''
+    current_group = ''
     
     for char in paren_string:
         if char == ' ':
             continue
-        elif char == '(':
+        if char in ['(', '[', '{']:
             stack.append(char)
-            temp += char
-        elif char == ')':
-            if stack and stack[-1] == '(':
+            current_group += char
+        elif char in [')', ']', '}']:
+            while stack and char == ')' or (char == ']' and stack[-1] == '[') or (char == '}' and stack[-1] in ['[', '(']):
                 stack.pop()
-                temp += char
-                result.append(temp)
-                temp = ''
-            else:
-                temp += char
+                current_group += char
+            if not stack:
+                result.append(current_group)
+                current_group = ''
+        else:
+            raise ValueError("Invalid input")
+
+    if stack:
+        raise ValueError("Unbalanced parentheses")
     
     return result
