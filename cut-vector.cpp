@@ -1,32 +1,31 @@
 int main() {
-    int n;
-    cin >> n;
+    vector<int> input;
+    int num;
     
-    vector<int> vec(n);
-    
-    for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
+    while (cin >> num) {
+        input.push_back(num);
     }
-    
-    int diff = INT_MAX;
-    int split_idx = -1;
-    
-    for (int i = 1; i < n; ++i) {
-        if (abs(accumulate(vec.begin(), vec.begin() + i, 0) - accumulate(vec.begin() + i, vec.end(), 0)) < diff) {
-            diff = abs(accumulate(vec.begin(), vec.begin() + i, 0) - accumulate(vec.begin() + i, vec.end(), 0));
-            split_idx = i;
+
+    int n = input.size();
+    int sum = accumulate(input.begin(), input.end(), 0);
+
+    vector<vector<int>> dp(n + 1, vector<int>((sum / 2) + 1));
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= sum / 2; j++) {
+            dp[i][j] = dp[i - 1][j];
+            if (j >= input[i - 1]) {
+                dp[i][j] = max(dp[i][j], dp[i - 1][j - input[i - 1]] + input[i - 1]);
+            }
         }
     }
-    
-    for (int i = 0; i < split_idx; ++i) {
-        cout << vec[i] << endl;
-    }
-    
-    cout << endl;
-    
-    for (int i = split_idx; i < n; ++i) {
-        cout << vec[i] << endl;
-    }
-    
+
+    int diff = sum - 2 * dp[n][sum / 2];
+    int first_half = dp[n][sum / 2];
+    int second_half = sum - first_half;
+
+    cout << first_half << endl;
+    cout << second_half << endl;
+    cout << diff << endl;
+
     return 0;
 }
