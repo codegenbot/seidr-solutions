@@ -1,4 +1,3 @@
-```
 def calculate_sum_of_cubes():
     n = int(input("Enter a number: "))
     sum_of_cubes = sum(i**3 for i in range(1, n + 1))
