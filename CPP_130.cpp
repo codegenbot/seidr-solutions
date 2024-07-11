@@ -1,4 +1,9 @@
-vector<int> tri(int n){
+#include <vector>
+#include <cassert>
+
+using namespace std;
+
+vector<int> tri(int n) {
     vector<int> result;
     if (n >= 0) {
         result.push_back(3);
