@@ -12,7 +12,7 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
             i += m; 
-            if ((i + m - 1) > n) break;
+            if ((i + m - 1) > n) break; // Check if there's remaining characters left to search
         } else {
             i++; 
         }
