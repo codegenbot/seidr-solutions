@@ -17,3 +17,4 @@ std::vector<int> leaders(std::vector<int>& arr) {
     result.push_back(arr[n-1]);
 
     return result;
+}
