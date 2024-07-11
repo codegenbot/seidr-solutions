@@ -3,4 +3,6 @@ def paired_digits(s):
     for i in range(len(s) - 1):
         if i < len(s) - 1 and s[i] == s[i + 1]:
             total_sum += int(s[i])
+    if s[-1] == s[0]:
+        total_sum += int(s[-1])
     return total_sum
