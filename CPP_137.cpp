@@ -1,6 +1,6 @@
 #include <any>
 #include <string>
-#include <cstdio>
+#include <cassert>
 
 std::any compare_one(const std::any& a, const std::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -28,3 +28,5 @@ std::any compare_one(const std::any& a, const std::any& b) {
     }
     return std::any();
 }
+
+assert (std::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
