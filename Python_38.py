@@ -7,7 +7,10 @@ def decode_cyclic():
         return s
     while True:
         group = s[i] + ''.join(s[i+1:i+2][::-1]) + s[i]
-        result += group[-1] + group[1:-1][::-1] + group[0]
+        if i > 0:
+            result += group[-1] + group[1:-1][::-1] + group[0]
+        else:
+            result = group
         i = (i+1)%len(s)
         if i == 0:
             break
