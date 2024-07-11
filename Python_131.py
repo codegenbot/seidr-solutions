@@ -1,8 +1,9 @@
+```
 def digits(n):
-    count = 0
+    product = 1
     while n > 0:
         digit = n % 10
         if digit != 0:
-            count += 1
+            product *= digit
         n //= 10
-    return count
+    return product if product else 1
