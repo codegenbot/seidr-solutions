@@ -1,4 +1,3 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
@@ -23,9 +22,9 @@ std::string camelCase(const std::string& str) {
 int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::cin >> input;
+    std::getline(std::cin, input);
 
-    std::cout << "Output: " << camelCase(input) << std::endl;
+    std::cout << "camelCase: " << camelCase(input) << std::endl;
 
     return 0;
 }
