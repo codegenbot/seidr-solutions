@@ -1,4 +1,3 @@
-```
 def rolling_max(input_str: str) -> list[int]:
     input_str = ''.join(filter(str.isdigit, input_str)).lstrip('0')
 
@@ -15,10 +14,8 @@ def rolling_max(input_str: str) -> list[int]:
             current_max = num
         else:
             result.append(current_max)
-
         max_so_far = max(max_so_far, current_max)
 
     while len(result) < len(numbers):
         result.append(max_so_far)
-
     return result
