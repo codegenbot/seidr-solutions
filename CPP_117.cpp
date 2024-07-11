@@ -1,7 +1,7 @@
-#include<iostream>
-#include<vector>
-#include<string>
-#include<algorithm>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -12,15 +12,15 @@ int main() {
     int n;
     getline(cin, input);
     cin >> n;
-  
+
     vector<string> result = select_words(input, n);
 
-    vector<string> expected_result = {"b", "c", "d", "f"};
-
-    if(result == expected_result) {
-        cout << "Test Passed" << endl;
+    // Custom validation
+    vector<string> expected_output = {"b", "c", "d", "f"};
+    if (result == expected_output) {
+        cout << "Test case passed." << endl;
     } else {
-        cout << "Test Failed" << endl;
+        cout << "Test case failed." << endl;
     }
 
     return 0;
