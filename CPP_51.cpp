@@ -1,5 +1,7 @@
-#include <iostream>
+```c++
 #include <string>
+#include <iostream>
+#include <ostream>
 
 std::string removeVowels() {
     std::string text;
@@ -16,7 +18,7 @@ std::string removeVowels() {
     return result;
 }
 
-int mainTest() {
+int main() {
     std::string output = removeVowels();
     return 0;
 }
