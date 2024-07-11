@@ -1,6 +1,5 @@
-```
-#include <vector>
 #include <iostream>
+#include <vector>
 
 std::vector<int> findIndices(std::string text, std::string target) {
     std::vector<int> indices;
@@ -27,7 +26,7 @@ int main() {
     std::string text, target;
     int n;
     cin >> text >> n;
-    getline(cin, target);
+    std::getline(cin, target);
 
     std::vector<int> result = findIndices(text, target);
 
