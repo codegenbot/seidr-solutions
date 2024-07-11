@@ -5,10 +5,11 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in vowels:
-                new_char = chr((ord(char.lower()) - 96) % 26 + 96)
+                new_char = chr((ord(char.lower()) - 96 + 2) % 26 + 96)
+            elif char.isupper():
+                new_char = chr((ord(char) - 65 + 2) % 26 + 65)
             else:
-                new_char = chr((ord(char.lower()) + 3) % 26 + 97) if char.islower() \
-                    else chr((ord(char) + 3) % 26 + 65)
+                new_char = chr((ord(char) - 97 + 2) % 26 + 97)
             result += new_char
         else:
             result += char
