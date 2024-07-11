@@ -1,6 +1,6 @@
 ```
 cents = int(input("Enter the amount in cents: "))
-coins = [0, 0, 0, 0] 
+coins = [0, 0, 0, 0]
 
 while cents > 0:
     if cents >= 25:
