@@ -7,7 +7,7 @@ def parse_music(music_string: str) -> List[int]:
     beats = []
     i = 0
     while i < len(music_string.strip()):
-        if music_string[i].strip() == '.':
+        if music_string[i] == '.':
             i += 3
         else:
             note_type = music_string[i:i+2]
