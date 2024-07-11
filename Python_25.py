@@ -1,23 +1,19 @@
-```Python
 from typing import List
+import math
 
-def main():
-    n = int(input("Enter a number: "))
+
+def factorize(n: int) -> List[int]:
     factors = []
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
+    while n % 2 == 0:
+        factors.append(2)
+        n = n // 2
+    for i in range(3, math.isqrt(n) + 1):
+        if n % i == 0:
             count = 0
             while n % i == 0:
-                n //= i
                 count += 1
+                n = n // i
             factors.extend([i] * count)
     if n > 1:
         factors.append(n)
-    print("The prime factorization of the number is:", factors)
-
-if __name__ == "__main__":
-    main()
+    return factors
