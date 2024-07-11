@@ -1,9 +1,8 @@
-
 #include <vector>
 #include <algorithm>
 #include <cassert>
 
-bool is_same(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     std::sort(a.begin(), a.end());
     std::sort(b.begin(), b.end());
     return a == b;
@@ -17,9 +16,10 @@ int maximum(std::vector<int> a, int defaultValue) {
 }
 
 int main() {
-    assert(is_same(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, std::vector<int>{}));
-    assert(is_same(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, std::vector<int>{-400, -23, 0, 1, 2, 3, 243}));
+    assert(issame(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, std::vector<int>{}));
+    assert(issame(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, std::vector<int>{-400, -23, 0, 1, 2, 3, 243}));
     assert(maximum(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, 0) == 243);
+    assert(maximum(std::vector<int>{}, -1) == -1);
 
     return 0;
 }
