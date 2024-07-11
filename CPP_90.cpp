@@ -1,5 +1,4 @@
 #include <vector>
-
 int next_smallest(vector<int> lst) {
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
@@ -9,4 +8,5 @@ int next_smallest(vector<int> lst) {
             return sorted[i+1];
         }
     }
-    return -1;
+    return -1; 
+}
