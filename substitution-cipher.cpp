@@ -1,27 +1,12 @@
-#include <iostream>
 #include <string>
-using namespace std;
-
-int main() {
-    string cipher1, cipher2, message;
-    getline(cin, cipher1);
-    getline(cin, cipher2);
-    getline(cin, message);
-
+string decipherMessage(string cipher1, string cipher2, string message) {
     for (char &c : message) {
-        size_t idx = cipher1.find(c);
-        if (idx != string::npos) {
+        size_t idx = cipher2.find(c);
+        if (idx != string::npos && cipher1.find(c) == string::npos) {
+            c = cipher1[idx];
+        } else if (idx != string::npos && cipher2.find(c) == string::npos) {
             c = cipher2[idx];
-        } else {
-            idx = cipher2.find(c);
-            if (idx != string::npos) {
-                c = cipher1[idx];
-            }
-            // Leave characters not found in either cipher unchanged
         }
     }
-
-    cout << message << endl;
-
-    return 0;
+    return message;
 }
