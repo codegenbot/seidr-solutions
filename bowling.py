@@ -1,25 +1,12 @@
-Here is the solution to the problem:
-
-def bowling_score(frames):
+```
+def bowling_score(game):
     score = 0
-    roll = 0
-    for frame in frames.split('/'):
-        if len(frame) == 1:
-            if int(frame) != 10:
-                score += min(10, int(frame))
-            else:
-                score += 10
-        elif len(frame) == 2:
-            total_pins = int(frame[0]) + int(frame[1])
-            if total_pins < 10:
-                score += total_pins
-            else:
-                score += 10
-                roll += 1
-        elif len(frame) == 3 and str(roll).zfill(2):
-            total_pins = int(frame[0]) + int(frame[1]) + int(frame[2])
-            if total_pins < 10:
-                score += total_pins
-            else:
-                score += 10
+    game = list(map(int, re.sub('[^X0-9]', '', game)))
+    for i in range(0, len(game), 2):
+        if game[i:i+2] == [10]*2:
+            score += 20
+        elif sum(game[i:i+2]) >= 10:
+            score += sum(game[i:i+2])
+        else:
+            score += min(game[i], 10)
     return score
