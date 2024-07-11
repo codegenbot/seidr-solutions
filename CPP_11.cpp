@@ -1,7 +1,6 @@
 #include <string>
-#include <cassert>
 
-using namespace std;
+string string_xor(const string& a, const string& b);
 
 string string_xor(const string& a, const string& b) {
     string result = "";
@@ -13,9 +12,4 @@ string string_xor(const string& a, const string& b) {
         }
     }
     return result;
-}
-
-int main() {
-    assert(string_xor("0101", "0000") == "0101");
-    return 0;
 }
