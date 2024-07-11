@@ -1,15 +1,14 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <cmath>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
     int num;
-
-    ifstream inputFile("input.txt");
+    
+    ifstream inputFile("input.txt"); // Assuming input is provided in a file called "input.txt"
     
     while (inputFile >> num) {
         nums.push_back(num);
@@ -29,6 +28,7 @@ int main() {
         prefix_sum += nums[i];
         if (abs(2*prefix_sum - sum) <= abs(2*(prefix_sum - nums[i]) - sum)) {
             cut_idx = i;
+            break;
         }
     }
 
