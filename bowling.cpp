@@ -5,13 +5,13 @@ int bowlingScore(std::string s) {
     while (i < s.length()) {
         if (s[i] == '/') {
             int firstRoll = std::stoi(s.substr(0, i));
-            int secondRoll = std::stoi(s.substr(i + 1, s.find('/') - i - 1));
+            int secondRoll = std::stoi(s.substr(i + 1));
             if (firstRoll + secondRoll >= 10) {
                 score += 10;
             } else {
                 score += firstRoll + secondRoll;
             }
-            i = s.find('/', i) + 1;
+            i++;
         } else {
             int roll = std::stoi(s.substr(i, 1));
             if (roll == 10) {
