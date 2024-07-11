@@ -1,3 +1,4 @@
+```
 def sum_squares(lst):
     return sum(i**2 for i in lst)
 
@@ -11,21 +12,16 @@ def main():
                 input_str = input("Enter a list of numbers separated by spaces: ")
             if input_str.strip():
                 lst = [int(i) for i in input_str.split()]
-                if lst:
-                    break
-                else:
-                    print("No input received.")
-                    return
+                break
             else:
-                print("Invalid input. Please enter numbers separated by spaces.")
+                print("No numbers entered. Please try again.")
         except ValueError:
             print("Invalid input. Please enter numbers separated by spaces.")
 
     if not lst:
-        print("No input received.")
+        print("Please enter some numbers.")
     else:
         print(sum_squares(lst))
 
 
-if __name__ == "__main__":
-    main()
+main()
