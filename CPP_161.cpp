@@ -1,4 +1,8 @@
-string solve(string s){
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+std::string solve(std::string s){
     int n = s.size();
     int count = 0;
     for(int i=0; i<n; i++){
@@ -9,7 +13,12 @@ string solve(string s){
         }
     }
     if(count == n){
-        reverse(s.begin(), s.end());
+        std::reverse(s.begin(), s.end());
     }
     return s;
+}
+
+int main(){
+    assert (solve("#ccc") == "#CCC");
+    return 0;
 }
