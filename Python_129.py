@@ -1,4 +1,3 @@
-```
 from collections import deque
 
 
@@ -15,14 +14,23 @@ def minPath(grid, k):
                 visited.add((x, y, cell))
                 if grid[x][y] < cur_min:
                     cur_min = grid[x][y]
-        res.append(cur_min)
+            res.append(cur_min)
     return res
 
 
-grid = [[int(x) for x in input().split()] for _ in range(int(input("Enter number of rows: ")))]
+grid = []
+k = 0
 
-k = int(input("Enter number of iterations: "))
+while True:
+    try:
+        n = int(input("Enter the size of the grid: "))
+        for i in range(n):
+            row = list(map(int, input(f"Enter the {i+1}th row: ").split()))
+            grid.append(row)
+        k = int(input("Enter the number of operations: "))
+    except ValueError:
+        print("Invalid Input. Please try again.")
+    else:
+        break
 
-result = minPath(grid, k)
-
-print(result)
+print(minPath(grid, k))
