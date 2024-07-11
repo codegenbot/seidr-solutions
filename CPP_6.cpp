@@ -1,18 +1,22 @@
-vector<int> parse_nested_parens(string paren_string){
+vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
-    int count = 0, max_count = 0;
-    for (char &c : paren_string) {
+    int max_depth = 0;
+    int current_depth = 0;
+
+    for (char c : paren_string) {
         if (c == '(') {
-            count++;
-            max_count = max(max_count, count);
+            current_depth++;
+            if (current_depth > max_depth) {
+                max_depth = current_depth;
+            }
         } else if (c == ')') {
-            count--;
+            current_depth--;
         } else if (c == ' ') {
-            result.push_back(max_count);
-            max_count = 0;
-            count = 0;
+            result.push_back(max_depth);
+            max_depth = 0;
         }
     }
-    result.push_back(max_count);
+    result.push_back(max_depth);
+
     return result;
 }
