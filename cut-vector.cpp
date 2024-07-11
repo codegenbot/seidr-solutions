@@ -8,11 +8,8 @@ using namespace std;
 int main() {
     vector<int> input;
     int num;
-    int size;
     
-    cin >> size;
-    for (int i = 0; i < size; ++i) {
-        cin >> num;
+    while (cin >> num) {
         input.push_back(num);
     }
 
