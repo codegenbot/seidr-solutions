@@ -1,3 +1,9 @@
+```cpp
+bool getBoolValue(char c) {
+    if (c == 'T' || c == 't') return true;
+    else if (c == 'F' || c == 'f') return false;
+}
+
 std::string solveBoolean(std::string expression) {
     std::stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
@@ -22,9 +28,9 @@ std::string solveBoolean(std::string expression) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            left = (getBoolValue(s.top())) ? true : false;
+            result = (getBoolValue(s.top()) && getBoolValue(s.top())) ? "True" : "False";
         } else if (c == '|') {
-            right = (getBoolValue(s.top())) ? true : false;
+            result = (getBoolValue(s.top()) || getBoolValue(s.top())) ? "True" : "False";
         } else {
             result = (getBoolValue(c)) ? "True" : "False";
         }
