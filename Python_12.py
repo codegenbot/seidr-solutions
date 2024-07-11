@@ -5,8 +5,7 @@ def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
     strings = [s for s in strings if isinstance(s, str) and len(str.strip()) > 0]
-    longest_str = max(strings, key=len) if strings else None
-    return longest_str if len(longest_str) > 0 else None
+    return max(strings, key=len) if strings else None
 
 while True:
     try:
@@ -18,4 +17,4 @@ while True:
         print("Invalid input. Please enter an integer.")
 
 strings = [input("Please enter a string: ") for _ in range(num_strings)]
-print(longest(strings)) if longest(strings) else print("No strings provided.")
+print(longest(strings)) or print("No strings provided.")
