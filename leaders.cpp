@@ -1,15 +1,18 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int> a) {
-    int n = a.size();
-    vector<int> result;
+vector<int> leaders(vector<int>& nums) {
+    int n = nums.size();
+    vector<int> res;
     
-    for (int i = n - 1; i >= 0; i--) {
-        if (i == n - 1 || a[i] >= a[i + 1]) {
-            result.push_back(a[i]);
+    if (n == 1) return {nums[0]};
+    
+    for (int i = n - 2; i >= 0; i--) {
+        if (nums[i] >= nums[i + 1]) {
+            res.push_back(nums[i]);
         }
     }
     
-    return result;
+    res.push_back(nums[n-1]);
+    return res;
 }
