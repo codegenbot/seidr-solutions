@@ -1,46 +1,24 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
 
-using namespace std;
-
-bool issame(vector<int> v1, vector<int> v2) {
-    if(v1.size() != v2.size()) 
-        return false;
-        
-    for(int i = 0; i < v1.size(); i++) {
-        if(v1[i] != v2[i]) 
-            return false;
-    }
-    
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
-vector<int> strange_sort_list(vector<int> lst) {
-    vector<int> result;
-    if (lst.empty()) return result;
+std::vector<int> strange_sort_list(std::vector<int> lst) {
+    if (lst.empty()) return {};
 
-    vector<vector<int>> output;
-    vector<bool> minThenMax(lst.size(), false);
+    std::sort(lst.begin(), lst.end());
 
     for (int i = 0; i < lst.size(); i++) {
-        if (i == 0) {
-            sort(lst.begin(), lst.end());
-            result.push_back(*min_element(lst.begin(), lst.end()));
-            lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
-            minThenMax[i] = true;
+        if (i % 2 == 0)
+            result.push_back(lst[0]);
+        else
+            result.push_back(lst.back());
+        if (i % 2 != 0) {
+            lst.erase(lst.begin());
         } else {
-            if (minThenMax[i-1]) {
-                sort(lst.begin(), lst.end());
-                result.push_back(*max_element(lst.begin(), lst.end()));
-                lst.erase(remove(lst.begin(), lst.end(), *max_element(lst.begin(), lst.end())), lst.end());
-                minThenMax[i] = false;
-            } else {
-                sort(lst.begin(), lst.end());
-                result.push_back(*min_element(lst.begin(), lst.end()));
-                lst.erase(remove(lst.begin(), lst.end(), *min_element(lst.begin(), lst.end())), lst.end());
-                minThenMax[i] = true;
-            }
+            lst.pop_back();
         }
     }
 
