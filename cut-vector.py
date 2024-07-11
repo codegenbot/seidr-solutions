@@ -1,16 +1,14 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+v = [int(input()) for _ in range(n)]
 
-total_sum = sum(arr)
-left_sum = 0
-index = 0
+total_sum = sum(v)
+half_sum = total_sum // 2
 
-for i in range(n - 1):
-    left_sum += arr[i]
-    right_sum = total_sum - left_sum
-    if abs(left_sum - right_sum) <= abs(left_sum + arr[i + 1] - right_sum):
-        break
-    index = i + 1
-
-print(arr[: index + 1])
-print(arr[index + 1 :])
+prefix_sum = 0
+for i, num in enumerate(v):
+    prefix_sum += num
+    if prefix_sum >= half_sum:
+        if prefix_sum == half_sum or abs(prefix_sum - half_sum) < abs(prefix_sum - num - half_sum):
+            print(*v[: i + 1])
+            print(*v[i + 1 :])
+            break
