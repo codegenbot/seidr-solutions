@@ -1,4 +1,3 @@
-```
 def encode(message):
     result = ""
     prev_alnum = False
@@ -16,6 +15,8 @@ def encode(message):
                 result += char
             prev_alnum = True
         else:
+            if not char.isalnum(): 
+                result += '#'
             result += str(char)
             prev_alnum = False
     return result
