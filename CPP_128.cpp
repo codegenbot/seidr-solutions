@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -5,7 +6,7 @@ int prod_signs(std::vector<std::string> vec) {
     int sign = 1;
     long long sum = 0;
     for (auto& s : vec) {
-        if (s == "1" || s == "0") continue; // handle empty string
+        if (s == "1" || s == "0") continue; 
         int num = std::stoi(s); 
         sign *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
         sum += std::abs(num);
