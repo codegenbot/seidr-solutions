@@ -1,5 +1,5 @@
-````
-"""def make_palindrome():
+```Python
+def make_palindrome():
     s = input("Enter a string: ")
     while not s or len(s) < 2:
         s = input("Enter a string: ")
@@ -10,4 +10,4 @@
         new_s = s
     return new_s
 
-print(make_palindrome())"""
+print(make_palindrome())
