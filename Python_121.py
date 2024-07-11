@@ -4,4 +4,7 @@ def solution(lst):
     elif len(lst) % 2 != 0:
         return sum(i for i in lst if i % 2 != 0)
     else:
-        return sum(i for i in lst if i % 2 != 0)
+        half = len(lst) // 2
+        return sum(i for i in lst[: half + 1] if i % 2 != 0) - sum(
+            i for i in lst[:half] if i % 2 != 0
+        )
