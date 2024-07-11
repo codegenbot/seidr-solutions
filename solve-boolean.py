@@ -13,7 +13,7 @@ def solve(expression):
         return solve(left) or solve(right)
 
 expression = input()
-while 'T' in expression or 'F' in expression:
+while 't' in expression.lower() or 'f' in expression.lower():
     if 'T' in expression:
         expression = expression.replace('T', '')
     else:
