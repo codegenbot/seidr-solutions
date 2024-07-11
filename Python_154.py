@@ -1,5 +1,2 @@
 def cycpattern_check(a, b):
-    if len(a) != len(b):
-        return False
-
-    return ''.join(sorted(a)) == ''.join(sorted(b))
+    return len(a) == len(b) and b in a * 2
