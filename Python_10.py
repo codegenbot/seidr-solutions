@@ -1,4 +1,3 @@
-```Python
 def make_palindrome(s: str) -> str:
     if s == s[::-1]:
         return s
@@ -25,7 +24,7 @@ def make_palindrome(s: str) -> str:
             i += 1
             j -= 1
 
-    added_chars = "".join(right[j:]) 
+    added_chars = "".join(right[j:])
     while len(left) < len(s):
         left.insert(0, s[-1])
         s = s[:-1]
