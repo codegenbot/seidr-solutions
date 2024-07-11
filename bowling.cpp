@@ -8,7 +8,7 @@ int bowlingScore(std::string s) {
             if(roll < 2) {
                 score += 10;
             } else {
-                score += 10 + roll;
+                score += 10;
             }
             roll = 0;
         } else if('0' <= s[i] && s[i] <= '9') {
@@ -17,7 +17,7 @@ int bowlingScore(std::string s) {
             if(temp == 0) score += roll;
             else score += (temp < 2 ? 10 : temp) + roll;
         } else if(s[i] == 'X') {
-            score += 30;
+            score += 10;
             roll = 0;
         }
     }
