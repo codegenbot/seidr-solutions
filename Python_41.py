@@ -32,11 +32,9 @@ def car_race_collision():
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
-    if abs(speed1 - speed2) == 0:
+    if speed1 == speed2:
         return f"Both cars are traveling at the same speed."
     elif speed1 > speed2:
         return f"Car 1 is moving with a speed of {speed1} km/h and car 2 is moving with a speed of {speed2} km/h."
     else:
         return f"Car 1 is moving with a speed of {speed2} km/h and car 2 is moving with a speed of {speed1} km/h."
-
-print(car_race_collision())
