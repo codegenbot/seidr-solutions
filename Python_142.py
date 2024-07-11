@@ -4,4 +4,6 @@ def sum_squares(lst):
     for i in lst:
         if isinstance(i, int):
             total += i ** 2
+        else:
+            total += i.lower().count('e') ** 2
     return total
