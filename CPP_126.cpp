@@ -7,8 +7,6 @@ bool is_sorted(vector<int> lst){
             }
             if(count(temp.begin(), temp.end(), lst[i]) > 1)
                 return false;
-            else
-                return true;
         }
     }
     return true;
