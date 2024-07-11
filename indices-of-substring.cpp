@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -14,7 +15,7 @@ int main() {
 
     while ((pos = text.rfind(target, pos)) != string::npos) {
         indices.push_back(pos);
-        pos -= target.size();
+        pos -= 1;
     }
 
     for (int i : indices) {
