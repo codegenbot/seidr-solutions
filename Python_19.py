@@ -23,4 +23,5 @@ def check(func):
 def main():
     check(solve)
 
-main()
+if __name__ == "__main__":
+    main()
