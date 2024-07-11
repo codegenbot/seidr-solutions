@@ -1,3 +1,4 @@
+```
 def decode_cyclic(encoded_str: str, key: int) -> str:
     encoded_bytes = bytes(encoded_str.encode(), 'utf-8')
     decoded_str = ""
@@ -15,6 +16,9 @@ def decode_cyclic(encoded_str: str, key: int) -> str:
             decoded_str += bits[1:].hex()[::-1].ljust(n*2,"0").decode()
         else:
             decoded_str += bits[1:].hex()[::-1].ljust(n*2,"0").decode()
+    for i in range(0, len(decoded_str), n):
+        if decoded_str[i:i+n] == encoded_str[:key]:
+            return decoded_str[i+n:]
     return decoded_str
 
 input_string = input("Enter the encoded string: ")
