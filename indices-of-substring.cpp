@@ -1,6 +1,7 @@
 int main() {
     string text, target;
-    cin >> text >> target;
+    cin >> target;
+    cin >> text;
     
     vector<int> indices;
     size_t pos = text.find(target, 0);
