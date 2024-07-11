@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 using namespace std;
 
@@ -14,4 +13,5 @@ string remove_vowels(string text) {
 
 int main() {
     cout << remove_vowels("Hello, World!") << endl;
+    // assert (remove_vowels("ybcd") == "ybcd"); 
 }
