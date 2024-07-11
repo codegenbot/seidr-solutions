@@ -3,11 +3,12 @@ float sum = 0.0;
         sum += num;
     }
     float mean = sum / numbers.size();
-    
+
     float deviation_sum = 0.0;
     for (float num : numbers) {
         deviation_sum += abs(num - mean);
     }
-    
-    return deviation_sum / numbers.size();
+    float mean_absolute_deviation = deviation_sum / numbers.size();
+
+    return mean_absolute_deviation;
 }
