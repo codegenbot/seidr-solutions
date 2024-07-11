@@ -1,7 +1,7 @@
 ```
 import math
 
-def find_zero(xs):
+def find_zero(xs: list):
     n = len(xs)
     if n % 2 != 0:
         raise ValueError("xs must have an even number of coefficients")
@@ -20,3 +20,16 @@ def find_zero(xs):
     x2 = (-b - math.sqrt(discriminant)) / (2 * c)
     
     return x1, x2
+
+while True:
+    try:
+        xs = list(map(float, input("Enter coefficients: ").split()))
+        if len(xs) < 3 or not all(isinstance(x, (int, float)) for x in xs):
+            print("Invalid input. Please enter at least two numeric values.")
+        else:
+            result = find_zero(xs)
+            if result is not None:
+                print(f"Zeroes are {result[0]} and {result[1]}.")
+            break
+    except ValueError as e:
+        print(e)
