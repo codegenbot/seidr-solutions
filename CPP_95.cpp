@@ -3,23 +3,23 @@ Here is the completed code:
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty()) return false;
 
-    bool all_lower = true;
-    bool all_upper = true;
+    bool allLower = true;
+    bool allUpper = true;
 
     for (auto& pair : dict) {
         string key = pair.first;
-        if ((int)tolower((unsigned char)key[0]) != (int)toupper((unsigned char)key[0])) {
-            all_lower = false;
-            all_upper = false;
+        if (!islower(key[0]) && !isupper(key[0])) {
+            allLower = false;
+            allUpper = false;
             break;
-        } else if (!all_lower && !all_upper) {
-            break;
-        } else if (!all_lower) {
-            all_upper = true;
+        } else if (islower(key[0])) {
+            allLower = true;
+            allUpper = false;
         } else {
-            all_lower = true;
+            allLower = false;
+            allUpper = true;
         }
     }
 
-    return all_lower || all_upper;
+    return allLower || allUpper;
 }
