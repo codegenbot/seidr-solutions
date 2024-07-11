@@ -1,26 +1,25 @@
-```
+```Python
 from typing import List
 
 
 def below_zero(operations: List[str]) -> bool:
     balance = 0
-    for operation in operations:
-        if "-" in operation[0] or "+" in operation[0]:
-            sign, num = operation[0], int(operation[1:])
-            if sign == "-":
-                balance -= num
-            else:
-                balance += num
-        if balance < 0:
-            return True
-    return False
+    for i in range(0, len(operations), 2):
+        num = int(operations[i])
+        if operations[i-1] == "-":
+            balance -= num
+        else:
+            balance += num
+    return balance < 0
 
 
 while True:
-    operations = input("Enter space separated operations (e.g., -5 +3 -2): ")
-    operations = [op.strip() for op in operations.split(',') if op.strip()[0] in "+-" and op != ""]
+    operations = input("Enter space separated operations (e.g., -5 +3 -2): ").lower().split()
     while "" in operations:
         operations.remove("")
-    if len(operations) > 0:
+    if len(operations) % 2 != 0:
+        print("Program did not receive expected input")
+    else:
         break
+
 print(below_zero(operations))
