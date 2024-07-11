@@ -1,5 +1,4 @@
-Here is the corrected code:
-
+```
 n = int(input("Enter the size of the grid: "))
 k = int(input("Enter the value of k: "))
 
@@ -19,11 +18,11 @@ def minPath(n, k):
                     min_path = new_path
         return min_path
 
-    min_path = None
+    min_path = float('inf')
     for i in range(1, n+1):
         for j in range(1, n+1):
             path = dfs(i, j, [], set(), m, k)
-            if min_path is None or path < min_path:
+            if path < min_path:
                 min_path = path
     return min_path
 
