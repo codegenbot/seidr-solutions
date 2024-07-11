@@ -17,5 +17,5 @@ def filter_integers() -> None:
 
     filtered_values: list[int] = [value for value in values if isinstance(value, int)]
     
-    if filtered_values: 
-        print("Filtered integers:", filtered_values)
+    if filtered_values: print("Filtered integers:", filtered_values)
+filter_integers()
