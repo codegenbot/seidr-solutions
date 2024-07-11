@@ -2,7 +2,13 @@
 import re
 
 def fix_spaces(text):
-    return re.sub(r'\s+', '_', text).strip()
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()
 
-text = input("Enter the text to fix spaces: ")
-print(fix_spaces(text))
+while True:
+    try:
+        text = input("Enter the text to fix spaces: ")
+        print(fix_spaces(text))
+        break
+    except Exception as e:
+        print(f"Invalid input. {e}. Please enter a string.")
