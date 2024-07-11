@@ -7,4 +7,5 @@ def encode(message):
             encoded_message += char.swapcase()
     return encoded_message.lower()
 
+
 print(encode("I DoNt KnOw WhAt tO WrItE"))  # Output: "K dQnT kNqW wHcT Tq wRkTg"
