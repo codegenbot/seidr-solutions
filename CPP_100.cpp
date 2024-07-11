@@ -1,12 +1,14 @@
 #include <vector>
-#include <algorithm>
+bool make_a_pile(std::vector<int>& a){
+    std::sort(a.begin(), a.end());
+}
+
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    std::vector<int> sorted_a = a;
-    std::vector<int> sorted_b = b;
+    std::vector<int> a_sorted = a;
+    std::vector<int> b_sorted = b;
+    make_a_pile(a_sorted);
+    make_a_pile(b_sorted);
     
-    std::sort(sorted_a.begin(), sorted_a.end());
-    std::sort(sorted_b.begin(), sorted_b.end());
-    
-    return sorted_a == sorted_b;
+    return a_sorted == b_sorted;
 }
