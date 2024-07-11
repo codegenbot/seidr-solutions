@@ -1,11 +1,11 @@
 int main() {
-    string expr;
-    cin >> expr;
+    string expression;
+    cin >> expression;
     
-    if (expr == "t") {
-        cout << "True" << endl;
+    if (expression == "t") {
+        cout << "True";
     } else {
-        cout << "False" << endl;
+        cout << "False";
     }
     
     return 0;
