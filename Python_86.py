@@ -3,6 +3,6 @@ def anti_shuffle(s):
     words = s.split()
     result = []
     for word in words:
-        new_word = ''.join(sorted(word))
+        new_word = ''.join(sorted(word, reverse=True))
         result.append(new_word)
     return ' '.join(result)
