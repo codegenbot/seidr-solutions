@@ -1,12 +1,13 @@
+```cpp
 #include <vector>
 #include <string>
 
 bool same(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
+    if(a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); ++i) {
-        if (!filter_by_substring(a[i], "same").size()) {
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
@@ -14,13 +15,26 @@ bool same(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    vector<string> strings1 = {"apple", "banana", "cherry", "date"};
-    vector<string> strings2 = {"apple same", "banana same", "cherry same", "date same"};
+    vector<string> strings = {"apple", "banana", "cherry"};
+    string substring = "an";
+    vector<string> result = filter_by_substring(strings, substring);
     
-    if (same(strings1, strings2)) {
-        cout << "The vectors are the same." << endl;
+    if(same({"banana"}, result)) {
+        for(auto str : result) {
+            cout << str << endl;
+        }
     } else {
-        cout << "The vectors are not the same." << endl;
+        cout << "No matching strings found." << endl;
     }
+
     return 0;
+}
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for(auto str : strings) {
+        if(str.find(substring) != string::npos)
+            result.push_back(str);
+    }
+    return result;
 }
