@@ -26,13 +26,7 @@ def decode_shift():
                 result += ch
 
         print("Decoded string: ", result)
+
         cont = input("Do you want to decode another string? (yes/no): ")
         if cont.lower() != "yes":
             break
-        s = input("Enter the encoded string (format: '25-' or '26-'): ")
-        if s.startswith("25-") or s.startswith("26-"):
-            continue
-        else:
-            print(
-                "Invalid input. Please enter a string that starts with '25-' or '26-'."
-            )
