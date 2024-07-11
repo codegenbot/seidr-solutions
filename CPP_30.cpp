@@ -18,4 +18,5 @@ vector<float> get_positive(vector<float> l){
 
 int main() {
     assert (issame(get_positive({}) , {}));
+    // Rest of your code
 }
