@@ -1,4 +1,5 @@
-vector<int> result;
+vector<int> f(int n){
+    vector<int> result;
     int factorial = 1;
     int sum = 0;
     
@@ -11,6 +12,6 @@ vector<int> result;
             result.push_back(sum);
         }
     }
-
+    
     return result;
 }
