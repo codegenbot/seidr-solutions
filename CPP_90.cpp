@@ -1,8 +1,7 @@
-Here is the modified code:
+Here's the modified code:
 
 ```cpp
 #include <vector>
-#include <algorithm>
 
 int next_smallest(vector<int> lst) {
     if (lst.empty()) return -1; 
