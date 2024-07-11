@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <string>
 
@@ -16,15 +17,14 @@ string int_to_mini_roman(int number) {
         }
     }
     return roman;
+
 }
 
 int main() {
     int num;
-    cout << "Enter a number between 1 and 3999: ";
+    cout << "Enter a number: ";
     cin >> num;
-    if(num > 0 && num <= 3999)
-        cout << "The mini Roman representation of the given number is: " << int_to_mini_roman(num) << endl;
-    else
-        cout << "Please enter a number within the range [1, 3999]." << endl;
+    string result = int_to_mini_roman(num);
+    cout << "The mini Roman numeral for the entered number is: " << result << endl;
     return 0;
 }
