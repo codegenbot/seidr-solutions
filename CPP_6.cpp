@@ -1,9 +1,9 @@
 #include <vector>
 #include <string>
 
-std::vector<int> parse_nested_parens(std::string paren_string);
+std::vector<int> parse_nested_parens(const std::string paren_string);
 
-std::vector<int> parse_nested_parens(std::string paren_string) {
+std::vector<int> parse_nested_parens(const std::string paren_string) {
     std::vector<int> depths;
     int max_depth = 0;
     int curr_depth = 0;
