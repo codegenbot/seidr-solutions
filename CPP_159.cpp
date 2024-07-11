@@ -1,1 +1,4 @@
-return {number + min(need, remaining), max(0, remaining - need)};
+int total_number = number + min(remaining, need);
+    int left_number = max(0, remaining - need);
+    return {total_number, left_number};
+}
