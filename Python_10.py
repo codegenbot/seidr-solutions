@@ -1,15 +1,17 @@
+```
 def make_palindrome(s: str) -> str:
     if s == s[::-1]:
         return s + s
 
     result = []
-    for i in range(len(s)):
-        result.append(s[i])
-        if i < len(s) - i - 1 and s[:i+1] == s[:i+1][::-1]:
-            for j in range(i, -1, -1):
-                result.append(s[j])
+    for char in s:
+        result.append(char)
+        half = len(result) // 2
+        second_half = result[half:]
+        first_half = result[:half]
+        reversed_second_half = second_half[::-1]
+        if s == s[::-1]:
+            return s + s
         else:
-            for j in range(len(s)-i-1, -1, -1):
-                result.append(s[j])
-
+            result.extend(reversed_second_half)
     return "".join(result)
