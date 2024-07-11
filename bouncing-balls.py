@@ -1,13 +1,10 @@
-starting_height, first_bounce_height, num_bounces = input('Enter starting height, first bounce height, and number of bounces: ').split()
-starting_height = float(starting_height)
-first_bounce_height = float(first_bounce_height)
-num_bounces = float(num_bounces) 
+starting_height, first_bounce_height, num_bounces = map(float, input('Enter starting height, first bounce height, and number of bounces: ').split())
 
 def calculate_total_distance(starting_height, first_bounce_height, num_bounces):
     bounciness_index = first_bounce_height / starting_height
     total_distance = starting_height
 
-    for _ in range(int(num_bounces)):
+    for _ in range(num_bounces):
         total_distance += (
             2 * first_bounce_height
         )
@@ -15,5 +12,5 @@ def calculate_total_distance(starting_height, first_bounce_height, num_bounces):
 
     return total_distance
 
-result = calculate_total_distance(starting_height, first_bounce_height, num_bounces)
+result = calculate_total_distance(starting_height, first_bounce_height, int(num_bounces))
 print(result)
