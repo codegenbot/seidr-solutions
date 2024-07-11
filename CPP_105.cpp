@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,7 +8,7 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<string> result;
+    vector<string> result;
     for (int i : arr) {
         if (i >= 1 && i <= 9)
             result.push_back(to_string(i));
@@ -17,7 +18,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
     vector<string> output;
     for (int i : result) {
-        output.push_back(names[stoi(i) - 1]);
+        output.push_back(names[i - 1]);
     }
     return output;
 }
