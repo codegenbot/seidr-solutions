@@ -1,6 +1,10 @@
 def fruit_distribution(s, n):
     s = s.lower()
     n = int(n)
-    apples = sum(int(x) for x in "".join(filter(str.isdigit, s.split()[-2])).split())
+    nums = list(map(int, filter(str.isdigit, s.split()[:-2])))
+    if len(nums) > 0:
+        apples = nums[1]
+    else:
+        apples = 0
     oranges = n - apples
     return oranges
