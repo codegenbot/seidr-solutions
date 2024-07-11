@@ -1,15 +1,9 @@
+```cpp
 #include <vector>
 #include <string>
-#include <algorithm>
 
-namespace std {
-    bool operator==(const vector<int>& a, const vector<int>& b) {
-        return a == b;
-    }
-}
-
-int issame(int count_even, int count_odd) {
-    return (count_even != count_odd);
+int issame(int a, int b) {
+    return (a != b);
 }
 
 std::vector<int> even_odd_count(int num) {
@@ -25,7 +19,8 @@ std::vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    int count[] = even_odd_count(0);
-    assert (issame(count[0], count[1]));
+    std::vector<int> count = even_odd_count(0);
+    int same_or_diff = (count[0] != count[1]) ? 1 : 0;
+    assert(same_or_diff == 0); // or any other desired comparison
     return 0;
 }
