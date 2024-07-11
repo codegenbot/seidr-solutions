@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool issame(const map<char, int>& a, const map<char, int>& b) {
+bool issame(const map<char, int>& a, const map<char, int>& b){
     return a == b;
 }
 
@@ -18,19 +18,19 @@ map<char, int> histogram(string test) {
             result[c]++;
         }
     }
-
+    
     int maxCount = 0;
     for (const auto& entry : result) {
         maxCount = max(maxCount, entry.second);
     }
-
+    
     map<char, int> mostRepeatedChars;
     for (const auto& entry : result) {
         if (entry.second == maxCount) {
             mostRepeatedChars[entry.first] = entry.second;
         }
     }
-
+    
     return mostRepeatedChars;
 }
 
