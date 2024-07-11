@@ -5,7 +5,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
     groups = []
     current_group = ''
-    
+
     for char in paren_string:
         if char == ' ':
             continue
@@ -17,9 +17,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 stack.pop()
                 current_group += char
                 if not stack:
-                    groups.append(current_group[:-1])
+                    groups.append(current_group)
                     current_group = ''
             else:
                 raise ValueError("Unbalanced parentheses")
-    
     return groups
