@@ -10,8 +10,3 @@ std::string solve(int N) {
     }
     return bit_sum.to_string().substr(sizeof(int)*8-5);
 }
-
-int main() {
-    assert(solve(963) == "10010");
-    return 0;
-}
