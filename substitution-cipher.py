@@ -1,3 +1,4 @@
+```
 def substitution_cipher(cipher1, cipher2, message):
     if len(cipher1) != len(cipher2):
         return "Error: Both strings must have the same length."
@@ -16,3 +17,8 @@ def substitution_cipher(cipher1, cipher2, message):
         else:  
             result += char
     return result
+
+cipher1 = "abc"
+cipher2 = "xyz"
+message = "hello world"
+print(substitution_cipher(cipher1, cipher2, message))
