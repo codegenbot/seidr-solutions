@@ -1,6 +1,6 @@
 #include <string>
 
-string get_closest_vowel(string word) {
+std::string get_closest_vowel(std::string word) {
     for(int i = word.length() - 1; i >= 0; i--) {
         if(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || 
            word[i] == 'o' || word[i] == 'u' || word[i] == 'A' || 
@@ -11,7 +11,7 @@ string get_closest_vowel(string word) {
                    word[j] != 'o' && word[j] != 'u' && word[j] != 'A' && 
                    word[j] != 'E' && word[j] != 'I' && word[j] != 'O' && 
                    word[j] != 'U')) {
-                    return string(1, word[i]);
+                    return word[i];
                 }
             }
         }
@@ -20,6 +20,5 @@ string get_closest_vowel(string word) {
 }
 
 int main() {
-    // Add your test cases here.
-    return 0;
+    // Your code here
 }
