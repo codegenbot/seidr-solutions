@@ -25,6 +25,19 @@ boost::any compare(boost::any a, boost::any b) {
             return b;
         }
     }
-    assert(false); // Invalid comparison
+    assert(false); // Invalid types or values
 }
 
+int main() {
+    // Testing the compare function
+    boost::any result = compare(10, 20);
+    if (result.type() == typeid(int)) {
+        cout << boost::any_cast<int>(result) << endl;
+    } else if (result.type() == typeid(float)) {
+        cout << boost::any_cast<float>(result) << endl;
+    } else if (result.type() == typeid(string)) {
+        cout << boost::any_cast<string>(result) << endl;
+    }
+
+    return 0;
+}
