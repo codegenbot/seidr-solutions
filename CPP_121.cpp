@@ -1,18 +1,10 @@
-```cpp
-#include <vector>
-
-int solutions(vector<int> lst) {
+```
+int solutions(std::vector<int> arr) {
     int sum = 0;
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] % 2 != 0) {
-            sum += lst[i];
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] % 2 != 0) {
+            sum += arr[i];
         }
     }
     return sum;
-}
-
-int main() {
-    vector<int> input = {3, 13, 2, 9};
-    int output = solutions(input);
-    return 0;
 }
