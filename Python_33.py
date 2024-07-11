@@ -1,7 +1,9 @@
-def sort_third(l: list):
-    return [
-        min([x for x, i in enumerate(l) if (i - l.index(x)) % 3 == 0])
-        if i % 3 != 0
-        else sorted([x for x, _ in enumerate(l) if (i - l.index(x)) % 3 != 0])[0]
-        for _, i in enumerate(l)
-    ]
+def sort_third(l):
+    sorted_elements = []
+    for i in range(len(l)):
+        if (i) % 3 == 0:
+            min_val = min([x for x in l if (i - l.index(x)) % 3 != 0])
+        else:
+            min_val = min([x for x in l if (i - l.index(x)) % 3 == 0])
+        sorted_elements.append(min_val)
+    return sorted_elements
