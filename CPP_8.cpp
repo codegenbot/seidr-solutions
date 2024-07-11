@@ -13,7 +13,7 @@ std::pair<int, int> sum_product(const std::vector<int>& numbers) {
         sum += num;
         product *= num;
     }
-    return { sum, product };
+    return {sum, product};
 }
 
 int main() {
