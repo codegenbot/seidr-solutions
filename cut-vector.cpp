@@ -9,8 +9,7 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (cin.peek() != '\n') {
-        cin >> num;
+    while (cin >> num) {
         nums.push_back(num);
     }
     
