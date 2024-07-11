@@ -11,11 +11,11 @@ def prime_fib(n: int):
         return 2
     if n == 2:
         return 3
-    fib = [1, 2]  # Update the initial Fibonacci sequence values
+    fib = [1, 1]
     while len(fib) < n:
-        fib.append(fib[-1] + fib[-2])
-    for num in fib:
-        if is_prime(num):
+        new_fib = fib[-1] + fib[-2]
+        fib.append(new_fib)
+        if is_prime(new_fib):
             n -= 1
             if n == 0:
-                return num
+                return new_fib
