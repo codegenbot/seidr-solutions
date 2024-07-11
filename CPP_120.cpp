@@ -1,4 +1,8 @@
-sort(arr.begin(), arr.end(), greater<int>());
-    vector<int> result(arr.begin(), arr.begin() + k);
-    return result;
+#include <vector>
+#include <algorithm>
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    return a == b;
 }
