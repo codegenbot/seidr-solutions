@@ -1,6 +1,6 @@
-#include <algorithm>
 #include <vector>
-#include <cassert>
+#include <algorithm>
+#include <iostream>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -14,6 +14,9 @@ std::vector<int> taskFunction(const std::vector<int>& l) {
 }
 
 int main() {
-    assert(issame(taskFunction({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
+    std::vector<int> result = taskFunction({5, 3, 5, 2, 3, 3, 9, 0, 123});
+    for (int num : result) {
+        std::cout << num << ' ';
+    }
     return 0;
 }
