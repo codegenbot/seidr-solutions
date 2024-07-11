@@ -11,9 +11,9 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
         int min_val = *min_element(lst.begin(), lst.end());
         int max_val = *max_element(lst.begin(), lst.end());
         if (min_val == max_val) {
-            for(int x : lst) {
-                if(x==min_val)
-                    result.push_back(x);
+            for (int val : lst) {
+                if (val == min_val)
+                    result.push_back(val);
             }
             lst.clear();
         } else {
