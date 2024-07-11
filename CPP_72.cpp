@@ -1,14 +1,16 @@
 Here is the completed code:
 
-bool will_it_fly(vector<int> q, int w) {
-    string s = "";
-    for (int x : q) {
-        s += to_string(x);
+bool will_it_fly(vector<int> q,int w){
+    string str = "";
+    for(int i=0; i<q.size(); i++){
+        str+=to_string(q[i]);
     }
-    if (s != reverse(s).str()) return false;
+    if(str!=string(reverse(str).begin(), reverse(str).end())){
+        return false;
+    }
     int sum = 0;
-    for (int x : q) {
-        sum += x;
+    for(int i=0; i<q.size(); i++){
+        sum += q[i];
     }
     return sum <= w;
 }
