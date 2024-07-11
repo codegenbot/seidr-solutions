@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <string>
@@ -41,6 +40,7 @@ vector<string> split_words(string txt) {
         }
     }
     return result;
+}
 
 int main() {
     // Test cases
@@ -61,5 +61,3 @@ int main() {
     for (string s : result3) {
         cout << s << endl;
     }
-    return 0;
-}
