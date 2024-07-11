@@ -1,4 +1,4 @@
-n = int(input())
+n = 16
 digits = list(map(int, input().split()))
 
 total = 0
