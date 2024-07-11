@@ -1,43 +1,27 @@
-#include <vector>
-
 string words_in_sentence(string sentence) {
-    vector<string> words = split(sentence, ' ');
     string result = "";
-    
-    for (const auto& word : words) {
-        if (is_prime(word.length())) {
-            result += word + " ";
+    int len = 0;
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ') {
+            if (is_prime(len)) {
+                result += sentence.substr(len - i, i) + " ";
+            }
+            len = 0;
+        } else {
+            len++;
         }
     }
-    
-    return result.substr(0, result.size() - 1);
+    if (is_prime(len)) {
+        result += sentence.substr(len - len, len) + " ";
+    }
+    return result.substr(0, result.length() - 1);
 }
 
 bool is_prime(int n) {
-    if (n <= 1) {
+    if (n <= 1)
         return false;
-    }
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
+    for (int i = 2; i * i <= n; i++)
+        if (n % i == 0)
             return false;
-        }
-    }
     return true;
-}
-
-vector<string> split(const string& str, char ch) {
-    vector<string> tokens;
-    string token;
-    for (char c : str) {
-        if (c != ch) {
-            token += c;
-        } else if (!token.empty()) {
-            tokens.push_back(token);
-            token = "";
-        }
-    }
-    if (!token.empty()) {
-        tokens.push_back(token);
-    }
-    return tokens;
 }
