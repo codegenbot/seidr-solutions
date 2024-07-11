@@ -5,12 +5,12 @@ using namespace std;
 int basement(vector<int> nums) {
     int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
-        sum += nums[i];
-        if (sum < 0) {
+        if (sum + nums[i] < 0) {
             return i;
         }
+        sum += nums[i]; // Move this line inside the if block
     }
-    return 0;
+    return -1;
 }
 
 int main() {
