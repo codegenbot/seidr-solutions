@@ -1,9 +1,11 @@
+from typing import List
+
 def factorize() -> List[int]:
     while True:
         try:
             n = int(input("Enter a number to factorize: "))
-            if n < 2:
-                print("Please enter a number greater than or equal to 2.")
+            if n <= 1:
+                print("Please enter a number greater than 1.")
             else:
                 break
         except ValueError:
