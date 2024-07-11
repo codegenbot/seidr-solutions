@@ -1,6 +1,4 @@
-```
-from typing import List
+from typing import list
 
-
-def concatenate(strings: List[str]) -> str:
+def concatenate(strings: list) -> str:
     return ''.join(strings)
