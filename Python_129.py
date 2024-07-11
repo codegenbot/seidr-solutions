@@ -1,3 +1,4 @@
+```
 def shortestPathLength(grid):
     rows, cols = len(grid), len(grid[0])
     minPathLength = float("inf")
@@ -7,8 +8,10 @@ def shortestPathLength(grid):
         if path_length > minPathLength:
             return
 
-        if path_length < minPathLength:
-            minPathLength = path_length
+        if (row, col) in visited:
+            return
+
+        visited.add((row, col))
 
         for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
             new_row, new_col = row + dx, col + dy
@@ -16,8 +19,14 @@ def shortestPathLength(grid):
                 if grid[new_row][new_col] == 0:
                     dfs(new_row, new_col, path_length + 1)
 
+        visited.remove((row, col))
+
+    minPath = float("inf")
+    visited = set()
+
     for row in range(rows):
         for col in range(cols):
             if grid[row][col] == 1:
                 dfs(row, col, 0)
+                minPath = min(minPath, path_length) if path_length else minPath
     return minPathLength
