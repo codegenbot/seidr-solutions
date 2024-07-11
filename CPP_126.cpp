@@ -15,7 +15,7 @@ bool is_sorted(vector<int> lst){
     }
     return true;
 
-int main() {
+int main(){
     vector<int> lst;
     int num;
     
@@ -29,5 +29,4 @@ int main() {
         cout << "List is empty." << endl;
     else
         cout << (is_sorted(lst) ? "True" : "False") << endl; 
-    return 0;
 }
