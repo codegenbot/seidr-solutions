@@ -1,7 +1,6 @@
-```cpp
+```
 #include <algorithm>
 #include <vector>
-#include <tuple>
 
 int max_value_function() {
     std::vector<std::pair<int, int>> p;
