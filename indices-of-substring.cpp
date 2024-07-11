@@ -6,13 +6,13 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int pos = 0; // position in text
+    int pos = 0; 
 
     while (true) { 
         pos = text.find(target, pos);
         
         if (pos == string::npos) {
-            if (target.length() == 1) { // special case for single character target
+            if (target.length() == 1) { 
                 break;
             }
             continue; // start searching again from the beginning of text
