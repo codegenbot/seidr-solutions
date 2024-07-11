@@ -2,17 +2,7 @@
 #include <vector>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
+    return a == b;
 }
 
 std::vector<int> incr_list(const std::vector<int>& l) {
@@ -26,21 +16,21 @@ std::vector<int> incr_list(const std::vector<int>& l) {
 int main() {
     int n;
     std::vector<int> a, b;
-    
+
     std::cin >> n;
     a.resize(n);
     for (int& num : a) {
         std::cin >> num;
     }
-    
+
     std::cin >> n;
     b.resize(n);
     for (int& num : b) {
         std::cin >> num;
     }
-    
+
     bool result = issame(a, b);
     std::vector<int> incremented = incr_list(a);
-    
+
     return 0;
-} 
+}
