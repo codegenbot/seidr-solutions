@@ -1,4 +1,4 @@
-```
+```Python
 def encode(message):
     """
     This function shifts each letter in the input string by 3 positions.
