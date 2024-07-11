@@ -4,7 +4,5 @@ def solution(lst):
     elif len(lst) % 2 != 0:
         return sum(i for i in lst if i % 2 != 0)
     else:
-        if len(lst) > 1 and lst[len(lst)//2] % 2 != 0:
-            return sum(i for i in lst if i % 2 != 0)
-        else:
-            return 0
+        half_index = len(lst) // 2
+        return sum(lst[: half_index + 1]) - sum(lst[:half_index])
