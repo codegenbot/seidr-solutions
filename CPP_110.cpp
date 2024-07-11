@@ -1,17 +1,18 @@
-bool hasOdd(vector<int> v) {
-    for (int num : v) {
-        if (num % 2 != 0)
-            return true;
-    }
-    return false;
-}
-
 string exchange(vector<int> lst1, vector<int> lst2) {
-    vector<int> lst1_copy(lst1);
-    sort(lst1_copy.begin(), lst1_copy.end());
-    
-    if (!hasOdd(lst1_copy))
+    int even_count = 0;
+    for (int num : lst1) {
+        if (num % 2 == 0) {
+            even_count++;
+        }
+    }
+    for (int num : lst2) {
+        if (num % 2 != 0) {
+            return "NO";
+        }
+    }
+    if (even_count < lst1.size()) {
         return "YES";
-    else
+    } else {
         return "NO";
+    }
 }
