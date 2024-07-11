@@ -1,3 +1,4 @@
+```
 def concatenate(strings: List[str]) -> str:
     if not isinstance(strings, list):
         return "Invalid input. Please enter a list of strings."
