@@ -1,17 +1,16 @@
+```
 def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    elif '&' in expression:
-        left, right = expression.split('&')
-        return solve_boolean(left) and solve_boolean(right)
-    elif '|' in expression:
-        left, right = expression.split('|')
-        return solve_boolean(left) or solve_boolean(right)
+    def parse_expression(expression):
+        stack = []
+        current = ''
+        for char in expression:
+            if char in ['T', 'F']:
+                stack.append(current)
+                current = char
+            elif char in '|&':
+                stack.append(eval('bool({})'.format(current)) if current != '' else None)
+                current = ''
+        stack.append(eval('bool({})'.format(current)) if current != '' else None)
+        return reduce(lambda a, b: a and (b[0] or b[1]) if '&' in expression else a or b[0], stack, True)
 
-print(solve_boolean('T'))  # True
-print(solve_boolean('F'))  # False
-print(solve.Boolean('f&f'))  # False
-print(solve_boolean('f&t'))  # False
-print(solve_boolean('t&f'))  # False
+    return parse_expression(expression.lower())
