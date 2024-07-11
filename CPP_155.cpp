@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,8 +11,8 @@ bool issame(const vector<int>& a, const vector<int>& b) {
 
 pair<int, int> even_odd_count(int num) {
     pair<int, int> result = {0, 0};
-    string str_num = std::to_string(std::abs(num)); 
-    for (char c : str_num) { 
+    string str_num = (num < 0 ? "-" : "") + to_string(abs(num));
+    for (char c : str_num) {
         if ((c - '0') % 2 == 0)
             ++result.first;
         else
