@@ -1,4 +1,5 @@
 def double_the_difference(lst):
-    return sum([x**2 for x in lst if isinstance(x, int) and x >= 0 and x % 2 != 0]) * 2
+    odd_sum = sum(i for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
+    even_sum = sum(i for i in lst if isinstance(i, int) and i >= 0 and i % 2 == 0)
 
-result = double_the_difference([1, 2, -3, 4, -5])
+    return (even_sum - odd_sum) * 2
