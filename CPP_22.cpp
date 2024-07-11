@@ -4,9 +4,7 @@
 #include <typeinfo>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> filter_integers(std::list<boost::any> values){
     vector<int> result;
@@ -19,15 +17,9 @@ vector<int> filter_integers(std::list<boost::any> values){
 }
 
 int main() {
-    std::list<boost::any> values;
-    values.push_back(10);
-    values.push_back('c');
-    values.push_back(20);
-
-    vector<int> filtered = filter_integers(values);
-    vector<int> expected = {10, 20};
-
-    assert(issame(filtered, expected));
-
+    std::list<boost::any> input = {'c', 5, 'c', 10, 'c', 15};
+    vector<int> output = filter_integers(input);
+    vector<int> expected = {5, 10, 15};
+    assert(output == expected);
     return 0;
 }
