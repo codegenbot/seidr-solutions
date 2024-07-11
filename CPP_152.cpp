@@ -1,10 +1,5 @@
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
-pair<int, int> compare(vector<int> a, vector<int> b) {
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return {a.size(), b.size()};
+int* compare(int a[], int b[]) {
+    sort(a, a + sizeof(a) / sizeof(a[0]));
+    sort(b, b + sizeof(b) / sizeof(b[0]));
+    return (int*)new int[]{sizeof(a), sizeof(b)};
 }
