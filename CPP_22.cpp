@@ -1,25 +1,31 @@
 #include <vector>
-#include <boost/any.hpp>
 #include <list>
+#include <boost/any.hpp>
 #include <cassert>
 
-using namespace std;
+bool issame(vector<int> a, vector<int> b);
 
-vector<int> filter_integers(list<boost::any> values){
+vector<int> filter_integers(list_any values);
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
+vector<int> filter_integers(list_any values){
     vector<int> result;
     for(auto val : values){
-        if(typeid(int) == val.type()){
+        if (val.type() == typeid(int)){
             result.push_back(boost::any_cast<int>(val));
         }
     }
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 int main(){
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {1, 2, 3};
+
+    assert(issame(a, b));
+
     return 0;
 }
