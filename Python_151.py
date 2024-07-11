@@ -1,4 +1,4 @@
-```python
+```
 def double_the_difference():
     sep = input("Enter the separator: ")
     lst = list(map(int, input().split(sep)))
