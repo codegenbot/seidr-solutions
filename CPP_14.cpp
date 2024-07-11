@@ -7,7 +7,7 @@ bool issame(vector<string>, vector<string>);
 vector<string> all_prefixes(string);
 
 int main() {
-    string str = "WWW";
+    std::string str = "WWW";
     if (!issame(all_prefixes(str), {"W", "WW", "WWW"})) {
         std::cout << "Error: Expected prefixes are not the same." << std::endl;
     } else {
@@ -16,19 +16,19 @@ int main() {
     return 0;
 }
 
-vector<string> all_prefixes(string str) {
-    vector<string> result;
+std::vector<std::string> all_prefixes(std::string str) {
+    std::vector<std::string> result;
     for (int i = 1; i <= str.length(); ++i) {
-        string prefix;
+        std::string prefix;
         for (int j = 0; j < i; ++j) {
-            prefix += str[j]; // Use the [] operator to access individual characters
+            prefix += str[j]; // Fix: replaced str.substr(j, 1) with str[j]
         }
         result.push_back(prefix);
     }
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) return false;
