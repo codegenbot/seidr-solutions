@@ -8,6 +8,6 @@ def fizz_buzz(n: int):
             output = "Buzz"
         else:
             output = str(i)
-        print(output)
+        return output
 
-fizz_buzz(int(input("Enter a number: ")))
+print(fizz_buzz(int(input("Enter a number: "))))
