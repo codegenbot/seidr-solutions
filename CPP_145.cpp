@@ -6,8 +6,7 @@
 
 struct order_by_points {
     std::vector<int> nums;
-    order_by_points(std::vector<int> n) : nums(n) {
-    }
+    order_by_points(std::vector<int> n) : nums(n) {}
     
     bool operator()(int a, int b) const {
         auto calculate_sum = [](int num) {
