@@ -1,42 +1,27 @@
 ```
-def bowling_score(games):
-    score = 0
+def bowling(score):
+    total = 0
     frame = 1
-    for char in games + 'X':
+    prev_frame_score = 0
+    for char in score:
         if char.isdigit():
-            count = int(char)
-            while count > 0 and frame < 10:
-                if count >= 2:
-                    score += 10
-                    frame += 1
-                    count -= 2
-                else:
-                    score += count
-                    frame += 1
-                    count = 0
-            if frame == 10:
-                break
-        elif char == 'X':
-            if frame < 9:
-                score += 10
-                frame += 1
-            else:
-                score += 10
-                while frame < 10 and games[frames.index(char) - 1].isdigit():
-                    count = int(games[frames.index(char) - 1])
-                    while count > 0 and frame < 10:
-                        if count >= 2:
-                            score += 10
-                            frame += 1
-                            count -= 2
-                        else:
-                            score += count
-                            frame += 1
-                            count = 0
+            total += int(char)
+            if frame < 10 and len(score) - len(score.rstrip('0123456789/')) > 1:
+                total += (10 - prev_frame_score)
+            prev_frame_score = int(char)
         elif char == '/':
-            count = int(games[:games.index(char)].count('X')) + int(games[:games.index(char)].count(str(int(games[:games.index(char)]) - 10)))
-            if count >= 10:
-                score += 10
-            else:
-                score += count
-    return score
+            total += 10 - int(score[score.index(char) - 1])
+            frame += 1
+            prev_frame_score = 0
+        elif char == 'X':
+            total += 10
+            frame += 1
+            prev_frame_score = 0
+        else:
+            first_roll = int(score[:1])
+            second_roll = 10 - first_roll
+            if score[1] != '/':
+                total += first_roll + second_roll
+                frame += 1
+                prev_frame_score = 0
+    return total
