@@ -14,18 +14,11 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        float x;
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> x;
-        lst.push_back(x);
+    float val;
+    while(std::cin >> val) {
+        lst.push_back(val);
     }
-    
-    long long odd_sum = double_the_difference(lst); 
-    std::cout << "The sum of the squares is: " << odd_sum << std::endl;
+    long long result = double_the_difference(lst);
+    std::cout << "The difference is: " << result << "\n";
     return 0;
 }
