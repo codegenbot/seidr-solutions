@@ -9,4 +9,4 @@ def remove_duplicates(numbers: List[int]) -> List[int]:
         if str(num) not in seen:
             seen.add(str(num))
             result.append(num)
-    return result
+    return list(set(result))
