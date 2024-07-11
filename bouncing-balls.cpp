@@ -8,6 +8,11 @@ int main() {
 
     cin >> start_height >> first_bounce_height >> num_bounces;
 
+    if (start_height <= 0 || first_bounce_height <= 0) {
+        cout << "Invalid input: Starting height and first bounce height should be greater than zero." << endl;
+        return 1;
+    }
+
     bounciness_index = first_bounce_height / start_height;
 
     if (bounciness_index >= 1) {
@@ -15,10 +20,10 @@ int main() {
         return 1;
     }
 
-    total_distance = start_height;
-
-    for (int i = 1; i <= num_bounces; ++i) {
-        total_distance += 2 * first_bounce_height * pow(bounciness_index, i);
+    if (bounciness_index == 0.0) {
+        total_distance = start_height * (num_bounces + 1);
+    } else {
+        total_distance = start_height * (1 - pow(bounciness_index, num_bounces + 1)) / (1 - bounciness_index);
     }
 
     cout << total_distance << endl;
