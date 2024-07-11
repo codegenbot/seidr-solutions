@@ -1,7 +1,9 @@
 def calculate_distance(starting_height, first_bounce_height, num_bounces):
     bounciness_index = first_bounce_height / starting_height
-    distance = starting_height + (starting_height + first_bounce_height) * num_bounces
-    return distance
+    total_distance = starting_height * (
+        1 + bounciness_index**num_bounces + bounciness_index ** (num_bounces + 1)
+    )
+    return total_distance
 
 
 starting_height = float(input())
