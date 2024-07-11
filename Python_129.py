@@ -18,11 +18,11 @@ def minPath(n, k):
                     min_path = new_path
         return min_path
 
-    min_path = float('inf')
+    min_path = None
     for i in range(1, n+1):
         for j in range(1, n+1):
             path = dfs(i, j, [], set(), m, k)
-            if path < min_path:
+            if min_path is None or path < min_path:
                 min_path = path
     return min_path
 
