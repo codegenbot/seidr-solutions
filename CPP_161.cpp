@@ -1,11 +1,15 @@
-string solve(string s){
+string solve(string s) {
     string result = "";
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            result += (s[i] >= 'a' && s[i] <= 'z') ? toupper(s[i]) : tolower(s[i]);
+    bool hasLetter = false;
+
+    for (char c : s) {
+        if (!isalpha(c)) {
+            result += c;
         } else {
-            result += s[i];
+            hasLetter = true;
+            result += (islower(c) ? toupper(c) : tolower(c));
         }
     }
-    return result;
+
+    return hasLetter ? result : string(rbegin(s), rend(s));
 }
