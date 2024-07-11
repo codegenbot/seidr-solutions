@@ -1,4 +1,5 @@
 import typing
+
 def has_close_elements(numbers: typing.List[float], threshold: float) -> bool:
     numbers.sort()
     for i in range(len(numbers) - 1):
