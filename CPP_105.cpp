@@ -1,14 +1,16 @@
 #include <vector>
-#include <string>
 #include <map>
 #include <algorithm>
+#include <string>
 #include <cassert>
 
 bool issame(vector<string> a, vector<string> b) {
-    // Function body remains the same
+    return a == b;
 }
 
-vector<string> by_length(vector<int> arr){
+vector<string> by_length(vector<int> arr);
+
+vector<string> by_length(vector<int> arr) {
     vector<string> result;
     map<int, string> num_to_name = {
         {1, "One"}, {2, "Two"}, {3, "Three"}, {4, "Four"},
@@ -23,7 +25,6 @@ vector<string> by_length(vector<int> arr){
     }
 
     sort(sorted_arr.begin(), sorted_arr.end());
-
     reverse(sorted_arr.begin(), sorted_arr.end());
 
     for (int num : sorted_arr) {
