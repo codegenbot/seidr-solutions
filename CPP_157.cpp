@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -18,7 +17,4 @@ int main() {
         cout << "The triangle is right-angled." << endl;
     else
         cout << "The triangle is not right-angled." << endl;
-
-    cout << std::fixed << std::setprecision(2);
-    cout << "The input values are: " << a << ", " << b << ", " << c << endl;
 }
