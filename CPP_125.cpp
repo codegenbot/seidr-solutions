@@ -7,36 +7,37 @@ using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0, prevPos = 0;
+    size_t pos = 0, prev_pos = 0;
     
     while (pos != string::npos) {
-        pos = txt.find(' ', prevPos);
+        pos = txt.find(' ', prev_pos);
         
         if (pos == string::npos) {
-            result.push_back(txt.substr(prevPos));
-            break;
-        }
-        
-        if (txt.find(',', pos) == string::npos || pos > txt.find(',')) {
-            result.push_back(txt.substr(prevPos, pos - prevPos));
-            prevPos = pos + 1;
+            if (txt.find(',') == string::npos) {
+                int count = 0;
+                for (char c : txt) {
+                    if (c >= 'a' && c <= 'z') {
+                        count++;
+                        if (count % 2 != 0) {
+                            result.push_back(to_string(count));
+                            return result;
+                        }
+                    }
+                }
+            } else {
+                result.push_back(txt.substr(prev_pos));
+                return result;
+            }
         } else {
-            size_t commaPos = txt.find(',');
-            result.push_back(txt.substr(prevPos, commaPos - prevPos));
-            prevPos = commaPos + 1;
+            result.push_back(txt.substr(prev_pos, pos - prev_pos));
+            prev_pos = pos + 1;
         }
     }
     
-    if (result.empty()) {
-        int count = 0;
-        for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                count++;
-                if ((count - 1) % 2 == 0) {
-                    result.push_back(to_string(count));
-                    break;
-                }
-            }
+    for (size_t i = prev_pos; i < txt.length(); ++i) {
+        if (txt[i] == ',') {
+            result.push_back(txt.substr(i + 1));
+            return result;
         }
     }
     
