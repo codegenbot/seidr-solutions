@@ -1,3 +1,3 @@
 bool issame(pair<float, float> a, pair<float, float> b) {
-    return a.first == b.first && a.second == b.second;
+    return abs(a.first - b.first) < 1e-6 && abs(a.second - b.second) < 1e-6;
 }
