@@ -1,14 +1,13 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
 using namespace std;
 
-long long double_the_difference(vector<double> lst) {
+long long double_the_difference(vector<float> lst) {
     long long sum = 0;
-    for (double num : lst) {
-        if (num > 0 && modf(num, &rem) == 0.0) {
+    for (float num : lst) {
+        if (num > 0 && num == static_cast<int>(num)) {
             sum += pow(num, 2);
         }
     }
@@ -17,27 +16,22 @@ long long double_the_difference(vector<double> lst) {
 }
 
 int main() {
-    vector<double> lst; 
-    double odd_sum = 0;
+    vector<float> lst;
+    long long sum = 0;
     
     cout << "Enter numbers (enter 'stop' to finish):" << endl;
     while(1) {
-        double num;
+        float num;
         
         cin >> num;
         
         if(to_string(num) == "stop") break;
 
-        if(num > 0 && modf(num, &rem) == 0.0) {
-            odd_sum = 0; 
-            for (double n : lst) { 
-                if (n > 0 && modf(n, &rem) == 0.0) {
-                    odd_sum += double_the_difference(lst);
-                }
-            }
+        if(num > 0 && num == static_cast<int>(num)) {
+            sum = double_the_difference(lst);
         }
         lst.push_back(num);    
     }
 
-    cout << "Sum of squared values: " << odd_sum << endl;
+    cout << "Sum of squared values: " << sum << endl;
 }
