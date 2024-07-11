@@ -1,3 +1,8 @@
+```
+grid = [[0,1,1,1],
+        [1,0,0,1],
+        [1,0,1,1]]
+
 def shortestPathLength(grid):
     m = len(grid)
     directions = [(0,1),(0,-1),(1,0),(-1,0)]
@@ -16,11 +21,9 @@ def shortestPathLength(grid):
         for dx,dy in directions:
             nx,ny = x+dx,y+dy
             if 0<=nx<m and 0<=ny<m and (nx,ny) not in visited:
-                if grid[nx][ny] == 1:
-                    queue.append(((nx,ny),step+1))
-                    visited.add((nx,ny))
-                elif (nx,ny) == (0,m-1):
+                if (nx,ny) == (0,m-1):
                     return step+1
-                else:
-                    queue.append(((nx,ny),step+1))
-                    visited.add((nx,ny))
+                queue.append(((nx,ny),step+1))
+                visited.add((nx,ny))
+
+print(shortestPathLength(grid))
