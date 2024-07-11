@@ -5,7 +5,7 @@ def string_to_md5(text):
         return hashlib.md5(text.encode()).hexdigest()
     return None
 
-text = input("Enter a valid input string: ").strip()
+text = input()  # Receive input without any prompt
 
 if all(32 <= ord(char) <= 127 and char.isprintable() for char in text):
     md5_hash = string_to_md5(text)
