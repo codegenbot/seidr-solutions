@@ -1,26 +1,29 @@
+#include <iostream>
 #include <vector>
-#include <algorithm>
-#include <cassert>
+#include <utility>
 
-using namespace std;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) 
+        return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i])
+            return false;
+    }
+    return true;
+}
 
-pair<int, int> compare(vector<int> a, vector<int> b) {
-    vector<int> c = a;
-    vector<int> d = b;
-    sort(c.begin(), c.end());
-    sort(d.begin(), d.end());
-    if (c.size() < d.size())
-        return make_pair(1, 0);
-    else if (c.size() > d.size())
-        return make_pair(0, 1);
-    else
-        return make_pair((c[0] == d[0]) ? 1 : 0, 0);
-
+std::pair<int, int> compare(std::vector<int> a, std::vector<int> b) {
+    int first_diff_index = -1;
+    for(int i = 0; i < a.size() && i < b.size(); i++) {
+        if(a[i] != b[i]) {
+            first_diff_index = i;
+            break;
+        }
+    }
+    return {first_diff_index, first_diff_index + 1};
 }
 
 int main() {
-    vector<int> a = {1, 2, 3, 5};
-    vector<int> b = {-1, 2, 3, 4};
-    assert(compare(a, b) == make_pair(2, 0));
+    assert(issame({1,2,3,5}, {-1,2,3,4}) == {0,1});
     return 0;
 }
