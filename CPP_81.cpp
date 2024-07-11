@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -32,4 +31,28 @@ vector<string> numerical_letter_grade(vector<float> grades){
 int main() {
     vector<float> grades = {0, 0.7};
     assert(areSame(numerical_letter_grade(grades), {"E", "D-"}) );
+    
+    // Read input from user
+    int n;
+    cout << "Enter number of students: ";
+    cin >> n;
+    
+    grades.resize(n);
+    
+    for(int i = 0; i < n; i++) {
+        cout << "Enter grade for student " << (i+1) << ": ";
+        cin >> grades[i];
+    }
+    
+    // Convert grades to letter grades
+    vector<string> letterGrades = numerical_letter_grade(grades);
+    
+    // Print the results
+    cout << "Letter Grades: ";
+    for(string s:letterGrades) {
+        cout << s << " ";
+    }
+    cout << endl;
+    
+    return 0;
 }
