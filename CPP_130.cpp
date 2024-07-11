@@ -25,8 +25,21 @@ std::vector<int> tri(int n) {
     return result;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
 int main() {
-    assert(issame(tri(1), {3, 1}));
+    assert(issame(tri(1), {1, 3}));
+    // Add more test cases here
+    assert(issame(tri(2), {1, 3, 2}));
+    assert(issame(tri(3), {1, 3, 2, 2}));
+
+    cout << "All test cases passed." << endl;
     
     return 0;
 }
