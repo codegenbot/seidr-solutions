@@ -1,4 +1,4 @@
-```
+```Python
 def make_palindrome():
     s = input("Enter a string: ")
     while not s or len(s) < 2:
