@@ -1,4 +1,4 @@
-```
+````
 def solve(expression):
     expression = expression.upper()
     if expression == 'T':
@@ -11,6 +11,8 @@ def solve(expression):
     elif '|' in expression:
         left, right = expression.split('|')
         return solve(left) or solve(right)
-
-expression = input()
-print("Result:", str(solve(expression)))
+    else:
+        if 'T' in expression:
+            return True
+        elif 'F' in expression:
+            return False
