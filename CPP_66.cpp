@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -49,4 +48,3 @@ int main() {
         std::cout << "Error: Empty input." << std::endl;
     }
     return 0;
-}
