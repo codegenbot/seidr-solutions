@@ -1,9 +1,11 @@
-#include <vector>
 #include <string>
+#include <vector>
+#include <algorithm>
+#include <cassert>
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+vector<string> issame(string a, string b) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
     int start = -1, end = -1;
@@ -18,7 +20,7 @@ bool issame(vector<string> a, vector<string> b) {
     }
 
     if (start == -1 || end == -1) {
-        return false;
+        return result;
     }
 
     if (start > end) {
@@ -29,5 +31,10 @@ bool issame(vector<string> a, vector<string> b) {
         result.push_back(planets[i]);
     }
 
-    return true;
+    return result;
+}
+
+int main() {
+    assert(issame("Jupiter", "Makemake").empty());
+    return 0;
 }
