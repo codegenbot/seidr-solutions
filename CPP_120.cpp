@@ -1,14 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
-
-std::vector<int> maximum(std::vector<int> a, int k){
-    std::sort(a.begin(), a.end());
-    if(k >= a.size()){
-        return {};
-    }
-    return std::vector<int>(a.end() - k, a.end());
-}
 
 bool issame(std::vector<int> a, std::vector<int> b){
     std::sort(a.begin(), a.end());
@@ -16,7 +9,11 @@ bool issame(std::vector<int> a, std::vector<int> b){
     return a == b;
 }
 
-int main(){
-    assert(issame(maximum({1, 2, 3, -23, 243, -400, 0}, 0), {}));
+int maximum(const std::vector<int>& vec) {
+    return *std::max_element(vec.begin(), vec.end());
+}
+
+int main() {
+    assert(issame(std::vector<int>{1, 2, 3, -23, 243, -400, 0}, std::vector<int>{0}));
     return 0;
 }
