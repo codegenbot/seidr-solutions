@@ -12,7 +12,7 @@ int main() {
 
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
-        pos += target.length(); // Move position forward by target length for overlapping targets
+        pos += (target.empty() ? 1 : target.size()); // Move position forward by 1 or target size for overlapping targets
     }
 
     for (size_t i = 0; i < indices.size(); ++i) {
