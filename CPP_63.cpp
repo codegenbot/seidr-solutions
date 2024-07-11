@@ -10,7 +10,7 @@ int fibfib(int n) {
             b = c;
             c = d;
             d = e;
-            e = a + b + c;
+            e = a + b;
         }
         return e;
     }
