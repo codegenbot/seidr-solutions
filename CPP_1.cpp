@@ -32,7 +32,13 @@ int main() {
     cin >> input;
 
     vector<string> groups = separate_paren_groups(input);
+    vector<string> expected = {"(abc)", "(def)", "(ghi)"};
 
-    // Call issame function with appropriate arguments
+    if (issame(groups, expected)) {
+        cout << "The groups are the same." << endl;
+    } else {
+        cout << "The groups are different." << endl;
+    }
+
     return 0;
 }
