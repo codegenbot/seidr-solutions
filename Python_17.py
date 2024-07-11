@@ -13,4 +13,4 @@ def parse_music(music_string: str) -> List[int]:
             i += 3
     return music_list
 
-print(parse_music("oo.."))
+print(parse_music("oo..."))
