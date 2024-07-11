@@ -1,12 +1,14 @@
+```
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
+
 
 def make_palindrome(string: str) -> str:
     if is_palindrome(string):
         return string + string[::-1]
     else:
-        for i in range(len(string), 0, -1):
-            postfix = string[i:]
-            if is_palindrome(postfix):
-                prefix = string[:i][::-1] + postfix
-                return prefix + postfix
+        reversed_string = string[::-1]
+        for i in range(len(reversed_string)):
+            new_string = string + str(i+1) * (len(reversed_string) - len(string)) + reversed_string
+            if is_palindrome(new_string):
+                return new_string
