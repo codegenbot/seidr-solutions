@@ -1,10 +1,17 @@
-from typing import list
+```
+def check_speeds(speeds: List[int]) -> str:
+    if not isinstance(speeds, list):
+        return 'invalid input'
+    
+    for speed in speeds:
+        if not isinstance(speed, int) or speed < 0:
+            return 'invalid speed'
 
-
-def below_zero(operations: list) -> bool:
-    balance = 0
-    for operation in operations:
-        balance += int(operation)
-        if balance < 0:
-            return True
-    return False
+    avg = sum(speeds) / len(speeds)
+    
+    if avg < 60:
+        return 'slow'
+    elif avg >= 61 and avg <= 80:
+        return 'average'
+    else:
+        return 'fast'
