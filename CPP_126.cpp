@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -16,8 +16,7 @@ bool is_sorted(vector<int> lst){
     }
     return true;
 
-int main
-{
+int main() {
     vector<int> lst;
     int num;
     

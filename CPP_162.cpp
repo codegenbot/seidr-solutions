@@ -1,13 +1,12 @@
+#include "C:\\PathToYourLibrary\\CryptoPP\\sha1.h"
 #include <iostream>
 #include <sstream>
-#include <string>
-#include "cryptopp/sha.h"
 
 int main() {
     std::cout << "Enter a string: ";
     std::string s;
     std::getline(std::cin, s);
-    
+
     std::stringstream ss;
     CryptoPP::SHA1 sha;
     unsigned char md5[20];
@@ -19,6 +18,6 @@ int main() {
     }
 
     std::cout << "The SHA1 is: " << ss.str() << std::endl;
-    
+
     return 0;
 }
