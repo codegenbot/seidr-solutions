@@ -24,7 +24,7 @@ void solve_problem() {
     }
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     solve_problem();
     return 0;
 }
