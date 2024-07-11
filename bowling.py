@@ -1,6 +1,7 @@
 def calculate_bowling_score(bowls):
-    score = 0
     index = 0
+    score = 0
+
     for frame in range(10):
         if bowls[index] == "X":
             score += 10 + get_strike_bonus(bowls, index)
@@ -18,17 +19,19 @@ def calculate_bowling_score(bowls):
                 int(bowls[index + 1]) if bowls[index + 1].isdigit() else 0
             )
             index += 2
+
     return score
 
 
 def get_strike_bonus(bowls, index):
-    score = 0
+    bonus = 0
     if bowls[index + 1] == "X":
-        score += 10
+        bonus += 10
+        if bowls[index + 2] == "X":
+            bonus += 10
+        else:
+            bonus += int(bowls[index + 2]) if bowls[index + 2].isdigit() else 0
     else:
-        score += 10 if bowls[index + 1] == "/" else int(bowls[index + 1])
-    if bowls[index + 2] == "X":
-        score += 10
-    else:
-        score += 10 if bowls[index + 2] == "/" else int(bowls[index + 2])
-    return score
+        bonus += int(bowls[index + 1]) if bowls[index + 1].isdigit() else 0
+
+    return bonus
