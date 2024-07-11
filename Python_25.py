@@ -1,13 +1,13 @@
+```Python
 from typing import List
+
 import math
+
 
 def main():
     while True:
         try:
             n = int(input("Enter a number: "))
-            if n < 2:
-                print("Please enter a positive integer.")
-                continue
             break
         except ValueError:
             print("Invalid input! Please enter an integer.")
@@ -21,9 +21,12 @@ def main():
             while n % i == 0:
                 n //= i
                 count += 1
-            factors.append(i ** count)
+            factors.append(i**count)
     if n > 1:
         factors.append(n)
     return factors
 
+
 print(main())
+```
+```
