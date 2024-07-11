@@ -1,5 +1,3 @@
-```
-#include <vector>
 #include <unordered_map>
 
 int search(std::vector<int> lst) {
@@ -12,7 +10,7 @@ int search(std::vector<int> lst) {
         }
     }
     int max_value = -1;
-    for (const auto& pair : freq) {
+    for (auto& pair : freq) {
         if (pair.second >= pair.first && pair.first > 0) {
             max_value = pair.first;
             break;
