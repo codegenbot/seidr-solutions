@@ -1,4 +1,3 @@
-```
 #include <string>
 
 int bowlingScore(string s) {
@@ -7,20 +6,17 @@ int bowlingScore(string s) {
     while (i < s.length()) {
         if (s[i] == '/') {
             int firstRoll = stoi(s.substr(0, i));
-            int secondRoll = stoi(s.substr(i + 1, s.find('/') - i - 1));
+            int secondRoll = stoi(s.substr(i + 1, s.find('/', i) - i - 1));
+            i = s.find('/', i);
             if (firstRoll + secondRoll >= 10) {
                 score += 10;
+                i++;
             } else {
                 score += firstRoll + secondRoll;
             }
-            i = s.find('/', i) + 1;
         } else {
             int roll = stoi(s.substr(i, 1));
-            if (roll == 10) {
-                score += 10;
-            } else {
-                score += roll;
-            }
+            score += roll;
             i++;
         }
     }
