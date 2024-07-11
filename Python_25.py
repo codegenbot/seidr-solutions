@@ -19,5 +19,3 @@ def main():
     if n > 1:
         factors.append(n)
     return factors
-
-result = main()
