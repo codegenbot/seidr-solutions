@@ -1,10 +1,12 @@
-string result = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            char encrypted = (c - 'a' + 2 * 2) % 26 + 'a';
-            result += encrypted;
-        } else {
-            result += c;
+string encrypt(string s){
+    string result = "";
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            char shifted = 'a' + ((s[i]-'a'+2)*2) % 26;
+            result += shifted;
+        }
+        else{
+            result += s[i];
         }
     }
     return result;
