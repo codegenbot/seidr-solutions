@@ -1,11 +1,8 @@
-vector<int> sortedList = lst;
-    sort(sortedList.begin(), sortedList.end());
-    
-    for (int i = 0; i < sortedList.size(); i++) {
-        if (sortedList[i] != lst[i] || count(lst.begin(), lst.end(), lst[i]) > 1) {
+for (int i = 0; i < lst.size() - 1; i++) {
+        if (lst[i] >= lst[i + 1])
             return false;
-        }
+        if (i + 2 < lst.size() && lst[i] == lst[i + 1] && lst[i + 1] == lst[i + 2])
+            return false;
     }
-    
     return true;
 }
