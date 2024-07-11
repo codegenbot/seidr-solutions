@@ -24,9 +24,8 @@ string spinWords(string str) {
         string revWord;
         for (int j = word.length() - 1; j >= 0; j--)
             revWord += word[j];
-        result += revWord + " ";
+        result += revWord;
     } else
-        result += word + " ";
+        result += word;
 
     return result;
-}
