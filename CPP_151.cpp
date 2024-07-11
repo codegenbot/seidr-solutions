@@ -1,7 +1,10 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 
-long long double_the_difference(std::vector<float>& lst){
+using namespace std;
+
+long long double_the_difference(vector<float>& lst){
     long long sum = 0;
     for (float num : lst) {
         if (num > 0 && num == (int)num && (int)num % 2 != 0) {
@@ -12,11 +15,8 @@ long long double_the_difference(std::vector<float>& lst){
 }
 
 int main() {
-    std::vector<float> lst;
-    // Add elements to lst vector as needed
-
-    long long result = double_the_difference(lst);
-    // Output the result or do further processing
-
+    vector<float> lst = {1.5, 2, 3, 4.5, 5};
+    cout << double_the_difference(lst) << endl;
+    
     return 0;
 }
