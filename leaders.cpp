@@ -1,22 +1,18 @@
 #include <vector>
 using namespace std;
 
-vector<int> leaders(vector<int>& v) {
-    int n = v.size();
+vector<int> leaders(vector<int>& arr) {
     vector<int> res;
-    
-    if (n == 0)
-        return res;
-        
-    int max_right = v.back();
-    res.push_back(max_right);
-    
-    for(int i = n-2; i >= 0; i--) {
-        if(v[i] >= max_right) {
-            max_right = v[i];
-            res.push_back(max_right);
+    int n = arr.size();
+    for(int i=n-1; i>=0; i--) {
+        bool isLeader = true;
+        for(int j=i+1; j<n; j++) {
+            if(arr[j] >= arr[i]) {
+                isLeader = false;
+                break;
+            }
         }
+        if(isLeader) res.push_back(arr[i]);
     }
-    
     return res;
 }
