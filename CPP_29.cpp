@@ -1,5 +1,5 @@
 // Problem: CPP/29
-// Description: Write a function that filters a list of strings based on a given prefix.
+// Description: Filter a list of strings to include only those that start with a given prefix.
 
 vector<string> filter_by_prefix(vector<string> strings, string prefix){
     vector<string> result;
