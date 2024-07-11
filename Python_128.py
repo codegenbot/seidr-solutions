@@ -12,7 +12,13 @@ def product_of_signs(arr):
     return result if not has_zero else 0
 
 def check():
-    arr = list(map(int, input("Enter numbers separated by space: ").split()))
+    while True:
+        arr = list(map(int, input("Enter numbers separated by space: ").split()))
+        if all(isinstance(x, int) for x in arr):
+            break
+        else:
+            print("Invalid input. Please enter numbers only.")
+
     print(product_of_signs(arr))
 
 check()
