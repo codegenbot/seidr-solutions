@@ -1,22 +1,20 @@
-#include<vector>
-using namespace std;
+Here is the completed code:
 
-vector<vector<int>> pluck(vector<int> arr) {
+vector<int> pluck(vector<int> arr) {
     vector<int> result;
-    if (arr.empty()) return {{}};
-    
-    int smallest = INT_MAX;
-    int index = -1;
-    
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest) {
-            smallest = arr[i];
-            index = i;
+    if (arr.empty()) return result;
+
+    int smallest_even = INT_MAX;
+    int index_of_smallest_even = -1;
+
+    for (int i = 0; i < arr.size(); ++i) {
+        if (arr[i] % 2 == 0 && arr[i] < smallest_even) {
+            smallest_even = arr[i];
+            index_of_smallest_even = i;
         }
     }
-    
-    result.push_back(smallest);
-    result.push_back(index);
-    
-    return {result};
-}
+
+    result.push_back(smallest_even);
+    result.push_back(index_of_smallest_even);
+
+    return result;
