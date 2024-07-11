@@ -1,7 +1,5 @@
 ```
-from typing import List, Optional
-
-
+```python
 def longest(strings: List[object]) -> Optional[str]:
     if not strings:
         return None
@@ -15,3 +13,4 @@ def longest(strings: List[object]) -> Optional[str]:
             result = s
 
     return result
+```
