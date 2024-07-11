@@ -1,22 +1,27 @@
 int bowlingScore(string s) {
     int score = 0;
-    bool strike = false;
+    int currentFrame = 1;
+    int rollsInCurrentFrame = 0;
+
     for (char c : s) {
         if (c == 'X') {
-            score += 30;
-            strike = true;
+            score += 10 + (currentFrame < 10 ? 10 : 0);
+            currentFrame++;
+            rollsInCurrentFrame = 0;
         } else if (c == '/') {
-            score += 10;
-            strike = false;
-        } else if (isdigit(c)) {
+            score += 10 - rollsInCurrentFrame;
+            currentFrame++;
+            rollsInCurrentFrame = 0;
+        } else {
             int pins = c - '0';
-            if (strike) {
-                score += 10 + pins * 2;
-                strike = false;
-            } else {
-                score += pins;
+            score += pins;
+            rollsInCurrentFrame++;
+
+            if (rollsInCurrentFrame == 2) {
+                currentFrame++;
             }
         }
     }
+
     return score;
 }
