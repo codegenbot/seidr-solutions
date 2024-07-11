@@ -35,10 +35,12 @@ vector<float> rescale_to_unit(vector<float> numbers) {
 
 int main() {
     vector<float> numbers = {1.0, 2.0, 3.0, 4.0, 5.0};
+    
     vector<float> rescaled_numbers = rescale_to_unit(numbers);
     
-    vector<float> test_numbers = {0.0, 0.25, 0.5, 0.75, 1.0};
-    bool same = issame(rescaled_numbers, test_numbers);
+    vector<float> expected_rescaled_numbers = {0.0, 0.25, 0.5, 0.75, 1.0};
+    
+    bool result = issame(rescaled_numbers, expected_rescaled_numbers);
     
     return 0;
 }
