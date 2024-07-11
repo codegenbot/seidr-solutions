@@ -1,3 +1,4 @@
+```
 def car_race_collision():
     time_to_meet_car1 = int(input("Enter time at which both cars meet: "))
 
@@ -21,7 +22,15 @@ def car_race_collision():
         except ZeroDivisionError:
             print("Invalid input. Car's speed cannot be zero.")
 
-    time_to_meet_car2 = int(input("Enter time at which car 2 meets the finish line: "))
+    while True:
+        try:
+            time_to_meet_car2 = int(input("Enter time at which car 2 meets the finish line: "))
+            if time_to_meet_car2 <= 0:
+                print("Invalid input. Time to meet the finish line must be greater than zero.")
+            else:
+                break
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
 
     if abs(speed1 - speed2) == 0:
         return f"Both cars are traveling at the same speed."
