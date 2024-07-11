@@ -2,10 +2,10 @@
 import hashlib
 
 def string_to_md5(text):
-    if text:
-        return hashlib.md5(text.encode()).hexdigest()
-    else:
+    if not text:
         return None
+    return hashlib.md5(text.encode()).hexdigest()
 
-text = input("Please enter some text: ")
-print(string_to_md5(text))
+text = input("Enter some text: ")
+result = string_to_md5(text)
+print(result)
