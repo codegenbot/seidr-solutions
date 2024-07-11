@@ -1,10 +1,9 @@
-# Task description: Python/142
-
+```
+# Task description
 
 def check(func):
     result = func([1, 2, 3])
     print(result)
-
 
 def sum_squares(lst):
     total = 0
