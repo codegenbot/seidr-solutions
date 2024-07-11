@@ -1,9 +1,11 @@
+Here's the modified code:
+
 def encrypt(s):
-    encrypted = ""
+    result = ''
     for char in s:
         if char.isalpha():
             ascii_offset = 65 if char.isupper() else 97
-            encrypted += chr((ord(char) - ascii_offset + 2 * 26) % 26 + ascii_offset)
+            result += chr((ord(char) - ascii_offset + (2 * 2)) % 26 + ascii_offset)
         else:
-            encrypted += char
-    return encrypted
+            result += char
+    return result
