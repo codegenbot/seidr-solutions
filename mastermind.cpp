@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int whitePegs(string code, string guess) {
@@ -23,7 +24,7 @@ int blackPegs(string code, string guess) {
     for (int i = 0; i < 4; i++) {
         if (count(codeArray.begin(), codeArray.end(), guess[i]) > 0) {
             count++;
-            codeArray.erase(remove(codeArray.begin(), codeArray.end(), guess[i]) - codeArray.begin(), codeArray.end());
+            codeArray.erase(remove(codeArray.begin(), codeArray.end(), guess[i]), codeArray.end());
         }
     }
     return count;
@@ -32,8 +33,7 @@ int blackPegs(string code, string guess) {
 int main() {
     string code, guess;
     cin >> code >> guess;
-    int black = 4 - whitePegs(code, guess);
-    cout << black << endl;
-    cout << whitePegs(code, guess) << endl;
+    cout << blackPegs(code, guess) << endl;
+    cout << 4 - whitePegs(code, guess) << endl;
     return 0;
 }
