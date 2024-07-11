@@ -1,11 +1,26 @@
+#include<vector>
+#include<algorithm>
+using namespace std;
+
 vector<int> largest_smallest_integers(vector<int> lst){
-    int largest_negative = 0, smallest_positive = 0;
+    vector<int> result = {0, 0};
+    vector<int> negatives;
+    vector<int> positives;
+
     for (int num : lst) {
-        if (num < 0 && num < largest_negative) {
-            largest_negative = num;
-        } else if (num > 0 && (num < smallest_positive || smallest_positive == 0)) {
-            smallest_positive = num;
+        if (num < 0) {
+            negatives.push_back(num);
+        } else if (num > 0) {
+            positives.push_back(num);
         }
     }
-    return {largest_negative, smallest_positive};
+
+    if (!negatives.empty()) {
+        result[0] = *max_element(negatives.begin(), negatives.end());
+    }
+    if (!positives.empty()) {
+        result[1] = *min_element(positives.begin(), positives.end());
+    }
+
+    return result;
 }
