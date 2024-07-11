@@ -1,19 +1,17 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <climits>
 
 int main() {
-    int n, diff = INT_MAX, cutIndex = 0;
-    std::vector<int> nums;
-
-    // Read input
+    int n;
     std::cin >> n;
+
+    std::vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        int num;
-        std::cin >> num;
-        nums.push_back(num);
+        std::cin >> nums[i];
     }
 
+    int diff = INT_MAX, cutIndex = 0;
     for (int i = 0; i < n - 1; ++i) {
         int leftSum = 0, rightSum = 0;
         for (int j = 0; j < n; ++j) {
@@ -23,15 +21,14 @@ int main() {
                 rightSum += nums[j];
             }
         }
-        
-        int currentDiff = std::abs(leftSum - rightSum);
+
+        int currentDiff = abs(leftSum - rightSum);
         if (currentDiff <= diff) {
             diff = currentDiff;
             cutIndex = i;
         }
     }
 
-    // Output the two subvectors
     for (int i = 0; i <= cutIndex; ++i) {
         std::cout << nums[i] << " ";
     }
@@ -39,6 +36,5 @@ int main() {
     for (int i = cutIndex + 1; i < n; ++i) {
         std::cout << nums[i] << " ";
     }
-
     return 0;
 }
