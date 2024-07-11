@@ -1,7 +1,6 @@
-def concatenate_strings(input_list: List[str]) -> str:
-    result = ""
-    for string in input_list:
-        if len(result) > 0:
-            result += " "
-        result += string
-    return result
+def find_max_value(lst: List[int]) -> int:
+    max_val = lst[0]
+    for i in range(1, len(lst)):
+        if lst[i] > max_val:
+            max_val = lst[i]
+    return max_val
