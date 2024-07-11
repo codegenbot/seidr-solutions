@@ -1,28 +1,31 @@
 #include <boost/any.hpp>
-using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<a>(double())) {
-        if (is_any_of<b>(double())) {
-            return (any_cast<double>(a) > any_cast<double>(b)) ? a : b;
-        } else {
-            double da = any_cast<double>(a);
-            double db = any_cast<string>(b).find(',') != string::npos ?
-                stod(any_cast<string>(b).substr(0, any_cast<string>(b).find(','))) :
-                stod(any_cast<string>(b));
-            return (da > db) ? a : b;
-        }
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int)a > (float)b ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
+        return (int)a > (double)b ? a : b;
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string str = boost::any_cast<string>(b);
+        int num = boost::any_cast<int>(a);
+        return num > stoi(str) ? a : b;
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return (float)a > (int)b ? a : b;
+    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return (double)a > (int)b ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string str = boost::any_cast<string>(a);
+        int num = boost::any_cast<int>(b);
+        return stoi(str) > num ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string str = boost::any_cast<string>(a);
+        float num = boost::any_cast<float>(b);
+        return stof(str) > num ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
+        string str = boost::any_cast<string>(a);
+        double num = boost::any_cast<double>(b);
+        return stod(str) > num ? a : b;
     } else {
-        if (is_any_of<b>(double())) {
-            string sa = any_cast<string>(a);
-            double db = any_cast<double>(b);
-            return (stod(sa.find(',') != string::npos ?
-                sa.substr(0, sa.find(',')) :
-                sa) > db) ? a : b;
-        } else {
-            if (any_cast<string>(a) == any_cast<string>(b))
-                return boost::any("None");
-            return (any_cast<string>(a) > any_cast<string>(b)) ? a : b;
-        }
+        return "None";
     }
 }
