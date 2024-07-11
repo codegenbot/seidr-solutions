@@ -1,9 +1,7 @@
-using namespace std;
-
-vector<int> leaders(vector<int>& arr) {
+std::vector<int> leaders(std::vector<int>& arr) {
     int n = arr.size();
-    vector<int> result;
-    
+    std::vector<int> result;
+
     for(int i=n-1; i>=0; i--) {
         bool isLeader = true;
         for(int j=i+1; j<n; j++) {
@@ -15,6 +13,6 @@ vector<int> leaders(vector<int>& arr) {
         if(isLeader) result.push_back(arr[i]);
     }
 
-    reverse(result.begin(), result.end()); 
+    std::reverse(result.begin(), result.end()); 
     return result;
 }
