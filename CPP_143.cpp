@@ -1,17 +1,34 @@
-string words_in_sentence(string sentence){
-    string result = "";
-    int i = 0;
-    while(i < sentence.size()){
-        int j = i+1;
-        bool is_prime = true;
-        for(int k = 2; k*k <= j; k++){
-            if(j % k == 0){
-                is_prime = false;
-                break;
+#include <vector>
+#include <cmath>
+
+string words_in_sentence(string sentence) {
+    vector<string> words;
+    string word;
+
+    for (char c : sentence + " ") {
+        if (c == ' ') {
+            if (!word.empty() && is_prime(word.length())) {
+                words.push_back(word);
             }
+            word.clear();
+        } else {
+            word += c;
         }
-        if(is_prime) result += (sentence.substr(i, j)).append(" ");
-        i = j;
     }
-    return result;
+
+    string result;
+    for (string w : words) {
+        result += w + " ";
+    }
+    return result.substr(0, result.size() - 1);
+}
+
+bool is_prime(int n) {
+    if (n <= 1)
+        return false;
+    for (int i = 2; i * i <= n; ++i) {
+        if (n % i == 0)
+            return false;
+    }
+    return true;
 }
