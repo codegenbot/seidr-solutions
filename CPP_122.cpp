@@ -1,5 +1,4 @@
 #include <vector>
-#include <string>
 
 int add_elements(int arr[], int k) {
     int sum = 0;
