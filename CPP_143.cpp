@@ -1,22 +1,44 @@
-```
-string words_in_sentence(string sentence){
-    string result = "";
-    for (int i = 0; i < sentence.length(); i++) {
-        if (is_prime(stoi(&sentence[i+1])) && is_space(sentence, i)) {
-            result += &sentence[i+1] + " ";
+#include <vector>
+#include <algorithm>
+
+string words_in_sentence(string sentence) {
+    vector<string> words = split(sentence, ' ');
+    string result;
+
+    for (string word : words) {
+        int length = word.length();
+        bool is_prime = false;
+        for (int i = 2; i <= sqrt(length); i++) {
+            if (length % i == 0) {
+                is_prime = false;
+                break;
+            } else {
+                is_prime = true;
+            }
+        }
+
+        if (is_prime) {
+            result += word + " ";
         }
     }
-    return result;
+
+    return result.substr(0, result.size() - 1);
 }
 
-bool is_space(const string& s, int i) {
-    return (i < s.length() - 1) && s[i] == ' ' && s[i+1] != ' ';
-}
+vector<string> split(string sentence, char delimeter) {
+    vector<string> words;
+    string temp;
 
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
+    for (char c : sentence) {
+        if (c == delimeter) {
+            words.push_back(temp);
+            temp = "";
+        } else {
+            temp += c;
+        }
     }
-    return true;
+
+    words.push_back(temp);
+
+    return words;
 }
