@@ -3,9 +3,7 @@
 #include <vector>
 #include <boost/any.hpp>
 
-#include <boost/config.hpp>
-
-bool issame(std::vector<int> a,std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
@@ -25,5 +23,5 @@ std::vector<int> filter_integers(std::list<boost::any> values) {
 }
 
 int main() {
-    assert (issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {1, 2, 3}) == false);
+    assert (issame(filter_integers({boost::any(3), boost::any('c'), boost::any(3), boost::any(3), boost::any('a'), boost::any('b')}), {1, 2, 3}) == false);
 }
