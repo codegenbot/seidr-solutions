@@ -2,6 +2,7 @@
 #include <vector>
 #include <cassert>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -13,6 +14,10 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
         }
     }
     return result;
+}
+
+bool issame(vector<string> a, vector<string> b){
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main(){
