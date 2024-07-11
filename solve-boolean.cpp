@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <stack>
 #include <string>
@@ -43,4 +44,9 @@ std::string solveBoolean(std::string expression) {
     }
 
     return result;
+}
+
+int main() {
+    std::cout << solveBoolean("TT|F&F") << std::endl;
+    return 0;
 }

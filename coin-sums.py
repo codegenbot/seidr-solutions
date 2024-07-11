@@ -8,4 +8,7 @@ def coin_sums(cents):
         cents -= count * coins[i]
         coin_counts[i] = count
 
-    return [f'{name}: {count}' for name, count in zip(coin_names, coin_counts)]
+    return tuple(zip(coin_names, map(str, coin_counts)))
+
+cents = int(input())
+print(*coin_sums(cents))
