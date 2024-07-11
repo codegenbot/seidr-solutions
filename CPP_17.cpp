@@ -1,20 +1,22 @@
-std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> parsed_music;
-    int count = 0;
+#include <vector>
+#include <string>
+#include <cassert>
 
-    for (char c : music_string) {
-        if (c == 'o') {
-            count++;
-        } else if (c == '.'){
-            parsed_music.push_back(count);
-            count = 0;
+std::vector<int> parse_music(std::string music_string) {
+    std::vector<int> result;
+    size_t i = 0;
+    while (i < music_string.size()) {
+        if (music_string[i] == 'o') {
+            result.push_back(2);
+            i += 2;
+        } else if (music_string[i] == '.') {
+            result.push_back(1);
+            i += 2;
+        } else if (music_string[i] == ' ') {
+            i += 1;
         }
     }
-    if (count > 0) {
-        parsed_music.push_back(count);
-    }
-
-    return parsed_music;
+    return result;
 }
 
 bool issame(std::vector<int> a, std::vector<int> b) {
