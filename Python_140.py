@@ -11,4 +11,4 @@ def fix_spaces(text):
                 i += 1
             if i < len(text):
                 new_text += '-'
-    return new_text```
+    return new_text
