@@ -1,4 +1,3 @@
-def modp():
-    n = int(input("Enter number n: "))
-    p = int(input("Enter prime number p: "))
-    return n ** (1 / p) % p
+def modp(n: int, p: int):
+    inv_p = pow(p, -1, p)
+    return pow(n, inv_p, p)
