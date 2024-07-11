@@ -3,29 +3,18 @@
 #include <string>
 
 bool same(vector<string> a, vector<string> b) {
-    return a == b;
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
 int main() {
-    std::vector<std::string> strings = {"apple", "banana", "cherry"};
-    std::string substring = "an";
-    
-    std::vector<std::string> result = filter_by_substring(strings, substring);
-    
-    for (auto str : result) {
-        if (same({str}, {"apple"})) {
-            std::cout << str << std::endl;
-        }
-    }
-    
+    vector<string> strings = {"apple", "banana", "cherry"};
+    string substring = "an";
+    bool check = same(filter_by_substring(strings, substring), strings);
+    if (check) cout << "The two vectors are the same" << endl;
+    else cout << "The two vectors are not the same" << endl;
     return 0;
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(auto str : strings) {
-        if(str.find(substring) != string::npos)
-            result.push_back(str);
-    }
-    return result;
 }
