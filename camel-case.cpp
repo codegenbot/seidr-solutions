@@ -1,6 +1,8 @@
+```
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cctype>
 
 std::vector<std::string> split(const std::string& s, char c) {
     std::vector<std::string> result;
@@ -17,10 +19,7 @@ std::vector<std::string> split(const std::string& s, char c) {
 
 std::string camelCase(const std::string& s) {
     if (s.find(' ') == std::string::npos && !s.empty()) {
-        for (char &c : s) {
-            c = std::tolower(c);
-        }
-        return s;
+        return std::string(1, std::tolower(s[0], std::locale())) + s.substr(1);
     }
 
     std::vector<std::string> groups;
@@ -32,9 +31,9 @@ std::string camelCase(const std::string& s) {
     std::string result;
     for (int i = 0; i < groups.size(); ++i) {
         if (i > 0)
-            result += char(std::toupper(groups[i][0]));
+            result += char(std::toupper(groups[i][0], std::locale()));
         else
-            result += tolower(groups[i][0]);
+            result += std::string(1, std::tolower(groups[i][0], std::locale()));
         result += groups[i].substr(1);
     }
 
