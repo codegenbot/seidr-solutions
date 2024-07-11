@@ -4,22 +4,23 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
-    vector<int> left;
-    vector<int> right;
+    int min_diff = INT_MAX, idx = -1;
+    
     for(int i=0; i<n-1; i++){
-        if(abs(nums[i+1] - nums[i]) >= abs(nums[n-1] - nums[0])){
-            break;
-        } else {
-            left.push_back(nums[i]);
+        if(abs(nums[i+1] - nums[i]) <= min_diff){
+            min_diff = abs(nums[i+1] - nums[i]);
+            idx = i;
         }
     }
-    for(int i=left.size(); i<n; i++) right.push_back(nums[i]);
+    
+    vector<int> left(nums.begin(), nums.begin()+idx+1);
+    vector<int> right(nums.begin()+idx, nums.end());
     
     return {{left}, {right}};
 }
 
 int main() {
-    vector<int> nums = {2, 6513, 1688};
+    vector<int> nums = {6513, 1688};
     vector<vector<int>> result = cutVector(nums);
     for(int i=0; i<result.size(); i++) {
         cout << "Subvector " << (i+1) << ": ";
