@@ -1,9 +1,8 @@
-sort(array.begin(), array.end(), [&](int a, int b) {
-    if ((array.front() + array.back()) % 2 == 0) {
-        return a > b;
+if(array.size() == 0) return array;
+    if((array.front() + array.back()) % 2 == 0) {
+        sort(array.rbegin(), array.rend());
     } else {
-        return a < b;
+        sort(array.begin(), array.end());
     }
-});
-return array;
+    return array;
 }
