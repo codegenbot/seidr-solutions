@@ -2,10 +2,8 @@ if (x <= 0 || n <= 0) {
         return false;
     }
     
-    int power = 1;
-    while (power < x) {
-        power *= n;
-    }
+    double root = pow(x, 1.0 / n);
+    int root_int = (int)root;
     
-    return power == x;
+    return (pow(root_int, n) == x);
 }
