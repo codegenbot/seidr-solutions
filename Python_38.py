@@ -1,14 +1,8 @@
 ```
-import math
-
 def decode_cyclic(encoded_str: str, key: int) -> str:
     encoded_bytes = bytes(encoded_str.encode(), 'utf-8')
     decoded_str = ""
-    n = len(encoded_str)
-    for i in range(n, 1, -1):
-        if math.gcd(len(encoded_str), i) == i:
-            n = i
-            break
+    n = len(encoded_str) // 2
     while n % 2 != 0:
         n //= 2
     if len(encoded_str) % n != 0:
@@ -28,5 +22,9 @@ def decode_cyclic(encoded_str: str, key: int) -> str:
     return decoded_str
 
 input_string = input("Enter the encoded string: ")
-key = int(input("Enter the key: "))
+try:
+    key = int(input("Enter the key: "))
+except ValueError:
+    print("Invalid input. Please enter a positive integer for the key.")
+    exit()
 print(decode_cyclic(input_string, key))
