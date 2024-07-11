@@ -1,35 +1,46 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
+
+using namespace std;
+
 vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<bool>> visited(n, vector<bool>(n, false));
-    vector<int> res;
-    for (int i = 0; i < n; ++i) {
+    vector<vector<int>> dist(n, vector<int>(n, 1e9));
+    vector<vector<pair<int, int>>> graph(n, vector<pair<int, int>>(n));
+    
+    for (int i = 0; i < n; ++i)
         for (int j = 0; j < n; ++j) {
-            if (!visited[i][j]) {
-                vector<int> path;
-                dfs(grid, visited, i, j, k, path);
-                if (path.size() == k) {
-                    res = path;
-                    break;
-                }
+            if (i > 0) graph[i][j].push_back({dist[i-1][j], i-1, j});
+            if (j > 0) graph[i][j].push_back({dist[i][j-1], i, j-1});
+            if (i < n - 1) graph[i][j].push_back({dist[i+1][j], i+1, j});
+            if (j < n - 1) graph[i][j].push_back({dist[i][j+1], i, j+1});
+        }
+    
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    pq.push({0, 0, 0});
+    dist[0][0] = 0;
+    
+    while (!pq.empty()) {
+        int d = pq.top().first; pq.pop();
+        if (d > k) break;
+        for (auto& neighbor : graph[pq.top().second][pq.top().third]) {
+            int nd = d + 1;
+            if (nd < dist[neighbor.second][neighbor.third]) {
+                dist[neighbor.second][neighbor.third] = nd;
+                pq.push({nd, neighbor.second, neighbor.third});
             }
         }
-        if (res.size() == k) break;
     }
+    
+    vector<int> res;
+    for (int i = 0; i < k; ++i) {
+        int x = -1;
+        for (int j = 0; j < n; ++j)
+            if (dist[j][0] == dist[0][0] - i) {x = j; break;}
+        res.push_back(grid[x][0]);
+    }
+    
     return res;
-}
-
-void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int i, int j, int k, vector<int>& path) {
-    if (path.size() == k) return;
-    visited[i][j] = true;
-    path.push_back(grid[i][j]);
-    for (int x = -1; x <= 1; ++x) {
-        for (int y = -1; y <= 1; ++y) {
-            int ni = i + x, nj = j + y;
-            if (ni >= 0 && ni < grid.size() && nj >= 0 && nj < grid[0].size() && !visited[ni][nj]) {
-                dfs(grid, visited, ni, nj, k, path);
-                if (path.size() == k) return;
-            }
-        }
-    }
-    visited[i][j] = false;
 }
