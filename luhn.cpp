@@ -1,3 +1,4 @@
+```cpp
 int luhn(const std::vector<int>& cardNumber) {
     int sum = 0;
     bool doubleNext = false;
