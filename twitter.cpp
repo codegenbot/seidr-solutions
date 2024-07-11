@@ -4,6 +4,7 @@
 int main() {
     std::string tweet;
     if(std::getline(std::cin, tweet)) { 
+        tweet.erase(0, tweet.find_first_not_of('\n'));
         if(tweet.empty()) {
             std::cout << "You didn't type anything" << std::endl;
         } else if(tweet.length() > 140) {
