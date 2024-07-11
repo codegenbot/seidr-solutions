@@ -12,7 +12,7 @@ int main() {
     double current_height = start_height;
     for (int i = 0; i < num_bounces; ++i) {
         total_distance += current_height;
-        current_height *= bounciness_index * 2;
+        current_height *= bounciness_index;
     }
 
     cout << total_distance << endl;
