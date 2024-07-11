@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-long long double_the_difference(std::vector<float> lst){
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num >= 0 && num == static_cast<int>(num) && static_cast<int>(num) % 2 != 0) {
@@ -12,10 +12,8 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> lst = {1.1, 2.2, 3.3, 4.4, 5.0};
+    std::vector<float> lst = {3.0f, 5.0f, 6.0f, 7.0f, 8.0f};
     long long odd_sum = double_the_difference(lst);
-
-    std::cout << "Sum of squares of odd integers in the vector: " << odd_sum << std::endl;
-
+    assert(odd_sum == 40);
     return 0;
 }
