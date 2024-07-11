@@ -1,28 +1,28 @@
-string file_name_check(string file_name){
-    int dot_position = file_name.find('.');
-    if (dot_position == string::npos) return "No";
-    
-    string before_dot = file_name.substr(0, dot_position);
-    string after_dot = file_name.substr(dot_position + 1);
-    
-    bool starts_with_letter = true;
-    for (char c : before_dot){
-        if (!isalpha(c)) {
-            starts_with_letter = false; break;
+string file_name_check(string file_name) {
+    int digit_count = 0;
+    int dot_count = 0;
+
+    for (int i = 0; i < file_name.length(); i++) {
+        if (isdigit(file_name[i])) {
+            digit_count++;
+            if (digit_count > 3)
+                return "No";
+        } else if (file_name[i] == '.') {
+            dot_count++;
+            if (dot_count > 1)
+                return "No";
         }
     }
-    
-    if (!starts_with_letter) return "No";
-    
-    int digit_count = 0;
-    for (char c : file_name){
-        if (isdigit(c)) digit_count++;
-    }
-    if (digit_count > 3) return "No";
-    
-    vector<string> valid_extensions = {"txt", "exe", "dll"};
-    if (find(valid_extensions.begin(), valid_extensions.end(), after_dot) == valid_extensions.end()) 
+
+    int start_index = 0;
+    while (!isalpha(file_name[start_index]))
+        start_index++;
+
+    string before_dot = file_name.substr(0, start_index);
+    string after_dot = file_name.substr(start_index + 1);
+
+    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll")
         return "No";
-    
+
     return "Yes";
 }
