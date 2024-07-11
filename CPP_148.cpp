@@ -23,9 +23,9 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     int start, end;
 
     if(index1 < index2)
-        swap(start, end);
+        std::swap(start, end);
     else
-        std::tie(std::swap(start, end));
+        std::tie(std::move(start), std::move(end)) = {index1, index2};
 
     vector<string> result;
     for (int i = 0; i < planets.size(); i++) {
