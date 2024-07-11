@@ -1,11 +1,13 @@
-int count = 0;
-        for (int j = 0; j < grid[0].size(); j++) {
-            int sum = 0;
-            for (int i = 0; i < grid.size(); i++) {
-                sum += grid[i][j];
+int result = 0;
+        for (const auto &row : grid) {
+            int current_bucket = 0;
+            for (const auto &well : row) {
+                if (well > current_bucket) {
+                    result += (well - current_bucket);
+                    current_bucket = well;
+                }
+                current_bucket = min(current_bucket, well);
             }
-            int buckets = (sum + capacity - 1) / capacity;
-            count += buckets;
         }
-        return count;
+        return result * capacity;
     }
