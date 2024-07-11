@@ -1,11 +1,9 @@
-Here is the completed code:
-
 bool will_it_fly(vector<int> q, int w) {
-    string str = "";
+    string s = "";
     for (int i : q) {
-        str += to_string(i);
+        s += to_string(i);
     }
-    if (!ispalindrome(str)) {
+    if (!s.substr(0, s.length() / 2).equals(s.substr(s.length() / 2, s.length() / 2))) {
         return false;
     }
     int sum = 0;
@@ -13,10 +11,4 @@ bool will_it_fly(vector<int> q, int w) {
         sum += i;
     }
     return sum <= w;
-}
-
-bool ispalindrome(string s) {
-    string rev = s;
-    reverse(rev.begin(), rev.end());
-    return s == rev;
 }
