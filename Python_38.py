@@ -6,7 +6,8 @@ def decode_cyclic(s: str):
             result += group[0] + group[1]
         else:
             result += group[1] + group[0]
-        s = s[2:]
-    if s: 
-        result += s
+        if len(s) > 2:  
+            s = s[2:]
+        else:  
+            return group[0]
     return result
