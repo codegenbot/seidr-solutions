@@ -1,5 +1,8 @@
 #include <iostream>
 using namespace std;
+#include <vector>
+#include <algorithm>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -19,13 +22,13 @@ vector<string> sorted_list_sum(vector<string> lst) {
     }
 
     // Sort the resulted list by length and then alphabetically
-    sort(result.begin(), result.end(),
-        [](const string& a, const string& b) {
-            if (a.length() != b.length())
-                return a.length() - b.length();
-            else
-                return a < b;
-        });
+    std::sort(result.begin(), result.end(),
+              [](const string& a, const string& b) {
+                  if (a.length() != b.length())
+                      return a.length() - b.length();
+                  else
+                      return a < b;
+              });
 
     return result;
 }
