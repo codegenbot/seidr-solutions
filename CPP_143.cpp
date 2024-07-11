@@ -1,29 +1,23 @@
-#include<stdio.h>
-#include<string>
-using namespace std;
+string words_in_sentence(string sentence){
+    string result = "";
+    int len = 0;
 
-bool isPrime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i * i <= n; i++)
-        if (n % i == 0)
-            return false;
-    return true;
-}
-
-string words_in_sentence(string sentence) {
-    vector<string> words;
-    string word;
-    istringstream iss(sentence);
-    while (getline(iss, word, ' '))
-        words.push_back(word);
-
-    string result;
-    for (const auto& word : words) {
-        if (isPrime(word.length())) {
-            result += word + " ";
+    for(int i = 0; i < sentence.length(); i++){
+        if(sentence[i] == ' '){
+            continue;
         }
+        bool is_prime = false;
+        for(int j = 2; j * j <= len + 1; j++){
+            if((len + 1) % j == 0){
+                is_prime = true;
+                break;
+            }
+        }
+        if(!is_prime || len == 0){
+            result += sentence.substr(i, len + 1) + " ";
+        }
+        len++;
     }
 
-    return result.substr(0, result.size() - 1);
+    return result;
 }
