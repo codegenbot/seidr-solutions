@@ -1,4 +1,3 @@
-```
 def separate_paren_groups(paren_string: str) -> list[str]:
     result = []
     temp = ""
