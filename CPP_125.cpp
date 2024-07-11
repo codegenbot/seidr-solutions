@@ -1,17 +1,4 @@
 #include <string>
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 vector<string> split_words(string txt){
     vector<string> result;
     string word = "";
@@ -40,8 +27,26 @@ vector<string> split_words(string txt){
     return result;
 }
 
-int main() {
-    vector<string> words = split_words("hello,world");
-    bool same = issame(words, words);
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main(){
+    string input = "hello,world";
+    vector<string> words = split_words(input);
+    vector<string> words_copy = split_words(input);
+    if(issame(words, words_copy)){
+        cout << "The vectors are the same." << endl;
+    } else {
+        cout << "The vectors are different." << endl;
+    }
     return 0;
 }
