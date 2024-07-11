@@ -1,4 +1,3 @@
-```
 def find_prime_numbers(n):
     prime_numbers = []
     for possiblePrime in range(2, n + 1):
@@ -11,5 +10,14 @@ def find_prime_numbers(n):
             prime_numbers.append(possiblePrime)
     return prime_numbers
 
-n = int(input("Enter an integer: "))
+while True:
+    try:
+        n = int(input("Enter a positive integer: "))
+        if n < 1:
+            print("Please enter a positive integer.")
+        else:
+            break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
 print(find_prime_numbers(n))
