@@ -1,6 +1,7 @@
 def add(x, y):
     return x + y
 
+
 while True:
     try:
         x = int(input("Enter first number: "))
