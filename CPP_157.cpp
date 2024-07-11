@@ -1,5 +1,5 @@
-```cpp
-#include <bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
 
 bool right_angle_triangle(float a, float b, float c) {
@@ -10,11 +10,11 @@ bool right_angle_triangle(float a, float b, float c) {
 }
 
 int main() {
-    float side1,side2,side3;
-    cout<<"Enter sides of triangle (in cm):"<<endl;
-    cin>>side1>>side2>>side3;
-    if(side1+side2>side3 && right_angle_triangle(side1,side2,side3)) 
-        cout<< "The given sides form a right-angled triangle." << endl;  
+    assert(right_angle_triangle(2, 2, 10) == false);
+    cout << "Input the lengths of three sides (a, b, c): ";
+    float a, b, c;
+    cin >> a >> b >> c;
+    if (right_angle_triangle(a, b, c))
+        cout << "The triangle is right-angled." << endl;
     else
-        cout << "The given sides do not form a right-angled triangle." << endl;
-}
+        cout << "The triangle is not right-angled." << endl;
