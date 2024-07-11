@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -8,10 +7,9 @@ int main() {
     int n, m;
     cin >> n >> m;
     double result = probability(n, m);
-    std::cout << std::fixed;
-    std::cout.setf(std::ios::floatfield, std::ios::floatfield);
-    std::cout << std::setprecision(2);
-    std::cout << result << std::endl;
+    std::cout << std::fixed; 
+    std::cout.setf(std::ios::floatfield, std::ios::fixed); 
+    std::cout << std::setprecision(2) << result << std::endl;
 }
 
 double probability(int n, int m) {
