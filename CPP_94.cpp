@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 
 bool isPrime(int n) {
@@ -27,6 +26,7 @@ int findMaxSum(vector<int> lst){
 
 int main() {
     assert(findMaxSum({127, 97, 8192}) == 10);
+    int result = findMaxSum({127, 97, 8192});
     cout << "Hello World!" << endl;
-    return findMaxSum({127, 97, 8192});
+    return result;
 }
