@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def get_values() -> List[int]:
@@ -5,10 +6,8 @@ def get_values() -> List[int]:
     while True:
         user_value = input("Enter a value (or 'stop' to finish): ")
         if user_value.lower() == 'stop':
+            print("Values entered, program will now return.")
             break
-        if user_value.strip() == '':
-            print("Please enter a valid integer.")
-            continue
         try:
             result.append(int(user_value))
         except ValueError:
