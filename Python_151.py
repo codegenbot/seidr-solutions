@@ -4,11 +4,10 @@ def double_the_difference(lst):
     else:
         return "Please enter exactly two numbers!"
 
-
 print("Enter elements separated by comma: ")
 user_input = input()
 try:
-    lst = [x for x in user_input.split(",") if x.strip()]
+    lst = [x for x in user_input.split(',') if x.strip()]
     if len(lst) == 2:
         print(double_the_difference(lst))
     else:
