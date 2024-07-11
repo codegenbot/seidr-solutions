@@ -1,7 +1,5 @@
-```cpp
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
 
 namespace MyNamespace {
     bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
@@ -22,4 +20,8 @@ namespace MyNamespace {
 
         return {{std::max(max_negative, 0), std::min(min_positive, 1)}};
     }
+}
+
+int main() {
+    assert(MyNamespace::isSame(MyNamespace::largest_smallest_integers({-6, -4, -4, -3, -100, 1}), {-3, 1}));
 }

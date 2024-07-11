@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,6 +6,8 @@ class stdVectorInt {
 public:
     stdVectorInt() {}
 };
+
+stdVectorInt obj;
 
 int main() {
     int n; 
@@ -17,7 +18,8 @@ int main() {
     
     std::sort(nums.begin(), nums.end());
     
-    if (nums == nums)
+    bool same = (nums == nums);
+    if (same)
         std::cout << "The sorted array is the same as the original one.\n";
     else
         std::cout << "The sorted array is different from the original one.\n";
@@ -31,8 +33,8 @@ int main() {
     return 0;
 }
 
-std::vector<int> order_by_points(std::vector<int>& nums) {
-    std::vector<int> pairs;
+std::vector<int> order_by_points(const std::vector<int>& nums) {
+    std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); ++i) {
         int sum = 0;
         int num = abs(nums[i]);
@@ -40,12 +42,16 @@ std::vector<int> order_by_points(std::vector<int>& nums) {
             sum += num % 10;
             num /= 10;
         }
-        pairs.push_back(std::make_pair(i, sum));
+        pairs.emplace_back(i, sum);
     }
     std::sort(pairs.begin(), pairs.end());
     std::vector<int> result;
     for (const auto& pair : pairs) {
-        result.push_back(nums[pair.first]);
+        result.push_back(nums[pair.second]);
     }
     return result;
+}
+
+bool issame(std::vector<int> v1, std::vector<int> v2) {
+    return v1 == v2;
 }
