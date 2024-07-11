@@ -1,12 +1,12 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
 
 bool issame(int a, int b) {
-    vector<string> by_length(vector<int> arr) {
+    vector<string> by_length(vector<int> numbers) {
         vector<int> numbers;
-        for (int num : arr) {
+        for (int num : numbers) {
             if (num >= 1 && num <= 9) {
                 numbers.push_back(num);
             }
@@ -53,21 +53,20 @@ bool issame(int a, int b) {
     }
 
 int main() {
-    int n, a, b; 
-    std::cout << "Enter the number of input sets: ";
-    std::cin >> n;
-
-    for(int i = 0; i < n; ++i) {
-        std::cout << "Enter numbers (1-9): ";
-        vector<int> arr;
-        while(true) {
-            std::cin >> a;
-            if(a >= 1 && a <= 9)
-                break;
-            std::cout << "Invalid input. Please enter numbers between 1 and 9: ";
-        }
-        
-        by_length(arr);
+    int n;
+    cin >> n;
+    
+    vector<int> arr(n);
+    
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
-    return 0; 
+    
+    vector<string> output = by_length(arr);
+    
+    for (const auto& str : output) {
+        cout << str << endl;
+    }
+    
+    return 0;
 }
