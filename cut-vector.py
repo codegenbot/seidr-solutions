@@ -16,13 +16,8 @@ for i in range(n):
         min_diff = diff
         cut_index = i
 
-if cut_index != -1:
-    subvector1 = nums[:cut_index + 1]
-    subvector2 = nums[cut_index + 1:]
+subvector1 = nums[:cut_index + 1] if cut_index != -1 else []
+subvector2 = nums[cut_index + 1:] if cut_index != -1 else []
 
-if cut_index != -1:
-    print(*subvector1)
-    print(*subvector2)
-else:
-    print(*nums)
-    print()
+print(*subvector1)
+print(*subvector2)
