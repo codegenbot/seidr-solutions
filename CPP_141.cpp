@@ -1,32 +1,34 @@
-int digitCount = 0;
-    int dotCount = 0;
-    string validExtensions[] = {"txt", "exe", "dll"};
-
+int digits_count = 0;
+    bool dot_found = false;
+    string before_dot = "";
+    string after_dot = "";
+    
     for (char c : file_name) {
         if (c >= '0' && c <= '9') {
-            digitCount++;
+            digits_count++;
         } else if (c == '.') {
-            dotCount++;
+            if (dot_found || before_dot.empty()) {
+                return "No";
+            }
+            dot_found = true;
+        } else if (dot_found) {
+            after_dot += c;
+        } else {
+            before_dot += c;
         }
     }
-
-    if (digitCount > 3 || dotCount != 1) {
+    
+    if (digits_count > 3 || !dot_found || before_dot.empty() || after_dot.empty()) {
         return "No";
     }
-
-    size_t dotPos = file_name.find('.');
-    string beforeDot = file_name.substr(0, dotPos);
-    string afterDot = file_name.substr(dotPos + 1);
-
-    if (beforeDot.empty() || !(beforeDot[0] >= 'a' && beforeDot[0] <= 'z') && !(beforeDot[0] >= 'A' && beforeDot[0] <= 'Z')) {
+    
+    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
         return "No";
     }
-
-    for (string ext : validExtensions) {
-        if (afterDot == ext) {
-            return "Yes";
-        }
+    
+    if ((before_dot[0] < 'a' || before_dot[0] > 'z') && (before_dot[0] < 'A' || before_dot[0] > 'Z')) {
+        return "No";
     }
-
-    return "No";
+    
+    return "Yes";
 }
