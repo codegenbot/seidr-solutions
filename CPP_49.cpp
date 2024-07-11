@@ -3,10 +3,10 @@ int modp(int n, int p) {
     int result = 1;
     n = n % p;
     while (n > 0) {
-        if (n % 2 == 1)
+        if (n % 2 == 1) {
             result = (result * n) % p;
-        n = n * n;
-        n = n % p;
+        }
+        n = (n * n) % p;
     }
     return result;
 }
