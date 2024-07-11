@@ -8,8 +8,10 @@ def encode(message):
                 index = ord(char.lower()) - 97
                 new_char = chr((index + 2) % 26 + 97)
             else:
-                new_char = chr((ord(char.lower()) - 96 + 1) % 26 + 96).upper() if char.isupper() else chr((ord(char.lower()) - 96 + 1) % 26 + 96)
+                new_char = char.swapcase()
             result += new_char
-        else:
+        elif not char.isalnum(): 
+            result += char
+        else: 
             result += char
     return result
