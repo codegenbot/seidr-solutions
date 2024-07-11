@@ -1,13 +1,23 @@
+```
 while True:
     while True:
         xs = input("Enter coefficients separated by spaces: ").split()
-        if len(xs) in (3, 4) and all(
+        if len(xs) in [3, 4] and all(
             x.replace(".", "", 1).replace("-", "", 1).isdigit() for x in xs
         ):
             break
         print(
             "Invalid input. Please enter exactly three or four coefficients, separated by spaces."
         )
+
+    a = float(xs[0])
+    b = float(xs[1])
+    c = float(xs[2])
+
+    if len(xs) == 4:
+        d = float(xs[3])
+    else:
+        d = 0
 
     import math
 
