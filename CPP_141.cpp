@@ -1,20 +1,18 @@
+```cpp
 int file_name_check(string file_name) {
     int digit_count = 0;
     bool found_dot = false;
     bool valid_prefix = true;
 
-    for (char c : file_name) {
-        if (isdigit(c)) {
+    for(int i = 0; i < file_name.length(); i++) {
+        if(isdigit(file_name[i])) {
             digit_count++;
-            if (digit_count > 3) {
-                valid_prefix = false;
-                break;
-            }
-        } else if (c == '.') {
+        }
+        else if(file_name[i] == '.') {
             found_dot = true;
-        } else if (!isalpha(c)) {
+        }
+        else if(i >= 1 && !isalpha(file_name[i-1]) && !isdigit(file_name[i-1])) {
             valid_prefix = false;
-            break;
         }
     }
 
