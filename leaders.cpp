@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-using namespace std;
-
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
@@ -13,13 +9,4 @@ vector<int> leaders(vector<int>& arr) {
             maxRight = arr[i]; // update maxRight
     }
     return result;
-}
-
-int main() {
-    vector<int> arr = {17, 22, 20, 10, 12};
-    vector<int> result = leaders(arr);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    return 0;
 }
