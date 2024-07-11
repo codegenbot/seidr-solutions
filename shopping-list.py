@@ -1,13 +1,12 @@
-def shopping_list():
-    n = int(input())
-    prices = list(map(float, input().split()))
-    discounts = list(map(float, input().split()))
+```
+n = int(input())
+prices_str, discounts_str = input().split(), input().split()
 
-    total_price = sum(
-        price * (1 - discount / 100) for price, discount in zip(prices, discounts)
-    )
+prices = list(map(float, prices_str))
+discounts = list(map(float, discounts_str))
 
-    return round(total_price, 1)
+total_price = sum(
+    price * (1 - discount / 100) for price, discount in zip(prices, discounts)
+)
 
-
-print(shopping_list())
+print(round(total_price, 1))
