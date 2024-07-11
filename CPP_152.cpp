@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -15,12 +14,13 @@ pair<int, int> compare(vector<int> a, vector<int> b) {
     else if (c.size() > d.size())
         return make_pair(0, 1);
     else
-        return make_pair(1, 1);
+        return make_pair((c[0] == d[0]) ? 1 : 0, 0);
 
 }
 
-int main(){
-vector<int> a = {1, 2, 3, 5};
-vector<int> b = {-1, 2, 3, 4};
-assert(compare(a, b) == make_pair(2, 0));
+int main() {
+    vector<int> a = {1, 2, 3, 5};
+    vector<int> b = {-1, 2, 3, 4};
+    assert(compare(a, b) == make_pair(2, 0));
+    return 0;
 }
