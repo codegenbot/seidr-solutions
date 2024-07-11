@@ -1,14 +1,18 @@
 def solve_boolean(expression):
+    operations = {"&": lambda a, b: a and b, "|": lambda a, b: a or b}
+
     if expression == "t":
         return True
     elif expression == "f":
         return False
 
-    while "&" in expression or "|" in expression:
-        for op in ["&", "|"]:
-            if op in expression and expression.count(op) > 1:
-                expressions = expression.split(op)
-                result = eval(" ".join(map(str, [bool(s) for s in expressions])))
-                expression = str(result)
+    for op in ["&", "|"]:
+        while op in expression:
+            result = operations[op](expression.replace(op, "True").count("t"), 
+                                     expression.count(op) - expression.replace(op, "True").count("t"))
+            expression = str(result)
+
+    if "&" in expression or "|" in expression:
+        return False
 
     return expression == "t"
