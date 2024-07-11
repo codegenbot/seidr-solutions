@@ -6,6 +6,8 @@ int gcd(int a, int b) {
     else return gcd(b, a % b);
 }
 
+using namespace std;
+
 vector<int> findIndices(string text, string target) {
     vector<int> indices;
     for (int i = 0; i <= text.length() - target.length(); i++) {
