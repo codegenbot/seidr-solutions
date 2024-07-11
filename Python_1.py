@@ -20,4 +20,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif open_count > 0:
             current_group += char
     
-    return [' '.join(group) for group in [group.split() for group in result]]
+    return [' '.join(group.split()) for group in result]
