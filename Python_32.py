@@ -1,7 +1,5 @@
-```
 def find_zero(xs):
-    if len(xs) != 2:
-        return "Error: xs must have exactly 2 coefficients"
+    xs = list(map(float, input("Enter coefficients: ").split()))
     if len(xs) % 2 != 0:
         return "Error: xs must have an even number of coefficients"
     max_coeff = max(abs(x) for x in xs)
