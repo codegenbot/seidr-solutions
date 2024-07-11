@@ -13,7 +13,7 @@ int main() {
     total_distance += start_height; // Add distance traveled in bouncing down for the first bounce
     for (int i = 0; i < num_bounces; ++i) {
         start_height *= bounciness_index; // Height after bouncing
-        total_distance += 2 * start_height; // Add distance traveled in bouncing up and down excluding the first bounce
+        total_distance += 2 * start_height; // Add distance traveled in bouncing up and down for each bounce
     }
 
     cout << total_distance << endl;
