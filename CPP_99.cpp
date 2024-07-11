@@ -1,3 +1,6 @@
-double num = stod(value);
-    return (num > 0) ? ceil(num) : floor(num);
+int closest_integer(string value){
+    double num = stod(value);
+    int lower = floor(num);
+    int upper = ceil(num);
+    return (abs(num - lower) < abs(num - upper)) ? lower : upper;
 }
