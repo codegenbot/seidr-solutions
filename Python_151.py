@@ -1,2 +1,4 @@
-def difference_double(lst1, lst2):
-    return (max(lst1) - min(lst1)) * 2
+def double_the_first_diff(lst):
+    first = min(lst)
+    second = max(lst)
+    return (second - first) ** 2
