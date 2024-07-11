@@ -1,12 +1,8 @@
-```
 #include <stack>
 #include <string>
 
 bool getBoolValue(char c) {
-    if (c == 'T')
-        return true;
-    else
-        return false;
+    return c == 'T';
 }
 
 std::string solveBoolean(std::string expression) {
@@ -46,4 +42,3 @@ std::string solveBoolean(std::string expression) {
     }
 
     return result;
-}
