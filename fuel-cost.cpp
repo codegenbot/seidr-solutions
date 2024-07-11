@@ -1,7 +1,7 @@
 #include <iostream>
-#include <vector>
+using namespace std;
 
-int totalFuelCost(std::vector<int> fuelCosts) {
+int totalFuelCost(vector<int> fuelCosts) {
     int sum = 0;
     for (int cost : fuelCosts) {
         int newCost = static_cast<int>(cost / 3.0);
@@ -11,9 +11,9 @@ int totalFuelCost(std::vector<int> fuelCosts) {
 }
 
 int main() {
-    std::vector<int> costs = {10, 20, 30};
+    vector<int> costs = {10, 20, 30};
     int result = totalFuelCost(costs);
-    std::cout << "Total fuel cost: " << result << std::endl;
+    cout << "Total fuel cost: " << result << endl;
 
     return 0;
 }
