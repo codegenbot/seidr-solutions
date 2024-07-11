@@ -6,10 +6,9 @@ int main() {
     std::string input;
     std::getline(std::cin, input);
     
-    bool capitalize = true;
-    for (size_t i = 0; i < input.size(); ++i) {
-        char c = input[i];
-        if (capitalize && std::islower(c) && i != 0) {
+    bool capitalize = false;
+    for (char &c : input) {
+        if (capitalize && std::islower(c)) {
             std::cout << (char)std::toupper(c);
             capitalize = false;
         } else if (c == '-' && !capitalize) {
