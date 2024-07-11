@@ -7,16 +7,20 @@ def valid_date(date):
         month = '0' + month
     try:
         int(year)
-        if not (1 <= int(month) <= 12):
+        if not (int(month) >= 1 and int(month) <= 12):
             return False
         if int(month) in [4,6,9,11]:
-            if 1 > int(day) or int(day) > 30:
+            if int(day) > 30 or int(day) < 1:
                 return False
         elif int(month) == 2:
-            if not ((int(year) % 4 == 0 and 1 < int(day) < 29) or (int(year) % 4 != 0 and 1 < int(day) < 28)):
-                return False
+            if int(year) % 4 != 0:
+                if int(day) > 28 or int(day) < 1:
+                    return False
+            else:
+                if int(day) > 29 or int(day) < 1:
+                    return False
         else:
-            if 1 > int(day) or int(day) > 31:
+            if int(day) > 31 or int(day) < 1:
                 return False
     except ValueError:
         return False
