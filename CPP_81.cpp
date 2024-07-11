@@ -1,3 +1,5 @@
+Here is the modified code:
+
 ```cpp
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -38,7 +40,7 @@ vector<string> numerical_letter_grade(vector<float> grades) {
         } else if (g > 0.0) {
             letter = "D-";
         } else {
-            letter = "E";
+            letter = "F";
         }
         result.push_back(letter);
     }
