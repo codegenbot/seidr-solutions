@@ -18,4 +18,6 @@ def parse_music(music_string: str) -> List[int]:
     if note:
         if note in music_notes:
             result.append(music_notes[note])
+        else:
+            result.append(1)
     return result
