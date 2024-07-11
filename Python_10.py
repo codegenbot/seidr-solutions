@@ -1,13 +1,14 @@
-```Python
+```
 def make_palindrome(s: str) -> str:
     s = list(s)
-    left, right = 0, len(s) - 1
-    
-    while right > left:
-        if s[left] != s[right]:
-            s.insert(0, s.pop(right))
+    i, j = 0, len(s) - 1
+    while i < j:
+        if s[i] != s[j]:
+            s.reverse()
+            t = s.pop(0)
+            s.insert(j, t)
+            j -= 1
         else:
-            left += 1
-            right -= 1
-            
+            i += 1
+            j -= 1
     return "".join(s)
