@@ -1,5 +1,5 @@
 ```cpp
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -9,9 +9,13 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a, b;
-    cout << "Enter two integers: ";
-    cin >> a >> b;
-    cout << "GCD is: " << gcd(a,b);
+    int a = 0; 
+    int b = 0; 
+    cout << "Enter first number: ";
+    cin >> a;
+    cout << "Enter second number: ";
+    cin >> b;
+    int result = gcd(a, b); 
+    cout << "GCD: " << result;
     return 0;
 }

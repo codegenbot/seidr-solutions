@@ -12,10 +12,4 @@ def solve(expression):
         return solve(left) or solve(right)
 
 expression = input()
-while 't' in expression.lower() or 'f' in expression.lower():
-    if 'T' in expression:
-        expression = expression.replace('T', '')
-    else:
-        expression = expression.replace('F', '')
-
 print("Result:", "True" if solve(expression) else "False")
