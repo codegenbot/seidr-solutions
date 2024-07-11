@@ -1,6 +1,6 @@
 #include <iostream>
-#include <list>
 #include <vector>
+#include <list>
 #include <boost/any.hpp>
 
 using namespace std;
@@ -8,18 +8,6 @@ using namespace std;
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> filter_integers(list<any> values);
-
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    return true;
-}
 
 vector<int> filter_integers(list<any> values){
     vector<int> result;
@@ -32,11 +20,11 @@ vector<int> filter_integers(list<any> values){
 }
 
 int main(int argc, char* argv[]){
-    list<any> values = {1, "hello", 2, 3.5, 4};
-    vector<int> filtered_integers = filter_integers(values);
+    list<any> values = {5, 3.14, "hello", 10, 7};
+    vector<int> filtered_values = filter_integers(values);
 
-    for(auto num : filtered_integers){
-        cout << num << " ";
+    for(auto val : filtered_values){
+        cout << val << " ";
     }
     cout << endl;
 
