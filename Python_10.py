@@ -4,10 +4,13 @@ def make_palindrome(s: str) -> str:
     
     result = list(s)
     
-    mid = len(result) // 2
-    
-    for i in range(len(result) - 1, mid - 1, -1):
-        if result[0] != result[i]:
-            result.insert(0, result.pop(i))
+    while len(result) > 0 and (result[0] != result[-1]):
+        for i in range(len(result)):
+            if result[i] == result[-1]:
+                result.insert(0, result.pop())
+                break
+        else:
+            result.append(result[0])
+            result.pop(0)
     
     return ''.join(result)
