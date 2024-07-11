@@ -11,5 +11,6 @@ vector<int> leaders(vector<int>& arr) {
         else 
             maxRight = arr[i];
     }
+    result.assign(result.rbegin(), result.rend());
     return result;
 }
