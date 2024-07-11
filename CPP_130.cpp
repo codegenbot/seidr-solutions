@@ -4,12 +4,8 @@
 
 using namespace std;
 
-bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1 == v2;
-}
-
-std::vector<int> tri(int n) {
-    std::vector<int> result;
+vector<int> tri(int n) {
+    vector<int> result;
     if (n >= 0) {
         result.push_back(3);
         if (n >= 1) {
@@ -32,6 +28,5 @@ std::vector<int> tri(int n) {
 
 int main() {
     assert(issame(tri(1), {3, 1}));
-
     return 0;
 }
