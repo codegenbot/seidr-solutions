@@ -5,7 +5,6 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
-    
     vector<float> prices(n);
     vector<float> discounts(n);
 
@@ -19,10 +18,10 @@ int main() {
 
     float total_price = 0.0;
     for (int i = 0; i < n; ++i) {
-        total_price += prices[i] * (1.0f - discounts[i] / 100.0f);
+        total_price += prices[i] * (1.0 - discounts[i] / 100.0);
     }
 
-    cout << fixed << total_price << "\n";
+    cout << total_price << "\n";
 
     return 0;
 }
