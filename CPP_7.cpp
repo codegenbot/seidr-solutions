@@ -14,7 +14,7 @@ int main() {
     for (const auto& word : filtered_words) {
         std::cout << word << std::endl;
     }
-    
+
     return 0;
 }
 
