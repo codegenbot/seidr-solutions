@@ -1,15 +1,17 @@
 ```
 def words_in_sentence(sentence):
-    prime_words = []
-    for word in sentence.split():
-        if is_prime(len(word)):
-            prime_words.append(word)
+    prime_words = [word for word in sentence.split() if is_prime(len(word))]
     return ' '.join(prime_words)
 
 def is_prime(n):
-    if n < 2:
+    if n <= 1:
         return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    max_divisor = int(n**0.5) + 1
+    for d in range(3, max_divisor, 2):
+        if n % d == 0:
             return False
     return True
