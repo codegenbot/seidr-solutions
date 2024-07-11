@@ -12,6 +12,6 @@ def solve_boolean(expression):
                 result = solve_boolean(left) or solve_boolean(right)
             else:
                 result = solve_boolean(left) and solve_boolean(right)
-            if not result:  
+            if not result:  # short-circuit
                 break
         return result
