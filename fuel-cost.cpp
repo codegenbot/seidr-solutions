@@ -11,12 +11,13 @@ int main() {
     while (iss >> num) {
         nums.push_back(num);
     }
-
-    int result = 0;
+    
+    int sum = 0;
     for (int num : nums) {
-        result += (num / 3) - 2;
+        sum += (num / 3) - 2;
     }
-    std::cout << result << std::endl;
-
+    
+    std::cout << sum << std::endl;
+    
     return 0;
 }
