@@ -9,7 +9,7 @@ vector<int> findIndices(string text, string target) {
     int start = 0;
     while ((start = text.find(target, start)) != string::npos) {
         indices.push_back(start);
-        start += target.length(); // increment by the length of the target for overlapping targets
+        start += 1; // increment by 1 for overlapping targets
     }
     return indices;
 }
