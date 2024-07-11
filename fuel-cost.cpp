@@ -3,18 +3,18 @@
 #include <algorithm>
 
 int main() {
-    std::vector<int> numbers;
+    vector<int> numbers;
     int n;
-    while (std::cin >> n) {
+    while (cin >> n) {
         numbers.push_back(n);
     }
     
     int sum = 0;
     for (int num : numbers) {
-        sum += std::max(num / 3 - 2, 0);
+        sum += max(num / 3 - 2, 0);
     }
     
-    std::cout << sum << std::endl;
+    cout << sum << endl;
     
     return 0;
 }
