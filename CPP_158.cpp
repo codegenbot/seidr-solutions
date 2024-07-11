@@ -1,7 +1,8 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
+#include <set>
+#include <vector>
 
 std::string find_max(std::vector<std::string> words) {
     std::string result = "";
@@ -20,7 +21,7 @@ std::string find_max(std::vector<std::string> words) {
 }
 
 int main() {
-    std::vector<std::string> words({"hello", "world"});  
+    std::vector<std::string> words = {"play", "play", "play"};
     std::cout << find_max(words) << std::endl;
     return 0;
 }
