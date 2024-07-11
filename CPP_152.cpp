@@ -1,9 +1,13 @@
-#include <iostream>
+```cpp
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    if(a.size()!=b.size()) return false;
+    for(int i=0; i<a.size();i++){
+        if(a[i]!=b[i])return false;
+    }
+    return true;
 }
 
 vector<int> compare(vector<int> game, vector<int> guess) {
@@ -12,7 +16,7 @@ vector<int> compare(vector<int> game, vector<int> guess) {
         if (game[i] == guess[i]) {
             result.push_back(0);
         } else {
-            result.push_back(abs(game[i] - guess[i]));
+            result.push_back(abs(guess[i] - game[i]));
         }
     }
     return result;
@@ -20,5 +24,5 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 
 int main() {
     assert(issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
-    return 0;
+    
 }
