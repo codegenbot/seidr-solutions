@@ -1,8 +1,11 @@
 """
-Given a list of integers, find the difference between the sum of squares of all positive even numbers and the sum of squares of all positive odd numbers.
+Given a list of integers, find the difference between the maximum value and the minimum value. 
+Return this difference multiplied by 2.
 """
-
 def double_the_difference(lst):
-    even_sum = sum(i**2 for i in lst if isinstance(i, int) and i % 2 == 0)
-    odd_sum = sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
-    return (even_sum - odd_sum) * 2
+    if not all(isinstance(i, int) for i in lst):
+        return "Invalid input: The list must contain only integers."
+    elif len(lst) == 0:
+        return "Invalid input: The list cannot be empty."
+    else:
+        return 2 * (max(lst) - min(lst))
