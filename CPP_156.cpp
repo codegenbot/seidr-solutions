@@ -1,4 +1,5 @@
 #include <string>
+using namespace std;
 
 string int_to_mini_romank(int number){
     string roman[] = {"i", "iv", "v", "ix", "x", "xl", "l", "xc", "c", "cd", "d", "cm", "m"};
@@ -17,11 +18,4 @@ string int_to_mini_romank(int number){
     }
     
     return result;
-}
-
-int main() {
-    int number;
-    std::cin >> number;
-    std::cout << int_to_mini_romank(number) << std::endl;
-    return 0;
 }
