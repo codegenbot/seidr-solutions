@@ -8,7 +8,7 @@ bool monotonic(const std::vector<int> &l) {
             increasing = false;
         }
         if (l[i] > l[i - 1]) {
-            decreasing = false; 
+            decreasing = false;
         }
     }
     return increasing || decreasing;
