@@ -1,8 +1,6 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cctype>
 
 std::string camelCase(const std::string& s) {
     std::string result;
@@ -10,15 +8,13 @@ std::string camelCase(const std::string& s) {
 
     for (char c : s) {
         if (c == '-') {
+            result += char(toupper(c + 1));
+            first = true;
+        } else if (c == ' ') {
             if (!first) {
-                result += char(toupper(c));
+                result += char(toupper(c + 1));
             }
             first = false;
-        } else if (std::isspace(c)) {
-            if (!first) {
-                result += char(toupper(c));
-            }
-            first = true;
         } else {
             if (first) {
                 result += tolower(c);
