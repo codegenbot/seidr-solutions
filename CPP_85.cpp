@@ -1,4 +1,5 @@
 #include <vector>
+#include <cassert>
 
 int add(std::vector<int> lst){
     int sum = 0;
@@ -12,6 +13,5 @@ int add(std::vector<int> lst){
 
 int main() {
     assert(add({4, 4, 6, 8}) == 12);
-    // Add more test cases if needed
     return 0;
 }
