@@ -1,11 +1,10 @@
-int calculateFuelCost(vector<int> numbers) {
+#include <vector>
+
+int totalFuelCost(vector<int> fuelCosts) {
     int sum = 0;
-    for (int number : numbers) {
-        int result = (number / 3) - 2;
-        if (result < 0) {
-            result = 0;
-        }
-        sum += result;
+    for (int cost : fuelCosts) {
+        int newCost = static_cast<int>(floor((double)cost / 3)) - 2;
+        sum += newCost;
     }
     return sum;
 }
