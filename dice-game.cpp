@@ -7,9 +7,8 @@ int main() {
 
     double probability = 0.0;
     for (int i = 1; i <= n; ++i) {
-        probability += i * 1.0 / n * ((m-1) * 1.0 / m);
+        probability += ((i - 1.0) / n) * (m * 1.0 / m);
     }
-    probability += n * 1.0 / m * (m * 1.0 / (n * m));
 
     std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
 
