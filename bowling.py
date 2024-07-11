@@ -1,25 +1,38 @@
-def get_strike_bonus(bowls, index):
-    score = 10
-    if bowls[index + 1] == "X":
-        score += 10
-        if bowls[index + 2] == "X":
+def calculate_bowling_score(bowls):
+    score = 0
+    index = 0
+    for _ in range(10):
+        if bowls[index] == "X":
+            bonus, index = get_strike_bonus(bowls, index)
+            score += bonus
+        elif bowls[index + 1] == "/":
             score += 10
-            if bowls[index + 3] != "X":
-                score += int(bowls[index + 3])
-        elif bowls[index + 2] == "/":
-            score += 10
-        else:
-            score += int(bowls[index + 2])
+            score += get_spare_bonus(bowls, index + 2)
+            index += 2
+        elif bowls[index] != "-":
+            score += int(bowls[index]) + int(bowls[index + 1])
+            index += 2
 
-        index += 1  # Increment index to move to the next frame
-    elif bowls[index + 1] == "/":
-        score += 10 - int(bowls[index])
+    return score
 
+
+def get_spare_bonus(bowls, index):
+    if bowls[index] == "X":
+        return 10
+    elif bowls[index] == "-":
+        return 0
     else:
-        score += int(bowls[index + 1])
-        if bowls[index + 2] != "-":
-            score += int(bowls[index + 2])
+        return int(bowls[index])
 
-    index += 2  # Move to the next frame irrespective of the previous conditions
 
-    return score, index
+def get_strike_bonus(bowls, index):
+    bonus = 10
+    if bowls[index + 1] == "X":
+        bonus += 10
+        if bowls[index + 2] == "X":
+            bonus += 10
+        else:
+            bonus += int(bowls[index + 2])
+    else:
+        bonus += int(bowls[index + 1]) + int(bowls[index + 2])
+    return bonus, index + 1
