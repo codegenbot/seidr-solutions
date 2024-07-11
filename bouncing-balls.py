@@ -1,18 +1,10 @@
 input_str = input()
-inputs = input_str.split()
+starting_height = float(input_str)
 
-if len(inputs) >= 3:
-    starting_height = float(inputs[0])
-    first_bounce_height = float(inputs[1])
-    num_bounces = int(inputs[2])
+first_bounce_height = 0.6 * starting_height
+num_bounces = 11
 
-    bounciness_index = first_bounce_height / starting_height
-    total_distance = (
-        starting_height
-        + first_bounce_height
-        + 2 * first_bounce_height * (1 + bounciness_index) ** num_bounces
-    )
+bounciness_index = first_bounce_height / starting_height
+total_distance = starting_height + first_bounce_height + 2 * first_bounce_height * (1 + bounciness_index) ** num_bounces
 
-    print(total_distance)
-else:
-    print("Please provide all three values.")
+print(total_distance)
