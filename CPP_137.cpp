@@ -21,8 +21,7 @@ std::any compare_one(const std::any& a, const std::any& b) {
             sscanf(std::any_cast<std::string>(b).c_str(), "%f", &num2) == 1) {
             if (num1 > num2) {
                 return a;
-            } else if (num1 < num2)
-            {
+            } else if (num1 < num2) {
                 return b;
             }
         }
