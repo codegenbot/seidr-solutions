@@ -1,11 +1,23 @@
-vector<string> reverse_delete(string s, string c){
-    string result = "";
-    for(char ch : s){
-        if(c.find(ch) == string::npos){
+#include <string>
+#include <vector>
+#include <algorithm>
+
+std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
+    std::string result = "";
+    for (char ch : s) {
+        if (c.find(ch) == std::string::npos) {
             result += ch;
         }
     }
-    string rev_result = result;
-    reverse(rev_result.begin(), rev_result.end());
-    return {result, (result == rev_result) ? "True" : "False"};
+    std::string result_reverse = result;
+    std::reverse(result_reverse.begin(), result_reverse.end());
+    return {result, result == result_reverse ? "True" : "False"};
+}
+
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b){
+    return a == b;
+}
+
+int main() {
+    assert (issame(reverse_delete("mamma", "mia") , {"", "True"}));
 }
