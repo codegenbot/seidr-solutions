@@ -1,11 +1,12 @@
+```
 def find_pair(n, nums):
     seen = set()
     for num in nums:
-        target = n - num
-        if target in seen:
-            return f"{num} {target}"
+        complement = n - num
+        if complement in seen:
+            return f"{num} {complement}"
         seen.add(num)
-    return "No pair found"
+    return f"{n} not found"
 
 n = int(input())
 print(find_pair(n, [int(x) for x in input().split()]))
