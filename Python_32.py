@@ -1,6 +1,5 @@
-Here is the solution:
-
 def find_zero(xs: list):
-    a = xs[0]
-    b = 0 if len(xs) < 2 else xs[1]
-    return -b / (2*a) if a != 0 else None
+    n = len(xs)
+    assert n % 2 == 0, "Number of coefficients must be even"
+    leading_coeff = abs(max(xs))
+    return -leading_coeff
