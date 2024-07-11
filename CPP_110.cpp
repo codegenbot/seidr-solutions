@@ -1,10 +1,17 @@
-Here's the completed code:
+bool hasOdd(vector<int> v) {
+    for (int num : v) {
+        if (num % 2 != 0)
+            return true;
+    }
+    return false;
+}
 
 string exchange(vector<int> lst1, vector<int> lst2) {
-    for (int num : lst1) {
-        if (num % 2 != 0 && !any_of(lst2.begin(), lst2.end(), [num](int x) { return x == num; })) {
-            return "NO";
-        }
-    }
-    return "YES";
+    vector<int> lst1_copy(lst1);
+    sort(lst1_copy.begin(), lst1_copy.end());
+    
+    if (!hasOdd(lst1_copy))
+        return "YES";
+    else
+        return "NO";
 }
