@@ -1,4 +1,5 @@
-def quadratic_equation(a=None, b=None, c=None, d=None):
+```
+def quadratic_equation():
     while True:
         print("Enter coefficients (a b c [d]): ")
         try:
