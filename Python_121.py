@@ -1,5 +1,9 @@
 ```
 while True:
+    user_input = input("Enter a list of numbers separated by space, or 'q' to quit: ")
+    if user_input.lower() in ["q", "quit", "exit"]:
+        print("Goodbye!")
+        exit()
     try:
         lst = input("Enter a list of numbers separated by space: ")
         if len(lst.split()) > 0 and all(num.isdigit() for num in lst.split()):
