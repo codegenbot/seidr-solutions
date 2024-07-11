@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -30,7 +29,10 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
     return result;
 }
 
-int main() {
-    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    assert(issame(sorted_list_sum(lst), {"ccc", "dd", "aaaa", "bbbb"}));
+bool issame(vector<string> a, vector<string> b) {
+    for (int i = 0; i < a.size() && i < b.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return a.size() == b.size();
 }
