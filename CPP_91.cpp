@@ -1,30 +1,15 @@
-#include <iostream>
-#include <string>
-
-int is_bored(std::string S) {
+int is_bored(string S){
     int count = 0;
-    bool is_boredom = false;
+    bool isBored = false;
     
     for (int i = 0; i < S.length(); ++i) {
         if (S[i] == 'I' && (i == 0 || S[i - 1] == '.' || S[i - 1] == '?' || S[i - 1] == '!')) {
-            is_boredom = true;
-        }
-        
-        if ((S[i] == '.' || S[i] == '?' || S[i] == '!') && is_boredom) {
+            isBored = true;
+        } else if ((S[i] == '.' || S[i] == '?' || S[i] == '!') && isBored) {
             count++;
-            is_boredom = false;
+            isBored = false;
         }
     }
     
     return count;
-}
-
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-    
-    int result = is_bored(input);
-    std::cout << result << std::endl;
-    
-    return 0;
 }

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <bitset>
+#include <cassert>
 
 std::string solve(int N) {
     int sum = 0;
@@ -8,7 +9,7 @@ std::string solve(int N) {
         sum += N % 2;
         N /= 2;
     }
-    return bitset<32>(sum).to_string().substr(32 - sum);
+    return std::bitset<8>(sum).to_string().substr(4);
 }
 
 int main() {
