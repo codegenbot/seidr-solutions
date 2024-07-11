@@ -1,4 +1,6 @@
-```
+Here is the solution to the problem:
+
+```python
 import re
 def fix_spaces():
     text = input("Enter some text: ")
