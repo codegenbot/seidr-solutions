@@ -1,16 +1,16 @@
+bool hasOdd(int x) {
+    return (x & 1);
+}
+
 string exchange(vector<int> lst1, vector<int> lst2) {
-    int evenCount = 0;
-    for (int num : lst1) {
-        if (num % 2 == 0) {
-            evenCount++;
+    int oddCount = 0;
+    for (int i : lst1) {
+        if (hasOdd(i)) {
+            oddCount++;
         }
     }
-    for (int num : lst1) {
-        if (num % 2 != 0 && evenCount > 0) {
-            return "YES";
-        } else if (num % 2 != 0 && evenCount == 0) {
-            return "NO";
-        }
-    }
-    return "YES";
+    if (oddCount == 0)
+        return "YES";
+    else
+        return "NO";
 }
