@@ -8,7 +8,7 @@ std::string middleCharacter(const std::string& s) {
 }
 
 int main() {
-    const std::string input;
+    std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     std::cout << "Middle character(s): " << middleCharacter(input) << std::endl;
