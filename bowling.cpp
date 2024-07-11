@@ -8,28 +8,24 @@ int bowlingScore(string s) {
 
     for (char c : s) {
         if (c == 'X') { // strike
-            score += 10 + 10;
+            score += 10 + 10 + 10;
             currentRolls = 2;
         } else if (c == '/') { // spare
-            score += 10 - ('0' - c);
+            int nextChar = s.find('/');
+            int bonus = (nextChar != string::npos) ? 10 - (nextChar > 0 ? s[nextChar - '0'] : 0) : 10;
+            score += 10 + bonus;
             currentRolls = 2;
         } else { // normal roll
             int roll = c - '0';
+            if (currentRolls == 1 && s[s.length() - 2] == '/') {
+                score += roll + 10 - '0' - '0';
+                break;
+            }
             score += roll;
             currentRolls++;
-            if (currentFrame < 9 && currentRolls == 2) {
-                string nextTwoChars = s.substr(currentFrame * 3, 2);
-                if (nextTwoChars == "X" || nextTwoChars == "/") {
-                    if (nextTwoChars == "X")
-                        score += 10;
-                    else
-                        score += 10 - ('0' - nextTwoChars[1]);
-                }
+            if (currentRolls == 2) {
+                currentFrame++;
             }
-        }
-
-        if (currentRolls == 2) {
-            currentFrame++;
         }
 
         if (currentFrame > 9) {
