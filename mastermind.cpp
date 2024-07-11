@@ -34,5 +34,4 @@ int blackPegs(std::string code, std::string guess) {
         }
     }
     return count;
-
 }
