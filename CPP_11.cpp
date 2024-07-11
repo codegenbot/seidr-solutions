@@ -11,13 +11,10 @@ string string_xor(string a, string b) {
         }
     }
     return result;
+
 }
 
 int main() {
-    string a, b;
-    cout << "Enter first binary string: ";
-    cin >> a;
-    cout << "Enter second binary string: ";
-    cin >> b;
-    string_xor(a, b);
+    assert(string_xor("0101", "0000") == "0101");
+    return 0;
 }
