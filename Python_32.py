@@ -1,5 +1,4 @@
-```
-def find_zero(xs: list):
+def find_zero(xs):
     if len(xs) % 2 != 0:
         return None
     max_coeff = max([abs(coeff) for coeff in xs])
@@ -12,8 +11,3 @@ def find_zero(xs: list):
         idx = xs.index(max_coeff)
         p = poly(xs, -max_coeff / xs[idx])
     return round(p, 2)
-
-if __name__ == "__main__":
-    xs = [1.0, 3.0, 5.0]
-    result = find_zero(xs)
-    print(result)
