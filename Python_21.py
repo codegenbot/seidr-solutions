@@ -1,3 +1,3 @@
-from statistics import fmin, fmax
+```python
 def rescale_to_unit(numbers: List[float]) -> List[float]:
-    return [(num - fmin(numbers)) / (fmax(numbers) - fmin(numbers)) for num in numbers]
+    return [(x - min(numbers)) / (max(numbers) - min(numbers)) for x in numbers]
