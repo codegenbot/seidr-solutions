@@ -1,4 +1,4 @@
-Here is the completed code:
+Here is the solution:
 
 def find_zero(xs: list):
     if len(xs) % 2 != 0:
