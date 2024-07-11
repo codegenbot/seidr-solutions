@@ -12,13 +12,18 @@ while True:
             continue
 
         nums = [int(i) for i in user_input.split()]
+
+        if not all(num.isdigit() for num in user_input.split()):
+            print("Invalid input. Please enter numbers separated by spaces or 'q' to quit.")
+            continue
+
         stat_type = input("Do you want to calculate mean or median? (type 'mean' or 'median'): ").lower()
 
         if stat_type not in ["mean", "median"]:
             print("Invalid input. Please enter 'mean' or 'median'.")
             continue
 
-        if len(nums) > 0 and all(num.isdigit() for num in user_input.split()):
+        if len(nums) > 0:
             if stat_type == "mean":
                 print(f"Mean: {sum(nums)/len(nums)}")
             elif stat_type == "median":
@@ -35,8 +40,4 @@ while True:
             print("Invalid input. Please enter a correct number or 'q' to quit.")
 
     except Exception as e:
-    else:
-        if not nums:
-            print("Please enter a number or 'q' to quit.")
-        elif not all(num.isdigit() for num in user_input.split()):
-            print("Invalid input. Please enter a correct number or 'q' to quit.")
+        print(f"Error: {e}")
