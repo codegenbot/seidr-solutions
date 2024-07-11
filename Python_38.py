@@ -1,4 +1,3 @@
-```
 def decode_cyclic(s):
     cyclic_map = {
         "abc": "1",
