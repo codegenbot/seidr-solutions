@@ -1,10 +1,10 @@
-```
+```cpp
 #include <vector>
 #include <map>
 #include <cassert>
 using namespace std;
 
-bool isSame(vector<int> a, vector<int> b) {
+bool same(vector<int> a, vector<int> b) {
     return a == b;
 }
 
