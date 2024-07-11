@@ -1,7 +1,19 @@
-def snow_day(hours, snow_on_ground, snow_fall_rate, snow_melt_rate):
-    snow = snow_on_ground
-    for _ in range(hours):
-        snow = round(snow + snow_fall_rate - snow * snow_melt_rate, 15)
-    return snow
+from decimal import Decimal
 
-# remaining code stays the same
+def snow_day(hours, snow_on_ground, snow_fall_rate, snow_melt_rate):
+    snow = Decimal(str(snow_on_ground))
+    snow_fall_rate = Decimal(str(snow_fall_rate))
+    snow_melt_rate = Decimal(str(snow_melt_rate))
+    
+    for _ in range(hours):
+        snow = snow + snow_fall_rate - snow * snow_melt_rate
+    
+    return round(float(snow), 10)
+
+hours = int(input())
+snow_on_ground = float(input())
+snow_fall_rate = float(input())
+snow_melt_rate = float(input())
+
+result = snow_day(hours, snow_on_ground, snow_fall_rate, snow_melt_rate)
+print(result)
