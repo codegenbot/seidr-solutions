@@ -1,10 +1,4 @@
 ```
 def sort_third(l: list):
-    return [
-        (
-            x
-            if i % 3 != 0
-            else sorted([y for y, j in enumerate(l) if (j - i) % 3 != 0])[::-1][0]
-        )
-        for i, x in enumerate(l)
-    ]
+    sorted_threes = [i for i in l if i % 3 == 0]
+    return [i if i % 3 != 0 else min(sorted_threes) for i in l]
