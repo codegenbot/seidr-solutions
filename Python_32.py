@@ -1,6 +1,4 @@
-Here's the corrected code:
-
-```python
+```
 import math
 
 def find_zero(xs):
