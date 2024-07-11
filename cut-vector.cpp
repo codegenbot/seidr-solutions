@@ -1,12 +1,13 @@
 ```c++
-#include <iostream>
+#include <iostream> 
 #include <vector>
 #include <limits>
+
 using namespace std;
 
 pair<vector<int>, vector<int>> cutVector(vector<int> v) {
     int n = v.size();
-    int min_diff = numeric_limits<int>::max();
+    int min_diff = INT_MAX;
     int cut_index = -1;
     for (int i = 0; i < n; i++) {
         int left_sum = 0, right_sum = 0;
