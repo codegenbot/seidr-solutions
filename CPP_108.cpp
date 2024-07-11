@@ -1,25 +1,39 @@
 #include <vector>
+#include <assert.h>
 
-int count_nums(vector<int> n) {
+int count_nums(std::vector<int> nums) {
     int count = 0;
-    for (int num : n) {
-        if (num > 0) {
+    for (int num : nums) {
+        bool has_positive_sum_of_digits = false;
+        if (num >= 0) {
             int sum = 0;
-            bool negative = false;
-            while (num != 0) {
-                int digit = abs(num) % 10;
-                if (digit != 0 || !negative) {
-                    sum += digit;
-                }
+            while (num > 0) {
+                int digit = num % 10;
+                sum += digit;
                 num /= 10;
-                if (num < 0) {
-                    negative = true;
+            }
+            has_positive_sum_of_digits = sum > 0;
+        } else {
+            int sum = 0, sign = -1;
+            while (num < 0) {
+                int digit = (num % 10) * sign;
+                if (digit < 0) {
+                    sign = -sign;
+                    digit = -digit;
                 }
+                sum += digit;
+                num /= 10;
             }
-            if (sum > 0) {
-                count++;
-            }
+            has_positive_sum_of_digits = sum > 0;
+        }
+        if (has_positive_sum_of_digits) {
+            count++;
         }
     }
     return count;
+}
+
+int main() {
+    assert(count_nums({1}) == 1);
+    return 0;
 }
