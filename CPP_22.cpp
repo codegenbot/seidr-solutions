@@ -27,7 +27,7 @@ vector<int> filter_integers(list<any> values) {
 }
 
 int main() {
-    list<any> values = {3, any('c'), 3, 3, any('a'), any('b')};
+    list<any> values = {3, 'c', 3, 3, 'a', 'b'};
     vector<int> filtered_values = filter_integers(values);
     assert(issame(filtered_values, {3, 3, 3}));
     return 0;
