@@ -8,17 +8,8 @@ using namespace std;
 
 vector<string> select_words(string s, int n);
 
-int main() {
-    string input;
-    int n;
-    getline(cin, input);
-    cin >> n;
-
-    vector<string> result = select_words(input, n);
-
-    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
-
-    return 0;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> select_words(string s, int n) {
