@@ -19,14 +19,14 @@ int gcd(int a, int b) {
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
     std::vector<int> indices;
-    size_t pos = 0;
     size_t targetLen = target.length();
-
-    while ((pos = text.find(target, pos)) != std::string::npos) {
-        indices.push_back(pos);
-        pos += 1; // Update to consider overlapping occurrences
+    
+    for (size_t i = 0; i <= text.length() - targetLen; ++i) {
+        if (text.substr(i, targetLen) == target) {
+            indices.push_back(i);
+        }
     }
-
+    
     return indices;
 }
 
