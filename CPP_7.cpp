@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -10,17 +9,10 @@ bool issame(vector<string> a, vector<string> b){
     return true;
 }
 
-vector<vector<string>> filter_by_substring(vector<vector<string>> strings, string substring){
-    vector<vector<string>> result;
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
     for (const auto& s : strings) {
-        bool same = false;
-        for(const auto& sub_s : s) {
-            if(sub_s.find(substring) != string::npos) {
-                same = true;
-                break;
-            }
-        }
-        if(same){
+        if (s.find(substring) != string::npos) {
             result.push_back(s);
         }
     }
