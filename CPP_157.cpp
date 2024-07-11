@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <cassert>
 
@@ -11,11 +10,11 @@ bool right_angle_triangle(float a, float b, float c) {
 
 int main() {
     assert(right_angle_triangle(2, 2, 10) == false);
-    std::cout << "Input the lengths of three sides (a, b, c): ";
-    float a, b, c;
-    std::cin >> a >> b >> c;
-    if (right_angle_triangle(a, b, c))
-        std::cout << "The triangle is right-angled." << std::endl;
+    float side1, side2, side3;
+    std::cout << "Enter the three sides of triangle (a, b, c): ";
+    std::cin >> side1 >> side2 >> side3;
+    if (right_angle_triangle(side1, side2, side3))
+        std::cout << "Right-angled triangle." << std::endl;
     else
-        std::cout << "The triangle is not right-angled." << std::endl;
+        std::cout << "Not a right-angled triangle." << std::endl;
 }
