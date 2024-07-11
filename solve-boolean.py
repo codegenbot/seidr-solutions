@@ -3,12 +3,11 @@ def solve_boolean(expression):
         return True
     elif expression == 'F':
         return False
-    elif '&' in expression and '|' in expression:
-        raise ValueError("Invalid expression")
+    elif '&' in expression:
+        left, right = expression.split('&')
+        return solve_boolean(left) and solve_boolean(right)
+    elif '|' in expression:
+        left, right = expression.split('|')
+        return solve_boolean(left) or solve_boolean(right)
     else:
-        try:
-            result = eval('True' + expression.replace('&', '^').replace('|', '|'))
-            return result
-        except Exception as e:
-            print(f"Error: {str(e)}")
-            return None
+        raise ValueError("Invalid expression")
