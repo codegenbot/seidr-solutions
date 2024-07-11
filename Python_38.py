@@ -6,7 +6,7 @@ def decode_cyclic(s: str):
         temp += char
         if len(temp) == 3:
             if temp[1] == "(" and temp[2] == ")":
-                if not result or result[-1] != " ":
+                if result != "":
                     result += " "
                 result += temp[:1]
             elif temp[0] == temp[2]:
