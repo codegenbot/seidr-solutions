@@ -1,8 +1,7 @@
 from collections import Counter
 
 def search():
-    user_input = input("Enter a list of numbers separated by space: ")
-    lst = [int(x) for x in user_input.split()]
+    lst = list(map(int, input("Enter numbers separated by space: ").split()))
     counter = Counter(lst)
     most_common = counter.most_common(1)[0]
     if most_common[1] > 1:
