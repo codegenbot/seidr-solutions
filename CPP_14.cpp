@@ -1,15 +1,13 @@
-#include <iostream>
 #include <vector>
-#include <string>
-#include <cassert>
+using namespace std;
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b){
-    return a == b;
+bool issame(string s1, string s2){
+    return s1 == s2;
 }
 
-std::vector<std::string> all_prefixes(std::string str){
-    std::vector<std::string> result;
-    std::string prefix = "";
+vector<string> all_prefixes(string str){
+    vector<string> result;
+    string prefix = "";
     
     for (char c : str) {
         prefix += c;
@@ -17,10 +15,4 @@ std::vector<std::string> all_prefixes(std::string str){
     }
     
     return result;
-}
-
-int main(){
-    assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
-    
-    return 0;
 }
