@@ -1,5 +1,8 @@
+import re
+
+
 def fix_spaces(text):
-    text = "".join(
-        char if char.isalnum() else "_" for char in text.strip().replace(" ", "_")
-    ).lower()
+    pattern = r"\s+"
+    replacement = "_"
+    text = re.sub(pattern, replacement, text)
     return text
