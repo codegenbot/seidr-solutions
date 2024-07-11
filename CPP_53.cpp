@@ -12,7 +12,7 @@ int main() {
     int randomNum = rand() % 1000; 
 
     std::stringstream ss;
-    ss << "Random Number: " << randomNum << endl;
+    ss << "Random Number: " << std::to_string(randomNum) << endl;
     cout << ss.str() << endl; 
 
     int num1, num2;
