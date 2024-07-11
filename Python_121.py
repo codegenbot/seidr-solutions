@@ -1,6 +1,8 @@
 ```
 def solution(lst):
-    return sum(i for i in lst[1::2] if i % 2 != 0)
+    odd_sum = sum(i for i in lst[1::2] if i % 2 != 0)
+    even_avg = sum(i for i in lst[::2]) / len([i for i in lst[::2]])
+    return f"Sum of odd numbers: {odd_sum}\nAverage of even numbers: {even_avg}"
 
 if __name__ == "__main__":
     user_input = input("Enter space-separated integers: ")
