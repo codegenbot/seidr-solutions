@@ -1,3 +1,6 @@
+Here is the corrected code:
+
+```
 def encode(message):
     result = ""
     prev_alnum = False
@@ -14,9 +17,11 @@ def encode(message):
             else:
                 result += char
             prev_alnum = True
-        else:
-            if not char.isalnum(): 
-                result += '#'
-            result += str(char)
+        elif not char.isalnum() and not char.isspace():  
+            result += char
+            prev_alnum = False
+        else:  
+            if prev_alnum:
+                result += ' '
             prev_alnum = False
     return result
