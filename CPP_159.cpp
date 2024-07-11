@@ -1,3 +1,4 @@
+
 #include <cassert>
 
 std::pair<int, int> eat(int number, int need, int remaining) {
