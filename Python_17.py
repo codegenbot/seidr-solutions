@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def parse_music(music_string: str) -> List[int]:
@@ -5,10 +6,12 @@ def parse_music(music_string: str) -> List[int]:
     result = []
     i = 0
     while i < len(music_string):
-        if music_string[i] == '.':
+        if music_string[i:i+3] == '...':
+            i += 6
+            result.append(4)
+        elif music_string[i:i+3] in note_lengths:
+            result.append(note_lengths[music_string[i:i+3][1:]])
             i += 3
         else:
             i += 2
-        if music_string[i-1:i+1] in note_lengths:
-            result.append(note_lengths[music_string[i-1:i+1][0]])
     return result
