@@ -7,60 +7,42 @@ using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    string word = "";
-    
-    for (char c : txt) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
+    size_t pos = 0, prev_pos = 0;
+
+    while ((pos = txt.find(' ', prev_pos)) != string::npos) {
+        result.push_back(txt.substr(prev_pos, pos - prev_pos));
+        prev_pos = pos + 1;
+    }
+
+    if (prev_pos < txt.length()) {
+        if (txt.find(',', prev_pos) == string::npos) {
+            int count = 0;
+            for (char c : txt.substr(prev_pos)) {
+                if ((int)c >= (int)'a' && (int)c <= (int)'z') {
+                    if (count++ % 2 != 0)
+                        break;
+                }
             }
-        } else if (c == ',') {
-            if (!word.empty()) {
-                result.push_back(word);
-                word = "";
-            }
+            result.push_back(to_string(count));
         } else {
-            word += c;
+            size_t pos = txt.find(',', prev_pos);
+            result.push_back(txt.substr(prev_pos, pos - prev_pos));
+            prev_pos = pos + 1;
         }
     }
-    
-    if (!word.empty()) {
-        result.push_back(word);
-    } else {
-        int count = 0;
-        for (char c = 'a'; c <= 'z'; ++c) {
-            if (txt.find(c) != string::npos) {
-                count++;
-            }
-        }
-        result.push_back(to_string(count));
-    }
-    
+
     return result;
 }
 
 int main() {
-    // Test the function
-    string txt1 = "Hello world!";
-    string txt2 = "Hello,world!";
-    string txt3 = "abcdef";
-    
-    vector<string> result1 = split_words(txt1);
-    vector<string> result2 = split_words(txt2);
-    vector<string> result3 = split_words(txt3);
-    
-    for (string s : result1) {
-        cout << s << endl;
+    string txt;
+    cout << "Enter a string: ";
+    getline(cin, txt);
+
+    vector<string> result = split_words(txt);
+    for (string str : result) {
+        cout << str << endl;
     }
-    cout << endl;
-    for (string s : result2) {
-        cout << s << endl;
-    }
-    cout << endl;
-    for (string s : result3) {
-        cout << s << endl;
-    }
-    
+
     return 0;
 }
