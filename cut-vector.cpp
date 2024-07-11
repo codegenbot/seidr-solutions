@@ -15,7 +15,7 @@ int main() {
     for (int i = 0; i < n - 1; ++i) {
         int leftSum = 0, rightSum = 0;
         for (int j = 0; j < n; ++j) {
-            if (j < i) {
+            if (j <= i) {
                 leftSum += nums[j];
             } else {
                 rightSum += nums[j];
