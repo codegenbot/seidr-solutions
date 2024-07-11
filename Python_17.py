@@ -1,4 +1,4 @@
-```
+```Python
 def parse_music(music_string: str) -> list[int]:
     notes = {'o': 4, 'o|': 2, '.|': 1}
     result = []
