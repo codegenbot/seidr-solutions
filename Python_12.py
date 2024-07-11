@@ -6,7 +6,6 @@ def longest(strings: list) -> Optional[str]:
         return None
     return max(strings, key=len)
 
-
 strings = []
 for i in range(int(input("How many strings do you want to enter? "))):
     s = input("Enter a string (or 'stop' to finish): ")
