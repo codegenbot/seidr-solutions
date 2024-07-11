@@ -1,6 +1,6 @@
+```
 from typing import List
 import math
-
 
 def main():
     while True:
@@ -9,14 +9,23 @@ def main():
             break
         except ValueError:
             print("Invalid input! Please enter an integer.")
-    for num in range(2, n + 1):
-        is_prime = True
-        for divisor in range(2, math.isqrt(num) + 1):
-            if num % divisor == 0:
-                is_prime = False
-                break
-        if is_prime:
-            print(num)
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            factors.append(i ** count)
+    if n > 1:
+        factors.append(n)
+    return factors
 
-
-main()
+while True:
+    print(main())
+    response = input("Do you want to calculate another number? (yes/no): ")
+    if response.lower() != 'yes':
+        break
