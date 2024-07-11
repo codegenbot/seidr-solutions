@@ -1,25 +1,30 @@
-#include <iostream>
-#include <vector>
-#include <string>
+Here is the modified code:
 
-std::vector<int> findIndices(std::string text, std::string target) {
-    std::vector<int> indices;
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
     int start = 0;
-    while ((start = text.find(target, start)) != std::string::npos) {
+    while ((start = text.find(target, start)) != string::npos) {
         indices.push_back(start);
-        start += target.size(); // increment by the size of target for overlapping targets
+        start += 1; // increment by 1 for overlapping targets
     }
     return indices;
 }
 
 int main() {
-    std::string text;
-    std::cin >> text;
-    std::string target;
-    std::cin >> target;
-    std::vector<int> result = findIndices(text, target);
+    string text;
+    cin >> text;
+
+    string target;
+    cin >> target;
+    
+    vector<int> result = findIndices(text, target);
     for (int i : result) {
-        std::cout << i << std::endl;
+        cout << i << endl;
     }
     return 0;
-}
