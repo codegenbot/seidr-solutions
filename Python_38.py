@@ -1,19 +1,2 @@
-Here is the completed code:
-
-def decode_cyclic(s: str):
-    result = ""
-    temp = ""
-    for char in s:
-        temp += char
-        if len(temp) == 3:
-            if len(result) > 0 and result[-1] == temp[0]:
-                result += temp[1]
-            else:
-                result += temp
-            temp = ""
-    if len(temp) > 0:
-        if len(result) > 0 and result[-1] == temp[0]:
-            result += temp[1]
-        else:
-            result += temp
-    return result
+n = (len(s) + 2) // 3
+groups = [s[(3 * i) : min((3 * i + 3), len(s))] for i in range(n)] + ['']*(3-n)
