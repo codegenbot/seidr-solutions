@@ -1,13 +1,11 @@
-```cpp
 #include <string>
 #include <iostream>
-#include <cctype>
 
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    std::string word;
+    string word = "";
 
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
@@ -16,7 +14,6 @@ string spinWords(string str) {
                 for (int j = word.length() - 1; j >= 0; j--)
                     revWord += word[j];
                 result += revWord + " ";
-                word = "";
             } else
                 result += word + " ";
             word = "";
@@ -38,8 +35,12 @@ string spinWords(string str) {
 
 int main() {
     string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    cout << spinWords(str) << endl;
+    while(true) {
+        cout << "Enter a sentence (or 'stop' to exit): ";
+        getline(cin, str);
+        if(str == "stop")
+            break;
+        cout << spinWords(str) << endl;
+    }
     return 0;
 }
