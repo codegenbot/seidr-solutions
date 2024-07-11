@@ -1,20 +1,16 @@
-bool check(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (c == '(') {
-            count++;
-        } else if (c == ')') {
-            if (count <= 0) return false;
-            count--;
+string match_parens(vector<string> lst){
+    int open = 0;
+    int close = 0;
+
+    for(int i = 0; i < lst[0].size(); i++){
+        if(lst[0][i] == '(') open++;
+        else if(lst[0][i] == ')') close++;
+
+        if(i < lst[1].size()){
+            if(lst[1][i] == '(') close++;
+            else if(lst[1][i] == ')') open--;
         }
     }
-    return count == 0;
-}
 
-string match_parens(vector<string> lst) {
-    string first = lst[0];
-    string second = lst[1];
-    if (check(first + second)) return "Yes";
-    if (check(second + first)) return "Yes";
-    return "No";
+    return (open == 0 && close == 0) ? "Yes" : "No";
 }
