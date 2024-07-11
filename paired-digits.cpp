@@ -1,3 +1,5 @@
+#include <string>
+
 int main() {
     std::string s = "123212";
     int sum = pairedDigits(s);  
