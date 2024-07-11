@@ -1,2 +1,2 @@
-result = [num for num in numbers if num > threshold]
-print(result)
+count = sum(1 for num in numbers if num > threshold)
+print(count)
