@@ -1,6 +1,9 @@
+import math
+
+
 def max_fill(grid, capacity):
     total_water = sum(
-        sum(min(row[i], capacity) for row in grid) for i in range(len(grid[0]))
+        cell * grid_size for grid_size, row in enumerate(grid) for cell in row
     )
     buckets_needed = math.ceil(total_water / float(capacity))
     return buckets_needed
