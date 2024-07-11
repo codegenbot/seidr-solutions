@@ -1,11 +1,10 @@
-```
 import re
 
 def fix_spaces(text):
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
 
-print("""Welcome to the space fixing program!""")
+print("Welcome to the space fixing program!")
 
 text = ""
 while True:
