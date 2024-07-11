@@ -11,16 +11,10 @@ int bowlingScore(string s) {
             score += 10 + 10 + 10;
             currentRolls = 2;
         } else if (c == '/') { // spare
-            int nextChar = s.find('/');
-            int bonus = (nextChar != string::npos) ? 10 - (nextChar > 0 ? s[nextChar - '0'] : 0) : 10;
-            score += 10 + bonus;
+            score += 10 - ('0' - c);
             currentRolls = 2;
         } else { // normal roll
             int roll = c - '0';
-            if (currentRolls == 1 && s[s.length() - 2] == '/') {
-                score += roll + 10 - '0' - '0';
-                break;
-            }
             score += roll;
             currentRolls++;
             if (currentRolls == 2) {
