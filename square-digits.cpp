@@ -1,7 +1,10 @@
-int main() {
-    std::string output = squareDigits("493193"); 
-    return 0;
+#include <string>
+#include <iostream>
 
+int main() {
+    std::string input = "123"; 
+    std::cout << squareDigits(input) << std::endl;
+    return 0;
 }
 
 std::string squareDigits(std::string input) {
