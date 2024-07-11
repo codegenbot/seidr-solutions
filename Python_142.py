@@ -13,5 +13,4 @@ def sum_squares(lst):
         else:
             total += num**2
     return total
-
 check(sum_squares)
