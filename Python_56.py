@@ -1,4 +1,16 @@
 ```
+def correct_bracketing(expression):
+    stack = []
+    for char in expression:
+        if char == '(':
+            stack.append(char)
+        elif char == ')':
+            if len(stack) == 0:
+                return False
+            else:
+                stack.pop()
+    return len(stack) == 0
+
 while True:
     try:
         expression = input("Enter an expression (or 'done' if finished): ")

@@ -1,3 +1,4 @@
+```
 def solve(binary):
     while True:
         try:
@@ -9,6 +10,6 @@ def solve(binary):
         except ValueError:
             print(f"Invalid input! Please enter a valid {'binary' if binary else 'decimal'}")
 
-    print(str(N))
+    print(N)
 
 solve(True)
