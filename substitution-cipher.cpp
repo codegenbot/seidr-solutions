@@ -17,9 +17,9 @@ int main() {
             if (idx != string::npos) {
                 c = cipher1[idx];
             } else {
-                if (cipher1.find(c) == string::npos && cipher2.find(c) == string::npos) {
-                    // Handle characters not found in either cipher
-                    // Leave them unchanged in the output
+                // Handle characters not found in either cipher
+                if (!isalnum(c)) {
+                    continue;  // Leave non-alphanumeric characters unchanged
                 }
             }
         }
@@ -28,4 +28,4 @@ int main() {
     cout << message << endl;
 
     return 0;
-}  
+}
