@@ -1,14 +1,14 @@
+```
 def rolling_max(input_str: str) -> list[int]:
-    input_str = "".join(filter(str.isdigit, str(input_str)))
+    input_str = "".join(filter(str.isdigit, input_str))
 
     numbers = []
     for num in input_str.split():
-        if not num:
-            return [] 
-        try:
-            numbers.append(int(num))
-        except ValueError:
-            return [] 
+        if len(num) == 0:
+            continue
+        if not num.isdigit():
+            return [0]
+        numbers.append(int(num))
 
     if len(numbers) <= 1:
         return [0]
