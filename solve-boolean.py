@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     if expression == "T":
         return True
@@ -6,8 +7,8 @@ def solve_boolean(expression):
     elif "&" in expression:
         left, right = expression.split("&")
         return solve_boolean(left) and solve_boolean(right)
-    else:  
+    else:  # '|'
         left, right = expression.split("|", 1)
         if "(" in left or ")" in right:
-            return solve_boolean("(" + expression + ")")  
+            return solve_boolean("(" + expression + ")")  # wrap in parentheses
         return solve_boolean(left) or solve_boolean(right)
