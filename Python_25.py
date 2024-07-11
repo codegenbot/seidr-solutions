@@ -1,5 +1,5 @@
-import sys
 from typing import List
+
 
 def factorize(n: int) -> List[int]:
     factors = []
@@ -12,8 +12,9 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
-if len(sys.argv) != 2:
-    print("Usage: python script_name.py number")
-else:
-    n = int(sys.argv[1])
+
+try:
+    n = int(input().strip())
     print(factorize(n))
+except ValueError:
+    print("Invalid input. Please enter an integer value.")
