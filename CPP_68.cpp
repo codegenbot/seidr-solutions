@@ -1,13 +1,22 @@
+Here is the completed code:
+
 vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> nodes;
+    vector<pair<int, int>> result;
     for (int i = 0; i < arr.size(); i++) {
         if (arr[i] % 2 == 0) {
-            nodes.push_back({arr[i], i});
+            bool found = false;
+            for (auto it = result.begin(); it != result.end(); it++) {
+                if (it->first <= arr[i]) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                result.push_back({arr[i], i});
+            }
         }
     }
-    if (nodes.empty()) {
-        return {};
-    }
-    sort(nodes.begin(), nodes.end());
-    return {{nodes[0].first, nodes[0].second}};
+    if (result.empty()) return {};
+    sort(result.begin(), result.end());
+    return {{result[0].first, result[0].second}};
 }
