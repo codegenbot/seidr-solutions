@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -20,9 +20,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
     }
     
-    sort(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end());
     
-    reverse(numbers.begin(), numbers.end());
+    std::reverse(numbers.begin(), numbers.end());
     
     std::vector<std::string> result;
     for (int num : numbers) {
@@ -71,15 +71,14 @@ int main() {
         cin>>arr[i];
     }
 
-    std::cout<<"The numbers are : "<<endl;
+    std::cout<<"The numbers are : "<<std::endl;
     for(int i = 0; i <n; i++) {
         std::cout<<arr[i]<<" ";
-    }
-    std::cout<<std::endl;
+    }std::cout<<std::endl;
 
     std::vector<std::string> res = by_length(arr);
     std::cout << "Output: ";
-    for (std::string s : res) {
+    for (const auto& s : res) {
         std::cout << s << " ";
     }
     return 0;
