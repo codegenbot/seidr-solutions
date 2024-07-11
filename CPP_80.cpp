@@ -9,3 +9,8 @@ bool is_happy(const string& s) {
     
     return true;
 }
+
+int main() {
+    assert(is_happy("iopaxioi") == false);
+    return 0;
+}
