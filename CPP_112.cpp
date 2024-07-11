@@ -3,6 +3,12 @@
 #include <algorithm>
 #include <cassert>
 
+vector<string> reverse_delete(string s, string c);
+
+bool issame(vector<string> a, const vector<string>& b){
+    return a == b;
+}
+
 vector<string> reverse_delete(string s, string c){
     string result = "";
     for(char ch : s){
@@ -13,8 +19,4 @@ vector<string> reverse_delete(string s, string c){
     string rev_result = result;
     reverse(rev_result.begin(), rev_result.end());
     return {result, (result == rev_result) ? "True" : "False"};
-}
-
-bool issame(vector<string> a, const vector<string>& b){
-    // Your implementation here
 }
