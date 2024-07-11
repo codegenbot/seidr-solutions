@@ -1,6 +1,10 @@
-```
 def decode_cyclic():
-    s = input("Enter the cyclic string: ")
+    while True:
+        s = input("Enter the cyclic string: ")
+        if len(set(s)) > 1: 
+            break
+        else:
+            print("Invalid input. Please enter a string with more than one unique character.")
     result = ""
     i = 0
     if len(s) <= 1:
