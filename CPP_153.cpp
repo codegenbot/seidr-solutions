@@ -16,9 +16,7 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
             strongest = strength;
             result = extension;
         } else if (strength == strongest) {
-            if (extension < result) {
-                result = extension;
-            }
+            result = min(result, extension);
         }
     }
     return class_name + "." + result;
