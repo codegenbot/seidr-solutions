@@ -1,4 +1,6 @@
-```c
+#include <vector>
+#include <string>
+
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
@@ -20,37 +22,24 @@ vector<string> filter_by_substring(vector<string> arr, string sub) {
     return result;
 
 int main() {
-    int numSets;
-    cin >> numSets;
+    vector<string> inputArr, outputArr;
+    cout << "Enter the size of the array: ";
+    int n; cin >> n;
     
-    vector<vector<string>> sets(numSets);
-    
-    for (int i = 0; i < numSets; i++) {
-        int numStrings;
-        cin >> numStrings;
-        
-        sets[i].resize(numStrings);
-        
-        for (int j = 0; j < numStrings; j++) {
-            cin >> sets[i][j];
-        }
+    for(int i=0; i<n; i++) {
+        string str; cin >> str;
+        inputArr.push_back(str);
     }
     
-    string subStr;
-    cin >> subStr;
+    cout << "Enter the substring to filter: ";
+    string sub; cin >> sub;
     
-    vector<string> result;
+    outputArr = filter_by_substring(inputArr, sub);
     
-    for (auto s : sets[0]) {
-        if (issame(vector<string>(sets.begin(), sets.end()), s)) {
-            result.push_back(s);
-        }
-    }
-    
-    cout << "The result is:" << endl;
-    for (int i = 0; i < result.size(); i++) {
-        cout << result[i] << endl;
-    }
+    if(issame(inputArr, outputArr))
+        cout << "Filtering result is same as original array.\n";
+    else
+        cout << "The filtered array is different from the original array.\n";
     
     return 0;
 }
