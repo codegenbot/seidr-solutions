@@ -3,13 +3,18 @@ def solve_boolean(expression):
         return True
     elif expression == "F":
         return False
-    elif "&" in expression:
-        left, right = expression.split("&")
-        return (solve_boolean(left), solve_boolean(right))[0]
-    elif "|" in expression:
-        left, right = expression.split("|")
-        return (
-            (solve_boolean(left), solve_boolean(right))[1]
-            if (solve_boolean(left) and solve_boolean(right))
-            else True
-        )
+    elif "&" in expression and "|" in expression:
+        raise Exception("Invalid Expression")
+    else:
+        stack = []
+        for char in expression[::-1]:
+            if char in ["&", "|"]:
+                b = stack.pop()
+                a = stack.pop()
+                if char == "&":
+                    stack.append(a and b)
+                elif char == "|":
+                    stack.append(a or b)
+            else:
+                stack.append(char == "T")
+        return stack[0]
