@@ -1,8 +1,9 @@
-```
 from typing import List
+
 
 def remove_duplicates():
     numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-    return sorted(set(numbers))
+    print(sorted(set(numbers)))
 
-print(remove_duplicates())
+
+remove_duplicates()
