@@ -8,7 +8,7 @@ def main():
             n = int(input("Enter a number: "))
             break
         except ValueError:
-            print("Invalid input. Please enter an integer.")
+            print("Invalid input! Please enter an integer.")
     factors = []
     i = 2
     while i * i <= n:
@@ -20,7 +20,6 @@ def main():
                 n //= i
                 count += 1
             factors.append(i ** count)
-            i = 2  
     if n > 1:
         factors.append(n)
     return factors
