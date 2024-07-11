@@ -1,3 +1,6 @@
+#include <string>
+#include <vector>
+
 std::string find_max(std::vector<std::string> words) {
     std::string result = "";
     int max_unique_chars = 0;
@@ -16,4 +19,10 @@ std::string find_max(std::vector<std::string> words) {
     }
 
     return result;
+}
+
+int main() {
+    std::vector<std::string> words = {"play", "play", "play"};
+    std::cout << find_max(words) << std::endl;
+    return 0;
 }
