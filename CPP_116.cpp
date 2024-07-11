@@ -1,10 +1,10 @@
 sort(arr.begin(), arr.end(), [](int a, int b) {
-    int countA = __builtin_popcount(a);
-    int countB = __builtin_popcount(b);
-    if (countA == countB) {
+    int num_ones_a = __builtin_popcount(a);
+    int num_ones_b = __builtin_popcount(b);
+    if (num_ones_a == num_ones_b) {
         return a < b;
     }
-    return countA < countB;
+    return num_ones_a < num_ones_b;
 });
-
 return arr;
+}
