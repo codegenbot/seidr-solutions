@@ -1,35 +1,33 @@
-Here is the completed code:
+string file_name_check(string file_name){
+    int digit_count = 0;
+    bool found_dot = false;
 
-```cpp
-bool hasDigit = false;
-int dotCount = 0;
+    for(int i=0; i<file_name.size(); i++){
+        if(isdigit(file_name[i])){
+            digit_count++;
+        }else if(file_name[i] == '.'){
+            found_dot = true;
+        } else {
+            if(!found_dot){
+                return "No";
+            }
+        }
+    }
 
-for (char c : file_name) {
-    if (isdigit(c)) {
-        if (!hasDigit) {
-            hasDigit = true;
-        }
-        if (hasDigit && ++dotCount > 3) {
-            return "No";
-        }
-    } else if (c == '.') {
-        dotCount++;
-    } else if (c == ' ' || c < 'A' || c > 'Z' || c < 'a' || c > 'z') {
+    if(digit_count > 3 || !found_dot) return "No";
+
+    size_t dot_pos = file_name.find('.');
+    string ext = file_name.substr(dot_pos + 1);
+
+    vector<string> valid_exts = {"txt", "exe", "dll"};
+
+    for(string s : valid_exts){
+        if(ext == s) break;
+    }
+
+    if(find(valid_exts.begin(), valid_exts.end(), ext) != valid_exts.end()){
+        return "Yes";
+    }else{
         return "No";
     }
 }
-
-if (dotCount != 1) {
-    return "No";
-}
-
-size_t pos = file_name.find('.');
-string beforeDot = file_name.substr(0, pos);
-string afterDot = file_name.substr(pos + 1);
-
-vector<string> validExtensions = {"txt", "exe", "dll"};
-if (find(validExtensions.begin(), validExtensions.end(), afterDot) == validExtensions.end()) {
-    return "No";
-}
-
-return "Yes";
