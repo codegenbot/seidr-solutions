@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -6,7 +6,7 @@
 using namespace std;
 
 string spinWords(string str) {
-    string result = " ";
+    string result = "";
     int i = 0;
     while (i <= str.length()) {
         if (str[i] == ' ') {
@@ -29,7 +29,7 @@ string spinWords(string str) {
         }
         i = j + 1;
     }
-    return result.substr(1);
+    return result;
 }
 
 int main() {
