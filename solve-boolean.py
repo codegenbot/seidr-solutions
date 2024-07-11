@@ -8,7 +8,9 @@ def solve_boolean(expression):
         if char == "T" or char == "F":
             stack.append(bool(char == "T"))
         elif char in operations:
-            while len(stack) >= 2 and (stack[-1] != "&" or precedence[stack.pop()] >= precedence[char]):
+            while len(stack) >= 2 and (
+                stack[-1] != "&" or precedence[stack.pop()] >= precedence[char]
+            ):
                 pass
             stack.append(operations[char](stack.pop(), stack.pop()))
 
