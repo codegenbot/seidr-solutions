@@ -13,7 +13,6 @@ vector<string> by_length(vector<int> arr){
     }
 
     sort(sorted_arr.begin(), sorted_arr.end());
-
     reverse(sorted_arr.begin(), sorted_arr.end());
 
     for (int num : sorted_arr) {
