@@ -1,8 +1,14 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
-int issame(const std::vector<int>& a, const std::vector<int>& b) {
+namespace std {
+    bool operator==(const vector<int>& a, const vector<int>& b) {
+        return a == b;
+    }
+}
+
+int issame(const vector<int>& a, const vector<int>& b) {
     if(a == b)
         return 0;
     else
