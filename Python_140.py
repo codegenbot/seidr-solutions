@@ -1,3 +1,4 @@
+```
 import re
 
 def fix_spaces(text):
@@ -12,4 +13,5 @@ while True:
     if line.lower() == 'q':
         break
     text += line + " "
+text = text.strip().replace("   ", " ").strip()
 print(fix_spaces(text))
