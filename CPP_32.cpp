@@ -11,9 +11,7 @@ double poly(std::vector<double> xs, double x){
 }
 
 double find_zero(std::vector<double> xs){
-    double a = xs[0];
-    double b = xs[1];
-    return -a / b;
+    return -xs[0] / xs[1];
 }
 
 int main(){
