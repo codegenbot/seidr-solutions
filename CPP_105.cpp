@@ -1,10 +1,7 @@
 #include <string>
 
-vector<string> issame(int a, int b) {
-    return a == b ? vector<string>{"Same"} : vector<string>{"Different"};
-}
-
-vector<string> by_length(vector<int> arr) {
+vector<string> issame(vector<string> arr);
+vector<string> by_length(vector<int> arr){
     vector<int> filtered;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
