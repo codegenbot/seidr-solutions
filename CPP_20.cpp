@@ -1,5 +1,4 @@
-#include <vector>
-#include <limits>
+#include <initializer_list>
 
 std::vector<float> find_closest_elements(std::vector<float> numbers) {
     if (numbers.size() <= 1) {
@@ -33,10 +32,8 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 int main() {
-    std::vector<float> vec = {1.1, 2.2, 3.1, 4.1, 5.1};
-    std::vector<float> result = find_closest_elements(vec);
-    if (!issame(result, std::vector<float>({2.2, 3.1}))) {
+    std::vector<float> result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
+    if (!issame(result, {2.2, 3.1})) {
         return 1;
     }
     return 0;
-}
