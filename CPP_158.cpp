@@ -4,18 +4,21 @@
 #include <set>
 
 std::string find_max(std::vector<std::string> words) {
+    std::set<std::string> word_set(words.begin(), words.end());
+    std::vector<std::string> unique_words(word_set.begin(), word_set.end());
+
     std::string result = "";
     int max_unique_chars = 0;
 
-    for (const auto& word : words) {
-        std::set<char> charSet;
+    for (const auto& word : unique_words) {
+        std::set<char> unique_chars;
         for (char c : word) {
-            charSet.insert(c);
+            unique_chars.insert(c);
         }
-        if (charSet.size() > max_unique_chars) {
-            max_unique_chars = charSet.size();
+        if (unique_chars.size() > max_unique_chars) {
+            max_unique_chars = unique_chars.size();
             result = word;
-        } else if (charSet.size() == max_unique_chars && word.length() > result.length()) {
+        } else if (unique_chars.size() == max_unique_chars && word.length() > result.length()) {
             result = word;
         }
     }
