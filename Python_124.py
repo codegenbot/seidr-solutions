@@ -11,3 +11,15 @@ def valid_date(date):
        (month == 2 and day > 29):
         return False
     return True
+
+while True:
+    print("Enter date (yyyy-mm-dd):")
+    date = input()
+    if '-' in date:
+        break
+else:
+    print("Invalid date format! Please use 'yyyy-mm-dd'.")
+if valid_date(date):
+    print(f"The date {date} is valid.")
+else:
+    print(f"The date {date} is not valid.")
