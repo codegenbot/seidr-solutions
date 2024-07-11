@@ -1,38 +1,48 @@
-#include<stdio.h>
-#include<vector>
-#include<string>
-#include<algorithm>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
 using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
     size_t pos = 0, prev_pos = 0;
     
-    while ((pos = txt.find_first_of(" ,")) != string::npos) {
-        if (pos == 0) {
-            if (txt.find(',') == string::npos)
-                return {to_string(count_lowercase(txt))};
-            else
+    while (pos != string::npos) {
+        pos = txt.find(' ', prev_pos);
+        
+        if (pos == string::npos) {
+            pos = txt.find(',');
+            if (pos == string::npos)
                 break;
         }
+        
         result.push_back(txt.substr(prev_pos, pos - prev_pos));
         prev_pos = pos + 1;
     }
     
-    if (prev_pos < txt.size())
-        result.push_back(txt.substr(prev_pos));
+    if (result.empty()) {
+        int count = 0;
+        for (char c : txt) {
+            if ((int)c >= 97 && (int)c <= 122 && (count & 1)) {
+                result.push_back(to_string(count));
+                break;
+            }
+            count++;
+        }
+    }
     
     return result;
 }
 
-int count_lowercase(string s) {
-    int count = 0;
-    for (char c : s) {
-        if (islower(c)) {
-            count++;
-            if (count % 2 == 1)
-                break;
-        }
+int main() {
+    string txt;
+    cout << "Enter a string: ";
+    getline(cin, txt);
+    vector<string> result = split_words(txt);
+    for (string s : result) {
+        cout << s << endl;
     }
-    return count;
+    return 0;
 }
