@@ -6,17 +6,15 @@ def parse_music(music_string: str) -> List[int]:
     result = []
     note = ""
     for char in music_string:
-        if char == "o":
-            note += "o"
-        elif char == ".":
-            note += "."
+        if char.isalpha():
+            note += char
         else:
             if note:
-                if len(note) == 1:
-                    result.append(beats[0])
-                elif len(note) == 2:
-                    result.extend([beats[1]] * len(note))
+                if len(note) == 3 or (len(note) > 0 and not note[0].isalpha()):
+                    result.append(beats[2])
+                elif len(note) >= 1 and len(note) <= 2:
+                    result.append(beats[1] if len(note) == 1 else beats[0])
                 else:
-                    result.extend([beats[2]] * len(note))
+                    result.append(beats[0])
                 note = ""
     return result
