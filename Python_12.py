@@ -4,17 +4,19 @@ from typing import List, Optional
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
-    strings = []
-    for s in input_strings:
-        if isinstance(s, str):
-            strings.append(s)
-        else:
+    for s in strings:
+        if not isinstance(s, str):
             print(f"Invalid input '{s}' (not a string). Try again!")
-            print("Please enter a valid string: ")
-            input_strings.clear()
-            num_strings -= 1
+            return None
     return max(strings, key=len) if strings else None
 
 num_strings = int(input("Enter the number of strings: "))
-input_strings = [input("Please enter a string: ") for _ in range(num_strings)]
+input_strings = []
+for _ in range(num_strings):
+    s = input("Please enter a string: ")
+    while not isinstance(s, str):
+        print(f"Invalid input '{s}' (not a string). Try again!")
+        print("Please enter a valid string: ")
+        s = input("Please enter a string: ")
+    input_strings.append(s)
 print(longest(input_strings))
