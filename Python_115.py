@@ -1,6 +1,10 @@
 def max_water(n, m):
-    row_values = list(map(int, input(f"Enter {n} row values separated by space: ").split()))
-    column_values = list(map(int, input(f"Enter {m} column values separated by space: ").split()))
+    row_values = list(
+        map(int, input(f"Enter {n} row values separated by space: ").split())
+    )
+    column_values = list(
+        map(int, input(f"Enter {m} column values separated by space: ").split())
+    )
 
     grid = [[0] * (m) for _ in range(n)]
 
