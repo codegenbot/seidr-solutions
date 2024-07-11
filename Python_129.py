@@ -1,4 +1,4 @@
-def minPath(m, k):
+def minPath(k):
     k = int(input("Enter the value of k: "))
     
     n = int(input("Enter the size of the grid: "))
