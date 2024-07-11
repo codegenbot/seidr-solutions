@@ -2,7 +2,7 @@ int count = 0;
 for (char bracket : brackets) {
     if (bracket == '(') {
         count++;
-    } else if (bracket == ')') {
+    } else {
         count--;
     }
     if (count < 0) {
