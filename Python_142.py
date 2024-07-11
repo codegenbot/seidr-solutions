@@ -1,4 +1,3 @@
-```
 def sum_squares(lst):
     total_sum = 0
     has_negative = False
@@ -6,7 +5,7 @@ def sum_squares(lst):
         if num <= 0:
             has_negative = True
             break
-        elif (num > 0 and (num ** 0.5 == int(num ** 0.5))):
+        if num > 0 and (num ** 0.5 == int(num ** 0.5)):
             total_sum += num ** 2
         else:
             total_sum += num
