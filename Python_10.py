@@ -5,6 +5,7 @@ def make_palindrome(s: str) -> str:
         if s[i] != s[j]:
             t = s.pop(j)
             s.insert(0, t)
+            j -= 1
         else:
             i += 1
             j -= 1
