@@ -10,6 +10,7 @@ long long double_the_difference(std::vector<float> lst){
         }
     }
     return sum;
+
 }
 
 int main() {
