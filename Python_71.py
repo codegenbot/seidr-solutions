@@ -1,11 +1,10 @@
-def user_input():
-    a = float(input("Enter side A: "))
-    b = float(input("Enter side B: "))
-    c = float(input("Enter side C: "))
+def triangle_area():
+    a = int(input("Enter side A: "))
+    b = int(input("Enter side B: "))
+    c = int(input("Enter side C: "))
 
     if a + b > c and a + c > b and b + c > a:
         s = (a + b + c) / 2
-        area = round((s * (s - a) * (s - b) * (s - c)) ** 0.5, 2)
-        return f"The area of the triangle is {area}"
+        return round((s * (s - a) * (s - b) * (s - c)) ** 0.5, 2)
     else:
-        return "Not a valid triangle"
+        return -1
