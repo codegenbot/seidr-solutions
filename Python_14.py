@@ -1,3 +1,6 @@
+from typing import List
+
+
 def all_prefixes():
     s = input("Please enter a string: ")
     prefixes = []
@@ -5,4 +8,4 @@ def all_prefixes():
         prefixes.append(s[:i])
     return prefixes
 
-print(all_prefixes())
+print(all_prefixs())
