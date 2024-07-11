@@ -15,8 +15,9 @@ string flip_case(string str){
 
 int main(){
     string input;
-    cin >> input;
-    assert(flip_case(input) == "hELLO wORLD");
-
+    getline(cin, input);
+    string result = flip_case(input);
+    assert(result == "tEST sTRING");
+    
     return 0;
 }
