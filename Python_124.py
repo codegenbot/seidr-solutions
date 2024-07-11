@@ -1,19 +1,16 @@
+```Python
 def valid_date(date):
-    day, month, year = map(int, date.split("-"))
-
-    if not all(isinstance(x, int) for x in (day, month, year)):
-        return "Invalid input"
-
-    if month < 1 or month > 12:
+    year, month, day = map(int, date.split("-"))
+    
+    if not (1 <= year <= 9999) or not (1 <= month <= 12) or not (1 <= day <= 31):
         return False
-    elif day < 1 or day > 31:
-        return False
-    elif (month in [1, 3, 5, 7, 8, 10, 12] and day > 31) or (
-        month in [4, 6, 9, 11] and day > 30
-    ):
-        return False
-    else:
-        return True
+    
+    if [4, 6, 9, 11].__contains__(month):
+        return day <= 30
+    elif month == 2:
+        return year % 4 == 0 and day in [20, 21, 22, 23, 24, 25, 26, 27, 28, 29] or day <= 27
+    
+    return True
 
 
 def main():
