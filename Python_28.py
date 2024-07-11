@@ -1,7 +1,5 @@
 ```
-def concatenate(strings: List[str]) -> str:
-    if len(strings) == 0:
-        return ""
+def concatenate(strings: list) -> str:
     result = ''
     for string in strings:
         result += string
