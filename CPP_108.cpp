@@ -1,19 +1,17 @@
-Here is the completed code:
-
-int count_nums(vector<int> v) {
+int count_nums(vector<int> nums) {
     int count = 0;
-    for (int x : v) {
-        if (x < 0) {
-            x = -x;
+    for (int num : nums) {
+        bool has_non_zero_sum_of_digits = false;
+        long absNum = labs(num);
+        while (absNum > 0) {
+            int digit = absNum % 10;
+            if (digit != 0 || (num < 0 && digit == -1)) {
+                has_non_zero_sum_of_digits = true;
+                break;
+            }
+            absNum /= 10;
         }
-        int sum = 0;
-        while (x > 0) {
-            sum += abs(x % 10);
-            x /= 10;
-        }
-        if (sum > 0) {
-            count++;
-        }
+        if (has_non_zero_sum_of_digits) count++;
     }
     return count;
 }
