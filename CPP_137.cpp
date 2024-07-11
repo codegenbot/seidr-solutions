@@ -24,6 +24,8 @@ std::any compare_one(const std::any& a, const std::any& b) {
                 return a;
             } else if (num1 < num2) {
                 return b;
+            } else {
+                return std::string("None"); // Added to return "None" if numbers are equal
             }
         }
     }
