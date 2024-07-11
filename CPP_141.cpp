@@ -1,19 +1,28 @@
-string file_name_check(string file_name){
-    int dot_count = 0, digit_count = 0;
-    bool is_valid = true;
+Here is the completed code:
 
-    for(int i = 0; i < file_name.length(); i++){
-        if(file_name[i] == '.'){
-            dot_count++;
-        }
-        else if(isdigit(file_name[i])){
-            digit_count++;
-        }
-        else if(dot_count == 1){
-            string ext = file_name.substr(i+1);
-            is_valid &= (ext == "txt" || ext == "exe" || ext == "dll");
+```cpp
+int countDigits(string s) {
+    int count = 0;
+    for (char c : s) {
+        if (isdigit(c)) {
+            count++;
         }
     }
+    return count;
+}
 
-    return is_valid ? "Yes" : "No";
+string file_name_check(string file_name) {
+    int digitCount = countDigits(file_name);
+    if (digitCount > 3) return "No";
+
+    size_t dotPos = file_name.find('.');
+    if (dotPos == string::npos || dotPos < 1) return "No";
+    string beforeDot = file_name.substr(0, dotPos);
+    string afterDot = file_name.substr(dotPos + 1);
+
+    if (!beforeDot.empty() && !isalpha(beforeDot[0])) return "No";
+    vector<string> allowedExtensions = {"txt", "exe", "dll"};
+    if (find(allowedExtensions.begin(), allowedExtensions.end(), afterDot) == allowedExtensions.end()) return "No";
+
+    return "Yes";
 }
