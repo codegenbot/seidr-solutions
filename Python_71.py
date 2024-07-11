@@ -1,9 +1,11 @@
-```
-import math
-
-def triangle_area(a, b, c):
+def triangle_area():
+    a = float(input("Enter side a: "))
+    b = float(input("Enter side b: "))
+    c = float(input("Enter side c: "))
+    
     if a + b > c and a + c > b and b + c > a:
         s = (a + b + c) / 2
-        return round(math.sqrt(s * (s - a) * (s - b) * (s - c)), 2)
+        area = round((s * (s - a) * (s - b) * (s - c)) ** 0.5, 2)
     else:
-        return -1
+        area = -1
+    return area
