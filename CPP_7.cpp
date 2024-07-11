@@ -1,4 +1,4 @@
-bool areEqual(vector<string> a, vector<string> b) {
+```bool isSame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
     
@@ -8,3 +8,4 @@ bool areEqual(vector<string> a, vector<string> b) {
     }
     
     return true;
+}```
