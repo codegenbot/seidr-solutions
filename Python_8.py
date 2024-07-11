@@ -7,9 +7,10 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
     product = 1
 
     for num in numbers:
-        if not isinstance(num, int):
-            raise TypeError("All elements of the list must be integers")
-        total_sum += num
-        product *= num
+        if isinstance(num, int):
+            total_sum += num
+            product *= num
+        else:
+            return "Error: Input must be a list of integers."
 
     return (total_sum, product)
