@@ -1,5 +1,4 @@
 ```
-from typing import list
 def parse_music(music_string: str) -> list[int]:
     music_list = []
     i = 0
