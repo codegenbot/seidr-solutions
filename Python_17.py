@@ -1,5 +1,4 @@
-```
-def parse_music(music_string: str) -> list:
+def parse_music(music_string: str) -> List[int]:
     music_list = []
     i = 0
     while i < len(music_string):
@@ -13,3 +12,5 @@ def parse_music(music_string: str) -> list:
             music_list.append(1)
             i += 3
     return music_list
+
+print(parse_music("oo.."))
