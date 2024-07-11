@@ -1,6 +1,9 @@
-def prime_fib(n: int):
+def prime_fib(n: int) -> int:
     a, b = 1, 1
     while True:
-        if is_prime(b) and b <= n:
+        if b >= n:
             return b
-        a, b = b, a + b
+        if is_prime(b):
+            a, b = b, a + b
+        else:
+            b += 1
