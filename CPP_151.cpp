@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -15,14 +14,19 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    float n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i+1 << ": ";
-        std::cin >> lst[i];
+    float num;
+    long long odd_sum = 0;
+
+    std::cout << "Enter numbers (enter 'q' to stop):" << std::endl;
+    while (true) {
+        std::cin >> num;
+        if (num == 'q') break;
+        lst.push_back(num);
     }
-    long long odd_sum = double_the_difference(lst);
-    std::cout << "The sum of squares of positive integers is: " << odd_sum;
+
+    long long result = double_the_difference(lst);
+
+    std::cout << "The sum of squares is: " << result << std::endl;
+
     return 0;
 }
