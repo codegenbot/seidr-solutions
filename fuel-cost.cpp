@@ -4,8 +4,8 @@
 using namespace std;
 
 int main() {
-    vector<double> nums;
-    double n;
+    vector<long long> nums;
+    long long n;
     while (cin >> n) {
         nums.push_back(n);
         if (cin.peek() == '\n') {
@@ -13,8 +13,8 @@ int main() {
         }
     }
 
-    double sum = 0;
-    for (double num : nums) {
+    long long sum = 0;
+    for (long long num : nums) {
         sum += (num / 3) - 2;
     }
 
