@@ -2,40 +2,26 @@
 using namespace std;
 
 int calculateScore(string s) {
-    int total = 0;
-    int frame = 0;
+    int score = 0;
+    int frame = 1;
     int i = 0;
     
-    while (frame < 10) {
-        switch(s[i]) {
-            case 'X':
-                total += 10;
-                if (s[i+2] == '/')
-                    total += 10;
-                else
-                    total += s[i+1] == 'X' ? 10 : s[i+1] - '0';
-                i++;
-                break;
-                
-            case '/':
-                total += 10 - (s[i-1] - '0');
-                break;
-                
-            default:
-                total += s[i] - '0';
-                if (s[i+1] == '/')
-                    total += 10 - (s[i] - '0');
-                else
-                    total += s[i+1] - '0';
-                i++;
-                break;
+    while (frame <= 10) {
+        if (s[i] == 'X') {
+            score += 10; 
+            score += (s[i+2] == '/') ? 10 : (s[i+1] - '0') + (s[i+2] - '0');
+            i++; 
+        } else if (s[i+1] == '/' || s[i] == '/') {
+            score += 10 + (s[i+2] == 'X' ? 10 : s[i+2] - '0');
+            i += 2; 
+        } else {
+            score += (s[i] - '0') + (s[i+1] - '0');
+            i += 2; 
         }
-        
-        i++;
-        frame++;
+        frame++; 
     }
     
-    return total;
+    return score;
 }
 
 int main() {
