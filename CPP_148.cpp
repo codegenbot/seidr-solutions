@@ -1,6 +1,5 @@
-#include <string>
 #include <vector>
-#include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -10,10 +9,10 @@ bool issame(vector<string> a, vector<string> b) {
     int start = -1, end = -1;
 
     for (int i = 0; i < 8; i++) {
-        if (a[0] == planets[i]) {
+        if (a == planets[i]) {
             start = i;
         }
-        if (b[0] == planets[i]) {
+        if (b == planets[i]) {
             end = i;
         }
     }
