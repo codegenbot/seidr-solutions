@@ -8,15 +8,14 @@ bool issame(vector<int> a, vector<int> b);
 vector<any> filter_integers(list<any> values) {
     vector<any> result;
     for (const auto& value : values) {
-        any_cast<int>(value);
         if (any_cast<int>(value)) {
-            result.push_back(any_cast<int>(value));
+            result.push_back(value);
         }
     }
-    return result;
+    return any_cast<vector<int>>(result);
 }
 
 int main() {
-    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
+    assert(issame(filter_integers({3, 3, 'c', 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
