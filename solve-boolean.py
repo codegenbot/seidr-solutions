@@ -6,5 +6,5 @@ elif expression == "f":
     print(False)
 else:
     operands = expression.split("&")
-    result = all(operand == "t" for operand in operands)
+    result = any(all(operand == "t" for operand in sub_operands) for sub_operands in [operand.split("|") for operand in operands])
     print(result)
