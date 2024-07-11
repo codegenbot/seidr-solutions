@@ -3,16 +3,18 @@
 #include <sstream>
 #include <algorithm>
 
+using namespace std;
+
 int main() {
-    std::string input;
-    std::getline(std::cin, input);
+    string input;
+    getline(cin, input);
     
-    std::string word, result;
-    std::istringstream iss(input);
+    string word, result;
+    istringstream iss(input);
     
     while (iss >> word) {
         if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+            reverse(word.begin(), word.end());
         }
         result += word + " ";
     }
