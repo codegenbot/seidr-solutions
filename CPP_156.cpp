@@ -1,15 +1,15 @@
-string int_to_mini_romank(int number) {
-        vector<int> val = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-        vector<string> syms = {"m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"};
-
-        string roman = "";
-        for (int i = 0; i < val.size(); i++) {
-            while (number >= val[i]) {
-                number -= val[i];
-                roman += syms[i];
-            }
+string int_to_mini_romank(int number){
+    string roman[] = {"i", "iv", "v", "ix", "x", "xl", "l", "xc", "c", "cd", "d", "cm", "m"};
+    int values[] = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
+    string result = "";
+    int i = 12;
+    while (number > 0) {
+        int div = number / values[i];
+        number %= values[i];
+        while (div--) {
+            result += roman[i];
         }
-
-        transform(roman.begin(), roman.end(), roman.begin(), ::tolower);
-        return roman;
+        i--;
     }
+    return result;
+}
