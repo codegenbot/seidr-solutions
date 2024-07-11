@@ -9,6 +9,6 @@ def rolling_max():
         if not numbers:
             result.append([])
         else:
-            temp = [sum(numbers[: i + 1]) for i in range(len(numbers))]
+            temp = [max(numbers[: i + 1]) for i in range(len(numbers))]
             result.append(temp)
     return result
