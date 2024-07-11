@@ -13,10 +13,11 @@ int main() {
         p[i] = make_pair(a, b); // Store the pair in array
     }
 
-    pair<int, int> max_pair = *max_element(p, p+n, [](const pair<int,int>& a, const pair<int,int>& b) {
-        return a.first < b.first;
-    });
-    cout << max_pair.first << endl;
+    auto max_element = *std::max_element(std::begin(p), std::end(p),
+        [](const auto& lhs, const auto& rhs) {
+            return lhs.first < rhs.first; // or use any other comparison function
+        });
+    cout << max_element.first << endl;
 
     return 0;
 }
