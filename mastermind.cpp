@@ -1,7 +1,8 @@
+```cpp
 int whitePegs(string code, string guess) {
     int count = 0;
-    for (int i = 0; i < 4; i++) {
-        if (guess[i] == code[i]) {
+    for (char c : guess) {
+        if (code.find(c) != -1 && code.find(c) != code.find(guess[0])) {
             count++;
         }
     }
@@ -9,23 +10,22 @@ int whitePegs(string code, string guess) {
 }
 
 int blackPegs(string code, string guess) {
-    int blackCount = 0;
-    vector<char> codeArray(code.begin(), code.end());
-    for (char c : guess) {
-        int matches = count(codeArray.begin(), codeArray.end(), c);
-        if (matches > 0) {
-            blackCount++;
-            codeArray.erase(remove(codeArray.begin(), codeArray.end(), c), codeArray.end());
+    int count = 0;
+    for (int i = 0; i < 4; i++) {
+        if (guess[i] == code[i]) {
+            count++;
+            code.replace(i, 1, "x");
         }
     }
-    return blackCount;
+    return count;
 }
 
 int main() {
     string code, guess;
     cin >> code >> guess;
+    int white = whitePegs(code, guess);
     int black = blackPegs(code, guess);
     cout << black << endl;
-    cout << whitePegs(code, guess) << endl;
+    cout << white << endl;
     return 0;
 }
