@@ -1,10 +1,11 @@
+```c++
 #include <iostream>
 #include <string>
 
 std::string spinWords(std::string sentence) {
     std::string result = "";
     std::string word;
-
+    
     for (int i = 0; i < sentence.length(); i++) {
         if (sentence[i] == ' ') {
             result += word + " ";
@@ -13,9 +14,9 @@ std::string spinWords(std::string sentence) {
             word += sentence[i];
         }
     }
-
+    
     result += word;
-
+    
     std::string newSentence = "";
     int len;
     
@@ -34,11 +35,11 @@ std::string spinWords(std::string sentence) {
             len++;
         } else {
             newSentence += result.substr(0, len + 1);
-            newSentence.push_back(' ');
+            newSentence += " ";
             len++;
         }
     }
-
+    
     return newSentence;
 }
 
