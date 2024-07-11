@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <vector>
 
@@ -28,12 +27,4 @@ int blackPegs(string code, string guess) {
         }
     }
     return count;
-}
-
-int main() {
-    string code = "abcD";
-    string guess = "aBcd";
-    cout << whitePegs(code, guess) << endl;  // prints the number of white pegs
-    cout << blackPegs(code, guess) << endl;  // prints the number of black pegs
-    return 0;
 }
