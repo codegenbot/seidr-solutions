@@ -1,3 +1,4 @@
+```
 using namespace std;
 
 string longest(vector<string> strings){
@@ -10,3 +11,4 @@ string longest(vector<string> strings){
             res = s; // This is to handle the case where multiple strings have the same length
     }
     return res;
+}
