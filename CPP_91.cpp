@@ -1,3 +1,5 @@
+using namespace std;
+
 int is_bored(string S) {
     int count = 0;
     string sentence;
@@ -11,8 +13,4 @@ int is_bored(string S) {
             sentence += c;
         }
     }
-    if (!sentence.empty() && sentence[0] == 'I' && sentence.size() > 1) {
-        count++;
-    }
     return count;
-}
