@@ -1,18 +1,17 @@
-#include <vector>
 #include <algorithm>
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
+std::vector<int> strange_sort_list(std::vector<int> lst);
+
 bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> strange_sort_list(vector<int> lst);
-
-vector<int> strange_sort_list(vector<int> lst){
-    sort(lst.begin(), lst.end());
-    vector<int> result;
+std::vector<int> strange_sort_list(std::vector<int> lst){
+    std::sort(lst.begin(), lst.end());
+    std::vector<int> result;
     int left = 0, right = lst.size() - 1;
     while (left <= right) {
         if (left == right) {
@@ -26,6 +25,5 @@ vector<int> strange_sort_list(vector<int> lst){
 }
 
 int main() {
-    // Your main function logic here
     return 0;
 }
