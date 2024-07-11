@@ -3,18 +3,6 @@
 #include <cassert>
 #include <iostream>
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    assert(a.size() == b.size());
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    
-    return true;
-}
-
 std::vector<int> largest_smallest_integers(std::vector<int> lst){
     std::vector<int> result = {INT_MIN, INT_MAX}; 
     int largest_negative = INT_MIN;
@@ -35,12 +23,13 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst){
     return result;
 }
 
+bool issame(std::vector<int> a, std::vector<int> b){
+    // Implementation of issame function goes here
+}
+
 int main() {
-    // sample test
-    std::vector<int> a = {1, 2, 3};
-    std::vector<int> b = {1, 2, 3};
-    
-    std::cout << "Are vectors a and b the same? " << (issame(a, b) ? "Yes" : "No") << std::endl;
+    // Test cases for the functions
+    // Add test cases here to verify the correctness of the functions
     
     return 0;
 }
