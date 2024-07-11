@@ -1,13 +1,13 @@
 #include <iostream>
-#include <iomanip> 
+#include <iomanip>
 using namespace std;
 
-double getProbability(int n, int m) {
-    return 1.0 * (n - 1) / (n * m);
+double diceGame(int n, int m) {
+    return (double)(n - 1) / (n * m);
 }
 
 int main() {
     int n, m;
     cin >> n >> m;
-    cout << fixed << setprecision(1) << getProbability(n, m) << endl;
+    cout << fixed << setprecision(4) << diceGame(n, m) << endl;
     return 0;
