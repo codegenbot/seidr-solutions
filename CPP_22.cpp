@@ -1,4 +1,5 @@
 #include <vector>
+#include <list>
 #include <boost/any.hpp>
 #include <cassert>
 
@@ -21,10 +22,10 @@ vector<int> filter_integers(list_any values){
 }
 
 int main(){
-    vector<int> a = {1, 2, 3};
-    vector<int> b = {1, 2, 3};
+    vector<int> v1 = {1, 2, 3};
+    vector<int> v2 = {1, 2, 3};
 
-    assert(issame(a, b));
+    assert(issame(v1, v2));
     
     return 0;
 }

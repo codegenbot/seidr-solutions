@@ -18,7 +18,7 @@ int main(){
     std::vector<double> coeffs = {1.0, -3.0, 2.0}; // Example coefficient values
     double solution;
     solution = find_zero(coeffs);
-    assert (std::abs(poly(coeffs, solution)) < 1e-3);
+    assert(std::abs(poly(coeffs, solution)) < 1e-3);
     
     return 0;
 }
