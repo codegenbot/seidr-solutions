@@ -1,5 +1,4 @@
 #include <vector>
-
 vector<int> strange_sort_list(vector<int> lst){
     sort(lst.begin(), lst.end());
     vector<int> result;
