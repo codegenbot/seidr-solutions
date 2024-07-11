@@ -1,3 +1,6 @@
 def fruit_distribution(s, n):
-    s = s.replace("apples", "0").replace("oranges", "0")
-    return n - sum(int(x) for x in re.findall("[0-9]+", s))
+    words = s.split()
+    for i in range(len(words)):
+        if words[i].lower() == "apples" or words[i].lower() == "oranges":
+            n -= int("".join(filter(str.isdigit, words[i - 1 : i + 1])))
+    return n
