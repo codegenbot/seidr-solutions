@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <algorithm>
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
@@ -16,7 +17,7 @@ std::vector<int> even_odd_count(int num) {
             counts[1]++;
         }
     }
-    return {counts[0], counts[1]}; // Update return values
+    return counts;
 }
 
 int main() {
