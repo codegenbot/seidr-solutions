@@ -2,19 +2,20 @@
 #include <vector>
 #include <climits>
 
-using namespace std;
-
 vector<int> largest_smallest_integers(vector<int> lst);
 
 int main() {
-    vector<int> input = {3, -5, 2, -8, 4, -7};
-    vector<int> output = largest_smallest_integers(input);
+    vector<int> input = {3, -2, 9, -5, 1};
+    vector<int> expected_output = {-2, 1};
     
-    if(output[0] == -5 && output[1] == 2) {
-        cout << "Output is correct" << endl;
+    vector<int> result = largest_smallest_integers(input);
+
+    if(result == expected_output){
+        std::cout << "Output is as expected." << std::endl;
     } else {
-        cout << "Output is incorrect" << endl;
+        std::cout << "Output is not as expected." << std::endl;
     }
+
     return 0;
 }
 
