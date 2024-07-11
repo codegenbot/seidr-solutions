@@ -29,10 +29,13 @@ def solve_quadratic_equation(a, b, c, d=None):
             print("There are no real solutions.")
 
 def main():
-    find_zero = solve_quadratic_equation
-
-def main():
-    find_zero(*map(int, input("Enter coefficients (a b c [d]): ").split())
+    find_zero = input("Enter coefficients (a b c [d]): ").split()
+    if len(find_zero) > 3:
+        d = int(find_zero[3])
+    else:
+        d = None
+    a, b, c = map(int, find_zero[:3])
+    solve_quadratic_equation(a, b, c, d)
 
 if __name__ == "__main__":
     main()
