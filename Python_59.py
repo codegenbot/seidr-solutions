@@ -1,10 +1,13 @@
-```
 def largest_prime_factor(n: int):
-    i = n - 1
-    while i > 1:
-        if n % i == 0 and is_prime(i):
-            return i
-        i -= 1
+    largest = 1
+    for i in range(2, n + 1):
+        if n % i == 0:
+            while n % i == 0:
+                n //= i
+            if is_prime(i) and i > largest:
+                largest = i
+    return largest
+
 
 def is_prime(num: int):
     if num < 2:
