@@ -1,4 +1,5 @@
 ```
-import string
+import re
+
 def digitSum(s):
-    return sum(int(c) for c in s.translate(str.maketrans('', '', string.ascii_letters)).isdigit())
+    return sum(int(c) for c in re.sub('[\D]', '', s))
