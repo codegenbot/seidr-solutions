@@ -2,7 +2,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(std::vector<std::string> a){
+bool issame(std::vector<std::string> a, std::vector<std::string>){
     return a == b;
 }
 
