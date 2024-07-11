@@ -1,7 +1,9 @@
+```cpp
 #include <string>
+#include <vector>
 
-string concatenate(vector<string> strings){
-    string result = "";
+std::string concatenate(std::vector<std::string> strings) {
+    std::string result = "";
     for (const auto& str : strings) {
         result += str;
     }
