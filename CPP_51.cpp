@@ -1,4 +1,4 @@
-```cpp
+```
 #include <string>
 #include <iostream>
 #include <cctype>
@@ -25,6 +25,7 @@ int main() {
     if(text.empty()) {
         cout << "Error: Input cannot be empty." << endl;
     } else {
-        std::cout << "Sentence without vowels: " << remove_vowels(text) << std::endl;
+        string output = remove_vowels(text);
+        cout << "Sentence without vowels: " << output << endl;
     }
 }
