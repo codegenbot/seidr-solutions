@@ -1,10 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
 
 vector<int> pluck(vector<int> arr){
     vector<int> result;
@@ -25,3 +22,7 @@ vector<int> pluck(vector<int> arr){
 
     return result;
 }
+
+int main(){
+    assert(issame(pluck({7, 9, 7, 1}), {}));
+}     
