@@ -1,4 +1,6 @@
+```
 from typing import List
+
 
 def main():
     n = int(input("Enter a number: "))
