@@ -1,10 +1,22 @@
+```
 def decode_cyclic(encoded_str):
     decoded_str = ""
-    n = len(encoded_str) // 2
-    for i in range(0, len(encoded_str), n):
-        bits = encoded_str[i : i + n]
-        if bits[0] == "1":
-            decoded_str += bits[1:].zfill(n)[::-1]
+    for char in encoded_str:
+        if char == "0":
+            decoded_str += "1"
         else:
-            decoded_str += bits[1:][::-1].ljust(n, "0")
+            decoded_str += "0"
     return decoded_str
+
+
+def check(encoded_str, n):
+    decoded_str = decode_cyclic(encoded_str)
+    return decoded_str[:n]
+
+
+encoded_str = input("Enter the encoded string: ")
+n = int(input("Enter an integer: "))
+
+result = check(encoded_str, n)
+
+print(result)
