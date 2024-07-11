@@ -6,7 +6,8 @@ int digitSum(const std::string& str) {
     int sum = 0;
     for (char c : str) {
         if (std::isdigit(c)) {
-            sum += (c - '0');
+            int digitValue = c - '0';
+            sum += digitValue;
         }
     }
     return sum;
@@ -33,7 +34,8 @@ int main() {
             std::string digitsOnly;
             for (char c : newInput) {
                 if(std::isdigit(c)) {
-                    digitsOnly += std::to_string((c-'0'));
+                    int digitValue = c - '0';
+                    digitsOnly += std::char(std::abs(digitValue) + '0'); // Convert int to char
                 }
             }
             int result = digitSum(digitsOnly);
