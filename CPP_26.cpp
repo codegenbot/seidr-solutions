@@ -1,16 +1,9 @@
-#include<stdexcept>
-using namespace std;
-
 vector<int> remove_duplicates(vector<int> numbers) {
-    unordered_map<int, bool> seen;
-    vector<int> result;
-
+    vector<int> uniqueNumbers;
     for (int num : numbers) {
-        if (!seen.count(num) || !seen[num]) {
-            seen[num] = true;
-            result.push_back(num);
+        if (find(uniqueNumbers.begin(), uniqueNumbers.end(), num) == uniqueNumbers.end()) {
+            uniqueNumbers.push_back(num);
         }
     }
-
-    return result;
+    return uniqueNumbers;
 }
