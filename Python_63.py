@@ -1,11 +1,11 @@
-```
 phi = (1 + 5**0.5) / 2
+psi = (1 - 5**0.5) / 2
 
 
 def fibfib(n: int):
-    result = []
+    if n <= 1:
+        return n
     a, b = 0, 1
-    for _ in range(n):
-        result.append(a)
+    for _ in range(2, n + 1):
         a, b = b, a + b
-    return result
+    return round(b * (phi ** ((n + 1) // 2)) / 5**0.5)
