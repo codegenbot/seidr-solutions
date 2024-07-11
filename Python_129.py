@@ -10,7 +10,7 @@ def minPath(grid, k):
         if remaining == 0:
             if len(path) < min_length:
                 min_length = len(path)
-                shortest_path = [grid[x][y] for x, y in zip([i]+path[:-1], [j]+[p]) for p in path]
+                shortest_path = [grid[x][y] for x, y in zip([i]+path[:-1], [j]+[p]) if grid[x][y] != k]
             return
         if (i, j) in visited:
             return
