@@ -1,6 +1,7 @@
 from typing import List
 import math
 
+
 def main():
     while True:
         try:
@@ -8,18 +9,6 @@ def main():
             break
         except ValueError:
             print("Invalid input! Please enter an integer.")
-    factors = []
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            count = 0
-            while n % i == 0:
-                n //= i
-                count += 1
-            factors.append(i**count)
-    if n > 1:
-        factors.append(n)
-    for factor in set(factors):
-        print("Prime Factors of", n, "are:", factor)
+    return sum(
+        1 for _ in (range(2, int(math.sqrt(n)) + 1) if n % i else [i + 1] or [n])
+    )
