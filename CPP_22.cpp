@@ -21,7 +21,7 @@ vector<int> filter_integers(list_any values){
     return result;
 }
 
-int main(){
+int main() {
     vector<int> a = {1, 2, 3};
     vector<int> b = {1, 2, 3};
     
