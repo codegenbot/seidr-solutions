@@ -13,7 +13,10 @@ std::string file_name_check(std::string filename) {
                 return "Invalid";
         } else if (c == '.') {
             found_dot = true;
-        } 
+        } else {
+            if (digit_count > 0)
+                valid_prefix = false;
+        }
     }
 
     if (digit_count <= 3 && found_dot && valid_prefix)
@@ -23,6 +26,6 @@ std::string file_name_check(std::string filename) {
 }
 
 int main() {
-    std::cout << file_name_check("s.") << std::endl; // Correct usage
+    std::cout << file_name_check("s.") << std::endl; 
     return 0;
 }
