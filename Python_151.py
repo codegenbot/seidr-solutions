@@ -1,14 +1,7 @@
-```
-def double_the_difference(numbers):
-    even_numbers = [n for n in numbers if n % 2 == 0]
-    average_even = sum(map(int, even_numbers)) / len(even_numbers)
-    difference_sum_of_squares_twice_average_even = (sum(map(lambda x: x ** 2, map(int, numbers))) - 2 * average_even * len(numbers)) * 2
-    return difference_sum_of_squares_twice_average_even
+```python
+def double_the_difference(lst):
+    total_sum = sum(i**2 for i in lst if isinstance(i, int) and i >= 0)
+    positive_even_count = len([i for i in lst if isinstance(i, int) and i >= 0 and i % 2 == 0])
+    return (total_sum - positive_even_count*2) / (len(lst) - positive_even_count)
 
-def check():
-    numbers = input("Enter a list of integers separated by space: ").split()
-    try:
-        result = double_the_difference([int(i) for i in numbers])
-        print(f"The difference between the sum of squares and twice the average of the even numbers is: {result}")
-    except ValueError:
-        print("Invalid input. Please enter integers only.")
+result = double_the_difference([1, 2, -3, 4, -5])
