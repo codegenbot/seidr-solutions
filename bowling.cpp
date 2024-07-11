@@ -8,7 +8,7 @@ int bowlingScore(string s) {
 
     for (char c : s) {
         if (c == 'X') { // strike
-            score += 10 + 10;
+            score += 10 + 10 + 10;
             currentRolls = 2;
         } else if (c == '/') { // spare
             score += 10 - ('0' - c);
@@ -17,19 +17,9 @@ int bowlingScore(string s) {
             int roll = c - '0';
             score += roll;
             currentRolls++;
-            if (currentFrame < 9 && currentRolls == 2) {
-                string nextTwoChars = s.substr(currentFrame * 3, 2);
-                if (nextTwoChars == "X" || nextTwoChars == "/") {
-                    if (nextTwoChars == "X")
-                        score += 10;
-                    else
-                        score += 10 - ('0' - nextTwoChars[1]);
-                }
+            if (currentRolls == 2) {
+                currentFrame++;
             }
-        }
-
-        if (currentRolls == 2) {
-            currentFrame++;
         }
 
         if (currentFrame > 9) {
