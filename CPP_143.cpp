@@ -8,9 +8,9 @@ int is_prime(int num){
     return 1;
 }
 
-string words_in_sentence(string sentence){
-    string result = "";
-    string word = "";
+std::string words_in_sentence(std::string sentence){
+    std::string result = "";
+    std::string word = "";
     for(char c : sentence){
         if(c == ' '){
             if(is_prime(word.length())){
