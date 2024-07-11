@@ -1,4 +1,3 @@
-```
 def encode(message):
     result = ""
     last_alphanumeric = True
