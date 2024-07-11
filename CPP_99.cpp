@@ -1,7 +1,3 @@
-float num = stof(value);
-    int closest = round(num);
-    if (num - closest == 0.5) {
-        closest = ceil(num);
-    }
-    return closest;
+double num = stod(value);
+    return num >= 0 ? (int)floor(num + 0.5) : (int)ceil(num - 0.5);
 }
