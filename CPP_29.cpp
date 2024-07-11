@@ -6,30 +6,18 @@ bool issame(vector<string> a, vector<string> b){
         return false;
 }
 
-vector<vector<string>> group_by_prefix(vector<vector<string>>& strings) {
-    unordered_map<string, vector<string>> mp;
-    for (auto& s : strings) {
-        string prefix = s[0];
-        mp[prefix].push_back(s);
-    }
+vector<vector<string>> filter_by_prefix(vector<string> strings, string prefix){
     vector<vector<string>> result;
-    for (auto& p : mp) {
-        if (!issame(result, {{p.first}})) {
-            result.push_back({p.first});
-        }
-        for (auto& str : p.second) {
-            bool found = false;
-            for (int i = 0; i < result.size(); ++i) {
-                if (issame({str}, result[i])) {
-                    result[i].push_back(str);
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                result.push_back({str});
+    for(string s : strings){
+        bool same = false;
+        for(auto v : result) {
+            if(issame({s}, v)) {
+                same = true;
+                break;
             }
         }
+        if(!same)
+            result.push_back({s});
     }
     return result;
 }
