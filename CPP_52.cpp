@@ -1,4 +1,4 @@
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 
@@ -12,7 +12,7 @@ bool below_threshold(std::vector<int> l, int t) {
 
 }
 
-int main() {
+int original_main() {
     std::vector<int> numbers;
     numbers.push_back(1);
     numbers.push_back(8);
@@ -20,4 +20,8 @@ int main() {
     numbers.push_back(10);
 
     std::cout << (below_threshold(numbers, 10) ? "True\n" : "False\n");
+}
+
+int main() {
+    original_main();
 }
