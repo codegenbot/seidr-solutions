@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -40,7 +41,7 @@ int main() {
 
 std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, size_t>> pairs;
-    for (int i = 0; i < nums.size(); ++i) {
+    for (size_t i = 0; i < nums.size(); ++i) {
         int sum = 0;
         int num = abs(nums[i]);
         while (num > 0) {
