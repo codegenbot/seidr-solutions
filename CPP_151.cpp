@@ -1,8 +1,10 @@
-long long double_the_difference(vector<float> lst){
+Here is the completed code:
+
+long long double_the_difference(vector<float> lst) {
     long long sum = 0;
-    for(auto x:lst){
-        if(int(x) > 0 && int(x) == static_cast<int>(x)){
-            sum += pow(int(x),2);
+    for (float num : lst) {
+        if (num > 0 && modf(num, &num) == 0) {
+            sum += num * num;
         }
     }
     return sum;
