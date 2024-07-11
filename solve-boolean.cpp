@@ -28,14 +28,16 @@ string solveBoolean(string expression) {
         char c = s.top();
         s.pop();
         if (c == '&') {
+            right = getBoolValue(s.top());
+            s.pop();
             left = getBoolValue(s.top());
             s.pop();
-            right = true;
             result = (left && right) ? "True" : "False";
         } else if (c == '|') {
+            right = getBoolValue(s.top());
+            s.pop();
             left = getBoolValue(s.top());
             s.pop();
-            right = true;
             result = (left || right) ? "True" : "False";
         } else {
             result = (getBoolValue(c)) ? "True" : "False";
@@ -43,3 +45,4 @@ string solveBoolean(string expression) {
     }
 
     return result;
+}
