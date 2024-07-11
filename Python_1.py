@@ -13,16 +13,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             stack.append(char)
             current_group += char
         elif char == ')':
-            if stack:
-                stack.pop()
-                current_group += char
-                if not stack:
-                    groups.append(current_group)
-                    current_group = ''
-            else:
-                return []  # invalid input
+            stack.pop()
+            current_group += char
+            if not stack:
+                groups.append(current_group)
+                current_group = ''
     
-    if stack:  # unmatched '('
-        return []
-    
-    return [group.strip() for group in groups]
+    return groups
