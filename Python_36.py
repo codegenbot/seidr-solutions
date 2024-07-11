@@ -1,3 +1,4 @@
+```
 while True:
     try:
         n = int(input("Enter a number: "))
@@ -7,7 +8,7 @@ while True:
 
 print(fizz_buzz(n))
 
-def fizz_buzz(n: int):
+def fizz_buzz(n):
     result = []
     for i in range(1, n+1):
         output = ""
