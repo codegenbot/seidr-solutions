@@ -15,9 +15,8 @@ def below_zero(operations: List[str]) -> bool:
 
 ops = []
 for op in input().split():
-    if op: 
-        ops.append(op.strip())
-while len(ops) > 1: 
-    for i in range(len(ops)-1, -1, -1):
-        ops.pop() 
-print('''{}''').format(below_zero(ops))
+    ops.append(op)
+while len(ops) > 1:
+    for i in range(len(ops) - 1, -1, -1):
+        ops.pop()
+print(below_zero(ops))
