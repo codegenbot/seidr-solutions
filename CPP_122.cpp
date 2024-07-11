@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 #include <vector>
-
-int add_elements(std::vector<int> arr, int k);
+#include <string>
 
 int add_elements(std::vector<int> arr, int k) {
     int sum = 0;
@@ -14,17 +14,21 @@ int add_elements(std::vector<int> arr, int k) {
 }
 
 int main() {
-    int n, k;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
+    std::vector<int> arr;
+    int k;
+
+    std::cout << "Enter number of elements: ";
+    std::cin >> k;
+
+    arr.resize(k);
+
+    for (int i = 0; i < k; i++) {
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> arr[i];
     }
-    std::cout << "Enter the value of k: ";
-    std::cin >> k;
+
     int result = add_elements(arr, k);
-    std::cout << "Sum of elements with size <= 2 is: " << result << std::endl;
+    std::cout << "Sum of elements <= 2: " << result << std::endl;
+
     return 0;
 }
