@@ -1,5 +1,6 @@
 from typing import List
 
+
 def factorize() -> List[int]:
     while True:
         try:
@@ -17,4 +18,5 @@ def factorize() -> List[int]:
             divisor += 1
     return factors
 
-print(factorize())  
+
+print(factorize())
