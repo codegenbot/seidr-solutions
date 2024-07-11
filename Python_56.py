@@ -5,9 +5,10 @@ def correct_bracketing(expression):
         if char == '(':
             stack.append(char)
         elif char == ')':
-            if len(stack) == 0:
+            if len(stack) > 0 and stack[-1] == '(':
+                stack.pop()
+            else:
                 return False
-            stack.pop()
     return len(stack) == 0
 
 while True:
