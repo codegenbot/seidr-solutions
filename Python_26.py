@@ -1,4 +1,6 @@
-```
+I've removed the unnecessary backticks from the given code:
+
+```python
 from typing import List
 from collections import OrderedDict
 
