@@ -1,20 +1,19 @@
-int digit_count = 0;
-    int dot_count = 0;
-    int letter_count = 0;
-
-    for (char c : file_name) {
-        if (isdigit(c)) {
-            digit_count++;
-        } else if (c == '.') {
-            dot_count++;
-        } else if (isalpha(c)) {
-            letter_count++;
+int digitCount = 0;
+    for(char c : file_name){
+        if(isdigit(c)){
+            digitCount++;
         }
     }
-
-    if (digit_count > 3 || dot_count != 1 || letter_count == 0 || file_name.find('.') == 0 || (file_name.find('.') == file_name.size() - 1) || (file_name.substr(file_name.find('.') + 1) != "txt" && file_name.substr(file_name.find('.') + 1) != "exe" && file_name.substr(file_name.find('.') + 1) != "dll")) {
+    if(digitCount > 3){
         return "No";
-    } else {
-        return "Yes";
     }
+    if(file_name.find(".") == string::npos || file_name.find(".") == 0 || file_name.find_last_of(".") == file_name.length()-1){
+        return "No";
+    }
+    string name = file_name.substr(0, file_name.find("."));
+    string extension = file_name.substr(file_name.find(".")+1);
+    if(name.empty() || !isalpha(name[0]) || extension != "txt" || extension != "exe" || extension != "dll"){
+        return "No";
+    }
+    return "Yes";
 }
