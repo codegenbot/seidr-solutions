@@ -2,30 +2,18 @@
 #include <cmath>
 
 int main() {
-    double startHeight = 0;
-    double heightAfterFirstBounce = 0;
-
-    std::cin >> startHeight >> heightAfterFirstBounce;
-
-    if(std::cin.fail()) {
-        std::cout << "Invalid input. Please enter numbers for the starting height and first bounce height." << std::endl;
-        return 1; // Exit with error code
-    }
-
-    double bouncinessIndex = pow(heightAfterFirstBounce / startHeight, 0.5);
-
+    double startHeight, heightAfterFirstBounce;
     int numBounces;
 
-    std::cin >> numBounces;
+    std::cin >> startHeight >> heightAfterFirstBounce >> numBounces;
 
-    if(std::cin.fail()) {
-        std::cout << "Invalid input. Please enter a number for the number of bounces." << std::endl;
-        return 1; // Exit with error code
+    double bounciness = pow(heightAfterFirstBounce / startHeight, 0.5);
+    
+    // Calculate the total distance
+    double totalDistance = 0;
+    for(int i = 1; i <= numBounces; ++i) {
+        totalDistance += (startHeight + (heightAfterFirstBounce - startHeight) * pow(0.5, i));
     }
 
-    double totalDistance = (1 + numBounces) * startHeight * pow(bouncinessIndex, 2);
-
-    std::cout << "The total distance traveled by the ball is: " << totalDistance << std::endl;
-
-    return 0;
+    std::cout << std::fixed << std::setprecision(15) << bounciness << " " << totalDistance;
 }
