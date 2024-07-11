@@ -5,11 +5,11 @@
 
 using namespace std;
 
-bool issame(vector<float> a, vector<float> b) {
+bool issame(const vector<float>& a, const vector<float>& b) {
     return a == b;
 }
 
-void sort_even(vector<float> &l) {
+void sort_even(vector<float>& l) {
     vector<float> even_values;
     vector<float> sorted_even_values;
     for (int i = 0; i < l.size(); i++) {
@@ -29,8 +29,8 @@ void sort_even(vector<float> &l) {
 }
 
 int main() {
-    vector<float> values = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    sort_even(values);
-    assert(issame(values, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    assert (issame({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    vector<float> data = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
+    sort_even(data);
     return 0;
 }
