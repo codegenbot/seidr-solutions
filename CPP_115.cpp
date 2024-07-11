@@ -1,10 +1,13 @@
-int count = 0;
+int buckets = 0;
         for (int j = 0; j < grid[0].size(); j++) {
-            int sum = 0;
+            int total_water = 0;
             for (int i = 0; i < grid.size(); i++) {
-                sum += grid[i][j];
+                total_water += grid[i][j];
             }
-            count += (sum + capacity - 1) / capacity;
+            while (total_water > 0) {
+                total_water -= capacity;
+                buckets++;
+            }
         }
-        return count;
+        return buckets;
     }
