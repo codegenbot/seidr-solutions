@@ -1,12 +1,18 @@
-```
-def calculate_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
-    R = 6373.0
-    dLat = math.radians(lat2 - lat1)
-    dLon = math.radians(lon2 - lon1)
-    lat1 = math.radians(lat1)
-    lat2 = math.radians(lat2)
+from typing import List
 
-    a = math.sin(dLat/2)*math.sin(dLat/2) +  math.cos(lat1)*math.cos(lat2)*math.sin(dLon/2)*math.sin(dLon/2)
-    c = 2*math.atan2(math.sqrt(a), math.sqrt(1-a))
-    d = R * c
-    return d
+def factorize(n: int) -> List[int]:
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            count = 0
+            while n % i == 0:
+                count += 1
+                n //= i
+            factors.append(i ** count)
+            i = 2
+    if n > 1:
+        factors.append(n)
+    return factors
