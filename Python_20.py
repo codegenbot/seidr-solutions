@@ -1,8 +1,9 @@
+```
 def find_closest_elements(numbers): 
     try: 
         if not isinstance(numbers, list):
             raise ValueError("Invalid input. Please enter a comma-separated list of numbers.")
-        numbers = [float(num) for num in str(numbers).split(",")]
+        numbers = [float(num) for num in numbers.split(",")]
         min_diff = float("inf")
         closest_pair = ()
         for i in range(len(numbers)):
