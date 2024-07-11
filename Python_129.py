@@ -1,4 +1,6 @@
-```Python
+Here is the corrected code:
+
+```
 def minPathSum(grid):
     m = len(grid)
     n = len(grid[0])
