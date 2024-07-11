@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -19,11 +18,10 @@ int main() {
 
     double bounciness = bouncinessIndex(heightAfterFirstBounce, startingHeight);
 
-    std::streamsize precision = std::cout.precision();
-    std::cout << fixed << setprecision(4);
+    streamsize precision = cout.precision();
+    cout << fixed << setprecision(4);
     
     cout << bounciness << endl;
     cout << totalDistance(numBounces, bounciness) << endl;
 
     return 0;
-}
