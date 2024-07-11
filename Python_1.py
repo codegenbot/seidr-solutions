@@ -1,6 +1,6 @@
-I'd be happy to help! Here's the modified code:
+Here is the modified code:
 
-```python
+```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -26,7 +26,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif c == '(' and not stack:
             result.append(groups + c)
             groups = ""
-
     if stack:
         return []
     return [groups] + result
