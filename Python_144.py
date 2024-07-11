@@ -1,31 +1,25 @@
-```python
-x = "{}".format('"{}"'.format(input("Enter the fraction x (in the format 'a/b'): ")))
-n = "{}".format('"{}"'.format(input("Enter the fraction n (in the format 'c/d': ")))
+while True:
+    x = input("Enter the fraction x (in the format 'a/b'): ")
+    n = input("Enter the fraction n (in the format 'c/d'): ")
 
-x = x.strip('"')  
-n = n.strip('"')  
-
-import math
-def simplify(x, n):
-    x_num, x_denom = map(int, x[3:-1].split("/"))
-    y_num, y_denom = map(int, n[3:-1].split("/"))
+    x_num, x_denom = map(int, x.split("/"))
+    y_num, y_denom = map(int, n.split("/"))
 
     if x_denom == 0 or y_denom == 0:
-        return "Error: Division by zero is not allowed"
+        print("Error: Division by zero is not allowed")
+    else:
+        common_divisor = math.gcd(x_num, x_denom)
+        simplified_x_num = x_num // common_divisor
+        simplified_x_denom = (
+            x_denom // common_divisor if common_divisor != x_denom else 1
+        )
 
-    common_divisor = lambda a, b: math.gcd(a, b)
-    gcd = common_divisor(x_num, x_denom)
+        common_divisor = math.gcd(y_num, y_denom)
+        simplified_y_num = y_num // common_divisor
+        simplified_y_denom = (
+            y_denom // common_divisor if common_divisor != y_denom else 1
+        )
 
-    simplified_x_num = x_num // gcd
-    simplified_x_denom = x_denom // gcd if gcd == x_denom else 1
-
-    gcd = common_divisor(y_num, y_denom)
-    simplified_y_num = y_num // gcd
-    simplified_y_denom = y_denom // gcd if gcd == y_denom else 1
-
-    return simplified_x_num, simplified_x_denom, simplified_y_num, simplified_y_denom
-
-if x_denom == 0 or y_denom == 0:
-    print("Error: Division by zero is not allowed")
-else:
-    print(simplify(x, n))
+        print(
+            f"{simplified_x_num}/{simplified_x_denom} and {simplified_y_num}/{simplified_y_denom}"
+        )
