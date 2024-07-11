@@ -1,4 +1,7 @@
-```
+def filter_by_prefix(strings, prefix):
+    return [s for s in strings if s.startswith(prefix)]
+
+
 while True:
     try:
         while True:
@@ -11,18 +14,13 @@ while True:
         stored_strings = [input() for _ in range(int(num_strings))]
 
         prefix = input("Enter prefix (string): ")
-
-        while True:
-            try:
-                filter_by_prefix([str(x) for x in stored_strings], prefix)
-                break
-            except Exception as e:
-                print(f"An error occurred: {e}")
-                answer = input("Do you want to continue (yes/no)? ")
-                if answer.lower() != "yes":
-                    sys.exit()
+        filtered_strings = filter_by_prefix([str(x) for x in stored_strings], prefix)
+        if filtered_strings:
+            print("\n".join(filtered_strings))
     except Exception as e:
         print(f"An error occurred: {e}")
         answer = input("Do you want to continue (yes/no)? ")
         if answer.lower() != "yes":
+            import sys
+
             sys.exit()
