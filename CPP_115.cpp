@@ -1,17 +1,17 @@
 int rows = grid.size();
         int cols = grid[0].size();
-        int moves = 0;
-        
-        for (int j = 0; j < cols; ++j) {
-            int water_needed = 0;
-            for (int i = 0; i < rows; ++i) {
-                water_needed += grid[i][j];
-            }
-            while (water_needed > 0) {
-                water_needed -= capacity;
-                moves++;
+        int result = 0;
+        for (int j = 0; j < cols; j++) {
+            int curr_capacity = 0;
+            for (int i = 0; i < rows; i++) {
+                if (grid[i][j] == 1) {
+                    int diff = capacity - curr_capacity;
+                    if (diff > 0) {
+                        curr_capacity += diff;
+                        result += i;
+                    }
+                }
             }
         }
-        
-        return moves;
+        return result;
     }
