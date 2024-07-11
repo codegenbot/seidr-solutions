@@ -18,7 +18,7 @@ def solve_boolean(expression):
             elif char.upper() == 'F':
                 stack.append(False)
             elif char in '|&':
-                while operator_stack and precedence(operator_stack[-1]) <= precedence(char):
+                while operator_stack and precedence(operator_stack[-1]) <= precedence[char]:
                     apply_operator()
                 operator_stack.append(char)
             elif char == '(':
