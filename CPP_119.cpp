@@ -1,15 +1,15 @@
-int cnt = 0;
-    for (const string& s : lst) {
-        for (char c : s) {
+int count = 0;
+    for (const string& str : lst) {
+        for (char c : str) {
             if (c == '(') {
-                cnt++;
+                count++;
             } else {
-                if (cnt == 0) {
+                if (count == 0) {
                     return "No";
                 }
-                cnt--;
+                count--;
             }
         }
     }
-    return (cnt == 0) ? "Yes" : "No";
+    return count == 0 ? "Yes" : "No";
 }
