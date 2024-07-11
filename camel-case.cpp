@@ -9,20 +9,20 @@ int main() {
     bool capitalize = false;
 
     if (!input.empty()) {
-        std::cout << (char)tolower(input[0]); // Print the first character
+        std::cout << (char)toupper(input[0]); // Capitalize the first character
     }
 
-    for (size_t i = 1; i < input.size() - 1; ++i) {
+    for (size_t i = 1; i < input.size(); ++i) {
         char &c = input[i];
-        if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            std::cout << (char)toupper(c); // Capitalize next character
-            capitalize = false;
-        } else if (c != '-' && c != ' ' && (input[i-1] == '-' || input[i-1] == ' ')) {
-            std::cout << (char)toupper(c); // Capitalize first character after space
-        } else if (c != '-' && c != ' ') {
-            std::cout << (char)tolower(c); // Print lowercase character
+        if (c != '-' && c != ' ') {
+            if (capitalize) {
+                std::cout << (char)toupper(c); // Capitalize next character
+                capitalize = false;
+            } else if (input[i - 1] == '-' || input[i - 1] == ' ') {
+                std::cout << (char)toupper(c); // Capitalize first character after space
+            } else {
+                std::cout << (char)tolower(c); // Print lowercase character
+            }
         }
     }
 
