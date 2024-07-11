@@ -1,8 +1,10 @@
 def find_pair(n, nums):
-    nums.sort()
-    for i in range(len(nums)-1):
-        if nums[i+1] + nums[i] == n:
-            return f"{nums[i]} {nums[i+1]}"
+    seen = set()
+    for num in nums:
+        target = n - num
+        if target in seen:
+            return f"{num} {target}"
+        seen.add(num)
     return "No pair found"
 
 n = int(input())
