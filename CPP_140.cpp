@@ -1,27 +1,29 @@
+#include <iostream>
 #include <string>
-#include <cassert>
+using namespace std;
 
-std::string fix_spaces(const std::string& text) {
-    std::string result;
-    bool isConsecutive = false;
+string fix_spaces(string text) {
+    string result = "";
+    int count = 0;
     for (char c : text) {
         if (c == ' ') {
-            if (isConsecutive) {
+            count++;
+            if (count > 2) {
                 result.pop_back();
-                result += "-";
+                result.pop_back();
+                result += '-';
             } else {
-                result += "_";
+                result += '_';
             }
-            isConsecutive = true;
         } else {
+            count = 0;
             result += c;
-            isConsecutive = false;
         }
     }
     return result;
 }
 
 int main() {
-    assert (fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
+    assert(fix_spaces("   Exa 1 2 2 mple") == "-Exa_1_2_2_mple");
     return 0;
 }
