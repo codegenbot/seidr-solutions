@@ -14,10 +14,11 @@ int main() {
     
     int sum = 0;
     for (int num : nums) {
-        sum += (num / 3 - 2);
+        sum += (num / 3) - 2;
+        sum *= 3;
     }
     
-    std::cout << sum * 3 << std::endl;
+    std::cout << sum << std::endl;
     
     return 0;
 }
