@@ -11,7 +11,9 @@ else:
     for i, num in enumerate(nums):
         current_sum += num
         if current_sum >= half_sum:
-            if current_sum == half_sum or current_sum - half_sum < half_sum - (current_sum - num):
+            if current_sum == half_sum or current_sum - half_sum < half_sum - (
+                current_sum - num
+            ):
                 print(*nums[: i + 1])
                 print(*nums[i + 1 :])
                 break
