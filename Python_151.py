@@ -1,3 +1,4 @@
+```
 def double_the_difference():
     lst = list(map(int, input().split()))
     difference = max(lst) - min(lst)
@@ -8,4 +9,7 @@ def check(func):
     print(func())
 
 if __name__ == "__main__":
-    check(double_the_difference)
+    def target_func():
+        return double_the_difference()
+    
+    check(target_func)
