@@ -1,25 +1,44 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <cassert>
+
 struct order_by_points {
-    bool operator()(const int& a, const int& b) const {
-        int sum_a = 0, sum_b = 0;
-        int temp_a = abs(a), temp_b = abs(b);
-        while (temp_a) {
-            sum_a += temp_a % 10;
-            temp_a /= 10;
-        }
-        while (temp_b) {
-            sum_b += temp_b % 10;
-            temp_b /= 10;
-        }
+    std::vector<int> nums;
+    order_by_points(std::vector<int> n) : nums(n) {
+    }
+    
+    bool operator()(int a, int b) const {
+        auto calculate_sum = [](int num) {
+            int sum = 0;
+            int temp = abs(num);
+            while (temp) {
+                sum += temp % 10;
+                temp /= 10;
+            }
+            return sum;
+        };
+        
+        int sum_a = std::accumulate(nums.begin(), nums.end(), 0, [&](int acc, int num) { return acc + calculate_sum(num); });
+        int sum_b = std::accumulate(nums.begin(), nums.end(), 0, [&](int acc, int num) { return acc + calculate_sum(num); });
+        
         if (sum_a == sum_b) {
             return a < b;
         }
         return sum_a < sum_b;
     }
-
-    order_by_points() = default;
 };
 
-vector<int> nums = {0, 6, 6, -76, -21, 23, 4};
-sort(nums.begin(), nums.end(), order_by_points());
-
-assert(nums == vector<int>{-76, -21, 0, 4, 23, 6, 6});
+int main() {
+    std::vector<int> nums = {0, 6, 6, -76, -21, 23, 4};
+    sort(nums.begin(), nums.end(), order_by_points(nums));
+    
+    for (int num : nums) {
+        std::cout << num << " ";
+    }
+    
+    assert(std::is_sorted(nums.begin(), nums.end(), order_by_points(nums)) && "Sorting failed");
+    
+    return 0;
+}
