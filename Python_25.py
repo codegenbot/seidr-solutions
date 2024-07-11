@@ -4,6 +4,8 @@ import math
 
 
 def factorize(n: int) -> List[int]:
+    if n <= 1:
+        return []
     factors = []
     i = 2
     while i * i <= n:
@@ -15,7 +17,7 @@ def factorize(n: int) -> List[int]:
                 n //= i
                 count += 1
             factors.append(i ** count)
-            i = 2  
+            i = 2
     if n > 1:
         factors.append(n)
     return factors
