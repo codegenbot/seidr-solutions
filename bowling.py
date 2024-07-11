@@ -43,5 +43,5 @@ def calculate_bowling_score(bowls):
 
     return score
 
-bowls = input("Enter the sequence of bowls: ").replace(" ", "").replace("/", "")
+bowls = input("Enter the sequence of bowls: ").strip()
 print(calculate_bowling_score(bowls))
