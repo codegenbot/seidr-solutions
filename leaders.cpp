@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -26,7 +27,7 @@ int main() {
     
     cout << "Enter positive integers (0 to end input):" << endl;
     cout.flush();
-    while (cin >> num && num != 0 && !cin.eof()) {
+    while (cin >> num; cin.ignore() && num != 0) {
         nums.push_back(num);
     }
     
