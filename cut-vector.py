@@ -1,7 +1,5 @@
 n = int(input())
-a = []
-for _ in range(n):
-    a.append(int(input()))
+a = [int(input()) for _ in range(n)]
 
 total_sum = sum(a)
 half_sum = total_sum // 2
