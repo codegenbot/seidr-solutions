@@ -1,6 +1,23 @@
-sort(lst.begin(), lst.end());
-    if (lst.size() < 2 || lst[0] == lst[1]) {
-        return -1;
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+int next_smallest(const std::vector<int>& lst) {
+    std::vector<int> sorted_list = lst;
+    sort(sorted_list.begin(), sorted_list.end());
+    int count = 0;
+    for (int i = 1; i < sorted_list.size(); ++i) {
+        if (sorted_list[i] > sorted_list[i - 1]) {
+            count++;
+            if (count == 2) {
+                return sorted_list[i];
+            }
+        }
     }
-    return lst[1];
+    return -1;
+}
+
+int main() {
+    assert (next_smallest({-35, 34, 12, -45}) == -35);
+    return 0;
 }
