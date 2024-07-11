@@ -30,6 +30,11 @@ int main() {
         nums.push_back(num);
     }
 
+    if (std::cin.eof()) {
+        std::cin.clear();
+        std::cin.ignore();
+    }
+
     std::vector<int> leaders = findLeaders(nums);
 
     std::cout << "Leaders: ";
