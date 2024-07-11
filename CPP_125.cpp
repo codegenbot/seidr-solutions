@@ -44,6 +44,6 @@ std::vector<std::string> split_words(std::string txt) {
 }
 
 int main() {
-    // Add your testing or program logic here
+    // Add test cases or program logic here
     return 0;
 }
