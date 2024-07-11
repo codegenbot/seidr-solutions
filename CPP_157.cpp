@@ -13,5 +13,6 @@ bool isSquare(float x) {
 
 int main() {
     assert(right_angle_triangle(2, 2, 10) == false);
+    // Add more test cases here
     return 0;
 }
