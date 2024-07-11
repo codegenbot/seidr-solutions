@@ -1,6 +1,7 @@
-```
 def fibfib(n: int):
     if n <= 1:
         return n
-    else:
-        return fibfib(n-1) + fibfib(n-2)
+    sqrt_5 = (1 + 5 ** 0.5) / 2
+    phi = (1 + sqrt_5) / 2
+    psi = (1 - sqrt_5) / 2
+    return int((phi ** n - psi ** n) / sqrt_5)
