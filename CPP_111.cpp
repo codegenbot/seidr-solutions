@@ -1,5 +1,6 @@
 #include <string>
 #include <map>
+#include <cctype>
 using namespace std;
 
 map<char, int> histogram(string test) {
@@ -9,7 +10,8 @@ map<char, int> histogram(string test) {
     string str = test;
     for (char c : str) {
         if (!isalpha(c)) continue; // ignore non-alphabetic characters
-        ++result[c];
+        char temp = isupper(c) ? tolower(c) : toupper(c);
+        ++result[temp];
     }
 
     int maxCount = 0;
