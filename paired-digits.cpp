@@ -1,21 +1,19 @@
 #include <string>
+#include <iostream>
 
-int pairedDigits(std::string s) {
+int pairedDigits(const std::string& s) {
     int sum = 0;
-    for (int i = 0; i < s.length() - 1; i++) {
+    for (size_t i = 0; i < s.size() - 1; ++i) {
         if (s[i] == s[i + 1]) {
             sum += s[i] - '0';
         }
     }
     return sum;
+
 }
 
 int main() {
-    std::string s;
-    // Read input from user
-    std::cin >> s;
-    int result = pairedDigits(s);
-    // Print output
-    std::cout << result << std::endl;
+    int sum = pairedDigits("123212");
+    std::cout << "Sum: " << sum << std::endl;
     return 0;
 }

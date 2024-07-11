@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -8,9 +7,13 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i <= n - m; i++) {
+    for (int i = 0; i + m <= n; i++) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
+            // Check for overlapping targets
+            while (i + m <= n && text.substr(i, m) == target) {
+                i++; // increment the starting index to avoid duplicates
+            }
         }
     }
 
@@ -30,5 +33,4 @@ int main() {
         cout << i << " ";
     }
     cout << endl;
-
-    return 0;
+}
