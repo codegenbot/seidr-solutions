@@ -1,3 +1,3 @@
+```
 def sort_third(l: list):
-    return [x if i % 3 != 0 else min(x for x in l) 
-            for i, x in enumerate(sorted((x for y in l for x in (y,)))[::3])]
+    return [x if i % 3 != 0 else min(l) for i, x in enumerate(sorted([y for pair in l for y in pair]))[::3]]
