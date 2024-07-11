@@ -1,4 +1,4 @@
-#include <iostream>
+#include <string>
 #include <vector>
 #include <cassert>
 
@@ -33,16 +33,11 @@ std::vector<std::string> split_words(std::string txt) {
     if(result.empty()){
         int count = 0;
         for(char c : txt){
-            if(std::islower(c) && (c - 'a') % 2 == 1){
+            if(islower(c) && (c - 'a') % 2 == 1){
                 count++;
             }
         }
         result.push_back(std::to_string(count));
     }
     return result;
-}
-
-int main() {
-    assert(issame(split_words(""), {"0"}));
-    return 0;
 }
