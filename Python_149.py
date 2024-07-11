@@ -1,3 +1,2 @@
-```
 def sorted_list_sum(lst):
-    return sum(int(len(word)) for word in lst if len(word) % 2 == 0)
+    return sum(int(x) for x in sorted([int(word) for word in lst]))
