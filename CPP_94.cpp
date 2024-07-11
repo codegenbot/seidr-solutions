@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -25,8 +26,7 @@ bool isPrime(int n) {
 }
 
 int main() {
-    vector<int> lst = {127, 97, 8192}; // Correct way
-    assert(skkkasdkd(lst) == 10);
-    cout << "Hello World!" << endl;
+    vector<int> lst = {127, 97, 8192};
+    cout << "The result is: " << skjkasdkd(lst) << endl;
     return 0;
 }
