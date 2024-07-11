@@ -9,4 +9,3 @@ int max_fill(std::vector<std::vector<int>> grid, int capacity) {
     
     int buckets_needed = (total_water + capacity - 1) / capacity;
     return buckets_needed;
-}
