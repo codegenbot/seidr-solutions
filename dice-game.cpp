@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 double probability(std::string n, std::string m);
