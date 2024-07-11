@@ -1,6 +1,8 @@
 #include <string>
+#include <vector>
+#include <cassert>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -12,9 +14,9 @@ bool issame(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> split_words(string txt){
-    vector<string> result;
-    string word = "";
+std::vector<std::string> split_words(std::string txt) {
+    std::vector<std::string> result;
+    std::string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
             if(!word.empty()){
@@ -35,13 +37,12 @@ vector<string> split_words(string txt){
                 count++;
             }
         }
-        result.push_back(to_string(count));
+        result.push_back(std::to_string(count));
     }
     return result;
 }
 
 int main() {
-    vector<string> words = split_words("hello,world");
-    bool same = issame(words, words);
+    assert(issame(split_words(""), {"0"}));
     return 0;
 }
