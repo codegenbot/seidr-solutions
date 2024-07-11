@@ -1,11 +1,8 @@
 int main() {
     vector<float> lst;
     long long odd_sum = 0; 
-    float dll;
 
     cin >> dll;
-    lst.push_back(dll);
-
     cout << double_the_difference(lst);
 }
 
