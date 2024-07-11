@@ -1,8 +1,20 @@
-#include <vector>
-#include <algorithm>
-
-bool issame(const vector<int> &a, const vector<int> &b) {
-    return a == b;
+bool issame(vector<int> a, vector<int> b) {
+    int sum_a = 0, sum_b = 0;
+    for (int num : a) {
+        if (num < 0) num *= -1;
+        while (num > 0) {
+            sum_a += num % 10;
+            num /= 10;
+        }
+    }
+    for (int num : b) {
+        if (num < 0) num *= -1;
+        while (num > 0) {
+            sum_b += num % 10;
+            num /= 10;
+        }
+    }
+    return sum_a == sum_b;
 }
 
 vector<int> order_by_points(vector<int> nums) {
