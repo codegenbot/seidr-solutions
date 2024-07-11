@@ -6,10 +6,10 @@ int main() {
     std::vector<int> nums;
     int num;
     
-    while (std::cin >> num || !std::cin.eof()) {
+    while (std::cin >> num) {
         nums.push_back(num);
     }
-    
+
     int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
@@ -32,13 +32,18 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; i++) {
-        std::cout << nums[i] << std::endl;
+        std::cout << nums[i];
+        if (i < cutIndex) {
+            std::cout << " ";
+        }
     }
-    
-    std::cout << "------------" << std::endl;
+    std::cout << std::endl << "2" << std::endl;
     
     for (int i = cutIndex + 1; i < n; i++) {
-        std::cout << nums[i] << std::endl;
+        std::cout << nums[i];
+        if (i < n - 1) {
+            std::cout << " ";
+        }
     }
     
     return 0;
