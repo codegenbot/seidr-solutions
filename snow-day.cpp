@@ -8,7 +8,7 @@ int main() {
     cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
     for (int i = 0; i < hours; ++i) {
-        float melted_snow = snow_fall_rate * (1.0 - snow_melt_rate) * snow_on_ground;
+        float melted_snow = snow_on_ground * snow_melt_rate;
         snow_on_ground += snow_fall_rate;
         snow_on_ground -= melted_snow;
     }
