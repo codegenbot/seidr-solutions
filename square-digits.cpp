@@ -2,11 +2,11 @@
 #include <string>
 
 int main() {
-    unsigned int num;
+    int num;
     std::cin >> num;
     std::string result = "";
 
-    if (num == 0) {
+    if(num == 0) {
         result = "0";
     }
 
