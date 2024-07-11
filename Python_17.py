@@ -1,19 +1,17 @@
-Here is the completed code:
+```
+from typing import List
+
 
 def parse_music(music_string: str) -> List[int]:
-    music_notes = {
-        'o': 4,
-        'o|': 2,
-        '.|': 1
-    }
+    note_map = {'o': 4, 'o|': 2, '.|': 1}
     result = []
-    note = ''
-    for char in music_string:
-        if char not in ['o', '|']:
-            continue
-        if note and note[-1] == '|':
-            result.append(2)
-        elif note == 'o':
-            result.append(4)
-        note += char
-    return [music_notes[note]]
+    i = 0
+    while i < len(music_string):
+        if music_string[i] == '|':
+            i += 1
+        note = ''
+        while i < len(music_string) and music_string[i] not in ['o', '|']:
+            note += music_string[i]
+            i += 1
+        result.append(note_map.get(note, 0))
+    return result
