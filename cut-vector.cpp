@@ -8,11 +8,11 @@ int main() {
     int num;
     while (std::cin >> num || !std::cin.eof()) {
         if (std::cin.fail()) {
-            break;
+            break; // Exit loop if input fails
         }
         nums.push_back(num);
     }
-    
+
     int minDiff = INT_MAX;
     int cutIndex = 0;
     
