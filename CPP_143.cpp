@@ -1,29 +1,38 @@
-string words_in_sentence(string sentence){
-    vector<int> primes;
-    for(int i=2; i<=50; i++){
-        bool isPrime = true;
-        for(int j=2; j*j <= i; j++){
-            if(i%j == 0) {
-                isPrime = false;
-                break;
-            }
-        }
-        if(isPrime)
-            primes.push_back(i);
-    }
+#include <iostream>
+#include <vector>
+#include <cmath>
 
-    string result = "";
-    string temp = sentence + " ";
-    size_t start = 0, end;
-    while((end = temp.find(" ")) != string::npos){
-        size_t len = end - start;
-        for(auto prime : primes){
-            if(len == prime){
-                result += temp.substr(start, end-start) + " ";
-                start = end+1;
-                break;
-            }
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+string words_in_sentence(string sentence) {
+    vector<string> words = split(sentence, ' ');
+    string result;
+    
+    for (const auto& word : words) {
+        if (isPrime(word.length())) {
+            result += word + " ";
         }
     }
-    return result.substr(0, result.size()-1);
+    
+    return result.substr(0, result.length() - 1);
+}
+
+vector<string> split(const string& str, char c) {
+    vector<string> tokens;
+    size_t pos = 0;
+    size_t prev = 0;
+
+    while ((pos = str.find(c, prev)) != string::npos) {
+        tokens.push_back(str.substr(prev, pos - prev));
+        prev = pos + 1;
+    }
+    tokens.push_back(str.substr(prev));
+
+    return tokens;
 }
