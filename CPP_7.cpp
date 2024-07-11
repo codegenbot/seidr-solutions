@@ -1,40 +1,40 @@
-#include <iostream>
+```cpp
 #include <vector>
-#include <algorithm>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a.size() == b.size() && all_of(a.begin(), a.end(), [&](const string& s) {
-        return find(b.begin(), b.end(), s) != b.end();
-    });
+bool same(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-int main(){
-    int num_strings;
-    std::cout << "Enter the number of strings: ";
-    std::cin >> num_strings;
-
-    vector<string> strings(num_strings);
-    for (auto &s : strings) {
-        std::cout << "Enter string " << (strings.begin() - s.begin()) + 1 << ": ";
-        std::cin >> s;
-    }
-
-    int num_substrings;
-    std::cout << "Enter the number of substrings: ";
-    std::cin >> num_substrings;
-
-    vector<string> substrings(num_substrings);
-    for (auto &s : substrings) {
-        std::cout << "Enter substring " << (substrings.begin() - s.begin()) + 1 << ": ";
-        std::cin >> s;
-    }
-
-    vector<string> filtered_strings = filter_by_substring(strings, substrings[0]);
-    if(issame(filtered_strings, strings)) {
-        cout << "All strings contain the substring: " << substrings[0] << endl;
+int main() {
+    vector<string> strings = {"apple", "banana", "cherry", "date"};
+    string substring = "an";
+    vector<string> result = filter_by_substring(strings, substring);
+    
+    if (same(result, {"banana"})) {
+        for(auto str : result) {
+            cout << str << endl;
+        }
     } else {
-        cout << "Not all strings contain the substring: " << substrings[0] << endl;
+        cout << "No strings found." << endl;
     }
 
     return 0;
+}
+
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for(auto str : strings) {
+        if(str.find(substring) != string::npos)
+            result.push_back(str);
+    }
+    return result;
 }
