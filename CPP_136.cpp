@@ -1,3 +1,6 @@
+```cpp
+#include <vector>
+#include <algorithm>
 #include <initializer_list>
 
 namespace MyNamespace {
@@ -17,6 +20,15 @@ namespace MyNamespace {
             }
         }
 
-        return {{std::max(max_negative, 0), std::min(min_positive, 1)}};
+        std::vector<int> result;
+        result.push_back(std::max(max_negative, 0));
+        result.push_back(std::min(min_positive, 1));
+
+        return {result};
     }
+}
+
+int main() {
+    assert(MyNamespace::isSame({std::max(-6, 0), std::min(1, -100)}, {-3, 1}));
+    return 0;
 }
