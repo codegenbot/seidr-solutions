@@ -1,10 +1,9 @@
 from typing import List
 import math
 
+
 def factorize(n: int) -> List[int]:
     factors = []
-    if n <= 1:
-        return [n]
     i = 2
     while i * i <= n:
         if n % i:
@@ -14,7 +13,8 @@ def factorize(n: int) -> List[int]:
             while n % i == 0:
                 count += 1
                 n //= i
-            factors.append(i ** count)
+            for _ in range(count):
+                factors.append(i)
             i = 2
     if n > 1:
         factors.append(n)
