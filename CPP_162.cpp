@@ -1,8 +1,7 @@
-```
 #include <iostream>
 #include <sstream>
 
-void cpp162() {
+void CPP162() {
     std::cout << "Enter a string: ";
     std::string s;
     std::getline(std::cin, s);
