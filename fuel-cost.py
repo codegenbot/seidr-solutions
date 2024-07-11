@@ -1,2 +1,3 @@
-total = sum((int(num) - 2) // 3 for num in input().split())
+values = list(map(int, input().split()))
+total = sum(value // 3 - 2 for value in values)
 print(total)
