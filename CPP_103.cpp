@@ -7,13 +7,7 @@ if (n > m) {
         sum += i;
     }
     
-    int avg = round((double)sum / (m - n + 1));
+    int avg = round(sum / (m - n + 1));
     
-    string binary_avg = "";
-    while (avg > 0) {
-        binary_avg = to_string(avg % 2) + binary_avg;
-        avg /= 2;
-    }
-    
-    return binary_avg;
+    return bitset<sizeof(int)*8>(avg).to_string().substr(1);
 }
