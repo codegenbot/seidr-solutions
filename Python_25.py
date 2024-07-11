@@ -1,7 +1,7 @@
 while True:
     try:
         n = int(input("Enter a positive integer: "))
-        if n < 1:
+        if n <= 0:
             print("Please enter a positive integer.")
         elif n > 1000000:  
             print("The program might take a long time for large inputs. Try smaller values.")
