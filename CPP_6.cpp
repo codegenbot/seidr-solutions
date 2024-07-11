@@ -1,6 +1,18 @@
 #include <vector>
 
-vector<int> parse_nested_parens(string paren_string){
+bool areSame(vector<int> arr1, vector<int> arr2) {
+    if (arr1.size() != arr2.size()) {
+        return false;
+    }
+    for (int i = 0; i < arr1.size(); ++i) {
+        if (arr1[i] != arr2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
     int max_depth = 0;
     int current_depth = 0;
@@ -21,4 +33,3 @@ vector<int> parse_nested_parens(string paren_string){
     result.push_back(max_depth);
     return result;
 }
-```
