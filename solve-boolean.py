@@ -6,9 +6,23 @@ def solve_boolean(expression):
             return "F"
         elif "&" in expression:
             left, right = expression.split("&")
-            return ("T" if "T" in evaluate_expression(left) else "F") + (("T" if "T" in evaluate_expression(right) else "F") if eval("True and " + str(evaluate_expression(right)) ) else "")
+            return (
+                evaluate_expression(left) == "T" and evaluate_expression(right) == "T"
+            ) or (
+                evaluate_expression(left) == "F" and evaluate_expression(right) == "F"
+            )
         elif "|" in expression:
             left, right = expression.split("|")
-            return ("T" if "T" in evaluate_expression(left) else "F") + (("T" if "T" in evaluate_expression(right) else "F") if eval("True or " + str(evaluate_expression(right)) ) else "")
+            return (
+                (evaluate_expression(left) == "T" and evaluate_expression(right) == "T")
+                or (
+                    evaluate_expression(left) == "T"
+                    and evaluate_expression(right) == "F"
+                )
+                or (
+                    evaluate_expression(left) == "F"
+                    and evaluate_expression(right) == "T"
+                )
+            )
 
     return evaluate_expression(expression)
