@@ -1,3 +1,4 @@
+```
 def add(x: int, y: int):
     return x + y
 
@@ -7,6 +8,5 @@ try:
 
     result = add(num1, num2)
     print(f"Result: {result}")
-
 except ValueError:
-    print("Invalid input. Please enter numeric values.")
+    print("Invalid input. Please enter integers.")
