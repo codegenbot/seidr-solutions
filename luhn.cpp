@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -28,7 +29,7 @@ int luhn(int cardNumber) {
 }
 
 int main() {
-    int cardNumber = 4273735342835; // input your credit card number here
+    int cardNumber = 1234; // input your credit card number here
     std::cout << luhn(cardNumber) << std::endl;
     return 0;
 }
