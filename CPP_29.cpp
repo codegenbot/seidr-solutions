@@ -1,5 +1,23 @@
-bool Solution::issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    return a == b;
+#include <vector>
+#include <string>
+#include <cassert>
+
+namespace contest {
+    bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b);
 }
 
-assert(Solution::issame(Solution::filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxAA", "xxx"}, "xxx"), {"xxx", "xxxAA", "xxx"}));
+std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
+    std::vector<std::string> result;
+    for (const auto& str : strings) {
+        if (str.find(prefix) == 0) {
+            result.push_back(str);
+        }
+    }
+    return result;
+}
+
+namespace contest {
+    bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+        return a == b;
+    }
+}
