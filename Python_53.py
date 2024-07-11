@@ -2,8 +2,7 @@ def add(x, y) -> int:
     return x + y
 
 try:
-    x = int(input("Enter the first number: ")) # Enter first number
-    y = int(input("Enter the second number: ")) # Enter second number
+    x, y = map(int, input("Enter two numbers separated by space: ").split())
 
     result = add(x, y)
 
