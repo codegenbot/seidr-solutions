@@ -1,4 +1,3 @@
-```
 from collections import deque
 
 def minPath(grid, k):
@@ -15,18 +14,13 @@ def minPath(grid, k):
             
             if (x, y, cell) not in visited:
                 visited.add((x, y, cell))
-                min_val = grid[x][y]
-                
-                for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                    nx, ny = x + dx, y + dy
-                    
-                    if 0 <= nx < n and 0 <= ny < n and grid[nx][ny] != -1:
-                        new_cell = nx * n + ny
-                        queue.append((nx, ny, new_cell))
-                        min_val = min(min_val, grid[nx][ny])
-                
-                cur_min = min(cur_min, cell + min_val)
+                cur_min = min(cur_min, cell)
         
         res.append(cur_min)
     
     return res
+
+grid = [[1 for _ in range(5)] for _ in range(5)]
+k = int(input("Enter k: "))
+
+print(minPath(grid, k))
