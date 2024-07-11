@@ -2,21 +2,25 @@
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
+    result = []
     stack = []
     groups = []
-    current_group = ''
     
     for char in paren_string:
         if char == ' ':
             continue
         if char == '(':
             stack.append(char)
-            current_group += char
         elif char == ')':
-            if stack and stack[-1] == '(':
+            if stack:
                 stack.pop()
-                current_group += char
-                groups.append(current_group)
-                current_group = ''
+            else:
+                groups.append(''.join(stack))
+                result.append(''.join(stack + [char]))
+                stack = []
     
-    return groups
+    if stack:
+        groups.append(''.join(stack))
+        result.append(''.join(stack + ['']))  # Add the last group with a closing parenthesis
+    
+    return result
