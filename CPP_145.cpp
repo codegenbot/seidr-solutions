@@ -51,7 +51,3 @@ std::vector<int> order_by_points(const std::vector<int>& nums) {
     }
     return result;
 }
-
-bool issame(std::vector<int> v1, std::vector<int> v2) {
-    return v1 == v2;
-}
