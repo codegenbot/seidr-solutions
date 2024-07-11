@@ -1,12 +1,12 @@
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int end = text.size();
-    for (int i = 0; i <= end - target.size(); ++i) {
+    for (int i = 0; i <= text.size() - target.size(); ++i) {
         bool found = true;
         for (int j = 0; j < target.size(); ++j) {
             if (text[i + j] != target[j]) {
@@ -16,9 +16,9 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
         if (found) {
             result.push_back(i);
-            i += target.size() - 1; // start searching from the end index of the previous match
-        } else if (i == end - target.size()) { 
-            return vector<int>(); // return empty list if target is larger than text
+            i += target.size() - 1; // Continue searching for overlapping occurrences
+        } else if (i == text.size() - target.size()) {
+            return vector<int>(); // Handle cases where the target string is larger than the text
         }
     }
     return result;
