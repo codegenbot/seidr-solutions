@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 double poly(std::vector<double> xs, double x){
     double result = 0.0;
@@ -12,7 +11,9 @@ double poly(std::vector<double> xs, double x){
 }
 
 double find_zero(std::vector<double> xs){
-    return -xs[0] / xs[1];
+    double a = xs[0];
+    double b = xs[1];
+    return -a / b;
 }
 
 int main(){
