@@ -1,9 +1,6 @@
 def solve_boolean(expression):
     if "(" not in expression:
-        if expression == "t":
-            return True
-        elif expression == "f":
-            return False
+        return eval(expression.replace("T", "True").replace("F", "False"))
     else:
         i = 0
         count = 0
@@ -14,16 +11,4 @@ def solve_boolean(expression):
                 count -= 1
             i += 1
         subexpression = expression[: (i - 1)]
-        result = solve_boolean(subexpression)
-
-        op = expression[i - 1]
-        val = expression[i + 1 :]
-
-        if op == "&":
-            return result and eval(val)
-        elif op == "|":
-            return result or eval(val)
-
-    for op, val in zip(["&", "|"], [f"result {op} False", f"result {op} True"]):
-        if eval(val):
-            result = solve_boolean(f"{result} {op} {val.split()[2]}")
+        return eval(f"({solve_boolean(subexpression)})")
