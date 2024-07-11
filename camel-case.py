@@ -1,7 +1,3 @@
-import re
-
+```
 def camel_case(s):
-    return "".join(
-        word.capitalize() if i > 0 else word
-        for i, word in enumerate(s.replace("-", " ").title())
-    )
+    return s.split("-")[0].lower() + "".join(word.capitalize() for word in s.split("-")[1:])
