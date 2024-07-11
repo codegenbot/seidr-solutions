@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -15,13 +16,13 @@ bool is_sorted(vector<int> lst){
     }
     return true;
 
-int main() {
+int main {
     vector<int> lst;
     int num;
     
     cout << "Enter numbers, enter -1 to stop: ";
     
-    while((cin >> num) && (num != -1)){
+    while(cin >> num && num != -1) {
         lst.push_back(num);
     }
     
