@@ -3,6 +3,8 @@
 using namespace std;
 
 vector<int> largest_smallest_integers(vector<int> lst) {
+    vector<int> result;
+    
     int max_negative = 0;
     int min_positive = INT_MAX;
     
@@ -14,5 +16,8 @@ vector<int> largest_smallest_integers(vector<int> lst) {
         }
     }
     
-    return {(max_negative > 0 ? 0 : max_negative), (min_positive < 1 ? 0 : min_positive)};
+    result.push_back(max_negative);
+    result.push_back(min_positive == INT_MAX ? 0 : min_positive);
+    
+    return result;
 }
