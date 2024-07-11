@@ -1,4 +1,4 @@
-```python
+```
 def longest(strings: List[str]) -> Optional[List[str]]:
     if not strings:
         return None
