@@ -1,3 +1,9 @@
+```c++
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 string spinWords(string str) {
     string result = "";
     string word = "";
@@ -11,8 +17,10 @@ string spinWords(string str) {
                 result += revWord + " ";
                 word = "";
             } else
-                result += word + " ";
-            word = "";
+                if (!word.empty()) {
+                    result += word + " ";
+                    word = "";
+                }
         } else {
             word += str[i];
         }
@@ -24,11 +32,18 @@ string spinWords(string str) {
             revWord += word[j];
         result += revWord + " ";
     } else
-        result += word + " ";
+        if (!word.empty()) {
+            result += word + " ";
+            word = "";
+        }
 
-    size_t pos = 0;
-    while ((pos = result.find(" ")) != string::npos) {
-        result.erase(pos, 1);
-    }
-    return result;
+    return result.substr(0, result.find_last_of(' ')); // Remove trailing space
+}
+
+int main() {
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
+    return 0;
 }
