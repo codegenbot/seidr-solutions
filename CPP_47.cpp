@@ -1,4 +1,4 @@
-#include <cmath>
+#include <algorithm>
 
 float median(vector<float> l) {
     sort(l.begin(), l.end());
