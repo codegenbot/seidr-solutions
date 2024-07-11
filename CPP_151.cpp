@@ -1,6 +1,7 @@
+```c++
 int main() {
-    vector<float> lst; 
-    long long odd_sum = 0; 
+    vector<float> lst;
+    long long odd_sum = 0;
     int result = double_the_difference(lst);
     return 0;
 }
