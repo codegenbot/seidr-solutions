@@ -3,11 +3,8 @@ def sort_array(user_input=None):
     if user_input is None:
         array = list(map(int, input("Enter space-separated numbers: ").split()))
     else:
-        if isinstance(user_input, str):
-            array = list(map(int, user_input.split()))
-        else:
-            array = list(map(int, user_input))
-
+        array = [int(x) for x in user_input.split()]
+    
     sorted_array = sorted(array)
     n = len(sorted_array)
 
