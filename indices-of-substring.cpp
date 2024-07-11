@@ -6,7 +6,7 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int pos = 0; // position in text
+    int pos = 0; 
 
     while (true) { 
         pos = text.find(target, pos);
@@ -16,7 +16,7 @@ vector<int> indicesOfSubstring(string text, string target) {
         }
 
         result.push_back(pos);
-        pos = pos + 1; // move to the next occurrence
+        pos = pos + 1; // move to the next character
     }
     
     return result;
