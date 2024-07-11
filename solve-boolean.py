@@ -1,3 +1,4 @@
+```
 def solve_boolean(expression):
     operations = {"&": lambda a, b: a and b, "|": lambda a, b: a or b}
     precedence = {"&": 1, "|": 0}
@@ -17,8 +18,7 @@ def solve_boolean(expression):
             while stack and stack[-1] != "(":
                 b = stack.pop()
                 a = stack.pop()
-                op = next(key for key, value in operations.items() if callable(value) and value(a, b))
-                stack.append(operations[op](a, b))
+                stack.append(operations[char](a, b)))
         elif char in operations:
             while len(stack) > 0 and stack[-1] != "(" and precedence[char] < precedence.get(stack.pop(), 2):
                 pass
