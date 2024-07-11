@@ -18,12 +18,6 @@ vector<string> words_string(string s){
     return words;
 }
 
-int main() {
-    string input;
-    getline(cin, input);
-    
-    vector<string> words = words_string(input);
-    cout << words.size() << endl;
-    
-    return 0;
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
