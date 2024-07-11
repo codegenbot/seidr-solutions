@@ -1,4 +1,3 @@
-```
 from typing import Optional
 
 
@@ -13,7 +12,7 @@ strings = []
 for _ in range(num_strings):
     while True:
         user_input = input("Enter a string (or 'stop' to finish): ")
-        if user_input.lower() == 'stop':
+        if user_input.lower() == "stop":
             break
         strings.append(user_input)
 longest_string = longest(strings)
