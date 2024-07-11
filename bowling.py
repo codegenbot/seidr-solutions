@@ -4,7 +4,7 @@ def get_strike_bonus(bowls, index):
     if index == 18:
         num_bonuses = 1
     while num_bonuses > 0 and index + 1 < len(bowls):
-        if bowls[index + 1] == "X" or (index + 2 < len(bowls) and bowls[index + 2] == "/"):
+        if bowls[index + 1] == "X" or bowls[index + 1] == "/":
             bonus += 10
         elif bowls[index + 2] == "-":
             pass
