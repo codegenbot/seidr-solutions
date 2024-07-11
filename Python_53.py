@@ -1,9 +1,9 @@
+```
 def add(x: int, y: int) -> int:
     try:
-        num1 = int(input("Enter first number: "))
-        num2 = int(input("Enter second number: "))
-
+        if not isinstance(x, int) or not isinstance(y, int):
+            raise TypeError
         result = x + y  
         print(f"Result: {result}")
-    except ValueError:
+    except TypeError:
         print("Invalid input. Please enter integers.")
