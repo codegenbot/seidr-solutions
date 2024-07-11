@@ -1,3 +1,3 @@
 ```
 def count_upper(s):
-    return sum(1 for i, c in enumerate(s) if 'AEIO'.index(c.upper()) % 2 == 0 and 'AEIOU'.index(c.upper()) < 5)
+    return sum(1 for i, c in enumerate(s) if 'AEIO'.__contains__(c.upper()) and i % 2 == 0)
