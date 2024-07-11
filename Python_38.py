@@ -1,5 +1,5 @@
-def decode_cyclic():
-    encoded_str = input("Enter the encoded string: ")
+```
+def decode_cyclic(encoded_str):
     if len(encoded_str) % (len(encoded_str) // 2) != 0:
         return "Invalid input. Please ensure the length of the encoded string is a multiple of half its length."
     decoded_str = ""
@@ -7,10 +7,8 @@ def decode_cyclic():
     while n % 2 != 0:
         n //= 2
     if len(encoded_str) % n != 0:
-        if encoded_str[:n] == "1" * n:
-            encoded_str = "0" + encoded_str
-        else:
-            encoded_str = "1" + encoded_str
+        prefix = "10" if encoded_str[:n] == "1" * n else "01"
+        encoded_str = prefix + encoded_str
     for i in range(0, len(encoded_str), n):
         bits = encoded_str[i : i + n]
         if bits[0] == "1":
