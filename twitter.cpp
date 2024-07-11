@@ -13,19 +13,12 @@ int main() {
     }
     
     else {
-        size_t count = 0;
-        for (char c : tweet) {
-            if (std::isalnum(c) || std::isspace(c)) {
-                ++count;
-            } 
-        }
-        
-        if(count > 140) {
+        if(tweet.size() > 140) {
             cout << "Too many characters" << endl;
         }
         
         else {
-            cout << "Your tweet has " << count << " characters" << endl;
+            cout << "Your tweet has " << tweet.size() << " characters" << endl;
         }
     }
 }
