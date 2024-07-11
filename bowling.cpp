@@ -9,9 +9,9 @@ int score(string s) {
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '/') {
             total += 10 - (s[i - 1] - '0');
-            total += (frame < 9 && s[i + 1] != '/') ? ((s[i + 1] == 'X') ? 10 : (s[i + 1] - '0')) : 0;
+            total += (i + 1 < s.size() && frame < 9) ? (s[i + 1] == 'X' ? 10 : (s[i + 1] - '0')) : 0;
             if (frame < 9) {
-                i++; // Skip next character
+                i += 2; // Skip next two characters
             }
             frame++;
         } else if (s[i] == 'X') {
@@ -19,8 +19,11 @@ int score(string s) {
             if (frame < 9) {
                 if (i + 2 < s.size()) {
                     total += (s[i + 1] == 'X') ? 10 : (s[i + 1] - '0');
-                    if (s[i + 1] == 'X' && s[i + 2] == 'X') {
-                        total += 10; // Handle double strike
+                    if (s[i + 1] == 'X') {
+                        total += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
+                        if (s[i + 2] == 'X' && i + 3 < s.size()) {
+                            total += (s[i + 3] == 'X') ? 10 : (s[i + 3] - '0');
+                        }
                     } else {
                         total += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
                     }
@@ -33,9 +36,10 @@ int score(string s) {
             total += (s[i] - '0');
             if (frame < 9 && i + 1 < s.size() && s[i + 1] == '/') {
                 total += 10 - (s[i] - '0');
-                i++; // Skip next character
+                i += 2; // Skip next two characters
             }
         }
+        if (s[i] == 'X') { frame++; }
     }
     return total;
 }
