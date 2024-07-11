@@ -1,9 +1,8 @@
-```
 from typing import List
 
 
 def remove_duplicates() -> List[int]:
-    numbers = list(map(int, input().split(',')))
+    numbers = list(map(int, input("Enter the comma-separated numbers:").split(',')))
     return sorted(set(numbers))
 
 
