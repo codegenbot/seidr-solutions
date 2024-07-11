@@ -12,9 +12,9 @@ int can_arrange(std::vector<int> arr) {
 
 int main() {
     assert(can_arrange({}) == -1);
-    std::vector<int> test1 = {1,2,3,4};
-    std::cout << can_arrange(test1) << std::endl; // expected output: 5
-    std::vector<int> test2 = {1,3,2};
-    std::cout << can_arrange(test2) << std::endl; // expected output: 2
+    std::vector<int> test1 = {1, 2, 3};
+    std::cout << can_arrange(test1) << std::endl; 
+    std::vector<int> test2 = {1, 4, 3};
+    std::cout << can_arrange(test2) << std::endl; 
     return 0;
 }
