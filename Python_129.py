@@ -1,5 +1,5 @@
 ```
-n = int(input("Enter the size of the grid: "))
+'''n = int(input("Enter the size of the grid: "))
 k = int(input("Enter the value of k: "))
 
 def minPath(n, k):
@@ -26,4 +26,4 @@ def minPath(n, k):
                 min_path = path
     return min_path
 
-print(minPath(n, k))
+print(minPath(n, k))'''
