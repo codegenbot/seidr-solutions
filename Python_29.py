@@ -8,7 +8,16 @@ def filter_by_prefix(strings: List[str], prefix: str) -> None:
         print("No strings match the given prefix.")
 
 
-num_strings = int(input("Enter number of strings: "))
+try:
+    num_strings = int(input("Enter number of strings: "))
+except ValueError:
+    print("Invalid input! Please enter an integer.")
+    exit(1)
+
 strings = [input() for _ in range(num_strings)]
-prefix = input("Enter prefix: ")
+try:
+    prefix = input("Enter prefix: ")
+except ValueError:
+    print("Invalid input! Please enter a string.")
+    exit(1)
 filter_by_prefix([str(x) for x in strings], str(prefix))
