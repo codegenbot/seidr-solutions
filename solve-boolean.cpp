@@ -5,9 +5,9 @@ int main() {
     std::string input;
     std::cin >> input;
 
-    if (input == "T") {
+    if (input == "t") {
         std::cout << "True" << std::endl;
-    } else if (input == "F") {
+    } else {
         std::cout << "False" << std::endl;
     }
 
