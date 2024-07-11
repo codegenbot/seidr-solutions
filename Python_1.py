@@ -1,23 +1,22 @@
-```
 def separate_paren_groups(paren_string: str) -> List[str]:
     groups = []
-    current_group = ''
-    group_opened = False
+    group = ""
     for char in paren_string:
-        if char == ' ' and group_opened:
-            groups.append(current_group.strip())
-            current_group = ''
-            group_opened = False
-        elif char in ['(', '[', '{']:
-            group_opened = True
-            current_group += char
-        elif char in {')': ')', ']': '[', '}': '{'}:
-            if group_opened:
-                current_group += char
-                if current_group[0] == current_group[-1]:
-                    groups.append(current_group.strip())
-                    current_group = ''
-                    group_opened = False
-    if group_opened:
-        groups.append(current_group.strip())
+        if char.isspace():
+            continue
+        elif char in ["(", "[", "{"]:
+            group += char
+        elif char in [")", "]", "}"]:
+            if group:
+                while (
+                    group[-1] in ["(", "[", "{"]
+                    and not group[-1] == "("
+                    or group[-1] == "["
+                    or group[-1] == "{"
+                ):
+                    group = group[:-1]
+                groups.append(group)
+                group = ""
+    if group:
+        groups.append(group)
     return groups
