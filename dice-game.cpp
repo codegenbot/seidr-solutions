@@ -1,4 +1,5 @@
 #include <iostream>
+
 double probability(int n, int m);
 
 int main() {
@@ -12,4 +13,3 @@ double probability(int n, int m) {
         return 0.0;
     else
         return (m + 1.0) / n;
-}
