@@ -13,9 +13,10 @@ def main():
             while n % i == 0:
                 n //= i
                 count += 1
-            factors.append(i ** count)
+            for _ in range(count):
+                factors.append(i)
     if n > 1:
         factors.append(n)
-    return [str(x) for x in factors]
+    return sorted(set(factors))
 
 print(main())
