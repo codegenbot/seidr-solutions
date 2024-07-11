@@ -1,4 +1,6 @@
-```
+Here is the modified code:
+
+```python
 import math
 
 def decode_cyclic(encoded_str: str, key: int) -> str:
