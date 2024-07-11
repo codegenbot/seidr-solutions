@@ -3,24 +3,31 @@ from typing import List
 
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    def check(string: str) -> str:
-        stack = []
-        result = ''
-        for char in string:
+    def check(group: str):
+        count = 0
+        for char in group:
             if char == '(':
-                stack.append(char)
-                result += ' ('
+                count += 1
             elif char == ')':
-                if stack:
-                    stack.pop()
-                    result += ' )'
-                else:
-                    return 'Invalid parentheses'
+                count -= 1
+            if count < 0:
+                return False
+        return count == 0
 
-        if stack:
-            return 'Unbalanced parentheses'
-        return result.strip('()') + ')'
-
-
-    strings = [check(s) for s in paren_string.split(',')]
-    return strings
+    groups = []
+    current_group = ''
+    for char in paren_string:
+        if char in '()' and current_group != '':
+            if check(current_group):
+                groups.append(current_group)
+            current_group = ''
+        elif char in '()':
+            if char == '(':
+                current_group += '('
+            else:
+                current_group += ')'
+        else:
+            current_group += char
+    if check(current_group):
+        groups.append(current_group)
+    return groups
