@@ -2,7 +2,7 @@
 #include <string>
 #include <algorithm>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b); 
 
 std::vector<std::string> reverse_delete(std::string s, std::string c) {
     std::string result = "";
