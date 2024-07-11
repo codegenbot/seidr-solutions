@@ -3,11 +3,13 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 int add(int x, int y) {
     return x + y;
 }
 
-std::srand(std::time(0)); 
-int randomNum = std::rand() % 1000; 
-std::string strRandomNum = std::to_string(randomNum); 
-std::cout << "Random Number: " << strRandomNum << std::endl;
+srand(time(nullptr)); 
+int randomNum = rand() % 1000; 
+string strRandomNum = to_string(randomNum); 
+cout << "Random Number: " << strRandomNum << endl;
