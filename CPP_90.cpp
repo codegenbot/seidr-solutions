@@ -1,23 +1,17 @@
 #include <iostream>
+#include <algorithm>
 #include <vector>
-using namespace std;
 
-int next_smallest(vector<int> lst) {
-    int result = -1;
-    for (int i = 0; i < lst.size(); i++) {
-        bool flag = true;
-        for (int j = 0; j < lst.size(); j++) {
-            if (i != j && lst[i] > lst[j]) {
-                flag = false;
-                break;
-            }
+int next_smallest(std::vector<int> lst) {
+    std::vector<int> sorted = lst;
+    std::sort(sorted.begin(), sorted.end());
+    if (sorted.size() < 2) return -1; 
+    for (int i = 0; i < sorted.size()-1; i++) {
+        if (sorted[i] != sorted[i+1]) {
+            std::cout << "The next smallest element is: " << sorted[i+1] << std::endl;
+            return sorted[i+1];
         }
-        if (flag) return lst[i];
     }
-    return result;
-}
-
-int main() {
-    assert(next_smallest({-35, 34, 12, -45}) == -1);
-    return 0;
+    std::cout << "There are no smaller elements." << std::endl;
+    return -1; 
 }
