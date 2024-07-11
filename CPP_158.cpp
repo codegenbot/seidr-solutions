@@ -19,17 +19,8 @@ std::string find_max(std::vector<std::string> words) {
 }
 
 int main() {
-    int numWords;
-    std::cout << "Enter the number of words: ";
-    std::cin >> numWords;
-
-    std::vector<std::string> words(numWords);
-    for (int i = 0; i < numWords; ++i) {
-        std::cout << "Enter word " << (i + 1) << ": ";
-        std::cin >> words[i];
-    }
-
-    std::cout << "The word with the maximum unique characters is: " << find_max(words) << std::endl;
-
+    // test the function
+    std::vector<std::string> words = {"apple", "banana", "cherry"};
+    std::cout << find_max(words) << std::endl;
     return 0;
 }
