@@ -1,6 +1,3 @@
-Here is the modified code:
-
-```Python
 import math
 
 
