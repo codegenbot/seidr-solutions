@@ -13,6 +13,8 @@ void decipherMessage() {
         size_t index = cipher1.find(c);
         if (index != std::string::npos) {
             c = cipher2[index];
+        } else {
+            // Keep the character unchanged if not found in cipher1
         }
     }
 
