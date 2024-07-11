@@ -1,6 +1,7 @@
 #include <vector>
 #include <algorithm>
 
+// Find the next smallest element in a vector of integers.
 int next_smallest(vector<int> lst) {
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
