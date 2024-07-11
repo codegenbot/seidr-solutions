@@ -33,3 +33,8 @@ bool issame(vector<int> a, vector<int> b){
     }
     return true;
 }
+
+int main() {
+    // Main function code here
+    return 0;
+}
