@@ -6,11 +6,11 @@ def calculate_sum_of_cubes():
 
 
 def check(num):
+    num = calculate_sum_of_cubes()
     if num < 1000000:
         return "The sum of cubes is less than 1 million."
     else:
         return "The sum of cubes is greater than or equal to 1 million."
 
 
-sum_of_cubes = calculate_sum_of_cubes()
-print(check(sum_of_cubes))
+print(check(None))
