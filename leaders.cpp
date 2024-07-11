@@ -31,7 +31,8 @@ int main() {
     }
 
     if (std::cin.eof()) {
-        std::cin.clear(); // Clear EOF flag
+        std::cin.clear();
+        std::cin.ignore();
     }
 
     std::vector<int> leaders = findLeaders(nums);
