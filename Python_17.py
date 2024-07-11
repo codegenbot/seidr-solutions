@@ -1,3 +1,4 @@
+from typing import List
 def parse_music(music_string: str) -> List[int]:
     music_list = []
     i = 0
@@ -12,5 +13,3 @@ def parse_music(music_string: str) -> List[int]:
             music_list.append(1)
             i += 3
     return music_list
-
-print(parse_music("oo..."))
