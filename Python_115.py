@@ -1,15 +1,12 @@
-print("Enter the number of rows: ")
-n = int(input()) or -1
-print("Enter the number of columns: ")
-m = int(input()) or -1
+```
+n = int(input("Enter the number of rows: "))
+m = int(input("Enter the number of columns: "))
 
-while n <= 0 or m <= 0:
+while not (isinstance(n, int) and isinstance(m, int) and n > 0 and m > 0):
     print("Invalid input! Please enter positive integers.")
     try:
-        print("Enter the number of rows: ")
-        n = int(input())
-        print("Enter the number of columns: ")
-        m = int(input())
+        n = int(input("Enter the number of rows: "))
+        m = int(input("Enter the number of columns: "))
     except ValueError:
         pass
 
