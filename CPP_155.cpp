@@ -9,20 +9,11 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::vector<int> count = even_odd_count(123456789);
-    assert(issame(count, {4, 5}));
-    return 0;
-}
+    std::vector<int> evenOdd1 = even_odd_count(123456);
+    std::vector<int> evenOdd2 = even_odd_count(-987654);
 
-std::vector<int> even_odd_count(int num){
-    std::vector<int> result(2, 0);
-    std::string numStr = std::to_string(std::abs(num));
-    for (char digit : numStr) {
-        if ((digit - '0') % 2 == 0) {
-            result[0]++;
-        } else {
-            result[1]++;
-        }
-    }
-    return result;
+    assert(issame(evenOdd1, {3, 3}));
+    assert(issame(evenOdd2, {3, 3}));
+
+    return 0;
 }
