@@ -1,10 +1,26 @@
-for (char &c : s) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
+string result = s;
+    int n = s.size();
+    bool has_letter = false;
+
+    for (int i = 0; i < n; i++) {
+        if (isalpha(s[i])) {
+            has_letter = true;
+            if (islower(s[i])) {
+                result[i] = toupper(s[i]);
+            } else {
+                result[i] = tolower(s[i]);
+            }
         }
     }
-    if (count_if(s.begin(), s.end(), isalpha) == 0) {
-        reverse(s.begin(), s.end());
+
+    if (!has_letter) {
+        int start = 0, end = n - 1;
+        while (start < end) {
+            swap(result[start], result[end]);
+            start++;
+            end--;
+        }
     }
-    return s;
+
+    return result;
 }
