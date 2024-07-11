@@ -1,6 +1,5 @@
 #include <iostream>
 #include <iomanip>
-
 using namespace std;
 
 double getProbability(int n, int m) {
@@ -12,4 +11,3 @@ int main() {
     cin >> n >> m;
     cout << fixed << setprecision(1) << getProbability(n, m) << endl;
     return 0;
-}

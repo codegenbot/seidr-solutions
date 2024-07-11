@@ -1,15 +1,14 @@
 ```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    counts = {coin: 0 for coin in coins}
+    coin_counts = [0] * len(coins)
 
-    for coin in sorted(coins, reverse=True):
-        count = cents // coin
-        if count > 0:
-            cents -= coin * count
-            counts[coin] = count
+    for i in range(len(coins)):
+        count = cents // coins[i]
+        cents -= count * coins[i]
+        coin_counts[i] = count
 
-    return tuple(counts.values())
+    return tuple(coin_counts)
 
 
 cents = int(input())

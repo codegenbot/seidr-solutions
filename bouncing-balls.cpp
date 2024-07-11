@@ -1,5 +1,7 @@
 #include <iostream>
 #include <iomanip>
+#include <cmath>
+
 using namespace std;
 
 double bouncinessIndex(double heightAfterFirstBounce, double startingHeight) {
@@ -18,7 +20,8 @@ int main() {
 
     double bounciness = bouncinessIndex(heightAfterFirstBounce, startingHeight);
 
-    cout << fixed << std::setprecision(4) << bounciness << endl;
-    cout << fixed << std::setprecision(4) << totalDistance(numBounces, bounciness) << endl;
+    cout << fixed << setprecision(4) << bounciness << endl;
+    cout << fixed << setprecision(4) << totalDistance(numBounces, bounciness) << endl;
 
     return 0;
+}
