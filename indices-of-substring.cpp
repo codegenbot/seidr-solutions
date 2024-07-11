@@ -12,8 +12,10 @@ int main() {
     vector<int> indices;
     size_t pos = 0;
 
-    while ((pos = text.find(target, pos, target.length())) != string::npos) {
-        indices.push_back(pos);
+    while ((pos = text.find(target, pos)) != string::npos) {
+        if (pos < text.length()) {
+            indices.push_back(pos);
+        }
         pos += target.length();
     }
 
