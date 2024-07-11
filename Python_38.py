@@ -9,4 +9,4 @@ def decode_cyclic(s: str):
             temp += char
     if temp:
         result.append(temp)
-    return "".join(result)
+    return "".join(result).lstrip(" ")
