@@ -12,5 +12,4 @@ def calculate_average_score():
                 print("Invalid input. Please enter a valid floating point number.")
                 
     average = round(total / student_scores_count, 2)
-    
-    return str(average)
+    return average
