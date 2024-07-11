@@ -1,32 +1,21 @@
-def bowling_score(s):
+```
+def bowling_score(rolls):
     score = 0
-    i = 0
-    while i < len(s):
-        if s[i].isdigit():
-            roll = int(s[i])
-            i += 1
-            if i < len(s) and (s[i] == "-" or s[i] == "X" or s[i] in "/"):
-                score += min(roll, 10)
-                roll = 0
-        elif s[i] == "X":
-            if i < len(s) - 1 and (s[i+1] == "X" or s[i+1] == "/"):
-                # Strike with bonus
-                score += 10 + 10
-            else:
-                score += 10 + (10 - roll) % 2
-            roll = 0
-        elif s[i] == "-":
-            if roll > 0:
-                score += min(roll, 10)
-            roll = 0
+    roll_index = 0
+    for frame in range(1,11):
+        if rolls[roll_index] == 'X':
+            score += 10
+            roll_index += 1
+        elif '/' in rolls[roll_index:roll_index+2]:
+            first_roll, second_roll = map(int, rolls[roll_index:roll_index+2].replace('/', '-'))
+            score += first_roll + second_roll
+            roll_index += 2
         else:
-            while i < len(s) and s[i].isdigit():
-                roll = int(roll * 10 + int(s[i]))
-                i += 1
-            if i < len(s) and (s[i] == "-" or s[i] == "X" or s[i] in "/"):
-                score += min(roll, 10)
-                roll = 0
-        i += 1
-    if roll > 0:
-        score += min(roll, 10) + (10 - roll) // 2 * 2
+            first_roll = int(rolls[roll_index])
+            if first_roll < 10:
+                score += first_roll
+                roll_index += 1
+            else:
+                score += 10
+                roll_index += 1
     return score
