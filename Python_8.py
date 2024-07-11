@@ -1,3 +1,4 @@
+'Please enter numbers: '
 from typing import List, Tuple
 
 
