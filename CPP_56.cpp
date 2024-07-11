@@ -1,14 +1,14 @@
-bool correct_bracketing(string brackets){
+bool correct_bracketing(string brackets) {
     int count = 0;
-    for(int i=0; i<brackets.length(); i++){
-        if(brackets[i] == '<'){
+    for (char bracket : brackets) {
+        if (bracket == '<') {
             count++;
-        }
-        else if(brackets[i] == '>'){
-            if(count <= 0) return false;
+        } else if (bracket == '>') {
+            if (count <= 0) {
+                return false;
+            }
             count--;
         }
     }
-    if(count > 0) return false;
-    return true;
+    return count == 0;
 }
