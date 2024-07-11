@@ -1,3 +1,4 @@
+```
 def fizz_buzz(n):
     result = []
     for i in range(1, n+1):
@@ -6,12 +7,12 @@ def fizz_buzz(n):
             output += "Fizz"
         if i % 5 == 0:
             output += "Buzz" if output == "" else " Buzz"
-        if i % 15 == 0 and output != "":
-            continue
-        elif i % 15 == 0:
+        if i % 15 == 0:
             output += "Fizz Buzz"
-        result.append(output if output else str(i))
-    return ''.join(result)
+        if not output:
+            output = str(i)
+        result.append(output)
+    return '\n'.join(result)
 
 while True:
     try:
