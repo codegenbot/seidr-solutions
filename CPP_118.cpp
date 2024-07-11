@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <string>
-#include <algorithm> 
 #include <cctype>
 
 using namespace std;
