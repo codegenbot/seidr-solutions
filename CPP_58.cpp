@@ -1,27 +1,20 @@
-#include <algorithm>
 #include <iostream>
+#include <algorithm>
 #include <vector>
 #include <iterator>
 #include <set>
 #include <cassert>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    std::sort(a.begin(), a.end());
+    std::sort(b.begin(), b.end());
+    std::vector<int> result;
+    std::set_intersection(a.begin(), a.end(), b.begin(), b.end(), std::back_inserter(result));
+    result.erase(std::unique(result.begin(), result.end()), result.end());
+    return result.empty();
 }
 
-std::vector<int> common(const std::vector<int>& l1, const std::vector<int>& l2) {
-    std::sort(l1.begin(), l1.end());
-    std::sort(l2.begin(), l2.end());
-    std::vector<int> result;
-    std::set_intersection(l1.begin(), l1.end(), l2.begin(), l2.end(), std::back_inserter(result));
-    result.erase(std::unique(result.begin(), result.end()), result.end());
-    return result;
+int main() {
+    assert(issame({4, 3, 2, 8}, {}) == true);
+    return 0;
 }
