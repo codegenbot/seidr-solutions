@@ -1,9 +1,6 @@
-Here is the completed code:
-
-```cpp
-int countDigits(string s) {
+int countDigits(const string& str) {
     int count = 0;
-    for (char c : s) {
+    for (char c : str) {
         if (isdigit(c)) {
             count++;
         }
@@ -11,18 +8,24 @@ int countDigits(string s) {
     return count;
 }
 
-string file_name_check(string file_name) {
-    int digitCount = countDigits(file_name);
-    if (digitCount > 3) return "No";
-
-    size_t dotPos = file_name.find('.');
-    if (dotPos == string::npos || dotPos < 1) return "No";
+string file_name_check(string file_name){
+    int dotPos = file_name.find('.');
+    if (dotPos == -1 || dotPos >= file_name.size() - 4)
+        return "No";
+    
     string beforeDot = file_name.substr(0, dotPos);
     string afterDot = file_name.substr(dotPos + 1);
 
-    if (!beforeDot.empty() && !isalpha(beforeDot[0])) return "No";
-    vector<string> allowedExtensions = {"txt", "exe", "dll"};
-    if (find(allowedExtensions.begin(), allowedExtensions.end(), afterDot) == allowedExtensions.end()) return "No";
+    if (!isalpha(beforeDot[0]))
+        return "No";
+
+    int digitsInName = countDigits(file_name);
+    if (digitsInName > 3)
+        return "No";
+
+    vector<string> validExtensions = {"txt", "exe", "dll"};
+    if (find(validExtensions.begin(), validExtensions.end(), afterDot) == validExtensions.end())
+        return "No";
 
     return "Yes";
 }
