@@ -1,4 +1,12 @@
+```
 def add(x: int, y: int):
-    num1 = int(input("Enter first number: "))
+    total = x + y
+    return total
+
+while True:
+    num1 = int(input("Enter first number (or -1 to quit): "))
+    if num1 == -1:
+        break
     num2 = int(input("Enter second number: "))
-    return x + y
+    
+    print(f"The sum of {num1} and {num2} is {add(num1, num2)}")
