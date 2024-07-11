@@ -1,13 +1,15 @@
 int count = 0;
     for (int num : n) {
         int sum = 0;
-        int tempNum = num;
-        while (tempNum != 0) {
-            sum += tempNum % 10;
-            tempNum /= 10;
-        }
+        int temp = num;
+        int sign = 1;
         if (num < 0) {
-            sum *= -1;
+            sign = -1;
+            temp *= -1;
+        }
+        while (temp != 0) {
+            sum += sign * (temp % 10);
+            temp /= 10;
         }
         if (sum > 0) {
             count++;
