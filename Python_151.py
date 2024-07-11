@@ -1,7 +1,8 @@
-def double_the_difference(lst, target_diff):
-    even_nums = [i for i in lst if isinstance(i, int) and i % 2 == 0]
-    return sum(
-        i**2
-        for pair in zip(even_nums, even_nums[1:])
-        if abs(pair[1] - pair[0]) == target_diff
-    )
+"""
+Given a list of integers, find the difference between the sum of squares of all positive even numbers and the sum of squares of all positive odd numbers.
+"""
+
+def double_the_difference(lst):
+    even_sum = sum(i**2 for i in lst if isinstance(i, int) and i % 2 == 0)
+    odd_sum = sum(i**2 for i in lst if isinstance(i, int) and i % 2 != 0)
+    return (even_sum - odd_sum) * 2
