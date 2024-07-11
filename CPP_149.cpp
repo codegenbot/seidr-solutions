@@ -1,4 +1,3 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
@@ -27,8 +26,6 @@ std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> l
             for (const auto& str : sub_lst) {
                 result.push_back(str);
             }
-        } else if (sub_lst.size() % 2 == 1) {
-            result.insert(result.end(), sub_lst.begin(), sub_lst.end());
         }
     }
 
