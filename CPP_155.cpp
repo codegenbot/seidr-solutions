@@ -2,30 +2,26 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
+using namespace std;
+
+bool issame(vector<int> a,vector<int>b){
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> even_odd_count(int num) {
+vector<int> even_odd_count(int num) {
     int even = 0, odd = 0;
     string str = to_string(abs(num));
     for (char c : str) {
-        if (stoi(c) % 2 == 0)
+        if (stoi(string(1,c)) % 2 == 0)
             even++;
         else
             odd++;
     }
-    return {even, odd};
+    vector<int> result({even, odd});
+    return result;
 }
 
 int main() {
-    assert(issame(even_odd_count(0), {1, 0}));
-    // Your code here...
+    assert(even_odd_count(0).at(0) == 1 && even_odd_count(0).at(1) == 0);
     return 0;
 }
