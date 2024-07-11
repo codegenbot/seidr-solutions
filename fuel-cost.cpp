@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 int main() {
     vector<int> nums;
     int n;
@@ -10,7 +16,7 @@ int main() {
         sum += max(num / 3 - 2, 0);
     }
     
-    cout << sum << endl;
+    cout << sum << "\n";
     
     return 0;
 }
