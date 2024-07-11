@@ -16,13 +16,23 @@ std::vector<std::string> split(const std::string& s, char c) {
 }
 
 std::string camelCase(const std::string& s) {
+    if (s.find(' ') == std::string::npos && !s.empty()) {
+        for (char &c : s) {
+            c = std::tolower(c);
+        }
+        return s;
+    }
+
     std::vector<std::string> groups;
-    groups = split(s, s.find(' ') == std::string::npos ? '-' : ' ');
+    if (s.find(' ') != std::string::npos)
+        groups = split(s, ' ');
+    else if (s.find('-') != std::string::npos)
+        groups = split(s, '-');
 
     std::string result;
     for (int i = 0; i < groups.size(); ++i) {
         if (i > 0)
-            result += char(toupper(groups[i][0]));
+            result += char(std::toupper(groups[i][0]));
         else
             result += tolower(groups[i][0]);
         result += groups[i].substr(1);
@@ -37,4 +47,3 @@ int main() {
         std::cout << camelCase(s) << std::endl;
     }
     return 0;
-}
