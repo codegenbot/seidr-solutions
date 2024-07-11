@@ -8,7 +8,7 @@ def minPath(grid, k):
     while queue:
         row, col, path = queue.pop(0)
         if len(path) == k:
-            res.append('->'.join(map(str, sorted(set(path)))))
+            res = sorted(set(path))
             break
         for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nr, nc = row + dr, col + dc
