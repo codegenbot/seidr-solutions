@@ -2,6 +2,8 @@
 #include <algorithm>
 #include <string>
 
+using namespace std;
+
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
@@ -20,13 +22,13 @@ vector<string> sorted_list_sum(vector<string> lst) {
     }
 
     // Sort the resulted list by length and then alphabetically
-    std::sort(result.begin(), result.end(),
-              [&result](const string& a, const string& b) {
-                  if (a.length() != b.length())
-                      return a.length() - b.length();
-                  else
-                      return a < b;
-              });
+    sort(result.begin(), result.end(),
+          [](const string& a, const string& b) {
+              if (a.length() != b.length())
+                  return a.length() - b.length();
+              else
+                  return a < b;
+          });
 
     return result;
 }
