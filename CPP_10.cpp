@@ -8,10 +8,15 @@ bool is_palindrome(string str){
 }
 
 string make_palindrome(string str){
-    int i=str.length()-1;
-    while(i>=0 && str[i-1]==str[i])
-        i--;
-    if(i<0)
-        return str+str;
-    return str.substr(0,i)+reverse(str.substr(i)).substr(1)+str.substr(i);
+    int i = 0, j = str.length() - 1;
+    
+    while (i < j) {
+        if (!is_palindrome(str.substr(i, j-i+1))) {
+            j--;
+        } else {
+            break;
+        }
+    }
+    
+    return str + string(str.rbegin(), str.rend()).substr(0, j-i+1);
 }
