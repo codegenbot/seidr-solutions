@@ -1,5 +1,5 @@
+```cpp
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
@@ -11,6 +11,8 @@ vector<int> leaders(vector<int>& arr) {
         else 
             maxRight = arr[i];
     }
-    result.assign(result.rbegin(), result.rend());
     return result;
+
 }
+
+int main() { leaders(vector<int>{4,5,3,2,1}); return 0; }
