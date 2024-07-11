@@ -1,5 +1,4 @@
 #include <string>
-#include <vector>
 
 int whitePegs(string code, string guess) {
     int count = 0;
@@ -10,10 +9,10 @@ int whitePegs(string code, string guess) {
         }
     }
     for (char c : code) {
-        codeMap[c - '0']++;
+        codeMap[c]++;
     }
     for (char c : guess) {
-        guessMap[c - '0']++;
+        guessMap[c]++;
     }
     int blackPegsCount = blackPegs(code, guess);
     return count - blackPegsCount;
