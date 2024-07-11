@@ -11,9 +11,6 @@ int main() {
 
     for (size_t pos = text.find(target, 0); pos != std::string::npos; pos = text.find(target, pos + 1)) {
         indices.push_back(pos);
-        if (target.length() == 1) {
-            break;
-        }
     }
 
     for (size_t i = 0; i < indices.size(); ++i) {

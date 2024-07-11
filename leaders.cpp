@@ -10,7 +10,7 @@ vector<int> findLeaders(const vector<int>& nums) {
     int maxRight = INT_MIN;
 
     for (int i = n - 1; i >= 0; --i) {
-        if (nums[i] > maxRight) { // Update condition to strictly greater than
+        if (nums[i] > maxRight) {
             maxRight = nums[i];
             leaders.push_back(nums[i]);
         }
@@ -18,24 +18,4 @@ vector<int> findLeaders(const vector<int>& nums) {
 
     reverse(leaders.begin(), leaders.end());
     return leaders;
-}
-
-int main() {
-    vector<int> nums;
-    int num;
-    
-    cout << "Enter positive integers (0 to end input):" << endl;
-    while (cin >> num && num != 0) {
-        nums.push_back(num);
-    }
-    
-    vector<int> result = findLeaders(nums);
-    
-    cout << "Leaders in the vector are:";
-    for (int leader : result) {
-        cout << " " << leader;
-    }
-    cout << endl;
-    
-    return 0;
 }
