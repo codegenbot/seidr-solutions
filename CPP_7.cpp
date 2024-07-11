@@ -1,4 +1,4 @@
-bool issame(vector<string> a, vector<string> other) {
+bool isSame(vector<string> a, vector<string> other) {
     if (a.size() != other.size())
         return false;
     
