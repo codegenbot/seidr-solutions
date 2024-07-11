@@ -1,7 +1,9 @@
-if (n == 1) {
-        return x == 1;
+if (x <= 0 || n <= 0) {
+        return false;
     }
     
-    double root = pow(x, 1.0/n);
-    return (pow(int(root + 0.5), n) == x);
+    double root = pow(x, 1.0 / n);
+    int root_int = (int)root;
+    
+    return (pow(root_int, n) == x);
 }
