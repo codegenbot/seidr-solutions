@@ -1,17 +1,16 @@
 int prod_signs(vector<int> arr){
-    int sign_product = 1;
-    long long sum_of_magnitudes = 0;
+    int sign = 1; // initialize product of signs
+    long long sum = 0; // initialize sum
 
-    if(arr.empty()){
-        return -32768;
+    for (int num : arr) {
+        if (num == 0) { // if number is zero, reset the sign and sum
+            sign = 1;
+            sum = 0;
+        } else if (num < 0) { // if number is negative, change sign
+            sign *= -1;
+        }
+        sum += abs(num); // add absolute value of number to sum
     }
 
-    for(auto num : arr){
-        if(num == 0) continue;
-        int sign = (num > 0)? 1 : ((num < 0)? -1 : 0);
-        sign_product *= sign;
-        sum_of_magnitudes += abs(num);
-    }
-
-    return sign_product * sum_of_magnitudes;
+    return sign * sum; // multiply product of signs with sum
 }
