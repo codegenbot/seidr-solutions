@@ -1,6 +1,5 @@
 from typing import List
 
-
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     current_group = ""
@@ -9,7 +8,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             current_group += char
         elif char == ")":
             current_group += char
-            if current_group.count("(") == current_group.count(")"):
-                result.append(current_group)
-                current_group = ""
+            result.append(current_group)
+            current_group = ""
     return result
