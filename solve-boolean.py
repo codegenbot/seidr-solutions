@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -13,6 +12,6 @@ def solve_boolean(expression):
 
 print(solve_boolean('T'))  # True
 print(solve_boolean('F'))  # False
-print(solve_boolean('f&f'))  # False
+print(solve.Boolean('f&f'))  # False
 print(solve_boolean('f&t'))  # False
 print(solve_boolean('t&f'))  # False
