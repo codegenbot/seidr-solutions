@@ -17,6 +17,6 @@ struct order_by_points {
     }
 };
 
-sort(nums.begin(), nums.end(), order_by_points);
+sort(nums.begin(), nums.end(), order_by_points());
 
 return nums;
