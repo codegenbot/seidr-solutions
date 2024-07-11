@@ -14,6 +14,5 @@ int main() {
     std::vector<int> costs = {10, 20, 30};
     int result = totalFuelCost(costs);
     std::cout << "Total fuel cost: " << result << std::endl;
-
     return 0;
 }
