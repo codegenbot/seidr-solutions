@@ -1,16 +1,21 @@
-string encrypted = "";
-    for (char c : s) {
-        if (isalpha(c)) {
-            char encrypted_char = c + 2 * ('z' - c) + 1;
-            if (islower(c) && encrypted_char > 'z') {
-                encrypted_char = 'a' + (encrypted_char - 'z' - 1);
-            } else if (isupper(c) && encrypted_char > 'Z') {
-                encrypted_char = 'A' + (encrypted_char - 'Z' - 1);
+string encrypt(string s){
+    string result = "";
+    for(char c : s){
+        if(isalpha(c)){
+            char encrypted = c + 2 * (c - 'a' + 1);
+            if(islower(c)){
+                if(encrypted > 'z'){
+                    encrypted = 'a' + (encrypted - 'z' - 1);
+                }
+            } else {
+                if(encrypted > 'Z'){
+                    encrypted = 'A' + (encrypted - 'Z' - 1);
+                }
             }
-            encrypted += encrypted_char;
+            result += encrypted;
         } else {
-            encrypted += c;
+            result += c;
         }
     }
-    return encrypted;
+    return result;
 }
