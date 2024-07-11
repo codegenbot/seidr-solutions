@@ -14,12 +14,10 @@ int main() {
     std::cin >> hours;
 
     float groundSnow, rate, melt;
-    std::cout << "Enter the initial amount of snow on the ground (inches): ";
+    std::cout << "Enter the initial snow amount (inches): ";
     std::cin >> groundSnow;
-
-    std::cout << "Enter the rate of snow fall per hour (inches): ";
+    std::cout << "Enter the rate of snow fall (inches per hour): ";
     std::cin >> rate;
-
     std::cout << "Enter the proportion of snow melting per hour: ";
     std::cin >> melt;
 
