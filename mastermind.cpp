@@ -1,12 +1,23 @@
 ```cpp
+#include <string>
+#include <vector>
+
 int whitePegs(string code, string guess) {
     int count = 0;
-    for (char c : guess) {
-        if (code.find(c) != -1 && code.find(c) != code.find(guess[0])) {
+    vector<int> codeMap(6), guessMap(6);
+    for (int i = 0; i < 4; i++) {
+        if (guess[i] == code[i]) {
             count++;
         }
     }
-    return count;
+    for (char c : code) {
+        codeMap[c]++;
+    }
+    for (char c : guess) {
+        guessMap[c]++;
+    }
+    int blackPegsCount = blackPegs(code, guess);
+    return count - blackPegsCount;
 }
 
 int blackPegs(string code, string guess) {
@@ -14,18 +25,15 @@ int blackPegs(string code, string guess) {
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
             count++;
-            code.replace(i, 1, "x");
         }
     }
     return count;
 }
 
 int main() {
-    string code, guess;
-    cin >> code >> guess;
-    int white = whitePegs(code, guess);
-    int black = blackPegs(code, guess);
-    cout << black << endl;
-    cout << white << endl;
+    string code = "abcD";
+    string guess = "aBcd";
+    cout << whitePegs(code, guess) << endl;  // prints the number of white pegs
+    cout << blackPegs(code, guess) << endl;  // prints the number of black pegs
     return 0;
 }
