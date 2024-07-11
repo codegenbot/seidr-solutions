@@ -1,13 +1,11 @@
-Here is the solution to the problem:
+Here is the solution:
 
 def gcd(a, b):
     while b:
         a, b = b, a % b
-    return abs(a)
+    return a
 
-# Test cases
-print(gcd(1, 1))  # Output: 1
-print(gcd(4, 400000))  # Output: 4
-print(gcd(54, 24))  # Output: 6
-print(gcd(4200, 3528))  # Output: 168
-print(gcd(820000, 63550))  # Output: 2050
+first_num = int(input())
+second_num = int(input())
+
+print(gcd(first_num, second_num))
