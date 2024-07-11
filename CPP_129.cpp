@@ -1,11 +1,8 @@
-#include <vector>
-#include <algorithm>
-
-std::vector<int> minPath(std::vector<std::vector<int>>& grid, int k) {
+vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
-    std::vector<std::vector<bool>> visited(n, std::vector<bool>(n));
-    std::vector<int> res;
-
+    vector<vector<bool>> visited(n, vector<bool>(n));
+    vector<int> res;
+    
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             if (!visited[i][j]) {
@@ -13,22 +10,22 @@ std::vector<int> minPath(std::vector<std::vector<int>>& grid, int k) {
             }
         }
     }
-
+    
     return res;
 }
 
-void dfs(std::vector<std::vector<int>>& grid, std::vector<std::vector<bool>>& visited, int x, int y, int k, std::vector<int>* res) {
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>* res) {
     if (k == 0) {
         (*res).insert((*res).end(), grid[x].begin(), grid[x].end());
         return;
     }
-
+    
     for (int i = -1; i <= 1; ++i) {
         for (int j = -1; j <= 1; ++j) {
             if ((i == 0 || j == 0) && abs(i) + abs(j) == 1) { 
                 int newX = x + i;
                 int newY = y + j;
-
+                
                 if (newX >= 0 && newX < grid.size() && newY >= 0 && newY < grid[0].size()) {
                     if (!visited[newX][newY]) {
                         visited[newX][newY] = true;
