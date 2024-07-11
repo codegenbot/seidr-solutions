@@ -3,23 +3,37 @@
 #include <vector>
 #include <initializer_list>
 
-int max_value = -1;
-int min_value = INT_MAX;
+int maximumValue(std::vector<std::pair<int, int>> p) {
+    auto max_pair = *std::max_element(p.begin(), p.end(),
+                                         [](const auto& a, const auto& b) {
+                                             return a.second < b.second;
+                                         });
 
-std::vector<std::pair<int, int>> p;
-
-for (int i = 0; i < 6; ++i) {
-    int x, y;
-    std::cin >> x >> y;
-    p.push_back({x, y});
+    return std::get<1>(max_pair);
 }
 
-auto max_pair = *std::max_element(p.begin(), p.end(),
-                                     [&](const auto& a, const auto& b) {
-                                         return a.second < b.second;
-                                     });
+int minimumValue(std::vector<std::pair<int, int>> p) {
+    return *std::min_element(p.begin(), p.end())->first;
+}
 
-min_value = *std::min_element(p.begin(), p.end())->first;
+int main() {
+    int max_value = -1;
+    int min_value = INT_MAX;
 
-std::cout << "Maximum value: " << std::get<1>(max_pair) << std::endl;
-std::cout << "Minimum value: " << min_value << std::endl;
+    std::vector<std::pair<int, int>> p;
+
+    for (int i = 0; i < 6; ++i) {
+        int x, y;
+        std::cin >> x >> y;
+        p.push_back({x, y});
+    }
+
+    max_value = maximumValue(p);
+
+    min_value = minimumValue(p);
+
+    std::cout << "Maximum value: " << max_value << std::endl;
+    std::cout << "Minimum value: " << min_value << std::endl;
+
+    return 0;
+}
