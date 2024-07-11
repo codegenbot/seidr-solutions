@@ -1,19 +1,18 @@
-```
 def substitution_cipher(cipher1, cipher2, message):
     if len(cipher1) != len(cipher2):
-        return 
+        return "Error: Both strings must have the same length."
 
     cipher = {}
     for i in range(len(cipher1)):
         cipher[cipher1[i]] = cipher2[i]
 
-    result = ''
+    result = ""
     for char in message:
-        if char.isalpha():  
+        if char.isalpha():
             if char.isupper():
-                result += chr((ord(char.lower()) - 97) + (cipher.get(char.lower(), char).lower().ord() - 97))  
+                result += chr(ord('A') + (cipher.get(char.lower(), char).lower().ord() - ord('a')))
             else:
-                result += chr((ord(char) - 65) + (cipher.get(char, char).ord() - 65))
-        else:  
+                result += chr(ord('a') + (cipher.get(char, char).ord() - ord('a')))
+        else:
             result += char
     return result
