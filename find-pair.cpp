@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <map>
+#include <unordered_map>
 
 int main() {
     int n, target;
-    std::cin >> n >> target; // Read the target integer
+    std::cin >> n;
     std::vector<int> nums(n);
-    std::map<int, int> numIndex;
+    std::unordered_map<int, int> numIndex;
 
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
