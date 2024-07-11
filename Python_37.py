@@ -1,34 +1,24 @@
-def merge(left, right):
-    result = []
-    i = j = 0
-    while i < len(left) and j < len(right):
-        if left[i] <= right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-    result.extend(left[i:])
-    result.extend(right[j:])
-    return result
+```
+def sort_even(numbers):
+    return sorted([num for num in numbers if num % 2 == 0])
 
+numbers = []
 
-def sort_even(evens):
-    evens.sort()
-    sorted_evens = [x for x in evens if x % 2 == 0]
-    odd_nums = [x for x in evens if x % 2 != 0]
-    return merge(sorted_evens, odd_nums)
+while True:
+    user_input = input("Enter even and odd numbers separated by space, or 'q' to quit: ")
+    
+    if user_input.lower() == 'q':
+        break
+    
+    try:
+        numbers.extend(map(int, user_input.split()))
+    except ValueError:
+        print("Error: Invalid input. Please enter even and odd numbers separated by space.")
+        continue
 
-
-evens = list(map(int, input("Enter the even numbers separated by space: ").split()))
-odds = list(map(int, input("Enter the odd numbers separated by space: ").split()))
-
-if len(evens) == 0 and len(odds) != 0:
-    print("Error: No even numbers entered.")
-elif len(odds) == 0 and len(evens) != 0:
-    print("Error: No odd numbers entered.")
+if not numbers:
+    print("Error: No numbers entered.")
+elif any(not isinstance(x, int) for x in numbers):
+    print("Error: Non-integer values entered.")
 else:
-    if any(not isinstance(x, int) for x in evens + odds):
-        print("Error: Non-integer values entered.")
-    else:
-        print(sort_even(list(set(evens + odds))))
+    print(sort_even(numbers))
