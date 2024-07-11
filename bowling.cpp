@@ -1,7 +1,7 @@
 ```cpp
 #include <string>
 
-int bowlingScore(std::string s) {
+int bowlingScore(const std::string& s) {
     int score = 0;
     int currentRolls = 0;
     int currentFrame = 1;
