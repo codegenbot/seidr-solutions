@@ -1,7 +1,3 @@
-```cpp
-#include <vector>
-#include <algorithm>
-
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return std::equal(a.begin(), a.end(), b.begin());
 }
@@ -21,7 +17,4 @@ std::vector<std::vector<int>> largest_smallest_integers(std::vector<int> lst) {
     return {{std::max(0, max_negative), std::min(min_positive, 1)}};
 }
 
-int main() {
-    assert(MyNamespace::largest_smallest_integers({-3, -2, 1}).size() == 1);
-    return 0;
-}
+assert(MyNamespace::largest_smallest_integers({-3, -2, -1, 0, 1}) == {{0, 1}});
