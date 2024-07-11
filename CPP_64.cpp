@@ -1,7 +1,6 @@
 #include <string>
-using namespace std;
 
-int vowels_count(string s){
+int vowels_count(std::string s){
     int count = 0;
     for(int i=0; i<s.length(); i++){
         char c = tolower(s[i]);
@@ -13,4 +12,3 @@ int vowels_count(string s){
         }
     }
     return count;
-}
