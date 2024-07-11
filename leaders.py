@@ -1,7 +1,6 @@
-Here is the solution in Python:
-
-def leaders(input):
-    return [i for i in reversed(input) if all(j <= i for j in input[input.index(i)+1:])]
-
-input = list(map(int, input().split()))
-print(' '.join(map(str, leaders(input))))
+def leaders(arr):
+    return [
+        arr[i]
+        for i in range(len(arr) - 1, -1, -1)
+        if all(x <= arr[i] for x in arr[i + 1 :])
+    ]
