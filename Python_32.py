@@ -1,16 +1,5 @@
 ```
-def solve_quadratic_equation():
-    while True:
-        print("Enter coefficients (a b c [d]): ")
-        try:
-            xs = input().split()
-            if len(xs) not in [3, 4]:
-                raise ValueError
-            a, b, c = map(int, xs[0:3])
-            d = int(xs[3]) if len(xs) == 4 else None
-            break
-        except ValueError:
-            print("Invalid input. Please enter coefficients (a b c [d]).")
+def solve_quadratic_equation(a, b, c, d=None):
     p = (b**2) - (4 * a * c)
     if d is not None and d != 0:
         if p >= 0:
@@ -39,5 +28,10 @@ def solve_quadratic_equation():
         else:
             print("There are no real solutions.")
 
+find_zero = solve_quadratic_equation
+
+def main():
+    find_zero(*map(int, input("Enter coefficients (a b c [d]): ").split())
+
 if __name__ == "__main__":
-    solve_quadratic_equation()
+    main()
