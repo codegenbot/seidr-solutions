@@ -2,7 +2,7 @@ int main() {
     string input;
     cin >> input;
 
-    if(input == "t") {
+    if (input == "t") {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
