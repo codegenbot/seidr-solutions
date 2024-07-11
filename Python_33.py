@@ -1,5 +1,5 @@
 def sort_third(lst):
     if len(lst) < 3:
         return []
-    lst.sort(key=lambda x: x[2])
-    return [x[2] for i, x in enumerate(lst) if (i + 1) % 3 == 0][:1]
+    sorted_lst = sorted((x[2], i) for i, x in enumerate(lst))
+    return [x[0] for _, x in zip(sorted_lst, lst)][::3]
