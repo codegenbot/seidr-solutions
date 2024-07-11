@@ -1,8 +1,9 @@
 #include <string>
 #include <vector>
+#include <algorithm>
 
 std::string find_max(std::vector<std::string> words){
-    string result = *max_element(words.begin(), words.end(),
+    std::string result = *max_element(words.begin(), words.end(),
         [](const string& a, const string& b) {
             if (a.size() == b.size()) {
                 return a > b;
