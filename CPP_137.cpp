@@ -1,29 +1,21 @@
-#include <boost/any.hpp>
-#include <string>
-#include <algorithm>
-
-using namespace std;
+#include <boost/any_cast.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        return (string)b;
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return max((float)a.convert_to<float>(), stof(b.convert_to<string>()));
-    }
-    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (string)b > a.convert_to<string>() ? b : "None";
-    }
-    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return max((int)a, (int)b) ? boost::any(a) : boost::any("None");
-    }
-    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return max((float)a, (float)b) ? boost::any(a) : boost::any("None");
-    }
-    else {
-        return "None";
-    }
+    if (boost::any_cast<int>(a) > boost::any_cast<int>(b))
+        return a;
+    else if (boost::any_cast<int>(b) > boost::any_cast<int>(a))
+        return b;
+
+    double aDouble = boost::any_cast<double>(a);
+    double bDouble = boost::any_cast<double>(b);
+
+    if (aDouble > bDouble)
+        return a;
+    else if (bDouble > aDouble)
+        return b;
+
+    string aStr = boost::any_cast<string>(a);
+    string bStr = boost::any_cast<string>(b);
+
+    return (stod(aStr) > stod(bStr)) ? a : ((stod(bStr) > stod(aStr)) ? b : "None");
 }
