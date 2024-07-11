@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 std::vector<int> findIndices(std::string text, std::string target) {
     std::vector<int> indices;
@@ -25,8 +25,8 @@ std::vector<int> findIndices(std::string text, std::string target) {
 int main() {
     std::string text, target;
     int n;
-    cin >> text >> n;
-    std::getline(cin, target);
+    std::cin >> text >> n;
+    std::getline(std::cin, target);
 
     std::vector<int> result = findIndices(text, target);
 
