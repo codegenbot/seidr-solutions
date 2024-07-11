@@ -1,16 +1,21 @@
+```
+from collections import deque
+
 def minPath(grid, k):
     n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
     res = []
+    
+    # Perform K BFSs
     for _ in range(k):
+        queue = deque([(i, j, i * n + j) for i in range(n) for j in range(n)])
+        visited = set()
+        
         cur_min = float("inf")
-        cur_cell = None
-        for i in range(n):
-            for j in range(n):
-                if m[i][j] < cur_min:
-                    cur_min = m[i][j]
-                    cur_cell = (i, j)
+        while queue:
+            x, y, cell = queue.popleft()
+            if (x, y, cell) not in visited:
+                visited.add((x, y, cell))
+                if cell < cur_min:
+                    cur_min = cell
         res.append(cur_min)
-        if cur_cell is not None:
-            m[cur_cell[0]][cur_cell[1]] = float("inf")
     return res
