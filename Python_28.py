@@ -1,5 +1,9 @@
+```
 from typing import List
 
 
-def concatenate(strings: List[str]) -> str:
-    return "".join(strings)
+def concatenate():
+    num_strings = int(input("Enter the number of strings: "))
+    strings = [input() for _ in range(num_strings)]
+    result = "".join(strings)
+    print(result)
