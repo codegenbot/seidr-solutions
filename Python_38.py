@@ -1,26 +1,22 @@
 ```
 def encode_cyclic(s: str):
-    result = ""
-    for i in range(0, len(s), 3):
-        group = s[i:i+3]
-        if group[1] == group[2]:
-            result += group[0] + 2*group[1]
+    result = []
+    for i in range((len(s) + 2) // 3):
+        start = 3 * i
+        end = min(3 * i + 3, len(s))
+        group = s[start:end]
+        if len(group) == 3:
+            result.append(group[1:] + group[0])
         else:
-            result += group
-    return result
+            result.append(group)
+    return "".join(result)
 
 def decode_cyclic(s: str):
+    groups = [s[i:i+3] for i in range(0, len(s), 3)]
     result = ""
-    i = 0
-    while i < len(s):
-        if s[i].isdigit():
-            count = int(s[i])
-            i += 1
-            for _ in range(count - 1):
-                result += s[i]
-                i += 1
-            result += s[i-1]
+    for i, group in enumerate(groups):
+        if i % 2 == 1:
+            result += group[-1] + group[:-1]
         else:
-            result += s[i]
-        i += 1
+            result += group
     return result
