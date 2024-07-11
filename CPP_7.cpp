@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -6,26 +5,12 @@ bool same(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+    for (int i = 0; i < a.size(); ++i) {
+        if (!filter_by_substring({a[i], b[i]}, " ").empty()) {
             return false;
         }
     }
     return true;
-}
-
-int main() {
-    vector<string> strings = {"hello", "world", "hello"};
-    string substring = "hello";
-    vector<string> result = filter_by_substring(strings, substring);
-    if (same(result, {"hello"})) {
-        for(auto str : result) {
-            cout << str << endl;
-        }
-    } else {
-        cout << "No matches found." << endl;
-    }
-    return 0;
 }
 
 vector<string> filter_by_substring(vector<string> strings, string substring){
