@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <algorithm>
 
@@ -16,19 +17,16 @@ int main() {
 
     std::cout << "Enter the number of hours: ";
     std::cin >> hours;
-    
-    std::cout << "Enter initial amount of snow on the ground (in inches): ";
+    std::cout << "Enter the initial amount of snow on the ground: ";
     std::cin >> groundSnow;
-    
-    std::cout << "Enter snowfall rate (in inches per hour): ";
+    std::cout << "Enter the rate of snow fall per hour: ";
     std::cin >> rate;
-    
-    std::cout << "Enter melt rate (as a proportion of the total snow, i.e. 0.5 for 50%): ";
+    std::cout << "Enter the proportion of snow melting per hour: ";
     std::cin >> melt;
 
     float result = snowDay(hours, groundSnow, rate, melt);
 
-    std::cout << "After " << hours << " hours, there will be approximately " << result << " inches of snow on the ground.\n";
+    std::cout << "The amount of snow on the ground after " << hours << " hours is: " << result << std::endl;
 
     return 0;
 }
