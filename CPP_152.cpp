@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -21,6 +22,6 @@ pair<int,int> compare(vector<int>a,vector<int>b){
 }
 
 int main() {
-    assert(compare(vector<int>({1,2,3,5}), vector<int>({-1,2,3,4})) == make_pair(0, 1)); 
+    assert(compare({1,2,3,5}, {-1,2,3,4}) == make_pair(0, 1)); 
     return 0;
 }
