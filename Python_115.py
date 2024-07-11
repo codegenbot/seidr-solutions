@@ -1,18 +1,15 @@
-```
-row_values = list(map(int, input().split()))
-column_values = list(map(int, input().split()))
-capacity = int(input())
-n = int(input())
-grid = [list(map(int, input().split())) for _ in range(n)]
-column = [0] * n
-total_water = sum(
-    min(
-        row[i],
-        max(
-            column[0] if i == 0 else row[i - 1][j],
-            column[-1] if i == n - 1 else row[i + 1][j],
-        ),
-    )
-    for j, row in enumerate(grid)
-) * (capacity or 1)
-print(total_water)
+def max_water(n, m, row_values, column_values):
+    grid = [[0] * (m + 1) for _ in range(n + 1)]
+
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            grid[i][j] = min(row_values[i - 1], column_values[j - 1])
+
+    total_water = 0
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            width = min(row_values[i - 1], column_values[j - 1]) - grid[i][j]
+            if width > 0:
+                total_water += width
+
+    return total_water

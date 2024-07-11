@@ -1,11 +1,10 @@
+```
 def product_of_signs(arr):
     result = 1
-    for num in arr:
-        if num > 0:
-            result *= 1
-        elif num < 0:
-            result *= -1
-    return result
+    for x in arr:
+        if x != 0:
+            result *= -1 if x < 0 else 1
+    return result if any(x != 0 for x in arr) else 0
 
 
 def check():
