@@ -2,15 +2,15 @@
 using namespace std;
 
 vector<int> leaders(vector<int> v) {
-    vector<int> res;
-    int rightmost = v.back();
-    res.push_back(rightmost);
-    for (int i = v.size() - 2; i >= 0; --i) {
-        if (v[i] >= rightmost) {
-            rightmost = v[i];
-            res.push_back(rightmost);
-        }
+    int n = v.size();
+    vector<int> result;
+    
+    for (int i = n - 1; i >= 0; i--) {
+        if (i == n - 1 || v[i] >= v[i + 1])
+            result.push_back(v[i]);
     }
-    reverse(res.begin(), res.end());
-    return res;
+    
+    reverse(result.begin(), result.end());
+    
+    return result;
 }
