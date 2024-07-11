@@ -1,9 +1,3 @@
-```
-#include <vector>
-#include <map>
-
-using namespace std;
-
 int search(vector<int> lst) {
     map<int, int> freqMap;
     for (auto num : lst) {
@@ -18,7 +12,6 @@ int search(vector<int> lst) {
     for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
         if (it->second >= it->first && it->first > 0) {
             maxFreq = it->first;
-            break;
         }
     }
 
