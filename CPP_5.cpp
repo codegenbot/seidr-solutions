@@ -3,7 +3,7 @@
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<int> intersperse(std::vector<int> numbers, int delimiter) {
+std::vector<int> intersperse(std::vector<int> numbers, int delimiter){
     std::vector<int> result;
     if(numbers.empty()){
         return result;
