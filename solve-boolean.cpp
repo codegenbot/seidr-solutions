@@ -1,9 +1,12 @@
-#include <iostream>
+```
 #include <stack>
 #include <string>
 
 bool getBoolValue(char c) {
-    return c == 'T';
+    if (c == 'T')
+        return true;
+    else
+        return false;
 }
 
 std::string solveBoolean(std::string expression) {
@@ -30,11 +33,11 @@ std::string solveBoolean(std::string expression) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            left = getBoolValue('T');
+            left = getBoolValue(s.top());
             right = true;
             result = (left && right) ? "True" : "False";
         } else if (c == '|') {
-            left = getBoolValue('T');
+            left = getBoolValue(s.top());
             right = true;
             result = (left || right) ? "True" : "False";
         } else {
