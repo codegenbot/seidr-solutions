@@ -4,30 +4,24 @@ int main() {
     while (cin >> n) {
         nums.push_back(n);
     }
-
-    int sum = 0;
-    for (int num : nums) {
-        sum += num;
-    }
-
-    int prefixSum = 0;
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-
+    int sum = accumulate(nums.begin(), nums.end(), 0);
+    int half_sum = sum / 2;
+    int curr_sum = 0;
+    int idx = 0;
     for (int i = 0; i < nums.size(); i++) {
-        prefixSum += nums[i];
-        int diff = abs(sum - 2 * prefixSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+        curr_sum += nums[i];
+        if (curr_sum >= half_sum) {
+            idx = i;
+            break;
         }
     }
-
-    for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << endl;
+    vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> subvector2(nums.begin() + idx + 1, nums.end());
+    for (int num : subvector1) {
+        cout << num << endl;
     }
-
-    cout << 0 << endl;
-
+    for (int num : subvector2) {
+        cout << num << endl;
+    }
     return 0;
 }
