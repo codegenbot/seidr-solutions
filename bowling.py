@@ -1,6 +1,6 @@
-```
 def bowling_score(s):
     score = 0
+    roll = 0
     for frame in s.split('/'):
         if len(frame) == 1:
             score += 10
@@ -9,9 +9,9 @@ def bowling_score(s):
             second_roll = int(frame[1]) if len(frame) > 1 else 10 - first_roll
             score += first_roll + second_roll
         else:
-            if roll < 9 and s[s.index('X') + 2] == 'X':
+            roll += 1
+            if roll < 9 and (s[s.index('X')+2:]).find('X') != -1:
                 score += 30
             else:
                 score += 10
-        roll = 0 if frame[0] != 'X' else roll + 1
     return score
