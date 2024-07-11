@@ -1,2 +1,5 @@
-```
-print(concatenate(input("Enter space-separated strings: ").split()))
+from typing import List
+
+
+def concatenate(strings: List[str]) -> str:
+    print(concatenate(["Hello", "World"]))
