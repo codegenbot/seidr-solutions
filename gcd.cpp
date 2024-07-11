@@ -4,10 +4,6 @@
 #include <cmath>
 
 int gcd(int a, int b) {
-    if (a < 0 || b < 0) {
-        return gcd(std::abs(a), std::abs(b));
-    }
-    
     a = std::abs(a);
     b = std::abs(b);
     
@@ -21,7 +17,7 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
-        pos += 1; // Update to consider overlapping occurrences
+        pos += targetLen; // Update to consider overlapping occurrences
     }
 
     return indices;
