@@ -2,15 +2,18 @@
 #include <vector>
 #include <numeric>
 #include <limits>
-#include <climits>
 
 using namespace std;
 
 int main() {
     vector<int> input;
     int num;
-    while (cin >> num) {
-        input.push_back(num);
+    
+    while (!cin.eof()) {
+        cin >> num;
+        if (!cin.fail()) {
+            input.push_back(num);
+        }
     }
 
     int diff = numeric_limits<int>::max();
