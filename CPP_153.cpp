@@ -1,14 +1,16 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
+#include <cctype>
+#include <climits>
 
-string Strongest_Extension(string class_name, vector<string> extensions);
+using namespace std;
 
-string Strongest_Extension(string class_name, vector<string> extensions){
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int max_strength = INT_MIN;
-    string strongest_extension = "";
+    std::string strongest_extension = "";
     
-    for (string ext : extensions) {
+    for (std::string ext : extensions) {
         int CAP = 0, SM = 0;
         for (char c : ext) {
             if (isupper(c)) {
@@ -25,9 +27,4 @@ string Strongest_Extension(string class_name, vector<string> extensions){
     }
     
     return class_name + "." + strongest_extension;
-}
-
-int main() {
-    // Your main function code here
-    return 0;
 }
