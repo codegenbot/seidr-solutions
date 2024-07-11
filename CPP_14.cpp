@@ -3,7 +3,7 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string>& a, std::vector<std::string>& b){
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
@@ -19,8 +19,6 @@ std::vector<std::string> all_prefixes(std::string str){
     return result;
 }
 
-int main(){
-    assert(all_prefixes("WWW") == std::vector<std::string>{"W", "WW", "WWW"});
-    
-    return 0;
-}
+assert(issame(all_prefixes("WWW"), {"W", "WW", "WWW"}));
+
+return 0;
