@@ -3,23 +3,25 @@ vector<string> split_words(string txt){
     string word = "";
     for(char c : txt){
         if(c == ' ' || c == ','){
-            if(!word.empty()) result.push_back(word);
-            word = "";
+            if(!word.empty()){
+                result.push_back(word);
+                word = "";
+            }
         } else {
             word += c;
         }
     }
-    if(!word.empty()) result.push_back(word);
-
-    if(result.size() == 1){
-        int count = 0;
-        for(char c : result[0]){
+    if(!word.empty()){
+        result.push_back(word);
+    }
+    if(result.empty()){
+        int oddLowercaseCount = 0;
+        for(char c : txt){
             if(islower(c) && (c - 'a') % 2 == 1){
-                count++;
+                oddLowercaseCount++;
             }
         }
-        result[0] = to_string(count);
+        result.push_back(to_string(oddLowercaseCount));
     }
-
     return result;
 }
