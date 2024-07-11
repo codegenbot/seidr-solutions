@@ -1,2 +1,3 @@
+```
 def solution(lst):
-    return sum(i for i in lst if len(lst) % 2 != 0 or lst.index(i) % 2 != 0) / len(lst)
+    return sum(i for i in lst) if len(lst) % 2 != 0 else lst[0]
