@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -10,25 +9,21 @@ def filter_by_prefix(strings: List[str], prefix: str) -> None:
 
 
 try:
-    while True:
-        try:
-            num_strings = int(input("Enter number of strings (integer): "))
-            break
-        except ValueError:
-            print("Invalid input! Please enter an integer.")
-except Exception as e:
-    print(f"An error occurred: {e}")
-    exit(1)
+    num_strings = int(input("Enter number of strings: "))
+except ValueError:
+    print("Invalid input! Please enter an integer.")
+num_strings = 0
 
-strings = [input() for _ in range(num_strings)]
+if num_strings > 0:
+    strings = [input() for _ in range(num_strings)]
+else:
+    print("Please enter a positive integer.")
+
 try:
-    while True:
-        prefix = input("Enter prefix (string): ")
-        if not isinstance(prefix, str):
-            print("Please enter a string.")
-        else:
-            break
-except Exception as e:
-    print(f"An error occurred: {e}")
-    exit(1)
-filter_by_prefix([str(x) for x in strings], str(prefix))
+    prefix = input("Enter prefix: ")
+except ValueError:
+    print("Invalid input! Please enter a string.")
+if not prefix:
+    print("Please enter a non-empty prefix.")
+else:
+    filter_by_prefix([str(x) for x in strings], str(prefix))
