@@ -1,3 +1,4 @@
+```
 def add(x: int, y: int):
     if x < 0 and y < 0:
         return -1 * (abs(x) + abs(y))
@@ -8,8 +9,16 @@ while True:
     try:
         x = int(input("Enter first number: "))
         y = int(input("Enter second number: "))
-        print(add(x, y))  
+        
+        if (x > 0 and y > 0) or (x < 0 and y < 0):
+            print(add(x, y))  
+        else:
+            print("Invalid input. Please enter both positive or negative numbers.")
+            
         cont = input("Do you want to continue? (y/n): ")
+        while cont.lower() not in ['y', 'n']:
+            print("Invalid input. Please enter 'y' or 'n'.")
+            cont = input("Do you want to continue? (y/n): ")
         if cont.lower() != 'y':
             break
     except ValueError:
