@@ -1,1 +1,1 @@
-result = sum([(num // (3) - 2) for num in nums if num >= (3)])
+result = sum([(num // (3 - 2)) for num in nums if num >= 3])
