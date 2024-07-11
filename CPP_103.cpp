@@ -2,7 +2,7 @@
 #include <bitset>
 #include <string>
 
-std::string binary_avg(int n, int m) {
+std::string CPP103(int n, int m) {
     if (n > m) {
         return "-1";
     }
