@@ -1,10 +1,10 @@
-```
 from typing import List
 import math
 
 
-def factorize() -> List[int]:
-    n = int(input())
+def factorize(n: int) -> List[int]:
+    if n < 2:
+        return [n]
     factors = []
     i = 2
     while i * i <= n:
@@ -19,4 +19,4 @@ def factorize() -> List[int]:
             factors.extend([i] * count)
     if n > 1:
         factors.append(n)
-    return factors
+    return [int(factor) for factor in set(map(str, factors))]
