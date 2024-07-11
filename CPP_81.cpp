@@ -1,14 +1,15 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <algorithm>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<std::string> numerical_letter_grade(std::vector<float> grades) {
-    // Implement this function to convert numerical grades to letter grades
-    // Return a vector of letter grades corresponding to the input numerical grades
+    // Implement this function
+    return {};  // Temporary return
 }
 
 int main() {
