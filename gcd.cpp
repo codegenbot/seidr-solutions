@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -17,4 +16,3 @@ int main() {
     int result = gcd(stoi(str1), stoi(str2)); 
     cout << "GCD: " << result;
     return 0;
-}
