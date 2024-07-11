@@ -1,5 +1,5 @@
+```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
 int prime_fib(int n) {
@@ -31,10 +31,19 @@ int main() {
         cout << "Please enter a positive integer." << endl;
     } else {
         int result = prime_fib(n);
-        if(result != -1)
-            cout << to_string(n) << "th prime Fibonacci number is: " << to_string(result) << "\n";
-        else
-            cout << "No such number exists." << endl;
+        string fibSeq = "";
+        int a = 0, b = 1;
+        for(int i = 0; i <= result; i++) {
+            if(i == 0 || i == 1) {
+                fibSeq += to_string(i);
+            } else {
+                int fib = a + b;
+                fibSeq += to_string(fib);
+                a = b;
+                b = fib;
+            }
+        }
+        cout << n << "th prime Fibonacci number is: " << result << "\n";
     }
     return 0;
 }
