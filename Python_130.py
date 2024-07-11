@@ -1,13 +1,12 @@
-def tri(n):
+def tri(n=0):
     if n == 0:
-        return [3]
+        return [1, 3]
     elif n == 1:
-        return [3]
+        return [1, 3]
     elif n == 2:
-        return [3, 2]
+        return [1, 3, 2]
     else:
-        sequence = [3, 2]
+        seq = [1, 3, 2]
         for _ in range(2, n):
-            next_num = sum(sequence[-1::-1])
-            sequence.append(next_num)
-        return sequence
+            seq.append(sum(seq[-1:]) % (10 ** 9 + 7))
+        return seq
