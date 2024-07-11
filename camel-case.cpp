@@ -5,7 +5,6 @@ std::string camelCase(const std::string& input) {
     std::string output;
     bool firstWord = true;
 
-    char nextChar = ' '; // Initialize the next character as a space
     for (char c : input) {
         if (c == '-') {
             if (!firstWord) {
@@ -17,7 +16,6 @@ std::string camelCase(const std::string& input) {
                 }
             }
         } else if (c == ' ') {
-            nextChar = c; // Update the next character
             continue;
         } else {
             if (!firstWord) {
