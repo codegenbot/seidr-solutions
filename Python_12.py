@@ -1,6 +1,5 @@
 from typing import List, Optional
 
-
 def longest(strings: List[str]) -> Optional[str]:
     strings = input("Enter a list of strings separated by spaces: ").split()
     if not strings:
