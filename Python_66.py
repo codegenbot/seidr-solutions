@@ -1,12 +1,18 @@
 ```
-def digitSum(s):
-    total = 0
-    for char in s:
-        if char.isalnum():
-            if char.isdigit():
-                total += int(char)
-            elif 'a' <= char <= 'z':
-                total += ord(char) - 96
-            else:
-                total += ord(char) - 64
-    return total
+import re
+
+
+def digitSum():
+    s = input("Enter a string of digits: ")
+    if re.match("^[0-9]+$", s):
+        return sum(int(c) for c in s)
+    else:
+        print("Invalid input. Please enter only digits.")
+        return None
+
+
+result = digitSum()
+if result is not None:
+    print(result)
+else:
+    print("Invalid input. Please enter only digits.")
