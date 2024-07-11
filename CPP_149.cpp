@@ -1,7 +1,8 @@
+using namespace std;
+
 #include <algorithm>
 #include <vector>
 #include <string>
-using namespace std;
 
 bool issame(const vector<string>& a, const vector<string>& b) {
     return a == b;
