@@ -4,6 +4,8 @@ string longest(vector<string> strings){
     for(auto s : strings){
         if(s.length() > result.length()){
             result = s;
+        } else if(s.length() == result.length()){
+            result = s;
         }
     }
     return result;
