@@ -6,6 +6,6 @@ def longest(strings: List[str]) -> Optional[str]:
     strings = [s for s in strings if isinstance(s, str)]
     return max(strings, key=len) if strings else None
 
-num_strings = int(input("Enter the number of strings: \n"))
-strings = [input("Please enter a string: \n") for _ in range(num_strings)]
+num_strings = int(input("Enter the number of strings: "))
+strings = [input("Please enter a string: ") for _ in range(num_strings)]
 print(longest(strings))
