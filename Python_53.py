@@ -1,8 +1,9 @@
 def add(x: int, y: int):
     return x + y
 
-x = int(input("Enter the first integer: "))
-y = int(input("Enter the second integer: "))
+# Read input integers from the user
+x = int(input())
+y = int(input())
 
-result = add(x, y)
-print(result)
+# Call the add function and print the output
+print(add(x, y))
