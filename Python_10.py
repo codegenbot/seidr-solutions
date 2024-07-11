@@ -15,3 +15,5 @@ def make_palindrome():
             i += 1
             j -= 1
     return s
+
+print(make_palindrome())
