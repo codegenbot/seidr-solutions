@@ -1,24 +1,21 @@
-```cpp
 #include <vector>
-#include <algorithm>
+using namespace std;
 
-std::vector<int> compare(std::vector<int> a, std::vector<int> b) {
-    std::sort(a.begin(), a.end());
-    std::sort(b.begin(), b.end());
-    return {a.size(), b.size()};
-}
-
-bool sameSize(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size())
-        return false;
+bool issame(vector<int> a, vector<int> b) {
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i])
+        if (a[i] != b[i]) {
             return false;
+        }
     }
     return true;
 }
 
+void runTests() {
+    assert(issame({1,2,3,5},{-1,2,3,4}) == vector<bool>({{!(1==-1),!((2-2)!=0),!((3-3)!=0),!(5!=4)}}));
+    // Add your own test cases here if needed
+}
+
 int main() {
-    assert(sameSize(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
+    runTests();
     return 0;
 }

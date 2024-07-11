@@ -1,19 +1,26 @@
 #include <string>
-using namespace std;
+#include <vector>
+#include <set>
 
-int find_max(vector<string> words){
-    int result = -1;
-    int max_length = 0;
+std::string find_max(std::vector<std::string> words) {
+    std::string result = "";
+    int max_unique_chars = 0;
 
     for (const auto& word : words) {
         set<char> unique_chars(word.begin(), word.end());
-        if (unique_chars.size() > max_length) {
-            max_length = unique_chars.size();
-            result = 0; // Assuming the function should return an index
-        } else if (unique_chars.size() == max_length && word < result) {
-            result = 1; // Assuming the function should return an index
+        if (unique_chars.size() > max_unique_chars) {
+            max_unique_chars = unique_chars.size();
+            result = word;
+        } else if (unique_chars.size() == max_unique_chars && word < result) {
+            result = word;
         }
     }
 
     return result;
+}
+
+int main() {
+    // Test the function
+    assert(find_max({"play", "play", "play"}) == "play");
+    return 0;
 }
