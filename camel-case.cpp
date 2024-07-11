@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cctype>
 
 std::string camelCase(const std::string& s) {
     std::string result;
@@ -12,7 +13,7 @@ std::string camelCase(const std::string& s) {
                 result += char(toupper(c));
             else
                 first = false;
-        } else if (::isalnum(c)) {
+        } else if (isalpha(c)) {
             if (first) {
                 result += tolower(c);
                 first = false;
