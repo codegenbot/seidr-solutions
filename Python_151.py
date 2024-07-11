@@ -1,16 +1,11 @@
-def double_the_difference(numbers):
-    if len(set(map(int, numbers.split()))) == 1:
-        return "00"
-    else:
-        difference = max(list(map(int, numbers.split()))) - min(
-            list(map(int, numbers.split()))
-        )
-        return str(difference * 2)
-
-
 def check(func):
-    print(func(input()))
+    print(func())
 
+def double_the_difference():
+    lst = list(map(int, input().split()))
+    difference = max(lst) - min(lst)
+    double_diff = difference * 2
+    return double_diff
 
 if __name__ == "__main__":
     check(double_the_difference)
