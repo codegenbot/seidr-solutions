@@ -25,4 +25,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             stack.pop()
         result.append(''.join(groups))
 
+    if len(result) == 0 and stack:
+        return ["Invalid input. There are unmatched parentheses."]
+    elif not stack and len(result) == 0:
+        return ["No groups found"]
+
     return [group for group in set(tuple(group) for group in set(frozenset(group.split()) for group in result))]
