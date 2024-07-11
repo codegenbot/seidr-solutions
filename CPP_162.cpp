@@ -1,8 +1,4 @@
 #include <string>
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
 
 string string_to_md5(string text) {
     if (text.empty()) return "";
@@ -19,9 +15,9 @@ string string_to_md5(string text) {
 
     string output;
     for (int i = 0; i < 16; i++) {
-        ostringstream buffer;
-        buffer << setfill('0') << setw(2) << hex << static_cast<int>(result[i]);
-        output += buffer.str();
+        char buffer[3];
+        sprintf(buffer, "%02x", result[i]);
+        output += buffer;
     }
 
     return output;
