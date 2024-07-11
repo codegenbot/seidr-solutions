@@ -4,7 +4,7 @@ from typing import List
 def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
     groups = []
-    group = ""
+    group = ""  # Initialize group as empty string
 
     for char in paren_string:
         if char == " ":
@@ -19,7 +19,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 groups.append(group + ")")
                 group = ""
             else:
-                while stack:
-                    group += stack.pop()
+                stack.pop()
 
     return [group] + groups
