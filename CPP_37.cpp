@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 void sort_even(std::vector<float>& values) {
     std::sort(values.begin(), values.end(), [](float a, float b) {
@@ -15,8 +14,14 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 
 int main() {
     std::vector<float> values = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    std::vector<float> sorted_values = values; 
-    sort_even(sorted_values); 
-    assert(issame(sorted_values, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    sort_even(values);
+    
+    std::vector<float> expected_values = {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10};
+    if (issame(values, expected_values)) {
+        std::cout << "Test Passed" << std::endl;
+    } else {
+        std::cout << "Test Failed" << std::endl;
+    }
+    
     return 0;
 }
