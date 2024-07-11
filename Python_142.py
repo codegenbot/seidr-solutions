@@ -1,5 +1,2 @@
 ```
-def sum_squares(n):
-    return n**2
-
-print(sum_squares(123))
+print(sum_squares([1, 4, -3, 9, -10]))
