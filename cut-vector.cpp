@@ -1,15 +1,18 @@
 #include <iostream>
 #include <vector>
-#include<fstream>
+#include <sstream>
+#include <string>
 
 using namespace std;
 
 int main() {
-    ifstream file("input.txt");
+    string input;
+    getline(cin, input);
+    stringstream ss(input);
+
     vector<int> nums;
     int num;
-    
-    while (file >> num) {
+    while (ss >> num) {
         nums.push_back(num);
     }
 
