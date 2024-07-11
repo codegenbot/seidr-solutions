@@ -1,3 +1,4 @@
+```c++
 #include <algorithm>
 #include <vector>
 
@@ -10,5 +11,5 @@ vector<int> sort_array(vector<int> arr) {
         pairs.push_back({ones, i});
     }
     sort(pairs.begin(), pairs.end());
-    return vector<int>(pairs.begin(), pairs.end());
+    return vector<int>(pairs.begin(), pairs.end(), [](const auto& p) { return p.second; });
 }

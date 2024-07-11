@@ -1,24 +1,72 @@
 ```cpp
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    return a == b;
-}
+bool issame(int a, int b) {
+    vector<string> by_length(vector<int> numbers) {
+        vector<int> numbers;
+        for (int num : numbers) {
+            if (num >= 1 && num <= 9) {
+                numbers.push_back(num);
+            }
+        }
+        
+        sort(numbers.begin(), numbers.end());
+        
+        reverse(numbers.begin(), numbers.end());
+        
+        vector<string> result;
+        for (int num : numbers) {
+            switch (num) {
+                case 1:
+                    result.push_back("One");
+                    break;
+                case 2:
+                    result.push_back("Two");
+                    break;
+                case 3:
+                    result.push_back("Three");
+                    break;
+                case 4:
+                    result.push_back("Four");
+                    break;
+                case 5:
+                    result.push_back("Five");
+                    break;
+                case 6:
+                    result.push_back("Six");
+                    break;
+                case 7:
+                    result.push_back("Seven");
+                    break;
+                case 8:
+                    result.push_back("Eight");
+                    break;
+                case 9:
+                    result.push_back("Nine");
+                    break;
+            }
+        }
+        
+        return result;
+    }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    vector<string> result;
-    for (int i : arr) {
-        if (i >= 1 && i <= 9)
-            result.push_back(to_string(i));
+int main() {
+    int n;
+    cin >> n;
+    
+    vector<int> arr(n);
+    
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
-    sort(result.begin(), result.end());
-    reverse(result.begin(), result.end());
-    vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-    vector<string> output;
-    for (int i : result) {
-        output.push_back(names[i - 1]);
+    
+    vector<string> output = by_length(arr);
+    
+    for (const auto& str : output) {
+        cout << str << endl;
     }
-    return output;
+    
+    return 0;
 }

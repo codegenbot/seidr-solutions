@@ -1,15 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cassert>
-using namespace std;
 
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
-}
+using namespace std;
 
 int skjkasdkd(vector<int> lst){
     int maxPrime = 0;
@@ -25,8 +19,16 @@ int skjkasdkd(vector<int> lst){
     return sum;
 }
 
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
 int main() {
-    assert(skkjkasdkd({127, 97, 8192}) == 10);
+    assert(skkkasdkd({127, 97, 8192}) == 10);
     cout << "Hello World!" << endl;
     return 0;
 }
