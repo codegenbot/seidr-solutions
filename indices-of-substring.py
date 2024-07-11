@@ -1,7 +1,2 @@
-text = input()
-target = input()
-
-indices = [i for i in range(len(text)) if text.startswith(target, i)]
-
-for index in indices:
-    print(index)
+t, s = input(), input()
+print(*[i for i in range(len(t)) if t.startswith(s, i)])
