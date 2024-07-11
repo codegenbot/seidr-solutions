@@ -20,16 +20,16 @@ int main() {
     while (pos < input.size() && ::isspace(input[pos])) {
         ++pos;
     }
-    std::string newInput = input.substr(pos, input.size() - pos);
+    std::string newInput = input.substr(pos);
     if (!newInput.empty()) { 
-        int digitPos = -1;
-        for (int i = 0; i < newInput.size(); ++i) {
+        size_t digitPos = 0; // Use size_t for indexing into a string
+        for (size_t i = 0; i < newInput.size(); ++i) {
             if (!std::isdigit(newInput[i])) {
                 digitPos = i;
                 break;
             }
         }
-        if (digitPos == -1) {
+        if (digitPos == 0) {
             int result = digitSum(newInput);
             std::cout << "The sum of digits is: " << result << std::endl;
         } else {
