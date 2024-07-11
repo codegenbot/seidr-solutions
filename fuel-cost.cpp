@@ -6,7 +6,7 @@ int totalFuelCost(std::vector<int> fuelCosts) {
     int sum = 0;
     for (int cost : fuelCosts) {
         int newCost = static_cast<int>(cost / 3.0);
-        sum += newCost - 2;
+        sum += std::max(0, newCost - 2);
     }
     return sum;
 }
