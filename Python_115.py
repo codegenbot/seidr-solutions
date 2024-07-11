@@ -8,8 +8,6 @@ def max_fill(grid, capacity):
 
 
 if __name__ == "__main__":
-    grid1 = [[2, 4], [5, 3]]
-    print(max_fill(grid1, 10))
-
-    grid2 = [[1, 1, 1, 1], [0, 0, 0, 0]]
-    print(max_fill(grid2, 6))
+    grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    capacity = 10
+    print(max_fill(grid, capacity))
