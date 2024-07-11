@@ -20,11 +20,7 @@ std::string solve(std::string s) {
 
 int main() {
     std::string input;
-    std::cout << "Enter a string: ";
     std::cin >> input;
-
-    std::string result = solve(input);
-    std::cout << "Result: " << result << std::endl;
-
+    std::cout << solve(input) << std::endl;
     return 0;
 }
