@@ -17,7 +17,7 @@ int blackPegs(string code, string guess) {
     vector<char> codeArray(code.begin(), code.end());
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
-            code.replace(i, 1, "x");
+            code[i] = 'x';
         }
     }
     for (int i = 0; i < 4; i++) {
@@ -38,4 +38,3 @@ int main() {
     cout << black << endl;
     cout << white << endl;
     return 0;
-}
