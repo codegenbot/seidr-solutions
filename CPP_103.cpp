@@ -2,8 +2,6 @@
 #include <cassert>
 
 string solve(int n, int m) {
-    assert(n >= 0 && m >= 0);
-    
     if (n > m) {
         return "-1";
     }
