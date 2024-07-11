@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 bool correct_bracketing(std::string brackets){
@@ -14,4 +13,3 @@ bool correct_bracketing(std::string brackets){
     }
     if(count > 0) return false;
     return true;
-}
