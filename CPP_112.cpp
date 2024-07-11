@@ -8,7 +8,8 @@ using namespace std;
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     
-    set<char> c_set; 
+    set<char> c_set; // declare before initializing
+    
     c_set.insert(c.begin(), c.end());
     
     string res = "";
