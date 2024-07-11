@@ -4,7 +4,8 @@ from typing import List
 
 def remove_duplicates(input_string: str) -> List[int]:
     numbers = list(map(int, input_string.split(',')))
-    return sorted(set(numbers))
+    return list(set(numbers))  # Convert set back to list
 
 
-print(remove_duplicates(input("Enter your string: ")))
+result = remove_duplicates(input("Enter your string: "))
+print(result)
