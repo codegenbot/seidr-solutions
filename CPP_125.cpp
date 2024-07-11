@@ -3,6 +3,7 @@
 #include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b);
+
 std::vector<std::string> split_words(std::string txt);
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
@@ -17,12 +18,12 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> split_words(std::string txt) {
+std::vector<std::string> split_words(std::string txt){
     std::vector<std::string> result;
     std::string word = "";
-    for(char c : txt) {
-        if (c == ' ' || c == ',') {
-            if (!word.empty()) {
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
                 result.push_back(word);
                 word = "";
             }
@@ -30,13 +31,13 @@ std::vector<std::string> split_words(std::string txt) {
             word += c;
         }
     }
-    if (!word.empty()) {
+    if(!word.empty()){
         result.push_back(word);
     }
-    if (result.empty()) {
+    if(result.empty()){
         int count = 0;
-        for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 == 1) {
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 == 1){
                 count++;
             }
         }
