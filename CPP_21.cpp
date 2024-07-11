@@ -1,11 +1,11 @@
-bool issame(std::vector<float> v1, std::vector<float> v2) {
-    return v1 == v2;
+bool issame(vector<float>& a, vector<float>& b) {
+    return equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
-std::vector<float> rescale_to_unit(std::vector<float> numbers) {
+vector<float> rescale_to_unit(vector<float> numbers) {
     float min_val = *min_element(numbers.begin(), numbers.end());
     float max_val = *max_element(numbers.begin(), numbers.end());
-    std::vector<float> rescaled;
+    vector<float> rescaled;
     
     for (float num : numbers) {
         float scaled = (num - min_val) / (max_val - min_val);
@@ -16,10 +16,9 @@ std::vector<float> rescale_to_unit(std::vector<float> numbers) {
 }
 
 int main() {
-    std::vector<float> numbers = {3.0, 1.0, 5.0, 2.0};
-    std::vector<float> rescaled = rescale_to_unit(numbers);
-
-    assert(issame(rescaled, rescale_to_unit(numbers)));
+    vector<float> numbers = {5, 10, 15, 20};
+    vector<float> rescaled = rescale_to_unit(numbers);
+    assert(issame(rescaled, rescaled));
     
     return 0;
 }
