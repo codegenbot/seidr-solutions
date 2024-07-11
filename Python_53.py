@@ -11,6 +11,9 @@ while True:
         y = int(input("Enter second number: "))
         print(add(x, y))  
         cont = input("Do you want to continue? (y/n): ")
+        while cont.lower() not in ['y', 'n']:
+            print("Invalid input. Please enter 'y' or 'n'.")
+            cont = input("Do you want to continue? (y/n): ")
         if cont.lower() != 'y':
             break
     except ValueError:
