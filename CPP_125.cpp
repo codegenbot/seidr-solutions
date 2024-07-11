@@ -8,36 +8,31 @@ using namespace std;
 vector<string> split_words(string txt) {
     vector<string> result;
     size_t pos = 0, prevPos = 0;
-    
-    while ((pos = txt.find(' ')) != string::npos) {
+
+    while ((pos = txt.find_first_of(" ,")) != string::npos) {
+        if (pos == 0) {
+            if (txt.find(',') == string::npos)
+                return {to_string(count_lowercase(txt))};
+            else
+                pos = txt.find(',');
+        }
         result.push_back(txt.substr(prevPos, pos - prevPos));
         prevPos = pos + 1;
     }
-    
-    if (prevPos < txt.length()) {
-        result.push_back(txt.substr(prevPos));
-    } else if (txt.empty() || all_of(txt.begin(), txt.end(), ::isspace)) {
-        int count = 0;
-        for (char c : txt) {
-            if ((int)c >= (int)'a' && (int)c <= (int)'z') {
-                if ((count & 1) == 1)
-                    result.push_back(to_string(count));
-                break;
-            }
-            count++;
-        }
-    }
-    
+
+    result.push_back(txt.substr(prevPos));
+
     return result;
 }
 
-int main() {
-    string txt;
-    cout << "Enter a string: ";
-    getline(cin, txt);
-    vector<string> result = split_words(txt);
-    for (string s : result) {
-        cout << s << endl;
+int count_lowercase(string str) {
+    int count = 0;
+    for (char c : str) {
+        if (islower(c)) {
+            count++;
+            if (count % 2 != 0)
+                break;
+        }
     }
-    return 0;
+    return count;
 }
