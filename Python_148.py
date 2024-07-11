@@ -1,13 +1,18 @@
-```
 def bf(planet1, planet2):
-    planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
-    indices1 = [i for i, x in enumerate(planets) if x == planet1]
-    indices2 = [i for i, x in enumerate(planets) if x == planet2]
-    
-    if not (indices1 and indices2):
+    planets = [
+        "Mercury",
+        "Venus",
+        "Earth",
+        "Mars",
+        "Jupiter",
+        "Saturn",
+        "Uranus",
+        "Neptune",
+    ]
+    index1 = planets.index(planet1)
+    if index1 == -1 or index2 := planets.index(planet2) == -1:
         return ()
-    
-    start_index = min(indices1[0], indices2[0])
-    end_index = max(indices1[0], indices2[0])
-    
-    return tuple([planets[i] for i in range(start_index, end_index+1) if planets[i] != planet1 and planets[i] != planet2])
+    planets_between = tuple(
+        planets[i] for i in range(max(0, index1), min(len(planets), index2 + 1))
+    )
+    return planets_between
