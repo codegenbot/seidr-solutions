@@ -13,14 +13,9 @@ def parse_music(music_string: str) -> List[int]:
         while i < len(music_string) and music_string[i] not in ['o', '|']:
             note += music_string[i]
             i += 1
-        if note in notes:
-            result.append(notes[note])
+        if note not in notes:
+            note_value = int(note[:-1]) * notes['o']
+            result.append(note_value)
         else:
-            note_value = int(note)
-            for j in range(note_value):
-                if music_string[i].isdigit():
-                    result.extend([4] * (note_value - 1))
-                    result.append(4)
-                    i += 1
-                    break
+            result.append(notes[note])
     return result
