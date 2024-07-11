@@ -1,3 +1,5 @@
+```
+s = input()
 def decode_cyclic(s: str):
     result = ""
     i = 0
@@ -12,3 +14,4 @@ def decode_cyclic(s: str):
             result += group
         i += 3
     return result
+print(decode_cyclic(s))
