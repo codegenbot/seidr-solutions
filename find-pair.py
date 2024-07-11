@@ -1,10 +1,8 @@
-```
 def find_pair(n, nums):
-    seen = set()
-    for num in nums:
-        if (n - num) in seen:
-            return f"{n - num} {num}"
-        seen.add(num)
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            if nums[i] + nums[j] == n:
+                return f"{nums[i]} {nums[j]}"
     return "No pair found"
 
 n = int(input())
