@@ -7,8 +7,7 @@ def search(lst):
         else:
             freq_dict[num] = 1
     max_num = -1
-    for k, v in freq_dict.items():
-        if k > 0 and v >= k:
-            max_num = k
-            break
+    for key, value in freq_dict.items():
+        if key > 0 and value >= key:
+            max_num = key
     return max_num
