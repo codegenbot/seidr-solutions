@@ -3,7 +3,9 @@ def sort_even(l: list):
         (
             x
             if i % 2 != 0
-            else sorted([y for y in l if (i - 1) // 2 == (l.index(y)) // 2])[0]
+            else sorted(
+                [y for y in l if (i - 1) // 2 * 2 == (j - 1) // 2 * 2 and j != i]
+            )[0]
         )
         for i, x in enumerate(l)
     ]
