@@ -1,3 +1,4 @@
+```
 while True:
     try:
         expression = input("Enter an expression (or 'done' if finished): ")
@@ -13,3 +14,4 @@ while True:
             )
     except Exception as e:
         print(f"Error occurred: {e}")
+        raise
