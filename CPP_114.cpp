@@ -1,9 +1,7 @@
-long long minSum = nums[0];
-    long long currentSum = 0;
-    for (long long num : nums) {
-        currentSum = min(num, currentSum + num);
-        minSum = min(minSum, currentSum);
+long long ans = INT_MAX, sum = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        sum = min(nums[i], sum + nums[i]);
+        ans = min(ans, sum);
     }
-    
-    return minSum;
+    return ans;
 }
