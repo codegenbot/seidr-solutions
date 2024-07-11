@@ -1,7 +1,15 @@
-from typing import List, Tuple
-
-
+```
 def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    """
+    Calculate total sum and product of given numbers.
+    
+    Args:
+        numbers (List[int]): A list of integers.
+
+    Returns:
+        Tuple[int, int]: A tuple containing the total sum and product.
+    """
+
     total_sum = 0
     product = 1
 
