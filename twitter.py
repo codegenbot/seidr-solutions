@@ -1,9 +1,8 @@
 import re
 
-tweet = input("Enter your tweet: ")
 if len(tweet) > 140:
-    print("Too many characters")
-elif not tweet:
-    print("You didn't type anything")
+    return "Too many characters"
+elif len(tweet) == 0:
+    return "You didn't type anything"
 else:
-    print(f"Your tweet has {len(tweet)} characters")
+    return f"Your tweet has {len(tweet)} characters"
