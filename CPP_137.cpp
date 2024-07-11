@@ -1,26 +1,31 @@
 Here is the completed code:
 
 ```cpp
-using namespace boost;
+#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int) a < (double) b ? b : a;
-    } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (double) a > (int) b ? a : boost::any_cast<int>(b);
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return a.cast<string>() > b.cast<string>() ? a : (a == b ? boost::any("None") : b);
-    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        string s = boost::any_cast<string>(b);
-        if (stod(s) > (double) a) return b;
-        else if ((double) a == stod(s)) return boost::any("None");
-        else return a;
-    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        string s = boost::any_cast<string>(a);
-        if (stod(s) > (double) b) return a;
-        else if ((double) b == stod(s)) return boost::any("None");
-        else return b;
-    } else {
-        throw std::runtime_error("Invalid types");
-    }
+    if (a.type() == typeid(int) && b.type() == typeid(int))
+        return (get<int>(a) > get<int>(b)) ? a : ((get<int>(a) < get<int>(b)) ? b : boost::any("None"));
+    else if (a.type() == typeid(float) && b.type() == typeid(float))
+        return (get<float>(a) > get<float>(b)) ? a : ((get<float>(a) < get<float>(b)) ? b : boost::any("None"));
+    else if (a.type() == typeid(string) && b.type() == typeid(string))
+        return (get<string>(a) > get<string>(b)) ? a : ((get<string>(a) < get<string>(b)) ? b : boost::any("None"));
+    else if (a.type() == typeid(int) && b.type() == typeid(float))
+        return (get<int>(a) > get<float>(b)) ? a : ((get<int>(a) < get<float>(b)) ? b : boost::any("None"));
+    else if (a.type() == typeid(int) && b.type() == typeid(string))
+        return (stoi(get<string>(b)) > get<int>(a)) ? b : ((stoi(get<string>(b)) < get<int>(a)) ? a : boost::any("None"));
+    else if (a.type() == typeid(float) && b.type() == typeid(int))
+        return (get<float>(a) > get<int>(b)) ? a : ((get<float>(a) < get<int>(b)) ? b : boost::any("None"));
+    else if (a.type() == typeid(float) && b.type() == typeid(string))
+        return (stod(get<string>(b)) > get<float>(a)) ? b : ((stod(get<string>(b)) < get<float>(a)) ? a : boost::any("None"));
+    else if (a.type() == typeid(string) && b.type() == typeid(int))
+        return (stoi(get<string>(a)) > get<int>(b)) ? a : ((stoi(get<string>(a)) < get<int>(b)) ? b : boost::any("None"));
+    else if (a.type() == typeid(string) && b.type() == typeid(float))
+        return (stod(get<string>(a)) > get<float>(b)) ? a : ((stod(get<string>(a)) < get<float>(b)) ? b : boost::any("None"));
+    else
+        return boost::any("Invalid input");
 }
