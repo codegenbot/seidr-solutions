@@ -7,12 +7,13 @@ int main() {
     std::cin >> text >> target;
     
     std::vector<int> indices;
-    size_t pos = text.find(target, 0);
-    while (pos != std::string::npos) {
-        indices.push_back(pos);
-        pos = text.find(target, pos + 1);
+
+    for (int i = 0; i <= text.size() - target.size(); ++i) {
+        if (text.substr(i, target.size()) == target) {
+            indices.push_back(i);
+        }
     }
-    
+
     for (int i = 0; i < indices.size(); ++i) {
         std::cout << indices[i] << " ";
     }
