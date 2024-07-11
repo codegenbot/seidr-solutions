@@ -1,4 +1,4 @@
-```
+```python
 def get_pegs(master_code, guess):
     master_code_count = [0]*6
     white_pegs = 0
