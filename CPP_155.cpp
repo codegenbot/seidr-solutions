@@ -1,9 +1,7 @@
-```
 #include <vector>
-#include <bits/stdc++.h>
 
-std::vector<int> even_odd_count(int num) {
-    std::vector<int> result;
+vector<int> even_odd_count(int num) {
+    vector<int> result;
     int count = 0;
     while(num != 0) {
         int digit = num % 10;
