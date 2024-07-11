@@ -1,3 +1,4 @@
+#include <sstream>
 #include <string>
 
 string string_sequence(int n){
