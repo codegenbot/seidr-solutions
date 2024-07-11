@@ -25,9 +25,6 @@ if __name__ == "__main__":
     try:
         result = find_zero(xs)
         if result is not None:
-            if result[0] == result[1]:
-                print(f"The only zero is {result[0]}.")
-            else:
-                print(f"Zeroes are {result[0]} and {result[1]}.")
+            print(f"Zeroes are {result[0]} and {result[1]}.")
     except ValueError as e:
         print(e)
