@@ -1,10 +1,7 @@
-#include <vector>
-#include <algorithm>
-
-std::vector<int> minPath(std::vector<std::vector<int>>& grid, int k) {
+vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
-    std::vector<std::vector<bool>> visited(n, std::vector<bool>(n));
-    std::vector<int> res;
+    vector<vector<bool>> visited(n, vector<bool>(n));
+    vector<int> res;
     
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
@@ -17,7 +14,15 @@ std::vector<int> minPath(std::vector<std::vector<int>>& grid, int k) {
     return res;
 }
 
-void dfs(std::vector<std::vector<int>>& grid, std::vector<std::vector<bool>>& visited, int x, int y, int k, std::vector<int>* res) {
+bool issame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int x, int y, int k, vector<int>* res) {
     if (k == 0) {
         (*res).insert((*res).end(), grid[x].begin(), grid[x].end());
         return;
@@ -40,17 +45,4 @@ void dfs(std::vector<std::vector<int>>& grid, std::vector<std::vector<bool>>& vi
             }
         }
     }
-}
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
-
-int main() {
-    assert({1, 3, 1, 3, 1, 3, 1, 3, 1, 3} == minPath({{1, 3}, {3, 2}}, 10));
-    return 0;
 }
