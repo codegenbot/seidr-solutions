@@ -1,5 +1,5 @@
+```
 import re
-
 
 def fix_spaces(text):
     pattern = r"\s+"
@@ -8,6 +8,10 @@ def fix_spaces(text):
     text = re.sub(pattern, replacement, text)
     return text
 
-print("Please enter a text:")
-text = input()
-print(fix_spaces(text))
+while True:
+    try:
+        text = input("Enter a text: ")
+        print(fix_spaces(text))
+        break
+    except ValueError:
+        print("Invalid input. Please enter some text.")
