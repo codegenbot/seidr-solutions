@@ -1,20 +1,17 @@
 int main() {
-    string input, word;
-    while (cin >> input) {
-        bool new_word = true;
-        for (char c : input) {
-            if (c == '-') {
-                new_word = true;
-            } else {
-                if (new_word) {
-                    cout << (char)toupper(c);
-                    new_word = false;
-                } else {
-                    cout << c;
-                }
-            }
+    string input;
+    getline(cin, input);
+    bool newWord = true;
+    for(char c : input) {
+        if(c == '-') {
+            cout << "";
+            newWord = true;
+        } else if(c != ' ' && newWord) {
+            cout << (char)toupper(c);
+            newWord = false;
+        } else if(c != ' ') {
+            cout << c;
         }
-        cout << " ";
     }
     return 0;
 }
