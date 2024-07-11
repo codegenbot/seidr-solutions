@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 int main() {
     int n, m;
@@ -6,14 +7,15 @@ int main() {
     
     double probability = 0.0;
     for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j < m; ++j) {
+        for (int j = 1; j <= m; ++j) {
             if (i > j) {
-                probability += 1.0 / (n * m);
+                probability += 1.0;
             }
         }
     }
-    
-    std::cout << probability << std::endl;
+    probability /= n * m;
+
+    std::cout << std::fixed << std::setprecision(9) << probability << std::endl;
     
     return 0;
 }
