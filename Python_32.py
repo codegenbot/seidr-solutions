@@ -1,1 +1,7 @@
-```"def find_zero(xs: list):\n    if len(xs) % 2 != 0:\n        raise ValueError('List xs must have even number of coefficients')\n    a = xs[-1]\n    b = -xs[1] / a\n    return round(-b / 2, 2)"```
+```"
+def find_zero(xs: list):
+    if len(xs) % 2 != 0:
+        raise ValueError("List xs must have even number of coefficients")
+    a = xs[-1]
+    b = -xs[1] / a
+    return round(-b / 2, 2)"
