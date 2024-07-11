@@ -1,9 +1,16 @@
 def decode_shift(s: str):
-    return "".join([chr(((ord(ch.lower()) - 5 - ord("a")) % 26) + ord("a")) if ch.isalpha() else ch for ch in s])
+    if not all(ch.isalpha() or ch == " " for ch in s):
+        print("Input string should contain only lowercase alphabets and spaces.")
+        return ""
 
-input_str = input("Enter the string to decode: ").strip()
-if all(ch.isalpha() or ch.isspace() for ch in input_str):
-    result = decode_shift(input_str)
-    print(result)
-else:
-    print("Input string should contain only lowercase alphabets and spaces.")
+    return "".join(
+        [
+            chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a") if ch.isalpha() else ch
+            for ch in s
+        ]
+    )
+
+
+input_str = input("Enter the string to decode (lowercase alphabets and spaces only): ").strip()
+result = decode_shift(input_str)
+print(result)
