@@ -1,11 +1,10 @@
 #include <iostream>
 #include <string>
-#include <cassert>
+#include <bitset>
 #include <cmath>
+#include <cassert>
 
-using namespace std;
-
-std::string calculate_binary_avg(int n, int m) {
+std::string rounded_avg(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -16,18 +15,12 @@ std::string calculate_binary_avg(int n, int m) {
     }
 
     int avg = round((double)sum / (m - n + 1));
-
-    std::string binary_avg = "";
-    while (avg > 0) {
-        binary_avg = to_string(avg % 2) + binary_avg;
-        avg /= 2;
-    }
-
-    return binary_avg;
+    std::string binary_avg = std::bitset<32>(avg).to_string();
+    return binary_avg.substr(binary_avg.find('1'));
 }
 
 int main() {
-    assert(calculate_binary_avg(5, 5) == "101");
-
+    std::string result = rounded_avg(5, 5);
+    std::cout << result << std::endl;
     return 0;
 }
