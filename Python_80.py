@@ -1,2 +1,7 @@
 def is_happy(s):
-    return len(s) >= 3 and len(set(s[i : i + 3] for i in range(0, len(s) - 2, 2))) == 3
+    if len(s) < 3:
+        return False
+    for i in range(len(s)):
+        if len(set(s[i:])) != len(s[i:]):
+            return False
+    return True
