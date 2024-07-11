@@ -33,19 +33,29 @@ int main() {
             std::string digitsOnly;
             for (char c : newInput) {
                 if(std::isdigit(c)) {
-                    digitsOnly += c;  // Directly append the digits
+                    digitsOnly += (c - '0');
                 }
             }
-            int result = digitSum(digitsOnly);
+            int result = 0;
+            while (!digitsOnly.empty()) {
+                int digit = digitsOnly[0] - '0';
+                digitsOnly.erase(0, 1);
+                result += digit;
+            }
             std::cout << "The sum of digits is: " << result << std::endl;
         } else {
             std::string digitsOnly;
             for (char c : newInput.substr(0, digitPos)) {
                 if(std::isdigit(c)) {
-                    digitsOnly += c;  // Directly append the digits
+                    digitsOnly += (c - '0');
                 }
             }
-            int result = digitSum(digitsOnly);
+            int result = 0;
+            while (!digitsOnly.empty()) {
+                int digit = digitsOnly[0] - '0';
+                digitsOnly.erase(0, 1);
+                result += digit;
+            }
             std::cout << "The sum of digits is: " << result << std::endl;
         }
     } else {
