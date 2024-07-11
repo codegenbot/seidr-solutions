@@ -7,68 +7,56 @@ using namespace std;
 
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0;
-    while ((pos = txt.find(' ')) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-    }
-    if (txt.empty()) {
-        return result;
-    }
-    if (txt.find(',') == string::npos) {
-        int count = 0;
-        for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                if ((count++) % 2 != 0) {
-                    break;
+    size_t pos = 0, prev_pos = 0;
+    
+    while (pos != string::npos) {
+        pos = txt.find(' ');
+        if (pos == string::npos) {
+            pos = txt.find(',');
+            if (pos == string::npos) {
+                int count = 0;
+                for (char c : txt) {
+                    if (c >= 'a' && c <= 'z') {
+                        if ((count++) % 2 != 0) {
+                            result.push_back(to_string(count));
+                            return result;
+                        }
+                    }
                 }
-            } else {
-                break;
+                result.push_back(txt);
+                return result;
             }
         }
-        result.push_back(to_string(count));
-    } else {
-        string word = "";
-        for (char c : txt) {
-            if (c == ',') {
-                result.push_back(word);
-                word = "";
-            } else {
-                word += c;
-            }
+        
+        string word = txt.substr(prev_pos, pos - prev_pos);
+        if (!word.empty()) {
+            result.push_back(word);
         }
-        result.push_back(word);
+        prev_pos = pos + 1;
     }
+    
     return result;
 }
 
 int main() {
     // Test cases
-    string test1 = "Hello world!";
-    string test2 = "Hello,world!";
-    string test3 = "abcdef";
-    
-    vector<string> result1 = split_words(test1);
-    vector<string> result2 = split_words(test2);
-    vector<string> result3 = split_words(test3);
+    cout << "{";
+    for (const auto& word : split_words("Hello world!")) {
+        cout << "\"" << word << "\"";
+    }
+    cout << "}" << endl;
 
-    cout << "Test 1: ";
-    for (string s : result1) {
-        cout << s << " ";
+    cout << "{";
+    for (const auto& word : split_words("Hello,world!")) {
+        cout << "\"" << word << "\"";
     }
-    cout << endl;
-    
-    cout << "Test 2: ";
-    for (string s : result2) {
-        cout << s << " ";
-    }
-    cout << endl;
-    
-    cout << "Test 3: ";
-    for (string s : result3) {
-        cout << s << " ";
-    }
-    cout << endl;
+    cout << "}" << endl;
 
+    cout << "{";
+    for (const auto& word : split_words("abcdef")) {
+        cout << "\"" << word << "\"";
+    }
+    cout << "}" << endl;
+    
     return 0;
 }
