@@ -1,19 +1,30 @@
-map<char, int> histogram(string test){
-    map<char, int> freq;
-    for(char c : test){
-        if(isalpha(c)){
-            freq[c]++;
+map<char, int> hist;
+    string word = "";
+    for (char c : test) {
+        if (c == ' ') {
+            if (!word.empty()) {
+                for (char letter : word) {
+                    hist[letter]++;
+                }
+                word = "";
+            }
+        } else {
+            word += c;
         }
     }
-    int maxFreq = 0;
-    for(auto it : freq){
-        maxFreq = max(maxFreq, it.second);
+    if (!word.empty()) {
+        for (char letter : word) {
+            hist[letter]++;
+        }
+    }
+    int max_occurrence = 0;
+    for (const auto& entry : hist) {
+        max_occurrence = max(max_occurrence, entry.second);
     }
     map<char, int> result;
-    for(auto it : freq){
-        if(it.second == maxFreq){
-            result[it.first] = it.second;
+    for (const auto& entry : hist) {
+        if (entry.second == max_occurrence) {
+            result[entry.first] = entry.second;
         }
     }
     return result;
-}
