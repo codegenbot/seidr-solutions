@@ -17,11 +17,6 @@ vector<string> split_words(string txt) {
     if (!word.empty()) {
         result.push_back(word);
     }
-    return result;
-}
-
-vector<string> issame(string txt) {
-    vector<string> result = split_words(txt);
     if (result.empty()) {
         int count = 0;
         for (char c : txt) {
