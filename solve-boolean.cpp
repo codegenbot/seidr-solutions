@@ -1,12 +1,17 @@
 int main() {
-    string s;
-    cin >> s;
-
-    if(s == "t") {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
+    string expression;
+    cin >> expression;
+    
+    bool result = true;
+    for (char c : expression) {
+        if (c == 'f') {
+            result = false;
+        } else if (c == '&') {
+            result = false;
+        }
     }
-
+    
+    cout << (result ? "True" : "False") << endl;
+    
     return 0;
 }
