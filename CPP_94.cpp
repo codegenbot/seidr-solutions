@@ -28,5 +28,5 @@ int findMaxSum(vector<int> lst){
 int main() {
     assert(findMaxSum({127, 97, 8192}) == 10);
     cout << "Hello World!" << endl;
-    return 0;
+    return findMaxSum({127, 97, 8192});
 }
