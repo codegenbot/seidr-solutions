@@ -3,13 +3,10 @@
 
 std::vector<int> factorize(int num) {
     std::vector<int> factors;
-    int i = 2;
-    while (num > 1) {
-        if (num % i == 0) {
+    for (int i = 2; i <= num; i++) {
+        while (num % i == 0) {
             factors.push_back(i);
             num /= i;
-        } else {
-            i++;
         }
     }
     return factors;
