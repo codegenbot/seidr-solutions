@@ -1,3 +1,6 @@
+I removed the extra backticks (`) at the beginning and end of your code. The corrected code will look like:
+
+```
 def valid_date(date):
     day, month, year = date.split('-')
     if len(day) == 1:
