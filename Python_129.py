@@ -3,11 +3,10 @@ from collections import deque
 
 def minPath(grid, k):
     n = len(grid)
-    m = len(grid[0])
     res = []
 
     for _ in range(k):
-        queue = deque([(i, j, i * m + j) for i in range(n) for j in range(m)])
+        queue = deque([(i, j, i * n + j) for i in range(n) for j in range(n)])
         visited = set()
         cur_min = float("inf")
 
