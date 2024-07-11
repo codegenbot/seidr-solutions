@@ -1,2 +1,9 @@
-n = int(input())
-cut_index = n // 2 if n % 2 == 0 else n // 2 + 1, n // 2 if n % 2 == 0 else n // 2 + 1
+numbers = list(map(int, input().split()))
+min_diff = float("inf")
+cut_index = 0
+for i in range(1, len(numbers)):
+    diff = abs(sum(numbers[:i]) - sum(numbers[i:]))
+    if diff < min_diff:
+        min_diff = diff
+        cut_index = i + 1
+print(numbers[:cut_index], numbers[cut_index:])
