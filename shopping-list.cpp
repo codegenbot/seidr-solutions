@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <iomanip>
 
 int main() {
-    int n;
+    float n;
     std::cin >> n;
 
     std::vector<float> prices(n);
@@ -22,7 +21,7 @@ int main() {
         total_price += prices[i] * (1.0f - discounts[i] / 100.0f);
     }
 
-    std::cout << "Total discounted price: " << std::fixed << std::setprecision(2) << total_price << std::endl;
+    std::cout << "Total discounted price: " << total_price << std::endl;
 
     return 0;
 }
