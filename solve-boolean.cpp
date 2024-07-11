@@ -3,14 +3,12 @@
 using namespace std;
 
 int main() {
-    string expression;
-    cin >> expression;
-
-    if (expression == "T") {
+    string input;
+    cin >> input;
+    if (input == "T") {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
     }
-
     return 0;
 }
