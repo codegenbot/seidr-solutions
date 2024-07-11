@@ -2,15 +2,13 @@
 int next_smallest(vector<int> lst) {
     vector<int> sorted = lst;
     sort(sorted.begin(), sorted.end());
-    if (sorted.size() < 2) {
-        cout << "Error: The list must contain at least two elements." << endl;
-        return -1; 
-    }
+    if (sorted.size() < 2) return -1; 
     for (int i = 0; i < sorted.size()-1; i++) {
         if (sorted[i] != sorted[i+1]) {
+            cout << "The next smallest element is: " << sorted[i+1] << endl;
             return sorted[i+1];
         }
     }
-    cout << "Error: The list is already sorted." << endl;
+    cout << "There are no smaller elements." << endl;
     return -1; 
 }

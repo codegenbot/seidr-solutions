@@ -1,17 +1,15 @@
-#include <cassert>
+```cpp
+#include <cmath>
+#include <assert.h>
+
+bool iscuber(int);
 
 bool iscuber(int a){
-    int i = 1;
-    while (i * i * i <= a) {
-        if (i * i * i == a)
-            return true;
-        i++;
-    }
-    return false;
-
+    int c = round(cbrt(a));
+    return (c*c*c == a);
 }
 
-int main() {
-    assert(iscuber(1729) == false);
+int main(){
+    assert (iscuber(1729) == false);
     return 0;
 }
