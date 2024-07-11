@@ -22,7 +22,7 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
             strongest = strength;
             result = extension;
         } else if (strength == strongest) {
-            result = (result <= extension) ? result : extension;
+            result = (result < extension ? result : extension);
         }
     }
     return class_name + "." + result;
