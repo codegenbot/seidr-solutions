@@ -1,3 +1,4 @@
+```cpp
 #include <queue>
 #include <string>
 
@@ -10,39 +11,32 @@ bool getBoolValue(char c) {
 }
 
 std::string solveBoolean(std::string expression) {
-    std::stack<char> s;
+    std::queue<char> q;
     for (int i = 0; i < expression.length(); i++) {
         if (expression[i] == '&') {
-            while (!s.empty() && s.top() == '&') {
-                s.pop();
+            while (!q.empty() && q.front() == '&') {
+                q.pop();
             }
-            s.push('&');
+            q.push('&');
         } else if (expression[i] == '|') {
-            while (!s.empty()) {
-                s.pop();
+            while (!q.empty()) {
+                q.pop();
             }
-            s.push('|');
+            q.push('|');
         } else {
-            s.push(expression[i]);
+            q.push(expression[i]);
         }
     }
 
     std::string result = "";
     bool left = false, right = false;
-    while (!s.empty()) {
-        char c = s.top();
-        s.pop();
+    while (!q.empty()) {
+        char c = q.front();
+        q.pop();
         if (c == '&') {
-            left = getBoolValue(s.top());
-            right = getBoolValue(s.top());
-            s.pop();            
-            result = (left && right) ? "True" : "False";
+            result = (getBoolValue(q.front()) && getBoolValue(q.front())) ? "True" : "False";
         } else if (c == '|') {
-            left = getBoolValue(s.top());
-            right = getBoolValue(s.top());
-            s.pop();
-            s.pop();
-            result = (left || right) ? "True" : "False";
+            result = (getBoolValue(q.front()) || getBoolValue(q.front())) ? "True" : "False";
         } else {
             result = getBoolValue(c) ? "True" : "False";
         }
