@@ -1,8 +1,11 @@
+Here's the corrected code:
+
+```python
 def minPath(grid, k):
     m = len(grid)
     visited = set()
     shortest_path = None
-    min_length = float("inf")
+    min_length = float('inf')
 
     def dfs(i, j, path, remaining):
         nonlocal shortest_path, min_length
@@ -25,6 +28,6 @@ def minPath(grid, k):
     for i in range(m):
         for j in range(m):
             if grid[i][j] == k:
-                dfs(i, j, [], 0)
+                dfs(i, j, [], m*m-k)
 
     return shortest_path
