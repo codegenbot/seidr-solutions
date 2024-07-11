@@ -30,7 +30,7 @@ int sumOfDigits(int num){
 }
 
 int main(){
-    std::vector<int> inputVector = {127, 97, 8192};
-    assert (skjkasdkd(inputVector) == 10);
+    std::vector<int> lst = {127, 97, 8192};
+    std::cout << skjkasdkd(lst) << std::endl;
     return 0;
 }
