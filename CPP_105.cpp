@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -54,7 +53,7 @@ bool issame(int a, int b) {
     }
 
 int main() {
-    vector<int> arr = {5, 3, 4};
+    vector<int> arr = [5, 3, 4];
     auto output = by_length(arr);
     
     for (auto& str : output) {
@@ -62,3 +61,4 @@ int main() {
     }
     
     return 0;
+}
