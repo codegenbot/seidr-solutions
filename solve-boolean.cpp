@@ -3,6 +3,12 @@
 #include <stack>
 #include <cctype>
 
+bool getBoolValue(char c) {
+    if (c == 'T') return true;
+    if (c == 'F') return false;
+    return false; // default to false
+}
+
 std::string solveBoolean(std::string expression) {
     std::stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
@@ -43,10 +49,4 @@ std::string solveBoolean(std::string expression) {
     }
 
     return result;
-}
-
-bool getBoolValue(char c) {
-    if (c == 'T') return true;
-    if (c == 'F') return false;
-    return false; // default to false
 }
