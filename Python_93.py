@@ -6,9 +6,9 @@ def encode(message):
             if char.lower() in vowels:
                 new_char = chr((ord(char.lower()) - 96 + 2) % 26 + 96)
             elif char.isupper():
-                new_char = chr((ord(char.lower()) - 96 + 2) % 26 + 64)
+                new_char = chr(((ord(char.lower()) - 64) % 26 + 2) % 26 + 64)
             else:
-                new_char = chr((ord(char) - 96 + 2) % 26 + 96)
+                new_char = char.swapcase()
             result += new_char
         else:
             result += char
