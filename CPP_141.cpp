@@ -24,6 +24,3 @@ std::string file_name_check(std::string filename) {
     else
         return "No";
 }
-
-assert(file_name_check("s.") == "No");
-return 0;
