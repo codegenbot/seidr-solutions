@@ -4,10 +4,10 @@ def double_the_difference(lst):
     return double_diff
 
 def check(func):
-    user_input = input()
-    if len(user_input) > 1:
-        print("Error: Please enter single input.")
+    user_input = input()  
+    lst = [int(i) for i in user_input.split()]
+    if len(lst) != 1:
+        print("Error: Please enter single integer.")
         return None
     else:
-        lst = [int(x) for x in user_input.split()]
         return func(lst)
