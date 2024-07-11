@@ -17,6 +17,11 @@ std::vector<std::string> split_words(const std::string& txt) {
     if (!word.empty()) {
         result.push_back(word);
     }
+    return result;
+}
+
+std::vector<std::string> issame(const std::string& txt) {
+    std::vector<std::string> result = split_words(txt);
     if (result.empty()) {
         int count = 0;
         for (char c : txt) {
