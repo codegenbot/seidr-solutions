@@ -1,12 +1,12 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> strange_sort_vector(vector<int> lst) {
-    vector<int> result;
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
+    std::vector<int> result;
     while (!lst.empty()) {
         int min_val = *min_element(lst.begin(), lst.end());
         result.push_back(min_val);
@@ -21,5 +21,5 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    assert(issame(vector<int>(strange_sort_vector({1, 1, 1, 1, 1})), vector<int>({1, 1, 1, 1, 1})));
+    assert(issame(std::vector<int>(strange_sort_vector({1, 1, 1, 1, 1})), std::vector<int>({1, 1, 1, 1, 1})));
 }
