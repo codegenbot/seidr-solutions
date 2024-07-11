@@ -1,11 +1,8 @@
-```python
-import math
-from typing import List
-
-def poly(xs: List[float], p: float) -> float:
+```
+def poly(a: list, b: float):
     result = 0
-    for i in range(len(xs)):
-        result += xs[i] * (p ** i)
+    for i in range(len(a)):
+        result += a[i] * (b ** (len(a) - i - 1))
     return result
 
 def find_zero(xs: list):
@@ -23,6 +20,6 @@ def find_zero(xs: list):
     return round(p, 2)
 
 if __name__ == "__main__":
-    xs = [1.0, -3.0, 4.0]  # input your list here
+    xs = [1, 2, 3]
     result = find_zero(xs)
-    print(result)  # you can change this to whatever output you want
+    print(result)
