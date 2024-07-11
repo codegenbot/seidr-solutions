@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 #include <iostream>
@@ -31,23 +30,17 @@ vector<string> numerical_letter_grade(vector<float> grades){
 }
 
 int main() {
-    vector<float> grades;
-    cout << "Enter the number of grades: ";
-    int n; cin >> n;
-    for (int i = 0; i < n; i++) {
-        float g; cin >> g;
-        grades.push_back(g);
-    }
-    
-    vector<string> letter_grades = numerical_letter_grade(grades);
-    if(letter_grades.empty()) {
-        cout << "No grades found." << endl;
-    } else {
-        for (float g : grades) {
-            cout << g << ": " << letter_grades[0] << endl;
-            letter_grades.erase(letter_grades.begin());
+    vector<float> grades = {0, 0.7};
+    assert(issame(numerical_letter_grade(grades), {"E", "D-"}));
+    for (float g : grades) {
+        if (g == 0) {
+            std::cout << "No grades found." << std::endl;
+            return 0;
         }
     }
-    
+    vector<string> result = numerical_letter_grade(grades);
+    for (string s : result) {
+        std::cout << s << std::endl;
+    }
     return 0;
 }
