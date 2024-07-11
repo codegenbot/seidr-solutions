@@ -1,5 +1,4 @@
 ```
-i = j = 0
 while i < len(evens) and j < len(odds):
     if -abs(odds[j]) >= evens[i]:
         result.append(evens[i])
@@ -7,3 +6,5 @@ while i < len(evens) and j < len(odds):
     else:
         result.append(odds[j])
         j += 1
+i = 0
+j = 0
