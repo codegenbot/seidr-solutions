@@ -1,8 +1,9 @@
 #include <vector>
 #include <any>
+#include <pmr>
 
-std::vector<int> filter_integers(std::list<std::any> values) {
-    std::vector<int> result;
+std::pmr::vector<int> filter_integers(std::list<std::any> values) {
+    std::pmr::vector<int> result;
     for (const auto& value : values) {
         if (value.type() == typeid(int)) {
             int integer = std::any_cast<int>(value);
@@ -12,7 +13,7 @@ std::vector<int> filter_integers(std::list<std::any> values) {
     return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::pmr::vector<int> a, std::pmr::vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -25,13 +26,5 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    std::any a = 3;
-    std::any b = 'c';
-    std::any c = 3;
-    std::any d = 3;
-    std::any e = 'a';
-    std::any f = 'b';
-    std::list<std::any> values = {a, b, c, d, e, f};
-    assert(issame(filter_integers(values) ,{3, 3, 3}));
+    assert(issame(filter_integers({3, std::any_cast<int>(42), 3, 3, std::any_cast<int>(42), 'b'}) ,{3, 3, 3}));
     return 0;
-}
