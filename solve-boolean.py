@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     expression = expression.replace("(", "( T | F )").replace(")", " ( ")
     stack = []
