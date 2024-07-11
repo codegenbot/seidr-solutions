@@ -10,16 +10,9 @@ int main() {
         std::cin >> vec1[i];
     }
 
-    double m;
-    std::cin >> m;
-    std::vector<double> vec2(m);
-    for (int i = 0; i < m; ++i) {
+    std::vector<double> vec2(n);
+    for (int i = 0; i < n; ++i) {
         std::cin >> vec2[i];
-    }
-
-    if (n != m * 1.0) {
-        std::cout << "Error: Vectors must have the same dimensions." << std::endl;
-        return 0;
     }
 
     double sum = 0.0;
