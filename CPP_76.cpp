@@ -1,3 +1,7 @@
-double p = log(x) / log(n);
-    return (ceil(p) == floor(p));
+if (x <= 0 || n <= 0) {
+        return false;
+    }
+
+    double power = log(x) / log(n);
+    return floor(power) == power;
 }
