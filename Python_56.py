@@ -1,4 +1,4 @@
-def check_brackets(expression):
+def correct_bracketing(expression):
     stack = []
     for char in expression:
         if char == '(':
