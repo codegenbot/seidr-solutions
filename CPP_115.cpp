@@ -1,10 +1,16 @@
 int count = 0;
-        for (int j = 0; j < grid[0].size(); ++j) {
-            int sum = 0;
-            for (int i = 0; i < grid.size(); ++i) {
-                sum += grid[i][j];
+        for (const auto &row : grid) {
+            int current = 0;
+            for (int well : row) {
+                current += well;
+                if (current >= capacity) {
+                    count++;
+                    current = 0;
+                }
             }
-            count += (sum + capacity - 1) / capacity;
+            if (current > 0) {
+                count++;
+            }
         }
         return count;
     }
