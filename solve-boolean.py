@@ -1,3 +1,5 @@
-`expression = input()
-result = eval(expression.replace("T", "True").replace("F", "False"), {"True": True, "False": False})
-print(result)`
+def solve_boolean(expression):
+    return eval(expression.replace("T", "True").replace("F", "False"))
+
+expression = input()
+print(solve_boolean(expression))
