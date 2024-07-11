@@ -35,4 +35,8 @@ while True:
             print("Invalid input. Please enter a correct number or 'q' to quit.")
 
     except Exception as e:
-        print(f"Error: {e}")
+    else:
+        if not nums:
+            print("Please enter a number or 'q' to quit.")
+        elif not all(num.isdigit() for num in user_input.split()):
+            print("Invalid input. Please enter a correct number or 'q' to quit.")
