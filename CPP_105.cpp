@@ -1,10 +1,23 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <initializer_list>
 
-bool issame(int a, int b) {
-    // Empty function for now
+bool isSame(const std::vector<int>& nums) {
+    if (nums.size() == 0)
+        return true;
+
+    int first = nums[0];
+    bool allSame = true;
+    
+    for (int num : nums) {
+        if (num != first) {
+            allSame = false;
+            break;
+        }
+    }
+
+    return allSame;
 }
 
 vector<string> by_length(vector<int> arr) {
@@ -51,16 +64,21 @@ vector<string> by_length(vector<int> arr) {
                 break;
         }
     }
-    
+
     return result;
 }
 
 int main() {
-    vector<int> arr = {5, 3, 4};
-    auto output = by_length(arr);
-    
-    for (auto& str : output) {
+    vector<int> arr = {1, 2, 3};
+    vector<string> output = by_length(arr);
+    for (string str : output) {
         cout << str << endl;
+    }
+    
+    if (isSame(by_length(arr))) {
+        cout << "The numbers are the same." << endl;
+    } else {
+        cout << "The numbers are different." << endl;
     }
     
     return 0;
