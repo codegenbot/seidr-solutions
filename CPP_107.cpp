@@ -1,18 +1,13 @@
-vector<int> result;
-        int count_even = 0, count_odd = 0;
-        for (int i = 1; i <= n; ++i) {
-            string s = to_string(i);
-            string rev_s = s;
-            reverse(rev_s.begin(), rev_s.end());
-            if (s == rev_s) {
-                if (i % 2 == 0) {
-                    count_even++;
-                } else {
-                    count_odd++;
-                }
+int even = 0, odd = 0;
+    for (int i = 1; i <= n; ++i) {
+        string num = to_string(i);
+        if (num == string(num.rbegin(), num.rend())) {
+            if (i % 2 == 0) {
+                even++;
+            } else {
+                odd++;
             }
         }
-        result.push_back(count_even);
-        result.push_back(count_odd);
-        return result;
     }
+    return {even, odd};
+}
