@@ -9,3 +9,7 @@ vector<int> common(vector<int> l1, vector<int> l2) {
     result.erase(unique(result.begin(), result.end()), result.end());
     return result;
 }
+
+bool issame(vector<int> a, vector<int> b) {
+    return common(a, b) == common(b, a);
+}
