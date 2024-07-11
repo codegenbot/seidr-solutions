@@ -1,29 +1,36 @@
-Here is the completed code:
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
 
-```cpp
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0;
-    while ((pos = txt.find(' ')) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-    }
-    if (txt.empty()) {
-        return result;
-    }
-    if (txt.find(',') == string::npos) {
-        int count = 0;
-        for (char c : txt) {
-            if (c >= 'a' && c <= 'z') {
-                if ((count & 1)) {
-                    result.push_back(to_string(count));
-                    break;
-                }
-                count++;
-            }
+    size_t prev = 0, next = -1;
+    
+    do {
+        next = txt.find(' ', prev);
+        if (next == string::npos) {
+            next = txt.find(',', prev);
+            if (next == string::npos)
+                return {to_string(count_lowercase(txt))};
         }
-    } else {
-        result.push_back(txt);
-    }
+        
+        result.push_back(txt.substr(prev, next - prev));
+        prev = next + 1;
+    } while (next != string::npos);
+
     return result;
+}
+
+int count_lowercase(string txt) {
+    int count = 0;
+    for (char c : txt) {
+        if (islower(c)) {
+            count++;
+            if (count % 2 == 0)
+                break;
+        }
+    }
+    return count;
 }
