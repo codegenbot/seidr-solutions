@@ -1,44 +1,45 @@
-vector<int> minPath(vector<vector<int>>& grid, int k) {
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
     int n = grid.size();
-    vector<vector<int>> dp(n, vector<int>(n, 1e9));
+    vector<vector<int>> dist(n, vector<int>(n, 1e9));
+    vector<vector<pair<int, int>>> graph(n, vector<pair<int, int>>(n));
+    
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j) {
+            if (i > 0) graph[i][j].push_back({dist[i-1][j], i-1, j});
+            if (j > 0) graph[i][j].push_back({dist[i][j-1], i, j-1});
+            if (i < n - 1) graph[i][j].push_back({dist[i+1][j], i+1, j});
+            if (j < n - 1) graph[i][j].push_back({dist[i][j+1], i, j+1});
+        }
+    
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    pq.push({0, 0, 0});
+    dist[0][0] = 0;
+    
+    while (!pq.empty()) {
+        int d = pq.top().first; pq.pop();
+        if (d > k) break;
+        for (auto& neighbor : graph[pq.top().second][pq.top().third]) {
+            int nd = d + 1;
+            if (nd < dist[neighbor.second][neighbor.third]) {
+                dist[neighbor.second][neighbor.third] = nd;
+                pq.push({nd, neighbor.second, neighbor.third});
+            }
+        }
+    }
+    
     vector<int> res;
-    
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (k == 1) {
-                dp[i][j] = grid[i][j];
-            } else {
-                for (int x = -1; x <= 1; x++) {
-                    for (int y = -1; y <= 1; y++) {
-                        if (abs(x) + abs(y) == 1 && i + x >= 0 && j + y >= 0 && i + x < n && j + y < n) {
-                            dp[i][j] = min(dp[i][j], grid[i+x][j+y]);
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    int mx = -1, idx;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (dp[i][j] > mx) {
-                mx = dp[i][j];
-                idx = i * n + j;
-            }
-        }
-    }
-    
-    int cur = idx, cnt = k;
-    while (cnt--) {
-        res.push_back(grid[cur / n][cur % n]);
-        if (cur % n == 0 || cur % n == n - 1) {
-            cur -= n;
-        } else if (cur % n == 1) {
-            cur += n - 1;
-        } else {
-            cur--;
-        }
+    for (int i = 0; i < k; ++i) {
+        int x = -1;
+        for (int j = 0; j < n; ++j)
+            if (dist[j][0] == dist[0][0] - i) {x = j; break;}
+        res.push_back(grid[x][0]);
     }
     
     return res;
