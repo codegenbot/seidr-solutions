@@ -7,31 +7,34 @@ int main() {
 
     int total = 0;
     int frame = 0;
+    int frameScore = 0;
 
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            total += 10;
+    for (char c : s) {
+        if (c == 'X') {
+            total += 10 + frameScore;
+            frameScore = 10;
             if (frame < 9) {
-                total += (s[i + 1] == 'X') ? 10 : ((s[i + 1] == '/') ? 10 : ((s[i + 2] == '/') ? 10 : ((s[i + 2] == 'X') ? 10 : (s[i + 2] == '-' ? 0 : (s[i + 2] - '0')))));
-            } else if (frame == 9) {
-                total += ((s[i + 1] == 'X') + (s[i + 2] == 'X') + (s[i + 1] == 'X' && s[i + 2] == 'X')) * 10;
+                frame++;
             }
-            frame++;
-        } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0') + ((s[i + 1] == 'X') ? 10 : (s[i + 1] == '-' ? 0 : (s[i + 1] - '0')));
+        } else if (c == '/') {
+            total += 10 - (s[frame*2 - 1] - '0') + frameScore;
+            frameScore = 10;
             if (frame < 9) {
-                total += (s[i + 1] == 'X') ? 10 : (s[i + 1] == '-' ? 0 : (s[i + 1] - '0'));
+                frame++;
             }
-            frame++;
-        } else if (s[i] != '-') {
-            total += s[i] - '0';
+        } else if (c != '-') {
+            frameScore = (c - '0');
+            total += frameScore;
             if (frame < 9) {
-                total += ((s[i + 1] == 'X') || (s[i + 1] == '/')) ? 10 : (s[i + 1] == '-' ? 0 : (s[i + 1] - '0'));
+                if (frameScore == 10) {
+                    frame++;
+                } else {
+                    frameScore = 0;
+                }
             }
-            frame++;
         }
     }
-
+    
     std::cout << total << std::endl;
 
     return 0;
