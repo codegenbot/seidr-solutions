@@ -1,5 +1,5 @@
 ```
-def longest(strings: List[str]) -> Optional[str]:
+def longest(strings: list[str]) -> str | None:
     if not strings:
         return None
     
@@ -11,4 +11,4 @@ def longest(strings: List[str]) -> Optional[str]:
             max_len = len(s)
             result = s
 
-    return result if max_len != 0 else None
+    return result
