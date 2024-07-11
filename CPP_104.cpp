@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
 bool vector_issame(vector<int> a, vector<int> b) {
