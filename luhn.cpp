@@ -1,11 +1,10 @@
-```c++
 #include <vector>
 
 int luhn(const std::vector<int>& cardNumber) {
     int sum = 0;
     bool doubleNext = false;
 
-    for (int i = 0; i < cardNumber.size(); ++i) {
+    for (int i = cardNumber.size() - 1; i >= 0; --i) {
         int digit = cardNumber[i];
 
         if (doubleNext) {
