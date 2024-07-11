@@ -6,7 +6,7 @@ def prime_fib(n: int):
         if is_prime(b):
             count += 1
             if count == n:
-                return str(b)
+                return b
         a, b = b, a + b
 
 def is_prime(num: int):
