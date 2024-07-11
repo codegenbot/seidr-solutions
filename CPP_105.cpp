@@ -6,6 +6,8 @@
 
 using namespace std;
 
+bool issame(vector<string> a, vector<string> b);
+
 vector<string> by_length(vector<int> arr){
     vector<int> filtered;
     for (int num : arr) {
@@ -26,6 +28,10 @@ vector<string> by_length(vector<int> arr){
         result.push_back(numToName[num]);
     }
 
-    assert (result == vector<string>{"Nine", "Eight", "Four"});
     return result;
+}
+
+int main(){
+    assert (issame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
+    return 0;
 }
