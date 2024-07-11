@@ -17,6 +17,10 @@ bool issame(const map<char,int>& a, const map<char,int>& b) {
 
 map<char, int> histogram(string test);
 
+int main() {
+    // Main function code here
+}
+
 map<char, int> histogram(string test) {
     map<char, int> result;
     map<char, int> freq;
