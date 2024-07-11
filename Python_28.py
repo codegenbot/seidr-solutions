@@ -1,4 +1,7 @@
+```
 from typing import List
 
 def concatenate(strings: List[str]) -> str:
-    return ''.join(s for s in strings if s)
+    if not isinstance(strings, list):
+        return "Input must be a list of strings."
+    return ''.join(map(str, strings))
