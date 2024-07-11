@@ -4,12 +4,20 @@
 #include <string>
 
 bool issame(int a, int b) {
-}
-
-vector<string> by_length(vector<int> numbers) {
-    vector<int> result;
-    for (int num : numbers) {
-        if (num >= 1 && num <= 9) {
+    vector<string> by_length(vector<int> numbers) {
+        vector<int> numbers;
+        for (int num : numbers) {
+            if (num >= 1 && num <= 9) {
+                numbers.push_back(num);
+            }
+        }
+        
+        sort(numbers.begin(), numbers.end());
+        
+        reverse(numbers.begin(), numbers.end());
+        
+        vector<string> result;
+        for (int num : numbers) {
             switch (num) {
                 case 1:
                     result.push_back("One");
@@ -40,15 +48,25 @@ vector<string> by_length(vector<int> numbers) {
                     break;
             }
         }
+        
+        return result;
     }
-    
-    sort(result.begin(), result.end());
-    
-    reverse(result.begin(), result.end());
-    
-    return result;
-}
 
 int main() {
-    // Your code goes here
+    int n;
+    cin >> n;
+    
+    vector<int> arr(n);
+    
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    
+    vector<string> output = by_length(arr);
+    
+    for (const auto& str : output) {
+        cout << str << endl;
+    }
+    
+    return 0;
 }
