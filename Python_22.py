@@ -1,7 +1,7 @@
 ```
-from typing import Any, List
+from typing import Any, list
 
-def filter_integers(values: List[Any]) -> List[int]:
-    if not isinstance(values, list):
-        raise ValueError("Input must be a list")
-    return [value for value in values if isinstance(value, int)]
+def filter_integers(values: list[Any]) -> list[int]:
+    return [value for value in map(eval, input("Enter a list of numbers separated by comma or space: ").split(',')) if isinstance(value, int)]
+
+filter_integers([])
