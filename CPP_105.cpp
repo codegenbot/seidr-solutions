@@ -3,14 +3,14 @@
 #include <algorithm>
 #include <string>
 
-bool allTheSame(const std::vector<int>& nums) {
-    if (nums.size() == 0)
+bool checkRow(const std::vector<int>& row) {
+    if (row.size() == 0)
         return true;
 
-    int first = nums[0];
+    int first = row[0];
     bool allSame = true;
     
-    for (int num : nums) {
+    for (int num : row) {
         if (num != first) {
             allSame = false;
             break;
@@ -28,9 +28,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
         }
     }
     
-    sort(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end());
     
-    reverse(numbers.begin(), numbers.end());
+    std::reverse(numbers.begin(), numbers.end());
     
     std::vector<std::string> result;
     for (int num : numbers) {
@@ -69,9 +69,9 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {9, 4, 8};
+    std::vector<int> arr = {1, 2, 3};
     auto result = by_length(arr);
-    bool same = allTheSame(result);
+    bool same = checkRow(result);
     assert(same);
     return 0;
 }
