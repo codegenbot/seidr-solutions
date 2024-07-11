@@ -1,9 +1,10 @@
+```cpp
 #include <vector>
 #include <string>
 
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Makemake"};
-    
+
     int index1 = -1;
     for (int i = 0; i < planets.size(); i++) {
         if (planet1 == planets[i]) {
@@ -11,7 +12,7 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
             break;
         }
     }
-    
+
     int index2 = -1;
     for (int i = 0; i < planets.size(); i++) {
         if (planet2 == planets[i]) {
@@ -19,9 +20,9 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
             break;
         }
     }
-    
+
     std::vector<std::string> result;
-    
+
     if (index1 >= 0 && index2 >= 0) {
         if (index1 > index2) {
             for (int i = index1; i >= index2 + 1; i--) {
@@ -35,6 +36,6 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
             return result;
         }
     }
-    
+
     return result;
 }
