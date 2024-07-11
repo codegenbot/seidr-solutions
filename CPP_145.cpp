@@ -4,11 +4,11 @@
 #include <cassert>
 #include <cmath>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool issame(const vector<int>& a, const vector<int>& b){
     return accumulate(a.begin(), a.end(), 0) == accumulate(b.begin(), b.end(), 0);
 }
 
-vector<int> order_by_points(vector<int> nums) {
+vector<int> order(vector<int>& nums){
     sort(nums.begin(), nums.end(), [](int a, int b) {
         int sum_a = 0, sum_b = 0;
         int temp_a = abs(a), temp_b = abs(b);
