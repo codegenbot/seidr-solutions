@@ -1,19 +1,21 @@
+#include <vector>
+
 vector<int> pluck(vector<int> arr) {
-    vector<int> result = {};
+    vector<int> result;
     
-    int smallest_even = INT_MAX;
-    int smallest_even_index = -1;
+    int smallestEvenValue = -1;
+    int smallestIndex = -1;
     
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest_even) {
-            smallest_even = arr[i];
-            smallest_even_index = i;
+    for (int i = 0; i < arr.size(); ++i) {
+        if (arr[i] % 2 == 0 && (smallestEvenValue == -1 || arr[i] < smallestEvenValue)) {
+            smallestEvenValue = arr[i];
+            smallestIndex = i;
         }
     }
     
-    if (smallest_even_index != -1) {
-        result.push_back(smallest_even);
-        result.push_back(smallest_even_index);
+    if (smallestEvenValue != -1) {
+        result.push_back(smallestEvenValue);
+        result.push_back(smallestIndex);
     }
     
     return result;
