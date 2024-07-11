@@ -1,7 +1,7 @@
-```
-using namespace std;
+#include <string>
+#include <iostream>
 
-int hex_key(const string& num) {
+int hex_key(std::string num) {
     int count = 0;
     for (char c : num) {
         if ((c >= '2' && c <= '7') || (c >= 'B' && c <= 'F')) {
@@ -9,4 +9,16 @@ int hex_key(const string& num) {
         }
     }
     return count;
+}
+
+int main() {
+    std::string input;
+    // Get user input
+    std::cout << "Enter a hexadecimal number: ";
+    std::cin >> input;
+
+    int output = hex_key(input);
+    //assert (output == 0); // Assuming this should be the expected result
+
+    return 0;
 }
