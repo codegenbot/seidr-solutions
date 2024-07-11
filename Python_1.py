@@ -1,4 +1,8 @@
+from typing import List
+
+
 def separate_paren_groups(paren_string: str) -> List[str]:
+    paren_string = paren_string.strip()  
     result = []
     stack = []
     groups = ""
@@ -30,5 +34,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         return [paren_string]
     if not stack and len(result) == 1:
         return result[:1]
+
+    if stack or (not stack and len(result) > 1):
+        return []
+    if groups:
+        result.append(groups)
 
     return [g.strip() for g in result]
