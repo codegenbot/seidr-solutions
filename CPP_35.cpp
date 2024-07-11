@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -16,7 +17,7 @@ int minimumValue(std::vector<std::pair<int, int>> p) {
     return *std::min_element(p.begin(), p.end())->first;
 }
 
-int main() {
+int myMain() {
     int max_value = -1;
     int min_value = INT_MAX;
 
@@ -36,4 +37,8 @@ int main() {
     std::cout << "Minimum value: " << min_value << std::endl;
 
     return 0;
+}
+
+int main() {
+    myMain();
 }
