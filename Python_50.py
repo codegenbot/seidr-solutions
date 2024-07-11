@@ -1,6 +1,6 @@
 def decode_shift():
     s = input("Please enter a string: ")
-    
+
     while True:
         try:
             shift = int(input("Enter the shift value (0-25): "))
@@ -20,6 +20,7 @@ def decode_shift():
         else:
             decoded += ch
     return decoded
+
 
 while True:
     print(decode_shift())
