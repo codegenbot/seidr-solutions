@@ -6,4 +6,5 @@ int str_len(std::string str) {
 
 int main() {
     assert(str_len("asdasnakj") == 13);
+    
 }
