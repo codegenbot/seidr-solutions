@@ -1,16 +1,28 @@
-int even = 0, odd = 0;
+#include <cassert>
+#include <vector>
+
+std::vector<int> even_odd_palindrome(int n) {
+    std::vector<int> counts(2);
+    int even_count = 0, odd_count = 0;
     for (int i = 1; i <= n; ++i) {
-        string str = to_string(i);
-        string rev = str;
-        reverse(rev.begin(), rev.end());
-        if (str == rev) {
+        std::string num = std::to_string(i);
+        std::string rev_num = num;
+        std::reverse(rev_num.begin(), rev_num.end());
+        if (num == rev_num) {
             if (i % 2 == 0) {
-                even++;
+                even_count++;
             } else {
-                odd++;
+                odd_count++;
             }
         }
     }
-
-    return {even, odd};
+    counts[0] = even_count;
+    counts[1] = odd_count;
+    return counts;
 }
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
+
+assert(issame(even_odd_palindrome(1), {0, 1}));
