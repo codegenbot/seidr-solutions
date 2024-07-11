@@ -1,4 +1,3 @@
-```
 def modp(n: int, p: int):
     res = 1
     while p > 0:
