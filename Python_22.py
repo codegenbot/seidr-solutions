@@ -1,4 +1,4 @@
-```
+```Python
 from typing import List
 
 def get_values() -> List[int]:
@@ -8,6 +8,7 @@ def get_values() -> List[int]:
         if user_value.lower() == 'stop':
             break
         try:
+            int(user_value)
             result.append(int(user_value))
         except ValueError:
             print(f"Invalid input: {user_value}. Please enter integers only. Try again!")
