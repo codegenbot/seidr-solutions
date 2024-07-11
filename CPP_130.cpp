@@ -1,12 +1,7 @@
 #include <vector>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b) {
-    // Function code here
-}
-
-vector<int> tri(int n) {
-    vector<int> res;
+vector<int> res;
     res.push_back(3);
     if (n == 0) return res;
     res.push_back(1);
@@ -21,9 +16,7 @@ vector<int> tri(int n) {
         }
     }
     return res;
-}
 
-int main() {
-    // Function call to tri() and any further processing
-    return 0;
+bool issame(vector<int> a, vector<int> b) {
+    // Function code here
 }
