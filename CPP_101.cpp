@@ -1,13 +1,11 @@
-#include <vector>
-#include <string>
-
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<std::string> words_string(std::string s) {
-    std::vector<std::string> words;
-    std::string word;
+vector<string> words_string(string s) {
+    vector<string> words;
+    string word;
+    
     for (char c : s) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -18,8 +16,10 @@ std::vector<std::string> words_string(std::string s) {
             word += c;
         }
     }
+    
     if (!word.empty()) {
         words.push_back(word);
     }
+    
     return words;
 }
