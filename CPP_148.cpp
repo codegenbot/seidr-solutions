@@ -20,10 +20,17 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
         return {};
     }
 
-    std::vector<std::string> result;
+    int start, end;
 
+    if(index1 < index2)
+        std::swap(start, end);
+    else
+        std::tie(std::ignore, end) = {index1, index2};
+    start = index1;
+
+    std::vector<std::string> result;
     for (int i = 0; i < planets.size(); i++) {
-        if ((i >= index1 && i <= index2) || (i > index2 && index2 < index1)) {
+        if(i >= start && i <= end) {
             result.push_back(planets[i]);
         }
     }
