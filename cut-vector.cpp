@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -36,23 +37,19 @@ int main() {
     }
     pair<vector<int>, vector<int>> result = cutVector(v);
     cout << "[";
-    
     for (int i = 0; i < result.first.size(); i++) {
         if (i > 0) {
             cout << " ";
         }
         cout << result.first[i];
     }
-    
     cout << "] [";
-    
     for (int i = 0; i < result.second.size(); i++) {
         if (i > 0) {
             cout << " ";
         }
         cout << result.second[i];
     }
-    
     cout << "]" << endl;
     return 0;
 }
