@@ -1,7 +1,10 @@
-def add():
-    try:
-        x = int(input("Enter first number: "))
-        y = int(input("Enter second number: "))
-        return x + y
-    except ValueError:
-        return "Invalid input! Please enter integers."
+x = int(input("Enter first number: "))
+y = int(input("Enter second number: "))
+
+
+def add(x: int, y: int):
+    return x + y
+
+
+result = add(x, y)
+print(f"The sum is {result}")
