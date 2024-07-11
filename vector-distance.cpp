@@ -11,6 +11,7 @@ int main() {
         cin >> vec1[i];
     }
 
+    cin >> n;
     vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
         cin >> vec2[i];
@@ -21,7 +22,7 @@ int main() {
         sum += pow(vec1[i] - vec2[i], 2.0);
     }
 
-    cout << fixed << sqrt(sum) << "\n";
+    cout << sqrt(sum) << "\n";
 
     return 0;
 }
