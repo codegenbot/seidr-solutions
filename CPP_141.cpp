@@ -1,24 +1,17 @@
-````
-#include <string>
-using namespace std;
+```#include <string>
 
-bool file_name_check(string filename) {
+std::string file_name_check(std::string file_name) {
     int digit_count = 0;
     bool found_dot = false;
-    bool valid_prefix = true;
-
-    for (char c : filename) {
+    std::string prefix = "";
+    for (char c : file_name) {
         if (isdigit(c)) {
             digit_count++;
-            if (digit_count > 3)
-                return false;
         } else if (c == '.') {
             found_dot = true;
-        } else {
-            if (digit_count > 0)
-                valid_prefix = false;
         }
+        prefix += c;
     }
-
-    return (digit_count <= 3 && found_dot && valid_prefix);
-}
+    return (digit_count <= 3 && found_dot && prefix.find('.') != std::string::npos) ? "Yes" : 
+           (!found_dot && !std::all_of(file_name.begin() + digit_count, file_name.end(), ::isalpha())) ? "No" : "Yes";
+}```
