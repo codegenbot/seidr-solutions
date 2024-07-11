@@ -23,7 +23,7 @@ bool evaluateBooleanExpression(string input) {
             }
             operators.push(c);
         } else if (c == '|') {
-            while (!operators.empty() && (operators.top() == '|' || operators.top() == '&')) {
+            while (!operators.empty() && operators.top() == '|') {
                 char op = operators.top();
                 operators.pop();
                 bool operand2 = operands.top();
@@ -55,11 +55,7 @@ bool evaluateBooleanExpression(string input) {
 
 int main() {
     string input;
-    char c;
-
-    while (cin >> c) {
-        input += c;
-    }
+    cin >> input;
 
     if (evaluateBooleanExpression(input)) {
         cout << "True" << endl;
