@@ -1,10 +1,7 @@
-```
 def decipher(cipher1, cipher2, message):
+    mapping = {c.lower(): c for c in cipher1}
     result = ""
-    for char in message.lower():
-        if char.isalpha():  
-            diff = ord(cipher2[0]) - ord(cipher1[0]) 
-            result += chr((ord(char) - ord(cipher1[0])) % 26 + diff)  
-        else:  
-            result += char
+    for char in message:
+        if char.lower() in mapping:
+            result += mapping[char.lower()]
     return result
