@@ -1,8 +1,9 @@
-Here is the solution:
+```
+from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    stack = []
     groups = []
+    stack = []
     current_group = ''
 
     for char in paren_string:
@@ -12,17 +13,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             stack.append(char)
             current_group += char
         elif char == ')':
-            if not stack or stack.pop() != '(':
-                return []  # invalid group
+            stack.pop()
             current_group += char
-            while stack and stack[-1] == '(':
-                stack.pop()
-            if stack:
-                groups.append(current_group)
+            if not stack:
+                groups.append(current_group[1:])
                 current_group = ''
-    if stack:
-        return []  # unbalanced parentheses
-    if current_group:
-        groups.append(current_group)
 
-    return [group for group in groups if group]
+    return groups
