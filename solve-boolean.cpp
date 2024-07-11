@@ -2,7 +2,8 @@
 #include <string>
 
 bool getBoolValue(char c) {
-    return c == 'T';
+    if (c == 'T' || c == 't') return true;
+    else if (c == 'F' || c == 'f') return false;
 }
 
 std::string solveBoolean(std::string expression) {
@@ -29,16 +30,16 @@ std::string solveBoolean(std::string expression) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            left = getBoolValue(s.top());
-            right = true;
-            result = (left && right) ? "True" : "False";
+            if (getBoolValue(s.top())) result = "True";
+            else result = "False";
         } else if (c == '|') {
-            left = getBoolValue(s.top());
-            right = true;
-            result = (left || right) ? "True" : "False";
+            if (getBoolValue(s.top())) result = "True";
+            else result = "False";
         } else {
-            result = (getBoolValue(c)) ? "True" : "False";
+            if (getBoolValue(c)) result = "True";
+            else result = "False";
         }
     }
 
     return result;
+}
