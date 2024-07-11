@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cmath>
 #include <iomanip>
+#include <cmath> 
 using namespace std;
 
 int main() {
@@ -12,16 +12,11 @@ int main() {
     double bouncinessIndex = heightAfterFirstBounce / startHeight;
 
     double distanceTravelled = 0.0; // initialize distance traveled
-    cout << fixed; 
-    cout << setprecision(10); 
     for (int i = 1; i <= numBounces; ++i) {
-        if (i % 2 == 1) {
-            distanceTravelled += startHeight * sqrt(2);
-        } else {
-            distanceTravelled += 0.5 * startHeight;
-        }
+        distanceTravelled += (startHeight * sqrt(2)) * pow(0.5, i - bouncinessIndex);
     }
-    cout << distanceTravelled << endl;
+
+    cout << fixed << setprecision(10) << distanceTravelled << endl;
 
     return 0;
 }
