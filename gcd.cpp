@@ -36,6 +36,7 @@ int main() {
     std::getline(std::cin, text);
     std::cout << "Enter the target: ";
     std::cin >> target;
+    std::cin.ignore();
 
     std::vector<int> result = indicesOfSubstring(text, target);
     

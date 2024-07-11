@@ -2,7 +2,7 @@
 #include <vector>
 
 int main() {
-    int n;
+    float n;
     std::cin >> n;
 
     std::vector<float> prices(n);

@@ -7,10 +7,10 @@ int main() {
     string cipher1, cipher2, message;
     cin >> cipher1 >> cipher2 >> message;
 
-    for (size_t i = 0; i < message.length(); ++i) {
-        size_t index = cipher1.find(message[i]);
+    for (char &c : message) {
+        size_t index = cipher1.find(c);
         if (index != string::npos) {
-            message[i] = cipher2[index];
+            c = cipher2[index];
         }
     }
 
