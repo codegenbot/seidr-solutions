@@ -1,6 +1,5 @@
 ```
-def make_palindrome():
-    s = input("Enter a string: ")
+def make_palindrome(s: str) -> str:
     if s == "":
         return ""
     if s[0] != s[-1]:
@@ -29,5 +28,3 @@ def make_palindrome():
             i += 1
             j -= 1
     return ''.join(s)
-
-print(make_palindrome())
