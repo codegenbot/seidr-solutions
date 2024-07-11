@@ -5,7 +5,9 @@ def gcd(a, b):
         a, b = b, a % b
     return abs(a)
 
-a = int(input())
-b = int(input())
-
-print(gcd(a, b))
+def indices_of_substring(text, target):
+    result = []
+    for i in range(len(text)):
+        if text[i:i+len(target)] == target:
+            result.append(i)
+    return result
