@@ -1,20 +1,19 @@
 from typing import List
 
-
 def parse_music(music_string: str) -> List[int]:
     beats = [4, 2, 1]
     result = []
-    note = ""
+    note = ''
     for char in music_string:
-        if char.isalpha():
+        if char == 'o' or char == '.':
             note += char
         else:
             if note:
-                if len(note) == 3 or (len(note) > 0 and not note[0].isalpha()):
-                    result.append(beats[2])
-                elif len(note) >= 1 and len(note) <= 2:
-                    result.append(beats[1] if len(note) == 1 else beats[0])
+                if len(note) == 1:
+                    result.extend([beats[0]]*len(note))
+                elif len(note) == 2:
+                    result.extend([beats[1]]*len(note))
                 else:
-                    result.append(beats[0])
-                note = ""
+                    result.extend([beats[2]]*len(note))
+                note = ''
     return result
