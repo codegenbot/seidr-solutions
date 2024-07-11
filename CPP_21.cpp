@@ -39,7 +39,7 @@ int main() {
     
     vector<float> expected_rescaled_numbers = {0.0, 0.25, 0.5, 0.75, 1.0};
     
-    bool result = issame(rescaled_numbers, expected_rescaled_numbers);
+    bool are_same = issame(rescaled_numbers, expected_rescaled_numbers);
     
     return 0;
 }
