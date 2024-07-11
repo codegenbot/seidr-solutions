@@ -1,9 +1,6 @@
 ```cpp
-#include <initializer_list>
 #include <vector>
 #include <iostream>
-#include <climits>
-#include <cassert>
 
 int smallest_change(std::vector<int> arr) {
     int min = INT_MAX;
@@ -15,15 +12,16 @@ int smallest_change(std::vector<int> arr) {
 }
 
 int main() {
+    using namespace std;
     assert(smallest_change({0, 1}) == 1);
-    std::vector<int> arr;
-    std::cout << "Enter the numbers separated by space: ";
+    vector<int> arr;
+    cout << "Enter the numbers separated by space: ";
     int n;
-    std::cin >> n;
+    cin >> n;
     for (int i = 0; i < n; i++) {
         int val;
-        std::cin >> val;
+        cin >> val;
         arr.push_back(val);
     }
-    std::cout << "The smallest change is: " << smallest_change(arr) << std::endl;
+    cout << "The smallest change is: " << smallest_change(arr) << endl;
 }
