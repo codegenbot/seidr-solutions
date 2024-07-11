@@ -1,7 +1,13 @@
-```
+Here is the modified code:
+
+```Python
 def minPath(n, k):
-    m = [[int(input(f"Enter value at row {i} column {j}: ")) for j in range(n)] for i in range(n)]
-    
+    m = [[0 for _ in range(n)] for _ in range(n)]
+
+    for i in range(n):
+        for j in range(n):
+            m[i][j] = int(input(f"Enter value at row {i} column {j}: "))
+
     def dfs(i, j, path, visited, m, k):
         if len(path) == k:
             return sum(path)
