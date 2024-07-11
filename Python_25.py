@@ -28,12 +28,20 @@ def factorize():
         return factors
     except ValueError as e:
         print(f"Error: {e}")
+        return []
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
+
+
+def main():
+    try:
+        result = factorize()
+        if result is not None and len(result) > 0:
+            print("Prime factors are:", *result, sep=", ")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
 if __name__ == "__main__":
-    while True:
-        try:
-            factorize()
-            break
-        except ValueError as e:
-            print(f"Error: {e}")
+    main()
