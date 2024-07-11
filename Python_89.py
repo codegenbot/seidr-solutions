@@ -1,4 +1,4 @@
-```python
+```
 def encrypt(s):
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
     result = ''
