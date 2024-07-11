@@ -1,20 +1,15 @@
+```
 def solve(binary):
-    if binary:
-        num = input("Enter a binary number: ")
+    while True:
         try:
-            N = int(num, 2)
+            N = str(input(f"Enter a {'binary' if binary else 'decimal'} number: ")).strip()
+            if set(N).difference({'0', '1'}) != set() and not binary:
+                raise ValueError
+            N = int(N, 2) if N.isdigit() and len(N) > 0 and (N[0] == '1' or (len(N) > 1 and N[0] == '0' and N[1] == '1')) else float(N)
+            break
         except ValueError:
-            print("Invalid binary input!")
-            return
+            print(f"Invalid input! Please enter a valid {'binary' if binary else 'decimal'}")
 
-    else:
-        num = input("Enter a decimal number: ")
-        try:
-            N = float(num)
-        except ValueError:
-            print("Invalid decimal input!")
-            return
-
-    print(N)
+    print(str(N))
 
 solve(True)
