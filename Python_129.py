@@ -1,30 +1,23 @@
 ```
-def minPath(grid, k):
+def shortestPathLength(grid):
     m = len(grid)
+    directions = [(0,1),(0,-1),(1,0),(-1,0)]
+    queue = []
     visited = set()
-    shortest_path = None
-    min_length = float('inf')
-
-    def dfs(i, j, path, remaining):
-        nonlocal shortest_path, min_length
-        if remaining == 0:
-            if len(path) < min_length:
-                min_length = len(path)
-                shortest_path = path[:]
-            return
-        if (i, j) in visited:
-            return
-        visited.add((i, j))
-        for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            new_i, new_j = i + x, j + y
-            if 0 <= new_i < m and 0 <= new_j < m:
-                new_path = path + [grid[new_i][new_j]]
-                dfs(new_i, new_j, new_path, remaining - 1)
-        visited.remove((i, j))
-
+    
     for i in range(m):
         for j in range(m):
-            if grid[i][j] == k:
-                dfs(i, j, [], m*m-k+1)
-
-    return shortest_path
+            if grid[i][j] == 1:
+                queue.append(((i,j),0))
+                break
+    while queue:
+        (x,y), step = queue.pop(0)
+        if x==0 and y==m-1:
+            return step
+        for dx,dy in directions:
+            nx,ny = x+dx,y+dy
+            if 0<=nx<m and 0<=ny<m and (nx,ny) not in visited:
+                if (nx,ny) == (0,m-1):
+                    return step+1
+                queue.append(((nx,ny),step+1))
+                visited.add((nx,ny))
