@@ -5,6 +5,10 @@
 
 using namespace std;
 
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> filter_integers(list<any> values);
+
 vector<int> filter_integers(list<any> values){
     vector<int> result;
     for(auto& val : values){
@@ -15,24 +19,13 @@ vector<int> filter_integers(list<any> values){
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 int main(int argc, char* argv[]){
-    list<any> values;
-    values.push_back(10);
-    values.push_back("hello");
-    values.push_back(20);
-    
-    vector<int> result = filter_integers(values);
-    
-    vector<int> expected = {10, 20};
-    if(issame(result, expected)){
-        cout << "Values are the same." << endl;
-    } else {
-        cout << "Values are different." << endl;
+    list<any> values = {1, 2, 3, "hello", 4.56, 5};
+    vector<int> filtered = filter_integers(values);
+
+    for (int num : filtered) {
+        cout << num << " ";
     }
-    
+
     return 0;
 }
