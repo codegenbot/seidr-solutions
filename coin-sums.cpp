@@ -1,39 +1,38 @@
 ```cpp
-#include <iostream>
-using namespace std;
-
-void coinSums(int cents) {
-    int pennies = 0;
-    int nickels = 0;
-    int dimes = 0;
-    int quarters = 0;
-
-    while (cents > 25) {
-        quarters++;
-        cents -= 25;
-    }
-
-    while (cents > 10) {
-        dimes++;
-        cents -= 10;
-    }
-
-    while (cents > 5) {
-        nickels++;
-        cents -= 5;
-    }
-
-    pennies = cents;
-
-    cout << quarters << endl;
-    cout << nickels << endl;
-    cout << dimes << endl;
-    cout << pennies << endl;
-}
-
 int main() {
     int cents;
     cin >> cents;
-    coinSums(cents);
+
+    int quarters = cents / 25;
+    int remainingCents = cents % 25;
+
+    while (remainingCents >= 25) {
+        quarters++;
+        remainingCents -= 25;
+    }
+
+    int dimes = remainingCents / 10;
+    remainingCents %= 10;
+
+    while (remainingCents >= 10) {
+        dimes++;
+        remainingCents -= 10;
+    }
+
+    int nickles = remainingCents / 5;
+    remainingCents %= 5;
+
+    while (remainingCents >= 5) {
+        nickles++;
+        remainingCents -= 5;
+    }
+
+    int pennies = remainingCents;
+
+    cout << quarters << endl;
+    cout << dimes << endl;
+    cout << nickles << endl;
+    cout << pennies << endl;
+
     return 0;
 }
