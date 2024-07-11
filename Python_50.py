@@ -1,3 +1,4 @@
+```
 def decode_shift():
     while True:
         cont = input("Do you want to decode a string? (yes/no): ")
@@ -9,22 +10,21 @@ def decode_shift():
             print("Invalid input. Please enter 'yes' or 'no'.")
 
     while True:
-        encoding_type = input("Enter the type of encoding ('25-' for Caesar Cipher, '26-' for Vigenere Cipher): ")
-        if encoding_type == "25-":
-            s = input("Enter the encoded string: ")
-            shift = int(s[3:])
-            s = s[4:]
-        elif encoding_type == "26-":
-            while True:
-                try:
-                    shift = int(input(f"Enter the shift value: "))
-                    break
-                except ValueError:
-                    print("Invalid input. Please enter a valid integer.")
-            s = input("Enter the encoded string: ")
+        s = input("Enter the encoded string (format: '25-' or '26-'): ")
+        if s.startswith("25-") or s.startswith("26-"):
+            if s.startswith("25-"):
+                shift = int(s[3:])
+                s = s[4:]
+            elif s.startswith("26-"):
+                while True:
+                    try:
+                        shift = int(input(f"Enter the shift value: "))
+                        break
+                    except ValueError:
+                        print("Invalid input. Please enter a valid integer.")
         else:
             print("Invalid input. Please enter '25-' or '26-'.")
-            return
+            continue
 
         result = ""
         for ch in s:
