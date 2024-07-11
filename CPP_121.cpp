@@ -3,7 +3,7 @@ using namespace std;
 
 int solutions(vector<int> lst) {
     int sum = 0;
-    for (int i = 1; i < lst.size(); i++) {
+    for (int i = 0; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
             sum += lst[i];
         }
@@ -12,6 +12,6 @@ int solutions(vector<int> lst) {
 }
 
 int main() {
-    assert(solutions({3, 13, 2, 9}) == 15); // 
+    assert(solutions({3, 13, 2, 9}) == 15); 
     return 0;
 }
