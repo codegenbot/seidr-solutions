@@ -1,10 +1,9 @@
 #include <iostream>
-#include <cmath>
 #include <string>
 #include <bitset>
-#include <cassert>
+#include <cmath>
 
-std::string rounded_avg(int n, int m) {
+std::string customAvg(int n, int m) {
     if (n > m) {
         return "-1";
     }
@@ -20,7 +19,6 @@ std::string rounded_avg(int n, int m) {
 }
 
 int main() {
-    assert(rounded_avg(5, 5) == "101");
-    
+    assert (customAvg(5, 5) == "101");
     return 0;
 }
