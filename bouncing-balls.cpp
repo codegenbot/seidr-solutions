@@ -1,8 +1,18 @@
 int main() {
-    double h0, hb, b;
-    cin >> h0 >> hb >> b;
-    double bounciness_index = hb / h0;
-    double total_distance = h0 + h0 * (1 + bounciness_index) * (1 - pow(bounciness_index, b)) / (1 - bounciness_index);
+    double start_height, first_bounce_height, bounciness_index;
+    int num_bounces;
+    
+    cin >> start_height >> first_bounce_height >> num_bounces;
+    
+    bounciness_index = first_bounce_height / start_height;
+    
+    double total_distance = start_height; // Counting the initial drop
+    
+    for (int i = 0; i < num_bounces; ++i) {
+        total_distance += 2 * bounciness_index * total_distance;
+    }
+    
     cout << total_distance << endl;
+    
     return 0;
 }
