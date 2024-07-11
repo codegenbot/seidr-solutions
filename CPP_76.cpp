@@ -1,14 +1,8 @@
-if (n == 1 && x == 1)
-        return true;
-    if (n == 1 || x == 1)
+if(x <= 0 || n <= 0){
         return false;
-    for (int i = 2; i <= sqrt(x); i++) {
-        int p = i;
-        while (p <= x) {
-            p *= i;
-            if (p == x && i == n)
-                return true;
-        }
     }
-    return false;
+    
+    double power = log(x) / log(n);
+    
+    return (power == (int)power);
 }
