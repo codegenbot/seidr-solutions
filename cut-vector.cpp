@@ -1,7 +1,5 @@
 #include <vector>
-#include <iostream>
-
-using namespace std;
+#include <algorithm>
 
 vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
@@ -13,5 +11,7 @@ vector<vector<int>> cutVector(vector<int>& nums) {
             index = i;
         }
     }
-    return {{std::vector<int>(nums.begin(), nums.begin()+index)},
-            {std::vector<int>(nums.begin()+index, nums.end()))}};
+    vector<int> left(nums.begin(), nums.begin()+index);
+    vector<int> right(nums.begin()+index, nums.end());
+    return {left, right};
+}
