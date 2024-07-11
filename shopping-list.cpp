@@ -19,7 +19,7 @@ int main() {
 
     float total_price = 0.0;
     for (int i = 0; i < n; ++i) {
-        float discount_amount = prices[i] * (discounts[i] / 100.0f);
+        float discount_amount = prices[i] * discounts[i] / 100.0f;
         total_price += prices[i] - discount_amount;
     }
 
