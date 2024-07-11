@@ -1,19 +1,28 @@
 #include <boost/any.hpp>
-#include <string>
-#include <algorithm>
-
-using namespace std;
+using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return max((int)a.convert_to<int>(), (float)b.convert_to<float>());
-    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
-        return (string)b.convert_to<string>() > to_string((float)a.convert_to<float>()) ? b : "None";
-    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        return (string)b.convert_to<string>() > a.convert_to<string>() ? b : "None";
-    } else if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        return max((int)a.convert_to<int>(), (int)b.convert_to<int>()) == (int)a.convert_to<int>() ? boost::any("None") : a;
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        return (float)a.convert_to<float>() > (float)b.convert_to<float>() ? a : "None";
+    if (is_any_of<a>(double())) {
+        if (is_any_of<b>(double())) {
+            return (any_cast<double>(a) > any_cast<double>(b)) ? a : b;
+        } else {
+            double da = any_cast<double>(a);
+            double db = any_cast<string>(b).find(',') != string::npos ?
+                stod(any_cast<string>(b).substr(0, any_cast<string>(b).find(','))) :
+                stod(any_cast<string>(b));
+            return (da > db) ? a : b;
+        }
+    } else {
+        if (is_any_of<b>(double())) {
+            string sa = any_cast<string>(a);
+            double db = any_cast<double>(b);
+            return (stod(sa.find(',') != string::npos ?
+                sa.substr(0, sa.find(',')) :
+                sa) > db) ? a : b;
+        } else {
+            if (any_cast<string>(a) == any_cast<string>(b))
+                return boost::any("None");
+            return (any_cast<string>(a) > any_cast<string>(b)) ? a : b;
+        }
     }
 }
