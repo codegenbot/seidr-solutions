@@ -1,4 +1,4 @@
-```
+```Python
 def basement(arr):
     total_sum = 0
     for i in range(len(arr)):
