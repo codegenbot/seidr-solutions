@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <vector>
+#include <iostream>
 
 int luhn(const std::vector<int>& cardNumber) {
     int sum = 0;
@@ -20,8 +21,8 @@ int luhn(const std::vector<int>& cardNumber) {
 }
 
 int main() {
-    std::vector<int> cardNumber = {4,3,2,8,7,9,1,6,5,4,3,2,8,7,9,1};
+    std::vector<int> cardNumber = {4, 3, 7, 2, 1};
     int result = luhn(cardNumber);
-    std::cout << "Result: " << result << std::endl;
+    std::cout << "The Luhn check value is: " << result << std::endl;
     return 0;
 }
