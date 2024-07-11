@@ -1,41 +1,21 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
-vector<string> separate_paren_groups(string paren_string);
-
-bool issame(vector<string> a, vector<string> b);
-
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-
-    return true;
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
 }
 
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
-    int open_count = 0;
+    int open_braces = 0;
 
     for (char c : paren_string) {
         if (c == '(') {
-            if (open_count > 0) {
+            if (open_braces > 0) {
                 current_group += c;
             }
-            open_count++;
+            open_braces++;
         } else if (c == ')') {
-            open_count--;
-            if (open_count == 0) {
+            open_braces--;
+            if (open_braces == 0) {
                 result.push_back(current_group);
                 current_group = "";
             } else {
@@ -48,21 +28,6 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string with parentheses: ";
-    cin >> input;
-
-    vector<string> groups = separate_paren_groups(input);
-
-    if (!groups.empty()) {
-        if (issame(groups, separate_paren_groups(input))) {
-            cout << "Parentheses groups are the same." << endl;
-        } else {
-            cout << "Parentheses groups are different." << endl;
-        }
-    } else {
-        cout << "No parentheses groups found." << endl;
-    }
-
+    assert(issame(separate_paren_groups("( ) (( )) (( )( ))"), {"()", "(())", "(()())"}));
     return 0;
 }
