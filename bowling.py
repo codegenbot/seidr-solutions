@@ -1,42 +1,28 @@
-def bowling_score(bowls):
+def calculate_bowling_score(bowls):
     score = 0
-    frame = 1
-    bowl_count = 0
-    spare = False
-
+    frames = [[] for _ in range(10)]
+    frame_index = 0
     for bowl in bowls:
         if bowl == "X":
-            score += 10
-            if frame < 10:
-                score += 10 if bowls[bowl_count + 1] == "X" else 0
-                score += (
-                    10
-                    if bowls[bowl_count + 2] == "X" or bowls[bowl_count + 2] == "/"
-                    else int(bowls[bowl_count + 2])
-                )
-                frame += 1
+            frames[frame_index].append(10)
+            frame_index += 1
         elif bowl == "/":
-            score += 10 - int(bowls[bowl_count - 1])
-            score += 10 if bowls[bowl_count + 1] == "X" else int(bowls[bowl_count + 1])
+            frames[frame_index].append(10 - frames[frame_index][-1])
+            frame_index += 1
         else:
-            score += int(bowl)
+            frames[frame_index].append(int(bowl))
 
-        if bowl == "/":
-            spare = True
-        else:
-            spare = False
-
-        if frame < 10:
-            if bowl != "X":
-                bowl_count += 1
-            if bowl != "/" and not spare:
-                frame += 1
+    for frame in frames:
+        score += sum(frame[:2])
+        if len(frame) == 1 and frame_index < 9:
+            if frames[frame_index + 1]:
+                score += sum(frames[frame_index + 1][:2])
+        elif len(frame) == 2 and sum(frame) == 10 and frame_index < 9:
+            if frames[frame_index + 1]:
+                score += frames[frame_index + 1][0]
 
     return score
 
 
-# Read input from user
-bowls = input().strip()
-
-# Calculate and print the score
-print(bowling_score(bowls))
+bowls_input = input()
+print(calculate_bowling_score(bowls_input))
