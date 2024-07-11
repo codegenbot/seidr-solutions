@@ -1,8 +1,10 @@
 #include <string>
 #include <cassert>
 
-std::string encrypt(const std::string& s) {
-    std::string result = "";
+using namespace std;
+
+string encrypt(string s) {
+    string result = "";
     for (char c : s) {
         if (isalpha(c)) {
             char encrypted = c + 2 * ('z' - c) + 1;
@@ -18,5 +20,7 @@ std::string encrypt(const std::string& s) {
 }
 
 int main() {
-    assert (encrypt("a")=="e");
+    assert(encrypt("a") == "e");
+    // Add more test cases if needed
+    return 0;
 }
