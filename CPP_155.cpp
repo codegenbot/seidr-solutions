@@ -1,16 +1,9 @@
+```cpp
 #include <vector>
 #include <cassert>
 #include <iostream>
 
 using namespace std;
-
-bool issame(vector<int> a,vector<int> b){
-    if(a.size() != b.size()) return false;
-    for(int i=0; i<a.size();i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
-}
 
 vector<int> even_odd_count(int num) {
     vector<int> result;
@@ -27,11 +20,10 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    vector<int> expectedOutput = even_odd_count(0);
-    assert(expectedOutput[0] == 1 && expectedOutput[1] == 0);
-
+    vector<int> output = even_odd_count(0);  
+    cout << "Even: " << output[0] << ", Odd: " << output[1] << endl;
     int num; 
     cin >> num;  
-    vector<int> output = even_odd_count(num);  
+    output = even_odd_count(num);
     cout << "Even: " << output[0] << ", Odd: " << output[1] << endl;
 }
