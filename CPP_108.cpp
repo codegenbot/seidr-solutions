@@ -33,6 +33,5 @@ int count_nums(std::vector<int> nums) {
 }
 
 int main() {
-    std::cout << count_nums({1}) << std::endl;
-    return 0;
+    return count_nums({1});
 }
