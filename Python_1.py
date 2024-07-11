@@ -14,3 +14,4 @@ def separate_paren_groups(paren_string: str) -> list:
                 groups[-1] += char
                 if not stack and {')': ')', ']': '[', '}': '{'}[char] == {')': ')', ']': '[', '}': '{'}[top]:
                     result.append(groups.pop().lstrip().rstrip())
+    return result
