@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -15,18 +16,16 @@ long long double_the_difference(std::vector<float> lst) {
 }
 
 int main() {
-    std::vector<float> lst;
+    std::vector<float> lst; 
 
-    int n;
-    cin >> n;
-
-    for(int i = 0; i < n; ++i) {
-        float x;
-        cin >> x;
-        lst.push_back(x);
+    float num;
+    while(std::cin >> num) {
+        lst.push_back(num);
     }
 
-    cout << "The difference is: " << double_the_difference(lst) << endl;
+    long long result = double_the_difference(lst);
+
+    std::cout << "The final answer is: " << result << endl;
 
     return 0;
 }
