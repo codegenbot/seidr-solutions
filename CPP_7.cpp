@@ -1,35 +1,56 @@
 ```cpp
-#include <vector>
-#include <string>
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    if (a.size() != b.size()) {
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size())
         return false;
-    }
+    
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
+        if (find(b.begin(), b.end(), a[i]) == b.end())
             return false;
-        }
     }
+    
     return true;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring){
+vector<string> filter_by_substring(vector<string> arr, string sub) {
     vector<string> result;
-    for(auto &s : strings) {
-        if(s.find(substring) == string::npos)
-            continue;
-        bool is_same = false;
-        for(auto &str : strings) {
-            if(is_same && issame({s}, {str})) {
-                break;
-            }
-            if(str.find(substring) != string::npos) {
-                is_same = true;
-            }
-        }
-        if (!is_same)
+    for (auto s : arr) {
+        if (s.find(sub) != string::npos)
             result.push_back(s);
     }
     return result;
+
+int main() {
+    int numSets;
+    cin >> numSets;
+    
+    vector<vector<string>> sets(numSets);
+    
+    for (int i = 0; i < numSets; i++) {
+        int numStrings;
+        cin >> numStrings;
+        
+        sets[i].resize(numStrings);
+        
+        for (int j = 0; j < numStrings; j++) {
+            cin >> sets[i][j];
+        }
+    }
+    
+    string subStr;
+    cin >> subStr;
+    
+    vector<string> result;
+    
+    for (auto s : sets[0]) {
+        if (issame(sets, s)) {
+            result.push_back(s);
+        }
+    }
+    
+    cout << "The result is:" << endl;
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << endl;
+    }
+    
+    return 0;
 }
