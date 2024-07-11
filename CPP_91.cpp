@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 int is_bored(string S){
     int count = 0;
@@ -13,10 +14,10 @@ int is_bored(string S){
     }
     
     return count;
-}
 
+}
+#include <cassert>
 int main() {
     assert (is_bored("You and I are going for a walk") == 0);
     return 0;
 }
-#include <cassert>
