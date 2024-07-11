@@ -1,10 +1,6 @@
-```
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
-    if not paren_string:
-        return []
-
     result = []
     stack = []
     groups = []
@@ -12,26 +8,26 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     for char in paren_string:
         if char == ' ':
             continue
-        if stack and (char == '(' or char == ')'):
-            if char == '(':
-                stack.append(char)
-                groups.append('(')
-            elif char == ')':
-                stack.pop()
-                groups.append(')')
-            
-            if not stack:  
-                result.append(''.join(groups))
-                groups = []
+        if char == '(':
+            stack.append(char)
+            groups.append('(')
+        elif char == ')':
+            stack.pop()
+            groups.append(')')
         
-        if not stack and (char == '(' or char == ')'):
-            if char == '(':
-                stack.append(char)
-                groups.append('(')
-            elif char == ')':
-                stack.pop()
-                groups.append(')')
+        if not stack:
             result.append(''.join(groups))
             groups = []
+    
+    if stack:  
+        while stack:
+            groups.append(')')
+            stack.pop()
+        result.append(''.join(groups))
+
+    if len(result) == 0 and stack:
+        return ["Invalid input. There are unmatched parentheses."]
+    elif not stack and len(result) == 0:
+        return ["No groups found"]
 
     return [group for group in set(tuple(group) for group in set(frozenset(group.split()) for group in result))]
