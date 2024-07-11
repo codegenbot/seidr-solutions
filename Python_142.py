@@ -4,12 +4,16 @@ def sum_squares(lst):
 
 while True:
     try:
-        num_str = input("Enter a number: ")
-        if not num_str.strip():  
-            print("Invalid input. Please enter a number.")
-            continue
-        num = int(num_str)
-        print(f"The square of {num} is {sum_squares([num])}.")
-        break
+        input_str = input("Enter a list of numbers separated by spaces: ")
+        while any(char not in '0123456789 ' for char in input_str):
+            print("Invalid input. Please enter only digits and spaces.")
+            input_str = input("Enter a list of numbers separated by spaces: ")
+        if input_str.strip():  
+            lst = [int(i) for i in input_str.split()]
+            break
+        else:
+            print("Invalid input. Please enter numbers separated by spaces.")
     except ValueError:
-        print("Invalid input. Please enter an integer.")
+        print("Invalid input. Please enter numbers separated by spaces.")
+
+print(sum_squares(lst))
