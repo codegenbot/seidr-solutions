@@ -25,10 +25,10 @@ int main() {
         }
     }
 
-    cout << dp[cents][3].first << endl;
-    cout << dp[cents][2].first << endl;
-    cout << dp[cents][1].first << endl;
     cout << dp[cents][0].first << endl;
+    cout << dp[cents][1].first << endl;
+    cout << dp[cents][2].first << endl;
+    cout << dp[cents][3].first << endl;
 
     return 0;
 }
