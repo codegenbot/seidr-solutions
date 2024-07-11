@@ -8,7 +8,7 @@ bool is_prime(int n) {
     return true;
 }
 
-bool is_multiply_prime(int a){
+bool is_multiply_prime(int a) {
     for (int i = 2; i <= a / 3; i++) {
         if (is_prime(i) && a % i == 0) {
             int b = a / i;
