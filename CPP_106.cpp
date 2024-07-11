@@ -1,14 +1,14 @@
-vector<int> result(n);
-    int sum = 0;
-    int factorial = 1;
-    for (int i = 1; i <= n; ++i) {
-        if (i % 2 == 0) {
-            factorial *= i;
-            result[i - 1] = factorial;
-        } else {
-            sum += i;
-            result[i - 1] = sum;
+#include <vector>
+#include <cassert>
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(size_t i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
         }
     }
-    return result;
+    return true;
 }
