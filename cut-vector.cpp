@@ -1,6 +1,6 @@
+#include <climits>
 #include <iostream>
 #include <vector>
-#include <climits>
 #include <numeric>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& arr) {
