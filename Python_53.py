@@ -2,11 +2,8 @@
 def add(x: int, y: int):
     return x + y
 
-def main():
-    x = int(input("Enter first number: "))
-    y = int(input("Enter second number: "))
-    result = add(x, y)
-    print("Sum:", result)
+x = int(input("Enter first number: "))
+y = int(input("Enter second number: "))
 
-if __name__ == "__main__":
-    main()
+result = add(x, y)
+print(f"The sum of {x} and {y} is: {result}")
