@@ -1,4 +1,3 @@
-```cpp
 int luhn(int cardNumber) {
     int sum = 0;
 
