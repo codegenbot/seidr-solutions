@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -14,6 +15,6 @@ std::vector<int> taskFunction(const std::vector<int>& l) {
 }
 
 int main() {
-    assert(issame(taskFunction({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
+    assert(issame(taskFunction({5, 3, 5, 2, 3, 3, 9, 0, 123}), taskFunction({0, 2, 3, 5, 9, 123})));
     return 0;
 }
