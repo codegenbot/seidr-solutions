@@ -1,6 +1,3 @@
-#include <algorithm>
-using namespace std;
-
 string solve(string s) {
     string result = "";
     for (char c : s) {
@@ -10,6 +7,5 @@ string solve(string s) {
             result += c;
         }
     }
-    reverse(result.begin(), result.end());
-    return result;
+    return result.empty() ? string(s).reverse() : result;
 }
