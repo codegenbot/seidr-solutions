@@ -1,8 +1,10 @@
+#include <iostream>
 #include <boost/any.hpp>
-#include <algorithm>
 #include <string>
+#include <cassert>
+using namespace std;
 
-boost::any compare_one(const boost::any &a, const boost::any &b) {
+boost::any compare_one(const boost::any& a, const boost::any& b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
         if (boost::any_cast<int>(a) > boost::any_cast<int>(b)) {
             return a;
@@ -15,18 +17,12 @@ boost::any compare_one(const boost::any &a, const boost::any &b) {
         } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
             return b;
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string strA = boost::any_cast<std::string>(a);
-        std::string strB = boost::any_cast<std::string>(b);
-        if (strA.find_first_of(".,") != std::string::npos) {
-            std::replace(strA.begin(), strA.end(), ',', '.');
-        }
-        if (strB.find_first_of(".,") != std::string::npos) {
-            std::replace(strB.begin(), strB.end(), ',', '.');
-        }
-        if (std::stof(strA) > std::stof(strB)) {
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        float val1 = stof(boost::any_cast<string>(a));
+        float val2 = stof(boost::any_cast<string>(b));
+        if (val1 > val2) {
             return a;
-        } else if (std::stof(strA) < std::stof(strB)) {
+        } else if (val1 < val2) {
             return b;
         }
     }
