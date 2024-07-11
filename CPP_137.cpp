@@ -1,18 +1,27 @@
-using namespace boost;
+#include <boost/any.hpp>
+#include <string>
+#include <algorithm>
+
+using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
-    if (is_any_of<string>(a)) {
-        string strA = any_cast<string>(a);
-        if (is_any_of<string>(b)) {
-            string strB = any_cast<string>(b);
-            return (stod(strB) > stod(strA)) ? b : ((stod(strB) < stod(strA)) ? a : boost::any("None"));
-        } else {
-            return (stod(any_cast<string>(b).c_str()) > stod(strA)) ? b : ((stod(any_cast<string>(b).c_str()) < stod(strA)) ? a : boost::any("None"));
-        }
-    } else if (is_any_of<float>(a)) {
-        float fA = any_cast<float>(a);
-        return (is_any_of<float>(b)) ? (fA > any_cast<float>(b) ? b : (fA < any_cast<float>(b) ? a : boost::any("None"))) : ((stod(any_cast<string>(b).c_str())) > fA) ? b : ((stod(any_cast<string>(b).c_str())) < fA) ? a : boost::any("None");
-    } else {
-        return (is_any_of<float>(b)) ? (any_cast<float>(a) > b ? b : (any_cast<float>(a) < b ? a : boost::any("None"))) : ((stod(any_cast<string>(b).c_str())) > any_cast<float>(a)) ? b : ((stod(any_cast<string>(b).c_str())) < any_cast<float>(a)) ? a : boost::any("None");
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return (int) a < (float) b ? b : a;
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        return (float) a < boost::any_cast<string>(b).find(",") > 0 ? b : a;
+    }
+    else if (a.type() == typeid(string) && b.type() == typeid(string)) {
+        return boost::any_cast<string>(a) + ",1" < boost::any_cast<string>(b) + ",1"
+            ? b : a;
+    }
+    else if (a.type() == typeid(int) && b.type() == typeid(int)) {
+        return static_cast<int>(a) > static_cast<int>(b) ? a : ((static_cast<int>(a) == static_cast<int>(b)) ? boost::any("None") : a);
+    }
+    else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        return (float) a > (float) b ? a : ((float) a == (float) b ? boost::any("None") : a);
+    }
+    else {
+        return "None";
     }
 }
