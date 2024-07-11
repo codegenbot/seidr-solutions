@@ -1,10 +1,12 @@
-#include <cstdlib>
+#include <ctime>
+#include <iostream>
+
 int add(int x, int y) {
     return x + y;
 }
 
 int main() {
-    srand(time(0)); 
+    srand(static_cast<unsigned>(time(0))); 
     int x = rand() % 1000; 
-    cout << "Random Number: " << x << endl;
+    std::cout << "Random Number: " << x << std::endl;
 }
