@@ -16,5 +16,4 @@ bool issame(pair<float, float> a, pair<float, float> b) {
     return a.first == b.first && a.second == b.second;
 }
 
-pair<float, float> result = find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1});
-assert(issame(result, pair<float, float>(4.1, 5.1)));
+assert(issame(find_closest_elements({1.1, 2.2, 3.1, 4.1, 5.1}), {3.1, 4.1}));
