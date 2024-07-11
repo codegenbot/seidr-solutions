@@ -1,8 +1,6 @@
 #include <iostream>
 using namespace std;
 
-int score(string s);
-
 int score(string s) {
     int total = 0;
     int frame = 1;
@@ -42,7 +40,7 @@ int score(string s) {
 
 int main() {
     string s;
-    std::cin >> s;
-    std::cout << score(s) << endl;
+    cin >> s;
+    cout << score(s) << endl;
     return 0;
 }
