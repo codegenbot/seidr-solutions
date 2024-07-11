@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-string fizzBuzz(int x) {
+string fizzBuzz(long long x) {
     if (x % 3 == 0 && x % 5 == 0) {
         return "FizzBuzz";
     } else if (x % 3 == 0) {
@@ -15,10 +15,10 @@ string fizzBuzz(int x) {
 }
 
 int main() {
-    int x;
+    long long x;
     cin >> x;
-    
+
     cout << fizzBuzz(x) << endl;
-    
+
     return 0;
 }
