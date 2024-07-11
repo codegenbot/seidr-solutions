@@ -1,4 +1,3 @@
-```
 from typing import List, Union
 
 def longest(strings: List[str]) -> Union[str, None]:
