@@ -17,4 +17,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             output.append(current_group)
         return output
 
-    return [x for x in check(paren_string) if x]
+    return check(paren_string)
