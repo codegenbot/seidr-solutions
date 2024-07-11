@@ -1,10 +1,10 @@
-#include <vector>
+#include <vector> // Include the vector header
 
-bool issame(std::vector<float> a, std::vector<float> b) {
-    return a == b;
+bool issame(std::vector<float> a, std::vector<float> b) { // Specify std::vector<float> for vectors
+    return a == b; // Compare vectors for equality
 }
 
-std::vector<float> derivative(std::vector<float> xs) {
+std::vector<float> derivative(std::vector<float> xs) { // Specify std::vector<float> for vectors
     std::vector<float> result;
     for(int i = 1; i < xs.size(); i++) {
         result.push_back(xs[i] * i);
