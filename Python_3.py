@@ -1,4 +1,3 @@
-```
 from typing import List
 
 def has_below_zero_temps() -> bool:
