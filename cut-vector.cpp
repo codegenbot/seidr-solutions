@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <climits>
 #include <numeric>
+#include <climits>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& arr) {
     int n = arr.size();
