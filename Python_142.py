@@ -1,13 +1,8 @@
-def sum_squares():
-    n = int(input("Enter number of elements: "))
-    lst = []
-    for i in range(n):
-        num = float(input(f"Enter element {i+1}: "))
-        lst.append(num)
+def sum_squares(lst):
     total = 0
-    for item in lst:
-        if isinstance(item, (int, float)):
-            total += item**2
-        else:
-            print("Invalid input. Please enter a number.")
+    for num in lst:
+        if num % 3 == 0 and num % 4 != 0:
+            total += num ** 2
+        elif num % 4 == 0 and num % 3 != 0:
+            total += num ** 3
     return total
