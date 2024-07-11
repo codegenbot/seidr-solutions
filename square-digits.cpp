@@ -1,18 +1,19 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 std::string squareDigits(std::string input) {
+    int number = std::stoi(input);
     std::string result = "";
-    for (char c : input) {
-        int digit = c - '0';
-        result += to_string(digit * digit);
+    
+    while (number > 0) {
+        int digit = number % 10;
+        result += std::to_string(digit * digit);
+        number /= 10;
     }
     return result;
 }
 
 int main() {
-    cout << squareDigits("34") << endl; 
+    std::cout << squareDigits("355637") << std::endl; 
     return 0;
 }
