@@ -28,5 +28,5 @@ def main():
 
         print(find_zero(xs))
 
-if __name__ == "__main__":
-    main()
+    if __name__ == "__main__":
+        main()
