@@ -1,16 +1,22 @@
 ```
-def calculate_average_value(values: list[Any]) -> float:
-    if not values:
-        return 0
-    return sum(filter_integers(values)) / len(values)
+def total_expenses(expenses: list) -> int:
+    total = 0
+    for expense in expenses:
+        if isinstance(expense, dict):
+            try:
+                total += sum(int(value) for value in expense.values())
+            except ValueError:
+                pass
+        else:
+            total += int(expense)
+    return total
 
 
 user_input = input("Please enter some values (separated by spaces): ")
 try:
-    values = [int(x) for x in user_input.split()]
+    expenses = [x.split(',') if ',' in x else [int(x)] for x in user_input.split()]
 except ValueError as e:
     print(f"Invalid input: {e}")
-    values = []
-if values:
-    average_value = calculate_average_value(values)
-    print(f"The average value is {average_value:.2f}.")
+    expenses = []
+if expenses:
+    print(total_expenses(expenses))
