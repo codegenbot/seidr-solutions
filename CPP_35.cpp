@@ -1,8 +1,8 @@
 ```cpp
+#include <initializer_list>
 #include <algorithm>
 #include <iostream>
 #include <vector>
-#include <initializer_list>
 
 int maximumValue(std::vector<std::pair<int, int>> p) {
     auto max_pair = *std::max_element(p.begin(), p.end(),
