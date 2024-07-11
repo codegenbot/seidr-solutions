@@ -8,8 +8,8 @@ int gcd(int a, int b) {
     return gcd(b, a % b);
 }
 
-std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
-    std::vector<int> indices;
+vector<int> indicesOfSubstring(const string& text, const string& target) {
+    vector<int> indices;
     for (size_t i = 0; i <= text.size() - target.size(); ++i) {
         if (text.substr(i, target.size()) == target) {
             for (size_t j = i; j < i + target.size(); ++j) {
@@ -22,16 +22,16 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
 int main() {
     int a, b;
-    std::cin >> a >> b;
-    std::cout << gcd(a, b) << std::endl;
+    cin >> a >> b;
+    cout << gcd(a, b) << endl;
 
-    std::string text, target;
-    std::cin >> text >> target;
-    std::vector<int> result = indicesOfSubstring(text, target);
+    string text, target;
+    cin >> text >> target;
+    vector<int> result = indicesOfSubstring(text, target);
     for (int idx : result) {
-        std::cout << idx << " ";
+        cout << idx << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
     return 0;
 }
