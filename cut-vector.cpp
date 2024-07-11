@@ -1,44 +1,41 @@
+#include <climits>
+#include <iostream>
+#include <cstdlib>
+
 int main() {
     vector<int> nums;
     int num;
+    
     while (cin >> num) {
-        if (num == 0) {
-            break;
-        }
         nums.push_back(num);
     }
     
-    int n = nums.size();
-    int diff = INT_MAX;
-    int cutIdx = -1;
+    int leftSum = 0, rightSum = accumulate(nums.begin(), nums.end(), 0);
+    int minDiff = INT_MAX;
+    int cutIndex = 0;
     
-    for (int i = 1; i < n; ++i) {
-        int sum1 = 0, sum2 = 0;
-        for (int j = 0; j < i; ++j) {
-            sum1 += nums[j];
-        }
-        for (int j = i; j < n; ++j) {
-            sum2 += nums[j];
-        }
-        int currentDiff = abs(sum1 - sum2);
-        if (currentDiff < diff) {
-            diff = currentDiff;
-            cutIdx = i;
-        }
-        if (currentDiff == 0) {
-            break;
+    for (int i = 0; i < nums.size(); ++i) {
+        leftSum += nums[i];
+        rightSum -= nums[i];
+        int diff = abs(leftSum - rightSum);
+        
+        if (diff < minDiff) {
+            minDiff = diff;
+            cutIndex = i;
         }
     }
     
-    for (int i = 0; i < cutIdx; ++i) {
+    for (int i = 0; i <= cutIndex; ++i) {
         cout << nums[i] << endl;
     }
     
-    cout << cutIdx << endl;
+    cout << 0 << endl;
     
-    for (int i = cutIdx; i < n; ++i) {
+    for (int i = cutIndex + 1; i < nums.size(); ++i) {
         cout << nums[i] << endl;
     }
+    
+    cout << 0 << endl;
     
     return 0;
 }
