@@ -1,8 +1,11 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
+#include <climits>
+#include <cassert>
+
 using namespace std;
 
-int smallest_change(vector<int> arr) {
+int smallest_change(std::vector<int> arr) {
     int min = INT_MAX;
     for (int i : arr) {
         if (i < min)
@@ -12,7 +15,6 @@ int smallest_change(vector<int> arr) {
 }
 
 int main() {
-    vector<int> arr = {0, 1};
-    cout << "Smallest change: " << smallest_change(arr) << endl;
+    assert(smallest_change({0, 1}) == 1);
     return 0;
 }
