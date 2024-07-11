@@ -1,11 +1,6 @@
-```
-from typing import List
-
-
 def remove_duplicates(input_string: str) -> List[int]:
-    numbers = list(map(int, input_string.split(',')))
-    return list(set(numbers))  # Convert set back to list
+    return list(set(map(int, input_string.split(','))))
 
 
-result = remove_duplicates(input("Enter your string: "))
+result = remove_duplicates(input("Enter your string (e.g., 1,2,3): "))
 print(result)
