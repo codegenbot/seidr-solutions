@@ -1,9 +1,8 @@
-```
 #include <vector>
 #include <list>
 #include <any>
 
-bool compareVectors(vector<int> a,vector<int> b) {
+bool areVectorsEqual(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
