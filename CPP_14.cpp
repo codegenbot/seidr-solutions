@@ -1,5 +1,4 @@
 #include <string>
-#include <vector>
 
 vector<string> all_prefixes(string b){
     vector<string> result;
@@ -9,14 +8,4 @@ vector<string> all_prefixes(string b){
         result.push_back(prefix);
     }
     return result;
-}
-
-int main() {
-    string input;
-    cin >> input;
-    vector<string> prefixes = all_prefixes(input);
-    for (string prefix : prefixes) {
-        cout << prefix << " ";
-    }
-    return 0;
 }
