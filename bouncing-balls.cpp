@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cmath>
 #include <algorithm>
+#include <cmath>
 
 int main() {
     double start_height, bounciness_index, total_distance = 0.0;
