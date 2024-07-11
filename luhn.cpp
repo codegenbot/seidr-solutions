@@ -1,11 +1,17 @@
 #include <vector>
-int luhn(const std::vector<int>& cc) {
+
+int luhn(int cc) {
     int sum = 0;
-    for (int i = 0; i < cc.size(); ++i) {
-        int digit = cc[i] * ((i % 2) + 1);
-        if (digit > 9) {
-            digit -= 9;
+    bool doubleNext = false;
+    while (cc != 0) {
+        int digit = cc % 10;
+        if (doubleNext) {
+            digit *= 2;
+            if (digit > 9) digit -= 9;
         }
         sum += digit;
+        doubleNext = !doubleNext;
+        cc /= 10;
     }
-    return sum % 10;
+    return (sum % 10 == 0)? 1 : 0; 
+}
