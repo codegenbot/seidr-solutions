@@ -32,7 +32,7 @@ std::string sort_numbers(std::string numbers){
     }
 
     std::sort(sorted_numbers.begin(), sorted_numbers.end());
-    
+
     std::string result;
     for(int num : sorted_numbers){
         result += rev_map[num] + " ";
