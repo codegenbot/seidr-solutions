@@ -1,11 +1,18 @@
-```cpp
 #include <vector>
 #include <cassert>
 #include <iostream>
 
 using namespace std;
 
-vector<int> even_odd_count(int num) {
+bool isSame(vector<int> a, vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i=0; i<a.size();i++){
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+vector<int> evenOddCount(int num) {
     vector<int> result;
     int count = 0;
     while(num != 0) {
@@ -20,10 +27,11 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    vector<int> output = even_odd_count(0);  
-    cout << "Even: " << output[0] << ", Odd: " << output[1] << endl;
+    vector<int> expectedOutput = evenOddCount(0); 
+    assert(expectedOutput[0] == 1 && expectedOutput[1] == 0);
+    
     int num; 
     cin >> num;  
-    output = even_odd_count(num);
+    vector<int> output = even_odd_count(num);  
     cout << "Even: " << output[0] << ", Odd: " << output[1] << endl;
 }
