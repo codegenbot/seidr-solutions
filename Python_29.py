@@ -1,7 +1,8 @@
+import sys
 from typing import List
 
 
-def filter_by_prefix(strings: List[str], prefix: str) -> None:
+def filter_by_prefix(strings: list, prefix: str) -> None:
     filtered_strings = [s for s in strings if s.startswith(prefix)]
     print(*filtered_strings, sep="\n")
     if not filtered_strings:
