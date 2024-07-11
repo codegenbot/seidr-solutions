@@ -1,5 +1,4 @@
-```
-from typing import List
+from typing import list
 
-def filter_by_substring(strings: List[str], substring: str) -> List[str]:
+def filter_by_substring(strings: list, substring: str) -> list:
     return [s for s in strings if substring in s]
