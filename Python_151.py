@@ -3,6 +3,6 @@ def check(lst, func):
 
 def double_the_difference(lst):
     lst.sort()
-    return (max(lst) - min(lst)) * 2
+    return (lst[-1] - lst[0]) * 2
 
-print(check([1, 2, 3], lambda x: double_the_difference(x)))
+print(check([1, 2, 3], double_the_difference))
