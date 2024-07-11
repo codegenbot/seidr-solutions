@@ -1,7 +1,14 @@
-if (x <= 0 || n <= 0) {
-        return false;
+if (x == 1) {
+        return true;
     }
-
-    double power = log(x) / log(n);
-    return floor(power) == power;
+    for (int i = 2; i * i <= x; i++) {
+        int p = i;
+        while (p <= x) {
+            p *= i;
+            if (p == x) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
