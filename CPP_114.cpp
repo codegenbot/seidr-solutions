@@ -1,7 +1,11 @@
-long long min_sum = LONG_LONG_MAX, current_sum = 0;
-    for (int i = 0; i < nums.size(); i++) {
-        current_sum = min(nums[i], current_sum + nums[i]);
-        min_sum = min(min_sum, current_sum);
-    }
-    return min_sum;
+int n = nums.size();
+long long minSum = nums[0];
+long long currSum = nums[0];
+
+for(int i = 1; i < n; i++){
+    currSum = min(nums[i], currSum + nums[i]);
+    minSum = min(minSum, currSum);
+}
+
+return minSum;
 }
