@@ -1,4 +1,3 @@
-```
 def below_zero(operations: List[int]) -> bool:
     if not isinstance(operations, list):
         return None
