@@ -2,14 +2,14 @@ vector<string> reverse_delete(string s, string c) {
     vector<string> result;
     string temp = "";
     for (char i : s) {
-        bool found = false;
+        bool flag = false;
         for (char j : c) {
             if (i == j) {
-                found = true;
+                flag = true;
                 break;
             }
         }
-        if (!found) {
+        if (!flag) {
             temp += i;
         }
     }
