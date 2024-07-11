@@ -1,23 +1,25 @@
 Here is the completed code:
 
 string file_name_check(string file_name){
-    int count = 0;
-    bool foundDot = false;
-    for(int i=0; i<file_name.length();i++){
-        if(isdigit(file_name[i])){
-            count++;
-            if(count > 3) return "No";
-        }
+    int digit_count = 0;
+    bool found_dot = false;
+    for(int i=0; i<file_name.length(); i++){
+        if(file_name[i] >= '0' && file_name[i] <= '9')
+            digit_count++;
         else if(file_name[i] == '.'){
-            foundDot = true;
+            found_dot = true;
         }
-        else{
-            if(!foundDot) return "No";
-        }
+        else if(i > 0 && (file_name[i-1] < 'a' || file_name[i-1] > 'z') && (file_name[i-1] < 'A' || file_name[i-1] > 'Z'))
+            return "No";
     }
-    if(foundDot){
-        string ext = file_name.substr(file_name.find('.') + 1);
-        if(ext != "txt" && ext != "exe" && ext != "dll") return "No";
+    if(digit_count > 3)
+        return "No";
+    if(!found_dot)
+        return "No";
+    string extension = "";
+    for(int i=file_name.find('.'); i<file_name.length(); i++){
+        extension += file_name[i];
     }
+    if(extension != "txt" && extension != "exe" && extension != "dll")
+        return "No";
     return "Yes";
-}
