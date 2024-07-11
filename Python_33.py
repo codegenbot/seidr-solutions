@@ -1,3 +1,6 @@
+Here's the corrected code:
+
+```
 from itertools import cycle
 
 def sort_third(l: list):
