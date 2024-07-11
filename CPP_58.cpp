@@ -5,7 +5,7 @@
 #include <set>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -17,7 +17,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> common(std::vector<int> l1, std::vector<int> l2) {
+std::vector<int> common(const std::vector<int>& l1, const std::vector<int>& l2) {
     std::sort(l1.begin(), l1.end());
     std::sort(l2.begin(), l2.end());
     std::vector<int> result;
