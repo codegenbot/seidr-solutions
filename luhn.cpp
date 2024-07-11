@@ -1,6 +1,5 @@
-#include <vector>
-
-int luhn(const std::vector<int>& cardNumber) {
+```cpp
+int luhn(std::vector<int>& cardNumber) {
     int sum = 0;
     bool doubleNext = false;
 
