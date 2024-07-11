@@ -4,14 +4,14 @@
 
 using namespace std;
 
-map<char, int> histogram(const string& test);
+map<char, int> histogram(string test);
 bool issame(const map<char, int>& a, const map<char, int>& b);
 
-map<char, int> histogram(const string& test){
+map<char, int> histogram(string test){
     map<char, int> result;
     map<char, int> counts;
     
-    for (const char& c : test) {
+    for (char& c : test) {
         if (c != ' ') {
             counts[c]++;
         }
