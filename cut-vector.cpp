@@ -4,14 +4,10 @@
 using namespace std;
 
 int main() {
-    string input;
-    getline(cin, input);
-    
-    istringstream iss(input);
     vector<int> nums;
     int num;
     
-    while (iss >> num) {
+    while (cin >> num || !cin.eof()) {
         nums.push_back(num);
     }
 
@@ -19,10 +15,6 @@ int main() {
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
-    }
-
-    if (n == 0) {
-        return 0;
     }
 
     int half_sum = sum / 2;
