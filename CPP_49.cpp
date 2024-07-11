@@ -6,8 +6,8 @@ int modp(int n, int p) {
         if (p % 2 == 1) {
             result = (result * n) % p;
         }
-        p /= 2;
         n = (n * n) % p;
+        p = p / 2;
     }
     return result;
 }
