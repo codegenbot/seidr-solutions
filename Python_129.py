@@ -1,7 +1,5 @@
-Here is the modified code:
-
 ```
-def minPath(grid='' , k):
+def minPath(grid='', k):
     n = len(grid.split('\n')[1:])
     m = [list(map(int, row.split())) for row in grid.split('\n')[1:]]
     
