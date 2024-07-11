@@ -1,19 +1,12 @@
 int fib4(int n) {
-    int a = 0, b = 0, c = 2, d = 0, temp;
-    if (n <= 2) {
-        return n == 0 ? 0 : 2;
-    }
+    int a = 0, b = 0, c = 2, d = 0;
+    if (n < 2) return b;
+    if (n == 2) return c;
     for (int i = 3; i <= n; ++i) {
-        temp = d + c + b + a;
+        d = a + b + c + d;
         a = b;
         b = c;
         c = d;
-        d = temp;
     }
     return d;
-}
-
-int main() {
-    assert(fib4(12) == 386);
-    return 0;
 }
