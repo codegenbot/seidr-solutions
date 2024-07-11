@@ -4,16 +4,9 @@
 #include <cmath>
 
 int gcd(int a, int b) {
-    int sign = 1;
-    if (a < 0) {
-        sign *= -1;
-        a = -a;
-    }
-    if (b < 0) {
-        sign *= -1;
-        b = -b;
-    }
-
+    a = std::abs(a);
+    b = std::abs(b);
+    
     return b == 0 ? a : gcd(b, a % b);
 }
 

@@ -8,10 +8,16 @@ int main() {
     std::getline(std::cin, target);
 
     std::vector<int> indices;
-    std::size_t pos = text.find(target, 0);
-    while (pos != std::string::npos) {
-        indices.push_back(static_cast<int>(pos));
-        pos = text.find(target, pos + 1);
+
+    if (target.empty()) {
+        std::cout << 0;
+        return 0;
+    }
+
+    for (int i = 0; i <= static_cast<int>(text.size()) - static_cast<int>(target.size()); ++i) {
+        if (text.substr(i, target.size()) == target) {
+            indices.push_back(i);
+        }
     }
 
     for (int i = 0; i < indices.size(); ++i) {
