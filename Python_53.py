@@ -1,5 +1,9 @@
-def add(x: int, y: int) -> None:
-    num1 = int(input("Enter first number: "))
-    num2 = int(input("Enter second number: "))
-    result = x + y
-    print(f"The sum of {num1} and {num2} is {result}")
+```
+def add(x: int, y: int):
+    while True:
+        try:
+            num1 = int(input("Enter first number: "))
+            num2 = int(input("Enter second number: "))
+            return num1 + num2
+        except ValueError:
+            print("Invalid input. Please enter an integer.")

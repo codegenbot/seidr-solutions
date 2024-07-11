@@ -1,3 +1,4 @@
+```
 def factorize(n: int) -> List[int]:
     i = 2
     factors = []
@@ -13,4 +14,4 @@ def factorize(n: int) -> List[int]:
             i += 1
     if n > 1:
         factors.append(n)
-    return list(set(map(int, str(f) for f in set(map(str, factors)))))
+    return list(set(map(int, str(f) for f in factors)))
