@@ -1,36 +1,41 @@
-#include <iostream>
-using namespace std;
-#include <vector>
+```c++
 #include <algorithm>
+#include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
-}
+std::vector<std::vector<std::string>> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<std::vector<std::string>> result;
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-
-    // Remove strings with odd lengths from the list
     for (const auto& str : lst) {
         if (str.length() % 2 == 0)
-            result.push_back(str);
+            result.push_back({str});
     }
 
-    // Sort the resulted list by length and then alphabetically
     std::sort(result.begin(), result.end(),
-              [](const string& a, const string& b) {
-                  if (a.length() != b.length())
-                      return a.length() - b.length();
+              [](const std::vector<std::string>& a, const std::vector<std::string>& b) {
+                  if (a.size() != b.size())
+                      return a.size() - b.size();
                   else
-                      return a < b;
+                      return a[0] < b[0];
               });
 
     return result;
+}
+
+bool issame(std::vector<std::vector<std::string>> a, std::vector<std::vector<std::string>> b) {
+    for (int i = 0; i < a.size() && i < b.size(); i++) {
+        if (!issame(a[i], b[i]))
+            return false;
+    }
+    return a.size() == b.size();
+}
+
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    for (int i = 0; i < a.size() && i < b.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+    return a.size() == b.size();
 }
 
 int main() {
