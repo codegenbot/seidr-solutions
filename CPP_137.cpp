@@ -1,42 +1,34 @@
-if(a == b) return "None";
 if(a.type() == typeid(int) && b.type() == typeid(int)){
-    if(boost::any_cast<int>(a) > boost::any_cast<int>(b)){
-        return a;
-    } else {
-        return b;
-    }
-} else if(a.type() == typeid(float) && b.type() == typeid(float)){
-    if(boost::any_cast<float>(a) > boost::any_cast<float>(b)){
-        return a;
-    } else {
-        return b;
-    }
-} else if(a.type() == typeid(string) && b.type() == typeid(string)){
+    int int_a = boost::any_cast<int>(a);
+    int int_b = boost::any_cast<int>(b);
+    if(int_a > int_b) return int_a;
+    else if(int_b > int_a) return int_b;
+    else return "None";
+}
+else if(a.type() == typeid(float) && b.type() == typeid(float)){
+    float float_a = boost::any_cast<float>(a);
+    float float_b = boost::any_cast<float>(b);
+    if(float_a > float_b) return float_a;
+    else if(float_b > float_a) return float_b;
+    else return "None";
+}
+else if(a.type() == typeid(string) && b.type() == typeid(string)){
     string str_a = boost::any_cast<string>(a);
     string str_b = boost::any_cast<string>(b);
-    if(str_a.find('.') != string::npos || str_a.find(',') != string::npos){
-        replace(str_a.begin(), str_a.end(), ',', '.');
-    }
-    if(str_b.find('.') != string::npos || str_b.find(',') != string::npos){
-        replace(str_b.begin(), str_b.end(), ',', '.');
-    }
-    if(stod(str_a) > stod(str_b)){
-        return a;
-    } else {
-        return b;
-    }
-} else if(a.type() == typeid(int) && b.type() == typeid(string)){
-    if(to_string(boost::any_cast<int>(a)) > boost::any_cast<string>(b)){
-        return a;
-    } else {
-        return b;
-    }
-} else if(a.type() == typeid(string) && b.type() == typeid(int)){
-    if(boost::any_cast<string>(a) > to_string(boost::any_cast<int>(b))){
-        return a;
-    } else {
-        return b;
-    }
+    float float_a = stof(str_a);
+    float float_b = stof(str_b);
+    if(float_a > float_b) return str_a;
+    else if(float_b > float_a) return str_b;
+    else return "None";
+}
+else if((a.type() == typeid(int) && b.type() == typeid(string)) || (a.type() == typeid(string) && b.type() == typeid(int))){
+    string str_a = boost::any_cast<string>(a);
+    string str_b = boost::any_cast<string>(b);
+    float float_a = stof(str_a);
+    int int_b = boost::any_cast<int>(b);
+    if(float_a > int_b) return str_a;
+    else if(int_b > float_a) return int_b;
+    else return "None";
 }
 return "None";
 }
