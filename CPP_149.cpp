@@ -1,17 +1,29 @@
-#include <vector>
+```cpp
 #include <algorithm>
-#include <sstream>
+#include <vector>
+#include <string>
 
-std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
-    std::sort(lst.begin(), lst.end());
-    
-    for(int i = 0; i < lst.size() -1 ; i++) {
-        int sum1 = lexical_cast<int>(lst[i].substr(1, lst[i].find(" ") -1));
-        int sum2 = lexical_cast<int>(lst[i+1].substr(1, lst[i+1].find(" ") -1));
-        
-        if(sum1 + sum2 > lexical_cast<int>(lst[i+1].substr(1, lst[i+1].find(" ") -1)) && i < lst.size() - 2) {
-            return {};
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return a == b;
+}
+
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) { 
+    std::vector<std::string> result;
+
+    for (const auto& str : lst) {
+        if (str.length() % 2 == 0) {
+            result.push_back(str);
         }
-    } 
-    return lst;
+    }
+
+    std::sort(result.begin(), result.end(),
+              [](const std::string& a, const std::string& b) { 
+                  if (a.size() != b.size()) {
+                      return a.size() < b.size();
+                  } else {
+                      return a < b;
+                  }
+              });
+
+    return result;
 }
