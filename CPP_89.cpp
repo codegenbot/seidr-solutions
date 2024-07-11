@@ -1,12 +1,12 @@
 string encrypt(string s){
-    string result = "";
+    string encrypted = "";
     for(char c : s){
         if(isalpha(c)){
-            char encrypted = (c - 'a' + 2 * 2) % 26 + 'a';
-            result += encrypted;
+            char base = islower(c) ? 'a' : 'A';
+            encrypted += (c - base + 2 * 2) % 26 + base;
         } else {
-            result += c;
+            encrypted += c;
         }
     }
-    return result;
+    return encrypted;
 }
