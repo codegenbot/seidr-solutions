@@ -1,26 +1,33 @@
-Here is the completed code:
+#include<stdio.h>
+#include<vector>
+#include<string>
+#include<algorithm>
+using namespace std;
 
 vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
-    string temp = "";
-    for (char i : s) {
-        bool flag = false;
-        for (char j : c) {
-            if (i == j) {
-                flag = true;
+    vector<char> char_s(s.begin(), s.end());
+    for (char& ch : char_s) {
+        bool found = false;
+        for (char cc : c) {
+            if (ch == cc) {
+                found = true;
                 break;
             }
         }
-        if (!flag) {
-            temp += i;
+        if (!found) {
+            s.erase(remove(s.begin(), s.end(), ch), s.end());
         }
     }
-    result.push_back(temp);
-    string rev = temp;
-    reverse(rev.begin(), rev.end());
-    if (temp == rev) {
-        result.push_back("True");
+
+    string result = s;
+    reverse(result.begin(), result.end());
+
+    vector<string> res;
+    res.push_back(result);
+    if (result == s) {
+        res.push_back("True");
     } else {
-        result.push_back("False");
+        res.push_back("False");
     }
-    return result;
+    return res;
+}
