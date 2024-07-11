@@ -1,3 +1,4 @@
+```c++
 #include <algorithm>
 #include <vector>
 #include <utility>
@@ -17,5 +18,5 @@ int max_value_function() {
 }
 
 int main() {
-    return max_value_function();
+    max_value_function();
 }
