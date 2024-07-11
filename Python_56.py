@@ -1,3 +1,4 @@
+```
 def calculate_average_score():
     total = 0
     student_scores_count = int(input("Enter the number of students: "))
@@ -13,4 +14,4 @@ def calculate_average_score():
                 
     average = total / student_scores_count
     
-    return str(int(average))
+    return str(int(average)).strip('.0')
