@@ -1,4 +1,3 @@
-```
 def fruit_distribution(s, n):
     s = s.replace("apples and ", "").replace("oranges and ", "")
     total_apples = 0
