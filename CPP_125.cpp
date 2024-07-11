@@ -1,37 +1,29 @@
+Here is the completed code:
+
+```cpp
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0, prev_pos = 0;
-
-    while ((pos = txt.find_first_of(" ,")) != string::npos) {
-        if (pos == 0 || txt[pos - 1] != ' ') {
-            if (prev_pos == 0) {
-                result.push_back(txt.substr(0, pos));
-                prev_pos = pos;
-            } else {
-                result.push_back(txt.substr(prev_pos, pos - prev_pos));
-                prev_pos = pos;
-            }
-        } else {
-            prev_pos = pos + 1;
-        }
+    size_t pos = 0;
+    while ((pos = txt.find(' ')) != string::npos) {
+        result.push_back(txt.substr(0, pos));
+        txt.erase(0, pos + 1);
     }
-
-    if (prev_pos == 0) {
-        result.push_back(txt);
-    } else {
-        result.push_back(txt.substr(prev_pos));
+    if (txt.empty()) {
+        return result;
     }
-
-    if (result.size() == 1 && all_of(result[0].begin(), result[0].end(), ::islower)) {
+    if (txt.find(',') == string::npos) {
         int count = 0;
-        for (char c : result[0]) {
+        for (char c : txt) {
             if (c >= 'a' && c <= 'z') {
-                count += (int)c - (int)'a';
+                if ((count & 1)) {
+                    result.push_back(to_string(count));
+                    break;
+                }
+                count++;
             }
         }
-        result.clear();
-        result.push_back(to_string(count));
+    } else {
+        result.push_back(txt);
     }
-
     return result;
 }
