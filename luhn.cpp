@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -28,7 +29,8 @@ int luhn(int cardNumber) {
 }
 
 int main() {
-    int cardNumber = 4532015112830366;  // Replace with the credit card number you want to verify.
-    std::cout << "The Luhn checksum for this card is: " << luhn(cardNumber) << std::endl;
+    int cardNumber = 1234; // replace with your credit card number
+    std::cout << "Luhn check for: " << cardNumber << std::endl;
+    std::cout << "Result: " << luhn(cardNumber) << std::endl;
     return 0;
 }
