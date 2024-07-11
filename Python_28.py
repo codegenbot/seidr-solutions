@@ -1,2 +1,2 @@
 ```
-print(concatenate(["Hello", "World"]))
+print(concatenate(input("Enter space-separated strings: ").split()))
