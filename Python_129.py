@@ -1,3 +1,4 @@
+```
 def minPath(k):
     k = int(input("Enter the size of the grid: "))
     n = k
