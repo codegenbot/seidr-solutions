@@ -1,6 +1,8 @@
-def convert_to_binary(N):
-    return "".join(str((N // (10**i)) % 2) for i in reversed(range(len(str(N)))))
-
-if __name__ == "__main__":
+```
+def solve():
     N = int(input("Enter a number: "))
-    print(int(convert_to_binary(N), 2))
+    def convert_to_binary(n):
+        return bin(n)[2:]
+    return convert_to_binary(N)
+
+print(solve())
