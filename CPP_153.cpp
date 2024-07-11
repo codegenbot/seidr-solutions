@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <string>
 
@@ -8,15 +7,15 @@ int Strongest_Extension(std::string class_name, std::vector<std::string> extensi
     for (std::string extension : extensions) {
         int cap = 0, sm = 0;
         for (char c : extension) {
-            if (std::isupper(c)) cap++;
-            else if (std::islower(c)) sm++;
+            if (isupper(c)) cap++;
+            else if (islower(c)) sm++;
         }
         int strength = cap - sm;
         if (strength > strongest) {
             strongest = strength;
             result = extension;
         } else if (strength == strongest) {
-            result = (result < extension ? result : extension);
+            result = std::min(result, extension);
         }
     }
     return class_name + "." + result;
