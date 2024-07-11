@@ -1,7 +1,13 @@
+```
 this_function_takes_a_list_as_input_and_returns_the_sum_of_all_odd_numbers_in_that_list = lambda lst: sum(i for i in lst if i % 2 != 0)
 
-numbers_str = input("Enter numbers separated by comma or space: ")
-numbers = [int(num) for num in numbers_str.replace(",", " ").split()]
-
-result = this_function_takes_a_list_as_input_and_returns_the_sum_of_all_odd_numbers_in_that_list(numbers)
-print(f"The sum of all odd numbers is: {result}")
+while True:
+    while True:
+        try:
+            lst = input("Enter a list of numbers separated by space: ")
+            lst = [int(num) for num in lst.split()]
+            result = this_function_takes_a_list_as_input_and_returns_the_sum_of_all_odd_numbers_in_that_list(lst)
+            print(f"The sum of all odd numbers in the given list is: {result}")
+            break
+        except ValueError:
+            print("Invalid input. Please enter a list of numbers separated by space.")
