@@ -10,14 +10,15 @@ int whitePegs(std::string code, std::string guess) {
         }
     }
     for (char c : code) {
-        int asciiVal = static_cast<int>(c); // Convert char to integer
+        int asciiVal = static_cast<int>(c); 
         codeMap[asciiVal]++;
     }
     for (char c : guess) {
         int asciiVal = static_cast<int>(c);
         guessMap[asciiVal]++;
     }
-    return count - 0; // Directly return the result, no need for function call
+    int blackPegsCount = 0; // Directly return the result, no need for function call
+    return count - blackPegsCount;
 }
 
 int blackPegs(std::string code, std::string guess) {
