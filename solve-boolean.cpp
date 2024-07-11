@@ -1,4 +1,6 @@
 #include <string>
+#include <stack>
+#include <cctype>
 
 std::string solveBoolean(std::string expression) {
     std::stack<char> s;
@@ -24,13 +26,26 @@ std::string solveBoolean(std::string expression) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            result = (getBoolValue(s.top())) ? "True" : "False";
+            left = getBoolValue(s.top());
+            s.pop();
+            right = getBoolValue(s.top());
+            s.pop();
+            result = (left && right) ? "True" : "False";
         } else if (c == '|') {
-            result = (getBoolValue(s.top())) ? "True" : "False";
+            left = getBoolValue(s.top());
+            s.pop();
+            right = true;
+            result = (left || right) ? "True" : "False";
         } else {
             result = (getBoolValue(c)) ? "True" : "False";
         }
     }
 
     return result;
+}
+
+bool getBoolValue(char c) {
+    if (c == 'T') return true;
+    if (c == 'F') return false;
+    return false; // default to false
 }
