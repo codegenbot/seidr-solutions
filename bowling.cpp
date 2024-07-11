@@ -1,3 +1,4 @@
+```cpp
 int bowlingScore(const std::string& s) {
     int score = 0;
     int currentRolls = 0;
