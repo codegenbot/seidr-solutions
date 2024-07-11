@@ -7,9 +7,14 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 std::vector<int> rolling_max(const std::vector<int>& numbers) {
-    std::vector<int> result;
-    for (int i = 0; i < numbers.size(); ++i) {
-        result.push_back(*std::max_element(numbers.begin() + i, numbers.end()));
+    int n = numbers.size();
+    std::vector<int> result(n);
+    for (int i = 0; i < n; ++i) {
+        int max_val = numbers[i];
+        for (int j = i + 1; j < n; ++j) {
+            max_val = std::max(max_val, numbers[j]);
+        }
+        result[i] = max_val;
     }
     return result;
 }
