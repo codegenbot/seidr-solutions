@@ -4,12 +4,10 @@ def find_pair():
         nums = list(map(int, input().split()))
         target = int(input())
         seen = dict()
-        pairs = []
         for num in nums:
             complement = target - num
             if complement in seen:
-                pairs.append((complement, num))
+                print((complement, num))
+                break
             else:
                 seen[num] = 1
-        pairs.sort(key=sum)
-        print(pairs[0][0], pairs[0][1]) if len(pairs) > 0 else print(-1)
