@@ -1,9 +1,8 @@
-```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(const std::vector<std::string>& a, const std::string& b) {
     return a == b;
 }
 
@@ -14,22 +13,16 @@ std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> l
 
     std::vector<std::string> result;
 
-    for (const auto& sub_lst : lst) {
-        bool found_odd = false;
-        for (const auto& str : sub_lst) {
-            if (str.length() % 2 != 0) {
-                found_odd = true;
-                break;
+    for (const auto& inner : lst) {
+        for (const auto& str : inner) {
+            if (str.length() % 2 == 0) {
+                result.push_back(str);
             }
-        }
-
-        if (!found_odd) {
-            result.insert(result.end(), sub_lst.begin(), sub_lst.end());
         }
     }
 
     if (result.empty()) {
-        throw std::runtime_error("The input list is empty or contains only strings with even lengths.");
+        throw std::runtime_error("The input list is empty or contains only odd-length strings.");
     }
 
     std::sort(result.begin(), result.end(),
@@ -45,5 +38,11 @@ std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> l
 }
 
 int main() {
-    assert(issame(sorted_list_sum({{"aaaa"}, {"bbbb"}, {"dd"}, {"cc"}}), {{"cc"},{"dd"},{"aaaa"},{"bbbb"}}));
+    std::vector<std::string> input = {"aaaa", "bbbb", "dd", "cc"};
+    std::vector<std::vector<std::string>> lst;
+    for (const auto& str : input) {
+        lst.push_back({str});
+    }
+    
+    assert(issame(sorted_list_sum(lst), sorted_list_sum({{"cc"}, {"dd"}, {"aaaa"}, {"bbbb"}})));
 }
