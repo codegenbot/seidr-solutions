@@ -1,15 +1,8 @@
-```
 def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    result = [0, 0, 0, 0]
-
-    for i in range(len(coins)):
-        while cents >= coins[i]:
-            cents -= coins[i]
-            result[i] += 1
-
+    result = ' '.join(map(str, [coins[i]//value + (cents>=value)*1 for i, value in enumerate(coins)]))
     return result
 
 
 cents = int(input())
-quarters, dimes, nickels, pennies = coin_sums(cents); print(quarters, dimes, nickels, pennies)
+print(coin_sums(cents))
