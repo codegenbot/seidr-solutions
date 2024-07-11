@@ -1,4 +1,4 @@
-#include <boost/any.hpp>
+#include <boost/any>
 #include <string>
 
 boost::any compare_one(const boost::any& a, const boost::any& b) {
