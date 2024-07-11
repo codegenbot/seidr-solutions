@@ -1,2 +1,1 @@
-```
 print(concatenate(input().split()))
