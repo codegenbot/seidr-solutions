@@ -1,17 +1,16 @@
 #include <string>
+
 using namespace std;
 
 string change_base(int x, int base) {
-    if (x == 0)
-        return "0";
-    string result = "";
+    string res = "";
     while (x > 0) {
         int remainder = x % base;
         if (remainder >= 10)
-            result.insert(0, 1, ('a' + (remainder - 10)));
+            res.insert(0, 1, (remainder - 9) + 'A');
         else
-            result.insert(0, 1, char('0' + remainder));
+            res.insert(0, 1, remainder + '0');
         x /= base;
     }
-    return result;
+    return res;
 }
