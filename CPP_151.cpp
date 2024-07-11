@@ -1,9 +1,11 @@
-long long double_the_difference(vector<float> lst) {
+Here is the solution:
+
+long long double_the_difference(vector<float> lst){
     long long sum = 0;
-    for (float x : lst) {
-        if (x > 0 && floor(x) == x) { // check if positive and integer
-            if (modf(sqrt(x), &x) == 0.0) { // check if square root is an integer
-                sum += pow(x, 2);
+    for (float num : lst) {
+        if (num > 0 && floor(num) == num) { // check if number is positive and integer
+            if (num % 2 != 0) { // check if number is odd
+                sum += pow(num, 2);
             }
         }
     }
