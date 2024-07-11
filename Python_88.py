@@ -1,3 +1,4 @@
+```
 def sort_array(array):
     array.sort()
     median = len(array) // 2
