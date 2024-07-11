@@ -1,17 +1,17 @@
+Here's a possible solution:
+
 def solve_boolean(expression):
-    if expression == 'T':
+    if expression == 't':
         return True
-    elif expression == 'F':
+    elif expression == 'f':
         return False
     elif '&' in expression and '|' in expression:
         raise ValueError("Invalid expression")
-    result = None
-    for char in expression:
-        if char == '&':
-            result = result and (expression[0] == 'T')
-        elif char == '|':
-            result = result or (expression[0] == 'T')
-            expression = expression[1:]
-        else:
-            result = char == 'T'
-    return result
+    elif '&' in expression:
+        left, right = expression.split('&')
+        return not (bool(left) and bool(right))
+    elif '|' in expression:
+        left, right = expression.split('|')
+        return bool(left) or bool(right)
+    else:
+        raise ValueError("Invalid expression")
