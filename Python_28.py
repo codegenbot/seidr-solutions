@@ -1,5 +1,6 @@
 def concatenate(strings: str) -> str:
-    result = ""
-    for s in strings.split(","):
-        result += s.strip()
-    return "".join(sorted(result))
+    try:
+        result = [s.strip() for s in strings.split(",")]
+        return ", ".join(sorted(map(str, set(result)))))
+    except ValueError:
+        return "Error: Invalid input"
