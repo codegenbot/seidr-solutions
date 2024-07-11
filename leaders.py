@@ -1,7 +1,6 @@
-def leaders(input):
-    result = [
-        input[i]
-        for i in range(len(input) - 1, -1, -1)
-        if all(input[j] <= input[i] for j in range(i + 1, len(input)))
+def leaders(input_list):
+    return [
+        x
+        for i, x in enumerate(input_list)
+        if all(x >= y for y in input_list[i + 1:])
     ]
-    return " ".join(map(str, result))
