@@ -1,9 +1,8 @@
-import sys
 from typing import List
 
 def all_prefixes(string: str) -> List[str]:
-    return [string[: i + 1] for i in range(len(string)]
+    return [string[: i + 1] for i in range(len(string))]
 
-input_string = sys.argv[1]
+input_string = input("Enter a string: ")
 result = all_prefixes(input_string)
 print(result)
