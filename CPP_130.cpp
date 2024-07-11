@@ -37,6 +37,6 @@ bool issame(vector<int> a, vector<int> b) {
 
 int main() {
     assert(issame(tri(1), {1, 3}));
-
+    
     return 0;
 }
