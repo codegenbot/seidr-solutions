@@ -1,4 +1,9 @@
-sort(s0.begin(), s0.end());
+if(s0.size() != s1.size()){
+        return false;
+    }
+    
+    sort(s0.begin(), s0.end());
     sort(s1.begin(), s1.end());
+    
     return s0 == s1;
 }
