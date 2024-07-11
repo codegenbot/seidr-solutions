@@ -1,7 +1,6 @@
-#include <iostream>
 #include <vector>
 
-int solution(std::vector<int> lst) {
+int solution(vector<int> lst) {
     int sum = 0;
     for (int i = 1; i < lst.size(); i++) {
         if (lst[i] % 2 != 0) {
@@ -9,17 +8,17 @@ int solution(std::vector<int> lst) {
         }
     }
     return sum;
-
 }
 
 int main() {
-    std::vector<int> testVector = {3, 13, 2, 9};
-    int result = solution(testVector);
-    for(int num : testVector){
-        if(num % 2 !=0){
-            std::cout<<num<<" ";
-        }
+    vector<int> lst;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int num;
+        cin >> num;
+        lst.push_back(num);
     }
-    std::cout << "\nSum: " << result << std::endl;
+    cout << solution(lst) << endl;
     return 0;
 }
