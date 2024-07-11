@@ -1,12 +1,8 @@
-```
 def add():
     while True:
         try:
             x = int(input("Enter first number: "))
             y = int(input("Enter second number: "))
-            return x + y
+            return str(x + y)
         except ValueError:
             print("Invalid input. Please enter an integer.")
-
-result = add()
-print(result)
