@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     n = len(grid)
     m = [[i * n + j for j in range(n)] for i in range(n)]
@@ -23,6 +22,6 @@ def minPath(grid, k):
         for j in range(n):
             paths = dfs(i, j, [m[i][j]], {m[i][j]})
             if not min_path or all(path < min_path for path in paths):
-                min_path = sorted(min(paths))
+                min_path = sorted(min(paths)) if min_path is None else sorted(min_paths)
     
     return min_path
