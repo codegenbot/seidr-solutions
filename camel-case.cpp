@@ -1,27 +1,37 @@
-#include <vector>
 #include <iostream>
 #include <string>
 
 std::string camelCase(const std::string& str) {
-    std::string result = "";
+    std::string result;
+    bool first = true;
+
     for (char c : str) {
         if (c == '-') {
-            result += toupper(str[str.find(c) + 1]);
-            str.erase(str.find(c), 1);
+            if (!first)
+                result += char(toupper(c));
+            else
+                first = false;
         } else if (c == ' ') {
-            result += toupper(str[0]);
-            str.erase(0, 1);
+            if (!first)
+                result += char(toupper(c));
+            else
+                first = false;
         } else {
-            result += c;
+            if (first) {
+                result += tolower(c);
+                first = false;
+            } else
+                result += c;
         }
     }
+
     return result;
 }
 
 int main() {
-    std::string input;
-    while (std::cin >> input) {
-        std::cout << camelCase(input) << std::endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
     }
     return 0;
 }
