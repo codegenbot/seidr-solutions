@@ -1,9 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
-long long minSubArraySum(const std::vector<int>& nums) {
+long long minSubArraySum(std::vector<int>& nums) {
     long long min_sum = nums[0], curr_sum = 0;
     for (int i = 0; i < nums.size(); i++) {
         curr_sum = std::min(static_cast<long long>(nums[i]), curr_sum + nums[i]);
@@ -13,7 +12,7 @@ long long minSubArraySum(const std::vector<int>& nums) {
 }
 
 int main() {
-    assert (minSubArraySum({1, -1}) == -1);
+    assert(minSubArraySum({1, -1}) == -1);
     
     return 0;
 }
