@@ -1,3 +1,4 @@
+```
 def decode_cyclic():
     while True:
         try:
@@ -22,3 +23,5 @@ def decode_cyclic():
                 return result
         except ValueError:
             print("Invalid input. Please enter a number.")
+        else:
+            print("Program did not receive expected input")
