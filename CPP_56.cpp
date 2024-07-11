@@ -1,7 +1,6 @@
-#include <stack>
 #include <string>
 
-bool correct_bracketing(string brackets){
+bool correct_bracketing(string brackets) {
     stack<char> s;
     for(char c : brackets){
         if(c == '<') s.push('<');
@@ -11,4 +10,3 @@ bool correct_bracketing(string brackets){
         }
     }
     return s.empty();
-}
