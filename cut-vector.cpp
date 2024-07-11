@@ -8,9 +8,8 @@ int main() {
     int num;
     while (std::cin.good()) {
         std::cin >> num;
-        if (std::cin.fail()) {
+        if (std::cin.fail())
             break;
-        }
         nums.push_back(num);
     }
     
