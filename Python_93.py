@@ -1,4 +1,3 @@
-```Python
 def encode(message):
     result = ""
     direction = 1  # Set this flag to 1 for encoding and -1 for decoding
