@@ -1,4 +1,8 @@
-def double_the_difference(lst):
-    if len(lst) < 2:
-        raise ValueError("List should have at least two elements")
-    return abs(sum(i**2 for i in lst) - sum(sorted(lst)[0], sorted(lst)[-1]))
+```
+def double_the_difference():
+    lst = input("Enter the list of integers: ").split()
+    try:
+        result = sum(int(i) ** 2 for i in lst if int(i) >= 0 and int(i) % 2 != 0)
+        return str(result)
+    except ValueError:
+        return "Error! Invalid input."
