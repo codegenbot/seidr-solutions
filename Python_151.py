@@ -1,5 +1,5 @@
-```
-print("""Enter elements separated by space: """)
+```python
+print("Enter elements separated by space: ")
 user_input = input()
 try:
     lst = [x for x in user_input.split() if x.strip()]
@@ -10,3 +10,6 @@ try:
         print(double_the_difference(lst))
 except ValueError:
     print("Invalid input. Please enter exactly two numbers!")
+
+def double_the_difference(lst):
+    return (lst[0] - lst[1]) * 2
