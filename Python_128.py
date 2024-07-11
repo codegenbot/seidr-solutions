@@ -1,10 +1,9 @@
 def product_of_signs(arr):
     result = 1
-    for num in arr:
-        if num > 0:
-            result *= 1
-        elif num < 0:
-            result *= -1
+    for x in arr:
+        if x != 0:
+            if x < 0:
+                result *= -1
     return result
 
 
