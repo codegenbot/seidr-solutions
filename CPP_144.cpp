@@ -1,4 +1,3 @@
-```c++
 #include <string>
 #include <iostream>
 
