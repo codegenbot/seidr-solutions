@@ -1,9 +1,7 @@
-```
-    
-phi = (1 + 5**0.5) / 2
-
 def fibfib(n: int):
-    a, b = 0, 1
-    for _ in range(n-1):
-        a, b = b, a + b
-    return int(a * phi ** (n - 1)) % 10**9 + 1
+    if n == 0 or n == 1:
+        return 1
+    a, b = 1, 1
+    for _ in range(2, n + 1):
+        a, b = b, (a * phi) + b
+    return int(b)
