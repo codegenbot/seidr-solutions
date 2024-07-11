@@ -1,6 +1,4 @@
-```cpp
 #include <iostream>
-#include <vector>
 
 int luhn(int cardNumber) {
     int sum = 0;
