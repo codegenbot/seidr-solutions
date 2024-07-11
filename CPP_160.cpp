@@ -1,8 +1,8 @@
-```
+```cpp
 #include <vector>
 #include <cmath>
 
-int doAlgebra(vector<string> operators, vector<int> operands) {
+int do_algorithms(vector<string> operators, vector<int> operands) {
     int result = 0;
     for (int i = 1; i < operands.size(); i++) {
         if (*operators.begin() == "+") {
@@ -12,8 +12,7 @@ int doAlgebra(vector<string> operators, vector<int> operands) {
         } else if (*operators.begin() == "*") {
             result *= operands[i];
         } else if (*operators.begin() == "//") {
-            if(operands[i] != 0) result = result / operands[i];
-            else return 0;
+            result = result / operands[i];
         } else if (*operators.begin() == "**") {
             result = pow(result, operands[i]);
         }
@@ -22,23 +21,21 @@ int doAlgebra(vector<string> operators, vector<int> operands) {
 }
 
 int main() {
-    vector<string> ops;
-    vector<int> nums;
-    
-    int num;
-    char operation;
-    
-    cout << "Enter operations (+, -, *, //, **), then numbers: ";
-    cin >> operation;
-    while(operation != '\n') {
-        ops.push_back(string(1, operation));
-        cin >> num >> operation;
-    }
-    for(int i = 0; i < ops.size(); i++) {
-        ops[i] = "+";
+    vector<string> operators;
+    vector<int> operands;
+
+    int n;
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        string op;
+        int val;
+        cin >> op >> val;
+        operators.push_back(op);
+        operands.push_back(val);
     }
 
-    cout << "The result is: " << doAlgebra(ops, nums) << endl;
+    cout << do_algorithms(operators, operands) << endl;
     
     return 0;
 }
