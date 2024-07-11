@@ -6,7 +6,7 @@ def factorize() -> List[int]:
             n = int(input("Enter a number to factorize: "))
             break
         except ValueError:
-            pass
+            print("Please enter a valid integer to factorize.")
     factors = []
     divisor = 2
     while n > 1:
