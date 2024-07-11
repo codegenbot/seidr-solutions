@@ -1,3 +1,4 @@
-def double_the_difference():
-    lst = list(map(int, input("Enter a list of integers (space separated): ").split()))
-    return sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
+def double_the_difference(lst):
+    if len(lst) < 2:
+        raise ValueError("List should have at least two elements")
+    return abs(sum(i**2 for i in lst) - sum(sorted(lst)[0], sorted(lst)[-1]))
