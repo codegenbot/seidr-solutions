@@ -1,8 +1,9 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
 
-std::vector<std::string> issame(std::string planet1, std::string planet2) {
+std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1;
     int index2 = -1;
@@ -25,8 +26,7 @@ std::vector<std::string> issame(std::string planet1, std::string planet2) {
     if(index1 < index2)
         std::swap(start, end);
     else
-        std::tie(std::ignore, end) = {index1, index2};
-    start = index1;
+        std::tie(std::move(start), std::move(end)) = {index1, index2};
 
     std::vector<std::string> result;
     for (int i = 0; i < planets.size(); i++) {
@@ -39,6 +39,6 @@ std::vector<std::string> issame(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    assert (issame("Jupiter", "Makemake") == {});
+    assert(bf("Jupiter", "Makemake").size() == 0);
     return 0;
 }
