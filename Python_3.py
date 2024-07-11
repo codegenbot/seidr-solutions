@@ -1,11 +1,11 @@
-```
 from typing import List
 
 def below_zero() -> bool:
-    temperatures = list(map(int, input("Enter temperatures separated by spaces: ").split()))
-    for temp in temperatures:
-        if temp >= 0:
+    while True:
+        temperatures = list(map(int, input("Enter temperatures separated by spaces: ").split()))
+        if any(temp >= 0 for temp in temperatures):
             return False
-    return True
+        else:
+            print("All temperatures are below zero. Please enter again.")
 
 print(below_zero())
