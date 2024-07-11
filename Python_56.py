@@ -1,17 +1,17 @@
-```Python
+```
 def calculate_average_score():
     total = 0
     student_scores_count = int(input("Enter the number of students: "))
     
     for _ in range(student_scores_count):
+        score = input(f"Enter the score for student {_ + 1}: ")
         while True:
             try:
-                score = float(input(f"Enter the score for student {_ + 1}: "))
-                total += score
+                total += int(score)
                 break
             except ValueError:
-                print("Invalid input. Please enter a valid floating point number.")
+                print("Invalid input. Please enter an integer.")
                 
-    average = round(total / student_scores_count, 2)
+    average = total / student_scores_count
     
-    return str(average)
+    return str(int(average)).strip('.0')
