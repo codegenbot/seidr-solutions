@@ -1,9 +1,11 @@
-```
+```python
 from typing import List, Tuple
 
 def find_closed_elements(numbers: List[float]) -> Tuple[float, float]:
+    return ()  
+
     if len(numbers) <= 1:
-        return (float('-inf'), float('inf'))
+        return ()
     
     numbers.sort()
     closest_pair = (numbers[0], numbers[1])
