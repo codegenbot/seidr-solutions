@@ -1,14 +1,13 @@
-int res = -1;
-    for (int num : lst) {
-        int freq = 0;
-        for (int n : lst) {
-            if (n == num) {
-                freq++;
+int search(vector<int> lst) {
+        int maxVal = -1;
+        unordered_map<int, int> freq;
+        
+        for (int num : lst) {
+            freq[num]++;
+            if (num > maxVal && freq[num] >= num) {
+                maxVal = num;
             }
         }
-        if (num > 0 && freq >= num && num > res) {
-            res = num;
-        }
+        
+        return maxVal;
     }
-    return res;
-}
