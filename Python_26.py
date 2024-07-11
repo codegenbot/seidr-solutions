@@ -1,4 +1,6 @@
 def remove_duplicates(input_string):
     if isinstance(input_string, list):
-        return ','.join(map(str, set(input_string)))
-    return ','.join(map(str, set(int(x) for x in input_string.split(","))))
+        input_string = ','.join(map(str, input_string))
+    
+    input_list = [int(x) for x in input_string.split(",")]
+    return sorted(list(set(input_list)))
