@@ -14,7 +14,7 @@ int calculateScore(string s) {
                 } else if (s[i+4] == '/') {
                     total += 10 - (s[i+3] - '0');
                 } else {
-                    total += s[i+3] - '0' + s[i+4] - '0';
+                    total += s[i+3] - '0';
                 }
             } else if (s[i+3] == '/') {
                 total += 10;
@@ -25,7 +25,11 @@ int calculateScore(string s) {
         } else if (s[i] == '/') {
             total += 10 - (s[i-1] - '0');
         } else if (s[i] >= '1' && s[i] <= '9') {
-            total += s[i] - '0';
+            if (s[i+1] == '/') {
+                total += 10;
+            } else {
+                total += s[i] - '0';
+            }
         }
         if (frame == 10) {
             break;
