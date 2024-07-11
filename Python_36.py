@@ -1,13 +1,11 @@
 def fizz_buzz(n: int):
-    output = ""
     for i in range(1, n+1):
-        temp_output = ""
+        output = ""
         if i % 3 == 0:
-            temp_output += "Fizz"
+            output += "Fizz"
         if i % 5 == 0:
-            temp_output += "Buzz"
-        temp_output = temp_output or str(i)
-        output += temp_output + "\n"
-    return output
+            output += "Buzz"
+        output = output or str(i)
+        print(output)
 
-print(fizz_buzz(int(input("Enter a number: "))))
+fizz_buzz(int(input("Enter a number: ")))
