@@ -38,9 +38,13 @@ std::vector<int> parse_nested_parens(std::string paren_string) {
 int main() {
     std::string input;
     std::getline(std::cin, input);
+
     std::vector<int> result = parse_nested_parens(input);
+
     for (int depth : result) {
         std::cout << depth << " ";
     }
+    std::cout << std::endl;
+
     return 0;
 }
