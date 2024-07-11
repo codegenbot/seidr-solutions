@@ -8,10 +8,10 @@ int main() {
     
     bool capitalize = true;
     for (char &c : input) {
-        if (capitalize && std::isalpha(c) && std::islower(c)) {
+        if (capitalize && std::isalpha(c) && !std::isupper(c)) {
             std::cout << (char)std::toupper(c);
             capitalize = false;
-        } else if (c == '-' && std::isalpha(c)) {
+        } else if (c == '-' && std::isalpha(*(std::next(&c))) {
             capitalize = true;
             std::cout << c;
         } else {
