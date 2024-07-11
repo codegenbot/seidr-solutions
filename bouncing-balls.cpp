@@ -1,5 +1,7 @@
+```cpp
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 int main() {
     double startHeight, heightAfterFirstBounce;
@@ -15,5 +17,5 @@ int main() {
         totalDistance += (startHeight + (heightAfterFirstBounce - startHeight) * pow(0.5, i));
     }
 
-    std::cout << std::fixed << std::setprecision(15) << bounciness << " " << totalDistance;
+    std::cout << std::fixed << std::setiosflags(std::ios_base::floatfield::scientific) << std::setw(15) << bounciness << " " << totalDistance;
 }
