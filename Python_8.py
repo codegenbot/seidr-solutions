@@ -20,4 +20,4 @@ def calculate_average_and_median() -> Tuple[float, float]:
             print("Invalid input. Please enter numbers separated by space or type 'q' to quit.")
 
 average, median = calculate_average_and_median()
-print(f"The average is {average} and the median is {median}.")
+print(f"The average is {average}, and the median is {median}."
