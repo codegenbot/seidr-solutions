@@ -1,11 +1,11 @@
-Here is the solution:
-
+```
 def find_zero(xs: list):
     n = len(xs)
     if n % 2 != 0:
         raise ValueError("xs must have even number of coefficients")
-    a = xs[0]
-    b = xs[1]
-    for i in range(2, n):
-        a -= xs[i] / math.pow(b, (i-1)/2)
-    return -b/a
+    a = xs[n//2]
+    b = -sum([coeff for i, coeff in enumerate(xs[:n//2]) if i % 2 == 1])
+    c = sum([coeff for i, coeff in enumerate(xs[:n//2]) if i % 2 == 0])
+    d = -a
+    x = (-b + math.sqrt(b**2-4*a*c)) / (2*a)
+    return round(x, 2)
