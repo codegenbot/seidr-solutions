@@ -1,8 +1,7 @@
+```
 from typing import List
 
-def concatenate(strings: List[str]) -> str:
-    return ''.join(s for s in strings if s)
-
-user_input = input("Enter a list of strings (comma-separated): ")
-strings = [s.strip() for s in user_input.split(",")]
-print(concatenate(strings))
+def concatenate() -> str:
+    strings = input("Enter a series of strings (separated by space): ")
+    strings_list: List[str] = [s.strip() for s in strings.split()]
+    return ''.join(s for s in strings_list if s)
