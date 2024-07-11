@@ -10,7 +10,7 @@ int main() {
     std::size_t pos = text.find(target, 0);
     while (pos != std::string::npos) {
         indices.push_back(static_cast<int>(pos));
-        pos = text.find(target, pos + 1);
+        pos = text.find(target, pos + target.length());
     }
 
     for (int i = 0; i < indices.size(); ++i) {
