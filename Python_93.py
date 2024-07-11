@@ -12,9 +12,12 @@ def encode(message):
                 result += chr(ord(char) + 32 if ord(char) < 78 else ord(char) - 2)
             else:
                 result += chr(ord(char) - 32 if ord(char) > 96 else ord(char) + 2)
-        elif char == '!' or char == '@' or char == '#':
-            if char.isupper():
-                result += char.lower()
+        elif not char.isalnum():
+            if char.lower() in ['!', '@', '#']:
+                if char.isupper():
+                    result += chr((ord(char) - 65) % 26 + 65)
+                else:
+                    result += chr((ord(char) - 97) % 26 + 97)
             else:
                 result += char
         else:
