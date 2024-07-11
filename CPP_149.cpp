@@ -1,21 +1,23 @@
-Here is the completed code:
+Here is the solution:
 
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end(),
-        [](const string& a, const string& b) {
-            return (a.length() % 2 != 0 && b.length() % 2 == 0) ||
-                   (a.length() % 2 == 0 && b.length() % 2 != 0);
-    });
-    lst.erase(it, lst.end());
+    vector<string> result = lst;
     
-    sort(lst.begin(), lst.end(),
-        [](const string& a, const string& b) {
-            if (a.size() != b.size()) {
-                return a.size() < b.size();
-            } else {
-                return a < b;
-            }
-        });
+    for (auto it = result.begin(); it != result.end(); ) {
+        if (it->length() % 2 == 1) {
+            it = result.erase(it);
+        } else {
+            ++it;
+        }
+    }
     
-    return lst;
+    sort(result.begin(), result.end(),
+         [](const string& s1, const string& s2) {
+             if (s1.length() != s2.length()) {
+                 return s1.length() < s2.length();
+             }
+             return s1 < s2;
+         });
+    
+    return result;
 }
