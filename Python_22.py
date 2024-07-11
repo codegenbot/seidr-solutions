@@ -1,10 +1,19 @@
 from typing import Any, list
 
-def filter_integers(values: list[Any]) -> list[int]:
-    return [value for value in values if isinstance(value, int)]
+def filter_integers() -> None:
+    values: list[Any] = []
+    
+    while True:
+        user_input = input("Enter a value (or 'done' if finished): ")
+        
+        if user_input.lower() == 'done':
+            break
+        
+        try:
+            values.append(int(user_input))
+        except ValueError:
+            print(f"'{user_input}' is not an integer. Skipping...")
 
-if __name__ == "__main__":
-    values = input("Enter comma-separated integers (e.g., 1, 2, 3): ").split(",")
-    values = [int(x) for x in values]
-    result = filter_integers(values)
-    print(result)
+    print("Filtered integers:", [value for value in set(values) if isinstance(value, int)])
+
+filter_integers()
