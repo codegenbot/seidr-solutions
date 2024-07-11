@@ -1,15 +1,13 @@
-#include <algorithm>
+#include <iostream>
 #include <string>
 
 using namespace std;
 
 string spinWords(string str) {
     string result = " ";
-    int i = 0;
-    while (i <= str.length()) {
+    for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
             result += " ";
-            i++;
             continue;
         }
         int j = i;
@@ -27,7 +25,7 @@ string spinWords(string str) {
         }
         i = j;
     }
-    return result;
+    return result.substr(1, result.length() - 2);
 }
 
 int main() {
