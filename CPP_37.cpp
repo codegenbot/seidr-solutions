@@ -12,4 +12,5 @@ bool issame(vector<float> a, vector<float> b) {
     return true;
 }
 
-assert(issame(l, sorted_even_indices));
+// Update the function call from sort_even to issame
+assert(issame(l, sort_even(l)));
