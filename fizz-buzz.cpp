@@ -1,15 +1,18 @@
+#include <iostream>
+#include <string>
+
 int main() {
     int x;
-    cin >> x;
+    std::cin >> x;
     
     if (x % 3 == 0 && x % 5 == 0) {
-        cout << "FizzBuzz" << endl;
+        std::cout << "FizzBuzz" << std::endl;
     } else if (x % 3 == 0) {
-        cout << "Fizz" << endl;
+        std::cout << "Fizz" << std::endl;
     } else if (x % 5 == 0) {
-        cout << "Buzz" << endl;
+        std::cout << "Buzz" << std::endl;
     } else {
-        cout << to_string(x) << endl;
+        std::cout << std::to_string(x) << std::endl;
     }
     
     return 0;
