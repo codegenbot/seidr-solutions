@@ -1,14 +1,11 @@
-```
-from typing import List
+from typing import List, Tuple
 
 def find_closest_elements():
-    while True:
-        try:
-            numbers = input("Enter space-separated numbers: ").split()
-            numbers = [float(num) for num in numbers]
-            break
-        except ValueError:
-            print("Invalid input! Please enter space-separated numbers.")
+    numbers = input("Enter space-separated numbers: ").split()
+    numbers = [float(num) for num in numbers]
+    
+    if len(numbers) < 2:
+        return "Error: Not enough numbers"
 
     min_diff = float("inf")
     closest_pair = ()

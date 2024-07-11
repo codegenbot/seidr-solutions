@@ -1,4 +1,3 @@
-```"
 from typing import List
 
 def below_zero(operations: List[str]) -> bool:
@@ -20,4 +19,3 @@ while True:
     if len(operations) > 0:
         break
 print(below_zero(operations))
-"```
