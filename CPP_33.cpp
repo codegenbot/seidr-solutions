@@ -1,15 +1,13 @@
-vector<int> div_three;
+vector<int> indices;
     for(int i=0; i<l.size(); i++){
-        if(i % 3 == 0){
-            div_three.push_back(l[i]);
+        if(i%3 == 0){
+            indices.push_back(i);
         }
     }
-    sort(div_three.begin(), div_three.end());
-    int j = 0;
-    for(int i=0; i<l.size(); i++){
-        if(i % 3 == 0){
-            l[i] = div_three[j++];
-        }
+    vector<int> sorted_indices = indices;
+    sort(sorted_indices.begin(), sorted_indices.end(), [&](int a, int b){ return l[a] < l[b]; });
+    for(int i=0; i<indices.size(); i++){
+        l[indices[i]] = l[sorted_indices[i]];
     }
     return l;
 }
