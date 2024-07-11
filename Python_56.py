@@ -3,11 +3,10 @@ def calculate_average_score():
     total = 0
     student_scores_count = int(input("Enter the number of students: "))
     
-    for i in range(student_scores_count):
-        student_name = input(f"Enter the name of student {i + 1}: ")
+    for _ in range(student_scores_count):
         while True:
             try:
-                score = float(input(f"Enter the score for {student_name}: "))
+                score = float(input(f"Enter the score for student {_ + 1}: "))
                 total += score
                 break
             except ValueError:
