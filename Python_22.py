@@ -14,4 +14,3 @@ except ValueError as e:
     values = []
 if values:
     print(filter_integers(values))
-"""
