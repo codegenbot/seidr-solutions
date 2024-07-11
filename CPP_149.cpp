@@ -14,13 +14,11 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst = {"apple", "banana", "orange", "kiwi", "grape"};
-    vector<string> result = sorted_list_sum(lst);
+    vector<string> input = {"apple", "banana", "orange", "kiwi", "grape"};
+    vector<string> result = sorted_list_sum(input);
     for (const auto& str : result) {
         cout << str << " ";
     }
     cout << endl;
-    vector<string> lst2 = {"apple", "kiwi", "orange", "banana", "grape"};
-    cout << issame(lst, lst2) << endl;
     return 0;
 }
