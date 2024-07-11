@@ -1,15 +1,14 @@
-```cpp
 #include <iostream>
 #include <iomanip>
 
 using namespace std;
 
 double getProbability(int n, int m) {
-    double probability = 0;
-    for (int i = m + 1; i < n; ++i) {
-        probability += (double)(n - i) / (n * m);
+    double sum = 0.0;
+    for(int k=m+1; k<=n; k++){
+        sum += 1.0 / (m-1);
     }
-    return probability;
+    return 1.0 * sum / n;
 }
 
 int main() {
