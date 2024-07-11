@@ -1,4 +1,3 @@
-```
 def decode_cyclic(s: str):
     s = s * (3 - len(s) % 3)
     result = ""
