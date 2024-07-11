@@ -1,17 +1,7 @@
-#include <vector>
 #include <algorithm>
+#include <vector>
+#include <string>
 
 bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
-vector<string> fixCode(vector<string> lst) {
-    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s){ return s.length() % 2 != 0; }), lst.end());
-    sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
-        if (a.length() == b.length()) {
-            return a < b;
-        }
-        return a.length() < b.length();
-    });
-    return lst;
+    return equal(a.begin(), a.end(), b.begin(), b.end());
 }
