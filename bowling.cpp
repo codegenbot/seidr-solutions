@@ -9,7 +9,7 @@ int score(string s) {
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == '/') {
             total += 10 - (s[i - 1] - '0');
-            total += (i + 1 < s.size()) ? (s[i + 1] == 'X' ? 10 : (s[i + 1] - '0')) : 0;
+            total += (i + 1 < s.size()) ? (s[i + 1] == 'X' || s[i + 1] == '/' ? 10 : (s[i + 1] - '0')) : 0;
             if (frame < 9) {
                 i++; // Skip next character
             }
@@ -30,7 +30,7 @@ int score(string s) {
         } else if (s[i] == '-') {
             total += 0;
         } else {
-            total += (s[i] - '0') * ((i + 1 < s.size()) ? ((s[i + 1] == 'X') ? 10 : 1) : 1);
+            total += s[i] - '0';
             if (frame < 9 && i + 1 < s.size() && s[i + 1] == '/') {
                 total += 10 - (s[i] - '0');
                 i++; // Skip next character
