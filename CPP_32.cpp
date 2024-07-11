@@ -1,14 +1,15 @@
 double find_zero(vector<double> xs){
-    double left = -1000000;
-    double right = 1000000;
-    
-    while (right - left > 1e-6) {
-        double mid = (left + right) / 2;
-        if (poly(xs, left) * poly(xs, mid) <= 0)
-            right = mid;
-        else
-            left = mid;
+    double a = xs[0];
+    double b = 0;
+    for (int i = 1; i < xs.size(); i++) {
+        b += pow(-1, i) * xs[i] / factorial(i);
     }
-    
-    return left;
+    return -b / a;
+}
+
+double factorial(int n) {
+    if(n == 0 || n == 1)
+        return 1;
+    else
+        return n * factorial(n-1);
 }
