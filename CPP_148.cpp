@@ -1,9 +1,12 @@
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+#include <vector>
+#include <string>
+
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-std::vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+std::vector<std::string> bf(std::string planet1, std::string planet2) {
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1;
     int index2 = -1;
 
@@ -20,16 +23,12 @@ std::vector<string> bf(string planet1, string planet2) {
         return {};
     }
 
-    int start, end;
+    int start = std::min(index1, index2);
+    int end = std::max(index1, index2);
 
-    if(index1 < index2)
-        std::swap(start, end);
-    else
-        std::tie(std::move(start), std::move(end)) = {index1, index2};
-
-    vector<string> result;
+    std::vector<std::string> result;
     for (int i = 0; i < planets.size(); i++) {
-        if(i >= start && i <= end) {
+        if (i >= start && i <= end) {
             result.push_back(planets[i]);
         }
     }

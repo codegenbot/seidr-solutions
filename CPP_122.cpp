@@ -1,5 +1,4 @@
 #include <vector>
-#include <string>
 
 using namespace std;
 
@@ -14,7 +13,6 @@ int add_elements(vector<int> arr, int k) {
 }
 
 int main() {
-    vector<int> v = {1};
-    assert(add_elements(v, 1) == 1);
+    assert(add_elements({1}, 1) == 1);
     return 0;
 }
