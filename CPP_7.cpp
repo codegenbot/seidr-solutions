@@ -23,7 +23,4 @@ bool same(vector<vector<string>> a, vector<string> b) {
     return true;
 }
 
-int main() {
-    assert(same(vector<vector<string>>{{"grunt"}}, vector<string>{"grunt", "prune"}));
-    return 0;
-}
+assert(same(vector<vector<string>>{{"grunt"}, {"prune"}}, vector<string>{"grunt", "prune"}));
