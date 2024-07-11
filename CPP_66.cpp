@@ -15,18 +15,18 @@ int digitSum(std::string s) {
 
 int main() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::string input;
     std::cout << "Enter a string: ";
+    std::string input;
     std::getline(std::cin, input);
     if (!input.empty()) { 
-        std::string digits;
-        for (char c : input) {
-            if (std::isdigit(c)) {
-                digits += c;
-            }
+        size_t pos = input.find_first_not_of("0123456789");
+        if (pos == std::string::npos) {
+            int result = digitSum(input);
+            std::cout << "The sum of digits is: " << result << std::endl;
+        } else {
+            int result = digitSum(input.substr(0, pos));
+            std::cout << "The sum of digits is: " << result << std::endl;
         }
-        int result = digitSum(digits);
-        std::cout << "The sum of digits is: " << result << std::endl;
     } else {
         std::cout << "Error: Empty input." << std::endl;
     }
