@@ -2,29 +2,16 @@
 #include <vector>
 #include <algorithm>
 
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> vec(n+1);
-    for (int i = 0; i <= n; ++i)
-        std::cin >> vec[i];
-    
-    std::pair<std::vector<int>, std::vector<int>> res = cutVector(vec);
-    
-    std::cout << "[";
-    for (int num : res.first) {
-        std::cout << num;
-        if (&num != &res.first.back())
-            std::cout << " ";
-    }
-    std::cout << "] [";
+std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
+    int minDiff = INT_MAX;
+    int splitIndex = -1;
 
-    for (int num : res.second) {
-        std::cout << num;
-        if (&num != &res.second.back())
-            std::cout << " ";
+    for (int i = 0; i < vec.size() - 1; i++) {
+        if (abs(vec[i] - vec[i + 1]) <= minDiff) {
+            minDiff = abs(vec[i] - vec[i + 1]);
+            splitIndex = i;
+        }
     }
-    
-    std::cout << "]" << std::endl;
-    
+
+    return {{}, {}}; // or return whatever you want here
 }
