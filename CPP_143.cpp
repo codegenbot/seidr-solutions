@@ -1,17 +1,19 @@
 string words_in_sentence(string sentence){
     string result = "";
-    for(int i=0; isPrime(atoi(&sentence[i])) && i<sentence.length();i=i+strlen(&sentence[i])+1){
-        if(i<sentence.length())
-            result += &sentence[i];
+    int i = 0;
+    while(i < sentence.size()){
+        int len = 1;
+        for(int j = 2; j <= sentence[i]; ++j){
+            if(sentence[i] % j != 0)
+                break;
+            len = j;
+        }
+        if(len > 1){
+            result += sentence.substr(i, len) + " ";
+            i += len;
+        } else {
+            i++;
+        }
     }
     return result;
-}
-
-bool isPrime(int n) {
-    if (n <= 1)
-        return false;
-    for (int i = 2; i * i <= n; i++)
-        if (n % i == 0)
-            return false;
-    return true;
 }
