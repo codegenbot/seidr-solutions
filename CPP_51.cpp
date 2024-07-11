@@ -1,3 +1,4 @@
+#include <iostream>
 #include <algorithm>
 #include <string>
 
@@ -10,6 +11,12 @@ std::string remove_vowels(std::string text) {
 }
 
 int main() {
-    // Main function code here
+    std::string input;
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+
+    std::string result = remove_vowels(input);
+    std::cout << "String after removing vowels: " << result << std::endl;
+
     return 0;
 }
