@@ -1,23 +1,11 @@
-#include<string>
-using namespace std;
-
-string solve(string s){
-    string result = "";
-    bool allNonLetters = true;
-
-    for(int i=0; i<s.length(); i++){
-        if(isalpha(s[i])){
-            char c = toupper(s[i]);
-            result += c;
-            allNonLetters = false;
+string solve(string s) {
+    string res = "";
+    for (char c : s) {
+        if (!isalpha(c)) {
+            res += c;
         } else {
-            result += s[i];
+            res += tolower(c) == 'a' ? toupper(c) : tolower(c);
         }
     }
-
-    if(allNonLetters) {
-        reverse(result.begin(), result.end());
-    }
-
-    return result;
+    return res.empty() ? s.substr(1, s.size()-1) + s[0] : res;
 }
