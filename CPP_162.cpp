@@ -1,23 +1,15 @@
-#include "cryptopp/sha.h"
-#include <iostream>
-#include <string>
-#include <sstream>
+#include "path_to_your_crypto_directory/cryptopp/sha.h"
 
-int main() {
-    std::cout << "Enter a string: ";
-    std::string s;
-    std::getline(std::cin, s);
-    
-    std::stringstream ss;
-    CryptoPP::SHA1 sha;
+std::string string_to_md5(const std::string& s) {
+    SHA1 sha;
     unsigned char md5[16];
-    sha.Calculate((const unsigned char*)s.c_str(), (int)s.size(), md5);
-
-    for(int i = 0; i < 16; ++i) {
-        ss << std::hex << std::setw(2) << std::setfill('0') << (int)(md5[i]);
-    }
-
-    std::cout << "The SHA1 is: " << ss.str() << std::endl;
-    
-    return 0;
+    sha.Calculate((const byte*)s.c_str(), (int)s.size(), md5);
+    return bytesToHexString(md5, 20);
 }
+
+std::string bytesToHexString(unsigned char* input, int length) {
+    std::string output;
+    for(int i = 0; i < length; i++) {
+        output += std::hex << std::setfill('0') << std::setw(2) << (int)input[i];
+    }
+    return output;
