@@ -1,20 +1,13 @@
-bool issame(vector<int> b) {
-    return (b[0] == b[1]);
-}
-
-vector<int> parse_music(string music_string);
-
-int main() {
-    string music_string;
-    cin >> music_string;
-    vector<int> beats = parse_music(music_string);
-    for (int beat : beats) {
-        cout << beat << " ";
+bool issame(vector<int> b){ 
+    for(int i=0; i<b.size()-1; i++){
+        if(b[i] != b[i+1]){
+            return false;
+        }
     }
-    return 0;
+    return true;
 }
 
-vector<int> parse_music(string music_string) {
+vector<int> parse_music(string music_string){ 
     vector<int> beats;
     string note = "";
     for (char c : music_string) {
