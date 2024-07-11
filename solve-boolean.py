@@ -1,13 +1,14 @@
+```
 def solve_boolean(expression):
     if expression == "T":
         return True
     elif expression == "F":
         return False
-    while "|" in expression or "&" in expression:
-        if "&" in expression and "|" in expression:
-            expression = expression.replace("&", "|&|")
-        elif "&" in expression:
-            expression = expression.replace("&", "|&")
-        else:
-            expression = expression.replace("|", "&|")
-    return True if expression == "TTT" else False
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return solve_boolean(left) and solve_boolean(right)
+    else:  
+        left, right = expression.split("|", 1)
+        if "(" in left or ")" in right:
+            return solve_boolean("(" + expression + ")")  
+        return solve_boolean(left) or solve_boolean(right)
