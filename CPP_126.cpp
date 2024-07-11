@@ -1,4 +1,5 @@
 #include <vector>
+
 using namespace std;
 
 bool is_sorted(vector<int> lst) {
@@ -7,7 +8,6 @@ bool is_sorted(vector<int> lst) {
             return false;
         }
     }
-    vector<int> temp;
     for (int j = 0; j < lst.size(); j++) {
         int count = 0;
         for (int k = 0; k < lst.size(); k++) {
