@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -30,4 +31,3 @@ int main() {
     for (int i : {1, 1, 1, 1, 1}) 
         lst.push_back(i);
     assert(same_vectors({1, 1, 1, 1, 1}, strange_sort_list(lst)));
-}
