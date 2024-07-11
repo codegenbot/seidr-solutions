@@ -4,25 +4,28 @@
 
 int main() {
     std::string get_closest_vowel(std::string word) {
-        int n = word.size();
-        char closest_vowel = '\0';
-        for(int i=n-1; i>=0; --i){
-            if(!isalpha(word[i])) continue;
-            if(vowel(word[i])){
-                if(closest_vowel == '\0') closest_vowel = tolower(word[i]);
-                else if(abs(i - (word.find(tolower(word[i]))) ) < abs(i - (word.find(tolower(closest_vowel))))) {
-                    closest_vowel = word[i];
+        for (int i = 0; i < word.size(); ++i) {
+            if (!isalpha(word[i])) continue;
+            if (std::tolower(word[i]) == 'a' || std::tolower(word[i]) == 'e' || 
+                std::tolower(word[i]) == 'i' || std::tolower(word[i]) == 'o' || 
+                std::tolower(word[i]) == 'u') {
+                for (int j = i - 1; j >= 0; --j) {
+                    if (!isalpha(word[j])) break;
+                    if (std::tolower(word[j]) == 'a' || std::tolower(word[j]) == 'e' || 
+                        std::tolower(word[j]) == 'i' || std::tolower(word[j]) == 'o' || 
+                        std::tolower(word[j]) == 'u') {
+                        return word[i];
+                    }
                 }
             }
         }
-        return std::string(1, closest_vowel);
+        return "";
     }
 
-    bool vowel(char c) {
-        return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
-                c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
-    }
+    if (get_closest_vowel("Above") != "o")
+        std::cout << "Test failed" << std::endl;
+    else
+        std::cout << "Test passed" << std::endl;
 
-    std::cout << get_closest_vowel("Above") << std::endl;
     return 0;
 }
