@@ -9,8 +9,8 @@ int main() {
 
     std::vector<int> indices;
 
-    if (target.empty() || target.length() > text.length() - target.length() + 1) {
-        return 0;
+    if (target.empty() || text.empty()) {
+        return 1;
     }
 
     int pos = 0;
@@ -19,7 +19,7 @@ int main() {
         ++pos;  // Move to the next position to allow overlapping targets
     }
 
-    for (int i = 0; i < indices.size() && indices.size() <= text.length() - target.length() + 1; ++i) {
+    for (int i = 0; i < indices.size(); ++i) {
         std::cout << indices[i] << " ";
     }
 
