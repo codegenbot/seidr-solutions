@@ -1,3 +1,4 @@
+```
 def find_closest_elements() -> tuple:
     while True:
         try:
