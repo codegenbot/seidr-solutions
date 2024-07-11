@@ -1,3 +1,2 @@
-```
-def sort_third(l: list):
-    return sorted(l)
+def sort_strings(tuples_list: list):
+    return [str(sorted(t[2])) for t in tuples_list]
