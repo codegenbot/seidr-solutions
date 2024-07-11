@@ -9,9 +9,9 @@ using namespace std;
 double vector_distance(int n) {
     vector<float> v1(n), v2(n);
     for (int i = 0; i < n; i++) {
-        float x, y;
-        cin >> x >> y;
-        v1[i] = v2[i] = (x + y) / 2.0f;
+        float val;
+        cin >> val;
+        v1[i] = v2[i] = val;
     }
     double sum = 0.0;
     for (int i = 0; i < n; i++) {
