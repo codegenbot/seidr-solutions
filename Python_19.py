@@ -10,18 +10,8 @@ def solve(num1, num2):
 def check(func):
     while True:
         try:
-            while True:
-                try:
-                    num1 = int(input("Enter first number: "))
-                    break
-                except ValueError:
-                    print("Invalid input. Please enter a valid integer.")
-            while True:
-                try:
-                    num2 = int(input("Enter second number: "))
-                    break
-                except ValueError:
-                    print("Invalid input. Please enter a valid integer.")
+            num1 = int(input("Enter first number: "))
+            num2 = int(input("Enter second number: "))
             result = func(num1, num2)
             if result == "Greater":
                 print(f"First number {num1} is greater than the second number {num2}")
