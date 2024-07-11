@@ -1,5 +1,4 @@
-Here is the modified code:
-
+```
 def encode(message):
     result = ""
     prev_alnum = False
