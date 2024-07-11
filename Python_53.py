@@ -1,21 +1,21 @@
+```
 def main():
-    pass_value = "pass"
-
+    print("Simple Calculator Program")
+    print("1. Addition")
+    print("2. Exit")
 
 while True:
-    x = int(
-        input("Enter first number: ")
-        if input("Is this run for a pass (yes/no)? ").lower() == "yes"
-        else None
-    )
+    choice = int(input("Enter your choice: "))
+    if choice == 1:
+        x = int(input("Enter first number: "))
+        y = int(input("Enter second number: "))
 
-    if x is None:
+        def add(x: int, y: int):
+            return x + y
+
+        result = add(x, y)
+        print(f"The sum of {x} and {y} is {result}")
+    elif choice == 2:
         break
-
-    y = int(input("Enter second number: "))
-
-    def add(x: int, y: int):
-        return x + y
-
-    result = add(x, y)
-    print(f"The sum of {x} and {y} is {result}")
+    else:
+        print("Invalid choice. Please enter 1 or 2.")
