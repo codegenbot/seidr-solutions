@@ -2,17 +2,21 @@ from typing import List
 
 
 def rolling_max():
-    T = int(input("Enter number of test cases: "))
-
+    result = []
+    while True:
+        try:
+            T = int(input("Enter number of test cases: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+    
     for _ in range(T):
-        numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-        max_seen_so_far = []
-        for i in range(len(numbers)):
-            if not max_seen_so_far:
-                max_seen_so_far.append(max(0))
-            else:
-                max_seen_so_far.append(max(max_seen_so_far[i - 1], numbers[i]))
-        print(max_seen_so_far)
-
-
-rolling_max()
+        while True:
+            numbers = list(map(int, input(f"Enter {len(result) + 1} numbers separated by space: ").split()))
+            if not numbers:
+                return []
+            if sum(1 for x in numbers if x == 0) > 0: 
+                break
+            temp_result = [max(numbers[: i + 1]) for i in range(len(numbers))]
+            result.extend(temp_result)
+    return result
