@@ -1,33 +1,19 @@
-from typing import List
-
-
 def separate_paren_groups(paren_string: str) -> List[str]:
-    def check(s):
-        stack = []
-        groups = []
-        temp_group = ""
-        for char in s:
+    def check(paren_string: str):
+        output = []
+        current_group = ""
+        for char in paren_string:
             if char == "(":
-                stack.append(char)
-                temp_group += "(" + char
+                if current_group:
+                    output.append(current_group)
+                    current_group = ""
+                current_group += "("
             elif char == ")":
-                if stack:
-                    stack.pop()
-                    temp_group += ")" + char
-                else:
-                    groups.append(temp_group + ")" + char)
-                    temp_group = ""
+                current_group += ")"
             else:
-                temp_group += char
-        if stack:
-            while stack:
-                temp_group += "(" + s[1:stack.index("(") + 1]
-                s = s[stack.index("(") + 1:]
-                stack.pop()
-            groups.append(temp_group + s)
-        else:
-            groups.append(temp_group + s)
-
-        return [group for group in groups.split(")(") if group]
+                current_group += char
+        if current_group:
+            output.append(current_group)
+        return output
 
     return check(paren_string)
