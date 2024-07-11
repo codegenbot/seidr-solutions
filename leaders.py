@@ -1,3 +1,4 @@
+```
 def leaders(input):
     max_right = input[-1]
     leaders = [max_right]
@@ -8,3 +9,6 @@ def leaders(input):
             leaders.insert(0, max_right)
 
     return leaders
+
+input = list(map(int, input().split()))
+print(' '.join(map(str, leaders(input))))
