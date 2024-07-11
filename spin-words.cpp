@@ -1,33 +1,34 @@
-#include <algorithm>
+```cpp
+#include <string>
 using namespace std;
 
 string spinWords(string str) {
-    vector<string> words;
+    string result = "";
     int i = 0;
     while (i < str.length()) {
         if (str.find(" ", i) == -1 || str.length() - 1 == i) {
             string word = str.substr(i);
             if (word.length() >= 5)
-                reverse(word.begin(), word.end());
-            words.push_back(word);
+                result += std::string(word.rbegin(), word.rend()) + " ";
+            else
+                result += word + " ";
             break;
         }
         int pos = str.find(" ", i);
         string word = str.substr(i, pos - i);
         if (word.length() >= 5)
-            reverse(word.begin(), word.end());
-        words.push_back(word);
+            result += std::string(word.rbegin(), word.rend()) + " ";
+        else
+            result += word + " ";
         i = pos + 1;
     }
-    return concatenateWords(words);
+    return result.substr(0, result.length() - 1);
 }
 
-string concatenateWords(vector<string> words) {
-    string result;
-    for (int i = 0; i < words.size(); i++) {
-        if (i > 0)
-            result += " ";
-        result += words[i];
-    }
-    return result;
+int main() {
+    string str;
+    cout << "Enter a string of words: ";
+    getline(cin, str);
+    cout << "Spun result: " << spinWords(str) << endl;
+    return 0;
 }
