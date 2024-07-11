@@ -1,4 +1,3 @@
-```
 import heapq
 
 def minPath(grid, k):
