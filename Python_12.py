@@ -1,10 +1,11 @@
-```
-def longest(strings: list[str]) -> str | None:
+from typing import List, Optional
+
+def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
     
     max_len = 0
-    result = ""
+    result = None
 
     for s in strings:
         if len(s) > max_len:
