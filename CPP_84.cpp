@@ -3,10 +3,5 @@ int sum = 0;
         sum += N % 2;
         N /= 2;
     }
-    string binary = "";
-    while (sum > 0) {
-        binary = to_string(sum % 2) + binary;
-        sum /= 2;
-    }
-    return binary.empty() ? "0" : binary;
+    return bitset<32>(sum).to_string().substr(32 - __builtin_clz(sum));
 }
