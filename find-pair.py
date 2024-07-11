@@ -11,6 +11,5 @@ def find_pair():
                 pairs.append((complement, num))
             else:
                 seen[num] = 1
-        pairs.sort(key=lambda x: sum(x))
-        for pair in pairs:
-            print(pair)
+        pairs.sort(key=sum)
+        print(pairs[0][0], pairs[0][1]) if len(pairs) > 0 else print(-1)
