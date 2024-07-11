@@ -1,5 +1,7 @@
 #include <vector>
 #include <iostream>
+#include <climits>
+#include <cassert>
 
 int smallest_change(std::vector<int> arr) {
     int min = INT_MAX;
