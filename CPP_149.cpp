@@ -14,10 +14,10 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    vector<string> input = {"apple", "banana", "orange", "kiwi", "grape"};
-    vector<string> result = sorted_list_sum(input);
-    for (const auto& str : result) {
-        cout << str << " ";
+    vector<string> lst = {"apple", "banana", "orange", "kiwi", "pear"};
+    lst = sorted_list_sum(lst);
+    for (const auto& s : lst) {
+        cout << s << " ";
     }
     cout << endl;
     return 0;
