@@ -14,9 +14,11 @@ while True:
         y = int(input("Enter second number: "))
         if y < 0:
             print("Please enter a positive number.")
-            continue
         break
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
 
-print(add(x, y))
+try:
+    print(add(x, y))
+except TypeError:
+    print("Expected input types not matched.")
