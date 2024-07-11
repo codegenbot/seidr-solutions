@@ -14,7 +14,7 @@ vector<int> findLeaders(vector<int> nums) {
             leaders.push_back(maxRight);
         }
     }
-    return leaders;
+    return vector<int>(leaders.rbegin(), leaders.rend());
 }
 
 int main() {
