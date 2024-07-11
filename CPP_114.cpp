@@ -1,7 +1,8 @@
-long long result = nums[0], sum = 0;
+long long minSubArraySum(vector<long long> nums) {
+    long long sum = 0, minSum = INT_MAX;
     for (long long num : nums) {
         sum = min(num, sum + num);
-        result = min(result, sum);
+        minSum = min(minSum, sum);
     }
-    return result;
+    return minSum;
 }
