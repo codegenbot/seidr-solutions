@@ -1,5 +1,3 @@
-Here is the modified code:
-
 #include <iostream>
 #include <sstream>
 #include <iomanip>
@@ -14,7 +12,7 @@ int main() {
     unsigned char md[20];
     sha.Calculate((const unsigned char*)s.c_str(), (int)s.size(), md);
 
-    for(int i = 0; i < 16; ++i) {
+    for(int i = 0; i < 20; ++i) {
         std::cout << std::hex << std::setfill('0') << std::setw(2) << (int)(md[i]) << " ";
     }
     std::cout << std::endl;
