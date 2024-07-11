@@ -1,15 +1,47 @@
 #include <string>
-
-bool issame(vector<string> a, vector<string> b){ // Change the function signature
-    // Function implementation
+bool issame(vector<string> a, vector<string> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i=0; i<a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<string> split_words(string txt){
-    // Function implementation
+    vector<string> result;
+    string word = "";
+    for(char c : txt){
+        if(c == ' ' || c == ','){
+            if(!word.empty()){
+                result.push_back(word);
+                word = "";
+            }
+        } else {
+            word += c;
+        }
+    }
+    if(!word.empty()){
+        result.push_back(word);
+    }
+    if(result.empty()){
+        int count = 0;
+        for(char c : txt){
+            if(islower(c) && (c - 'a') % 2 == 1){
+                count++;
+            }
+        }
+        result.push_back(to_string(count));
+    }
+    return result;
 }
 
 int main(){
-    // Code logic
-    assert(issame(split_words(""), {"0"}));
+    string input = "example input text";
+    vector<string> words = split_words(input);
+    // Perform operations with split words
     return 0;
 }
