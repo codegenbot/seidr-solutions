@@ -1,4 +1,3 @@
-```
 def sort_even(l):
     even_numbers = [x for x in l if x % 2 == 0]
     other_numbers = [x for x in l if x % 2 != 0]
