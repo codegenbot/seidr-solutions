@@ -6,9 +6,9 @@ int main() {
     string expression;
     cin >> expression;
 
-    if (expression == "t") {
+    if (expression == "T") {
         cout << "True" << endl;
-    } else {
+    } else if (expression == "F") {
         cout << "False" << endl;
     }
 
