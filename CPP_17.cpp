@@ -2,9 +2,20 @@
 #include <vector>
 #include <cassert>
 
-std::vector<int> parse_music(const std::string& music) {
+std::vector<int> parse_music(std::string music) {
     std::vector<int> result;
-    // custom parsing logic for music string
+    int count = 0;
+    for (char c : music) {
+        if (c == 'o') {
+            count++;
+        } else if (c == '|') {
+            result.push_back(count);
+            count = 0;
+        }
+    }
+    if (count > 0) {
+        result.push_back(count);
+    }
     return result;
 }
 
