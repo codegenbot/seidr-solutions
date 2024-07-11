@@ -1,6 +1,7 @@
-#include <iostream>
+```cpp
 #include <vector>
 #include <algorithm>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -22,26 +23,21 @@ vector<string> filter_by_substring(vector<string> arr, string sub) {
     }
     return result;
 
-}
-
 int main() {
     int n;
     cin >> n;
     
-    vector<string> strngs(n);
+    vector<string> words(n);
+    for(int i = 0; i < n; i++)
+        cin >> words[i];
+        
+    string sub;
+    cin >> sub;
     
-    for(int i = 0; i < n ; i++){
-        cin >> strngs[i];
-    }
-    
-    string sub_str;
-    cin >> sub_str;
-    
-    if(issame(strngs, filter_by_substring(strngs,sub_str))){
+    if (issame(filter_by_substring(words, sub), filter_by_substring(words, "") ) )
         cout << "Yes" << endl;
-    } else{
+    else
         cout << "No" << endl;
-    }
-    
+
     return 0;
 }
