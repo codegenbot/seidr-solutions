@@ -3,7 +3,7 @@ if (n > m) {
     }
     
     int sum = 0;
-    for (int i = n; i <= m; i++) {
+    for (int i = n; i <= m; ++i) {
         sum += i;
     }
     
