@@ -1,4 +1,3 @@
-```
 def check():
     num_terms = int(input("Enter the number of terms: "))
     i = 1
