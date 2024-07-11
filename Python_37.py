@@ -1,16 +1,24 @@
 ```
 def sort_even(l: list):
-    evens = [x for x in l if x % 2 == 0]
-    sorted_evens = [-x for x in sorted([abs(x) for x in evens])][::-1]
+    evens = sorted([x for x in l if x % 2 == 0])
+    odds = [x for x in l if x % 2 != 0]
     result = []
-    even_index = 0
-    for num in l:
-        if num % 2 == 0:
-            if even_index < len(sorted_evens):
-                result.append(sorted_evens[even_index] * (1 if num >= 0 else -1))
-                even_index += 1
+    i, j = 0, 0
+    
+    while i < len(evens) or j < len(odds):
+        if i < len(evens):
+            if j < len(odds):
+                if abs(evens[i]) > abs(odds[j]):
+                    result.append(-evens[i])
+                    i += 1
+                else:
+                    result.append(odds[j])
+                    j += 1
             else:
-                result.extend([num] if num > 0 else [-x for x in [num]])
-        else:
-            result.append(num)
+                result.append(-evens[i])
+                i += 1
+        elif j < len(odds):
+            result.append(odds[j])
+            j += 1
+    
     return result
