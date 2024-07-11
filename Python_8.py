@@ -1,5 +1,7 @@
+Here is the modified code:
+
 ```
-from typing import Tuple
+from typing import Tuple, List
 
 def calculate_average_and_median() -> Tuple[float, float]:
     while True:
