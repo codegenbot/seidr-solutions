@@ -1,10 +1,16 @@
 ```cpp
+#include <iostream>
+#include <string>
+#include <boost/any.hpp>
+
+using namespace std;
+
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return b;
+        return a.convert_to<boost::any>(b);
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str1 = any_cast<string>(a);
