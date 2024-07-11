@@ -1,4 +1,3 @@
-```c++
 #include <cmath>
 #include <cassert>
 
@@ -14,5 +13,11 @@ bool iscuber(int a){
 
 int main() {
     assert (iscuber(1729) == false);
+    for(int i = 1; i <= 500; ++i){
+        if(iscuber(i)){
+            std::cout << "First perfect cube after 1729 is: " << i << std::endl;
+            break;
+        }
+    }
     return 0;
 }
