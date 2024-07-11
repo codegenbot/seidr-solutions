@@ -20,16 +20,10 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
         return {};
     }
 
-    int start, end;
-
-    if(index1 < index2)
-        std::swap(start, end);
-    else
-        {start,end} = {index1,index2};
-
     std::vector<std::string> result;
+
     for (int i = 0; i < planets.size(); i++) {
-        if(i >= start && i <= end) {
+        if ((i >= index1 && i <= index2) || (i > index2 && index2 < index1)) {
             result.push_back(planets[i]);
         }
     }
@@ -38,6 +32,6 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
 }
 
 int main() {
-    assert(bf("Jupiter", "Makemake").size() == 0);
+    assert(std::vector<std::string>(bf("Jupiter", "Makemake")).size() == 0);
     return 0;
 }
