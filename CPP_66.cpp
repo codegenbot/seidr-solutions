@@ -15,19 +15,16 @@ int digitSum(std::string s) {
 int main() {
     std::cout << "Enter a string: ";
     std::string input;
-    char c;
-    do {
-        c = std::cin.get();
-    } while (c == ' ');
-    std::cin >> input;
+    getline(std::cin, input); 
     if (!input.empty()) { 
-        size_t pos = std::string::npos;
+        bool foundNonDigit = false;
         for (char c : input) {
             if (!std::isdigit(c)) {
-                pos = input.find(c);
+                foundNonDigit = true;
                 break;
             }
         }
+        size_t pos = foundNonDigit ? input.find_first_not_of("0123456789") : std::string::npos;
         if (pos == std::string::npos) {
             int result = digitSum(input);
             std::cout << "The sum of digits is: " << result << std::endl;
