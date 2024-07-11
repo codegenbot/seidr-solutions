@@ -1,13 +1,11 @@
 def sort_third(l: list):
     result = []
-    for i, x in enumerate(l):
+    for i in range(len(l)):
         if i % 3 == 0:
-            if i // 3 * 3 < len(l):
-                sorted_segment = sorted([y for y in l[i//3*3:i+1]])
-                last_element = sorted_segment[-1]
+            if i // 3 * 3 + 3 <= len(l):
+                result.append(sorted([x for x in l[i//3*3:i//3*3+3]])[i%3])
             else:
-                last_element = None
+                result.append(None)
         else:
-            last_element = x
-        result.append(last_element)
+            result.append(l[i])
     return result
