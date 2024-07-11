@@ -28,7 +28,6 @@ int bowlingScore(std::string s) {
 
 int main() {
     std::string s;
-    std::cout << "Enter the bowling scores in string format: ";
     std::cin >> s;
     int score = bowlingScore(s);
     std::cout << "The score is: " << score << std::endl;
