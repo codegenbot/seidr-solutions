@@ -1,12 +1,11 @@
-int res = -1;
-    unordered_map<int, int> freq;
+int result = -1;
     for (int num : lst) {
-        freq[num]++;
-    }
-    for (auto it = freq.begin(); it != freq.end(); it++) {
-        if (it->first > it->second && it->second > res) {
-            res = it->second;
+        if (num > 0 && num <= lst.size()) {
+            int frequency = count(lst.begin(), lst.end(), num);
+            if (frequency >= num && num > result) {
+                result = num;
+            }
         }
     }
-    return res == -1 ? -1 : res;
+    return result;
 }
