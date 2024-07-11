@@ -7,10 +7,14 @@ def filter_by_prefix():
             strings = input("Enter strings (comma-separated): ").split(",")
             prefix = input("Enter prefix: ")
 
-            filtered_strings = [s.strip() for s in strings if len(strings) > 1 and s.strip().startswith(prefix)]
-
-            print(filtered_strings)
-            break
+            if all(s.strip().startswith(prefix) for s in strings):
+                filtered_strings = [s.strip() for s in strings]
+                print(filtered_strings)
+                break
+            else:
+                print(
+                    "Not all strings start with the given prefix. Please enter valid input."
+                )
         except ValueError as e:
             print(f"Error occurred: {e}")
 
