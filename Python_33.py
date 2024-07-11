@@ -1,16 +1,11 @@
+```Python
 from itertools import cycle
 
 def sort_third(l: list):
-    first_half = sorted([x for i, x in enumerate(l) if i % 3 != 0])
-    second_half = sorted([x for i, x in enumerate(l) if i % 3 == 0], reverse=True)
+    odd = [x for j, x in enumerate(l) if (j+1) % 3 != 0]
+    even = [x for j, x in enumerate(l) if (j+1) % 3 == 0]
     
     result = []
-    for i, x in enumerate(l):
-        if i % 3 != 0:
-            result.append(x)
-        else:
-            if i // 3 < len(first_half):
-                result.append(first_half[i // 3])
-            else:
-                result.append(second_half[i // 3 - len(first_half)])
+    for _ in range(len(l)):
+        result.append(next(cycle(sorted(odd), sorted(even, reverse=True))))
     return result
