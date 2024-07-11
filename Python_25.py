@@ -16,4 +16,4 @@ def factorize(n: int) -> List[int]:
                 count += 1
             for _ in range(count):
                 factors.append(i)
-    return factors
+    return sorted(set(factors))
