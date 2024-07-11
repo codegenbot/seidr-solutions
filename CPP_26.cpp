@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 namespace std {
     std::vector<int> remove_duplicates(const std::vector<int>& vec);
