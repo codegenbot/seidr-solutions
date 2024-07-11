@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cmath>
 #include <algorithm>
+#include <cmath>
 
 int main() {
     double start_height, bounciness_index, total_distance = 0.0;
@@ -9,8 +9,6 @@ int main() {
 
     std::cin >> start_height;
     std::cin >> first_bounce_height;
-
-    std::replace(first_bounce_height.begin(), first_bounce_height.end(), ',', '.');
 
     std::cin >> num_bounces;
 
