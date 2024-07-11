@@ -1,0 +1,2 @@
+#include <algorithm>
+return *std::max_element(l.begin(), l.end());
