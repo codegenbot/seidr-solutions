@@ -5,5 +5,5 @@ def find_zero(xs):
     a = xs[0]
     b = xs[1]
     for i in range(2, n):
-        a -= xs[i] / (b ** ((i-1)/2))
-    return -b/a
+        a -= xs[i] / (b ** (i - 1) / 2)
+    return -b / a
