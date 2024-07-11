@@ -1,7 +1,8 @@
+```cpp
 #include <string>
 #include <vector>
 
-int whitePegs(std::string code, std::string guess) {
+int whitePegs(string code, string guess) {
     int count = 0;
     vector<int> codeMap(6), guessMap(6);
     for (int i = 0; i < 4; i++) {
@@ -19,7 +20,7 @@ int whitePegs(std::string code, std::string guess) {
     return count - blackPegsCount;
 }
 
-int blackPegs(std::string code, std::string guess) {
+int blackPegs(string code, string guess) {
     int count = 0;
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
@@ -27,4 +28,14 @@ int blackPegs(std::string code, std::string guess) {
         }
     }
     return count;
+}
+
+int main() {
+    string code = "ABC1";
+    string guess = "AC11";
+    int whitePegsCount = whitePegs(code, guess);
+    cout << "Number of white pegs: " << whitePegsCount << endl;
+    int blackPegsCount = blackPegs(code, guess);
+    cout << "Number of black pegs: " << blackPegsCount << endl;
+    return 0;
 }
