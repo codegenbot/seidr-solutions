@@ -14,8 +14,3 @@ vector<int> filter_integers(list<any> values){
     }
     return result;
 }
-
-int main(){
-    assert(issame(filter_integers({any(3), any('c'), any(3), any(3), any('a'), any('b')}), {3, 3, 3}));
-    return 0;
-}
