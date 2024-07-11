@@ -1,15 +1,23 @@
-bool issame(const map<char, int>& map1, const map<char, int>& map2) {
-    return map1 == map2;
+bool issame(const string& word) {
+    for (size_t i = 1; i < word.length(); ++i) {
+        if (word[i] != word[0]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 map<char, int> histogram(string test);
+
 map<char, int> histogram(string test) {
     map<char, int> result;
     istringstream iss(test);
     string word;
     while (iss >> word) {
-        for (char c : word) {
-            result[c]++;
+        if (issame(word)) {
+            for (char c : word) {
+                result[c]++;
+            }
         }
     }
     
