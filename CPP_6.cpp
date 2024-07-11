@@ -1,10 +1,18 @@
 #include <vector>
 
-bool areSame(vector<int> a, vector<int> b){
-    return a == b;
+bool areSame(vector<int> a, vector<int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
-vector<int> parse_nested_parens(string paren_string){
+vector<int> parse_nested_parens(string paren_string) {
     vector<int> result;
     int max_depth = 0;
     int current_depth = 0;
