@@ -1,38 +1,27 @@
-#include <vector>
-#include <string>
+vector<string> bf(string planet1, string planet2) {
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    vector<string> result;
 
-bool issame(const std::string& s1, const std::string& s2) {
-    return s1 == s2;
-}
+    int index1 = -1;
+    int index2 = -1;
 
-std::vector<std::string> bf(std::string planet1, std::string planet2) {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    int index1 = -1, index2 = -1;
-    
     for (int i = 0; i < planets.size(); i++) {
-        if (planet1 == planets[i]) {
+        if (planets[i] == planet1) {
             index1 = i;
-        } else if (planet2 == planets[i]) {
+        } else if (planets[i] == planet2) {
             index2 = i;
         }
-        
-        if (index1 != -1 && index2 != -1) {
-            break;
-        }
     }
-    
-    if (index1 == -1 || index2 == -1) {
-        return {};
-    }
-    
-    std::vector<std::string> result;
+
+    if (index1 == -1 || index2 == -1)
+        return vector<string>();
+
     for (int i = 0; i < planets.size(); i++) {
-        if (i > index1 && i < index2) {
+        if (i >= index1 && i <= index2)
             result.push_back(planets[i]);
-        } else if (index1 > i && i > index2) {
-            result.push_back(planets[i]);
-        }
     }
-    
+
+    sort(result.begin(), result.end());
+
     return result;
 }
