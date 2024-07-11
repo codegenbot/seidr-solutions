@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
@@ -22,11 +22,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            int num1 = stoi(str1), num2 = stoi(str2);
-            if(num1>num2)
-                return a;
-            else
-                return b;
+            return boost::any(any_cast<int>(a));
         }
     }
     else if (a.type() == typeid(int) && b.type() == typeid(string)) {
@@ -82,4 +78,8 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
     return boost::any();
+}
+
+int main() {
+    // Code to test the function
 }
