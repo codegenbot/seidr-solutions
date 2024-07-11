@@ -1,4 +1,10 @@
 #include <vector>
+#include <algorithm>
+
+bool issame(vector<int> a, vector<int> b){
+    return a == b;
+}
+
 vector<int> strange_sort_list(vector<int> lst){
     sort(lst.begin(), lst.end());
     vector<int> result;
@@ -12,4 +18,9 @@ vector<int> strange_sort_list(vector<int> lst){
         right--;
     }
     return result;
+}
+
+int main() {
+    // Add your main function code here
+    return 0;
 }
