@@ -24,12 +24,9 @@ int main() {
     vector<int> nums;
     int num;
     
-    cout << "Enter positive integers (0 to end input, press enter after each number, then Ctrl+D to finish):" << endl;
+    cout << "Enter positive integers (0 to end input):" << endl;
     cout.flush();
     while (cin >> num) {
-        if (num == 0) {
-            break;
-        }
         nums.push_back(num);
     }
     
