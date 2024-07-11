@@ -1,8 +1,7 @@
-```
 def double_the_difference(lst):
-    # implementation for double_the_difference function goes here
-    pass  # or return some default value
-
-def check(lst):
-    result = double_the_difference(lst)
-    return result
+    if len(lst) < 2:
+        return None
+    first = lst[0]
+    last = lst[-1]
+    diff = abs(first - last)
+    return diff * 2
