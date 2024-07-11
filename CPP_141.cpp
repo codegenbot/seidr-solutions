@@ -1,21 +1,25 @@
-if (file_name.empty()) return "No";
-int digit_count = 0;
-int dot_count = 0;
-int dot_position = -1;
-for (int i = 0; i < file_name.size(); ++i) {
-    if (file_name[i] >= '0' && file_name[i] <= '9') {
-        digit_count++;
-    } else if (file_name[i] == '.') {
-        dot_count++;
-        dot_position = i;
+int count_digits = 0;
+    for (char c : file_name) {
+        if (isdigit(c)) {
+            count_digits++;
+        }
     }
-}
-if (digit_count > 3 || dot_count != 1 || dot_position == 0 || dot_position == file_name.size() - 1) {
+
+    size_t dot_pos = file_name.find('.');
+    if (count_digits > 3 || dot_pos == string::npos || dot_pos == 0 || dot_pos == file_name.size() - 1) {
+        return "No";
+    }
+
+    string file_extension = file_name.substr(dot_pos + 1);
+    if (file_extension != "txt" && file_extension != "exe" && file_extension != "dll") {
+        return "No";
+    }
+
+    for (char c : file_name.substr(0, dot_pos)) {
+        if (isalpha(c)) {
+            return "Yes";
+        }
+    }
+
     return "No";
-}
-string extension = file_name.substr(dot_position + 1);
-if (extension != "txt" && extension != "exe" && extension != "dll") {
-    return "No";
-}
-return "Yes";
 }
