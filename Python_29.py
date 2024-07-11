@@ -12,7 +12,9 @@ def filter_by_prefix():
             return
 
         filtered_strings = [
-            s.strip() for s in strings if len(s) > 0 and s.startswith(prefix)
+            s.strip()
+            for s in strings
+            if len(s) > 0 and s.startswith(prefix)
         ]
 
         print(filtered_strings)
