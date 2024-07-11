@@ -1,11 +1,14 @@
+```
 def encode(message):
     result = ""
     for char in message:
-        if char.isalpha():
-            if ord(char) - 65 + 3 <= 26:
-                result += chr((ord(char) - 65 + 3) % 26 + 65)
+        if char.isalnum():
+            if char.isalpha():
+                shift = 3
+                ascii_offset = 65 if char.isupper() else 97
+                result += chr((ord(char) - ascii_offset + shift) % 26 + ascii_offset)
             else:
-                result += chr((ord(char) - 65 - 25) % 26 + 65)
+                result += char
         else:
             result += char
     return result
