@@ -1,9 +1,7 @@
-vector<int>::iterator it = unique(lst.begin(), lst.end());
-if(it != lst.end()){
-    vector<int>::iterator it2 = it;
-    advance(it2, 1);
-    if(it2 != lst.end()){
-        return *it2;
-    }
+```
+int next_smallest(vector<int> lst) {
+    vector<int> sortedList = lst;
+    sort(sortedList.begin(), sortedList.end());
+    if (sortedList.size() < 2) return -1; // Return None in C++ terms
+    return sortedList[1];
 }
-return -1; // or None as per the problem description
