@@ -1,4 +1,4 @@
-```c++
+```
 #include <vector>
 #include <iostream>
 
@@ -9,10 +9,10 @@ vector<int> indicesOfSubstring(string text, string target) {
     int n = text.length();
     int m = target.length();
 
-    for (int i = 0; i <= n - m; ) {
+    for (int i = 0; i + m - 1 <= n; ) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            i += m; 
+            i = i + m; 
         } else {
             i++; 
         }
