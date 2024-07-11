@@ -20,7 +20,4 @@ def add_numbers():
             print("Invalid input. Please enter a valid integer.")
 
     print(add(x, y))
-    break
-
-
-add_numbers()
+    return
