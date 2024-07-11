@@ -1,37 +1,34 @@
-#include <iostream>
-#include <string>
-
 int score(const std::string& s) {
     int totalScore = 0;
     int frame = 1;
-    int i = 0;
+    int bowlIndex = 0;
 
-    while (frame <= 10 && i < s.length()) {
-        if (s[i] == 'X') {
+    while (frame <= 10 && bowlIndex < s.size()) {
+        if (s[bowlIndex] == 'X') {
             totalScore += 10;
             if (frame < 10) {
-                totalScore += (s[i + 1] == 'X') ? 10 : (s[i + 1] - '0');
-                totalScore += (s[i + 2] == 'X') ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : (s[i + 2] - '0'));
+                totalScore += (s[bowlIndex + 1] == 'X') ? 10 : (isdigit(s[bowlIndex + 1]) ? (s[bowlIndex + 1] - '0') : 0);
+                totalScore += (s[bowlIndex + 2] == 'X') ? 10 : (s[bowlIndex + 2] == '/' ? (10 - (s[bowlIndex + 1] - '0')) : (isdigit(s[bowlIndex + 2]) ? (s[bowlIndex + 2] - '0') : 0));
             }
-            i++;
-        } else if (s[i + 1] == '/') {
-            totalScore += 10;
-            totalScore += (s[i + 2] == 'X') ? 10 : (s[i + 2] - '0');
-            i += 2;
-        } else {
-            totalScore += (s[i] == '-' ? 0 : (s[i] - '0'));
-            totalScore += (s[i + 1] == '-' ? 0 : (s[i + 1] == '/' ? 10 - (s[i] - '0') : (s[i + 1] - '0')));
-            i += 2;
+            bowlIndex += 1;
+            frame += 1;
+        } else if (isdigit(s[bowlIndex])) {
+            totalScore += (s[bowlIndex] - '0');
+            if (isdigit(s[bowlIndex + 1])) {
+                totalScore += (s[bowlIndex + 1] - '0');
+                if (s[bowlIndex + 2] == '/') {
+                    totalScore += (10 - (s[bowlIndex + 1] - '0'));
+                }
+            } else if (s[bowlIndex + 1] == '/') {
+                totalScore += 10;
+            }
+            bowlIndex += 2;
+            frame += 1;
+        } else if (s[bowlIndex] == '-') {
+            bowlIndex += 1;
+            frame += 1;
         }
-        frame++;
     }
 
     return totalScore;
-}
-
-int main() {
-    std::string s;
-    std::cin >> s;
-    std::cout << score(s) << std::endl;
-    return 0;
 }
