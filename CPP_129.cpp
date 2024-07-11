@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
 vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
     vector<vector<int>> dp(n, vector<int>(n));
@@ -39,9 +34,4 @@ vector<int> minPath(vector<vector<int>>& grid, int k) {
     }
     
     return res;
-}
-
-int main() {
-    // Input your code here.
-    return 0;
 }
