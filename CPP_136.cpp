@@ -1,13 +1,14 @@
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
+using namespace std;
 
 namespace MyNamespace {
-    bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
-        return std::equal(a.begin(), a.end(), b.begin());
+    bool isSame(const vector<int>& a, const vector<int>& b) {
+        return equal(a.begin(), a.end(), b.begin());
     }
 
-    std::vector<std::vector<int>> largest_smallest_integers(std::vector<int> lst) {
+    vector<vector<int>> largest_smallest_integers(vector<int> lst) {
         int max_negative = 0;
         int min_positive = INT_MAX;
 
@@ -19,6 +20,6 @@ namespace MyNamespace {
             }
         }
 
-        return {{std::max(max_negative, 0), std::min(min_positive, 1)}};
+        return {{max(max_negative, 0), min(min_positive, 1)}};
     }
 }
