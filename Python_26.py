@@ -1,16 +1,7 @@
-from typing import List
-
-
-def remove_duplicates(input_string: str) -> List[str]:
-    numbers = []
-    for s in input_string.split(','):
-        try:
-            numbers.append(s)
-        except ValueError:
-            pass
-    result = sorted(list(set(numbers)))
-    return result
-
-
-result = remove_duplicates(input("Enter a list of integers (comma separated): "))
-print(','.join(result))
+```
+input_string = input("Enter a list of integers (comma separated): ")
+try:
+    result = remove_duplicates(input_string)
+    print(','.join(map(str, result)))
+except ValueError as e:
+    print(f"Invalid input: {e}")
