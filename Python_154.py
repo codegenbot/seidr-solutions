@@ -1,2 +1,7 @@
-def cycpattern_check(a, b):
-    return a.find(b) != -1 or any(a.find(x + b) != -1 for x in range(len(b)))
+```
+def cycpattern_check(a , b):
+    for _ in range(len(b)):
+        if b in a:
+            return True
+        b = b[1:] + b[0]
+    return False
