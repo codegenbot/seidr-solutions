@@ -2,8 +2,6 @@
 #include <string>
 #include <cassert>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
-
 std::vector<std::string> all_prefixes(std::string str){
     std::vector<std::string> prefixes;
     std::string prefix = "";
@@ -14,7 +12,7 @@ std::vector<std::string> all_prefixes(std::string str){
     return prefixes;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b){
     return a == b;
 }
 
