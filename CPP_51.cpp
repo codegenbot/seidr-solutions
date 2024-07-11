@@ -1,19 +1,20 @@
 #include <iostream>
+#include <cctype>
 #include <string>
+
+using namespace std;
 
 string remove_vowels(string text){
     string result = "";
-    for(char c : text){
-        if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u' && 
-           tolower(c) != 'a' && tolower(c) != 'e' && tolower(c) != 'i' && 
-           tolower(c) != 'o' && tolower(c) != 'u')
+    for (char c : text) {
+        if (!strchr("aeiouAEIOU", tolower(c)) != NULL) {
             result += c;
+        }
     }
     return result;
 }
 
-int main(){
-    string output = remove_vowels("ybcd");
-    std::cout << output << std::endl;
+int main() {
+    assert(remove_vowels("ybcd") == "ybcd");
     return 0;
 }
