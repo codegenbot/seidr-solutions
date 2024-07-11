@@ -1,4 +1,7 @@
-#include <set>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
 
 vector<int> common(vector<int> l1, vector<int> l2) {
@@ -11,4 +14,19 @@ vector<int> common(vector<int> l1, vector<int> l2) {
 
     vector<int> result(intersection.begin(), intersection.end());
     return result;
+}
+
+int main() {
+    vector<int> v1 = {1, 4, 3, 34, 653, 2, 5};
+    vector<int> v2 = {5, 7, 1, 5, 9, 653, 121};
+
+    vector<int> commonElements = common(v1, v2);
+
+    cout << "Common elements: ";
+    for (int i : commonElements) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
