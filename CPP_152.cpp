@@ -7,10 +7,11 @@ int main() {
 }
 
 std::pair<int, int> issueSame(vector<int> a, vector<int> b) {
-    for (int i = 0; i < a.size(); ++i) {
+    int index = -1;
+    for (int i = 0; i < a.size() && i < b.size(); i++) {
         if (a[i] != b[i]) {
             return std::make_pair(i, i);
         }
     }
-    return std::make_pair(-1, -1);
+    return std::make_pair(index, index);
 }
