@@ -1,4 +1,4 @@
-#include <string>
+#include<string>
 using namespace std;
 
 bool is_nested(string str) {
@@ -6,6 +6,7 @@ bool is_nested(string str) {
     for (char c : str) {
         if (c == '[') open++;
         else if (c == ']') close++;
+        if (open > 0 && close > open) return true;
     }
-    return open > 0 && close > open;
+    return false;
 }

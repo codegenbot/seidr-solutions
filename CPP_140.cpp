@@ -1,17 +1,20 @@
+#include<string>
+using namespace std;
+
 string fix_spaces(string text){
-    string result = "";
+    string new_text = "";
     for(int i=0; i<text.length(); i++){
         if(text[i] == ' '){
             if(i+1 < text.length() && text[i+1] == ' '){
-                if(result.length() > 0 || i > 0) {
-                    result += '-';
+                if(new_text.length() > 0){
+                    new_text += "-";
                 }
             } else {
-                result += '_';
+                new_text += "_";
             }
         } else {
-            result += text[i];
+            new_text += text[i];
         }
     }
-    return result;
+    return new_text;
 }

@@ -1,18 +1,13 @@
-int prod_signs(vector<int> arr) {
-    int product = 1;
-    long long sum = 0;
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
 
-    for (int num : arr) {
-        if (num == 0) {
-            return 0;
-        }
-        product *= (num > 0 ? 1 : -1);
-        sum += abs(num);
+int prod_signs(vector<int> arr){
+    long long res = 1;
+    for(int x : arr){
+        if(x > 0)res *= 1;
+        else if(x < 0)res *=-1;
     }
-
-    if (arr.empty()) {
-        return -32768;
-    }
-
-    return product * sum;
+    return (arr.empty()) ? -32768 : abs(res);
 }
