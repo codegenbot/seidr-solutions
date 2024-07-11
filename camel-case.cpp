@@ -5,10 +5,13 @@ std::string camelCase(const std::string& input) {
 
     for (char c : input) {
         if (c == '-') {
-            output += toupper(c + 1);
-            firstWord = false;
+            if (!firstWord) {
+                output += toupper(c);
+            } else {
+                firstWord = false;
+            }
         } else if (c == ' ') {
-            firstWord = true;
+            continue;
         } else {
             if (!firstWord) {
                 output.push_back(tolower(c));
