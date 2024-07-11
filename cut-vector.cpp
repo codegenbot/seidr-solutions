@@ -9,8 +9,7 @@ int main() {
     vector<int> input;
     int num;
     
-    // Read input correctly
-    while (cin >> num) {
+    while (cin >> num || !cin.eof()) {
         input.push_back(num);
     }
 
