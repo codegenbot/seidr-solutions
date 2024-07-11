@@ -1,36 +1,27 @@
-#include <initializer_list>
-#define _MSC_VER 1900
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if(a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()))
-        return true;
-    else
-        return false;
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return (a.size() == b.size()) && equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<int> even_odd_count(int num) {
-    int count_even = 0, count_odd = 0;
-    std::string str_num = std::to_string(std::abs(num));
+pair<int, int> even_odd_count(int num) {
+    pair<int, int> result = {0, 0};
+    string str_num = to_string(abs(num));
     for (char c : str_num) {
         if ((c - '0') % 2 == 0)
-            ++count_even;
+            ++result.first;
         else
-            ++count_odd;
+            ++result.second;
     }
-    return {count_even, count_odd};
-}
-
-std::vector<int> even_odd_count(int num) {
-    int count_even = 0, count_odd = 0;
-    std::string str_num = std::to_string(std::abs(num));
-    for (char c : str_num) {
-        if ((c - '0') % 2 == 0)
-            ++count_even;
-        else
-            ++count_odd;
-    }
-    return {count_even, count_odd};
+    return result;
 }
 
 int main() {
-    assert(issame(even_odd_count(0), std::vector<int>{1, 0}));
+    assert(even_odd_count(0) == make_pair(1, 0));
+    return 0;
 }
