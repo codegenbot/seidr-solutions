@@ -1,5 +1,3 @@
-"Find the minimum sum of k-length paths from top-left to bottom-right in a grid where each cell contains an integer value. The path can move either down or right at each step." 
-
 ```
 n = int(input("Enter the size of the grid: "))
 k = int(input("Enter the value of k: "))
