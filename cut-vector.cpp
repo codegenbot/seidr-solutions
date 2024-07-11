@@ -3,35 +3,19 @@
 #include <vector>
 #include <algorithm>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
+std::pair<std::vector<int>, std::vector<int>> cutVector(std::vector<int> vec) {
     int minDiff = INT_MAX;
-    int splitIndex = -1;
+    int pos = 0;
 
-    for (int i = 0; i < vec.size() - 1; ++i) {
-        int leftSum = 0, rightSum = 0;
-        
-        for (int j = 0; j <= i; ++j)
-            leftSum += vec[j];
-        for (int j = i + 1; j < vec.size(); ++j)
-            rightSum += vec[j];
-
-        int diff = abs(leftSum - rightSum);
-        
+    for (int i = 1; i < vec.size(); ++i) {
+        int diff = abs(vec[i] - vec[i-1]);
         if (diff < minDiff) {
             minDiff = diff;
-            splitIndex = i;
+            pos = i;
         }
     }
 
-    std::vector<int> leftVec(0);
-    for (int i = 0; i <= splitIndex; ++i)
-        leftVec.push_back(vec[i]);
-    
-    std::vector<int> rightVec(0);
-    for (int i = splitIndex + 1; i < vec.size(); ++i)
-        rightVec.push_back(vec[i]);
-
-    return {leftVec, rightVec};
+    return {{vec.begin(), vec.begin() + pos}, {vec.begin() + pos, vec.end()}};
 }
 
 int main() {
@@ -42,7 +26,7 @@ int main() {
         std::cin >> vec[i];
     
     std::pair<std::vector<int>, std::vector<int>> res = cutVector(vec);
-    
+
     std::cout << "[";
     for (int num : res.first) {
         std::cout << num;
