@@ -1,30 +1,22 @@
-while True:
+```
+def filter_by_prefix(strings, prefix):
+    if not prefix:
+        return []
+    return [s for s in strings if s.startswith(prefix)]
+
+
+num_strings = None
+while num_strings is None:
     try:
-        while True:
-            num_strings = input("Enter number of strings (integer): ")
-            if num_strings.isdigit() and int(num_strings) > 0:
-                break
-            else:
-                print("Please enter a positive integer.")
+        num_strings = int(input("Enter number of strings (integer): "))
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
 
-        stored_strings = [input() for _ in range(int(num_strings))]
+stored_strings = [input() for _ in range(num_strings)]
 
-        while True:
-            prefix = input("Enter prefix (string): ")
-            try:
-                prefix = str(prefix)
-                filtered_strings = filter_by_prefix(
-                    [str(x) for x in stored_strings], prefix
-                )
-                if filtered_strings:
-                    print("\n".join(filtered_strings))
-                break
-            except Exception as e:
-                print(f"Invalid input. Please enter a string.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        answer = input("Do you want to continue (yes/no)? ")
-        if answer.lower() != "yes":
-            import sys
-
-            sys.exit()
+prefix = input("Enter prefix (string): ")
+filtered_strings = filter_by_prefix(stored_strings, prefix)
+if filtered_strings:
+    print("\n".join(filtered_strings))
+else:
+    print("No strings found with the given prefix.")
