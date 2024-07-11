@@ -1,10 +1,10 @@
 vector<string> words;
-    string word = "";
+    string word;
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
                 words.push_back(word);
-                word = "";
+                word.clear();
             }
         } else {
             word += c;
@@ -16,7 +16,7 @@ vector<string> words;
     if (words.empty()) {
         int count = 0;
         for (char c : txt) {
-            if (islower(c) && (c - 'a') % 2 != 0) {
+            if (islower(c) && (c - 'a') % 2 == 1) {
                 count++;
             }
         }
