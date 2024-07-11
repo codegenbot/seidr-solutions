@@ -7,11 +7,7 @@ int bowlingScore(std::string s) {
     for(int i = 0; i < s.size(); i++) {
         if(s[i] == '/') {
             if(roll < 2) {
-                if(roll == 1) {
-                    score += (10 - '0') * 10 + (s[i-1] - '0');
-                } else {
-                    score += (10 - '0') * 10;
-                }
+                score += (10 - '0') * 10 + (s[i-1] - '0');
             } else {
                 score += (10 - 'X') * 10;
             }
@@ -27,10 +23,10 @@ int bowlingScore(std::string s) {
 }
 
 int main() {
-    std::string input;
-    std::cout << "Enter the bowling string: ";
-    std::getline(std::cin, input);
-    int score = bowlingScore(input);
-    std::cout << "The total score is: " << score << "\n";
+    std::string s;
+    std::cout << "Enter a string representing the individual bowls in a 10-frame round of 10 pin bowling: ";
+    std::cin >> s;
+    int score = bowlingScore(s);
+    std::cout << "The score is: " << score << std::endl;
     return 0;
 }
