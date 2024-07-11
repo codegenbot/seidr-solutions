@@ -1,5 +1,6 @@
+```cpp
 #include <string>
-#include <cassert> 
+#include <cassert>
 using namespace std;
 
 string int_to_mini_romank(int n) {
