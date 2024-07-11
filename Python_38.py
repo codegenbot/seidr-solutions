@@ -1,3 +1,4 @@
+```
 def encode_cyclic(s: str):
     encoded = ""
     i = 0
@@ -10,7 +11,6 @@ def encode_cyclic(s: str):
             i += 1
     return encoded
 
-
 def decode_cyclic(s: str):
     decoded = ""
     i = 0
@@ -21,3 +21,4 @@ def decode_cyclic(s: str):
         else:
             decoded += s[i]
             i += 1
+    return decoded
