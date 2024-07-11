@@ -1,5 +1,9 @@
 ```
-import math
-
 def modp(n: int, p: int):
-    return pow(n, p-2, p)
+    res = 1
+    while p > 0:
+        if p & 1:
+            res = (res * n) % p
+        p //= 2
+        n = (n * n) % p
+    return res
