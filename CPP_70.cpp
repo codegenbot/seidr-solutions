@@ -1,4 +1,7 @@
 #include <vector>
+#include <algorithm>
+#include <cassert>
+
 using namespace std;
 
 bool same_vectors(const vector<int>& a, const vector<int>& b) {
@@ -15,7 +18,7 @@ vector<int> strange_sort_list(vector<int> lst) {
         if (!lst.empty()) {
             int max_val = *max_element(lst.begin(), lst.end());
             result.push_back(max_val);
-            auto new_end2 = remove(lst.rbegin(), lst.rend(), --max_val);
+            auto new_end2 = remove(lst.rbegin(), lst.rend(), --max_end);
             lst.erase(new_end2.base(), lst.end());
         }
     }
