@@ -1,12 +1,9 @@
 ```
-def coin_sums():
-    cents = int(input("Enter the number of cents: "))
+def coin_sums(cents):
     coins = [25, 10, 5, 1]
-    quarters = cents // 25
-    remaining = cents % 25
-    nickels = remaining // 5
-    remaining %= 5
-    dimes = remaining // 10
-    pennies = remaining % 10
-
-    return quarters, nickels, dimes, pennies
+    result = []
+    for coin in coins:
+        count = cents // coin
+        result.append(count)
+        cents %= coin
+    return tuple(result)
