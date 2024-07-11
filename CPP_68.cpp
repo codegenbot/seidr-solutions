@@ -2,7 +2,5 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    // Your implementation goes here
-
-    return false;
+    // function implementation goes here
 }
