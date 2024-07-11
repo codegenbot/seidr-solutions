@@ -1,15 +1,14 @@
-```
-def find_closest_elements():
-    def check(nums, target, left=0):
-        l = r = left
-        while l <= r:
-            m = (l+r)//2
-            if nums[m] == target:
-                return [nums[i-1], nums[i+1]] if i > 0 else [-float('inf'), nums[i+1]]
-                return [nums[i-1], nums[i+1]] if i < len(nums) - 1 else [nums[i-1], nums[i+1] or [nums[0], nums[-1]]
-            elif target < nums[m]:
-                r = m - 1
-            else:
-                l = m + 1
-        return [target, target]
-    pass
+def find_closest_elements(input_str): 
+    try: 
+        numbers = [float(num) for num in input_str.split(",")]
+        min_diff = float("inf")
+        closest_pair = ()
+        for i in range(len(numbers)):
+            for j in range(i + 1, len(numbers)):
+                diff = abs(numbers[j] - numbers[i])
+                if diff < min_diff:
+                    min_diff = diff
+                    closest_pair = (numbers[i], numbers[j])
+        return closest_pair
+    except ValueError:
+        print("Invalid input. Please enter a comma-separated list of numbers.")
