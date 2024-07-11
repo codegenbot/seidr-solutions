@@ -22,11 +22,7 @@ void solve_problem() {
     }
 }
 
-void contest_main() {
-    solve_problem();
-}
-
 int main() {
-    contest_main();
+    solve_problem();
     return 0;
 }
