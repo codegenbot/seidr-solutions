@@ -1,6 +1,5 @@
-def add_and_display(x, y):
-    result = x + y
-    print(f"The sum of {x} and {y} is {result}")
+def add(x, y):
+    return x + y
 
 while True:
     try:
@@ -18,4 +17,4 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
 
-add_and_display(x, y)
+print(add(x, y))
