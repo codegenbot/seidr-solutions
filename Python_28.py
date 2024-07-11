@@ -1,4 +1,5 @@
-```
+from typing import list
+
 def concatenate(strings: list) -> str:
     if not strings:
         return ""
