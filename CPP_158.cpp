@@ -8,7 +8,7 @@ std::string find_max(std::vector<std::string> words) {
     int max_unique_chars = 0;
 
     for (const auto& word : words) {
-        set<char> unique_chars;
+        std::set<char> unique_chars;
         for (char c : word) {
             unique_chars.insert(c);
         }
@@ -23,8 +23,4 @@ std::string find_max(std::vector<std::string> words) {
     return result;
 }
 
-int main2() {
-    std::vector<std::string> words = {"play", "play", "play"};
-    std::cout << find_max(words) << std::endl;
-    return 0;
-}
+std::cout << find_max({"play", "play", "play"}) << std::endl;
