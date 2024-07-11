@@ -6,7 +6,7 @@
 std::vector<std::string> split(const std::string& s, char c) {
     std::vector<std::string> result;
     size_t prev = 0, next = s.find(c);
-    while (next != std::string::npos) {
+    while (next != stdstring::npos) {
         result.push_back(s.substr(prev, next - prev));
         prev = next + 1;
         next = s.find(c, prev);
