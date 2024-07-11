@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+using namespace std;
 
 int smallest_change(std::vector<int> arr) {
     int min = INT_MAX;
@@ -7,4 +9,9 @@ int smallest_change(std::vector<int> arr) {
             min = i;
     }
     return min;
+}
+
+int main() {
+    assert(smallest_change({0, 1}) == 1);
+    return 0;
 }
