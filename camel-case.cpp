@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -16,8 +17,8 @@ std::vector<std::string> split(const std::string& s, char c) {
 }
 
 std::string camelCase(const std::string& s) {
-    if (s.empty()) {
-        return "";
+    if (s.find(' ') == std::string::npos && !s.empty()) {
+        return std::string(1, std::tolower(s[0])) + s.substr(1);
     }
 
     std::vector<std::string> groups;
