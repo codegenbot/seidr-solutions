@@ -1,7 +1,9 @@
-sort(numbers.begin(), numbers.end());
-for (int i = 1; i < numbers.size(); i++) {
-    if (abs(numbers[i] - numbers[i - 1]) < threshold) {
-        return true;
+for (int i = 0; i < numbers.size(); ++i) {
+        for (int j = i + 1; j < numbers.size(); ++j) {
+            if (fabs(numbers[i] - numbers[j]) < threshold) {
+                return true;
+            }
+        }
     }
+    return false;
 }
-return false;
