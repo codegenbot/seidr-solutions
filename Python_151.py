@@ -1,4 +1,4 @@
-```
-def check(func):
-    result = func([1, 2, -3, 4, 5])
-    print("The sum of squares is", result)
+def check():
+    n = int(input("Enter the number of elements: "))
+    input_list = [int(input(f"Enter element {i+1}: ")) for i in range(n)]
+    print(check(double_the_difference(input_list)))
