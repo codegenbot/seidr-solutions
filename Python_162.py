@@ -6,11 +6,11 @@ def string_to_md5(text):
     return None
 
 text = input("Enter input: ").strip()
-if all(ord(char) < 128 for char in text):
+if all(ord(char) < 128 and ord(char) > 31 for char in text):
     md5_hash = string_to_md5(text)
     if md5_hash:
         print("MD5 Hash:", md5_hash)
     else:
         print("Error: Unable to generate MD5 hash")
 else:
-    print("Error: Input should contain only ASCII characters")
+    print("Error: Input should contain only visible ASCII characters")
