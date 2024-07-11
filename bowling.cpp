@@ -4,10 +4,9 @@
 int main() {
     std::string s;
     std::cin >> s;
-
     int total = 0;
     int frame = 0;
-
+    
     for (int i = 0; i < s.size(); i++) {
         if (s[i] == 'X') {
             total += 10;
@@ -31,8 +30,8 @@ int main() {
             frame++;
         }
     }
-
+    
     std::cout << total << std::endl;
-
+    
     return 0;
 }
