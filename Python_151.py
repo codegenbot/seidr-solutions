@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 def calculate_difference():
     def double_the_difference(lst):
         lst.sort()
