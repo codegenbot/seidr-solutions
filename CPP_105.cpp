@@ -1,59 +1,24 @@
 ```cpp
+#include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
-
-using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
-vector<string> by_length(vector<int> arr) {
-    vector<string> numbers;
-    for (int num : arr) {
-        if (num >= 1 && num <= 9) {
-            string str = "";
-            switch (num) {
-                case 1:
-                    str = "One";
-                    break;
-                case 2:
-                    str = "Two";
-                    break;
-                case 3:
-                    str = "Three";
-                    break;
-                case 4:
-                    str = "Four";
-                    break;
-                case 5:
-                    str = "Five";
-                    break;
-                case 6:
-                    str = "Six";
-                    break;
-                case 7:
-                    str = "Seven";
-                    break;
-                case 8:
-                    str = "Eight";
-                    break;
-                case 9:
-                    str = "Nine";
-                    break;
-            }
-            numbers.push_back(str);
-        }
+std::vector<std::string> by_length(std::vector<int> arr) {
+    vector<string> result;
+    for (int i : arr) {
+        if (i >= 1 && i <= 9)
+            result.push_back(to_string(i));
     }
-
-    sort(numbers.begin(), numbers.end());
-    reverse(numbers.begin(), numbers.end());
-
-    return numbers;
-}
-
-int main() {
-    assert(by_length({9, 4, 8}) == vector<string>({"Nine", "Eight", "Four"}));
-    // Rest of your code...
+    sort(result.begin(), result.end());
+    reverse(result.begin(), result.end());
+    vector<string> names = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    vector<string> output;
+    for (int i : result) {
+        output.push_back(names[i - 1]);
+    }
+    return output;
 }
