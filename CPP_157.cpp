@@ -21,4 +21,3 @@ int main() {
         cout << "The triangle is right-angled." << endl;
     else
         cout << "The triangle is not right-angled." << endl;
-}
