@@ -1,5 +1,5 @@
-```
-def decode_shift(s: str):
+def decode_shift():
+    s = input("Enter the encoded string: ")
     if s.startswith("25-"):
         shift = int(s[3:])
         s = s[4:]
@@ -15,12 +15,13 @@ def decode_shift(s: str):
                 print("Invalid input. Please enter a number between 1 and 25.")
             except ValueError:
                 print("Invalid input. Please enter a number.")
+
     result = ""
     for ch in s:
         if "a" <= ch <= "z":
-            result += chr((ord(ch) - ord("a") + shift) % 26 + ord("a"))
+            result += chr((ord(ch) - ord('a') + shift) % 26 + ord('a'))
         elif "A" <= ch <= "Z":
-            result += chr((ord(ch) - ord("A") + shift) % 26 + ord("A"))
+            result += chr((ord(ch) - ord('A') + shift) % 26 + ord('A'))
         else:
             result += ch
     return result
