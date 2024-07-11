@@ -14,7 +14,7 @@ int main() {
     std::unordered_map<int, int> mp;
     for (int i = 0; i < n; ++i) {
         if (mp.find(target - nums[i]) != mp.end() && mp[target - nums[i]] != i) {
-            if(nums[i] < target - nums[i]){
+            if(nums[i] <= target - nums[i]){
                 std::cout << nums[i] << std::endl;
                 std::cout << target - nums[i] << std::endl;
             } else {
