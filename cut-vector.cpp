@@ -1,23 +1,19 @@
 #include <iostream>
 #include <vector>
-#include <climits>
 #include <cmath>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
-    int num;
-    while (cin >> num && !cin.eof()) {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int num;
+        cin >> num;
         nums.push_back(num);
     }
 
-    if (nums.empty()) {
-        cout << "Input vector is empty" << endl;
-        return 0;
-    }
-
-    int n = nums.size();
     int sum = 0;
     for (int i = 0; i < n; i++) {
         sum += nums[i];
