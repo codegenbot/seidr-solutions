@@ -12,5 +12,3 @@ def sort_array(user_input=None):
     else:
         median = (sorted_array[n//2 - 1] + sorted_array[n//2]) / 2.0
         return [[median]]
-
-sort_array([21, 14, 23, 11])
