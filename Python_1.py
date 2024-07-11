@@ -21,3 +21,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     stack.pop()
                 if not stack and {')': ')', ']': '[', '}': '{'}[char] == {')': ')', ']': '[', '}': '{'}['({'.index(top)]:
                     result.append(groups.pop().lstrip().rstrip())
+    return result
