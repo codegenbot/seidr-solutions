@@ -1,10 +1,10 @@
-#include <boost/any.hpp>
+#include <boost/variant.hpp>
 #include <string>
 #include <iostream>
 
 using namespace boost;
 
-boost::any compare_one(boost::any a, boost::any b) {
+boost::variant<int, double, std::string> compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
         return b;
     }
@@ -22,7 +22,7 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any(any_cast<double>("None"));
+            return std::string("None");
         }
     }
     else if ((a.type() == typeid(double) && b.type() == typeid(std::string)) || 
@@ -37,9 +37,9 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any(any_cast<double>("None"));
+            return std::string("None");
         }
     }
 
-    return boost::any();
+    return boost::variant<int, double, std::string>();
 }
