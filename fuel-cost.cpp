@@ -1,7 +1,3 @@
-```cpp
-#include <vector>
-#include <cmath>
-
 int calculateFuelCost(vector<int> numbers) {
     int total = 0;
     for (int number : numbers) {
