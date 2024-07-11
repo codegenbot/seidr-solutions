@@ -1,22 +1,12 @@
+```
 def bf(planet1, planet2):
-    planets = [
-        "Mercury",
-        "Venus",
-        "Earth",
-        "Mars",
-        "Jupiter",
-        "Saturn",
-        "Uranus",
-        "Neptune",
-    ]
+    planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
     index1 = planets.index(planet1)
-    index2 = planets.index(planet2)
-
-    if index1 < 0 or index2 < 0:
+    if index1 == -1:
         return ()
-
-    result = tuple(
-        [planets[i] for i in range(min(index1, index2), max(index1, index2))]
-    )
-
-    return result
+    index2 = planets.index(planet2)
+    if index2 == -1:
+        return ()
+    start_index = max(index1, 0)
+    end_index = min(index2 + 1, len(planets))
+    return tuple(planets[i] for i in range(start_index, end_index))
