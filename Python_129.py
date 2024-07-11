@@ -17,4 +17,4 @@ def minPath(grid, k):
             dfs(i, j, [grid[i][j]])
 
     assert any(len(p) == k for p in res), f"Expected at least one path of length {k}"
-    return res
+    return sorted(res)[0]
