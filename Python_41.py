@@ -1,4 +1,4 @@
-import math
-
-def car_race_collision(n: int):
-    return math.factorial(2*n) // (math.factorial(n)*math.factorial(n))
+```
+def car_race_collision():
+    n = int(input("Enter the number of cars: "))
+    return n*(n-1)
