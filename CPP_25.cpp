@@ -14,12 +14,12 @@ vector<int> factorize(int n){
     return factors;
 }
 
-int main(){
-    // Test the factorize function
-    int num = 60;
-    vector<int> result = factorize(num);
-    for(int i=0; i<result.size(); i++){
-        cout << result[i] << " ";
+int main() {
+    int n;
+    cin >> n;
+    vector<int> factors = factorize(n);
+    for(auto factor : factors){
+        cout << factor << " ";
     }
     return 0;
 }
