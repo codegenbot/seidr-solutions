@@ -24,12 +24,13 @@ int main() {
     int num;
     while (cin >> num) {
         nums.push_back(num);
+        if(cin.peek() == '\n') break; // Stop reading input when encountering newline
     }
-    if (cin.eof()) {
-        vector<int> result = findLeaders(nums);
-        for (int i : result) {
-            cout << i << " ";
-        }
+    
+    vector<int> result = findLeaders(nums);
+    for (int i : result) {
+        cout << i << " ";
     }
+    
     return 0;
 }
