@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 
@@ -22,17 +21,14 @@ int main(){
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
     
-    std::string processedInput = input;
-    while (!processedInput.empty() && processedInput.back() == '\n') {
-        processedInput.pop_back();
+    if (input.length() > 1) {
+        bool result = is_palindrome(input);
+        
+        if(result)
+            std::cout << input << " is a palindrome.";
+        else
+            std::cout << input << " is not a palindrome.";
     }
-    
-    bool result = is_palindrome(processedInput);
-    
-    if(result)
-        std::cout << processedInput << " is a palindrome.";
-    else
-        std::cout << processedInput << " is not a palindrome.";
     
     return 0;
 }
