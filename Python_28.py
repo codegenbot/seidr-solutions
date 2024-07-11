@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -9,7 +10,7 @@ if __name__ == "__main__":
     strings = []
     while True:
         user_input = input("Enter a string (or 'stop' to finish): ")
-        if user_input.lower() == "stop":
+        if user_input.lower() == 'stop':
             break
         strings.append(user_input)
     print(concatenate(strings))
