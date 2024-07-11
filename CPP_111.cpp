@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <map>
 #include <cassert>
 
@@ -8,8 +9,12 @@ bool issame(const std::map<char, int>& a, const std::map<char, int>& b){
 
 std::map<char, int> histogram(std::string test) {
     std::map<char, int> result;
-    for (char c : test) {
-        result[c]++;
+    std::istringstream iss(test);
+    std::string word;
+    while (iss >> word) {
+        for (char c : word) {
+            result[c]++;
+        }
     }
     
     int maxCount = 0;
@@ -20,7 +25,7 @@ std::map<char, int> histogram(std::string test) {
     std::map<char, int> mostRepeatedChars;
     for (const auto& entry : result) {
         if (entry.second == maxCount) {
-            mostRepeatedChars.insert(entry);
+            mostRepeatedChars[entry.first] = entry.second;
         }
     }
     
