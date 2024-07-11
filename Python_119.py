@@ -1,22 +1,16 @@
-```
+```python
 def match_parens(lst):
     stack = []
     for s in lst:
-        open_count = 0
-        close_count = 0
         for c in s:
-            if c == "(":
+            if c == '(':
                 stack.append(c)
-                open_count += 1
-            elif c == ")":
-                if len(stack) > 0:
-                    stack.pop()
-                    close_count += 1
+            elif c == ')':
+                if len(stack) == 0:
+                    return 'No'
                 else:
-                    return "No"
-        if open_count != close_count:
-            return "No"
+                    stack.pop()
     if len(stack) == 0:
-        return "Yes"
+        return 'Yes'
     else:
-        return "No"
+        return 'No'
