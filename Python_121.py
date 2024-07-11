@@ -1,21 +1,16 @@
-```Python
 def solution(lst):
     try:
-        lst = list(map(int, lst))
+        lst = list(map(int, input().split()))
+        
     except ValueError:
-        return "Invalid input. Please enter integers only."
-    
+        return "Invalid input. Please enter three integers separated by spaces."
+
     if len(lst) < 3:
         return "Invalid input. Please provide at least three numbers."
+    
     if not all(isinstance(num, int) for num in lst[:2]):
         return "First two numbers must be integers."
 
     if not lst:
         return 0
     return sum(1 for _ in lst[::2]) / len(lst)
-
-while True:
-    user_input = input().split()
-    if user_input[0].lower() == 'q':
-        break
-    print(solution(list(map(int, user_input))))
