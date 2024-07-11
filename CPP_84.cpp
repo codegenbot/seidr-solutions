@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <bitset>
-#include <cassert>  // Include assert header
+#include <cassert>
 
 std::string solve(int N) {
     int sum = 0;
