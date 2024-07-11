@@ -5,10 +5,9 @@ def is_palindrome(string: str) -> bool:
 
 def make_palindrome(string: str) -> str:
     if is_palindrome(string):
-        return string + string[::-1]
+        return string + string
     else:
-        reversed_string = string[::-1]
-        for i in range(len(reversed_string)):
-            new_string = string + str(i+1) * (len(reversed_string) - len(string)) + reversed_string
-            if is_palindrome(new_string):
-                return new_string
+        half = len(string) // 2
+        prefix = string[:half][::-1]
+        postfix = string[half:][::-1]
+        return prefix + string + postfix
