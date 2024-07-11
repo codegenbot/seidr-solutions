@@ -1,2 +1,4 @@
-sort(arr.begin(), arr.end(), greater<int>());
-return vector<int>(arr.begin(), arr.begin() + k);
+sort(arr.begin(), arr.end());
+    vector<int> result(arr.end() - k, arr.end());
+    return result;
+}
