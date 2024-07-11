@@ -1,10 +1,11 @@
 def find_closest_elements() -> tuple:
     numbers = []
-
-    while len(numbers) < 2:
+    
+    while True:
         try:
             num = float(input("Enter a number: "))
             numbers.append(num)
+            break
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
