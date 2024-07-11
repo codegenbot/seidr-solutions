@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 int main() {
     std::string s = "INSERT_INPUT_STRING_HERE"; // Initialize s with your input string
     int total = 0;
