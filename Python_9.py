@@ -1,4 +1,4 @@
-from typing import List
+from typing import list
 
 def rolling_max(numbers: list) -> list:
     result = []
