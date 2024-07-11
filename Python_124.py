@@ -1,5 +1,4 @@
-Here is the corrected code:
-
+```
 def valid_date(date):
     day, month, year = date.split('-')
     if len(day) == 1:
