@@ -1,12 +1,19 @@
-```
 def hex_key(num):
-    primes = set([2, 3, 5, 7, 11, 13, 17])
+    primes = {'B': '11', 'D': '13'}
     count = 0
-    for digit in num.upper():
-        if digit.isdigit():
-            if int(digit) in primes:
-                count += 1
-        elif 'A' <= digit <= 'F':
-            if int(digit, 16) in primes:
+    for char in num:
+        if char.upper() in primes:
+            count += 1
+        elif char.isdigit():
+            num = int(char, 16)
+            if is_prime(num):
                 count += 1
     return count
+
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
