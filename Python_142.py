@@ -2,8 +2,8 @@
 def sum_squares(lst):
     total = 0
     for num in lst:
-        if num % 4 == 0 and num % 6 == 0:
+        if num % 4 == 0 and (num % 2 == 0 and num % 3 != 0) or (num % 6 == 0):
             total += num**2
-        else:
-            total += num
-    return total```
+        elif num % 4 == 0 and num % 6 != 0: 
+            total += num**3
+    return total
