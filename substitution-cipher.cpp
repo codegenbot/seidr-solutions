@@ -9,9 +9,9 @@ void decipherMessage() {
     cin >> cipher1 >> cipher2 >> message;
 
     for (char &c : message) {
-        size_t index = cipher1.find(c);
-        if (index != string::npos) {
-            c = cipher2[index];
+        size_t index = cipher2.find(c);
+        if (index < cipher1.size()) {
+            c = cipher1[index];
         }
     }
 
