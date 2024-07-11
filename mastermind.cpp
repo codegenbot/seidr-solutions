@@ -1,38 +1,28 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
+int solve(string &code, string &guess) {
+    int white = 0;
+    int black = 0;
+
+    vector<int> color_count(6, 0);
+    for (char c : code) {
+        color_count[c - 'A']++;
+    }
+
     for (int i = 0; i < 4; ++i) {
         if (code[i] == guess[i]) {
-            count++;
+            black++;
+            color_count[guess[i] - 'A']--;
+        } else {
+            int count = 0;
+            char c = guess[i];
+            for (int j = 0; j < 4; ++j) {
+                if (code[j] == c && c != code[i]) {
+                    count++;
+                    color_count[c - 'A']--;
+                }
+            }
+            white += count;
         }
     }
-    return count;
-}
 
-int blackPegs(string code, string guess) {
-    int count = 0;
-    for (char c : code) {
-        if (countFirstOccurrence(c, guess) != -1) {
-            count++;
-            guess[countFirstOccurrence(c, guess)] = '-'; // mark the found peg
-        }
-    }
-    return count;
-}
-
-int countFirstOccurrence(char c, string s) {
-    for (int i = 0; i < 4; ++i) {
-        if (s[i] == c) {
-            return i;
-        }
-    }
-    return -1;
-}
-
-int main() {
-    string code, guess;
-    cin >> code >> guess;
-    int white = whitePegs(code, guess);
-    int black = blackPegs(code, guess);
-    cout << white << endl << black << endl;
-    return 0;
+    return make_pair(white, black).second;
 }
