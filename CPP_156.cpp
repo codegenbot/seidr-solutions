@@ -1,4 +1,4 @@
-```c
+```c++
 #include <vector>
 #include <string>
 
@@ -17,12 +17,11 @@ string int_to_roman(int number) {
         }
     }
     return roman;
-
 }
 
 int main() {
     int number;
-    cin >> number;
-    cout << int_to_roman(number) << endl;
+    cin >> number; 
+    cout << int_to_roman(number) << endl; 
     return 0;
 }
