@@ -8,11 +8,11 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-    char c;
     
     while (cin >> num) {
-        nums.push_back(num);
-        if (cin.get(c) && c == '\n') {
+        if (!cin.eof()) {
+            nums.push_back(num);
+        } else {
             break;
         }
     }
@@ -23,11 +23,12 @@ int main() {
     
     for (int i = 1; i < n; ++i) {
         int leftSum = 0, rightSum = 0;
-        for (int j = 0; j < i; ++j) {
-            leftSum += nums[j];
-        }
-        for (int j = i; j < n; ++j) {
-            rightSum += nums[j];
+        for (int j = 0; j < n; ++j) {
+            if (j < i) {
+                leftSum += nums[j];
+            } else {
+                rightSum += nums[j];
+            }
         }
         
         int currentDiff = abs(leftSum - rightSum);
@@ -38,11 +39,11 @@ int main() {
     }
     
     for (int i = 0; i < cutIndex; ++i) {
-        cout << nums[i] << endl;
+        cout << nums[i] << " ";
     }
     cout << endl;
     for (int i = cutIndex; i < n; ++i) {
-        cout << nums[i] << endl;
+        cout << nums[i] << " ";
     }
     
     return 0;
