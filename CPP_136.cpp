@@ -3,7 +3,6 @@
 #include <climits>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b);
 std::vector<int> largest_smallest_integers(std::vector<int> lst);
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -31,12 +30,9 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> test_lst = {5, -3, 2, -8, 9};
-    std::vector<int> expected_result = {-3, 2};
-    
-    std::vector<int> result = largest_smallest_integers(test_lst);
-    
-    assert(issame(result, expected_result));
-    
+    assert(issame(largest_smallest_integers({1, -4, 3, -2, 5}), { -2, 1}));
+    assert(issame(largest_smallest_integers({-1, -6, -3, -2, -5}), {-2, 0}));
+    assert(issame(largest_smallest_integers({1, 6, 3, 2, 5}), {0, 1}));
+
     return 0;
 }
