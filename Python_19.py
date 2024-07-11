@@ -8,21 +8,24 @@ def solve(num1, num2):
 
 
 def check(func):
-    num1 = int(input("Enter first number: "))
-    num2 = int(input("Enter second number: "))
-
-    result = func(num1, num2)
+    result = func(
+        int(input("Enter first number: ")), int(input("Enter second number: "))
+    )
 
     if result == "Greater":
-        print(f"{num1} is greater than {num2}")
+        print(f"First number is greater than second number")
     elif result == "Less":
-        print(f"{num1} is less than {num2}")
+        print(f"First number is less than second number")
     else:
-        print(f"{num1} is equal to {num2}")
+        print(f"Both numbers are equal")
 
 
 def main():
-    check(solve)
+    while True:
+        check(solve)
+        choice = input("Do you want to compare more numbers? (y/n): ")
+        if choice.lower() != "y":
+            break
 
 
 main()
