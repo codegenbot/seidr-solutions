@@ -1,29 +1,38 @@
-#include <string>
-using namespace std;
-
-vector<int> mastermindCodeMaster(string code, string guess) {
-    vector<int> result(2);
-    int black = 0;
-    int white = 0;
-
-    for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            ++black;
+int whitePegs(string mastermindCode, string guess) {
+    int count = 0;
+    for(int i = 0; i < 4; i++) {
+        if(mastermindCode[i] == guess[i]) {
+            count++;
         }
     }
+    return count;
+}
 
-    for (char c : code) {
-        int count = 0;
-        for (char d : guess) {
-            if (c == d && code.find(d) != string::npos) {
-                ++count;
+int blackPegs(string mastermindCode, string guess) {
+    int count = 0;
+    for(int i = 0; i < 4; i++) {
+        bool found = false;
+        for(int j = 0; j < 4; j++) {
+            if(guess[j] == mastermindCode[i] && i != j) {
+                found = true;
+                break;
             }
         }
-        white += min(count, 1);
+        if(!found) {
+            count++;
+        }
     }
+    return count;
+}
 
-    result[0] = 4 - black; // White pegs
-    result[1] = black; // Black pegs
-
-    return result;
+int main() {
+    string mastermindCode, guess;
+    cout << "Enter the Mastermind code: ";
+    cin >> mastermindCode;
+    cout << "Enter the guess: ";
+    cin >> guess;
+    int black = blackPegs(mastermindCode, guess);
+    int white = 4 - black;
+    cout << white << "\n" << black << endl;
+    return 0;
 }
