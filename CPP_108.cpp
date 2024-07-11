@@ -1,22 +1,20 @@
-#include <vector>
-#include <algorithm>
-
-int count_nums(const vector<int>& n) {
+int count_nums(vector<int> nums) {
     int count = 0;
-    for (const auto& num : n) {
-        int sum = 0;
-        bool sign = true;
-        if (num < 0) {
-            sign = false;
-            num = -num;
-        }
-        while (num > 0) {
-            int digit = num % 10;
-            sum += digit;
-            num /= 10;
-        }
-        if ((sign && sum > 0) || (!sign && sum > 0)) {
-            count++;
+    for (int num : nums) {
+        if (abs(num) > 0) {
+            bool has_positive_sum_of_digits = false;
+            long absNum = abs(num);
+            while (absNum > 0) {
+                long digit = absNum % 10;
+                if (digit != 0 || digit == -1) {
+                    has_positive_sum_of_digits = true;
+                    break;
+                }
+                absNum /= 10;
+            }
+            if (has_positive_sum_of_digits) {
+                count++;
+            }
         }
     }
     return count;
