@@ -1,6 +1,4 @@
+```
 def main():
     n = int(input("Enter a positive integer: "))
-    result = ''
-    for i in str(n):
-        result += str(int(i) ** 2)
-    print(result)
+    return "".join(str(int(i) ** 2) for i in str(n))
