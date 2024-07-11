@@ -1,5 +1,5 @@
 #include <vector>
-#include <cassert> 
+#include <cassert>
 using namespace std;
 
 bool issame(vector<int> a,vector<int>b){
@@ -26,16 +26,9 @@ vector<int> even_odd_count(int num) {
 
 int main() {
     assert(issame(even_odd_count(0), vector<int>{1,0}));
-    
     int n; 
     cin >> n;
-
-    if (n < 0) {
-        cout << "Please enter a non-negative integer." << endl;
-    } else {
-        vector<int> result = even_odd_count(n);
-        cout << "Even count: " << result[0] << ", Odd number: " << result[1] << endl;
-    }
-
-    return 0;
+    vector<int> eoc = even_odd_count(n);
+    cout << "Even digits: " << eoc[0] << endl;
+    cout << "Absolute value of odd digits: " << eoc[1] << endl;
 }
