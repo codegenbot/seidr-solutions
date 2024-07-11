@@ -1,4 +1,3 @@
-```
 import math
 
 
@@ -17,11 +16,8 @@ def find_zero(xs):
     return round(x, 2)
 
 
-while True:
-    try:
-        xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
-        if len(xs) > 0:
-            print(find_zero(xs))
-            break
-    except ValueError:
-        print("Invalid input. Please enter only numbers separated by spaces.")
+xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
+while any(not isinstance(i, (int, float)) for i in xs):
+    print("Invalid input. Please enter only numbers separated by spaces.")
+    xs = list(map(float, input("Enter coefficients (space-separated): ").split())
+print(find_zero(xs))
