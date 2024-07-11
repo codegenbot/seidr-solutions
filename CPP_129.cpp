@@ -1,48 +1,36 @@
 #include <iostream>
 #include <vector>
-#include <queue>
-#include <algorithm>
-
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
+    vector<int> res;
     int n = grid.size();
-    vector<vector<pair<int, int>>> graph(n);
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            if (i > 0) {
-                graph[i].push_back({grid[i-1][j], i-1, j});
-            }
-            if (i < n - 1) {
-                graph[i].push_back({grid[i+1][j], i+1, j});
-            }
-            if (j > 0) {
-                graph[i].push_back({grid[i][j-1], i, j-1});
-            }
-            if (j < n - 1) {
-                graph[i].push_back({grid[i][j+1], i, j+1});
+            if (res.size() < k) {
+                res.push_back(grid[i][j]);
+                if (res.size() == k) break;
+            } else {
+                int max_val = -1;
+                for (int x = i - 1; x <= i + 1 && x >= 0 && x < n; ++x) {
+                    for (int y = j - 1; y <= j + 1 && y >= 0 && y < n; ++y) {
+                        if (x == i && y == j) continue;
+                        if (grid[x][y] > max_val) max_val = grid[x][y];
+                    }
+                }
+                res.push_back(max_val);
             }
         }
     }
+    return res;
+}
 
-    vector<int> res;
-    priority_queue<pair<vector<int>, int>, vector<pair<vector<int>, int>>, greater<pair<vector<int>, int>>> pq;
-    pq.push({vector<int>(), 0});
-
-    while (!pq.empty()) {
-        auto [path, step] = pq.top();
-        pq.pop();
-
-        if (step == k) {
-            return path;
-        }
-
-        for (auto &[val, i, j] : graph[i]) {
-            vector<int> newPath = path;
-            newPath.push_back(val);
-            pq.push({newPath, step + 1});
-        }
+int main() {
+    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int k = 3;
+    vector<int> result = minPath(grid, k);
+    for (auto val : result) {
+        cout << val << " ";
     }
-
-    return {};
+    return 0;
 }
