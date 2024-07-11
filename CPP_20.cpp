@@ -10,5 +10,5 @@ std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> nu
             closest_pair = std::make_pair(numbers[i], numbers[i + 1]);
         }
     }
-    return {std::pair<float, float>(closest_pair.first, numbers.back())};
+    return {closest_pair};
 }
