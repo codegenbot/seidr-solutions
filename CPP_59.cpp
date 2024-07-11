@@ -1,10 +1,7 @@
-int i = 2;
-    while (i * i <= n) {
-        if (n % i == 0) {
+int i;
+    for(i = 2; i <= n/i; i++){
+        while(n % i == 0)
             n /= i;
-        } else {
-            i++;
-        }
     }
     return n;
 }
