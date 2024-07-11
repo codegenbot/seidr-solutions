@@ -1,4 +1,3 @@
-```
 def find_closest_elements():
     try:
         num_str = input("Enter a comma-separated list of numbers: ")
