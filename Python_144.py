@@ -10,7 +10,7 @@ def is_valid_fraction(fraction):
     return numerator != 0 and denominator != 0
 
 
-def main():
+def simplify():
     print("Do you want to enter a number or a fraction for x? (1/1 or num): ")
     while True:
         choice = input().lower()
@@ -43,6 +43,8 @@ def main():
                         simplified_sum_num = sum_num // common_divisor
                         simplified_sum_denom = sum_denom // common_divisor
                         print(f"Sum: {simplified_sum_num}/{simplified_sum_denom}")
+                        break
+
         elif choice == "1/1" or choice == "fraction":
             a, b = map(int, input("Enter the fraction x (in the format 'a/b'): ").split("/"))
             if is_valid_fraction(str(a) + "/" + str(b)):
@@ -74,5 +76,7 @@ def main():
                             simplified_sum_num = sum_num // common_divisor
                             simplified_sum_denom = sum_denom // common_divisor
                             print(f"Sum: {simplified_sum_num}/{simplified_sum_denom}")
+                            break
+
         else:
             print("Invalid input. Please enter 'num' or '1/1' to continue.")
