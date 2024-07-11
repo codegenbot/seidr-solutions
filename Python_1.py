@@ -1,4 +1,3 @@
-```
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
     stack = []
@@ -9,10 +8,9 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if char in ['(', '[', '{']:
             stack.append(char)
             groups.append('')
-        elif char in {')': ')', ']': '[', '}': '{'}[char]:
+        elif char in [')', ']', '}']:
             if stack:
                 top = stack.pop()
                 groups[-1] += char
-                if not stack and ({')': '(', ']': '[', '}': '{'}.get(char) == top):
+                if not stack and char in [')', '}']:
                     result.append(groups.pop().lstrip().rstrip())
-    return result
