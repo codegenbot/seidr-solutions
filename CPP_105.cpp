@@ -1,7 +1,6 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
 
 bool issame(int a, int b) {
     // Some logic here if needed
@@ -71,10 +70,8 @@ int main() {
             std::cout << "Invalid input. Please enter numbers between 1 and 9: ";
         }
         
-        vector<string> output = by_length({a});
-        for(string str : output) {
-            std::cout << str << endl;
-        }
+        arr.push_back(a);
+        by_length(arr);
     }
     
     return 0; 
