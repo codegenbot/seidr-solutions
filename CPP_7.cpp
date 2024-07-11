@@ -1,26 +1,43 @@
-```cpp
 #include <vector>
 #include <string>
+#include <algorithm>
 
-bool issame(vector<string> a, vector<string> b){
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++){
-        if(find(b.begin(), b.end(), a[i]) == b.end()) return false;
-    }
-    return true;
+bool issame(vector<string> a, vector<string> b) {
+    return a.size() == b.size() && all_of(a.begin(), a.end(), [&](const string& s) {
+        return find(b.begin(), b.end(), s) != b.end();
+    });
 }
 
-vector<vector<string>> filter_by_substring(vector<vector<string>> strings, string substring){
-    vector<vector<string>> result;
-    for (const auto& s : strings) {
-        bool is_same = true;
-        for(const auto& str: s){
-            if(filter_by_substring({str}, substring).empty()){
-                is_same = false;
-                break;
-            }
-        }
-        if(is_same) result.push_back(s);
+int main() {
+    vector<string> strings;
+    string substring;
+
+    // Input
+    cout << "Enter the number of strings: ";
+    int n; cin >> n;
+    for (int i = 0; i < n; i++) {
+        cout << "Enter string " << i + 1 << ": ";
+        getline(cin, strings[i]);
     }
-    return result;
+
+    cout << "Enter the substring: ";
+    getline(cin, substring);
+
+    // Processing
+    vector<string> result = filter_by_substring(strings, substring);
+    
+    // Output
+    if (result.empty()) {
+        cout << "No strings contain the given substring." << endl;
+    } else if (issame({substring}, result)) {
+        cout << "All strings contain the given substring." << endl;
+    } else {
+        cout << "Strings that contain the given substring: ";
+        for (const auto& s : result) {
+            cout << s << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
 }
