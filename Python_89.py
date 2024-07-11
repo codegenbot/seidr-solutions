@@ -1,6 +1,6 @@
-Here's a modification to your function. This function shifts the letters in the string 's' by 2 positions in the alphabet and wraps around to the beginning of the alphabet if necessary.
+Here's the solution for the given problem:
 
-```python
+```
 def encrypt(s):
     result = ''
     for char in s:
