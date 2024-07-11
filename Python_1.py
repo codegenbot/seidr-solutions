@@ -21,9 +21,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     groups = ""
             else:
                 return []
-        elif c == "(" and not stack:
-            return []
-
+        
     if stack:
         return []
     if groups:
@@ -33,10 +31,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         return [paren_string]
     if not stack and len(result) == 1:
         return result[:1]
-
-    if stack:
-        return []
-    if groups:
-        result.append(groups)
 
     return [g.strip() for g in result]
