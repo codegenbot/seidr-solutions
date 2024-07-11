@@ -1,4 +1,3 @@
-```
 def fix_spaces(text):
     text = text.replace("  +", " ")  # Remove double spaces
     text = text.replace(" ", "_")
