@@ -41,6 +41,7 @@ vector<string> split_words(string txt) {
 }
 
 int main() {
+    // Test cases
     cout << "{";
     for (string word : split_words("Hello world!")) {
         cout << "\"" << word << "\"";
