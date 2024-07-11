@@ -1,24 +1,16 @@
 ```
-def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string
+def make_palindrome(s: str) -> str:
+    if s == s[::-1]:
+        return s + s
 
-    new_str = ""
-    for i in range(len(string)):
-        if i > (len(string) - i) // 2 and string[i:] == string[i:][::-1]:
-            new_str += string[i]
+    result = []
+    for i in range(len(s)):
+        result.append(s[i])
+        if i < len(s) - i - 1 and s[:i+1] == s[:i+1][::-1]:
+            for j in range(i, -1, -1):
+                result.append(s[j])
         else:
-            new_str += string[-i - 1]
+            for j in range(len(s)-i-1, -1, -1):
+                result.append(s[j])
 
-    first_half = new_str
-    second_half = new_str[::-1]
-
-    while len(first_half) < len(string):
-        if string[0] in first_half or string[0] in second_half:
-            first_half = first_half[1:]
-            second_half = second_half[:-1]
-        else:
-            first_half = string[0] + first_half
-            second_half = second_half + string[0]
-
-    return first_half + second_half
+    return "".join(result)
