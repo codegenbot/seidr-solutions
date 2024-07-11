@@ -1,3 +1,6 @@
+from typing import Tuple
+
+
 def find_closest_elements() -> Tuple[float, float]:
     numbers = [float(input("Enter a number: ")) for _ in range(2)]
     min_diff = float("inf")
