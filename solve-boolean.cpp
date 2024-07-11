@@ -17,18 +17,22 @@ std::string solveBoolean(std::string expression) {
     }
 
     std::string result = "";
-    bool left = false, right = false;
     while (!s.empty()) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            left = (getBoolValue(s.top())) ? true : false;
+            result = (getBoolValue(s.top())) ? "True" : "False";
         } else if (c == '|') {
-            right = (getBoolValue(s.top())) ? true : false;
+            result = (getBoolValue(s.top())) ? "True" : "False";
         } else {
             result = (getBoolValue(c)) ? "True" : "False";
         }
     }
+}
 
-    return result;
+int getBoolValue(char c) {
+    if (c == 'T')
+        return 1;
+    if (c == 'F')
+        return 0;
 }
