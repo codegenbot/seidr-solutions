@@ -11,7 +11,6 @@ int main() {
             probability += static_cast<double>(n - i) / n * static_cast<double>(m) / (n * m);
         }
     }
-    probability += static_cast<double>(n) / n * static_cast<double>(m) / (n * m);
     
     std::cout << probability << std::endl;
     
