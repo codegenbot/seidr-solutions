@@ -15,12 +15,12 @@ string make_palindrome(string str){
         string prefix = str.substr(0, len);
         string suffix = str.substr(len);
         if(is_palindrome(suffix)){
-            std::string rev = prefix;
-            std::reverse(rev.begin(), rev.end());
+            string rev = prefix;
+            reverse(rev.begin(), rev.end());
             return prefix + rev + suffix;
         }
     }
-    std::string rev = str;
-    std::reverse(rev.begin(), rev.end());
+    string rev = str;
+    reverse(rev.begin(), rev.end());
     return str+rev;
 }
