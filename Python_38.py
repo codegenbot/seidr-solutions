@@ -8,5 +8,8 @@ def decode_cyclic(s: str):
     groups = [(group[-1] + group[:-1]) if len(group) == 3 else group for group in groups]
     return "".join(groups)
 
-print(encode_cyclic(input()))
-print(decode_cyclic(input()))
+input_str = input("Enter a string: ")
+encoded_result = encode_cyclic(input_str)
+print("Encoded result:", encoded_result)
+decoded_result = decode_cyclic(encoded_result)
+print("Decoded result:", decoded_result)
