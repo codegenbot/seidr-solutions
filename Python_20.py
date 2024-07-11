@@ -1,11 +1,12 @@
 ```
-def find_closest_elements() -> float:
-    while True:
-        try:
-            num1 = float(input("Enter the first number: "))
-            num2 = float(input("Enter the second number: "))
-            return abs(num2 - num1)
-        except ValueError:
-            print("Invalid input. Please enter valid numbers.")
-
-print(find_closest_elements())
+def find_closest_elements(numbers: list) -> tuple:
+    min_diff = float('inf')
+    closest_pair = ()
+    
+    for i in range(len(numbers)-1):
+        diff = abs(numbers[i] - numbers[i+1])
+        if diff < min_diff:
+            min_diff = diff
+            closest_pair = (numbers[i], numbers[i+1])
+            
+    return closest_pair
