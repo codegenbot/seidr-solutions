@@ -1,31 +1,36 @@
 #include <algorithm>
-#include <string>
-
 using namespace std;
 
 string spinWords(string str) {
     string result = " ";
     for (int i = 0; i < str.length(); i++) {
-        if (str[i] == ' ') {
-            result += " ";
-            continue;
-        }
-        int j = i;
-        while (j < str.length() && str[j] != ' ') {
-            j++;
-        }
-        string word = str.substr(i, j - i);
-        if (word.length() >= 5) {
-            for (int k = word.length() - 1; k >= 0; k--) {
-                result += word[k];
-            }
-            result += " ";
+        if (i < str.length() - 1 && str[i + 1] == ' ') {
+            int pos = i;
+            string word = str.substr(pos);
+            if (word.length() >= 5)
+                result.append(string(word.rbegin(), word.rend()) + " ");
+            else
+                result.append(word + " ");
+            i += word.length();
         } else {
-            result += word + " ";
+            if (str.find(" ", i) == -1 || i == str.length() - 1) {
+                string word = str.substr(i);
+                if (word.length() >= 5)
+                    result.append(string(word.rbegin(), word.rend()) + " ");
+                else
+                    result.append(word + " ");
+                break;
+            }
+            int pos = str.find(" ", i);
+            string word = str.substr(i, pos - i);
+            if (word.length() >= 5)
+                result.append(string(word.rbegin(), word.rend()) + " ");
+            else
+                result.append(word + " ");
+            i = pos;
         }
-        i = j;
     }
-    return result.substr(1, result.length() - 2);
+    return result;
 }
 
 int main() {
