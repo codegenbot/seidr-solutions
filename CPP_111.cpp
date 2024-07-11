@@ -1,19 +1,8 @@
-bool issame(const map<char, int>& hist1, const map<char, int>& hist2) {
-    if (hist1.size() != hist2.size()) {
-        return false;
-    }
-    
-    for (const auto& entry : hist1) {
-        if (hist2.find(entry.first) == hist2.end() || hist2.at(entry.first) != entry.second) {
-            return false;
-        }
-    }
-    
-    return true;
+bool issame(const map<char, int>& map1, const map<char, int>& map2) {
+    return map1 == map2;
 }
 
 map<char, int> histogram(string test);
-
 map<char, int> histogram(string test) {
     map<char, int> result;
     istringstream iss(test);
