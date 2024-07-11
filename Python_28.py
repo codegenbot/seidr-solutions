@@ -2,6 +2,8 @@ from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    if not strings:
-        return ""
-    return "".join(s for s in strings if s)
+    output = ""
+    for string in strings:
+        if string:
+            output += string + " "
+    return output.strip()
