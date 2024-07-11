@@ -23,5 +23,6 @@ int main() {
     int number;
     std::cin >> number;
     std::cout << int_to_mini_romank(number) << std::endl;
+    
     return 0;
 }
