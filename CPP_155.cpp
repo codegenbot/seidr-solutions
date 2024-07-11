@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cassert>
 
@@ -27,8 +26,7 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    vector<int> vec = even_odd_count(12345);
-    for(int i=0; i<vec.size();i++){
-        cout<<vec[i]<<" ";
-    }
+    assert(issame(even_odd_count(12345), vector<int>{3,12345}));
+    cout << "Even number of digits: " << even_odd_count(12345)[0] << endl;
+    cout << "Odd number in input: " << even_odd_count(12345)[1] << endl;
 }
