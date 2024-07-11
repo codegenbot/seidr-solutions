@@ -1,18 +1,15 @@
-#include <iostream>
-using namespace std;
-
 int main() {
     int cents;
     cin >> cents;
 
-    int max_quarters = min(cents / 25, 99); // maximum quarters is 99 (3 times 25)
+    int max_quarters = min(cents / 25, (cents + 24) / 25); 
     int quarters = max_quarters;
     cents %= 25;
 
-    int dimes = cents / 10;
+    int dimes = min(cents / 10, (cents >= 25 ? max_quarters : (cents - (max_quarters * 25)) / 10));
     cents %= 10;
 
-    int nickles = cents / 5;
+    int nickles = min(cents / 5, (cents >= 10 ? dimes : (cents - (dimes * 10)) / 5));
     cents %= 5;
 
     int pennies = cents;
