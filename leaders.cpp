@@ -28,7 +28,7 @@ int main() {
     while (cin >> num && num != 0) {
         nums.push_back(num);
     }
-    
+
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     
