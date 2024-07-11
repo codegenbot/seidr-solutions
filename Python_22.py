@@ -1,3 +1,4 @@
+```
 from typing import List, Any
 
 
@@ -42,4 +43,5 @@ def get_values() -> List[Any]:
 
 def filter_integers():
     result = get_values()
-    return result
+    if result is not None:
+        return result
