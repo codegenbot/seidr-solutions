@@ -12,6 +12,10 @@ long long double_the_difference(vector<float> lst) {
             if (num % 2 != 0) { 
                 sum += pow(num, 2);
             }
+        } else if (num < 0 && ceil(num) == num) { 
+            if (num % 2 != 0) { 
+                sum -= pow(-num, 2);
+            }
         }
     }
     return sum;
