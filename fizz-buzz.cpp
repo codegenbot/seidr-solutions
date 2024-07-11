@@ -9,7 +9,7 @@ int main() {
     } else if (x % 5 == 0) {
         cout << "Buzz" << endl;
     } else {
-        cout << x << endl;
+        cout << to_string(x) << endl;
     }
     
     return 0;
