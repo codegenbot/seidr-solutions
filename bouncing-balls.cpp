@@ -12,11 +12,9 @@ int main() {
 
     double bouncinessIndex = heightAfterFirstBounce / startHeight;
 
-    startHeight = startHeight; // initialize startHeight before loop
-    double distanceTravelled = 0.0; 
+    double distanceTravelled = 0.0; // initialize distance traveled
     for (int i = 1; i <= numBounces; ++i) {
-        startHeight = startHeight * (1 + 0.5); // calculate new height for each bounce
-        distanceTravelled += startHeight;
+        distanceTravelled += startHeight * pow(2, 0.5) * (1 - 0.5 * (i - 1));
     }
 
     cout << fixed << setprecision(10) << distanceTravelled << endl;
