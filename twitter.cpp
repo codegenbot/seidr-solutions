@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 int main() {
     std::string tweet;
     if(std::getline(std::cin, tweet)) { 
