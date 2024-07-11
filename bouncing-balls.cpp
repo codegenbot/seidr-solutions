@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+
 using namespace std;
 
 int main() {
@@ -12,11 +13,11 @@ int main() {
 
     double total_distance = 0.0;
 
+    cout << fixed << setprecision(6);
     for (int i = 1; i <= num_bounces; ++i) {
         total_distance += pow(bounciness_index, i);
     }
-
-    cout << fixed << setprecision(6) << total_distance << endl;
+    cout << total_distance << endl;
 
     return 0;
 }
