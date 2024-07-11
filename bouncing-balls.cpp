@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cmath>
 
@@ -9,5 +10,6 @@ int main() {
     std::cin >> numBounces;
 
     double distanceTraveled = 2 * (startHeight + heightAfterFirstBounce) * (1 - pow(bounciness, numBounces));
+    
     std::cout << std::fixed << std::setprecision(15) << "Total Distance Travelled: " << distanceTraveled;
 }
