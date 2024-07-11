@@ -1,28 +1,23 @@
-int* compare(int a[], int b[]) {
-    bool isSortedA = true;
-    bool isSortedB = true;
+```c
+#include <algorithm>
+#include <vector>
 
-    for (int i = 1; i < sizeof(a) / sizeof(a[0]); i++) {
-        if (a[i] < a[i - 1]) {
-            isSortedA = false;
-            break;
+std::vector<int> compare(int a[], int n1, int b[], int n2) {
+    if (n1 != sizeof(a) / sizeof(a[0]) || n2 != sizeof(b) / sizeof(b[0])) {
+        return {0};
+    }
+    std::sort(std::vector<int>(a, a + n1), std::greater<int>());
+    std::sort(std::vector<int>(b, b + n2), std::greater<int>());
+
+    int i = 0, j = 0;
+    while (i < n1 && j < n2) {
+        if (a[i] > b[j]) {
+            return {0};
+        } else if (a[i] < b[j]) {
+            return {1};
         }
+        i++;
+        j++;
     }
 
-    for (int i = 1; i < sizeof(b) / sizeof(b[0]); i++) {
-        if (b[i] < b[i - 1]) {
-            isSortedB = false;
-            break;
-        }
-    }
-
-    if (isSortedA && !isSortedB)
-        return new int[]{1};
-    else if (!isSortedA && isSortedB)
-        return new int[]{-1};
-    else if (!isSortedA && !isSortedB)
-        return new int[] {0};
-    else
-        return new int[]{0};
-
-}
+    return {0};
