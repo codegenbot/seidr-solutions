@@ -1,5 +1,5 @@
 vector<int> result;
-    if(n <= 1) return result;
+    if(n < 2) return result;
     
     vector<bool> isPrime(n, true);
     isPrime[0] = isPrime[1] = false;
