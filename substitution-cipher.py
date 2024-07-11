@@ -1,3 +1,4 @@
+```
 def substitution_cipher(cipher1, cipher2, message):
     if len(cipher1) != len(cipher2):
         return 
@@ -12,7 +13,7 @@ def substitution_cipher(cipher1, cipher2, message):
             if char.isupper():
                 result += chr((ord(char.lower()) - 97) + (cipher.get(char.lower(), char).lower().ord() - 97))  
             else:
-                result += chr((ord(char.lower()) - 97) + (cipher.get(char.lower(), char).lower().ord() - 97))
+                result += chr((ord(char) - 65) + (cipher.get(char, char).ord() - 65))
         else:  
             result += char
     return result
