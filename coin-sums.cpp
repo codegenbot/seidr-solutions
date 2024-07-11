@@ -7,6 +7,7 @@ int main() {
 
     int pennies = cents / 1;
     cents %= 1; 
+
     cout << pennies << endl;
 
     if (cents >= 5) {
