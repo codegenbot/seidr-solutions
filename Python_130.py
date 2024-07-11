@@ -3,13 +3,13 @@ def tri(n):
         return [0]
     elif n == 1:
         return [3]
-    elif n == 2:
-        return [1, 3]
     else:
-        tribonacci = [1, 3]
-        for i in range(2, n + 1):
+        result = [3]
+        a, b, c = 0, 0, 3
+        for i in range(1, n):
             if i % 2 == 0:
-                tribonacci.append(1 + i // 2)
+                c = 1 + i // 2
             else:
-                tribonacci.append(tribonacci[i - 1] + tribonacci[i - 2] + tribonacci[i - 3])
-        return tribonacci
+                a, b, c = b, c, a + b + c
+            result.append(c)
+        return result
