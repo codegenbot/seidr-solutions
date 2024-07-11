@@ -13,15 +13,9 @@ bool pairs_sum_to_zero(const std::vector<int>& l) {
     return false;
 }
 
+int main(); // function declaration
+
 int main() {
-    std::vector<int> input;
-    int num;
-    while(std::cin >> num) {
-        input.push_back(num);
-    }
-
-    bool result = pairs_sum_to_zero(input);
-    std::cout << std::boolalpha << result << std::endl;
-
+    assert(pairs_sum_to_zero({-3, 9, -1, 4, 2, 31}) == false);
     return 0;
 }
