@@ -14,9 +14,11 @@ def bowling_score(bowls):
             score += get_value(bowls[bowl_index + 1])
         else:
             score += get_value(bowls[bowl_index])
+        
         bowl_index += 1
         if bowls[bowl_index - 1] in ["X", "/"]:
             frame += 1
+    
     return score
 
 
