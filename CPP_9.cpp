@@ -3,7 +3,7 @@
 #include <cassert>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
+    return a == b;
 }
 
 std::vector<int> rolling_max(const std::vector<int>& numbers) {
@@ -19,5 +19,7 @@ std::vector<int> rolling_max(const std::vector<int>& numbers) {
     return result;
 }
 
-assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
-
+int main() {
+    assert(issame(rolling_max({3, 2, 3, 100, 3}), {3, 3, 3, 100, 100}));
+    return 0;
+}
