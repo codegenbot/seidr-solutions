@@ -1,7 +1,5 @@
 #include <cmath>
-#include <assert.h>
-
-bool iscuber(int);
+using namespace std;
 
 bool iscuber(int a){
     int c = round(cbrt(a));
@@ -9,6 +7,5 @@ bool iscuber(int a){
 }
 
 int main(){
-    assert (iscuber(1729) == false);
-    return 0;
+    assert(iscuber(1729) == false);
 }
