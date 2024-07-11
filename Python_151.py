@@ -1,5 +1,8 @@
 """
-Given a list of integers, this function calculates the total sum of all positive squares that are multiples of 3.
+Given a list of numbers, find the difference between the maximum and minimum values, double that result, then return it.
 """
 def double_the_difference(lst):
-    return 2 * (sum(i**2 for i in lst if isinstance(i, int) and i % 3 == 0 and i > 0))
+    min_val = min(i for i in lst if isinstance(i, int) and i > 0)
+    max_val = max(i for i in lst if isinstance(i, int) and i > 0)
+    diff = (max_val - min_val) * 2
+    return diff
