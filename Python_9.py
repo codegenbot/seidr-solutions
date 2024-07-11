@@ -3,9 +3,12 @@ def rolling_max(input_str: str) -> list[int]:
 
     numbers = []
     for num in input_str.split():
-        if not num.isdigit():
-            return []
-        numbers.append(int(num))
+        if not num:
+            return [] 
+        try:
+            numbers.append(int(num))
+        except ValueError:
+            return [] 
 
     if len(numbers) <= 1:
         return [0]
