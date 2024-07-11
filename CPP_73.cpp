@@ -1,14 +1,8 @@
-#include <vector>
-
-int smallest_change(vector<int> arr) {
-    int min_diff = INT_MAX;
-    for (int i = 0; i < arr.size() - 1; i++) {
-        for (int j = i + 1; j < arr.size(); j++) {
-            int diff = abs(arr[i] - arr[j]);
-            if (diff < min_diff) {
-                min_diff = diff;
-            }
-        }
+int smallest_change(std::vector<int> arr) {
+    int min = INT_MAX;
+    for (int i : arr) {
+        if (i < min)
+            min = i;
     }
-    return min_diff;
+    return min;
 }
