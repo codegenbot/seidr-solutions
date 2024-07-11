@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -19,13 +20,14 @@ int prime_fib(int n) {
         if (isPrime) count++;
         if (count == n) return i;
     }
-    return -1; // Return a value indicating no prime Fibonacci number found
+    return -1; 
 }
 
 int main() {
     int n;
     cout << "Enter the number: ";
     cin >> n;
-    cout << "The " << n << "th prime Fibonacci number is: " << prime_fib(n) << endl;
+    string output = "The " + to_string(n) + "th prime Fibonacci number is: " + to_string(prime_fib(n)) + "\n";
+    cout << output;
     return 0;
 }
