@@ -1,5 +1,3 @@
-#include <string>
-
 std::string squareDigits(std::string input) {
     std::string output;
     
@@ -10,8 +8,4 @@ std::string squareDigits(std::string input) {
     }
     return output;
 
-}
-
-int main() {
-    return 0;
 }
