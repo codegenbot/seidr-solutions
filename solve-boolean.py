@@ -1,5 +1,11 @@
+import ast
+
 def solve_boolean(expression):
-    mapping = {'T': 'True', 'F': 'False', '|': 'or', '&': 'and'}
-    return eval(' '.join(mapping.get(c, c) for c in expression))
+    return ast.literal_eval(
+        expression.replace("T", "True")
+        .replace("F", "False")
+        .replace("|", " or ")
+        .replace("&", " and ")
+    )
 
 print(solve_boolean(input()))
