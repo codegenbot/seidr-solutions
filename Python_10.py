@@ -1,12 +1,14 @@
-Here is the completed code:
+Here is the solution:
 
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
 
 def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string + string
-    for i in range(len(string)):
-        if string[i:] == string[i:] + string[:i][::-1]:
-            return string + string[:i][::-1]
-    return string + string[::-1]
+    if string.isnumeric():
+        return ''.join([i*2 for i in string])
+    else:
+        prefix = ''
+        while not string[:len(prefix)+1].endswith(prefix[::-1]):
+            prefix += string[0]
+        suffix = string[len(prefix):][::-1]
+        return string + suffix
