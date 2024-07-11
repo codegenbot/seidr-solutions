@@ -1,4 +1,4 @@
-```Python
+```
 from typing import List
 
 def filter_by_substring(strings: List[object], substring: str) -> List[str]:
