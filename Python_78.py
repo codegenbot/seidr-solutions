@@ -1,16 +1,4 @@
 def hex_key(num):
-    primes = set([2, 3, 5, 7, 11, 13, 17])
-    count = 0
-    for digit in num.upper():
-        if digit.isdigit():
-            if int(digit) in primes:
-                count += 1
-        elif digit in 'BDF':
-            count += 1
+    primes = {"B": True, "D": True}
+    count = sum(1 for digit in num if (digit.upper() in primes) or (int(digit, 16) > 1 and all(int(digit, 16) % i for i in range(2, int(int('0x' + digit, 16)**0.5) + 1))))
     return count
-
-while True:
-    user_input = input("Enter a number (or 'stop' to stop): ")
-    if user_input.lower() == 'stop':
-        break
-    print(hex_key(user_input))
