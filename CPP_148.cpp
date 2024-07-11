@@ -1,34 +1,23 @@
-#include <stdio.h>
-#include <vector>
-#include <string>
+#include <map>
 using namespace std;
 
 vector<string> bf(string planet1, string planet2) {
-    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    
-    int index1 = -1;
-    int index2 = -1;
+    map<string, int> planets = {{"Mercury", 0}, {"Venus", 1}, {"Earth", 2}, {"Mars", 3},
+                                 {"Jupiter", 4}, {"Saturn", 5}, {"Uranus", 6}, {"Neptune", 7}};
 
-    for (int i = 0; i < planets.size(); i++) {
-        if (planets[i] == planet1) {
-            index1 = i;
-        } else if (planets[i] == planet2) {
-            index2 = i;
-        }
+    if (planets.find(planet1) == planets.end() || planets.find(planet2) == planets.end()) {
+        return {};
     }
 
-    if (index1 == -1 || index2 == -1)
-        return {};
+    int index1 = planets[planet1];
+    int index2 = planets[planet2];
 
     vector<string> result;
-
-    for (int i = 0; i < planets.size(); i++) {
-        if ((i >= index1 && i <= index2) || (i > index2 && i < index1)) {
-            result.push_back(planets[i]);
+    for (auto it = planets.begin(); it != planets.end(); ++it) {
+        if (index1 < it->second && it->second <= index2) {
+            result.push_back(it->first);
         }
     }
-
-    sort(result.begin(), result.end());
 
     return result;
 }
