@@ -6,11 +6,9 @@ std::string camelCase(const std::string& str) {
     bool capitalize = true;
 
     for (char c : str + " ") {
-        if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
+        if (capitalize) {
+            result += c == '-' ? ' ' : toupper(c);
+            capitalize = c != ' ';
         } else {
             result += tolower(c);
         }
