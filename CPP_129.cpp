@@ -1,24 +1,41 @@
-vector<int> minPath(vector<vector<int>>& grid, int k) {
-    int N = grid.size();
-    vector<vector<int>> dp(N, vector<int>(N));
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < N; j++) {
-            if (i == 0 && j == 0) {
+#include <vector>
+using namespace std;
+
+vector<int> minPath(vector<vector<int>> grid, int k) {
+    int n = grid.size();
+    vector<vector<int>> dp(n, vector<int>(n, 1e9));
+    vector<int> res;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (k == 1) {
                 dp[i][j] = grid[i][j];
-            } else if (i > 0) {
-                dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j];
             } else {
-                dp[i][j] = min(dp[i][j-1], dp[i-1][j]) + grid[i][j];
+                for (int x = max(0, i-1); x <= min(n-1, i+1); x++) {
+                    for (int y = max(0, j-1); y <= min(n-1, j+1); y++) {
+                        if ((x != i || y != j) && dp[x][y] + grid[i][j] < dp[i][j]) {
+                            dp[i][j] = dp[x][y] + grid[i][j];
+                        }
+                    }
+                }
             }
         }
     }
-
-    vector<int> path;
-    int x = N - 1, y = N - 1;
-    for (int i = 0; i < k; i++) {
-        path.push_back(grid[x][y]);
-        if (x > 0 && dp[x-1][y] == dp[x][y]) x--;
-        else if (y > 0 && dp[x][y-1] == dp[x][y]) y--;
+    int minVal = 1e9;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (dp[i][j] < minVal) {
+                minVal = dp[i][j];
+                res.clear();
+                int idx = 0;
+                for (int x = i - k + 1; x <= i; x++) {
+                    for (int y = j - k + 1; y <= j; y++) {
+                        if (x >= 0 && y >= 0) {
+                            res.push_back(grid[x][y]);
+                        }
+                    }
+                }
+            }
+        }
     }
-    return path;
+    return res;
 }
