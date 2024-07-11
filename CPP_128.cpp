@@ -1,11 +1,18 @@
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 int prod_signs(vector<int> arr) {
-    if(arr.empty()) return -32768;
-    int sign_product = 1;
-    long long sum_of_magnitudes = 0;
-    for(int num : arr) {
-        if(num == 0) continue;
-        sign_product *= (num > 0 ? 1 : -1);
-        sum_of_magnitudes += abs(num);
+    long long product = 1;
+    for (int num : arr) {
+        if (num == 0) return 0; 
+        product *= (num > 0 ? 1 : -1);
     }
-    return sign_product * sum_of_magnitudes;
+    return product * abs(arr.empty() ? 0 : *max_element(arr.begin(), arr.end()));
+}
+
+int main() {
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    return 0;
 }
