@@ -26,7 +26,6 @@ int main() {
     
     cout << "Enter positive integers (0 to end input, press enter after each number, then Ctrl+D to finish):" << endl;
     cout.flush();
-
     do {
         if (!(cin >> num)) {
             break;
@@ -35,6 +34,8 @@ int main() {
             break;
         }
         nums.push_back(num);
+        cin.clear();  // Clear any error flags
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Discard invalid input
     } while (true);
     
     vector<int> result = findLeaders(nums);
