@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <iostream>
 
@@ -31,7 +32,7 @@ string spinWords(string str) {
     } else
         result += word + " ";
 
-    return result.substr(0, result.length() - 1);
+    return result.substr(0, result.length()-1);
 }
 
 int main() {
