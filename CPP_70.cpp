@@ -1,3 +1,4 @@
+```cpp
 #include <memory_resource>
 #include <algorithm>
 
@@ -6,6 +7,26 @@ bool same_vectors(const std::pmr::vector<int>& a, const std::pmr::vector<int>& b
 }
 
 std::pmr::polymorphic_allocator<int> alloc;
+
+int main() {
+    alloc = std::pmr::polymorphic_allocator<int>();
+    std::pmr::vector<int> lst;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int val;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> val;
+        lst.push_back(val);
+    }
+    std::pmr::vector<int> result = strange_sort_list(lst);
+    for (int x : result) {
+        std::cout << x << " ";
+    }
+    std::cout << "\n";
+    assert(same_vectors({1, 1, 1, 1, 1}, result));
+}
 
 std::pmr::vector<int> strange_sort_list(std::pmr::vector<int> lst) {
     std::pmr::vector<int> result(alloc);
@@ -22,9 +43,4 @@ std::pmr::vector<int> strange_sort_list(std::pmr::vector<int> lst) {
         }
     }
     return result;
-}
-
-int main() {
-    alloc = std::pmr::polymorphic_allocator<int>();
-    assert(same_vectors({1, 1, 1, 1, 1}, strange_sort_list({1, 1, 1, 1, 1})));
 }
