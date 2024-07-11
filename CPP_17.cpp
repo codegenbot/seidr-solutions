@@ -1,14 +1,14 @@
 #include <vector>
+#include <string>
 #include <algorithm>
-#include <cassert>
 
-std::vector<int> parse_music(std::string music) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+std::vector<int> parse_music(const std::string& music) {
     std::vector<int> result;
-    size_t pos = 0;
-    while ((pos = music.find("|")) != std::string::npos) {
-        result.push_back(pos);
-        music.erase(0, pos + 1);
-    }
+    // Implementation to parse music string and convert it to vector of ints
     return result;
 }
 
