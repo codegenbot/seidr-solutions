@@ -1,3 +1,3 @@
-def check(product_of_signs):
-    arr = list(map(int, input().split()))
-    print(product_of_signs(arr))
+```
+prod_signs = product_of_signs(arr)
+check(prod_signs)
