@@ -10,12 +10,12 @@ def solve_boolean(expression):
 
     stack = []
     for char in expression:
-        if char == "T" or char == "F":
+        if char in ("T", "F"):
             stack.append(bool(char == "T"))
         elif char in operations:
             b = stack.pop()
             a = stack.pop()
             stack.append(operations[char](a, b))
-        elif char == "&":
-            while len(stack) > 1 and stack[-2] != "|":
+        elif char in precedence:
+            while len(stack) > 0 and stack[-1] != precedence.get(char):
                 stack.pop()
