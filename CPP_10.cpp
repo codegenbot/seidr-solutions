@@ -8,10 +8,10 @@ bool is_palindrome(string str){
 }
 
 string make_palindrome(string str){
-    int i=str.length()-1;
-    while(i>=0 && str[i-1]==str[i])
+    int i=str.size()-1;
+    while(i>=0 && str[i]==str[0])
         i--;
     if(i<0)
         return str+str;
-    return str.substr(0,i)+reverse(str.substr(i)).substr(1)+str.substr(i);
+    return str.substr(0,i+1)+reverse(str.substr(i+1)).toString();
 }
