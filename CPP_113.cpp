@@ -1,15 +1,13 @@
-vector<string> odd_count(vector<string> lst) {
+vector<string> odd_count(vector<string> lst){
     vector<string> result;
-    for (const string& s : lst) {
+    for(auto str : lst){
         int count = 0;
-        for (char c : s) {
-            if ((c - '0') % 2 != 0) {
+        for(char c : str){
+            if((c - '0') % 2 != 0){
                 count++;
             }
         }
-        string num = to_string(count);
-        string res = "the number of odd elements " + num + "n the str" + num + "ng " + s + " of the " + num + "nput.";
-        result.push_back(res);
+        result.push_back("the number of odd elements " + to_string(count) + "n the str" + to_string(count) + "ng " + str + " of the " + to_string(count) + "nput.");
     }
     return result;
 }
