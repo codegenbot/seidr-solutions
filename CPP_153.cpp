@@ -1,28 +1,28 @@
 ```cpp
-int Strongest_Extension(string class_name, vector<vector<char>> extensions) {
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cctype>
+
+int main() {
+    std::cout << Strongest_Extension("Sp", {"671235", "Bb"}) << std::endl;
+}
+
+int Strongest_Extension(std::string class_name, std::vector<std::string> extensions) {
     int strongest = -1;
-    string result = "";
-    for (vector<char> extension : extensions) {
+    std::string result = "";
+    for (std::string extension : extensions) {
         int cap = 0, sm = 0;
         for (char c : extension) {
-            if (isupper(c)) cap++;
-            else if (islower(c)) sm++;
+            if (std::isupper(c)) cap++;
+            else if (std::islower(c)) sm++;
         }
         int strength = cap - sm;
         if (strength > strongest) {
             strongest = strength;
-            result = "";
-            for (char c : extension) {
-                result += c;
-            }
+            result = extension;
         } else if (strength == strongest) {
-            string temp = "";
-            for (char c : extension) {
-                temp += c;
-            }
-            if (temp < result) {
-                result = temp;
-            }
+            result = (result < extension ? result : extension);
         }
     }
     return class_name + "." + result;
