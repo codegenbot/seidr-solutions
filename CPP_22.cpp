@@ -1,14 +1,17 @@
-```cpp
 #include <vector>
 #include <list>
+#include <typeindex>
 
 using namespace std;
 
 std::vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (any_cast<int>(value).get<int>()) {
+        if(any_cast<int>(value).type() == type_index(typeid(int))) {
             result.push_back(any_cast<int>(value));
+        }
+        else if(!any_cast<int>(value).get_undefined()) {
+            result.push_back(any_cast<int>(value.get_any()));
         }
     }
     return result;
@@ -21,7 +24,6 @@ bool issame(vector<int> a, vector<int> b) {
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
-        }
     }
     return true;
 }
