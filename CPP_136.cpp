@@ -4,11 +4,6 @@
 #include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b);
-std::vector<int> largest_smallest_integers(std::vector<int> lst);
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
 
 std::vector<int> largest_smallest_integers(std::vector<int> lst) {
     std::vector<int> result = {0, 0};
@@ -31,12 +26,13 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> test_lst = {5, -3, 2, -8, 9};
-    std::vector<int> expected_result = {-3, 2};
-    
-    std::vector<int> result = largest_smallest_integers(test_lst);
-    
-    assert(issame(result, expected_result));
+    assert(issame(largest_smallest_integers({-5, 3, 2, -8, 4}), {-5, 2}));
+    assert(issame(largest_smallest_integers({1, -2, -3, 5, 11}), {-2, 1}));
+    assert(issame(largest_smallest_integers({-10, -7, -3, -5, -2}), {-2, 0}));
     
     return 0;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a[0] == b[0] && a[1] == b[1];
 }
