@@ -11,17 +11,22 @@ int main() {
     vector<int> codeFreq(6, 0), guessFreq(6, 0);
     
     for (int i = 0; i < 4; ++i) {
-        if (code[i] == guess[i]) {
-            blackPegs++;
-        } else {
-            codeFreq[code[i] - 'A']++;
-            guessFreq[guess[i] - 'A']++;
-        }
+        codeFreq[code[i] - 'A']++;
+        guessFreq[guess[i] - 'A']++;
     }
     
     for (int i = 0; i < 6; ++i) {
-        whitePegs += std::min(codeFreq[i], guessFreq[i]);
+    whitePegs += min(codeFreq[i], guessFreq[i]);
     }
+    
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            blackPegs++;
+            whitePegs--;
+        }
+    }
+    
+    whitePegs = max(whitePegs, 0);
     
     cout << whitePegs << endl << blackPegs << endl;
     
