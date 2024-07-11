@@ -1,15 +1,19 @@
-sort(nums.begin(), nums.end(), [](const int& num1, const int& num2) {
-    int sum1 = abs(num1);
-    while(num1) {
-        sum1 += abs(num1%10);
-        num1 /= 10;
+sort(nums.begin(), nums.end(), [](int a, int b) {
+    int sumA = a < 0 ? 9 : 0;
+    int sumB = b < 0 ? 9 : 0;
+    string strA = to_string(abs(a));
+    string strB = to_string(abs(b));
+    for(char c : strA) {
+        sumA += c - '0';
     }
-    int sum2 = abs(num2);
-    while(num2) {
-        sum2 += abs(num2%10);
-        num2 /= 10;
+    for(char c : strB) {
+        sumB += c - '0';
     }
-    return sum1 == sum2 ? find(nums.begin(), nums.end(), num1) < find(nums.begin(), nums.end(), num2) : sum1 < sum2;
+    if(sumA != sumB) {
+        return sumA < sumB;
+    }
+    return find(nums.begin(), nums.end(), a) < find(nums.begin(), nums.end(), b);
 });
 
 return nums;
+}
