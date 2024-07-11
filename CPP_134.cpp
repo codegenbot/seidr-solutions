@@ -1,15 +1,6 @@
-if (txt.empty()) {
-        return false;
-    }
-    
+if(txt.empty()) return false;
     char lastChar = txt.back();
-    if (isalpha(lastChar)) {
-        int i = txt.size() - 2;
-        while (i >= 0 && txt[i] != ' ') {
-            i--;
-        }
-        return i < 0;
-    }
-    
+    if(isalpha(lastChar) && txt.find_last_of(" ") == txt.size() - 1)
+        return true;
     return false;
 }
