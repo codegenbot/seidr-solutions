@@ -9,7 +9,7 @@ int main() {
     for (int i = 0; i < hours; ++i) {
         float snow_fallen = snow_fall_rate;
         snow_on_ground += snow_fallen;
-        float snow_melted = snow_fall_rate * snow_melt_rate;
+        float snow_melted = snow_fallen * snow_melt_rate;
         snow_on_ground -= snow_melted;
     }
 
