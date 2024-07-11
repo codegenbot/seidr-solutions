@@ -1,10 +1,9 @@
 ```
 def double_the_difference(lst):
-    if len(lst) == 2:
-        a, b = map(int, lst)
-        return abs(a - b) * 2
-    else:
-        print("Please enter exactly two numbers!")
+    if len(lst) != 2:
+        return "Please enter exactly two numbers!"
+    a, b = map(int, lst)
+    return abs(a - b) * 2
 
 print("Enter elements separated by comma: ")
 user_input = input()
