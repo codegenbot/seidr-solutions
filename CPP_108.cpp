@@ -8,19 +8,18 @@ int count_nums(vector<int> nums) {
                 sum += temp % 10;
                 temp /= 10;
             }
-            if (sum > 0) {
+            if (sum > 0)
                 count++;
-            }
         } else {
-            int sum = 0, sign = 1;
+            int sum = 0;
             int temp = -num;
+            bool isNegative = true;
             while (temp > 0) {
-                sum += abs(temp % 10);
+                sum += temp % 10;
                 temp /= 10;
             }
-            if (sign * sum > 0) {
+            if (isNegative && sum > 0 || !isNegative && sum >= 1)
                 count++;
-            }
         }
     }
     return count;
