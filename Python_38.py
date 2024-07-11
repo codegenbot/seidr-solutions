@@ -1,13 +1,17 @@
 def decode_cyclic(s: str):
-    if len(s) < 3:
-        return s
     result = []
     temp = ""
     for char in s:
         temp += char
         if len(temp) == 3:
-            result.append(temp[2] + temp[0] + temp[1])
+            if int(temp, 2) < 256:
+                result.append(chr(int(temp, 2)))
+            else:
+                return "Invalid cyclic code"
             temp = ""
     if temp:
-        result.append(temp)
+        if int(temp, 2) < 256:
+            result.append(chr(int(temp, 2)))
+        else:
+            return "Invalid cyclic code"
     return "".join(result)
