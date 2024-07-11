@@ -1,17 +1,13 @@
-```Python
 def make_palindrome(s: str) -> str:
-    s = s.lower()
     if s == s[::-1]:
         return s
-
-    result = list(s)
-    mid = len(result) // 2
-
-    for i in range(len(result) - 1, mid, -1):
-        while result[0] != result[i]:
-            if result[0] < result[i]:
-                result.append(result.pop(0))
-            else:
-                result.insert(0, result.pop())
-
-    return "".join(result)
+    t = list(s)
+    l, r = 0, len(t) - 1
+    while l < r:
+        if t[0] != t[r - l + 1]:
+            mid = (l + r) // 2
+            t.pop(r), t.insert(mid, t[0])
+            l, r = l + 1, len(t) - 1
+        else:
+            l, r = l + 1, r - 1
+    return "".join(t)
