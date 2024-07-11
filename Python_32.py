@@ -1,5 +1,1 @@
-def find_zero(xs: list):
-    n = len(xs)
-    assert n % 2 == 0, "find_zero only takes list xs having even number of coefficients"
-    m = math.sqrt(4 * xs[1] ** 2 - 4 * xs[0] * xs[-1])
-    return (-xs[1] + m) / (2 * xs[0])
+```"def find_zero(xs: list):\n    if len(xs) % 2 != 0:\n        raise ValueError('List xs must have even number of coefficients')\n    a = xs[-1]\n    b = -xs[1] / a\n    return round(-b / 2, 2)"```
