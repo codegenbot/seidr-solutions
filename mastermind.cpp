@@ -1,3 +1,5 @@
+#include <string>
+
 int whitePegs(string code, string guess) {
     int count = 0;
     vector<char> codeMap(6), guessMap(6);
@@ -24,5 +26,4 @@ int blackPegs(string code, string guess) {
         }
     }
     return count;
-
-#include <string>
+}
