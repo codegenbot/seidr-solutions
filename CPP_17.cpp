@@ -1,17 +1,13 @@
-bool issame(vector<int> b, int num){
-    for (int i : b) {
-        if (i == num) {
-            return true;
-        }
-    }
-    return false;
+#include <iostream>
+#include <vector>
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-vector<int>parse_music(string music_string);
-
-vector<int> parse_music(string music_string){ 
-    vector<int> beats;
-    string note = "";
+std::vector<int> parse_music(std::string music_string) {
+    std::vector<int> beats;
+    std::string note = "";
     for (char c : music_string) {
         if (c == 'o') {
             if (note == "o|") {
@@ -27,4 +23,9 @@ vector<int> parse_music(string music_string){
         }
     }
     return beats;
+}
+
+int main() {
+    // Add your test cases here to validate the code
+    return 0;
 }
