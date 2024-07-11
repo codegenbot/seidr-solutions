@@ -1,6 +1,5 @@
+```
 def sort_even(l: list):
-    evens = [
-        (j, j) if j % 2 == 0 else (j, i)
-        for i, j in zip(sorted([j for j in l if j % 2 == 0]), l)
-    ]
-    return [i if pair[1] % 2 != 0 else pair[0] for pair in evens]
+    evens = [x for i, x in enumerate(l) if i % 2 == 0]
+    sorted_evens = sorted([x for x in l if x % 2 == 0])
+    return [x if i % 2 != 0 else sorted_evens.pop(0) for i, x in enumerate(l)]
