@@ -1,6 +1,7 @@
 int main() {
     vector<int> nums;
     int num;
+    
     while (cin >> num) {
         nums.push_back(num);
     }
@@ -14,6 +15,7 @@ int main() {
     int prefixSum = 0;
     int minDiff = INT_MAX;
     int cutIndex = -1;
+    
     for (int i = 0; i < n; i++) {
         prefixSum += nums[i];
         int suffixSum = sum - prefixSum;
