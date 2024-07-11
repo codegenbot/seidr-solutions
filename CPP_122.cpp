@@ -2,7 +2,9 @@
 #include <vector>
 #include <string>
 
-int add_elements(int arr[], int k) {
+using namespace std;
+
+int add_elements(vector<int> arr, int k) {
     int sum = 0;
     for (int i = 0; i < k; i++) {
         if (to_string(arr[i]).size() <= 2) {
@@ -10,4 +12,10 @@ int add_elements(int arr[], int k) {
         }
     }
     return sum;
+}
+
+int main() {
+    vector<int> v = {1};
+    assert(add_elements(v, 1) == 1);
+    return 0;
 }
