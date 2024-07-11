@@ -7,19 +7,18 @@ int main() {
     int n;
     cin >> n;
     vector<double> prices(n);
-    vector<double> discounts(n);
-    
     for (int i = 0; i < n; ++i) {
         cin >> prices[i];
     }
-    for (int i = 0; i < n; ++i) {
+
+    vector<double> discounts(prices.size());
+    for (int i = 0; i < prices.size(); ++i) {
         cin >> discounts[i];
     }
-    
+
     double total_price = 0.0;
-    for (int i = 0; i < n; ++i) {
-        double discounted_price = prices[i] - prices[i] * discounts[i] / 100;
-        total_price += discounted_price;
+    for (int i = 0; i < prices.size(); ++i) {
+        total_price += prices[i] * (1.0 - discounts[i] / 100.0);
     }
 
     cout << total_price << "\n";
