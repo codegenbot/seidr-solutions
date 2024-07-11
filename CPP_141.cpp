@@ -1,3 +1,6 @@
+#include <string>
+#include <cassert>
+
 std::string file_name_check(std::string filename) {
     int digit_count = 0;
     bool found_dot = false;
@@ -10,16 +13,15 @@ std::string file_name_check(std::string filename) {
                 return "No";
         } else if (c == '.') {
             found_dot = true;
-        } else {
-            if (!filename.find(toupper(c)) && !found_dot && digit_count > 0) {
+        } else if (!std::isalpha(c)) {
+            if (digit_count > 0) {
                 valid_prefix = false;
-                break;
             }
         }
     }
 
-    if (digit_count <= 3 && found_dot && valid_prefix)
-        return "Yes";
-    else
+    if (digit_count <= 3 && found_dot)
         return "No";
+    else
+        return "Yes";
 }
