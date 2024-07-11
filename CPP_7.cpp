@@ -1,29 +1,25 @@
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(auto& s : strings) {
-        if(s.find(substring) != string::npos)
-            result.push_back(s);
+```cpp
+#include <vector>
+#include <string>
+
+std::vector<std::string> filter_by_substring(std::vector<std::string> strings, std::string substring){
+    std::vector<std::string> result;
+    for (const auto& str : strings) {
+        if(str.find(substring) != std::string::npos)
+            result.push_back(str);
     }
     return result;
 }
 
-bool same(string s1, string s2) {
-    return s1 == s2;
+bool isSame(std::vector<std::string> a, std::vector<std::string> b) {
+    for (int i = 0; i < a.size(); i++) {
+        if (std::find(b.begin(), b.end(), a[i]) == b.end())
+            return false;
+    }
+    return true;
 }
 
 int main() {
-    vector<string> words = {"apple", "banana", "apricot"};
-    string target = "pp";
-    
-    vector<string> filtered_words = filter_by_substring(words, target);
-    
-    for(auto& word : filtered_words) {
-        if(same(word, target)) {
-            cout << "Same: " << word << endl;
-        } else {
-            cout << "Different: " << word << endl;
-        }
-    }
-    
+    assert(isSame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
     return 0;
 }
