@@ -1,2 +1,3 @@
-def double_the_difference(numbers):
-    return sum(i**2 for i in numbers)
+def double_the_difference(lst):
+    result = (max(lst) - min(lst)) ** 2
+    return result * 2
