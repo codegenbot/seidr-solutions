@@ -1,7 +1,11 @@
+```
 def find_zero(xs: list):
-    m, b = xs[0], xs[-1]
-    if m == 0:
-        raise ValueError("m must be non-zero")
-    if b == 0:
-        raise ValueError("b must be non-zero")
-    return -b / m
+    n = len(xs)
+    if n % 2 != 0:
+        raise ValueError("xs must have an even number of coefficients")
+    a = xs[0]
+    b = xs[1]
+    for i in range(2, n, 2):
+        a -= xs[i] / (b ** ((i + 1) // 2))
+        b = xs[i]
+    return -b / (a if a else 1)
