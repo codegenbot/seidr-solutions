@@ -1,10 +1,11 @@
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
+}
+
 vector<float> sort_even(vector<float> l) {
-    if (l.empty()) return {};
-    assert(l.size() % 2 == 0);
-
     vector<float> sorted_even(l.size());
-
     vector<float> even_values;
+
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             even_values.push_back(l[i]);
