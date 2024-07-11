@@ -8,16 +8,17 @@ def solve(num1, num2):
 
 
 def check(func):
-    result = func(
-        int(input("Enter first number: ")), int(input("Enter second number: "))
-    )
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+
+    result = func(num1, num2)
 
     if result == "Greater":
-        print(f"First number is greater than second number")
+        print(f"{num1} is greater than {num2}")
     elif result == "Less":
-        print(f"First number is less than second number")
+        print(f"{num1} is less than {num2}")
     else:
-        print(f"Both numbers are equal")
+        print(f"{num1} is equal to {num2}")
 
 
 def main():
