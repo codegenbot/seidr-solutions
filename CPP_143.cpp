@@ -1,15 +1,8 @@
-#include <iostream>
 #include <string>
+#include <iostream>
 #include <cassert>
 
 using namespace std;
-
-string words_in_sentence(string sentence);
-
-int main() {
-    assert(words_in_sentence("here is") == "is");
-    return 0;
-}
 
 string words_in_sentence(string sentence){
     string result = "";
@@ -17,7 +10,7 @@ string words_in_sentence(string sentence){
     int primes[26] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};
 
     int wordStart = 0;
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i <= n; ++i) {
         if (i == n || sentence[i] == ' ') {
             int wordLength = i - wordStart;
             bool isPrime = false;
@@ -34,4 +27,9 @@ string words_in_sentence(string sentence){
         }
     }
     return result;
+}
+
+int main() {
+    assert(words_in_sentence("here is") == "is");
+    return 0;
 }
