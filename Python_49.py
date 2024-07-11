@@ -1,4 +1,4 @@
-```
+```Python
 n = int(input("Enter n: "))
 p = int(input("Enter p: "))
 
