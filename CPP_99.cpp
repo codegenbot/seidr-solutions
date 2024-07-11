@@ -1,8 +1,10 @@
-double num = stod(value);
-    int rounded_num = round(num);
+float num = stof(value);
+    int floor_num = floor(num);
+    int ceil_num = ceil(num);
     
-    if (num - rounded_num == 0.5) {
-        return (num > 0) ? ceil(num) : floor(num);
+    if (num - floor_num < ceil_num - num) {
+        return floor_num;
     } else {
-        return round(num);
+        return ceil_num;
     }
+}
