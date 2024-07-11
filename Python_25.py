@@ -1,9 +1,9 @@
-```
 from typing import List
 
 import math
 
-def main():
+
+def main() -> List:
     while True:
         try:
             n = int(input("Enter a number: "))
@@ -24,5 +24,6 @@ def main():
     if n > 1:
         factors.append(n)
     return factors
+
 
 print(main())
