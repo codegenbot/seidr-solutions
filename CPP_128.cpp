@@ -1,13 +1,13 @@
-Here is the completed code:
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
 
-```cpp
 int prod_signs(vector<int> arr){
-    if(arr.empty()) return -32768;
-    int sign = 1;
-    long long sum = 0;
-    for(auto num : arr) {
-        sign *= (num > 0 ? 1 : (num < 0 ? -1 : 0));
-        sum += abs(num);
+    long long res = 1;
+    for(int x : arr){
+        if(x > 0)res *= 1;
+        else if(x < 0)res *=-1;
     }
-    return sum * sign;
+    return (arr.empty()) ? -32768 : abs(res);
 }
