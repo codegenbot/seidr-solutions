@@ -1,4 +1,6 @@
+```cpp
 #include <vector>
+using namespace std;
 
 int next_smallest(vector<int> lst) {
     vector<int> sorted = lst;
