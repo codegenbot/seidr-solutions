@@ -1,12 +1,12 @@
-using std::string;
+using namespace std;
 
-std::string sort_numbers(std::string numbers) {
-    std::vector<int> numValues;
-    std::map<std::string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
-                                        {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
-                                        {"eight", 8}, {"nine", 9}};
+string sort_numbers(string numbers) {
+    vector<int> numValues;
+    map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+                                {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+                                {"eight", 8}, {"nine", 9}};
 
-    std::string numStr;
+    string numStr;
     for (char c : numbers) {
         if (c == ' ') {
             numValues.push_back(numMap[numStr]);
@@ -17,9 +17,9 @@ std::string sort_numbers(std::string numbers) {
     }
     numValues.push_back(numMap[numStr]);
 
-    std::sort(numValues.begin(), numValues.end());
+    sort(numValues.begin(), numValues.end());
 
-    std::string result = "";
+    string result = "";
     for (int n : numValues) {
         for (auto it = numMap.begin(); it != numMap.end(); ++it) {
             if (n == it->second) {
