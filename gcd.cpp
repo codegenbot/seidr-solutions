@@ -32,5 +32,14 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
 }
 
 int main() {
+    int a = 48, b = 18;
+    vector<int> result = indicesOfSubstring("hellohellohello", "hello");
+
+    cout << "GCD: " << gcd(a, b) << endl;
+    cout << "Indices of Substring:" << endl;
+    for (int i : result) {
+        cout << i << " ";
+    }
+    
     return 0;
 }
