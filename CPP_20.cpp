@@ -1,3 +1,7 @@
+```cpp
+#include <algorithm>
+using namespace std;
+
 vector<float> find_closest_elements(vector<float> numbers) {
     sort(numbers.begin(), numbers.end());
     float min_diff = numeric_limits<float>::max();

@@ -1,42 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
-
+#include<bits/stdc++.h>
 using namespace std;
-
-bool issame(int x, int y) {
-    if(x == y)
-        return true;
-    else
-        return false;
-}
-
-int main() {
-    vector<int> numbers;
-    int n;
-    
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        int num;
-        cout << "Enter element " << i+1 << ": ";
-        cin >> num;
-        numbers.push_back(num);
-    }
-    
-    vector<int> result = remove_duplicates(numbers);
-
-    cout << "After removing duplicates: ";
-    for (int num : result) {
-        if(issame(result[0], num)) {
-            cout << num << " ";
-        } else {
-            break;
-        }
-    }
-    return 0;
-}
 
 vector<int> remove_duplicates(vector<int> numbers) {
     unordered_map<int, bool> seen;
@@ -50,4 +13,28 @@ vector<int> remove_duplicates(vector<int> numbers) {
     }
 
     return result;
+}
+
+int main() {
+    vector<int> input;
+    int n;
+    cout << "Enter the number of elements in the array: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        int num;
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> num;
+        input.push_back(num);
+    }
+
+    vector<int> output = remove_duplicates(input);
+
+    cout << "The array after removing duplicates: ";
+    for (int num : output) {
+        cout << num << " ";
+    }
+    cout << endl;
+
+    return 0;
 }

@@ -1,9 +1,5 @@
-```c++
-int my_strlen(string str) {
-    return str.length();
-}
+#include <string>
 
-int main() {
-    assert(my_strlen("asdasnakj") == 13); 
-    return 0;
+int str_length(string str) {
+    return str.length();
 }
