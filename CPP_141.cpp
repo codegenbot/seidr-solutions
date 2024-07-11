@@ -1,5 +1,4 @@
 #include <string>
-#include <cassert>
 #include <cctype>
 
 string file_name_check(string file_name) {
@@ -32,16 +31,4 @@ string file_name_check(string file_name) {
     }
     
     return "Yes";
-}
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    assert(file_name_check("file.txt") == "Yes");
-    assert(file_name_check("data.exe") == "Yes");
-    assert(file_name_check("image.dll") == "Yes");
-    assert(file_name_check("1234.txt") == "No");
-    assert(file_name_check("file.") == "No");
-    assert(file_name_check("file.pdf") == "No");
-
-    return 0;
 }
