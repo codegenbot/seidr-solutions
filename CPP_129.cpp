@@ -1,46 +1,44 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
-    vector<int> res;
-    for (int i = 0; i < k; ++i) {
-        int maxVal = -1;
-        int maxRow = -1;
-        int maxCol = -1;
-        for (int j = 0; j < grid.size(); ++j) {
-            for (int col = 0; col < grid[j].size(); ++col) {
-                if (grid[j][col] > maxVal && !find(res.begin(), res.end(), grid[j][col])) {
-                    maxVal = grid[j][col];
-                    maxRow = j;
-                    maxCol = col;
-                }
-            }
-        }
-        res.push_back(maxVal);
-        for (int i = 0; i < grid.size(); ++i) {
-            if (i == maxRow) {
-                continue;
-            }
-            for (int j = 0; j < grid[i].size(); ++j) {
-                if (j == maxCol) {
-                    continue;
-                }
-                grid[i][j] -= maxVal;
+vector<int> minPath(vector<vector<int>> grid, int k){
+    int n = grid.size();
+    vector<vector<int>> dp(n, vector<int>(n));
+    vector<vector<bool>> visited(n, vector<bool>(n));
+    
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            if(i==0 || j==0){
+                dp[i][j] = grid[i][j];
+            }else{
+                int minVal = INT_MAX;
+                if(i>0) minVal = min(minVal, dp[i-1][j]);
+                if(j>0) minVal = min(minVal, dp[i][j-1]);
+                dp[i][j] = minVal + grid[i][j];
             }
         }
     }
-    return res;
-}
-
-int main() {
-    vector<vector<int>> grid = {{1,2,3}, {4,5,6}, {7,8,9}};
-    int k = 3;
-    vector<int> res = minPath(grid, k);
-    for (int i : res) {
-        cout << i << " ";
+    
+    int minPathValue = INT_MAX;
+    vector<int> minPath;
+    for(int i=n-1; i>=0; i--){
+        for(int j=n-1; j>=0; j--){
+            if(i<n-1 && dp[i+1][j] == dp[i][j] + grid[i+1][j]) visited[i][j]=true;
+            if(j<n-1 && dp[i][j+1] == dp[i][j] + grid[i][j+1]) visited[i][j]=true;
+            
+            if(i>0 && j>0 && !visited[i-1][j] && !visited[i][j-1]){
+                minPath.push_back(grid[i][j]);
+                i--;
+                j--;
+                k--;
+                while(k>0){
+                    if(i>0) i--;
+                    else if(j>0) j--;
+                    else break;
+                    minPath.push_back(grid[i][j]);
+                    k--;
+                }
+                return minPath;
+            }
+        }
     }
-    return 0;
+    
+    return {};
 }
