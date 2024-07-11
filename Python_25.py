@@ -1,7 +1,8 @@
+import sys
 from typing import List
 
-
-def factorize(n: int) -> List[int]:
+def factorize() -> List[int]:
+    n = int(sys.stdin.readline().strip())
     factors = []
     divisor = 2
     while n > 1:
@@ -12,6 +13,4 @@ def factorize(n: int) -> List[int]:
             divisor += 1
     return factors
 
-
-n = int(input().strip())
-print(factorize(n))
+print(factorize())
