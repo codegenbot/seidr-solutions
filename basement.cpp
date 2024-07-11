@@ -1,10 +1,11 @@
 #include <climits>
 #include <iostream>
 #include <vector>
+#include <limits>
 using namespace std;
 
 int basement(vector<int>& nums) {
-    int sum = 0, min_sum = 0, res = INT_MIN;
+    int sum = 0, min_sum = 0, res = std::numeric_limits<int>::min();
     for (int i = 0; i < nums.size(); ++i) {
         sum += nums[i];
         res = max(res, i - min_sum);
