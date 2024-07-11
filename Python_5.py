@@ -6,9 +6,9 @@ def complete_code(numbers, delimiter):
         result.append(numbers[-1])
     return result
 
+
 # Input
-numbers = input("Enter numbers separated by space: ")
-delimiter = input("Enter delimiter: ")
+numbers = list(map(int, input("Enter numbers separated by space: ").split()))
 
 # Output
-print(complete_code(numbers.split(), delimiter))
+print(complete_code(numbers, "/"))
