@@ -1,7 +1,7 @@
+```
 def decode_cyclic(s):
     if not isinstance(s, str):
-        raise ValueError("Input must be a string")
-
+        raise ValueError("Input should be a string.")
     result = []
     temp = ""
     for char in s + s:
