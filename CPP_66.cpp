@@ -33,12 +33,12 @@ int main() {
             std::string digitsOnly;
             for (char c : newInput) {
                 if(std::isdigit(c)) {
-                    digitsOnly += (c - '0') + '0';
+                    digitsOnly += std::to_string(c - '0');
                 }
             }
             int result = 0;
             for (char c : digitsOnly) {
-                result += (c - '0');
+                result += (c - '48'); // subtracting the ASCII value of '0' to get the digit
             }
             digitsOnly.clear();
             std::cout << "The sum of digits is: " << result << std::endl;
@@ -46,12 +46,12 @@ int main() {
             std::string digitsOnly;
             for (char c : newInput.substr(0, digitPos)) {
                 if(std::isdigit(c)) {
-                    digitsOnly += (c - '0') + '0';
+                    digitsOnly += std::to_string(c - '0');
                 }
             }
             int result = 0;
             for (char c : digitsOnly) {
-                result += (c - '0');
+                result += (c - '48'); // subtracting the ASCII value of '0' to get the digit
             }
             digitsOnly.clear();
             std::cout << "The sum of digits is: " << result << std::endl;
