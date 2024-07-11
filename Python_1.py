@@ -26,4 +26,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
 
     if current_group:
         groups.append(current_group[1:])  
+
     return [group for group in groups] 
