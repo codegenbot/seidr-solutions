@@ -1,7 +1,7 @@
-from typing import List
-
-
 def concatenate(strings: List[str]) -> str:
-    if not strings:
-        return "Please provide some strings"
-    return "".join(map(str, strings))
+    result = ""
+    for string in strings:
+        if not string:
+            return "Please provide some non-empty strings"
+        result += string
+    return result
