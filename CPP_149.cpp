@@ -1,7 +1,3 @@
-```cpp
-bool issame(vector<string> a,vector<string> b) {
-    return a==b;
-}
 vector<string> sorted_list_sum(vector<string> lst) {
     sort(lst.begin(), lst.end(), 
         [](const string& a, const string& b) {
@@ -16,4 +12,8 @@ vector<string> sorted_list_sum(vector<string> lst) {
         result.push_back(s);
     }
     return result;
+}
+
+bool issame(vector<string> a,vector<string> b) {
+    return a==b;
 }
