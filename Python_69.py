@@ -1,13 +1,10 @@
-```
+```Python
+from collections import Counter
+
 def search(lst):
-    freq_dict = {}
-    for num in lst:
-        if num in freq_dict:
-            freq_dict[num] += 1
-        else:
-            freq_dict[num] = 1
-    max_num = -1
-    for key, value in freq_dict.items():
-        if key > 0 and value >= key:
-            max_num = key
-    return max_num
+    counter = Counter(lst)
+    most_common = counter.most_common(1)[0]
+    if most_common[1] > 1:
+        return max([i for i in set(lst)], key=lst.count)
+    else:
+        return -1
