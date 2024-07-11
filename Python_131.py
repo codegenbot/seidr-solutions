@@ -1,4 +1,7 @@
+```Python
 def digits(n):
-    while n > 9:
-        n = sum(int(digit) for digit in str(n))
-    return n
+    n = str(abs(n))[::-1]
+    for i in range(len(n)):
+        if n[i] != '0':
+            return int(n[i])
+    return 0
