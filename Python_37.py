@@ -1,6 +1,4 @@
-```
 def sort_even(l: list):
-    sorted_l = sorted(l)
-    odd = [x for x in sorted_l if x % 2 != 0]
-    even = [x for x in sorted_l if x % 2 == 0]
-    return [x for i, x in enumerate(l) if i % 2 != 0] + sorted(even)
+    seen = set()
+    l_no_duplicates = [x for x in l if not (x in seen or seen.add(x))]
+    return [x if i % 2 != 0 else min(y for y in l_no_duplicates if y == x) for i, x in enumerate(l)]
