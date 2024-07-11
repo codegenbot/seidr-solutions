@@ -1,17 +1,10 @@
-bool checkSortedAfterRotations(const vector<int>& arr) {
+bool is_circular_sorted(std::vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
-        bool sorted = true;
-        for (int j = 0; j < n - 1; ++j) {
-            if (arr[j] > arr[j + 1]) {
-                sorted = false;
-                break;
-            }
-        }
-        if (sorted) {
+        if (std::is_sorted(arr.begin(), arr.end())) {
             return true;
         }
-        rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
+        std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
     return false;
 }
