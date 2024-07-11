@@ -1,3 +1,4 @@
+```
 def valid_date(date):
     day, month, year = date.split('-')
     if len(day) == 1:
@@ -12,7 +13,7 @@ def valid_date(date):
             if int(day) > 30 or int(day) < 1:
                 return False
         elif int(month) == 2:
-            if not (is_leap(int(year)) and int(day) > 29 or int(day) < 1) and not(is_not_leap(int(year)) and int(day) > 28 or int(day) < 1):
+            if not (is_leap(int(year)) and int(day) > 29 or int(day) < 1) and not (int(day) > 28 or int(day) < 1):
                 return False
         else:
             if int(day) > 31 or int(day) < 1:
@@ -23,14 +24,6 @@ def valid_date(date):
 
 def is_leap(year):
     if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
-        return True
-    else:
-        return False
-
-def is_not_leap(year):
-    if year % 4 != 0:
-        return True
-    elif year % 100 == 0 and year % 400 != 0:
         return True
     else:
         return False
