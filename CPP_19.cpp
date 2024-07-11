@@ -1,36 +1,18 @@
-string sort_numbers(string numbers) {
-    map<string, int> num_map = {
-        {"zero", 0},
-        {"one", 1},
-        {"two", 2},
-        {"three", 3},
-        {"four", 4},
-        {"five", 5},
-        {"six", 6},
-        {"seven", 7},
-        {"eight", 8},
-        {"nine", 9}
-    };
+map<string, int> numMap = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3}, {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7}, {"eight", 8}, {"nine", 9}};
 
-    vector<string> num_strings = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-    vector<int> nums;
-    stringstream ss(numbers);
-    string token;
-    while (ss >> token) {
-        nums.push_back(num_map[token]);
+for (auto &it : numMap){
+    while (numbers.find(it.first) != string::npos) {
+        numbers.replace(numbers.find(it.first), it.first.length(), to_string(it.second));
     }
+}
 
-    sort(nums.begin(), nums.end());
+sort(numbers.begin(), numbers.end());
 
-    string result;
-    for (int num : nums) {
-        result += num_strings[num];
-        result += " ";
+for (auto &it : numMap) {
+    while (numbers.find(to_string(it.second)) != string::npos) {
+        numbers.replace(numbers.find(to_string(it.second)), to_string(it.second).length(), it.first);
     }
+}
 
-    if (!result.empty()) {
-        result.pop_back(); // Remove last space
-    }
-
-    return result;
+return numbers;
 }
