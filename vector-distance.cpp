@@ -1,27 +1,23 @@
-double euclideanDistance(vector<double>& v1, vector<double>& v2) {
-    double sum = 0.0;
-    for (int i = 0; i < v1.size(); ++i) {
-        sum += pow(v1[i] - v2[i], 2);
-    }
-    return sqrt(sum);
-}
-
 int main() {
     int n;
     cin >> n;
-
-    vector<double> v1(n);
+    vector<float> vec1(n);
     for (int i = 0; i < n; ++i) {
-        cin >> v1[i];
+        cin >> vec1[i];
     }
 
     cin >> n;
-    vector<double> v2(n);
+    vector<float> vec2(n);
     for (int i = 0; i < n; ++i) {
-        cin >> v2[i];
+        cin >> vec2[i];
     }
 
-    double result = euclideanDistance(v1, v2);
+    float sum = 0.0;
+    for (int i = 0; i < n; ++i) {
+        sum += pow(vec2[i] - vec1[i], 2);
+    }
+
+    float result = sqrt(sum);
     cout << result << endl;
 
     return 0;
