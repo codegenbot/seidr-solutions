@@ -1,3 +1,4 @@
+```
 def minPath(grid, k):
     n = len(grid)
     for i in range(n):
@@ -6,11 +7,11 @@ def minPath(grid, k):
                 start = (i, j)
                 break
     queue = [(start, [grid[start[0]][start[1]]])]
-    min_sum = sum(queue[0][1])
-    while queue and len(min_sum) < k:
+    visited = set([str(start)])
+    while queue and len(queue[0][1]) < k: 
         path, values = queue.pop(0)
         if len(values) == k:
-            return values
+            return values 
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             x, y = path[0] + dx, path[1] + dy
             if 0 <= x < n and 0 <= y < n and str((x, y)) not in visited:
