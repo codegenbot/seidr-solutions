@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -6,8 +7,6 @@ class stdVectorInt {
 public:
     stdVectorInt() {}
 };
-
-stdVectorInt obj;
 
 int main() {
     int n; 
@@ -18,8 +17,7 @@ int main() {
     
     std::sort(nums.begin(), nums.end());
     
-    bool same = (nums == nums);
-    if (same)
+    if (nums == nums)
         std::cout << "The sorted array is the same as the original one.\n";
     else
         std::cout << "The sorted array is different from the original one.\n";
