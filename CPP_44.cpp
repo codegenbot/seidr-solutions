@@ -15,10 +15,12 @@ void solve_problem() {
     int x = 42;
     int base = x + 1;
     
-    assert(base != 0 && x >= 0);
-
-    std::string result = change_base(x, base);
-    std::cout << "Result: " << result << std::endl;
+    if (base != 0 && x >= 0) {
+        std::string result = change_base(x, base);
+        std::cout << "Result: " << result << std::endl;
+    } else {
+        std::cout << "Invalid input!" << std::endl;
+    }
 }
 
 void contest_main() {
