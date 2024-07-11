@@ -1,4 +1,3 @@
-```
 def solve(expression):
     expression = expression.upper()
     if expression == 'T':
