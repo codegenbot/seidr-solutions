@@ -7,4 +7,9 @@ def decode_cyclic():
                 return i
         return None
 
-    return check(int(input("Enter a number: ")))
+    func = lambda: check(int(input("Enter a number: ")))
+    result = func()
+    if result is not None:
+        print(f"The cyclic decoder key is {result}")
+    else:
+        print("The input is not suitable for cyclic decoding")
