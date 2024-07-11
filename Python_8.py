@@ -1,5 +1,3 @@
-Here's your corrected code:
-
 ````
 from typing import List, Tuple
 
