@@ -1,4 +1,3 @@
-```cpp
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
@@ -12,5 +11,4 @@ int add(int a, int b) {
 
 srand(time(nullptr)); 
 int randomNum = rand() % 1000; 
-string strRandomNum = to_string(randomNum); 
-cout << "Random Number: " << strRandomNum << endl;
+cout << "Random Number: " << randomNum << endl;
