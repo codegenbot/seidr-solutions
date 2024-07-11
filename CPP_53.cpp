@@ -12,9 +12,7 @@ int sum(int a, int b) {
 
 int main() { 
     srand(time(nullptr)); 
-    int randomNum = rand() % 1000; 
-
-    cout << "Random Number: " << to_string(randomNum) << endl; 
+    cout << "Random Number: " << to_string(rand() % 1000) << endl; 
 
     int num1, num2;
     cout << "Enter two numbers: ";
