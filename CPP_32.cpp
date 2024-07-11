@@ -11,9 +11,11 @@ double poly(std::vector<double> xs, double x){
 }
 
 double find_zero(std::vector<double> xs){
-    double a = xs[0];
-    double b = xs[1];
-    return -a / b;
+    double guess = 0.0;
+    while (std::abs(poly(xs, guess)) >= 1e-9){
+        guess = guess - poly(xs, guess) / poly(std::vector<double>(xs.begin() + 1, xs.end()), guess);
+    }
+    return guess;
 }
 
 int main(){
