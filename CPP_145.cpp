@@ -46,7 +46,7 @@ std::vector<int> order_by_points(std::vector<int> nums) {
             sum += num % 10;
             num /= 10;
         }
-        pairs.emplace_back(i, sum);
+        pairs.emplace_back(num, i);
     }
     std::sort(pairs.begin(), pairs.end());
     std::vector<int> result;
