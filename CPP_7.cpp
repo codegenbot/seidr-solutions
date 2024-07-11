@@ -9,39 +9,26 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
-    int num_strings;
-    cin >> num_strings;
-
-    vector<string> strings(num_strings);
-
-    for (int i = 0; i < num_strings; ++i) {
-        cin >> strings[i];
+    vector<string> strings;
+    cout << "Enter number of strings: ";
+    int n; cin >> n;
+    for (int i = 0; i < n; i++) {
+        string str;
+        cout << "Enter string " << i+1 << ": ";
+        getline(cin, str);
+        strings.push_back(str);
     }
 
     string substring;
-    cin >> substring;
+    cout << "Enter the substring: ";
+    getline(cin, substring);
 
     vector<string> result = filter_by_substring(strings, substring);
-    bool same = issame(result, strings);
-
-    if (same) {
-        for (const auto& s : result) {
-            cout << s << " ";
-        }
-        cout << endl;
+    if (issame(result, strings)) {
+        cout << "The resulting list contains all original strings." << endl;
     } else {
-        cout << "No match found" << endl;
+        cout << "The resulting list is different from the original list." << endl;
     }
 
     return 0;
-}
-
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for (const auto& s : strings) {
-        if (s.find(substring) != string::npos) {
-            result.push_back(s);
-        }
-    }
-    return result;
 }
