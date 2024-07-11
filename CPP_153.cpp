@@ -1,12 +1,32 @@
-string Strongest_Extension(string class_name, vector<string> extensions){
-    string strongest_extension = extensions[0];
-    int max_strength = count_if(strongest_extension.begin(), strongest_extension.end(), ::isupper) - count_if(strongest_extension.begin(), strongest_extension.end(), ::islower);
+int count_uppercase_letters(string str) {
+    int count = 0;
+    for (char c : str) {
+        if (isupper(c)) {
+            count++;
+        }
+    }
+    return count;
+}
 
-    for(int i = 1; i < extensions.size(); ++i){
-        int strength = count_if(extensions[i].begin(), extensions[i].end(), ::isupper) - count_if(extensions[i].begin(), extensions[i].end(), ::islower);
-        if(strength > max_strength){
+int count_lowercase_letters(string str) {
+    int count = 0;
+    for (char c : str) {
+        if (islower(c)) {
+            count++;
+        }
+    }
+    return count;
+}
+
+string Strongest_Extension(string class_name, vector<string> extensions) {
+    string strongest_extension = "";
+    int max_strength = INT_MIN;
+
+    for (string ext : extensions) {
+        int strength = count_uppercase_letters(ext) - count_lowercase_letters(ext);
+        if (strength > max_strength || (strength == max_strength && ext < strongest_extension)) {
             max_strength = strength;
-            strongest_extension = extensions[i];
+            strongest_extension = ext;
         }
     }
 
