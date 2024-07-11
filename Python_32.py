@@ -1,3 +1,4 @@
+```python
 def find_zero():
     xs = input("Enter coefficients of the polynomial (space separated): ")
     try:
@@ -16,8 +17,7 @@ def find_zero():
     if c == 0 or b == 0:
         return None
 
-    result = -b / (2 * c)
-    print("The zero of the polynomial is: ", result)
+    return -b / (2 * c)
 
-
-find_zero()
+result = find_zero()
+print("The zero of the polynomial is: ", result)
