@@ -1,26 +1,26 @@
 vector<string> bf(string planet1, string planet2) {
-    vector<string> solarSystem = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+    vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
 
-    int idx1 = -1, idx2 = -1;
-    for (int i = 0; i < solarSystem.size(); i++) {
-        if (solarSystem[i] == planet1) {
-            idx1 = i;
-        }
-        if (solarSystem[i] == planet2) {
-            idx2 = i;
+    int start = 0, end = 0;
+    for (int i = 0; i < planets.size(); ++i) {
+        if (planets[i] == planet1) {
+            start = i;
+        } else if (planets[i] == planet2) {
+            end = i;
         }
     }
 
-    if (idx1 == -1 || idx2 == -1) {
-        return {};
+    if (start == 0 || end == 0 || start == end) {
+        return result;
     }
 
-    int startIdx = min(idx1, idx2);
-    int endIdx = max(idx1, idx2);
+    if (start > end) {
+        swap(start, end);
+    }
 
-    for (int i = startIdx + 1; i < endIdx; i++) {
-        result.push_back(solarSystem[i]);
+    for (int i = start + 1; i < end; ++i) {
+        result.push_back(planets[i]);
     }
 
     return result;
