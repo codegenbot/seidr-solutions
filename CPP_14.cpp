@@ -19,11 +19,9 @@ int main() {
 vector<string> all_prefixes(string str) {
     vector<string> result;
     for (int i = 1; i <= str.length(); ++i) {
-        string prefix = "";
+        string prefix;
         for (int j = 0; j < i; ++j) {
-            for (char c : str) {
-                prefix += c;
-            }
+            prefix += (char)(str[j % str.length()]);
         }
         result.push_back(prefix);
     }
