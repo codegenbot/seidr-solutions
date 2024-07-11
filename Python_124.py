@@ -1,4 +1,4 @@
-```Python
+```
 def valid_date(date):
     day, month, year = date.split('-')
     if len(day) == 1:
@@ -13,8 +13,6 @@ def valid_date(date):
             if int(day) > 30 or int(day) < 1:
                 return False
         elif int(month) == 2:
-            if int(year) % 4 != 0 or (int(year) % 100 == 0 and int(year) % 400 != 0):
-                return False
             if int(day) > 29 or int(day) < 1:
                 return False
         else:
