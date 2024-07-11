@@ -34,4 +34,3 @@ map<char,int> histogram(string test){
 int main(){
     assert(issame(histogram("a"), {{'a', 1}}));
 }
-
