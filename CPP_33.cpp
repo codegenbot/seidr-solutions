@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -14,9 +15,7 @@ vector<int> sort_third(vector<int> l) {
                 }
             }
             sort(temp.begin(), temp.end());
-            for (int k = 0; k < temp.size(); k++) {
-                result.push_back(temp[k]);
-            }
+            result.insert(result.end(), temp.begin(), temp.end());
         } else {
             result.push_back(l[i]);
         }
