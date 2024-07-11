@@ -1,14 +1,10 @@
-int result = -1;
+vector<int> freq(1001, 0);
+    int res = -1;
     for (int num : lst) {
-        int freq = 0;
-        for (int n : lst) {
-            if (n == num) {
-                freq++;
-            }
-        }
-        if (num > freq && freq >= num && num > result) {
-            result = num;
+        freq[num]++;
+        if (freq[num] >= num && num > res) {
+            res = num;
         }
     }
-    return result;
+    return res;
 }
