@@ -1,41 +1,41 @@
-Here is the completed code:
-
 ```cpp
-#include<stdio.h>
-#include<string>
-#include<algorithm>
-#include<boost/any.hpp>
-using namespace std;
 boost::any compare_one(boost::any a, boost::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        int ai = boost::any_cast<int>(a);
-        int bi = boost::any_cast<int>(b);
-        return (ai > bi) ? a : ((bi > ai) ? b : boost::any("None"));
-    } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
-        double ad = boost::any_cast<double>(a);
-        double bd = boost::any_cast<double>(b);
-        return (ad > bd) ? a : ((bd > ad) ? b : boost::any("None"));
+    if (a.type() == typeid(int) && b.type() == typeid(float)) {
+        return boost::any_cast<float>(b) > boost::any_cast<int>(a) ? b : a;
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        string strA = boost::any_cast<string>(a);
+        int numB = boost::any_cast<int>(b);
+        return to_string(numB) > strA ? boost::any(b) : a;
+    } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+        return boost::any_cast<float>(a) > boost::any_cast<int>(b) ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
+        string strA = boost::any_cast<string>(a);
+        float numB = boost::any_cast<float>(b);
+        return strA > to_string(numB) ? a : b;
     } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-        string astr = boost::any_cast<string>(a);
-        string bstr = boost::any_cast<string>(b);
-        return (astr > bstr) ? a : ((bstr > astr) ? b : boost::any("None"));
-    } else if (a.type() == typeid(int) && (b.type() == typeid(double) || b.type() == typeid(string))) {
-        int ai = boost::any_cast<int>(a);
-        double bd = boost::any_cast<double>(b);
-        string bstr = boost::any_cast<string>(b);
-        return (ai > bd) ? a : ((bd > ai) ? b : boost::any("None"));
-    } else if ((a.type() == typeid(double) || a.type() == typeid(string)) && b.type() == typeid(int)) {
-        double ad = boost::any_cast<double>(a);
-        int bi = boost::any_cast<int>(b);
-        string astr = boost::any_cast<string>(a);
-        return (ad > bi) ? a : ((bi > ad) ? b : boost::any("None"));
-    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
-        string astr = boost::any_cast<string>(a);
-        double bd = boost::any_cast<double>(b);
-        return (astr > to_string(bd)) ? a : ((to_string(bd) > astr) ? b : boost::any("None"));
-    } else if (a.type() == typeid(double) && b.type() == typeid(string)) {
-        double ad = boost::any_cast<double>(a);
-        string astr = boost::any_cast<string>(b);
-        return (ad > stod(astr)) ? a : ((stod(astr) > ad) ? b : boost::any("None"));
+        string strA = boost::any_cast<string>(a);
+        string strB = boost::any_cast<string>(b);
+        return strB > strA ? b : (strA == strB ? boost::any("None") : a);
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+        string strA = boost::any_cast<string>(a);
+        int numB = boost::any_cast<int>(b);
+        return to_string(numB) > strA ? boost::any(b) : a;
+    } else if (a.type() == typeid(float) && b.type() == typeid(string)) {
+        float numA = boost::any_cast<float>(a);
+        string strB = boost::any_cast<string>(b);
+        return to_string(numA) > strB ? a : boost::any(b);
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        int numA = boost::any_cast<int>(a);
+        string strB = boost::any_cast<string>(b);
+        return to_string(numA) > strB ? a : boost::any(b);
+    } else if (a.type() == typeid(int) && b.type() == typeid(string)) {
+        int numA = boost::any_cast<int>(a);
+        string strB = boost::any_cast<string>(b);
+        return to_string(numA) > strB ? a : boost::any(b);
+    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
+        float numA = boost::any_cast<float>(a);
+        float numB = boost::any_cast<float>(b);
+        return numB > numA ? b : a;
     }
+    return boost::any("None");
 }
