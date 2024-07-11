@@ -2,18 +2,14 @@
 #include <string>
 
 std::string squareDigits(std::string input) {
-    int number = std::stoi(input);
     std::string result = "";
-    
-    while (number > 0) {
-        int digit = number % 10;
-        result += std::to_string(digit * digit);
-        number /= 10;
+    for (char c : input) {
+        result += std::to_string(std::stoi(std::string(1, c)) * std::stoi(std::string(1, c)));
     }
     return result;
 }
 
 int main() {
-    std::cout << squareDigits("355637") << std::endl; 
+    std::cout << squareDigits("34") << std::endl; 
     return 0;
 }
