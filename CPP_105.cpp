@@ -56,7 +56,7 @@ std::vector<std::string> by_length(std::vector<int> arr) {
 }
 
 int main() {
-    std::vector<int> arr = {"Nine", "Four", "Eight"};
-    assert(by_length({9, 4, 8}) == vector<string>({"Nine", "Eight", "Four"}));
+    std::vector<std::string> output = by_length({"Nine", "Four", "Eight"});
+    assert(output == std::vector<std::string>({"Eight", "Four", "Nine"}));
     return 0;
 }
