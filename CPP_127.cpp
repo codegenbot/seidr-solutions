@@ -15,3 +15,4 @@ string intersection(vector<int> interval1, vector<int> interval2){
     }
     
     return "YES";
+}
