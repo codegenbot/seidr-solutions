@@ -1,10 +1,7 @@
-Here is the solution:
-
 def get_row(lst, x):
-    result = []
-    for i, row in enumerate(lst):
-        if x in row:
-            for j, val in reversed(list(enumerate(row))):
-                if val == x:
-                    result.append((i, j))
-    return sorted(result)
+    result = [
+        (i, j)
+        for i, sublst in enumerate(lst)
+        if any(x in sublst for sublst in (sublst for sublst in lst))
+    ]
+    return sorted(result, key=lambda x: (x[0], -x[1]))
