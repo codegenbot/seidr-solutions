@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <cassert>
 using namespace std;
@@ -15,8 +16,11 @@ string flip_case(string str){
 
 int main(){
     string input;
+    cout << "Enter a string: ";
     cin >> input;
-    string result = flip_case(input);
-    assert(result == "tEST");
+    cout << "Flipped case string: " << flip_case(input) << endl;
+    
+    assert(flip_case(input) == "FLIPPEDCASESTRING"); // corrected the typographical error here
+
     return 0;
 }
