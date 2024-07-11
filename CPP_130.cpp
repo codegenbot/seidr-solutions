@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <algorithm>
 
 using namespace std;
 
 bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    return v1.size() == v2.size() && std::is_permutation(v1.begin(), v1.end(), v2.begin());
+    return v1 == v2;
 }
 
 std::vector<int> tri(int n) {
