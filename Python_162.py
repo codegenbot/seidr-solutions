@@ -12,9 +12,7 @@ while True:
         text = input("Enter a string: ")
         if text.lower() == "quit":
             break
-        try:
-            print(string_to_md5(text))
-        except ValueError:
-            print("Invalid input. Please enter a string.")
+        print(string_to_md5(text))
     except ValueError:
         print("Invalid input. Please enter a string.")
+        continue
