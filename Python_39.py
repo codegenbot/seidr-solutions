@@ -1,4 +1,3 @@
-```Python
 def is_prime(n: int):
     if n <= 1:
         return False
