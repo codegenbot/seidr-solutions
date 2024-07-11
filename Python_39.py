@@ -1,21 +1,15 @@
-Here's the problem description and function signature:
-
-Find the nth Fibonacci number that is also prime
-
-```
-def nth_prime_fib(n: int) -> int:
+def nth_paired_prime(n: int):
     a, b = 0, 1
     count = 0
-    result = 0
     while True:
-        if is_prime(b):
+        if is_prime(a) and is_prime(b):
             count += 1
             if count == n:
-                result = b
-                return result
+                return (a, b)
         a, b = b, a + b
 
-def is_prime(num: int) -> bool:
+
+def is_prime(num: int):
     if num < 2:
         return False
     for i in range(2, int(num**0.5) + 1):
