@@ -15,6 +15,6 @@ vector<string> reverse_delete(string s, string c){
     return {result, (result == rev_result) ? "True" : "False"};
 }
 
-bool issame(vector<string> a, const vector<string>& b){  
-    return a == b;  
+bool issame(vector<string> a, const vector<string>& b){
+    return a == b;
 }
