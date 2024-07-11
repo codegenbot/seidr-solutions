@@ -6,10 +6,7 @@ string solveBoolean(string s) {
         if(s[i] == '|') {
             result = !result;
         } else if(s[i] == '&') {
-            if(i+1<s.length() && s[i+1] == 'T')
-                result &= true;
-            else
-                return "False";
+            result &= (s[i+1] == 'T');
             i++;
         }
     }
