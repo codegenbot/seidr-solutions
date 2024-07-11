@@ -4,10 +4,11 @@ def coin_sums():
 
     cents = int(input("Enter number of cents: "))
 
-    for coin in coins:
-        count = cents // coin
-        result[coins.index(coin)] = count
-        cents %= coin
+    while cents > 0:
+        for i in range(len(coins)-1, -1, -1):
+            count = min(cents // coins[i], result[i] + (cents % coins[i] == 0))
+            result[i] = count
+            cents -= count * coins[i]
 
     print(f"Quarters: {result[0]}, Dimes: {result[1]}, Nickels: {result[2]}, Pennies: {result[3]}")
 
