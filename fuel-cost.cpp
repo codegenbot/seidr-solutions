@@ -1,24 +1,24 @@
 #include <vector>
-#include <iostream>
-#include <cmath>
 using namespace std;
 
-int fuelCost(vector<int> v) {
-    int sum = 0;
-    for (int x : v) {
-        int y = std::floor((double)x / 3) - 2;
-        sum += y;
+int calculateFuelCost(vector<int> numbers) {
+    int total = 0;
+    for (int num : numbers) {
+        int result = (num / 3);
+        result = min(result, 0); // round down to nearest integer
+        result -= 2; // subtract 2
+        total += result;
     }
-    return sum;
+    return total;
 }
 
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n);
+    vector<int> numbers(n);
     for (int i = 0; i < n; i++) {
-        cin >> v[i];
+        cin >> numbers[i];
     }
-    cout << fuelCost(v) << endl;
+    cout << calculateFuelCost(numbers) << endl;
     return 0;
 }
