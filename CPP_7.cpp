@@ -1,5 +1,6 @@
+```cpp
+#include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
 
 bool issame(vector<string> a, vector<string> b) {
@@ -9,27 +10,32 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 int main() {
+    std::vector<std::string> strings;
+    std::cout << "Enter the number of strings: ";
     int n;
     std::cin >> n;
     
-    vector<string> strings;
     for (int i = 0; i < n; ++i) {
-        string str;
-        cin >> str;
-        strings.push_back(str);
+        std::cout << "Enter string " << i + 1 << ": ";
+        std::string s;
+        std::cin >> s;
+        strings.push_back(s);
     }
     
-    string substring;
-    cin >> substring;
-
+    std::cout << "Enter the substring: ";
+    std::string substring;
+    std::cin >> substring;
+    
     vector<string> result = filter_by_substring(strings, substring);
-
-    if (issame({substring}, result)) {
-        cout << "Yes" << endl;
+    
+    if (result.size() > 0) {
+        for (const auto& s : result) {
+            std::cout << s << "\n";
+        }
     } else {
-        cout << "No" << endl;
+        std::cout << "No strings contain the given substring.\n";
     }
-
+    
     return 0;
 }
 
