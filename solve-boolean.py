@@ -1,20 +1,17 @@
+```
 def solve_boolean(expression):
-    def or_gate(a, b):
-        return a or b
-
-    def and_gate(a, b):
-        return a and b
-
-    ops = {'|': or_gate, '&': and_gate}
-
-    result = True
-    for char in expression:
-        if char in ['T', 't']:
-            result = char.upper() == 'T'
-        elif char in ['F', 'f']:
-            result = not (char.upper() == 'T')
+    def evaluate(node):
+        if node[0] == 'T':
+            return True
+        elif node[0] == 'F':
+            return False
         else:
-            operand1 = result
-            result = ops[char](result, char == '&')
-
-    return result
+            left = evaluate((node[1],))
+            right = evaluate((node[2],))
+            if node[0] == '|':
+                return left or right
+            else:
+                return left and right
+    
+    nodes = re.findall('[TF]|&|', expression)
+    return evaluate(tuple(nodes))
