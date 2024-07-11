@@ -7,8 +7,7 @@ def minPath(grid, k):
     def dfs(i, j, current_path, path_length):
         nonlocal result
         if path_length == k:
-            if len(set(current_path)) == k:
-                result.append(current_path[:])
+            result.append(current_path[:])
             return
         for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             ni, nj = i + di, j + dj
