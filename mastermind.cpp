@@ -1,32 +1,29 @@
-```cpp
 #include <string>
-#include <vector>
+#include <unordered_map>
 
 int whitePegs(std::string code, std::string guess) {
     int count = 0;
-    std::vector<int> codeMap(6), guessMap(6);
+    std::unordered_map<char, int> codeMap, guessMap;
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
             count++;
         }
     }
     for (char c : code) {
-        int asciiVal = static_cast<int>(c); 
-        codeMap[asciiVal]++;
+        (*codeMap)[c]++;
     }
     for (char c : guess) {
-        int asciiVal = static_cast<int>(c);
-        guessMap[asciiVal]++;
+        (*guessMap)[c]++;
     }
-    int blackPegsCount = 0;
-    for (int i = 0; i < 6; i++) {
-        if (codeMap[i] && guessMap[i]) {
-            blackPegsCount++;
-            codeMap[i]--;
-            guessMap[i]--;
+    int correctWrong = 0;
+    for (const auto &pair : codeMap) {
+        if ((*guessMap).count(pair.first)) {
+            int codeCount = pair.second;
+            int guessCount = (*guessMap)[pair.first];
+            correctWrong += std::min(codeCount, guessCount);
         }
     }
-    return count - blackPegsCount;
+    return correctWrong - count;
 }
 
 int blackPegs(std::string code, std::string guess) {
@@ -40,11 +37,6 @@ int blackPegs(std::string code, std::string guess) {
 }
 
 int main() {
-    std::string code = "abcD";
-    std::string guess = "xyzC";
-
-    int whitePegsCount = whitePegs(code, guess);
-    int blackPegsCount = blackPegs(code, guess);
-
+    // Use your whitePegs and blackPegs functions here
     return 0;
 }
