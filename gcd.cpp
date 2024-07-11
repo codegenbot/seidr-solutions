@@ -1,5 +1,6 @@
 ```cpp
 #include <iostream>
+using namespace std;
 
 int gcd(int a, int b) {
     while (b != 0)
@@ -8,9 +9,12 @@ int gcd(int a, int b) {
 }
 
 int main() {
-    int a, b;
-    std::cout << "Enter two integers: ";
-    std::cin >> a >> b;
-    std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << std::endl;
+    string a = "", b = ""; 
+    cout << "Enter first number: ";
+    cin >> a;
+    cout << "Enter second number: ";
+    cin >> b;
+    int result = gcd(stoi(a), stoi(b)); 
+    cout << "GCD: " << result;
     return 0;
 }
