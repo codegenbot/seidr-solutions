@@ -1,6 +1,6 @@
 ```
 def parse_music(music_string: str) -> List[int]:
-    beats = [4, 2, 1]  
+    beats = [4, 2, 1] 
     parsed_music = []
     
     i = 0
