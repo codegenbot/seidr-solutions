@@ -19,7 +19,8 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input); 
-
+    main(); // Add an explicit call to main()
+    
     if (is_palindrome(input)) {
         std::cout << "The string is a palindrome." << std::endl;
     } else {
