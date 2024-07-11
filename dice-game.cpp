@@ -1,10 +1,11 @@
+```cpp
 #include <iostream>
 #include <iomanip>
 
 using namespace std;
 
 double getProbability(int n, int m) {
-    return 1.0 * (n - m + 1) / n;
+    return 1.0 * (n - 1) / (n + m - 1);
 }
 
 int main() {
