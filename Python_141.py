@@ -7,6 +7,6 @@ def file_name_check(file_name):
     name, ext = file_name.rsplit('.', 1)
     if not name or not name[0].isalpha():
         return 'No'
-    if ext.lower() not in ['txt', 'exe', 'dll']:
+    if set(ext.lower()) not in [set('txt'), set('exe'), set('dll')]:
         return 'No'
     return 'Yes'
