@@ -1,13 +1,10 @@
-int main() {
-    double result = getProbability(4, 6); 
-    std::cout << "Probability: " << result << std::endl;
-    return 0;
-}
-
 double getProbability(int n, int m) {
-    double p = 0.0;
-    for (int i = 1; i < m; i++) {
-        p += (n - i) / (double)n * ((m - 1) / (double)m);
+    double totalOutcomes = n * m;
+    double favorableOutcomes = 0;
+    for (int i = 1; i < n; i++) {
+        for (int j = 1; j <= m && j < i; j++) {
+            favorableOutcomes++;
+        }
     }
-    return p;
+    return 1.0 * favorableOutcomes / totalOutcomes;
 }
