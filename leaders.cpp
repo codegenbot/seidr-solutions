@@ -1,5 +1,6 @@
-vector<std::vector<int>> leaders(std::vector<int>& arr) {
-    vector<int> result;
+```cpp
+std::vector<int> leaders(std::vector<int>& arr) {
+    std::vector<int> result;
     int maxRight = arr[arr.size() - 1];
     for(int i = arr.size() - 2; i >= 0; i--) {
         if(arr[i] >= maxRight)
