@@ -5,4 +5,4 @@ def filter_integers(values: list[Any]) -> list[int]:
 
 user_input = input("Please enter some values (separated by spaces): ")
 values = [x.strip() for x in user_input.split()]
-print(filter_integers(values))
+print(filter_integers([int(i) if i.isdigit() else i for i in values]))
