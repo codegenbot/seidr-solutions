@@ -1,20 +1,20 @@
 map<char,int> histogram(string test){
-    map<char, int> letterCount;
-    for(char c : test){
-        if(c != ' '){
-            letterCount[c]++;
+    map<char, int> freq;
+    for (char c : test) {
+        if (c != ' ') {
+            freq[c]++;
         }
     }
 
-    int maxCount = 0;
-    for(auto it : letterCount){
-        maxCount = max(maxCount, it.second);
+    int max_count = 0;
+    for (const auto& p : freq) {
+        max_count = max(max_count, p.second);
     }
 
     map<char, int> result;
-    for(auto it : letterCount){
-        if(it.second == maxCount){
-            result[it.first] = it.second;
+    for (const auto& p : freq) {
+        if (p.second == max_count) {
+            result[p.first] = p.second;
         }
     }
 
