@@ -18,10 +18,10 @@ int main() {
 
     double bounciness = bouncinessIndex(heightAfterFirstBounce, startingHeight);
 
-    cout << setprecision(4) << fixed; // Set the precision
-
-    std::cout << bounciness << endl;
-    std::cout << totalDistance(numBounces, bounciness) << endl;
+    std::cout << fixed << setprecision(4) << std::endl;
+    
+    cout << bounciness << endl;
+    cout << totalDistance(numBounces, bounciness) << endl;
 
     return 0;
 }
