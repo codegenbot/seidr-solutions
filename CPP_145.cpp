@@ -1,11 +1,15 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-class stdVectorInt {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
+class myVector {
 public:
-    stdVectorInt() {}
+    myVector() {}
 };
 
 int main() {
@@ -17,7 +21,8 @@ int main() {
     
     std::sort(nums.begin(), nums.end());
     
-    if (nums == nums)
+    bool same = issame(nums, nums);
+    if (same)
         std::cout << "The sorted array is the same as the original one.\n";
     else
         std::cout << "The sorted array is different from the original one.\n";
@@ -31,7 +36,7 @@ int main() {
     return 0;
 }
 
-std::vector<int> order_by_points(std::vector<int>& nums) {
+std::vector<int> order_by_points(std::vector<int> nums) {
     std::vector<std::pair<int, int>> pairs;
     for (int i = 0; i < nums.size(); ++i) {
         int sum = 0;
