@@ -12,3 +12,4 @@ int main() {
         std::cout << "The middle character is: " << s.substr(len/2, 1) << std::endl;
     }
     return 0;
+}
