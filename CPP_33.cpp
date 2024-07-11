@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
+#include <cassert> // Add this line for using the assert macro
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     return std::vector<int>(a) == b;
@@ -29,7 +29,7 @@ std::vector<int> sort_third(std::vector<int> l) {
     return l;
 }
 
-int main() {
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1}));
+int main() { // Add main function here
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 6, 3, 4, 8, 9, 5, 1})); // Correct closing parenthesis
     return 0;
 }
