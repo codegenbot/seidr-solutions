@@ -1,7 +1,7 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
+bool same(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -21,5 +21,6 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    assert(issame(vector<int>(strange_sort_vector({1, 1, 1, 1, 1})), vector<int>({1, 1, 1, 1, 1})));
+    assert(same(strange_sort_vector({1, 1, 1, 1, 1}), vector<int>({1, 1, 1, 1, 1})));
+    return 0;
 }
