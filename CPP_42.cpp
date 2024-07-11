@@ -34,10 +34,5 @@ int main() {
     bool result = issame(a, b);
     std::vector<int> incremented = incr_list(a);
     
-    std::cout << result << std::endl;
-    for(int num : incremented) {
-        std::cout << num << " ";
-    }
-    
     return 0;
 }
