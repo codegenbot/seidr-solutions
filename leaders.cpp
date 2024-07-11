@@ -1,6 +1,4 @@
-#include <iostream>
-using namespace std;
-
+```cpp
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int maxRight = arr.back();
