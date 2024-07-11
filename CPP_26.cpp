@@ -1,5 +1,6 @@
 ```c++
 #include <unordered_set>
+#include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size())
