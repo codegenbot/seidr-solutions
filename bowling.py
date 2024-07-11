@@ -1,32 +1,25 @@
 ```
-def bowling_score(game):
+def bowling_score(s):
     score = 0
-    frame = 1
-    for i in range(0, len(game), 2):
-        if game[i].isdigit():
-            first_roll = int(game[i])
-            second_roll = 0
-            if i + 1 < len(game) and game[i+1].isdigit():
-                second_roll = int(game[i+1])
-            elif game[i+1] == "X":
-                second_roll = 10 - first_roll
-            elif game[i+1] == "/":
-                second_roll = 10 - first_roll
-
-            if first_roll + second_roll == 10:
-                if frame < 9:
-                    score += 10
-                else:
-                    if frame == 9 and (game[18].isdigit() or game[18] == "X"):
-                        if game[i+2].isdigit():
-                            score += int(game[i+2]) + 10
-                        else:
-                            score += 10
-            elif first_roll == 10:
-                score += 10
-                frame += 1
+    rolls = list(map(int, s.replace("X", "10").replace("/", "2").split("-")))
+    i = 0
+    while i < len(rolls):
+        if rolls[i] == 10:
+            # Strike
+            score += 10 + (rolls[i+1] + rolls[i+2] if i+2 < len(rolls) else 0)
+            i += (3 if i+2 < len(rolls) else 1)
+        elif rolls[i] == -1 or rolls[i] == 2:
+            # Spare
+            score += 5 + (rolls[i+1] + rolls[i+2] if i+2 < len(rolls) else 0)
+            i += (3 if i+2 < len(rolls) else 1)
+        else:
+            # Regular frame
+            if rolls[i] > 9 or (i+1 < len(rolls) and rolls[i+1] > 9):
+                # Split the frame into two parts
+                score += min(rolls[i],10)+(10-rolls[i])//2*2
+                i += 1
             else:
-                score += first_roll + second_roll
-                frame += 1
-
+                # Single roll for this frame
+                score += rolls[i]
+                i += 1
     return score
