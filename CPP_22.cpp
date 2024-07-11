@@ -1,6 +1,5 @@
 #include <vector>
 #include <any>
-#include <pmr>
 
 std::pmr::vector<int> filter_integers(std::list<std::any> values) {
     std::pmr::vector<int> result;
@@ -20,7 +19,6 @@ bool issame(std::pmr::vector<int> a, std::pmr::vector<int> b) {
     for (size_t i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
-        }
     }
     return true;
 }
