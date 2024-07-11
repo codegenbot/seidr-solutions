@@ -1,15 +1,14 @@
-def find_closest_elements(arr, target):
+```
+def find_closest_elements(arr, k):
     arr.sort()
-    left = 0
-    right = len(arr) - 1
-    
+    if len(arr) == 1:
+        return arr[0]
+    left, right = 0, len(arr)-1
     while True:
-        if left == right:
-            return [arr[left], arr[left]]
-
-        if target < arr[left] + (right - left) // 2 * (arr[right] - arr[left]):
-            right = left + (right - left) // 2
+        if right - left == 1:
+            return arr[left], arr[right]
+        mid = (left + right) // 2
+        if k <= arr[mid]:
+            right = mid
         else:
-            left = right - (right - left) // 2 + 1
-
-    return [arr[left], arr[right]]
+            left = mid+1
