@@ -1,8 +1,5 @@
-Here is the modified code:
-
-```cpp
 #include <iostream>
-#include <vector>
+using namespace std;
 
 int totalFuelCost(std::vector<int> fuelCosts) {
     int sum = 0;
@@ -16,7 +13,7 @@ int totalFuelCost(std::vector<int> fuelCosts) {
 int main() {
     std::vector<int> costs = {10, 20, 30};
     int result = totalFuelCost(costs);
-    std::cout << "Total fuel cost: " << result << std::endl;
+    cout << "Total fuel cost: " << result << endl;
 
     return 0;
 }
