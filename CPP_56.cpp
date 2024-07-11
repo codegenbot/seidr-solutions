@@ -1,7 +1,4 @@
-```
-#include <iostream>
 #include <string>
-using namespace std;
 
 bool correct_bracketing(string brackets) {
     int count = 0;
@@ -16,4 +13,3 @@ bool correct_bracketing(string brackets) {
         }
     }
     return count == 0;
-}
