@@ -5,6 +5,7 @@ def fizz_buzz(n: int):
             output += "Fizz"
         if i % 5 == 0:
             output += "Buzz"
-        print(output or str(i))
+        output = output or str(i)
+        print(output)
 
 fizz_buzz(int(input("Enter a number: ")))
