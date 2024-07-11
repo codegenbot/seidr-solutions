@@ -1,1 +1,2 @@
-return "".join(strings)
+def concatenate(strings):
+    return "".join(strings)
