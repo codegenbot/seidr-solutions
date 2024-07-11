@@ -1,4 +1,4 @@
-def solution():
+def solution(*args):
     try:
         lst = list(map(int, input().split()))
     except ValueError:
