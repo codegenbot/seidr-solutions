@@ -1,3 +1,4 @@
+```
 def rounded_avg(n, m):
     avg = round((float(n) + float(m)) / 2.0)
-    return bin(int(avg))[2:]
+    return bin(avg)[2:]
