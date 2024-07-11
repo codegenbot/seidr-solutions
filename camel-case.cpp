@@ -5,8 +5,8 @@ std::string camelCase(const std::string& str) {
 
     for (char c : str) {
         if (c == '-') {
-            if (!capitalize) {
-                result += ' ';
+            if (!result.empty()) {
+                result.push_back(' ');
             }
             capitalize = true;
         } else if (capitalize) {
