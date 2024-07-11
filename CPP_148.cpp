@@ -1,3 +1,9 @@
+#include <vector>
+using namespace std;
+
+bool issame(vector<string>, vector<string>);
+vector<string> bf(string, string);
+
 vector<string> bf(string planet1, string planet2) {
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1;
@@ -21,10 +27,15 @@ vector<string> bf(string planet1, string planet2) {
 
     vector<string> result;
     for (int i = 0; i < planets.size(); i++) {
-        if ((index1 <= i && i <= index2) || (i >= index1 && i <= index2)) {
+        if (i >= start && i <= end) {
             result.push_back(planets[i]);
         }
     }
 
     return result;
+}
+
+int main() {
+    assert(bf("Jupiter", "Makemake").size() == 0);
+    return 0;
 }
