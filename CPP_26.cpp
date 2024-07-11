@@ -5,8 +5,6 @@
 namespace std {
     std::vector<int> remove_duplicates(const std::vector<int>& vec);
 
-    bool issame(const std::vector<int>& a, const std::vector<int>& b);
-
     std::vector<int> remove_duplicates(const std::vector<int>& vec) {
         std::vector<int> unique_vec = vec;
         std::sort(unique_vec.begin(), unique_vec.end());
