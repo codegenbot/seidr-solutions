@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <cassert>
 
@@ -26,7 +27,7 @@ vector<int> even_odd_count(int num) {
 }
 
 int main() {
-    vector<int> v1 = even_odd_count(0);
-    vector<int> expected = {1, 0};
-    assert(issame(v1, expected));
+    vector<int> res = even_odd_count(12345);
+    assert(issame(res, vector<int>{3, 5}));
+    return 0;
 }
