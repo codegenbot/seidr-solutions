@@ -1,30 +1,58 @@
-int score(string s) {
-    int total = 0;
+int score(const string& bowls) {
+    int totalScore = 0;
     int frame = 1;
-    int i = 0;
-    while (frame <= 10) {
-        if (s[i] == 'X') {
-            total += 10;
-            total += (s[i + 1] == 'X' ? 10 : (s[i + 1] == '/' ? 10 - (s[i - 1] - '0') : s[i + 1] - '0'));
-            total += (s[i + 2] == 'X' ? 10 : (s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : s[i + 2] - '0'));
-            i++;
-        } else if (s[i + 1] == '/') {
-            total += 10;
-            total += (s[i + 2] == 'X' ? 10 : s[i + 2] - '0');
-            i += 2;
+    int rolls = 0;
+    int frameScore = 0;
+    int prevRoll = 0;
+    bool isSpare = false;
+    bool isStrike = false;
+    
+    for (char c : bowls) {
+        if (c == 'X') {
+            totalScore += 10;
+            if (frame < 10) {
+                if (isStrike) {
+                    totalScore += 10;
+                }
+                isStrike = true;
+                rolls = 0;
+                frame++;
+            }
+        } else if (c == '/') {
+            totalScore += 10 - prevRoll;
+            if (frame < 10) {
+                if (isSpare) {
+                    totalScore += 10 - prevRoll;
+                }
+                isSpare = true;
+                rolls = 0;
+                frame++;
+            }
+        } else if (c == '-') {
+            rolls++;
+            if (rolls == 2) {
+                frame++;
+                rolls = 0;
+            }
         } else {
-            total += (s[i] == '-' ? 0 : s[i] - '0');
-            total += (s[i + 1] == '-' ? 0 : s[i + 1] - '0');
-            i += 2;
+            int pins = c - '0';
+            totalScore += pins;
+            if (frame < 10) {
+                if (isSpare) {
+                    totalScore += pins;
+                    isSpare = false;
+                }
+                if (isStrike) {
+                    totalScore += pins;
+                }
+                rolls++;
+                if (rolls == 2) {
+                    frame++;
+                    rolls = 0;
+                }
+            }
+            prevRoll = pins;
         }
-        frame++;
     }
-    return total;
-}
-
-int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
-    return 0;
+    return totalScore;
 }
