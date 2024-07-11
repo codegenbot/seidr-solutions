@@ -1,8 +1,6 @@
-def sort_third(lst: list):
-    result = []
-    for i, x in enumerate(lst):
-        if (i - lst.index(x)) % 3 == 0:
-            result.append(min([y for y in lst if (lst.index(y) - i) % 3 != 0]))
-        else:
-            result.append(sorted([y for y in lst if (lst.index(y) - i) % 3 != 0])[0])
-    return result
+```python
+def sort_third(l: list):
+    return [min([x for x in l if (i - l.index(x)) % 3 == 0]) 
+            if i % 3 != 0 else 
+            sorted([x for x in l if (i - l.index(x)) % 3 != 0])[0] 
+            for i, _ in enumerate(l)]
