@@ -1,7 +1,4 @@
-```cpp
-#include <string>
-using namespace std;
-
+```c++
 string spinWords(string str) {
     string result = "";
     string word = "";
@@ -26,18 +23,9 @@ string spinWords(string str) {
         string revWord;
         for (int j = word.length() - 1; j >= 0; j--)
             revWord += word[j];
-        result += revWord + " ";
+        result += revWord;
     } else
-        result += word + " ";
+        result += word;
 
     return result;
-}
-
-int main() {
-    string input;
-    cout << "Enter a string of one or more words (separated by spaces): ";
-    getline(cin, input);
-    string result = spinWords(input);
-    cout << "Result: " << result << endl;
-    return 0;
-}
+};
