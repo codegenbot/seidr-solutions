@@ -18,11 +18,10 @@ int main() {
 
     float sum = 0;
     for (int i = 0; i < n; ++i) {
-        float diff = vec1[i] - vec2[i];
-        sum += diff * diff;
+        sum += pow(vec1[i] - vec2[i], 2.0);
     }
 
     cout << sqrt(sum) << "\n";
 
     return 0;
-}
+}  
