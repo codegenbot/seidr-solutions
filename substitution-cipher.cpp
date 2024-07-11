@@ -14,4 +14,3 @@ std::string substitutionCipher(const std::string& cipherMap, const std::string& 
         output += (newChar == '\0') ? c : newChar;
     }
     return output;
-}
