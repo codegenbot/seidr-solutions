@@ -6,7 +6,7 @@ while True:
             continue
         if len(lst) == 0:
             print("No numbers were entered, the program will terminate now.")
-            continue
+            break
 
         while any(char not in "0123456789 " for char in lst):
             print("Invalid input. Please enter only digits and spaces.")
