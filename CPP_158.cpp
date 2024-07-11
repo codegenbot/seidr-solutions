@@ -1,14 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <unordered_set>
+#include <set>
 
 std::string find_max(std::vector<std::string> words) {
     std::string result = "";
     int max_unique_chars = 0;
 
     for (const auto& word : words) {
-        std::unordered_set<char> unique_chars;
+        std::set<char> unique_chars;
         for (char c : word) {
             unique_chars.insert(c);
         }
