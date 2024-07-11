@@ -30,13 +30,16 @@ def factorize():
         return []
     except Exception as e:
         print(f"An error occurred: {e}")
-        return []
+        return None
 
 
 def main():
-    result = factorize()
-    if result:
-        print("Prime factors are:", *result, sep=", ")
+    try:
+        result = factorize()
+        if result is not None and len(result) > 0:
+            print("Prime factors are:", *result, sep=", ")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
 if __name__ == "__main__":
