@@ -1,25 +1,22 @@
-#include <boost/any.hpp>
-#include <iostream>
-#include <list>
 #include <vector>
+#include <list>
+#include <any>
+#include <assert.h>
 
-std::vector<int> filter_integers(std::list<boost::any> values) {
-    std::vector<int> result;
+bool issame(vector<int> a, vector<int> b);
+
+vector<any> filter_integers(list<any> values) {
+    vector<any> result;
     for (const auto& value : values) {
-        int cast_value = boost::any_cast<int>(value);
-        if (!boost::any_cast<bool>(value)) {
-            continue;
+        any_cast<int>(value);
+        if (any_cast<int>(value)) {
+            result.push_back(any_cast<any>(static_cast<int>(value)));
         }
-        result.push_back(cast_value);
     }
     return result;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
 int main() {
-    assert(issame(filter_integers({3, boost::any(3), 3, boost::any(3), 'a', 'b'}), {3, 3, 3}));
+    assert(issame(filter_integers({3, 'c', 3, 3, 'a', 'b'}), {3, 3, 3}));
     return 0;
 }
