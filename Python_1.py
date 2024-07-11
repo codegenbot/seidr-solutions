@@ -7,7 +7,7 @@ for char in paren_string:
     elif char == ')':
         while stack and stack[-1] != '(':
             group += stack.pop()
-        if not stack:
+        if not stack: 
             groups.append(group + ')')
             group = ''
         else:
