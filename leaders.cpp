@@ -1,24 +1,14 @@
 #include <vector>
-#include <iostream>
-#include <algorithm>
+using namespace std;
 
-std::vector<int> leaders(std::vector<int>& arr) {
+vector<int> leaders(vector<int>& arr) {
+    vector<int> result;
     int n = arr.size();
-    std::vector<int> res;
-    
-    if(n == 1) return arr;
-    
-    for(int i=n-2; i>=0; --i){
-        while(i > 0 && arr[i] <= arr[i+1]) i--;
-        res.push_back(arr[i]);
+    for (int i = n - 1; i >= 0; --i) {
+        if (i == n - 1 || arr[i] >= arr[i + 1]) {
+            result.push_back(arr[i]);
+        }
     }
-    
-    res.push_back(arr[n-1]); 
-    return res;
-}
-
-int main() {
-    std::vector<int> arr = {16, 17, 4, 3, 5, 2};
-    for(auto x : leaders(arr)) std::cout << x << " ";
-    return 0;
+    reverse(result.begin(), result.end());
+    return result;
 }
