@@ -1,5 +1,5 @@
 bool issame(const string& a, const string& b) {
-    return a.length() == b.length() && a == b;
+    return a.length() == b.length();
 }
 
 int sorted_list_sum(const vector<string>& lst) {
@@ -10,10 +10,10 @@ int sorted_list_sum(const vector<string>& lst) {
     return sum;
 }
 
-vector<string> solve(vector<string> lst) {
+vector<string> task_function(vector<string> lst) {
     lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.length() % 2 != 0; }), lst.end());
     sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
-        if (a.length() == b.length()) {
+        if (issame(a, b)) {
             return a < b;
         }
         return a.length() < b.length();
@@ -22,19 +22,20 @@ vector<string> solve(vector<string> lst) {
 }
 
 int main() {
-    vector<string> lst;
-    string input;
-    while (cin >> input) {
-        lst.push_back(input);
+    int n;
+    cin >> n;
+    vector<string> lst(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> lst[i];
     }
-
-    vector<string> result = solve(lst);
+    
+    vector<string> result = task_function(lst);
     for (const string& s : result) {
         cout << s << " ";
     }
-    cout << endl;
-
-    cout << sorted_list_sum(result) << endl;
-
+    
+    int sum = sorted_list_sum(result);
+    cout << sum << endl;
+    
     return 0;
 }
