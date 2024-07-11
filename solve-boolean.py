@@ -7,7 +7,6 @@ def solve_boolean(expression):
     )
     return eval(replaced_expression)
 
-
 expression = input()
 result = solve_boolean(expression)
 print(result)
