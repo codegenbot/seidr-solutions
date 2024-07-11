@@ -1,4 +1,3 @@
-```
 def decode_cyclic():
     return lambda: check(int(input("Enter a number: ")))
 
@@ -10,5 +9,8 @@ def check(n):
             return i
     return None
 
-result = decode_cyclic()()
-print(result)
+check_result = decode_cyclic()
+if check_result is not None:
+    print(check_result())
+else:
+    print("No result")
