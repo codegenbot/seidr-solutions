@@ -1,6 +1,9 @@
-```Python
+```
 def add(x: int, y: int):
-    return x + y if (x < 0 and y >= 0) or (x >= 0 and y < 0) else -1 * abs(x - y)
+    if x < 0 and y < 0:
+        return -1 * (abs(x) + abs(y))
+    else:
+        return x + y
 
 while True:
     try:
@@ -8,6 +11,9 @@ while True:
         y = int(input("Enter second number: "))
         print(add(x, y))  
         cont = input("Do you want to continue? (y/n): ")
+        while cont.lower() not in ['y', 'n']:
+            print("Invalid input. Please enter 'y' or 'n'.")
+            cont = input("Do you want to continue? (y/n): ")
         if cont.lower() != 'y':
             break
     except ValueError:
