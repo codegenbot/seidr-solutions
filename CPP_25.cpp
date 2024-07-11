@@ -1,7 +1,5 @@
 #include <vector>
 
-vector<int> factorize(int n);
-
 vector<int> factorize(int n){
     vector<int> factors;
     for(int i=2; i*i<=n; i++){
@@ -17,6 +15,13 @@ vector<int> factorize(int n){
 }
 
 int main(){
-    // Write code here to test the factorize function if needed
+    // Function usage example
+    int number = 24;
+    vector<int> primeFactors = factorize(number);
+    for(int factor : primeFactors){
+        cout << factor << " ";
+    }
+    cout << endl;
+    
     return 0;
 }
