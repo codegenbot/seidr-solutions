@@ -1,17 +1,28 @@
-Here is the completed code:
+#include <vector>
+using namespace std;
 
-vector<int> pluck(vector<int> arr) {
-    vector<pair<int, int>> evenNodes;
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
+    if (arr.empty()) return result;
+
+    int minEvenVal = INT_MAX;
+    int minIndex = 0;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0) {
-            evenNodes.push_back({arr[i], i});
+        if (arr[i] % 2 == 0 && arr[i] < minEvenVal) {
+            minEvenVal = arr[i];
+            minIndex = i;
         }
     }
-    
-    if (evenNodes.empty()) {
-        return {};
-    }
-    
-    sort(evenNodes.begin(), evenNodes.end());
-    return {evenNodes[0].first, evenNodes[0].second};
+
+    result.push_back(minEvenVal);
+    result.push_back(minIndex);
+
+    return result;
+}
+
+int main() {
+    vector<int> input;
+    // read input from user and store in 'input' variable
+    vector<int> result = pluck(input);
+    return 0;
 }
