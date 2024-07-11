@@ -1,37 +1,34 @@
 ```
 def bowling_score(s):
-    score = 0
-    frames = s.replace("/","2").replace("X","10").replace("S","5")
-    for i in range(0,len(frames),1):
-        if frames[i].isdigit():
-            if len(frames)-i <= 1:
-                score += int(frames[i])
-            elif len(frames)-i == 2 and frames[i:i+2].isdigit():
-                score += int(frames[i:i+2])
-            else:
-                frame_score = int(frames[i])
-                if i+1 < len(frames):
-                    if frames[i+1].isdigit():
-                        frame_score += int(frames[i+1])
-                    elif frames[i+1] == "X":
-                        frame_score += 10
-                    elif frames[i+1] == "/":
-                        frame_score += 2
-                if i+2 < len(frames):
-                    if frames[i+1:i+3].isdigit():
-                        if int(frames[i+1:i+3]) >= 10:
-                            score += 10 + int(frames[i+1:i+3]) - 10
-                        else:
-                            frame_score += int(frames[i+1:i+3])
-                    elif frames[i+1:i+3][0] == "X":
-                        if int(frames[i+1:i+2]) >= 8:
-                            score += 10 + (int(frames[i+1:i+2]) - 9) * 2
-                        else:
-                            frame_score += 10
-                    elif frames[i+1:i+3][0] == "/":
-                        frame_score += 2
-                if i == 9 and int(frames[i:i+1]) < 5:
-                    score += 20 + int(frames[i])
+    s = s.replace("/","2").replace("X","10").replace("S","5")
+    i = 0
+    while i < len(s):
+        if s[i] == "X":
+            score = 10
+            i += 1
+            if i < len(s) and (s[i] == "/" or s[i].isdigit()):
+                if s[i] == "/":
+                    score += 10
                 else:
-                    score += frame_score
+                    score += int(s[i])
+                i += 1
+        elif s[i] == "/":
+            score = 10
+            i += 1
+            score += int(s[i])
+            i += 1
+        else:
+            if len(s) - i >= 2 and s[i:i+2].isdigit():
+                score = int(s[i:i+2])
+                i += 2
+            else:
+                score = int(s[i])
+                i += 1
+        if score == 10:
+            try:
+                frame = s[i:i+2]
+                score += int(frame)
+                i += 2
+            except ValueError:
+                pass
     return score
