@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <iomanip> // for setprecision
+#include <iomanip>
 
 using namespace std;
 
