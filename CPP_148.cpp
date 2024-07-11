@@ -13,7 +13,7 @@ vector<string> bf(string planet1, string planet2) {
     int start = -1, end = -1;
     for (int i = 0; i < 8; ++i) {
         if (planets[i] == planet1) {
-            start = i; 
+            start = i;
         }
         if (planets[i] == planet2) {
             end = i;
@@ -34,3 +34,5 @@ vector<string> bf(string planet1, string planet2) {
 
     return result;
 }
+
+assert(issame(bf("Jupiter", "Makemake"), {}));
