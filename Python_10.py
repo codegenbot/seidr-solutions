@@ -1,4 +1,3 @@
-```python
 def make_palindrome(s: str) -> str:
     if s == s[::-1]:
         return s
@@ -12,11 +11,11 @@ def make_palindrome(s: str) -> str:
             r -= 1
         else:
             l, r = l + 1, r - 1
-    while s != "".join(t):
-        if s[0] == t[-1]:
-            t.append(s.pop(0))
-        elif len(s) > len(t):
-            t.insert(0, s.pop())
+    while s_list := list(s):
+        if s_list[0] == t[-1]:
+            t.append(s_list.pop(0))
+        elif len(s_list) > len(t):
+            t.insert(0, s_list.pop(0))
         else:
-            t.append(s.pop())
+            t.append(s_list.pop())
     return "".join(t)
