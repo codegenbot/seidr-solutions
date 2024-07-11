@@ -1,3 +1,4 @@
+```
 def car_race_collision(*args):
     if len(args) != 2:
         raise TypeError("This function takes exactly two parameters.")
