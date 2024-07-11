@@ -13,14 +13,10 @@ def encode_cyclic(s: str):
     return "".join(groups)
 
 def decode_cyclic(s: str):
+    groups = [s[i : i + 3] for i in range(0, len(s), 3)]
     result = ""
-    i = 0
-    while i < len(s):
-        if i % 3 == 0:
-            group = s[i:i+3]
-            if group[1] != group[0]:
-                result += group[-1] + group[:-1]
-            else:
-                result += group
-        i += 1
+    for i, group in enumerate(groups):
+        if i % 2 == 1:
+            group = group[-1] + group[:-1]
+        result += group
     return result
