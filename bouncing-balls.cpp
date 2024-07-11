@@ -20,7 +20,7 @@ int main() {
     double bounciness = bouncinessIndex(heightAfterFirstBounce, startingHeight);
 
     streamsize precision = cout.precision();
-    cout << fixed << setiosflags(ios::fixed) << showpoint << precision;
+    cout << fixed << setiosflags(ios::fixed) << showpoint << cout.precision(4);
     
     cout << bounciness << endl;
     cout << totalDistance(numBounces, bounciness) << endl;
