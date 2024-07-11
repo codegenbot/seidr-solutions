@@ -1,7 +1,7 @@
+#include <iostream>
 #include <vector>
-#include <cassert>
 
-long long double_the_difference(std::vector<float> lst){
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
         if (num >= 0 && num == static_cast<int>(num) && static_cast<int>(num) % 2 != 0) {
@@ -12,8 +12,8 @@ long long double_the_difference(std::vector<float> lst){
 }
 
 int main() {
-    std::vector<float> lst = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
-    long long odd_sum = 25;
-    assert(double_the_difference(lst) == odd_sum);
+    std::vector<float> lst = {3.0f, 5.0f, 6.0f, 7.0f, 8.0f};
+    long long odd_sum = double_the_difference(lst);
+    assert(odd_sum == 40);
     return 0;
 }
