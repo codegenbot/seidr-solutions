@@ -1,5 +1,5 @@
-\#include <vector>
 #include <cassert>
+#include <vector>
 
 std::vector<int> factorize(int num) {
     std::vector<int> factors;
