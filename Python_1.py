@@ -17,18 +17,19 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 stack.pop()
                 groups += c
                 if not stack:
-                    result.append(groups)
+                    result.append(groups + " ")
                     groups = ""
             else:
                 return []
-        elif c == ")" and stack:
-            while stack:
-                groups += stack.pop()
-            result.append(groups + c)
-            groups = ""
         elif c == "(" and not stack:
-            result.append(groups + c)
-            groups = ""
+            return []
+
     if stack:
         return []
-    return [groups] + result
+    if groups:
+        result.append(groups)
+
+    if len(stack) != 0:
+        return ["Program did not receive expected input"]
+
+    return [g.strip() for g in result]
