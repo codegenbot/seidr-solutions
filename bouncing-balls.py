@@ -4,7 +4,7 @@ num_bounces = int(float(input()))
 total_distance = starting_height
 
 for _ in range(num_bounces):
-    final_height = starting_height * (bounciness_index ** 2)
+    final_height = starting_height * bounciness_index
     total_distance += final_height * 2
     starting_height = final_height
 
