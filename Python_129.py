@@ -1,20 +1,28 @@
-```
-from collections import deque
+def shortestPathBinaryMaze(maze):
+    if not maze:
+        return []
 
-def minPath(grid, k):
-    n = len(grid)
-    res = []
-    
-    for _ in range(k):
-        queue = deque([(i, j, i * n + j) for i in range(n) for j in range(n)])
-        visited = set()
-        cur_min = float("inf")
-        
-        while queue:
-            x, y, cell = queue.popleft()
-            if (x, y, cell) not in visited:
-                visited.add((x, y, cell))
-                if cell < cur_min:
-                    cur_min = cell
-        res.append(cur_min)
-    return res
+    n = len(maze)
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    queue = deque([(i, j) for i in range(n) for j in range(n) if maze[i][j] == 1])
+    visited = set((i, j) for i, j in queue)
+    level = 0
+    shortest_paths = []
+
+    while queue:
+        for _ in range(len(queue)):
+            x, y = queue.popleft()
+            if (x, y) not in visited:
+                visited.add((x, y))
+                for dx, dy in directions:
+                    nx, ny = x + dx, y + dy
+                    if (
+                        0 <= nx < n
+                        and 0 <= ny < n
+                        and maze[nx][ny] == 1
+                        and (nx, ny) not in visited
+                    ):
+                        queue.append((nx, ny))
+        level += 1
+
+    return [level - 1]
