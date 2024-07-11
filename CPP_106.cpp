@@ -21,20 +21,3 @@ vector<int> f(int n){
     }
     return result;
 }
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
-int main(){
-    vector<int> test1 = f(5);
-    vector<int> test2 = f(5);
-
-    if (issame(test1, test2)){
-        // Output the result if the two vectors are the same
-    } else{
-        // Output the result if the two vectors are different
-    }
-
-    return 0;
-}
