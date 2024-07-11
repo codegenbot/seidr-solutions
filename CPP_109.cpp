@@ -1,10 +1,19 @@
 int n = arr.size();
-    int sortedIndex = 0;
+    if (n == 0) {
+        return true;
+    }
+    int minVal = arr[0];
+    int idx = 0;
     for (int i = 1; i < n; i++) {
-        if (arr[i] < arr[i-1]) {
-            sortedIndex = i;
-            break;
+        if (arr[i] < minVal) {
+            minVal = arr[i];
+            idx = i;
         }
     }
-    return (sortedIndex == 0 || (arr.back() <= arr.front() && sortedIndex == n-1));
+    for (int i = 0; i < n; i++) {
+        if (arr[(idx + i) % n] > arr[(idx + i + 1) % n]) {
+            return false;
+        }
+    }
+    return true;
 }
