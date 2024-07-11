@@ -1,20 +1,14 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
-
-total_sum = sum(arr)
-curr_sum = 0
-idx = 0
-min_diff = float("inf")
-
+v = [int(input()) for _ in range(n)]
+diff = sum(v)
+half_diff = sum(v) / 2
 for i in range(n):
-    curr_sum += arr[i]
-    diff = abs(total_sum - 2 * curr_sum)
-    if diff < min_diff or (diff == min_diff and idx > i):
-        min_diff = diff
-        idx = i
-
-part1 = arr[: idx + 1]
-part2 = arr[idx + 1 :]
-
-print(*part1)
-print(*part2)
+    if sum(v[: i + 1]) >= half_diff:
+        if abs(sum(v[: i + 1]) - half_diff) < abs(sum(v[:i]) - half_diff):
+            print(*v[: i + 1])
+            print(*v[i + 1 :])
+            break
+        else:
+            print(*v[:i])
+            print(*v[i:])
+            break
