@@ -1,7 +1,8 @@
-Here is the modified code:
-
 ```
 def decode_cyclic(s: str):
+    """
+    takes as input string encoded with encode_cyclic function. Returns decoded string.
+    """
     result = ""
     group = ""
     for char in s:
