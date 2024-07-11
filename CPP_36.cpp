@@ -10,11 +10,3 @@ int fizz_buzz(int n) {
     }
     return count;
 }
-
-int main() {
-    int n;
-    cout << "Enter the value of n: ";
-    cin >> n;
-    cout << "Number of times digit 7 appears: " << fizz_buzz(n) << endl;
-    return 0;
-}
