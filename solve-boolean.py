@@ -17,19 +17,12 @@ def solve_boolean(expression):
             while stack and stack[-1] != "(":
                 b = stack.pop()
                 a = stack.pop()
-                stack.append(
-                    operations["|"](a, b)
-                    if stack.pop() == "|"
-                    else operations["&"](a, b)
-                )
+                stack.append(operations[char](a, b))
         elif char in operations:
             while (
                 len(stack) > 0
                 and stack[-1] != "("
-                and precedence[char] <= precedence.get(stack[-1], 2)
+                and precedence[char] <= precedence.get(stack.pop(), 2)
             ):
-                if stack[-1] == "|":
-                    while len(stack) > 1 and stack[-2] != "&":
-                        stack.pop()
-            stack.append(char)
+                pass
     return stack[0]
