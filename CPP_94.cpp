@@ -1,36 +1,36 @@
+```cpp
 #include <iostream>
-using namespace std;
+#include <vector>
 
-int skjkasdkd(vector<int> lst){
+int skjkasdkd(std::vector<int> lst){
     int maxPrime = 0;
-    for(int i:lst){
-        if(i > 1 && isPrime(i)){
-            if(maxPrime < i)maxPrime = i;
+    for(int i : lst){
+        if(isPrime(i) && i > maxPrime){
+            maxPrime = i;
         }
     }
-    int sumDigits = 0;
-    while(maxPrime > 0){
-        sumDigits += maxPrime % 10;
-        maxPrime /= 10;
-    }
-    return sumDigits;
+    return sumOfDigits(maxPrime);
 }
 
-bool isPrime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
+bool isPrime(int num){
+    if(num <= 1) return false;
+    for(int i = 2; i * i <= num; i++){
+        if(num % i == 0) return false;
     }
     return true;
 }
 
-int main(){
-    vector<int> lst;
-    int num;
-    cout << "Enter numbers to check: ";
-    while(cin >> num){
-        lst.push_back(num);
+int sumOfDigits(int num){
+    int sum = 0;
+    while(num > 0){
+        sum += num % 10;
+        num /= 10;
     }
-    cout << "Sum of digits for prime number is: " << skjkasdkd(lst) << endl;
+    return sum;
+}
+
+int main(){
+    std::vector<int> inputVector = {127, 97, 8192};
+    assert (skjkasdkd(inputVector) == 10);
     return 0;
 }
