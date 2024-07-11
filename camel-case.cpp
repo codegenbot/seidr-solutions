@@ -1,4 +1,3 @@
-```c++
 #include <vector>
 #include <iostream>
 #include <string>
@@ -27,7 +26,7 @@ std::string camelCase(const std::string& s) {
     std::vector<std::string> groups;
     if (s.find(' ') != std::string::npos)
         groups = split(s, ' ');
-    else if (s.find('-') != std::string::npos)
+    else
         groups = split(s, '-');
 
     std::string result;
@@ -44,7 +43,7 @@ std::string camelCase(const std::string& s) {
 
 int main() {
     std::string s;
-    while (std::getline(std::cin, s)) {
+    while (std::cin >> s) {
         std::cout << camelCase(s) << std::endl;
     }
 }
