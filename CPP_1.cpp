@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
-using namespace std;
-
 vector<string> separate_paren_groups(string paren_string);
 
 bool issame(vector<string> a, vector<string> b);
@@ -33,34 +27,16 @@ vector<string> separate_paren_groups(string paren_string) {
     return result;
 }
 
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main() {
-    string input_string = "(abc(def)(ghi(jkl)))";
-    vector<string> result = separate_paren_groups(input_string);
+    string input;
+    cin >> input;
     
-    vector<string> test_vec = {"def", "jkl"};
-    
-    cout << "Result: ";
-    for (const string& str : result) {
-        cout << str << " ";
-    }
-    cout << endl;
-    
-    if (issame(result, test_vec)) {
-        cout << "Vectors are the same" << endl;
+    vector<string> groups = separate_paren_groups(input);
+
+    if (issame(groups, groups)) {
+        cout << "The groups are the same" << endl;
     } else {
-        cout << "Vectors are different" << endl;
+        cout << "The groups are different" << endl;
     }
 
     return 0;
