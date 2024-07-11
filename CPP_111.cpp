@@ -7,7 +7,7 @@ using namespace std;
 
 map<char, int> histogram(string test);
 
-bool issame2(const std::map<char, int>& a, const std::map<char, int>& b) {
+bool issame2(const std::map<char, int>& a, const std::map<char, int>& b){
     return a == b;
 }
 
