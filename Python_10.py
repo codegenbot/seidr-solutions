@@ -1,9 +1,10 @@
-def make_palindrome(string: str) -> str:
-    if string == string[::-1]:
-        return string
+```python
+def make_palindrome(s: str) -> str:
+    if s == s[::-1]:
+        return s
 
-    left = list(string)
-    right = list(string)[::-1]
+    left = list(s)
+    right = list(s)[::-1]
 
     i, j = 0, len(right) - 1
     while i < len(left):
@@ -24,4 +25,8 @@ def make_palindrome(string: str) -> str:
             i += 1
             j -= 1
 
-    return "".join(right + left[::-1])
+    while len(left) < len(s):
+        left.insert(0, s[-1])
+        s = s[:-1]
+
+    return "".join(left + list(s))
