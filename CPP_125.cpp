@@ -1,5 +1,10 @@
 bool issame(vector<string> a, vector<string> b);
 
+bool issame(vector<string> a, vector<string> b) {
+    // implementation
+    return false;
+}
+
 vector<string> split_words(string txt) {
     vector<string> result;
     string word = "";
