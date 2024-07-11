@@ -1,10 +1,8 @@
-Here is the modified code:
-
-```Python
+```
 from typing import List, Tuple
 
 
-def find_closed_elements(numbers: list[float]) -> Tuple[float, float]:
+def find_closed_elements(numbers: List[float]) -> Tuple[float, float]:
 
     if len(numbers) <= 1:
         return (0.0, 0.0)
@@ -22,7 +20,6 @@ def find_closed_elements(numbers: list[float]) -> Tuple[float, float]:
 
     return min_range
 
-
 while True:
     try:
         numbers = [float(x) for x in input("Enter a list of numbers: ").split()]
@@ -30,5 +27,4 @@ while True:
     except ValueError:
         print("Invalid input. Please enter a list of numbers.")
 
-result = find_closed_elements(numbers)
-print(f"The closed elements are {result[0]} and {result[1]}.")
+print(find_closed_elements(numbers))
