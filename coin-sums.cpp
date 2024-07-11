@@ -1,9 +1,11 @@
-```cpp
+#include <iostream>
+using namespace std;
+
 int main() {
     int cents;
     cin >> cents;
 
-    int pennies = cents / 1; // no remainder, just assign value
+    int pennies = cents / 1; 
     cents %= 1; 
 
     int nickels = cents / 5;
