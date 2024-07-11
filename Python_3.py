@@ -1,11 +1,13 @@
-```
-def below_zero():
+```Python
+from typing import List
+
+def below_zero() -> bool:
+    operations = list(map(int, input("Enter integers separated by spaces: ").split()))
     balance = 0
-    while True:
-        operation = int(input("Enter an operation (+1 or -1), or 0 to stop: "))
-        if operation == 0:
-            break
+    for operation in operations:
         balance += operation
-        if balance < 0:
-            return True
-    return False
+        if balance >= 0:
+            return False
+    return True
+
+print(below_zero())
