@@ -1,4 +1,6 @@
+```c++
 #include <vector>
+#include <iostream>
 
 int luhn(int cardNumber) {
     int sum = 0;
@@ -10,8 +12,8 @@ int luhn(int cardNumber) {
         cardNumber /= 10;
     }
     
-    for (int i = numbers.size() - 1; i > 0; --i) {
-        int digit = numbers[i-1];
+    for (int i = numbers.size() - 1; i >= 0; --i) {
+        int digit = numbers[i];
 
         if ((numbers.size() % 2 == 0 && i % 2 != 0) || (numbers.size() % 2 != 0 && i % 2 == 0)) { 
             digit *= 2;
@@ -27,6 +29,6 @@ int luhn(int cardNumber) {
 }
 
 int main(int argc, char** argv) {
-    luhn(0);
+    luhn(4532015240682885);
     return 0;
 }
