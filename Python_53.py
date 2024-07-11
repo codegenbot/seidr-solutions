@@ -1,6 +1,6 @@
+```
 def add(x: int, y: int):
     return x + y
-
 
 try:
     num1 = float(input("Enter first number: "))
