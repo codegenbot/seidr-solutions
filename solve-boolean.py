@@ -1,4 +1,3 @@
-```
 def solve_boolean(expression):
     stack = []
     operator_stack = []
