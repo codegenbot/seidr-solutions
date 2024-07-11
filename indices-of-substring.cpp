@@ -23,8 +23,8 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text = "ABCDEF";
-    string target = "CDE";
+    string text = "3/G(N7";
+    string target = "3/G";
     vector<int> result = indicesOfSubstring(text, target);
     for (int i : result) {
         cout << i << endl;
