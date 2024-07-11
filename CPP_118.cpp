@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 string get_closest_vowel(const string& word) {
     string vowels = "AEIOUaeiou";
     int closest_dist = word.length();
@@ -22,18 +17,10 @@ string get_closest_vowel(const string& word) {
             }
         }
     }
-
+    
     if (closest_vowel != '\0') {
         return string(1, closest_vowel);
     }
     
     return string(1, closest_vowel);
-}
-
-int main() {
-    string word;
-    cin >> word;
-    cout << get_closest_vowel(word) << endl;
-
-    return 0;
 }
