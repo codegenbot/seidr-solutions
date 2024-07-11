@@ -1,4 +1,3 @@
-```
 def find_zero(xs):
     if len(xs) % 2 != 1:
         return "Error: xs must start with 0"
