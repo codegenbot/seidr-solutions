@@ -18,10 +18,10 @@ int main() {
 
     double sum = 0.0;
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+        sum += std::pow(vec1[i] - vec2[i], 2);
     }
 
-    std::cout << sqrt(sum) << std::endl;
+    std::cout << std::sqrt(sum) << std::endl;
 
     return 0;
 }
