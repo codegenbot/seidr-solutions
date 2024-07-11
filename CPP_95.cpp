@@ -1,7 +1,7 @@
-#include <string>
+#include <iostream>
 #include <map>
-
-using namespace std;
+#include <cctype>
+#include <string>
 
 bool check_dict_case(map<string, string> dict) {
     if (dict.empty())
@@ -26,12 +26,6 @@ bool check_dict_case(map<string, string> dict) {
 
 int main() {
     map<string, string> dict;
-
     // Your code here...
-
-    bool result = check_dict_case(dict);
-
-    cout << "Result: " << (result ? "True" : "False") << endl;
-
     return 0;
 }
