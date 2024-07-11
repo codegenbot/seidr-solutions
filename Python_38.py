@@ -1,4 +1,4 @@
-```python
+```
 def decode_cyclic():
     s = input("Enter the cyclic string: ")
     result = ""
@@ -6,7 +6,7 @@ def decode_cyclic():
     if len(s) <= 1:
         return s
     while True:
-        group = s[i] + ''.join(s[i+1:i+2][::-1]) + s[i]
+        group = s[i] + ''.join(reversed(s[i+1:i+2])) + s[i]
         if i > 0:
             result += group[-1] + group[1:-1][::-1] + group[0]
         else:
