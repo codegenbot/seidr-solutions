@@ -1,3 +1,4 @@
+```
 def find_pair():
     target = int(input())
     nums = list(map(int, input().split()))
@@ -5,3 +6,6 @@ def find_pair():
         for j in range(i + 1, len(nums)):
             if nums[i] + nums[j] == target:
                 return str(nums[i]) + "\n" + str(nums[j])
+
+
+print(find_pair())
