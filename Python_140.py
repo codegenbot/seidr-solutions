@@ -1,4 +1,7 @@
-import re
-
 def fix_spaces(text):
-    return re.sub(r'\s+', '_', text)
+    return "".join(
+        [
+            "_" if c == " " and (i == len(text) - 1 or text[i + 1] == " ") else c
+            for i, c in enumerate(text)
+        ]
+    )
