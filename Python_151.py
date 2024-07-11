@@ -1,4 +1,6 @@
 def double_the_difference():
-    numbers = input("Enter some space-separated numbers: ")
-    lst = list(map(int, numbers.split()))
+    lst = [
+        int(num)
+        for num in input("Enter a series of numbers separated by space: ").split()
+    ]
     return sum(i**2 for i in lst)
