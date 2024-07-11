@@ -1,18 +1,11 @@
 ```
 def rolling_max(input_str: str) -> list[int]:
-    input_str = "".join(str(i) for i in filter(str.isdigit, input_str)).lstrip('0')
+    input_str = ''.join(filter(str.isdigit, input_str)).lstrip('0')
 
-    numbers = []
-    for num in input_str.split():
-        if not num:
-            return []
-        try:
-            numbers.append(int(num))
-        except ValueError:
-            return []
+    if not input_str:
+        return []
 
-    if len(numbers) <= 1:
-        return [numbers[0]]
+    numbers = [int(num) for num in input_str.split()]
 
     result = []
     max_so_far = current_max = numbers[0]
