@@ -12,7 +12,7 @@ def encode(message):
                 if char.isdigit():
                     result += str(int(char) + 3) if int(char) < 9 else '0'
                 else:
-                    result += char
+                    result += str(char)
         else:
-            result += char
+            result += str(char)
     return result
