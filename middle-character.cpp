@@ -5,3 +5,4 @@ string middleCharacter(string s) {
     } else {
         return s.substr(len/2, 1);
     }
+}
