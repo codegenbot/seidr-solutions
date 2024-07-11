@@ -1,4 +1,4 @@
-```
+````
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -15,4 +15,4 @@ print(f"Result: {'True' if solve_boolean('t') else 'False'}")
 print(f"Result: {'True' if solve_boolean('f') else 'False'}")
 print(f"Result: {f'False' if solve_boolean('f&f') else 'True'}")
 print(f"Result: {f'False' if solve_boolean('f&t') else 'True'}")
-print(f"Result: {f'False' if solve.Boolean('t&f') else 'True'}")
+print(f"Result: {f'False' if solve_boolean('t&f') else 'True'}")
