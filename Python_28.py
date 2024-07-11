@@ -1,9 +1,10 @@
 from typing import List
 
-def concatenate() -> str:
-    user_input = input("Enter your text: ")
+def concatenate(strings: List[str]) -> str:
     result = ''
-    for string in user_input.split(','):
-        if len(string.strip()) > 0:
-            result += string.strip()
+    for string in strings:
+        result += string
     return result
+
+strings = input("Enter a list of strings (space separated): ").split()
+print(concatenate(strings))
