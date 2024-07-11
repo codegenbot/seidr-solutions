@@ -1,4 +1,8 @@
-int countDigits = 0;
+#include <string>
+#include <cctype>
+
+string file_name_check(string file_name) {
+    int countDigits = 0;
     int dotPos = file_name.find('.');
     
     if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.length() - 1) {
