@@ -1,5 +1,7 @@
 ```
 def filter_by_prefix(strings, prefix):
+    if not prefix:
+        return []
     return [s for s in strings if s.startswith(prefix)]
 
 
@@ -12,13 +14,9 @@ while num_strings is None:
 
 stored_strings = [input() for _ in range(num_strings)]
 
-prefix = None
-while prefix is None:
-    try:
-        prefix = input("Enter prefix (string): ")
-    except ValueError:
-        print("Invalid input. Please enter a string.")
-
+prefix = input("Enter prefix (string): ")
 filtered_strings = filter_by_prefix(stored_strings, prefix)
 if filtered_strings:
     print("\n".join(filtered_strings))
+else:
+    print("No strings found with the given prefix.")
