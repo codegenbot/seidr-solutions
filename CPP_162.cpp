@@ -3,15 +3,15 @@ if (text.empty()) {
 }
 
 MD5_CTX ctx;
-unsigned char digest[MD5_DIGEST_LENGTH];
 MD5_Init(&ctx);
 MD5_Update(&ctx, text.c_str(), text.length());
-MD5_Final(digest, &ctx);
+unsigned char result[MD5_DIGEST_LENGTH];
+MD5_Final(result, &ctx);
 
-char mdString[33];
-for (int i = 0; i < 16; i++) {
-    sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
+char md5_string[2 * MD5_DIGEST_LENGTH + 1];
+for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+    sprintf(&md5_string[i * 2], "%02x", result[i]);
 }
+md5_string[2 * MD5_DIGEST_LENGTH] = '\0';
 
-return string(mdString);
-}
+return string(md5_string);
