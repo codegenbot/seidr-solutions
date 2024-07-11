@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 
@@ -12,6 +13,25 @@ bool below_threshold(std::vector<int> l, int t) {
 }
 
 int main() {
-    std::vector<int> numbers = {1, 8, 4, 10};
-    std::cout << (below_threshold(numbers, 10) ? "False\n" : "True\n");
+    std::vector<int> numbers;
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+    
+    for(int i = 0; i < n; i++) {
+        std::cout << "Enter element " << (i+1) << ": ";
+        int num;
+        std::cin >> num;
+        numbers.push_back(num);
+    }
+    
+    int threshold;
+    std::cout << "Enter the threshold: ";
+    std::cin >> threshold;
+    
+    if(below_threshold(numbers, threshold)) {
+        std::cout << "True\n";
+    } else {
+        std::cout << "False\n";
+    }
 }
