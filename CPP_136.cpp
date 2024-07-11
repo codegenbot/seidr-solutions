@@ -1,28 +1,37 @@
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
+bool issame(vector<int> a, vector<int> b);
 
-vector<int> largest_smallest_integers(vector<int> lst){
+bool largest_smallest_integers(vector<int> lst){
     vector<int> result = {0, 0};
-    int largest_negative = 0;
-    int smallest_positive = 0;
+    int largestNegative = INT_MIN;
+    int smallestPositive = INT_MAX;
     
-    for (int num : lst) {
-        if (num < 0 && num < largest_negative) {
-            largest_negative = num;
+    for(int num : lst){
+        if(num < 0 && num > largestNegative){
+            largestNegative = num;
         }
-        if (num > 0 && (num < smallest_positive || smallest_positive == 0)) {
-            smallest_positive = num;
+        if(num > 0 && num < smallestPositive){
+            smallestPositive = num;
         }
     }
     
-    result[0] = largest_negative;
-    result[1] = smallest_positive;
+    if(largestNegative != INT_MIN){
+        result[0] = largestNegative;
+    }
+    if(smallestPositive != INT_MAX){
+        result[1] = smallestPositive;
+    }
     
     return result;
 }
 
-int main() {
-    // Add test cases if needed
-    return 0;
+bool issame(vector<int> a, vector<int> b){
+    if(a.size() != b.size()){
+        return false;
+    }
+    for(int i = 0; i < a.size(); ++i){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    return true;
 }
