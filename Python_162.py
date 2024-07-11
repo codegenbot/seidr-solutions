@@ -1,5 +1,4 @@
 ```
-#!/usr/bin/env python3
 import hashlib
 
 def string_to_md5(text):
@@ -13,6 +12,9 @@ while True:
         text = input("Enter a string: ")
         if text.lower() == "quit":
             break
-        print(string_to_md5(text))
+        try:
+            print(string_to_md5(text))
+        except ValueError:
+            print("Invalid input. Please enter a string.")
     except ValueError:
         print("Invalid input. Please enter a string.")
