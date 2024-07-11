@@ -1,13 +1,13 @@
-#include <vector>
-using namespace std;
-
 vector<vector<int>> cutVector(vector<int>& nums) {
     int n = nums.size();
+    int min_diff = INT_MAX;
     int min_idx = -1;
     for(int i=0; i<n-1; i++){
-        int diff = nums[i+1] - nums[i];
-        if(abs(diff) == 0 && (min_idx == -1 || i < min_idx)) min_idx = i;
-        else if(min_idx == -1 || abs(diff) <= abs(nums[min_idx + 1] - nums[min_idx])) min_idx = i;
+        int diff = abs(nums[i+1] - nums[i]);
+        if(diff < min_diff || (min_diff == INT_MAX && i == 0)) {
+            min_idx = i;
+            min_diff = diff;
+        }
     }
     if(min_idx == -1) {
         return {{}, {}};
