@@ -7,7 +7,7 @@ bool getBoolValue(char c) {
         return true;
     else if (c == 'F')
         return false;
-    return false; // default to false for other characters
+    return false; 
 }
 
 std::string solveBoolean(std::string expression) {
@@ -34,9 +34,11 @@ std::string solveBoolean(std::string expression) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            result = (getBoolValue(s.top())) ? "True" : "False";
+            if(getBoolValue(s.top())) return "True";
+            else return "False";
         } else if (c == '|') {
-            result = (getBoolValue(s.top())) ? "True" : "False";
+            if(getBoolValue(s.top())) return "True";
+            else return "False";
         } else {
             result = (getBoolValue(c)) ? "True" : "False";
         }
