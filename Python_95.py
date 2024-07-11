@@ -1,4 +1,3 @@
-```
 def check_dict_case(dict):
     if len(dict) == 0:
         return False
