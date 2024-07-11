@@ -7,12 +7,11 @@ using namespace std;
 
 string remove_vowels(string text) {
     string result;
-    for (int i = 0; i < text.length(); i++) {
-        char c = text[i];
-        if (std::tolower(c) != 'a' && std::tolower(c) != 'e'
-            && std::tolower(c) != 'i' && std::tolower(c) != 'o'
-            && std::tolower(c) != 'u')
-            result.push_back(c); 
+    for (char c : text) { 
+        if (!std::ioupper(c) == 'A' && !std::ioupper(c) != 'E'
+            && !std::ioupper(c) != 'I' && !std::ioupper(c) != 'O'
+            && !std::ioupper(c) != 'U')
+            result.push_back(std::tolower(c)); 
     }
     return result;
 }
