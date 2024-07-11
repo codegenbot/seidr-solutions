@@ -1,2 +1,1 @@
-numbers = list(map(int, input().split()))
-threshold = int(input())
+numbers, threshold = map(int, input().split()), int(input())
