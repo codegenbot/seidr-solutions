@@ -1,4 +1,6 @@
+Here is the completed code:
+
 def max_fill(grid, capacity):
     total_water = sum(sum(row) for row in grid)
-    buckets_needed = math.ceil(total_water / float(capacity))
-    return buckets_needed
+    needed_lowerings = math.ceil(total_water / capacity)
+    return int(needed_lowerings)
