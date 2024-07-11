@@ -1,10 +1,8 @@
-```
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <initializer_list>
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     for (int i = 0; i < a.size() && i < b.size(); i++) {
         if (a[i] != b[i])
             return false;
@@ -12,8 +10,8 @@ bool issame(vector<string> a, vector<string> b) {
     return a.size() == b.size();
 }
 
-vector<vector<string>> sorted_list_sum(vector<string> lst) {
-    vector<vector<string>> result;
+std::vector<std::vector<std::string>> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<std::vector<std::string>> result;
 
     // Remove strings with odd lengths from the list
     for (const auto& str : lst) {
@@ -23,7 +21,7 @@ vector<vector<string>> sorted_list_sum(vector<string> lst) {
 
     // Sort the resulted lists by length and then alphabetically
     std::sort(result.begin(), result.end(),
-              [](const vector<string>& a, const vector<string>& b) {
+              [](const std::vector<std::string>& a, const std::vector<std::string>& b) {
                   if (a.size() != b.size())
                       return a.size() - b.size();
                   else
