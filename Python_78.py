@@ -1,5 +1,4 @@
-```
 def hex_key(num):
     primes = {"B": True, "D": True}
-    count = sum(1 for digit in num if (digit.upper() in primes) or (int(digit, 16) > 1 and all(int(digit, 16) % i for i in range(2, int(digit, 16)**0.5 + 1))))
+    count = sum(1 for char in num.upper() if char.isdigit() or char in primes)
     return count
