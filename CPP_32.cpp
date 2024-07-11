@@ -1,15 +1,29 @@
-double find_zero(vector<double> xs){
-    double a = xs[0];
-    double b = 0;
-    for (int i = 1; i < xs.size(); i++) {
-        b += pow(-1, i) * xs[i] / factorial(i);
+#include<stdio.h>
+#include<math.h>
+#include<vector>
+using namespace std;
+
+double poly(vector<double> xs, double x){
+    double sum=0;
+    int i;
+    for (i=0;i<xs.size();i++)
+    {
+        sum+=xs[i]*pow(x,i);
     }
-    return -b / a;
+    return sum;
 }
 
-double factorial(int n) {
-    if(n == 0 || n == 1)
-        return 1;
-    else
-        return n * factorial(n-1);
+double find_zero(vector<double> xs){
+    if(xs.size() % 2 != 0)
+        return -1; // invalid input
+    double x = 1;
+    while(true) {
+        double val = poly(xs, x);
+        if(abs(val) < 1e-9) // small enough, consider it zero
+            return x;
+        if(val > 0) // increase x
+            x += 0.01;
+        else // decrease x
+            x -= 0.01;
+    }
 }
