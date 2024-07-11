@@ -1,15 +1,14 @@
-```Python
 def fix_spaces(text):
     new_text = ""
-    prev_was_non_space = False
+    prev_was_space = text and text[0] == " "
     for char in text:
-        if not prev_was_non_space and char == " ":
+        if not prev_was_space and char == " ":
             new_text += "_"
-            prev_was_non_space = True
-        elif char == " " and prev_was_non_space:
+            prev_was_space = True
+        elif char == " " and prev_was_space:
             new_text += "-"
-            prev_was_non_space = True
+            prev_was_space = True
         else:
             new_text += char
-            prev_was_non_space = not char.isspace()
+            prev_was_space = False if not char.isspace() else True
     return new_text
