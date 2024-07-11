@@ -1,9 +1,20 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cassert>
 
 using namespace std;
+
+bool issame(const vector<int>& a, const vector<int>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (size_t i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 vector<int> tri(int n) {
     vector<int> result;
@@ -13,11 +24,10 @@ vector<int> tri(int n) {
             result.push_back(1);
             if (n >= 2) {
                 result.push_back(1 + n / 2);
-                for (int i = 3; i <= n; ++i) {
+                for (int i = 3; i <= n; i++) {
                     if (i % 2 == 0) {
                         result.push_back(1 + i / 2);
-                    }
-                    else {
+                    } else {
                         result.push_back(result[i - 1] + result[i - 2] + result[i - 3]);
                     }
                 }
@@ -28,6 +38,6 @@ vector<int> tri(int n) {
 }
 
 int main() {
-    assert(equal(tri(1).begin(), tri(1).end(), vector<int>{3, 1}.begin()));
+    assert(issame(tri(1), {3, 1}));
     return 0;
 }
