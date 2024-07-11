@@ -17,9 +17,10 @@ def add():
                     y = None
             except ValueError:
                 print("Invalid input. Please enter a positive integer.")
-
-        return x + y
-
-result = add()
-if result is not None:
-    print(result)
+        
+        while True:
+            print(f"Result: {x+y}")
+    
+    result = add()
+    if result is not None:
+        print(result)
