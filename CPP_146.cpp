@@ -1,7 +1,7 @@
 int count = 0;
-    for(int num : nums){
-        string numStr = to_string(abs(num));
-        if(numStr.front() % 2 != 0 && numStr.back() % 2 != 0 && num > 10){
+    for (int num : nums) {
+        string str_num = to_string(abs(num));
+        if (str_num.front() % 2 != 0 && str_num.back() % 2 != 0 && abs(num) > 10) {
             count++;
         }
     }
