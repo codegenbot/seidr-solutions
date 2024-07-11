@@ -1,7 +1,3 @@
 def double_the_difference():
-    lst = input("Enter a list of integers: ").split(", ")
-    return sum(
-        i**2
-        for i in [int(x) for x in lst]
-        if isinstance(int(x), int) and int(x) >= 0 and int(x) % 2 != 0
-    )
+    lst = list(map(int, input("Enter a series of space-separated integers: ").split()))
+    return sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
