@@ -1,7 +1,7 @@
 #include <vector>
 #include <utility>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(std::pair<int, int> a, std::pair<int, int> b) {
     return a == b;
 }
 
