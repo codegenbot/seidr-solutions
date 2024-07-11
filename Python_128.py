@@ -1,4 +1,4 @@
-```python
+```
 def product_of_signs(arr):
     result = 1
     has_zero = False
@@ -18,6 +18,7 @@ def check():
             break
         else:
             print("Invalid input. Please enter numbers only.")
+
     print(product_of_signs(arr))
 
 check()
