@@ -1,4 +1,3 @@
-```
 def max_fill(grid, capacity):
     total_capacity = 0
     watered_buckets = 0
