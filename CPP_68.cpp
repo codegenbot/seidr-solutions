@@ -1,9 +1,10 @@
+```cpp
 #include <vector>
 using namespace std;
 
-vector<std::vector<int>> pluck(vector<int> arr) {
-    vector<int> result;
-    if (arr.empty()) return {{}, 0};
+std::vector<int> pluck(std::vector<int> arr) {
+    std::vector<int> result;
+    if (arr.empty()) return result;
 
     int minEvenVal = INT_MAX;
     int minIndex = 0;
@@ -14,8 +15,15 @@ vector<std::vector<int>> pluck(vector<int> arr) {
         }
     }
 
-    result.push_back({minEvenVal});
-    result.push_back({minIndex});
+    result.push_back(minEvenVal);
+    result.push_back(minIndex);
 
-    return {{}, 0};
+    return result;
+}
+
+int main() {
+    vector<int> input;
+    // read input from user and store in 'input' variable
+    vector<int> result = pluck(input);
+    return 0;
 }
