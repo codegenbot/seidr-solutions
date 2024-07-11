@@ -3,7 +3,9 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(const vector<int>& a, const vector<int>& b);
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return accumulate(a.begin(), a.end(), 0) == accumulate(b.begin(), b.end(), 0);
+}
 
 vector<int> order_by_points(const vector<int>& nums) {
     sort(nums.begin(), nums.end(), [](int a, int b) {
@@ -26,11 +28,8 @@ vector<int> order_by_points(const vector<int>& nums) {
 }
 
 int main() {
-    vector<int> nums = {123, 534, 456, 321};
-    vector<int> sorted_nums = order_by_points(nums);
-
-    // Add assertions to validate the output
-    assert(sorted_nums == vector<int>{321, 123, 534, 456});
-
+    vector<int> test = {123, 234, 456, 345, 543};
+    vector<int> sorted_test = order_by_points(test);
+    assert(sorted_test == vector<int>{234, 345, 123, 543, 456});
     return 0;
 }
