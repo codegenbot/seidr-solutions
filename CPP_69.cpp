@@ -1,11 +1,12 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
-int search(const std::vector<int>& lst) {
+int search(const std::vector<int>& nums) {
     int maxFreq = -1;
-    for (int num : lst) {
+    for (int num : nums) {
         int freq = 0;
-        for (int i : lst) {
+        for (int i : nums) {
             if (i == num) {
                 freq++;
             }
