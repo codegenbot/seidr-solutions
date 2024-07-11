@@ -1,4 +1,6 @@
-```
+s = input()
+
+
 def decode_cyclic(s: str):
     cyclic_map = {
         "abc": "1",
@@ -35,4 +37,4 @@ def decode_cyclic(s: str):
     return result
 
 
-print(decode_cyclic(input()))
+print(decode_cyclic(s))
