@@ -1,3 +1,5 @@
+#include <string>
+#include <openssl/md5.h>
 #include <sstream>
 #include <iomanip>
 
@@ -12,7 +14,7 @@ string string_to_md5(string text) {
     string result;
     for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
         stringstream ss;
-        ss << hex << setfill('0') << setw(2) << (int)md5[i];
+        ss << internal << setfill('0') << setw(2) << hex << (int)md5[i];
         result += ss.str();
     }
     
