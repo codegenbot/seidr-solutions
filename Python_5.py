@@ -1,6 +1,6 @@
-def process_numbers(numbers, delimiter):
+def join_with_delimeter(numbers, delimeter):
     result = []
     for num in numbers:
-        result.extend([num, delimiter])
+        result.extend([num, delimeter])
     result.pop()
     return result
