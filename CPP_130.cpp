@@ -1,4 +1,8 @@
-vector<int> res;
+#include <vector>
+#include <cassert>
+
+std::vector<int> tri(int n) {
+    std::vector<int> res;
     if (n >= 0) {
         res.push_back(3);
         if (n > 0) {
@@ -13,4 +17,8 @@ vector<int> res;
         }
     }
     return res;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b) {
+    // Implementation of the function
 }
