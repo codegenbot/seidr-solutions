@@ -1,8 +1,7 @@
 ```cpp
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wpedantic"
 #include <algorithm>
 #include <vector>
+#include <tuple>
 
 int max_value_function() {
     std::vector<std::pair<int, int>> p;
@@ -26,4 +25,3 @@ int max_value_function() {
 int main() {
     max_value_function();
 }
-#pragma GCC diagnostic pop

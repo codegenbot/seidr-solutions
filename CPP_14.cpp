@@ -19,7 +19,7 @@ int main() {
 std::vector<std::string> all_prefixes(std::string str) {
     std::vector<std::string> result;
     for (int i = 1; i <= str.length(); ++i) {
-        std::string prefix(str.substr(0, i)); // Create a new string with the correct allocator
+        std::string prefix(str.substr(0, i)); 
         result.push_back(prefix);
     }
     return result;
