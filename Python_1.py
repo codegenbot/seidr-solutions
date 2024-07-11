@@ -1,4 +1,3 @@
-```
 def separate_paren_groups(paren_string: str) -> List[str]:
     def check(s, stack=0):
         result = []
