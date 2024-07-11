@@ -1,11 +1,17 @@
 ```
-def add(a, b):
-    if a < 0 or b < 0:
-        return -1 * (abs(a) + abs(b))
+def add():
+    while True:
+        try:
+            x = int(input("Enter first number: "))
+            y = int(input("Enter second number: "))
+            break
+        except ValueError:
+            print("Invalid input! Please enter numbers.")
+
+    if x < 0 or y < 0:
+        return -1 * (abs(x) + abs(y))
     else:
-        return a + b
+        return x + y
 
-a = int(input("Enter first number: "))
-b = int(input("Enter second number: "))
-
-print(add(a, b))
+result = add()
+print(result)
