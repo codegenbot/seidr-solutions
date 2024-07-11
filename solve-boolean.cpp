@@ -18,7 +18,6 @@ std::string solveBoolean(std::string expression) {
     }
 
     std::string result = "";
-    bool left = false, right = false;
     while (!s.empty()) {
         char c = s.top();
         s.pop();
@@ -30,6 +29,4 @@ std::string solveBoolean(std::string expression) {
             result = (getBoolValue(c)) ? "True" : "False";
         }
     }
-
-    return result;
 }
