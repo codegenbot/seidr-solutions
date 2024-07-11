@@ -1,13 +1,5 @@
-def double_the_difference(lst):
-    if "," in lst:
-        try:
-            lst = [int(i.strip()) for i in lst.split(",")]
-            lst.sort()
-            return (lst[-1] - lst[0]) * 2
-        except ValueError:
-            return "Invalid input"
-    else:
-        return None
+def double_the_difference(input_str):
+    numbers = list(map(int, input_str.split(',')))
+    return 2 * abs(numbers[0] - numbers[1])
 
-result = double_the_difference(input("Enter elements separated by comma: "))
-print(result)
+print(double_the_difference(input("Enter elements separated by comma: ")))
