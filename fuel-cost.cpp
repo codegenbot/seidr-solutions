@@ -7,15 +7,14 @@ using namespace std;
 int main() {
     vector<int> nums;
     int n;
-    while (true) {
-        cin >> n;
-        if (n == -1) break;
+    while (cin >> n) {
+        if (n == 0) break;
         nums.push_back(n);
     }
     
     int sum = 0;
     for (int num : nums) {
-        sum += (num / 3) - 2;
+        sum += (num / 3) * 3 - 2;
     }
     
     cout << sum << "\n";
