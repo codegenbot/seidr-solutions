@@ -4,7 +4,6 @@
 #include <cassert>
 
 bool issame(vector<string> a, vector<string> b);
-
 vector<string> filter_by_substring(vector<string> strings, string substring);
 
 bool issame(vector<string> a, vector<string> b){
@@ -21,13 +20,13 @@ vector<string> filter_by_substring(vector<string> strings, string substring){
     return result;
 }
 
-int main() {
-    vector<string> input = {"apple", "banana", "grape", "orange"};
-    vector<string> expected_output = {"apple", "grape"};
-    
-    vector<string> result = filter_by_substring(input, "ap");
-    
-    assert(issame(result, expected_output));
-    
+int main(){
+    vector<string> input = {"apple", "banana", "cherry", "orange"};
+    vector<string> expected_output = {"apple", "cherry"};
+
+    vector<string> filtered = filter_by_substring(input, "p");
+
+    assert(issame(filtered, expected_output));
+
     return 0;
 }
