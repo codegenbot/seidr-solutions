@@ -15,7 +15,7 @@ for (int i = 0; i < 6; ++i) {
 }
 
 auto max_pair = *std::max_element(p.begin(), p.end(),
-                                     [](const auto& a, const auto& b) {
+                                     [&](const auto& a, const auto& b) {
                                          return a.second < b.second;
                                      });
 
