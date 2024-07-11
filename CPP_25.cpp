@@ -17,8 +17,3 @@ vector<int> factorize(int n) {
     }
     return factors;
 }
-
-int main() {
-    // Main function logic
-    return 0;
-}
