@@ -1,12 +1,11 @@
-for (int i = word.length() - 2; i > 0; --i) {
-        if (word[i] != 'a' && word[i] != 'e' && word[i] != 'i' && word[i] != 'o' && word[i] != 'u' &&
-            word[i - 1] != 'a' && word[i - 1] != 'e' && word[i - 1] != 'i' && word[i - 1] != 'o' && word[i - 1] != 'u' &&
-            word[i + 1] != 'a' && word[i + 1] != 'e' && word[i + 1] != 'i' && word[i + 1] != 'o' && word[i + 1] != 'u') {
-            if (word[i] == 'y') {
+string vowels = "aeiouAEIOU";
+    int n = word.length();
+    for (int i = n - 2; i > 0; --i) {
+        if (vowels.find(word[i]) != string::npos) {
+            if (!isalpha(word[i - 1]) || !isalpha(word[i + 1])) {
                 continue;
-            } else {
-                return string(1, word[i]);
             }
+            return string(1, word[i]);
         }
     }
     return "";
