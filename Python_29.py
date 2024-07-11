@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -9,9 +10,9 @@ if __name__ == "__main__":
     user_input = input("Enter a list of strings separated by comma and a prefix: ")
     strings_list, prefix = user_input.split(", ")
     strings = [string.strip() for string in strings_list]
-
+    
     filtered_strings = filter_by_prefix(strings, prefix)
-
+    
     if not filtered_strings:
         print("No strings found with the given prefix.")
     else:
