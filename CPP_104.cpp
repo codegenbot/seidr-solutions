@@ -4,7 +4,8 @@ vector<int> unique_digits(vector<int> x){
         bool hasEvenDigit = false;
         int temp = num;
         while (temp > 0) {
-            if (temp % 2 == 0) {
+            int digit = temp % 10;
+            if (digit % 2 == 0) {
                 hasEvenDigit = true;
                 break;
             }
