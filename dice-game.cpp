@@ -7,8 +7,8 @@ int main() {
     std::cin >> n >> m;
 
     for (int i = 1; i <= n; ++i) {
-        for (int j = 1; j <= m; ++j) {
-            probability += static_cast<double>(n - i) / n * static_cast<double>(m) / m;
+        for (int j = 1; j <= m - 1; ++j) {
+            probability += static_cast<double>((n - i) * j) / (n * m);
         }
     }
     
