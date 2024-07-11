@@ -20,3 +20,8 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 current_group = ''
     
     return result
+
+if __name__ == "__main__":
+    user_input = input("Enter a string of parentheses: ")
+    output = separate_paren_groups(user_input)
+    print(output)
