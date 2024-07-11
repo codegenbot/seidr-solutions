@@ -8,19 +8,17 @@ vector<string> bf(string planet1, string planet2) {
         } else if (planets[i] == planet2) {
             index2 = i;
         }
+        
+        if (index1 != -1 && index2 != -1)
+            break;
     }
     
-    if (index1 == -1 || index2 == -1)
-        return vector<string>();
-    
-    int start = min(index1, index2);
-    int end = max(index1, index2);
+    if (index1 < 0 || index2 < 0)
+        return {};
     
     vector<string> result;
-    for (int i = 0; i < planets.size(); i++) {
-        if (i >= start && i <= end) {
-            result.push_back(planets[i]);
-        }
+    for (int i = index1 + 1; i < index2; i++) {
+        result.push_back(planets[i]);
     }
     
     return result;
