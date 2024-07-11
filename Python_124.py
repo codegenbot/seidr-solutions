@@ -30,9 +30,30 @@ def main():
 def valid_date(date):
     try:
         year, month, day = map(int, date.split("-"))
-        return True
+        if (month in [4, 6, 9, 11] and day > 30) or month == 2:
+            if month == 2:
+                if year % 4 != 0:
+                    return False
+                elif year % 100 == 0 and year % 400 != 0:
+                    return False
+                elif day > 29:
+                    return False
+                else:
+                    return True
+            else:
+                if day > 30:
+                    return False
+                else:
+                    return True
+        elif (month in [1, 3, 5, 7, 8, 10, 12] and day > 31) or month < 1 or month > 12:
+            return False
+        elif day < 1 or day > 31:
+            return False
+        else:
+            return True
     except ValueError:
         return False
 
 
-main()
+if __name__ == "__main__":
+    main()
