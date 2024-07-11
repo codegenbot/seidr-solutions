@@ -12,7 +12,6 @@ bool iscuber(int a){
 }
 
 int main() {
-    // your code here
     assert (iscuber(1729) == false);
     return 0;
 }
