@@ -9,9 +9,10 @@ std::string remove_vowels() {
     std::getline(std::cin, text);
     std::string result = "";
     for (char c : text) {
-        if (!std::string(1, "aeiouAEIOU").c_str()->find(std::tolower(c)))
+        if (!std::string("aeiouAEIOU").find(std::tolower(c)) && !std::string("aeiouAEIOU").find(std::toupper(c)))
             continue; 
-        result += c;
+        else 
+            result += c;
     }
     return result;
 }
