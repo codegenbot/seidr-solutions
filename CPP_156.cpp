@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <string>
 
@@ -17,14 +17,13 @@ string int_to_mini_roman(int number) {
         }
     }
     return roman;
-
 }
 
 int main() {
-    int n;
+    int num;
     cout << "Enter a number: ";
-    cin >> n;
-    string mini_roman = int_to_mini_roman(n);
-    cout << "The Roman numerals are: " << mini_roman << endl;
+    cin >> num;
+    string roman = int_to_mini_roman(num);
+    cout << "The Roman equivalent is: " << roman << endl;
     return 0;
 }
