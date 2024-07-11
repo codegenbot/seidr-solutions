@@ -11,8 +11,8 @@ int main() {
 }
 
 double probability(int n, int m) {
-    if (n < m)
+    if (n < m + 1)
         return 0.0;
     else
-        return static_cast<double>(m + 1) / n;
+        return (m + 1.0) / n;
 }
