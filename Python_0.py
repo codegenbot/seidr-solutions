@@ -7,6 +7,3 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
         if abs(numbers[i] - numbers[i + 1]) <= threshold:
             return True
     return False
-
-
-print(has_close_elements([2.0, 3.5, 4.0], 0.5))
