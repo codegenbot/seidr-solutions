@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 string Strongest_Extension(string class_name, vector<string> extensions);
 
