@@ -1,8 +1,10 @@
 string find_max(vector<string> words){
-    string result = *max_element(words.begin(), words.end(),
-        [](const string& a, const string& b) {
-            return (a.size() + count(a.begin(), a.end(), ' ')) <
-                   (b.size() + count(b.begin(), b.end(), ' '));
+    string result = *min_element(words.begin(), words.end(), 
+        [](const string& s1, const string& s2) {
+            if (s1.size() == s2.size()) {
+                return count(s1.begin(), s1.end(), s1[0]) > count(s2.begin(), s2.end(), s2[0]);
+            }
+            return s1.size() < s2.size();
         });
     return result;
 }
