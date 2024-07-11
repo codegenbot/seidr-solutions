@@ -1,18 +1,17 @@
-vector<int> pluck(vector<int> arr) {
-    vector<int> result = {};
-    int smallestEvenValue = INT_MAX;
-    int smallestIndex = -1;
+Here is the completed code:
 
+vector<int> pluck(vector<int> arr) {
+    vector<pair<int, int>> evenNodes;
     for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallestEvenValue) {
-            smallestEvenValue = arr[i];
-            smallestIndex = i;
+        if (arr[i] % 2 == 0) {
+            evenNodes.push_back({arr[i], i});
         }
     }
-
-    if (smallestEvenValue != INT_MAX) {
-        result = {smallestEvenValue, smallestIndex};
+    
+    if (evenNodes.empty()) {
+        return {};
     }
-
-    return result;
+    
+    sort(evenNodes.begin(), evenNodes.end());
+    return {evenNodes[0].first, evenNodes[0].second};
 }
