@@ -15,7 +15,7 @@ int main() {
         first_bounce_height *= bounciness_index;
     }
 
-    printf("%.15f\n", total_distance);
+    std::printf("%.15f\n", total_distance);
 
     return 0;
 }
