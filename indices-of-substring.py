@@ -9,9 +9,9 @@ def indices_of_substring():
             (
                 len(target) > 0
                 and i + len(target) <= len(text)
-                and text[i: i + len(target)] == target
+                and text[i : i + len(target)] == target
             )
-            or (target == "" and len(target) <= len(text))
+            or target == ""
         )
     ]
 
