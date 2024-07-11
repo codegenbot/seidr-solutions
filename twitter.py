@@ -1,4 +1,3 @@
-```
 import re
 
 if len(tweet) > 140:
