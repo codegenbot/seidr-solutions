@@ -8,7 +8,7 @@ std::string find_max(std::vector<std::string> words) {
     int max_unique_chars = 0;
 
     for (const auto& word : words) {
-        set<char> charSet;
+        std::set<char> charSet;
         for (char c : word) {
             charSet.insert(c);
         }
