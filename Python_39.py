@@ -1,7 +1,10 @@
+```
 def prime_fib(n: int):
-    a, b = 0, 1
+    a, b = 1, 1
     while True:
-        if b >= n:
-            return is_prime(b)
-        b = a + b
-        a = b
+        if is_prime(b):
+            if b >= n:
+                return b
+            a, b = b, a + b
+        else:
+            a, b = b, a + b

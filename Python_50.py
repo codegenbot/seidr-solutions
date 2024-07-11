@@ -1,26 +1,15 @@
-```
 def decode_shift():
     s = input("Please enter a string: ")
-    while True:
-        try:
-            shift = int(input("Enter the shift value (0-25): "))
-            if 0 <= shift <= 25:
-                break
-            else:
-                print("Invalid shift value. Please enter a value within 0-25.")
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-
+    shift = int(input("Enter the shift value (0-25): "))
     decoded = ""
     for ch in s:
         if ch.isalpha():
             if ch.islower():
-                decoded += chr((ord(ch) - ord("a") + shift) % 26 + ord("a"))
+                decoded += chr((ord(ch) - ord('a') + shift) % 26 + ord('a'))
             else:
-                decoded += chr((ord(ch) - ord("A") + shift) % 26 + ord("A"))
+                decoded += chr((ord(ch) - ord('A') + shift) % 26 + ord('A'))
         else:
             decoded += ch
     return decoded
-
 
 print(decode_shift())
