@@ -1,4 +1,3 @@
-```
 def select_words(s, n):
     result = []
     words = s.split()
