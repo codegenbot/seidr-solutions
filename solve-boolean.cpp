@@ -1,12 +1,7 @@
-#include <stack>
-#include <string>
-
+std::stack<char> s;
 bool getBoolValue(char c) {
-    if (c == 'T')
-        return true;
-    else if (c == 'F')
-        return false;
-    return false; // default to false for other characters
+    if (c == 'T') return true;
+    if (c == 'F') return false;
 }
 
 std::string solveBoolean(std::string expression) {
