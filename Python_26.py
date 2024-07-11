@@ -2,8 +2,6 @@ from typing import List
 
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    result = []
-    for num in numbers:
-        if num not in result:
-            result.append(num)
-    return result
+    if len(set(numbers)) != len(numbers):
+        numbers = [x for x in set(numbers)]
+    return list(map(int, str(numbers).split(",")))
