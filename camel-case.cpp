@@ -9,7 +9,7 @@ int main() {
     bool capitalize = false;
 
     if (!input.empty()) {
-        std::cout << (char)toupper(input[0]); // Capitalize the first character
+        std::cout << (char)tolower(input[0]); // Print the first character
     }
 
     for (size_t i = 1; i < input.size(); ++i) {
@@ -23,6 +23,8 @@ int main() {
             } else {
                 std::cout << (char)tolower(c); // Print lowercase character
             }
+        } else if (c == '-') {
+            capitalize = true;
         }
     }
 
