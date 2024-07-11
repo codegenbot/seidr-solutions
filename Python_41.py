@@ -1,10 +1,8 @@
-def car_race_collision():
-    distance = int(input("Enter distance of the race: "))
-    speed1 = int(input("Enter speed of the first car: "))
-    speed2 = int(input("Enter speed of the second car: "))
+```
+def car_race_collision(distance):
+    time_to_meet = int(input("Enter time at which both cars meet: "))
     
-    time_to_meet = distance / (speed1 + speed2)
+    speed1 = distance / time_to_meet
+    speed2 = (distance - speed1 * time_to_meet) / time_to_meet
     
-    total_distance = speed1 * time_to_meet
-    
-    return total_distance
+    return speed1, speed2
