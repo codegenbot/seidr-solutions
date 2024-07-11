@@ -1,22 +1,15 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
 int main() {
-    vector<int> nums;
     int n;
-    
-    while (cin >> n) {
-        nums.push_back(n);
-    }
-    
+    std::cin >> n;
+    std::vector<int> nums(n);
     int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
+    for (int i = 0; i < n; ++i) {
+        std::cin >> nums[i];
         sum += (nums[i] / 3) - 2;
     }
-    
-    cout << sum << endl;
-    
+    std::cout << sum << std::endl;
     return 0;
 }
