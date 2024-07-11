@@ -1,26 +1,19 @@
-#include <vector>
-using namespace std;
-
-int luhnAlgorithm(vector<int>& creditCardNumber) {
+int luhn(std::vector<int> digits) {
     int sum = 0;
-    for (int i = creditCardNumber.size() - 1; i >= 0; --i) {
-        if ((creditCardNumber[i] * 2) > 9) {
-            sum += (creditCardNumber[i] * 2) - 9;
-        } else {
-            sum += creditCardNumber[i] * 2;
-        }
-        sum += creditCardNumber[i-1];
-    }
-    return sum;
-}
+    bool alternate = false;
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> ccNum(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> ccNum[i];
+    for (int i = digits.size() - 1; i >= 0; --i) {
+        if (alternate) {
+            int digit = digits[i] * 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+            sum += digit;
+        } else {
+            sum += digits[i];
+        }
+        alternate = !alternate;
     }
-    cout << luhnAlgorithm(ccNum) << endl;
-    return 0;
+
+    return sum;
 }
