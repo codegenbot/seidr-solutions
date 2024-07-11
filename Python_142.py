@@ -5,7 +5,6 @@ def check(func):
 def sum_squares(lst):
     total = 0
     for num in lst:
-        total = 0
         if num % 4 == 0 and num % 6 != 0:
             total += num**2
         elif num % 12 == 0:
