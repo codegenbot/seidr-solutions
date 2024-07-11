@@ -1,4 +1,3 @@
-```
 def bowling_score(s):
     score = 0
     rolls = list(map(int, s.replace("X", "10").replace("/","2").split("-")))
