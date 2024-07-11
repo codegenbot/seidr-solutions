@@ -1,4 +1,3 @@
-```
 def correct_bracketing(expression):
     if isinstance(expression, str): 
         stack = []
