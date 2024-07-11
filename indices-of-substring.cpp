@@ -1,24 +1,25 @@
 #include <vector>
 #include <string>
-#include <initializer_list>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    for (int i = 0; i <= text.size() - target.size(); ++i) {
-        bool found = true;
-        for (int j = 0; j < target.size(); ++j) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
+    int pos = 0; // position in text
+
+    while (true) { 
+        pos = text.find(target, pos);
+        
+        if (pos == string::npos) {
+            break;
         }
-        if (found) {
-            result.push_back(i);
-        }
+
+        result.push_back(pos);
+        pos += target.size(); // move to the next occurrence
     }
+    
     return result;
 }
 
