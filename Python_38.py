@@ -7,5 +7,5 @@ def decode_cyclic(s: str):
         else:
             result += group[1] + group[0]
         s = s[2:]
-    result += s  
+    result += s
     return result
