@@ -1,7 +1,6 @@
-def minPath(k):
-    k = int(input("Enter the value of k: "))
-    
+def minPath():
     n = int(input("Enter the size of the grid: "))
+    k = int(input("Enter the value of k: "))
     
     m = [[int(input(f"Enter value at row {i} column {j}: ")) for j in range(n)] for i in range(n)]
     
