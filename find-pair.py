@@ -3,12 +3,13 @@ def find_pair():
     for _ in range(num_cases):
         nums = list(map(int, input().split()))
         target = int(input())
-        seen = dict()
+        seen = set()
         pairs = []
         for num in nums:
             complement = target - num
             if complement in seen:
                 pairs.append((complement, num))
-            else:
-                seen[num] = 1
-        print(pairs)
+            seen.add(num)
+        print(len(pairs))
+        if pairs:
+            print(pairs[0])
