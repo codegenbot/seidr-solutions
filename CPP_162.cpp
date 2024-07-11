@@ -1,4 +1,6 @@
-#include "path_to_your_crypto_directory/cryptopp/sha.h"
+#include <iostream>
+#include <string>
+#include <cryptopp/cryptlib.h>
 
 std::string string_to_md5(const std::string& s) {
     CryptoPP::SHA1 sha;
