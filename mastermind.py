@@ -16,4 +16,4 @@ def get_pegs(master_code, guess):
             white_pegs += 1
             master_code_count[ord(guess[i]) - ord('A')] -= 1
     
-    return black_pegs, white_peg
+    return black_pegs, white_pegs
