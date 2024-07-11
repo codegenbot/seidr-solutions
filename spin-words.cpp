@@ -5,7 +5,7 @@
 using namespace std;
 
 string spinWords(string str) {
-    string result = " ";
+    string result = "";
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
             result += " ";
@@ -33,6 +33,6 @@ int main() {
     string str;
     cout << "Enter a string of words: ";
     getline(cin, str);
-    cout << "Spun result: " << spinWords(str) << std::endl;
+    cout << "Spun result: " << spinWords(str) << endl;
     return 0;
 }
