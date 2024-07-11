@@ -1,11 +1,8 @@
-```Python
 def add():
     while True:
         try:
             x = int(input("Enter first number: "))
             y = int(input("Enter second number: "))
-            result = x + y
-            break
+            return x + y
         except ValueError:
             print("Invalid input! Please enter a valid integer.")
-    return result
