@@ -1,27 +1,24 @@
 string file_name_check(string file_name){
-    int count = 0;
-    bool foundDot = false;
+    int dot_count = 0, digit_count = 0;
+    bool valid_name = true;
 
-    for(int i=0; i<file_name.length(); i++){
-        if(file_name[i] >= '0' && file_name[i] <= '9'){
-            count++;
-        }
-        else if(file_name[i] == '.'){
-            foundDot = true;
-        }
-        else if(i > 0 && !foundDot){
-            return "No";
+    for(int i = 0; i < file_name.length(); i++){
+        if(file_name[i] == '.'){
+            dot_count++;
+        } else if(isdigit(file_name[i])){
+            digit_count++;
+        } else if((file_name[i] >= 'a' && file_name[i] <= 'z') || (file_name[i] >= 'A' && file_name[i] <= 'Z')){
+            // check for valid extension
+            string ext = file_name.substr(i+1);
+            if(ext != "txt" && ext != "exe" && ext != "dll"){
+                valid_name = false;
+                break;
+            }
+        } else {
+            valid_name = false;
+            break;
         }
     }
 
-    if(count > 3 || !foundDot) return "No";
-
-    string extension = file_name.substr(file_name.find('.') + 1);
-    vector<string> validExtensions = {"txt", "exe", "dll"};
-
-    for(auto ext : validExtensions){
-        if(extension == ext) return "Yes";
-    }
-
-    return "No";
+    return (dot_count == 1 && digit_count <= 3) ? "Yes" : "No";
 }
