@@ -3,9 +3,12 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.lower() in 'aeiou':
-                result += chr((ord(char.lower()) - 97 + 3) % 26 + 97)
+                result += chr((ord(char.lower()) - 97 + 2) % 26 + 97)
             else:
-                result += '9' if char.islower() and '0' <= char <= '8' else char.upper() if char.islower() else char.lower()
+                if char.islower():
+                    result += chr((ord(char)-96 + 2)%26+96)
+                else:
+                    result += chr((ord(char.lower())-96+2)%26+96).upper()
         else:
             result += char
     return result
