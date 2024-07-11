@@ -22,5 +22,4 @@ def minPath(grid, k):
 
 grid = [[1 for _ in range(5)] for _ in range(5)]
 k = int(input("Enter k: "))
-
 print(minPath(grid, k))
