@@ -1,6 +1,5 @@
 #include <vector>
 #include <algorithm>
-
 bool issame(vector<string> a, vector<string> b);
 
 vector<string> reverse_delete(string s, string c){
@@ -12,5 +11,5 @@ vector<string> reverse_delete(string s, string c){
     }
     string resultReverse = result;
     reverse(resultReverse.begin(), resultReverse.end());
-    return {result, issame({result, result == resultReverse ? "True" : "False"})};
+    return {result, result == resultReverse ? "True" : "False"};
 }
