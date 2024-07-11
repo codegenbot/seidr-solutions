@@ -20,16 +20,15 @@ vector<string> words_string(string s){
 
 int main() {
     string input;
-    cout << "Enter a sentence: ";
+    cout << "Enter a string: ";
     getline(cin, input);
 
-    vector<string> words = words_string(input);
+    vector<string> result = words_string(input);
 
-    cout << "Words separated by spaces: ";
-    for (const auto& w : words) {
-        cout << w << " ";
+    cout << "Words in the input string:" << endl;
+    for (const auto& word : result) {
+        cout << word << endl;
     }
-    cout << endl;
 
     return 0;
 }
