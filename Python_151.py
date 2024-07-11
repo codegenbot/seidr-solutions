@@ -1,3 +1,4 @@
+```
 def double_the_difference(lst):
     if len(lst) != 2:
         return "Please enter exactly two numbers!"
@@ -11,6 +12,9 @@ print("Enter elements separated by space: ")
 user_input = input()
 try:
     lst = [x for x in user_input.split() if x.strip()]
-    print(double_the_difference(lst))
+    if len(lst) != 2:
+        print("Invalid input. Please enter exactly two numbers!")
+    else:
+        print(double_the_difference(lst))
 except ValueError:
     print("Invalid input. Please enter exactly two numbers!")
