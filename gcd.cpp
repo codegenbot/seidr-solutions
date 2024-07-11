@@ -1,18 +1,8 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <iostream>
 
 using namespace std;
-
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
 
 vector<int> indicesOfSubstring(std::string text, std::string target) {
     vector<int> result;
@@ -26,4 +16,27 @@ vector<int> indicesOfSubstring(std::string text, std::string target) {
     }
 
     return result;
+}
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int main() {
+    int a = 12;
+    int b = 15;
+    cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << endl;
+
+    string text = "hello world";
+    string target = "world";
+    vector<int> indices = indicesOfSubstring(text, target);
+    for (int i : indices) {
+        cout << "Target appears at index: " << i << endl;
+    }
+    return 0;
 }
