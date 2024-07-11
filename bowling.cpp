@@ -1,27 +1,26 @@
+```cpp
 #include <string>
 
 int bowlingScore(string s) {
     int score = 0;
-    int i = 0;
-    while (i < s.length()) {
+    for (int i = 0; i < 10; i++) {
         if (s[i] == '/') {
-            int firstRoll = stoi(s.substr(0, i));
-            int secondRoll = stoi(s.substr(i + 1, s.find('/') - i - 1));
+            string firstRollStr = s.substr(0, i);
+            string secondRollStr = s.substr(i + 1);
+            int firstRoll = stoi(firstRollStr);
+            int secondRoll = stoi(secondRollStr);
             if (firstRoll + secondRoll >= 10) {
                 score += 10;
-                i = s.find('/', i);
             } else {
                 score += firstRoll + secondRoll;
-                i = s.find('/', i) + 1;
             }
         } else {
-            int roll = stoi(s.substr(i, 1));
+            string rollStr = s.substr(i, 1);
+            int roll = stoi(rollStr);
             if (roll == 10) {
                 score += 10;
-                i++;
             } else {
                 score += roll;
-                i++;
             }
         }
     }
