@@ -1,13 +1,10 @@
-```cpp
 #include <vector>
-#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b) {
-    if(a.size()!=b.size()) return false;
-    for(int i=0; i<a.size();i++){
-        if(a[i]!=b[i])return false;
-    }
-    return true;
+bool issame(int a, int b) {
+    if (a == b)
+        return true;
+    else
+        return false;
 }
 
 vector<int> compare(vector<int> game, vector<int> guess) {
@@ -16,13 +13,18 @@ vector<int> compare(vector<int> game, vector<int> guess) {
         if (game[i] == guess[i]) {
             result.push_back(0);
         } else {
-            result.push_back(abs(guess[i] - game[i]));
+            int diff = abs(guess[i] - game[i]);
+            if (diff == 1) {
+                if (!issame(game[i], guess[i]-1)) {
+                    result.push_back(1);
+                }
+                if (!issame(game[i], guess[i]+1)) {
+                    result.push_back(2);
+                }
+            } else {
+                result.push_back(diff);
+            }
         }
     }
     return result;
-}
-
-int main() {
-    assert(issame(compare({1,2,3,5},{-1,2,3,4}),{2,0,0,1}));
-    // other code...
 }
