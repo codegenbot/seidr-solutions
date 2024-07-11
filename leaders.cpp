@@ -1,6 +1,5 @@
-```cpp
 #include <vector>
-#include <algorithm> 
+#include <algorithm>
 using namespace std;
 
 vector<int> leaders(vector<int>& arr) {
