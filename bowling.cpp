@@ -26,12 +26,6 @@ int main() {
                 total += (s[i + 1] == 'X' || s[i + 1] == '/') ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 0);
             }
             frame++;
-        } else if (isdigit(s[i])) {
-            total += s[i] - '0';
-            if (frame < 9) {
-                total += (s[i + 1] == 'X' || s[i + 1] == '/') ? 10 : (isdigit(s[i + 1]) ? s[i + 1] - '0' : 0);
-            }
-            frame++;
         }
     }
 
