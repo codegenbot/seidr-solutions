@@ -21,7 +21,7 @@ std::vector<std::string> all_prefixes(std::string str) {
     for (int i = 1; i <= str.length(); ++i) {
         std::string prefix;
         for (int j = 0; j < i; ++j) {
-            prefix += str[j % str.length()];
+            prefix += str[(j-1)%str.length()];
         }
         result.push_back(prefix);
     }
