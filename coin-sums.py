@@ -1,3 +1,6 @@
+Here is the modified code:
+
+```
 def coin_sums():
     cents = int(input("Enter the number of cents: "))
     coins = [25, 10, 5, 1]
@@ -9,6 +12,3 @@ def coin_sums():
     pennies = remaining % 10
 
     return quarters, nickels, dimes, pennies
-
-
-print(coin_sums())
