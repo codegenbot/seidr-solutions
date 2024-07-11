@@ -1,34 +1,43 @@
-#include <cctype>
-#include<string>
-using namespace std;
-
-string file_name_check(string file_name){
-    int digitCount = 0;
-    bool hasDot = false;
-    string preDot = "";
-    
-    for (char c : file_name) {
+int countDigits(const string& str) {
+    int count = 0;
+    for (char c : str) {
         if (isdigit(c)) {
-            digitCount++;
-        } else if (c == '.') {
+            count++;
+        }
+    }
+    return count;
+}
+
+bool isValidFileName(const string& file_name) {
+    int dotCount = 0;
+    bool hasDot = false;
+    for (char c : file_name) {
+        if (c == '.') {
+            dotCount++;
             hasDot = true;
         } else if (!hasDot && !isalpha(c)) {
-            return "No";
-        }
-        if (hasDot) {
-            preDot += c;
+            return false;
         }
     }
-    
-    string postDot = "";
-    for (int i = file_name.find('.') + 1; i < file_name.size(); i++) {
-        postDot += file_name[i];
+    if (dotCount != 1) {
+        return false;
     }
-    
+    string ext = file_name.substr(file_name.find('.') + 1);
     vector<string> validExtensions = {"txt", "exe", "dll"};
-    if (find(validExtensions.begin(), validExtensions.end(), postDot) == validExtensions.end()) {
+    for (const string& extName : validExtensions) {
+        if (ext == extName) {
+            return true;
+        }
+    }
+    return false;
+}
+
+string file_name_check(string file_name) {
+    if (countDigits(file_name) > 3) {
         return "No";
     }
-    
-    return digitCount <= 3 && hasDot ? "Yes" : "No";
+    if (!isValidFileName(file_name)) {
+        return "No";
+    }
+    return "Yes";
 }
