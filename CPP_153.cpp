@@ -1,4 +1,4 @@
-```cpp
+```
 int Strongest_Extension(string class_name, vector<vector<char>> extensions) {
     int strongest = -1;
     string result = "";
@@ -11,18 +11,9 @@ int Strongest_Extension(string class_name, vector<vector<char>> extensions) {
         int strength = cap - sm;
         if (strength > strongest) {
             strongest = strength;
-            result = "";
-            for (char c : extension) {
-                result += c;
-            }
+            result = string(1, c) + "";
         } else if (strength == strongest) {
-            string temp = "";
-            for (char c : extension) {
-                temp += c;
-            }
-            if (temp < result) {
-                result = temp;
-            }
+            result = min(result, string(extension.begin(), extension.end()));
         }
     }
     return class_name + "." + result;
