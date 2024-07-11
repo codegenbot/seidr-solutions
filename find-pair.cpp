@@ -1,1 +1,1 @@
-if (mp.find(target - nums[i]) != mp.end() && mp.find(target - nums[i])->second != i) {
+if (mp.find(target - nums[i]) != mp.end() && mp[target - nums[i]] != i) {
