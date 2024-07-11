@@ -1,5 +1,2 @@
-from typing import List
-
-
 def filter_integers(values: List[int]) -> list:
-    return [value for value in values]
+    return [value for value in values if isinstance(value, int)]
