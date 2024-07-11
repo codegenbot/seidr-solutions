@@ -1,17 +1,19 @@
 #include <iostream>
 using namespace std;
 
-double snowDay(int hours, float groundSnow, float rateOfFall, float meltRate) {
-    double totalSnow = 0;
+float snowDay(int hours, float groundSnow, float rateOfFall, float meltRate) {
+    float totalSnow = 0.0;
     
     for (int i = 0; i < hours; i++) {
         totalSnow += rateOfFall;
         if (totalSnow > groundSnow) {
-            double excess = totalSnow - groundSnow;
+            float excess = totalSnow - groundSnow;
             totalSnow -= excess;
-            totalSnow += meltRate * excess;
-        } else {
-            totalSnow -= meltRate * totalSnow;
+            while (excess > 0.0) {
+                excess -= meltRate;
+                if (excess <= 0.0) break;
+                totalSnow--;
+            }
         }
     }
     
