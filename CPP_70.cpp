@@ -1,3 +1,8 @@
+```cpp
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
+
 vector<int> strange_sort_vector(vector<int> lst) {
     vector<int> result;
     while (!lst.empty()) {
@@ -16,7 +21,4 @@ vector<int> strange_sort_vector(vector<int> lst) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
 assert(issame(strange_sort_vector({111111}), {111111}));
