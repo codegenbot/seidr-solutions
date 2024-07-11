@@ -1,5 +1,5 @@
-```
-def encode(message):
+def encode():
+    message = input("Enter the message: ")
     vowels = "aeiouAEIOU"
     result = ""
     for char in message:
@@ -14,3 +14,5 @@ def encode(message):
         else:
             result += char
     return result
+
+print(encode())
