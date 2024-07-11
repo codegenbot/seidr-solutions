@@ -38,6 +38,7 @@ int main() {
         }
     }
     std::cout << std::endl;
+
     std::cout << "2" << std::endl;
     
     for (int i = cutIndex + 1; i < n; i++) {
