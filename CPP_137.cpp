@@ -10,10 +10,12 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     } else if (boost::any_cast<float>(a) < boost::any_cast<float>(b)) {
         return b;
     }
-} else if (a.type() == typeid(string) && b.type() == typeid(string)) {
-    if (stof(boost::any_cast<string>(a)) > stof(boost::any_cast<string>(b))) {
+} else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+    float val1 = std::stof(boost::any_cast<std::string>(a).replace(boost::any_cast<std::string>(a).find(','), 1, "."));
+    float val2 = std::stof(boost::any_cast<std::string>(b).replace(boost::any_cast<std::string>(b).find(','), 1, "."));
+    if (val1 > val2) {
         return a;
-    } else if (stof(boost::any_cast<string>(a)) < stof(boost::any_cast<string>(b))) {
+    } else if (val1 < val2) {
         return b;
     }
 }
