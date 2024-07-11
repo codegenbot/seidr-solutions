@@ -1,12 +1,12 @@
 from typing import List
 
 
-def rescale_to_unit(numbers: List[float]) -> List[float]:
-    if len(numbers) < 1:
+def rescale_to_unit() -> List[float]:
+    try:
+        numbers = list(
+            map(float, input("Enter space-separated floating point numbers: ").split())
+        )
+        return [(x - min(numbers)) / (max(numbers) - min(numbers)) for x in numbers]
+    except ValueError:
+        print("Invalid input. Please enter floating point numbers separated by spaces.")
         return []
-
-    range_val = max(numbers) - min(numbers)
-    if range_val == 0:
-        return [0.0] * len(numbers)
-
-    return [(x - min(numbers)) / range_val for x in numbers]
