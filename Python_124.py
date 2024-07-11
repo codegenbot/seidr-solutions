@@ -11,23 +11,24 @@ def valid_date(date):
         return False
     return True
 
-while True: 
-    print("Enter date (yyyy-mm-dd):")
-    date = input()
-    while not date.strip():
-        print("Program did not receive expected input. Please try again.")
+if __name__ == "__main__":
+    while True: 
+        print("Enter date (yyyy-mm-dd):")
         date = input()
+        while not date.strip():
+            print("Program did not receive expected input. Please try again.")
+            date = input()
 
-    if len(date) != 10 or "-" not in date:
-        print("Invalid date format! Please use 'yyyy-mm-dd'.")
-    else: 
-        try:
-            year, month, day = map(int, date.split("-"))
-        except ValueError:
-            print("Invalid date input! Please enter a valid date (yyyy-mm-dd).")
-        else:
-            if not valid_date(date):
-                print(f"The date {date} is not valid.")
+        if len(date) != 10 or "-" not in date:
+            print("Invalid date format! Please use 'yyyy-mm-dd'.")
+        else: 
+            try:
+                year, month, day = map(int, date.split("-"))
+            except ValueError:
+                print("Invalid date input! Please enter a valid date (yyyy-mm-dd).")
             else:
-                print(f"The date {date} is valid.")
-                break
+                if not valid_date(date):
+                    print(f"The date {date} is not valid.")
+                else:
+                    print(f"The date {date} is valid.")
+                    break
