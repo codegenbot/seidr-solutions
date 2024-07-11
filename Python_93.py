@@ -4,10 +4,10 @@ def encode(message):
     for char in message:
         if char.isalpha():
             if char.isupper():
-                new_char = chr((ord(char) - 65 + 3) % 26 + 65)
+                result += chr((ord(char) - 65 + 2) % 26 + 65)
             else:
-                new_char = chr((ord(char) - 97 + 3) % 26 + 97)
-            result += new_char
+                result += chr((ord(char) - 97 + 2) % 26 + 97)
         else:
-            result += char
+            if not char.isalpha():
+                result += char
     return result
