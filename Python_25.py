@@ -1,12 +1,7 @@
-```
-from typing import List
-import math
-
-def factorize():
+def factorize(n: int) -> List[int]:
+    if not isinstance(n, int):
+        return ["Error: Input must be an integer."]
     try:
-        n = int(input("Enter a number to factorize: "))
-        if not isinstance(n, int):
-            raise ValueError("Input must be an integer.")
         factors = []
         i = 2
         while i * i <= n:
@@ -17,14 +12,10 @@ def factorize():
                 while n % i == 0:
                     n //= i
                     count += 1
-                factors.append(i**count)
+                factors.append(i ** count)
                 i += 1
         if n > 1:
             factors.append(n)
-        return [factors]
+        return factors
     except ValueError as e:
         print(f"Error: {e}")
-
-result = factorize()
-if result:
-    print(result[0])
