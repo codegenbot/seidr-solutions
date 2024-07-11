@@ -2,7 +2,7 @@
 strings = input().split()
 
 # Concatenate the strings with a space in between
-result = ' '.join(strings)
+result = " ".join(strings)
 
 # Output the result
 print(result)
