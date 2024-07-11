@@ -6,9 +6,10 @@ int main() {
     float snow_on_ground, snow_fall_rate, snow_melt_rate;
     cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
-    float final_snow_on_ground = snow_on_ground;
+    float final_snow_on_ground = snow_on_ground; // Reset final snow on ground
     for (int i = 0; i < hours; ++i) {
-        final_snow_on_ground += snow_fall_rate - final_snow_on_ground * snow_melt_rate;
+        snow_on_ground += snow_fall_rate - snow_melt_rate; // Update snow on ground considering fall and melt rates
+        final_snow_on_ground = snow_on_ground; // Update final snow on ground after each hour
     }
 
     cout << final_snow_on_ground << "\n";
