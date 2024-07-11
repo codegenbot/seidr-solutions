@@ -1,4 +1,10 @@
-```cpp
+#include <string>
+#include <stack>
+
+bool getBoolValue(char c) {
+    return c == 'T';
+}
+
 string solveBoolean(string expression) {
     stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
@@ -16,9 +22,23 @@ string solveBoolean(string expression) {
             s.push(expression[i]);
         }
     }
-    string result;
+
+    string result = "";
+    bool left = false, right = false;
     while (!s.empty()) {
-        result = ((s.top() == 'T') ? "True" : "False") + (result.empty() ? "" : " ");
+        char c = s.top();
         s.pop();
+        if (c == '&') {
+            left = getBoolValue(s.top());
+            right = true;
+            result = (left && right) ? "True" : "False";
+        } else if (c == '|') {
+            left = getBoolValue(s.top());
+            right = true;
+            result = (left || right) ? "True" : "False";
+        } else {
+            result = (getBoolValue(c)) ? "True" : "False";
+        }
     }
+
     return result;
