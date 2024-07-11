@@ -5,7 +5,7 @@ import math
 def factorize(num: int) -> List[int]:
     try:
         if num <= 1:
-            raise ValueError("Number is less than or equal to one.")
+            return []
 
         factors = []
         i = 2
@@ -23,7 +23,7 @@ def factorize(num: int) -> List[int]:
             factors.append(num)
         return factors
 
-    except ValueError as e:
+    except Exception as e:
         return [str(e)]
 
 
@@ -33,7 +33,7 @@ def main():
         if not isinstance(user_input, int):
             raise ValueError("Input must be an integer.")
         print("The factors of {} are: {}".format(user_input, factorize(user_input)))
-    except ValueError as e:
+    except Exception as e:
         print(f"Error: {e}")
 
 
