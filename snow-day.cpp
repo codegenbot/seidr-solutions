@@ -3,12 +3,12 @@ using namespace std;
 
 int main() {
     int hours;
-    float snow_on_ground, snow_fall_rate, snow_melt_rate;
+    double snow_on_ground, snow_fall_rate, snow_melt_rate;
     cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
     for (int i = 0; i < hours; ++i) {
-        float melted_snow = snow_on_ground * snow_melt_rate; // Calculate snow melting this hour using a temporary variable
         snow_on_ground += snow_fall_rate; // Add new snow
+        double melted_snow = snow_on_ground * snow_melt_rate; // Calculate snow melting this hour
         snow_on_ground -= melted_snow; // Update snow on the ground after melting
     }
 
