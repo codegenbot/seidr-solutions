@@ -1,19 +1,20 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <cctype>
 
 std::string camelCase(const std::string& s) {
     std::string result;
     bool first = true;
 
-    for (char c : s) if (!std::isspace(c)) {
-        if (c == '-') {
-            if (!first)
-                result += char(toupper(c));
-            else
-                first = false;
-        } else if (isalpha(c)) {
+    for (char c : s) {
+        if (!first && (c == '-' || c == ' ')) {
+            result += char(toupper(c));
+            first = false;
+        } else if (c == '-') {
+            first = false;
+        } else if (c == ' ') {
+            first = false;
+        } else {
             if (first) {
                 result += tolower(c);
                 first = false;
