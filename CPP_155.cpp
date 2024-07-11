@@ -8,8 +8,8 @@ namespace std {
     }
 }
 
-int issame(const vector<int>& a, const vector<int>& b) {
-    return (a[0] != b[0]);
+int issame(int count_even, int count_odd) {
+    return (count_even != count_odd);
 }
 
 std::vector<int> even_odd_count(int num) {
@@ -22,9 +22,4 @@ std::vector<int> even_odd_count(int num) {
             ++count_odd;
     }
     return {count_even, count_odd};
-}
-
-int main() {
-    int count = even_odd_count(0);
-    return 0;
 }

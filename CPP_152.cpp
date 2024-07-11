@@ -1,16 +1,15 @@
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
-using namespace std;
-
-std::vector<int> compare(std::vector<int> a, std::vector<int> b) {
+int* compare(vector<int> a, vector<int> b) {
+    if (a.size() != b.size())
+        return nullptr;
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
-    return {static_cast<int>(a.size()), static_cast<int>(static_cast<long>(b.size()))};
-}
-
-int main() {
-    assert(issame({1,2,3,5},{-1,2,3,4}) == compare({1,2,3,5},{-1,2,3,4}) == vector<int>{2,0,0,1});
-    return 0;
+    for (int i = 0; i < a.size(); ++i)
+        if (a[i] < b[i])
+            return new int{1};
+        else if (a[i] > b[i])
+            return new int{-1};
+    return new int{0};
 }
