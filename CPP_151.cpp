@@ -1,14 +1,12 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
 
-using namespace std;
-
-long long double_the_difference(vector<float> lst) {
+long long double_the_difference(std::vector<float> lst) {
     long long sum = 0;
     for (float num : lst) {
-        if (num > 0 && std::fixed(num) % 1 == 0.0f) {
+        if (num > 0 && std::frexp(num, &num) == 0.0) {
             sum += pow(num, 2);
         }
     }
@@ -17,26 +15,27 @@ long long double_the_difference(vector<float> lst) {
 }
 
 int main() {
-    vector<float> lst;
+    int odd_sum = 0;    
+    std::vector<float> lst; 
     
-    cout << "Enter numbers (enter 'stop' to finish):" << endl;
-    while(1) {
+    std::cout << "Enter numbers (enter 'stop' to finish):" << std::endl;
+    while(true) {
         float num;
         
-        cin >> num;
+        std::cin >> num;
         
-        if(to_string(num) == "stop") break;
+        if(std::to_string(num) == "stop") break;
 
-        if(num > 0 && std::fixed(num) % 1 == 0.0f) {
-            long long sum = 0; 
+        if(num > 0 && std::frexp(num, &num) == 0.0) {
+            odd_sum = 0; 
             for (float n : lst) { 
-                if (n > 0 && std::fixed(n) % 1 == 0.0f) {
-                    sum += double_the_difference(lst);
+                if (n > 0 && std::frexp(n, &n) == 0.0) {
+                    odd_sum += double_the_difference(lst);
                 }
             }
         }
         lst.push_back(num);    
     }
 
-    cout << "Sum of squared values: " << sum << endl;
+    std::cout << "Sum of squared values: " << odd_sum << std::endl;
 }
