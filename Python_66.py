@@ -1,9 +1,7 @@
-import re
+```
+def digitSum(n):
+    return sum(int(c) for c in str(n))
 
-def digitSum():
-    while True:
-        s = input("Enter a string of digits: ")
-        if re.match('^[0-9]+$', s):
-            return sum(int(c) for c in s)
-        else:
-            print("Invalid input. Please enter only digits.")
+
+n = int(input("Enter a number: "))
+print(digitSum(n))
