@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <iostream>
 
@@ -25,10 +26,10 @@ int main() {
         }
     }
 
-    cout << dp[cents][0].first << endl;
-    cout << dp[cents][1].first << endl;
-    cout << dp[cents][2].first << endl;
-    cout << dp[cents][3].first << endl;
+    cout << dp[cents][3].second << " quarters" << endl;
+    cout << dp[cents][2].second << " dimes" << endl;
+    cout << dp[cents][1].second << " nickles" << endl;
+    cout << dp[cents][0].second << " pennies" << endl;
 
     return 0;
 }
