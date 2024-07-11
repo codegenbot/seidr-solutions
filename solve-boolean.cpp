@@ -5,6 +5,8 @@ bool getBoolValue(char c) {
     return c == 'T';
 }
 
+#include <string>
+
 std::string solveBoolean(std::string expression) {
     std::stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
@@ -24,21 +26,17 @@ std::string solveBoolean(std::string expression) {
     }
 
     std::string result = "";
-    bool left, right;
+    bool left = false, right = false;
     while (!s.empty()) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            right = getBoolValue(s.top());
-            s.pop();
             left = getBoolValue(s.top());
-            s.pop();
+            right = true;
             result = (left && right) ? "True" : "False";
         } else if (c == '|') {
-            right = getBoolValue(s.top());
-            s.pop();
             left = getBoolValue(s.top());
-            s.pop();
+            right = true;
             result = (left || right) ? "True" : "False";
         } else {
             result = (getBoolValue(c)) ? "True" : "False";
@@ -46,4 +44,3 @@ std::string solveBoolean(std::string expression) {
     }
 
     return result;
-}
