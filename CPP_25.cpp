@@ -3,7 +3,15 @@
 
 std::vector<int> factorize(int num) {
     std::vector<int> factors;
-    // logic to find factors of 'num'
+    int i = 2;
+    while (num > 1) {
+        if (num % i == 0) {
+            factors.push_back(i);
+            num /= i;
+        } else {
+            i++;
+        }
+    }
     return factors;
 }
 
