@@ -1,22 +1,17 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+nums = [int(input()) for _ in range(n)]
 
-total_sum = sum(arr)
-half_sum = total_sum // 2
-current_sum = 0
-idx = 0
-
-while current_sum < half_sum:
-    current_sum += arr[idx]
-    idx += 1
-
-if current_sum == half_sum:
-    print(*arr[:idx])
-    print(*arr[idx:])
+if n == 1:
+    print(nums[0])
+    print(0)
 else:
-    if abs(current_sum - half_sum) < abs(current_sum - half_sum + arr[idx]):
-        print(*arr[:idx])
-        print(*arr[idx:])
-    else:
-        print(*arr[: idx + 1])
-        print(*arr[idx + 1 :])
+    total_sum = sum(nums)
+    half_sum = total_sum // 2
+    current_sum = 0
+    for i, num in enumerate(nums):
+        current_sum += num
+        if current_sum >= half_sum:
+            if current_sum == half_sum or current_sum - half_sum < half_sum - (current_sum - num):
+                print(*nums[: i + 1])
+                print(*nums[i + 1 :])
+                break
