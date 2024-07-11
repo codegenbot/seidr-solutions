@@ -6,10 +6,10 @@ using namespace std;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return b;
+        return a;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return b;
+        return a;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str1 = any_cast<string>(a);
@@ -24,8 +24,9 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("None");
         }
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(string)) {
-        int num = any_cast<int>(a);
+    else if ((a.type() == typeid(int) && b.type() == typeid(string)) || 
+             (b.type() == typeid(int) && a.type() == typeid(string))) {
+        int num = any_cast<int>(any(a));
         string str = any_cast<string>(b);
         if (stoi(str) > num) {
             return b;
@@ -37,7 +38,8 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("None");
         }
     }
-    else if (a.type() == typeid(string) && b.type() == typeid(int)) {
+    else if ((a.type() == typeid(string) && b.type() == typeid(int)) || 
+             (b.type() == typeid(string) && a.type() == typeid(int))) {
         string str = any_cast<string>(a);
         int num = any_cast<int>(b);
         if (stoi(str) > num) {
@@ -50,7 +52,8 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("None");
         }
     }
-    else if (a.type() == typeid(float) && b.type() == typeid(int)) {
+    else if ((a.type() == typeid(float) && b.type() == typeid(int)) || 
+             (b.type() == typeid(float) && a.type() == typeid(int))) {
         float fl = any_cast<float>(a);
         int num = any_cast<int>(b);
         if (fl > num) {
@@ -63,7 +66,8 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("None");
         }
     }
-    else if (a.type() == typeid(int) && b.type() == typeid(float)) {
+    else if ((a.type() == typeid(int) && b.type() == typeid(float)) || 
+             (b.type() == typeid(int) && a.type() == typeid(float))) {
         int num = any_cast<int>(a);
         float fl = any_cast<float>(b);
         if (num > fl) {
