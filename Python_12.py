@@ -1,9 +1,16 @@
+```
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
     if not strings:
         return None
-    return max(map(str.strip, filter(None, strings)), key=len)
+    return max(strings, key=len)
 
 strings = input("Please enter a list of strings separated by spaces:\n").split()
-print(longest(strings))
+
+while True:
+    try:
+        print(longest(strings))
+        break
+    except ValueError:
+        strings = input("Invalid input. Please enter a list of strings separated by spaces:\n").split()
