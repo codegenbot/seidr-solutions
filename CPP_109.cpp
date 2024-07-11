@@ -1,14 +1,20 @@
 int n = arr.size();
-    if (n == 0) {
-        return true;
+if (n == 0) {
+    return true;
+}
+
+int minIdx = 0;
+for (int i = 1; i < n; ++i) {
+    if (arr[i] < arr[minIdx]) {
+        minIdx = i;
     }
-    
-    int min_index = 0;
-    for (int i = 0; i < n; ++i) {
-        if (arr[i] < arr[min_index]) {
-            min_index = i;
-        }
+}
+
+for (int i = 0; i < n; ++i) {
+    if (arr[(minIdx + i) % n] != arr[i]) {
+        return false;
     }
-    
-    return (arr[min_index] == arr[(min_index + n - 1) % n]);
+}
+
+return true;
 }
