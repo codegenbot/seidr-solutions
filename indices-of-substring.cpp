@@ -6,27 +6,24 @@ using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
-    int pos = 0; 
+    int pos = 0; // position in text
 
-    while (true) { 
+    while (pos != string::npos) { 
         pos = text.find(target, pos);
         
         if (pos == string::npos) {
-            if (target.length() == 1) { 
-                break;
-            }
-            continue; // start searching again from the beginning of text
+            break;
         }
 
         result.push_back(pos);
-        pos += target.size(); // move to the next occurrence
+        pos = text.find(target, pos); // find the next occurrence starting from the last found index
     }
     
     return result;
 }
 
 int main() {
-    string text = "3/G,";
+    string text = "ABCDEF";
     string target = "CDE";
     vector<int> result = indicesOfSubstring(text, target);
     for (int i : result) {
