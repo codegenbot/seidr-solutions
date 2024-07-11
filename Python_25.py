@@ -1,4 +1,3 @@
-```
 def factorize(n: int) -> List[int]:
     if n < 2:
         return []
