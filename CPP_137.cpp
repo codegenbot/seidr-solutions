@@ -25,10 +25,6 @@ boost::any compare(boost::any a, boost::any b) {
             return b;
         }
     }
-    assert(false); // Invalid types or values
+    assert(false);  // Should not reach here if types are not supported
 }
 
-int main() {
-    // Test the function here
-    return 0;
-}
