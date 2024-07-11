@@ -16,4 +16,4 @@ if __name__ == "__main__":
     try:
         print(solution(lst))
     except ValueError:
-        print("Invalid input. Please enter only integers.")
+        print("     Invalid input. Please enter only integers.")
