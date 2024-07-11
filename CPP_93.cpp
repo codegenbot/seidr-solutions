@@ -1,13 +1,22 @@
+#include<string>
+#include<cctype>
+
+using namespace std;
+
 string encode(string message) {
     string result = "";
     for (char c : message) {
         if (isalpha(c)) {
-            char base = isupper(c) ? 'A' : 'a';
-            c = (c <= base + 2 && c >= base) ? (isupper(c) ? 'Z' : 'z') : 
-                (c == base + 3 || c == base + 4) ? c : 
-                ((c - base + 1) % 26) + base;
+            c = toupper(c);
+            if (c >= 'A' && c <= 'E') {
+                c = ('G' + ((c - 'A') % 3));
+            } else if (c >= 'I' && c <= 'O') {
+                c = ('K' + ((c - 'I') % 3));
+            } else if (c >= 'U' && c <= 'U') {
+                c = ('W' + ((c - 'U') % 3));
+            }
         }
-        result += c;
+        result += tolower(c);
     }
     return result;
 }
