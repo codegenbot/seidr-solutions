@@ -1,23 +1,24 @@
-Here is the completed code:
+string file_name_check(string file_name) {
+    int dot_count = 0, digit_count = 0, letter_count = 0;
+    string pre_dot, post_dot;
 
-string file_name_check(string file_name){
-    int digit_count = 0;
-    bool found_dot = false;
-    string prefix = "";
-    
-    for(int i=0; i<file_name.length(); i++){
-        char c = file_name[i];
-        if(isdigit(c)) digit_count++;
-        else if(c == '.') {
-            found_dot = true;
-            prefix = file_name.substr(0, i);
+    for (int i = 0; i < file_name.length(); i++) {
+        if (file_name[i] == '.') {
+            dot_count++;
+            if (dot_count > 1) return "No";
+            if (i != file_name.length() - 1) {
+                pre_dot = file_name.substr(0, i);
+                post_dot = file_name.substr(i + 1);
+            }
+        } else if (isdigit(file_name[i])) {
+            digit_count++;
+            if (digit_count > 3) return "No";
+        } else if (isalpha(file_name[i])) {
+            letter_count++;
         }
-        else if(found_dot) return "No";
     }
-    
-    if(digit_count > 3 || !found_dot || prefix.empty() || !isalpha(prefix[0])) return "No";
-    string suffix = file_name.substr(file_name.find('.')+1);
-    if(suffix != "txt" && suffix != "exe" && suffix != "dll") return "No";
-    
+
+    if ((pre_dot.empty() || !isalpha(pre_dot[0])) && (post_dot != "txt" && post_dot != "exe" && post_dot != "dll")) return "No";
+
     return "Yes";
 }
