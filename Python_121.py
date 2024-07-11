@@ -1,3 +1,5 @@
 ```
 def solution(lst):
-    return sum(i for i in lst) if len(lst) % 2 != 0 else lst[0]
+    if not lst: 
+        return 0
+    return sum(1 for _ in lst[::2]) / len(lst)
