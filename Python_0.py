@@ -1,10 +1,10 @@
-```Python
+```
 from typing import List
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
+    if not numbers:
+        return False
     numbers.sort()
-    if abs(numbers[1] - numbers[0]) <= threshold:
-        return True
     for i in range(1, len(numbers)):
         if abs(numbers[i] - numbers[i-1]) <= threshold:
             return True
