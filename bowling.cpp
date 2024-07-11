@@ -1,45 +1,39 @@
-int calculateBowlingScore(const string& bowls) {
-    int score = 0;
-    int frame = 1;
-    int ball = 0;
-    bool spare = false;
+int score(string input) {
+    int totalScore = 0;
+    int frame = 0;
 
-    for (char c : bowls) {
-        if (c == 'X') {
-            score += 10;
-            if (frame < 10) {
-                score += (bowls[ball + 1] == 'X' ? 10 : (bowls[ball + 1] == '/' ? 10 -  (bowls[ball + 2] - '0') : bowls[ball + 1] - '0'));
-                score += (bowls[ball + 2] == 'X' ? 10 : bowls[ball + 2] == '/' ? 10 -  (bowls[ball + 3] - '0') : bowls[ball + 2] - '0');
-            }
-            ball++;
-            if (!spare) frame++;
-        } else if (c == '/') {
-            score += 10 - (bowls[ball - 1] - '0');
-            if (frame < 10) {
-                score += bowls[ball + 1] == 'X' ? 10 : bowls[ball + 1] - '0';
-            }
-            frame++;
-            spare = true;
-        } else if (c == '-') {
-            if (frame < 10) frame++;
-        } else {
-            score += c - '0';
-            if (!spare) {
-                if (frame % 2 == 0) frame++;
-                else ball++;
-            } else {
-                spare = false;
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == 'X') {
+            totalScore += 10;
+            if (frame < 9) {
+                totalScore += (input[i + 1] == 'X') ? 10 : (isdigit(input[i + 1]) ? input[i + 1]-'0' : 10);
+                totalScore += (input[i + 2] == 'X') ? 10 : (isdigit(input[i + 2]) ? input[i + 2]-'0' : 10);
                 frame++;
+            } else if (frame == 9) {
+                totalScore += (input[i + 1] == 'X') ? 10 : (isdigit(input[i + 1]) ? input[i + 1]-'0' : 10);
+                totalScore += (input[i + 2] == 'X') ? 10 : (isdigit(input[i + 2]) ? input[i + 2]-'0' : 10);
+                break;
+            }
+        } else if (input[i] == '/') {
+            totalScore += (10 - (isdigit(input[i - 1]) ? input[i - 1]-'0' : 0));
+            totalScore += (isdigit(input[i + 1]) ? input[i + 1]-'0' : 10);
+            frame++;
+        } else if (isdigit(input[i])) {
+            totalScore += input[i]-'0';
+            if (isdigit(input[i + 1])) {
+                if (input[i] + input[i + 1] - '0' == 10) {
+                    totalScore += (isdigit(input[i + 2]) ? input[i + 2]-'0' : 0);
+                }
             }
         }
     }
 
-    return score;
+    return totalScore;
 }
 
 int main() {
     string input;
     cin >> input;
-    cout << calculateBowlingScore(input) << endl;
+    cout << score(input) << endl;
     return 0;
 }
