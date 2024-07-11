@@ -20,6 +20,8 @@ def separate_paren_groups(paren_string: str) -> list[str]:
                     result.append("(" + temp[:4])
                     temp = temp[4:]
         else:
+            if temp:
+                result.append(temp)
             temp += char
     if temp != "":
         result.append(temp)
