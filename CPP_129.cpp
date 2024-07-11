@@ -10,7 +10,7 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     std::vector<int> path;
     int row = 0, col = 0;
 
-    for (int i = 0; i < k; ++i) {
+    for (int i = 0; i < k; ++i){
         path.push_back(grid[row][col]);
         if ((row + col) % 2 == 0) {
             if (col == n - 1) {
@@ -34,4 +34,10 @@ std::vector<int> minPath(std::vector<std::vector<int>> grid, int k) {
     }
 
     return path;
+}
+
+int main() {
+    assert(issame(minPath({{1, 3}, {3, 2}}, 10), {1, 3, 1, 3, 1, 3, 1, 3, 1, 3}));
+
+    return 0;
 }
