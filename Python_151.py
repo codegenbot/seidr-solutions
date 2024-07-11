@@ -1,6 +1,16 @@
-def double_the_difference(lst):
-    return sum(i**2 for i in lst if isinstance(i, int) and i > 0)
+def double_the_difference():
+    lst = [int(i) for i in input().split()]
+    difference = max(lst) - min(lst)
+    double_diff = difference * 2
+    return double_diff
 
-test_list = [1, -2, 3, 4, 5]
-result = double_the_difference(test_list)
-print(result)
+
+import builtins
+
+
+def check(func):
+    if len(builtins.input()) > 1:
+        print("Error: Please enter single input.")
+        return None
+    else:
+        return func()
