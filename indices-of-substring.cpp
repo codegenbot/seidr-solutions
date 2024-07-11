@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
     string text, target;
-    getline(cin, text); 
+    getline(cin, text);
     cin >> target;
 
     vector<int> indices;
