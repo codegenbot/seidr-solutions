@@ -9,4 +9,4 @@ def has_close_elements(numbers: List[float], threshold: float) -> bool:
     return False
 
 
-print(has_close_elements([1.0, 2.0, 3.0, 4.0], 0.5))
+print(has_close_elements([1.0, 2.0, 2.001], 0.01))
