@@ -1,3 +1,4 @@
+```
 def shortestPathLength(grid):
     rows, cols = len(grid), len(grid[0])
     minPathLength = float("inf")
