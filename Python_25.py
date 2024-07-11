@@ -1,9 +1,6 @@
-```
-def calculate_factors():
-    num = int(input("Enter a number: "))
-    factors = factorize(num)
-    print("Factors of {} are {}".format(num, ', '.join(map(str, factors))))
+Here is the corrected code:
 
+```
 from typing import List
 import math
 

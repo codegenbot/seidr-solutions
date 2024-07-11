@@ -1,3 +1,4 @@
+```
 def decode_cyclic(s: str):
     result = []
     temp = ""
@@ -7,10 +8,11 @@ def decode_cyclic(s: str):
             if len(result) > 0 and result[-1] == temp[0]:
                 result.append(temp)
             else:
-                if len(temp) >= 2:  
-                    if temp[0] == temp[2]:  # check for cyclic condition
-                        result.append(temp[1] + temp[0]) 
-                    else:  
-                        result.append(temp[1:])
-                    temp = ""
+                if len(temp) == 2:  
+                    result.append(temp)
+                elif temp[1:] in s + s:
+                    result.append(temp[1:] + temp[0])
+                else:
+                    result.append(temp)
+            temp = ""
     return "".join(result)
