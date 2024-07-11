@@ -3,7 +3,7 @@
 
 int whitePegs(std::string code, std::string guess) {
     int count = 0;
-    unordered_map<char, int> codeMap, guessMap;
+    std::unordered_map<char, int> codeMap, guessMap;
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
             count++;
@@ -20,7 +20,7 @@ int whitePegs(std::string code, std::string guess) {
         if (guessMap.count(pair.first)) {
             int codeCount = pair.second;
             int guessCount = guessMap[pair.first];
-            correctWrong += min(codeCount, guessCount);
+            correctWrong += std::min(codeCount, guessCount);
         }
     }
     return correctWrong - count;
@@ -34,4 +34,5 @@ int blackPegs(std::string code, std::string guess) {
         }
     }
     return count;
+
 }
