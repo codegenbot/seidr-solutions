@@ -2,7 +2,7 @@
 def minPath(grid, k):
     m = len(grid)
     visited = set()
-    shortest_path = None
+    shortest_path = []
     min_length = float('inf')
 
     def dfs(i, j, path, remaining):
@@ -10,7 +10,7 @@ def minPath(grid, k):
         if remaining == 0:
             if len(path) < min_length:
                 min_length = len(path)
-                shortest_path = [grid[x][y] for x, y in zip([i]+path[:-1], [j]+[p]) for p in path]
+                shortest_path = [grid[x][y] for x, y in zip([i]+path[:-1], [j]+[p]) if grid[x][y] != k]
             return
         if (i, j) in visited:
             return
@@ -29,4 +29,4 @@ def minPath(grid, k):
             if grid[i][j] == k:
                 dfs(i, j, [], m*m)
 
-    return shortest_path if min_length != float('inf') else None
+    return shortest_path
