@@ -1,30 +1,29 @@
-```cpp
-bool same(vector<string> strings1, vector<string> strings2, string substring){
-    for(auto& s : strings1) {
-        if(find(strings2.begin(), strings2.end(), s) != strings2.end() && s.find(substring) != string::npos)
-            return true;
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for(auto& s : strings) {
+        if(s.find(substring) != string::npos)
+            result.push_back(s);
     }
-    return false;
+    return result;
 }
 
-int main(){
-    int n;
-    cin >> n;
-    vector<string> strings(n);
-    for(int i = 0; i < n; i++){
-        cin >> strings[i];
+bool same(string s1, string s2) {
+    return s1 == s2;
+}
+
+int main() {
+    vector<string> words = {"apple", "banana", "apricot"};
+    string target = "pp";
+    
+    vector<string> filtered_words = filter_by_substring(words, target);
+    
+    for(auto& word : filtered_words) {
+        if(same(word, target)) {
+            cout << "Same: " << word << endl;
+        } else {
+            cout << "Different: " << word << endl;
+        }
     }
-    int m;
-    cin >> m;
-    vector<string> strings2(m);
-    for(int i = 0; i < m; i++){
-        cin >> strings2[i];
-    }
-    string substring;
-    cin >> substring;
-    if(same(strings, strings2, substring))
-        cout << "Yes" << endl;
-    else
-        cout << "No" << endl;
+    
     return 0;
 }
