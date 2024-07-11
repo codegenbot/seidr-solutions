@@ -14,7 +14,6 @@ vector<string> split_words(string txt) {
     while (pos != string::npos) {
         pos = txt.find_first_of(" ,", prev_pos);
         if (pos == string::npos) {
-            // No whitespaces or commas found
             int count = 0;
             for (char c : txt) {
                 if (islower(c)) {
