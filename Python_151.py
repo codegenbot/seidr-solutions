@@ -1,7 +1,4 @@
-```
 def double_the_difference(lst):
-    if len(lst) < 2:
-        return None
     lst.sort()
     return (lst[-1] - lst[0]) * 2
 
