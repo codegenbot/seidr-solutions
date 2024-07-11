@@ -4,33 +4,30 @@ using namespace std;
 
 string spinWords(string str) {
     string result = "";
+    string word;
     int length = 0;
     for (int i = 0; i < str.length(); i++) {
         if (str[i] == ' ') {
-            while (length >= 5) {
-                for (int j = i - 1; j >= i - length - 1; j--) {
-                    result += str[j];
+            if (length >= 5) {
+                for (int j = word.length() - 1; j >= 0; j--) {
+                    result += word[j];
                 }
-                length = 0;
+            } else {
+                result += word;
             }
-            result += " ";
+            word = "";
             length = 0;
         } else {
+            word += str[i];
             length++;
         }
     }
-    while (length >= 5) {
-        for (int j = str.length() - 1; j >= str.length() - length - 1; j--) {
-            result += str[j];
-        }
-        length = 0;
-    }
     if (length >= 5) {
-        for (int j = str.length() - 1; j >= str.length() - length - 1; j--) {
-            result += str[j];
+        for (int j = word.length() - 1; j >= 0; j--) {
+            result += word[j];
         }
     } else {
-        result = str;
+        result += word;
     }
     return result;
 }
