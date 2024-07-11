@@ -1,10 +1,12 @@
-vector<int> freq(1001, 0);
-    int res = -1;
+int result = -1;
+    unordered_map<int, int> freq;
     for (int num : lst) {
         freq[num]++;
-        if (freq[num] >= num && num > res) {
-            res = num;
+    }
+    for (auto& it : freq) {
+        if (it.first > it.second && it.first > 0) {
+            result = max(result, it.first);
         }
     }
-    return res;
+    return result;
 }
