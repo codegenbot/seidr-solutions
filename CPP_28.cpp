@@ -7,3 +7,4 @@ std::string concatenate(std::vector<std::string> strings){
         result += s;
     }
     return result;
+}
