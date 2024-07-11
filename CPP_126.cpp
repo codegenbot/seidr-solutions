@@ -1,4 +1,3 @@
-#include <initializer_list>
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -16,7 +15,8 @@ bool is_sorted(vector<int> lst){
     }
     return true;
 
-int main() {
+int main 
+{    
     vector<int> lst;
     int num;
     
@@ -31,3 +31,4 @@ int main() {
     else
         cout << (is_sorted(lst) ? "True" : "False") << endl; 
     return 0;
+}
