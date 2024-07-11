@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -70,7 +71,6 @@ int main() {
             std::cout << "Invalid input. Please enter numbers between 1 and 9: ";
         }
         
-        arr.push_back(a);
         by_length(arr);
     }
     
