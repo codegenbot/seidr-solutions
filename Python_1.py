@@ -14,9 +14,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             temp += char
         elif char == ')':
             if stack and stack[-1] == '(':
+                while stack and stack[-1] != '(':
+                    temp += stack.pop()
                 stack.pop()
-                temp += char
-                result.append(temp)
+                result.append(temp + ')')
                 temp = ''
             else:
                 temp += char
