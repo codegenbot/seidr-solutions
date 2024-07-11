@@ -1,4 +1,4 @@
-```
+```cpp
 double diceGame(int n, int m) {
     double total = (double)n * m;
     double p = 0.0;
