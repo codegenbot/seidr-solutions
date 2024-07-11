@@ -1,8 +1,7 @@
-```
 from typing import List
 
 
-def remove_duplicates(input_string: str) -> List[int]:
+def remove_duplicates(input_string: str) -> List[str]:
     numbers = []
     for s in input_string.split(','):
         try:
@@ -10,8 +9,8 @@ def remove_duplicates(input_string: str) -> List[int]:
         except ValueError:
             pass
     result = sorted(list(set(numbers)))
-    return result
+    return [str(num) for num in result]
 
 
 result = remove_duplicates(input("Enter a list of integers (comma separated): "))
-print(','.join(map(str, result)))
+print(','.join(result))
