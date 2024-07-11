@@ -6,7 +6,8 @@ int digitSum(const std::string& str) {
     int sum = 0;
     for (char c : str) {
         if (std::isdigit(c)) {
-            sum += (c - '0');
+            int digitValue = c - '0';
+            sum += digitValue;
         }
     }
     return sum;
@@ -33,25 +34,15 @@ int main() {
             std::string digitsOnly;
             for (char c : newInput) {
                 if(std::isdigit(c)) {
-                    digitsOnly += std::to_string(c-'0');
-                } else {
-                    if(!digitsOnly.empty()) {
-                        int result = 0;
-                        for (char d : digitsOnly) {
-                            result += (d - '0');
-                        }
-                        std::cout << "The sum of digits is: " << result << std::endl;
-                    } else {
-                        std::cout << "Error: Empty input." << std::endl;
-                    }
+                    int digitValue = c - '0';
+                    digitsOnly += std::to_string(digitValue);
                 }
             }
+            int result = digitSum(digitsOnly);
+            std::cout << "The sum of digits is: " << result << std::endl;
         } else {
             std::string digitsOnly = newInput.substr(0, digitPos);
-            int result = 0;
-            for (char c : digitsOnly) {
-                result += (c - '0');
-            }
+            int result = digitSum(digitsOnly);
             std::cout << "The sum of digits is: " << result << std::endl;
         }
     } else {
