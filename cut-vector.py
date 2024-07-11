@@ -5,10 +5,10 @@ total_sum = sum(nums)
 left_sum = 0
 right_sum = total_sum
 
-min_diff = total_sum
+min_diff = abs(nums[0] - nums[1])
 cut_index = -1
 
-for i in range(n):
+for i in range(1, n):
     left_sum += nums[i]
     right_sum -= nums[i]
     diff = abs(left_sum - right_sum)
@@ -16,11 +16,8 @@ for i in range(n):
         min_diff = diff
         cut_index = i
 
-if cut_index != -1:
-    subvector1 = nums[: cut_index + 1]
-    subvector2 = nums[cut_index + 1 :]
-    print(*subvector1)
-    print(*subvector2)
-else:
-    print(*nums)
-    print()
+subvector1 = nums[:cut_index + 1] if cut_index != -1 else []
+subvector2 = nums[cut_index + 1:] if cut_index != -1 else []
+
+print(*subvector1)
+print(*subvector2)
