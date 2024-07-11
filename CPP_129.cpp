@@ -1,20 +1,22 @@
-int N = grid.size();
+int n = grid.size();
     vector<int> result;
-    int row = 0, col = 0;
-    
-    while (k > 1) {
-        result.push_back(grid[row][col]);
-        if ((row + col) % 2 == 0) {
-            if (col + 1 < N) col++;
-            else row++;
+    int currRow = 0, currCol = 0;
+    result.push_back(grid[currRow][currCol]);
+    for (int i = 1; i < k; ++i) {
+        if ((currRow + currCol) % 2 == 0) {
+            if (currRow + 1 < n) {
+                currRow++;
+            } else {
+                currCol++;
+            }
         } else {
-            if (col - 1 >= 0) col--;
-            else row++;
+            if (currCol + 1 < n) {
+                currCol++;
+            } else {
+                currRow++;
+            }
         }
-        k--;
+        result.push_back(grid[currRow][currCol]);
     }
-    
-    result.push_back(grid[row][col]);
-    
     return result;
 }
