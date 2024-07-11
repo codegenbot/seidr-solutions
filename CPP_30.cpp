@@ -2,15 +2,20 @@
 #include <cassert>
 
 bool issame(std::vector<float> a, std::vector<float> b) {
-    // Your implementation here
+    return a == b;
 }
 
 std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> positive_values;
-    for (float value : l) {
-        if (value > 0) {
-            positive_values.push_back(value);
+    std::vector<float> result;
+    for(float num : l) {
+        if(num > 0) {
+            result.push_back(num);
         }
     }
-    return positive_values;
+    return result;
+}
+
+int main() {
+    assert(issame(get_positive({}), {}));
+    return 0;
 }
