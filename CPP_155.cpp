@@ -23,3 +23,9 @@ std::vector<int> even_odd_count(int num) {
     }
     return {count_even, count_odd};
 }
+
+int main() {
+    int count[] = even_odd_count(0);
+    assert (issame(count[0], count[1]));
+    return 0;
+}
