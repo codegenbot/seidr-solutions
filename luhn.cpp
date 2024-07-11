@@ -1,18 +1,18 @@
-int luhn(int n) {
-    int sum = 0;
-    bool alt = false;
+#include <vector>
+using namespace std;
 
-    for (int i = 15; i >= 1; --i) {
-        int digit = (n / pow(10, i)) % 10;
-        if (alt) {
-            digit *= 2;
-            if (digit > 9) {
-                digit -= 9;
+int luhn(vector<int> cc) {
+    int sum = 0;
+    for (int i = 0; i < cc.size(); i++) {
+        if ((i % 2) == 1) {
+            cc[i] *= 2;
+            if (cc[i] > 9) {
+                cc[i] -= 9;
             }
         }
-        sum += digit;
-        alt = !alt;
     }
-
+    for (int i = 0; i < cc.size(); i++) {
+        sum += cc[i];
+    }
     return sum;
 }
