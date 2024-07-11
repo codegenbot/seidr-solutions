@@ -1,5 +1,5 @@
 ```
-def product_of_signs(arr):
+def prod_signs(arr):
     if not arr:
         return None
     sign_product = 1
