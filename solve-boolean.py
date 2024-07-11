@@ -1,5 +1,5 @@
 def solve_boolean(expression):
-    return eval(expression.replace("T", "True").replace("F", "False").replace("|", "or").replace("&", "and"))
+    mapping = {'T': 'True', 'F': 'False', '|': 'or', '&': 'and'}
+    return eval(' '.join(mapping.get(c, c) for c in expression))
 
-input_str = input()
-print(solve_boolean(input_str))
+print(solve_boolean(input()))
