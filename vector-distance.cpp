@@ -1,7 +1,6 @@
-```cpp
 #include <vector>
 #include <iostream>
-#include <cmath> // Include this header file
+#include <cmath> 
 #include <iomanip>
 
 using namespace std;
