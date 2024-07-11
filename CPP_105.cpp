@@ -1,29 +1,28 @@
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<std::string>& vec1, const std::vector<std::string>& vec2) {
-    if (vec1.size() != vec2.size())
-        return false;
-    for (int i = 0; i < vec1.size(); ++i)
-        if (vec1[i] != vec2[i])
-            return false;
+bool issame(vector<string> vec1, vector<string> vec2) {
+    if (vec1.size() != vec2.size()) return false;
+    for (int i = 0; i < vec1.size(); ++i) {
+        if (vec1[i] != vec2[i]) return false;
+    }
     return true;
 }
 
-std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> numbers;
+vector<string> by_length(vector<int> arr) {
+    vector<int> numbers;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
             numbers.push_back(num);
         }
     }
 
-    std::sort(numbers.begin(), numbers.end());
-    std::reverse(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
+    reverse(numbers.begin(), numbers.end());
 
-    std::vector<std::string> result;
+    vector<string> result;
     for (int num : numbers) {
-        std::string str;
+        string str = "";
         switch (num) {
             case 1:
                 str = "One";
@@ -57,4 +56,18 @@ std::vector<std::string> by_length(std::vector<int> arr) {
     }
 
     return result;
+}
+
+int main() {
+    vector<int> arr = {1, 2, 3, 4};
+    vector<string> output = by_length(arr);
+
+    bool same = issame(output, {"One", "Four", "Nine", "Three"});
+    if (same) {
+        cout << "The vectors are the same." << endl;
+    } else {
+        cout << "The vectors are different." << endl;
+    }
+
+    return 0;
 }
