@@ -10,7 +10,7 @@ int score(string s) {
         if (s[i] == 'X') {
             total += 10;
             if (s[i + 1] == 'X')
-                total += 10 + (s[i + 2] == 'X' ? 10 : s[i + 2] - '0');
+                total += 10 + (s[i + 2] == 'X' ? 10 : (s[i + 2] == '-' ? 0 : s[i + 2] - '0'));
             else if (s[i + 1] == '/')
                 total += 10;
             else
