@@ -1,26 +1,24 @@
-#include <vector>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
 string sort_numbers(string numbers) {
-    vector<string> nums;
-    string temp;
-    for (int i = 0; i < numbers.length(); i++) {
-        if (numbers[i] == ' ') {
-            nums.push_back(temp);
-            temp = "";
-        } else {
-            temp += numbers[i];
+    map<string, int> num_map = {{"zero", 0}, {"one", 1}, {"two", 2}, {"three", 3},
+                                 {"four", 4}, {"five", 5}, {"six", 6}, {"seven", 7},
+                                 {"eight", 8}, {"nine", 9}};
+
+    string result = "";
+    for (char c : numbers) {
+        if (c == ' ') {
+            continue;
         }
+        string num = "";
+        while (c != ' ' && c != '\0') {
+            num += c;
+            c = getchar();
+        }
+        result += num_map[num] < result.length() ? num + " " : result.substr(0, result.find(" ")) + " " + num;
     }
-    nums.push_back(temp);
-
-    sort(nums.begin(), nums.end());
-    string result;
-    for (int i = 0; i < nums.size(); i++) {
-        result += nums[i] + " ";
-    }
-
-    return result.substr(0, result.length() - 1);
+    return result.substr(0, result.size() - 1);
 }
