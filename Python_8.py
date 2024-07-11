@@ -1,3 +1,4 @@
-numbers = list(map(int, input().split()))
-result_sum, result_product = sum_product(numbers)
-print(result_sum, result_product)
+if __name__ == "__main__":
+    numbers = list(map(int, input().split()))
+    sum_result, product_result = sum_product(numbers)
+    print(sum_result, product_result)
