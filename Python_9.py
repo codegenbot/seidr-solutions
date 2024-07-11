@@ -1,18 +1,15 @@
+```
 from typing import List
 
-
 def rolling_max(input_str: str) -> List[int]:
+    if any(not char.isdigit() for char in input_str):
+        return [0]
+    
     numbers = []
     for num in input_str.split():
-        if not num.isdigit():
-            return [0]
+        if not num.isdigit():  
+            return [0] 
         numbers.append(int(num))
-
-    if len(numbers) <= 1:
-        return [0]
-
-    if any(not x.isdigit() for x in input_str):
-        return [0]
-
-    result = [max(numbers[: i + 1]) for i in range(len(numbers))]
+    
+    result = [max(numbers[:i+1]) for i in range(len(numbers))]
     return result
