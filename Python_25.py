@@ -17,7 +17,8 @@ def main():
             for _ in range(count):
                 factors.append(i)
     if n > 1:
-        factors.append(n)
+        for _ in range(n - 1):
+            factors.append(n)
     return factors
 
 print(main())
