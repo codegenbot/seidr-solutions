@@ -33,11 +33,6 @@ int main() {
 
     vector<string> groups = separate_paren_groups(input);
 
-    if (issame(groups, groups)) {
-        cout << "Groups are the same" << endl;
-    } else {
-        cout << "Groups are different" << endl;
-    }
-
+    // Call issame function with appropriate arguments
     return 0;
 }
