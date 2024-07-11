@@ -1,13 +1,16 @@
 ```cpp
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()))
+#include <vector>
+#define _MSC_VER 1900
+#include <initializer_list>
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()))
         return true;
     else
         return false;
-
 }
 
-std::vector<int> even_odd_count(int num) {
+int even_odd_count(int num) {
     int count_even = 0, count_odd = 0;
     std::string str_num = std::to_string(std::abs(num));
     for (char c : str_num) {
@@ -16,5 +19,10 @@ std::vector<int> even_odd_count(int num) {
         else
             ++count_odd;
     }
-    return {count_even, count_odd};
+    return count_even;
+}
+
+int main() {
+    assert(issame(even_odd_count(0), std::vector<int>{1, 0}));
+    return 0;
 }
