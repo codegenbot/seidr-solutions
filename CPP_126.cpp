@@ -4,7 +4,7 @@
 
 bool is_sorted(const std::vector<int>& lst) {
     for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] >= lst[i + 1] || count(lst.begin(), lst.end(), lst[i]) > 1) {
+        if (lst[i] >= lst[i + 1] || std::count(lst.begin(), lst.end(), lst[i]) > 1) {
             return false;
         }
     }
@@ -12,11 +12,13 @@ bool is_sorted(const std::vector<int>& lst) {
 }
 
 int main() {
-    std::vector<int> example = {1, 2, 3, 4, 5};
-    std::cout << is_sorted(example) << std::endl;
+    std::vector<int> testList = {1, 2, 3, 4, 5};
     
-    std::vector<int> example2 = {1, 3, 2, 4, 5};
-    std::cout << is_sorted(example2) << std::endl;
+    if(is_sorted(testList)) {
+        std::cout << "List is sorted in ascending order with no repeated elements." << std::endl;
+    } else {
+        std::cout << "List is not sorted in ascending order or contains repeated elements." << std::endl;
+    }
     
     return 0;
 }
