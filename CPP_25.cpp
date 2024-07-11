@@ -3,11 +3,23 @@
 
 std::vector<int> factorize(int num) {
     std::vector<int> factors;
-    // logic to find factors of 'num'
+    while (num % 2 == 0) {
+        factors.push_back(2);
+        num = num / 2;
+    }
+    for (int i = 3; i <= sqrt(num); i = i + 2) {
+        while (num % i == 0) {
+            factors.push_back(i);
+            num = num / i;
+        }
+    }
+    if (num > 2) {
+        factors.push_back(num);
+    }
     return factors;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
