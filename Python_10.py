@@ -1,4 +1,3 @@
-```
 def make_palindrome(s: str) -> str:
     s = list(s)
     i, j = 0, len(s) - 1
@@ -11,11 +10,14 @@ def make_palindrome(s: str) -> str:
                 while left < right and s[right] != c:
                     right -= 1
                 if left < right:
-                    s.pop(left)
-                    j -= 1
-                    break
-            else:
-                s.pop(j)
+                    for k in range(i + 1):
+                        if s[k] == c:
+                            i, j = k, len(s) - 1
+                            break
+                    for k in range(j, -1, -1):
+                        if s[k] == c:
+                            i, j = 0, k
+                            break
         else:
             i += 1
             j -= 1
