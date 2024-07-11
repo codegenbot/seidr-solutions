@@ -1,11 +1,17 @@
 vector<string> reverse_delete(string s, string c){
-    string result;
-    for(auto ch : s){
-        if(c.find_first_of(ch) == string::npos){
-            result.push_back(ch);
+    for(auto it = s.begin(); it != s.end();){
+        if(c.find(*it) != string::npos){
+            it = s.erase(it);
+        } else{
+            ++it;
         }
     }
-    string reversed = result;
-    reverse(reversed.begin(), reversed.end());
-    return {result, result == reversed ? "True" : "False"};
+    string result = s;
+    string reverse_s = s;
+    reverse(reverse_s.begin(), reverse_s.end());
+    if(result == reverse_s){
+        return {result, "True"};
+    } else{
+        return {result, "False"};
+    }
 }
