@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
@@ -25,42 +25,43 @@ vector<string> filter_by_substring(vector<string> arr, string sub) {
 
 int main() {
     int numSets;
-    std::cin >> numSets;
+    cin >> numSets;
     
     vector<vector<string>> sets(numSets);
     
     for (int i = 0; i < numSets; i++) {
         int numStrings;
-        std::cin >> numStrings;
+        cin >> numStrings;
         
         sets[i].resize(numStrings);
         
         for (int j = 0; j < numStrings; j++) {
-            std::cin >> sets[i][j];
+            cin >> sets[i][j];
         }
     }
     
     string subStr;
-    std::cin >> subStr;
+    cin >> subStr;
     
     vector<string> result;
     
     for (auto s : sets[0]) {
-        bool found = false;
+        bool found = true;
         for (int i = 1; i < numSets; i++) {
-            if (!issame(sets[i], {s})) {
-                found = true;
+            if (!issame(sets[i], s)) {
+                found = false;
                 break;
             }
         }
-        if (!found) {
+        
+        if (found) {
             result.push_back(s);
         }
     }
     
-    std::cout << "The result is:" << std::endl;
+    cout << "The result is:" << endl;
     for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << std::endl;
+        cout << result[i] << endl;
     }
     
     return 0;
