@@ -1,22 +1,19 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <sstream>
 using namespace std;
 
 int main() {
     vector<int> nums;
-    string input;
-    getline(cin, input);
-    istringstream iss(input);
-    int num;
-    while (iss >> num) {
-        nums.push_back(num);
+    
+    int input;
+    while (cin >> input) {
+        nums.push_back(input);
     }
     
     int sum = 0;
     for (int num : nums) {
-        sum += floor(num / 3) - 2;
+        sum += num / 3 - 2;
     }
     
     cout << sum << endl;
