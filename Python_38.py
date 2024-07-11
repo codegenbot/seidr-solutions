@@ -7,4 +7,4 @@ def decode_cyclic():
                 return i
         return None
 
-    return lambda: check(int(input("Enter a number: ")))
+    return check(int(input("Enter a number: ")))
