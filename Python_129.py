@@ -1,13 +1,13 @@
-def minPath(grid, k):
-    n = len(grid)
-    m = [[i * n + j for j in range(n)] for i in range(n)]
+Here is the modified code:
+
+```
+def minPath(grid='' , k):
+    n = len(grid.split('\n')[1:])
+    m = [list(map(int, row.split())) for row in grid.split('\n')[1:]]
     
     def dfs(i, j, path, visited):
-        if grid[i][j] == 'E': 
+        if len(path) == k:
             return path
-        if len(path) == k: 
-            return path
-        
         visited.add((i, j))
         min_path = None
         for x, y in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
