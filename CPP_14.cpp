@@ -23,4 +23,4 @@ int main() {
     assert(result == expected);
 
     return 0;
-}  
+}
