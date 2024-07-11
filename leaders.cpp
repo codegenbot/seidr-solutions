@@ -9,7 +9,7 @@ vector<int> findLeaders(vector<int> nums) {
     int maxRight = nums[n - 1];
     leaders.push_back(maxRight);
     for (int i = n - 2; i >= 0; i--) {
-        if (nums[i] > maxRight) {
+        if (nums[i] >= maxRight) {
             maxRight = nums[i];
             leaders.push_back(maxRight);
         }
@@ -22,6 +22,9 @@ int main() {
     int num;
     while (cin >> num) {
         nums.push_back(num);
+        if (cin.peek() == '\n') {
+            break;
+        }
     }
 
     vector<int> result = findLeaders(nums);
