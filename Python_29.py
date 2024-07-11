@@ -1,3 +1,4 @@
+```
 import sys
 from typing import List
 
@@ -21,12 +22,8 @@ strings = [input() for _ in range(num_strings)]
 while True:
     try:
         prefix = input("Enter prefix (string): ")
-        if not isinstance(prefix, str):
-            print("Please enter a string.")
-        else:
-            break
+        filter_by_prefix([str(x) for x in strings], prefix)
+        break
     except Exception as e:
         print(f"An error occurred: {e}")
         sys.stdin.readline()  # Ensure program waits for input
-
-filter_by_prefix([str(x) for x in strings], prefix)
