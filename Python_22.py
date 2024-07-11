@@ -1,7 +1,7 @@
 def calculate_average_value(values: list[Any]) -> float:
     if not values:
         return 0
-    return sum(filter(lambda x: isinstance(x, int), values)) / len(values)
+    return sum(filter_integers(values)) / len(values)
 
 
 user_input = input("Please enter some values (separated by spaces): ")
@@ -12,4 +12,4 @@ except ValueError as e:
     values = []
 if values:
     average_value = calculate_average_value(values)
-    print(f"The average value is {average_value:.2f}."
+    print(f"The average value is {average_value:.2f}.")
