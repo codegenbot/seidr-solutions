@@ -1,23 +1,22 @@
-#include <cassert>
 #include <string>
 
-std::string file_name_check(string file_name) {
+bool file_name_check(string filename) {
     int digit_count = 0;
     bool found_dot = false;
-    string prefix = "";
-    for (char c : file_name) {
+    bool valid_prefix = true;
+
+    for (char c : filename) {
         if (isdigit(c)) {
             digit_count++;
+            if (digit_count > 3)
+                return false;
         } else if (c == '.') {
             found_dot = true;
+        } else {
+            if (digit_count > 0)
+                valid_prefix = false;
         }
-        prefix += c;
     }
-    return (digit_count <= 3 && found_dot && prefix.find('.') != string::npos) ? "Yes" : 
-           (!found_dot && !std::all_of(file_name.begin() + digit_count, file_name.end(), ::isalpha())) ? "No" : "Yes";
-}
 
-int main() {
-    assert(file_name_check("s.") == "No");
-    return 0;
+    return (digit_count <= 3 && found_dot && valid_prefix);
 }

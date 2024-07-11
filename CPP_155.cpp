@@ -1,7 +1,6 @@
-#include <initializer_list>
-
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 int issame(const std::vector<int>& a, const std::vector<int>& b) {
     if(a == b)
