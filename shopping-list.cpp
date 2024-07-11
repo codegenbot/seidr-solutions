@@ -5,9 +5,9 @@ using namespace std;
 double shoppingList(vector<float> prices, vector<float> discounts) {
     double total = 0;
     for(int i = 0; i < prices.size(); i++) {
-        if(discounts[i] > 100 || prices[i] <= 0 || discounts[i] < 0){
-            cout << "Error: invalid input" << endl;
-            return -1.0;
+        if(discounts[i] > 100 || discounts[i] < 0) {
+            cout << "Error: Discount value must be between 0 and 100" << endl;
+            return -1;
         }
         total += prices[i] * (1 - discounts[i]/100.0);
     }
