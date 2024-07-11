@@ -23,7 +23,3 @@ void solve_problem() {
         std::cout << "Invalid input!" << std::endl;
     }
 }
-
-void main() {
-    solve_problem();
-}
