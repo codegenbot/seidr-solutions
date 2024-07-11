@@ -1,4 +1,4 @@
-```
+```Python
 s = input()
 
 def decode_cyclic(s: str):
@@ -8,18 +8,26 @@ def decode_cyclic(s: str):
     
     i = 0
     while i < len(s):
-        if i + 3 <= len(s):
+        if i + 2 <= len(s):
             group = s[i:i+3]
         else:
             group = s[i:]
-            
-        if len(group) == 3 and group in cyclic_map:
+
+        if len(group) >= 3 and group in cyclic_map:
             result += cyclic_map[group]
-        elif group[0:1] in cyclic_map or group[0:2] in cyclic_map:
-            result += cyclic_map.get(group[0:1], group[0:1]) + cyclic_map.get(group[0:2], group[0:2])
-        else:
+        elif len(group) == 2:
+            if group[0] + group[1] in cyclic_map:
+                result += cyclic_map[group[0]+group[1]]
+            else:
+                result += group
+        elif len(group) == 1:
             result += group
-        
+        else:
+            if group in cyclic_map:
+                result += cyclic_map[group]
+            else:
+                result += group
+
         i += 3
     
     return result
