@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <initializer_list>
 
 using namespace std;
 
@@ -13,6 +12,7 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
             i += m; 
+            if ((i + m - 1) > n) break;
         } else {
             i++; 
         }
