@@ -1,5 +1,4 @@
-#include <string>
-#include <iostream>
+#include <algorithm>
 using namespace std;
 
 string spinWords(string str) {
@@ -9,7 +8,7 @@ string spinWords(string str) {
         if (str.find(" ", i) == -1 || str.length() - 1 == i) {
             string word = str.substr(i);
             if (word.length() >= 5)
-                result += string(word.rbegin(), word.rend()) + " ";
+                result += std::string(word.rbegin(), word.rend()) + " ";
             else
                 result += word + " ";
             break;
@@ -17,7 +16,7 @@ string spinWords(string str) {
         int pos = str.find(" ", i);
         string word = str.substr(i, pos - i);
         if (word.length() >= 5)
-            result += string(word.rbegin(), word.rend()) + " ";
+            result += std::string(word.rbegin(), word.rend()) + " ";
         else
             result += word + " ";
         i = pos + 1;
@@ -26,13 +25,9 @@ string spinWords(string str) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-
-    string output = spinWords(input);
-
-    cout << "Spun words: " << output << endl;
-
+    string str;
+    cout << "Enter a string of words: ";
+    getline(cin, str);
+    cout << "Spun result: " << spinWords(str) << endl;
     return 0;
 }
