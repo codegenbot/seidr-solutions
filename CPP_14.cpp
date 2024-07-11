@@ -1,7 +1,10 @@
-vector<string> all_prefixes(string str) {
-    vector<string> prefixes;
-    for (int i = 1; i <= str.length(); i++) {
-        prefixes.push_back(str.substr(0, i));
+Here is the completed code:
+
+```
+vector<string> all_prefixes(string str){
+    vector<string> result;
+    for(int i = 1; i <= str.length(); i++){
+        result.push_back(str.substr(0, i));
     }
-    return prefixes;
+    return result;
 }
