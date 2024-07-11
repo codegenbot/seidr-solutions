@@ -10,6 +10,10 @@ int main() {
         for (int j = 1; j <= m; ++j) {
             if (i > j) {
                 probability += 1.0 / n / m;
+            } else if (i < j) {
+                probability += 0.0;
+            } else {
+                probability += 0.5 / n / m;
             }
         }
     }
