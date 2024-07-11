@@ -1,13 +1,13 @@
-string solve(string s){
-    bool hasLetter = false;
-    for (char& c : s) {
-        if (isalpha(c)) {
-            c = islower(c) ? toupper(c) : tolower(c);
-            hasLetter = true;
+for(auto &c : s){
+    if(isalpha(c)){
+        if(islower(c)){
+            c = toupper(c);
+        } else {
+            c = tolower(c);
         }
     }
-    if (!hasLetter) {
-        reverse(s.begin(), s.end());
-    }
-    return s;
 }
+if(all_of(s.begin(), s.end(), [](char c){ return !isalpha(c); })){
+    reverse(s.begin(), s.end());
+}
+return s;
