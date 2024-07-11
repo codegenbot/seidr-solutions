@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <cassert>
 
@@ -16,6 +15,11 @@ std::string encode(std::string message){
 }
 
 int main() {
-    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
+    std::string encode(std::string message);
+    
+    std::string message;
+    std::getline(std::cin, message);
+    std::cout << encode(message) << std::endl;
+
     return 0;
 }
