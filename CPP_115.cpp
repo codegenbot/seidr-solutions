@@ -1,33 +1,19 @@
+Here is the completed code:
+
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int n = grid.size();
-    vector<int> bucket(n, 0);
-    int ans = 0;
-    
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < grid[i].size(); ++j) {
-            if (grid[i][j]) {
-                bucket[i] += 1;
+    int total_water = 0;
+    for (vector<int> well : grid) {
+        for (int water : well) {
+            if (water == 1) {
+                total_water += water;
             }
         }
     }
-    
-    while (true) {
-        bool changed = false;
-        vector<int> new_bucket(bucket);
-        
-        for (int i = 0; i < n; ++i) {
-            int to_fill = min(capacity, bucket[i]);
-            if (to_fill > 0) {
-                changed = true;
-                new_bucket[i] -= to_fill;
-                capacity -= to_fill;
-            }
-        }
-        
-        if (!changed) break;
-        
-        bucket = new_bucket;
+
+    int buckets_needed = total_water / capacity;
+    if (total_water % capacity != 0) {
+        buckets_needed++;
     }
-    
-    return ans + n - count(bucket.begin(), bucket.end(), 0);
+
+    return buckets_needed;
 }
