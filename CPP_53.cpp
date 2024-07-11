@@ -1,3 +1,4 @@
+```cpp
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
@@ -9,7 +10,7 @@ int sum(int a, int b) {
     return a + b;
 }
 
-int main() { 
+int mainInit() { 
     srand(time(nullptr)); 
     int randomNum = rand() % 1000; 
 
@@ -20,4 +21,8 @@ int main() {
     cin >> num1 >> num2;
 
     cout << "Sum of the numbers: " << sum(num1, num2) << endl; 
+}
+
+int main() {
+    mainInit();
 }
