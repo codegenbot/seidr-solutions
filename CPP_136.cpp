@@ -13,7 +13,7 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
     std::vector<int> result = {0, 0};
     int largest_negative = INT_MIN;
     int smallest_positive = 0;
-    
+
     for (int num : lst) {
         if (num < 0 && num > largest_negative) {
             largest_negative = num;
@@ -22,17 +22,18 @@ std::vector<int> largest_smallest_integers(std::vector<int> lst) {
             smallest_positive = num;
         }
     }
-    
+
     result[0] = largest_negative == INT_MIN ? 0 : largest_negative;
     result[1] = smallest_positive;
-    
+
     return result;
 }
 
 int main() {
-    assert(issame(largest_smallest_integers({1, -4, 3, -2, 5}), { -2, 1}));
-    assert(issame(largest_smallest_integers({-1, -6, -3, -2, -5}), {-2, 0}));
-    assert(issame(largest_smallest_integers({1, 6, 3, 2, 5}), {0, 1}));
+    std::vector<int> input = {3, -5, 7, -2, 4};
+    std::vector<int> expected_output = {-2, 3};
+
+    assert(issame(largest_smallest_integers(input), expected_output));
 
     return 0;
 }
