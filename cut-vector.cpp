@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <numeric>
 
 void cutVector(const std::vector<int>& arr, int cut_index) {
     int n = arr.size();
