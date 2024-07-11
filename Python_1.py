@@ -15,12 +15,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             if stack:
                 stack.pop()
             else:
-                groups.append(''.join(stack))
-                result.append(''.join(stack + [char]))
-                stack = []
-    
-    if stack:
-        groups.append(''.join(stack))
-        result.append(''.join(stack + ['']))  # Add the last group with a closing parenthesis
-    
+                groups.append(''.join(stack + [char]))
+    result.extend(groups)
     return result
