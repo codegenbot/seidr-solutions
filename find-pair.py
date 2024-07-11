@@ -1,3 +1,4 @@
+```
 def find_pair(n):
     s = [int(x) for x in input().split()]
     s.sort()
