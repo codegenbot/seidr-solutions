@@ -1,9 +1,6 @@
-def find_zero(xs):
+def find_zero(xs: list):
     n = len(xs)
     if n % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    a = xs[0]
-    b = sum([coeff for i, coeff in enumerate(xs) if i % 2 == 1])
-    c = xs[-1]
-    return -b / (2 * c)
-Here is the completed code:
+        raise ValueError("xs must have even number of coefficients")
+    max_coeff = abs(max(xs))
+    return -max_coeff / xs[-1]
