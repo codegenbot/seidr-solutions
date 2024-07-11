@@ -7,13 +7,13 @@ int bowlingScore(const std::string& s) {
         } else if (isdigit(s[i])) {
             int roll1 = s[i] - '0';
             if (i < 8 && s[i + 1] == '/') {
-                int roll2 = 10 - roll1; // subtract roll1 from the total
+                int roll2 = 10 - roll1; 
                 score += roll1 + roll2;
             } else if (i < 9) {
                 int roll2 = s[++i] - '0';
-                if (roll1 + roll2 < 10) { // not a strike, add to score
+                if (roll1 + roll2 < 10) {  
                     score += roll1 * 2 + roll2;
-                } else { // strike, add next two rolls
+                } else { 
                     score += roll1 * 2 + 10 + s[i] - '0' + s[++i] - '0';
                 }
             } else {
