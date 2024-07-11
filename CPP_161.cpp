@@ -1,16 +1,11 @@
-#include <algorithm>
-using namespace std;
-
 string solve(string s) {
-    string res = "";
-    bool hasLetter = false;
+    string result = "";
     for (char c : s) {
         if (isalpha(c)) {
-            hasLetter = true;
-            res += toupper(c) - ('A'-'a') * islower(c);
+            result += (c >= 'a' && c <= 'z') ? toupper(c) : tolower(c);
         } else {
-            res += c;
+            result += c;
         }
     }
-    return hasLetter ? res : string(rbegin(s), rend(s));
+    return result;
 }
