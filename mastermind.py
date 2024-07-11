@@ -1,9 +1,9 @@
 def mastermind(code, guess):
-    count_black = 0
-    count_white = 0
-    for i in range(len(code)):
-        if code[i] == guess[i]:
-            count_black += 1
-        elif str(guess[i]) in str(code):
-            count_white += 1
-    return str(count_black) + "\n" + str(count_white)
+    code_count = [0] * 6
+    for char in code:
+        code_count[ord(char) - ord("B")] += 1
+    white_pegs = sum(
+        min(count, guess.count(char)) for count, char in zip(code_count, "BOYYGG")
+    )
+    black_pegs = sum((code[i] == guess[i]) for i in range(4))
+    return str(white_pegs), str(black_pegs)
