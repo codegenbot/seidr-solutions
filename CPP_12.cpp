@@ -1,11 +1,28 @@
-if (strings.empty())
-        return "None";
+#include <vector>
+#include <string>
+#include <iostream>
+#include <cassert>
 
-    string longest_str = strings[0];
-    for (const string &str : strings) {
-        if (str.size() > longest_str.size() || (str.size() == longest_str.size() && str < longest_str)) {
-            longest_str = str;
+using namespace std;
+
+string longest(vector<string> strings);
+
+int main(){
+    assert (longest({"x", "yyy", "zzzz", "www", "kkkk", "abc"}) == "zzzz");
+    return 0;
+}
+
+string longest(vector<string> strings){
+    if(strings.empty()){
+        return "None";
+    }
+    
+    string longestStr = strings[0];
+    for(const string& str : strings){
+        if(str.length() > longestStr.length() || (str.length() == longestStr.length() && str < longestStr)){
+            longestStr = str;
         }
     }
-    return longest_str;
+    
+    return longestStr;
 }
