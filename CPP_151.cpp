@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -7,7 +8,7 @@ using namespace std;
 long long double_the_difference(vector<double> lst) {
     long long sum = 0;
     for (double num : lst) {
-        if (num > 0 && modf(num, &dummy) == 0.0) {
+        if (num > 0 && modf(num, &rem) == 0.0) {
             sum += pow(num, 2);
         }
     }
@@ -27,10 +28,10 @@ int main() {
         
         if(to_string(num) == "stop") break;
 
-        if(num > 0 && modf(num, &dummy) == 0.0) {
+        if(num > 0 && modf(num, &rem) == 0.0) {
             odd_sum = 0; 
             for (double n : lst) { 
-                if (n > 0 && modf(n, &dummy) == 0.0) {
+                if (n > 0 && modf(n, &rem) == 0.0) {
                     odd_sum += double_the_difference(lst);
                 }
             }
