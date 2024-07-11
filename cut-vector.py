@@ -1,8 +1,8 @@
 arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
-min_diff = float('inf')
-cut_position = 0
+min_diff = total_sum
+cut_position = len(arr) // 2
 
 for i in range(1, len(arr)):
     current_diff = abs(2 * sum(arr[:i]) - total_sum)
