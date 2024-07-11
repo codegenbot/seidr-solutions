@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <pair>
-#include <algorithm>
+#include <ostream>
 
 using namespace std;
 
