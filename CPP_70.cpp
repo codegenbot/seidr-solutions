@@ -21,6 +21,5 @@ vector<int> strange_sort_vector(vector<int> lst) {
 }
 
 int main() {
-    assert(issame(strange_sort_vector({111111}), {111111}));
-    // ...
+    assert(issame(vector<int>(strange_sort_vector({1, 1, 1, 1, 1})), vector<int>({1, 1, 1, 1, 1})));
 }
