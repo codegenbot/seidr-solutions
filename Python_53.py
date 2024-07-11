@@ -1,12 +1,8 @@
-```
 def add(x: int, y: int) -> int:
-    while True:
-        try:
-            result = x + y  
-            print(f"Result: {result}")
-            break
-        except TypeError:
-            x = input("Please enter integers: ")
-            y = input("Please enter integers: ")
-            x = int(x)
-            y = int(y)
+    try:
+        if not isinstance(x, int) or not isinstance(y, int):
+            raise TypeError
+        result = x + y
+        return result
+    except TypeError:
+        print("Invalid input. Please enter integers.")
