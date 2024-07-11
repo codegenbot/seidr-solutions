@@ -1,13 +1,16 @@
-def calculate_total_and_product():
-    total = 0
+from typing import List, Tuple
+
+
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    if not all(isinstance(x, int) for x in numbers):
+        return "Error: Input must be a list of integers"
+    total_sum = 0
     product = 1
-    while True:
-        try:
-            num = int(input("Enter a number (or 'stop' to finish): "))
-            if num == "stop":
-                break
-            total += num
-            product *= num
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-    return total, product
+    for num in numbers:
+        total_sum += num
+        product *= num
+
+    if len(numbers) == 0:
+        return "Input is empty. Please provide a non-empty list of integers"
+    else:
+        return (total_sum, product)
