@@ -1,1 +1,1 @@
-a, b, c = sorted([int(x) for x in input("Enter a, b, c: ").split()], reverse=True)
+a, b, c = sorted([int(x) for x in input().split()], reverse=True)
