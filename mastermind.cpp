@@ -1,12 +1,15 @@
 ```cpp
+#include <string>
+#include <vector>
+
 int whitePegs(std::string code, std::string guess) {
     int count = 0;
-    std::vector<char> codeMap(6), guessMap(6);
     for (int i = 0; i < 4; i++) {
         if (guess[i] == code[i]) {
             count++;
         }
     }
+    std::vector<char> codeMap(6), guessMap(6);
     for (char c : code) {
         codeMap[c]++;
     }
