@@ -1,4 +1,7 @@
 ```
+from typing import List
+
+
 def parse_music(music_string: str) -> List[int]:
     notes = {'o': 4, 'o|': 2, '.|': 1}
     result = []
@@ -7,9 +10,11 @@ def parse_music(music_string: str) -> List[int]:
         if music_string[i] == '|':
             i += 1
         note = ''
-        while i < len(music_string) and music_string[i] not in ['o', '.']:
+        while i < len(music_string) and music_string[i] not in ['o', '|']:
             note += music_string[i]
             i += 1
         if note in notes:
             result.append(notes[note])
+        else:
+            i -= len(note)
     return result
