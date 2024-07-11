@@ -19,4 +19,4 @@ def decode_cyclic(s: str):
                     elif temp[0] != "": 
                         result.append(temp)
                     temp = ""
-    return "".join(result).strip("(")
+    return "".join(result).strip("(")")
