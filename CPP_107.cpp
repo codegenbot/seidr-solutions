@@ -1,16 +1,12 @@
-vector<int> result(2, 0);
-    for (int i = 1; i <= n; ++i) {
-        string str = to_string(i);
-        string rev_str = str;
-        reverse(rev_str.begin(), rev_str.end());
-        
-        if (str == rev_str) {
-            if (i % 2 == 0) {
-                result[0]++;
-            } else {
-                result[1]++;
+vector<int> count_palindrome;
+    for(int i=1; i<=n; ++i){
+        if(to_string(i) == string(to_string(i).rbegin(), to_string(i).rend())){
+            if(i % 2 == 0){
+                count_palindrome[0]++;
+            } else{
+                count_palindrome[1]++;
             }
         }
     }
-    return result;
+    return count_palindrome;
 }
