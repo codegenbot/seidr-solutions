@@ -1,7 +1,4 @@
 ```
-n = int(input())
-nums = [int(x) for x in input().split()]
-
 def find_pair(target, nums):
     seen = set()
     for num in nums:
@@ -10,4 +7,5 @@ def find_pair(target, nums):
         seen.add(num)
     return "No pair found"
 
-print(find_pair(n, nums))
+n = int(input())
+print(find_pair(n, [int(x) for x in input().split()]))
