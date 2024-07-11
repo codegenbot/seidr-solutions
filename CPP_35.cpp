@@ -1,12 +1,13 @@
-```cpp
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#include <initializer_list>
 
 int max_value = -1;
 int min_value = INT_MAX;
 
 std::vector<std::pair<int, int>> p;
+
 for (int i = 0; i < 6; ++i) {
     int x, y;
     std::cin >> x >> y;
