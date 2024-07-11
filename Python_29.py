@@ -22,8 +22,12 @@ strings = [input() for _ in range(num_strings)]
 while True:
     try:
         prefix = input("Enter prefix (string): ")
-        filter_by_prefix([str(x) for x in strings], prefix)
-        break
+        if not isinstance(prefix, str):
+            print("Please enter a string.")
+        else:
+            break
     except Exception as e:
         print(f"An error occurred: {e}")
         sys.stdin.readline()  # Ensure program waits for input
+
+filter_by_prefix(strings, prefix)
