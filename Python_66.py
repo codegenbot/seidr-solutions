@@ -1,2 +1,8 @@
 def digitSum(s):
-    return sum(int(c) for c in s if '0' <= c <= '9')
+    total = 0
+    for char in s:
+        if char.isdigit():
+            total += int(char)
+        elif char.isalpha():
+            total += ord(char.upper()) - 64
+    return total
