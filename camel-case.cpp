@@ -13,10 +13,12 @@ int main() {
         } else if (capitalize) {
             std::cout << (char)toupper(c);
             capitalize = false;
-        } else if (c != ' ') {
+        } else if (std::isspace(c)) {
+            std::cout << ' ';
+        } else {
             std::cout << c;
         }
     }
-
+    
     return 0;
 }
