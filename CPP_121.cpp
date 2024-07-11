@@ -1,12 +1,17 @@
 ```cpp
 #include <vector>
 
-int solution(vector<int> a) {
-    int res = 0;
-    for (int i = 1; i < a.size(); i++) {
-        if ((a[i] % 4 != 0) && (a[i] % 2 != 0)) {
-            res += a[i];
+int solutions(std::vector<int> lst) {
+    int sum = 0;
+    for (int i = 1; i < lst.size(); i++) {
+        if (i % 2 == 0 && lst[i] % 2 != 0) {
+            sum += lst[i];
         }
     }
-    return res;
+    return sum;
+}
+
+int main() {
+    assert(solutions({3, 13, 2, 9}) == 3);
+    // rest of your code...
 }
