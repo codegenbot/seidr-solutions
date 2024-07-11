@@ -1,7 +1,5 @@
-import sys
-
 def decode_shift():
-    s = sys.stdin.readline().strip()
+    s = raw_input("Enter a string to decode: ")
     result = "".join([chr(((ord(ch) - 5 - ord("a")) % 26) + ord("a")) for ch in s.lower()])
     return result
 
