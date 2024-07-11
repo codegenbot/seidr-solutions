@@ -6,3 +6,4 @@ for (int i = 0; i < operations.size(); i++) {
     }
 }
 return false;
+}
