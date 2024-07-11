@@ -1,6 +1,7 @@
 double num = stod(value);
-if (num < 0) {
-    return floor(num + 0.5);
+int closestInt = static_cast<int>(round(num));
+if (num - closestInt > 0) {
+    return ceil(num);
 } else {
-    return ceil(num - 0.5);
+    return floor(num);
 }

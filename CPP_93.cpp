@@ -1,4 +1,5 @@
 #include <string>
+
 std::string encode(std::string message){
     std::string encoded_message = "";
     for(char c : message){
