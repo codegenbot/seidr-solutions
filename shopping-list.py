@@ -1,4 +1,5 @@
-n = int(input())  
+```
+n = int(input())
 prices_str = input().split()
 discounts_str = input().split()
 discounts = [float(i) for i in map(str, discounts_str)]
