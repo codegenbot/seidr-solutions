@@ -1,12 +1,18 @@
-```
 def sum_squares(lst):
     total_sum = 0
-    for i in range(len(lst)):
-        if i % 3 == 0:
-            if i % 4 != 0:
-                total_sum += lst[i] ** 3
+    for num in lst:
+        if isinstance(num, (int, float)):
+            if num >= 0:
+                total_sum += num**2
             else:
-                total_sum += lst[i] ** 2
+                total_sum -= num**2
+        elif isinstance(num, str):
+            if num.lower() == "square":
+                total_sum = sum([i**2 for i in lst])
+            else:
+                total_sum = sum(lst)
         else:
-            total_sum += lst[i]
+            raise ValueError(
+                "Invalid input. Only integers, floats and 'square' are allowed."
+            )
     return total_sum
