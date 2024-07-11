@@ -21,5 +21,4 @@ struct order_by_points {
 
 sort(nums.begin(), nums.end(), order_by_points{});
 
-return nums;
-equal(begin(nums), end(nums), order_by_points{8,8,7,-67,-88,78,2});
+return equal(begin(nums), end(nums), order_by_points{8,8,7,-67,-88,78,2});
