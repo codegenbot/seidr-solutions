@@ -1,3 +1,4 @@
+```cpp
 #include <cmath>
 #include <vector>
 #include <iostream>
@@ -20,3 +21,4 @@ int main() {
     double dist = vectorDistance(n, v1, v2);
     std::cout << "Euclidean distance: " << dist << std::endl;
     return 0;
+}
