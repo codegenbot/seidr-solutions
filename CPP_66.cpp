@@ -1,30 +1,51 @@
 ```cpp
+#include <iostream>
 #include <string>
-#include <cctype>
-#include <limits>
 
-int digitSum(std::string s) {
+int digitSum(const std::string& str) {
     int sum = 0;
-    for (char c : s) {
+    for (char c : str) {
         if (std::isdigit(c)) {
-            sum += c - '0';
+            sum += (c - '0');
         }
     }
     return sum;
 }
 
 int main() {
-    std::cin >> std::ws;
     std::cout << "Enter a string: ";
     std::string input;
-    std::getline(std::cin, input);
-    if (!input.empty()) { 
-        size_t pos = input.find_if_not([&](char c){return std::isdigit(c);});
-        if (pos == std::string::npos) {
-            int result = digitSum(input);
+    std::cin >> input;
+    size_t pos = 0;
+    while (pos < input.size() && ::isspace(input[pos])) {
+        ++pos;
+    }
+    std::string newInput = input.substr(pos, input.size() - pos);
+    if (!newInput.empty()) { 
+        int digitPos = -1;
+        for (int i = 0; i < newInput.size(); ++i) {
+            if (!std::isdigit(newInput[i])) {
+                digitPos = i;
+                break;
+            }
+        }
+        if (digitPos == -1) {
+            std::string digitsOnly;
+            for (char c : newInput) {
+                if(std::isdigit(c)) {
+                    digitsOnly += c;
+                }
+            }
+            int result = digitSum(digitsOnly);
             std::cout << "The sum of digits is: " << result << std::endl;
         } else {
-            int result = digitSum(input.substr(0, pos));
+            std::string digitsOnly;
+            for (char c : newInput.substr(0, digitPos)) {
+                if(std::isdigit(c)) {
+                    digitsOnly += c;
+                }
+            }
+            int result = digitSum(digitsOnly);
             std::cout << "The sum of digits is: " << result << std::endl;
         }
     } else {
