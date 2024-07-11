@@ -11,16 +11,14 @@ def separate_paren_groups(paren_string: str) -> List[str]:
             continue
         if char == '(':
             stack.append(char)
+            groups.append('(')
         elif char == ')':
+            while stack and stack[-1] != '(':
+                groups.append(')')
+                stack.pop()
             if stack:
                 stack.pop()
-            else:
-                groups.append(''.join(stack))
-                result.append(''.join(stack + [char]))
-                stack = []
-    
-    if stack:
-        groups.append(''.join(stack))
-        result.append(''.join(stack + ['']))  # Add the last group with a closing parenthesis
+            result.append(''.join(groups))
+            groups = []
     
     return result
