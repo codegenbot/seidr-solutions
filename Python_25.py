@@ -1,6 +1,7 @@
 from typing import List
 import math
 
+
 def find_prime_numbers(n: int) -> List[int]:
     prime_numbers = []
     for possiblePrime in range(2, n + 1):
