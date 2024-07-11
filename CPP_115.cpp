@@ -1,13 +1,13 @@
-int count = 0;
-        for (const auto& row : grid) {
-            int water_in_row = 0;
-            for (int cell : row) {
-                water_in_row += cell;
-            }
-            while (water_in_row > 0) {
-                water_in_row -= capacity;
-                count++;
+int total_water = 0;
+        int num_buckets = 0;
+        
+        for (int i = 0; i < grid.size(); i++) {
+            for (int j = 0; j < grid[i].size(); j++) {
+                total_water += grid[i][j];
             }
         }
-        return count;
+        
+        num_buckets = (total_water + capacity - 1) / capacity;
+        
+        return num_buckets;
     }
