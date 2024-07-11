@@ -2,17 +2,17 @@
 #include <cmath>
 
 int main() {
-    double startHeight, heightAfterFirstBounce;
-    int numBounces;
+    std::string startHeightStr;
+    std::string heightAfterFirstBounceStr;
 
-    std::cin >> startHeight >> heightAfterFirstBounce >> numBounces;
+    // Read input from user
+    std::cin >> startHeightStr >> heightAfterFirstBounceStr;
+
+    double startHeight = stod(startHeightStr);
+    double heightAfterFirstBounce = stod(heightAfterFirstBounceStr);
 
     double bounciness = pow(heightAfterFirstBounce / startHeight, 0.5);
-    
-    double totalDistance = 0;
-    for(int i = 1; i <= numBounces; ++i) {
-        totalDistance += (startHeight + (heightAfterFirstBounce - startHeight) * pow(0.5, i));
-    }
 
-    std::cout << std::fixed << std::setprecision(15) << bounciness << " " << totalDistance;
+    // Print the result
+    std::cout << std::fixed << std::setprecision(15) << bounciness;
 }
