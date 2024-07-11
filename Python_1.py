@@ -15,10 +15,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         elif c == ")":
             if stack:
                 stack.pop()
-                groups += c
-                if not stack:
-                    result.append(groups + " ")
-                    groups = ""
+                if stack:
+                    groups += c
+                else:
+                    groups += " "
             else:
                 return []
         elif c == "(" and not stack:
@@ -33,10 +33,5 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         return [paren_string]
     if not stack and len(result) == 1:
         return result[:1]
-
-    if stack:
-        return []
-    if groups:
-        result.append(groups)
 
     return [g.strip() for g in result]
