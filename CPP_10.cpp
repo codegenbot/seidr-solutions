@@ -1,3 +1,22 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
+bool is_palindrome(string str){
+    int i = 0, j = str.size() - 1;
+    while (i < j){
+        if (str[i] != str[j]){
+            return false;
+        }
+        i++;
+        j--;
+    }
+    return true;
+}
+
 string make_palindrome(string str){
     if(str.empty()) return "";
     int n = str.size();
