@@ -1,11 +1,11 @@
 pair<int, int> findPair(vector<int>& nums, int target) {
-    unordered_map<int, int> numToIndex;
-    for (int i = 0; i < nums.size(); i++) {
-        int complement = target - nums[i];
-        if (numToIndex.count(complement)) {
-            return make_pair(nums[numToIndex[complement]], nums[i]);
-        }
-        numToIndex[nums[i]] = i;
+    sort(nums.begin(), nums.end());
+    int i = 0, j = nums.size() - 1;
+    while (i < j) {
+        int sum = nums[i] + nums[j];
+        if (sum == target) return make_pair(nums[i], nums[j]);
+        if (sum < target) i++;
+        else j--;
     }
-    throw runtime_error("No pair found that sums up to the target value");
+    return make_pair(0, 0);
 }
