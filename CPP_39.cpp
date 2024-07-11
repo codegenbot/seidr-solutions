@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -20,7 +19,7 @@ int prime_fib(int n) {
         if (isPrime) count++;
         if (count == n) return i;
     }
-    return -1; // default value
+    return -1; // Return a value indicating no prime Fibonacci number found
 }
 
 int main() {
