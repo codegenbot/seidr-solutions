@@ -1,8 +1,10 @@
 ```
 def basement(nums):
     total = 0
-    for i in range(len(nums)):
-        total += nums[i]
+    i = -1
+    for n in nums:
+        i += 1
+        total += n
         if total < 0:
             return i + 1
     return -1
