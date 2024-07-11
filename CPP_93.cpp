@@ -1,4 +1,5 @@
-for(char &c : message){
+string encode(string message){
+    for(char& c : message){
         if(isalpha(c)){
             if(islower(c)){
                 c = toupper(c);
