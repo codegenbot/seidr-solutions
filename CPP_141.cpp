@@ -1,24 +1,32 @@
-string file_name_check(string file_name) {
-    int digit_count = 0;
-    bool has_dot = false;
-    string before_dot;
-
-    for (char c : file_name) {
+int count_digits(const string& str) {
+    int count = 0;
+    for (char c : str) {
         if (isdigit(c)) {
-            digit_count++;
-        } else if (c == '.') {
-            has_dot = true;
-        } else if (!has_dot) {
-            before_dot += c;
+            count++;
         }
     }
+    return count;
+}
 
-    if (digit_count > 3 || !before_dot.size() || before_dot[0] < 'a' && before_dot[0] < 'A') {
+string file_name_check(string file_name) {
+    size_t dot_pos = file_name.find('.');
+    if (dot_pos == string::npos || dot_pos + 1 >= file_name.size()) {
         return "No";
     }
 
-    string after_dot = file_name.substr(file_name.find('.') + 1);
-    if (after_dot != "txt" && after_dot != "exe" && after_dot != "dll") {
+    string prefix = file_name.substr(0, dot_pos);
+    string suffix = file_name.substr(dot_pos + 1);
+
+    if (!isalpha(prefix[0]) || !isalnum(prefix.substr(1))) {
+        return "No";
+    }
+
+    if (count_digits(file_name) > 3) {
+        return "No";
+    }
+
+    vector<string> valid_suffixes = {"txt", "exe", "dll"};
+    if (find(valid_suffixes.begin(), valid_suffixes.end(), suffix) == valid_suffixes.end()) {
         return "No";
     }
 
