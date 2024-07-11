@@ -16,7 +16,6 @@ int main() {
     int n;
     std::cin >> n; 
     std::vector<float> v1, v2;
-    for (float& val : v1) { std::cin >> val; } v1.resize(n); v2.resize(n);
     for (float& val : v1) { val = 0.0f; } 
     for (float& val : v2) { val = 0.0f; }
     for (float& val : v1) { std::cin >> val; }
