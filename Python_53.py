@@ -4,7 +4,6 @@ def add(x: int, y: int):
     else:
         return x + y
 
-
 while True:
     try:
         x = int(input("Enter first number: "))
