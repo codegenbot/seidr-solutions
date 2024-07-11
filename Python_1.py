@@ -1,4 +1,3 @@
-```
 from typing import List
 
 
@@ -27,4 +26,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     if current_group:
         groups.append(current_group[1:])  # Add the last group to the result
 
-    return [group for group in groups]
+    return [group for group in groups]  # Remove the extra [1:-1]
