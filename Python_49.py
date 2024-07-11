@@ -1,4 +1,6 @@
-```python
 import math
 def modp(n: int, p: int):
-    return int(math.pow(n, 1/p) % p)
+    if p == 0:
+        return "Denominator cannot be zero"
+    else:
+        return int(math.pow(n, 1/p) % p)
