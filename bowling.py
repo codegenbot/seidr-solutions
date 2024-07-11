@@ -11,5 +11,4 @@ def bowling_score(frames):
             score += int(frame)
     return score
 
-frames = "7/5, 3/10, X,X,X, 8/3, X,X, X,X, 4/6, 2/X"
-print(bowling_score(frames))
+print(bowling_score("7/5, 3/10, X,X,X, 8/3, X,X, X,X, 4/6, 2/X"))
