@@ -1,10 +1,7 @@
 def double_the_difference():
     lst = list(map(int, input().split()))
-    difference = abs(max(lst) - min(lst))
-    if len(lst) > 1:
-        double_diff = difference * 2
-    else:
-        double_diff = 0
+    difference = max(lst) - min(lst)
+    double_diff = difference * 2
     return double_diff
 
 def check(func):
