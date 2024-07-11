@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -8,9 +9,7 @@ int main() {
     vector<int> nums;
     int num;
     
-    ifstream inputFile("input.txt"); // Assuming input is provided in a file called "input.txt"
-    
-    while (inputFile >> num) {
+    while (cin >> num) {
         nums.push_back(num);
     }
 
@@ -21,14 +20,17 @@ int main() {
     }
 
     int half_sum = sum / 2;
+    
     int prefix_sum = 0;
     int cut_idx = -1;
+    int min_diff = INT_MAX;
 
     for (int i = 0; i < n; i++) {
         prefix_sum += nums[i];
-        if (abs(2*prefix_sum - sum) <= abs(2*(prefix_sum - nums[i]) - sum)) {
+        int diff = abs(prefix_sum - (sum - prefix_sum));
+        if (diff < min_diff) {
+            min_diff = diff;
             cut_idx = i;
-            break;
         }
     }
 
@@ -42,6 +44,5 @@ int main() {
         cout << num << endl;
     }
 
-    inputFile.close();
     return 0;
 }
