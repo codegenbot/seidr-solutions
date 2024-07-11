@@ -1,4 +1,3 @@
-```
 from typing import Tuple
 
 def calculate_average_and_median() -> Tuple[float, float]:
@@ -8,8 +7,10 @@ def calculate_average_and_median() -> Tuple[float, float]:
             break
         except ValueError:
             print("Invalid input. Please enter numbers separated by space.")
+    
     if not numbers:
         return 0.0, None
+
     average = sum(numbers) / len(numbers)
     sorted_numbers = sorted(numbers)
     median = (
@@ -19,3 +20,6 @@ def calculate_average_and_median() -> Tuple[float, float]:
     )
 
     return average, median
+
+average, median = calculate_average_and_median()
+print(f"Average: {average}, Median: {median}")
