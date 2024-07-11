@@ -1,28 +1,26 @@
-#include <iostream>
-#include <sstream>
+int main(){
+    string input_str;
+    getline(cin, input_str);
 
-std::string spinWords(const std::string &str) {
-    std::string result;
-    std::istringstream iss(str);
-    std::string word;
-
-    while (iss >> word) {
-        if (word.length() >= 5) {
-            std::reverse(word.begin(), word.end());
+    string output_str;
+    string word = "";
+    for(int i=0; i<input_str.length(); i++){
+        if(input_str[i]==' '){
+            if(word.length() >= 5){
+                reverse(word.begin(), word.end());
+            }
+            output_str += word + " ";
+            word = "";
+        } else {
+            word += input_str[i];
         }
-        result += word + ' ';
     }
+    if(word.length() >= 5){
+        reverse(word.begin(), word.end());
+    }
+    output_str += word;
 
-    result.pop_back(); // Remove the extra space at the end
-    return result;
-}
-
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-
-    std::string output = spinWords(input);
-    std::cout << output << std::endl;
+    cout << output_str << endl;
 
     return 0;
 }
