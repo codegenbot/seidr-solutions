@@ -11,9 +11,6 @@ int main() {
     
     while (!cin.eof()) {
         cin >> num;
-        if (cin.eof()) {
-            break;
-        }
         nums.push_back(num);
     }
     
