@@ -26,11 +26,8 @@ vector<int> order_by_points(const vector<int>& nums) {
 }
 
 int main() {
-    vector<int> test_nums = {123, 111, 321, 222};
-    vector<int> result = order_by_points(test_nums);
-    vector<int> expected_result = {111, 222, 123, 321};
-    
-    assert(result == expected_result);
-    
+    vector<int> nums = {123, 56, 789, 33};
+    nums = order_by_points(nums);
+    assert(nums == vector<int>({33, 123, 56, 789}));
     return 0;
 }
