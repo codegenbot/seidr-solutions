@@ -1,21 +1,28 @@
-Here is the solution:
+#include <vector>
+#include <string>
 
-int bowlingScore(string s) {
+int bowlingScore(const std::string& s) {
     int score = 0;
-    int prevRoll = 0;
+    bool isPreviousFrameStrike = false;
     for (char c : s) {
-        if (c == '/') {
-            int thisRoll = max(1, min(10, stoi(string({c-48})));
-            if (prevRoll + thisRoll >= 10) {
-                score += 10 - prevRoll;
-                score += thisRoll;
-            } else {
-                score += prevRoll + thisRoll;
-            }
-            prevRoll = 0;
+        if (c == 'X') {
+            // Strike, add 10 + next two frames
+            score += 10;
+            isPreviousFrameStrike = true;
+        } else if (c == '/') {
+            // Spare, add 10 - previous frame's last bowl
+            score += 10 - s[s.find(c) - 1] - '0';
+            isPreviousFrameStrike = false;
         } else {
-            prevRoll += c - 48;
+            int bowl = c - '0';
+            if (!isPreviousFrameStrike) {
+                // Add current bowl to the score
+                score += bowl;
+            } else {
+                // Current frame strike, add this bowl to next two frames
+                score += bowl;
+            }
         }
     }
-    if (prevRoll > 0) score += prevRoll;
     return score;
+}
