@@ -1,4 +1,3 @@
-```
 def sum_squares(lst):
     total_sum = 0
     has_negative = False
