@@ -1,7 +1,7 @@
 ```
-from typing import Any
+from typing import Union
 
-def calculate_average_value(values: list[Any]) -> float:
+def calculate_average_value(values: list[Union[int]]) -> float:
     if not values:
         return 0
     average = sum(filter_integers(values)) / len(values)
