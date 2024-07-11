@@ -1,24 +1,15 @@
+#include <iostream>
+#include <vector>
 #include <boost/any.hpp>
-#include <string>
+
+boost::any compare_one(boost::any a, int b) {
+    if (b == 1)
+        return "One";
+    else
+        return "None";
+}
 
 int main() {
-    std::string user_input;
-    boost::any input;
-
-    // Ask the user for some data
-    std::cout << "Please enter your favorite color: ";
-    std::cin >> user_input;
-
-    // Check if the input is either 'red' or 'green'
-    if (user_input == "red" || user_input == "green") {
-        // Convert the string to a boost::any object
-        input = boost::any(user_input);
-
-        // Print out the input, whether it's 'red', 'green', or something else!
-        std::cout << "You entered: " << boost::any_cast<std::string>(input) << std::endl;
-    } else {
-        std::cout << "Sorry, that's not a valid color." << std::endl;
-    }
-
+    std::cout << boost::any_cast<std::string>(compare_one(boost::any(std::string("1")), 1)) << std::endl;
     return 0;
 }
