@@ -5,8 +5,9 @@ def double_the_difference(lst):
     return double_diff
 
 def check(func):
-    lst = [int(x) for x in input("Enter a list of numbers separated by space: ").split()]
+    lst = [1,3,5,6]
     result = func(lst)
-    print("Double the difference is:", result)
+    print("Input:", lst)
+    print("Output:", result)
 
-check(double_the_difference)
+check(double_the_difference())
