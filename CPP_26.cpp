@@ -1,14 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool isSame(vector<int> &v1,vector<int>& v2){
-    if(v1.size()!=v2.size())return false;
-    for(int i=0;i<v1.size();i++){
-        if(find(v2.begin(),v2.end(),v1[i]) == v2.end()) return false;
-    }
-    return true;
-}
-
 vector<int> remove_duplicates(vector<int> numbers) {
     unordered_map<int, bool> seen;
     vector<int> result;
@@ -24,8 +16,25 @@ vector<int> remove_duplicates(vector<int> numbers) {
 }
 
 int main() {
-    vector<int> nums1={1,2,3};
-    vector<int> nums2={2,2,3};
-    cout << (isSame(remove_duplicates(nums1),remove_duplicates(nums2)) ? "Yes" : "No")<<endl;
+    vector<int> input;
+    int n;
+    cout << "Enter the number of elements in the array: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        int num;
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> num;
+        input.push_back(num);
+    }
+
+    vector<int> output = remove_duplicates(input);
+
+    cout << "The array after removing duplicates: ";
+    for (int num : output) {
+        cout << num << " ";
+    }
+    cout << endl;
+
     return 0;
 }
