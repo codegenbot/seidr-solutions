@@ -1,4 +1,3 @@
-```c++
 std::string substitutionCipher(const std::string& cipherMap, const std::string& input) {
     std::map<char, char> mapping;
     for (int i = 0; i < cipherMap.length(); i++) {
