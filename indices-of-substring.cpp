@@ -1,30 +1,8 @@
-#include <vector>
 #include <iostream>
-using namespace std;
+#include <vector>
 
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
-    int textSize = text.length();
-    int targetSize = target.length();
-
-    for (int i = 0; i <= textSize - targetSize; i++) {
-        bool isMatch = true;
-        for (int j = 0; j < targetSize; j++) {
-            if (text[i + j] != target[j]) {
-                isMatch = false;
-                break;
-            }
-        }
-        if (isMatch) {
-            indices.push_back(i);
-        }
-    }
-
-    return indices;
-}
-
-vector<int> findIndices(string text, string target) {
-    vector<int> indices;
+std::vector<int> findIndices(std::string text, std::string target) {
+    std::vector<int> indices;
     int textSize = text.length();
     int targetSize = target.length();
 
@@ -45,16 +23,17 @@ vector<int> findIndices(string text, string target) {
 }
 
 int main() {
-    string text, target;
+    std::string text, target;
     int n;
     cin >> text >> n;
-    getline(cin, target);
+    std::getline(cin, target);
 
-    vector<int> result = findIndices(text, target);
+    std::vector<int> result = findIndices(text, target);
 
     for (int i : result) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     return 0;
+}
