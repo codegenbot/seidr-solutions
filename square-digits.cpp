@@ -1,5 +1,5 @@
 #include <string>
-#include <iostream>
+#include <cmath>
 
 std::string squareDigits(std::string input) {
     std::string output;
@@ -14,10 +14,5 @@ std::string squareDigits(std::string input) {
 }
 
 int main() {
-    std::string input;
-    // Read user input
-    // For simplicity let it be hardcoded for now
-    input = "123";
-    std::cout << squareDigits(input) << std::endl;  // Call the function and print output
     return 0;
 }
