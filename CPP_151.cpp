@@ -14,11 +14,12 @@ long long double_the_difference(std::vector<float> lst) {
 
 int main() {
     std::vector<float> lst;
-    float val;
-    while(std::cin >> val) {
-        lst.push_back(val);
+    float input;
+    std::cout << "Enter numbers separated by space: ";
+    while(std::cin >> input) {
+        lst.push_back(input);
     }
     long long result = double_the_difference(lst);
-    std::cout << "The difference is: " << result << "\n";
+    std::cout << "The difference is: " << result << std::endl;
     return 0;
 }
