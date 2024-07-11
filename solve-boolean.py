@@ -1,15 +1,14 @@
-Here is the Python code for the problem:
-
-def solve_boolean(expression):
-    if expression == 'T':
-        return True
-    elif expression == 'F':
-        return False
-    elif '&' in expression:
-        a, b = expression.split('&')
-        return not (solve_boolean(a) and solve_boolean(b))
-    elif '|' in expression:
-        a, b = expression.split('|')
-        return solve_boolean(a) or solve_boolean(b)
-    else:
-        raise ValueError("Invalid input")
+def solve_boolean(input_str):
+    stack = []
+    for char in input_str[::-1]:
+        if char == 'T':
+            stack.append(True)
+        elif char == 'F':
+            stack.append(False)
+        elif char == '&':
+            b1, b2 = stack.pop(), stack.pop()
+            stack.append(b1 and b2)
+        elif char == '|':
+            b1, b2 = stack.pop(), stack.pop()
+            stack.append(b1 or b2)
+    return stack[0]
