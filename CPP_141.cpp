@@ -1,18 +1,28 @@
 string file_name_check(string file_name){
     int digit_count = 0;
-    bool found_dot = false;
+    bool has_dot = false;
+    int dot_position = -1;
+
     for(int i=0; i<file_name.length(); i++){
         if(isdigit(file_name[i])){
             digit_count++;
-            if(digit_count > 3)
-                return "No";
+            if(digit_count > 3) return "No";
         }
-        else if(file_name[i] == '.')
-            found_dot = true;
-        else if(found_dot && file_name[i] == ' ' || find({"txt", "exe", "dll"}, file_name.substr(i)) != string::npos)
-            return "Yes";
+        else if(file_name[i] == '.'){
+            has_dot = true;
+            dot_position = i;
+        }
     }
-    if(digit_count > 3 || !found_dot || file_name[0] < 'a' || file_name[0] > 'z' && file_name[0] < 'A' || file_name[0] > 'Z')
+
+    string before_dot = file_name.substr(0, dot_position);
+    string after_dot = file_name.substr(dot_position + 1);
+
+    if(before_dot.empty() || !isalpha(before_dot[0])) return "No";
+    if(!has_dot) return "No";
+
+    vector<string> allowed_extensions = {"txt", "exe", "dll"};
+    if(find(allowed_extensions.begin(), allowed_extensions.end(), after_dot) == allowed_extensions.end())
         return "No";
+
     return "Yes";
 }
