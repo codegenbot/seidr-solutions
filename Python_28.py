@@ -1,5 +1,7 @@
 from typing import List
 
 
-def concatenate(strings: List[str]) -> str:
-    return "".join([s for s in strings if s])
+def concatenate() -> str:
+    inputs = input("Please provide some strings (separated by spaces or commas): ")
+    inputs_list = inputs.split()
+    return "".join(map(str, inputs_list))
