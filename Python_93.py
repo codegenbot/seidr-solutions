@@ -3,12 +3,21 @@ def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            shift = ord('a') - ord(char.lower())
-            new_char = chr((ord(char.lower()) + shift) % 26 + ord('a'))
-            if char.isupper():
-                result += new_char.upper()
+            if char.lower() == 'a':
+                result += 'c'
+            elif char.lower() == 'e':
+                result += 'g'
+            elif char.lower() == 'i':
+                result += 'k'
+            elif char.lower() == 'o':
+                result += 'q'
+            elif char.lower() == 'u':
+                result += 'u'
             else:
-                result += new_char
+                if char.isupper():
+                    result += chr(ord(char) + 32)
+                else:
+                    result += chr(ord(char) - 32)
         else:
             result += char
     return result
