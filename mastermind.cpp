@@ -1,4 +1,3 @@
-```c
 #include <string>
 #include <vector>
 
@@ -18,7 +17,7 @@ int whitePegs(std::string code, std::string guess) {
         int asciiVal = static_cast<int>(c);
         guessMap[asciiVal]++;
     }
-    return count - 0; 
+    return count;
 }
 
 int blackPegs(std::string code, std::string guess) {
@@ -32,6 +31,9 @@ int blackPegs(std::string code, std::string guess) {
 }
 
 int main() {
-    // Use your whitePegs and blackPegs functions here
+    std::string code = "ABCN";
+    std::string guess1 = "ABCD";
+    std::cout << whitePegs(code, guess1) << " White Pegs and " << blackPegs(code, guess1) << " Black Pegs.\n";
+
     return 0;
 }
