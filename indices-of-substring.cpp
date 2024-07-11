@@ -10,11 +10,18 @@ int main() {
     getline(cin, target);
 
     vector<int> indices;
-    size_t pos = text.size();
+    size_t pos = max(text.size() - target.size(), static_cast<size_t>(0));
 
-    while ((pos = text.rfind(target, pos)) != string::npos) {
+    while (true) {
+        pos = text.rfind(target, pos);
+        if (pos == string::npos) {
+            break;
+        }
         indices.push_back(pos);
-        pos -= target.size();
+        if (pos == 0) {
+            break;
+        }
+        pos--;
     }
 
     for (int i : indices) {
