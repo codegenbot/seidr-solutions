@@ -8,7 +8,7 @@ int main() {
 
     if (expression == "T") {
         cout << "True" << endl;
-    } else if (expression == "F") {
+    } else {
         cout << "False" << endl;
     }
 
