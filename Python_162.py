@@ -11,6 +11,6 @@ def string_to_md5():
         else:
             result = ""
             for line in text.split("\n"):
-                if line:
+                if line:  # Ignore empty lines
                     result += hashlib.md5(line.encode()).hexdigest() + "\n"
             return result.strip()
