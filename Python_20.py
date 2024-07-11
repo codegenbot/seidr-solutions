@@ -1,6 +1,6 @@
 ```
 def find_closest_elements():
-    numbers = list(map(float, input("Enter space-separated numbers: ").split()))
+    numbers = list(map(float, input("Enter a series of space-separated floating point numbers: ").split()))
     numbers.sort()
     closest_pair = (numbers[0], numbers[1])
     min_diff = abs(numbers[1] - numbers[0])
