@@ -1,6 +1,2 @@
 def solution(lst):
-    return (
-        sum(i for i in lst)
-        if len(lst) % 2 != 0
-        else sum(i for i in lst[1:]) if lst else 0
-    )
+    return sum(i for i in lst if len(lst) % 2 != 0 or lst.index(i) % 2 != 0) / len(lst)
