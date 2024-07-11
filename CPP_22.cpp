@@ -5,9 +5,9 @@
 
 using namespace std;
 
-vector<int> filter_integers(list<any> values) {
+vector<int> filter_integers(list<any> values){
     vector<int> result;
-    for(auto val : values) {
+    for(auto val : values){
         if(val.type() == typeid(int)){
             result.push_back(any_cast<int>(val));
         }
@@ -15,11 +15,11 @@ vector<int> filter_integers(list<any> values) {
     return result;
 }
 
-bool issame(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b){
     return a == b;
 }
 
-int main() {
+int main(){
     assert(issame(filter_integers({any(3), any('c'), any(3), any(3), any('a'), any('b')}), {3, 3, 3}));
     return 0;
 }
