@@ -1,12 +1,15 @@
 #include <iostream>
 #include <vector>
+#include <climits>
+
+using namespace std;
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<int> vec(n);
+    cin >> n;
+    vector<int> vec(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> vec[i];
+        cin >> vec[i];
     }
     
     int totalSum = 0;
@@ -30,10 +33,10 @@ int main() {
     }
     
     for (int i = 0; i <= cutIndex; ++i) {
-        std::cout << vec[i] << std::endl;
+        cout << vec[i] << endl;
     }
     for (int i = cutIndex + 1; i < n; ++i) {
-        std::cout << vec[i] << std::endl;
+        cout << vec[i] << endl;
     }
     
     return 0;
