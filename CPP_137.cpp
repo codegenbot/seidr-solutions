@@ -1,3 +1,5 @@
+```
+```
 #include <iostream>
 #include <string>
 #include <boost/any.hpp>
@@ -76,7 +78,9 @@ boost::any compare_one(boost::any a, boost::any b) {
             return boost::any("None");
         }
     }
-    else {
-        return boost::any();
-    }
+    return boost::any();
 }
+```
+```
+
+```
