@@ -1,2 +1,2 @@
-def concatenate_numbers_with_delimeter(numbers, delimeter):
-    return [val for sublist in [[num, delimeter] for num in numbers] for val in sublist][:-1]
+def process_numbers(numbers, delimiter):
+    return [val for sublist in [[num, delimiter] for num in numbers] for val in sublist][:-1]
