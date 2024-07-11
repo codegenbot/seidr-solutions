@@ -3,9 +3,19 @@
 
 std::vector<int> factorize(int num) {
     std::vector<int> factors;
-    factors.push_back(2);
-    factors.push_back(3);
-    factors.push_back(3);
+    while (num % 2 == 0) {
+        factors.push_back(2);
+        num = num / 2;
+    }
+    for (int i = 3; i <= sqrt(num); i = i + 2) {
+        while (num % i == 0) {
+            factors.push_back(i);
+            num = num / i;
+        }
+    }
+    if (num > 2) {
+        factors.push_back(num);
+    }
     return factors;
 }
 
