@@ -2,6 +2,8 @@
 def below_zero(operations: list) -> bool:
     balance = 0
     for operation in operations:
+        if operation[0] not in ["+", "-"]:
+            continue  # Skip invalid operation
         if operation[0] == "+":
             balance += int(operation[1:])
         elif operation[0] == "-":
