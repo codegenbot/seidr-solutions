@@ -6,6 +6,4 @@ def car_race_collision(distance):
     
     return speed1, speed2
 
-distance = int(input("Enter the total race distance: "))
-speed1, speed2 = car_race_collision(distance)
-print(speed1, speed2)
+car_race_collision(int(input("Enter the total race distance: ")))
