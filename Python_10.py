@@ -1,4 +1,3 @@
-```
 def make_palindrome():
     s = input("Enter a string: ")
     if not s:
@@ -16,5 +15,3 @@ def make_palindrome():
             i += 1
             j -= 1
     return s
-
-print(make_palindrome())
