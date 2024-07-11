@@ -1,7 +1,5 @@
-#include <vector>
-#include <algorithm>
-
-vector<vector<int>> cutVector(vector<int>& nums) {
+```
+std::vector<std::vector<int>> cutVector(std::vector<int>& nums) {
     int n = nums.size();
     int min_diff = INT_MAX;
     int index = 0;
@@ -11,7 +9,7 @@ vector<vector<int>> cutVector(vector<int>& nums) {
             index = i;
         }
     }
-    vector<int> left(nums.begin(), nums.begin()+index);
-    vector<int> right(nums.begin()+index, nums.end());
-    return {left, right};
+    std::vector<int> left(std::vector<int>(nums.begin(), nums.begin()+index));
+    std::vector<int> right(std::vector<int>(nums.begin()+index, nums.end()));
+    return {{left}, {right}};
 }
