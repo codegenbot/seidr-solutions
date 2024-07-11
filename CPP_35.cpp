@@ -1,7 +1,7 @@
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <vector>
-#include <initializer_list>
 
 int max_value = -1;
 int min_value = INT_MAX;
