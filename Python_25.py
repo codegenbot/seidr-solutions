@@ -1,3 +1,6 @@
+from typing import List
+import math
+
 def main():
     n = int(input("Enter a number: "))
     if n < 2:
