@@ -1,14 +1,13 @@
+```c++
 #include <string>
 
 std::string middleCharacter(std::string s) {
     int length = s.length();
-    std::string middle;
     if (length % 2 == 0) {
-        middle = s.substr(length / 2 - 1, 2);
+        return s.substr(length / 2, 2);
     } else {
-        middle = s.substr(length / 2, 1);
+        return s.substr(length / 2, 1);
     }
-    return middle;
 }
 
 int main() {
