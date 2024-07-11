@@ -1,30 +1,11 @@
-#include <iostream>
 #include <vector>
 
-int solution(std::vector<int> lst) {
-    int sum = 0;
-    for (int i = 1; i < lst.size(); i++) {
-        if (lst[i] % 2 != 0) {
-            sum += lst[i];
+int solution(vector<int> numbers) {
+    int oddSum = 0;
+    for (int i = 0; i < numbers.size(); i++) {
+        if (numbers[i] % 2 != 0) {
+            oddSum += numbers[i];
         }
     }
-    return sum;
-}
-
-int main() {
-    std::vector<int> lst;
-    int n;
-    std::cout << "Enter the number of elements in the list: ";
-    std::cin >> n;
-    
-    for (int i = 0; i < n; ++i) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        int x;
-        std::cin >> x;
-        lst.push_back(x);
-    }
-    
-    std::cout << "Sum of odd elements is: " << solution(lst) << std::endl;
-
-    return 0;
+    return oddSum;
 }
