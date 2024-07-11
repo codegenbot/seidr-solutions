@@ -1,13 +1,10 @@
-```Python
 from typing import List
 
 
-def concatenate() -> str:
-    user_input = input("Please enter a list of strings (separated by spaces) or an object that can be converted to string: ")
-    if isinstance(user_input, list):
-        return "".join(map(str, user_input))
+def concatenate(strings: List[str]) -> str:
+    if strings is None or len(strings) == 0:
+        return "Error: Expected a list of strings"
+    elif isinstance(strings, list):
+        return "".join(map(str, strings))
     else:
-        try:
-            return str(user_input)
-        except ValueError:
-            return "Error: Expected a list of strings"
+        return str(strings)
