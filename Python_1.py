@@ -1,4 +1,3 @@
-```
 def separate_paren_groups(paren_string: str) -> list[str]:
     result = []
     temp = ""
@@ -24,3 +23,5 @@ def separate_paren_groups(paren_string: str) -> list[str]:
     if temp != "":
         result.append(temp)
     return result
+
+print(separate_paren_groups("( ) (( )) (( )( ))"))
