@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -36,5 +37,6 @@ vector<string> issame(string a, string b) {
 
 int main() {
     assert(issame("Jupiter", "Makemake").empty());
+
     return 0;
 }
