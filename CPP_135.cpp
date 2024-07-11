@@ -12,6 +12,15 @@ int can_arrange(std::vector<int> arr) {
 
 int main() {
     assert(can_arrange({}) == -1);
-    // Add your test cases here
+    std::vector<int> testArr = {1, 3, 4};
+    int result = can_arrange(testArr);
+    if (result != -1) {
+        for (int i = 0; i < result; i++) {
+            std::cout << testArr[i] << " ";
+        }
+        std::cout << "\n";
+    } else {
+        std::cout << "Array cannot be arranged.\n";
+    }
     return 0;
 }
