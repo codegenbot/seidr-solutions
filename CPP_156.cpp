@@ -1,6 +1,5 @@
-```c++
+```cpp
 #include <string>
-#include <stdexcept>
 
 std::string int_to_mini_roman(int number) {
     if (number >= 4000) {
