@@ -1,7 +1,7 @@
 #include <vector>
 #include <cmath>
 
-double poly(std::vector<double> coefficients, double x) {
+double poly(vector<double> coefficients, double x) {
     double result = 0.0;
     for (int i = 0; i < coefficients.size(); ++i) {
         result += coefficients[i] * pow(x, i);
