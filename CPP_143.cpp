@@ -5,7 +5,15 @@ string words_in_sentence(string sentence){
             result += word + " ";
         }
     }
-    return result.substr(0, result.size() - 1);
+    return result;
+}
+
+bool is_prime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
 }
 
 vector<string> split(const string& str, const string& delimiter) {
@@ -17,12 +25,4 @@ vector<string> split(const string& str, const string& delimiter) {
     }
     tokens.push_back(str);
     return tokens;
-}
-
-bool is_prime(int n) {
-    if (n <= 1) return false;
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) return false;
-    }
-    return true;
 }
