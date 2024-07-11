@@ -19,5 +19,5 @@ string int_to_mini_roman(int number) {
 }
 
 int main() {
-    cout << int_to_mini_roman(1000);
+    cout << int_to_mini_roman(1000) << endl;  // Fix the function name here
 }
