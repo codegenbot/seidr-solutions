@@ -1,3 +1,4 @@
+```
 def find_zero():
     xs = list(map(int, input("Enter the coefficients: ").split()))
     if len(xs) % 2 != 1:
