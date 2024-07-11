@@ -1,3 +1,4 @@
+```
 def bowling_score(s):
     score = 0
     rolls = list(map(int, s.replace("X", "10").replace("/", "2").split("-")))
@@ -7,7 +8,7 @@ def bowling_score(s):
             # Strike
             score += 10 + (rolls[i+1] + rolls[i+2] if i+2 < len(rolls) else 0)
             i += (3 if i+2 < len(rolls) else 1)
-        elif rolls[i] == 2 or rolls[i] == -1:
+        elif rolls[i] == 2 or rolls[i] in [9, 8]:
             # Spare
             score += 5 + (rolls[i+1] if i+1 < len(rolls) else 0)
             i += (2 if i+1 < len(rolls) else 1)
