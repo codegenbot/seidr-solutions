@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 
+std::vector<int> nums;
+
 int main() {
-    std::vector<int> nums;
     int n;
     while (std::cin >> n) {
         nums.push_back(n);
