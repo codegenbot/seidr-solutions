@@ -1,26 +1,22 @@
+Here is the Python solution for the problem:
+
+```
 def gcd(a, b):
     while b:
         a, b = b, a % b
     return abs(a)
 
-
 def find_indices(text, target):
     indices = []
-    index = 0
+    start = 0
     while True:
-        index = text.find(target)
-        if index == -1:
+        pos = text.find(target, start)
+        if pos == -1:
             break
-        indices.append(index + 1)
-        text = text[index + len(target) :]
+        indices.append(pos + 1)
+        start = pos + 1
     return indices
 
-
-# Testing the functions
-a = int(input())
-b = int(input())
-print(gcd(a, b))
-
-text = input()
-target = input()
-print(find_indices(text, target))
+# test cases
+print(gcd(54, 24))  
+print(find_indices("Hello, Hello, hello", "ello"))
