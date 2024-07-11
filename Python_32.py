@@ -1,12 +1,11 @@
 ```
-import math
-
 def find_zero(xs: list):
     if len(xs) % 2 != 0:
         return None
     a = xs[0]
     b = 0
     c = 0
+    import math
     for i in range(1, len(xs)):
         if i % 2 == 1:
             c -= xs[i] / math.factorial(i)
