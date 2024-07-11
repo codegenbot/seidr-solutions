@@ -1,9 +1,8 @@
-Here is the modified code:
-
-```python
+```Python
 from typing import List
 
 import math
+
 
 def main():
     while True:
@@ -25,6 +24,7 @@ def main():
             factors.append(i**count)
     if n > 1:
         factors.append(n)
-    return factors
+    return tuple(factors)
 
-print(main())```
+
+print(main())
