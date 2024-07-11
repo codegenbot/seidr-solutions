@@ -1,22 +1,16 @@
 #include <vector>
 using namespace std;
 
-int luhnAlgorithm(vector<int>& ccNum) {
+int luhn(vector<int> nums) {
     int sum = 0;
-    bool doubleDigit = false;
-    for (int i = 15; i >= 0; --i) {
-        int digit = ccNum[i];
-        if (!doubleDigit) {
-            sum += digit;
+    for(int i = 0; i < nums.size(); i++) {
+        if(i % 2 == 1) {
+            int temp = nums[i] * 2;
+            if(temp > 9) temp -= 9;
+            sum += temp;
         } else {
-            int doubled = digit * 2;
-            if (doubled > 9) {
-                sum += doubled - 9;
-            } else {
-                sum += doubled;
-            }
+            sum += nums[i];
         }
-        doubleDigit = !doubleDigit;
     }
     return sum;
 }
