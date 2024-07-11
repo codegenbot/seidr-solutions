@@ -29,8 +29,3 @@ std::map<char, int> histogram(std::string test){
 
     return result;
 }
-
-int main() {
-    // Your testing or main code here
-    return 0;
-}
