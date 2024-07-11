@@ -1,15 +1,11 @@
-```
-def add(x, y):
-    return x + y
+def canvas_info():
+    width = int(input("Enter the width of the canvas: "))
+    height = int(input("Enter the height of the canvas: "))
+    color = input("Enter the color of the canvas (red, blue, green): ")
+    return width, height, color
 
-while True:
-    try:
-        x = int(input("Enter first number: ") or 0)
-        y = int(input("Enter second number: ") or 0)
-        if y == 0:
-            print("Please enter a non-zero value for the second number.")
-        else:
-            break
-    except ValueError:
-        print("Invalid input. Please try again.")
-print(add(x, y))
+
+width, height, color = canvas_info()
+print(
+    f"The dimensions of your blank canvas are {width} inches wide and {height} inches tall. The background is a lovely {color}."
+)
