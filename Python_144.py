@@ -17,15 +17,13 @@ def is_valid_fraction(fraction):
 while True:
     x = input("Enter the fraction x (in the format 'a/b'): ").strip()
     while not is_valid_fraction(x):
-        print("Invalid input. Please enter a valid fraction.")
-        x = input("Enter the fraction x (in the format 'a/b'): ").strip()
+        x = input("Invalid input. Enter the fraction x (in the format 'a/b'): ").strip()
 
     a, b = map(int, x.split("/"))
 
     n = input("Enter the fraction n (in the format 'a/b'): ").strip()
     while not is_valid_fraction(n):
-        print("Invalid input. Please enter a valid fraction.")
-        n = input("Enter the fraction n (in the format 'a/b'): ").strip()
+        n = input("Invalid input. Enter the fraction n (in the format 'a/b'): ").strip()
 
     c, d = map(int, n.split("/"))
 
