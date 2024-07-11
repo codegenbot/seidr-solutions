@@ -15,7 +15,7 @@ std::string remove_vowels() {
     return result;
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     assert(remove_vowels() == "ybcd");
     return 0;
 }
