@@ -24,4 +24,3 @@ def solve_boolean(expression):
             if char == "|":
                 while len(stack) > 1 and stack[-2] != "&":
                     stack.pop()
-    return stack[0]
