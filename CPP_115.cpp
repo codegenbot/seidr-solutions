@@ -1,21 +1,15 @@
-int result = 0;
-        int rows = grid.size();
-        int cols = grid[0].size();
-        
-        for (int j = 0; j < cols; j++) {
-            int available_water = 0;
-            for (int i = 0; i < rows; i++) {
-                if (grid[i][j] == 1) {
-                    int needed_water = grid[i][j] - available_water;
-                    if (needed_water > 0) {
-                        int buckets_needed = (needed_water + capacity - 1) / capacity;
-                        result += buckets_needed;
-                        available_water += buckets_needed * capacity;
-                    }
-                    available_water--;
-                }
+int max_fill(vector<vector<int>> grid, int capacity) {
+    int count = 0;
+    for (int j = 0; j < grid[0].size(); ++j) {
+        int cur_water = 0;
+        for (int i = 0; i < grid.size(); ++i) {
+            cur_water += grid[i][j];
+            if (cur_water >= capacity) {
+                count += cur_water / capacity;
+                cur_water %= capacity;
             }
         }
-        
-        return result;
+        count += (cur_water > 0);
     }
+    return count;
+}
