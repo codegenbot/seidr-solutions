@@ -1,4 +1,4 @@
-````
+```
 def solve_boolean(expression):
     if expression == 'T':
         return True
@@ -11,8 +11,8 @@ def solve_boolean(expression):
         left, right = expression.split('|')
         return solve_boolean(left) or solve_boolean(right)
 
-print(f"Result: {'True' if solve_boolean('t') else 'False'}")
-print(f"Result: {'True' if solve_boolean('f') else 'False'}")
-print(f"Result: {f'False' if solve_boolean('f&f') else 'True'}")
-print(f"Result: {f'False' if solve_boolean('f&t') else 'True'}")
-print(f"Result: {f'False' if solve_boolean('t&f') else 'True'}")
+print("Result:", "True" if solve_boolean('T') else "False")
+print("Result:", "True" if solve_boolean('F') else "False")
+print("Result:", "True" if solve_boolean('f&f') else "False")
+print("Result:", "True" if solve_boolean('f&t') else "False")
+print("Result:", "True" if solve_boolean('t&f') else "False")
