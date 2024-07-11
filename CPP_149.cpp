@@ -1,23 +1,14 @@
-#include <algorithm>
-#include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
 
-vector<string> sorted_list_sum(vector<string> lst);
-
-vector<string> sorted_list_sum(vector<string> lst){
-    lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s){ return s.length() % 2 != 0; }), lst.end());
-    sort(lst.begin(), lst.end(), [](const string& a, const string& b){
-        if(a.length() == b.length()){
-            return a < b;
+bool issame(const vector<string>& a, const vector<string>& b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+        if (a[i] != b[i]) {
+            return false;
         }
-        return a.length() < b.length();
-    });
-    return lst;
-}
-
-int main(){
-    assert(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}) == vector<string>{"cc", "dd", "aaaa", "bbbb"});
-    
-    return 0;
+    }
+    return true;
 }
