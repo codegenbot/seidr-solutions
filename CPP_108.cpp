@@ -1,29 +1,14 @@
-int count_nums(vector<int> v) {
+int count_nums(vector<int> n){
     int count = 0;
-    for (int x : v) {
-        if (x >= 0) {
-            int sum = 0;
-            int temp = x;
-            while (temp != 0) {
-                sum += temp % 10;
-                temp /= 10;
-            }
-            if (sum > 0)
-                count++;
-        } else {
-            int sum = 0, negSignCount = 0;
-            int temp = -x;
-            while (temp != 0) {
-                if (temp % 10 < 0) {
-                    negSignCount++;
-                    sum += temp % 10 + 1;
-                } else
-                    sum += temp % 10;
-                temp /= 10;
-            }
-            if (sum > 0)
-                count++;
+    for(int num : n){
+        bool has_sum_greater_than_zero = false;
+        if(num < 0) num = -num; // remove negative sign
+        while(num > 0){
+            int digit = num % 10;
+            if(digit > 0) has_sum_greater_than_zero = true;
+            num /= 10;
         }
+        if(has_sum_greater_than_zero) count++;
     }
     return count;
 }
