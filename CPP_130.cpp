@@ -4,8 +4,8 @@
 
 using namespace std;
 
-bool areSame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(const vector<int>& v1, const vector<int>& v2) {
+    return v1 == v2;
 }
 
 vector<int> tri(int n) {
@@ -31,6 +31,6 @@ vector<int> tri(int n) {
 }
 
 int main() {
-    assert(areSame(tri(1), {3, 1}));
+    assert(issame(tri(1), {3, 1}));
     return 0;
 }
