@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 std::string removeVowels() {
@@ -13,4 +12,3 @@ std::string removeVowels() {
             result += c; 
     }
     return result;
-}
