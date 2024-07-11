@@ -1,8 +1,3 @@
-```cpp
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
@@ -27,31 +22,4 @@ vector<string> by_length(vector<int> arr) {
         output.push_back(names[i - 1]);
     }
     return output;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-    for(int i=0; i<n; i++) {
-        cin >> arr[i];
-    }
-
-    vector<string> result = by_length(arr);
-
-    bool same = true;
-    int m;
-    cin >> m;
-    vector<int> arr2(m);
-    for(int i=0; i<m; i++) {
-        cin >> arr2[i];
-    }
-    vector<string> result2 = by_length(arr2);
-
-    if(issame(result, result2))
-        cout << "Same" << endl;
-    else
-        cout << "Not Same" << endl;
-
-    return 0;
 }
