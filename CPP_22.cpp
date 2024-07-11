@@ -19,6 +19,7 @@ namespace boost {
         }
     };
 }
+
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
