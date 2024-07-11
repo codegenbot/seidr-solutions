@@ -1,10 +1,11 @@
-```cpp
+```
 #include <vector>
 #include <limits>
+#include <initializer_list>
 
-std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
+std::vector<float> find_closest_elements(std::vector<float> numbers) {
     if (numbers.size() <= 1) {
-        return {0, 0};
+        return {};
     }
     
     float min_diff = std::numeric_limits<float>::max();
@@ -20,7 +21,7 @@ std::pair<float, float> find_closest_elements(std::vector<float> numbers) {
         }
     }
     
-    return closest_pair;
+    return {closest_pair.first, closest_pair.second};
 }
 
 bool issame(const std::vector<float>& a, const std::vector<float>& b) {
@@ -34,8 +35,8 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 }
 
 int main() {
-    std::vector<float> result = {2.2f, 3.1f};
-    if (!issame({1.1f}, result)) {
+    std::vector<float> result = find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f});
+    if (!issame(result, {2.2f, 3.1f})) {
         return 1;
     }
     return 0;
