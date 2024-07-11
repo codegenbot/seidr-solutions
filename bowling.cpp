@@ -1,29 +1,27 @@
-#include <string>
-
+```
 int bowlingScore(string s) {
     int score = 0;
-    string rollStr;
-    for (int i = 0; i < s.size(); i++) {
+    int i = 0;
+    while (i < s.length()) {
         if (s[i] == '/') {
-            score += calculateRoll(rollStr);
-            rollStr.clear();
-        } else {
-            rollStr.push_back(s[i]);
+            string frame = s.substr(0, i);
+            s.erase(0, i+1);
+            i = -1;
         }
+        else if (i < s.length() - 1) {
+            int roll = stoi(s.substr(0, 2));
+            s.erase(0, 2);
+            i = -1;
+            if (roll == 10) {
+                score += 10;
+            } else {
+                score += roll;
+            }
+        } else {
+            int roll = stoi(s);
+            score += roll;
+        }
+        i++;
     }
-    score += calculateRoll(rollStr);
     return score;
-}
-
-int calculateRoll(string s) {
-    int total = 0;
-    if (s.size() == 3) {
-        if (stoi(s.substr(1,2)) == 10) {
-            return stoi(s.substr(0,1));
-        } else {
-            return stoi(s);
-        }
-    } else {
-        return stoi(s);
-    }
 }
