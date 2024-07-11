@@ -8,14 +8,19 @@ int main() {
 
     bool capitalize = false;
 
-    for (char &c : input) {
+    if (!input.empty()) {
+        std::cout << (char)tolower(input[0]); // Print the first character
+    }
+
+    for (size_t i = 1; i < input.size(); ++i) {
+        char &c = input[i];
         if (c == '-') {
             capitalize = true;
-        } else if (capitalize || (&c - &input[0]) == 0) {
-            std::cout << (char)toupper(c);
+        } else if (capitalize) {
+            std::cout << (char)toupper(c); // Capitalize next character
             capitalize = false;
-        } else if (c != '-' && c != ' ' && !capitalize) {
-            std::cout << (char)tolower(c);
+        } else if (c != '-' && c != ' ' && input[i-1] != '-' && input[i-1] != ' ') { // Fix for the issue
+            std::cout << (char)tolower(c); // Print lowercase character
         }
     }
 
