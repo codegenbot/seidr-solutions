@@ -18,5 +18,5 @@ string spinWords(string str) {
             result += word + " ";
         i = pos + 1;
     }
-    return result.substr(0, result.length() - 1);
+    return result;
 }
