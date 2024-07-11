@@ -1,28 +1,24 @@
-#include <algorithm>
+#include <iostream>
 #include <vector>
-
 using namespace std;
 
 vector<int> minPath(vector<vector<int>> grid, int k) {
     vector<int> res;
-    for (int i = 0; i < k; ++i) {
-        int minVal = INT_MAX, idx = -1;
-        for (int j = 0; j < grid.size(); ++j) {
-            for (int col = 0; col < grid[j].size(); ++col) {
-                if (grid[j][col] <= minVal) {
-                    minVal = grid[j][col];
-                    idx = j * grid.size() + col;
+    for (int i = 0; i < grid.size(); i++) {
+        for (int j = 0; j < grid[0].size(); j++) {
+            if (res.size() == k) return res;
+            bool found = false;
+            for (int x = max(0, i-1); x <= min(grid.size()-1, i+1); x++) {
+                for (int y = max(0, j-1); y <= min(grid[0].size()-1, j+1); j++) {
+                    if (x != i || y != j) {
+                        found = true;
+                        res.push_back(grid[x][y]);
+                        break;
+                    }
                 }
-            }
-        }
-        res.push_back(minVal);
-        for (int i = 0; i < grid.size(); ++i) {
-            for (int j = 0; j < grid[i].size(); ++j) {
-                if ((i == idx / grid.size()) && (j == idx % grid.size())) {
-                    grid[i][j] = INT_MAX;
-                }
+                if (found) break;
             }
         }
     }
-    return res;
+    return {};
 }
