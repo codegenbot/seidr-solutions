@@ -1,7 +1,11 @@
 from typing import List, Tuple
 
 
-def sum_product(numbers: List[int] = []) -> Tuple[int, int]:
+def sum_product(numbers: List[int] = None) -> Tuple[int, int]:
+    if numbers is None:
+        numbers = input("Enter space-separated integers: ")
+        numbers = [int(num) for num in numbers.split()]
+
     total_sum = 0
     product = 1
     for num in numbers:
@@ -9,7 +13,5 @@ def sum_product(numbers: List[int] = []) -> Tuple[int, int]:
         product *= num
     return total_sum, product
 
-numbers = input("Enter space-separated integers: ")
-numbers = [int(num) for num in numbers.split()]
 
-print(sum_product(numbers))
+print(sum_product())
