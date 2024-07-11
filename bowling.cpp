@@ -1,4 +1,5 @@
 #include <string>
+using namespace std;
 
 int bowlingScore(string s) {
     int score = 0;
@@ -7,38 +8,32 @@ int bowlingScore(string s) {
 
     for (char c : s) {
         if (c == 'X') { // strike
-            score += 10 + 10 + 10;
+            score += 10 + 10;
             currentRolls = 2;
         } else if (c == '/') { // spare
-            score += 10;
+            score += 10 - ('0' - c);
             currentRolls = 2;
         } else { // normal roll
             int roll = c - '0';
-            if (currentRolls == 1) {
-                if (roll + currentRolls >= 10) {
-                    score += 10;
-                } else {
-                    score += roll;
-                }
-                currentFrame++;
-            } else {
-                score += roll;
-            }
+            score += roll;
             currentRolls++;
+            if (currentFrame < 9 && currentRolls == 2) {
+                string nextTwoChars = s.substr(currentFrame * 3, 2);
+                if (nextTwoChars == "X" || nextTwoChars == "/") {
+                    if (nextTwoChars == "X")
+                        score += 10;
+                    else
+                        score += 10 - ('0' - nextTwoChars[1]);
+                }
+            }
+        }
+
+        if (currentRolls == 2) {
+            currentFrame++;
         }
 
         if (currentFrame > 9) {
             break;
-        }
-    }
-
-    for (; currentRolls < 2; currentRolls++) {
-        if (c == 'X') {
-            score += 10 + 10;
-        } else if (c == '/') {
-            score += 10;
-        } else {
-            score += c - '0';
         }
     }
 
