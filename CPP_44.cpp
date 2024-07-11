@@ -1,15 +1,11 @@
-#include <string>
-
-using namespace std;
-
 string change_base(int x, int base) {
     string res = "";
-    while (x > 0) {
-        int temp = x % base;
-        if (temp > 9)
-            res.insert(0, 1, (char)(temp + 55));
+    while(x > 0) {
+        int rem = x % base;
+        if(rem < 10)
+            res = to_string(rem) + res;
         else
-            res.insert(0, to_string(temp));
+            res = 'A' + (rem-10) + res;
         x /= base;
     }
     return res;
