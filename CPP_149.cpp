@@ -1,6 +1,5 @@
-#include <vector>
-#include <algorithm>
-#include <string>
+#include <iostream>
+using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
@@ -20,18 +19,17 @@ vector<string> sorted_list_sum(vector<string> lst) {
     }
 
     // Sort the resulted list by length and then alphabetically
-    std::sort(result.begin(), result.end(),
-              [](const string& a, const string& b) -> bool {
-                  if (a.length() != b.length())
-                      return a.length() - b.length();
-                  else
-                      return a < b;
-              });
+    sort(result.begin(), result.end(),
+         [](const string& a, const string& b) {
+             if (a.length() != b.length())
+                 return a.length() - b.length();
+             else
+                 return a < b;
+         });
 
     return result;
 }
 
 int main() {
-    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
-    assert(issame(sorted_list_sum(lst), {"ccc", "dd", "aaaa", "bbbb"}));
+    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
 }
