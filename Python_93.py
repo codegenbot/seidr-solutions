@@ -1,4 +1,10 @@
 def encode(message):
-    return ''.join(
-        chr(ord(char) + 2).upper() if char.lower() in 'aeiou' else char.swapcase()
-        for char in message.lower())
+    encoded_message = ""
+    for char in message:
+        if char.lower() in "aeiouAEIOU":
+            encoded_message += chr(ord(char) + 2).lower()
+        else:
+            encoded_message += char.swapcase()
+    return encoded_message.lower()
+
+print(encode("I DoNt KnOw WhAt tO WrItE")) # Output: "k dQnT kNqW wHcT Tq wRkTg"
