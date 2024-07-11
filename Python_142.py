@@ -1,5 +1,4 @@
-````
-def sum_squares(lst):
+def """"""sum_squares(lst):
     total = 0
     for i, num in enumerate(lst):
         if i % 3 == 0:
