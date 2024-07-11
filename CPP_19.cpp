@@ -12,26 +12,23 @@ map<string, int> numMap = {
 };
 
 string sort_numbers(string numbers) {
-    string result = "";
-    map<int, string> sortedNums;
-
-    string currNum = "";
-    for (char c : numbers) {
-        if (c == ' ') {
-            sortedNums[numMap[currNum]] = currNum;
-            currNum = "";
-        } else {
-            currNum += c;
-        }
+    vector<string> words;
+    stringstream ss(numbers);
+    string word;
+    
+    while (ss >> word) {
+        words.push_back(word);
     }
-
-    sortedNums[numMap[currNum]] = currNum;
-
-    for (auto it = sortedNums.begin(); it != sortedNums.end(); it++) {
-        result += it->second;
-        result += " ";
+    
+    sort(words.begin(), words.end(), [&](const string &a, const string &b) {
+        return numMap[a] < numMap[b];
+    });
+    
+    string result;
+    for (const string &word : words) {
+        result += word + " ";
     }
-
-    result.pop_back(); // remove extra space at the end
+    
+    result.pop_back(); // Remove extra space at the end
     return result;
 }
