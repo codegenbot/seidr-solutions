@@ -1,8 +1,9 @@
+```cpp
 int main() {
     int cents;
     cin >> cents;
 
-    int pennies = cents / 1; 
+    int pennies = cents / 1; // no remainder, just assign value
     cents %= 1; 
 
     int nickels = cents / 5;
