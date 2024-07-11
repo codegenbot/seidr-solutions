@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-std::string remove_vowels() {
+std::string removeVowels() {
     std::string text;
     std::cout << "Enter a sentence: ";
     std::getline(std::cin, text);
@@ -17,6 +17,6 @@ std::string remove_vowels() {
 }
 
 int main() {
-    assert(remove_vowels("ybcd") == "ybcd");
+    assert (removeVowels("ybcd") == "ybcd");
     return 0;
 }
