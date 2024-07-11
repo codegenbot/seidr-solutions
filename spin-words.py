@@ -7,4 +7,4 @@ def spin_words(text):
             result.append(word[::-1].strip())
         else:
             result.append(word)
-    return ' '.join(' '.join(result).split())
+    return ' '.join(result).split()
