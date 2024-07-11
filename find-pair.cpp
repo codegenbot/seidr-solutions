@@ -1,28 +1,28 @@
 #include <iostream>
 #include <vector>
-#include <map>
-using namespace std;
 
 int main() {
-    int n, target;
-    cin >> n;
-    vector<int> nums;
-    nums.resize(n);
+    int n;
+    std::cin >> n;
+    
+    std::vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> nums[i];
+    }
+
+    int target;
+    std::cin >> target;
 
     for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
-    }
-    cin >> target;
-    
-    map<int, int> mp;
-    for (int i = 0; i < n; ++i) {
-        if (mp.find(target - nums[i]) != mp.end()) {
-            std::cout << nums[i] << std::endl;
-            std::cout << target - nums[i] << std::endl;
-            break;
+        for (int j = i + 1; j < n; ++j) {
+            if (nums[i] + nums[j] == target) {
+                std::cout << nums[i] << " " << nums[j] << std::endl;
+                return 0;
+            }
         }
-        mp[nums[i]] = i;
     }
+    
+    std::cout << "No pair found." << std::endl;
     
     return 0;
 }
