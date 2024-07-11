@@ -12,6 +12,8 @@ while True:
         num1 = int(input("Enter first number: "))
         num2 = int(input("Enter second number: "))
         check(num1, num2)
-        break
+        cont = input("Do you want to continue? (yes/no): ")
+        if cont.lower() != 'yes':
+            break
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
