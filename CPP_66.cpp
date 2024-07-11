@@ -35,7 +35,7 @@ int main() {
             for (char c : newInput) {
                 if(std::isdigit(c)) {
                     int digitValue = c - '0';
-                    digitsOnly += std::char('0' + digitValue);  // Convert int to char
+                    digitsOnly += std::to_string(digitValue);
                 }
             }
             int result = digitSum(digitsOnly);
