@@ -23,16 +23,16 @@ int main() {
         std::cin >> num;
     }
 
-    std::vector<int> expected;
     std::cin >> n;
-    expected.resize(n);
-    for (int& num : expected) {
+    b.resize(n);
+    for (int& num : b) {
         std::cin >> num;
     }
     
-    bool result = issame(a, expected);
+    bool result = issame(a, b);
     std::vector<int> incremented = incr_list(a);
     
+    // Output result
     std::cout << "Arrays are " << (result ? "equal" : "not equal") << std::endl;
     for (int num : incremented) {
         std::cout << num << " ";
