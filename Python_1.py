@@ -1,6 +1,6 @@
-```
+```python
 def separate_paren_groups(paren_string: str) -> List[str]:
-
+    """"
     result = []
     stack = []
     groups = []
@@ -22,3 +22,4 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 if not stack and {')': ')', ']': '[', '}': '{'}[char] == {')': ')', ']': '[', '}': '{'}['({'.index(top)]:
                     result.append(groups.pop().lstrip().rstrip())
     return result
+"""""
