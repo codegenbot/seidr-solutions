@@ -1,4 +1,4 @@
-```
+```Python
 def decode_shift():
     """
     Docstring explaining your code
@@ -16,4 +16,4 @@ def decode_shift():
             decoded += ch
     return decoded
 
-print(decode_shift())
+decode_shift()
