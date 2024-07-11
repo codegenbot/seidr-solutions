@@ -1,14 +1,5 @@
-```
 def find_pair(n):
-    s = []
-    for _ in range(n):
-        while True:
-            try:
-                a = int(input())
-                s.append(a)
-                break
-            except ValueError:
-                print("Invalid input, please enter an integer.")
+    s = [int(x) for x in input().split()]
     s.sort()
     left, right = 0, len(s) - 1
     while left < right:
@@ -21,6 +12,5 @@ def find_pair(n):
             right -= 1
         else:
             left += 1
-
 
 find_pair(int(input()))
