@@ -1,34 +1,29 @@
-def calculate_bowling_score(rolls):
+def bowling_score(rolls):
     score = 0
     frame = 1
-    roll_index = 0
-
-    for _ in range(10):
-        if rolls[roll_index] == "X":
-            score += 10 + sum(
-                convert_to_int(rolls[roll_index + 1 : roll_index + 3], "X")
-            )
-            roll_index += 1
-        elif rolls[roll_index + 1] == "/":
-            score += 10 + convert_to_int(rolls[roll_index + 2], "/")
-            roll_index += 2
+    roll = 0
+    while frame <= 10 and roll < len(rolls):
+        if rolls[roll] == "X":
+            score += 10 + get_value(rolls, roll + 1) + get_value(rolls, roll + 2)
+            roll += 1
+        elif rolls[roll] == "/":
+            score += 10 - get_value(rolls, roll - 1) + get_value(rolls, roll + 1)
         else:
-            score += convert_to_int(rolls[roll_index], rolls[roll_index + 1])
-            roll_index += 2
-
-        frame += 1
-
+            score += int(rolls[roll])
+        if rolls[roll] in "X/":
+            frame += 1
+        roll += 1
     return score
 
 
-def convert_to_int(roll, symbol):
-    if roll == symbol:
+def get_value(rolls, position):
+    if rolls[position] == "X":
         return 10
-    elif roll == "-":
-        return 0
+    elif rolls[position] == "/":
+        return 10 - int(rolls[position - 1])
     else:
-        return int(roll)
+        return int(rolls[position])
 
 
 rolls = input()
-print(calculate_bowling_score(rolls))
+print(bowling_score(rolls))
