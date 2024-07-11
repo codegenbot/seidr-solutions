@@ -1,5 +1,4 @@
-vector<int> unique_digits(vector<int> x){
-    vector<int> result;
+vector<int> result;
     for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
