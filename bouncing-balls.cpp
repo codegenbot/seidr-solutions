@@ -1,6 +1,6 @@
 ```c++
 int startHeight, numBounces; 
-double bouncinessIndex;
+double bouncinessIndex; 
 
 std::cin >> startHeight >> numBounces >> bouncinessIndex;
 
