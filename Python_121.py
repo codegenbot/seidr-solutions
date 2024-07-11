@@ -1,4 +1,4 @@
-Here is the corrected code:
+Here is the modified code:
 
 def solution(lst):
     return sum(i for i in lst[1::2] if i % 2 != 0)
@@ -17,4 +17,4 @@ if __name__ == "__main__":
     try:
         print(sum(i for i in lst if i % 2 != 0))
     except ValueError:
-        print("     Invalid input. Please enter only integers.")
+        print("Invalid input. Please enter only integers.")
