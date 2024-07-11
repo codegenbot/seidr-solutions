@@ -1,32 +1,24 @@
-```
-def minPath(grid, k):
-    m = len(grid)
-    visited = set()
-    shortest_path = None
-    min_length = float('inf')
+```python
+def shortestPathLength(grid):
+    rows, cols = len(grid), len(grid[0])
+    minPathLength = float("inf")
 
-    def dfs(i, j, path, remaining):
-        nonlocal shortest_path, min_length
-        if remaining == 0:
-            if len(path) < min_length:
-                min_length = len(path)
-                shortest_path = [grid[x][y] for x, y in zip([i]+path[:-1], [j]+[p]) if grid[x][y] != k]
+    def dfs(row, col, path_length):
+        nonlocal minPathLength
+        if path_length > minPathLength:
             return
-        if (i, j) in visited:
-            return
-        visited.add((i, j))
+
         for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-            new_i, new_j = i + dx, j + dy
-            if 0 <= new_i < m and 0 <= new_j < m:
-                if grid[new_i][new_j] == k:
-                    dfs(new_i, new_j, path+[grid[new_i][new_j]], remaining - 1)
-                elif grid[new_i][new_j] == 0:
-                    return
-        visited.remove((i, j))
+            new_row, new_col = row + dx, col + dy
+            if 0 <= new_row < rows and 0 <= new_col < cols:
+                if grid[new_row][new_col] == 0:
+                    dfs(new_row, new_col, path_length + 1)
+                else:
+                    minPathLength = min(minPathLength, path_length + 1)
 
-    for i in range(m):
-        for j in range(m):
-            if grid[i][j] == k:
-                dfs(i, j, [], m*m)
+    for row in range(rows):
+        for col in range(cols):
+            if grid[row][col] == 1:
+                dfs(row, col, 0)
 
-    return shortest_path
+    return minPathLength

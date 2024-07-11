@@ -11,7 +11,7 @@ def rolling_max():
             try:
                 numbers = list(map(int, input(f"Enter {len(result) + 1} numbers separated by space: ").split()))
                 if not numbers:
-                    break
+                    return result
                 temp_result = [max(numbers[: i + 1]) for i in range(len(numbers))]
                 result.extend(temp_result)
                 break
