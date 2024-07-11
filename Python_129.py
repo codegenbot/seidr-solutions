@@ -1,24 +1,26 @@
-```python
 def shortestPathLength(grid):
-    rows, cols = len(grid), len(grid[0])
-    minPathLength = float("inf")
+    m = len(grid)
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    queue = []
+    visited = set()
 
-    def dfs(row, col, path_length):
-        nonlocal minPathLength
-        if path_length > minPathLength:
-            return
-
-        for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-            new_row, new_col = row + dx, col + dy
-            if 0 <= new_row < rows and 0 <= new_col < cols:
-                if grid[new_row][new_col] == 0:
-                    dfs(new_row, new_col, path_length + 1)
+    for i in range(m):
+        for j in range(m):
+            if grid[i][j] == 1:
+                queue.append(((i, j), 0))
+                break
+    while queue:
+        (x, y), step = queue.pop(0)
+        if x == 0 and y == m - 1:
+            return step
+        for dx, dy in directions:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < m and 0 <= ny < m and (nx, ny) not in visited:
+                if grid[nx][ny] == 1:
+                    queue.append(((nx, ny), step + 1))
+                    visited.add((nx, ny))
+                elif nx == 0 and ny == m - 1:
+                    return step + 1
                 else:
-                    minPathLength = min(minPathLength, path_length + 1)
-
-    for row in range(rows):
-        for col in range(cols):
-            if grid[row][col] == 1:
-                dfs(row, col, 0)
-
-    return minPathLength
+                    queue.append(((nx, ny), step + 1))
+                    visited.add((nx, ny))
