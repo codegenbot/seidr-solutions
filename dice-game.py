@@ -1,3 +1,6 @@
 n = int(input())
 m = int(input())
-print("{:.2f}".format((n-1) / (n * m)) if n <= m else "{:.2f}".format(1/2))
+
+prob = sum([(n-i)/n for i in range(1, n+1)]) * (m / n)
+
+print(round(prob, 2))
