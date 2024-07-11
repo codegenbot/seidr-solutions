@@ -1,4 +1,3 @@
-```
 from typing import List, Tuple
 
 
@@ -13,5 +12,5 @@ def find_closed_elements(numbers: list[float]) -> Tuple[float, float]:
             if -1 <= diff <= 1:
                 if abs(diff) < min_diff:
                     min_diff = abs(diff)
-                    min_range = (min(numbers[i], numbers[j]), max(numbers[i], numbers[j]))
+                    min_range = (numbers[i], numbers[j])
     return min_range
