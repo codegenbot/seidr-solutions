@@ -1,23 +1,28 @@
-vector<int> result;
-    if (n == 0) {
-        result.push_back(0);
-    } else if (n == 1) {
-        result.push_back(3);
-    } else {
-        result.push_back(1);
-        int a = 1, b = 3, c = 2;
-        for (int i = 3; i <= n; ++i) {
-            int next;
+#include <vector>
+
+std::vector<int> tri(int n) {
+    std::vector<int> res;
+    if (n >= 0) {
+        res.push_back(3);
+        if (n > 0) {
+            res.push_back(1);
+        }
+        for (int i = 2; i <= n; ++i) {
             if (i % 2 == 0) {
-                next = 1 + i / 2;
+                res.push_back(1 + i / 2);
             } else {
-                next = a + b + c;
-                a = b;
-                b = c;
-                c = next;
+                res.push_back(res[i - 1] + res[i - 2] + res[i - 3]);
             }
-            result.push_back(next);
         }
     }
-    return result;
+    return res;
+}
+
+bool issame(std::vector<int> a, std::vector<int> b){
+    return a == b;
+}
+
+int main() {
+    assert (issame(tri(1) , {1, 3}));
+    return 0;
 }
