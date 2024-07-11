@@ -1,4 +1,3 @@
-```
 def sort_third(l):
     res = []
     others = [x for i, x in enumerate(l) if i % 3 != 0]
