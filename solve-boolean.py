@@ -1,18 +1,23 @@
-```
-def solve_boolean(expression):
+```Python
+def solve(expression):
     if expression == 'T':
         return True
     elif expression == 'F':
         return False
     elif '&' in expression:
         left, right = expression.split('&')
-        return solve_boolean(left) and solve_boolean(right)
+        return solve(left) and solve(right)
     elif '|' in expression:
         left, right = expression.split('|')
-        return solve_boolean(left) or solve_boolean(right)
+        return solve(left) or solve(right)
 
-print("Result:", "True" if solve_boolean('t') else "False")
-print("Result:", "True" if solve_boolean('f') else "False")
-print("Result:", "False" if solve_boolean('f&f') else "True")
-print("Result:", "False" if solve_boolean('f&t') else "True")
-print("Result:", "False" if solve_boolean('t&f') else "True")
+expression = input().upper()
+while '&' in expression or '|' in expression:
+    if '&' in expression:
+        left, right = expression.split('&')
+        expression = '{}&{}'.format(solve(left), solve(right))
+    elif '|' in expression:
+        left, right = expression.split('|')
+        expression = '{}|{}'.format(solve(left), solve(right))
+
+print("Result:", "True" if expression == 'T' else "False")
