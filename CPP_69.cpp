@@ -1,7 +1,8 @@
+#include <vector>
 #include <unordered_map>
 
 int search(std::vector<int> lst) {
-    unordered_map<int, int> freq;
+    std::unordered_map<int, int> freq;
     for (int num : lst) {
         if (!freq.count(num)) {
             freq[num] = 1;
@@ -11,8 +12,8 @@ int search(std::vector<int> lst) {
     }
     int max_value = -1;
     for (auto& pair : freq) {
-        if (pair.second > 0 && pair.first >= pair.second) {
-            max_value = pair.second;
+        if (pair.second >= pair.first && pair.first > 0) {
+            max_value = pair.first;
             break;
         }
     }
