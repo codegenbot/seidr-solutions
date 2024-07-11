@@ -1,6 +1,5 @@
-```
 def decode_cyclic():
-    return lambda: check(int(input("Enter a number: ")))
+    return check(int(input("Enter a number: ")))
 
 def check(n):
     if n < 2:
@@ -10,4 +9,4 @@ def check(n):
             return i
     return None
 
-print(decode_cyclic()())
+print(decode_cyclic())
