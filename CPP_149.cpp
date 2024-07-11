@@ -2,8 +2,7 @@ lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.lengt
 sort(lst.begin(), lst.end(), [](const string& a, const string& b) {
     if (a.length() == b.length()) {
         return a < b;
-    } else {
-        return a.length() < b.length();
     }
+    return a.length() < b.length();
 });
 return lst;
