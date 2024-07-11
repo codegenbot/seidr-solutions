@@ -1,11 +1,11 @@
+```cpp
 #include <string>
-
-bool is_palindrome(std::string s) {
+bool is_palindrome(const std::string& str) {
     int start = 0;
-    int end = s.length() - 1;
+    int end = str.length() - 1;
 
     while (start < end) {
-        if (s[start] != s[end])
+        if (str[start] != str[end])
             return false;
         start++;
         end--;
@@ -16,13 +16,7 @@ bool is_palindrome(std::string s) {
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::cin >> input;
-    
+    std::getline(std::cin, input);
     std::string processedInput = input;
-
-    if (is_palindrome(processedInput)) {
-        std::cout << "The string is a palindrome." << std::endl;
-    } else {
-        std::cout << "The string is not a palindrome." << std::endl;
-    }
+    // rest of your code
 }
