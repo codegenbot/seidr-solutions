@@ -1,6 +1,11 @@
 ```cpp
 #include <string>
 
+int main() {
+    int result = pairedDigits("123221");
+    return 0;
+}
+
 int pairedDigits(const std::string& s) {
     int sum = 0;
     for (int i = 0; i < s.length() - 1; i++) {
@@ -9,12 +14,4 @@ int pairedDigits(const std::string& s) {
         }
     }
     return sum;
-}
-
-int main() {
-    std::string s;
-    std::cout << "Enter a string of digits: ";
-    std::cin >> s;
-    std::cout << "Sum of paired digits: " << pairedDigits(s) << std::endl;
-    return 0;
 }
