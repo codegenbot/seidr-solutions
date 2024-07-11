@@ -1,23 +1,16 @@
-bool is_multiply_prime(int a) {
-    for(int i=2; i*i<=a; i++){
-        int j=i;
-        while(a%i==0){
-            if(is_prime(i)){
-                j=i;
-                break;
+bool is_multiply_prime(int a){
+    for(int i=2; i<=100; i++){
+        for(int j=i; j<=100; j++){
+            for(int k=j; k<=100; k++){
+                if(i*j*k==a){
+                    int prime_check = 0;
+                    for(int l=2; l*l<=k; l++){
+                        if(k%l==0)prime_check = 1;
+                    }
+                    if(prime_check == 0 && i!=1 && j!=1 && k!=1) return true;
+                }
             }
-            else j=i;
-            a/=i;
         }
-        if(j*j>a) return true;
     }
     return false;
-}
-
-bool is_prime(int n) {
-    if(n<2) return false;
-    for(int i=2; i*i<=n; i++){
-        if(n%i==0) return false;
-    }
-    return true;
 }
