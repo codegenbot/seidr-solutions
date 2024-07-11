@@ -11,42 +11,21 @@ bool evaluateBooleanExpression(string input) {
     for (char c : input) {
         if (c == 'T' || c == 'F') {
             operands.push(c == 'T');
-        } else if (c == '&') {
-            while (!operators.empty() && operators.top() == '&') {
-                char op = operators.top();
-                operators.pop();
-                bool operand2 = operands.top();
-                operands.pop();
-                bool operand1 = operands.top();
-                operands.pop();
-                operands.push(operand1 && operand2);
-            }
+        } else if (c == '&' || c == '|') {
             operators.push(c);
-        } else if (c == '|') {
-            while (!operators.empty() && (operators.top() == '|' || operators.top() == '&')) {
-                char op = operators.top();
-                operators.pop();
-                bool operand2 = operands.top();
-                operands.pop();
-                bool operand1 = operands.top();
-                operands.pop();
+        } else {
+            bool operand1 = operands.top();
+            operands.pop();
+            bool operand2 = operands.top();
+            operands.pop();
+            char op = operators.top();
+            operators.pop();
+
+            if (op == '&') {
+                operands.push(operand1 && operand2);
+            } else if (op == '|') {
                 operands.push(operand1 || operand2);
             }
-            operators.push(c);
-        }
-    }
-
-    while (!operators.empty()) {
-        char op = operators.top();
-        operators.pop();
-        bool operand2 = operands.top();
-        operands.pop();
-        bool operand1 = operands.top();
-        operands.pop();
-        if (op == '&') {
-            operands.push(operand1 && operand2);
-        } else {
-            operands.push(operand1 || operand2);
         }
     }
 
