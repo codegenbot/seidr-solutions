@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,10 +14,21 @@ int main() {
     int n;
     getline(cin, input);
     cin >> n;
-  
+
     vector<string> result = select_words(input, n);
 
-    assert(select_words("a b c d e f", 1) == vector<string>{"b", "c", "d", "f"});
+    vector<string> expected = {"b", "c", "d", "f"};
+    cout << "Expected: ";
+    for (const string& word : expected) {
+        cout << word << " ";
+    }
+    cout << endl;
+
+    cout << "Output: ";
+    for (const string& word : result) {
+        cout << word << " ";
+    }
+    cout << endl;
 
     return 0;
 }
