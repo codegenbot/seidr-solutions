@@ -2,43 +2,28 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+std::string toCamelCase(const std::string& s) {
+    std::string result;
+    bool capitalize = true;
 
-string toCamelCase(string str) {
-    string result = "";
-    size_t pos = 0;
-    
-    while (pos < str.size()) {
-        if (str.at(pos) == '-') {
-            ++pos; // skip the hyphen
-            while (pos < str.size() && str.at(pos) == '-') {
-                ++pos; // skip all the dashes
-            }
-            result += toupper(str.at(pos));
-            ++pos; // move past the first letter of the new word
-        } else if (str.at(pos) == ' ') {
-            while (pos < str.size() && str.at(pos) == ' ') {
-                ++pos; // skip all the spaces
-            }
-            result += toupper(str.at(pos));
-            ++pos; // move past the first letter of the new word
-        } else if (str.at(pos) >= 'a' && str.at(pos) <= 'z') {
-            if (!result.empty()) {
-                result += tolower(str.at(pos));
-            } else {
-                result += toupper(str.at(pos));
-            }
+    for (char c : s) {
+        if (c == '-') {
+            capitalize = true;
+        } else if (capitalize) {
+            result += toupper(c);
+            capitalize = false;
         } else {
-            ++pos; // move past the current character
+            result += tolower(c);
         }
     }
-    
+
     return result;
 }
 
 int main() {
-    string str;
-    cin >> str;
-    cout << toCamelCase(str) << endl;
+    std::string s;
+    while(std::cin >> s) {
+        std::cout << toCamelCase(s) << std::endl;
+    }
     return 0;
 }
