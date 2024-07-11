@@ -8,6 +8,6 @@ def modp(n: int, p: int):
             return gcd, x, y
 
     _, inv_n, _ = extended_euclidean(n, p)
-    if inv_n < 0:
-        inv_n += p
+    if gcd != 1:
+        raise ValueError(f"{n} is not invertible modulo {p}")
     return pow(n, inv_n, p)
