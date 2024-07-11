@@ -1,24 +1,24 @@
-def calculator():
-    def add(x, y):
-        return x + y
+```
+def add(x, y):
+    return x + y
 
-    while True:
-        try:
-            x = int(input("Enter first number: "))
-            break
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
-
-    while True:
-        try:
-            y = int(input("Enter second number: "))
-            if y < 0:
-                print("Please enter a positive number.")
-            break
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
-
+while True:
     try:
-        print(add(x, y))
-    except TypeError:
-        print("Expected input types not matched.")
+        x = int(input("Enter first number: "))
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+
+while True:
+    try:
+        y = int(input("Enter second number: "))
+        if y < 0:
+            print("Please enter a positive number.")
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+
+try:
+    print(add(x, y))
+except TypeError:
+    print("Expected input types not matched.")
