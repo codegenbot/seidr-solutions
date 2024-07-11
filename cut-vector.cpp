@@ -1,32 +1,28 @@
 #include <iostream>
 #include <vector>
 
-std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
-    int minDiff = INT_MAX;
-    int idx = -1;
+using namespace std;
 
-    for (int i = 0; i < vec.size() - 1; ++i) {
-        int diff = abs(vec[i] - vec[i + 1]);
-        if (diff <= minDiff) {
+vector<vector<int>> cutVector(vector<int> &nums) {
+    int minDiff = INT_MAX;
+    vector<vector<int>> result(2);
+
+    for (int i = 1; i < nums.size(); ++i) {
+        int diff = abs(nums[i] - nums[0]);
+        if (diff < minDiff) {
             minDiff = diff;
-            idx = i;
+            result[0].clear();
+            result[1].clear();
+            result[0].reserve(i);
+            for (int j = 0; j < i; ++j) {
+                result[0].push_back(nums[j]);
+            }
+            result[1].reserve(nums.size() - i);
+            for (int j = i; j < nums.size(); ++j) {
+                result[1].push_back(nums[j]);
+            }
         }
     }
 
-    return {std::vector<int>(vec.begin(), vec.begin() + idx), std::vector<int>(vec.begin() + idx, vec.end())};
-}
-
-int main() {
-    int n;
-    std::cin >> n;  
-    std::vector<int> inputVec(n);
-    for (auto& x : inputVec) {
-        std::cin >> x;  
-    }
-    
-    std::pair<std::vector<int>, std::vector<int>> result = cutVector(inputVec);
-    
-    // Print the output vectors here
-    
-    return 0;
+    return result;
 }
