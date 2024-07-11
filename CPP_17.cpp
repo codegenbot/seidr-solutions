@@ -1,11 +1,13 @@
-bool issame(vector<int> b){ 
-    for(int i=0; i<b.size()-1; i++){
-        if(b[i] != b[i+1]){
-            return false;
+bool issame(vector<int> b, int num){
+    for (int i : b) {
+        if (i == num) {
+            return true;
         }
     }
-    return true;
+    return false;
 }
+
+vector<int>parse_music(string music_string);
 
 vector<int> parse_music(string music_string){ 
     vector<int> beats;
