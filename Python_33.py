@@ -1,3 +1,4 @@
+```
 def sort_third(lst):
     if len(lst) < 3:
         return []
