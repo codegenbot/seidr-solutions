@@ -38,6 +38,6 @@ int main() {
     string str;
     cout << "Enter a sentence: ";
     getline(cin, str);
-    cout << spinWords(str) << endl;
+    cout << spinWords(str) << std::endl;
     return 0;
 }
