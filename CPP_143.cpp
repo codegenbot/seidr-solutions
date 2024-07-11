@@ -1,39 +1,34 @@
-string words_in_sentence(string sentence){
+string words_in_sentence(string sentence) {
     string result = "";
-    for(auto word : split(sentence, " ")) {
-        int len = word.length();
-        bool isPrime = true;
-        if(len > 1) {
-            for(int i = 2; i * i <= len; i++) {
-                if(len % i == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-            if(isPrime)
-                result += word + " ";
+    for (const auto &word : split(sentence, " ")) {
+        if (is_prime(word.length())) {
+            result += word + " ";
         }
     }
-    return result.substr(0, result.length() - 1);
+    return result.substr(0, result.size() - 1);
 }
 
-string split(string sentence, string delimiter){
-    size_t pos = 0;
-    vector<string> tokens;
-    while((pos = sentence.find(delimiter)) != 0) {
-        tokens.push_back(sentence.substr(0, pos));
-        sentence.erase(0, pos + delimiter.size());
+vector<string> split(const string &s, const char &c) {
+    vector<string> arr;
+    size_t i = 0;
+
+    while ((i = s.find(c)) != stdstring::npos) {
+        arr.push_back(s.substr(0, i));
+        s = s.substr(i + 1);
     }
-    tokens.push_back(sentence);
-    return join(tokens, " ");
+
+    arr.push_back(s);
+
+    return arr;
 }
 
-string join(vector<string> tokens, string delimiter){
-    string result;
-    for(auto token : tokens) {
-        result += token + delimiter;
+bool is_prime(int n) {
+    if (n <= 1)
+        return false;
+
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
+            return false;
     }
-    if(!delimiter.empty())
-        result.pop_back();
-    return result;
+    return true;
 }
