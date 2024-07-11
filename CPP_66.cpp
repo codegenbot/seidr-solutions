@@ -1,6 +1,6 @@
-```cpp
 #include <string>
 #include <cctype>
+#include <limits>
 
 int digitSum(std::string s) {
     int sum = 0;
@@ -13,13 +13,9 @@ int digitSum(std::string s) {
 }
 
 int main() {
+    std::cin >> std::ws;
     std::cout << "Enter a string: ";
-    std::string input;
-    char c;
-    do {
-        c = std::cin.get();
-    } while (c == ' ');
-    std::cin >> input;
+    std::cin >> std::ws >> std::string input;
     if (!input.empty()) { 
         bool foundNonDigit = false;
         for (char c : input) {
@@ -40,4 +36,3 @@ int main() {
         std::cout << "Error: Empty input." << std::endl;
     }
     return 0;
-}
