@@ -19,7 +19,7 @@ def encode(message):
                         else 'k' if char.lower() == 'i' else 'q' if char.lower() == 'o' else 'u'
                 else:
                     result += chr(ord(char) + 1).lower()
-            else:  
+            else: 
                 result += chr(ord(char) - 1).upper() if char.isupper() else chr(ord(char) + 1)
         else:
             result += char
