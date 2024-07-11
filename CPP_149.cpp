@@ -6,7 +6,4 @@ lst.erase(remove_if(lst.begin(), lst.end(), [](const string& s) { return s.lengt
         return a.length() < b.length();
     });
     return lst;
-
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
 }
