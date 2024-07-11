@@ -1,4 +1,3 @@
-```
 def find_closest_elements(arr, target):
     arr.sort()
     left = 0
@@ -13,4 +12,4 @@ def find_closest_elements(arr, target):
         else:
             left = right - (right - left) // 2 + 1
 
-    return [arr[left], arr[right]]
+    return [arr[min(left, right)], arr[max(left, right)]]
