@@ -48,3 +48,9 @@ int main() {
     for (string s : result1) {
         cout << s << endl;
     }
+
+    string test2 = "Hello,world!";
+    vector<string> result2 = split_words(test2);
+    for (string s : result2) {
+        cout << s << endl;
+    }
