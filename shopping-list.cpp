@@ -11,13 +11,13 @@ int main() {
         cin >> prices[i];
     }
 
-    vector<float> discounts(prices.size());
-    for (int i = 0; i < prices.size(); ++i) {
+    vector<float> discounts(n); // Change vector size initialization to be n instead of prices.size()
+    for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
     }
 
     float total_price = 0.0;
-    for (int i = 0; i < prices.size(); ++i) {
+    for (int i = 0; i < n; ++i) {
         total_price += prices[i] * (1.0 - discounts[i] / 100.0);
     }
 
