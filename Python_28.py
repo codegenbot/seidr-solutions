@@ -1,6 +1,4 @@
-from typing import List
-
-
+```
 def concatenate():
     strings = input("Please enter multiple space-separated strings: ")
     try:
@@ -8,6 +6,5 @@ def concatenate():
         return "".join(strings_list)
     except ValueError as e:
         return str(e)
-
 
 print(concatenate())
