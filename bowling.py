@@ -1,25 +1,19 @@
-Here is the solution to the problem:
-
-def bowling_score(frames):
+def bowling(score_string):
     score = 0
-    roll = 0
-    for frame in frames.split('/'):
-        if len(frame) == 1:
-            if int(frame) != 10:
-                score += min(10, int(frame))
+    frame_scores = []
+    for i in range(1, len(score_string) + 1):
+        if score_string[i - 1].isdigit():
+            current_frame_score = int(score_string[:i])
+            frame_scores.append(current_frame_score)
+            score += current_frame_score
+            if i < len(score_string) and (score_string[i] == "/"):
+                continue
             else:
-                score += 10
-        elif len(frame) == 2:
-            total_pins = int(frame[0]) + int(frame[1])
-            if total_pins < 10:
-                score += total_pins
-            else:
-                score += 10
-                roll += 1
-        elif len(frame) == 3 and str(roll).zfill(2):
-            total_pins = int(frame[0]) + int(frame[1]) + int(frame[2])
-            if total_pins < 10:
-                score += total_pins
-            else:
-                score += 10
+                score += min(frame_scores[-2:]).copy()
+                del frame_scores[-1]
+        elif score_string[i - 1] == "X":
+            score += 10 + min(frame_scores).copy() if frame_scores else 10
+            frame_scores = []
+        elif score_string[i - 1].isdigit():
+            continue
     return score
