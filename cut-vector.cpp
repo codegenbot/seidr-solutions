@@ -5,11 +5,11 @@ using namespace std;
 
 int main() {
     vector<int> nums;
-    int num;
-    
     string input;
     getline(cin, input);
     stringstream ss(input);
+    int num;
+    
     while (ss >> num) {
         nums.push_back(num);
     }
