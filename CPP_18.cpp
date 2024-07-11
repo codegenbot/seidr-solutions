@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 
 int how_many_times(std::string str, std::string substring) {
