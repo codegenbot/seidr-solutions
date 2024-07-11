@@ -1,10 +1,5 @@
-Here is the modified code:
-
 ```cpp
 #include <iostream>
-#include <vector>
-#include <string>
-
 using namespace std;
 
 vector<string> leaders(vector<int>& arr) {
