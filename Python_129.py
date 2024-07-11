@@ -1,5 +1,11 @@
-```
+Here is the corrected code:
+
+```Python
 def minPath():
+    """Solve the problem by finding the minimum path sum in a grid.
+    The grid size (n) and k are input from user.
+    Then, for each cell in the grid, find the minimum path sum starting from that cell with length k.
+    Return the minimum path sum found."""
     while True:
         try:
             n = int(input("Enter the size of the grid: "))
@@ -45,6 +51,5 @@ def minPath():
             if min_path is None or path < min_path:
                 min_path = path
     return min_path
-
 
 print(minPath())
