@@ -1,6 +1,5 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#include<bits/stdc++.h>
+#include <string>
 
 int vowels_count(string s){
     int count = 0;
@@ -14,3 +13,4 @@ int vowels_count(string s){
         }
     }
     return count;
+}
