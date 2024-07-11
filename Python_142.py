@@ -8,6 +8,5 @@ def sum_squares(lst):
             total += num ** 3
     return total
 
-numbers = str(input('''Enter numbers separated by a comma: ''')).split(",")
-lst = [float(num) for num in numbers]
+lst = list(map(int, input("Enter numbers separated by space: ").split()))
 print(sum_squares(lst))
