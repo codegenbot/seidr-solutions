@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -6,10 +5,8 @@ using namespace std;
 int calculateFuelCost(vector<int> numbers) {
     int sum = 0;
     for (int num : numbers) {
-        int result = static_cast<int>(num / 3.0);
-        if (result > 0) {
-            result--;
-        }
+        int result = (num / 3);
+        result = max(0, result - 1);
         sum += result;
     }
     return sum;
