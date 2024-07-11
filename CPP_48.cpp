@@ -5,7 +5,8 @@
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, input);
+    std::cin >> input;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n') >> std::ignore;
     
     if (is_palindrome(input)) {
         std::cout << "The string is a palindrome." << std::endl;
