@@ -1,11 +1,17 @@
-vector<int> ans(n+1);
-    ans[1] = 3;
-    for (int i = 2; i <= n; ++i) {
-        if (i % 2 == 0) {
-            ans[i] = 1 + i / 2;
-        } else {
-            ans[i] = ans[i - 1] + ans[i - 2] + ans[i + 1];
+vector<int> res;
+    if (n >= 0) {
+        res.push_back(3);
+        if (n >= 1) {
+            res.push_back(1);
+            if (n >= 2) {
+                res.push_back(1 + n / 2);
+                for (int i = 3; i <= n; ++i)
+                    if (i % 2 == 0)
+                        res.push_back(1 + i / 2);
+                    else
+                        res.push_back(res[i - 1] + res[i - 2] + res[i - 3]);
+            }
         }
     }
-    return ans;
+    return res;
 }
