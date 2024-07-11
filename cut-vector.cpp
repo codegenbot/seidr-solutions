@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath> // for abs
+#include <cmath>
 #include <vector>
 using namespace std;
 
