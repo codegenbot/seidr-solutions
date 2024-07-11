@@ -1,41 +1,34 @@
-int score(string s) {
-    int total = 0;
-    int frame = 1;
-    int ball = 0;
-    int rolls[21] = {0};
+int score(const string& s) {
+    int result = 0;
+    int frame = 0;
+    int balls = 0;
+    vector<int> frames(10, 0);
 
     for (char c : s) {
         if (c == 'X') {
-            rolls[ball++] = 10;
-            if (frame < 10) frame++;
+            frames[frame] = 10;
+            frame++;
         } else if (c == '/') {
-            rolls[ball++] = 10 - rolls[ball - 1];
-            if (frame < 10) frame++;
+            frames[frame] = 10 - frames[frame - 1];
+            frame++;
+            balls = 0;
         } else if (c == '-') {
-            rolls[ball++] = 0;
+            balls++;
         } else {
-            rolls[ball++] = c - '0';
-            if (frame < 10) {
-                if (rolls[ball - 1] + rolls[ball - 2] == 10) {
-                    frame++;
-                } else {
-                    frame += 2;
-                }
+            frames[frame] += c - '0';
+            balls++;
+            if (balls == 2) {
+                frame++;
+                balls = 0;
             }
         }
     }
 
     for (int i = 0; i < 10; i++) {
-        if (rolls[i * 2] == 10) {
-            total += 10 + rolls[i * 2 + 1] + rolls[i * 2 + 2];
-        } else if (rolls[i * 2] + rolls[i * 2 + 1] == 10) {
-            total += 10 + rolls[i * 2 + 2];
-        } else {
-            total += rolls[i * 2] + rolls[i * 2 + 1];
-        }
+        result += frames[i];
     }
 
-    return total;
+    return result;
 }
 
 int main() {
