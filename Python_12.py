@@ -1,8 +1,12 @@
-from typing import Optional
+```Python
+def longest():
+    inputs = []
+    while True:
+        user_input = input("Enter a string (or 'stop' if you're done): ")
+        if user_input.lower() == 'stop':
+            break
+        inputs.append(user_input)
 
-
-def longest(strings: list) -> Optional[str]:
-    if not strings:
+    if not inputs:
         return None
-    print(f"Input Strings: {strings}")
-    return max(strings, key=len)
+    return max(inputs, key=len)
