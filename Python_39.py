@@ -15,8 +15,3 @@ def is_prime(num: int):
         if num % i == 0:
             return False
     return True
-
-if __name__ == "__main__":
-    n = int(input("Enter the number of primes you want to see: "))
-    result = prime_fib(n)
-    print(f"The {n}th prime Fibonacci number is {result}.")
