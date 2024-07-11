@@ -1,6 +1,7 @@
-```cpp
 #include <vector>
 #include <iostream>
+#include <sstream>
+
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
@@ -18,11 +19,14 @@ vector<int> indicesOfSubstring(string text, string target) {
 }
 
 int main() {
-    string text;
-    cin >> text;
+    string line, text, target;
+    cout << "Enter a line: ";
+    getline(cin, line);
 
-    string target;
-    cin >> target;
+    stringstream ss(line);
+    cout << "Enter a substring to search for: ";
+    ss >> text >> ws; // Extract first word into 'text'
+    getline(ss, target); // Extract the rest of the line into 'target'
 
     vector<int> indices = indicesOfSubstring(text, target);
 
