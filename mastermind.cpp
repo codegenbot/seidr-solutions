@@ -31,11 +31,9 @@ int blackPegs(string code, string guess) {
 }
 
 int main() {
-    string code = "ABC1";
-    string guess = "AC11";
-    int whitePegsCount = whitePegs(code, guess);
-    cout << "Number of white pegs: " << whitePegsCount << endl;
-    int blackPegsCount = blackPegs(code, guess);
-    cout << "Number of black pegs: " << blackPegsCount << endl;
+    string code = "abcD";
+    string guess = "aBcd";
+    cout << whitePegs(code, guess) << endl;  // prints the number of white pegs
+    cout << blackPegs(code, guess) << endl;  // prints the number of black pegs
     return 0;
 }
