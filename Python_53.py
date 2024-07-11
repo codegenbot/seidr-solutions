@@ -4,6 +4,7 @@ def add(x: int, y: int):
     else:
         return x + y
 
+
 x = int(input("Enter first number: "))
 y = int(input("Enter second number: "))
 
