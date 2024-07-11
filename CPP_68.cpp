@@ -1,41 +1,27 @@
 #include <vector>
-#include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    if(a.size() != b.size()){
-        return false;
-    }
-    
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i]){
-            return false;
-        }
-    }
-    
-    return true;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
-vector<int> pluck(vector<int> arr){
-    vector<int> result;
-    int smallestEven = INT_MAX;
-    int smallestIndex = INT_MAX;
+std::vector<int> pluck(std::vector<int> arr){
+    std::vector<int> result;
+    int smallest_even = -1;
+    int smallest_index = -1;
     
     for(int i = 0; i < arr.size(); i++){
-        if(arr[i] % 2 == 0 && arr[i] < smallestEven){
-            smallestEven = arr[i];
-            smallestIndex = i;
+        if(arr[i] % 2 == 0 && (smallest_even == -1 || arr[i] < smallest_even)){
+            smallest_even = arr[i];
+            smallest_index = i;
         }
     }
     
-    if(smallestEven != INT_MAX){
-        result.push_back(smallestEven);
-        result.push_back(smallestIndex);
+    if(smallest_even != -1){
+        result.push_back(smallest_even);
+        result.push_back(smallest_index);
     }
     
     return result;
 }
 
-int main() {
-    // Main function can go here for testing
-    return 0;
+bool issame(std::vector<int> a, std::vector<int> b){
+    // Implement the comparison logic here
 }
