@@ -1,9 +1,13 @@
-```cpp
-#include <vector>
-#include <algorithm>
-#include <string>
-
-bool issame(vector<string> a, vector<string> b) {
+vector<string> filter_by_substring(vector<string> strings, string substring){
+    vector<string> result;
+    for (const auto& str : strings) {
+        if (str.find(substring) != string::npos) {
+            result.push_back(str);
+        }
+    }
+    return result;
+}
+bool issame(vector<string> a,vector<string>b){
     if (a.size() != b.size())
         return false;
     
@@ -13,31 +17,4 @@ bool issame(vector<string> a, vector<string> b) {
     }
     
     return true;
-}
-
-vector<string> filter_by_substring(vector<string> arr, string sub) {
-    vector<string> result;
-    for (auto s : arr) {
-        if (s.find(sub) != string::npos)
-            result.push_back(s);
-    }
-    return result;
-
-int main() {
-    int n;
-    cin >> n;
-    
-    vector<string> words(n);
-    for(int i = 0; i < n; i++)
-        cin >> words[i];
-        
-    string sub;
-    cin >> sub;
-    
-    if (issame(filter_by_substring(words, sub), filter_by_substring(words, "") ) )
-        cout << "Yes" << endl;
-    else
-        cout << "No" << endl;
-
-    return 0;
 }
