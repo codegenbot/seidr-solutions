@@ -5,5 +5,5 @@ long long double_the_difference(vector<float> lst){
             sum += (long long)pow(num, 2);
         }
     }
-    return sum;
+    return sum * 2;
 }
