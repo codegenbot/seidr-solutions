@@ -1,4 +1,3 @@
-```
 while True:
     user_input = input("Enter a list of numbers separated by space, or 'q' to quit: ")
 
@@ -7,23 +6,20 @@ while True:
         exit()
 
     try:
-        if not user_input:  
+        if not user_input:
             print("Please enter a number or 'q' to quit.")
             continue
 
         nums = [int(i) for i in user_input.split()]
-
-        if not all(num.isdigit() for num in user_input.split()):
-            print("Invalid input. Please enter numbers separated by spaces or 'q' to quit.")
-            continue
-
-        stat_type = input("Do you want to calculate mean or median? (type 'mean' or 'median'): ").lower()
+        stat_type = input(
+            "Do you want to calculate mean or median? (type 'mean' or 'median'): "
+        ).lower()
 
         if stat_type not in ["mean", "median"]:
             print("Invalid input. Please enter 'mean' or 'median'.")
             continue
 
-        if len(nums) > 0:
+        if len(nums) > 0 and all(num.isdigit() for num in user_input.split()):
             if stat_type == "mean":
                 print(f"Mean: {sum(nums)/len(nums)}")
             elif stat_type == "median":
@@ -40,4 +36,4 @@ while True:
             print("Invalid input. Please enter a correct number or 'q' to quit.")
 
     except Exception as e:
-        print(f"Error: {e}")
+        pass
