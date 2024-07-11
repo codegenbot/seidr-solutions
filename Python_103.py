@@ -1,5 +1,5 @@
 def rounded_avg(n, m):
-    n = int(float(n))
-    m = int(float(m))
-    avg = (n + m) // 2
-    return bin(avg)[2:].zfill(4)
+    n = float(n)
+    m = float(m)
+    avg = ((n + m) / 2.0)
+    return format(int(avg), 'b').zfill(16)
