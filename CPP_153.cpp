@@ -6,6 +6,8 @@
 
 using namespace std;
 
+std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions);
+
 std::string Strongest_Extension(std::string class_name, std::vector<std::string> extensions){
     int max_strength = INT_MIN;
     std::string strongest_extension = "";
