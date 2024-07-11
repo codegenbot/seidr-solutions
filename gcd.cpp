@@ -1,13 +1,10 @@
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
-}
+#include <iostream>
+#include <algorithm>
 
 int main() {
-    int result = gcd(902472, 908643);
-    return result;
+    int a, b;
+    std::cin >> a >> b;
+    int result = std::__gcd(a, b);
+    std::cout << result << std::endl;
+    return 0;
 }
