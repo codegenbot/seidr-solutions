@@ -1,9 +1,9 @@
-```cpp
+```
 #include <vector>
 #include <list>
 #include <any>
 
-bool compareVectors(vector<int> a, vector<int> b) {
+bool compareVectors(vector<int> a,vector<int> b) {
     return a == b;
 }
 
