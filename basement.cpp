@@ -1,20 +1,22 @@
 #include <iostream>
-using namespace std;
 #include <vector>
+using namespace std;
 
 int basement(vector<int> nums) {
     int sum = 0;
-    for (int i = 0; i < nums.size(); ++i) {
+    int negIndex = -1;
+    for (int i = 0; i <= nums.size(); ++i) {
         sum += nums[i];
         if (sum < 0) {
-            return i + 1;
+            negIndex = i;
+            break;
         }
     }
-    return -1;
+    return negIndex;
 }
 
 int main() {
-    vector<int> nums = {1, -2, 3, 4, -5};
+    vector<int> nums = {18, 84, 87, 16, 61, 100, -18, -19, 0, 18, 88, -100, -85, -7, -37, -77, -63, -67, -65};
     cout << basement(nums) << endl;
     return 0;
 }
