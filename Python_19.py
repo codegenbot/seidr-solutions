@@ -1,0 +1,2 @@
+def solve_task():
+    return " ".join([k for k, v in num_dict.items() if v == int(i)] for i in [str(x) for x in sorted([num_dict[i] for i in numbers.split()])])
