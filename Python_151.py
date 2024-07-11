@@ -1,7 +1,7 @@
-```
 def check():
     lst = [int(i) for i in input("Enter elements separated by space: ").split()]
-    print(double_the_difference(lst))
+    result = double_the_difference(lst)
+    return result
 
 def double_the_difference(lst):
     if not lst:
