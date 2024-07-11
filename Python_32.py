@@ -1,4 +1,7 @@
 ```
+def check(func):
+    func()
+
 def quadratic_equation():
     while True:
         print("Enter coefficients (a b c [d]): ")
