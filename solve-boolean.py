@@ -11,6 +11,8 @@ def solve(expression):
     elif '|' in expression:
         left, right = expression.split('|')
         return solve(left) or solve(right)
-
-expression = input()
-print("Result:", "True" if evaluate(expression) else "False")
+    else:
+        if '&' in expression:
+            if '|' in expression:
+                raise ValueError("Invalid expression")
+            return not eval(expression.replace('&', 'and').replace('|', 'or'))
