@@ -6,9 +6,11 @@ using namespace std;
 int main() {
     vector<int> nums;
     int num;
-    
-    while (!cin.eof()) {
-        cin >> num;
+
+    while (cin >> num || !cin.eof()) {
+        if (!cin) {
+            break;
+        }
         nums.push_back(num);
     }
 
