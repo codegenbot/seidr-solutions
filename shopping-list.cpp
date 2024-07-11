@@ -18,11 +18,11 @@ int main() {
     
     double total_price = 0.0;
     for (int i = 0; i < n; ++i) {
-        double discounted_price = prices[i] - (prices[i] * discounts[i]/100);
+        double discounted_price = prices[i] * (1 - discounts[i]/100); // Corrected calculation
         total_price += discounted_price;
     }
 
-    cout << total_price << "\n";
+    cout << fixed << total_price << "\n"; // Added fixed to display precise value
 
     return 0;
 }
