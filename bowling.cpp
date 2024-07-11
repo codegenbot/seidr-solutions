@@ -30,7 +30,7 @@ int score(string s) {
         } else if (s[i] == '-') {
             total += 0;
         } else {
-            total += s[i] - '0';
+            total += (s[i] - '0') * ((i + 1 < s.size()) ? ((s[i + 1] == 'X') ? 10 : 1) : 1);
             if (frame < 9 && i + 1 < s.size() && s[i + 1] == '/') {
                 total += 10 - (s[i] - '0');
                 i++; // Skip next character
