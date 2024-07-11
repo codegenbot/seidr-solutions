@@ -2,7 +2,6 @@
 #include <string>
 #include <algorithm>
 #include <cctype>
-#include <cassert>
 
 std::string solve(const std::string& s) {
     std::string result = s;
