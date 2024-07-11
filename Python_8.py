@@ -7,7 +7,6 @@ def sum_product(numbers: List[int]) -> Tuple[int, int]:
         1 if not numbers else 1 if 0 in numbers else eval("*".join(map(str, numbers))),
     )
 
-
 user_input = input("Enter numbers separated by spaces: ")
 numbers = list(map(int, user_input.split()))
 
