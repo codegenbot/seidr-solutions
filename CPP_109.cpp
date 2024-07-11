@@ -2,6 +2,7 @@
 #include <vector>
 
 bool move_one_ball(std::vector<int> arr) {
+    // Function to move one ball based on given criteria
     int n = arr.size();
     if (n == 0) {
         return true;
@@ -18,6 +19,7 @@ bool move_one_ball(std::vector<int> arr) {
 }
 
 int main() {
+    // Test cases
     assert(move_one_ball({}) == true);
 
     return 0;
