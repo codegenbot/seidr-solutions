@@ -1,6 +1,3 @@
-def add(x: int, y: int):
-    return x + y
-
 while True:
     try:
         num1 = int(input("Enter first number: "))
