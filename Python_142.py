@@ -1,8 +1,8 @@
-```Python
-def sum_squares(lst):
-    total_sum = 0
-    for num in lst:
-        total_sum += num ** 2
-    return total_sum
+```
+def sum_squares(n):
+    if isinstance(n, list):
+        return [i**2 for i in n]
+    else:
+        return n**2
 
-print(sum_squares([1, 4, -3, 9, -10]))
+print(sum_squares([1]))
