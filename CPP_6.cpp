@@ -1,9 +1,18 @@
+#include <iostream>
 #include <vector>
-#include <string>
 
-std::vector<int> parse_nested_parens(const std::string paren_string);
+std::vector<int> parse_nested_parens(std::string paren_string);
+bool issame(std::vector<int> a, std::vector<int> b);
 
-std::vector<int> parse_nested_parens(const std::string paren_string) {
+bool issame(std::vector<int> a, std::vector<int> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+std::vector<int> parse_nested_parens(std::string paren_string) {
     std::vector<int> depths;
     int max_depth = 0;
     int curr_depth = 0;
@@ -26,10 +35,12 @@ std::vector<int> parse_nested_parens(const std::string paren_string) {
     return depths;
 }
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if(a.size() != b.size()) return false;
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
+int main() {
+    std::string input;
+    std::getline(std::cin, input);
+    std::vector<int> result = parse_nested_parens(input);
+    for (int depth : result) {
+        std::cout << depth << " ";
     }
-    return true;
+    return 0;
 }
