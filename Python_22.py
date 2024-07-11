@@ -2,4 +2,4 @@ from typing import List
 
 
 def filter_integers(values: List[int]) -> list:
-    return [value for value in values if isinstance(value, int)]
+    return [value for value in values]
