@@ -1,5 +1,5 @@
 ```
-def minPath(grid='', k):
+def minPath(grid='\n0 1\n1 2', k):
     n = len(grid.split('\n')[1:])
     m = [list(map(int, row.split())) for row in grid.split('\n')[1:]]
     
@@ -23,8 +23,3 @@ def minPath(grid='', k):
             if min_path is None or path < min_path:
                 min_path = path
     return min_path
-
-if __name__ == "__main__":
-    grid = ''
-    k = int(input("Enter value for k: "))
-    print(minPath(grid, k))
