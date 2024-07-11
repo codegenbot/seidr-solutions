@@ -1,23 +1,24 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+
+using namespace std;
 
 int main() {
-    std::vector<int> nums;
+    vector<int> nums;
     int n;
-    
-    while (std::cin >> n) {
-        if (n == -1) {
-            break;
-        }
+    while (cin >> n) {
+        if (n == -1) break;
         nums.push_back(n);
     }
     
     int sum = 0;
     for (int num : nums) {
-        sum += num / 3 - 2;
+        sum += (num / 3) - 2;
+        if (num % 3 > 0) sum--; // Adjust for proper rounding down
     }
     
-    std::cout << sum << std::endl;
+    cout << sum << "\n";
     
     return 0;
 }
