@@ -1,8 +1,9 @@
-#include <bits/stdc++.h>
-using namespace std;
-
+```cpp
 int gcd(int a, int b) {
-    while(b != 0)
-        swap(a,b);
-    return abs(a);
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
