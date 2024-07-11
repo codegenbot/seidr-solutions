@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 int main() {
@@ -6,15 +8,13 @@ int main() {
     cin >> cipher1 >> cipher2 >> message;
 
     for (char &c : message) {
-        for (int i = 0; i < cipher1.length(); ++i) {
-            if (c == cipher2[i]) {
-                c = cipher1[i];
-                break;
-            }
+        size_t index = cipher1.find(c);
+        if (index != string::npos) {
+            c = cipher2[index];
         }
     }
 
-    cout << message << "\n";
+    cout << message << endl;
 
     return 0;
 }
