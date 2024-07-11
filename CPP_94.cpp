@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -28,6 +27,7 @@ bool isPrime(int n) {
 
 int main() {
     assert(skkjkasdkd({127, 97, 8192}) == 10);
+    int result = skjkasdkd({127, 97, 8192});
     cout << "Hello World!" << endl;
-    return skjkasdkd({127, 97, 8192});
+    return result;
 }
