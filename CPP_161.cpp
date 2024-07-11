@@ -1,23 +1,12 @@
-string solve(string s) {
+string solve(string s){
     string result = "";
-    bool foundLetter = false;
-
-    for (char c : s) {
-        if (!isalpha(c)) {
+    for(int i=0; i<s.length(); i++){
+        if(isalpha(s[i])){
+            char c = (islower(s[i])) ? toupper(s[i]) : tolower(s[i]);
             result += c;
-            foundLetter = false;
         } else {
-            if (!foundLetter) {
-                foundLetter = true;
-                result += toupper(c);
-            } else {
-                result += tolower(c);
-            }
+            result += s[i];
         }
     }
-
-    if (!foundLetter)
-        reverse(result.begin(), result.end());
-
-    return result;
+    return (result.empty()) ? string(reverse(s)) : result;
 }
