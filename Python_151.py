@@ -1,4 +1,4 @@
-```Python
+```python
 def double_the_difference(lst):
     if len(lst) == 2:
         a, b = map(int, lst)
