@@ -13,6 +13,6 @@ def find_zero(xs: list):
     return round(p, 2)
 
 if __name__ == "__main__":
-    xs = [1, 0.5, 3]
+    xs = [1, 0, -3]
     result = find_zero(xs)
     print(result)
