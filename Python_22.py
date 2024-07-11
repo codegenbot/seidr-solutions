@@ -1,7 +1,5 @@
 ```
-from typing import Any, list
+from typing import list
 
-def filter_integers(values: list[Any]) -> list[int]:
-    values = [1, 2, "a", 3.0, True]
-    result = filter_integers(values)
-    print(result)
+def filter_integers(values: list[object]) -> list[int]:
+    return [value for value in values if isinstance(value, int)]
