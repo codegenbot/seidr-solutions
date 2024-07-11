@@ -1,4 +1,5 @@
 #include <string>
+
 using namespace std;
 
 int is_bored(string S) {
@@ -6,7 +7,7 @@ int is_bored(string S) {
     string sentence;
     for (char c : S) {
         if (c == '.' || c == '?' || c == '!') {
-            if (!sentence.empty() && sentence[0] == 'I') {
+            if (!sentence.empty() && sentence[0] == 'I' && sentence.size() > 1) {
                 count++;
             }
             sentence.clear();
