@@ -1,7 +1,4 @@
 ```
-from typing import List
-
-
 def concatenate():
     num_strings = int(input("Enter the number of strings: "))
     result = ""
