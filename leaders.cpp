@@ -10,7 +10,7 @@ vector<int> findLeaders(const vector<int>& nums) {
     int maxRight = INT_MIN;
 
     for (int i = n - 1; i >= 0; --i) {
-        if (nums[i] > maxRight) {
+        if (nums[i] > maxRight) { // Update condition to strictly greater than
             maxRight = nums[i];
             leaders.push_back(nums[i]);
         }
