@@ -1,8 +1,7 @@
 def hex_key(num):
-    primes = {"B": True, "D": True}
-    count = sum(
-        1
-        for digit in num.upper()
-        if digit.isdigit() or (digit in primes and digit != "0")
-    )
+    primes = {'B': True, 'D': True}
+    count = 0
+    for char in num:
+        if char.upper() in primes:
+            count += 1
     return count
