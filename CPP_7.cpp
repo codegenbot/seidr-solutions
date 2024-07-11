@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
-
+```cpp
 bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
@@ -46,15 +42,7 @@ int main() {
     vector<string> result;
     
     for (auto s : sets[0]) {
-        bool found = true;
-        for (int i = 1; i < numSets; i++) {
-            if (!issame(sets[i], s)) {
-                found = false;
-                break;
-            }
-        }
-        
-        if (found) {
+        if (issame(sets, s)) {
             result.push_back(s);
         }
     }
