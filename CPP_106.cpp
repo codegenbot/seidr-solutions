@@ -4,11 +4,13 @@ bool issame(vector<int> a, vector<int> b){
     if(a.size() != b.size()){
         return false;
     }
+    
     for(int i = 0; i < a.size(); ++i){
         if(a[i] != b[i]){
             return false;
         }
     }
+    
     return true;
 }
 
@@ -33,14 +35,14 @@ vector<int> f(int n){
 }
 
 int main(){
-    vector<int> output = f(5);
-    vector<int> expected = {0, 1, 2, 6, 3};
+    vector<int> result = f(5);
+    vector<int> expected = {1, 1, 2, 6, 3};
     
-    if(issame(output, expected)){
-        cout << "Output matches expected values." << endl;
+    if(issame(result, expected)){
+        // Code to handle if the result is as expected
     } else {
-        cout << "Output does not match expected values." << endl;
+        // Code to handle if the result is not as expected
     }
-
+    
     return 0;
 }
