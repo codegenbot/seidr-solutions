@@ -1,3 +1,4 @@
+```
 def fibfib(n: int):
     if n <= 1:
         return n
@@ -7,4 +8,4 @@ def fibfib(n: int):
     for i in range(2, n + 1):
         next_number = round(phi * fib_numbers[i - 1] + psi * fib_numbers[i - 2])
         fib_numbers.append(next_number)
-    return fib_numbers[-n-1]
+    return fib_numbers[n-1]
