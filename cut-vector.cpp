@@ -4,34 +4,23 @@
 #include <algorithm>
 
 std::pair<std::vector<int>, std::vector<int>> cutVector(const std::vector<int>& vec) {
-    int minDiff = INT_MAX;
-    int splitIndex = -1;
+    int min_diff = INT_MAX;
+    int idx = -1;
 
     for (int i = 0; i < vec.size() - 1; ++i) {
-        int leftSum = 0, rightSum = 0;
-        
+        int left_sum = 0, right_sum = 0;
         for (int j = 0; j <= i; ++j)
-            leftSum += vec[j];
+            left_sum += vec[j];
         for (int j = i + 1; j < vec.size(); ++j)
-            rightSum += vec[j];
+            right_sum += vec[j];
 
-        int diff = abs(leftSum - rightSum);
-        
-        if (diff < minDiff) {
-            minDiff = diff;
-            splitIndex = i;
+        if (std::abs(left_sum - right_sum) < min_diff) {
+            min_diff = std::abs(left_sum - right_sum);
+            idx = i;
         }
     }
 
-    std::vector<int> leftVec(0);
-    for (int i = 0; i <= splitIndex; ++i)
-        leftVec.push_back(vec[i]);
-    
-    std::vector<int> rightVec(0);
-    for (int i = splitIndex + 1; i < vec.size(); ++i)
-        rightVec.push_back(vec[i]);
-
-    return {leftVec, rightVec};
+    return {{0}, {}};
 }
 
 int main() {
