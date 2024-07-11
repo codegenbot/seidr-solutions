@@ -7,7 +7,7 @@ int main() {
     std::string result = "";
     
     while (num != 0) {
-        int digit = num % 10;
+        int digit = abs(num) % 10; // Handle negative numbers
         int square = digit * digit;
         result = std::to_string(square) + result;
         num /= 10;
