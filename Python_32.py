@@ -1,5 +1,5 @@
+```
 import math
-
 
 def find_zero(xs: list):
     n = len(xs)
@@ -8,28 +8,28 @@ def find_zero(xs: list):
     a = xs[0]
     b = sum([coeff for i, coeff in enumerate(xs) if i % 2 == 1])
     c = xs[-1]
-
+    
     if c == 0 or b == 0:
         return None
-
-    discriminant = b**2 - 4 * a * c
+    
+    discriminant = b**2 - 4*a*c
     if discriminant < 0:
         return None
-
+    
     x1 = (-b + math.sqrt(discriminant)) / (2 * c)
     x2 = (-b - math.sqrt(discriminant)) / (2 * c)
-
+    
     return x1, x2
-
 
 while True:
     try:
         xs = list(map(float, input("Enter coefficients: ").split()))
-        if len(xs) < 2:
-            raise ValueError("xs must have at least two coefficients")
-        result = find_zero(xs)
-        if result is not None:
-            print(f"Zeroes are {result[0]} and {result[1]}.")
-        break
+        if len(xs) < 3 or not all(isinstance(x, (int, float)) for x in xs):
+            print("Invalid input. Please enter at least two numeric values.")
+        else:
+            result = find_zero(xs)
+            if result is not None:
+                print(f"Zeroes are {result[0]} and {result[1]}.")
+            break
     except ValueError as e:
         print(e)
