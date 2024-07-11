@@ -1,14 +1,13 @@
 ```
 def minPath(grid='''
-5
 3 1 2 4 6
 7 8 9 3 1
 0 2 6 4 7
 1 1 2 8 3
 4 1 5 9 2
 ''', k):
-    n = len(grid.split('\n')[1:])
-    m = [list(map(int, row.split())) for row in grid.split('\n')[1:]]
+    n = len(grid.split('\n'))
+    m = [list(map(int, row.split())) for row in grid.split('\n')]
     
     def dfs(i, j, path, visited):
         if len(path) == k:
