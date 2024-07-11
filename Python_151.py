@@ -1,7 +1,7 @@
 ```
 def double_the_difference(lst):
-    # implementation for double_the_difference function goes here
-    pass  # or return some default value
+    diff = abs((max(lst) - min(lst)) // 2)
+    return [i for i in lst if i == diff]
 
 def check(lst):
     result = double_the_difference(lst)
