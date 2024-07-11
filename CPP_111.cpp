@@ -1,27 +1,40 @@
-#include <string>
-#include <map>
-using namespace std;
-
 map<char, int> histogram(string test) {
     map<char, int> result;
-    if (test.empty()) return result;
-
-    string str = test;
-    for (char c : str) {
-        if (!isalpha(c)) continue; // ignore non-alphabetic characters
-        ++result[c];
-    }
-
+    string word;
     int maxCount = 0;
-    for (auto it = result.begin(); it != result.end(); ++it) {
-        if (it->second > maxCount) maxCount = it->second;
+
+    for (string s : split(test, ' ')) {
+        for (char c : s) {
+            if (result.find(c) == result.end()) {
+                result[c] = 1;
+            } else {
+                result[c]++;
+            }
+            maxCount = max(maxCount, result[c]);
+        }
     }
 
-    map<char, int> maxResult;
+    map<char, int> maxLetters;
     for (auto it = result.begin(); it != result.end(); ++it) {
-        if (it->second == maxCount)
-            maxResult[it->first] = it->second;
+        if (it->second == maxCount) {
+            maxLetters[it->first] = it->second;
+        }
     }
 
-    return maxResult;
+    return maxLetters;
+}
+
+vector<string> split(string str, char delimiter) {
+    vector<string> tokens;
+    string token;
+    for (char c : str) {
+        if (c != delimiter) {
+            token += c;
+        } else {
+            tokens.push_back(token);
+            token = "";
+        }
+    }
+    tokens.push_back(token);
+    return tokens;
 }
