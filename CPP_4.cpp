@@ -1,12 +1,14 @@
-float sum = 0;
+float sum = 0.0;
     for (float num : numbers) {
         sum += num;
     }
     float mean = sum / numbers.size();
 
-    float deviation_sum = 0;
+    float mad = 0.0;
     for (float num : numbers) {
-        deviation_sum += abs(num - mean);
+        mad += abs(num - mean);
     }
-    return deviation_sum / numbers.size();
+    mad /= numbers.size();
+
+    return mad;
 }
