@@ -1,3 +1,2 @@
-def check(concatenate_strings):
-    strings = ["hello", "world"]
-    return concatenate_strings(strings)
+def check_function(concatenate_strings):
+    return concatenate_strings([], "")
