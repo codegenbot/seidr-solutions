@@ -1,4 +1,3 @@
-```
 def correct_bracketing(expression):
     if isinstance(expression, str): 
         stack = []
@@ -17,7 +16,7 @@ def correct_bracketing(expression):
     
     return True
 
-def check():
+def check(correct_bracketing):
     while True:
         try:
             expression = input("Enter an expression (or 'done' if finished): ")
@@ -30,4 +29,4 @@ def check():
         except Exception as e: 
             print(f"Error occurred: {e}")
 
-check()
+check(correct_bracketing)
