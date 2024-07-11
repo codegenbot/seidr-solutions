@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 using namespace std;
 
@@ -27,6 +26,6 @@ int main() {
     int n;
     cout << "Enter the number: ";
     cin >> n;
-    cout << "The " << to_string(n) << "th prime Fibonacci number is: " << prime_fib(n) << "\n";
+    cout << n << "th prime Fibonacci number is: " << prime_fib(n) << "\n";
     return 0;
 }
