@@ -15,17 +15,17 @@ std::string spinWords(std::string sentence) {
     }
 
     result += word;
-    
+
     std::string newSentence = "";
     int len;
-
+    
     for (int i = 0; i < result.length(); i++) {
         if (result[i] == ' ') {
             len = i;
         } else if (i > len && result[i - 1] != ' ') {
             len = i;
         }
-
+        
         if (len >= 5) {
             for (int j = len; j >= 0; j--) {
                 newSentence += result[j];
@@ -34,7 +34,8 @@ std::string spinWords(std::string sentence) {
             len++;
         } else {
             newSentence += result.substr(0, len + 1);
-            newSentence += " ";
+            newSentence.push_back(' ');
+            len++;
         }
     }
 
