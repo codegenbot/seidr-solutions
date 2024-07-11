@@ -17,14 +17,16 @@ def decode_cyclic(s):
     i = 0
     while i < len(s):
         if i + 3 <= len(s):
-            group = s[i:i+3]
+            group = s[i : i + 3]
         else:
             group = s[i:]
 
         if len(group) == 3 and group in cyclic_map:
             result += cyclic_map[group]
         elif group[0:1] in cyclic_map or group[0:2] in cyclic_map:
-            result += cyclic_map.get(group[0:1], group[0:1]) + cyclic_map.get(group[0:2], group[0:2])
+            result += cyclic_map.get(group[0:1], group[0:1]) + cyclic_map.get(
+                group[0:2], group[0:2]
+            )
         else:
             result += group
 
