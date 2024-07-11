@@ -8,9 +8,6 @@ def longest(strings: List[str]) -> Optional[str]:
     return next(s for s in strings if len(s) == max_length)
 
 
-# Read input from user
 strings = input().split()
-
-# Call the function with user input
 result = longest(strings)
 print(result)
