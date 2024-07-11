@@ -1,7 +1,8 @@
-```
+```python
 def digits(n):
     product = 1
     while n:
-        product *= n % 10
+        digit = n % 10
+        product *= digit
         n //= 10
     return product
