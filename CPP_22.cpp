@@ -1,7 +1,6 @@
 #include <vector>
-#include <list>
 #include <boost/any.hpp>
-#include <cassert>
+#include <list>
 
 bool issame(vector<int> a, vector<int> b);
 
@@ -26,6 +25,6 @@ int main(){
     vector<int> b = {1, 2, 3};
 
     assert(issame(a, b));
-  
+    
     return 0;
 }
