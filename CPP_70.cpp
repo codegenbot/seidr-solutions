@@ -15,14 +15,13 @@ vector<int> strange_sort_vector(vector<int> lst) {
             sort(lst.begin(), lst.end());
     }
     return result;
-
 }
 
 int main() {
-    vector<int> vec = {5, 3, 8};
-    vector<int> sorted_vec = strange_sort_vector(vec);
-    for(int num : sorted_vec) {
-        cout << num << " ";
+    vector<int> numbers = {1, 3, 2, 4};
+    vector<int> sortedNumbers = strange_sort_vector(numbers);
+    for(int i : sortedNumbers) {
+        cout << i << endl;
     }
     return 0;
 }
