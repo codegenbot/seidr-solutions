@@ -31,8 +31,3 @@ void testMain() {
         cout << "The smallest change is: " << smallest_change(arr) << endl;
     }
 }
-
-int main() {
-    testMain();
-    return 0;
-}
