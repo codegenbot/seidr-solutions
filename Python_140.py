@@ -1,5 +1,6 @@
 import re
 
+
 def fix_spaces(text):
     text = text.replace(" ", "_")
     while re.search(r"__", text):
