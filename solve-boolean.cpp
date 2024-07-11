@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <stack>
 #include <cctype>
@@ -47,5 +48,5 @@ std::string solveBoolean(std::string expression) {
 bool getBoolValue(char c) {
     if (c == 'T') return true;
     if (c == 'F') return false;
-    return false; 
+    return false; // default to false
 }
