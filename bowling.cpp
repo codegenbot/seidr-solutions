@@ -1,46 +1,36 @@
+#include <iostream>
 #include <string>
 
 int bowlingScore(std::string s) {
     int score = 0;
-    int roll1 = 0;
-    int roll2 = 0;
-    bool firstFrame = true;
-
+    int roll = 0;
     for(int i = 0; i < s.size(); i++) {
         if(s[i] == '/') {
-            if(firstFrame) {
-                score += 10;
+            if(roll < 2) {
+                if(roll == 1) {
+                    score += (10 - '0') * 10 + (s[i-1] - '0');
+                } else {
+                    score += (10 - '0') * 10;
+                }
             } else {
-                score += (roll1 + roll2);
+                score += (10 - 'X') * 10;
             }
-            firstFrame = false;
-            roll1 = 0;
-            roll2 = 0;
+            roll = 0;
         } else if('0' <= s[i] && s[i] <= '9') {
-            int value = s[i] - '0';
-            if(firstFrame) {
-                roll1 = value;
-            } else {
-                roll2 = value;
-            }
+            roll = roll * 10 + (s[i] - '0');
         } else if(s[i] == 'X') {
             score += 10;
-            if(firstFrame) {
-                roll1 = 10;
-            } else {
-                roll1 + roll2 > 10 ? score += 10 : score += roll1 + roll2;
-                firstFrame = false;
-                roll1 = 0;
-                roll2 = 0;
-            }
+            roll = 0;
         }
     }
-
-    if(firstFrame) {
-        score += roll1 + roll2;
-    } else {
-        roll1 + roll2 > 10 ? score += 10 : score += roll1 + roll2;
-    }
-
     return score;
+}
+
+int main() {
+    std::string s;
+    std::cout << "Enter the bowling score in string format: ";
+    std::cin >> s;
+    int score = bowlingScore(s);
+    std::cout << "The score is: " << score << std::endl;
+    return 0;
 }
