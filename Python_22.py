@@ -1,4 +1,4 @@
-```Python
+```
 from typing import Any, list
 
 
@@ -6,15 +6,13 @@ def filter_integers(values: list[Any]) -> list[int]:
     return [value for value in values if isinstance(value, int)]
 
 
-values = []
-while True:
-    user_input = input("Please enter some values (separated by spaces), or 'done' to finish: ")
+user_input = input("Please enter some values (separated by spaces): ")
+if not user_input:
+    print("No input provided.")
+else:
     try:
-        new_values = [int(x) for x in user_input.split()]
-        values.extend(new_values)
+        values = [int(x) for x in user_input.split()]
     except ValueError as e:
         print(f"Invalid input: {e}")
-    if user_input.lower() == 'done':
-        break
-
+        values = []
 print(filter_integers(values))
