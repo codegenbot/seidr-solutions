@@ -6,7 +6,7 @@ def filter_integers() -> None:
     
     while True:
         user_input = input("Enter an integer (or 'done' if finished): ")
-        
+
         if user_input.lower() == 'done':
             break
         
