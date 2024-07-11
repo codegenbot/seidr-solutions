@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+vector<string> words_string(string s);
+
 bool issame(vector<string> a, vector<string> b){
     return a == b;
 }
@@ -25,11 +31,8 @@ int main() {
     string input;
     getline(cin, input);
     vector<string> words = words_string(input);
-    vector<string> b = {"apple", "banana", "cherry"};
-    if(issame(words, b)){
-        cout << "Two vectors are the same." << endl;
-    } else {
-        cout << "Two vectors are not the same." << endl;
+    for(const string& word : words){
+        cout << word << endl;
     }
     return 0;
 }
