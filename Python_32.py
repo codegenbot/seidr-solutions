@@ -21,11 +21,15 @@ def find_zero(xs: list):
     
     return x1, x2
 
-xs = list(map(float, input("Enter coefficients: ").split()))
-
-try:
-    result = find_zero(xs)
-    if result is not None:
-        print(f"Zeroes are {result[0]} and {result[1]}.")
-except ValueError as e:
-    print(e)
+while True:
+    try:
+        xs = list(map(float, input("Enter coefficients: ").split()))
+        if len(xs) < 3 or not all(isinstance(x, (int, float)) for x in xs):
+            print("Invalid input. Please enter at least two numeric values.")
+        else:
+            result = find_zero(xs)
+            if result is not None:
+                print(f"Zeroes are {result[0]} and {result[1]}.")
+            break
+    except ValueError as e:
+        print(e)
