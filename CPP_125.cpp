@@ -1,35 +1,25 @@
-Here is the completed code:
-
-```cpp
 vector<string> split_words(string txt) {
     vector<string> result;
-    size_t pos = 0;
+    size_t pos = 0, prev_pos = 0;
 
-    while ((pos = txt.find(' ')) != string::npos) {
-        result.push_back(txt.substr(0, pos));
-        txt.erase(0, pos + 1);
-    }
-
-    if (txt.empty()) return result;
-
-    result.push_back(txt);
-
-    else {
-        size_t commaPos = 0;
-        while ((commaPos = txt.find(',')) != string::npos) {
-            result.push_back(txt.substr(0, commaPos));
-            txt.erase(0, commaPos + 1);
-        }
-
-        if (!txt.empty()) {
+    while (pos != string::npos) {
+        pos = txt.find_first_of(" ,", prev_pos);
+        if (pos == string::npos) {
+            // No whitespaces or commas found
             int count = 0;
             for (char c : txt) {
-                if (c >= 'a' && c <= 'z') {
-                    if ((count % 2) == 1) return {to_string(count)};
+                if (islower(c)) {
+                    count++;
                 }
-                count++;
             }
+            result.push_back(to_string(count));
+            break;
         }
+
+        string word = txt.substr(prev_pos, pos - prev_pos);
+        result.push_back(word);
+
+        prev_pos = pos + 1;
     }
 
     return result;
