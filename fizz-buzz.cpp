@@ -3,11 +3,19 @@
 
 std::string fizzBuzz(int x) {
     std::string result;
-    if (x % 15 == 0)
-        return "FizzBuzz";
-    else if (x % 3 == 0)
-        result = "Fizz";
-    else if (x % 5 == 0)
+    if (x % 3 == 0) {
+        result = x % 5 == 0 ? "FizzBuzz" : "Fizz";
+    } else if (x % 5 == 0)
         result = "Buzz";
     else
-        return ""; // Fix it by adding this line to return an empty string for other cases
+        result = std::to_string(x);
+    return result;
+}
+
+int main() {
+    int x;
+    std::cout << "Enter an integer: ";
+    std::cin >> x;
+    std::cout << fizzBuzz(x) << std::endl;
+    return 0;
+}
