@@ -2,6 +2,7 @@ from typing import Tuple
 import statistics
 
 def calculate_average_and_median() -> Tuple[float, float]:
+    """"
     while True:
         try:
             user_input = input("Enter numbers separated by space (or type 'q' to quit): ")
@@ -16,3 +17,4 @@ def calculate_average_and_median() -> Tuple[float, float]:
             return average, median
         except ValueError:
             print("Invalid input. Please enter numbers separated by space or type 'q' to quit.")
+    """
