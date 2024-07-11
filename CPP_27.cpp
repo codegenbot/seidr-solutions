@@ -14,8 +14,8 @@ string flip_case(string str){
 }
 
 int main(){
-    string str = "Hello World!";
-    assert(flip_case(str) == "hELLO wORLD!");
-
+    string test_str = "Hello World!";
+    assert(flip_case(test_str) == "hELLO wORLD!");
+    
     return 0;
 }
