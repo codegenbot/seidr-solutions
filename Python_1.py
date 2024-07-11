@@ -1,3 +1,4 @@
+```Python
 def separate_paren_groups(paren_string: str) -> list[str]:
     result = []
     temp = ""
@@ -6,20 +7,11 @@ def separate_paren_groups(paren_string: str) -> list[str]:
             if temp != "":
                 result.append(temp)
             temp = ""
-        elif temp == "":
+        elif temp + " " + char[0] + " " == "( (" or temp + " " + char[0] + " " == ")) (" :
+            temp += " "
             temp += char
         else:
-            if char == "(" and not temp.startswith("("):
-                result.append(temp + "(")
-                temp = ""
-            elif char == ")" and not temp.endswith(")"):
-                while temp and temp[-1] != "(":
-                    result.append(temp)
-                    temp = temp[:-1]
-                result.append("(" + temp + ")")
-                temp = ""
-            else:
-                temp += char
+            temp += char
     if temp != "":
         result.append(temp)
     return result

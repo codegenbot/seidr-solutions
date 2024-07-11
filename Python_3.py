@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -14,10 +15,9 @@ def below_zero(operations: List[str]) -> bool:
 
 
 ops = []
-for op in input().split():
-    if op: 
-        ops.append(op.strip())
-while len(ops) > 1: 
-    for i in range(len(ops)-1, -1, -1):
-        ops.pop() 
-print('''{}''').format(below_zero(ops))
+while True: 
+    op = input().strip()
+    if op.lower() == "stop": 
+        break
+    ops.append(op)
+print(below_zero(ops))
