@@ -12,8 +12,11 @@ def encode(message):
                 result += chr(ord(char) + 32 if ord(char) < 78 else ord(char) - 2)
             else:
                 result += chr(ord(char) - 32 if ord(char) > 96 else ord(char) + 2)
-        elif char == ' ':
-            result += ' '
+        elif char == '!' or char == '@' or char == '#':
+            if char.isupper():
+                result += char.lower()
+            else:
+                result += char
         else:
             result += char
     return result
