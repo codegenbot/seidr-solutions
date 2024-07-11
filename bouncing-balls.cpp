@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath>  
+#include <iomanip>
 using namespace std;
 
 int main() {
@@ -16,8 +16,8 @@ int main() {
         total_distance += pow(2, -bounciness_index) * start_height;
     }
 
-    cout << fixed << setprecision(5);  
-    cout << total_distance << endl;
+    std::fixed << std::setprecision(5);
+    cout << fixed << total_distance << endl;
 
     return 0;
 }
