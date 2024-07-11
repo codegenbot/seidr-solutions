@@ -1,3 +1,4 @@
+```c++
 bool is_sorted(vector<int> lst);
 
 int main() {
