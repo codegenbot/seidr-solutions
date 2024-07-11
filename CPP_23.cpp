@@ -1,18 +1,16 @@
+#include <iostream>
 #include <string>
 #include <cassert>
-#include <cstring>
 
 int my_strlen(std::string str){
-    int len = 0;
-    for (char c : str) {
-        if (c != '\0') {
-            len++;
-        }
+    int length = 0;
+    for(char c : str){
+        length++;
     }
-    return len;
+    return length;
 }
 
 int main() {
-    assert (my_strlen("asdasnakj") == 12); 
+    assert (my_strlen("asdasnakj") == 11); 
     return 0;
 }
