@@ -1,5 +1,4 @@
-from typing import List
+from typing import List, Any
 
-
-def filter_integers(values: List) -> List:
+def filter_integers(values: List[Any]) -> List[int]:
     pass
