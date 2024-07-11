@@ -1,2 +1,3 @@
-def solve(N):
-    return str(N)
+```
+def get_binary(N):
+    return ''.join(str((N // (10 ** i)) % 2) for i in reversed(range(len(str(N)))))

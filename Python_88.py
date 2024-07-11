@@ -5,6 +5,10 @@ def sort_array(array):
     if total % 2 != 0:
         return sorted(array)
     else:
-        mid = len(array) // 2
-        median = array[mid]
-        return sorted(array, key=lambda x: (x > median, x))
+        array.sort()
+        median = array[len(array) // 2]
+        greater_than_or_equal_median = [x for x in array if x >= median]
+        less_than_median = [x for x in array if x < median]
+        greater_than_or_equal_median.append(median)
+        less_than_median.sort()
+        return greater_than_or_equal_median + less_than_median
