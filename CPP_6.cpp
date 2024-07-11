@@ -1,5 +1,5 @@
-#include <vector>
+#include <vector> // Include the necessary header file
 
-bool issame(std::vector<int> a, std::vector<int> b){
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b){ // Add return type 'bool'
+    return a == b; // Return comparison result
 }
