@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 using namespace std;
@@ -8,6 +9,7 @@ bool issame(vector<string> a, vector<string> b) {
 
 vector<string> reverse_delete(string s, string c) {
     vector<string> result;
+    string t = "";
     for (char x : s) {
         bool found = false;
         for (char y : c) {
@@ -17,14 +19,13 @@ vector<string> reverse_delete(string s, string c) {
             }
         }
         if (!found) {
-            result.push_back(string(1, x));
+            t += x;
         }
     }
-    string rev = "";
-    for (int i = result.size() - 1; i >= 0; i--) {
-        rev += result[i];
-    }
-    if (rev == string(result[0])) {
+    string rev = t;
+    reverse(rev.begin(), rev.end());
+    result.push_back(t);
+    if (t == rev) {
         result.push_back("True");
     } else {
         result.push_back("False");
