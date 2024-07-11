@@ -10,6 +10,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     for c in paren_string:
         if c not in ("(", ")"):
             return []
+
         if c == " ":
             continue
         if c == "(":
