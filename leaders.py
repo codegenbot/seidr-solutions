@@ -1,3 +1,4 @@
+```
 def leaders(input):
     leaders_list = []
     max_rightnow = input[-1]
