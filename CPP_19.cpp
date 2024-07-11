@@ -1,7 +1,7 @@
 std::string sort_numbers(std::string numbers) {
     std::vector<std::string> numVec;
     std::string temp;
-
+    
     for (int i = 0; i < numbers.length(); i++) {
         if (numbers[i] == ' ') {
             numVec.push_back(temp);
