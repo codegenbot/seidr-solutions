@@ -1,9 +1,9 @@
 ```
 def fix_spaces(text):
     new_text = ""
-    prev_was_space = False
+    prev_was_space = True
     for char in text:
-        if not prev_was_space and char == " ":
+        if char == " " and not prev_was_space:
             new_text += "_"
             prev_was_space = True
         elif char == " " and prev_was_space:
