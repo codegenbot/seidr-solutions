@@ -1,14 +1,7 @@
-```
-def minPath():
-    k = int(input("Enter the number of steps: "))
-    grid = []
-    for _ in range(3):
-        row = input().split()
-        grid.append(list(map(int, row)))
-    
-    n = len(grid)
-    m = [list(map(int, row)) for row in grid]
-    
+def minPath(k):
+    n = int(input("Enter the number of rows in the grid: "))
+    m = [[int(input(f"Enter value at row {i} column {j}: ")) for j in range(n)] for i in range(n)]
+
     def dfs(i, j, path, visited):
         if len(path) == k:
             return sum(path)
@@ -29,3 +22,5 @@ def minPath():
             if min_path is None or path < min_path:
                 min_path = path
     return min_path
+
+print(minPath(2))
