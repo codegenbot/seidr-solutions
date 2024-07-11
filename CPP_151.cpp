@@ -28,7 +28,12 @@ int main() {
         if(to_string(num) == "stop") break;
 
         if(abs(num - lround(num)) < 1e-9) {
-            odd_sum = double_the_difference(lst);
+            odd_sum = 0; 
+            for (float n : lst) { 
+                if (n > 0 && abs(n - lround(n)) < 1e-9) {
+                    odd_sum += double_the_difference(lst);
+                }
+            }
         }
         lst.push_back(num);    
     }
