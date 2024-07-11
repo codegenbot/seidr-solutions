@@ -1,4 +1,3 @@
-```
 def calculate_average_scores():
     average_score = None
     while True:
