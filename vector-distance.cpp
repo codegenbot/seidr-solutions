@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <iomanip>
 
 using namespace std;
 
@@ -18,14 +19,12 @@ int main() {
         cin >> vec2[i];
     }
     
-    long double sum = 0.0;
+    long double sum = 0.0; // Update to long double
     for (int i = 0; i < n; ++i) {
-        sum += pow(vec1[i] - vec2[i], 2);
+        sum += static_cast<long double>(pow(vec1[i] - vec2[i], 2)); // Cast to long double
     }
     
-    cout << fixed;
-    cout.precision(15);
-    cout << sqrt(static_cast<double>(sum)) << endl;
+    cout << fixed << setprecision(15) << sqrt(sum) << endl; // Ensure precision is set adequately
     
     return 0;
 }
