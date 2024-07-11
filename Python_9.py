@@ -1,7 +1,6 @@
-```python
 from typing import list
 
-def rolling_max(numbers: list[int]) -> list[int]:
+def rolling_max(numbers: list) -> list:
     maxes = []
     current_max = numbers[0]
     for num in numbers:
