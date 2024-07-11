@@ -1,5 +1,11 @@
 def decode_cyclic():
-    s = input("Enter the cyclic string: ")
+    while True:
+        s = input("Enter the cyclic string: ")
+        if len(s) >= 3:
+            break
+        else:
+            print("Invalid input. Please enter a string with at least 3 characters.")
+
     result = ""
     i = 0
     if len(s) >= 3:
