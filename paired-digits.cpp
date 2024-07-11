@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 int pairedDigits(const std::string& s) {
     int sum = 0;
     for (int i = 0; i < s.size() - 1; i++) {
@@ -9,10 +6,4 @@ int pairedDigits(const std::string& s) {
         }
     }
     return sum;
-}
-
-int main() {
-    int sum = pairedDigits("123212");
-    std::cout << "Sum: " << sum << std::endl;
-    return 0;
 }
