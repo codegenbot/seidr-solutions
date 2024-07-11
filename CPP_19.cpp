@@ -3,7 +3,7 @@
 #include <map>
 using namespace std;
 
-string sort_numbers(string numbers);
+string sort_numbers(string numbers); // Function prototype
 
 int main() {
     assert (sort_numbers("six five four three two one zero") == "zero one two three four five six");
