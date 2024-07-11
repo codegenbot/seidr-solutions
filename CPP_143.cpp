@@ -1,34 +1,35 @@
-string words_in_sentence(string sentence) {
+string words_in_sentence(string sentence){
     string result = "";
-    for (const auto &word : split(sentence, " ")) {
-        if (is_prime(word.length())) {
+    int primes[] = {2, 3, 5, 7, 11, 13, 17, 19, 23};
+    vector<int> prime_count;
+    
+    for(int i=0; i<sentence.length(); i++){
+        if(sentence[i] == ' '){
+            continue;
+        }
+        int j = i;
+        string word = "";
+        
+        while(j < sentence.length() && sentence[j] != ' '){
+            word += sentence[j];
+            j++;
+        }
+        
+        bool is_prime = false;
+        for(int k=0; k<9; k++){
+            if(atoi(word.c_str()) == primes[k]){
+                is_prime = true;
+                break;
+            }
+        }
+        
+        if(is_prime){
             result += word + " ";
+            prime_count.push_back(1);
+        } else{
+            prime_count.push_back(0);
         }
     }
-    return result.substr(0, result.size() - 1);
-}
-
-vector<string> split(const string &s, const char &c) {
-    vector<string> arr;
-    size_t i = 0;
-
-    while ((i = s.find(c)) != stdstring::npos) {
-        arr.push_back(s.substr(0, i));
-        s = s.substr(i + 1);
-    }
-
-    arr.push_back(s);
-
-    return arr;
-}
-
-bool is_prime(int n) {
-    if (n <= 1)
-        return false;
-
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0)
-            return false;
-    }
-    return true;
+    
+    return result.substr(0, result.length() - 1);
 }
