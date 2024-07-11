@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <iostream>
 #include <string>
@@ -18,7 +18,10 @@ std::vector<std::string> split(const std::string& s, char c) {
 
 std::string camelCase(const std::string& s) {
     if (s.find(' ') == std::string::npos && !s.empty()) {
-        return std::string(1, std::tolower(s[0])) + s.substr(1);
+        for (char c : s) {
+            c = std::tolower(c);
+        }
+        return s;
     }
 
     std::vector<std::string> groups;
@@ -32,7 +35,7 @@ std::string camelCase(const std::string& s) {
         if (i > 0)
             result += char(std::toupper(groups[i][0]));
         else
-            result += std::tolower(groups[i][0]);
+            result += tolower(groups[i][0]);
         result += groups[i].substr(1);
     }
 
@@ -45,4 +48,3 @@ int main() {
         std::cout << camelCase(s) << std::endl;
     }
     return 0;
-}
