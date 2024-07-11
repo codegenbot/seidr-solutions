@@ -16,6 +16,6 @@ std::vector<int> leaders(std::vector<int>& arr) {
         if(isLeader) result.push_back(arr[i]);
     }
 
-    std::reverse(result.rbegin(), result.rend()); 
+    std::reverse(result.begin(), result.end()); 
     return result;
 }
