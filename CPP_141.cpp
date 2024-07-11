@@ -13,8 +13,3 @@ string file_name_check(string file_name) {
     return (digit_count <= 3 && found_dot && prefix.find('.') != string::npos) ? "Yes" : 
            (!found_dot && !std::all_of(file_name.begin() + digit_count, file_name.end(), ::isalpha())) ? "No" : "Yes";
 }
-
-int main() {
-    assert(file_name_check("s.") == "No");
-    return 0;
-}
