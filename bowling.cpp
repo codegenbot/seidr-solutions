@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 int score(string s) {
     int total = 0;
     int frame = 0;
