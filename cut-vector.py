@@ -2,15 +2,24 @@ n = int(input())
 nums = list(map(int, input().split()))
 
 total_sum = sum(nums)
-half_sum = total_sum // 2
+left_sum = 0
+right_sum = total_sum
 
-current_sum = 0
-for i, num in enumerate(nums):
-    current_sum += num
-    if current_sum >= half_sum:
-        if current_sum == half_sum or abs(current_sum - half_sum) < abs(
-            current_sum - num - half_sum
-        ):
-            print(*nums[: i + 1])
-            print(*nums[i + 1 :])
-            break
+min_diff = total_sum
+cut_index = 0
+
+for i in range(n-1):
+    left_sum += nums[i]
+    right_sum -= nums[i]
+    diff = abs(left_sum - right_sum)
+    if diff <= min_diff:
+        min_diff = diff
+        cut_index = i
+
+cut_index += 1
+
+subvector1 = nums[: cut_index]
+subvector2 = nums[cut_index:]
+
+print(*subvector1)
+print(*subvector2)
