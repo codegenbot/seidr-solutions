@@ -1,10 +1,10 @@
-```python
+```
 while True:
     x = "{}".format('"{}"'.format(input("Enter the fraction x (in the format 'a/b'): ")))
     n = "{}".format('"{}"'.format(input("Enter the fraction n (in the format 'c/d': ")))
 
-    x = x.strip('"')  # Add this line
-    n = n.strip('"')  # Add this line
+    x = x.strip('"')  
+    n = n.strip('"')  
 
     import math
 
@@ -27,7 +27,7 @@ while True:
 
         return simplified_x_num, simplified_x_denom, simplified_y_num, simplified_y_denom
 
-    if x_denom == 0 or y_denom == 0:
+    if x[-1] == '/' or n[-1] == '/':
         print("Error: Division by zero is not allowed")
     else:
         print(simplify(x, n))
