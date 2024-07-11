@@ -11,7 +11,6 @@ int is_bored(string S) {
             sentence += c;
         }
     }
-    // Don't forget to check the last sentence
     if (!sentence.empty() && sentence[0] == 'I' && sentence.size() > 1) {
         count++;
     }
