@@ -29,4 +29,4 @@ def minPath(grid, k):
             if grid[i][j] == k:
                 dfs(i, j, [], m*m)
 
-    return shortest_path
+    return shortest_path if min_length != float('inf') else None
