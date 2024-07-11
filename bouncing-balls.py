@@ -1,5 +1,5 @@
-```
 import math
+
 
 def bouncing_balls():
     s_height = float(input())
