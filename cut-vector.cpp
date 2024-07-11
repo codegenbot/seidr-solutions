@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 using namespace std;
 
@@ -16,6 +16,6 @@ vector<vector<int>> cutVector(vector<int>& nums) {
         vector<int> left(min_idx+1), right(n-min_idx-1);
         for(int i=0; i<=min_idx; i++) left.push_back(nums[i]);
         for(int i=min_idx+1; i<n; i++) right.push_back(nums[i]);
-        return {{vector<int>(left.begin(), left.end())}, {vector<int>(right.begin(), right.end())}};
+        return {vector<int>(left.begin(), left.end()), vector<int>(right.begin(), right.end())};
     }
 }
