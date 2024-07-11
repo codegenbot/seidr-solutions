@@ -1,45 +1,22 @@
-#include <algorithm>
+```cpp
 #include <vector>
+#include <algorithm>
+#include <numeric>
 
-using namespace std;
-
-bool issame(vector<int> v1, vector<int> v2) {
-    if(v1.size() != v2.size()) 
-        return false;
-    for(int i=0; i<v1.size(); i++) {
-        if(v1[i] != v2[i]) 
-            return false;
-    }
-    return true;
-}
-
-bool has_repeated(vector<int> lst) {
-    vector<int> seen;
-    for (int x : lst)
-        if(find(seen.begin(), seen.end(), x) == seen.end())
-            seen.push_back(x);
-        else
-            return true;
-
-    return false;
-}
-
-vector<int> strange_sort_vector(vector<int> lst) {
-    vector<int> result;
-    if (lst.empty()) return result;
-
-    sort(lst.begin(), lst.end());
+std::vector<int> strange_sort_vector(std::vector<int> lst) {
+    std::vector<int> result;
     while (!lst.empty()) {
-        result.push_back(*lst.begin());
-        lst.erase(lst.begin());
-        if (!lst.empty())
-            sort(lst.begin(), lst.end());
+        int min_val = *min_element(lst.begin(), lst.end());
+        int max_val = *max_element(lst.begin(), lst.end());
+        if (min_val == max_val) {
+            result.push_back(min_val);
+            lst.clear();
+        } else {
+            result.push_back(min_val);
+            auto it = find_if(lst.begin(), lst.end(), [max_val](int x) { return x == max_val; });
+            result.push_back(*it);
+            lst.erase(it);
+        }
     }
     return result;
-}
-
-int main() {
-    vector<int> test = strange_sort_vector({11111});
-    assert(issame(test, {11111}));
-    return 0;
 }
