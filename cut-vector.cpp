@@ -17,7 +17,7 @@ int main() {
             cout << " ";
     }
     cout << "] [";
-    
+
     for (int num : res.second) {
         cout << num;
         if (&num != &res.second.back())
@@ -25,4 +25,5 @@ int main() {
     }
     
     cout << "]" << endl;
+    
 }
