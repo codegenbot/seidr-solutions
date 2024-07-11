@@ -2,38 +2,42 @@
 
 int bowlingScore(std::string s) {
     int score = 0;
-    for(int i = 0; i < s.size(); i++) {
-        if(s[i] == '/') {
-            if(i > 1 && s[i-2] != 'X') {
-                score += (10 - (s[i-1] - '0'));
+    int roll = 0;
+    bool spare = false;
+
+    for(int i = 0; i <= s.size(); i++) {
+        if(i == s.size()) {
+            break;
+        }
+        char c = s[i];
+
+        if(c == '/') {
+            if(roll < 2) {
+                score += 10;
+            } else {
+                score += 10 + (spare ? 10 : (10 - 'X') * 10);
             }
-            score += 10;
-        } else if('0' <= s[i] && s[i] <= '9') {
-            int val = s[i] - '0';
-            if(i < s.size() - 1) {
-                if(s[i+1] == '/') {
-                    if(i > 1 && s[i-2] != 'X') {
-                        score += (10 - (s[i-1] - '0'));
-                    }
+            roll = 0;
+            spare = false;
+        } else if('0' <= c && c <= '9') {
+            int num = c - '0';
+            roll = roll * 10 + num;
+
+            if(i == s.size() - 1) {
+                if(roll < 10) {
+                    score += roll;
+                } else {
                     score += 10;
-                    i++;
-                    continue;
-                } else if(s[i+1] == 'X') {
-                    score += val + 10;
-                    i++;
-                    continue;
+                    if(i == s.size() - 2) {
+                        spare = true;
+                    }
                 }
             }
-            score += val;
-        } else if(s[i] == 'X') {
+        } else if(c == 'X') {
             score += 10;
-            for(int j = i+1; j < s.size(); j++) {
-                if(j < s.size() - 1 && s[j+1] == '/') {
-                    continue;
-                }
-                score += (s[j] == 'X') ? 10 : s[j] - '0';
-            }
+            roll = 0;
         }
     }
+
     return score;
 }
