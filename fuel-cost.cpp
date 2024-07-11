@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <sstream>   
+#include <sstream>
 
 int main() {
     std::vector<int> nums;
