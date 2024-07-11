@@ -1,6 +1,6 @@
 #include <cstring>
 
 int main(){
-    char str[] = "Hello, World!";
+    char str[] = "example";
     return strlen(str);
 }
