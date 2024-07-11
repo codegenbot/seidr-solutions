@@ -14,11 +14,8 @@ bool issame(vector<string> a,vector<string>b){
     return true;
 }
 
-vector<string> filter_by_substring(vector<string> strings, string substring){
-    vector<string> result;
-    for(auto &s : strings) {
-        if(s.find(substring) != string::npos)
-            result.push_back(s);
-    }
-    return result;
+int main() {
+    vector<string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
+    assert(issame(result,{"grunt", "prune"}));
+    return 0;
 }
