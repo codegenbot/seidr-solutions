@@ -1,7 +1,12 @@
-def below_zero(operations: List[int]) -> bool:
-    if not isinstance(operations, list):
-        return False
-
-    balance = sum(i for i in operations if i < 0)
-
-    return balance < 0
+```
+def below_zero():
+    operations = []
+    while True:
+        try:
+            operation = int(input("Enter a number (or 'stop' to finish): "))
+            if str(operation) == 'stop':
+                break
+            operations.append(operation)
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+    return sum(operations) < 0
