@@ -1,38 +1,49 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string camelCase(std::string s) {
-    std::string result = "";
-    bool first = true;
-    
-    for (char c : s) {
+std::string kebabToCamel(const std::string& str) {
+    std::vector<std::string> words;
+    std::string word;
+
+    for (char c : str) {
         if (c == '-') {
-            if (!first) {
-                result += char(toupper(s[s.find(c) + 1]));
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
             }
-            first = false;
         } else if (c == ' ') {
-            if (!first) {
-                result += char(toupper(c));
+            if (!word.empty()) {
+                words.push_back(word);
+                word.clear();
             }
-            first = true;
         } else {
-            if (!first) {
-                result += c;
-            } else {
-                result += tolower(c);
-            }
-            first = false;
+            word += c;
         }
     }
-    
+
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+
+    std::string result;
+
+    for (int i = 0; i < words.size(); ++i) {
+        if (i > 0) {
+            result += char(std::toupper(words[i][0]));
+            result += words[i].substr(1);
+        } else {
+            result += words[i];
+        }
+    }
+
     return result;
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << kebabToCamel(str) << std::endl;
     }
     return 0;
 }
