@@ -1,15 +1,15 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 int next_smallest(vector<int> lst) {
-    int res = -1;
-    for (int i = 0; i < lst.size() - 1; i++) {
-        if (lst[i] > lst[i + 1]) {
-            res = lst[i];
-            break;
-        }
+    int res = INT_MAX;
+    for (int i = 0; i < lst.size(); i++) {
+        if (lst[i] > res)
+            return res;
+        for (int j = i+1; j < lst.size(); j++)
+            if (lst[j] < lst[i])
+                res = lst[j];
     }
     return res;
 }
