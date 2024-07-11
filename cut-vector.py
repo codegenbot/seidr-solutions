@@ -1,3 +1,4 @@
+```Python
 def cut_vector(vector):
     n = len(vector)
     total_sum = sum(vector)
