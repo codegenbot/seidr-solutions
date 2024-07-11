@@ -31,16 +31,15 @@ int gcd(int a, int b) {
 
 int main() {
     int num1, num2;
-    cin >> num1 >> num2;
-    cout << std::endl;
-    cout << gcd(num1, num2) << std::endl;
+    std::cin >> num1 >> num2;
+    cout << gcd(num1, num2) << endl;
 
     string text, target;
     cin >> text >> target;
     vector<int> indices = indicesOfSubstring(text, target);
     for (int index : indices)
         cout << index << " ";
-    cout << std::endl;
+    cout << endl;
 
     return 0;
 }
