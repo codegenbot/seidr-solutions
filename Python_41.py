@@ -1,2 +1,4 @@
+import math
+
 def car_race_collision(n: int):
-    return (2*n - 3)
+    return math.factorial(2*n) // (math.factorial(n)*math.factorial(n))
