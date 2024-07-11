@@ -1,14 +1,17 @@
 int luhn(const std::vector<int>& cardNumber) {
     int sum = 0;
-    bool doubleNext = false;
+    bool isDouble = false;
 
     for (int i = cardNumber.size() - 1; i >= 0; --i) {
-        if ((cardNumber[i] * (doubleNext ? 2 : 1)) > 9) {
-            cardNumber[i] -= 9;
+        int digit = (isDouble ? cardNumber[i] * 2 : cardNumber[i]);
+
+        if (digit > 9) {
+            digit -= 9;
         }
-        sum += cardNumber[i];
-        doubleNext = !doubleNext;
+
+        sum += digit;
+        isDouble = !isDouble;
     }
 
-    return sum % 10 == 0;
+    return sum;
 }
