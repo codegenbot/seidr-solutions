@@ -1,5 +1,5 @@
+```cpp
 #include <string>
-#include <iostream>
 using namespace std;
 
 string spinWords(string str) {
@@ -26,13 +26,9 @@ string spinWords(string str) {
 }
 
 int main() {
-    string input;
-    cout << "Enter a string: ";
-    cin >> input;
-
-    string output = spinWords(input);
-
-    cout << "Spun words: " << output << endl;
-
+    string str;
+    cout << "Enter a string of words: ";
+    getline(cin, str);
+    cout << "Spun result: " << spinWords(str) << endl;
     return 0;
 }
