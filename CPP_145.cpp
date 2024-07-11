@@ -1,16 +1,18 @@
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool isSame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-class myVector {
+class StdVectorInt {
 public:
-    myVector() {}
+    StdVectorInt() {}
 };
+
+StdVectorInt obj;
 
 int main() {
     int n; 
@@ -21,7 +23,7 @@ int main() {
     
     std::sort(nums.begin(), nums.end());
     
-    bool same = issame(nums, nums);
+    bool same = isSame(nums, nums);
     if (same)
         std::cout << "The sorted array is the same as the original one.\n";
     else
