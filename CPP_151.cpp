@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -17,21 +18,16 @@ long long double_the_difference(std::vector<float> lst) {
 int main() {
     std::vector<float> lst;
 
-    int n;
-    float num;
-
-    std::cout << "Enter the number of elements in the list: ";
-    std::cin >> n;
+    int n; // number of elements in the list
+    cin >> n;
 
     for(int i = 0; i < n; i++) {
-        std::cout << "Enter element " << (i + 1) << ": ";
-        std::cin >> num;
-        lst.push_back(num);
+        float x; // read a float number from user input
+        cin >> x;
+        lst.push_back(x);
     }
 
-    long long result = double_the_difference(lst);
-
-    std::cout << "The sum of squares of odd positive integers in the list is: " << result << std::endl;
+    cout << double_the_difference(lst) << endl;
 
     return 0;
 }
