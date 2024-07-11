@@ -33,6 +33,14 @@ vector<int> f(int n){
 }
 
 int main(){
-    vector<int> result = f(5);
+    vector<int> output = f(5);
+    vector<int> expected = {0, 1, 2, 6, 3};
+    
+    if(issame(output, expected)){
+        cout << "Output matches expected values." << endl;
+    } else {
+        cout << "Output does not match expected values." << endl;
+    }
+
     return 0;
 }
