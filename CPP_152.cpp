@@ -1,24 +1,39 @@
 ```cpp
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
-pair<int, int> compare(vector<int> a, vector<int> b) {
+int compare(vector<int> a, vector<int> b) {
     vector<int> c = a;
     vector<int> d = b;
     sort(c.begin(), c.end());
     sort(d.begin(), d.end());
     if (c.size() < d.size())
-        return make_pair(1, 0);
+        return -1;
     else if (c.size() > d.size())
-        return make_pair(0, 1);
+        return 1;
     else
-        return make_pair(1, 1);
+        {
+            for(int i=0;i<c.size();i++){
+                if(c[i]<d[i])
+                    return -1;
+                else if(c[i]>d[i])
+                    return 1;
+            }
+            return 0;
+        }
 }
 
 int main() {
-    assert(compare({1,2,3,5},{-1,2,3,4}) == make_pair(1,0));
+    vector<int> a = {1,2,3};
+    vector<int> b = {1,2,4};
+    
+    int result = compare(a,b);
+    
+    assert(result == -1); // Test the function
+    
+    cout << "The output is: " << result << endl;
+    
     return 0;
 }
