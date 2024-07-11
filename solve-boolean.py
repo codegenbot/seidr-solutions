@@ -1,43 +1,28 @@
-```
 def solve_boolean(expression):
-    operations = {"&": lambda a, b: a and b, "|": lambda a, b: a or b}
-
     stack = []
-    temp_expr = ''
+    operations = {"&": lambda a, b: a and b, "|": lambda a, b: a or b}
     for char in expression:
         if char in ["T", "F"]:
-            if temp_expr:
-                stack.append(temp_expr)
-                temp_expr = ''
-            if char == 'T':
-                stack.append(True)
-            else:
-                stack.append(False)
+            stack.append(bool(char == "T"))
         elif char in operations:
-            if temp_expr:
-                stack.append(temp_expr)
-                temp_expr = ''
-            stack.append(char)
-        elif char == '(':
-            temp_expr = ''
-        elif char == ')':
-            while len(stack) > 1 and stack[-1] != '(':
-                op = stack.pop()
+            while len(stack) >= 2 and (
+                (
+                    operations["&"].__code__.co_code in str(type(stack[-1]))
+                    and operations["|"].__code__.co_code not in str(type(stack[-2]))
+                )
+                or (
+                    operations["|"].__code__.co_code in str(type(stack[-1]))
+                    and operations["&"].__code__.co_code not in str(type(stack[-2]))
+                )
+            ):
                 b = stack.pop()
-                if op == "&":
-                    stack.append(b and stack.pop())
-                else:
-                    stack.append(b or stack.pop())
-            stack.pop()  # Remove the '('
-    if temp_expr:
-        stack.append(temp_expr)
-
-    while len(stack) > 1:
-        op = stack.pop()
-        b = stack.pop()
-        if op == "&":
-            stack.append(b and stack.pop())
-        else:
-            stack.append(b or stack.pop())
+                a = stack.pop()
+                stack.append(operations[char](a, b))
+        elif char == "(":
+            stack.append(char)
+        elif char == ")":
+            while len(stack) > 0 and stack[-1] != "(":
+                stack.pop()
+            stack.pop()
 
     return stack[0]
