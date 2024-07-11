@@ -1,5 +1,12 @@
+```cpp
 #include <string>
-#include <iostream>
+
+int main() {
+    std::string s = "X|9/-5/8-7/X|/3-1/4-2/7-X|-1-|8-5/-9/6-X";
+    int score = bowlingScore(s);
+    std::cout << "The score is: " << score << std::endl;
+    return 0;
+}
 
 int bowlingScore(std::string s) {
     int score = 0;
@@ -26,11 +33,4 @@ int bowlingScore(std::string s) {
         }
     }
     return score;
-}
-
-int main() {
-    std::string input = "XXXXXXX/78"; // test input
-    int score = bowlingScore(input);
-    std::cout << "Score: " << score << std::endl;
-    return 0;
 }
