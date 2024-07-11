@@ -1,3 +1,8 @@
-```python
-def fuel_cost(vector):
-    return sum((i - 2 - (i % 3) + 1) for i in vector)
+import math
+def fuel_cost():
+    n = int(input())
+    total = 0
+    for _ in range(n):
+        num = int(input())
+        total += math.floor(num / 3) - 2
+    return total
