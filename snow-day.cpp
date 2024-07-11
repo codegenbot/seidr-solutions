@@ -1,5 +1,3 @@
-Here is the modified code:
-
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -20,3 +18,4 @@ int main() {
     cin >> initialSnow >> rateOfSnowFall >> proportionMeltingPerHour;
     cout << fixed << setprecision(10) << snowDay(hours, initialSnow, rateOfSnowFall, proportionMeltingPerHour) << endl;
     return 0;
+}
