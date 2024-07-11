@@ -6,10 +6,14 @@
 int main() {
     std::vector<int> nums;
     int num;
-    while (std::cin >> num || !std::cin.eof()) {
+    while (std::cin >> num && num != 0) {
         nums.push_back(num);
     }
     
+    if (nums.empty()) {
+        return 1;
+    }
+
     int minDiff = INT_MAX;
     int cutIndex = 0;
     
@@ -20,7 +24,7 @@ int main() {
             cutIndex = i;
         }
     }
-
+    
     for (int i = 0; i < cutIndex; ++i) {
         std::cout << nums[i] << '\n';
     }
