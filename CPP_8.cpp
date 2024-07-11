@@ -9,5 +9,5 @@ std::vector<int> sum_product(const std::vector<int>& numbers) {
         product *= num;
     }
     
-    return std::vector<int>{sum, product};
+    return {sum, product};
 }
