@@ -1,16 +1,11 @@
-```cpp
-#include <iostream>
-#include <string>
-#include <boost/any.hpp>
-
-using namespace std;
+```#include <boost/any.hpp>
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return b;
     }
     else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return a.convert_to<boost::any>(b);
+        return b;
     }
     else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         string str1 = any_cast<string>(a);
@@ -78,4 +73,4 @@ boost::any compare_one(boost::any a, boost::any b) {
         }
     }
     return boost::any();
-}
+}```
