@@ -1,16 +1,15 @@
 ```
 def triples_sum_to_zero(l: list):
-    l.sort()
-    for i in range(len(l) - 2):
-        if i > 0 and l[i] == l[i-1]:
-            continue
-        left, right = i + 1, len(l) - 1
-        while left < right:
-            total = l[i] + l[left] + l[right]
-            if total < 0:
-                left += 1
-            elif total > 0:
-                right -= 1
-            else:
-                return True
+    n = len(l)
+    for i in range(n):
+        for j in range(i + 1, n):
+            for k in range(j + 1, n):
+                if l[i] + l[j] + l[k] == 0:
+                    return True
     return False
+
+user_input = list(map(int, input("Enter a list of integers (space-separated): ").split()))
+if triples_sum_to_zero(user_input):
+    print("There exists three numbers in the list that sum up to zero.")
+else:
+    print("No such triple exists.")
