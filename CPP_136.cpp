@@ -1,9 +1,9 @@
-bool issame(vector<int> a, vector<int> b){
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
 vector<int> largest_smallest_integers(vector<int> lst){
-    vector<int> result = {0, 0};
+    vector<int> result = {INT_MIN, INT_MAX};
     int largest_negative = 0;
     int smallest_positive = 0;
     
@@ -16,13 +16,22 @@ vector<int> largest_smallest_integers(vector<int> lst){
         }
     }
     
-    result[0] = largest_negative;
-    result[1] = smallest_positive;
+    if (largest_negative == 0) {
+        result[0] = 0;
+    } else {
+        result[0] = largest_negative;
+    }
+    
+    if (smallest_positive == 0) {
+        result[1] = 0;
+    } else {
+        result[1] = smallest_positive;
+    }
     
     return result;
 }
 
 int main() {
-    // Add test cases if needed
+    // Test the functions here
     return 0;
 }
