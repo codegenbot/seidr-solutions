@@ -1,5 +1,3 @@
-Here is the corrected code:
-
 def calculate_average_score():
     total = 0
     student_scores_count = int(input("Enter the number of students: "))
