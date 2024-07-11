@@ -1,5 +1,4 @@
-```
-Python
+```Python
 import re
 from typing import List
 
