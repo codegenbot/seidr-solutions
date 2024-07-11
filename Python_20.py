@@ -5,10 +5,9 @@ def find_closest_elements() -> tuple:
         try:
             num = float(input("Enter a number: "))
             numbers.append(num)
-            break
         except ValueError:
             print("Invalid input. Please enter a valid number.")
-
+    
     min_diff = float("inf")
     closest_pair = ()
 
