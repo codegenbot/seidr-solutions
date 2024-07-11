@@ -1,3 +1,4 @@
-def double_the_difference(lst):
-    diff = (sum(i**2 for i in lst if isinstance(i, int) and i > 0)) - min((i**2 for i in lst if isinstance(i, int)))
-    return str(diff)
+```
+n = int(input("Enter the number of elements in the list: "))
+numbers = [int(x) for x in input(f"Enter {n} space-separated numbers: ").split()]
+print(double_the_difference(numbers))
