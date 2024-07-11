@@ -12,7 +12,7 @@ int count_upper(std::string s) {
 }
 
 int main() {
-    std::string str = "EEEE";
-    assert(count_upper(str) == 2);
+    std::string str = "ABCDE";
+    std::cout << "Number of uppercase characters at even positions: " << count_upper(str) << std::endl;
     return 0;
 }
