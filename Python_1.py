@@ -24,4 +24,4 @@ def separate_paren_groups(paren_string: str) -> list[str]:
         result.append(temp)
     return result
 
-print("""( ) (( )) (( )( ))""")
+print(separate_paren_groups("( ) (( )) (( )( ))"))
