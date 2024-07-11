@@ -1,16 +1,27 @@
 def make_palindrome(s: str) -> str:
+    if s[0] != s[-1]:
+        while len(s) < 2 or s[:1] != s[-1:]:
+            s = s[-1] + s
     s = list(s)
     i, j = 0, len(s) - 1
     while i < j:
         if s[i] != s[j]:
-            if s[0] == s[j]:
-                s.pop()
-            elif s[-1] == s[i]:
-                s.pop(j)
-            else:
-                s.insert(0, s[j])
-                s.pop(j)
-            break
-        i += 1
-        j -= 1
+            for c in set(s):
+                left, right = 0, len(s) - 1
+                while left < right and s[left] != c:
+                    left += 1
+                while left < right and s[right] != c:
+                    right -= 1
+                if left < right:
+                    for k in range(i + 1):
+                        if s[k] == c:
+                            i, j = k, len(s) - 1
+                            break
+                    for k in range(j, -1, -1):
+                        if s[k] == c:
+                            i, j = 0, k
+                            break
+        else:
+            i += 1
+            j -= 1
     return ''.join(s)
