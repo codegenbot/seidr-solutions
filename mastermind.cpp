@@ -1,8 +1,5 @@
 #include <iostream>
-#include <string>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
 
 int main() {
@@ -23,10 +20,10 @@ int main() {
     }
 
     for (int i = 0; i < 6; ++i) {
-        white += min(code_count[i], guess_count[i]);
+        white += std::min(code_count[i], guess_count[i]);
     }
 
-    cout << white << endl << black << endl;
+    std::cout << white << std::endl << black << std::endl;
 
     return 0;
 }
