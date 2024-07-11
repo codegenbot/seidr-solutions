@@ -1,6 +1,5 @@
 import heapq
 
-
 def minPath(grid, k):
     n = len(grid)
     res = []
