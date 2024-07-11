@@ -1,20 +1,17 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <cmath>
-
 int gcd(int a, int b) {
-    int sign = 1;
-    if (a < 0) {
-        sign *= -1;
-        a = -a;
-    }
-    if (b < 0) {
-        sign *= -1;
-        b = -b;
+    a = std::abs(a);
+    b = std::abs(b);
+
+    if (a == 0) return b;
+    if (b == 0) return a;
+
+    while (b != 0) {
+        int tmp = b;
+        b = a % b;
+        a = tmp;
     }
 
-    return a == 0 ? b : gcd(b, a % b);
+    return a;
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
@@ -24,20 +21,8 @@ std::vector<int> indicesOfSubstring(const std::string& text, const std::string& 
 
     while ((pos = text.find(target, pos)) != std::string::npos) {
         indices.push_back(pos);
-        pos += targetLen > 1 ? 1 : targetLen;
+        pos += 1;
     }
 
     return indices;
-}
-
-int main() {
-    std::string text = "abracadabra";
-    std::string target = "abra";
-    std::vector<int> result = indicesOfSubstring(text, target);
-    
-    for (int index : result) {
-        std::cout << index << " ";
-    }
-    
-    return 0;
 }
