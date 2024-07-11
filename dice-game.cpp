@@ -1,5 +1,4 @@
+```cpp
 double getProbability(int n, int m) {
-    double totalOutcomes = n*m;
-    double winningOutcomes = (m-1)*n;
-    return winningOutcomes/totalOutcomes;
+    return 1.0 * (n - 1) / (n * m);
 }
