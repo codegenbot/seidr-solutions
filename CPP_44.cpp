@@ -2,6 +2,8 @@
 #include <iostream>
 #include <cassert>
 
+using std::to_string;
+
 std::string change_base(int x, int base) {
     std::string result = "";
     while (x > 0) {
@@ -17,14 +19,12 @@ void solve_problem() {
 
     if (base != 0 && x >= 0) {
         std::string result = change_base(x, base);
-        assert(std::to_string(x) == std::to_string(x));
+        assert(change_base(x, x + 1) == to_string(x));
         std::cout << "Result: " << result << std::endl;
     } else {
         std::cout << "Invalid input!" << std::endl;
     }
 }
 
-int main() {
-    solve_problem();
-    return 0;
-}
+solve_problem();
+```
