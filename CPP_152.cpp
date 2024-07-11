@@ -1,11 +1,10 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
 
 using namespace std;
 
-std::vector<int> compare(std::vector<int> a, std::vector<int> b) {
+std::vector<int> compare(vector<int> a, vector<int> b) {
     sort(a.begin(), a.end());
     sort(b.begin(), b.end());
     return {a.size(), b.size()};
