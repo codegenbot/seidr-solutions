@@ -1,11 +1,16 @@
-char temp;
-for(int i = 0; i < str.length(); i++) {
-    temp = str[i];
-    if((temp >= 'a' && temp <= 'z')) {
-        temp -= 32; // convert to uppercase
-    } else if((temp >= 'A' && temp <= 'Z')) {
-        temp += 32; // convert to lowercase
+string flipCase(string str){
+    string result = "";
+    for(int i=0; i<str.length(); i++){
+        char c = str[i];
+        if(c >= 'a' && c <= 'z'){
+            result += (char)(c - ('a' - 'A'));
+        } else {
+            result += c;
+        }
     }
-    str[i] = temp;
+    return result;
 }
-return str;
+
+int main() {
+    assert (flipCase("These violent delights have violent ends") == "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS");
+}
