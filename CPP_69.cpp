@@ -1,6 +1,12 @@
 int result = -1;
     for (int num : lst) {
-        if (num > 0 && count(lst.begin(), lst.end(), num) >= num && num > result) {
+        int freq = 0;
+        for (int i : lst) {
+            if (i == num) {
+                freq++;
+            }
+        }
+        if (freq >= num && num > result) {
             result = num;
         }
     }
