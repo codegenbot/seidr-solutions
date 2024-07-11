@@ -2,11 +2,11 @@
 #include <vector>
 #include <string>
 
-int calculateBowlingScore(std::string s) {
+int calculateBowlingScore(string s) {
     int score = 0;
     int frame = 1;
     int ball = 0;
-    std::vector<int> frames(10, 0);
+    vector<int> frames(10, 0);
 
     for (char c : s) {
         if (c == 'X') {
