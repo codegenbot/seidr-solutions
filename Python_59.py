@@ -2,8 +2,12 @@
 def largest_prime_factor(n: int):
     i = n // 2
     while i > 1:
-        if n % i == 0 and is_prime(i):
-            return i
+        if n % i == 0:
+            j = i
+            while j <= (n // i):
+                if n % j == 0 and is_prime(j):
+                    return j
+                j += 1
         i -= 1
 
 def is_prime(num: int):
