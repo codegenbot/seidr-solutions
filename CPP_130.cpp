@@ -1,8 +1,11 @@
 #include <iostream>
 #include <vector>
 
-bool issame(int a, int b){
-    return a == b;
+bool issame(const std::vector<int>& v) {
+    if (v.size() < 3) {
+        return false;
+    }
+    return (v[v.size() - 1] == v[v.size() - 2] + v[v.size() - 3]);
 }
 
 std::vector<int> tri(int n) {
