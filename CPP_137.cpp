@@ -1,15 +1,16 @@
-#include <iostream>
-#include <vector>
 #include <boost/any.hpp>
+#include <string>
 
-boost::any compare_one(boost::any a, int b) {
-    if (b == 1)
-        return "One";
-    else
-        return "None";
+boost::any compare_one(std::string str, int val) {
+    if (str == "1") {
+        return boost::any(val);
+    }
+    else {
+        return boost::any(std::string("None"));
+    }
 }
 
 int main() {
-    std::cout << boost::any_cast<std::string>(compare_one(boost::any(std::string("1")), 1)) << std::endl;
+    assert (boost::any_cast<std::string>(compare_one(std::string("1"), 1)) == "None");
     return 0;
 }
