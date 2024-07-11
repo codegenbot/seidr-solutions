@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+#include <cassert>
 
 bool issame(std::vector<int> a, std::vector<int> b);
 
@@ -23,5 +25,19 @@ std::vector<int> pluck(std::vector<int> arr){
 }
 
 bool issame(std::vector<int> a, std::vector<int> b){
-    // Implement the comparison logic here
+    if(a.size() != b.size()){
+        return false;
+    }
+    
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]){
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main() {
+    // Main function code here
 }
