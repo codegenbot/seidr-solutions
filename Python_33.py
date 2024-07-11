@@ -1,4 +1,4 @@
 ```
 def sort_third(l: list):
-    l.sort(key=lambda x: int(str(x)[2] or '0'))
+    l.sort(key=lambda x: str(x) + '0' * (3 - len(str(x))))
     return l
