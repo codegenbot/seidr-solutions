@@ -1,4 +1,4 @@
-#include <iostream>
+```cpp
 #include <string>
 
 bool is_palindrome(std::string text){
