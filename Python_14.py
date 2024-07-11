@@ -1,9 +1,8 @@
-```python
 from typing import List
 
 def all_prefixes(string: str) -> List[str]:
     if not isinstance(string, str):
-        return None  
+        return None
     result = []
     for i in range(len(string) + 1):
         prefix = string[:i]
