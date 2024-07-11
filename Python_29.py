@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -31,3 +32,13 @@ except Exception as e:
     print(f"An error occurred: {e}")
     exit(1)
 filter_by_prefix([str(x) for x in strings], prefix)
+
+while True:
+    try:
+        filter_by_prefix([str(x) for x in strings], prefix)
+        repeat = input("Do you want to filter again? (yes/no): ")
+        if repeat.lower() != 'yes':
+            break
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        exit(1)
