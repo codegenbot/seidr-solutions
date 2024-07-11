@@ -1,14 +1,7 @@
 ```
 import math
 
-grid = []
-while True:
-    try:
-        row = [int(x) for x in input().split()]
-        grid.append(row)
-    except EOFError:
-        break
-
+grid = [[int(x) for x in input().split()] for _ in range(int(input()))]
 capacity = int(input())
 
 def max_fill(grid, capacity):
