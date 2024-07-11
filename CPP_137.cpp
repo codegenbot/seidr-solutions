@@ -1,14 +1,31 @@
-#include <boost/variant.hpp>
-#include <boost/any.hpp>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
-boost::any compare_one(boost::any a, boost::any b) {
-    if (holds_alternative<int>(a) && holds_alternative<double>(b)) {
-        return get<int>(a) > static_cast<double>(get<int>(b))? a : b;
+bool compare_one(int a, double b) {
+    if (a > b) {
+        return true;
     }
-    else if (holds_alternative<double>(a) && holds_alternative<int>(b)) {
-        return get<double>(a) < static_cast<int>(get<double>(b))? a : b;
+    else {
+        return false;
     }
-    return a;
+}
+
+int main() {
+    int a;
+    double b;
+    cout << "Enter an integer: ";
+    cin >> a;
+    cout << "Enter a real number: ";
+    cin >> b;
+
+    if (compare_one(a, b)) {
+        cout << "The integer is greater." << endl;
+    }
+    else {
+        cout << "The real number is not less than the integer." << endl;
+    }
+
+    return 0;
 }
