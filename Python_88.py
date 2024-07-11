@@ -1,9 +1,6 @@
-def sort_array(user_input=None):
-    if user_input is None:
-        array = list(map(int, input("Enter space-separated numbers: ").split()))
-    else:
-        array = list(map(int, user_input.split()))
-
+```
+def sort_array(*args):
+    array = list(map(int, input("Enter space-separated numbers: ").split()))
     sorted_array = sorted(array)
     n = len(sorted_array)
 
