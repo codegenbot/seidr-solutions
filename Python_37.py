@@ -1,4 +1,5 @@
 def sort_even(l: list):
-    even = [x for x in l if x % 2 == 0]
-    odd = [x for x in l if x % 2 != 0]
-    return sorted(even) + sorted(odd)
+    evens = sorted([x for x in l if x % 2 == 0])
+    odd_index = len(evens)
+    return [x if i % 2 != 0 else evens[i%len(evens)] 
+            for i, x in enumerate(sorted(l))]
