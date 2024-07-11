@@ -3,13 +3,11 @@
 #include <cmath>
 #include <sstream>
 
-using namespace std;
-
 int main() {
-    vector<int> nums;
-    string input;
-    getline(cin, input);
-    istringstream iss(input);
+    std::vector<int> nums;
+    std::string input;
+    getline(std::cin, input);
+    std::istringstream iss(input);
     int num;
     while (iss >> num) {
         nums.push_back(num);
@@ -17,10 +15,10 @@ int main() {
     
     int sum = 0;
     for (int num : nums) {
-        sum += (num / 3) - 2;
+        sum += static_cast<int>(num / 3) - 2;
     }
     
-    cout << sum << endl;
+    std::cout << sum << std::endl;
     
     return 0;
 }
