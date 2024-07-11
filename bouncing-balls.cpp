@@ -15,7 +15,11 @@ int main() {
     cout << fixed; 
     cout << setprecision(10); 
     for (int i = 1; i <= numBounces; ++i) {
-        distanceTravelled += startHeight * sqrt(2) * pow(0.5, i);
+        if (i % 2 == 1) {
+            distanceTravelled += startHeight * sqrt(2);
+        } else {
+            distanceTravelled += 0.5 * startHeight;
+        }
     }
     cout << distanceTravelled << endl;
 
