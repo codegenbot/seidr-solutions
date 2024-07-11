@@ -1,5 +1,5 @@
-```
 from collections import deque
+
 
 def minPath(grid, k):
     n = len(grid)
@@ -20,6 +20,7 @@ def minPath(grid, k):
         res.append(cur_min)
 
     return res
+
 
 n = int(input("Enter the number of rows: "))
 m = int(input("Enter the number of columns: "))
