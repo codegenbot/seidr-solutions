@@ -6,13 +6,14 @@ using namespace std;
 
 string remove_vowels(string text){
     string result;
-    for(auto c : text) {
-        if(c >= 'a' && c <= 'z'){
+    for(size_t i = 0; i < text.length(); i++){
+        char c = tolower(*text.begin() + i);
+        if(isalpha(c)){
             if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
                 result += (char) c; 
             }
         } else {
-            result += c; 
+            result += text[i]; 
         }
     }
     return result;
