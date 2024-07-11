@@ -1,10 +1,10 @@
+```
 def decode_cyclic(s: str):
     result = []
     temp = ""
-    chunk_size = 3
-    for i, char in enumerate(s):
-        if (i + 1) % chunk_size == 0:
-            result.append(temp[1] + temp[0])
+    for char in s:
+        if len(temp) % 3 == 0 and temp:
+            result.append(temp[1:] + temp[0])
             temp = ""
         else:
             temp += char
