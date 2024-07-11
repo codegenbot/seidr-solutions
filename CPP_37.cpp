@@ -9,13 +9,14 @@ void sort_even(std::vector<float>& values) {
     });
 }
 
-bool issame(const std::vector<float>& a, const std::vector<float>& b) {
+bool issame(std::vector<float> a, std::vector<float> b) {
     return a == b;
 }
 
 int main() {
     std::vector<float> values = {5, 8, -12, 4, 23, 2, 3, 11, 12, -10};
-    sort_even(values);
-    assert(issame(values, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    std::vector<float> sorted_values = values; // Create a separate vector
+    sort_even(sorted_values); // Sort the new vector
+    assert(issame(sorted_values, {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
