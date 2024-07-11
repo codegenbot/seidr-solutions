@@ -5,10 +5,7 @@ def has_close_values(numbers, threshold):
             return True
     return False
 
-try:
-    numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-    threshold = int(input("Enter threshold: "))
-except ValueError:
-    print("Invalid input. Please enter numbers separated by space and threshold as an integer.")
-else:
-    print(has_close_values(numbers, threshold))
+numbers = list(map(int, input().split()))
+threshold = int(input())
+
+print(has_close_values(numbers, threshold))
