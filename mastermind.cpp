@@ -2,25 +2,23 @@ int mastermind(string code, string guess) {
     int black = 0;
     int white = 0;
 
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
+    // Counting black pegs (correct color, correct place)
+    for(int i = 0; i < 4; ++i){
+        if(code[i] == guess[i]){
             black++;
         }
     }
 
-    for (char c : code) {
+    // Counting white pegs (correct color, wrong place)
+    for(int i = 0; i < 6; ++i){ // For each possible character
         int count = 0;
-        for (char d : guess) {
-            if (c == d) {
+        for(int j = 0; j < 4; ++j){ // For each position in the code and guess
+            if(code[j] == (char)(i+97) && guess[j] == (char)(i+97)) { // If both are equal to the character
                 count++;
             }
         }
-        if (count > 1) {
-            white += count - 1;
-        } else if (count == 1) {
-            white++;
-        }
+        white += min(count, black); // Subtracting the correct ones that were already counted as black pegs
     }
 
-    return black + white;
+    return black + white - 4; // Subtracting the four correct and correct positions already counted
 }
