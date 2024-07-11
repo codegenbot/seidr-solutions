@@ -1,21 +1,22 @@
 def decode_cyclic():
-    while True:
+    try:
         s = input("Enter the cyclic string: ")
-        if len(set(s)) > 1: 
-            break
-        else:
-            print("Invalid input. Please enter a string with more than one unique character.")
-    result = ""
-    i = 0
-    if len(s) <= 1:
-        return s
-    while True:
-        group = s[i] + ''.join(s[i+1:i+2][::-1]) + s[i]
-        if i > 0:
-            result += group[-1] + group[1:-1][::-1] + group[0]
-        else:
-            result = group
-        i = (i+1)%len(s)
-        if i == 0:
-            break
-    return result
+        result = ""
+        i = 0
+        if len(s) <= 1:
+            return s
+        while True:
+            if i == 0:
+                group = s[i] + ''.join([s[(i+1)%len(s)], next(reversed(s[i]))]) + s[i]
+            else:
+                group = s[i%len(s)] + ''.join([s[(i-1)%len(s)], next(reversed(s[i%len(s)]))]) + s[i%len(s)]
+            if i > 0:
+                result += group[-1] + group[1:-1][::-1] + group[0]
+            else:
+                result = group
+            i = (i+1)%len(s)
+            if i == 0:
+                break
+        return result
+    except Exception as e:
+        print(f"An error occurred: {e}")
