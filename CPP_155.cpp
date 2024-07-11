@@ -1,12 +1,11 @@
-```
 #include <vector>
 #include <string>
 
-int issame(const std::vector<int>& a, const std::vector<int>& b) {
+int issame(const vector<int>& a, const vector<int>& b) {
     if(a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin()))
         return 0;
     else
-        return -1;
+        return 1;
 }
 
 std::vector<int> even_odd_count(int num) {
@@ -21,7 +20,7 @@ std::vector<int> even_odd_count(int num) {
     return {count_even, count_odd};
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     assert(even_odd_count(0) == std::vector<int>{1, 0});
     return 0;
 }
