@@ -1,7 +1,7 @@
 int main() {
     vector<float> lst;
     long long odd_sum = 0; 
-    int result = double_the_difference(lst, &odd_sum);
+    int result = double_the_difference(lst, &odd_sum); 
 }
 
 long long double_the_difference(vector<float> lst, long long* odd_sum) {

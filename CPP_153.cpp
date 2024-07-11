@@ -15,7 +15,7 @@ int Strongest_Extension(string class_name, vector<string> extensions) {
             strongest = strength;
             result = extension;
         } else if (strength == strongest) {
-            if (extension < result) result = extension;
+            result = min(result, extension);
         }
     }
     return class_name + "." + result;
