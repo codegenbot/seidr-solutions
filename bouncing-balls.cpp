@@ -1,26 +1,26 @@
 ```c++
-#include <iostream>
-#include <cmath>
-
 int main() {
-    double startHeight;
     int numBounces;
-
-    std::cout << "Enter starting height: ";
-    std::cin >> startHeight;
-
-    std::cout << "Enter number of bounces: ";
-    std::cin >> numBounces;
-
-    double bouncinessIndex = (startHeight / startHeight);  // Assuming the first bounce is at the same height
-
+    double startHeight;
+    cout << "Enter number of bounces: ";
+    cin >> numBounces;
+    cout << "Enter starting height: ";
+    cin >> startHeight;
+    
+    double bouncinessIndex;
+    if (startHeight > 0) {
+        bouncinessIndex = startHeight / pow(2, 1.5);
+    } else {
+        bouncinessIndex = 0.5;
+    }
+    
     double totalDistance = 0.0;
     for (int b = 0; b < numBounces; ++b) {
         double distance = pow(2, -b * bouncinessIndex) * startHeight;
         totalDistance += distance;
     }
-
-    std::cout << "Total distance travelled: " << totalDistance;
-
+    
+    cout << "Total distance: " << totalDistance << endl;
+    
     return 0;
 }
