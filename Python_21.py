@@ -1,14 +1,7 @@
-from typing import List
-
-
 def rescale_to_unit():
-    numbers = input("Enter numbers separated by space: ").split()
-    numbers = [float(num) for num in numbers]
-
-    min_val = min(x for x in numbers if isinstance(x, (int, float)))
-    max_val = max(x for x in numbers if isinstance(x, (int, float)))
-
-    if min_val == max_val:
-        return [0.0] * len(numbers)
-
-    return [(x - min_val) / (max_val - min_val) for x in numbers]
+    while True:
+        try:
+            numbers = list(map(float, input("Enter a list of floats separated by spaces: ").split()))
+            return [(x - min(numbers)) / (max(numbers) - min(numbers)) for x in numbers]
+        except ValueError:
+            print("Invalid input. Please enter a list of floats separated by spaces.")
