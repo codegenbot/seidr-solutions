@@ -1,3 +1,4 @@
+```
 def double_the_difference(lst):
     difference = max(lst) - min(lst)
     double_diff = difference * 2
