@@ -4,17 +4,10 @@ def solve_boolean(expression):
     elif expression == "F":
         return False
     elif "&" in expression and "|" in expression:
-        raise ValueError("Invalid expression")
-    else:
-        stack = []
-        for char in reversed(expression):
-            if char in ["&", "|"]:
-                right = stack.pop()
-                left = stack.pop()
-                if char == "&":
-                    stack.append(left and right)
-                elif char == "|":
-                    stack.append(left or right)
-            else:
-                stack.append(char == "T")
-        return stack[0]
+        raise ValueError("Invalid operation")
+    elif "&" in expression:
+        left, right = expression.split("&")
+        return not (bool(left) and bool(right))
+    elif "|" in expression:
+        left, right = expression.split("|")
+        return bool(left) or bool(right)
