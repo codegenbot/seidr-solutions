@@ -1,3 +1,5 @@
-text.erase(remove_if(text.begin(), text.end(), [](char c) { return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'; }), text.end());
+string vowels = "aeiouAEIOU";
+    text.erase(std::remove_if(text.begin(), text.end(), 
+        [&](char c){ return vowels.find(c) != std::string::npos; }), text.end());
     return text;
 }
