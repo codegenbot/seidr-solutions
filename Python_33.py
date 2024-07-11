@@ -1,3 +1,4 @@
+```
 def sort_third(l: list):
     indices = {x: i for i, x in enumerate(l)}
     return [
