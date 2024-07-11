@@ -4,7 +4,7 @@
 
 vector<string> reverse_delete(string s, string c);
 
-bool issame(vector<string> a, vector<string> b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return (a == b);
 }
 
