@@ -13,7 +13,7 @@ for i in range(1, len(arr)):
         min_diff = diff
         cut_index = i
 
-if min_diff == 0 or cut_index is not None:
+if min_diff == 0 or cut_index is not None or min_diff == float('inf'):
     subvector1 = arr[:cut_index]
     subvector2 = arr[cut_index:]
 
