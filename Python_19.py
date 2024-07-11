@@ -1,5 +1,3 @@
-Here's the modified code:
-
 ```
 def check(num1, num2):
     if num1 > num2:
