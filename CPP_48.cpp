@@ -1,12 +1,12 @@
-```cpp
 #include <string>
 #include <iostream>
+#include <limits>
 
 int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::cin >> input;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n') >> std::ignore;
+    std::cin.ignore(std::streambuf::inlimits().max(), '\n');
     
     if (is_palindrome(input)) {
         std::cout << "The string is a palindrome." << std::endl;
