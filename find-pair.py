@@ -7,7 +7,7 @@ def find_pair(n, nums):
             return f"{complement} {nums[i]}"
         else:
             num_dict[nums[i]] = True
-    return f"{n} None"
+    return "No pair found"
 
 n = int(input())
 print(find_pair(n, [int(x) for x in input().split()]))
