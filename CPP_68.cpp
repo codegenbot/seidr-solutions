@@ -1,8 +1,7 @@
 #include <vector>
-#include <iostream>
 #include <cassert>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(const vector<int>& a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -14,27 +13,27 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     return true;
 }
 
-std::vector<int> pluck(std::vector<int> arr) {
-    std::vector<int> result;
-    int smallest_even = -1;
-    int smallest_index = -1;
+vector<int> pluck(vector<int> arr){
+    vector<int> result;
+    int smallestEven = INT_MAX;
+    int smallestIndex = INT_MAX;
     
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && (smallest_even == -1 || arr[i] < smallest_even)) {
-            smallest_even = arr[i];
-            smallest_index = i;
+    for(int i = 0; i < arr.size(); i++){
+        if(arr[i] % 2 == 0 && arr[i] < smallestEven){
+            smallestEven = arr[i];
+            smallestIndex = i;
         }
     }
     
-    if (smallest_even != -1) {
-        result.push_back(smallest_even);
-        result.push_back(smallest_index);
+    if(smallestEven != INT_MAX){
+        result.push_back(smallestEven);
+        result.push_back(smallestIndex);
     }
     
     return result;
 }
 
 int main() {
-    // Add test cases or code to validate functions if needed
+    // Main function can be added based on requirements
     return 0;
 }
