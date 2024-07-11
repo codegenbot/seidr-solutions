@@ -1,5 +1,3 @@
-#include <cassert>
-
 int fib4(int n) {
     int a = 0, b = 0, c = 2, d = 0, temp;
     if (n <= 2) {
@@ -17,6 +15,5 @@ int fib4(int n) {
 
 int main() {
     assert(fib4(12) == 386);
-    
     return 0;
 }
