@@ -1,11 +1,9 @@
 def add():
-    total = 0
     while True:
-        x = input("Enter the first number (or 'stop' to finish): ")
-        if x.lower() == 'stop':
+        try:
+            x = int(input("Enter first number: "))
+            y = int(input("Enter second number: "))
+            return x + y
+        except ValueError:
+            print("Invalid input. Please enter an integer.")
             break
-        y = int(input("Enter the second number: "))
-        total += y
-    return total
-
-print(add())
