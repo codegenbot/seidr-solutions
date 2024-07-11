@@ -1,15 +1,19 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 #include <cassert>
 
-bool issame(vector<int> a, vector<int> b){
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> getUniqueVector(vector<int> l){
-    sort(l.begin(), l.end());
-    l.erase(unique(l.begin(), l.end()), l.end());
-    return l;
+std::vector<int> taskFunction(const std::vector<int>& l) {
+    std::vector<int> sortedList = l;
+    std::sort(sortedList.begin(), sortedList.end());
+    sortedList.erase(std::unique(sortedList.begin(), sortedList.end()), sortedList.end());
+    return sortedList;
+}
+
+int main() {
+    assert(issame(taskFunction({5, 3, 5, 2, 3, 3, 9, 0, 123}), {0, 2, 3, 5, 9, 123}));
+    return 0;
 }
