@@ -26,7 +26,6 @@ vector<string> by_length(vector<int> arr){
         result.push_back(numToName[num]);
     }
 
-    assert(issame(result, {"Nine", "Eight", "Four"}));
-
+    assert (result == vector<string>{"Nine", "Eight", "Four"});
     return result;
 }
