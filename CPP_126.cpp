@@ -12,13 +12,14 @@ bool is_sorted(const std::vector<int>& lst) {
 }
 
 int main() {
-    std::vector<int> testList = {1, 2, 3, 4, 5};
-    
-    if(is_sorted(testList)) {
-        std::cout << "List is sorted in ascending order with no repeated elements." << std::endl;
-    } else {
-        std::cout << "List is not sorted in ascending order or contains repeated elements." << std::endl;
-    }
-    
+    std::vector<int> test1 = {1, 2, 3, 4, 5};
+    std::cout << is_sorted(test1) << std::endl;
+
+    std::vector<int> test2 = {1, 2, 3, 3, 4};
+    std::cout << is_sorted(test2) << std::endl;
+
+    std::vector<int> test3 = {5, 4, 3, 2, 1};
+    std::cout << is_sorted(test3) << std::endl;
+
     return 0;
 }
