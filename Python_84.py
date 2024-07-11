@@ -1,2 +1,2 @@
 def solve(N):
-    return bin(sum(i for i in range(1, N+1) if i % 2))
+    return bin(sum(int(i) for i in str(N))) if N > 0 else "0"
