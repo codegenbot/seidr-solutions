@@ -7,10 +7,8 @@ int main() {
     std::getline(std::cin, input);
     
     bool capitalize = true;
-    bool isFirstChar = true;
-
     for (char &c : input) {
-        if (capitalize && std::isalpha(c) && std::islower(c) && !isFirstChar) {
+        if (capitalize && std::isalpha(c) && std::islower(c)) {
             std::cout << (char)std::toupper(c);
             capitalize = false;
         } else if (c == '-' && std::isalpha(c)) {
@@ -23,7 +21,6 @@ int main() {
                 std::cout << c;
             }
         }
-        isFirstChar = false;
     }
     
     return 0;
