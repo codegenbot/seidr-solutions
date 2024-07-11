@@ -18,8 +18,8 @@ std::any compare_one(const std::any& a, const std::any& b) {
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         float num1, num2;
-        if (std::sscanf(std::any_cast<std::string>(a).c_str(), "%f", &num1) == 1 &&
-            std::sscanf(std::any_cast<std::string>(b).c_str(), "%f", &num2) == 1) {
+        if (sscanf(std::any_cast<std::string>(a).c_str(), "%f", &num1) == 1 &&
+            sscanf(std::any_cast<std::string>(b).c_str(), "%f", &num2) == 1) {
             if (num1 > num2) {
                 return a;
             } else if (num1 < num2) {
@@ -29,4 +29,8 @@ std::any compare_one(const std::any& a, const std::any& b) {
     }
     return std::any();
 }
-```
+
+int main() {
+    assert(std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))).empty());
+    return 0;
+}
