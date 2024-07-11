@@ -1,21 +1,31 @@
-```Python
-def solve(binary):
+def solve():
     while True:
         try:
-            if binary:
-                N = input(f"Enter a {'binary' if binary else 'decimal'} number: ")
-                if len(N) > 1 or set(N).difference({'0', '1'}) != set():
-                    raise ValueError
-                N = int(N, 2) if binary else int(N)
-            else:
-                N = float(input(f"Enter a {'binary' if not binary else 'decimal'} number: "))
-            break
+            N = str(input(f"Enter a {'binary' if binary else 'decimal'} number: "))
+            if set(N).difference({"0", "1"}) != set() and not binary:
+                raise ValueError
+            if not binary:
+                return float(N)
+            if not N or (N[0] == "0" and len(N) > 1):
+                raise ValueError
+            return int(N, 2)
         except ValueError:
-            print(f"Invalid input! Please enter a valid {'binary' if binary else 'decimal'}")
+            print(
+                f"Invalid input! Please enter a valid {'binary' if binary else 'decimal'}"
+            )
 
-    if binary:
-        print(bin(N)[2:])
+    operation = str(
+        input(
+            "Do you want to convert from binary to decimal or vice versa? (type 'b' for binary to decimal and 'd' for decimal to binary): "
+        )
+    )
+
+    if operation == "b":
+        binary = True
+    elif operation == "d":
+        binary = False
     else:
-        print(N)
+        print("Invalid input! Please enter either 'b' or 'd'.")
+        return
 
-solve(True)
+    print(solve(binary))
