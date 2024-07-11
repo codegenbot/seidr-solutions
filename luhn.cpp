@@ -13,12 +13,10 @@ int luhn(std::vector<int16_t> cc) {
     }
 
     return sum;
-
 }
 
 int main() {
-    std::vector<int16_t> cc = {4, 5, 2, 7, 1, 3, 9, 0, 8, 6, 7, 1, 1, 9, 3, 5};
+    std::vector<int16_t> cc = {4,3,2,1,8,6,5,4,9,7,3,2,8,6,5};
     int result = luhn(cc);
-    std::cout << "Result: " << result << std::endl;
     return 0;
 }
