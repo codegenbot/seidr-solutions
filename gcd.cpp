@@ -19,8 +19,3 @@ vector<int> indicesOfSubstring(string text, string target) {
     }
     return indices;
 }
-
-int main() {
-    // Add test cases if needed
-    return 0;
-}
