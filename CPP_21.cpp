@@ -1,18 +1,18 @@
-bool issame(const vector<float>& a, const vector<float>& b) {
-    if (a.size() != b.size()) {
+bool issame(vector<float> a, vector<float> b) {
+    if(a.size() != b.size()) {
         return false;
     }
-    
-    for (size_t i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
+
+    for(int i = 0; i < a.size(); ++i) {
+        if(a[i] != b[i]) {
             return false;
         }
     }
-    
+
     return true;
 }
 
-vector<float> rescale_to_unit(const vector<float>& numbers) {
+vector<float> rescale_to_unit(vector<float> numbers) {
     float min_val = numbers[0];
     float max_val = numbers[0];
     for (float num : numbers) {
@@ -34,15 +34,10 @@ vector<float> rescale_to_unit(const vector<float>& numbers) {
 }
 
 int main() {
-    // Test case for the issame function
     vector<float> a = {1.0, 2.0, 3.0};
-    vector<float> b = {1.0, 2.0, 3.0};
-    
-    if (issame(a, b)) {
-        cout << "vectors a and b are the same" << endl;
-    } else {
-        cout << "vectors a and b are different" << endl;
-    }
-    
+    vector<float> b = {0.5, 0.75, 1.0};
+
+    bool same = issame(rescale_to_unit(a), b);
+
     return 0;
 }
