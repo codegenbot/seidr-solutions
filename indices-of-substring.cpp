@@ -7,14 +7,10 @@ int main() {
     std::cin >> text >> target;
     
     std::vector<int> indices;
-    size_t pos = text.find(target, 0);
+    size_t pos = text.find(target, 0, target.length());
     while (pos != std::string::npos) {
         indices.push_back(static_cast<int>(pos));
-        pos = text.find(target, pos + 1);
-        if (pos == pos - 1) {
-            // Skip the found position by one
-            pos += 1;
-        }
+        pos = text.find(target, pos + 1, target.length());
     }
     
     for (int i = 0; i < indices.size(); ++i) {
