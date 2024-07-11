@@ -1,7 +1,12 @@
+```
 while True:
-    print("Enter coefficients (a b c [d]): ")
     try:
-        xs = [int(i) for i in input().split()]
+        user_input = input("Enter coefficients (a b c [d]): ")
+        if not user_input: 
+            print("Please enter something.")
+            continue
+
+        xs = [int(i) for i in user_input.split()]
         if len(xs) not in [3, 4]:
             raise ValueError
         if len(xs) == 3:
