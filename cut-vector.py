@@ -1,14 +1,15 @@
+```Python
 def cut_vector(vector):
     n = len(vector)
-    min_diff = float("inf")
-    split_index = 0
+    total_sum = sum(vector)
 
     for i in range(1, n):
         left_sum = sum(vector[:i])
-        right_sum = sum(vector[i:])
+        right_sum = total_sum - left_sum
 
-        if abs(left_sum - right_sum) < min_diff:
-            min_diff = abs(left_sum - right_sum)
-            split_index = i
+        if left_sum == right_sum:
+            return vector[:i], vector[i:]
+        elif abs(left_sum - right_sum) < abs(total_sum // 2 - left_sum):
+            return vector[:i], vector[i:]
 
-    return vector[:split_index], vector[split_index:]
+    return vector, []
