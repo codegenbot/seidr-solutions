@@ -1,41 +1,24 @@
-string result = "";
-    string word = "";
-    for (char c : sentence) {
-        if (c != ' ') {
-            word += c;
-        } else {
-            int word_length = word.length();
-            bool is_prime = true;
-            if (word_length <= 1) {
-                is_prime = false;
-            } else {
-                for (int i = 2; i * i <= word_length; ++i) {
-                    if (word_length % i == 0) {
-                        is_prime = false;
-                        break;
-                    }
+string words_in_sentence(string sentence){
+    string result = "";
+    int n = sentence.length();
+    int primes[26] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};
+
+    int wordStart = 0;
+    for (int i = 0; i <= n; ++i) {
+        if (i == n || sentence[i] == ' ') {
+            int wordLength = i - wordStart;
+            bool isPrime = false;
+            for (int j = 0; j < 26; ++j) {
+                if (primes[j] == wordLength) {
+                    isPrime = true;
+                    break;
                 }
             }
-            if (is_prime) {
-                result += word + " ";
+            if (isPrime) {
+                result += sentence.substr(wordStart, wordLength) + " ";
             }
-            word = "";
+            wordStart = i + 1;
         }
-    }
-    int word_length = word.length();
-    bool is_prime = true;
-    if (word_length <= 1) {
-        is_prime = false;
-    } else {
-        for (int i = 2; i * i <= word_length; ++i) {
-            if (word_length % i == 0) {
-                is_prime = false;
-                break;
-            }
-        }
-    }
-    if (is_prime) {
-        result += word;
     }
     return result;
 }
