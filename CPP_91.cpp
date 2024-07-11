@@ -1,13 +1,8 @@
-int count = 0;
-    string sentence = "";
-    for (char c : S) {
-        if (c == '.' || c == '?' || c == '!') {
-            if (sentence.size() > 2 && sentence[0] == 'I' && sentence[1] == ' ') {
-                count++;
-            }
-            sentence = "";
-        } else {
-            sentence += c;
+int is_bored(string S){
+    int count = 0;
+    for(int i = 0; i < S.length(); ++i){
+        if(S[i] == 'I' && (i == 0 || S[i-1] == '.' || S[i-1] == '?' || S[i-1] == '!')){
+            count++;
         }
     }
     return count;
