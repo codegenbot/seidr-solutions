@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <initializer_list>
 
 using namespace std;
 
@@ -10,22 +11,25 @@ bool is_sorted(vector<int> lst){
         if(lst[i-1] > lst[i]){
             return false;
         }
-        else if(find(lst.begin(), lst.end(), lst[i]) != lst.end() || count(lst.begin(), lst.end(), lst[i]) > 1){
+        else if(std::count(lst.begin(), lst.end(), lst[i]) > 1){
             return false;
         }
     }
     return true;
 
-int main(){
+int main() {
     vector<int> lst;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    lst.resize(n);
+    int num;
     
-    for(int i = 0; i < n; i++){
-        cin >> lst[i];
+    cout << "Enter numbers, enter -1 to stop: ";
+    
+    while((cin >> num) && (num != -1)){
+        lst.push_back(num);
     }
-
-    cout << (is_sorted(lst) ? "True" : "False") << endl; 
+    
+    if(lst.empty())
+        cout << "List is empty." << endl;
+    else
+        cout << (is_sorted(lst) ? "True" : "False") << endl; 
+    return 0;
 }
