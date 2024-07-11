@@ -7,7 +7,7 @@ int bowlingScore(std::string s) {
     for(int i = 0; i < s.size(); i++) {
         if(s[i] == '/') {
             if(roll < 2) {
-                score += (10 - '0') * 10 + (10 - '0');
+                score += (10 - '0') * 10 + (10 - 'X');
             } else {
                 score += (10 - 'X') * 10;
             }
