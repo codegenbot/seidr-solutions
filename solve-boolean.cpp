@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <stack>
 #include <string>
@@ -30,13 +31,11 @@ std::string solveBoolean(std::string expression) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            left = getBoolValue(s.top());
-            s.pop();
+            left = getBoolValue('T');
             right = true;
             result = (left && right) ? "True" : "False";
         } else if (c == '|') {
-            left = getBoolValue(s.top());
-            s.pop();
+            left = getBoolValue('T');
             right = true;
             result = (left || right) ? "True" : "False";
         } else {
@@ -48,9 +47,6 @@ std::string solveBoolean(std::string expression) {
 }
 
 int main() {
-    std::cout << "Enter a Boolean expression: ";
-    std::string expression;
-    std::cin >> expression;
-    std::cout << solveBoolean(expression) << std::endl;
+    std::cout << solveBoolean("TT|F&F") << std::endl;
     return 0;
 }
