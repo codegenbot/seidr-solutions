@@ -1,3 +1,4 @@
+```
 def double_the_difference(lst):
     if len(lst) != 2:
         return "Please enter exactly two numbers!"
@@ -7,12 +8,7 @@ def double_the_difference(lst):
     except ValueError:
         return "Invalid input. Please enter exact two numeric values!"
 
-
-print(
-    """
-Enter elements separated by comma: 
-"""
-)
+print("Enter elements separated by comma: ")
 user_input = input()
 try:
     lst = [x for x in user_input.split(",") if x.strip()]
