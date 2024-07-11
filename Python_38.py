@@ -1,3 +1,6 @@
+Here is the corrected code for the Python problem:
+
+```python
 def decode_cyclic(s: str):
     s = s * (3 - len(s) % 3)
     result = ""
@@ -10,12 +13,12 @@ def decode_cyclic(s: str):
                     result += temp[:1]
                 else:
                     result += temp[1:]
-            elif temp[0] == temp[2]:
+            elif temp[0] == temp[2]:  
                 if temp[0] == "(":
                     result += "(" + temp[1:-1] + ")"
                 else:
                     result += temp[1:-1] + temp[0]
-            else:
+            else: 
                 if not result or result[-1] != temp[0]:
                     result += temp
                 elif len(result) % 3 == 2 and result[-1] == temp[0]:
