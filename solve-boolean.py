@@ -1,6 +1,6 @@
 def solve_boolean(expression):
-    return eval(expression.replace("T", "True").replace("F", "False"))
+    return eval("(" + expression.replace('T', 'True').replace('F', 'False').replace('&', ' and ').replace('|', ' or ') + ")",
+                {"or": lambda x, y: bool(x) or bool(y), "and": lambda x, y: bool(x) and bool(y)})
 
-
-input_str = input()
-print(solve_boolean(input_str))
+result = solve_boolean('F|F&F&T|F|F&T')
+print(result)
