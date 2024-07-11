@@ -1,15 +1,12 @@
-```
 string find_max(vector<string> words){
-    string res = "";
-    int max_uniq = 0;
-    for(auto &s : words) {
-        set<char> uniq(s.begin(), s.end());
-        if(uniq.size() > max_uniq) {
-            max_uniq = uniq.size();
-            res = s;
-        } else if(uniq.size() == max_uniq) {
-            res = min(res, s);
+    string max_str = "";
+    for(auto str : words){
+        int unique_chars = 0;
+        set<char> s(str.begin(), str.end());
+        if(s.size() > unique_chars){
+            unique_chars = s.size();
+            max_str = str;
         }
     }
-    return res;
+    return max_str;
 }
