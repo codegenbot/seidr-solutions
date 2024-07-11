@@ -5,10 +5,6 @@
 
 using namespace std;
 
-int add(int a, int b) {
-    return a + b;
-}
-
 int main() {
     srand(time(nullptr)); 
     int randomNum = rand() % 1000; 
