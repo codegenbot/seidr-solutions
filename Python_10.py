@@ -4,7 +4,7 @@ def is_palindrome(string: str) -> bool:
 
 def make_palindrome(string: str) -> str:
     if is_palindrome(string):
-        return string + string
+        return string + string[::-1]
     else:
         for i in range(len(string)):
             postfix = string[i:]
