@@ -1,4 +1,6 @@
-bool issame(vector<string> a, vector<string> b);
+bool issame(vector<string> a, vector<string> b){
+    return a == b;
+}
 
 vector<string> words_string(string s){
     vector<string> words;
@@ -19,11 +21,15 @@ vector<string> words_string(string s){
     return words;
 }
 
-bool issame(vector<string> a, vector<string> b){
-    return a == b;
-}
-
-int main(){
-    // Main function code here
+int main() {
+    string input;
+    getline(cin, input);
+    vector<string> words = words_string(input);
+    vector<string> b = {"apple", "banana", "cherry"};
+    if(issame(words, b)){
+        cout << "Two vectors are the same." << endl;
+    } else {
+        cout << "Two vectors are not the same." << endl;
+    }
     return 0;
 }
