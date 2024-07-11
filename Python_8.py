@@ -1,4 +1,8 @@
-from typing import Tuple, pass
+Here is the modified code:
+
+```python
+from typing import Tuple
+import statistics
 
 def calculate_average_and_median() -> Tuple[float, float]:
     while True:
