@@ -21,7 +21,7 @@ vector<string> sorted_list_sum(vector<string> lst) {
 
     // Sort the resulted list by length and then alphabetically
     std::sort(result.begin(), result.end(),
-              [&result](const string& a, const string& b) {
+              [](const string& a, const string& b) -> bool {
                   if (a.length() != b.length())
                       return a.length() - b.length();
                   else
@@ -32,5 +32,6 @@ vector<string> sorted_list_sum(vector<string> lst) {
 }
 
 int main() {
-    assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
+    vector<string> lst = {"aaaa", "bbbb", "dd", "cc"};
+    assert(issame(sorted_list_sum(lst), {"ccc", "dd", "aaaa", "bbbb"}));
 }
