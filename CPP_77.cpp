@@ -11,4 +11,3 @@ int main() {
     assert (iscuber(1729) == false);
     // Add your test cases here
     return 0;
-}
