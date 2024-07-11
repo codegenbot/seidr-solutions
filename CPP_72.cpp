@@ -1,6 +1,6 @@
 #include <vector>
-#include <algorithm>
 #include <string>
+#include <algorithm>
 
 bool will_it_fly(vector<int> q, int w) {
     string str = "";
@@ -14,4 +14,3 @@ bool will_it_fly(vector<int> q, int w) {
         sum += i;
     }
     return sum <= w;
-}
