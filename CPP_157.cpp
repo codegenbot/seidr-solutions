@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-
 using namespace std;
 
 bool right_angle_triangle(float a, float b, float c) {
