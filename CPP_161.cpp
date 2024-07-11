@@ -1,15 +1,16 @@
-string solve(string s) {
-    string result = "";
-    bool hasLetter = false;
+#include <algorithm>
+using namespace std;
 
+string solve(string s) {
+    string res = "";
+    bool hasLetter = false;
     for (char c : s) {
-        if (!isalpha(c)) {
-            result += c;
-        } else {
+        if (isalpha(c)) {
             hasLetter = true;
-            result += (islower(c) ? toupper(c) : tolower(c));
+            res += toupper(c) - ('A'-'a') * islower(c);
+        } else {
+            res += c;
         }
     }
-
-    return hasLetter ? result : string(rbegin(s), rend(s));
+    return hasLetter ? res : string(rbegin(s), rend(s));
 }
