@@ -9,14 +9,17 @@ int main() {
     getline(cin, text);
     getline(cin, target);
 
+    if (text.empty()) {
+        cout << "0";
+        return 0;
+    }
+
     vector<int> indices;
     size_t pos = 0;
 
     while ((pos = text.find(target, pos)) != string::npos) {
-        if (pos < text.length()) {
-            indices.push_back(pos);
-            pos += target.length();
-        }
+        indices.push_back(pos);
+        pos += target.length();
     }
 
     for (int i : indices) {
