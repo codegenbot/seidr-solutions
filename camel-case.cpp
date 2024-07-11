@@ -10,8 +10,7 @@ std::string camelCase(const std::string& input) {
             output += (firstWord ? "" : "") + toupper(c + 1);
             firstWord = false;
         } else if (c == ' ') {
-            std::string space = firstWord ? "" : " ";
-            output += space;
+            output += (firstWord ? "" : "") + " ";
             firstWord = true;
         } else {
             output += c;
@@ -25,7 +24,7 @@ std::string camelCase(const std::string& input) {
 int main() {
     std::string input;
     std::cout << "Enter a string in kebab-case: ";
-    std::getline(std::cin, input); 
+    std::cin >> input; 
     std::cout << camelCase(input) << std::endl;
 
     return 0;
