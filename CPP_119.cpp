@@ -1,20 +1,15 @@
-#include <vector>
-#include <string>
-using namespace std;
-
-string match_parens(vector<string> lst){
-    int cnt = 0;
-    for (string s : lst) {
-        for (char c : s) {
+int balance = 0;
+    for (const string& str : lst) {
+        for (char c : str) {
             if (c == '(') {
-                cnt++;
+                balance++;
             } else {
-                if (cnt == 0) {
+                if (balance == 0) {
                     return "No";
                 }
-                cnt--;
+                balance--;
             }
         }
     }
-    return (cnt == 0) ? "Yes" : "No";
+    return balance == 0 ? "Yes" : "No";
 }
