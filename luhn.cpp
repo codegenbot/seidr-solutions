@@ -1,14 +1,14 @@
-int luhn(vector<int> digits) {
+int luhn(vector<int> &card) {
     int sum = 0;
-    for (int i = 0; i < digits.size(); i++) {
-        if ((i % 2) == 1) {
-            int temp = digits[i] * 2;
-            if (temp > 9)
-                sum += temp - 9;
-            else
-                sum += temp;
+    for (int i = card.size() - 1; i >= 0; --i) {
+        if (i % 2 == 1) {
+            int digit = card[i] * 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+            sum += digit;
         } else {
-            sum += digits[i];
+            sum += card[i];
         }
     }
     return sum;
