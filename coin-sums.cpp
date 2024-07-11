@@ -4,22 +4,32 @@
 using namespace std;
 
 int main() {
-    uint64_t cents;
+    int cents;
     cin >> cents;
 
     vector<int> coins = {25, 10, 5, 1};
-    vector<int> result(4, 0);
-    uint64_t remaining = cents;
+    vector<vector<int>> dp(cents + 1, vector<int>(4));
 
-    for (int i = 3; i >= 0; i--) {
-        result[i] += remaining / static_cast<uint64_t>(coins[i]);
-        remaining %= static_cast<uint64_t>(coins[i]);
+    for (int i = 0; i <= cents; i++) {
+        dp[i][3] = 0;
+        for (int j = 3; j >= 0; j--) {
+            if (coins[j] > i) {
+                dp[i][j] = dp[i][j + 1];
+            } else {
+                dp[i][j] = min(dp[i - coins[j]][j] + 1, dp[i][j + 1]);
+            }
+        }
     }
 
-    cout << result[0] << endl;
-    cout << result[1] << endl;
-    cout << result[2] << endl;
-    cout << result[3] << endl;
+    int q = cents / 25;
+    int n = (cents % 25) / 10;
+    int d = ((cents % 25) % 10) / 5;
+    int p = cents % 5;
+
+    cout << "Quarters: " << q << endl;
+    cout << "Nickels: " << n << endl;
+    cout << "Dimes: " << d << endl;
+    cout << "Pennies: " << p << endl;
 
     return 0;
 }

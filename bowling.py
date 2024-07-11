@@ -1,3 +1,4 @@
+```
 def bowling_score(game):
     score = 0
     roll = 0
@@ -34,5 +35,3 @@ def bowling_score(game):
                 score += sum(first_two_rolls)
                 roll += 2
     return score
-
-print(bowling_score("12/3/4 X/5/6 X/7-8/9X/10"))
