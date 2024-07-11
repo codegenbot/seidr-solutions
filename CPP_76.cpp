@@ -1,6 +1,11 @@
 if (x <= 0 || n <= 0) {
         return false;
     }
-    double res = pow(x, 1.0 / n);
-    return (pow((int)res, n) == x);
+    
+    int power = 1;
+    while (power < x) {
+        power *= n;
+    }
+    
+    return power == x;
 }
