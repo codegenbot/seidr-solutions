@@ -1,10 +1,11 @@
+```
 def add(x: int, y: int):
-    if x < 0 and y < 0:
-        return -1 * (abs(x) + abs(y))
-    else:
-        return x + y
+    return x + y
 
 
-print(add(2, 3))
-print(add(-1, 1))
-print(add(10, -5))
+x = int(input("Enter first number: "))
+y = int(input("Enter second number: "))
+
+print(f"The sum of {x} and {y} is {add(x, y)}")
+print(f"The sum of {x} and {-1} is {add(x, -1)}")
+print(f"The sum of {10} and {-5} is {add(10, -5)}")
