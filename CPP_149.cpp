@@ -1,4 +1,4 @@
-```
+```cpp
 vector<vector<string>> sorted_list_sum(vector<string> lst) {
     vector<vector<string>> result;
 
@@ -33,7 +33,6 @@ bool issame(vector<string> a, vector<string> b) {
     }
     return a.size() == b.size();
 }
-
 int main() {
     assert(issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"ccc", "dd", "aaaa", "bbbb"}));
 }
