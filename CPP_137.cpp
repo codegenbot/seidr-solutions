@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 #include <iostream>
@@ -6,10 +7,10 @@ using namespace boost;
 
 boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return b;
+        return boost::any(b);
     }
     else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return b;
+        return boost::any(b);
     }
     else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         std::string strA = boost::any_cast<std::string>(a);
@@ -22,22 +23,19 @@ boost::any compare_one(boost::any a, boost::any b) {
             return b;
         }
         else {
-            return boost::any((boost::any_cast<int>(a) == boost::any_cast<int>(b)) ? 0 : 1);
+            return boost::any("None");
         }
     }
     else if ((a.type() == typeid(double) && b.type() == typeid(std::string)) || 
              (a.type() == typeid(std::string) && b.type() == typeid(double))) {
-        double dA = boost::any_cast<double>(a);
-        double dB = boost::any_cast<double>(b);
-
-        if (dA > dB) {
+        if (boost::any_cast<double>(a) > boost::any_cast<double>(b)) {
             return a;
         }
-        else if (dA < dB) {
+        else if (boost::any_cast<double>(a) < boost::any_cast<double>(b)) {
             return b;
         }
         else {
-            return boost::any(0);
+            return boost::any("None");
         }
     }
 
