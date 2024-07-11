@@ -1,9 +1,11 @@
 ```
 def make_palindrome(s: str) -> str:
-    if s == s[::-1]:
-        return s
-    for i in range(len(s), 0, -1):
-        for j in range(i, 0, -1):
-            substring = s[:j][::-1] + s + s[i-1:]
-            if substring == substring[::-1]:
-                return substring
+    s = list(s)
+    i, j = 0, len(s) - 1
+    while i < j:
+        if s[i] != s[j]:
+            s.insert(0, s.pop())
+            break
+        i += 1
+        j -= 1
+    return ''.join(s)
