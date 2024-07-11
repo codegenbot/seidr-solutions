@@ -1,7 +1,6 @@
-#include <vector>
 #include <string>
 
-vector<string> all_prefixes(string str){
+vector<string> all_prefixes(string str) {
     vector<string> result;
     string prefix = "";
     for (char c : str) {
@@ -11,14 +10,12 @@ vector<string> all_prefixes(string str){
     return result;
 }
 
-int main(){
+int main() {
     string input;
-    getline(cin, input);
-    
+    cin >> input;
     vector<string> prefixes = all_prefixes(input);
-    for (const string& prefix : prefixes) {
-        cout << prefix << " ";
+    for (string prefix : prefixes) {
+        cout << prefix << "\n";
     }
-    
     return 0;
 }
