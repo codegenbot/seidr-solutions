@@ -4,8 +4,9 @@ prices, discounts = [float(x) for x in input().split()], [float(x) for x in inpu
 
 total_price = 0
 for i in range(n):
-    if i < len(prices) and i < len(discounts): 
-        price = prices[i] - (prices[i] * discounts[i] / 100)
-        total_price += max(0, price)
+    if i < len(prices): 
+        discount_amount = prices[i] * (discounts[i] / 100)
+        price = max(0, prices[i] - discount_amount)
+        total_price += price
 
 print(total_price)
