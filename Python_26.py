@@ -1,6 +1,6 @@
-Here is the solution to the problem:
+Here is the corrected code:
 
-```python
+```
 from typing import List
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
