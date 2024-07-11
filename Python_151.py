@@ -1,3 +1,7 @@
-```
-def double_the_difference(lst1, lst2):
-    return (max(lst1) - min(lst1)) * 2
+def double_the_first_diff(lst):
+    first = min(lst)
+    for num in lst:
+        if num > first:
+            second = num
+            break
+    return (second - first) ** 2
