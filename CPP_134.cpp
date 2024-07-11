@@ -1,17 +1,13 @@
+Here is the completed code:
+
+```cpp
 bool check_if_last_char_is_a_letter(string txt) {
-    int lastCharIndex = txt.size() - 1;
-    if (lastCharIndex < 0)
-        return false;
-
-    char lastChar = txt[lastCharIndex];
-    if (!isalpha(lastChar))
-        return false;
-
-    for (int i = 0; i < lastCharIndex; i++) {
-        if (isspace(txt[i]) && !ispunct(txt[i + 1])) {
-            return true;
-        }
+    if(txt.empty()) return false;
+    string lastChar = txt.substr(txt.length() - 1);
+    for(int i=0; i<txt.length()-1; i++) {
+        if(txt[i] == ' ') break;
+        if(txt.substr(i, txt.length()-i-1).compare(lastChar) == 0)
+            return false;
     }
-
-    return false;
+    return isalpha(txt.back());
 }
