@@ -1,12 +1,7 @@
-```
-def check(lst):
-    first = min(lst)
-    second = None
-    for num in lst:
-        if num > first:
-            second = num
-            break
-    if second is not None:
-        return (second - first) ** 2
+```Python
+def double_the_first_diff(lst):
+    first = min(set(lst))
+    if len(set(lst)) > 1:
+        return (max(lst) - first) ** 2
     else:
-        return 0
+        return (max(lst) - first) ** 2
