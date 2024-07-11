@@ -13,7 +13,8 @@ def find_pair(n):
     while left < right:
         total = s[left] + s[right]
         if total == 0:
-            print(f"{s[left]} {s[right]}")
+            print(f"{s[left]}")
+            print(f"{s[right]}")
             return
         elif total > 0:
             right -= 1
