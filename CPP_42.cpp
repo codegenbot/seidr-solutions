@@ -32,7 +32,8 @@ int main() {
         b.push_back(num);
     }
     
-    assert(issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), b));
+    std::vector<int> testVector = {5, 2, 5, 2, 3, 3, 9, 0, 123};
+    assert(issame(incr_list(testVector), b));    
     
     return 0;
 }
