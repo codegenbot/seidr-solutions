@@ -10,7 +10,7 @@ bool evaluateBooleanExpression(string input) {
 
     for (char c : input) {
         if (c == 'T' || c == 'F') {
-            operands.push(c == 'T');
+            operands.push(c == 'T' ? true : false);
         } else if (c == '&') {
             while (!operators.empty() && operators.top() == '&') {
                 char op = operators.top();
