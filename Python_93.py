@@ -6,8 +6,10 @@ def encode(message):
         if char.isalpha():
             if char.lower() in vowels:
                 new_char = chr((ord(char.lower()) - 96 + 2) % 26 + 96)
+            elif char.isupper():
+                new_char = chr((ord(char) - 65 + 2) % 26 + 65)
             else:
-                new_char = chr((ord(char.lower()) - 97 + 2) % 26 + 97)
+                new_char = chr((ord(char) - 97 + 2) % 26 + 97)
             result += new_char
         else:
             result += char
