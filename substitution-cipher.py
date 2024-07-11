@@ -1,13 +1,18 @@
-```Python
+```
 def decipher(cipher1, cipher2, message):
-    mapping = {k: v.lower() if c.islower() else v.upper() for k,v,c in zip(cipher1, cipher2, map(str, cipher1))}
+    mapping = {}
+    for k,v in zip(cipher1, cipher2):
+        if v.isalpha():
+            if k.islower():
+                mapping[k] = v.lower()
+            else:
+                mapping[k] = v.upper()
+
     result = ""
     for char in message:
-        if char.isalpha():
-            if char.isupper():
-                result += mapping.get(char.lower(), char).upper()
-            else:
-                result += mapping.get(char, char)
+        if char in mapping:
+            result += mapping[char]
         else:
             result += char
+
     return result
