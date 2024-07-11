@@ -14,8 +14,8 @@ int digitSum(std::string s) {
 }
 
 int main() {
-    std::string input;  
     std::cout << "Enter a string: ";
+    std::string input;
     std::cin >> input;
     size_t pos = 0;
     while (pos < input.size() && ::isspace(input[pos])) {
