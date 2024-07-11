@@ -1,3 +1,4 @@
+```
 def make_palindrome(s: str) -> str:
     s = list(s)
     i, j = 0, len(s) - 1
@@ -10,7 +11,6 @@ def make_palindrome(s: str) -> str:
             else:
                 s.insert(0, s[j])
                 s.pop(j)
-            break
         i += 1
         j -= 1
     return ''.join(s)
