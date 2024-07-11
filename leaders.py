@@ -1,6 +1,7 @@
-def leaders(arr):
+```
+def leaders(input_list):
     return [
-        arr[i]
-        for i in range(len(arr) - 1, -1, -1)
-        if all(x < arr[i] for x in arr[i + 1:])
+        x
+        for i, x in enumerate(input_list)
+        if all(x >= y for y in input_list[i + 1:])
     ]
