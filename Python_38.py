@@ -1,4 +1,3 @@
-```
 def decode_cyclic(s: str):
     result = []
     temp = ""
@@ -6,10 +5,12 @@ def decode_cyclic(s: str):
         temp += char
         if len(temp) >= 3:
             result.append(temp[1] + temp[0])
-            temp = ""
+            temp = temp[1:] if len(temp) > 2 else ""
     if temp:
-        if len(temp) > 0 and len(temp) < 3:
-            return "Error: Invalid cyclic shift sequence"
+        if len(temp) == 1:
+            return temp
+        elif len(temp) == 2:
+            result.extend([temp[1], temp[0]])
         else:
             result.append(temp)
     return "".join(result)
