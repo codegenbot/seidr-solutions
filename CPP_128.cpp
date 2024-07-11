@@ -1,18 +1,10 @@
-int result = 0;
+if(arr.empty()) return -32768;
     int product = 1;
-    
-    if (arr.empty()) {
-        return -32768;
+    int sum = 0;
+    for(int num : arr){
+        if(num > 0) product *= 1;
+        else if(num < 0) product *= -1;
+        sum += abs(num);
     }
-    
-    for (int num : arr) {
-        if (num > 0) {
-            result += num;
-        } else if (num < 0) {
-            result -= num;
-            product *= -1;
-        }
-    }
-    
-    return result * product;
+    return sum * product;
 }
