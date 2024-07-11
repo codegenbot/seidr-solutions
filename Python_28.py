@@ -1,7 +1,5 @@
-def concatenate_strings(input_list: List[str]) -> str:
-    result = ""
-    for string in input_list:
-        if len(result) > 0:
-            result += ", "
-        result += string
-    return result
+def calculate_total_cost(items: List[dict]) -> float:
+    total_cost = 0
+    for item in items:
+        total_cost += item['price'] * item['quantity']
+    return total_cost
