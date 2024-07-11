@@ -8,10 +8,10 @@ def bowling_score(s):
             # Strike
             score += 10 + (rolls[i+1] + rolls[i+2] if i+2 < len(rolls) else 0)
             i += (3 if i+2 < len(rolls) else 1)
-        elif rolls[i] == 2 or rolls[i] in [9, 8]:
+        elif rolls[i] == -1 or rolls[i] == 2:
             # Spare
-            score += 5 + (rolls[i+1] if i+1 < len(rolls) else 0)
-            i += (2 if i+1 < len(rolls) else 1)
+            score += 5 + (rolls[i+1] + rolls[i+2] if i+2 < len(rolls) else 0)
+            i += (3 if i+2 < len(rolls) else 1)
         else:
             # Regular frame
             if rolls[i] > 9 or (i+1 < len(rolls) and rolls[i+1] > 9):
