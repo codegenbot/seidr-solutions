@@ -9,7 +9,7 @@ bool issame(const std::vector<int>& a, const std::vector<int>& b) {
 std::vector<int> make_a_pile(int n) {
     std::vector<int> pile;
     for (int i = 0; i < n; i++) {
-        pile.push_back(2 * i + 8);
+        pile.push_back(2 * i + 8); 
     }
     return pile;
 }
