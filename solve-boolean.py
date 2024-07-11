@@ -12,30 +12,25 @@ def solve_boolean(expression):
         if char in ["T", "F"]:
             stack.append(bool(char == "T"))
         elif char == "(":
-            stack.append(char)
+            temp_stack = stack.copy()
+            stack = []
+            stack.append(temp_stack)
         elif char == ")":
-            while len(stack) > 0 and stack[-1] != "(":
-                top = stack.pop()
-                if top == ")": 
-                    break
-                b = stack.pop()
+            temp_stack = stack.pop()[::-1]
+            while temp_stack[-1] != "(":
+                stack.append([temp_stack.pop()])
+            temp_stack.pop()  # discard the '('
+            while len(stack) > 0:
                 a = stack.pop()
-                stack.append(operations[char](a, b))
-        else:
-            while (
-                len(stack) > 0 and stack[-1] in precedence
-                and precedence[stack[-1]] >= precedence.get(char, 2)
+                b = stack[0].pop()
+                if char in operations:
+                    stack.append(operations[char](a, b))
+                else:
+                    stack.append(a)
+        elif char in operations:
+            while len(stack) > 0 and (
+                stack[-1][0] != "("
+                and precedence.get(char, 2) <= precedence.get(stack[-1][0], 2)
             ):
-                top = stack.pop()
-                if top == "(": 
-                    break
-                stack.append(operations[char](stack.pop(), stack.pop()))
-            stack.append(char)
-
-    while len(stack) > 0 and stack[-1] in precedence:
-        top = stack.pop()
-        if top == "(": 
-            break
-        stack.append(operations[stack.pop()](stack.pop(), stack.pop()))
-
-    return stack[0]
+                pass
+    return stack[0][0]
