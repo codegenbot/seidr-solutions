@@ -1,6 +1,3 @@
-Here is the solution:
-
-```
 import hashlib
 
 
@@ -11,7 +8,7 @@ def string_to_md5(text):
 
 
 text = input("Please enter a string: ")
-while text.strip() == "":  
+while text.strip() == "":
     print("Invalid input. Please try again.")
     text = input("Please enter a string: ")
 
