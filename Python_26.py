@@ -2,4 +2,4 @@ from typing import List
 from collections import OrderedDict
 
 def remove_duplicates(numbers: List[int]) -> List[int]:
-    return list(set(numbers))
+    return list(dict.fromkeys(numbers))
