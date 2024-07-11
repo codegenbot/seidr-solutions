@@ -3,15 +3,14 @@
 using namespace std;
 
 string change_base(int x, int base) {
-    string result = "";
+    string res = "";
     while (x > 0) {
-        int remainder = x % base;
-        if (remainder >= 10) {
-            result = char(55 + remainder) + result; // Convert to ASCII character
-        } else {
-            result = to_string(remainder) + result;
-        }
+        int rem = x % base;
+        if (rem >= 10)
+            res.insert(0, 1, 'A' + rem - 10);
+        else
+            res.insert(0, to_string(rem));
         x /= base;
     }
-    return result;
+    return res;
 }
