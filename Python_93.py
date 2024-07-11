@@ -1,6 +1,7 @@
-```def encode(message):
+```Python
+def encode(message):
     result = ""
-    direction = 1  # Set this flag to 1 for encoding and -1 for decoding
+    direction = 1  
     
     for char in message:
         if char.isalpha():
@@ -15,4 +16,4 @@
                 result += chr((ord(char) - base - 2) % 26 + base)
         else:
             result += char
-    return result```
+    return result
