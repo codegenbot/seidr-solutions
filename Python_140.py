@@ -1,4 +1,3 @@
-```
 import re
 
 
@@ -9,8 +8,6 @@ def fix_spaces(text):
     text = re.sub(pattern, replacement, text)
     return text
 
-text = input("Enter a text: ")
-if isinstance(text, str):
-    print(fix_spaces(text))
-else:
-    print("Invalid input. Please enter a string.")
+print("Please enter a text:")
+text = input()
+print(fix_spaces(text))
