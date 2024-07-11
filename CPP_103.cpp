@@ -16,7 +16,7 @@ string rounded_avg(int n, int m) {
             result += "1";
         else
             result += "0";
-        avg /= 2;
+        avg = avg / 2;
     }
     std::reverse(result.begin(), result.end());
     return result;
