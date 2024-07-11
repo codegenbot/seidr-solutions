@@ -1,9 +1,5 @@
-def solve_boolean(expr):
-    return eval(expr.replace("T", "True").replace("F", "False"))
+def solve_boolean(expression):
+    return eval(expression.replace("T", "True").replace("F", "False").replace("|", "or").replace("&", "and"))
 
-
-# Read input
-expr = input().strip()
-
-# Call the function and print the result
-print(solve_boolean(expr))
+input_str = input()
+print(solve_boolean(input_str))
