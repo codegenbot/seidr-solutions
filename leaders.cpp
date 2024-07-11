@@ -1,6 +1,4 @@
-#include <iostream>
 #include <vector>
-
 std::vector<int> findLeaders(std::vector<int> nums) {
     std::vector<int> leaders;
     int maxLeader = nums.back();
@@ -14,15 +12,4 @@ std::vector<int> findLeaders(std::vector<int> nums) {
     leaders.push_back(maxLeader);
     
     return leaders;
-}
-
-int main() {
-    std::vector<int> nums = {5, 3, 20, 15, 8, 3};
-    
-    std::vector<int> leaders = findLeaders(nums);
-    for (int leader : leaders) {
-        std::cout << leader << " ";
-    }
-    
-    return 0;
 }
