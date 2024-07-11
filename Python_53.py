@@ -1,6 +1,6 @@
+```
 def add(x, y):
     return x + y
-
 
 while True:
     try:
@@ -12,12 +12,9 @@ while True:
 while True:
     try:
         y = int(input("Enter second number: "))
-        if y != 0:
-            break
-        else:
-            print("Program terminated.")
-            exit()
+        break
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
 
 print(add(x, y))
+input("Press Enter to continue...")
