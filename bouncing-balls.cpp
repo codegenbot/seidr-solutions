@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip> 
 using namespace std;
+using std::ios_base; 
 
 int main() {
     double startHeight, heightAfterFirstBounce;
@@ -15,7 +16,9 @@ int main() {
         distanceTravelled += (startHeight * pow(2, 0.5)) * pow(0.5, i - bouncinessIndex);
     }
 
-    cout << fixed << setprecision(10) << distanceTravelled << endl;
+    cout << fixed; 
+    cout << setprecision(10); 
+    cout << distanceTravelled << endl;
 
     return 0;
 }
