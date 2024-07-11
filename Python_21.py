@@ -3,7 +3,7 @@ from typing import List
 
 def rescale_to_unit(numbers: List[float]) -> List[float]:
     if not numbers:
-        return []
+        return []  # or some default value, like [0.0]
 
     min_val = min(numbers)
     max_val = max(numbers)
