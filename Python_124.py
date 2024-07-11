@@ -6,24 +6,21 @@ def valid_date(date):
     if len(month) == 1:
         month = '0' + month
     try:
-        int(year)
-        if not (int(month) >= 1 and int(month) <= 12):
+        yr = int(year)
+        mnth = int(month)
+        dy = int(day)
+        if not (mnth >= 1 and mnth <= 12):
             return False
-        if int(month) in [4,6,9,11]:
-            if int(day) > 30 or int(day) < 1:
+        if mnth in [4,6,9,11]:
+            if dy > 30 or dy < 1:
                 return False
-        elif int(month) == 2:
-            if not (is_leap(year) and int(day) > 29 or int(day) < 1):
-                return False
+        elif mnth == 2:
+            if not ((yr % 4 == 0 and yr % 100 != 0) or (yr % 400 == 0)):
+                if dy > 29 or dy < 1:
+                    return False
         else:
-            if int(day) > 31 or int(day) < 1:
+            if dy > 31 or dy < 1:
                 return False
     except ValueError:
         return False
     return True
-
-def is_leap(year):
-    if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
-        return True
-    else:
-        return False

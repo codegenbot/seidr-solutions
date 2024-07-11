@@ -1,5 +1,6 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
+
 using namespace std;
 
 bool has_close_elements(vector<float> numbers, float threshold){
@@ -14,10 +15,5 @@ bool has_close_elements(vector<float> numbers, float threshold){
 
 int main() {
     vector<float> a={1.0, 2.0, 3.9, 4.0, 5.0, 2.2};
-    if(has_close_elements(a, 0.5)) {
-        cout << "Numbers have at least one close pair." << endl;
-    } else {
-        cout << "Numbers do not have any close pairs." << endl;
-    }
+    cout << has_close_elements(a, 0.5) << endl;
     return 0;
-}
