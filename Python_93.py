@@ -1,15 +1,5 @@
-```python
+```
 def encode(message):
-    """
-    This function shifts each letter in the input string by 3 positions.
-    It maintains the case of the original letters.
-
-    Parameters:
-    message (str): The input string to be shifted
-
-    Returns:
-    str: The shifted string
-    """
     result = ""
     for char in message:
         if char.isalpha():
