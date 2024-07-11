@@ -13,7 +13,7 @@ def bowling_score(s):
             roll += 1
             if roll < 9 and s[s.index('X') + 2] == 'X':
                 score += 30
-            elif roll < 10 and (s[roll*2+1:roll*2+3].startswith('X')):
+            elif roll < 10 and s[s.index('X'):].count('X') >= 2:
                 score += 20
             else:
                 score += 10
