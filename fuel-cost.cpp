@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 using namespace std;
 
@@ -12,3 +11,4 @@ int calculateFuelCost(initializer_list<int> numbers) {
         total += result;
     }
     return total;
+}
