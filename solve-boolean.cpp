@@ -19,14 +19,18 @@ std::string solveBoolean(std::string expression) {
     }
 
     std::string result = "";
-    bool left = false, right = false;
+    bool left, right;
     while (!s.empty()) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            result = (getBoolValue(s.top())) ? "True" : "False";
+            left = getBoolValue(s.top());
+            right = getBoolValue(c);
+            result = (left && right) ? "True" : "False";
         } else if (c == '|') {
-            result = (getBoolValue(s.top())) ? "True" : "False";
+            left = getBoolValue(s.top());
+            right = getBoolValue(c);
+            result = (left || right) ? "True" : "False";
         } else {
             result = (getBoolValue(c)) ? "True" : "False";
         }
