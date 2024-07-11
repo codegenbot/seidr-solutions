@@ -16,16 +16,7 @@ bool is_sorted(vector<int> lst){
     }
     return true;
 
-int main(){
-    vector<int> lst;
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    lst.resize(n);
-    
-    for(int i = 0; i < n; i++){
-        cin >> lst[i];
-    }
-
+int main() {
+    vector<int> lst = {1,2,3,4};
     cout << (is_sorted(lst) ? "True" : "False") << endl; 
 }
