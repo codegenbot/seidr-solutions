@@ -1,4 +1,3 @@
-```c++
 #include <iostream>
 using namespace std;
 
@@ -26,8 +25,12 @@ bool isPrime(int n) {
 }
 
 int main(){
-    int result = skjkasdkd({127, 97, 8192});
-    cout << "The sum of digits is: " << result << endl;
-    assert(skkkasdkd({127, 97, 8192}) == 10);
+    vector<int> lst;
+    int num;
+    cout << "Enter numbers to check: ";
+    while(cin >> num){
+        lst.push_back(num);
+    }
+    cout << "Sum of digits for prime number is: " << skjkasdkd(lst) << endl;
     return 0;
 }
