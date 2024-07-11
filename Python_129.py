@@ -1,6 +1,4 @@
-Here's the corrected code:
-
-```python
+```
 def minPath(grid, k):
     m = len(grid)
     visited = set()
@@ -12,22 +10,23 @@ def minPath(grid, k):
         if remaining == 0:
             if len(path) < min_length:
                 min_length = len(path)
-                shortest_path = path[:]
+                shortest_path = [grid[x][y] for x, y in zip([i]+path[:-1], [j]+[p]) for p in path]
             return
         if (i, j) in visited:
             return
         visited.add((i, j))
-        for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            new_i, new_j = i + x, j + y
+        for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+            new_i, new_j = i + dx, j + dy
             if 0 <= new_i < m and 0 <= new_j < m:
                 if grid[new_i][new_j] == k:
-                    new_path = path + [grid[new_i][new_j]]
-                    dfs(new_i, new_j, new_path, remaining - 1)
+                    dfs(new_i, new_j, path+[grid[new_i][new_j]], remaining - 1)
+                elif grid[new_i][new_j] == 0:
+                    return
         visited.remove((i, j))
 
     for i in range(m):
         for j in range(m):
             if grid[i][j] == k:
-                dfs(i, j, [], m*m-k)
+                dfs(i, j, [], m*m)
 
     return shortest_path
