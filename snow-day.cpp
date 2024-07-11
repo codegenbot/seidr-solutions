@@ -1,3 +1,4 @@
+```cpp
 #include <algorithm>
 
 float snowDay(int hours, float groundSnow, float rate, float melt) {
@@ -6,4 +7,5 @@ float snowDay(int hours, float groundSnow, float rate, float melt) {
         totalSnow += rate;
         totalSnow -= std::min(totalSnow, rate * melt);
     }
+    return totalSnow;
 }
