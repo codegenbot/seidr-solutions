@@ -1,6 +1,5 @@
-```python
 def fix_spaces(text):
-    text = text.strip().replace(" ", "_")
-    while "  " in text:
-        text = text.replace("  ", "_")
-    return "_" + text.replace(" ", "_")
+    text = "".join(
+        char if char.isalnum() else "_" for char in text.strip().replace(" ", "_")
+    ).lower()
+    return text
