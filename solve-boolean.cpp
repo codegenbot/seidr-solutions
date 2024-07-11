@@ -1,10 +1,3 @@
-#include <stack>
-#include <string>
-
-bool getBoolValue(char c) {
-    return c == 'T';
-}
-
 std::string solveBoolean(std::string expression) {
     std::stack<char> s;
     for (int i = 0; i < expression.length(); i++) {
@@ -24,21 +17,22 @@ std::string solveBoolean(std::string expression) {
     }
 
     std::string result = "";
-    bool left = false, right = false;
     while (!s.empty()) {
         char c = s.top();
         s.pop();
         if (c == '&') {
-            left = getBoolValue(s.top());
-            right = true;
-            result = (left && right) ? "True" : "False";
+            result = (getBoolValue(s.top())) ? "True" : "False";
         } else if (c == '|') {
-            left = getBoolValue(s.top());
-            right = true;
-            result = (left || right) ? "True" : "False";
+            result = (getBoolValue(s.top())) ? "True" : "False";
         } else {
             result = (getBoolValue(c)) ? "True" : "False";
         }
     }
+}
 
-    return result;
+int getBoolValue(char c) {
+    if (c == 'T')
+        return 1;
+    if (c == 'F')
+        return 0;
+}
