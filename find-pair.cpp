@@ -1,8 +1,6 @@
 #include <vector>
 #include <map>
 
-using namespace std;
-
 vector<int> findPair(vector<int>& nums, int target) {
     map<int, int> mp;
     vector<int> result;
