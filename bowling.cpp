@@ -1,28 +1,27 @@
+```
 #include <string>
 
 int bowlingScore(std::string s) {
     int score = 0;
-    int currentRolls = 0;
-    int currentFrame = 1;
+    bool lastRoll = false;
 
-    for (char c : s) {
-        if (c == '/') {
-            if (currentRolls < 2) {
-                score += 10 - (10 - currentRolls);
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == 'X') { 
+            score += 10 + (i < 8 ? 10 : 0);
+            lastRoll = true;
+        } else if (s[i] == '/') { 
+            score += 10;
+            lastRoll = true;
+        } else {
+            int roll1 = s[i] - '0';
+            int roll2 = i + 1 < s.size() ? s[i + 1] - '0' : 0;
+            if (lastRoll) {
+                return -1; 
             }
-            currentRolls = 0;
-            currentFrame++;
-        } else if (isdigit(c)) {
-            int rollValue = c - '0';
-            currentRolls++;
-            if (currentRolls == 1) {
-                score += rollValue;
-            } else if (currentRolls == 2) {
-                if (rollValue + 10 > 10) {
-                    score += 10;
-                } else {
-                    score += rollValue + 10;
-                }
+            score += roll1 + roll2;
+            lastRoll = false;
+            if (roll1 == 10) { 
+                i++;
             }
         }
     }
