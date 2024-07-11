@@ -3,19 +3,13 @@ def solution(lst):
     return sum(i for i in lst[1::2] if i % 2 != 0)
 
 if __name__ == "__main__":
-    user_input = input("Enter space-separated integers: ")
-    numbers = user_input.split()
-    
-    for num in numbers:
-        int_num = int(num)
-        if not isinstance(int_num, int):
-            raise ValueError
+    while True:
+        user_input = input("Enter space-separated integers: ")
+        numbers = user_input.split()
         
-    lst = [int(i) for i in numbers]
-    
-    try:
-        print(solution(lst))
-    except ValueError as ve:
-        print(str(ve))
-    else:
-        print("     No odd numbers found." if sum(i for i in lst[1::2] if i % 2 != 0) == 0 else "     Sum of odd numbers: {}".format(sum(i for i in lst[1::2] if i % 2 != 0)))
+        try:
+            lst = [int(i) for i in numbers]
+            print(solution(lst))
+            break
+        except ValueError:
+            print("     Invalid input. Please enter only integers.")
