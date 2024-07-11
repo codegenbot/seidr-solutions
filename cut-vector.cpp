@@ -1,17 +1,15 @@
 #include <iostream>
 #include <vector>
-#include <sstream>
-#include <string>
 
 using namespace std;
 
 int main() {
+    vector<int> nums;
+    int num;
+    
     string input;
     getline(cin, input);
     stringstream ss(input);
-
-    vector<int> nums;
-    int num;
     while (ss >> num) {
         nums.push_back(num);
     }
