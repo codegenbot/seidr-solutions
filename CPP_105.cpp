@@ -1,17 +1,13 @@
-#include <iostream>
+```cpp
 #include <vector>
 #include <algorithm>
 #include <string>
 
-bool issame(int a, int b) {
-    if (a > 9 || b > 9) {
-        return false;
+bool checkEqual(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) return false;
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) return false;
     }
-    vector<string> result = by_length({a, b});
-    for (int i = 0; i < min(result.size(), 2); i++) {
-        cout << result[i] << " ";
-    }
-    cout << endl;
     return true;
 }
 
@@ -61,4 +57,9 @@ vector<string> by_length(vector<int> arr) {
     }
     
     return result;
+}
+
+int main() {
+    assert(checkEqual(by_length({9, 4, 8}), {"Nine", "Four", "Eight"}));
+    return 0;
 }
