@@ -6,6 +6,7 @@ def complete_code(numbers, delimiter):
         result.append(numbers[-1])
     return result
 
+
 # Input
 numbers = input("Enter numbers separated by space: ")
 delimiter = input("Enter delimiter: ")
