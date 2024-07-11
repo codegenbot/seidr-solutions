@@ -1,6 +1,4 @@
-```
 from typing import List
-import sys
 
 
 def filter_by_prefix(strings: List[str], prefix: str) -> None:
@@ -17,6 +15,8 @@ try:
             break
         except ValueError:
             print("Invalid input! Please enter an integer.")
+            sys.stdin.readline()  # Ensure program waits for input
+
 except Exception as e:
     print(f"An error occurred: {e}")
     exit(1)
@@ -32,9 +32,10 @@ try:
                 break
         except Exception as e:
             print(f"An error occurred: {e}")
-            sys.stdin.readline()  # This ensures you always get at least one iteration of the loop
+            sys.stdin.readline()  # Ensure program waits for input
+
 except Exception as e:
     print(f"An error occurred: {e}")
     exit(1)
 
-filter_by_prefix(strings, prefix)
+filter_by_prefix([str(x) for x in strings], prefix)
