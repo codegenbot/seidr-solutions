@@ -1,4 +1,3 @@
-```
 def minPath(grid, k):
     n = len(grid)
     res = []
@@ -16,4 +15,5 @@ def minPath(grid, k):
         for j in range(n):
             res.extend(dfs(i, j, [grid[i][j]]))
 
-    return min([p[1:] for p in res if len(p) == k])[0]
+    shortest_path = min(res, key=lambda p: (len(p), tuple(sorted(p))))
+    return "".join(shortest_path)
