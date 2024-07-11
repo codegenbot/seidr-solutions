@@ -1,7 +1,6 @@
-#include <vector>
 #include <iostream>
 #include <iomanip>
-
+#include <vector>
 using namespace std;
 
 double vectorDistance(int n, const vector<float>& v1, const vector<float>& v2) {
@@ -22,7 +21,7 @@ int main() {
         cin >> v1[i] >> v2[i];
     }
     
-    cout << fixed << setprecision(10) << vectorDistance(n, v1, v2) << endl;
+    cout << std::fixed << std::setprecision(10) << vectorDistance(n, v1, v2) << endl;
     
     return 0;
 }
