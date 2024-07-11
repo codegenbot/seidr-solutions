@@ -1,5 +1,5 @@
-```
-using namespace std;
+#include <vector>
+#include <string>
 
 string longest(vector<string> strings){
     if(strings.empty()) return "";
