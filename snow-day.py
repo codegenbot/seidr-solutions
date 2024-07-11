@@ -3,7 +3,7 @@ def snow_day(hours, snow_on_ground, snow_fall_rate, snow_melt_rate):
     for _ in range(hours):
         snow += snow_fall_rate
         snow -= snow_melt_rate * snow
-        snow = max(snow, 0)
+        snow = max(snow, 0)  # Ensure snow amount is non-negative
     return snow
 
 hours = int(input())
