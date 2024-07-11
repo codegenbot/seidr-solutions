@@ -1,18 +1,21 @@
-Here is the completed code:
+#include <algorithm>
+#include <vector>
 
-vector<pair<int, int>> pluck(vector<int> arr) {
-    vector<pair<int, int>> result;
-    if (arr.empty()) return {};
+using namespace std;
 
-    int smallest = INT_MAX;
-    for (int i = 0; i < arr.size(); i++) {
-        if (arr[i] % 2 == 0 && arr[i] < smallest) {
-            smallest = arr[i];
-            result = {{smallest, i}};
-        } else if (arr[i] % 2 == 0 && arr[i] == smallest) {
-            result = {{smallest, i}};
-        }
-    }
+vector<vector<int>> pluck(vector<int> arr) {
+    vector<vector<int>> result;
+    if (arr.empty()) return {{}};
+
+    vector<int>::iterator it = min_element(arr.begin(), arr.end(), [](int a, int b){
+        if(a%2!=b%2) return a<b;
+        return a>b;
+    });
+
+    int smallestValue = *it;
+    int index = distance(arr.begin(), it);
+
+    result.push_back({smallestValue, index});
 
     return result;
 }
