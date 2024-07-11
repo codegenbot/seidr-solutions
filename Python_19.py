@@ -10,9 +10,10 @@ def solve(num1, num2):
 def check(func):
     while True:
         try:
-            num1 = int(input("Enter first number: "))
-            num2 = int(input("Enter second number: "))
-            result = func(num1, num2)
+            result = func(
+                int(input("Enter first number: ") or 0),
+                int(input("Enter second number: ") or 0),
+            )
             if result == "Greater":
                 print(f"First number is greater than second number")
             elif result == "Less":
@@ -20,14 +21,15 @@ def check(func):
             else:
                 print(f"Both numbers are equal")
         except ValueError:
-            print("Invalid input. Please enter a valid integer.")
-        choice = input("Do you want to compare more numbers? (y/n): ")
-        if choice.lower() != "y":
-            break
+            print("Invalid input. Please enter integers.")
 
 
 def main():
-    check(solve)
+    while True:
+        check(solve)
+        choice = input("Do you want to compare more numbers? (y/n): ")
+        if choice.lower() != "y":
+            break
 
 
 main()
