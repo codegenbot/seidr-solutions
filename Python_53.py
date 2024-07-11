@@ -1,4 +1,3 @@
-```
 def add(x: int, y: int):
     try:
         x = int(x)
@@ -7,5 +6,6 @@ def add(x: int, y: int):
         return "Invalid input. Please enter positive integers."
     if x < 0 or y < 0:
         return -1 * (abs(x) + abs(y))
-    else:
+    elif x >= 0 and y >= 0:
+        print("Input")
         return x + y
