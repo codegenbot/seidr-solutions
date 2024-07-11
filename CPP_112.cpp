@@ -20,5 +20,5 @@ bool std::issame(const std::vector<std::string>& a, const std::vector<std::strin
 }
 
 int main() {
-    assert(std::issame(reverse_delete("mamma", "mia"), {"", "True"}));
+    assert (std::issame(reverse_delete("mamma", "mia") , {"", "True"}));
 }
