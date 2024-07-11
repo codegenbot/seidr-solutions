@@ -1,4 +1,7 @@
-int largest_prime_factor(int n){
+#include <iostream>
+using namespace std;
+
+int largest_prime_factor(int n) {
     int maxPrime = -1;
     while (n % 2 == 0) {
         maxPrime = 2;
@@ -14,4 +17,11 @@ int largest_prime_factor(int n){
         maxPrime = n;
     }
     return maxPrime;
+}
+
+int main() {
+    int n;
+    cin >> n;
+    cout << largest_prime_factor(n) << endl;
+    return 0;
 }
