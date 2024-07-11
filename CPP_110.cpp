@@ -1,12 +1,9 @@
-Here is the solution:
-
 string exchange(vector<int> lst1, vector<int> lst2) {
-    bool allEven = true;
-    for (int i : lst1) {
-        if (i % 2 != 0) {
-            allEven = false;
-            break;
+    int oddCount = 0;
+    for (int num : lst1) {
+        if (num % 2 != 0) {
+            oddCount++;
         }
     }
-    return allEven ? "YES" : "NO";
+    return oddCount == 0 ? "YES" : "NO";
 }
