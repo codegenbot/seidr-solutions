@@ -10,7 +10,7 @@ def bowling_score(frames):
             first_roll = int(frame[0])
             second_roll = int(frame[1])
             if first_roll + second_roll == 10: 
-                score += first_roll + int(frames.split("/")[frame_index+1].split("-")[0]) if frame_index < 9 else 0
+                score += first_roll + (int(frames.split("/")[frame_index+1].split("-")[0]) if frame_index < 9 else 0)
             else:
                 score += first_roll + second_roll
         frame_index += 1
