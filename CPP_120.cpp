@@ -1,4 +1,3 @@
-sort(arr.begin(), arr.end(), greater<int>());
-    vector<int> result(arr.begin(), arr.begin() + k);
-    return result;
+partial_sort(arr.begin(), arr.begin() + k, arr.end(), greater<int>());
+    return vector<int>(arr.begin(), arr.begin() + k);
 }
