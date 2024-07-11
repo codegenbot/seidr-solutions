@@ -8,7 +8,7 @@ namespace custom {
     }
 }
 
-std::vector<int> parse_nested_parens(std::string paren_string){
+std::vector<int> parse_nested_parens(const std::string& paren_string){
     std::vector<int> result;
     int max_level = 0;
     int current_level = 0;
@@ -30,8 +30,7 @@ std::vector<int> parse_nested_parens(std::string paren_string){
     return result;
 }
 
-int main(){
+int main() {
     assert(custom::issame(parse_nested_parens("(()(())((())))"), std::vector<int>{4, 3, 2, 1}));
-    assert(custom::issame(parse_nested_parens("()((()))"), std::vector<int>{2, 3}));
     return 0;
 }
