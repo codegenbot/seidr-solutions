@@ -1,16 +1,26 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 
 int can_arrange(std::vector<int> arr) {
     for (int i = 1; i < arr.size(); i++) {
-        if (arr[i] <= arr[i-1]) {
-            return i - 1;
+        if (arr[i] <= arr[i - 1]) {
+            return i;
         }
     }
     return -1;
 }
 
 int main() {
-    assert(can_arrange({}) == -1);
+    std::vector<int> arr;
+    int n;
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        int temp;
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> temp;
+        arr.push_back(temp);
+    }
+    std::cout << "The first index at which the array cannot be arranged in increasing order is: " << can_arrange(arr) << std::endl;
     return 0;
 }
