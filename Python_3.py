@@ -9,3 +9,4 @@ def below_zero(operations: list) -> bool:
     return False
 
 operations = [int(input().strip()) for _ in range(int(input("Enter number of operations: ")))]
+print(below_zero(operations))
