@@ -1,10 +1,7 @@
-```
-from typing import list
+def below_zero(operations: List[int]) -> bool:
+    if not isinstance(operations, list):
+        return False
 
-def below_zero(operations: list) -> bool:
-    balance = 0
-    for operation in operations:
-        balance += int(operation)
-        if balance < 0:
-            return True
-    return False
+    balance = sum(i for i in operations if i < 0)
+
+    return balance < 0
