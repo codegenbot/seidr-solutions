@@ -18,7 +18,7 @@ string remove_vowels(string text){
     return result;
 }
 
-int main() {
+{
     string text;
     cin >> text;
     if(text.empty()) {
@@ -27,3 +27,4 @@ int main() {
         string output = remove_vowels(text);
         cout << "Sentence without vowels: " << output << endl;
     }
+}
