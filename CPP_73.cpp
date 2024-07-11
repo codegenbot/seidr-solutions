@@ -1,22 +1,31 @@
-int smallest_change(vector<int> arr) {
-    int n = arr.size();
-    vector<vector<int>> dp(n, vector<int>(n));
-    
+```cpp
+#include <vector>
+#include <iostream>
+
+int smallest_change(std::vector<int> arr) {
+    int min = INT_MAX;
+    for (int i : arr) {
+        if (i < min)
+            min = i;
+    }
+    return min;
+}
+
+int main() {
+    using namespace std;
+    assert(smallest_change({0, 1}) == 1);
+    vector<int> arr;
+    cout << "Enter the numbers separated by space: ";
+    int n;
+    cin >> n;
     for (int i = 0; i < n; i++) {
-        dp[i][i] = 0;
+        int val;
+        cin >> val;
+        arr.push_back(val);
     }
-    
-    for (int length = 2; length <= n; length++) {
-        for (int i = 0; i < n - length + 1; i++) {
-            int j = i + length - 1;
-            
-            if (arr[i] == arr[j]) {
-                dp[i][j][0] = dp[i + 1][j - 1][0];
-            } else {
-                dp[i][j][0] = 1 + min(dp[i + 1][j][0], dp[i][j - 1][0]);
-            }
-        }
+    if(arr.empty()) {
+        cout << "Error: No input provided." << endl;
+    } else {
+        cout << "The smallest change is: " << smallest_change(arr) << endl;
     }
-    
-    return dp[0][n - 1][0];
 }
