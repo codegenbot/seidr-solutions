@@ -10,7 +10,6 @@ int main() {
         float melt_amount = snow_on_ground * snow_melt_rate;
         snow_on_ground += snow_fall_rate;
         snow_on_ground -= melt_amount;
-        snow_on_ground = last_hour_snow - melt_amount; // Update snow_on_ground for next iteration
     }
 
     std::cout << std::fixed << snow_on_ground << std::endl;
