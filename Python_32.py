@@ -1,11 +1,10 @@
 def find_zero(xs: list):
-    """Find the zero of the line that passes through points (xs[0], xs[1]) and (xs[2], xs[3]).
-    The zero is calculated as -xs[1] / xs[0].
+    """Solves the equation xs[0]*x + xs[1] = 0.
 
-    Parameters:
-    xs (list): A list containing four elements representing the x and y coordinates of two points.
+    Args:
+        xs (list): A list of two numbers representing the coefficients of the linear equation.
 
     Returns:
-    float: The zero of the line that passes through the given points.
+        float: The solution to the equation, or None if the equation has no real solution.
     """
     return -xs[1] / xs[0]
