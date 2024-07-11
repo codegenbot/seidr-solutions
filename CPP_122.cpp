@@ -17,14 +17,14 @@ int main() {
     int n, k;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    std::cout << "Enter " << n << " numbers: ";
     std::vector<int> arr(n);
     for (int i = 0; i < n; i++) {
+        std::cout << "Enter element " << i+1 << ": ";
         std::cin >> arr[i];
     }
-    std::cout << "Enter k: ";
+    std::cout << "Enter the value of k: ";
     std::cin >> k;
     int result = add_elements(arr, k);
-    std::cout << "The sum of the numbers is: " << result << std::endl;
+    std::cout << "Sum of elements with size <= 2 is: " << result << std::endl;
     return 0;
 }
