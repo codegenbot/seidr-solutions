@@ -1,5 +1,4 @@
-```
 def double_the_difference(lst, target):
-    even_nums = [i for i in lst if isinstance(i, int) and i >= 0 and i % 2 == 0]
-    closest_diff = min(abs(x - target) for x in even_nums)
-    return sum(i**2 for i in even_nums if abs(i - target) == closest_diff)
+    evens = [i for i in lst if isinstance(i, int) and i >= 0 and i % 2 == 0]
+    pairs = [(a, b) for a in evens for b in evens if abs(a - b) == target]
+    return sum(i**2 for i, j in pairs)
