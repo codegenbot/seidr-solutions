@@ -26,6 +26,6 @@ std::string file_name_check(std::string filename) {
 }
 
 int main() {
-    std::cout << file_name_check("s.") << std::endl; 
+    std::cout << file_name_check("s.") << std::endl;
     return 0;
 }
