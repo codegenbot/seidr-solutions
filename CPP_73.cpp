@@ -1,12 +1,12 @@
 ```cpp
-#include <initializer_list>
 #include <vector>
 #include <iostream>
 #include <climits>
+#include <initializer_list>
 
 using namespace std;
 
-int smallest_change(std::vector<int> arr) {
+int smallest_change(vector<int> arr) {
     int min = INT_MAX;
     for (int i : arr) {
         if (i < min)
