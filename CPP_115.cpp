@@ -1,14 +1,14 @@
-int rows = grid.size();
-        int cols = grid[0].size();
-        int total_water = 0;
-        
-        for (int i = 0; i < rows; ++i) {
-            for (int j = 0; j < cols; ++j) {
-                total_water += grid[i][j];
+int total = 0;
+        for (int i = 0; i < grid.size(); i++) {
+            int current = 0;
+            for (int j = 0; j < grid[i].size(); j++) {
+                current += grid[i][j];
+                if (current >= capacity) {
+                    total += current / capacity;
+                    current %= capacity;
+                }
             }
+            total += (current > 0) ? 1 : 0;
         }
-        
-        int buckets_needed = (total_water + capacity - 1) / capacity;
-        
-        return buckets_needed;
+        return total;
     }
