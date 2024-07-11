@@ -1,4 +1,4 @@
-```
+```Python
 def decode_shift():
     s = input("Please enter a string: ")
     while True:
@@ -7,9 +7,9 @@ def decode_shift():
             if 0 <= shift <= 25:
                 break
             else:
-                print("Invalid input. Please enter a value between 0 and 25.")
+                print("Please enter a value between 0 and 25.")
         except ValueError:
-            print("Invalid input. Please enter an integer.")
+            print("That's not an integer! Try again.")
     decoded = ""
     for ch in s:
         if ch.isalpha():
