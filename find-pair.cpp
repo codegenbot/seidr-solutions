@@ -1,17 +1,19 @@
 #include <iostream>
 #include <vector>
 #include <map>
+using namespace std;
 
 int main() {
     int n, target;
-    std::cin >> n;
-    std::vector<int> nums(n);
+    cin >> n;
+    vector<int> nums;
+    nums.resize(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
-    std::cin >> target;
+    cin >> target;
     
-    std::map<int, int> mp;
+    map<int, int> mp;
     for (int i = 0; i < n; ++i) {
         if (mp.find(target - nums[i]) != mp.end()) {
             std::cout << nums[i] << std::endl;
