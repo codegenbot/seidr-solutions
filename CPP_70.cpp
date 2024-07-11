@@ -1,4 +1,4 @@
-```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -23,14 +23,21 @@ std::vector<int> strange_sort_vector(std::vector<int> lst) {
 }
 
 int main() {
-    std::vector<int> test_vector = {5, 2, 8, 6, 1};
-    auto sorted_vector = strange_sort_vector(test_vector);
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
 
-    if (issame(sorted_vector, std::vector<int>{1, 2, 5, 6, 8})) {
-        std::cout << "The vectors are the same." << std::endl;
-    } else {
-        std::cout << "The vectors are not the same." << std::endl;
+    std::vector<int> vec(n);
+    for(int i=0; i<n; ++i) {
+        std::cout << "Enter element " << i+1 << ": ";
+        std::cin >> vec[i];
     }
+
+    std::vector<int> sorted = strange_sort_vector(vec);
+
+    std::cout << "Sorted vector: ";
+    for (int x : sorted) std::cout << x << " ";
+    std::cout << std::endl;
 
     return 0;
 }
