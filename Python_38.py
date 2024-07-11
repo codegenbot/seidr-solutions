@@ -1,10 +1,9 @@
-```
 def decode_cyclic(s: str):
     result = ""
     i = 0
     if len(s) < 3:
         while i < len(s):
-            group = s[i:i+1]
+            group = s[i : i + 1]
             result += group
             i += 1
         return result
