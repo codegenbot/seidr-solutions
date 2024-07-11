@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <iostream>
 #include <cctype>
@@ -11,15 +10,17 @@ string remove_vowels(string text){
         char c = tolower(text[i]);
         if(c >= 'a' && c <= 'z'){
             if(c != 'a' && c != 'e' && c != 'i' && c != 'o' && c != 'u'){
-                result += text[i]; 
+                result += (char) c; 
             }
+        } else {
+            result += text[i]; 
         }
     }
     return result;
 }
 
 int main() {
-    string text = ""; 
+    string text;
     cout << "Enter a sentence: ";
     getline(cin, text);
     string output = remove_vowels(text);
