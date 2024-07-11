@@ -16,10 +16,8 @@ string spinWords(string str) {
                 result += revWord + " ";
                 word = "";
             } else
-                if (!word.empty()) {
-                    result += word + " ";
-                    word = "";
-                }
+                result += word + " ";
+            word = "";
         } else {
             word += str[i];
         }
@@ -31,10 +29,7 @@ string spinWords(string str) {
             revWord += word[j];
         result += revWord + " ";
     } else
-        if (!word.empty()) {
-            result += word + " ";
-            word = "";
-        }
+        result += word + " ";
 
     return result;
 }
