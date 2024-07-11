@@ -3,4 +3,12 @@ int sum = 0;
         sum += N % 2;
         N /= 2;
     }
-    return bitset<32>(sum).to_string().substr(32 - 4);
+    
+    string binarySum = "";
+    while (sum > 0) {
+        binarySum = to_string(sum % 2) + binarySum;
+        sum /= 2;
+    }
+    
+    return binarySum;
+}
