@@ -1,6 +1,7 @@
 from typing import List
 import math
 
+
 def factorize(n: int) -> List[int]:
     factors = []
     i = 2
@@ -16,4 +17,4 @@ def factorize(n: int) -> List[int]:
             factors.extend([i] * count)
     if n > 1:
         factors.append(n)
-    return sorted(set(map(int, factors)))
+    return sorted(set(factors))
