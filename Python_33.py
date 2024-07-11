@@ -1,3 +1,4 @@
+```
 def sort_third(l: list):
     result = []
     current_group = []
