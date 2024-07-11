@@ -2,14 +2,12 @@
 #include <cstdlib>
 #include <cassert>
 
-int add(int x, int y) {
-    return x + y;
-}
-
+// Task Description: Implement a function to subtract two integers.
 int subtract(int x, int y) {
     return x - y;
 }
 
+// Task Description: Implement a function to multiply two integers.
 int multiply(int x, int y) {
     return x * y;
 }
