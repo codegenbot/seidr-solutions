@@ -5,6 +5,8 @@ def fix_spaces(text):
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
 
+print("Welcome to the space fixing program!")
+
 while True:
     try:
         text = input("Enter the text to fix spaces: ")
