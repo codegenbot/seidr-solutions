@@ -14,16 +14,7 @@ int gcd(int a, int b) {
         b = -b;
     }
 
-    if (a == 0) return b;
-    if (a % b == 0) return b;
-
-    while (b != 0) {
-        int tmp = b;
-        b = a % b;
-        a = tmp;
-    }
-
-    return a * sign;
+    return a == 0 ? b : gcd(b, a % b);
 }
 
 std::vector<int> indicesOfSubstring(const std::string& text, const std::string& target) {
