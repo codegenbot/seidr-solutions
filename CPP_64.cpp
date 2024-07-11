@@ -1,4 +1,3 @@
-#include <bits/stdc++.h>
 #include <string>
 
 int vowels_count(std::string s){
@@ -8,7 +7,7 @@ int vowels_count(std::string s){
         if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
             count++;
         }
-        else if(i+1 < s.length() && c == 'y' && s[i+1] == '\0'){
+        else if(c == 'y' && (s.length() == i + 1 || s.back() == 'h')){
             count++;
         }
     }
