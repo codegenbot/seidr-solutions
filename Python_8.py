@@ -1,6 +1,4 @@
-```
-from typing import Tuple
-import statistics
+from typing import Tuple, pass
 
 def calculate_average_and_median() -> Tuple[float, float]:
     while True:
