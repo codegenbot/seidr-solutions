@@ -1,4 +1,3 @@
-```
 from typing import List, Tuple
 
 
@@ -8,7 +7,7 @@ def sum_product():
     try:
         numbers = [int(num) for num in numbers]
     except ValueError:
-        return "Invalid input. Please enter integers separated by spaces."
+        return []
 
     total_sum = 0
     product = 1
