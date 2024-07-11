@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <cmath>
+#include <cstdlib>
+
 using namespace std;
 
 int main() {
