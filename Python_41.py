@@ -1,8 +1,6 @@
 ```
-Enter time at which both cars meet: 
-Enter distance traveled by car 1: 
-Enter total race distance: 
-Enter time at which car 2 meets the finish line: 
+''
+
 
 def car_race_collision():
     time_to_meet_car1 = int(input("Enter time at which both cars meet: "))
