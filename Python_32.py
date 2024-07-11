@@ -1,5 +1,7 @@
-def find_zero_coefficients_of_polynomial_at_xzero(xs):
-    if len(xs) % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    max_coeff = abs(max(xs))
-    return -xs[1] / (2 * xs[0])
+```
+import math
+
+def find_zero(a: float, b: float):
+    if a == 0:
+        raise ValueError("a cannot be zero")
+    return -b / (2 * a)
