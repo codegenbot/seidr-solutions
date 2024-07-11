@@ -9,8 +9,8 @@ def minPath(grid, k):
         if len(path) > k:
             continue
         if len(path) == k:
-            if not min_path or sorted(path) < sorted(min_path):
-                min_path = sorted(path)
+            if not min_path or str(path) < min_path:
+                min_path = str(path)
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nx, ny = x + dx, y + dy
             if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
