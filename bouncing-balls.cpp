@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
-#include <iomanip>  
-#include <cmath>   
+#include <cmath>
+#include <iomanip>
 
 using namespace std;
 
