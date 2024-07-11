@@ -1,15 +1,18 @@
+```cpp
 #include <iostream>
 #include <string>
 
-const char* fizzBuzz(int x) {
+std::string fizzBuzz(int x) {
+    std::string result;
     if (x % 15 == 0)
         return "FizzBuzz";
     else if (x % 3 == 0)
-        return "Fizz";
+        result = "Fizz";
     else if (x % 5 == 0)
-        return "Buzz";
-    else
-        return std::to_string(x);
+        result = "Buzz";
+    else 
+        return std::to_string(x); 
+    return result;
 }
 
 int main() {
