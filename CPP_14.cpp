@@ -1,6 +1,7 @@
-```
 #include <vector>
 #include <string>
+#include <assert>
+#include <iostream>
 
 using namespace std;
 
@@ -19,4 +20,13 @@ vector<string> all_prefixes(string str) {
         result.push_back(str.substr(0, i));
     }
     return result;
+}
+
+int main() {
+    if (!issame(all_prefixes("WWW"), vector<string>{ "W", "WW", "WWW" })) {
+        cout << "Error: Expected prefixes are not the same." << endl;
+    } else {
+        cout << "Test passed!" << endl;
+    }
+    return 0;
 }
