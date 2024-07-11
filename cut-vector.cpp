@@ -17,7 +17,7 @@ int main() {
     
     for (int i = 0; i < nums.size(); ++i) {
         current_sum += nums[i];
-        int diff = std::abs(total_sum - 2 * current_sum);
+        int diff = abs(total_sum - 2 * current_sum);
         if (diff < min_diff) {
             min_diff = diff;
             cut_index = i;
