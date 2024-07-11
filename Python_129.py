@@ -1,6 +1,3 @@
-Here is the corrected code:
-
-```
 def minPath(grid, k):
     N = len(grid)
     visited = [[False] * N for _ in range(N)]
@@ -25,6 +22,3 @@ def minPath(grid, k):
             visited[i][j] = True
             if dfs(i, j, [grid[i][j]]):
                 return path
-
-grid = [[1, 2], [3, 4]]
-print(minPath(grid, 3))
