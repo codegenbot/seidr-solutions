@@ -1,5 +1,4 @@
 #include <string>
-
 int pairedDigits(const std::string& s) {
     int sum = 0;
     for (int i = 0; i < s.length() - 1; i++) {
@@ -13,7 +12,7 @@ int pairedDigits(const std::string& s) {
 int main() {
     std::string s;
     std::cin >> s;
-    
+
     int result = pairedDigits(s);
     std::cout << "Sum of paired digits is: " << result << std::endl;
 
