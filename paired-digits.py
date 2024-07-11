@@ -1,6 +1,4 @@
-def paired_digits(digits):
-    return sum(
-        int(digit)
-        for digit in digits
-        if digit == next(iter((d2 for d1, d2 in zip(digits, digits[1:]) if d1 == d2)))
-    )
+Here is the Python solution for the "paired-digits" problem:
+
+def paired_digits(s):
+    return sum(int(dig) for dig in s if s[i] == s[i+1])
