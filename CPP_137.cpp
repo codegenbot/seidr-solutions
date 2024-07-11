@@ -30,7 +30,10 @@ any compare_one(const any& a, const any& b) {
 }
 
 int main() {
-    any result = compare_one(10, 20);
+    any a = 10;
+    any b = 20;
+    any result = compare_one(a, b);
     assert(any_cast<int>(result) == 20);
+
     return 0;
 }
