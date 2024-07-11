@@ -8,7 +8,7 @@ int luhn(int cardNumber) {
     }
     
     for (int i = numbers.size() - 1; i >= 0; --i) {
-        int digit = numbers[i];
+        int digit = numbers[i]; 
 
         if (i % 2 == 1) { 
             digit *= 2;
