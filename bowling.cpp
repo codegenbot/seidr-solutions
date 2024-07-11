@@ -18,4 +18,3 @@ int bowlingScore(const std::string& s) {
         }
     }
     return score;
-}
