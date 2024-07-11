@@ -7,22 +7,14 @@ std::string camelCase(const std::string& input) {
 
     for (char c : input) {
         if (c == '-') {
-            if (!firstWord) {
-                output += toupper(c + 1);
-            }
+            output += (firstWord ? "" : "") + std::toupper(c + 1);
             firstWord = false;
         } else if (c == ' ') {
-            if (!firstWord) {
-                output += " ";
-            }
+            output += " ";
             firstWord = true;
         } else {
-            if (!firstWord) {
-                output += std::toupper(c);
-                firstWord = true;
-            } else {
-                output += c;
-            }
+            output += c;
+            firstWord = true;
         }
     }
 
