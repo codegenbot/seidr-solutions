@@ -1,10 +1,10 @@
 #include <iostream>
-#include <vector>
+using namespace std;
 
-int luhn(int cardNumber) {
+int luhn(long long cardNumber) {
     int sum = 0;
 
-    std::vector<int> numbers;
+    vector<int> numbers;
     while (cardNumber > 0) {
         numbers.push_back(cardNumber % 10);
         cardNumber /= 10;
@@ -27,7 +27,7 @@ int luhn(int cardNumber) {
 }
 
 int main() {
-    int cardNumber = 14946721334973;  
-    std::cout << "The Luhn checksum for this card is: " << luhn(cardNumber) << std::endl;
+    long long cardNumber = 14946721334973;  
+    cout << "The Luhn checksum for this card is: " << luhn(cardNumber) << endl;
     return 0;
 }
