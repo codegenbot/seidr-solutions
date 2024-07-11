@@ -1,8 +1,9 @@
+```cpp
 #include <algorithm>
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::string& b) {
+bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
     return a == b;
 }
 
@@ -13,10 +14,11 @@ std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> l
 
     std::vector<std::string> result;
 
-    for (const auto& inner : lst) {
-        for (const auto& str : inner) {
+    for (const auto& vec : lst) {
+        for (const auto& str : vec) {
             if (str.length() % 2 == 0) {
                 result.push_back(str);
+                break;
             }
         }
     }
@@ -39,10 +41,7 @@ std::vector<std::string> sorted_list_sum(std::vector<std::vector<std::string>> l
 
 int main() {
     std::vector<std::string> input = {"aaaa", "bbbb", "dd", "cc"};
-    std::vector<std::vector<std::string>> lst;
-    for (const auto& str : input) {
-        lst.push_back({str});
-    }
-    
-    assert(issame(sorted_list_sum(lst), sorted_list_sum({{"cc"}, {"dd"}, {"aaaa"}, {"bbbb"}})));
+    std::vector<std::vector<std::string>> lst = {{input[0], input[1]}, {input[2], input[3]}};
+    assert(issame(sorted_list_sum(lst), sorted_list_sum({{input[2], input[3]}, {input[0], input[1]}})));
+    return 0;
 }
