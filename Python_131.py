@@ -3,4 +3,4 @@ def digits(n):
     for i in range(len(n) - 1, -1, -1):
         if n[i] == "9":
             return int(n[i])
-    return 1
+    return 0
