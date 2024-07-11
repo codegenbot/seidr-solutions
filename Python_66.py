@@ -1,2 +1,2 @@
 def digitSum(s):
-    return sum(int(c) for c in s if '0' <= c <= '9')
+    return sum(ord(c) - ord('A') + 10 for c in s if c >= 'A' and c <= 'Z')
