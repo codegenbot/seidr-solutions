@@ -12,9 +12,9 @@ vector<int> indicesOfSubstring(string text, string target) {
     for (int i = 0; i <= n - m; ) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
-            i += m; 
+            i += m-1; 
         } else {
-            i++; // add 1 here
+            i++; 
         }
     }
 
