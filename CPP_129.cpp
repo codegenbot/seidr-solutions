@@ -1,51 +1,45 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <algorithm>
-
-using namespace std;
-
-vector<int> minPath(vector<vector<int>> grid, int k) {
+vector<int> minPath(vector<vector<int>>& grid, int k) {
     int n = grid.size();
-    vector<vector<int>> visited(n, vector<int>(n));
-    priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>> > pq;
-    pq.push({0, {0, 0}});
-    visited[0][0] = 1;
-
+    vector<vector<int>> dp(n, vector<int>(n, 1e9));
     vector<int> res;
-    while (!pq.empty()) {
-        int val = pq.top().first;
-        int x = pq.top().second.first;
-        int y = pq.top().second.second;
-        pq.pop();
-
-        if (k == 0) break;
-
-        for (int dx : {-1, 0, 1}) {
-            for (int dy : {-1, 0, 1}) {
-                if (abs(dx) + abs(dy) != 1) continue;
-                int nx = x + dx;
-                int ny = y + dy;
-                if (nx >= 0 && nx < n && ny >= 0 && ny < n && !visited[nx][ny]) {
-                    visited[nx][ny] = 1;
-                    pq.push({val, {nx, ny}});
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (k == 1) {
+                dp[i][j] = grid[i][j];
+            } else {
+                for (int x = -1; x <= 1; x++) {
+                    for (int y = -1; y <= 1; y++) {
+                        if (abs(x) + abs(y) == 1 && i + x >= 0 && j + y >= 0 && i + x < n && j + y < n) {
+                            dp[i][j] = min(dp[i][j], grid[i+x][j+y]);
+                        }
+                    }
                 }
             }
         }
-
-        res.push_back(val);
-        k--;
     }
-
+    
+    int mx = -1, idx;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (dp[i][j] > mx) {
+                mx = dp[i][j];
+                idx = i * n + j;
+            }
+        }
+    }
+    
+    int cur = idx, cnt = k;
+    while (cnt--) {
+        res.push_back(grid[cur / n][cur % n]);
+        if (cur % n == 0 || cur % n == n - 1) {
+            cur -= n;
+        } else if (cur % n == 1) {
+            cur += n - 1;
+        } else {
+            cur--;
+        }
+    }
+    
     return res;
-}
-
-int main() {
-    vector<vector<int>> grid = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    int k = 3;
-    vector<int> result = minPath(grid, k);
-    for (int i : result) {
-        cout << i << " ";
-    }
-    return 0;
 }
