@@ -1,6 +1,7 @@
+long long odd_sum = 0;
+vector<float> lst;
+
 int main() {
-    vector<float> lst; 
-    long long odd_sum = 0; 
     int result = double_the_difference(lst);
     return 0;
 }
@@ -11,8 +12,11 @@ long long double_the_difference(vector<float> lst) {
         if (num > 0 && floor(num) == num) { 
             if (num % 2 != 0) { 
                 sum += pow(num, 2);
+            } else {
+                odd_sum += num;
             }
         }
     }
-    return sum;
+    long long difference = abs((long long)odd_sum - 1);
+    return (sum + difference);
 }
