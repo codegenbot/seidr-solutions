@@ -1,13 +1,13 @@
 ```
 def file_name_check(file_name):
-    parts = file_name.split('.')
-    if len(parts) != 2:
+    if len([c for c in file_name if c.isdigit()]) > 3:
         return 'No'
-    name, extension = parts
-    if not name[0].isalpha():
+    if file_name.count('.') != 1:
         return 'No'
-    if sum(c.isdigit() for c in name) > 3:
+    name, extension = file_name.rsplit('.', 1)
+    if not name or not name[0].isalpha():
         return 'No'
-    if extension not in ['txt', 'exe', 'dll']:
+    valid_extensions = ['txt', 'exe', 'dll']
+    if extension not in valid_extensions:
         return 'No'
     return 'Yes'
