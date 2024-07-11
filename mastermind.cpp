@@ -1,4 +1,3 @@
-```cpp
 #include <string>
 #include <vector>
 
@@ -18,30 +17,25 @@ int whitePegs(std::string code, std::string guess) {
         int asciiVal = static_cast<int>(c);
         guessMap[asciiVal]++;
     }
-    int blackPegsCount = blackPegs(code, guess);
+    int blackPegsCount = 0; // Directly return the result, no need for function call
     return count - blackPegsCount;
 }
 
 int blackPegs(std::string code, std::string guess) {
     int count = 0;
     for (int i = 0; i < 4; i++) {
-        bool inCode = false;
-        bool inGuess = false;
-        for (int j = 0; j < 4; j++) {
-            if (code[j] == guess[i]) {
-                inCode = true;
-            }
-            if (guess[j] == guess[i]) {
-                inGuess = true;
-            }
-        }
-        if (inCode && inGuess) {
+        if (guess[i] == code[i]) {
             count++;
         }
     }
     return count;
-}
 
 int main() {
+    std::string code = "abcD";  
+    std::string guess = "xyzC"; 
+
+    int whitePegsCount = whitePegs(code, guess);
+    int blackPegsCount = blackPegs(code, guess);
+
     return 0;
 }
