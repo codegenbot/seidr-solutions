@@ -1,6 +1,12 @@
 ```
-def find_zero(xs: list):
-    if len(xs) < 3:
-        raise ValueError("xs must have at least three coefficients")
-    a, b, c = xs[0], xs[1], xs[2]
-    return (-b + (b**2 - 4*a*c)**0.5)/(2*a)
+def find_zero():
+    x = float(input("Enter the value of x: "))
+    y = float(input("Enter the value of y: "))
+
+    if (x**2 + 3*x*y + y**2) % 2 != 0:
+        raise ValueError("The polynomial must have an even number of coefficients")
+    
+    max_coeff = abs(x**2 + 3*x*y + y**2)
+    return -y / (2 * x)
+
+find_zero()
