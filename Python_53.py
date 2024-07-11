@@ -1,3 +1,4 @@
+```
 def add_and_display():
     while True:
         try:
