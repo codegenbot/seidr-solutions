@@ -1,24 +1,17 @@
-Here is the solution:
-
 vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
+    // Remove strings with odd lengths from the vector
+    auto it = std::remove_if(lst.begin(), lst.end(), 
+        [](const string& s){ return s.size() % 2 != 0; });
+    lst.erase(it, lst.end());
 
-    // remove strings with odd lengths
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
-        }
-    }
+    // Sort the remaining strings by length and then alphabetically
+    std::sort(lst.begin(), lst.end(),
+        [](const string& a, const string& b) {
+            if (a.size() == b.size()) {
+                return a < b;
+            }
+            return a.size() < b.size();
+        });
 
-    // sort the resulted vector by length and then alphabetically
-    std::sort(result.begin(), result.end(),
-              [](const string& a, const string& b) {
-                  if (a.length() != b.length()) {
-                      return a.length() < b.length();
-                  } else {
-                      return a < b;
-                  }
-              });
-
-    return result;
+    return lst;
 }
