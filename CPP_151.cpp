@@ -18,7 +18,7 @@ long long double_the_difference(vector<float> lst) {
 
 int main() {
     vector<float> lst; 
-    int odd_sum = 0;
+    long long odd_sum = 0;
     
     cout << "Enter numbers (enter 'stop' to finish):" << endl;
     while(1) {
@@ -29,7 +29,7 @@ int main() {
         if(to_string(num) == "stop") break;
 
         if(abs(num - lround(num)) < 1e-9) {
-            odd_sum = 0; 
+            odd_sum = double_the_difference(lst);
         }
         lst.push_back(num);    
     }
