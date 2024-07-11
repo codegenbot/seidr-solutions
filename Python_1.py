@@ -18,18 +18,25 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 if (
                     not stack
                     and {")": ")", "]": "[", "}": "{"}[char]
-                    == {"(": ")", "[": "]", "{": "}"}[top]
+                    == {")": ")", "]": "[", "}": "{"}[top]
                 ):
                     result.append(groups.pop().lstrip().rstrip())
-                elif (
+            else:
+                while (
                     stack
+                    and (stack[-1] in ["(", "["])
                     and {")": ")", "]": "[", "}": "{"}[char]
-                    == {"(": ")", "[": "]", "{": "}"}[stack[-1]]
+                    != {"(": ")", "[": "]", "{": "}"}[stack[-1]]
                 ):
-                    while (
-                        stack
-                        and {")": ")", "]": "[", "}": "{"}[char]
-                        != {")": ")", "]": "[", "}": "{"}["({".index(stack[-1])]
-                    ):
-                        stack.pop()
+                    stack.pop()
+                if (
+                    not stack
+                    and {")": ")", "]": "[", "}": "{"}[char]
+                    == {")": ")", "]": "[", "}": "{"}["({".index(top)]
+                ):
                     result.append(groups.pop().lstrip().rstrip())
+    if groups:
+        while stack and (stack[-1] in ["(", "["]):
+            stack.pop()
+        if not stack and len(stack) == 0:
+            result.append(groups[0].lstrip().rstrip())
