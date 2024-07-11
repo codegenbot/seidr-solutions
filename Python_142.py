@@ -1,9 +1,12 @@
 def sum_squares(lst):
     total = 0
-    for i, num in enumerate(lst):
+    for i in range(len(lst)):
         if i % 3 == 0:
-            if i % 4 != 0:
-                total += num ** 2
-            else:
-                total += num ** 3
+            total += lst[i] ** 2 if i % 4 != 0 else lst[i] ** 3
     return total
+
+numbers = input("Enter a list of numbers separated by spaces: ").split()
+numbers = [int(num) for num in numbers]
+
+result = sum_squares(numbers)
+print(result)
