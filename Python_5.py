@@ -1,12 +1,10 @@
+```Python
 from typing import List
 
-def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    if len(numbers) < 2:
-        return numbers
-    
+
+def intersperse(numbers: List[int], delimeter: int) -> List[int]:
     result = [numbers[0]]
-    
     for i in range(1, len(numbers)):
-        result.extend([delimiter, numbers[i]])
-    
+        result.extend([delimeter, numbers[i]])
+    result.append(numbers[-1])  # Add the last number at the end
     return result
