@@ -1,4 +1,3 @@
-```
 expected_product = int(input("Enter the product of non-zero digits: "))
 while True:
     try:
