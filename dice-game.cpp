@@ -4,12 +4,8 @@ using namespace std;
 
 double getProbability(int n, int m) {
     double p = 0;
-    for (int i = 1; i <= n - 1; ++i) {
-        if(i<m){
-            p += 1.0 / n * (m - i);
-        } else {
-            p += 1.0 / n * (n-i+1)*(1.0/m);
-        }
+    for (int i = 1; i <= n - m; ++i) {
+        p += 1.0 / n * 1.0 / m;
     }
     return p;
 }
