@@ -1,8 +1,3 @@
-
-bool issame(const vector<string>& a, const vector<string>& b) {
-    return a == b;
-}
-
 vector<string> filter_by_substring(const vector<string>& strings, const string& substring) {
     vector<string> filtered_strings;
     for (const auto& str : strings) {
@@ -11,9 +6,4 @@ vector<string> filter_by_substring(const vector<string>& strings, const string& 
         }
     }
     return filtered_strings;
-}
-
-int main() {
-    assert(issame(filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run"), {"grunt", "prune"}));
-    return 0;
 }
