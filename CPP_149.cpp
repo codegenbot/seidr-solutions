@@ -1,7 +1,7 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 vector<string> sorted_list_sum(vector<string> lst);
 
