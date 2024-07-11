@@ -1,6 +1,5 @@
-```cpp
-#include <iostream>
 #include <string>
+#include <iostream>
 
 std::string middleCharacter(std::string s) {
     int len = s.length();
@@ -12,9 +11,9 @@ std::string middleCharacter(std::string s) {
 }
 
 int main() {
-    std::string s;
+    std::string input;
     std::cout << "Enter a string: ";
-    std::getline(std::cin, s);
-    std::cout << "Middle character(s): " << middleCharacter(s) << std::endl;
+    std::cin >> input;
+    std::cout << middleCharacter(input) << std::endl;
     return 0;
 }
