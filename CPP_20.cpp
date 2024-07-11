@@ -1,15 +1,11 @@
-```cpp
-#include <vector>
-#include <numeric>
 #include <algorithm>
+#include <vector>
 
-bool issame(float f1, float f2) {
-    if (f1 == f2)
-        return true;
-    return false;
+bool issame(const std::pair<float, float>& p1, const std::pair<float, float>& p2) {
+    return std::abs(p1.first - p1.second) == std::abs(p2.first - p2.second);
 }
 
-std::vector<float> find_closest_elements(std::vector<float> numbers) {
+std::vector<std::pair<float, float>> find_closest_elements(std::vector<float> numbers) {
     if (numbers.size() <= 1)
         return {};
 
@@ -26,28 +22,5 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
         }
     }
 
-    return {closest_pair[0], closest_pair[1]};
-}
-
-int main() {
-    std::vector<float> numbers;
-    // Read input from user
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; ++i) {
-        float num;
-        cin >> num;
-        numbers.push_back(num);
-    }
-
-    vector<float> closest_pair = find_closest_elements(numbers);
-
-    // Verify the output manually
-    cout << "Closest pair: ";
-    for (float f : closest_pair) {
-        cout << f << " ";
-    }
-    cout << endl;
-
-    return 0;
+    return {{closest_pair[0], closest_pair[1]}};
 }
