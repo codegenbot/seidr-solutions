@@ -5,6 +5,3 @@ def middle_character(s):
         return s[length//2-1:length//2+1]
     else:
         return s[length//2]
-
-s = input("Enter a string: ")
-print(middle_character(s))
