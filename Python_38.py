@@ -17,7 +17,7 @@ def decode_cyclic(s: str):
             else:
                 result += temp
             temp = ""
-    if temp: 
+    if temp:  
         if not result or result[-1] != " ":
             result += " "
         if temp[0] == "(":
