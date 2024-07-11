@@ -1,4 +1,3 @@
-```
 def decipher(cipher1, cipher2, message):
     mapping = {c.lower(): d for c,d in zip(cipher1, cipher2)}
     result = ""
