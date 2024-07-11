@@ -1,26 +1,16 @@
-string result = s;
-    int n = s.size();
-    bool has_letter = false;
-
-    for (int i = 0; i < n; i++) {
+for (int i = 0; i < s.length(); ++i) {
         if (isalpha(s[i])) {
-            has_letter = true;
             if (islower(s[i])) {
-                result[i] = toupper(s[i]);
+                s[i] = toupper(s[i]);
             } else {
-                result[i] = tolower(s[i]);
+                s[i] = tolower(s[i]);
             }
         }
     }
-
-    if (!has_letter) {
-        int start = 0, end = n - 1;
-        while (start < end) {
-            swap(result[start], result[end]);
-            start++;
-            end--;
-        }
+    
+    if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos) {
+        reverse(s.begin(), s.end());
     }
-
-    return result;
+    
+    return s;
 }
