@@ -1,7 +1,11 @@
-string remove_vowels(string text){
+#include <string>
+
+string remove_vowels(string text) {
     string result = "";
     for (char c : text) {
-        if (!strchr("aeiouAEIOU", c)) {
+        if (!isalpha(c)) {
+            result += c;
+        } else if (strncasecmp(&c, "aeiouAEIOU", 6) != 0) {
             result += c;
         }
     }
