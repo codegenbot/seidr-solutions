@@ -23,7 +23,7 @@ int blackPegs(string code, string guess) {
     }
     for (int i = 0; i < 4; i++) {
         int pegCount = 0;
-        if (pegCount = count(codeArray.begin(), codeArray.end(), guess[i])) > 0) {
+        if (pegCount = std::count(codeArray.begin(), codeArray.end(), guess[i])) > 0) {
             count++;
             codeArray.erase(remove(codeArray.begin(), codeArray.end(), guess[i]), codeArray.end());
         }
