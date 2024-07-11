@@ -1,17 +1,18 @@
-#include <algorithm>
-
 vector<float> sort_even(vector<float> l) {
     vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            // For even indices, copy the value from original array
-            result[i] = l[i];
+            vector<float> temp;
+            for (int j = 0; j < l.size(); j++) {
+                if (j % 2 == 0) {
+                    temp.push_back(l[j]);
+                }
+            }
+            sort(temp.begin(), temp.end());
+            result[i] = temp[0];
         } else {
-            // For odd indices, keep the values as they are
             result[i] = l[i];
         }
     }
-    // Sort the even-indexed elements
-    sort(result.begin() + 1, result.end());
     return result;
 }
