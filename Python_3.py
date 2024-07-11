@@ -1,4 +1,4 @@
-def below_zero(operations: List[int]) -> bool:
+def below_zero(operations) -> bool:
     balance = 0
     for operation in operations:
         balance += operation
