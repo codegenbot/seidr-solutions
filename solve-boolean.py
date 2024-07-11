@@ -1,3 +1,5 @@
-expression = input().replace("T", "True").replace("F", "False")
-result = eval(expression)
+expression = input()
+result = (
+    True if eval(expression.replace("T", "'True'").replace("F", "'False'")) else False
+)
 print(result)
