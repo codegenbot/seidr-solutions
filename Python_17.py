@@ -6,7 +6,10 @@ def parse_music(music_string: str) -> List[int]:
     while i < len(music_string):
         if music_string[i] == '.':
             i += 3
-        else:
-            result.append(notes[music_string[i:i+2]])
-            i += 2
+            continue
+        note = ''
+        while i < len(music_string) and (music_string[i] in 'o|'):
+            note += music_string[i]
+            i += 1
+        result.append(notes[note])
     return result
