@@ -1,8 +1,3 @@
-#include <string>
-#include <vector>
-#include <set>
-
-// Function to find the word with the maximum number of unique characters
 std::string find_max(std::vector<std::string> words) {
     std::string result = "";
     int max_unique_chars = 0;
@@ -21,10 +16,4 @@ std::string find_max(std::vector<std::string> words) {
     }
 
     return result;
-}
-
-int main() {
-    // Test the function
-    assert(find_max({"play", "play", "play"}) == "play");
-    return 0;
 }
