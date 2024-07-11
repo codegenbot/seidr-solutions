@@ -4,19 +4,16 @@
 
 using namespace boost;
 
-namespace {
-
-boost::variant<int, double, std::string> compare_one(boost::variant<int, double, std::string> a, 
-                                                      boost::variant<int, double, std::string> b) {
-    if (a.index() == 0 && b.index() == 1) {
+boost::variant<int, double, std::string> compare_one(boost::any a, boost::any b) {
+    if (a.type() == typeid(int) && b.type() == typeid(double)) {
         return b;
     }
-    else if (a.index() == 1 && b.index() == 0) {
-        return b;
+    else if (a.type() == typeid(double) && b.type() == typeid(int)) {
+        return static_cast<int>(b);
     }
-    else if (a.index() == 2 && b.index() == 2) {
-        std::string strA = boost::get<std::string>(a);
-        std::string strB = boost::get<std::string>(b);
+    else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        std::string strA = boost::any_cast<std::string>(a);
+        std::string strB = boost::any_cast<std::string>(b);
 
         if (strA > strB) {
             return a;
@@ -25,23 +22,24 @@ boost::variant<int, double, std::string> compare_one(boost::variant<int, double,
             return b;
         }
         else {
-            return 0; // or return some special value to represent "None"
+            return "None";
         }
     }
-    else if ((a.index() == 1 && b.index() == 2) || 
-             (a.index() == 2 && b.index() == 1)) {
-        if (boost::get<double>(a) > boost::get<double>(b)) {
+    else if ((a.type() == typeid(double) && b.type() == typeid(std::string)) || 
+             (a.type() == typeid(std::string) && b.type() == typeid(double))) {
+        double numA = boost::any_cast<double>(a);
+        double numB = boost::any_cast<double>(b);
+
+        if (numA > numB) {
             return a;
         }
-        else if (boost::get<double>(a) < boost::get<double>(b)) {
+        else if (numA < numB) {
             return b;
         }
         else {
-            return 0; // or return some special value to represent "None"
+            return "None";
         }
     }
 
-    return 0; // or return some special value to represent "None"
-}
-
+    return "Invalid";
 }
