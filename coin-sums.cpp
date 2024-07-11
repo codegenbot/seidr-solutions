@@ -1,14 +1,15 @@
 int pennies = cents / 1;
-pennies = min(pennies, (cents - pennies) / 1);
-cout << pennies << endl;
+cents %= 1; 
+int nickels = cents / 5;
+cents %= 5; 
+int dimes = cents / 10;
+cents %= 10; 
+int quarters = cents / 25;
+cents %= 25; 
 
-int nickels = (cents - pennies * 100) / 5;
-nickels = min(nickels, (cents - pennies * 100 - nickels * 50) / 5);
-cout << nickels << endl;
+cout << pennies + (cents > 0) << endl;
+cout << nickels + (cents >= 5) << endl;
+cout << dimes + (cents >= 10) << endl;
+cout << quarters + (cents >= 25) << endl;
 
-int dimes = (cents - pennies * 100 - nickels * 50) / 10;
-dimes = min(dimes, (cents - pennies * 100 - nickels * 50 - dimes * 20) / 10);
-cout << dimes << endl;
-
-int quarters = (cents - pennies * 100 - nickels * 50 - dimes * 20) / 25;
-cout << quarters << endl;
+return 0;
