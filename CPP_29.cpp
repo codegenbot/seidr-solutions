@@ -1,17 +1,23 @@
-```cpp
 bool issame(vector<string> a, vector<string> b) {
-    if(a.size() != b.size()) return false;
+    if(a.size() != b.size())
+        return false;
     for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) return false;
+        bool ismatch = false;
+        for(string s : a[i].split(' ')) {
+            if(find(b[i].begin(), b[i].end(), s) == b[i].end())
+                break;
+            else
+                ismatch = true;
+        }
+        if(!ismatch)
+            return false;
     }
     return true;
 }
 
-int main(){
-    vector<string> strings1 = {"apple", "banana", "apricot"};
-    vector<string> strings2 = {"apple", "orange", "apricot"};
-
-    assert(issame(filter_by_prefix(strings1, "app"), filter_by_prefix(strings2, "app")));
-
+int main() {
+    assert(issame(filter_by_prefix({"apple apple juice", "banana milk", "cherry milk"}, " "), 
+                   filter_by_prefix({"banana juice", "mango smoothie", "grapes fruit salad"}, " ")) == true);
+    
     return 0;
 }
