@@ -1,4 +1,6 @@
-Here is the completed code:
+#include <iostream>
+#include <cassert>
+#include <cmath>
 
 float triangle_area(float a, float b, float c) {
     if ((a + b > c) && (a + c > b) && (b + c > a)) {
@@ -7,4 +9,16 @@ float triangle_area(float a, float b, float c) {
     } else {
         return -1.0f;
     }
+}
+
+int calculateAndPrintArea() {
+    float a, b, c;
+    std::cout << "Enter the lengths of three sides of a triangle: ";
+    std::cin >> std::fixed >> std::showpoint >> a >> b >> c; 
+    float area = triangle_area(a, b, c);
+    if (area == -1.0f)
+        std::cout << "Not a valid triangle.\n";
+    else
+        std::cout << "The area of the triangle is: " << area << "\n";
+    return 0;
 }
