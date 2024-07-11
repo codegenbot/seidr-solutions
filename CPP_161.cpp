@@ -1,9 +1,19 @@
-for (char &c : s) {
-        if (isalpha(c)) {
+#include <algorithm>
+#include <cassert>
+#include <cctype>
+#include <string>
+
+using namespace std;
+
+string solve(string s){
+    bool hasLetter = false;
+    for(char &c : s){
+        if(isalpha(c)){
+            hasLetter = true;
             c = islower(c) ? toupper(c) : tolower(c);
         }
     }
-    if (count_if(s.begin(), s.end(), isalpha) == 0) {
+    if(!hasLetter){
         reverse(s.begin(), s.end());
     }
     return s;
