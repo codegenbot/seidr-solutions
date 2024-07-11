@@ -1,4 +1,4 @@
-def solve_quadratic_equation():
+def quadratic_equation():
     while True:
         print("Enter coefficients (a b c [d]): ")
         try:
