@@ -3,15 +3,16 @@
 using namespace std;
 
 int prod_signs(vector<int> arr) {
-    if(arr.empty()) return -32768;
-    int sign_product = 1;
-    long sum_of_magnitudes = 0;
-    
-    for(int num : arr){
-        if(num == 0) continue;
-        sign_product *= (num > 0 ? 1 : -1);
-        sum_of_magnitudes += abs(num);
+    if (arr.empty()) return -32768;
+    int signProd = 1;
+    long long sumMag = 0;
+    for (int num : arr) {
+        if (num == 0) {
+            signProd = 0; // If there's a zero, the product of signs is zero
+            break;
+        }
+        signProd *= sign(num); // Calculate the product of signs
+        sumMag += abs(num); // Calculate the sum of magnitudes
     }
-    
-    return sign_product * sum_of_magnitudes;
+    return signProd * sumMag;
 }
