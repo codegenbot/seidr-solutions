@@ -1,5 +1,8 @@
 def sum_squares(lst):
-    return sum(i**2 for i in lst)
+    total = 0
+    for i in lst:
+        total += i**2
+    return total
 
 while True:
     try:
