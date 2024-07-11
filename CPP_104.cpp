@@ -4,7 +4,7 @@
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     std::vector<int> result;
-    for (int num : a) {
+    for (int num : x) {
         bool hasEvenDigit = false;
         int temp = num;
         while (temp > 0) {
@@ -21,4 +21,4 @@ bool issame(std::vector<int> a, std::vector<int> b) {
     }
     std::sort(result.begin(), result.end());
     return result;
-} 
+}
