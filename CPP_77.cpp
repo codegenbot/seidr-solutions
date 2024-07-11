@@ -1,5 +1,6 @@
+```cpp
 #include <cmath>
-#include <cassert>
+#include <cassert> 
 using namespace std;
 
 bool iscuber(int a){
