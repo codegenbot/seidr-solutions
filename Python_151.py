@@ -1,4 +1,4 @@
-def check():
-    your_list_here = [1, -2, 3, 4, -5]
-    result = double_the_difference(your_list_here)
-    print(result)
+def double_the_difference(lst):
+    result = sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
+    difference = abs(100 - 2*result)
+    return difference
