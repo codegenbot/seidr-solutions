@@ -1,4 +1,3 @@
-```Python
 def decipher(cipher1, cipher2, message):
     mapping = {c.lower(): c for c in cipher1}
     result = ""
