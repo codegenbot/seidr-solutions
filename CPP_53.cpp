@@ -10,11 +10,10 @@ int add(int a, int b) {
     return a + b;
 }
 
-int main() { 
+int main() {
     srand(time(nullptr)); 
     int randomNum = rand() % 1000; 
-
-    cout << "Random Number: " << to_string(randomNum) << endl; 
-
+    string output = "Random Number: " + to_string(randomNum);
+    cout << output << endl;
     return 0;
 }
