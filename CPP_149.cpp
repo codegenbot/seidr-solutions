@@ -1,14 +1,21 @@
 vector<string> sorted_list_sum(vector<string> lst) {
-    auto it = unique(lst.begin(), lst.end());
-    lst.erase(it, lst.end());
+    // Filter out strings with odd lengths
+    vector<string> filteredList;
+    for (const auto& str : lst) {
+        if (str.length() % 2 == 0) {
+            filteredList.push_back(str);
+        }
+    }
 
-    sort(lst.begin(), lst.end(),
-        [](const string& a, const string& b) {
-            if (a.length() == b.length())
-                return a < b;
-            else
-                return a.length() < b.length();
-        });
+    // Sort the filtered list based on length and then alphabetically
+    std::sort(filteredList.begin(), filteredList.end(), 
+              [](const string& a, const string& b) {
+                  if (a.length() != b.length()) {
+                      return a.length() < b.length();
+                  } else {
+                      return a < b;
+                  }
+              });
 
-    return lst;
+    return filteredList;
 }
