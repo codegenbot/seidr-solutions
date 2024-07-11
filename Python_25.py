@@ -1,15 +1,16 @@
-```
-from typing import List
-
-
-def find_prime_numbers(n: int) -> List[int]:
-    prime_numbers = []
-    for possiblePrime in range(2, n + 1):
-        isPrime = True
-        for num in range(2, int(math.sqrt(possiblePrime)) + 1):
-            if possiblePrime % num == 0:
-                isPrime = False
-                break
-        if isPrime:
-            prime_numbers.append(possiblePrime)
-    return prime_numbers
+def factorize(n: int) -> List[int]:
+    factors = []
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            factors.extend([i] * count)
+    if n > 1:
+        factors.append(n)
+    return factors
