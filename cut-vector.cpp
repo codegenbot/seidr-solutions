@@ -36,7 +36,7 @@ int main() {
         }
     }
 
-    cout << "2" << endl;
+    cout << cutIndex + 1 << endl;
     
     for (int i = 0; i <= cutIndex; i++) {
         cout << nums[i];
@@ -46,16 +46,14 @@ int main() {
     }
     cout << endl;
     
-    cout << "1" << endl;
+    cout << n - cutIndex - 1 << endl;
     
     for (int i = cutIndex + 1; i < n; i++) {
         cout << nums[i];
-        if (i != n) {
+        if (i != n - 1) {
             cout << " ";
         }
     }
-    
-    cout << endl;
     
     return 0;
 }
