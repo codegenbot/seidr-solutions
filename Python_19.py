@@ -2,7 +2,7 @@
 import re
 
 
-def sort_numbers(input_str: str) -> str:
+def sort_numbers(input_str: str) -> str
     while True:
         try:
             if not re.match(r"^\s*\d+(?:\s+\d+)*)$", input_str):
@@ -12,4 +12,6 @@ def sort_numbers(input_str: str) -> str:
         except ValueError:
             print("Invalid input. Please enter a string of space-separated integers.")
             input_str = input("Enter your input: ")
-    return " ".join(map(str, sorted(numbers))) if numbers else str([])
+    if not numbers:
+        return str(numbers)
+    return " ".join(map(str, sorted(numbers)))
