@@ -1,4 +1,3 @@
-```
 def fruit_distribution(s):
     s = s.lower().replace("apples", "0").replace("oranges", "0")
     total = 0
@@ -10,5 +9,5 @@ def fruit_distribution(s):
         elif part.startswith("and"):
             if part.startswith("and "):
                 last_number = int(parts[parts.index(part) - 1])
-                total += -(-last_number // 2)
-    return -(-total // 2)
+                total -= (-last_number // 2)
+    return -(total // 2)
