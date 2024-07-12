@@ -5,7 +5,6 @@ def process_numbers(numbers, delimeter):
     result.pop()
     return result
 
-
 numbers = input("Enter the numbers separated by spaces: ").split()
 delimeter = input("Enter the delimeter: ")
 output = process_numbers(numbers, delimeter)
