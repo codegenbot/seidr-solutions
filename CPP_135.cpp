@@ -12,5 +12,6 @@ int can_arrange(std::vector<int> arr) {
 
 int main() {
     assert(can_arrange({}) == -1);
+    // Add your test cases here
     return 0;
 }
