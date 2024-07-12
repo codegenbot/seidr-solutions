@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -37,6 +38,7 @@ int main() {
     vector<int> game(n),guess(n);
     for(int i = 0; i < n;i++){
         cin >> game[i] >> guess[i];
+        game[i] = guess[i]; 
     }
     vector<int> res = getResult(game,guess);
     if(res.size() != n) {
