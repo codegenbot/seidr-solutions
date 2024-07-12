@@ -1,4 +1,4 @@
-#include <string>
+using namespace std;
 
 int bowling(string s) {
     int score = 0;
