@@ -1,21 +1,24 @@
+```cpp
 #include <string>
 #include <iostream>
 
-int compare_one(const std::string& s, int i) {
+using namespace std;
+
+int compare_one(const string& s, int i) {
     if (i == 1)
-        return std::stof(s) - 10;
+        return stof(s) - 10;
     else if (i == 2)
-        return std::stof(s);
+        return stof(s);
     else if (i == 3)
-        return std::stof(s) + 10;
+        return stof(s) + 10;
 }
 
 int main() {
-    std::string a, b;
-    std::cout << "Enter the first number: ";
-    std::cin >> a;
-    std::cout << "Enter the second number: ";
-    std::cin >> b;
+    string a, b;
+    cout << "Enter the first number: ";
+    cin >> a;
+    cout << "Enter the second number: ";
+    cin >> b;
 
     if (a.size() > 0 && b.size() > 0) {
         int x = compare_one(a, 1);
