@@ -7,7 +7,32 @@ int calculateBowlingScore(string s) {
     int score = 0;
     int frame = 0;
     for (int i = 0; i < s.size(); ++i) {
-        // Existing logic for calculating bowling score
+        if (s[i] == 'X') {
+            score += 10;
+            if (s[i+2] == 'X') {
+                score += 10;
+                if (s[i+4] == 'X') {
+                    score += 10;
+                } else {
+                    score += s[i+4] - '0';
+                }
+            } else {
+                score += s[i+2] == '/' ? 10 : s[i+2] - '0';
+                score += s[i+4] == '/' ? 10 : s[i+4] - '0';
+            }
+            frame++;
+        } else if (s[i] == '/') {
+            score += 10 - (s[i-1] - '0');
+            score += s[i+1] == 'X' ? 10 : s[i+1] - '0';
+            frame++;
+        } else if (s[i] == '-') {
+            continue;
+        } else {
+            score += s[i] - '0';
+            if (frame % 2 == 1) {
+                frame++;
+            }
+        }
     }
     return score;
 }
