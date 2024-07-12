@@ -9,7 +9,7 @@ int main() {
     float final_snow = snow;
     for (int i = 0; i < hours; ++i) {
         final_snow += rate;
-        final_snow -= melt;
+        final_snow -= melt * snow;
     }
 
     cout << final_snow << endl;
