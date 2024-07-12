@@ -1,3 +1,7 @@
-```
 def is_bored(S):
-    return len([s for s in S.split('. ') + S.split('? ') + S.split('! ') if s and s.startswith('I')])
+    S = S + "."
+    count = 0
+    for sentence in S.split("."):
+        if sentence.strip().startswith("I") and sentence.strip():
+            count += 1
+    return count
