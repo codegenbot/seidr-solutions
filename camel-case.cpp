@@ -1,19 +1,19 @@
-```cpp
 #include <iostream>
 #include <string>
+#include <cctype>
 
 std::string camelCase(const std::string& s) {
     std::string result;
     bool capitalize = true;
 
     for (char c : s) {
-        if (c == '-') {
-            continue; // don't process '-'
+        if (std::isspace(c)) {
+            continue; // skip spaces and hyphens
         } else if (capitalize) {
-            result += toupper(c);
+            result += std::toupper(c);
             capitalize = false;
         } else {
-            result += tolower(c);
+            result += std::tolower(c);
         }
     }
 
