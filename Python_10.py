@@ -1,9 +1,13 @@
-Problem description: Write a Python function that checks if a given string is a palindrome and returns the original string if it's not a palindrome.
+Problem description: Write a Python function that checks if a given string is a palindrome and another function to make the input string into a palindrome.
 
 function signature:
+def is_palindrome(string: str) -> bool:
 def make_palindrome(string: str) -> str:
 
 Solution:
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1]
+
 def make_palindrome(string: str) -> str:
     if string.isalnum():
         for i in range(len(string), -1, -1):
