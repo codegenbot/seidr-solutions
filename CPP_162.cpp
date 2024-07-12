@@ -13,8 +13,6 @@ std::string string_to_md5(const std::string& text) {
     unsigned char digest[EVP_MAX_MD_SIZE];
     unsigned int digest_len;
 
-    OpenSSL_add_all_algorithms();
-    
     md = EVP_md5();
     mdctx = EVP_MD_CTX_new();
     
