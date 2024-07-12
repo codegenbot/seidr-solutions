@@ -1,3 +1,4 @@
+```
 def bouncing_balls():
     h = float(input())
     hb = float(input())
@@ -10,5 +11,6 @@ def bouncing_balls():
         height *= bi
     print(bi)
     print(total_distance)
+
 
 bouncing_balls()
