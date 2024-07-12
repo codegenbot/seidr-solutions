@@ -1,25 +1,51 @@
 #include <vector>
 using namespace std;
 
-int main() {
-    vector<int> arr = {1, 3, 4, 2, 6};
-    vector<int> leadersRes = leaders(arr);
-    for (int leader : leadersRes) {
-        cout << leader << " ";
+vector<int> leaders(vector<int>& arr) {
+    int n = arr.size();
+    vector<int> res;
+    
+    if(n == 1)
+        return arr;
+        
+    for(int i=n-2; i>=0; i--){
+        while(i<n-1 && arr[i] <= arr[n-1])
+            n--;
     }
-    return 0;
+    
+    res.push_back(arr[n-1]);
+    
+    for(int i=0; i<n-1; i++){
+        if(arr[i] >= arr[n-1])
+            res.push_back(arr[i]);
+    }
+    
+    return res;
 }
 
 vector<int> leaders(vector<int>& arr) {
-    vector<int> result;
     int n = arr.size();
-    int rightmost_max = arr.back();
-    for(int i=n-1; i>=0; i--) {
-        if(arr[i] >= rightmost_max) {
-            rightmost_max = arr[i];
-            result.push_back(rightmost_max);
+    vector<int> result;
+
+    // The last element is always a leader
+    result.push_back(arr.back());
+
+    for (int i = 0; i < n - 1; ++i) {
+        if (arr[i] >= arr.back()) {
+            result.push_back(arr[i]);
         }
     }
-    reverse(result.begin(), result.end());
+
     return result;
+}
+
+int main() {
+    vector<int> test = {16, 17, 4, 3, 5, 2};
+    vector<int> result = leaders(test);
+
+    for(int i: result) {
+        std::cout << i << " ";
+    }
+    
+    return 0;
 }
