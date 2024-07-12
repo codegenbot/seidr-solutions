@@ -1,25 +1,19 @@
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 
-bool issame(vector<int> a, vector<int> b);
+using namespace std;
 
 vector<int> unique(vector<int> l) {
-    return std::vector<int>(l.begin(), std::unique(l.begin(), l.end()));
+    vector<int> result(l.begin(), end(l));
+    return unique_copy(result, result + l.size());
 }
 
-auto main() -> int {
-    assert(issame({0, 2, 3, 5, 9, 123}, {0, 2, 3, 5, 9, 123}));
-    return 0;
-}
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
+vector<int>::iterator unique_copy(iterator first, iterator last) {
+    unordered_set<int> seen;
+    for (auto it = first; it != last; ++it) {
+        if (seen.insert(*it).second) {
+            *first++ = *it;
         }
     }
-    return true;
+    return first;
 }
