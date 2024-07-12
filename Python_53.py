@@ -1,6 +1,6 @@
-```
-num1 = 0
-num2 = 0
+num1 = None
+num2 = None
+
 
 def add(x: int, y: int):
     return x + y
