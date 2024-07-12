@@ -1,4 +1,3 @@
-```
 def find_closest_number():
     while True:
         try:
@@ -11,7 +10,6 @@ def find_closest_number():
                 return closest_value, 0
         except ValueError:
             print("Invalid input. Please enter a decimal number.")
-
 
 if __name__ == "__main__":
     while True:
