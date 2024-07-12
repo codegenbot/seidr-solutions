@@ -1,9 +1,14 @@
-```c++
+```cpp
 #include <vector>
 #include <algorithm>
 #include <unordered_set>
+#include <initializer_list>
 
-bool issame(const std::vector<int>& a, const std::vector<int> b) {
+#pragma GCC diagnostic push
+#include <initializer_list>
+#pragma GCC diagnostic pop
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
@@ -13,15 +18,7 @@ std::vector<int> remove_duplicates(const std::vector<int>& vec) {
 }
 
 int main() {
-    std::vector<int> test1;
-    test1.push_back(1);
-    test1.push_back(2);
-    test1.push_back(3);
-    test1.push_back(2);
-    test1.push_back(4);
-    test1.push_back(3);
-    test1.push_back(5);
-    
+    std::vector<int> test1({1, 2, 3, 2, 4, 3, 5});
     std::vector<int> test2 = remove_duplicates(test1);
     if (issame(test1, test2)) {
         for (int i : test2) {
