@@ -6,8 +6,7 @@ int pairedDigits(const std::string& str) {
         }
     }
     return sum;
-
-} 
+}
 
 int main() {
     std::cout << pairedDigits("1113123") << std::endl;
