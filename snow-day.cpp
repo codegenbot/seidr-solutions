@@ -6,13 +6,13 @@ int main() {
     float snow, rate, melt;
     cin >> hours >> snow >> rate >> melt;
 
-    float final_snow = snow;
+    float finalSnow = snow;
     for (int i = 0; i < hours; ++i) {
-        final_snow += rate;
-        final_snow -= melt * snow;
+        finalSnow += rate;
+        finalSnow -= melt * snow;
     }
 
-    cout << final_snow << endl;
+    cout << finalSnow << endl;
 
     return 0;
 }
