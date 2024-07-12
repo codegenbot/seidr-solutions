@@ -1,7 +1,8 @@
+```python
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
-        return string + string  
+        return string + string
     for i in range(len(string)):
-        if string[i:] == string[i:][::-1]:  
-            return string + string[i:][::-1]  
-    return string + string[::-1]
+        half = string[i:]
+        if half == half[::-1]:
+            return string + half[::-1]
