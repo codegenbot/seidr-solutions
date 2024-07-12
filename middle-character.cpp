@@ -1,11 +1,20 @@
 #include <string>
 using namespace std;
 
-string middleCharacter(string s) {
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    cin >> s;
+    
     int len = s.length();
     if (len % 2 == 0) {
-        return s.substr(len / 2 - 1, 2);
+        string mid1 = s.substr(len / 2 - 1, 1);
+        string mid2 = s.substr(len / 2, 1);
+        cout << "Middle characters are: " << mid1 + mid2 << endl;
     } else {
-        return s.substr(len / 2, 1);
+        string mid = s.substr(len / 2, 1);
+        cout << "Middle character is: " << mid << endl;
     }
+    
+    return 0;
 }
