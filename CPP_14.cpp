@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(string a, string b);
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> all_prefixes(string str){
     vector<string> prefixes;
@@ -12,12 +12,3 @@ vector<string> all_prefixes(string str){
     }
     return prefixes;
 }
-
-bool issame(string a, string b) {
-    return a == b;
-}
-
-int main() {
-    // Main function code here
-    return 0;
-} 
