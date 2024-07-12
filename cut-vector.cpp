@@ -33,21 +33,21 @@ int main() {
         int suffixSum = sum - prefixSum;
         int diff = abs(prefixSum - suffixSum);
         
-        if (diff <= minDiff) {
+        if (diff < minDiff) {
             minDiff = diff;
             cutIndex = i;
         }
     }
-    
+
+    cout << cutIndex + 1 << endl;
     for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << " ";
+        cout << nums[i] << endl;
     }
-    cout << endl;
     
+    cout << n - cutIndex - 1 << endl;
     for (int i = cutIndex + 1; i < n; i++) {
-        cout << nums[i] << " ";
+        cout << nums[i] << endl;
     }
-    cout << endl;
     
     return 0;
 }
