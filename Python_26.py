@@ -1,4 +1,3 @@
-```
 def remove_duplicates(input_numbers):
     unique_numbers = []
 
@@ -6,4 +5,4 @@ def remove_duplicates(input_numbers):
         if num not in unique_numbers:
             unique_numbers.append(num)
 
-    return list(set(unique_numbers))
+    return unique_numbers
