@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -9,7 +10,7 @@ bool any_int(float a, float b, float c) {
 }
 
 int main() {
-    float a, b, c;
+    int a, b, c;
     cout << "Enter three numbers: ";
     cin >> a >> b >> c;
 
