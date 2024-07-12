@@ -1,4 +1,3 @@
-```c++
 #include <cstring>
 
 int pairedDigits(char* s) {
