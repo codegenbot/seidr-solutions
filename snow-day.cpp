@@ -1,4 +1,5 @@
 #include <iostream>
+
 int main() {
     int hours;
     float snow_on_ground, snow_fall_rate, snow_melting_rate;
