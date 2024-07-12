@@ -21,6 +21,4 @@ def calculate_average_and_median():
         else sorted_numbers[n // 2]
     )
 
-    return f"Average: {average}, Median: {median}"
-
-print(calculate_average_and_median())
+    print(f"Average: {average}, Median: {median}")
