@@ -1,8 +1,9 @@
+```cpp
+#include <vector>
+#include <string>
 # pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wfatal-companion"
 #include <initializer_list>
-#include <vector>
-#include <string>
 
 bool issame(std::vector<std::vector<std::string>> a, std::vector<std::vector<std::string>> b) {
     if(a.size() != b.size()) return false;
