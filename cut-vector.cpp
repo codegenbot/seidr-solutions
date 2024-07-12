@@ -35,7 +35,7 @@ int main() {
     }
     cout << 0 << endl;
     for (int i = cutIdx; i < n; ++i) {
-        cout << vec[i] << endl; 
+        cout << vec[i] << endl;
     }
     cout << 0 << endl;
     
