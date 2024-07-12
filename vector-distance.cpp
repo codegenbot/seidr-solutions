@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 #include <iomanip>
-#include <sstream> // Add this line for <sstream>
+#include <sstream>
 
 int main() {
     int n;
