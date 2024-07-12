@@ -5,8 +5,7 @@ def check_numbers(numbers, threshold):
             return False
     return True
 
-
-numbers = list(map(int, input().split()))  # Split input into a list of numbers
+numbers = list(map(int, input().split()))
 threshold = int(input())
 result = check_numbers(numbers, threshold)
 print(result)
