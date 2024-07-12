@@ -1,14 +1,13 @@
 def indices_of_substring():
     text = input()
     target = input()
-
-    idx = 0
-    while idx < len(text):
-        idx = text.find(target, idx)
-        if idx == -1:
-            break
+    indices = [
+        i
+        for i in range(len(text) - len(target) + 1)
+        if text.startswith(target, i) or (i > 0 and text.startswith(target, i - 1))
+    ]
+    for idx in indices:
         print(idx)
-        idx += 1
 
 
 indices_of_substring()
