@@ -1,6 +1,7 @@
+```
 def digits(n):
     product = 1
     for digit in str(n):
         if int(digit) % 2 != 0:
             product *= int(digit)
-    return product or 1  # ensure that 0 is considered as not divisible by 2
+    return product or 1
