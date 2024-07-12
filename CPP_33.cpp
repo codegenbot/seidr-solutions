@@ -1,4 +1,8 @@
+Here is the corrected code:
+
+```cpp
 #include <algorithm>
+#include <assert.h>
 #include <vector>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
@@ -32,3 +36,4 @@ std::vector<int> sort_third(std::vector<int> l) {
         }
     }
     return result;
+}
