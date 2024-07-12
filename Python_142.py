@@ -1,6 +1,8 @@
-def find_sum_of_numbers(lst):
-    sum = 0
-    for i in lst:
-        if i % 2 == 1:
-            sum += i
-    return sum
+def sum_squares(lst):
+    total_sum = 0
+    for num in lst:
+        if num % 3 == 0 and num % 4 != 0:
+            total_sum += num ** 2
+        elif num % 4 == 0 and num % 3 != 0:
+            total_sum += num ** 3
+    return total_sum
