@@ -12,5 +12,5 @@ def below_zero() -> bool:
         
         if all(temp < 0 for temp in temperature_list):
             return True
-        elif any(temp >= 0 for temp in temperature_list):
+        elif all(temp >= 0 for temp in temperature_list):
             return False
