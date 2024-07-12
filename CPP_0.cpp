@@ -12,7 +12,6 @@ bool has_close_elements(const std::vector<float>& numbers, float threshold) {
     return false;
 }
 
-// Function prototype declaration
 bool has_close_elements(const std::vector<float>& numbers, float threshold);
 
 int main() {
