@@ -1,6 +1,6 @@
-from typing import List, Optional
+from typing import list, typing
 
-def longest(strings: List[str]) -> Optional[str]:
+def longest(strings: list) -> typing.Optional:
     if not all(isinstance(s, str) for s in strings):
         return None
     return max(filter(str.isalpha, strings), key=len)
