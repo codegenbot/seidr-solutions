@@ -1,4 +1,4 @@
-```Python
+```
 def filter_by_substring(input_str, substring):
     return [s for s in input_str if substring in s]
 
