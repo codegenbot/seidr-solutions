@@ -11,39 +11,37 @@ int main() {
         cin >> vec[i];
     }
     
-    int sum = 0;
-    for (int num : vec) {
-        sum += num;
-    }
-    
-    int leftSum = 0;
-    int rightSum = sum;
     int diff = INT_MAX;
     int cutIdx = -1;
     
-    for (int i = 0; i < n; ++i) {
-        leftSum += vec[i];
-        rightSum -= vec[i];
+    for (int i = 1; i < n; ++i) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; ++j) {
+            leftSum += vec[j];
+        }
+        for (int j = i; j < n; ++j) {
+            rightSum += vec[j];
+        }
         
         int currentDiff = abs(leftSum - rightSum);
-        
-        if (currentDiff <= diff) {
+        if (currentDiff < diff) {
             diff = currentDiff;
             cutIdx = i;
         }
     }
     
-    for (int i = 0; i <= cutIdx; ++i) {
-        cout << vec[i] << endl;
+    for (int i = 0; i < cutIdx; ++i) {
+        cout << vec[i] << " ";
     }
+    cout << endl;
     
-    cout << 0 << endl;
-    
-    for (int i = cutIdx + 1; i < n; ++i) {
-        cout << vec[i] << endl; 
+    for (int i = cutIdx; i < n; ++i) {
+        cout << vec[i];
+        if (i != n - 1) {
+            cout << " ";
+        }
     }
-    
-    cout << 0 << endl;
+    cout << endl;
     
     return 0;
 }
