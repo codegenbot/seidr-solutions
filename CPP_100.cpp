@@ -1,18 +1,14 @@
-```cpp
 #include <vector>
-#include <cassert>
+using namespace std;
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
-}
-
-int main() {
-    assert(issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
-    return 0;
+namespace {
+    bool issame(const vector<int>& a, const vector<int>& b) { 
+        return a == b;
+    }
 }
 
 std::vector<int> make_a_pile(int n) {
-    std::vector<int> pile;
+    vector<int> pile;
     int stones = n;
     for (int i = 0; i < n; i++) {
         if (stones % 2 == 1) {
@@ -24,4 +20,9 @@ std::vector<int> make_a_pile(int n) {
         }
     }
     return pile;
+}
+
+int main() {
+    assert(issame(make_a_pile(8), vector<int>({8, 10, 12, 14, 16, 18, 20, 22})); 
+    return 0;
 }
