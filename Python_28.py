@@ -5,12 +5,9 @@ def concatenate(strings: List[str]) -> str:
     return "".join(strings)
 
 
-user_input = input(
-    "Enter multiple strings separated by space or newline (e.g., 'Hello' 'World'): "
-)
-
-strings_list = [i.strip() for i in user_input.split()]
-
-result = concatenate(strings_list)
+strings_list = []
+for i in range(len(strings_list)):
+    strings_list.append(input(f"Enter string {i+1}: "))
+result = concatenate([s.strip() for s in strings_list])
 
 print(result)
