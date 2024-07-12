@@ -1,3 +1,4 @@
+```c++
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -26,7 +27,7 @@ int main() {
 
     std::istringstream iss(input);
     std::string word;
-    std::string result;
+    std::string result = "";
 
     while (iss >> word) {
         if (!word.empty()) {
