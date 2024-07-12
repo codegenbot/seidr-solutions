@@ -1,6 +1,8 @@
-numbers = [int(input()) for _ in range(int(input().strip()))]
-
 def rolling_max(numbers):
-    return [max(numbers[i:i+3]) for i in range(len(numbers)-2)]
+    return [max(numbers[i : i + 3]) for i in range(len(numbers) - 2)]
+
+
+n = int(input().strip())
+numbers = [int(input()) for _ in range(n)]
 
 print(rolling_max(numbers))

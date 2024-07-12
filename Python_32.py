@@ -2,16 +2,13 @@ def find_zero():
     xs = []
     while True:
         try:
-            line = input()
+            line = input().strip()
             if not line:
                 break
-            xs.extend(map(float, line.strip().split()))
-        except (EOFError, KeyboardInterrupt):
+            xs.extend(map(float, line.split()))
+        except:
             break
-        except Exception as e:
-            print(f"Error: {e}")
-    a = xs[-2]
-    b = xs[-1]
+    a, b = xs[-2:]
     return -b / a
 
 result = find_zero()
