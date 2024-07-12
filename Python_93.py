@@ -1,12 +1,11 @@
-```Python
 def encode(message):
     result = ""
     for char in message:
         if char.isalpha():
-            if char.lower() in 'aeiou':
-                result += (chr((ord(char.lower()) - 96) + 2) if char.islower() else chr((ord(char.upper()) - 64) + 2)).swapcase()
-            else:
-                result += char.swapcase()
+            shift = 3 if char.islower() else -24
+            result += chr((ord(char.lower()) - 97 + shift) % 26 + 97)
+            if char.isupper():
+                result = result.upper()
         else:
             result += char
     return result
