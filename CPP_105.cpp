@@ -1,6 +1,3 @@
-#include <vector>
-#include <string>
-
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -26,68 +23,86 @@ vector<string> byLength(int num) {
         case 3:
             result.push_back("Three");
             break;
-        default:
-            result.push_back("Unknown");
+        case 4:
+            result.push_back("Four");
+            break;
+        case 5:
+            result.push_back("Five");
+            break;
+        case 6:
+            result.push_back("Six");
+            break;
+        case 7:
+            result.push_back("Seven");
+            break;
+        case 8:
+            result.push_back("Eight");
+            break;
+        case 9:
+            result.push_back("Nine");
+            break;
     }
 
     switch (num % 100 / 10) {
         case 1:
-            result.push_back("One");
+            result.push_back("Ten");
             break;
         case 2:
-            result.push_back("Two");
+            result.push_back("Twenty");
             break;
         case 3:
-            result.push_back("Three");
+            result.push_back("Thirty");
             break;
         case 4:
-            result.push_back("Four");
+            result.push_back("Forty");
             break;
         case 5:
-            result.push_back("Five");
+            result.push_back("Fifty");
             break;
         case 6:
-            result.push_back("Six");
+            result.push_back("Sixty");
             break;
         case 7:
-            result.push_back("Seven");
+            result.push_back("Seventy");
             break;
         case 8:
-            result.push_back("Eight");
+            result.push_back("Eighty");
             break;
         case 9:
-            result.push_back("Nine");
+            result.push_back("Ninety");
             break;
     }
 
-    switch (num % 10) {
-        case 1:
-            result.push_back("One");
-            break;
-        case 2:
-            result.push_back("Two");
-            break;
-        case 3:
-            result.push_back("Three");
-            break;
-        case 4:
-            result.push_back("Four");
-            break;
-        case 5:
-            result.push_back("Five");
-            break;
-        case 6:
-            result.push_back("Six");
-            break;
-        case 7:
-            result.push_back("Seven");
-            break;
-        case 8:
-            result.push_back("Eight");
-            break;
-        case 9:
-            result.push_back("Nine");
-            break;
+    if (num % 10 != 0) {
+        switch (num % 10) {
+            case 1:
+                result.push_back("One");
+                break;
+            case 2:
+                result.push_back("Two");
+                break;
+            case 3:
+                result.push_back("Three");
+                break;
+            case 4:
+                result.push_back("Four");
+                break;
+            case 5:
+                result.push_back("Five");
+                break;
+            case 6:
+                result.push_back("Six");
+                break;
+            case 7:
+                result.push_back("Seven");
+                break;
+            case 8:
+                result.push_back("Eight");
+                break;
+            case 9:
+                result.push_back("Nine");
+                break;
+        }
     }
 
     return result;
@@ -99,4 +114,3 @@ int main() {
     assert(issame(result1 , {"Nine", "Eight", "Four"}));
     
     return 0;
-}
