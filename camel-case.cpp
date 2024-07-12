@@ -1,7 +1,4 @@
-#include <vector>
-#include <iostream>
 #include <string>
-#include <cctype>
 
 using namespace std;
 
@@ -11,17 +8,12 @@ string toCamelCase(string s) {
     while (i < s.length()) {
         if (s[i] == '-') {
             i++;
-            if (result != "") {
-                result += toupper(s[i]);
-            } else {
-                result += tolower(s[i]);
-            }
+            continue;
+        }
+        if (result != "") {
+            result += toupper(s[i]);
         } else {
-            if (result == "") {
-                result += tolower(s[i]);
-            } else {
-                result += toupper(s[i]);
-            }
+            result += tolower(s[i]);
         }
         i++;
     }
