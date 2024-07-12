@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <string>
+using namespace std;
 
 int mastermind(string code, string guess) {
     int white = 0;
@@ -23,13 +24,4 @@ int mastermind(string code, string guess) {
     return black + white;
 }
 
-int main() {
-    string code = "ABCD";
-    string guess = "BCDE";
-
-    int result = mastermind(code, guess);
-
-    std::cout << "Number of white pegs and black pegs: " << result << std::endl;
-
-    return 0;
-}
+int main() { return mastermind("ABCD", "ABCD"); }
