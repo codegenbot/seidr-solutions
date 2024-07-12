@@ -1,1 +1,3 @@
-`n = int(input())`
+n = int(input())
+result = factorize(n)
+print(result)
