@@ -5,32 +5,26 @@
 using namespace std;
 
 vector<int> get_odd_collatz(int n) {
-    assert(n > 0);
     vector<int> result;
-    
     while (n != 1) {
         result.push_back(n);
+
         if (n % 2 == 0) {
             n /= 2;
         } else {
-            if (n > 0 && (__builtin_ctz(n) < 31)) {
-                n = 3 * n + 1;
-            } else {
-                result.push_back(1);
-                break;
-            }
+            n = 3 * n + 1;
         }
     }
     result.push_back(1);
     
+    sort(result.begin(), result.end()); // Sort the result vector
+    
     vector<int> odd_numbers;
-    for (int num : result) {
-        if (num % 2 != 0) {
-            odd_numbers.push_back(num);
+    for (int i = 0; i < result.size(); ++i) {
+        if (result[i] % 2 != 0) {
+            odd_numbers.push_back(result[i]);
         }
     }
-    
-    sort(odd_numbers.begin(), odd_numbers.end());
     
     return odd_numbers;
 }
