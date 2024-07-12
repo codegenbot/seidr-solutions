@@ -1,10 +1,7 @@
 def decode_cyclic(s: str):
-    if len(s) % 3 != 0:
-        print("Error: Input string must be a multiple of 3")
-        return
     result = []
     i = 0
-    while i < len(s):
+    while i < len(s) - 2:
         group = s[i:i+3]
         if len(group) == 2:
             result.append(group[1])
