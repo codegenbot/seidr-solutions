@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
@@ -29,6 +29,5 @@ std::vector<std::string> byLength(std::initializer_list<int> lengths) {
 }
 
 int main() {
-    std::vector<std::string> output = byLength({4, 8, 9});
-    assert(isSame(output, {"Four", "Eight", "Nine"}));
+    assert(isSame(byLength({4, 8, 9}), {"Four", "Eight", "Nine"}));
 }
