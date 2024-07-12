@@ -1,32 +1,47 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <map>
+#include <string>
+
+using namespace std;
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<int> arr(n);
+    cin >> n;
+    vector<int> arr(n);
     for (int i = 0; i < n; i++) {
-        std::cin >> arr[i];
+        cin >> arr[i];
     }
     
-    int max_val = *std::max_element(arr.begin(), arr.end());
-    int min_val = *std::min_element(arr.begin(), arr.end());
+    string str;
+    cin >> str;
     
-    std::cout << "Histogram: ";
-    histogram(min_val, max_val);
+    int result = histogram(str, arr);
+    cout << result << endl;
     
     return 0;
 }
 
-void histogram(int min_val, int max_val) {
-    for (int i = min_val; i <= max_val; i++) {
-        int count = 0;
-        for (int j = 0; j < n; j++) {
-            if (arr[j] == i) {
-                count++;
+bool issame(map<char,int> a,map<char,int> b){
+    if(a==b) return true;
+    return false;
+}
+int histogram(string s, vector<int>& arr) {
+    if (s == "print") {
+        int max_val = *max_element(arr.begin(), arr.end());
+        int min_val = *min_element(arr.begin(), arr.end());
+        
+        for (int i = min_val; i <= max_val; i++) {
+            int count = 0;
+            for (int j = 0; j < n; j++) {
+                if (arr[j] == i) {
+                    count++;
+                }
             }
+            cout << count << " ";
         }
-        std::cout << count << " ";
+    } else {
+        return -1;
     }
 }

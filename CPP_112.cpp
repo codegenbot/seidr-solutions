@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -26,6 +25,7 @@ std::string reverse_delete(std::string& s, std::string& c) {
             temp += ch;
         }
     }
+    
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
     return rev;
