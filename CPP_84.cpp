@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <string>
 
@@ -12,13 +13,4 @@ int solve(int N) {
     return sum;
 }
 
-int main() {
-    int N;
-    cin >> N;
-    if(N < 1) {
-        cout << "Error: Input should be a positive integer." << endl;
-    } else {
-        cout << to_string(solve(N)) << endl;
-    }
-    return 0;
-}
+int main() {}
