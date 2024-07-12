@@ -1,19 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 
 int main() {
-    std::vector<int> lst1;
-    std::vector<int> lst2;
-
-    for (int num : {1, 3, 5}) {
-        lst1.push_back(num);
-    }
-
-    for (int num : {2, 4, 6}) {
-        lst2.push_back(num);
-    }
-
+    std::vector<int> lst1 = {1, 3, 5};
+    std::vector<int> lst2 = {2, 4, 6};
     std::cout << exchange(lst1, lst2) << std::endl;
     return 0;
 }
