@@ -1,1 +1,1 @@
-import sys; n = int(sys.argv[0])
+n = int(input())
