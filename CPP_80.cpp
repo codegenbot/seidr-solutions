@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -6,17 +7,15 @@ bool is_happy(const std::string& s) {
     std::unordered_map<char, int> count;
     for (char c : s) {
         if (count.find(c) == count.end()) {
-            count[c] = 1;
-        } else {
-            count[c]++;
-        }
+            count[c] = 0; // Initialize with 0
+        } 
+        ++(count[c]);
     }
     for (auto it = count.begin(); it != count.end(); ++it) {
         if (it->second > 1)
             return false;
     }
     return true;
-}
 
 int main() {
     std::cout << "Enter a string: ";
@@ -26,4 +25,3 @@ int main() {
         return 0;
     std::cout << (is_happy(input) ? "True" : "False") << std::endl;
     return 0;
-}
