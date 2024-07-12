@@ -44,11 +44,11 @@ int main() {
     // Output the subvectors
     cout << "2" << endl;
     if (cutIndex == 0) {
-        cout << "1 " << n-1 << endl;
+        cout << "1 " << n << endl;
     } else if (cutIndex == n - 1) {
-        cout << n-1 << " 1" << endl;
+        cout << n << " 1" << endl;
     } else {
-        cout << cutIndex << " " << n - cutIndex << endl;
+        cout << cutIndex + 1 << " " << n - cutIndex << endl;
     }
 
     for (int i = 0; i < cutIndex; i++) {
@@ -60,7 +60,7 @@ int main() {
     cout << nums[cutIndex] << endl;
 
     if (cutIndex != n - 1) {
-        cout << "1" << endl << n - cutIndex - 1 << endl;
+        cout << "1" << endl << n - cutIndex << endl;
         for (int i = cutIndex + 1; i < n; i++) {
             cout << nums[i] << " ";
         }
