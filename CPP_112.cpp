@@ -35,9 +35,9 @@ int main() {
     std::string s1 = reverse_delete("mamma", "mia");
     std::string s2 = "mama";
     
-    bool isSame = checkEquality(s1, "True");
+    bool isEqual = (s1 == s2) ? true : false;
     
-    if(isSame) {
+    if(isEqual) {
         if (!s1.empty() && !s2.empty()) {
             std::cout << s1 << " and " << s2 << " are the same." << std::endl;
         } else if (s1.empty()) {
