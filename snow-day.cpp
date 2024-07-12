@@ -20,4 +20,3 @@ int main() {
     double result = snowDay(hours, initialSnow, snowFallRate, meltPerHour);
     std::cout << "Total snow after " << hours << " hours: " << result << std::endl;
     return 0;
-}
