@@ -1,27 +1,21 @@
-```
 #include <boost/any.hpp>
 #include <vector>
 #include <list>
 #include <typeindex>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 int main() {
-    std::list<boost::any> values({3, 3, 3});
+    std::vector<boost::any> values = {3, 3, 3};
     std::vector<int> result = filter_integers(values);
-    if (issame({1, 2}, result)) {
-        for (const auto& value : result) {
-            std::cout << value << " ";
+    for (const auto& value : result) {
+        if (issame({value}, {3})) {
+            std::cout << "True" << std::endl;
+        } else {
+            std::cout << "False" << std::endl;
         }
-        std::cout << std::endl;
-    } else {
-        std::cout << "Vectors are not equal." << std::endl;
     }
     return 0;
 }
