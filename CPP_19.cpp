@@ -2,6 +2,7 @@
 #include <map>
 #include <algorithm>
 #include <sstream>
+#include <vector>
 
 string sort_numbers(const string &numbers) {
     map<string, int> num_map = {
