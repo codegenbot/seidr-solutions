@@ -1,4 +1,4 @@
-```
+```Python
 text_input = input("Enter the text: ")
 target_input = input("Enter the target: ")
 
