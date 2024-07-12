@@ -21,10 +21,10 @@ bool prime_length(const char* str){
             if(isPrime(n)) { 
                 s += std::to_string(n); 
             } else {
-                s += std::to_string(n);
+                s += (char)(n + '0');
             }
         } else {
-            s += c;
+            s.push_back(c);
         }
     }
     return s.length() > 1;
