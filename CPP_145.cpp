@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
+using namespace std;
+
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
@@ -21,4 +28,10 @@ vector<int> order_by_points(vector<int> nums) {
     });
 
     return nums;
+}
+
+int main() {
+    assert(issame(order_by_points({0, 6, 6, -76, -21, 23, 4}), {-76, -21, 0, 4, 23, 6, 6}));
+    
+    return 0;
 }
