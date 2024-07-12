@@ -12,6 +12,7 @@ vector<int> rolling_max(vector<int> numbers) {
         result.push_back(max);
     }
     return result;
+
 }
 
 int main() {
