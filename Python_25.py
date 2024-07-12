@@ -17,4 +17,4 @@ try:
     for factor in result:
         print(factor)
 except ValueError:
-    print("Please enter a valid integer for factorization.")
+    print("Invalid input. Please enter a valid positive integer.")
