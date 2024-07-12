@@ -14,4 +14,5 @@ def calculate_score(frames):
     
     return score
 
-print(calculate_score(input("Enter the frames string: ")))
+frames = input("Enter the frames string: ")
+print(calculate_score(frames))
