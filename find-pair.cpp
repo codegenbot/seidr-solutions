@@ -6,16 +6,17 @@ int main() {
         cin >> nums[i];
     }
     cin >> target;
-
-    map<int, int> mp;
+    
+    map<int, int> num_to_index;
     for (int i = 0; i < n; ++i) {
-        if (mp.find(target - nums[i]) != mp.end()) {
+        int complement = target - nums[i];
+        if (num_to_index.find(complement) != num_to_index.end()) {
+            cout << complement << endl;
             cout << nums[i] << endl;
-            cout << target - nums[i] << endl;
             break;
         }
-        mp[nums[i]] = i;
+        num_to_index[nums[i]] = i;
     }
-
+    
     return 0;
 }
