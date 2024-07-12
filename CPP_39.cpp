@@ -14,27 +14,29 @@ bool isPrime(int num) {
 }
 
 int prime_fib(int n) {
+    if (n <= 0) {
+        return -1;
+    }
+
     if (n == 1) {
         return 2;
     }
-    if (n == 2) {
-        return 3;
+
+    int a = 1, b = 1, c;
+    for (int i = 3; i <= n; ++i) {
+        c = a + b;
+        a = b;
+        b = c;
     }
 
-    int prev = 2;
-    int curr = 3;
-    int count = 2;
-
-    while (count < n) {
-        int next = prev + curr;
-        prev = curr;
-        curr = next;
-        if (isPrime(curr)) {
-            count++;
+    while (true) {
+        if (isPrime(c)) {
+            return c;
         }
+        c = a + b;
+        a = b;
+        b = c;
     }
-
-    return curr;
 }
 
 int main() {
