@@ -2,28 +2,23 @@
 #include <iostream>
 #include <string>
 
-std::string camelCase(const std::string& s) {
-    std::string result;
-    bool first = true;
+std::string camelCase(std::string str) {
+    std::vector<std::string> words;
+    size_t start = 0;
+    for (size_t i = 0; i <= str.size(); ++i) {
+        if (i == str.size() || str[i] == ' ') {
+            words.push_back(str.substr(start, i - start));
+            start = i + 1;
+        }
+    }
 
-    for (char c : s) {
-        if (c == '-') {
-            if (!first)
-                result += char(toupper(c));
-            else
-                first = false;
-        } else if (c == ' ') {
-            if (!first)
-                result += char(toupper(c));
-            else
-                first = false;
+    std::string result;
+    for (size_t i = 0; i < words.size(); ++i) {
+        if (!result.empty()) {
+            result += std::toupper(words[i][0]);
+            result += words[i].substr(1);
         } else {
-            if (first) {
-                result += tolower(c);
-                first = false;
-            } else {
-                result += toupper(c);
-            }
+            result += words[i];
         }
     }
 
@@ -31,9 +26,9 @@ std::string camelCase(const std::string& s) {
 }
 
 int main() {
-    std::string s;
-    while (std::cin >> s) {
-        std::cout << camelCase(s) << std::endl;
+    std::string str;
+    while (std::cin >> str) {
+        std::cout << camelCase(str) << std::endl;
     }
     return 0;
 }
