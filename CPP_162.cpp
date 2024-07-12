@@ -1,19 +1,29 @@
-MD5_CTX md5ctx;
-MD5_Init(&md5ctx);
-unsigned char md5sum[16];
-char temp[2];
+#include <iostream>
+#include <string>
+#include <algorithm>
 
-if(text.empty()) return "None";
-temp[1] = 0;
-for(int i=0; i<text.length(); i++) {
-    MD5_Update(&md5ctx, &text[i], 1);
+using namespace std;
+
+string string_to_md5(string text) {
+    if (text.empty()) {
+        return "";
+    }
+
+    unsigned char hash[16];
+    MD5_CTX md5;
+    MD5_Init(&md5);
+    const char* str = text.c_str();
+    size_t len = text.length();
+
+    MD5_Update(&md5, str, len);
+
+    MD5_Final(hash, &md5);
+
+    string result;
+
+    for (int i = 0; i < 16; i++) {
+        sprintf((char*)&result + (i*2), "%02x", hash[i]);
+    }
+
+    return result;
 }
-MD5_Final(md5sum,&md5ctx);
-
-string result="";
-for(int i=0; i<16; i++) {
-    sprintf(temp,"%02x", (int) md5sum[i]);
-    result += temp;
-}
-
-return result;
