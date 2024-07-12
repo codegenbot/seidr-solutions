@@ -2,27 +2,25 @@
 #include <string>
 #include <vector>
 
-bool evaluateBooleanExpression(const std::string& expression) {
-    bool result = false;
+int main() {
+    std::vector<char> operands;
+    // Read input into operands vector
+    if (operands.size() < 2) {
+        return false; // or throw an exception for invalid expression
+    }
 
-    for (char c : expression) {
-        if (c == 'T') result = true;
-        else if (c == 'F') result = false;
-        else if (c == '&') {
-            result = result && true;
-        } else if (c == '|') {
-            result = result || false;
+    // Evaluate the Boolean expression
+    bool result = operands[0] == 't';   // evaluating the first operand as a starting point
+
+    for (int i = 1; i < operands.size(); i += 2) {
+        if (operands[i] == '|') {
+            result = result || (operands[i + 1] == 't');
+        } else if (operands[i] == '&') {
+            result = result && (operands[i + 1] == 't');
         }
     }
 
-    return result;
-}
-
-int main() {
-    std::string expression;
-    std::cin >> expression;
-
-    std::cout << std::boolalpha << evaluateBooleanExpression(expression) << std::endl;
+    std::cout << (result ? "True" : "False") << std::endl;
 
     return 0;
 }
