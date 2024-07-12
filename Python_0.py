@@ -1,11 +1,8 @@
-def check_threshold(numbers, threshold):
-    numbers.sort()
-    for i in range(len(numbers) - 1):
-        if abs(numbers[i] - numbers[i + 1]) < threshold:
+def has_close_elements(arr):
+    for i in range(len(arr) - 1):
+        if abs(arr[i] - arr[i+1]) <= 1:
             return True
     return False
 
-numbers = [3, 1, 5, 7, 9]
-threshold = 2
-result = check_threshold(numbers, threshold)
+result = has_close_elements([1, 2, 10, 5])
 print(result)
