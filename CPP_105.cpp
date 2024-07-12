@@ -1,6 +1,7 @@
-```cpp
+```
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     if (a == b)
@@ -50,84 +51,45 @@ std::vector<std::string> by_length(int num) {
 
 int main() {
     int num1, num2;  
-    std::vector<std::string> result = by_length(num1), temp;
-    
+    std::vector<std::string> result;  
+
     std::cin >> num1 >> num2;
 
     if (num1 >= 1 && num1 <= 9) {
         for(int i = 0; i < 2; i++) {
             switch (i ? num2 : num1) {
                 case 1:
-                    temp.push_back(i ? "One" : "One");
+                    result.push_back(i ? "One" : "One");
                     break;
                 case 2:
-                    temp.push_back(i ? "Two" : "Two");
+                    result.push_back(i ? "Two" : "Two");
                     break;
                 case 3:
-                    temp.push_back(i ? "Three" : "Three");
+                    result.push_back(i ? "Three" : "Three");
                     break;
                 case 4:
-                    temp.push_back(i ? "Four" : "Four");
+                    result.push_back(i ? "Four" : "Four");
                     break;
                 case 5:
-                    temp.push_back(i ? "Five" : "Five");
+                    result.push_back(i ? "Five" : "Five");
                     break;
                 case 6:
-                    temp.push_back(i ? "Six" : "Six");
+                    result.push_back(i ? "Six" : "Six");
                     break;
                 case 7:
-                    temp.push_back(i ? "Seven" : "Seven");
+                    result.push_back(i ? "Seven" : "Seven");
                     break;
                 case 8:
-                    temp.push_back(i ? "Eight" : "Eight");
+                    result.push_back(i ? "Eight" : "Eight");
                     break;
                 case 9:
-                    temp.push_back(i ? "Nine" : "Nine");
+                    result.push_back(i ? "Nine" : "Nine");
                     break;
             }
         }
     }
 
-    if(issame(by_length(num1), by_length(num2))) {
-        result = temp; 
-    }else{
-        result = by_length((num1 < num2)? num1 : num2); 
-    }
-    
-    std::vector<std::string> final_result;
-    for (int i = 0; i < 2; i++) {
-        switch (i ? num2 : num1) {
-            case 1:
-                final_result.push_back(i ? "One" : "One");
-                break;
-            case 2:
-                final_result.push_back(i ? "Two" : "Two");
-                break;
-            case 3:
-                final_result.push_back(i ? "Three" : "Three");
-                break;
-            case 4:
-                final_result.push_back(i ? "Four" : "Four");
-                break;
-            case 5:
-                final_result.push_back(i ? "Five" : "Five");
-                break;
-            case 6:
-                final_result.push_back(i ? "Six" : "Six");
-                break;
-            case 7:
-                final_result.push_back(i ? "Seven" : "Seven");
-                break;
-            case 8:
-                final_push_back(i ? "Eight" : "Eight");
-                break;
-            case 9:
-                final_result.push_back(i ? "Nine" : "Nine");
-                break;
-        }
-    }
-    
-    std::reverse(final_result.begin(), final_result.end());
+    std::reverse(result.begin(), result.end());
     
     return 0;
 }
