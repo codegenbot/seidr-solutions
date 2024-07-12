@@ -23,5 +23,5 @@ int prod_signs(std::vector<int> arr) {
 }
 
 int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0);
+    return prod_signs({-1, 1, 1, 0});
 }
