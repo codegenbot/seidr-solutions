@@ -1,11 +1,19 @@
 n = int(input())
-v = [int(input()) for _ in range(n)]
-diff = float("inf")
-idx = -1
-for i in range(1, n):
-    d = abs(sum(v[:i]) - sum(v[i:]))
-    if d < diff:
-        diff = d
-        idx = i
-print(*v[:idx])
-print(*v[idx:])
+arr = []
+for i in range(n):
+    arr.append(int(input()))
+
+total_sum = sum(arr)
+half_sum = total_sum // 2
+current_sum = 0
+for i, num in enumerate(arr):
+    current_sum += num
+    if current_sum >= half_sum:
+        if current_sum == half_sum:
+            print(*arr[: i + 1])
+            print(*arr[i + 1 :])
+            break
+        elif current_sum - half_sum < half_sum - (current_sum - num):
+            print(*arr[: i + 1])
+            print(*arr[i + 1 :])
+            break
