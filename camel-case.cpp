@@ -9,14 +9,14 @@ std::string camelCase(const std::string& s) {
     for (char c : s) {
         if (std::isspace(c)) { 
             capitalize = true;  
-            continue;            
+            continue;          
         } else if (c == '-') { 
             result += c;
             capitalize = true;  
         } else {
             if (capitalize) {
-                result += std::toupper(c);  
-                capitalize = false;      
+                result += std::toupper(c);  // capitalize the first letter of this word
+                capitalize = false;         // don't capitalize next letters in this word
             } else {
                 result += std::tolower(c);
             }
