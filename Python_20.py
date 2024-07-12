@@ -1,3 +1,4 @@
+```
 def get_closest_elements(numbers):
     numbers.sort()
     min_diff = float('inf')
