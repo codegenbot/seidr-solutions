@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -35,10 +34,7 @@ std::string camelCase(std::string str) {
     return result;
 }
 
-int main() {
-    std::string str;
-    for (; std::getline(std::cin, str); ) {
-        std::cout << camelCase(str) << std::endl;
-    }
-    return 0;
+std::string str;
+for (; std::getline(std::cin, str); ) {
+    std::cout << camelCase(str) << std::endl;
 }
