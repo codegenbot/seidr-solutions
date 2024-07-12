@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool compare(vector<string> a, vector<string> b) {
+bool compare(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -9,21 +9,17 @@ bool compare(vector<string> a, vector<string> b) {
     return true;
 }
 
-vector<string> filterByPrefix(vector<string> strings, string prefix) {
-    vector<string> result;
-    for (string s : strings) {
+std::vector<std::string> filter_by_prefix(const std::vector<std::string>& strings, const std::string& prefix) {
+    std::vector<std::string> result;
+    for (const auto& s : strings) {
         if (s.find(prefix) == 0)
             result.push_back(s);
     }
     return result;
 
 }
-int originalMain() {
-    assert(compare(filterByPrefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
-    return 0;
-}
 
-int main() {
-    originalMain();
+int original_main() {
+    assert(compare(filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx") , {"xxx", "xxxAAA", "xxx"}));
     return 0;
 }
