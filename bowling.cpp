@@ -1,11 +1,11 @@
 #include <iostream>
-using namespace std;
+#include <vector>
 
-int score(string s) {
+int score(std::string s) {
     int total = 0;
     int frame = 1;
     int ball = 0;
-    vector<int> scores(21, 0);
+    std::vector<int> scores(21, 0);
     
     for (char c : s) {
         if (c == 'X') {
@@ -39,8 +39,8 @@ int score(string s) {
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    std::string s;
+    std::cin >> s;
+    std::cout << score(s) << std::endl;
     return 0;
 }
