@@ -1,7 +1,14 @@
 ```
 def luhn(card):
     card = [int(x) for x in str(card)]
-    checksum = sum([card[i] if i % 2 == 0 
-                    else ((card[i] * 2) % 10 if (card[i] * 2) > 9 else (card[i] * 2)) 
-                   for i in range(len(card))])
+    checksum = 0
+    for i in range(len(card)):
+        if i % 2 != 0:
+            checksum += card[i]
+        else:
+            double_digit = card[i] * 2
+            if double_digit > 9:
+                checksum += (double_digit - 9)
+            else:
+                checksum += double_digit
     return checksum
