@@ -1,13 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 using namespace std;
 
 vector<string> issame(vector<string> a, vector<string> b) {
     string planet1 = "Jupiter";
     string planet2 = "Makemake";
+
     vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     vector<string> result;
     int idx1 = -1, idx2 = -1;
@@ -38,6 +38,6 @@ vector<string> issame(vector<string> a, vector<string> b) {
 
 int main() {
     assert(issame({"Jupiter", "Makemake"}, {}) == vector<string>{"Earth", "Mars", "Jupiter", "Saturn"});
-    
+
     return 0;
 }
