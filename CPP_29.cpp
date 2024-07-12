@@ -1,17 +1,5 @@
-#include <vector>
-#include <string>
-
-int main() {
-    std::vector<std::string> strings = {"apple", "banana", "apricot", "cherry"};
-    std::string prefix = "app";
-    
-    int resultCount;
-    for (auto& s : filter_by_prefix(strings, prefix)) {
-        std::cout << s << std::endl;
-    }
-    resultCount = filter_by_prefix(strings, prefix).size();
-    return 0;
-}
+#include <iostream>
+using namespace std;
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) { 
     std::vector<std::string> result; 
@@ -20,4 +8,27 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
             result.push_back(s); 
     } 
     return result;
+}
+
+int main() {
+    vector<string> strings;
+    string prefix;
+
+    cout << "Enter the list of strings (space-separated): ";
+    getline(cin, input_string);
+    istringstream iss(input_string);
+    while (iss >> string) {
+        strings.push_back(string);
+    }
+
+    cout << "Enter the prefix: ";
+    cin >> prefix;
+
+    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
+
+    for(auto s : filtered_strings) {
+        cout << s << endl;
+    }
+    
+    return 0;
 }
