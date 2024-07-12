@@ -3,11 +3,12 @@
 #include <map>
 
 int main() {
-    int n, target;
+    int n;
+    long long target;
     std::cin >> n >> target;
 
-    std::vector<int> nums(n);
-    std::map<int, int> numIndex;
+    std::vector<long long> nums(n);
+    std::map<long long, long long> numIndex;
 
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
