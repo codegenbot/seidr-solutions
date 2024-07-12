@@ -1,13 +1,11 @@
 def calculate_decimal_part(number):
-    return abs(float(number)) % 1
+    return abs(number) % 1
 
+input_number = 0
 while True:
     try:
-        input_number = input("Enter a number: ")
-        if input_number.replace(".", "", 1).replace("-", "", 1).isdigit():
-            break
-        else:
-            raise ValueError
+        input_number = float(input("Enter a number: "))
+        break
     except ValueError:
         print("Invalid input. Please enter a valid number.")
 
