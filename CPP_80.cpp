@@ -1,4 +1,3 @@
-``` 
 #include <string>
 #include <algorithm>
 
@@ -20,6 +19,6 @@ bool is_happy(std::string s){
 }
 
 int main() {
-    std::cout << is_happy("iopaxioi") << std::endl;
+    std::cout << "Assertion failed: " << is_happy("iopaxioi") << std::endl;
     return 0;
 }
