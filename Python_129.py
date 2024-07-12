@@ -31,4 +31,4 @@ def minPath(grid, k):
     if min_paths == float('inf'):
         return []
     else:
-        return [grid[i][j] for i, j in enumerate(next(iter(min_path)))].
+        return [grid[i][j] for i, j in enumerate(next(iter(min(enumerate(path) for path in dfs(i, j, [])))))])
