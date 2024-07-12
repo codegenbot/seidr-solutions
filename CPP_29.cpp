@@ -20,7 +20,6 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
         }
     }
     return result;
-
 }
 
 int main() {
