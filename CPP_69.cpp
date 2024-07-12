@@ -1,5 +1,5 @@
-```cpp
 #include <cassert>
+#include <map>
 
 int findMaxFreq(int arr[], int n) {
     std::map<int, int> freqMap;
