@@ -1,6 +1,6 @@
-#include <string>
-
 using namespace std;
+
+#include <string>
 
 string flip_case(string str){
     string result = "";
