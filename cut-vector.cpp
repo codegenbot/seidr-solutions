@@ -1,34 +1,33 @@
 int main() {
+    vector<int> nums;
     int n;
-    cin >> n;
-    vector<int> nums(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> nums[i];
+    while (cin >> n) {
+        nums.push_back(n);
     }
 
-    int smallest_diff = INT_MAX;
-    int cut_idx = 0;
+    int sum = 0;
+    for (int num : nums) {
+        sum += num;
+    }
 
-    for (int i = 1; i < n; ++i) {
-        int sum_left = 0, sum_right = 0;
-        for (int j = 0; j < i; ++j) {
-            sum_left += nums[j];
-        }
-        for (int j = i; j < n; ++j) {
-            sum_right += nums[j];
-        }
-        int diff = abs(sum_left - sum_right);
-        if (diff < smallest_diff) {
-            smallest_diff = diff;
-            cut_idx = i;
+    int target = sum / 2;
+    int currSum = 0;
+    int i = 0;
+    for (i = 0; i < nums.size(); ++i) {
+        currSum += nums[i];
+        if (currSum >= target) {
+            break;
         }
     }
 
-    for (int i = 0; i < cut_idx; ++i) {
-        cout << nums[i] << endl;
+    vector<int> subvec1(nums.begin(), nums.begin() + i + 1);
+    vector<int> subvec2(nums.begin() + i + 1, nums.end());
+
+    for (int num : subvec1) {
+        cout << num << endl;
     }
-    for (int i = cut_idx; i < n; ++i) {
-        cout << nums[i] << endl;
+    for (int num : subvec2) {
+        cout << num << endl;
     }
 
     return 0;
