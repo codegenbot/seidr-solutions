@@ -1,10 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-namespace mystd {
-    bool myissame(std::vector<int> a, std::vector<int> b) {
+namespace my_namespace {
+    bool my_issame(std::vector<int> a, std::vector<int> b) {
         return a == b;
     }
 }
