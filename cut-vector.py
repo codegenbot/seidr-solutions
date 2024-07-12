@@ -1,19 +1,18 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+arr = []
+for i in range(n):
+    arr.append(int(input()))
 
 total_sum = sum(arr)
-half_sum = total_sum // 2
+left_sum = 0
+right_sum = total_sum
 
-prefix_sum = 0
 for i in range(n):
-    prefix_sum += arr[i]
-    if prefix_sum >= half_sum:
-        if prefix_sum == half_sum or abs(prefix_sum - half_sum) < abs(
-            total_sum - 2 * prefix_sum
-        ):
-            print(*arr[: i + 1])
-            print(*arr[i + 1 :])
-        else:
-            print(*arr[:i])
-            print(*arr[i:])
+    left_sum += arr[i]
+    right_sum -= arr[i]
+    if left_sum == right_sum or abs(left_sum - right_sum) < abs(
+        (left_sum - arr[i]) - (right_sum + arr[i])
+    ):
+        print(arr[: i + 1])
+        print(arr[i + 1 :])
         break
