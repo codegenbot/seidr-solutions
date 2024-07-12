@@ -2,13 +2,12 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <cassert>
 
 std::string Strongest_Extension(const std::pair<std::string, std::string>& extension) {
     if (extension.second.empty()) {
         return extension.first;
     } else {
-        return extension.first + "." + std::to_string(extension.second);
+        return extension.first + "." + extension.second;
     }
 }
 
