@@ -1,9 +1,9 @@
-#include "sha.h"
+#include "crypto++.h"
 
 using namespace std;
 using namespace CryptoPP;
 
-std::string string_to_md5(const std::string& input) {
+string string_to_md5(const string& input) {
     SHA256 sha;
     byte hash[SHA256::DIGEST_SIZE];
     sha.Update((byte*)input.c_str(), input.size());
