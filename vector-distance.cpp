@@ -5,29 +5,20 @@
 
 using namespace std;
 
-double vectorDistance(int n, double* vec1, double* vec2) {
+double vectorDistance() {
+    int n;
+    cin >> n;
+
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        sum += pow((vec2[i] - vec1[i]), 2);
+        double val1, val2;
+        cin >> val1 >> val2;
+        sum += pow(val2 - val1, 2);
     }
     return sqrt(sum);
 }
 
 int main() {
-    int n;
-    cin >> n;
-    
-    // Read two vectors
-    double* vec1 = new double[n];
-    double* vec2 = new double[n];
-    for (int i = 0; i < n; i++) {
-        cin >> vec1[i] >> vec2[i];
-    }
-    
-    cout << fixed << setprecision(10) << vectorDistance(n, vec1, vec2) << endl;
-    
-    delete[] vec1;
-    delete[] vec2;
-    
+    cout << fixed << setprecision(10) << vectorDistance() << endl;
     return 0;
 }
