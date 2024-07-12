@@ -1,6 +1,7 @@
 def find_zero(xs: list):
     n = len(xs) - 1
-    a = xs[n]
-    b = xs[n - 1]
-    x = -b / a
-    return x
+    if n % 2 != 0:
+        return None
+    a = max(xs, key=abs)
+    b = -a
+    return b
