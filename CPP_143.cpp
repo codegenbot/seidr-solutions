@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cstring>
 #include <cassert>
+#include <cstring>
 
 using namespace std;
 
@@ -41,3 +41,4 @@ int main() {
     assert(words_in_sentence("here is") == "is");
     cout << words_in_sentence("hello world") << endl;
     return 0;
+}
