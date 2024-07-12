@@ -1,6 +1,8 @@
+```
 from typing import List, Tuple
 
-def find_closed_elements(numbers: List[float]) -> Tuple[float, float]:
+def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
+    numbers = [float(num) for num in input("Enter numbers separated by space: ").split()]
     min_diff = float("inf")
     closest_pair = ()
 
@@ -13,9 +15,9 @@ def find_closed_elements(numbers: List[float]) -> Tuple[float, float]:
 
     return closest_pair
 
-numbers = input().split()
-numbers = [float(num) for num in numbers]
-
-result = find_closest_elements(numbers)
-
-print("Closest pair is: ", result)
+while True:
+    result = find_closest_elements(list(map(float, input("Enter numbers separated by space: ").split())))
+    print("Closest pair is: ", result)
+    response = input("Do you want to calculate again? (y/n): ")
+    if response.lower() != 'y':
+        break

@@ -7,14 +7,19 @@ def filter_integers() -> List[int]:
     while True:
         try:
             user_input = input("Enter a list: ")
-            values = ast.literal_eval(user_input)
-            if isinstance(values, list):
-                even_numbers = [value for value in values if isinstance(value, int) and value % 2 == 0]
-                odd_numbers = [value for value in values if isinstance(value, int) and value % 2 != 0]
-                print(f"Even numbers: {even_numbers}")
-                print(f"Odd numbers: {odd_numbers}")
-                return even_numbers
+            if user_input:  
+                values = ast.literal_eval(user_input)
+                if isinstance(values, list):
+                    result = [value for value in values if isinstance(value, int)]
+                    print(f"Integers found: {result}")
+                    cont = input("Do you want to filter integers again? (yes/no): ")
+                    if cont.lower() != 'yes':
+                        break
+                else:
+                    print(f"Invalid input. Please enter a valid Python expression representing a list.")
             else:
-                print(f"Invalid input. Please enter a valid Python expression representing a list.")
+                print("Please provide some input.")
         except (ValueError, SyntaxError):
             print(f"Invalid input. Please enter a valid Python expression.")
+
+filter_integers()
