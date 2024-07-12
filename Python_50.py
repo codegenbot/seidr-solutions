@@ -1,4 +1,4 @@
-```Python
+```
 def decode_shift():
     s = input("Enter a string: ")
     if s:
