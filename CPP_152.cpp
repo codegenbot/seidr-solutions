@@ -1,16 +1,16 @@
 #include <vector>
 #include <iostream>
 
-bool issame(vector<int> a, vector<int> b) {
+bool isSame(std::vector<int> a, std::vector<int> b) {
     for(int i = 0; i < a.size();i++){
         if(a[i] != b[i]) return false;
     }
     return true;
 }
 
-vector<int> compare(vector<int> game, vector<int> guess) {
-    vector<int> result;
-    if(issame(game,guess)){
+std::vector<int> compare(std::vector<int> game, std::vector<int> guess) {
+    std::vector<int> result;
+    if(isSame(game,guess)){
         for (int i = 0; i < game.size(); i++) {
             result.push_back(2);
         }
@@ -28,12 +28,12 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> game(n),guess(n);
+    std::cin >> n;
+    std::vector<int> game(n),guess(n);
     for(int i = 0; i < n;i++){
-        cin >> game[i] >> guess[i];
+        std::cin >> game[i] >> guess[i];
     }
-    vector<int> res = compare(game,guess);
-    for(auto x:res)cout << x << " ";
+    std::vector<int> res = compare(game,guess);
+    for(auto x:res)std::cout << x << " ";
     return 0;
 }
