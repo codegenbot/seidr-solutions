@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,17 +17,13 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
     if (index1 == -1 || index2 == -1)
         return {};
     
-    if(index1 >= planets.size() || index2 >= planets.size()) {
-        return {};
-    } else if(abs(index2 - index1) + 1 > planets.size()) {
+    if(index2 >= planets.size() || index1 + (index2 - index1) + 1 > planets.size()) {
         return {};
     } else {
         std::vector<std::string> result;
         
         for (int i = index1; i <= index2; i++) { 
-            if(i < planets.size() && i >= 0) { 
-                result.push_back(planets[i]);
-            } 
+            result.push_back(planets[i]);
         }
         
         return result;
