@@ -1,21 +1,31 @@
 ```cpp
 #include <iostream>
+#include <vector>
+using namespace std;
 
-bool will_it_fly(std::vector<std::vector<int>> q, int w) {
-    for (auto v : q) {
-        if ((v[0] * v[1]) > w)
-            return true;
+bool will_it_fly(vector<vector<int>> q, int w) {
+    if(w >= (q[0][1] - q[0][0]) && w >= (q[1][1] - q[1][0])) {
+        return true;
+    } else {
+        return false;
     }
-    return false;
 }
 
 int main() {
-    std::vector<std::vector<int>> q = {{1, 2}, {3, 4}};
-    int w = 6;
+    vector<vector<int>> q;
+    int n;  // number of pairs
+    cin >> n;
+    for(int i=0; i<n; i++) {
+        int x, y; // two numbers in a pair
+        cin >> x >> y;
+        q.push_back({x,y});
+    }
+    int w;
+    cin >> w;
     if (!will_it_fly(q, w)) {
-        std::cout << "Will not fly.\n";
+        cout << "Will not fly.\n";
     } else {
-        std::cout << "Will fly.\n";
+        cout << "Will fly.\n";
     }
     return 0;
 }
