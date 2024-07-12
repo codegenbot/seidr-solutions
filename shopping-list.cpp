@@ -1,6 +1,6 @@
+```cpp
 #include <iostream>
 #include <vector>
-#include <iomanip>
 
 using namespace std;
 
@@ -30,7 +30,7 @@ int main() {
 
     double result = totalShoppingTrip(prices, discounts);
 
-    cout << fixed << setprecision(1) << result << endl;
+    std::cout << fixed << setprecision(1) << result << std::endl;
 
     return 0;
 }
