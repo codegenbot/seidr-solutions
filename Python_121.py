@@ -1,3 +1,2 @@
-```
-def solution(lst):
-    return sum(lst[i] for i in range(0, len(lst), 2))
+def calculate_odd_sum(numbers: list) -> int:
+    return sum(i for i in numbers if i % 2 != 0)
