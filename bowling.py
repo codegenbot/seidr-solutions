@@ -1,3 +1,4 @@
+```
 def bowling_score(frames):
     frames = [list(map(int, frame.split())) for frame in frames.replace('/', ' ').split()]
     score = 0
@@ -6,7 +7,7 @@ def bowling_score(frames):
         if len(frames[i]) == 1:
             score += 10
         elif len(frames[i]) == 2:
-            if sum(frames[i]) == 10:
+            if frames[i][0] + frames[i][1] == 10:
                 score += 10
             else:
                 score += sum(frames[i])
@@ -21,5 +22,5 @@ def bowling_score(frames):
             else:
                 score += sum(frames[i])
         if i > 0 and len(frames[i]) >= 2:
-            previous_rolls = sum(frames[i-1])
+            previous_rolls = sum(frames[i])
     return score
