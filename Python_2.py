@@ -4,7 +4,7 @@ def calculate_decimal_part(number):
 while True:
     try:
         input_number = input("Enter a number: ")
-        if input_number.replace(".", "", 1).isdigit():
+        if input_number.replace(".", "", 1).replace("-", "", 1).isdigit():
             break
         else:
             raise ValueError
