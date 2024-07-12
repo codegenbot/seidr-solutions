@@ -1,29 +1,22 @@
-#include <vector>
-using namespace std;
-
-bool isEqual(vector<vector<string>> a, vector<vector<string>> b){
+vector<vector<string>> isEqual(vector<vector<string>> a, vector<vector<string>> b){
+    bool result = true;
     if (a.size() != b.size()) {
-        return false;
-    }
-    
-    for (int i = 0; i < a.size(); i++) {
-        bool found = false;
-        for (const auto& str : a[i]) {
-            if (find(begin(b[i]), end(b[i]), str) != end(b[i])) {
-                found = true;
+        result = false;
+    } else {
+        for (int i = 0; i < a.size(); i++) {
+            if (a[i].size() != b[i].size()) {
+                result = false;
                 break;
             }
-        }
-        
-        if (!found) {
-            return false;
+            bool found = false;
+            for (const auto& str : a[i]) {
+                if (std::find(b[i].begin(), b[i].end(), str) != b[i].end()) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) result = false;
         }
     }
-
-    return true;
-}
-
-int main() {
-    assert(isEqual({{"xxx", "asd", "xxy", "john doe", "xxxAaa", "xxx"}}, {{"xxx"}, {"xxxAAA"}, {"xxx"}}));
-    return 0;
+    return {std::vector<string>{(result)? "True": "False"}};
 }
