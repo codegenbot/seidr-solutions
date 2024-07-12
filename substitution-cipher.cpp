@@ -10,7 +10,7 @@ int main() {
         }
     }
 
-    cout << message << endl;
+    cout << message;
 
     return 0;
 }
