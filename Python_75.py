@@ -5,9 +5,7 @@ def is_multiply_prime(n):
     for i in range(2, int(n**0.5) + 1):
         if is_prime(i) and n % i == 0:
             j = n // i
-            if is_prime(j):  
-                return True
-            elif j > 1:  
+            if is_prime(j) and j == i:
                 return True
     return False
 
