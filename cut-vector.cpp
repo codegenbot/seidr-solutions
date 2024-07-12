@@ -50,7 +50,7 @@ int main() {
     
     for (int i = cutIndex + 1; i < n; i++) {
         cout << nums[i];
-        if (i != n - 1) {
+        if (i != n - 1 && i != n - cutIndex - 1) {
             cout << " ";
         }
     }
