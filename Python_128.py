@@ -21,7 +21,6 @@ def calculate_average_and_median():
 
 def main():
     calculate_average_and_median()
-    print("Program executed successfully")
 
 if __name__ == "__main__":
     main()
