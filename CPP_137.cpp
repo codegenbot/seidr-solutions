@@ -1,14 +1,14 @@
 #include <iostream>
-#include <variant>
+#include <any>
 #include <string>
 #include <cassert>
 
-std::variant<const char*, std::string> compare_one(std::string a, std::string b) {
+std::any compare_one(std::any a, std::any b) {
     // Add your comparison logic here
-    return "None";
+    return std::any("None");
 }
 
 int main() {
-    assert(std::get<const char*>(compare_one("1", "1")) == typeid(const char*));
+    assert(std::any_cast<const char*>(std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))).c_str()) == std::any(typeid(const char*))); // Corrected assert statement
     return 0;
 }
