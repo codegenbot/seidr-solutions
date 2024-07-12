@@ -1,4 +1,3 @@
-```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -20,10 +19,8 @@ std::pair<double, double> double_the_difference(const std::initializer_list<int>
 
 int main() {
     std::initializer_list<int> lst = {1, 3, 5, 7}; 
-
     auto [a, b] = double_the_difference(lst);
     std::cout << "The average of even numbers is: " << a << std::endl;
     std::cout << "The average of odd numbers is: " << b << std::endl;
-
     return 0;
 }
