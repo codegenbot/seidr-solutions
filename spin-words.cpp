@@ -1,8 +1,7 @@
-```c++
+#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
@@ -18,18 +17,12 @@ string spinWords(string str) {
                 reverse(word.begin(), word.end());
             }
             
-            result += word + " ";
+            result += word + (i == str.length() ? "" : " ");
             wordStart = i+1;
         }
     }
     
-    // Reverse the last word
-    string lastWord = str.substr(wordStart, str.length()-wordStart);
-    if(lastWord.length() >= 5) {
-        reverse(lastWord.begin(), lastWord.end());
-    }
-
-    return result.substr(0, result.length()-1);
+    return result;
 }
 
 int main() {
