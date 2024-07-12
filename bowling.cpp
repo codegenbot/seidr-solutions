@@ -24,6 +24,6 @@ int score(const string& s) {
 int main() {
     string s;
     std::cin >> s;
-    std::cout << score(s) << endl;
+    std::cout << score(s) << std::endl;
     return 0;
 }
