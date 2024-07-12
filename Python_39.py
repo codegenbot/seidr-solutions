@@ -21,3 +21,7 @@ def prime_fib(n: int):
             if num == fibonacci(count):
                 count += 1
     return num
+
+n = int(input("Enter a number: "))
+result = prime_fib(n)
+print(result)
