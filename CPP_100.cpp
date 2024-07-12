@@ -1,6 +1,6 @@
+```cpp
 #include <vector>
 #include <cassert>
-#include <initializer_list>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
@@ -22,7 +22,9 @@ std::vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    std::vector<int> make_a_pile_result = {8, 10, 12, 14, 16, 18, 20, 22};
-    assert(issame(make_a_pile(8), make_a_pile_result));
+    if (make_a_pile(8) != std::vector<int>({8, 10, 12, 14, 16, 18, 20, 22})) {
+        std::cerr << "Test failed.\n";
+        return 1;
+    }
     return 0;
 }
