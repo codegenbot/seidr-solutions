@@ -1,8 +1,4 @@
-```
-#include <stack>
 #include <string>
-
-using namespace std;
 
 bool solveBoolean(string expression) {
     stack<char> s;
@@ -29,4 +25,3 @@ bool solveBoolean(string expression) {
         s.pop();
     }
     return false;
-}
