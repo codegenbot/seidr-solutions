@@ -7,12 +7,18 @@ def calculate_bowling_score(input_str):
     while i < len(rolls):
         if rolls[i] == "X":
             score += 10
-            score += sum(int(rolls[j]) for j in range(i + 1, i + 3) if rolls[j] not in ['X', '/'])
+            if i + 1 < len(rolls) and rolls[i + 1] == 'X':
+                score += 10
+            elif i + 2 < len(rolls) and rolls[i + 2] == 'X':
+                score += 10
+            else:
+                score += int(rolls[i + 1])
+            
             if frame < 10:
                 frame += 1
             i += 1
         elif rolls[i] == "/":
-            score += 10 - int(rolls[i - 1]) + int(rolls[i + 1]) - int(rolls[i])
+            score += 10 - int(rolls[i - 1]) + int(rolls[i + 1])
             if frame < 10:
                 frame += 1
             i += 2
