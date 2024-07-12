@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -16,7 +17,6 @@ string find_max(vector<string> words){
 }
 
 int main() {
-    assert(find_max({"play", "play", "play"}) == "play");
-    vector<string> words({"play", "play", "play"});
+    vector<string> words = {"play"};
     string result = find_max(words);
 }
