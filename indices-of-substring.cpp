@@ -11,6 +11,7 @@ vector<int> indicesOfSubstring(string text, string target) {
         if (text.substr(i, m) == target) {
             result.push_back(i);
         } else if (i + m < n && text.substr(i, m) == target.substr(0, m)) {
+            // found a match but not the full target
             int j = 1;
             while (j < m && i + j < n && text.substr(i, j) == target.substr(0, j)) {
                 j++;
