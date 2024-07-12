@@ -4,8 +4,8 @@ double snowDay(int hours, float initialSnow, float snowFallRate, float meltPerHo
     double totalSnow = initialSnow;
     for (int i = 0; i < hours; i++) {
         totalSnow += snowFallRate - meltPerHour;
-        if (totalSnow > 0) {
-            totalSnow -= meltPerHour;
+        if (totalSnow <= 0) {
+            break;
         }
     }
     return totalSnow;
