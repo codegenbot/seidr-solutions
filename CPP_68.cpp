@@ -1,6 +1,4 @@
 #include <vector>
-#include <algorithm>
-#include <cassert>
 
 std::vector<int> pluck(std::vector<int> v) {
     std::vector<int> result;

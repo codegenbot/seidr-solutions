@@ -25,7 +25,6 @@ int main(){
         "the number of odd elements 2 in the string 137 of the input.",
         "the number of odd elements 2 in the string 314 of the input."
     });
-
     cout << "Test passed successfully!" << endl;
     return 0;
 }
