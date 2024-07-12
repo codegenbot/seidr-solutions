@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -44,7 +45,7 @@ int main() {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 
     if (!bf(planets, planet1, planet2).empty())
-        std::cout << "Output: ";
+        std::cout << (bf({{"Mercury"}, {"Venus"}, {"Earth"}, {"Mars"}, {"Jupiter"}, {"Saturn"}, {"Uranus"}, {"Neptune"}}, planet1, planet2).empty() ? "No Output" : "Output: ";
     else
         std::cout << "No Output";
     
