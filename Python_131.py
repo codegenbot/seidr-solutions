@@ -1,3 +1,8 @@
+```
 def digits(n):
-    odd_digits = [int(d) for d in str(n) if int(d) % 2]
-    return functools.reduce(lambda x, y: x * y, odd_digits, 1)
+    product = 1
+    while n:
+        digit = n % 10
+        product *= digit
+        n //= 10
+    return product
