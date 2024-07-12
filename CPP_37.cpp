@@ -1,9 +1,12 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<float> a, std::vector<float> b) {
+namespace std {
+template<class T> class vector;
+} // namespace std
+
+bool isSame(std::vector<float> a, std::vector<float> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++)
@@ -12,18 +15,18 @@ bool issame(std::vector<float> a, std::vector<float> b) {
     return true;
 }
 
-std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result(l.size(), 0.0);
+std::vector<float> sortEven(std::vector<float> l) {
+    std::vector<float> result(l.size(), 0.0); // initialize with zeros
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            std::vector<float> even_indices({});
+            std::vector<float> evenIndices;
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
-                    even_indices.push_back(l[j]);
+                    evenIndices.push_back(l[j]);
                 }
             }
-            std::sort(even_indices.begin(), even_indices.end());
-            result[i] = even_indices[0];
+            std::sort(evenIndices.begin(), evenIndices.end());
+            result[i] = evenIndices[0];
         } else {
             result[i] = l[i];
         }
@@ -32,6 +35,6 @@ std::vector<float> sort_even(std::vector<float> l) {
 }
 
 int main() {
-    assert(issame(sort_even({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
+    assert(isSame(sortEven({5, 8, -12, 4, 23, 2, 3, 11, 12, -10}), {-12, 8, 3, 4, 5, 2, 12, 11, 23, -10}));
     return 0;
 }
