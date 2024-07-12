@@ -1,6 +1,6 @@
 int main() {
     map<string, string> dict;
-    cout << "Enter the key-value pairs in the format 'key value'\n";
+    cout << "Enter key-value pairs (enter 'stop' to finish):\n";
     while (true) {
         string key, value;
         cin >> key >> value;
@@ -8,7 +8,6 @@ int main() {
         dict[key] = value;
     }
     bool result = check_dict_case(dict);
-    if (result) cout << "The dictionary is either fully in lower case or fully in upper case.\n";
-    else cout << "The dictionary contains both lowercase and uppercase strings.\n";
+    cout << (result ? "All keys are either lowercase or uppercase.\n" : "Not all keys are either lowercase or uppercase.\n");
     return 0;
 }
