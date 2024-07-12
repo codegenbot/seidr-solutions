@@ -4,8 +4,8 @@ def encode(message):
     for char in message:
         if not char.isalpha():
             result += char
-        elif 'aeiou'.index(char.lower()) < 3:
+        elif char.lower() in 'aeiou':
             result += chr(ord('a') + (ord(char) - ord('a')) % 26)
         else:
-            result += char.upper()
+            result += char
     return result
