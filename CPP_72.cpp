@@ -13,11 +13,11 @@ bool will_it_fly(vector<vector<int>> q, int w) {
 int main() {
     int n;  
     cin >> n;
-    vector<vector<int>> q(n);  
+    vector<vector<int>> q;  // Initialize q with an empty vector of int
     for(int i=0; i<n; i++) {
         int x, y; 
         cin >> x >> y;
-        q[i].push_back({x,y});
+        q.push_back({{x,y}}); // initialize each inner vector inside the outer vector
     }
     int w;
     cin >> w;
