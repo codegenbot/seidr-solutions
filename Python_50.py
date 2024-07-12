@@ -15,10 +15,14 @@ def decode_shift():
     for ch in s:
         if ch.isalpha():
             char_code = ord(ch.lower())
-            result += chr((char_code - ord('a') - shift) % 26 + ord('a')) if 'a' <= ch <= 'z' else \
-                       chr((ord(ch.upper()) - ord('A') - shift) % 26 + ord('A'))
+            result += (
+                chr((char_code - ord("a") - shift) % 26 + ord("a"))
+                if "a" <= ch <= "z"
+                else chr((ord(ch.upper()) - ord("A") - shift) % 26 + ord("A"))
+            )
         else:
             result += ch
     return result
+
 
 print(decode_shift())
