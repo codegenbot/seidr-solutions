@@ -1,4 +1,4 @@
-```Python
+```
 def middle_character(s):
     length = len(s)
     mid_index = length // 2
