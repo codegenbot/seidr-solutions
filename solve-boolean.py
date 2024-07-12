@@ -4,4 +4,5 @@ def solve_boolean(expression):
                 .replace("F", "False")
                 .replace("&", " and ")
                 .replace("|", " or ")
+               .lower()
                )
