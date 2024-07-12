@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <initializer_list>
@@ -13,4 +12,3 @@ vector<int> incr_list(const vector<int>& l){
         result.push_back(i+1);
     }
     return result;
-}
