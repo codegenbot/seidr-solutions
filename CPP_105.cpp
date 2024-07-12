@@ -1,23 +1,25 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-bool issame(vector<string> v1, vector<string> v2) {
-    return v1.size() == v2.size();
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size())
+        return false;
+    for(int i = 0; i < a.size(); i++)
+        if(a[i] != b[i])
+            return false;
+    return true;
 }
 
-vector<string> by_length(const vector<string>& vec) {
-    vector<string> result;
-    for (const auto& str : vec) {
-        if (str.length() < 5) {
-            result.push_back(str);
-        }
-    }
-    return result;
+int by_length_helper(std::vector<std::pair<string, int>> result) {
+    std::sort(result.begin(), result.end(), [](const auto& a, const auto& b){return a.first.length() < b.first.length();});
+    int max_length = 0;
+    for(const auto& pair : result)
+        max_length = std::max(max_length, pair.first.length());
+    return max_length;
 }
 
 int main() {
-    assert(issame(by_length({{"Nine"}, {"Eight"}, {"Four"}}), vector<string>{"Nine", "Eight", "Four"}));
+    int answer = by_length({9, 4, 8});
+    // Don't forget to print out the answer!
     return 0;
 }
