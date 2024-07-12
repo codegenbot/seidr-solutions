@@ -7,7 +7,9 @@ bool is_happy(std::string s) {
         return false;
     for (int i = 0; i <= s.length() - 3; i++) {
         std::string sub = s.substr(i, 3);
-        std::array<char, 3> arr = sub.begin(), arr.end();
+        char* first = &*sub.begin();
+        char* last = &*(sub.begin() + 2); 
+        std::array<char, 3> arr(first, last);
         bool unique = true;
         for (char c : arr) {
             int count = 0;
