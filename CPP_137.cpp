@@ -3,30 +3,26 @@
 
 using namespace std;
 
-string compare_one(string a, int b) {
-    stof s1 = stof(a);
+string compare_one(string a) {
+    double s1 = stod(a);
     if (a.find('x') != string::npos)
-        return a;
+        return "None";
     else {
-        a = to_string(b); 
-        stof s2 = stof(a);
+        int s2 = stoi(a); 
         if (s1 > s2)
-            return to_string(s2);
+            return to_string(s1);
         else if (s1 == s2)
             return "None";
         else
-            return to_string(s2);
+            return to_string(s1);
     }
 }
 
 int main() {
     string a;
-    int b; 
     cout << "Enter the first number: ";
     cin >> a;
-    cout << "Enter the second number: ";
-    cin >> b;
-    cout << compare_one(a, b) << endl;
+    cout << compare_one(a) << endl;
 
     return 0;
 }
