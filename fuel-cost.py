@@ -1,7 +1,6 @@
-def fuel_cost(nums):
-    return sum((num // 3 - 2) for num in nums)
-
-
-# Read input from user
-nums = list(map(int, input().split()))
-print(fuel_cost(nums))
+n = int(input())
+total = 0
+for _ in range(n):
+    num = int(input())
+    total += max(0, num // 3 - 2)
+print(total)
