@@ -1,23 +1,26 @@
-```cpp
-std::pair<double, double> double_the_difference() {
-    std::vector<int> input_vector;
+#include <initializer_list>
+
+#include <vector>
+#include <algorithm>
+#include <iostream>
+
+std::pair<double, double> double_the_difference(const std::initializer_list<int>& lst) {
+    std::vector<int> input_vector(lst);
     int sum_even = 0, sum_odd = 0;
 
-    while (true) {
-        int num;
-        std::cout << "Enter a number (-1 to finish): ";
-        std::cin >> num;
-
-        if (num == -1)
-            break;
-
+    for (int num : input_vector) {
         if (num % 2 == 0)
             sum_even += num;
         else
             sum_odd += num;
-
-        input_vector.push_back(num);
     }
 
-    return {{}, static_cast<double>(sum_even) / input_vector.size(), static_cast<double>(sum_odd) / input_vector.size()};
+    return {(double)sum_even, (double)sum_odd};
+}
+
+int main() {
+    std::initializer_list<int> lst = {1, 3, 5, 7}; 
+    std::pair<double, double> result = double_the_difference(lst);
+    //assert(result.first == 10 && result.second == 15); 
+    return 0;
 }

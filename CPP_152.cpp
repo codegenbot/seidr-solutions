@@ -1,32 +1,35 @@
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
 
-bool isSame(vector<int> a,vector<int> b){
-    for(int i = 0; i < a.size();i++){
-        if(a[i] != b[i]) return false;
-    }
-    return true;
+bool issame(int a, int b) {
+    if(a == b)
+        return true;
+    else
+        return false;
+}
 
+int compare(int a, int b) {
+    if(a > b)
+        return 1;
+    else if(a < b)
+        return -1;
+    else
+        return 0;
 }
 
 vector<int> getResult(vector<int> game, vector<int> guess) {
-    vector<int> result;
-    if(isSame(game,guess)){
-        for (int i = 0; i < game.size(); i++) {
-            result.push_back(2);
-        }
-    } else {
-        for (int i = 0; i < game.size(); i++) {
-            if (game[i] == guess[i]) {
-                result.push_back(1);
-            } else {
-                result.push_back(0);
-            }
-        }
+    vector<int> res;
+    for(int i = 0; i < game.size();i++){
+        if(issame(game[i],guess[i]))
+            res.push_back(2);
+        else if(compare(game[i],guess[i]) == 1)
+            res.push_back(1);
+        else
+            res.push_back(0);
     }
-    return result;
-
+    return res;
 }
 
 int main() {

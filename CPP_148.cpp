@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,9 +7,9 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
     int index1 = -1, index2 = -1;
     
     for (int i = 0; i < planets.size(); i++) {
-        if (i < planets.size() && planets[i][0] == planet1[0]) {
+        if (planets[i][0] == planet1[0]) {
             index1 = i;
-        } else if (i < planets.size() && planets[i][0] == planet2[0]) {
+        } else if (planets[i][0] == planet2[0]) {
             index2 = i;
         }
     }
@@ -16,28 +17,17 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
     if (index1 == -1 || index2 == -1)
         return {};
     
-    if(index2 < index1) {
-        int temp = index1;
-        index1 = index2;
-        index2 = temp;
-    }
-    
-    if(index2 - index1 + 1 > planets.size()) {
-        std::vector<std::string> result;
-        
-        for (int i = 0; i <= index2; i++) { 
-            if(i < planets.size()) { 
-                result.push_back(planets[i]);
-            } 
-        }
-        
-        return result;
+    if(index2 >= planets.size() || index1 + (index2 - index1) + 1 > planets.size()) {
+        return {};
     } else {
         std::vector<std::string> result;
-        for (int i = index1; i <= index2; i++) {
+        
+        for (int i = index1; i <= index2; i++) { 
             if(i < planets.size()) { 
                 result.push_back(planets[i]);
-            } 
+            } else {
+                break; // exit the loop as we have processed all the required elements
+            }
         }
         
         return result;
@@ -53,10 +43,8 @@ int main() {
     std::cin >> planet2;
 
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    
-    std::vector<std::string> inputPlanets = {planet1, planet2};
-    
-    if (!bf(planets, inputPlanets[0], inputPlanets[1]).empty())
+
+    if (!bf(planets, planet1, planet2).empty())
         std::cout << "Output: ";
     else
         std::cout << "No Output";
