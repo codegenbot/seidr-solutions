@@ -1,16 +1,10 @@
 def main():
-    print("Enter a list of floats separated by spaces:")
-    try:
-        xs = list(map(float, input().strip().split()))
-    except ValueError:
-        print("Input must be a list of floats separated by spaces")
-        return
-
+    xs = list(map(float, input("Enter a list of floats separated by spaces:").strip().split())
     if len(xs) < 2:
         print("Input list must have at least 2 elements")
         return
 
-    def find_zero(xs: list):
+    def find_zero(xs: list) -> float:
         a = xs[-1]
         b = xs[-2]
 
@@ -24,7 +18,6 @@ def main():
         print(result)
     except ZeroDivisionError as e:
         print(str(e))
-
 
 if __name__ == "__main__":
     main()
