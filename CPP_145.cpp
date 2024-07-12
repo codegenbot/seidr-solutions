@@ -1,6 +1,10 @@
 #include <algorithm>
 #include <vector>
 
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
+}
+
 int order_by_points(const std::vector<int>& nums) {
     int points = 0;
     for (int i = 1; i < nums.size(); i++) {
@@ -24,5 +28,7 @@ int main() {
     std::vector<int> expected(expected_output);
     if (!std::equal(actual_output.begin(), actual_output.end(), expected.begin())) {
         return 1;  
+    } else if (!issame(output, expected_output)) {
+        return 2;
     }
 }
