@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <set>
-#include <initializer_list>
 
 using namespace std;
 
@@ -52,6 +51,6 @@ map<pair<char,int>, int> histogram(string test) {
 
 int main() {
     map<pair<char, int>, bool> maxCountMap = histogram("a");
-    assert(issame(map<pair<char,int>, bool>(maxCountMap), 
-              map<pair<char,int>, bool>({{make_pair('a',0),true},{make_pair('b',1),false}})));
+    map<pair<char,int>,bool> expected{{make_pair('a',0),true},{make_pair('b',1),false}};
+    assert(issame(maxCountMap,expected));
 }
