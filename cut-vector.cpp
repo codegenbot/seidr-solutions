@@ -30,6 +30,7 @@ int main() {
     for (int i = 0; i <= cutIndex; i++) {
         cout << nums[i] << endl;
     }
+    
     cout << 0 << endl;
     
     return 0;
