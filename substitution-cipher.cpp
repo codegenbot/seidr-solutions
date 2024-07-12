@@ -1,30 +1,36 @@
+#include <vector>
 #include <iostream>
 #include <string>
 
-std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
-    std::string result = "";
-    for (int i = 0; i < message.length(); i++) {
-        int index = 0;
-        while (index < cipher2.length() && message[i] != cipher2[index]) {
-            index++;
-        }
-        if (index < cipher2.length()) {
-            result += cipher1[index];
+using namespace std;
+
+string decipher(string cipherText, string key) {
+    string decrypted = "";
+    for (int i = 0; i < cipherText.length(); i++) {
+        if (cipherText[i] != key[i]) {
+            int j = 0;
+            while (j < key.length()) {
+                if (key[j] == cipherText[i]) {
+                    decrypted += key[(i - j) % key.length()];
+                    break;
+                }
+                j++;
+            }
         } else {
-            result += message[i];
+            decrypted += key[i];
         }
     }
-    return result;
+    return decrypted;
 }
 
 int main() {
-    std::string cipher1, cipher2, message;
-    std::cout << "Enter the first string: ";
-    std::cin >> cipher1;
-    std::cout << "Enter the second string: ";
-    std::cin >> cipher2;
-    std::cout << "Enter the message to decipher: ";
-    std::cin >> message;
-    std::cout << "Deciphered message: " << decipher(cipher1, cipher2, message) << std::endl;
+    string key, cipherText, plainText;
+    cout << "Enter the first string: ";
+    cin >> key;
+    cout << "Enter the second string: ";
+    cin >> cipherText;
+    cout << "Enter the third string: ";
+    cin >> plainText;
+    cout << "Decrypted message: " << decipher(plainText, key) << endl;
     return 0;
 }
