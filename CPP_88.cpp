@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool isEqual(vector<int> a, vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
 }
 
@@ -24,6 +24,6 @@ vector<int> sortArray(vector<int> array) {
 }
 
 int main() {
-    assert(isEqual(sortArray({21, 14, 23, 11}), {23, 21, 14, 11}));
+    assert(issame(sortArray({21, 14, 23, 11}), {23, 21, 14, 11}));
     return 0;
 }
