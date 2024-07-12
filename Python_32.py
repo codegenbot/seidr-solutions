@@ -1,8 +1,7 @@
 def find_zero(xs: list):
-    a, b = xs
+    a, b = map(int, xs)
     assert b != 0
     return -a / b
-
 
 coefficients = list(map(int, input().split()))
 result = find_zero(coefficients)
