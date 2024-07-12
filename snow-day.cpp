@@ -10,7 +10,7 @@ int main() {
         snow -= melt * snow;
     }
     
-    std::cout << snow << std::endl;
+    std::cout << snow << "\n";
     
     return 0;
 }
