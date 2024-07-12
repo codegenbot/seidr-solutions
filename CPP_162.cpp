@@ -1,4 +1,5 @@
-#include "cryptopp/sha.h"
+#include <cryptopp/sha.h>
+#include <string>
 
 using namespace std;
 using namespace CryptoPP;
@@ -8,7 +9,7 @@ string string_to_md5(const string& input) {
     byte hash[SHA256::DIGEST_SIZE];
     sha.Update((byte*)input.c_str(), input.size());
     sha.Finalize(hash);
-    return stringFromHex(hash, SHA256::DIGEST_SIZE * 2);
+    return stringFromHex(hash, SHA256::DIGEST_SIZE * 8);
 }
 
 int main() {
