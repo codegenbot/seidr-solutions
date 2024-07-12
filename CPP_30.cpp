@@ -13,6 +13,9 @@ vector<float> get_positive(vector<float> l){
 }
 
 int main() {
-    // Main function code
-    return 0;
+    // Main function code here
+}
+
+bool issame(vector<float> a, vector<float> b) {
+    // issame function code here
 }
