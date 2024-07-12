@@ -1,9 +1,15 @@
-from typing import List, Tuple
-
+from typing import List
 
 def rolling_max(numbers: List[int]) -> List[int]:
-    max_list = []
-    for i in range(len(numbers)):
-        max_val = max(numbers[: i + 1])
-        max_list.append(max_val)
-    return max_list
+    result = []
+    max_num = float("-inf")
+    for num in numbers:
+        max_num = max(max_num, num)
+        result.append(max_num)
+    return result
+
+# Read input from the user
+numbers = list(map(int, input().split()))
+
+# Call the function and print the output
+print(rolling_max(numbers))
