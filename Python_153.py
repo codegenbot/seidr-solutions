@@ -1,2 +1,6 @@
-def complete_code(class_name, strongest_extension, filtered_extensions):
-    return f"{class_name}.{strongest_extension}" if strongest_extension.isalpha() else f"{class_name}.{filtered_extensions[0]}"
+def Strongest_Extension(class_name, extensions):
+    def strength(extension):
+        return sum(1 for char in extension if char.isupper()) - sum(1 for char in extension if char.islower())
+
+    strongest_extension = max(extensions, key=lambda x: (strength(x), extensions.index(x)))
+    return f"{class_name}.{strongest_extension}"
