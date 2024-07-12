@@ -1,7 +1,11 @@
 ```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 bool operator==(const std::vector<int>& v1, const std::vector<int>& v2) {
     return (v1.size() == v2.size()) && std::equal(v1.begin(), v1.end(), v2.begin());
-};
+}
 
 std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> maxNumbers;
@@ -14,6 +18,10 @@ std::vector<int> rolling_max(std::vector<int> numbers) {
     }
 
     return maxNumbers;
+}
+
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b; 
 }
 
 int main() {
@@ -37,6 +45,8 @@ int main() {
         std::cout << "Vectors are equal" << std::endl;
     else
         std::cout << "Vectors are not equal" << std::endl;
+    
+    assert(issame(rolling_max({3, 2, 3, 100, 3}) ,{3, 3, 3, 100, 100}));
     
     return 0;
 }
