@@ -20,7 +20,7 @@ int main() {
     }
     std::cout << "Enter the number of elements in lst2: ";
     std::cin >> n2;
-    std::vector<int> lst2(n2);
+    std::vector<int> lst2(m2);
     std::cout << "Enter elements of lst2: ";
     for (int &i : lst2) {
         std::cin >> i;
