@@ -1,7 +1,8 @@
+```
 def process_paths(paths):
     while True:
         paths = input("Enter a list of paths (e.g., 1-2,3-4): ")
-
+        
         try:
             if "-" in paths and "," not in paths:
                 paths = [[*map(int, paths.strip().split("-"))]]
@@ -14,10 +15,12 @@ def process_paths(paths):
         except ValueError:
             print("Invalid input. Please try again.")
 
-        minPath = float("inf")
+        minPath = float('inf')  
 
         for path in paths:
             if len(path) < minPath:
                 minPath = len(path)
 
         return minPath
+
+print(process_paths([]))
