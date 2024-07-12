@@ -24,8 +24,8 @@ int sumOfDigits(int num) {
 }
 
 int main() {
-    std::vector<long long> lst;
-    long long num, maxPrime = 0;
+    std::vector<int> lst;
+    int num, maxPrime = 0;
     while (true) {
         std::cout << "Enter a number (-1 to stop): ";
         std::cin >> num;
@@ -33,7 +33,7 @@ int main() {
             break;
         }
         lst.push_back(num);
-        for (long long n : lst) {
+        for (int n : lst) {
             if (isPrime(n)) {
                 if (n > maxPrime) {
                     maxPrime = n;
