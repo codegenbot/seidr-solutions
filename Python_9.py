@@ -8,12 +8,5 @@ def rolling_max(numbers: List[int]) -> List[int]:
         result.append(max_num)
     return result
 
-numbers = []
-while True:
-    try:
-        num = int(input("Enter a number: "))
-        numbers.append(num)
-    except ValueError:
-        break
-
+numbers = list(map(int, input("Enter numbers separated by space:").strip().split()))
 print(rolling_max(numbers))
