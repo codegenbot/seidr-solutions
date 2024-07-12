@@ -1,11 +1,10 @@
-import re
-
-num_dict = {str(i): str(i) for i in range(10)}
-
-
+```Python
 def sort_numbers(input_str: str) -> str:
-    numbers = [c for c in input_str]
-    matches = re.findall("[0-9]+", "".join(map(str, numbers)))
-    if not matches:
+    import re
+    numbers = re.findall(r"\d+", input_str)
+    if not numbers:
         return "No numbers found"
-    return " ".join(sorted([num_dict[num] for num in matches]))
+    for num in numbers:
+        if not set(num).issubset(set('0123456789')):
+            return "Non-numeric characters present, please provide valid input"
+    return " ".join(sorted(map(str, set([int(num) for num in numbers]))))
