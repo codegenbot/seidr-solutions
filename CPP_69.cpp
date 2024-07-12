@@ -1,8 +1,10 @@
+```cpp
+#include <iostream>
 #include <vector>
 #include <map>
 
-int search(vector<int> lst) {
-    map<int, int> freqMap;
+int search(std::vector<int> lst) {
+    std::map<int, int> freqMap;
     for (int num : lst) {
         if (freqMap.find(num) == freqMap.end()) {
             freqMap[num] = 1;
@@ -20,4 +22,11 @@ int search(vector<int> lst) {
     }
 
     return maxFreqNum;
+}
+
+int main() {
+    std::vector<int> lst = {3, 10, 10, 9, 2};
+    int result = search(lst);
+    std::cout << "Result: " << result << std::endl;
+    return 0;
 }
