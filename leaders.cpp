@@ -1,12 +1,11 @@
-```c++
 #include <vector>
 using namespace std;
 
 int main() {
-    vector<int> arr = {1, 2, 7, 8, 5};
-    vector<int> leaders = leaders(arr);
-    for(int i : leaders) {
-        cout << i << " ";
+    vector<int> arr = {1, 3, 4, 2, 6};
+    vector<int> leadersRes = leaders(arr);
+    for (int leader : leadersRes) {
+        cout << leader << " ";
     }
     return 0;
 }
@@ -14,15 +13,13 @@ int main() {
 vector<int> leaders(vector<int>& arr) {
     vector<int> result;
     int n = arr.size();
+    int rightmost_max = arr.back();
     for(int i=n-1; i>=0; i--) {
-        bool leader = true;
-        for(int j=i+1; j<n; j++) {
-            if(arr[j] >= arr[i]) {
-                leader = false;
-                break;
-            }
+        if(arr[i] >= rightmost_max) {
+            rightmost_max = arr[i];
+            result.push_back(rightmost_max);
         }
-        if(leader) result.push_back(arr[i]);
     }
+    reverse(result.begin(), result.end());
     return result;
 }
