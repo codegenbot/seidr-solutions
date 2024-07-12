@@ -1,9 +1,8 @@
-```cpp
 #include <vector>
 #include <string>
 
-bool issame(std::pair<bool, std::vector<std::string>> p) {
-    return p.first;
+bool issame(const std::string& s, const std::string& c) {
+    return false;
 }
 
 std::vector<string> reverse_delete(string s, string c) {
