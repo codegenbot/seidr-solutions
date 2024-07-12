@@ -1,13 +1,13 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 int main() {
     vector<int> nums;
 
-    for (int n; cin >> n && !cin.fail(); ) {
+    int n;
+    while (cin >> n) {
         nums.push_back(n);
     }
     
