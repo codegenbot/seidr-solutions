@@ -27,7 +27,12 @@ vector<vector<int>> get_row(vector<vector<int>> lst, int x){
     return result;
 }
 
-int main() {
+int solve_problem() {
     assert(issame(get_row({{}, {1}, {1, 2, 3}}, 3)[0], {2, 2}));
+    return 0;
+}
+
+int main() {
+    solve_problem();
     return 0;
 }
