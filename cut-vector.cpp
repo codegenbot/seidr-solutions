@@ -1,34 +1,22 @@
 int main() {
-    int n;
-    cin >> n;
-    vector<int> vec(n);
-    int totalSum = 0;
-    for (int i = 0; i < n; ++i) {
-        cin >> vec[i];
-        totalSum += vec[i];
+    vector<int> A;
+    int n, a;
+    while (cin >> a) {
+        A.push_back(a);
     }
-    int halfSum = totalSum / 2;
-    int sum = 0;
-    int idx = -1;
-    for (int i = 0; i < n; ++i) {
-        sum += vec[i];
-        if (sum >= halfSum) {
-            idx = i;
+
+    int sum1 = 0, sum2 = accumulate(A.begin() + 1, A.end(), 0);
+    for (int i = 0; i < A.size(); i++) {
+        sum1 += A[i];
+        sum2 -= A[i];
+        if (sum1 == sum2 || abs(sum1 - sum2) < abs(2*(sum1 - A[i]) - sum2)) {
+            for (int j = 0; j <= i; j++) {
+                cout << A[j] << endl;
+            }
+            cout << "0" << endl;
             break;
         }
     }
-    if (abs(2*sum - totalSum) < abs(2*(sum-vec[idx]) - totalSum)) {
-        cout << idx + 1 << endl;
-        for (int i = 0; i <= idx; ++i) {
-            cout << vec[i] << endl;
-        }
-        cout << totalSum - sum << endl;
-    } else {
-        cout << idx + 2 << endl;
-        for (int i = 0; i <= idx; ++i) {
-            cout << vec[i] << endl;
-        }
-        cout << vec[idx + 1] << endl;
-    }
+
     return 0;
 }
