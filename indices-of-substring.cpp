@@ -4,8 +4,8 @@
 
 int main() {
     char text[100], target[100];
-    std::cin.getline(text, 100); text[strlen(text)] = '\0';
-    std::cin.getline(target, 100); target[strlen(target)] = '\0';
+    std::cin.getline(text, 100);
+    std::cin.getline(target, 100);
 
     std::vector<int> indices;
     int textLen = strlen(text);
@@ -13,7 +13,7 @@ int main() {
     
     for (int i = 0; i < textLen - targetLen + 1; ++i) {
         bool found = true;
-        for (int j = 0; j < targetLen; ++j) {
+        for (int j = 0; j < targetLen && i + j < textLen && text[i + j] != '\0' && target[j] != '\0'; ++j) {
             if (text[i + j] != target[j]) {
                 found = false;
                 break;
