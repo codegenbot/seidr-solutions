@@ -1,6 +1,6 @@
-```
 #include <iostream>
 #include <string>
+#include <cassert>
 
 std::string filp_case(std::string str) {
     std::string result = "";
@@ -20,4 +20,3 @@ int main() {
         assert(false);
     }
     return 0;
-}
