@@ -1,3 +1,4 @@
+```cpp
 int next_smallest(vector<int> lst){
     if(lst.size() < 2) return -1; 
     sort(lst.begin(), lst.end());
