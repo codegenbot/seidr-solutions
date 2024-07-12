@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,21 +14,26 @@ bool same(std::vector<float> a, std::vector<float> b) {
 
 std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result;
-
     bool needSort = false;
+
     for (float i : l) {
         if (result.size() % 2 == 0) {
             needSort = true;
+            result.clear();
         } else {
-            if (needSort) {
-                std::vector<float> temp(result.begin(), result.end());
-                std::sort(temp.begin(), temp.end());
-                result.clear();
-                for (float f : temp)
-                    result.push_back(f);
-                needSort = false;
-            } else {
+            if (!needSort)
                 result.push_back(i);
+            else {
+                result.push_back(i);
+                bool sorted = false;
+                while (!sorted && !result.empty()) {
+                    for (int j = 1; j < result.size(); ++j) {
+                        if (result[j] < result[0])
+                            std::swap(result[0], result[j]);
+                    }
+                    if (std::all_of(result.begin() + 1, result.end(), [x, &i]{ i <= x }))
+                        sorted = true;
+                }
             }
         }
     }
