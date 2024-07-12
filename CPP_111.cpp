@@ -1,7 +1,8 @@
+```cpp
 #include <map>
 #include <vector>
 #include <string>
-#include <set>
+#include <initializer_list>
 
 using namespace std;
 
@@ -18,10 +19,10 @@ map<pair<char,int>, int> histogram(string test) {
     map<pair<char,int>, int> result;
     if (test.empty()) return result;
 
-    set<char> letters(test);
-    for (char c : letters) {
+    string letters = test;
+    for (char c : unique(letters.begin(), letters.end())) {
         int count = 0;
-        for (char letter : test) {
+        for (char letter : letters) {
             if (letter == c) count++;
         }
         for(int i=0; i<count; i++) {
