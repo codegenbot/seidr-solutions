@@ -1,3 +1,31 @@
+#include <iostream>
+#include <vector>
+
+std::vector<int> rolling_max(const std::vector<int>& numbers) {
+    std::vector<int> maxNumbers;
+    int currentMax = INT_MIN;
+
+    for (int num : numbers) {
+        if (num > currentMax)
+            currentMax = num;
+        maxNumbers.push_back(currentMax);
+    }
+
+    return maxNumbers;
+}
+
+bool are_vectors_equal(const std::vector<int>& a, const std::vector<int>& b) {
+    if (a.size() != b.size())
+        return false;
+
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i])
+            return false;
+    }
+
+    return true;
+}
+
 int main() {
     std::vector<int> numbers;
     int num;
