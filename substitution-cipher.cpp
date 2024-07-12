@@ -2,27 +2,22 @@
 #include <iostream>
 #include <string>
 
-std::string substitutionCipher(const std::string& cipherMap, const std::string& input) {
-    std::string output;
-    for (char c : input) {
-        if (c >= 'a' && c <= 'z') {
-            int index = c - 'a';
-            char newChar = cipherMap[index];
-            output += newChar;
-        } else if (c >= 'A' && c <= 'Z') {
-            int index = c - 'A';
-            char newChar = cipherMap[index];
-            output += newChar;
+std::string substituteCipher(const std::string& cipher1, const std::string& cipher2, const std::string& message) {
+    std::string result;
+    for (char c : message) {
+        int index = c - 'a';
+        if (index >= 0 && index < cipher1.size()) {
+            result += cipher2[index];
         } else {
-            output += c;
+            result += c;
         }
     }
-    return output;
+    return result;
 }
 
 int main() {
-    std::string cipherMap, input;
-    std::cin >> cipherMap >> input;
-    std::cout << substitutionCipher(cipherMap, input) << std::endl;
+    std::string cipher1, cipher2, message;
+    std::cin >> cipher1 >> cipher2 >> message;
+    std::cout << substituteCipher(cipher1, cipher2, message) << std::endl;
     return 0;
 }
