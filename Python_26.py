@@ -7,7 +7,7 @@ def check(func):
 def remove_duplicates(numbers):
     return list(set(numbers))
 
-# Test the function
-numbers_list = list(map(int, input().split()))
-result = remove_duplicates(numbers_list)
-print(result)
+if __name__ == "__main__":
+    numbers_list = list(map(int, input().split()))
+    result = remove_duplicates(numbers_list)
+    print(result)

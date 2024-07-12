@@ -1,2 +1,4 @@
 import sys
-input_string = sys.stdin.readline().strip().upper()
+
+input_str = sys.stdin.readline().rstrip()
+input_list = list(map(int, input_str.split()))
