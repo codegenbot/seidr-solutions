@@ -5,14 +5,14 @@ def sum_product() -> tuple:
 
     try:
         while True:
-            user_input = int(input())
+            user_input = input("Enter a digit or type 'stop' to finish: ")
             if str(user_input).lower() == "stop":
                 break
             elif not user_input.isdigit():
                 print("Invalid input. Please enter a digit or type 'stop' to finish.")
                 continue
-            total_sum += user_input
-            product *= user_input
+            total_sum += int(user_input)
+            product *= int(user_input)
             count += 1
     except ValueError:
         print("Invalid input. Please enter a digit or type 'stop' to finish.")
