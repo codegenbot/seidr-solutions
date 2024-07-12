@@ -5,9 +5,11 @@ int main() {
     std::cin >> n >> m;
     
     double prob = 0.0;
+    double denominator = static_cast<double>(n * m);
+    
     for (int i = 1; i <= n; ++i) {
         for (int j = 1; j <= m; ++j) {
-            prob += (double)(n - i) * (m - j) / (n * m);
+            prob += static_cast<double>((n - i) * (m - j)) / denominator;
         }
     }
     
