@@ -9,9 +9,11 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             max_depth = max(max_depth, current_depth)
         elif char == ")":
             current_depth -= 1
-        # Append max_depth value outside the if-else block
         levels.append(max_depth)
     return levels
 
-# Example usage
-parse_nested_parens("((()))")
+# Read input from the user
+input_string = input("Enter the nested parenthesis string: ")
+# Call the function with the input provided by the user
+output = parse_nested_parens(input_string)
+print(output)
