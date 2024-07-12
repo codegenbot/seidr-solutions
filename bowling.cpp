@@ -1,15 +1,6 @@
 #include <iostream>
 using namespace std;
 
-int score(string s);
-
-int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
-    return 0;
-}
-
 int score(string s) {
     int total = 0;
     int frame = 1;
@@ -41,4 +32,11 @@ int score(string s) {
     }
 
     return total;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << score(s) << endl;
+    return 0;
 }
