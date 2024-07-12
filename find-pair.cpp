@@ -14,7 +14,7 @@ int main() {
     std::unordered_map<int, int> map;
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
-        if (map.find(complement) != map.end()) {
+        if (map.find(complement) != map.end() && map[complement] != i) {
             std::cout << nums[i] << " " << complement << std::endl;
             break;
         }
