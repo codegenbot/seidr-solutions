@@ -2,16 +2,8 @@
 #include <algorithm>
 #include <cctype>
 
-bool issame(const std::string &s1, const std::string &s2) {
-    if (s1.size() != s2.size()) return false;
-    for (int i = 0; i < s1.size(); ++i) {
-        if (std::tolower(s1[i]) != std::tolower(s2[i])) return false;
-    }
-    return true;
-}
-
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result = lst;
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    std::vector<std::string> result = lst;
     for (auto it = result.begin(); it != result.end();) {
         if (it->length() % 2 == 1) {
             it = result.erase(it);
@@ -20,12 +12,18 @@ vector<string> sorted_list_sum(vector<string> lst) {
         }
     }
     sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             if (a.length() != b.length()) {
-                 return a.length() < b.length();
-             } else {
-                 return a < b;
+         [](const std::string& a, const std::string& b) {
+             size_t len_a = a.length();
+             size_t len_b = b.length();
+             if (len_a != len_b)
+                 return len_a < len_b;
+             for (size_t i = 0; i < len_a; ++i) {
+                 if (std::tolower(a[i]) < std::tolower(b[i]))
+                     return true;
+                 else if (std::tolower(a[i]) > std::tolower(b[i]))
+                     return false;
              }
+             return a < b;
          });
     return result;
 }
