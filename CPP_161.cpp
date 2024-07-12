@@ -19,6 +19,4 @@ std::string solve(std::string s) {
     return s;
 }
 
-std::string input;
-std::cin >> input;
-std::cout << solve(input);
+#include <iostream>
