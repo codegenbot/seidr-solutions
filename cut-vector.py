@@ -1,21 +1,14 @@
 n = int(input())
-v = [int(input()) for _ in range(n)]
-total_sum = sum(v)
-left_sum = 0
-right_sum = total_sum
-min_diff = total_sum
-cut_index = 0
-
+a = [int(input()) for i in range(n)]
+total_sum = sum(a)
+target_sum = total_sum / 2
+current_sum = 0
 for i in range(n):
-    left_sum += v[i]
-    right_sum -= v[i]
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
-
-subvector1 = v[: cut_index + 1]
-subvector2 = v[cut_index + 1 :]
-
-print(*subvector1, sep="\n")
-print(*subvector2, sep="\n")
+    current_sum += a[i]
+    if current_sum >= target_sum:
+        if current_sum == target_sum or abs(current_sum - target_sum) < abs(
+            current_sum - a[i] - target_sum
+        ):
+            print(a[: i + 1])
+            print(a[i + 1 :])
+            break
