@@ -1,10 +1,6 @@
-Here is the modified code:
-
 ```cpp
 #include <vector>
 #include <string>
-#include <cstdlib>
-#include <iostream>
 
 bool compare(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
