@@ -13,7 +13,6 @@ def calculate_bowling_score(input_str):
                 score += 10
             else:
                 score += int(rolls[i + 1])
-            
             if frame < 10:
                 frame += 1
             i += 1
