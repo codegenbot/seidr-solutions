@@ -15,11 +15,11 @@ def parse_music(music_string: str) -> list:
             music_list.append(4)
             i += 2
         elif music_string[i:i+3] == 'o o|':
-            music_list.append(2)
+            if music_string[i:i+2] == 'o o': 
+                music_list.append(4)
+            else:
+                music_list.append(2)
             i += 3
-        elif music_string[i:i+2] == 'o o|':
-            music_list.append(4)
-            i += 2
-        if i < len(music_string) and not music_string[i].isalnum():
-            i += 1
+        else:
+            return []  
     return music_list
