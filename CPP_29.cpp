@@ -1,24 +1,15 @@
-```cpp
 #include <vector>
 #include <string>
 
 int main() {
-    int num_strings;
-    std::cin >> num_strings;
-
-    std::vector<std::string> strings(num_strings);
-    for (int i = 0; i < num_strings; i++) {
-        std::cin >> strings[i];
+    std::vector<std::string> strings = {"apple", "banana", "apricot", "cherry"};
+    std::string prefix = "app";
+    
+    int resultCount;
+    for (auto& s : filter_by_prefix(strings, prefix)) {
+        std::cout << s << std::endl;
     }
-
-    std::string prefix;
-    std::cin >> prefix;
-
-    std::vector<std::string> result = filter_by_prefix(strings, prefix);
-
-    for (const auto& str : result) {
-        std::cout << str << std::endl;
-    }
+    resultCount = filter_by_prefix(strings, prefix).size();
     return 0;
 }
 
