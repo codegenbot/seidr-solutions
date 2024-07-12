@@ -8,11 +8,7 @@ def below_zero(operations: List[int]) -> bool:
             return True
     return False
 
-try:
-    operations = list(map(int, input().strip().split()))
-except ValueError:
-    print("Input must be space-separated integers.")
-    exit()
-
+n = int(input())
+operations = [int(input()) for _ in range(n)]
 result = below_zero(operations)
 print(result)

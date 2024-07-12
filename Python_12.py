@@ -5,12 +5,6 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=lambda x: (len(x), x))
 
-input_strings = []
-while True:
-    try:
-        input_strings.append(input())
-    except EOFError:
-        break
-
+input_strings = input().split()
 result = longest(input_strings)
 print(result)
