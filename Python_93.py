@@ -12,7 +12,7 @@ def encode(message):
                 new_code = ord(char) - 2
 
             encoded_message += chr(
-                new_code if 97 <= new_code <= 122 else 97 + (new_code % 122) - 1 if new_code > 122 else new_code
+                new_code if 97 <= new_code <= 122 else (97 + new_code) % 122 + 96
             )
         else:
             encoded_message += char
