@@ -1,6 +1,4 @@
-```cpp
-#include <vector>
-#include <string>
+#include <initializer_list>
 
 bool will_it_fly(std::vector<std::vector<int>>& q, int w) {
     std::string str = "";
