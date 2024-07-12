@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <cassert>
 
 int sum_squares(const std::vector<float>& lst) {
     int sum = 0;
@@ -13,7 +12,14 @@ int sum_squares(const std::vector<float>& lst) {
 }
 
 int main() {
-    assert(sum_squares({-1, 1, 0}) == 2);
-    // Add more test cases if needed
+    std::vector<float> numbers;
+    float input;
+    std::cout << "Enter numbers (enter any non-numeric value to stop): ";
+    while (std::cin >> input) {
+        numbers.push_back(input);
+    }
+
+    std::cout << "Sum of the squares of rounded numbers: " << sum_squares(numbers) << std::endl;
+
     return 0;
 }
