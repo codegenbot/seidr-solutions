@@ -28,10 +28,10 @@ vector<string> separate_paren_groups(string paren_string) {
 
 int main() {
     string paren_string = "( ) (( )) (( )( \"";
-    vector<string> result;
+    vector<string> result; // Declare result here!
     
     for (string s : separate_paren_groups(paren_string)) {
-        cout << s << endl;
+        cout << "Error: Unclosed parentheses in input string.\n";
     }
     return 0;
 }
