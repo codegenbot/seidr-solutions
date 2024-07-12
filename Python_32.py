@@ -1,8 +1,5 @@
-Here is the modified code:
-
-```
-# This program solves quadratic equations.
 import math
+
 
 def quadratic_equation():
     while True:
@@ -12,9 +9,9 @@ def quadratic_equation():
             if len(coefficients) != 3:
                 raise ValueError
             a, b, c = coefficients[0], coefficients[1], coefficients[2]
-            
+
             discriminant = b**2 - 4 * a * c
-            
+
             if discriminant > 0:
                 root1 = (-b + math.sqrt(discriminant)) / (2 * a)
                 root2 = (-b - math.sqrt(discriminant)) / (2 * a)
@@ -26,4 +23,6 @@ def quadratic_equation():
                 print("No real roots")
             break
         except ValueError:
-            print("Invalid input. Please enter exactly three numbers separated by spaces.")
+            print(
+                "Invalid input. Please enter exactly three numbers separated by spaces."
+            )
