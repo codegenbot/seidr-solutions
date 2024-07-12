@@ -1,5 +1,5 @@
 def sort_numbers(numbers: str) -> str:
-    nums = {
+    num_dict = {
         "zero": 0,
         "one": 1,
         "two": 2,
@@ -11,5 +11,5 @@ def sort_numbers(numbers: str) -> str:
         "eight": 8,
         "nine": 9,
     }
-    sorted_nums = sorted([nums[i] for i in numbers.split()])
-    return " ".join([k for k, v in nums.items() if v == x] for x in sorted_nums)
+    nums = [num_dict[i] for i in numbers.split()]
+    return " ".join(sorted(map(str, nums)))
