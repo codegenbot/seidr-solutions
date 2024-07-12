@@ -1,4 +1,15 @@
 #include <algorithm>
+#include <vector>
+#include <numeric>
+#include <limits>
+
+bool issame(vector<float> a, vector<float> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+        if (abs(a[i] - b[i]) > 1e-9) return false;
+    }
+    return true;
+}
 
 vector<float> find_closest_elements(vector<float> numbers) {
     if (numbers.size() < 2) {
@@ -18,5 +29,13 @@ vector<float> find_closest_elements(vector<float> numbers) {
         }
     }
     
-    return vector<float>(closest_pair);
+    vector<float> result(2);
+    result[0] = closest_pair.first;
+    result[1] = closest_pair.second;
+    return result;
+}
+
+int main() {
+    assert(issame({2.2f, 3.1f}, find_closest_elements({1.1f, 2.2f, 3.1f, 4.1f, 5.1f})));
+    return 0;
 }
