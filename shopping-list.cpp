@@ -23,7 +23,7 @@ int main() {
     for(int i = 0; i < n; i++) {
         while(true) {
             cin >> prices[i] >> discounts[i];
-            if (discounts[i] <= 100 && prices[i] > 0) {
+            if (discounts[i] <= 100 && prices[i] > 0 && discounts[i] >= 0) {
                 break;
             }
             cout << "Invalid input. Please enter a discount percentage between 0 and 100 and price greater than 0." << endl;
