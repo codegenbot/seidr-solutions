@@ -6,10 +6,7 @@ using namespace std;
 map<char, int> histogram(string test);
 
 int main() {
-    map<char, int> result = histogram("a");
-    for (const auto& pair : result) {
-        cout << pair.first << " -> " << pair.second << endl;
-    }
+    assert(histogram("a") == map<char, int>{{'a', 1}});
     return 0;
 }
 
