@@ -9,11 +9,17 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         if char == "(":
             stack.append("(")
             current_group += "("
-        elif char == ")" and stack:
-            stack.pop()
-            current_group += ")"
-            if not stack:
-                result.append(current_group)
-                current_group = ""
+        elif char == ")":
+            if stack:
+                stack.pop()
+                current_group += ")"
+                if not stack:
+                    result.append(current_group)
+                    current_group = ""
+            else:
+                current_group += ")"
+
+    if current_group:
+        result.append(current_group)
 
     return result
