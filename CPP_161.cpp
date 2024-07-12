@@ -10,16 +10,9 @@ string solve(string s) {
             result += c;
         }
     }
-    if(result.empty()) {
-        string temp = s;
-        std::reverse(temp.begin(), temp.end());
-        return temp;
-    } else {
-        return result;
-    }
+    return result.empty() ? string(s).rbegin()->reverse().s : result;
 }
 
 int main() {
     assert (solve("#ccc") == "#CCC");
     return 0;
-}
