@@ -9,7 +9,7 @@ std::string camelCase(std::string str) {
         if (c == '-' || c == ' ') {
             if (!isNextUpper) {
                 if (c == '-') {
-                    result += char(c - 32);
+                    result += char(toupper(c));
                 } else {
                     if (!result.empty()) {
                         result += ' ';
@@ -20,7 +20,7 @@ std::string camelCase(std::string str) {
         } else {
             isNextUpper = false;
             if (!result.empty() && c >= 'a' && c <= 'z') {
-                result += char(c - 32);
+                result += char(toupper(c));
             } else {
                 result += c;
             }
@@ -35,4 +35,3 @@ int main() {
         std::cout << camelCase(str) << std::endl;
     }
     return 0;
-}
