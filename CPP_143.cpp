@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -18,13 +17,11 @@ vector<string> split(const string& str, const char* delim) {
     while ((pos = str.find(*delim)) != string::npos) {
         if (pos > 0) {
             tokens.push_back(str.substr(0, pos));
-            str.erase(0, pos + 1);
+            str = str.substr(pos + strlen(delim)); 
         } else {
-            str.erase(0, pos + 1);
+            str = str.substr(strlen(delim)); 
         }
     }
-    if (!str.empty())
-        tokens.push_back(str); 
     return tokens;
 }
 
