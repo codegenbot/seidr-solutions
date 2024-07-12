@@ -15,10 +15,10 @@ std::vector<std::string> split(const std::string& str, const char* delim) {
     size_t pos = 0;
     std::vector<std::string> tokens;
     while ((pos = str.find(delim)) != std::string::npos) {
-        tokens.push_back(std::to_string(str.substr(0, pos)));
+        tokens.push_back(string(str.substr(0, pos)));
         str.erase(0, pos + strlen(delim));
     }
-    tokens.push_back(std::to_string(str));
+    tokens.push_back(str);
     return tokens;
 }
 
