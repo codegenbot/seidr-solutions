@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <cassert>
 
 using namespace std;
 
@@ -16,8 +17,6 @@ vector<int> incr_list(const vector<int>& l){
 }
 
 int main() {
-    vector<int> expected({6, 3, 6,3, 4, 4, 10, 1, 124});
-    vector<int> actual = incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123});
-    assert(issame(expected, actual));
+    assert(issame({6, 3, 6,3, 4, 4, 10, 1, 124}, {5, 2, 5, 2, 3, 3, 9, 0, 123}));
     return 0;
 }
