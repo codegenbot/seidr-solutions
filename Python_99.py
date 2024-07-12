@@ -9,6 +9,3 @@ def find_closest_number():
                 return closest_value
         except ValueError:
             print("Invalid input. Please enter a decimal number.")
-
-closest_integer = find_closest_number()
-print(closest_integer)
