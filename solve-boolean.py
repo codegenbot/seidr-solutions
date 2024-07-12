@@ -3,8 +3,6 @@ def solve_boolean(expression):
         return True
     elif expression == 'F':
         return False
-    elif '&' in expression:
-        raise ValueError("Invalid expression")
     result = None
     operators = []
     for char in expression:
@@ -12,9 +10,9 @@ def solve_boolean(expression):
             op = char
             while len(operators) > 0 and operators[-1] == op:
                 if op == '&':
-                    result = all([bool(i) for i in operators])
+                    result = all(operators)
                 elif op == '|':
-                    result = any([bool(i) for i in operators])
+                    result = any(operators)
                 operators.pop()
             operators.append(char)
         else:
