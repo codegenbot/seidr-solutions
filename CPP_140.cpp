@@ -1,4 +1,4 @@
-```
+```cpp
 #include <iostream>
 #include <string>
 using namespace std;
@@ -25,4 +25,3 @@ int main() {
     getline(cin, text);
     cout << "Fixed string: " << fix_spaces(text) << endl;
     return 0;
-}
