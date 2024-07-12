@@ -16,14 +16,7 @@ int maximum(int arr[], int n) {
 }
 
 int mainProblemCPP120() {
-    std::vector<int> vec1(3, 0); 
-    std::vector<int> vec2 = {1, 2, 3}; 
-    
-    if (vec1 != vec2) { // Compare vectors
-        std::cout << "Vectors are not the same." << std::endl;
-    } else {
-        std::cout << "Vectors are the same" << std::endl;
-    }
+    std::vector<int> vec1 = {0, 1, 2}; // Initialize with specific values
     
     int arr[] = {1, 2, 3, -23, 243, -400, 0};
     assert (!issame(std::vector<int>(arr, arr + sizeof(arr) / sizeof(arr[0])), {}));
