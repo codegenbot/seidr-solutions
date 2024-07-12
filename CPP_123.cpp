@@ -6,7 +6,7 @@
 using namespace std;
 
 vector<int> get_odd_collatz(int) {
-    vector<int> result(1); 
+    vector<int> result;
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
@@ -21,12 +21,9 @@ vector<int> get_odd_collatz(int) {
     return result;
 }
 
-int main() {
-    vector<int> odd_collatz = get_odd_collatz(0);
-    cout << "The sequence of Collatz Conjecture for the given number is: ";
-    for (int num : odd_collatz) {
-        cout << num << " ";
-    }
-    cout << endl;
-    return 0;
+vector<int> odd_collatz = get_odd_collatz(0);
+cout << "The sequence of Collatz Conjecture for the given number is: ";
+for (int num : odd_collatz) {
+    cout << num << " ";
 }
+cout << endl;
