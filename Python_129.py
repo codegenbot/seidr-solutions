@@ -1,20 +1,13 @@
 ```
-def process_paths():
-    while True:
-        paths = input("Enter a list of paths (e.g., 1-2,3-4): ")
-        if "," in paths:
-            try:
-                paths = [[*map(int, x.strip().split("-"))] for x in paths.split(",")]
-                break
-            except ValueError:
-                print("Please enter valid path numbers. For example, 1-2.")
-        elif len(paths) > 0 and "-" in paths:
-            try:
-                paths = [[*map(int, paths.strip().split("-"))]]
-                break
-            except ValueError:
-                print("Please enter a valid path (e.g., 1-2).")
+def process_paths(paths):
+    if "," in paths:
+        paths = [[*map(int, x.strip().split("-"))] for x in paths.split(",")]
+    else:
+        if len(paths) > 0 and "-" in paths:
+            paths = [[*map(int, paths.strip().split("-"))]]
         else:
-            print("Please enter a valid path (e.g., 1-2) or multiple paths separated by commas.")
+            print("Please enter a valid path (e.g., 1-2).")
+            return None
 
-process_paths()
+paths = input("Enter a list of paths (e.g., 1-2,3-4): ")
+process_paths(paths)
