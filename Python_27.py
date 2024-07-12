@@ -1,4 +1,2 @@
-def modify_string(string):
+def flip_case(string):
     return "".join([char.lower() if char.isupper() else char.upper() for char in string])
-
-check(modify_string)
