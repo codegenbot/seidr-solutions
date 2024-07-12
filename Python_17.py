@@ -1,5 +1,3 @@
-```python
-```python
 def parse_music(music_string: str) -> list:
     if not isinstance(music_string, str):
         return []
@@ -29,7 +27,7 @@ def parse_music(music_string: str) -> list:
             music_list.append(0.5)
             i += 5
         elif music_string[i:i+2] == "o o":
-            if not (music_string[i+1].isalnum() and music_string[i+1:i+2] == "|"):
+            if not music_string[i+1].isalnum() or not music_string[i+1:i+2] == "|":
                 return []
             music_list.append(4)
             i += 2
@@ -41,4 +39,3 @@ def parse_music(music_string: str) -> list:
         return []
 
     return music_list
-```
