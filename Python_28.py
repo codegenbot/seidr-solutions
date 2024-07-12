@@ -1,4 +1,3 @@
-```
 def main():
     class Item:
         def __init__(self, name):
@@ -28,6 +27,11 @@ def main():
             print("Invalid input. Please enter an item or 'stop'.")
 
     if items:
-        print(f"The total cost is: {calculate_total_cost(items)}")
+        result = calculate_total_cost(items)
+        print(f"The total cost is: {result}")
     else:
         print("No items were provided.")
+
+
+if __name__ == "__main__":
+    main()
