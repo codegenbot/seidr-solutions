@@ -1,6 +1,6 @@
-```cpp
 #include <iostream>
 #include <vector>
+#include <memory>
 
 bool isPrime(int n) {
     if (n <= 1) {
@@ -24,7 +24,7 @@ int sumOfDigits(int num) {
 }
 
 int main() {
-    std::vector<int> lst(1000);
+    std::vector<int> lst;
     int num, maxPrime = 0;
     while (true) {
         std::cout << "Enter a number (-1 to stop): ";
@@ -32,6 +32,7 @@ int main() {
         if (num == -1) {
             break;
         }
+        lst.push_back(num);
         for (int n : lst) {
             if (isPrime(n)) {
                 if (n > maxPrime) {
@@ -39,7 +40,6 @@ int main() {
                 }
             }
         }
-        lst.push_back(num);
     }
     std::cout << "The sum of digits is: " << sumOfDigits(maxPrime) << std::endl;
     return 0;
