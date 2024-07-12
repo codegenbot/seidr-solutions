@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 bool evaluateBooleanExpression(const std::string& expression) {
     bool result = true;
     int operation = 0; // Flag for AND (0), OR (1)
@@ -10,23 +7,18 @@ bool evaluateBooleanExpression(const std::string& expression) {
             operation = 0;
             currentBit = ' ';
         } else if (c == '|') {
+            result = !result; 
             operation = 1;
             currentBit = ' ';
         } else if (c != 't' && c != 'f') {
             if (operation) {
-                result |= (c == 't');
+                result = result || (c == 't');
             } else {
                 result &= (c == 't');
             }
-            currentBit = c;
         }
     }
-    if (operation == 0) {  
-        result &= (currentBit == 't');
-    } else {                
-        result |= (currentBit == 't');
-    }
-    return result;
+    return !result; 
 }
 
 int main() {

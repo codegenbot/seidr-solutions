@@ -1,6 +1,5 @@
-#include <iostream>
 #include <vector>
-#include <utility>
+#include <iostream>
 
 using namespace std;
 
@@ -36,17 +35,17 @@ int main() {
     for (int i = 0; i < n; i++)
         cin >> vec[i];
     
-    pair<vector<int>, vector<int>> result = cutVector(vec);
+    auto result = cutVector(vec);
     
     cout << "Left: ";
     for (int num : result.first)
         cout << num << " ";
-    cout << std::endl;
+    cout << endl;
     
     cout << "Right: ";
     for (int num : result.second)
         cout << num << " ";
-    cout << std::endl;
+    cout << endl;
     
     return 0;
 }

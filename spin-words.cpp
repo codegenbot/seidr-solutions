@@ -12,16 +12,14 @@ string spinWords(string str) {
         } else {
             count++;
             if (count >= 5) {
-                string word = "";
-                for(int j=i; j>=i-count+1; j--){
-                    if(j==i-1 || j==i-count){
-                        word=str.substr(i, count)+str[j];
-                    }
-                    else{
-                        word+=str[j];
+                string temp = str.substr(i-count+1, count);
+                for(int j = 0; j < temp.length(); j++){
+                    if(j == 0 || j == temp.length() - 1){
+                        result += temp[j];
+                    } else{
+                        result += temp.substr(1, temp.length() - 2);
                     }
                 }
-                result += word;
             } else {
                 result += str[i];
             }
