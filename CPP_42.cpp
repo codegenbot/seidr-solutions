@@ -1,11 +1,16 @@
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+#include <vector>
+using namespace std;
+
+vector<int> incr_vector(vector<int> l) {
+    vector<int> result;
+    for (int i : l) {
+        result.push_back(i + 1);
+    }
+    return result;
+
 }
 
-#include <assert.h>
-#include <vector>
-
 int main() {
-    assert(issame(incr_list({1, 2, 3}), {2, 3, 4}));
+    assert(incr_vector({5, 2, 5, 2, 3, 3, 9, 0, 123}) == vector<int>({6, 3, 6, 3, 4, 4, 10, 1, 124}));
     return 0;
 }
