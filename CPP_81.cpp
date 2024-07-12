@@ -1,14 +1,15 @@
+```cpp
 #include <vector>
-#include <string>
-#include <initializer_list>
-
 using namespace std;
+
+typedef vector<size_t>::size_type size_type;
 
 bool checkSame(vector<string> a) {
     if (a.size() != 1) {
         return false;
     }
-    vector<string> b = {numerical_letter_grade({0, 0.7})[0]};
+    vector<float> grades = {0, 0.7};
+    vector<string> b = numerical_letter_grade(grades);
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[0]) {
             return false;
