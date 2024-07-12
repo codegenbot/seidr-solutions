@@ -34,6 +34,9 @@ std::string camelCase(std::string str) {
     return result;
 }
 
-for (; std::getline(std::cin, str); ) {
-    std::cout << camelCase(str) << std::endl;
+int main() {
+    for (; std::getline(std::cin, str); ) {
+        std::cout << camelCase(str) << std::endl;
+    }
+    return 0;
 }
