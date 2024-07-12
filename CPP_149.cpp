@@ -1,5 +1,4 @@
-```cpp
-#include <initializer_list>
+```c++
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -10,10 +9,10 @@ bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b
 }
 
 std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
-    lst.erase(std::remove_if(lst.begin(), lst.end(),
+    auto it = std::remove_if(lst.begin(), lst.end(),
                               [](const std::string& s) { return s.length() % 2 == 1; }),
-              lst.end());
-    std::stable_partition(lst.begin(), lst.end(),
+        end = lst.erase(it, lst.end());
+    std::stable_partition(lst.begin(), end,
                            [](const std::string& s) { return s.length() % 2 == 1; });
     std::sort(std::next(lst.begin()), lst.end(),
               [](const std::string& a, const std::string& b) {
@@ -26,7 +25,7 @@ std::vector<std::string> sorted_list_sum(const std::vector<std::string>& lst) {
 }
 
 int main() {
-    bool same = issame(sorted_list_sum({"aaaa", "bbbb", "dd", "cc"}), {"cc", "dd", "aaaa", "bbbb"});
+    bool same = issame({"aaaa", "bbbb", "dd", "cc"}, {"cc", "dd", "aaaa", "bbbb"});
     assert(same);
     std::cout << "Result: ";
     for (const auto& str : sorted_list_sum({"aaaa", "bbbb", "dd", "cc"})) {
