@@ -1,9 +1,11 @@
-```
 def digits(n):
-    product = 1
+    odd_product = 1
+    even_sum = 0
     while n:
         digit = n % 10
         if digit % 2 != 0:
-            product *= digit
+            odd_product *= digit
+        else:
+            even_sum += digit
         n //= 10
-    return product
+    return odd_product * (even_sum + 1)
