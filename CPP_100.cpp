@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <cassert>
 #include <iostream>
@@ -23,7 +24,7 @@ vector<int> make_a_pile(int n) {
     return pile;
 }
 
-int main() {
+void main() {
     int n;
     cout << "Enter the number of stones: ";
     cin >> n;
@@ -32,5 +33,4 @@ int main() {
     for (int i = 0; i < (int)result.size(); i++) {
         cout << result[i] << " ";
     }
-    return 0;
 }
