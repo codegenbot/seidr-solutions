@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -36,8 +37,7 @@ int mainProblemCPP120() {
         std::cout << "Vectors are empty" << std::endl;
     }
     
-    int* array = &arr[0];
-    int max = maximum(array, n); 
+    int max = maximum(arr, n); 
     std::cout << "Maximum value is: " << max << std::endl;
     
     return 0;
