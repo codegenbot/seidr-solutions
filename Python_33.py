@@ -1,2 +1,2 @@
 def sort_third(l: list):
-    return [elem for sublist in sorted(l[i:i + 3] for i in range(0, len(l), 3) for elem in sublist]
+    return [elem for tpl in sorted(zip(l[::3], l[1::3], l[2::3])) for elem in tpl]
