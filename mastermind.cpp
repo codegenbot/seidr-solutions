@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int mastermind(std::string code, std::string guess) {
+int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
 
@@ -17,15 +17,18 @@ int mastermind(std::string code, std::string guess) {
             if(code[j] == (char)(i + 'A')) countCode++;
             if(guess[j] == (char)(i + 'A')) countGuess++;
         }
-        white += std::min(countCode, countGuess);
+        white += min(countCode, countGuess);
     }
 
     return black + white;
 }
 
 int main() {
-    int result = mastermind("ABCD", "BCDE");
+    string code = "ABCD";
+    string guess = "BABA";
+
+    int result = mastermind(code, guess);
+
     std::cout << "Number of white pegs and black pegs: " << result << std::endl;
 
     return 0;
-}
