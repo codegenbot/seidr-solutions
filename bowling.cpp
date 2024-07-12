@@ -1,3 +1,5 @@
+#include <iostream>
+
 int score(string s) {
     int total = 0;
     int frame = 0;
