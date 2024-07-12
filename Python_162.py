@@ -1,15 +1,16 @@
-```Python
-import hashlib
-
+```
 print("Please enter some text (alphanumeric characters only): ", end="")
 while True:
     try:
         s = input()
         if not s.isalnum():
             print("Invalid input. Please enter alphanumeric characters only.")
+            response = input("Try again? (y/n): ")
+            if response.lower() != 'y':
+                break
         else:
-            output = hashlib.md5(s.encode()).hexdigest()
-            if output:
+            output = string_to_md5(s)
+            if output is not None:
                 print(f"Output: {output}")
                 break
     except Exception as e:
