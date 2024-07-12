@@ -1,6 +1,6 @@
 #include <algorithm>
-#include <boost/any.hpp>
-using namespace boost;
+#include <string>
+#include <any>
 
 else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
     std::string x = std::any_cast<std::string>(a);
