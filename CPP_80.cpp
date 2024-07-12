@@ -10,10 +10,11 @@ bool is_happy(std::string s) {
         std::string sub = "";
         for (int j = 0; j < 3 && i + j < s.length(); j++) {
             char c = toupper(s[i+j]); 
-            sub += c; 
+            sub += ' '; // Add a space between each character
+            sub += c;
         }
         bool unique = true;
-        for (char c : sub) {
+        for (char c : sub) { // Check the modified substring
             int count = 0;
             for (char a : sub) {
                 if (a == c)
