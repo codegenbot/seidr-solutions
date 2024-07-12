@@ -1,4 +1,3 @@
-```
 def decode_shift():
     print("This function decodes a Caesar cipher with the given shift value.")
     while True:
@@ -24,11 +23,14 @@ def decode_shift():
     result = ""
     for ch in encoded_str:
         if ch.isalpha():
-            char_code = ord(ch.lower())
+            if ch.isupper():
+                char_code = ord('A')
+            else:
+                char_code = ord('a')
             result += (
-                chr((char_code - ord("a") - shift) % 26 + ord("a"))
+                chr((ord(ch) - char_code - shift) % 26 + char_code)
                 if "a" <= ch <= "z"
-                else chr((ord(ch.upper()) - ord("A") - shift) % 26 + ord("A"))
+                else chr((ord(ch) - char_code - shift) % 26 + char_code)
             )
         else:
             result += ch
