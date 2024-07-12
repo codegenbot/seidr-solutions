@@ -1,8 +1,4 @@
 ```
-def check(s):
-    s = Solution()
-    s.count_odd_numbers()
-
 class Solution:
     def count_odd_numbers(self):
         while True:
@@ -11,3 +7,5 @@ class Solution:
                 print(len([i for i in lst if i % 2 != 0]))
             except ValueError:
                 print("Invalid input. Please enter numbers separated by spaces.")
+s = Solution()
+s.count_odd_numbers()
