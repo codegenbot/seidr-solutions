@@ -1,7 +1,11 @@
 #include <boost/any.hpp>
+#include <string>
 #include <stdexcept>
 
 using namespace boost;
+
+boost::any a = ...;
+boost::any b = ...;
 
 if (a.type() == typeid(int) && b.type() == typeid(int)) {
     int x = boost::any_cast<int>(a);
@@ -11,9 +15,9 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     else if (x < y)
         return b;
     else
-        return a; // Return one of the values or both depending on your requirement.
-} 
-else if (a.type() == typeid(double) && b.type() == typeid(double)) {
+        return a; // Return one of the inputs in case they are equal
+
+} else if (a.type() == typeid(double) && b.type() == typeid(double)) {
     double x = boost::any_cast<double>(a);
     double y = boost::any_cast<double>(b);
     if (x > y)
@@ -21,9 +25,9 @@ else if (a.type() == typeid(double) && b.type() == typeid(double)) {
     else if (x < y)
         return b;
     else
-        return a; // Return one of the values or both depending on your requirement.
-} 
-else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+        return a; // Return one of the inputs in case they are equal
+
+} else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
     std::string x = boost::any_cast<std::string>(a);
     std::string y = boost::any_cast<std::string>(b);
     int xi = stoi(x), yi = stoi(y);
@@ -32,8 +36,8 @@ else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
     else if (xi < yi)
         return b;
     else
-        return a; // Return one of the values or both depending on your requirement.
-} 
-else {
-    throw std::invalid_argument("Invalid input");
+        return a; // Return one of the inputs in case they are equal
+
+} else {
+    throw invalid_argument("Invalid input");
 }
