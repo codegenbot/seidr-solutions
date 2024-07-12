@@ -11,13 +11,14 @@ int solve(int N) {
 }
 
 int main() {
-    int N;
-    cin >> N;
+    std::string str; 
+    cin >> str;
+    int N = stoi(str);
     if(N < 1) {
         cout << "Error: Input should be a positive integer." << endl;
     } else {
-        int result = solve(N);
-        cout << result << endl;
-        assert(solve(963) == 505); 
+        cout << solve(N) << endl;
+        assert(solve(963) == 1010);
     }
+    return 0;
 }
