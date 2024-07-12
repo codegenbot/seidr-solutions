@@ -10,7 +10,8 @@ std::string file_name_check(std::string file_name) {
             digitCount++;
             if(digitCount > 3)
                 return "No";
-        } else if(file_name[i] == '.'){
+        }
+        else if(file_name[i] == '.'){
             dotCount++;
             dotIndex = i;
         }
