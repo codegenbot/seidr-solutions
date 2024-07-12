@@ -1,19 +1,15 @@
-#include <cryptopp/sha.h>
+#include <cryptopp/include/cryptopp/sha.h>
 #include <string>
-#include <iomanip>
-
-using namespace std;
-using namespace CryptoPP;
+#include <cryptopp/sha.h>
 
 std::string string_to_md5(const std::string& input) {
     SHA256 sha;
     byte hash[SHA256::DIGEST_SIZE];
-    sha.Update((byte*)input.c_str(), input.size());
-    sha.Finalize(hash);
-    return stringFromHex(hash, SHA256::DIGEST_SIZE * 2);
+    sha.ComputeHash((byte*)input.c_str(), input.size(), hash);
+    return stringFromHex(hash, 32);
 }
 
 int main() {
-    assert(string_to_md5("password") == "5baa61e4c9b93f3f068224d0d6b11de5");
+    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
     return 0;
 }
