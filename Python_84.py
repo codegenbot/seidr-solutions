@@ -1,6 +1,4 @@
-```
-def solve():
-    N = int(input("Please provide a binary number: "), 2)
+def solve(N):
     try:
         N = int(input("Please provide a binary number: "), 2)
     except ValueError:
