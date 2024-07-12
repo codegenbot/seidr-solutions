@@ -1,40 +1,43 @@
 #include <climits>
 #include <iostream>
 #include <vector>
+using namespace std;
 
 int main() {
-    std::vector<int> nums;
-    int num;
-    while (std::cin >> num) {
-        nums.push_back(num);
-    }
-    
-    int n = nums.size();
-    int sum = 0;
+    int n;
+    cin >> n;
+    vector<int> vec(n);
     for (int i = 0; i < n; ++i) {
-        sum += nums[i];
+        cin >> vec[i];
     }
-    
-    int left_sum = 0;
-    int right_sum = sum;
-    int min_diff = INT_MAX;
-    int cut_idx = -1;
-    
-    for (int i = 0; i < n; ++i) {
-        left_sum += nums[i];
-        right_sum -= nums[i];
-        
-        int diff = std::abs(left_sum - right_sum);
-        if (diff < min_diff) {
-            min_diff = diff;
-            cut_idx = i;
+
+    int diff = INT_MAX;
+    int cutIdx = -1;
+
+    for (int i = 1; i < n; ++i) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; ++j) {
+            leftSum += vec[j];
+        }
+        for (int j = i; j < n; ++j) {
+            rightSum += vec[j];
+        }
+
+        int currentDiff = abs(leftSum - rightSum);
+        if (currentDiff < diff) {
+            diff = currentDiff;
+            cutIdx = i;
         }
     }
-    
-    for (int i = 0; i <= cut_idx; ++i) {
-        std::cout << nums[i] << std::endl;
+
+    for (int i = 0; i < cutIdx; ++i) {
+        cout << vec[i] << endl;
     }
-    std::cout << 0 << std::endl;
-    
+    cout << 0 << endl;
+    for (int i = cutIdx; i < n; ++i) {
+        cout << vec[i] << endl; 
+    }
+    cout << 0 << endl;
+
     return 0;
 }
