@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 
 std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2);
 
@@ -11,19 +12,11 @@ int main() {
     int m2;
     std::cout << "Enter the number of elements in lst1: ";
     std::cin >> n1;
-    std::cout << "Enter the number of elements to fill lst2: ";
-    std::cin >> m2; // Read m2 before reading m1
-    std::cout << "Enter the number of elements in lst2: ";
-    while (!(std::cin >> m1)) {
+    while (!(std::cin >> m2)) {
         std::cout << "Invalid input. Please enter a positive integer: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cin >> m1;
-    }
-    if (m2 < m1) {
-        std::cout << "You need to enter " << m2 - m1 << " more elements.\n";
-    } else {
-        break;
+        std::cin >> m2;
     }
     std::vector<int> lst1;
     for (int i = 0; i < n1; i++) {
@@ -31,16 +24,30 @@ int main() {
         while (temp == -1) {
             std::cout << "Enter element of lst1: ";
             try {
-                std::cin >> temp;
+                temp = std::stoi(getValidIntInput("Enter element of lst1: "));
             } catch (...) {
                 std::cout << "Invalid input. Please enter an integer: ";
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cin >> temp;
+                temp = std::stoi(getValidIntInput("Enter element of lst1: "));
             }
         }
         if (temp != 0) {
             lst1.push_back(temp);
+        }
+    }
+    while(true) {
+        std::cout << "Enter the number of elements to fill lst2: ";
+        while (!(std::cin >> m1)) {
+            std::cout << "Invalid input. Please enter a positive integer: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cin >> m1;
+        }
+        if (m2 < m1) {
+            std::cout << "You need to enter " << m2 - m1 << " more elements.\n";
+        } else {
+            break;
         }
     }
     int m;
@@ -51,12 +58,12 @@ int main() {
         while (temp == -1) {
             std::cout << "Enter element of lst2: ";
             try {
-                std::cin >> temp;
+                temp = std::stoi(getValidIntInput("Enter element of lst2: "));
             } catch (...) {
                 std::cout << "Invalid input. Please enter an integer: ";
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cin >> temp;
+                temp = std::stoi(getValidIntInput("Enter element of lst2: "));
             }
         }
         if (temp != 0) {
@@ -70,6 +77,17 @@ int main() {
         std::cout << result << std::endl;
     }
     return 0;
+}
+
+std::string getValidIntInput(const std::string& prompt) {
+    int temp;
+    while (!(std::cin >> temp)) {
+        std::cout << "Invalid input. Please enter an integer: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin >> temp;
+    }
+    return std::to_string(temp);
 }
 
 std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2) {
