@@ -8,11 +8,11 @@ using namespace std;
 string spinWords(string str) {
     string result = "";
     
-    int wordStart = 0;
-    
     for(int i=0; i<str.length(); i++) {
+        string word;
+        
         if(i == str.length() - 1) {
-            string word = str.substr(wordStart, i-wordStart);
+            word = str.substr(i);
             
             if(word.length() >= 5) {
                 reverse(word.begin(), word.end());
@@ -21,7 +21,7 @@ string spinWords(string str) {
             result += word + " ";
             break;
         } else if (str[i] == ' ') {
-            string word = str.substr(wordStart, i-wordStart);
+            word = str.substr(wordStart, i-wordStart);
 
             if(word.length() >= 5) {
                 reverse(word.begin(), word.end());
@@ -30,7 +30,8 @@ string spinWords(string str) {
             result += word + " ";
             wordStart = i+1;
         } else {
-            wordStart++;
+            word += str[i];
+            wordStart = i;
         }
     }
     
@@ -47,4 +48,3 @@ int main() {
     cout << "Output: " << output << endl;
 
     return 0;
-}
