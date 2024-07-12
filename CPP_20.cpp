@@ -5,6 +5,7 @@
 #include <limits>
 #include <stdexcept>
 #include <initializer_list>
+using namespace std;
 
 bool issame(vector<float> a,vector<float> b){
     if(a.size() != b.size()) return false;
