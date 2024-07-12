@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -23,5 +22,7 @@ int main() {
         numbers.push_back(num);
     }
     
-    return count_nums(numbers);
+    int result = count_nums(numbers);
+    std::cout << result;
+    return 0;
 }
