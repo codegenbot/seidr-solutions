@@ -1,12 +1,8 @@
-string words_in_sentence(string sentence){
-    string result = "";
-    for (const auto& word : split(sentence, " ")) {
-        if (is_prime(word.length())) {
-            result += word + " ";
-        }
-    }
-    return result.substr(0, result.size() - 1);
-}
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
 
 bool is_prime(int n) {
     if (n <= 1) return false;
@@ -25,4 +21,22 @@ vector<string> split(const string& str, const string& delimiter) {
     }
     tokens.push_back(str);
     return tokens;
+}
+
+string words_in_sentence(string sentence){
+    string result = "";
+    for (const auto& word : split(sentence, " ")) {
+        if (is_prime(word.length())) {
+            result += word + " ";
+        }
+    }
+    return result.substr(0, result.size() - 1);
+}
+
+int main() {
+    string input;
+    cout << "Enter a sentence: ";
+    getline(cin, input);
+    cout << words_in_sentence(input) << endl;
+    return 0;
 }
