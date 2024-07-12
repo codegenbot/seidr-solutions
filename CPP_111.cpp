@@ -1,3 +1,9 @@
+#include <iostream>
+#include <map>
+#include <cassert>
+
+using namespace std;
+
 map<char, int> histogram(string test) {
     map<char, int> result;
     map<char, int> count;
@@ -8,7 +14,7 @@ map<char, int> histogram(string test) {
         }
     }
 
-    int maxCount = 0;
+    int maxCount = -1;
     for (const auto& pair : count) {
         maxCount = max(maxCount, pair.second);
     }
