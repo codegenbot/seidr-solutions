@@ -15,4 +15,4 @@ int main() {
         std::cout << indices[i] << " ";
     }
     return 0;
-}
+}  
