@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -43,7 +42,7 @@ int main() {
         std::cout << "True is not equal to itself." << std::endl;
     }
     
-    assert(issame(reverse_delete("mamma", "mia"), reverse_delete("mamma", std::string("True"))) && issame("", ""));
+    assert(issame(reverse_delete("mamma", "mia"), reverse_delete(std::string({"True"})).front()));
     
     return 0;
 }
