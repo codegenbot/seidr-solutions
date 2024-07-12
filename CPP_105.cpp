@@ -1,9 +1,9 @@
-vector<string> numToWords(int num) {
+```cpp
+vector<string> numberToWords(int num) {
     vector<string> result;
 
-    if (num < 0 || num > 999) {
-        throw invalid_argument("Number out of range");
-    }
+    if (num == 0)
+        return {"Zero"};
 
     if (num < 10) {
         switch (num) {
@@ -34,37 +34,37 @@ vector<string> numToWords(int num) {
             case 9:
                 result.push_back("Nine");
                 break;
-            case 10:
-                result.push_back("Ten");
-                break;
         }
     } else if (num < 20) {
         switch (num) {
-            case 11: 
+            case 10:
+                result.push_back("Ten");
+                break;
+            case 11:
                 result.push_back("Eleven");
                 break;
-            case 12: 
+            case 12:
                 result.push_back("Twelve");
                 break;
-            case 13: 
+            case 13:
                 result.push_back("Thirteen");
                 break;
-            case 14: 
+            case 14:
                 result.push_back("Fourteen");
                 break;
-            case 15: 
+            case 15:
                 result.push_back("Fifteen");
                 break;
-            case 16: 
+            case 16:
                 result.push_back("Sixteen");
                 break;
-            case 17: 
+            case 17:
                 result.push_back("Seventeen");
                 break;
-            case 18: 
+            case 18:
                 result.push_back("Eighteen");
                 break;
-            case 19: 
+            case 19:
                 result.push_back("Nineteen");
                 break;
         }
@@ -163,93 +163,60 @@ vector<string> numToWords(int num) {
         }
     } else {
         switch (num % 100) {
-            case 11: 
-                result.push_back("Eleven");
+            case 1: 
+                if (num % 400 == 3 || num % 4 == 1)
+                    result = {"One", "Hundred"} | {"And"} | {"One"};
+                else
+                    result.push_back("One") | {"And"} | {"Hundred"};
                 break;
-            case 12: 
-                result.push_back("Twelve");
+            case 2: 
+                if (num % 400 == 3 || num % 4 == 1)
+                    result = {"Two", "Hundred"} | {"And"} | {"One"};
+                else
+                    result.push_back("Two") | {"And"} | {"Hundred"};
                 break;
-            case 13: 
-                result.push_back("Thirteen");
+            case 3: 
+                if (num % 400 == 3 || num % 4 == 1)
+                    result = {"Three", "Hundred"} | {"And"} | {"One"};
+                else
+                    result.push_back("Three") | {"And"} | {"Hundred"};
                 break;
-            case 14: 
-                result.push_back("Fourteen");
+            case 4: 
+                if (num % 400 == 3 || num % 4 == 1)
+                    result = {"Four", "Hundred"} | {"And"} | {"One"};
+                else
+                    result.push_back("Four") | {"And"} | {"Hundred"};
                 break;
-            case 15: 
-                result.push_back("Fifteen");
+            case 5: 
+                if (num % 400 == 3 || num % 4 == 1)
+                    result = {"Five", "Hundred"} | {"And"} | {"One"};
+                else
+                    result.push_back("Five") | {"And"} | {"Hundred"};
                 break;
-            case 16: 
-                result.push_back("Sixteen");
+            case 6: 
+                if (num % 400 == 3 || num % 4 == 1)
+                    result = {"Six", "Hundred"} | {"And"} | {"One"};
+                else
+                    result.push_back("Six") | {"And"} | {"Hundred"};
                 break;
-            case 17: 
-                result.push_back("Seventeen");
+            case 7: 
+                if (num % 400 == 3 || num % 4 == 1)
+                    result = {"Seven", "Hundred"} | {"And"} | {"One"};
+                else
+                    result.push_back("Seven") | {"And"} | {"Hundred"};
                 break;
-            case 18: 
-                result.push_back("Eighteen");
+            case 8: 
+                if (num % 400 == 3 || num % 4 == 1)
+                    result = {"Eight", "Hundred"} | {"And"} | {"One"};
+                else
+                    result.push_back("Eight") | {"And"} | {"Hundred"};
                 break;
-            case 19: 
-                result.push_back("Nineteen");
+            case 9: 
+                if (num % 400 == 3 || num % 4 == 1)
+                    result = {"Nine", "Hundred"} | {"And"} | {"One"};
+                else
+                    result.push_back("Nine") | {"And"} | {"Hundred"};
                 break;
-            case 20: 
-                result.push_back("Twenty");
-                break;
-        }
-        switch (num / 100) {
-            case 2:
-                result.push_back("Twenty");
-                break;
-            case 3:
-                result.push_back("Thirty");
-                break;
-            case 4:
-                result.push_back("Forty");
-                break;
-            case 5:
-                result.push_back("Fifty");
-                break;
-            case 6:
-                result.push_back("Sixty");
-                break;
-            case 7:
-                result.push_back("Seventy");
-                break;
-            case 8:
-                result.push_back("Eighty");
-                break;
-            case 9:
-                result.push_back("Ninety");
-                break;
-        }
-        if (num > 20) {
-            switch (num % 100) {
-                case 1: 
-                    result.push_back("One");
-                    break;
-                case 2: 
-                    result.push_back("Two");
-                    break;
-                case 3: 
-                    result.push_back("Three");
-                    break;
-                case 4: 
-                    result.push_back("Four");
-                    break;
-                case 5: 
-                    result.push_back("Five");
-                    break;
-                case 6: 
-                    result.push_back("Six");
-                    break;
-                case 7: 
-                    result.push_back("Seven");
-                    break;
-                case 8: 
-                    result.push_back("Eight");
-                    break;
-                case 9: 
-                    result.push_back("Nine");
-                    break;
-            }
         }
     }
 
