@@ -13,11 +13,10 @@ def decode_cyclic():
     if n == "1":
         print(s)
     else:
-        shift = int(input("Enter the shift value: "))
+        shift = int(input("Enter the cyclic shift: "))
         result = []
         for char in s:
-            result.append(char[(len(s) + shift - 1) % len(s)])
-            shift = (shift - 1) % len(s)
+            result.append(char[shift % len(s)])
         print("".join(result))
 
 
