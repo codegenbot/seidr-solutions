@@ -1,3 +1,11 @@
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+vector<string> separate_paren_groups(string paren_string);
+
 vector<string> separate_paren_groups(string paren_string) {
     vector<string> result;
     string current_group;
@@ -22,3 +30,5 @@ vector<string> separate_paren_groups(string paren_string) {
 
     return result;
 }
+
+bool issame(vector<string>, vector<string>);
