@@ -1,10 +1,10 @@
 #include <vector>
 #include <algorithm>
 
-// Function signature
-bool issame(const vector<int>& a, vector<int> b); // Added a space before the second argument
+bool issame(vector<int> a, vector<int> b) {
+    return a == b;
+}
 
-// Function declaration and definition
 void sort_third(vector<int>& l) {
     vector<int> l_divisible_by_three;
     for (int i = 0; i < l.size(); ++i) {
