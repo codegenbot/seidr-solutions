@@ -5,7 +5,7 @@ index = 0
 
 for _ in range(10):
     if bowls[index] == "X":
-        score += 10 + sum((10 if x == "X" else int(x) for x in bowls[index + 1:index + 3]))
+        score += 10 + sum([10 if x == "X" else int(x) for x in bowls[index + 1:index + 3]])
         index += 1
     elif bowls[index + 1] == "/":
         score += 10
