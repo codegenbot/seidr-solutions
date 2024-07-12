@@ -1,24 +1,12 @@
-#include <algorithm>
-#include <cctype>
-#include <vector>
+```cpp
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
-    if (a.size() != b.size()) {
-        std::cout << "Error: Vectors of different sizes.\n";
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+    if (a == b) {
+        return true;
+    } else {
         return false;
     }
-    std::sort(a.begin(), a.end(), [](const std::pair<int, std::string>& a) {
-        return a.second.size();
-    });
-    std::sort(b.begin(), b.end());
-    for (int i = 0; i < a.size(); ++i) {
-        if (std::tolower(a[i]) != std::tolower(b[i])) {
-            std::cout << "Error: Vectors contain different strings.\n";
-            return false;
-        }
-    }
-    return true;
 }
 
 int main() {
@@ -26,13 +14,10 @@ int main() {
     std::vector<int> arr;
     std::vector<std::string> result;
 
-    if (!(std::cin >> num1 >> num2)) {
-        std::cout << "Error: Invalid input.\n";
-        return -1;
-    }
+    std::cin >> num1 >> num2;
 
-    for(int i = num1; i <= num2; i++) {
-        if(i >= 1 && i <= 9) {
+    for (int i = num1; i <= num2; i++) {
+        if (i >= 1 && i <= 9) {
             switch (i) {
                 case 1:
                     result.push_back("One");
@@ -65,5 +50,7 @@ int main() {
         }
     }
 
+    // Code to call the issame function...
+    
     return 0;
 }
