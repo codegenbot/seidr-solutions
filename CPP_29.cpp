@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -49,6 +50,4 @@ void main() {
     for (const auto& s : result) {
         cout << s << endl;
     }
-
-    return;
 }
