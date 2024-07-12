@@ -13,7 +13,7 @@ int main() {
     for (int i = 1; i < n; ++i) {
         int left_sum = std::accumulate(nums.begin(), nums.begin() + i, 0);
         int right_sum = std::accumulate(nums.begin() + i, nums.end(), 0);
-        int curr_diff = abs(left_sum - right_sum);
+        int curr_diff = std::abs(left_sum - right_sum);
         if (curr_diff < diff) {
             diff = curr_diff;
             idx = i;
