@@ -1,3 +1,9 @@
+def check(func):
+    def wrapper(numbers):
+        return func(numbers)
+    return wrapper
+
+@check
 def remove_duplicates(numbers):
     return list(set(numbers))
 
