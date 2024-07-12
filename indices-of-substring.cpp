@@ -4,7 +4,7 @@
 
 int main() {
     std::string text, target;
-    std::cin >> text >> target;
+    std::cin >> target >> text;
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
     while (pos != std::string::npos && pos + 1 <= text.size() - target.size()) {
