@@ -1,1 +1,1 @@
-string ss = ss.str();
+std::string ss;
