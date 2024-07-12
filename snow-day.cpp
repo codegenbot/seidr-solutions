@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 int main() {
     int hours;
@@ -6,11 +7,10 @@ int main() {
     std::cin >> hours >> snow >> rate >> melt;
 
     for (int i = 0; i < hours; ++i) {
-        snow += rate;
-        snow *= (1 - melt);
+        snow = snow + rate - (melt * snow);
     }
 
-    std::cout << snow << std::endl;
+    std::cout << std::fixed << std::setprecision(15) << snow << std::endl;
 
     return 0;
 }
