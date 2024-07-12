@@ -1,45 +1,51 @@
-int calculateBowlingScore(string input) {
-    int score = 0;
+int score(string input) {
+    int totalScore = 0;
     int frame = 1;
     int ball = 0;
-    vector<int> frames(10, 0);
+    int rolls[21];
 
     for (char c : input) {
         if (c == 'X') {
-            frames[frame - 1] = 10;
+            rolls[ball++] = 10;
+            if (frame < 10) {
+                rolls[ball++] = 0;
+            }
             frame++;
-            ball = 0;
         } else if (c == '/') {
-            frames[frame - 1] = 10 - frames[frame - 1];
+            rolls[ball - 1] = 10 - rolls[ball - 2];
+            if (frame < 10) {
+                rolls[ball++] = 0;
+            }
             frame++;
-            ball = 0;
         } else if (c == '-') {
-            ball++;
+            rolls[ball++] = 0;
         } else {
-            frames[frame - 1] += c - '0';
-            ball++;
-            if (ball == 2) {
+            rolls[ball++] = c - '0';
+            if (frame % 2 == 0 || c == '9') {
                 frame++;
-                ball = 0;
             }
         }
     }
 
     for (int i = 0; i < 10; i++) {
-        score += frames[i];
-        if (i < 8 && frames[i] == 10) {
-            score += frames[i + 1] + (frames[i + 2] == 10 ? frames[i + 2] : frames[i + 2] - frames[i + 1]);
-        } else if (i == 8 && frames[i] == 10) {
-            score += frames[i + 1] + frames[i + 2];
+        if (rolls[i * 2] == 10) {
+            totalScore += 10 + rolls[i * 2 + 2] + rolls[i * 2 + 3];
+            if (rolls[i * 2 + 2] == 10) {
+                totalScore += rolls[i * 2 + 4];
+            }
+        } else if (rolls[i * 2] + rolls[i * 2 + 1] == 10) {
+            totalScore += 10 + rolls[i * 2 + 2];
+        } else {
+            totalScore += rolls[i * 2] + rolls[i * 2 + 1];
         }
     }
 
-    return score;
+    return totalScore;
 }
 
 int main() {
     string input;
     cin >> input;
-    cout << calculateBowlingScore(input) << endl;
+    cout << score(input) << endl;
     return 0;
 }
