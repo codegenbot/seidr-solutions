@@ -8,10 +8,12 @@ def is_multiply_prime(a):
         return True
 
     factors = []
-    for i in range(2, a+1):
-        while a % i == 0:
-            factors.append(i)
-            a //= i
+    for i in range(2, int(a**0.5) + 1):
+        if a % i == 0:
+            while a % i == 0:
+                factors.append(i)
+                a //= i
+            break
     prime_factors = [f for f in factors if is_prime(f)]
     return len(prime_factors) >= 3
 
