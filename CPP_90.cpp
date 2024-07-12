@@ -29,13 +29,13 @@ int main() {
             bool same = true;
             for(int i = 0; i < lst.size() - 1; i++){
                 if(lst[i] != lst[i+1]) {
+                    std::cout << "The next smallest integer is: ";
                     std::cout << lst[i];
-                    same = false;
                     break;
                 }
             }
-            if(same) std::cout << "-1";
-        } else std::cout << "-1";
+            else std::cout << "No smaller integers found";
+        } else std::cout << "No smaller integers found";
 
     } else std::cout << "-1";
 
