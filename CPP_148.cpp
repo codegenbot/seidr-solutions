@@ -1,14 +1,6 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& planets, const std::string& planet1, const std::string& planet2) {
-    for (const auto& planet : planets) {
-        if (planet == planet1 || planet == planet2)
-            return true;
-    }
-    return false;
-}
-
 std::vector<std::string> bf(std::string planet1, std::string planet2) {
     std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
     int index1 = -1, index2 = -1;
@@ -32,4 +24,18 @@ std::vector<std::string> bf(std::string planet1, std::string planet2) {
     }
     
     return result;
+}
+
+int main() {
+    std::cout << "Enter the first planet: ";
+    std::string planet1;
+    std::cin >> planet1;
+    std::cout << "Enter the second planet: ";
+    std::string planet2;
+    std::cin >> planet2;
+    std::vector<std::string> result = bf(planet1, planet2);
+    for (const auto& planet : result) {
+        std::cout << planet << " ";
+    }
+    return 0;
 }
