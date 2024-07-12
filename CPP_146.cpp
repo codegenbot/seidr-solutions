@@ -1,4 +1,4 @@
-#include <vector>
+#include <initializer_list>
 
 int specialFilter(std::vector<int> nums) {
     int count = 0;
@@ -8,10 +8,3 @@ int specialFilter(std::vector<int> nums) {
         }
     }
     return count;
-}
-
-int main() {
-    int count = specialFilter({1, 11, 21, 31, 41, 51});
-    std::cout << "Number of integers in the vector that meet the condition: " << count << std::endl;
-    return 0;
-}
