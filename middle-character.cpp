@@ -7,7 +7,7 @@ int main() {
     string s;
     cout << "Enter a string: ";
     cin >> s;
-    
+
     int len = s.length();
     if (len % 2 == 0) {
         string res = s.substr(len / 2 - 1, 1);
@@ -17,6 +17,6 @@ int main() {
         string res = s.substr(len / 2, 1);
         cout << "Middle character is: " << res << endl;
     }
-    
+
     return 0;
 }
