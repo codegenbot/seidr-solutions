@@ -4,5 +4,11 @@ def check(func):
     return wrapper
 
 @check
-def find_unique_numbers(numbers):
-    return [num for num in numbers if numbers.count(num) == 1]
+def remove_duplicates(numbers):
+    return list(set(numbers))
+
+# Test the function
+input_numbers = input("Enter numbers separated by spaces:")
+numbers_list = list(map(int, input_numbers.split()))
+result = remove_duplicates(numbers_list)
+print(result)
