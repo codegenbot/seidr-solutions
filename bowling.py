@@ -4,7 +4,7 @@ score = 0
 index = 0
 
 for _ in range(10):
-    score += (10 + sum([10 if x == "X" else int(x) for x in bowls[index + 1:index + 3]]) if bowls[index] == "X" else (10 + (10 if bowls[index + 2] == "X" else 0) if bowls[index + 1] == "/" else ((10 if bowls[index] == "X" else int(bowls[index])) + (10 if bowls[index + 1] == "X" else int(bowls[index + 1]))))
+    score += (10 + sum([10 if x == "X" else int(x) for x in bowls[index + 1:index + 3]]) if bowls[index] == "X" else (10 + (10 if bowls[index + 2] == "X" else 0)) if bowls[index + 1] == "/" else ((10 if bowls[index] == "X" else int(bowls[index])) + (10 if bowls[index + 1] == "X" else int(bowls[index + 1])))
     index += 1 if bowls[index] == "X" else 2
 
 print(score)
