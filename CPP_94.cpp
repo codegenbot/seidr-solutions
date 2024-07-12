@@ -1,5 +1,4 @@
-```cpp
-#include <initializer_list>
+#include <vector>
 
 int find_max_prime_sum(std::vector<int> lst){
     int maxPrime = 0;
