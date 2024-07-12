@@ -16,4 +16,5 @@ def prime_fib(n):
     return is_prime(fibonacci(n))
 
 
-result = prime_fib(int(input("Enter a number: ").strip()))
+n = int(input().strip())
+result = prime_fib(n)
