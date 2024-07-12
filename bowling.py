@@ -2,27 +2,18 @@ bowls = input("Enter the individual bowls in a 10-frame round of 10 pin bowling:
 
 score = 0
 frame = 9
-bowl_index = 0
-
 while frame >= 0:
-    if bowls[bowl_index] == "/":
-        score += 10 - int(bowls[bowl_index - 1])
-    elif bowls[bowl_index] == "X":
-        score += 10 + sum(
-            map(
-                lambda x: 10 if x == "X" else int(x) if x.isdigit() else 0,
-                bowls[bowl_index + 1 : bowl_index + 3],
-            )
-        )
-        if bowls[bowl_index + 1] == "X":
-            bowl_index += 2
-        else:
-            bowl_index += 1
-    elif bowls[bowl_index].isdigit():
-        score += int(bowls[bowl_index])
-    
-    if bowls[bowl_index] != "/":
-        bowl_index += 1
+    frame_score = 0
+    for i in range(len(bowls)):
+        if bowls[i] == "/":
+            frame_score += 10 - int(bowls[i - 1])
+        elif bowls[i] == "X":
+            frame_score += 10 + sum(map(lambda x: 10 if x == "X" else int(x) if x.isdigit() else 0, bowls[i + 1:i + 4]))
+        elif bowls[i].isdigit():
+            frame_score += int(bowls[i])
+        
+    score += frame_score
+    bowls = bowls.replace("X", "0").replace("/", "0", 1)  # Update bowls string for the next frame with the first occurrence of "/"
     frame -= 1
 
 print(score)
