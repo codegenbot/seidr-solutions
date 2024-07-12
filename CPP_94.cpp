@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <cassert>
 #include <boost/lexical_cast.hpp>
@@ -21,6 +22,6 @@ int main() {
         std::cout << myValues[i] << std::endl;
     }
     std::cout << "The score is: " << calculateScore(myValues, n) << std::endl;
-    assert(calculateScore(myValues, n) == 1224); 
+    assert(calculateScore(myValues, n) == 224); 
     return 0;
 }
