@@ -1,22 +1,32 @@
 ```cpp
+#include <cstring>
+#include <cassert>
+#include <iostream>
+#include <string>
+
+bool isPrime(int n) {
+    if(n <= 1) return false;
+    for(int i=2; i*i<=n; i++){
+        if(n%i==0) return false;
+    }
+    return true;
+}
+
 bool prime_length(const char* str){
-    bool foundDigit = false;
     std::string s = "";
     for(int i = 0; str[i]; i++) {
         char c = str[i];
         if(c >= '0' && c <= '9') {
             int n = c - '0'; 
-            if(isPrime(n)) { 
-                if(foundDigit) s += std::to_string(n); 
-                else foundDigit = true;
-            } else {
-                if(foundDigit) s.push_back((char)(n + '0')); // Fix 1
-                else continue; // Ignore non-digit characters when no digit is found yet
-            }
+            s += (isPrime(n) ? std::to_string(n) : "");
         } else {
-            if(foundDigit) s.push_back(c); // Fix 2
-            else continue; // Ignore non-digit characters when no digit is found yet
+            s += c;
         }
     }
     return s.length() > 1;
 }
+
+assert(prime_length("0") == false);
+const char* str = "Hello";
+bool result = prime_length(str);
+std::cout << "Prime length of '" << str << "' is: " << (result ? "prime" : "not prime") << std::endl;
