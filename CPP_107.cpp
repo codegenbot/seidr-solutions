@@ -1,3 +1,9 @@
+```cpp
+#include <vector>
+#include <string>
+
+using namespace std;
+
 vector<int> even_odd_palindrome(int n) {
     vector<int> result;
     int countEven = 0;
@@ -22,5 +28,22 @@ vector<int> even_odd_palindrome(int n) {
         }
     }
 
-    return {result[0], result[1]};
+    result.push_back(countEven);
+    result.push_back(countOdd);
+
+    return result;
+}
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    vector<int> result = even_odd_palindrome(n);
+    if (result.size() != 2) {
+        cout << "Error: Invalid input. Please enter a positive integer." << endl;
+    } else {
+        cout << "Even palindromes: " << result[0] << endl;
+        cout << "Odd palindromes: " << result[1] << endl;
+    }
+    return 0;
 }
