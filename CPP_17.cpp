@@ -1,9 +1,10 @@
 #include <vector>
-#include <string>
-#include <cassert>
 
-std::vector<int> parse_music(std::string music_string) {
-    std::vector<int> beats;
+vector<int> parse_music(string music_string);
+bool issame(vector<int> a, vector<int> b);
+
+vector<int> parse_music(string music_string) {
+    vector<int> beats;
     int i = 0;
     while (i < music_string.size()) {
         if (music_string[i] == 'o') {
@@ -20,6 +21,28 @@ std::vector<int> parse_music(std::string music_string) {
     return beats;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool issame(vector<int> a, vector<int> b) {
     return a == b;
-} 
+}
+
+int main() {
+    string music_string = "o|o|.||";
+    vector<int> music_beats = parse_music(music_string);
+    
+    vector<int> pattern1 = {4, 2, 4, 1, 1};
+    vector<int> pattern2 = {4, 2, 4, 1, 1};
+    
+    if (issame(music_beats, pattern1)) {
+        cout << "Patterns match!" << endl;
+    } else {
+        cout << "Patterns do not match!" << endl;
+    }
+    
+    if (issame(pattern1, pattern2)) {
+        cout << "Patterns match!" << endl;
+    } else {
+        cout << "Patterns do not match!" << endl;
+    }
+    
+    return 0;
+}
