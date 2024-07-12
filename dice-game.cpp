@@ -6,7 +6,8 @@ int main() {
     std::cin >> n >> m;
 
     double probability = 0.0;
-    for (int i = 1; i <= n; ++i) {
+    
+    for (int i = 1; i < n; ++i) {
         if (i > m) {
             probability += 1.0 / (n * m);
         }
