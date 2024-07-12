@@ -18,12 +18,17 @@ def main():
             break
         elif not isinstance(user_input, str):
             raise ValueError("Invalid input. Please enter an item or 'stop'.")
-        name = user_input.strip()
-        cost = float(input(f"Enter the cost of {name}: "))
-        items.append(Item(name))
-        for i in items:
-            if i.name == name:
-                i.cost = cost
+        new_item = Item(user_input.strip())
+        while True:
+            try:
+                cost = float(input(f"Enter the cost of {user_input}: "))
+                new_item.cost = cost
+                items.append(new_item)
+                break
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+        if user_input.lower() == "stop":
+            break
 
     if items:
         result = calculate_total_cost(items)
