@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
-bool is_nested(const std::string& str) {
+void is_nested(const std::string& str) {
     int count = 0;
     for (char c : str) {
         if (c == '[') {
@@ -12,13 +11,18 @@ bool is_nested(const std::string& str) {
         }
     }
 
-    return count == 0;
+    if (count == 0) {
+        std::cout << str << " is a nested string." << std::endl;
+    } else {
+        std::cout << str << " is not a nested string." << std::endl;
+    }
+    return;
 }
 
 int main() {
-    std::cout << is_nested("[]") << std::endl;
-    std::cout << is_nested("[[]]") << std::endl;
-    std::cout << is_nested("[]]") << std::endl;
-    std::cout << is_nested("]]]]]]]]") << std::endl;
+    is_nested("[]");
+    is_nested("[[]]");
+    is_nested("[]]");
+    is_nested("]]]]]]]]");
     return 0;
 }
