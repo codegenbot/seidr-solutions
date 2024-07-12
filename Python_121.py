@@ -1,3 +1,3 @@
-```
-def solution(lst):
-    return sum(lst[i] for i in range(0, len(lst), 2))
+class Solution:
+    def solution(self, lst):
+        return len([i for i in lst if i % 2 != 0])
