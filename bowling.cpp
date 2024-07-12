@@ -30,8 +30,8 @@ int calculateBowlingScore(const string& bowls) {
 
 int main() {
     string bowls;
-    std::cin >> bowls;
-    std::cout << calculateBowlingScore(bowls) << std::endl;
+    cin >> bowls;
+    cout << calculateBowlingScore(bowls) << endl;
     
     return 0;
 }
