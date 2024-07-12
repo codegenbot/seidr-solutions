@@ -1,8 +1,6 @@
 def find_zero():
-    xs = []
-    for line in iter(input, None):
-        xs.extend(map(float, line.split()))
-    a, b = xs[-2:]
+    xs = list(map(float, iter(input, "")))[-2:]
+    a, b = xs
     return -b / a
 
 result = find_zero()
