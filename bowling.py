@@ -1,4 +1,3 @@
-```
 def bowling_score(frames):
     score = 0
     for frame in frames.split('/'):
@@ -35,6 +34,6 @@ def bowling_score(frames):
                 roll.append(extra_roll)
                 score += extra_roll
         elif spare:
-            extra_roll = int(input(f"After the {score}th spare, what did you knock down?' ))
+            extra_roll = int(input(f"After the {score}th spare, what did you knock down? ''))
             score += extra_roll
     return score
