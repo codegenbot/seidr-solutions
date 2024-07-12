@@ -1,10 +1,12 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-};
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) 
+{ 
+    return a == b; 
+}; 
 
 std::vector<int> rolling_max(std::vector<int> numbers) {
     std::vector<int> maxNumbers;
@@ -19,7 +21,7 @@ std::vector<int> rolling_max(std::vector<int> numbers) {
     return maxNumbers;
 }
 
-int main1() {
+int main() {
     std::vector<int> numbers;
     int num;
 
@@ -33,8 +35,10 @@ int main1() {
     for (int i = 0; i < maxNumbers.size(); i++) {
         std::cout << "Maximum up to " << i + 1 << " is " << maxNumbers[i] << std::endl;
     }
-
-    assert(issame({3, 2, 3, 100, 3}, {3, 3, 3, 100, 100}));
+    
+    std::vector<int> v1({3, 2, 3, 100, 3});
+    std::vector<int> v2({3, 3, 3, 100, 100});
+    assert(issame(v1, v2));
     
     return 0;
 }
