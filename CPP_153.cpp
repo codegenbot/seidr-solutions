@@ -5,7 +5,7 @@
 std::string Strongest_Extension(const std::vector<std::pair<std::string, std::string>>& extensions);
 
 int run() {
-    std::vector<std::pair<std::string, std::string>> extensions = {{"Sp", "671235"}, {"Bb"}};
+    std::vector<std::pair<std::string, std::string>> extensions = {{"Sp", "671235"}};
     assert(Strongest_Extension(extensions) == "Sp.671235");
     return 0;
 }
