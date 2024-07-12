@@ -7,15 +7,11 @@ def cut_vector(vector):
         left_sum = sum(vector[:i])
         right_sum = sum(vector[i:])
 
-        if i % 2 == 0:
-            avg = (left_sum + right_sum) / 2
-        else:
-            avg = min(left_sum, right_sum)
-
-        if left_sum == avg:
-            return vector[:i], vector[i:]
-        elif abs(left_sum - avg) < min_diff:
-            min_diff = abs(left_sum - avg)
-            split_index = i
+        if abs(left_sum - right_sum) < min_diff:
+            if left_sum == right_sum:
+                return vector[:i], vector[i:]
+            else:
+                min_diff = abs(left_sum - right_sum)
+                split_index = i
 
     return vector[:split_index], vector[split_index:]
