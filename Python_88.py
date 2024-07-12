@@ -1,3 +1,4 @@
+array = [int(i) for i in input().split()]
 def sort_array(array):
     if len(array) == 0:
         return array
@@ -7,5 +8,4 @@ def sort_array(array):
     else:
         return sorted(array, reverse=True)
 
-array = [int(i) for i in input().split()]
 print(sort_array(array))
