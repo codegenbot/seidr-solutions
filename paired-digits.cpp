@@ -1,15 +1,16 @@
-int main() {
-    string input;
-    cin >> input;
-    
+int solve(string s) {
     int sum = 0;
-    for (int i = 0; i < input.size() - 1; ++i) {
-        if (input[i] == input[i+1]) {
-            sum += input[i] - '0';
+    for (int i = 0; i < s.size() - 1; ++i) {
+        if (s[i] == s[i + 1]) {
+            sum += s[i] - '0';
         }
     }
-    
-    cout << sum << endl;
-    
+    return sum;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    cout << solve(s) << endl;
     return 0;
 }
