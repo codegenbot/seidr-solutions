@@ -1,7 +1,7 @@
 #include <string>
 #include <cassert>
 
-string average_binary(int n, int m) {
+string taskSolution(int n, int m) {
     if (n > m) {
         return "-1";
     }
