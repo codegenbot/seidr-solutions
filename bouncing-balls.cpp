@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
 
+using namespace std;
+
 int main() {
     double startHeight;
     double firstBounceHeight;
@@ -14,7 +16,7 @@ int main() {
     // Calculate total distance traveled
     double totalDistance = 0.0;
     for (int i = 1; i <= numBounces; ++i) {
-        totalDistance += std::pow(2, -1.0 * std::log2(bouncinessIndex)) * startHeight;
+        totalDistance += pow(2, -log2(bouncinessIndex)) * startHeight;
     }
 
     cout << fixed << setprecision(6);
