@@ -9,7 +9,12 @@ def find_zero():
                 continue
             a, b = line1
             c, d = line2
+            if a == c and not b == d:
+                return "The lines are parallel."
             x = round((d - b) / (a - c), 2)
-            return [line1[0]*x + line1[1], x]
+            y = round(a * x + b, 2)
+            return f"The intersection point is ({x}, {y})."
         except ValueError as e:
             print("Invalid input:", str(e))
+
+print(find_zero())

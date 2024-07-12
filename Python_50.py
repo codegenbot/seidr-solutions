@@ -1,5 +1,5 @@
-def decode_shift():
-    s = input()  
+```
+def decode_shift(s: str):
     decoded = ""
     for ch in s:
         if 'a' <= ch <= 'z':
@@ -9,5 +9,3 @@ def decode_shift():
         else:
             decoded += ch
     return decoded
-
-print(decode_shift())
