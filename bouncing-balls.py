@@ -11,5 +11,4 @@ def bouncing_balls():
         total_distance += distance - 1
     print(total_distance)
 
-
 bouncing_balls()
