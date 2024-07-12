@@ -1,8 +1,4 @@
 ```cpp
-#include <iostream>
-#include <vector>
-#include <string>
-
 int count_nums(std::vector<std::string> numbers) {
     int even_count = 0;
     for (const auto& num : numbers) {
@@ -23,5 +19,4 @@ int main() {
         numbers.push_back(num);
     }
     
-    return static_cast<int>(count_nums(numbers));
-}
+    return count_nums(numbers);
