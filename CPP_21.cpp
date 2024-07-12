@@ -1,3 +1,7 @@
+#include <vector>
+#include <algorithm>
+#include <cassert>
+
 vector<float> rescale_to_unit(vector<float> numbers) {
     float min_num = *min_element(numbers.begin(), numbers.end());
     float max_num = *max_element(numbers.begin(), numbers.end());
