@@ -5,7 +5,7 @@
 
 bool std::issame(const std::vector<int>& a, const std::vector<int>& b) 
 { 
-    return a == b; 
+    return std::equal(a.begin(), a.end(), b.begin()) && (a.size() == b.size()); 
 }; 
 
 std::vector<int> rolling_max(std::vector<int> numbers) {
@@ -38,7 +38,7 @@ int main() {
     
     std::vector<int> v1({3, 2, 3, 100, 3});
     std::vector<int> v2({3, 3, 3, 100, 100});
-    assert(issame(v1, v2));
+    assert(std::issame(v1, v2));
     
     return 0;
 }
