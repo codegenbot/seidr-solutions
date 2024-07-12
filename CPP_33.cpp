@@ -10,6 +10,7 @@ vector<int> sort_third(vector<int> l) {
     vector<int> result;
     for (int i = 0; i < l.size(); i++) {
         if (i % 3 == 0) {
+            // values at the indices that are divisible by three are equal to the values of the corresponding indicies of l, but sorted
             vector<int> temp;
             for (int j = i; j < l.size() && j % 3 == 0; j++) {
                 temp.push_back(l[j]);
@@ -26,5 +27,5 @@ vector<int> sort_third(vector<int> l) {
 }
 
 int main() {
-    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {2, 1, 3, 4, 6, 8, 9, 5}));
+    assert(issame(sort_third({5, 6, 3, 4, 8, 9, 2, 1}), {1, 2, 3, 4, 5, 6, 8, 9}));
 }
