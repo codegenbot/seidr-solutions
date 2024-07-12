@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -35,10 +36,7 @@ int main() {
     std::string prefix;
     std::cout << "Enter prefix:" << std::endl;
     std::cin >> prefix;
-    while (prefix.back() != '\n') {
-        prefix.pop_back();
-    }
-    prefix.erase(0, 1);
+    std::cin.ignore();
     std::vector<std::string> result = filter_by_prefix(a, prefix);
 
     if (!same) 
