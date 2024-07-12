@@ -19,7 +19,7 @@ vector<int> get_odd_collatz(int n) {
     vector<int> odd_numbers;
     for (int num : result) {
         if (num % 2 != 0) {
-          odd_numbers.push_back(num);
+            odd_numbers.push_back(num);
         }
     }
     
