@@ -1,7 +1,12 @@
-```Python
+```
 def smallest_change(arr):
     n = len(arr)
-    arr = [int(x) for x in arr]
-    rev_arr = sorted(arr)[::-1]
-    diff_count = sum(1 for i in range(n) if arr[i] != rev_arr[i])
+    arr = list(map(str, map(int, input("Enter a space-separated sequence of numbers: ").split())))
+    rev_arr = arr[::-1]
+    diff_count = 0
+    i = 0
+    while i < n:
+        if arr[i] != rev_arr[i]:
+            diff_count += 1
+        i += 1
     return diff_count
