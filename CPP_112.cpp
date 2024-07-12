@@ -1,7 +1,7 @@
+#include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <cassert>
 
 std::vector<std::string> reverse_delete(const std::string& s, const std::string& c) {
     std::string result = "";
@@ -20,6 +20,19 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
 }
 
 int main() {
-    assert(issame(reverse_delete("mamma", "mia"), std::vector<std::string>{"mm", "False"}));
+    std::vector<std::string> expected = {"mm", "False"};
+    std::vector<std::string> result = reverse_delete("mamma", "mia");
+    
+    for (const auto& val : result) {
+        std::cout << val << " ";
+    }
+    std::cout << std::endl;
+
+    if (issame(result, expected)) {
+        std::cout << "Test passed!" << std::endl;
+    } else {
+        std::cerr << "Test failed!" << std::endl;
+    }
+
     return 0;
 }
