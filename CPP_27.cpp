@@ -5,14 +5,12 @@
 int flip_case(const std::string& input) {
     std::string output;
     for (char c : input) {
-        if (std::isalpha(c)) {
-            if (std::isupper(c)) {
-                output += std::tolower(c);
-            } else {
-                output += std::toupper(c);
-            }
+        if (isupper(c)) {
+            output += tolower(c);
+        } else if (islower(c)) {
+            output += toupper(c);
         } else {
-            output += c;
+            output += char(c);
         }
     }
     return 0;
