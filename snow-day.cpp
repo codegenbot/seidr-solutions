@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 
 int main() {
     int hours;
@@ -10,7 +9,8 @@ int main() {
         snow = snow + rate - (melt * snow);
     }
 
-    std::cout << std::fixed << std::setprecision(15) << snow << std::endl;
+    std::cout.precision(17);
+    std::cout << snow << std::endl;
 
     return 0;
 }
