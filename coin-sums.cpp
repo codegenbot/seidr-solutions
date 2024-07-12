@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 int main() {
@@ -13,7 +14,10 @@ int main() {
     n %= 5;
     int pennies = n;
     
-    cout << pennies << "\n" << nickels << "\n" << dimes << "\n" << quarters << "\n";
+    cout << pennies << endl;
+    cout << nickels << endl;
+    cout << dimes << endl;
+    cout << quarters << endl;
     
     return 0;
 }
