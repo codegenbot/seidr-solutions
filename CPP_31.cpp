@@ -1,6 +1,7 @@
-```
+```cpp
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 bool is_prime(int num) {
