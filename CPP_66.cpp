@@ -1,10 +1,16 @@
-#include <string>
+#include<string>
+using namespace std;
 
-int digitSum(string s) {
-    int sum = 0;
-    for (char c : s) {
-        if (isupper(c)) {
-            sum += c - 'A' + 1;
+int main() {
+    int digitSum(string s) {
+        int sum = 0;
+        for (char c : s) {
+            if (isupper(c)) {
+                sum += tolower(c);
+            }
         }
+        return sum;
     }
-    return sum;
+    assert(digitSum("You arE Very Smart") == 327);
+    return 0;
+}
