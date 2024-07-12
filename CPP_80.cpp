@@ -1,4 +1,4 @@
-```c++
+```cpp
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -15,8 +15,9 @@ bool is_happy(const std::string& s) {
 int main() {
     std::cout << "Enter a string: ";
     std::string input;
-    std::cin >> input;
+    getline(std::cin, input); 
     if (input == "exit")
         return 0;
     std::cout << (is_happy(input) ? "True" : "False") << std::endl;
     return 0;
+}
