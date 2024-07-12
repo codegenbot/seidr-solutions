@@ -1,4 +1,3 @@
-```
 def find_substring():
     while True:
         try:
