@@ -1,4 +1,3 @@
-```
 def cut_vector(vector):
     total_sum = sum(vector)
     mid_sum = total_sum // 2
