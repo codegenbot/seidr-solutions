@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string>
 #include<map>
+#include<algorithm>
 using namespace std;
 
 string sort_numbers(string numbers) {
@@ -26,9 +27,8 @@ string sort_numbers(string numbers) {
     }
 
     sort(numVector.begin(), numVector.end(),
-         [](const string& a, const string& b) {
-             return to_string(numMap[a]) <
-                to_string(numMap[b]);
+         [&numMap](const string& a, const string& b) {
+             return to_string(numMap.at(a)) < to_string(numMap.at(b));
          });
 
     string result = "";
