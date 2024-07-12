@@ -1,16 +1,16 @@
 #include <iostream>
+#include <vector>
 
-int calculateScore(int values[], int n) {
+int calculateScore(std::vector<int> values) {
     int sum = 0;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < values.size(); i++) {
         sum += values[i];
     }
     return sum;
 }
 
 int main() {
-    const int n = sizeof(myValues) / sizeof(myValues[0]);
-    int myValues[] = {127, 97, 8192};
-    std::cout << "The score is: " << calculateScore(myValues, n) << std::endl;
+    std::vector<int> myValues = {127, 97, 8192};
+    std::cout << "The score is: " << calculateScore(myValues) << std::endl;
     return 0;
 }
