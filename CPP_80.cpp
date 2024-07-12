@@ -1,6 +1,7 @@
 ```cpp
 #include <iostream>
 #include <string>
+#include <cctype>
 
 bool is_happy(std::string s) {
     if (s.length() < 3)
@@ -8,7 +9,7 @@ bool is_happy(std::string s) {
     for (int i = 0; i <= s.length() - 3; i++) {
         std::string sub = "";
         for (int j = 0; j < 3 && i + j < s.length(); j++) {
-            char c = s[i+j]; 
+            char c = toupper(s[i+j]); 
             sub += c; 
         }
         bool unique = true;
