@@ -1,8 +1,10 @@
-Here is the Python solution for the problem:
+Here is the Python code for the middle-character problem:
 
 def middle_character(s):
-    s = s.strip()
-    if len(s) % 2 != 0:
-        return s[len(s)//2]
+    length = len(s)
+    middle_index = length // 2
+    
+    if length % 2 == 0:
+        return s[middle_index - 1:middle_index + 1]
     else:
-        return s[len(s)//2-1:len(s)//2+1]
+        return s[middle_index]
