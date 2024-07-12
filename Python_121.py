@@ -1,7 +1,4 @@
 ```
 class Solution:
-    def solution(self, lst):
+    def count_odd_numbers(self, lst):
         return len([i for i in lst if i % 2 != 0])
-
-solution = Solution()
-print(check(solution))
