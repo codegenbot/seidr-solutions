@@ -1,10 +1,10 @@
 ```
 def words_in_sentence(sentence):
-    result = ''
+    result = []
     for word in sentence.split():
         if is_prime(len(word)):
-            result += word + ' '
-    return result.strip()
+            result.append(word)
+    return ' '.join(result)
 
 def is_prime(n):
     if n <= 1:
