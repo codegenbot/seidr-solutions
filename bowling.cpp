@@ -14,7 +14,7 @@ int bowlingScore(string s) {
             currentFrame++;
             rollsLeftInFrame = 2;
         } else if (s[i] == 'X') {
-            score += 10;
+            score += 30;
             currentFrame++;
             rollsLeftInFrame--;
         } else {
@@ -25,3 +25,4 @@ int bowlingScore(string s) {
     }
 
     return score;
+}
