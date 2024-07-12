@@ -1,20 +1,24 @@
-Here is the completed code:
+#include <vector>
+#include <algorithm>
+#include <string>
 
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result = lst;
-    for (auto it = result.begin(); it != result.end();) {
-        if (it->length() % 2 != 0) {
-            it = result.erase(it);
-        } else {
-            ++it;
-        }
-    }
-    sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             if (a.length() == b.length()) {
-                 return a < b;
-             }
-             return a.length() < b.length();
-         });
-    return result;
+bool issame(vector<string> a,vector<string> b){
+    return a == b;
+}
+
+std::vector<std::string> sorted_list_sum(std::vector<std::string> lst) {
+    auto it = unique(lst.begin(), lst.end(), 
+        [](const std::string& a, const std::string& b){return (a.length() % 2 == 1 && a.length() != b.length());});
+    lst.erase(it, lst.end());
+    
+    sort(lst.begin(), lst.end(),
+        [](const std::string& a, const std::string& b){
+            if(a.length() != b.length()) {
+                return a.length() < b.length();
+            } else {
+                return a < b;
+            }
+        });
+    
+    return lst;
 }
