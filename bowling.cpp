@@ -1,4 +1,4 @@
-#include <iostream>
+```cpp
 #include <string>
 
 int bowlingScore(std::string s) {
