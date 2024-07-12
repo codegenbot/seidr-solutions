@@ -1,5 +1,3 @@
-#include <vector>
-#include <string>
 #include <initializer_list>
 
 bool isSame(vector<string> a, vector<string> b) {
