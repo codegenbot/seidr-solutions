@@ -15,12 +15,12 @@ int main() {
     std::vector<std::string> numbers; 
     int n; 
     cin >> n;
-
+    
     for(int i = 0; i < n; i++) {
-        std::string num; 
+        string num; 
         cin >> num; 
         numbers.push_back(num);
     }
     
-    return static_cast<int>(count_nums(numbers));
+    return count_nums(numbers);
 }
