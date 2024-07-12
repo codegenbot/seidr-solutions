@@ -1,4 +1,6 @@
-#include <boost/any.hpp>
+#include <any>
+#include <string>
+#include <iomanip>
 
 std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(int)) {
@@ -14,6 +16,9 @@ std::any compare_one(std::any a, std::any b) {
         std::string y = std::any_cast<std::string>(b);
         return (std::stof(x) > std::stof(y)) ? a : ((std::stof(y) > std::stof(x)) ? b : a);
     } else {
+        if (a.type() != b.type()) {
+            return a;
+        }
         return a;
     }
 }
