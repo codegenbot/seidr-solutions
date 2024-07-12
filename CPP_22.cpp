@@ -9,8 +9,10 @@ std::vector<int> filter_integers(std::vector<boost::any> values) {
     std::vector<int> result;
     for (const auto& value : values) {
         int val = boost::any_cast<int>(value);
-        if (val != 0) { // handle non-integer cases
+        if (val != 0) { 
             result.push_back(val);
+        } else if (!value.empty()) { // handle non-integer cases
+            result.push_back(0);
         }
     }
     return result;
