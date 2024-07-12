@@ -1,2 +1,9 @@
 def is_simple_power(x, n):
-    return x > 0 and n > 0 and x == n**int(x ** (1/n))
+    if x <= 0 or n <= 0:
+        return False
+    power = 0
+    while n**power <= x:
+        if n**power == x:
+            return True
+        power += 1
+    return False
