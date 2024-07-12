@@ -1,4 +1,4 @@
-def process_numbers(numbers, delimiter):
+def complete_code(numbers, delimiter):
     result = []
     for i in range(len(numbers)):
         result.append(numbers[i])
