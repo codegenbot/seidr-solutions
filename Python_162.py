@@ -1,17 +1,19 @@
+Here's the corrected code:
+
+```
 import hashlib
 
 while True:
-    try:
-        print("Please enter some text (alphanumeric characters only): ", end="")
-        s = input()
-        if not s.isalnum():
-            raise Exception("Invalid input.")
-        break
-    except Exception as e:
-        print(f"Error: {str(e)}")
+    print("Please enter some text (alphanumeric characters only): ", end="")
+    s = input().strip()
+    
+    if not s: 
         continue
-if not s:
-    print("Please enter some alphanumeric characters.")
-else:
-    output = hashlib.md5(s.encode()).hexdigest()
-    print(f"Output: {output}")
+    
+    if s.isalnum():  
+        break
+    else:
+        print("Please enter some alphanumeric characters.")
+
+output = hashlib.md5(s.encode()).hexdigest()
+print(f"Output: {output}")
