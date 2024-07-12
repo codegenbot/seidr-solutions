@@ -2,20 +2,15 @@
 #include <algorithm>
 #include <cassert>
 
-using namespace std;
-
-vector<int> sort_third(vector<int> l) {
-    vector<int> l_copy = l;
-    for (int i = 0; i < l.size(); i++) {
-        if ((i + 1) % 3 == 0) {
-            sort(l_copy.begin() + i - 2, l_copy.begin() + i + 1);
-        }
-    }
-    return l_copy;
+std::vector<int> sort_third(std::vector<int> l) {
+    std::sort(l.begin(), l.end(), [](int a, int b) {
+        return a % 3 == 0 ? (b % 3 == 0 ? a < b : true) : (b % 3 == 0 ? false : a < b);
+    });
+    return l;
 }
 
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return std::equal(a.begin(), a.end(), b.begin(), b.end());
 }
 
 int main() {
