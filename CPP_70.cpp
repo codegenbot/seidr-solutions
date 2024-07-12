@@ -20,17 +20,24 @@ std::vector<int> strange_sort_list(std::vector<int> lst) {
     return result;
 }
 
+void assertEquals(const std::vector<int>& expected, const std::vector<int>& actual) {
+    if (expected != actual) {
+        for (int x : expected) {
+            std::cout << x << " ";
+        }
+        std::cout << ". Actual: ";
+        for (int x : actual) {
+            std::cout << x << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        std::cout << "Test passed." << std::endl;
+    }
+}
+
 int main() {
     std::vector<int> expected = {111};
     std::vector<int> actual = strange_sort_list({111});
-    if (actual != expected) {
-        std::cout << "Test failed: ";
-        for (int i : actual) {
-            std::cout << i << " ";
-        }
-        std::cout << "\n";
-    } else {
-        std::cout << "Test passed.\n";
-    }
+    assertEquals(expected, actual);
     return 0;
 }
