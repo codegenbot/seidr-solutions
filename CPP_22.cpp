@@ -1,9 +1,9 @@
-#include <boost/convert.hpp>
-
-vector<int> filter_integers(list-any values) {
+vector<int> filter_integers(list_any values){
     vector<int> result;
-    for (auto value : values) {
-        boost::any_cast<int>(value), (r = r.push_back(__VA_ARG));
+    for(const auto& value : values){
+        if(boost::any_cast<int>(value).is_initialized()){
+            result.push_back(boost::any_cast<int>(value).get());
+        }
     }
     return result;
 }
