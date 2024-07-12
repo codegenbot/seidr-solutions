@@ -20,9 +20,11 @@ int main() {
     vector<int> vec1 = {5, 2, 5, 2, 3, 3, 9, 0, 123};
     vector<int> vec2 = incr_list(vec1);
     
-    if(sameVectors(vec1, vec2)) {
+    if(sameVectors(vec1, vec2)){
         cout << "The two vectors are the same." << endl;
     } else {
         cout << "The two vectors are not the same." << endl;
     }
+    
     return 0;
+}
