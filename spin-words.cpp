@@ -1,33 +1,39 @@
+#include <vector>
+#include <iostream>
 #include <string>
+
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
-    size_t start = 0;
-    
-    for (size_t i = 0; i <= str.size(); i++) {
-        if (i == str.size() || str[i] == ' ') {
-            string word = str.substr(start, i - start);
-            
-            if (word.size() >= 5) {
-                result += reverse(word) + " ";
+    int wordLength = 0;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == ' ') {
+            if (wordLength >= 5) {
+                for (int j = i - 1; j >= 0; j--) {
+                    result += str[j];
+                }
             } else {
-                result += word + " ";
+                result += " ";
             }
-            
-            start = i + 1;
+            wordLength = 0;
+        } else {
+            result += str[i];
+            wordLength++;
         }
     }
-    
-    return result.substr(0, result.size() - 1);
+    if (wordLength >= 5) {
+        for (int i = result.length() - 1; i >= 0; i--) {
+            result += result[i];
+        }
+    }
+    return result;
 }
 
-string reverse(string str) {
-    string revStr = "";
-    
-    for (int i = str.size() - 1; i >= 0; i--) {
-        revStr += str[i];
-    }
-    
-    return revStr;
+int main() {
+    string str;
+    cout << "Enter a sentence: ";
+    getline(cin, str);
+    cout << spinWords(str) << endl;
+    return 0;
 }
