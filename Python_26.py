@@ -1,11 +1,8 @@
-```
-from typing import List
-
-def remove_duplicates(numbers: List[int]) -> List[int]:
-    seen = set()
-    result = []
-    for num in numbers:
-        if num not in seen:
-            seen.add(num)
-            result.append(num)
-    return result
+def remove_duplicates():
+    numbers = []
+    while True:
+        num = int(input("Enter an integer (or 'q' to quit): "))
+        if str(num).lower() == 'q':
+            break
+        numbers.append(num)
+    return list(set(numbers))
