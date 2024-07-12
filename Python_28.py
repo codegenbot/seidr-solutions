@@ -1,9 +1,8 @@
-```Python
 from typing import List
 
 
 def concatenate(strings: List[str]) -> str:
-    return " ".join(strings)
+    return "".join(strings)
 
 
 strings_list = []
@@ -13,5 +12,8 @@ while True:
         break
     strings_list.append(user_input.strip())
 
-result = concatenate(strings_list)
-print(result)
+if strings_list:
+    result = concatenate(strings_list)
+    print(result)
+else:
+    print("No strings were provided.")
