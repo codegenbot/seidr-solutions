@@ -4,13 +4,13 @@
 #include <algorithm>
 #include <string>
 
-bool checkEquality(const std::string& s, const std::string& c) {
+bool checkEquality(std::string& s, std::string& c) {
     return s == "True";
 }
 
 std::string reverse_delete(std::string& s, std::string& c) {
     if(s.empty() || c.empty()) {
-        return "";
+        return "False";
     }
     
     std::string temp = "";
@@ -38,15 +38,11 @@ int main() {
     bool isSame = checkEquality(s1, "True");
     
     if (!s1.empty()) {
-        if (!std::count_if(s1.begin(), s1.end(), ::isspace)) { 
-            s1.erase(std::remove_if(s1.begin(), s1.end(), ::isspace), s1.end());
-        }
+        s1.erase(std::remove_if(s1.begin(), s1.end(), ::isspace), s1.end());
     }
     
     if (!s2.empty()) {
-        if (!std::count_if(s2.begin(), s2.end(), ::isspace)) { 
-            s2.erase(std::remove_if(s2.begin(), s2.end(), ::isspace), s2.end());
-        }
+        s2.erase(std::remove_if(s2.begin(), s2.end(), ::isspace), s2.end());
     }
     
     if(isSame) {
@@ -54,7 +50,7 @@ int main() {
             std::cout << s1 << " and " << s2 << " are the same." << std::endl;
         } else if (s1.empty()) {
             if (!s2.empty()) {
-                std::cout << s2 << " and " << s2 << " are the same." << std::endl;
+                std::cout << (s2.empty() ? "" : s2) << " and " << s2 << " are the same." << std::endl;
             } else {
                 std::cout << "empty" << " and empty are the same." << std::endl;
             }
@@ -66,7 +62,7 @@ int main() {
             std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
         } else if (s1.empty()) {
             if (!s2.empty()) {
-                std::cout << s2 << " and " << s2 << " are not the same." << std::endl;
+                std::cout << (s2.empty() ? "" : s2) << " and " << s2 << " are not the same." << std::endl;
             } else {
                 std::cout << "empty" << " and empty are not the same." << std::endl;
             }
