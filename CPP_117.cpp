@@ -1,26 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cassert>
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b){
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-vector<string> select_words(string s, int n);
-
-int main() {
-    assert(issame(select_words("a b c d e f", 1), {"b", "c", "d", "f"}));
-    return 0;
+bool is_same(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
 vector<string> select_words(string s, int n) {
@@ -29,12 +15,14 @@ vector<string> select_words(string s, int n) {
         return result;
     }
     
+    s += ' '; // Ensure string ends with a space for proper word extraction
+    
     string word = "";
     int consonant_count = 0;
     
     for (char c : s) {
         if (c == ' ') {
-            if (consonant_count == n) {
+            if (!word.empty() && consonant_count == n) {
                 result.push_back(word);
             }
             word = "";
@@ -45,10 +33,6 @@ vector<string> select_words(string s, int n) {
             }
             word += c;
         }
-    }
-    
-    if (consonant_count == n) {
-        result.push_back(word);
     }
     
     return result;
