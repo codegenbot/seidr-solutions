@@ -15,9 +15,12 @@ for i in range(n):
         min_diff = diff
         cut_index = i
 
-if abs(left_sum - right_sum) < min_diff or (abs(left_sum - right_sum) == min_diff and cut_index != n-1):
-    subvector1 = arr[:cut_index + 2]
-    subvector2 = arr[cut_index + 2:]
+subvector1 = arr[:cut_index + 1]
+subvector2 = arr[cut_index + 1:]
 
-print(*subvector1)
-print(*subvector2)
+if abs(left_sum - right_sum) < min_diff or (abs(left_sum - right_sum) == min_diff and cut_index != n-2):
+    print(*subvector1)
+    print(*subvector2)
+else:
+    print(*arr[:cut_index + 2])
+    print(*arr[cut_index + 2:])
