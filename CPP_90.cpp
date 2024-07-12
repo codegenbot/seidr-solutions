@@ -1,12 +1,7 @@
 #include <algorithm>
 #include <vector>
-using namespace std;
 
-int next_smallest(vector<int> lst) {
-    // your implementation
-}
-
-int main() {
+int main(){
     vector<int> lst;
     int n;
     cout << "Enter number of elements: ";
@@ -26,6 +21,6 @@ int main() {
                 break;
             }
         }
-        else if (lst.empty()) cout << "-1";
+        if(lst.size() > 1) cout << "-1";
     }
 }
