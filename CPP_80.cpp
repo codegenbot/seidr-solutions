@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -15,7 +16,6 @@ bool is_happy(const std::string& s) {
             return false;
     }
     return true;
-}
 
 int main() {
     std::cout << "Enter a string: ";
@@ -25,4 +25,3 @@ int main() {
         return 0;
     std::cout << (is_happy(input) ? "True" : "False") << std::endl;
     return 0;
-}
