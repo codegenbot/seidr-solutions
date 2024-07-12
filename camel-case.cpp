@@ -7,14 +7,22 @@ std::string kebabToCamelCase(const std::string& s) {
 
     for (char c : s) {
         if (c == '-') {
-            capitalize = true;
+            if (capitalize) {
+                result += toupper(s[++i] - 1);
+                capitalize = false;
+            } else {
+                result += ' ';
+                capitalize = true;
+            }
         } else if (c == ' ') { 
             capitalize = true; 
-        } else if (capitalize) {
-            result += toupper(c);
-            capitalize = false;
         } else {
-            result += tolower(c);
+            if (capitalize) {
+                result += toupper(c);
+                capitalize = false;
+            } else {
+                result += tolower(c);
+            }
         }
     }
 
