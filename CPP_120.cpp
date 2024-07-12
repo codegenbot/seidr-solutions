@@ -1,22 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
-bool same(std::vector<int> a, std::vector<int> b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
-}
-
-std::vector<int> maximumSubarrayFunction(std::vector<int> arr) {
-    int max_sum = 0;
-    int current_sum = 0;
-    for (int i : arr) {
-        if (current_sum < 0)
-            current_sum = i;
-        else
-            current_sum += i;
-        if (max_sum < current_sum)
-            max_sum = current_sum;
-    }
-    return {};
 }
 
 int main() {
@@ -26,7 +13,7 @@ int main() {
     }
     std::vector<int> vec2(3); 
     std::iota(vec2.begin(), vec2.end(), 1);
-    if (same(vec1, vec2)) {
+    if (issame(vec1, vec2)) {
         std::cout << "Vectors are same" << std::endl;
     } else {
         std::cout << "Vectors are not same" << std::endl;
