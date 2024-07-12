@@ -7,4 +7,3 @@ long long minSubArraySum(vector<long long> nums) {
             currentSum = 0;
     }
     return minSum;
-}
