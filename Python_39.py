@@ -22,5 +22,3 @@ def prime_fib(n: int):
         if is_prime(num) and num == fibonacci(num):
             count += 1
     return num
-
-print(prime_fib(n))
