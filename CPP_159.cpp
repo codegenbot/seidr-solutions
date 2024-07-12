@@ -1,12 +1,10 @@
 #include <vector>
 #include <cassert>
 
-namespace contest {
-    std::vector<int> eat(int a, int b, int c) {
-        return {b, a - c};
-    }
+std::vector<int> eat(int a, int b, int c) {
+    return {b, a - c};
+}
 
-    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-        return a == b;
-    }
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
