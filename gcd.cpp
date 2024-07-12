@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <sstream>
+#include <cmath>
 
 int gcd(int a, int b) {
     if (a < 0 || b < 0) {
@@ -33,8 +33,15 @@ int main() {
     std::cout << "Enter the text and target separated by a space: ";
     std::getline(std::cin, text);
     
-    std::istringstream iss(text);
-    iss >> text >> target;
+    size_t spacePos = text.find(' ');
+
+    if (spacePos == std::string::npos) {
+        std::cout << "Invalid input format. Please enter the text and target separated by a space.";
+        return 1;
+    }
+
+    target = text.substr(spacePos + 1);
+    text.erase(spacePos);
 
     std::vector<int> result = indicesOfSubstring(text, target);
 
