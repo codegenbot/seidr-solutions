@@ -8,5 +8,5 @@ def indices_of_substring(text):
                 if start_index == -1:
                     break
                 result.append(start_index)
-                i = start_index + len(target) - 1
+                i = start_index + 1
     return sorted(result)
