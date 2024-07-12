@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> order_by_points(const std::vector<int>& nums) {
+std::vector<int> order_by_points(std::vector<int>& nums) {
     std::sort(nums.begin(), nums.end());
     return nums;
 }
