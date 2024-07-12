@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -16,7 +17,7 @@ bool will_it_fly(std::vector<std::vector<int>>& q, int w) {
 }
 
 int main() {
-    std::vector<int> q = {5}; 
-    assert(will_it_fly({q}, 5) == true);
+    std::vector<std::vector<int>> q = {{5}};
+    assert(will_it_fly(q, 5) == true);
     return 0;
 }
