@@ -6,19 +6,19 @@ pair<int, int> findPair(vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); i++) {
         int complement = target - nums[i];
         if (numMap.find(complement) != numMap.end()) {
-            return {complement, nums[i]};
+            return make_pair(nums[i], complement);
         }
         numMap[nums[i]] = i;
     }
-    return {};
+    return make_pair(-1, -1);
 }
 
 int main() {
     int n;
     cin >> n;
     vector<int> nums(n);
-    for (auto& num : nums) {
-        cin >> num;
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
     }
     int target;
     cin >> target;
