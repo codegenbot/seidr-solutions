@@ -4,13 +4,15 @@
 
 using namespace std;
 
+using custom_size_type = size_t;
+
 bool checkSame(vector<string> a) {
     if (a.size() != 1) {
         return false;
     }
     vector<float> grades = {0, 0.7};
     vector<string> b = numerical_letter_grade(grades);
-    for (size_t i = 0; i < a.size(); i++) {
+    for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[0]) {
             return false;
         }
