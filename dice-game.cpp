@@ -4,19 +4,18 @@ using namespace std;
 int main() {
     int n, m;
     cin >> n >> m;
-
-    long double probability = 0.0;
-
-    for (int i = 0; i <= n * 100; ++i) {
-        for (int j = 0; j <= m * 100; ++j) {
+    
+    double probability = 0.0;
+    
+    for (int i = 1; i <= n+1; ++i) {
+        for (int j = 1; j <= m+1; ++j) {
             if (i > j) {
-                probability += 1.0 / (n * 100) / (m * 100);
+                probability += 1.0 / (n * m);
             }
         }
     }
-
-    cout.precision(10);
+    
     cout << probability << endl;
-
+    
     return 0;
 }
