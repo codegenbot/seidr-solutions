@@ -1,6 +1,16 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
 #include <cmath>
 
-long long maxAbsolute(vector<int> v) {
-    return *max_element(v.begin(), v.end()) > 0 ? *max_element(v.begin(), v.end()) : -(*max_element(v.begin(), v.end()));
+int getMaximumElement(std::vector<int> l) {
+    int maxVal = *max_element(l.begin(), l.end());
+    
+    for (int i : l) {
+        if (std::abs(i) > std::abs(maxVal)) {
+            maxVal = i;
+        }
+    }
+    
+    return maxVal;
 }
