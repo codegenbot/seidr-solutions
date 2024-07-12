@@ -1,9 +1,5 @@
-numbers_set = set()
-result = []
+from typing import List
 
-for num in numbers:
-    if num not in numbers_set:
-        result.append(num)
-        numbers_set.add(num)
 
-return result
+def remove_duplicates(numbers: List[int]) -> List[int]:
+    return [num for num in numbers if numbers.count(num) == 1]
