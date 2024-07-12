@@ -1,3 +1,4 @@
+```
 def substitution_cipher(cipher1, cipher2, message):
     cipher = {}
     for i in range(min(len(cipher1), len(cipher2))):
@@ -11,4 +12,4 @@ def substitution_cipher(cipher1, cipher2, message):
     return result
 
 if __name__ == "__main__":
-    print(substitution_cipher("hello", "hworld", "hello world"))
+    print(substitution_cipher("abc", "xyz", "hello"))
