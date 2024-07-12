@@ -1,5 +1,6 @@
+```
 def process_numbers():
-    user_input = input("Enter numbers separated by spaces and comma as delimiter: ")
+    user_input = input("Enter numbers separated by delimiter: ")
 
     if "," not in user_input:
         print("Invalid input")
@@ -12,12 +13,12 @@ def process_numbers():
         return []
 
     result = []
+    prev_num = None
     for num in numbers:
-        if num == 0:
-            result.append(str(0))
-        else:
-            result.extend([", ", str(num)])
+        if prev_num is not None and abs(prev_num - num) > 1:
+            result.append(",")
+        result.append(str(num))
+        prev_num = num
     return result
-
 
 print(process_numbers())
