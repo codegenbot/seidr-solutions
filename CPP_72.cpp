@@ -2,13 +2,8 @@
 #include <iostream>
 #include <vector>
 
-bool will_it_fly(const std::vector<std::vector<int>>& q, int w) {
-    for (const auto& pair : q) {
-        if (pair[0] + pair[1] > w) {
-            return false;
-        }
-    }
-    return true;
+bool will_it_fly(std::vector<std::vector<int>>& q, int w) {
+    // Your logic goes here to determine if the plane will fly.
 }
 
 int main() {  
@@ -22,10 +17,10 @@ int main() {
     }
     int w;
     cin >> w;
-    if (!will_it_fly(q, w)) { 
+    if (!will_it_fly(q, w)) {
         cout << "Will not fly.\n";
     } else {
         cout << "Will fly.\n";
     }
-    return 0;  
+    return 0;
 }
