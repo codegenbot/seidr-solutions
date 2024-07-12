@@ -8,4 +8,4 @@ def cut_vector(lst):
         if diff < min_diff:
             min_diff = diff
             split_idx = i
-    return lst[:split_idx], lst[split_idx:]
+    return split_idx, lst[:split_idx], lst[split_idx:]
