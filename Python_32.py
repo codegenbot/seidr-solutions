@@ -3,7 +3,6 @@ def find_zero(xs: list):
     assert b != 0
     return -a / b
 
-
 a, b = map(int, input().split())
 result = find_zero([a, b])
 print(f"The value of x where the equation is equal to zero is: {result}")
