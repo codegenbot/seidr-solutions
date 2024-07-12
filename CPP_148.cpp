@@ -1,17 +1,36 @@
-#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <cassert>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+    return a == b;
 }
+
+std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+std::vector<std::string> result;
+int idx1 = -1, idx2 = -1;
+std::string planet1 = "Jupiter";
+std::string planet2 = "Makemake";
+
+for (int i = 0; i < planets.size(); i++) {
+    if (planets[i] == planet1) {
+        idx1 = i;
+    }
+    if (planets[i] == planet2) {
+        idx2 = i;
+    }
+}
+
+if (idx1 == -1 || idx2 == -1) {
+    return result;
+}
+
+if (idx1 > idx2) {
+    std::swap(idx1, idx2);
+}
+
+for (int i = idx1 + 1; i < idx2; i++) {
+    result.push_back(planets[i]);
+}
+
+return result;
