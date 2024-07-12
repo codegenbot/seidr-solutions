@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -9,9 +8,12 @@ bool issame(vector<int> a, vector<int> b) {
     if (a.size() != b.size()) {
         return false;
     }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    return a == b;
+    for (int i = 0; i < a.size(); ++i) {
+        if (find(b.begin(), b.end(), a[i]) == b.end()) {
+            return false;
+        }
+    }
+    return true;
 }
 
 vector<int> remove_duplicates(vector<int> numbers) {
@@ -22,4 +24,8 @@ vector<int> remove_duplicates(vector<int> numbers) {
         }
     }
     return result;
+}
+
+vector<int> main() {
+    return remove_duplicates({1, 2, 3, 2, 4, 3, 5});
 }
