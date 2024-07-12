@@ -1,3 +1,4 @@
+```
 from fractions import Fraction
 
 def simplify():
@@ -8,9 +9,9 @@ def simplify():
         return "Invalid input! Please enter a number."
     
     if y == 0:
-        return "Denominator cannot be zero!"
+        return False
     else:
-        return str(Fraction(x,y) == 1)
+        return str(Fraction(x,y)) == '1/1'
 
 while True:
     print(simplify())
