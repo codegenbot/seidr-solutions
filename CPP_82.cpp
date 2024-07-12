@@ -21,7 +21,7 @@ bool prime_length(const char* str){
             if(isPrime(n) == false) {
                 s += "0";
             } else {
-                s.append(std::string(1, c)).append(std::to_string(n));
+                s += std::to_string(n);
             }
         } else {
             s += c;
