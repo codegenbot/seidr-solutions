@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool move_one_ball(const std::vector<int>& arr) {
+bool move_one_ball(std::vector<int>& arr) {
     int n = arr.size();
     for (int i = 0; i < n; ++i) {
         if (std::is_sorted(arr.begin(), arr.end())) {
@@ -15,9 +15,13 @@ bool move_one_ball(const std::vector<int>& arr) {
 }
 
 int main() {
-    assert(move_one_ball(std::vector<int>{1, 2, 3, 4, 5}) == true);
-    assert(move_one_ball(std::vector<int>{2, 3, 1, 5, 4}) == true);
-    assert(move_one_ball(std::vector<int>{1, 5, 3, 2, 4}) == false);
+    std::vector<int> arr1 = {1, 2, 3, 4, 5};
+    std::vector<int> arr2 = {2, 3, 1, 5, 4};
+    std::vector<int> arr3 = {1, 5, 3, 2, 4};
+
+    assert(move_one_ball(arr1) == true);
+    assert(move_one_ball(arr2) == true);
+    assert(move_one_ball(arr3) == false);
 
     return 0;
 }
