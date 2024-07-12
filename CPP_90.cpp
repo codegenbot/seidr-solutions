@@ -1,9 +1,7 @@
-if(lst.size() < 2) return None;
 sort(lst.begin(), lst.end());
-for(int i = 1; i < lst.size(); ++i){
-    if(lst[i] > lst[0]){
-        return lst[i];
+    lst.erase(unique(lst.begin(), lst.end()), lst.end());
+    if(lst.size() < 2) {
+        return -1;
     }
-}
-return None;
+    return lst[1];
 }
