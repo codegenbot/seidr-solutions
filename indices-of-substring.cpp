@@ -14,7 +14,7 @@ int main() {
     size_t pos = text.find(target, 0);
     while (pos != string::npos) {
         indices.push_back(pos);
-        pos = text.find(target, pos + 1 - target.size() + 1); // Start searching from the next index
+        pos = text.find(target, pos + 1); // Start searching from the next index to account for overlapping targets
     }
     
     for (int i = 0; i < indices.size(); ++i) {
