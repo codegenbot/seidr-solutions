@@ -1,4 +1,6 @@
+```cpp
 #include <iostream>
+#include <cassert>
 
 int calculateScore(int values[], int n) {
     int sum = 0;
@@ -9,8 +11,9 @@ int calculateScore(int values[], int n) {
 }
 
 int main() {
-    const int n = sizeof(myValues) / sizeof(myValues[0]);
+    const int n = 3;
     int myValues[] = {127, 97, 8192};
     std::cout << "The score is: " << calculateScore(myValues, n) << std::endl;
+    assert(calculateScore({127, 97, 8192}) == 1216);
     return 0;
 }
