@@ -1,9 +1,8 @@
-```Python
+```
 import hashlib
 
 def string_to_md5(s):
     return hashlib.md5(s.encode()).hexdigest()
 
 print("Please enter some text: ", end="")
-output = string_to_md5(input())
-print(f"Output: {output}")
+print(f"Output: {string_to_md5(input())}")
