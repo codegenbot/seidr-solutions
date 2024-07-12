@@ -6,9 +6,7 @@ def calculate_decimal_part(number):
 
 while True:
     try:
-        input_number = float(input("Enter a number: ").strip())
-        if not isinstance(input_number, (int, float)):
-            raise ValueError
+        input_number = float(input())
         break
     except ValueError:
         print("Invalid input. Please enter a valid number.")
