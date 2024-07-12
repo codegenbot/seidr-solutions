@@ -11,9 +11,11 @@ int calculateScore(int values[], int n) {
 }
 
 int main() {
-    const int n = 3;
     int myValues[] = {127, 97, 8192};
+    const int n = sizeof(myValues) / sizeof(myValues[0]);
     std::cout << "The score is: " << calculateScore(myValues, n) << std::endl;
-    assert(calculateScore({127, 97, 8192}) == 1216);
+
+    assert(calculateScore(myValues, n) == 1216);
+
     return 0;
 }
