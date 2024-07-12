@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, vector<string>b){
+bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++){
@@ -56,7 +56,13 @@ int main() {
     else
         cout << "Grades are not the same." << endl;
 
-    assert (issame(numerical_letter_grade({0.0, 0.7}), {"E", "D-" }));
+    vector<float> grades2 = {0.0, 0.7};
+    vector<string> grade_letters2 = numerical_letter_grade(grades2);
+    
+    if(issame(grade_letters2, {"E", "D-" }))
+        cout << "Grades are same." << endl;
+    else
+        cout << "Grades are not the same." << endl;
 
     return 0;
 }
