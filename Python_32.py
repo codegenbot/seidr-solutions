@@ -1,5 +1,5 @@
 def main():
-    xs = list(map(float, input("Enter a space-separated list of floats: ").split()))
+    xs = list(map(float, input().split()))
 
     def find_zero(xs: list):
         if len(xs) < 2:
