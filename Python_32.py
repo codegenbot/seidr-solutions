@@ -3,7 +3,7 @@ def find_zero():
         try:
             a = float(input("Enter a non-zero value for a: "))
             if a == 0:
-                print("Error: 'a' should not be zero. Please enter a non-zero value.")
+                print("Error: 'a' should not be zero. Please enter a non-zero value for a.")
             else:
                 b = float(input("Enter value for b: "))
                 return -b / a
