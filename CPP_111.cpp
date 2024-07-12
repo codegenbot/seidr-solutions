@@ -5,28 +5,6 @@
 
 using namespace std;
 
-bool issame(map<char,int> a,map<char,int> b);
-
-int histogram(string s, vector<int>& arr);
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-    
-    string str;
-    cin >> str;
-    
-    int result = histogram(str, arr);
-    cout << result << endl;
-    
-    return 0;
-
-}
-
 int histogram(string s, vector<int>& arr) {
     if (s == "print") {
         int max_val = *max_element(arr.begin(), arr.end());
@@ -47,6 +25,19 @@ int histogram(string s, vector<int>& arr) {
     return 1;
 }
 
-bool issame(map<char,int> a,map<char,int> b){
-    return a == b; 
+int driver() {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    
+    string str;
+    cin >> str;
+    
+    int result = histogram(str, arr);
+    cout << result << endl;
+    
+    return 0;
 }
