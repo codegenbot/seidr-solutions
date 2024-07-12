@@ -8,14 +8,13 @@ int main() {
     int target;
     cin >> target;
     
-    map<int, int> mp;
+    map<int, int> seen;
     for (int i = 0; i < n; ++i) {
-        if (mp.find(target - nums[i]) != mp.end()) {
-            cout << nums[i] << endl;
-            cout << target - nums[i] << endl;
+        if (seen.count(target - nums[i])) {
+            cout << target - nums[i] << endl << nums[i] << endl;
             break;
         }
-        mp[nums[i]] = i;
+        seen[nums[i]] = i;
     }
     
     return 0;
