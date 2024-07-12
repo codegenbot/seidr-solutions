@@ -1,7 +1,6 @@
-```cpp
 #include <string>
 using namespace std;
-
+int main() { return mastermind("ABCD", "ABCD"); }
 int mastermind(string code, string guess) {
     int white = 0;
     int black = 0;
@@ -23,5 +22,3 @@ int mastermind(string code, string guess) {
 
     return black + white;
 }
-
-int main() { return mastermind("ABCD", "ABCD"); }
