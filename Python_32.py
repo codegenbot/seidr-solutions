@@ -5,16 +5,14 @@ def find_zero():
             line1 = list(map(float, input("Enter coefficients for the first line (a b): ").split()))
             line2 = list(map(float, input("Enter coefficients for the second line (c d): ").split()))
             if len(line1) != 2 or len(line2) != 2:
-                print("Invalid input. Please enter two numbers.")
+                print("Invalid input. Please enter exactly two numbers for each line.")
                 continue
             a, b = line1
             c, d = line2
-            if a == c: 
-                print("Lines are parallel. No intersection point exists.")
-            elif a * d - b * c == 0:
-                print("Lines are coincident (same). No intersection point exists.")
-            else:
-                x = round((d - b) / (a - c), 2)
-                return [(x, round(a * x + b, 2))]
-        except ValueError as e:
-            print("Invalid input:", str(e))
+            if not all(isinstance(x, (int, float)) for x in [a, b, c, d]):
+                print("Invalid input. Please enter numeric values.")
+                continue
+            x = round((d - b) / (a - c), 2)
+            return [(x, round(a * x + b, 2))]
+        except ValueError:
+            print("Invalid input. Please enter exactly two numbers for each line.")
