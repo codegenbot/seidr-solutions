@@ -1,16 +1,21 @@
 ```
 def find_substring():
-    strings = input("Enter space separated strings: ").lower().split()
-    substring = input("Enter a substring to search: ").lower()
+    while True:
+        try:
+            input_str = input("Enter space separated strings: ").lower().split()
+            if not input_str:
+                raise ValueError
 
-    if not (strings or substring):
-        print("Expected input: multiple strings and one substring.")
-    else:
-        while True:
+            substring = input("Enter a substring to search: ").lower()
+
             action = input("Enter search or quit: ")
 
+            while action.lower() not in ["search", "quit"]:
+                print("Invalid input. Please enter either 'search' or 'quit'.")
+                action = input("Enter search or quit: ")
+
             if action == "search":
-                result = [s for s in strings if substring in s]
+                result = [s for s in input_str if substring in s]
 
                 if not result:
                     print(f"Substrings '{substring}' not found in any of the provided strings.")
@@ -19,12 +24,10 @@ def find_substring():
                         print([result[0]])
                     else:
                         print(result)
-                break
             elif action == "quit":
                 print("Goodbye!")
-                break
-            else:
-                print("Invalid input. Please enter either 'search' or 'quit'.")
+        except (ValueError, TypeError):
+            print("Expected multiple strings. Please enter again.")
 
 
 find_substring()
