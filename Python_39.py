@@ -1,3 +1,5 @@
+import sys
+
 def is_prime(num):
     if num < 2:
         return False
@@ -6,7 +8,9 @@ def is_prime(num):
             return False
     return True
 
-def prime_fib(n: int):
+def prime_fib():
+    n = int(sys.stdin.readline())
+    
     def fibonacci(n):
         if n <= 1:
             return n
@@ -16,19 +20,10 @@ def prime_fib(n: int):
     count = 0
     num = 1
     while count < n:
-        try:
-            num = int(input("Enter a number: "))
-            if num <= 0:
-                print("Please enter a positive integer.")
-                continue
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
-            continue
-        
+        num += 1
         if is_prime(num) and num == fibonacci(count):
             count += 1
     return num
 
-n = int(input("Enter a number: "))
-result = prime_fib(n)
+result = prime_fib()
 print(result)
