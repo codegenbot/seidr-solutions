@@ -1,36 +1,4 @@
 ```cpp
-#include <vector>
-#include <string>
-
-int main() {
-    std::vector<std::string> a;
-    std::cout << "Enter strings (stop when empty):" << std::endl;
-    std::string s;
-    while (std::getline(std::cin, s)) {
-        if (s.empty()) break;
-        a.push_back(s);
-    }
-
-    std::vector<std::string> b = a;
-    bool same = (a == b);
-
-    std::cout << "Enter prefix:" << std::endl;
-    std::string prefix;
-    std::getline(std::cin, prefix);
-    std::vector<std::string> result = filter_by_prefix(a, prefix);
-
-    if (!same) 
-        std::cout << "Strings are not the same." << std::endl;
-    else 
-        std::cout << "Strings are the same." << std::endl;
-
-    for (const auto& s : result) {
-        std::cout << s << std::endl;
-    }
-
-    return 0;
-}
-
 bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
