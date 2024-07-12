@@ -1,8 +1,11 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 #include <cassert>
 
 std::string file_name_check(std::string file_name) {
+    if(file_name.empty()) return "No";
+    
     int digitCount = 0;
     int dotCount = 0;
     int dotIndex = -1;
@@ -21,7 +24,7 @@ std::string file_name_check(std::string file_name) {
         return "No";
     
     std::string extension = file_name.substr(dotIndex + 1);
-    if(extension != "txt" && extension != "exe" && extension != "dll")
+    if(extension != "txt" && extension != "exe" && extension != "dll" && extension != "pdf")
         return "No";
     
     if(!isalpha(file_name[0]))
