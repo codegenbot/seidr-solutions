@@ -1,4 +1,3 @@
-```
 def add(x: int, y: int):
     return x + y
 
@@ -20,11 +19,10 @@ def main():
                     print("Invalid input. Please enter a valid number.")
             print(f"The sum is {add(num1, num2)}")
             cont = input("Do you want to continue? (y/n): ")
-            if cont.lower() != "y":
+            if cont.lower() != "y" and cont.lower() != "n":
+                print("Invalid input. Please enter either 'y' or 'n'.")
+            elif cont.lower() == "n":
                 print("Program ended.")
-                break
-            elif cont.lower() != "n":
-                print("Invalid input. Please enter 'y' or 'n'.")
                 break
             else:
                 continue
