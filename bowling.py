@@ -1,4 +1,6 @@
 score = 0
+bowls = input("Enter the individual bowls in a 10-frame round of 10 pin bowling: ")
+
 frame = 9
 if frame == 9:
     score += (
