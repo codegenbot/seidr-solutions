@@ -7,9 +7,8 @@ def find_zero():
                 print("Error: 'a' should not be zero. Please enter a non-zero value for a.")
         except ValueError:
             print("Error: Please enter a valid number.")
-        if a != 0:
-            b = float(input("Enter value for b: "))
-    
+            
+    b = float(input("Enter value for b: "))
     return -b / a
 
 result = find_zero()
