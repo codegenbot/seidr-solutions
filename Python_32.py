@@ -7,8 +7,9 @@ def find_zero(xs: list):
     return round(-b / (2 * a), 2)
 
 if __name__ == "__main__":
+    input_string = input("Enter the coefficients of the quadratic equation: ")
     try:
-        xs = list(map(float, input("Enter the coefficients separated by space: ").split()))
+        xs = list(map(float, input_string.split()))
         print(find_zero(xs))
     except ValueError as e:
         print(e)
