@@ -1,4 +1,4 @@
-} else if (c == '&' || (c == '|' && (operators.empty() || operators.top() == '&'))) {
+if (c == '&' || (c == '|' && (operators.empty() || operators.top() == '&'))) {
             while (!operators.empty() && (operators.top() == '&' || operators.top() == '|')) {
                 char op = operators.top();
                 operators.pop();
