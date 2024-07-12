@@ -6,6 +6,8 @@ def rescale_to_unit(numbers: List[float]) -> List[float]:
         return []
 
     try:
-        return [(x - min(numbers)) / (max(numbers) - min(numbers)) for x in numbers]
+        numbers = [(x - min(numbers)) / (max(numbers) - min(numbers)) for x in numbers]
     except TypeError:
         return []
+
+    return numbers
