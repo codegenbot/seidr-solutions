@@ -1,17 +1,14 @@
-```
 def solve():
-    while True:
-        try:
-            N = int(input("Please provide a binary number: "), 2)
-            break
-        except ValueError:
-            print("Invalid Input. Please provide a binary number.")
+    try:
+        N = int(input("Please provide a decimal number: "), 10)
+    except ValueError:
+        return "Invalid Input. Please provide a decimal number."
     if N == 0:
         return str(0)
     elif N == 1:
         return str(1)
     else:
-        return bin(N | (N - 1))[2:].replace("1", "10")
-
-if __name__ == "__main__":
-    print(solve())
+        result = N
+        while (result & 1) != 0:
+            result ^= (result << 1)
+        return bin(result)[2:]
