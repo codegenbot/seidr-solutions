@@ -1,5 +1,6 @@
 #include <string>
 #include <algorithm>
+#include <cassert>
 
 bool is_happy(std::string s){
     if(s.length() < 3) return false;
@@ -19,6 +20,6 @@ bool is_happy(std::string s){
 }
 
 int main() {
-    std::cout << "Assertion failed: " << is_happy("iopaxioi") << std::endl;
+    assert(is_happy("iopaxioi") == false );
     return 0;
 }
