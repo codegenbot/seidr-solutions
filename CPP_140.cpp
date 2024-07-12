@@ -1,20 +1,17 @@
+#include <string>
+
 string fix_spaces(string text) {
     string result = "";
-    bool consecutiveSpace = false;
-
-    for (char c : text) {
-        if (c == ' ') {
-            if (!consecutiveSpace) {
+    for (int i = 0; i < text.length(); i++) {
+        if (text[i] == ' ') {
+            if (i < text.length() - 1 && text[i + 1] == ' ' && text.find(' ', i + 2) != string::npos) {
+                result += '-';
+            } else {
                 result += '_';
-                consecutiveSpace = true;
             }
         } else {
-            if (consecutiveSpace) {
-                result += '-';
-                consecutiveSpace = false;
-            }
-            result += c;
+            result += text[i];
         }
     }
-
     return result;
+}
