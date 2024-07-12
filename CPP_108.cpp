@@ -1,7 +1,4 @@
-#include <vector>
-#include <string>
-#include <iostream>
-
+```cpp
 int count_nums(const std::vector<std::string>& nums) {
     int count = 0;
     for (const auto& num : nums) {
@@ -32,16 +29,15 @@ int count_nums(const std::vector<std::string>& nums) {
 
 }
 
-int main_func() {
+int main() { 
     std::vector<std::string> numbers; 
     int n; 
-    std::cin >> n;
+    cin >> n;
     
     for(int i = 0; i < n; i++) {
         std::string num; 
-        std::cin >> num; 
+        cin >> num; 
         numbers.push_back(num);
     }
     
     return count_nums(numbers);
-}
