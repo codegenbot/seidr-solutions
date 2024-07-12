@@ -11,12 +11,17 @@ string toCamelCase(string s) {
     while (i < s.length()) {
         if (s[i] == '-') {
             i++;
-            continue;
-        }
-        if (result != "") {
-            result += toupper(s[i]);
+            if (result != "") {
+                result += toupper(s[i]);
+            } else {
+                result += tolower(s[i]);
+            }
         } else {
-            result += tolower(s[i]);
+            if (result == "") {
+                result += tolower(s[i]);
+            } else {
+                result += toupper(s[i]);
+            }
         }
         i++;
     }
