@@ -36,7 +36,3 @@ int driver() {
     }
     return 0; 
 }
-
-int main() { 
-    driver(); 
-}
