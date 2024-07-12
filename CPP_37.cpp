@@ -15,14 +15,14 @@ std::vector<float> sort_even(std::vector<float> l) {
     std::vector<float> result(l.size(), 0.0);
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
-            std::vector<int> even_indices(l.size(), 0); 
+            std::vector<float> even_indices = std::vector<float>(l.size() / 2);
             for (int j = 0; j < l.size(); j++) {
                 if (j % 2 == 0) {
-                    even_indices.push_back(static_cast<int>(l[j]));
+                    even_indices.push_back(l[j]);
                 }
             }
             std::sort(even_indices.begin(), even_indices.end());
-            result[i] = static_cast<float>(even_indices[0]);
+            result[i] = even_indices[0];
         } else {
             result[i] = l[i];
         }
