@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <cstdlib>
 
 using namespace std;
 
@@ -9,7 +8,15 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (cin >> num) {
+    while (true) {
+        if (!(cin >> num)) {
+            if (cin.eof()) {
+                break;
+            } else {
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+            }
+        }
         nums.push_back(num);
     }
 
