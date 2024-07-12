@@ -1,11 +1,25 @@
-def process_numbers(numbers, delimiter):
-    result = []
-    for num in numbers:
-        if num == delimiter:
-            if len(result) > 0 and result[-1] != delimiter:
-                result.append(delimiter)
+def process_numbers():
+    user_input = input("Enter numbers separated by delimiter: ")
+
+    if "," not in user_input:
+        print("Invalid input")
+        return []
+
+    try:
+        numbers = [int(num) for num in user_input.split(",")]
+    except ValueError:
+        print("Invalid input")
+        return []
+
+    result = [str(numbers[0])]
+    for num in numbers[1:]:
+        if num == ",":
+            result.append(",")
         else:
-            while len(result) > 1 and result[-1] == delimiter:
+            while len(result) > 1 and str(result[-1]) == ",":
                 result.pop()
-            result.append(num)
+            result.extend([",", str(num)])
     return result
+
+
+print(process_numbers())
