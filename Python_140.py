@@ -1,4 +1,5 @@
-    def    fix_spaces(text):
+```
+    def fix_spaces(text):
         new_text = ''
         for char in text:
             if char == ' ' and len(new_text) > 0 and new_text[-1] == ' ':
