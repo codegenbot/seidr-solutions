@@ -1,4 +1,3 @@
-import sys
 from typing import List, Optional
 
 def longest(strings: List[str]) -> Optional[str]:
@@ -6,6 +5,6 @@ def longest(strings: List[str]) -> Optional[str]:
         return None
     return max(strings, key=lambda x: (len(x), x))
 
-input_strings = sys.argv[1:]
-result = longest(input_strings)
+input_strings = input("Enter space-separated strings: ")
+result = longest(input_strings.split())
 print(result)
