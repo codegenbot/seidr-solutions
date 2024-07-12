@@ -2,6 +2,8 @@ from typing import List
 
 def factorize(n: int) -> List[int]:
     factors = []
+    if n <= 1:
+        return [n]
     divisor = 2
     while n > 1:
         if n % divisor == 0:
@@ -14,9 +16,9 @@ def factorize(n: int) -> List[int]:
 try:
     n = int(input("Enter a number to factorize: "))
     if n <= 0:
-        raise ValueError("Please enter a positive integer for factorization.")
+        raise ValueError
     result = factorize(n)
     for factor in result:
         print(factor)
-except ValueError as e:
-    print(e)
+except ValueError:
+    print("Please enter a valid positive integer for factorization.")
