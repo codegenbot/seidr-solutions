@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -34,8 +35,6 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
 }
 
 int main() {
-    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
-    
     std::cout << "Enter the first planet: ";
     std::string planet1;
     std::cin >> planet1;
@@ -43,8 +42,10 @@ int main() {
     std::string planet2;
     std::cin >> planet2;
 
+    std::vector<std::string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
+
     if (!bf(planets, planet1, planet2).empty())
-        std::cout << "Output: ";
+        std::cout << (bf({{"Mercury"}, {"Venus"}, {"Earth"}, {"Mars"}, {"Jupiter"}, {"Saturn"}, {"Uranus"}, {"Neptune"}}, planet1, planet2).empty() ? "No Output" : "Output: ";
     else
         std::cout << "No Output";
     
