@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -17,15 +16,4 @@ pair<float, float> find_closest_elements(vector<float> numbers) {
         }
     }
     return {result.first, result.second};
-}
-
-int main() {
-    vector<float> numbers = {3.5, 2.0, 7.1, 4.3, 1.8};
-    pair<float, float> result = find_closest_elements(numbers);
-    if (issame(result, {2.0, 3.5})) {
-        cout << "Correct"; 
-    } else {
-        cout << "Incorrect"; 
-    }
-    return 0;
 }
