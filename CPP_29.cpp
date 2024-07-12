@@ -1,24 +1,18 @@
-```
 #include <vector>
 #include <string>
-#include <algorithm>
 
-bool issame(vector<string>& b) {
-    vector<string> temp;
-    for (string s : b) {
-        if (s.find("same") == 0 || s.find(" Same") == 0 || s.find(" same") == 0) {
-            temp.push_back(s);
+bool issame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size()) {
+        return false;
+    }
+    for(int i = 0; i < a.size(); i++) {
+        if(a[i] != b[i]) {
+            return false;
         }
     }
-    return !temp.empty();
+    return true;
 }
 
-vector<string> filter_by_prefix(vector<string> strings, string prefix){
-    vector<string> result;
-    for(string s : strings) {
-        if(s.find(prefix) == 0) {
-            result.push_back(s);
-        }
-    }
-    return result;
+int main() {
+    assert(issame({{"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}}, {"xxx", "xxxAAA", "xxx"}));
 }
