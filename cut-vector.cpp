@@ -1,30 +1,34 @@
 int main() {
-    vector<int> nums;
     int n;
-    while (cin >> n) {
-        nums.push_back(n);
+    cin >> n;
+    
+    vector<int> v(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
     }
     
-    int best_diff = INT_MAX;
-    int cut_idx = 0;
-    for (int i = 1; i < nums.size(); i++) {
-        int diff = abs(accumulate(nums.begin(), nums.begin() + i, 0) - accumulate(nums.begin() + i, nums.end(), 0));
-        if (diff < best_diff) {
-            best_diff = diff;
-            cut_idx = i;
-        }
-        if (diff == 0) {
-            break;
+    int min_diff = INT_MAX;
+    int cut_index = -1;
+    
+    for (int i = 1; i < n; ++i) {
+        int diff = abs(accumulate(begin(v), begin(v) + i, 0) - accumulate(begin(v) + i, end(v), 0));
+        if (diff < min_diff) {
+            min_diff = diff;
+            cut_index = i;
         }
     }
     
-    for (int i = 0; i < cut_idx; i++) {
-        cout << nums[i] << endl;
+    for (int i = 0; i < cut_index; ++i) {
+        cout << v[i] << endl;
     }
-    cout << 0 << endl;
-    for (int i = cut_idx; i < nums.size(); i++) {
-        cout << nums[i] << endl;
+    
+    cout << "0" << endl;
+    
+    for (int i = cut_index; i < n; ++i) {
+        cout << v[i] << endl;
     }
+    
+    cout << "0" << endl;
     
     return 0;
 }
