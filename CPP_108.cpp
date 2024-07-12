@@ -1,6 +1,5 @@
-```cpp
 #include <string>
-#include <cstdlib>
+#include <cctype>
 
 int count_nums(char** nums, int size) {
     int count = 0;
@@ -32,4 +31,4 @@ int count_nums(char** nums, int size) {
 
 }
 
-int main() { return count_nums((char**)numbers, 1); }
+char* numbers[] = {{"1"}};
