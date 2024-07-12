@@ -1,10 +1,5 @@
 def find_zero():
-    xs = []
-    while True:
-        line = input()
-        if line == '':
-            break
-        xs.extend(map(float, line.split()))
+    xs = map(float, iter(input, ""))
     a, b = xs[-2:]
     return -b / a
 
