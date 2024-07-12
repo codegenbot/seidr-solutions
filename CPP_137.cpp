@@ -1,3 +1,4 @@
+```cpp
 #include <boost/any.hpp>
 #include <string>
 
@@ -29,27 +30,16 @@ std::any compare_one(std::any a, std::any b) {
             return b;
         else
             return "None";
-    } else if ((a.type() == typeid(std::string) && b.type() == typeid(double)) ||
+    } else if ((a.type() == typeid(std::string) && b.type() == typeid(double)) || 
                (a.type() == typeid(double) && b.type() == typeid(std::string))) {
-        if (a.type() == typeid(std::string)) {
-            double y = boost::any_cast<double>(b);
-            std::string x = boost::any_cast<std::string>(a);
-            if (std::stod(x) > y)
-                return a;
-            else if (y > std::stod(x))
-                return b;
-            else
-                return "None";
-        } else {
-            double x = boost::any_cast<double>(a);
-            std::string y = boost::any_cast<std::string>(b);
-            if (x > std::stod(y))
-                return a;
-            else if (std::stod(y) > x)
-                return b;
-            else
-                return "None";
-        }
+        double y = boost::any_cast<double>(b);
+        std::string x = boost::any_cast<std::string>(a);
+        if (std::stod(x) > y)
+            return a;
+        else if (y > std::stod(x))
+            return b;
+        else
+            return "None";
     } else {
         return "None";
     }
