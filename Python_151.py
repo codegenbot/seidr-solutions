@@ -6,5 +6,4 @@ def double_the_difference(lst):
     return difference * 2
 
 def check(lst):
-    result = double_the_difference(lst)
-    return result
+    return double_the_difference(lst)
