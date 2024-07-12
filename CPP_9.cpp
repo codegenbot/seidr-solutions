@@ -26,7 +26,7 @@ bool are_vectors_equal(const std::vector<int>& a, const std::vector<int>& b) {
     return true;
 }
 
-int main() {
+void testMain() {
     std::vector<int> numbers;
     int num;
 
@@ -50,10 +50,12 @@ int main() {
     
     std::vector<int> v1({3, 2, 3, 100, 3});
     std::vector<int> v2({3, 3, 3, 100, 100});
-    if (are_vectors_equal(rolling_max(v1), v2))
-        std::cout << "Vectors are equal" << std::endl;
-    else
-        std::cout << "Vectors are not equal" << std::endl;
+    std::cout << (are_vectors_equal(rolling_max(v1), v2) ? "Vectors are equal" : "Vectors are not equal") << std::endl;
     
+    return;
+}
+
+int main() {
+    testMain();
     return 0;
 }
