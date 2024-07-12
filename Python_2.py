@@ -8,16 +8,7 @@ def calculate_decimal_part(number):
 while True:
     try:
         input_number = float(input("Enter a number: ").strip())
-        if isinstance(input_number, float):
-            break
-        else:
-            raise ValueError
+        print(calculate_decimal_part(input_number))
+        break
     except ValueError:
         print("Invalid input. Please enter a valid number.")
-    except KeyboardInterrupt:
-        print("Program terminated by user.")
-        quit()
-    except:
-        print("Unexpected error occurred")
-
-print(calculate_decimal_part(input_number))
