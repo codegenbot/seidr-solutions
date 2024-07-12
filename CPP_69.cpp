@@ -1,3 +1,5 @@
+#include <vector>
+#include <map>
 #include <initializer_list>
 
 int findMaxFreq(std::vector<int> lst) {
@@ -24,3 +26,4 @@ int findMaxFreq(std::vector<int> lst) {
 int main() {
     assert(findMaxFreq({3, 10, 10, 9, 2}) == -1);
     return 0;
+}
