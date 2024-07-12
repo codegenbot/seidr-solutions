@@ -1,4 +1,3 @@
-```
 def smallest_change(arr):
     left = 0
     right = len(arr) - 1
