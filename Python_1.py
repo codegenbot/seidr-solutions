@@ -5,8 +5,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     stack = []
     current_group = ""
 
-    paren_string = input("Enter the string with parentheses: ")
-
+    valid = True
     for char in paren_string:
         if char == "(":
             stack.append("(")
@@ -19,9 +18,10 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                     result.append(current_group)
                     current_group = ""
             else:
-                current_group += ")"
+                valid = False
+                break
 
-    if current_group:
-        result.append(current_group)
-
-    return result
+    if stack or not valid:
+        return ["Invalid input string with unbalanced parentheses"]
+    else:
+        return result
