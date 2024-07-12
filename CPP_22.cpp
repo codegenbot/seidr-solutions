@@ -1,5 +1,5 @@
-```cpp
 #include <boost/any.hpp>
+#include <vector>
 
 bool issame(vector<int> a, vector<int> b) {
     return a == b;
@@ -9,8 +9,10 @@ vector<int> filter_integers(vector<boost::any> values) {
     vector<int> result;
     for (const auto& value : values) {
         int val = boost::any_cast<int>(value);
-        if (val != 0) { // handle non-integer cases
-            result.push_back(val == 0 ? 0 : val); // convert characters to 0
+        if (val != 0) { 
+            result.push_back(val);
+        } else if (!boost::any_cast<bool>(value)) {
+            result.push_back(0);
         }
     }
     return result;
