@@ -1,4 +1,4 @@
-def strength(extension):
+def Strongest_Extension(extension):
     extensions = ['com', 'org', 'net', 'io']
     
     if isinstance(extension, int):
