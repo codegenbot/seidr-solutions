@@ -1,3 +1,4 @@
+```cpp
 #include <set>
 #include <vector>
 #include <iostream>
@@ -42,3 +43,4 @@ int main() {
         cout << i << " ";
     }
     return 0;
+}
