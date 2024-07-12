@@ -1,4 +1,4 @@
-```python
+```
 def check(func, *args):
     return func(*args)
 
@@ -20,6 +20,14 @@ def decode(encoded_str, shift):
                 print("Invalid character. Please enter only alphanumeric characters or spaces.")
     except ValueError as e:
         print(e)
-    print(result)
+    return result
 
+def main():
+    encoded_str = input("Enter the encoded string: ")
+    shift = int(input("Enter the shift value (0-25): "))
+    decoded_str = decode(encoded_str, shift)
+    print(f"Decoded string: {decoded_str}")
+
+if __name__ == "__main__":
+    main()
 check(decode, "Hello World", 3)
