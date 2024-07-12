@@ -1,4 +1,3 @@
-```
 def cut_vector(lst):
     min_diff = float("inf")
     left_sum = sum(lst[:1])
