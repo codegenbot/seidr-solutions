@@ -1,3 +1,4 @@
+```
 def parse_music(music_string: str) -> list:
     if not isinstance(music_string, str):
         return []
@@ -44,6 +45,6 @@ while True:
         if not isinstance(input_str, str):
             raise Exception
         break
-    except Exception:
+    except:
         print("Invalid input. Please enter a string.")
 print(parse_music(input_str))
