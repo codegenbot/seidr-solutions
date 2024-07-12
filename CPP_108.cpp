@@ -37,10 +37,11 @@ int main() {
         std::cout << "Enter integer # " << i + 1 << ": ";
         int num;
         std::cin >> num;
-        std::string str = std::to_string(num);
-        nums[i] = new char[str.length() + 1]; // Add 1 for the null-terminator
-        strcpy(nums[i], str.c_str());
-        nums[i][str.length()] = '\0'; // Manually add the null-terminator
+        for (char c : std::to_string(num)) {
+            nums[i] = new char[2]; // Add 1 for the null-terminator
+            nums[i][0] = c; // Initialize the string with the character representation of the integer
+            nums[i][1] = '\0'; // Manually add the null-terminator
+        }
     }
 
     int count = count_nums(nums, size);
