@@ -1,49 +1,71 @@
 #include <iostream>
 #include <string>
-#include <stdexcept>
+#include <limits>
 
-bool compare(const std::any &a, const std::any &b) {
+std::any compare_one(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return static_cast<int>(a.convert_to<float>()) > b.convert_to<float>();
+        return (int)a > (float)b ? a : b;
     } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return static_cast<int>(a.convert_to<double>()) > b.convert_to<double>();
+        return (int)a > (double)b ? a : b;
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return a.convert_to<float>() > static_cast<float>(b);
+        return (float)a > (int)b ? a : b;
     } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return a.convert_to<double>() > static_cast<double>(b);
+        return (double)a > (int)b ? a : b;
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         try {
-            float fa = std::stof(a.convert_to<std::string>().c_str());
-            float fb = b.convert_to<float>();
-            return fa > fb;
+            float fa = std::stof(a.convert<std::string>().c_str());
+            float fb = (float)b.convert_to<float>();
+            return fa > fb ? a : b;
         } catch (...) {
-            throw std::runtime_error("Invalid input");
+            return "None";
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
         try {
-            double fa = std::stod(a.convert_to<std::string>().c_str());
-            double fb = b.convert_to<double>();
-            return fa > fb;
+            double fa = std::stod(a.convert<std::string>().c_str());
+            double fb = (double)b.convert_to<double>();
+            return fa > fb ? a : b;
         } catch (...) {
-            throw std::runtime_error("Invalid input");
+            return "None";
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         try {
-            int fa = std::stoi(a.convert_to<std::string>().c_str());
-            int fb = static_cast<int>(b);
-            return fa > fb;
+            int fa = std::stoi(a.convert<std::string>().c_str());
+            int fb = (int)b.convert_to<int>();
+            return fa > fb ? a : b;
         } catch (...) {
-            throw std::runtime_error("Invalid input");
+            return "None";
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         try {
-            float fa = std::stof(a.convert_to<std::string>().c_str());
-            float fb = std::stof(b.convert_to<std::string>().c_str());
-            return fa > fb;
+            float fa = std::stof(a.convert<std::string>().c_str());
+            float fb = std::stof(b.convert<std::string>().c_str());
+            return fa > fb ? a : b;
         } catch (...) {
-            throw std::runtime_error("Invalid input");
+            return "None";
         }
     }
+    return "None";
+}
 
-    return false;
+int main() {
+    std::any a, b;
+    // Read input from user
+    std::cout << "Enter value for a: ";
+    std::string strA;
+    std::cin >> strA;
+    a = strA;
+
+    std::cout << "Enter value for b: ";
+    std::string strB;
+    std::cin >> strB;
+    b = strB;
+
+    std::any result = compare_one(a, b);
+    if (result.type() == typeid(std::string)) {
+        std::cout << "Result: " << result.convert<std::string>() << std::endl;
+    } else {
+        std::cout << "Result: " << result.convert_to<int>() << std::endl;
+    }
+    
+    return 0;
 }
