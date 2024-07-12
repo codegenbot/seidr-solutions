@@ -26,7 +26,7 @@ std::vector<std::string> by_length(const std::initializer_list<int>& lengths) {
             }
         }
     }
-    return {{}}; // Return a vector of vectors
+    return result;
 }
 
 int main_problem() {
