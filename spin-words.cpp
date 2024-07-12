@@ -10,16 +10,7 @@ string spinWords(string str) {
     int wordStart = 0;
     
     for(int i=0; i<=str.length(); i++) {
-        if(i == str.length()) {
-            string word = str.substr(wordStart, i-wordStart);
-            
-            if(word.length() >= 5) {
-                reverse(word.begin(), word.end());
-            }
-            
-            result += word + " ";
-            break;
-        } else if (str[i] == ' ') {
+        if(i == str.length() || str[i] == ' ') {
             string word = str.substr(wordStart, i-wordStart);
             
             if(word.length() >= 5) {
@@ -31,7 +22,13 @@ string spinWords(string str) {
         }
     }
     
-    return result;
+    // Reverse the last word
+    string lastWord = str.substr(wordStart, str.length()-wordStart);
+    if(lastWord.length() >= 5) {
+        reverse(lastWord.begin(), lastWord.end());
+    }
+
+    return result.substr(0, result.size() - 1); // trim()
 }
 
 int main() {
