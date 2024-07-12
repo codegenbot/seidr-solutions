@@ -1,8 +1,8 @@
+score = 0
 bowls = input("Enter the individual bowls in a 10-frame round of 10 pin bowling: ")
 
-frame = 9
-score = 0
-while frame >= 0:
+frame = 10
+if frame == 10:
     for bowl_index, bowl in enumerate(bowls):
         if bowl == "/":
             score += 10 - int(bowls[bowl_index - 1])
@@ -17,6 +17,5 @@ while frame >= 0:
             )
         elif bowl.isdigit():
             score += int(bowl)
-    frame -= 1
 
 print(score)
