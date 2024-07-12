@@ -23,7 +23,7 @@ bool are_vectors_equal(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b; 
 }
 
-int main() {
+int program() {
     std::vector<int> numbers;
     int num;
 
