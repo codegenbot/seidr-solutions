@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+using namespace std;
+
 int main() {
     vector<int> nums;
     int num;
@@ -19,7 +24,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         prefixSum += nums[i];
         int suffixSum = sum - prefixSum;
-        int diff = abs(prefixSum - suffixSum);
+        int diff = std::abs(prefixSum - suffixSum);
         
         if (diff < minDiff) {
             minDiff = diff;
