@@ -1,37 +1,33 @@
+Here is the modified code:
+
 ```
+# Code starts here
 import random
+import re
 
-
-def make_palindrome() -> str:
-    while True:
-        s = "".join(random.choice("abcdefghijklmnopqrstuvwxyz") for _ in range(5))
-        if s == s[::-1]:
-            break
-    return s
-
-
-print("Enter the desired length of the palindrome (or press enter to get a random palindrome): ")
-result = input()
-if not result:
-    print(make_palindrome())
-else:
+def make_palindrome():
+    word = ''.join(random.choice('abcdefghijklmnopqrstuvwxyz') for _ in range(5))
     try:
-        length = int(result)
-        while length < 5 or length % 2 == 1:  
-            if not result:
-                break
-            else:
-                print("Please enter an even number of at least 5.")
-                print("Enter the desired length of the palindrome: ")
-                result = input()
-        s = "".join(random.choice("abcdefghijklmnopqrstuvwxyz") for _ in range(length))
-        if s == s[::-1]:
-            print(s)
+        if int(input("Enter 0 for false or 1 for true: ")) == 0:
+            word += word[::-1]
         else:
-            while True:
-                s = "".join(random.choice("abcdefghijklmnopqrstuvwxyz") for _ in range(length))
-                if s == s[::-1]:
-                    break
-            print(s)
+            word = word + ''.join(reversed(word))
     except ValueError:
-        print("That's not a valid number!")
+        pass
+    return word.capitalize()
+
+while True:
+    result = input("Enter your desired output (or press enter to get a random palindrome): ")
+    if not result:  
+        print(make_palindrome())
+        break
+    elif result.lower() == "quit" or result.lower() == "q":  
+        print("Goodbye!")
+        break
+    else:
+        if result.lower() in ["mom", "dad"]:
+            print(result.capitalize())
+        elif result.lower() not in ["madam", "mom", "dad", "noon"] and re.match('^[a-zA-Z]+$', result) and len(result) > 1 and result == result[::-1]:
+            print(result)
+        else:
+            print("Invalid input. Try again.")
