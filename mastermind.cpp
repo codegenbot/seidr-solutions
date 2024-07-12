@@ -1,3 +1,4 @@
+```cpp
 #include <string>
 #include <algorithm>
 
@@ -22,13 +23,7 @@ int mastermind(std::string code, std::string guess) {
         }
     }
 
-    int result = black;
-    for(int i=0; i<4; i++) {
-        if(code[i] != guess[i] && std::count(guess.begin(), guess.end(), code[i]) > 0) {
-            white--;
-        }
-    }
-    return black + white;
+    return black;
 }
 
 int main() {
