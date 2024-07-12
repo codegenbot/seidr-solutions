@@ -26,8 +26,7 @@ int main() {
 
     if (!cin.eof()) {
         cin.clear();
-        string line;
-        getline(cin, line); // Consume the rest of the line
+        cin.ignore();
     }
 
     vector<int> result = findLeaders(nums);
