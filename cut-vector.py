@@ -1,21 +1,29 @@
-n = int(input())
-vec = [int(input()) for _ in range(n)]
+def cut_vector(vector):
+    total_sum = sum(vector)
 
-total_sum = sum(vec)
-left_sum = 0
-min_diff = total_sum
-cut_index = -1
+    left_sum = 0
+    right_sum = total_sum
+    min_diff = float("inf")
+    cut_index = -1
 
-for i in range(n):
-    left_sum += vec[i]
-    right_sum = total_sum - left_sum
-    diff = abs(left_sum - right_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
+    for i in range(len(vector) - 1):
+        left_sum += vector[i]
+        right_sum -= vector[i]
+        diff = abs(left_sum - right_sum)
 
-subvector1 = vec[: cut_index + 1]
-subvector2 = vec[cut_index + 1 :]
+        if diff == 0 or diff < min_diff:
+            min_diff = diff
+            cut_index = i
 
-print(*subvector1)
-print(*subvector2)
+    return vector[: cut_index + 1], vector[cut_index + 1 :]
+
+
+# Read input vector from the user
+input_vector = list(map(int, input().split()))
+
+# Get the two resulting subvectors
+subvector1, subvector2 = cut_vector(input_vector)
+
+# Print the two subvectors
+print(subvector1)
+print(subvector2)
