@@ -8,7 +8,7 @@ using namespace boost;
 vector<int> filter_integers(list<any> values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (is_same<any, int>::value && value.type() == typecode::int8) {
+        if (any_cast<int>(value).which() == typeid(int)) {
             result.push_back(any_cast<int>(value));
         }
     }
