@@ -1,29 +1,30 @@
+```cpp
 #include <vector>
-#include <iostream>
+#include <cmath>
 
-float odd_sum(const std::vector<float>& vec) {
-    float sum = 0;
-    for (auto num : vec) {
-        if (num % 2 != 0)
-            sum += num;
+int double_the_difference(const std::vector<float>& numbers) {
+    int sum = 0;
+    for (float number : numbers) {
+        if (std::floor(number) == std::ceil(number)) {
+            sum += static_cast<int>(number);
+        }
     }
-    return sum;
+    return abs(sum - double(sum));
 }
 
-float double_the_difference(const std::vector<float>& vec) {
-    float diff1 = 0, diff2 = 0;
-    for (int i = 0; i < vec.size() - 1; ++i) {
-        if (vec[i] > vec[i + 1])
-            diff1 += vec[i] - vec[i + 1];
-        else
-            diff2 += vec[i] - vec[i + 1];
+float odd_sum(const std::vector<float>& numbers) {
+    float total = 0.0f;
+    for (float number : numbers) {
+        if (std::floor(number) != std::ceil(number)) {
+            total += number;
+        }
     }
-    return std::abs(diff1 - diff2);
+    return total;
 }
 
 int main() {
-    std::vector<float> lst({1.0f, 2.0f, 3.0f});
-    float oddSum = odd_sum(lst);
-    assert(double_the_difference(lst) == oddSum); 
+    std::vector<float> lst = {1.0f, 2.0f, 3.0f};
+    int main_result = double_the_difference(lst);
+    assert(main_result == odd_sum(lst)); 
     return 0;
 }
