@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -30,7 +29,7 @@ int main() {
             }
             if(same) std::cout << "-1";
         } else std::cout << "-1";
-
     } else std::cout << "-1";
 
     return 0;
+}
