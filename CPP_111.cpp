@@ -1,9 +1,26 @@
 #include <iostream>
-#include <map>
 #include <sstream>
+#include <map>
 #include <cassert>
+#include <algorithm>
 
-using namespace std;
+bool issame(map<char, int> a, map<char, int> b);
+
+map<char, int> histogram(string test);
+
+bool issame(map<char, int> a, map<char, int> b) {
+    if (a.size() != b.size()) {
+        return false;
+    }
+    
+    for (const auto& entry : a) {
+        if (b.find(entry.first) == b.end() || b[entry.first] != entry.second) {
+            return false;
+        }
+    }
+    
+    return true;
+}
 
 map<char, int> histogram(string test) {
     map<char, int> result;
@@ -28,10 +45,6 @@ map<char, int> histogram(string test) {
     }
     
     return max_occurrences;
-}
-
-bool issame(map<char, int> a, map<char, int> b) {
-    return a == b;
 }
 
 int main() {
