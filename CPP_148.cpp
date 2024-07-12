@@ -23,20 +23,18 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
         index2 = temp;
     }
     
-    if(index2 - index1 + 1 > planets.size()) {
+    if(index2 - index1 + 1 <= planets.size()) {
+        std::vector<std::string> result;
+        for (int i = index1; i <= index2; i++) {
+            if(i < planets.size()) { 
+                result.push_back(planets[i]);
+            } 
+        }
+        
+        return result;
+    } else {
         return {};
     }
-    
-    std::vector<std::string> result;
-    for (int i = index1; i <= index2; i++) {
-        if(i < planets.size()) {
-            result.push_back(planets[i]);
-        } else {
-            break;
-        }
-    }
-    
-    return result;
 }
 
 int main() {
