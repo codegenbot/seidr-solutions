@@ -1,19 +1,6 @@
 #include <vector>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    bool result = true;
-    if (a.size() != b.size()) {
-        result = false;
-    } else {
-        for (size_t i = 0; i < a.size(); ++i) {
-            if (a[i] != b[i]) {
-                result = false;
-                break;
-            }
-        }
-    }
-    return result;
-}
+bool issame(std::vector<int> a, std::vector<int> b);
 
 std::vector<int> parse_nested_parens(std::string paren_string) {
     std::vector<int> depths;
