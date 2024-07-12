@@ -2,10 +2,33 @@
 #include <iostream>
 #include <vector>
 
+std::string exchange(const std::vector<int>& lst1, const std::vector<int>& lst2);
+
 int main() {
-    std::vector<int> lst1 = {1, 3, 5};
-    std::vector<int> lst2 = {2, 4, 6};
-    std::cout << exchange(lst1, lst2) << std::endl;
+    int n1;
+    int m1;
+    int n2;
+    int m2;
+    std::cout << "Enter the number of elements in lst1: ";
+    std::cin >> n1;
+    std::cout << "Enter the number of elements in lst1: ";
+    std::cin >> m1;
+    std::vector<int> lst1(n1, 0); // initialize all elements to 0
+    std::cout << "Enter elements of lst1: ";
+    for (int &i : lst1) {
+        std::cin >> i;
+    }
+    std::cout << "Enter the number of elements in lst2: ";
+    std::cin >> n2;
+    std::cout << "Enter the number of elements in lst2: ";
+    std::cin >> m2;
+    std::vector<int> lst2(n2, 0);
+    std::cout << "Enter elements of lst2: ";
+    for (int &i : lst2) {
+        std::cin >> i;
+    }
+    std::string result = exchange(lst1, lst2);
+    std::cout << result << std::endl;
     return 0;
 }
 
