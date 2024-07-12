@@ -12,7 +12,9 @@ def decode_cyclic():
             if len(result) % 3 == 1:
                 result.append(char)
             elif len(result) % 3 == 2:
-                result.extend([char])
+                result.extend([char, char])
+            elif len(result) % 3 == 0:
+                result.extend([char, char, char])
         print("".join(result))
 
 
