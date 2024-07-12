@@ -15,6 +15,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     
     return result if not stack else ["Invalid input, parentheses not properly separated."]
 
-input_string = input("Enter a string with parentheses: ")
+input_string = input("Enter a string with parentheses (e.g. 'a(b(c)d)e(f)'): ")
 output = separate_paren_groups(input_string)
 print(output)
