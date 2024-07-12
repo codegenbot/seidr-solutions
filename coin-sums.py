@@ -5,9 +5,10 @@ def coin_sums(cents):
     
     for coin in coins:
         count = cents // coin
+        remaining_cents = cents % coin
         result.append(count)
-        cents %= coin
-        
+        cents = remaining_cents
+    
     return tuple(result)
 
 cents = int(input())
