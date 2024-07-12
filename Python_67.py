@@ -1,5 +1,4 @@
-Here is the completed code:
-
 def fruit_distribution(s,n):
-    s = s.replace('apples', '').replace('oranges', '').replace('and', '')
-    return n - int(s[:-8].split()[1]) - int(s[-7:-3])
+    s = s.lower()
+    nums = [int(x) for x in re.findall('\d+',s)]
+    return n - nums[0] - nums[1]
