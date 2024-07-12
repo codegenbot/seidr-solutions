@@ -1,32 +1,26 @@
-int whitePegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 4; j++) {
-            if (code[i] == guess[j]) {
-                count++;
-                guess[j] = ' ';
-                break;
-            }
-        }
-    }
-    return count;
-}
-
-int blackPegs(string code, string guess) {
-    int count = 0;
-    for (int i = 0; i < 4; i++) {
-        if (code[i] == guess[i]) {
-            count++;
-        }
-    }
-    return count;
-}
-
 int main() {
     string code, guess;
     cin >> code >> guess;
-    cout << whitePegs(code, guess) << endl;
-    cout << blackPegs(code, guess) << endl;
-
+    
+    int white = 0, black = 0;
+    vector<int> freq(6, 0);
+    
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            ++black;
+        } else {
+            ++freq[code[i] - 'A'];
+        }
+    }
+    
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] != guess[i] && freq[guess[i] - 'A'] > 0) {
+            ++white;
+            --freq[guess[i] - 'A'];
+        }
+    }
+    
+    cout << white << "\n" << black << "\n";
+    
     return 0;
 }
