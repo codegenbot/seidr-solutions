@@ -1,34 +1,25 @@
-int countDigits(const string& str) {
-    int count = 0;
-    for (char c : str) {
-        if (isdigit(c)) {
-            count++;
-        }
+int digit_count = 0;
+bool found_dot = false;
+bool valid_prefix = true;
+
+for (char c : file_name) {
+    if (isdigit(c)) {
+        digit_count++;
+    } else if (c == '.') {
+        found_dot = true;
+    } else if (!found_dot && !isalpha(c)) {
+        valid_prefix = false;
     }
-    return count;
 }
 
-string file_name_check(string file_name) {
-    if (countDigits(file_name) > 3) {
+if (digit_count > 3 || !found_dot || !valid_prefix) {
+    return "No";
+} else {
+    size_t dot_pos = file_name.find('.');
+    string suffix = file_name.substr(dot_pos + 1);
+    if (suffix != "txt" && suffix != "exe" && suffix != "dll") {
         return "No";
+    } else {
+        return "Yes";
     }
-
-    size_t dotPos = file_name.find('.');
-    if (dotPos == string::npos || dotPos == 0 || dotPos == file_name.size() - 1) {
-        return "No";
-    }
-
-    string beforeDot = file_name.substr(0, dotPos);
-    string afterDot = file_name.substr(dotPos + 1);
-
-    if (!all_of(beforeDot.begin(), beforeDot.end(), ::isalpha)) {
-        return "No";
-    }
-
-    vector<string> allowedExtensions = {"txt", "exe", "dll"};
-    if (find(allowedExtensions.begin(), allowedExtensions.end(), afterDot) == allowedExtensions.end()) {
-        return "No";
-    }
-
-    return "Yes";
 }
