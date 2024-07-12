@@ -1,24 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <pmr/pool.h> // add this line
-#include <memory>
 
-bool issame(std::vector<int> a, std::vector<int> b) {
+bool(std::vector<int>, std::vector<int>) issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
-}
-
-std::vector<int> maximumSubarray(std::vector<int> arr) {
-    int max_sum = 0;
-    int current_sum = 0;
-    for (int i : arr) {
-        if (current_sum < 0)
-            current_sum = i;
-        else
-            current_sum += i;
-        if (max_sum < current_sum)
-            max_sum = current_sum;
-    }
-    return {};
 }
 
 int main() {
