@@ -1,13 +1,17 @@
 def separate_paren_groups(paren_string: str) -> List[str]:
     result = []
-    stack = []
+    count = 0
+    temp = ""
 
     for char in paren_string:
         if char == "(":
-            stack.append(char)
+            count += 1
+            temp += char
         elif char == ")":
-            stack.pop()
-            if len(stack) == 0:
-                result.append("".join(stack))
+            count -= 1
+            temp += char
+            if count == 0:
+                result.append(temp)
+                temp = ""
 
     return result
