@@ -1,4 +1,4 @@
-```python
+```
 def bowling_score(frames):
     score = 0
     for i, frame in enumerate(frames.split('/')):
@@ -9,7 +9,7 @@ def bowling_score(frames):
             second_roll = int(frame[1])
             if first_roll + second_roll == 10:
                 if i < 9: 
-                    score += 10 + int(frames.split('/')[i+1].lstrip())
+                    score += 10 + int(frames.split('/')[i+1].lstrip() or '0')
                 else: score += 10
             else:
                 score += first_roll + second_roll
