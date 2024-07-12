@@ -29,9 +29,9 @@ std::string reverse_delete(std::string& s, std::string& c) {
 
 int main() {
     std::string s1 = reverse_delete("mamma", "mia");
-    std::string s2 = "mama";
+    std::string s2 = "mama";  
     if(checkEquality(reverse_delete("mamma", "mia"), "True")) {
-        std::cout << (s1 == s2 ? "are" : "are not") << " the same." << std::endl;
+        std::cout << s1 << " and " << s2 << " are the same." << std::endl;
     } else {
         std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
     }
