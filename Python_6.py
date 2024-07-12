@@ -1,3 +1,5 @@
+Here's the corrected code:
+
 ```
 def parse_nested_parens(paren_string: str) -> List[int]:
     result = []
@@ -8,5 +10,7 @@ def parse_nested_parens(paren_string: str) -> List[int]:
                 level += 1
             elif char == ')':
                 level -= 1
+            if level < 0:
+                break
         result.append(level)
     return result
