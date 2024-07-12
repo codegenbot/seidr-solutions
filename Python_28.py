@@ -1,9 +1,8 @@
 ```
-def concatenate(strings) -> 'str':
+def concatenate(strings) -> str:
     if not strings:
         return "No strings were provided."
     return " ".join(strings)
-
 
 strings_list = []
 while True:
@@ -13,8 +12,6 @@ while True:
             break
         elif not isinstance(user_input, str):
             raise ValueError("Invalid input. Please enter a string or 'stop'.")
-        if user_input == "stop": 
-            break
         strings_list.append(user_input.strip())
     except ValueError:
         print("Invalid input. Please enter a string or 'stop'.")
