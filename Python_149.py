@@ -1,12 +1,6 @@
+```
 def secure_code():
-    """
-    Sorts and removes duplicates from a list of digits entered by the user.
-
-    Parameters:
-    None
-
-    Returns:
-    A string with the sorted and unique digits separated by spaces.
-    """
-    digits = list(input("Enter the digits separated by spaces: ").split())
-    return " ".join(sorted(set(map(int, digits))))
+    digits = input("Enter the digits separated by spaces: ")
+    unique_digits = set(int(x) for x in digits.split())
+    sorted_unique_digits = str(sorted(unique_digits)).replace(', ', ' ')
+    return " ".join(map(str, sorted(unique_digits))) + f" Sum: {sum(unique_digits)}"
