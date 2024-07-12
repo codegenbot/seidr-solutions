@@ -21,8 +21,10 @@ int main() {
         int sum2 = std::accumulate(nums.begin() + i + 1, nums.end(), 0);
         int diff = std::abs(sum1 - sum2);
         if (diff <= minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+            if (diff < minDiff || std::abs(sum1 - sum2) <= std::abs(std::accumulate(nums.begin(), nums.begin() + cutIndex + 1, 0) - std::accumulate(nums.begin() + cutIndex + 1, nums.end(), 0))) {
+                minDiff = diff;
+                cutIndex = i;
+            }
         }
     }
 
