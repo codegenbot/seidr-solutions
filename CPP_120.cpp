@@ -1,15 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
-}
-
-int maximum(const std::vector<int>& vec, int start = 0) {
-    if (vec.empty()) 
-        return -1;
-    else
-        return *std::max_element(vec.begin() + start, vec.end());
 }
 
 int main() {
@@ -19,11 +13,11 @@ int main() {
     }
     std::vector<int> vec2(3); 
     std::iota(vec2.begin(), vec2.end(), 1);
-    
-    if (issame({vec1}, {vec2})) { // Compare vectors
+
+    if (issame(vec1, vec2)) { // Compare vectors
         std::cout << "Vectors are same" << std::endl;
     } else {
-        int max = maximum(vec1);
+        auto max = *std::max_element({1, 2, 3, -23, 243, -400, 0});
         std::cout << "Maximum element in the vector is: " << max << std::endl;
     }
     
