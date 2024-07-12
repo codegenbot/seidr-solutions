@@ -1,17 +1,19 @@
+#include <vector>
 #include <algorithm>
+
+using namespace std;
 
 vector<int> unique(vector<int> l) {
     vector<int> result(l.begin(), unique_copy(l.begin(), l.end()).end());
     return result;
 }
 
-auto unique_copy = [](auto first, auto last)
-{
-    std::sort(first, last);
-    first = std::unique(first, last);
-    while (first != last) {
-        ++first;
-        --last;
+vector<int>::iterator unique_copy(iterator first, iterator last) {
+    unordered_set<int> seen;
+    for (auto it = first; it != last; ++it) {
+        if (seen.insert(*it).second) {
+            *result++ = *it;
+        }
     }
-    return first;
-};
+    return --result;
+}
