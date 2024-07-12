@@ -26,9 +26,9 @@ vector<int> compare(vector<int> game, vector<int> guess) {
 }
 
 int main() {
-    vector<int> game,guess;
     int n;
     cin >> n;
+    vector<int> game(n), guess(n);
     for(int i = 0; i < n;i++){
         cin >> game[i] >> guess[i];
     }
