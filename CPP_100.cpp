@@ -1,12 +1,11 @@
+```cpp
 #include <vector>
 
-namespace {
-    bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-        return a == b;
-    }
+bool issame(vector<int> a, vector<int>b) {
+    return a == b;
 }
 
-std::vector<int> make_a_pile(int n) {
+vector<int> make_a_pile(int n) {
     vector<int> pile;
     int stones = n;
     for (int i = 0; i < n; i++) {
@@ -19,4 +18,8 @@ std::vector<int> make_a_pile(int n) {
         }
     }
     return pile;
+}
+
+int main() {
+    assert (issame(make_a_pile(8) , vector<int>{8, 10, 12, 14, 16, 18, 20, 22}));
 }
