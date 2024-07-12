@@ -13,16 +13,16 @@ def calculate_bowling_score(input_str):
                 frame += 1
         elif rolls[i] == "/":
             score += 10 - int(rolls[i - 1])
-            if rolls[i + 1] == "X":
-                score += 10
-            else:
-                score += int(rolls[i + 1])
             if frame < 10:
+                score += int(rolls[i + 1])
+                if rolls[i + 1] == "/":
+                    score += 10 - int(rolls[i])
                 frame += 1
         else:
             score += int(rolls[i])
 
     return score
+
 
 input_str = input()
 print(calculate_bowling_score(input_str))
