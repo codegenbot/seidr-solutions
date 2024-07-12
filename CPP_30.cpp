@@ -1,5 +1,7 @@
 #include <vector>
-#include <algorithm> 
+#include <algorithm>
+#include <cassert>
+
 using namespace std; 
 
 vector<float> get_positive(vector<float> v) {
@@ -24,6 +26,8 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 int test() {
-    assert(issame(get_positive({1.0, 2.0}), get_positive({1.0, 2.0})) == true);
+    vector<float> v1({1.0, -2.0, 3.0});
+    vector<float> v2({-1.0, 2.0, -3.0});
+    assert(issame(get_positive(v1), get_positive(v2)) == false);
     return 0;
 }
