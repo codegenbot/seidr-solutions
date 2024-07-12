@@ -1,8 +1,6 @@
 def solve_boolean(expression):
-    operators = {"T": "True", "F": "False", "|": " or ", "&": " and "}
-    for key, value in operators.items():
-        expression = expression.replace(key, value)
-    return eval(expression)
+    expression = expression.replace("T", "True").replace("F", "False")
+    return eval(expression.replace("|", " or ").replace("&", " and "))
 
 
 input_str = input().strip()
