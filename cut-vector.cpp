@@ -8,12 +8,20 @@ int main() {
     std::vector<int> vec = {2, 5, 7, 3, 8, 4, 6};
 
     int n = vec.size();
+    if (n == 1 || std::adjacent_find(vec.begin(), vec.end(), std::not_equal_to<int>()) == vec.end()) {
+        for (int val : vec) {
+            std::cout << val << " ";
+        }
+        std::cout << std::endl;
+        return 0;
+    }
+
     int totalSum = std::accumulate(vec.begin(), vec.end(), 0);
     int leftSum = 0;
     int minDiff = totalSum;
     int cutIndex = -1;
 
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n - 1; ++i) {
         leftSum += vec[i];
         int rightSum = totalSum - leftSum;
         int diff = std::abs(leftSum - rightSum);
