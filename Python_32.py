@@ -1,5 +1,5 @@
 def main():
-    xs = [float(input()) for _ in range(2)]
+    xs = list(map(float, input().split()))
 
     if len(xs) < 2:
         print("Input list must have at least 2 elements")
