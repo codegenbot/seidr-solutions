@@ -5,3 +5,6 @@ while True:
         break
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
+    except EOFError:
+        print("Program did not receive expected input. Exiting.")
+        break
