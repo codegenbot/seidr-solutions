@@ -9,8 +9,8 @@ def parse_nested_parens(paren_string: str) -> List[int]:
         for char in group:
             if char == '(':
                 nesting_level += 1
-                max_nesting_level = max(max_nesting_level, nesting_level)
             elif char == ')':
                 nesting_level -= 1
-        result.append(max_nesting_level)
+            max_nesting_level = max(max_nesting_level, nesting_level)
+        result.append(max_nesting_level + 1)
     return result
