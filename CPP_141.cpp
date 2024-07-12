@@ -2,7 +2,9 @@
 #include <string>
 #include <cassert>
 
-std::string file_name_check(std::string file_name) {
+using namespace std;
+
+string file_name_check(string file_name) {
     int digitCount = 0;
     int dotCount = 0;
     int dotIndex = -1;
@@ -20,7 +22,7 @@ std::string file_name_check(std::string file_name) {
     if(dotCount != 1 || dotIndex == 0 || dotIndex == file_name.size()-1)
         return "No";
     
-    std::string extension = file_name.substr(dotIndex + 1);
+    string extension = file_name.substr(dotIndex + 1);
     if(extension != "txt" && extension != "exe" && extension != "dll")
         return "No";
     
