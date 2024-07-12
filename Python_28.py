@@ -1,10 +1,4 @@
-def calculate_total_cost(items):
-    total_cost = 0
-    for item in items:
-        total_cost += item.cost
-    return total_cost
-
-
+```
 def main():
     class Item:
         def __init__(self, name):
