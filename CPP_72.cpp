@@ -1,13 +1,9 @@
-#include <iostream>
-bool will_it_fly(std::vector<std::vector<int>>, int);
-
-int main() {
-    std::vector<std::vector<int>> q = {{1, 2}, {3, 4}};
-    int w = 6;
-    if (!will_it_fly(q, w)) {
-        std::cout << "Will not fly.\n";
-    } else {
-        std::cout << "Will fly.\n";
+```cpp
+bool will_it_fly(std::vector<std::vector<int>>& q, int w) {
+    int n = q.size();
+    for(int i = 0; i < n; i++) {
+        if(q[i].size() == 1 && q[i][0] <= w)
+            return true;
     }
-    return 0;
+    return false;
 }
