@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -20,16 +19,10 @@ int main() {
         std::cin >> temp;
         lst1.push_back(temp);
     }
-    std::cout << "Enter the number of elements to fill lst2: ";
-    std::cin >> m1;
-    while (m1 < 0) {
+    while (!(std::cin >> m1) || m1 <= 0) {
         std::cout << "Please enter a positive integer: ";
         std::cin.clear();
         std::cin.ignore(10000, '\n');
-        std::cin >> m1;
-        if(m1 < 0){
-            std::cout << "Invalid input. Please try again.\n";
-        }
     }
     int m;
     m = m2; // Store the value in m
@@ -39,6 +32,11 @@ int main() {
         std::cout << "Enter element of lst2: ";
         std::cin >> temp;
         lst2.push_back(temp);
+    }
+    while (!(std::cin >> m1) || m1 <= 0) {
+        std::cout << "Please enter a positive integer: ";
+        std::cin.clear();
+        std::cin.ignore(10000, '\n');
     }
     std::string result = exchange(lst1, lst2);
     std::cout << result << std::endl;
