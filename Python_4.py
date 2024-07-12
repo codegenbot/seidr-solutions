@@ -1,6 +1,6 @@
 from typing import List
+
 def mean_absolute_deviation(numbers: List[float]) -> float:
-    if not numbers or not all(isinstance(x, float) for x in numbers):
-        raise ValueError("Input should be a non-empty list of float numbers")
-    mean = sum(numbers) / len(numbers)
-    return sum(abs(x - mean) for x in numbers) / len(numbers)
+    if not all(isinstance(x, float) for x in numbers):
+        raise ValueError("Input should be a list of float numbers")
+    return sum(abs(x - (sum(numbers) / len(numbers)) for x in numbers) / len(numbers)
