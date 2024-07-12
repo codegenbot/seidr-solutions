@@ -1,7 +1,7 @@
+```cpp
 #include <iostream>
 #include <string>
 #include <cassert>
-#include <sstream>
 using namespace std;
 
 bool is_prime(int n) {
@@ -11,15 +11,14 @@ bool is_prime(int n) {
     return true;
 }
 
-std::vector<std::string> split(const std::string& str, const std::string& token) {
+std::vector<std::string> split(const std::string& str, const char* delim) {
+    size_t pos = 0;
     std::vector<std::string> tokens;
-    std::stringstream ss(str);
-    std::string tmp;
-
-    while (std::getline(ss, tmp, token[0])) {
-        tokens.push_back(tmp);
+    while ((pos = str.find(delim)) != std::string::npos) {
+        tokens.push_back(str.substr(0, pos));
+        str.erase(0, pos + strlen(delim));
     }
-
+    tokens.push_back(str);
     return tokens;
 }
 
@@ -31,7 +30,7 @@ std::string words_in_sentence(std::string sentence) {
             result += word + " ";
         }
     }
-    return result.substr(0, result.size() - 1);
+    return result.empty() ? "" : result.substr(0, result.size() - 1);
 }
 
 int main() {
