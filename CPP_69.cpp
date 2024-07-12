@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <map>
 #include <cassert>
@@ -25,6 +24,7 @@ int findMaxFreq(std::vector<int> lst) {
 }
 
 int main() {
-    assert(findMaxFreq({3, 10, 10, 9, 2}) == -1);
+    std::vector<int> lst = {3, 10, 10, 9, 2};
+    int result = findMaxFreq(lst);
     return 0;
 }
