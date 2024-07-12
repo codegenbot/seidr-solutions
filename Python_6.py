@@ -1,6 +1,6 @@
 ```
-result = []
-paren_string = input()
+paren_string = input()  
+result = []  
 for group in paren_string.split():
     if group:  
         level = 0
@@ -11,5 +11,5 @@ for group in paren_string.split():
             elif char == ')':
                 level -= 1
             max_level = max(max_level, level)
-        result.append(max_level)
+        result.append(max_level)  
 return result
