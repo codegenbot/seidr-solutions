@@ -4,6 +4,8 @@
 
 int main() {
     char text[100], target[100];
+    
+    std::cin.ignore(); // Ignore the newline character
     std::cin.getline(text, 100);
     std::cin.getline(target, 100);
 
