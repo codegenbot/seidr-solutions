@@ -4,19 +4,21 @@
 
 using namespace std;
 
-vector<int> get_odd_collatz(unsigned int n) {
+vector<int> get_odd_collatz(int n) {
     assert(n > 0);
-    
     vector<int> result;
-    while (n != 1 && n != 1431655765) {
+    
+    while (n != 1) {
         result.push_back(n);
         if (n % 2 == 0) {
             n /= 2;
         } else {
-            if (n > (INT_MAX - 1) / 3) {
+            if (n > 0 && (__builtin_ctz(n) < 31)) {
+                n = 3 * n + 1;
+            } else {
+                result.push_back(1);
                 break;
             }
-            n = 3 * n + 1;
         }
     }
     result.push_back(1);
