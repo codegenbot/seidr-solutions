@@ -1,7 +1,7 @@
 #include <iostream>
 #include <any>
 #include <string>
-#include <cassert> 
+#include <cassert>
 
 std::any compare_one(std::any a, std::any b) {
     // Add your comparison logic here
