@@ -31,3 +31,4 @@ int main() {
         std::cout << camelCase(str) << std::endl;
     }
     return 0;
+}
