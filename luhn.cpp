@@ -1,4 +1,10 @@
+```
 #include <vector>
+
+int luhnHelper(const std::vector<int>& numbers, int pos);
+int luhn(const std::vector<int>& numbers) {
+    return luhnHelper(numbers, numbers.size() - 1);
+}
 
 int luhnHelper(const std::vector<int>& numbers, int pos) {
     if (pos < 0)
@@ -12,8 +18,4 @@ int luhnHelper(const std::vector<int>& numbers, int pos) {
     } else {
         return digit + luhnHelper(numbers, pos - 1);
     }
-}
-
-int luhn(const std::vector<int>& numbers) {
-    return luhnHelper(numbers, numbers.size() - 1);
 }
