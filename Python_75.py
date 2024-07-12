@@ -1,4 +1,4 @@
-```Python
+```
 def is_multiply_prime(n):
     if n < 2:
         return False
@@ -20,14 +20,16 @@ def is_prime(num):
     return True
 
 
-if __name__ == "__main__":
-    while True:
-        try:
-            num = int(input("Enter a number: "))
-            if num < 2:
-                print("Invalid input. Please enter a number greater than or equal to 2.")
-                continue
-            break
-        except ValueError:
-            print("Invalid input. Please enter an integer.")
-    print(is_multiply_prime(num))
+import math
+
+num = float('inf')
+while True:
+    try:
+        num = int(input("Enter a number: "))
+        if num < 2:
+            print("Invalid input. Please enter a number greater than or equal to 2.")
+            continue
+        break
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+print(is_multiply_prime(num))
