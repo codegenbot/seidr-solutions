@@ -3,7 +3,7 @@
 
 bool evaluateBooleanExpression(const std::string& expression) {
     bool result = true;
-    int operation = 0; 
+    int operation = 0; // Flag for AND (0), OR (1)
     for (char c : expression) {
         if (c == '&') {
             operation = 0;
