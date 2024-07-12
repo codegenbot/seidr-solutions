@@ -1,12 +1,9 @@
 #include <vector>
 
 int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
 }
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
@@ -23,7 +20,9 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
             }
         }
         if (found) {
-            indices.push_back(i);
+            for (int k = 0; k < m; ++k) {
+                indices.push_back(i + k);
+            }
         }
     }
     
