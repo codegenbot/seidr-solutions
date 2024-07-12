@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <string>
 #include <initializer_list>
@@ -54,5 +55,4 @@ int main() {
     vector<float> grades = {0.0, 0.7};
     vector<string> result = numerical_letter_grade({grades.begin(), grades.end()});
     assert(checkSame(vector<string>(result.begin(), result.end())) == true);
-    return 0;
 }
