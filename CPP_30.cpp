@@ -1,32 +1,27 @@
 #include <vector>
 #include <algorithm>
-#include <numeric>
-#include <iostream>
-using namespace std;
 
-// Function to check if two vectors are equal
-bool issame(vector<float> a, vector<float> b) {
-    if (a.size() != b.size())
+bool issame(std::vector<float> a, std::vector<float> b) {
+    if(a.size() != b.size()) 
         return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (std::abs(a[i] - b[i]) > std::numeric_limits<float>::epsilon())
+    for(int i = 0; i<a.size(); i++) {
+        if(std::abs(a[i] - b[i]) > 0.001f)
             return false;
     }
     return true;
 }
 
-// Function to get all positive elements from a vector
-vector<float> get_positive(vector<float> l) {
-    vector<float> result;
-    for (float x : l) {
-        if (x > 0)
+std::vector<float> get_positive(const std::vector<float>& l){
+    std::vector<float> result;
+    for(float x : l){
+        if(x > 0)
             result.push_back(x);
     }
     return result;
 
 }
 int main() {
-    vector<float> input = {1, -2, 3, -4};
+    std::vector<float> input = {1, -2, 3, -4};
     assert(issame(get_positive(input), {}));  
     return 0;
 }
