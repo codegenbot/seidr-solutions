@@ -1,8 +1,5 @@
 ```
 def factorize(n: int) -> List[int]:
-    """Complete the following code given the task description and function signature..
-Currently, the code is 
-"""
     factors = []
     i = 2
     while i * i <= n:
