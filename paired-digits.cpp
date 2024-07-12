@@ -12,7 +12,7 @@ int pairedDigits(std::string s) {
 }
 
 int main() {
-    std::string str(input);
+    std::string str(input); 
     int result = pairedDigits(str);
     return 0;
 }
