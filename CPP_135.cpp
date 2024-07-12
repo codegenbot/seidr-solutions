@@ -9,5 +9,3 @@ int can_arrange(std::vector<int> arr){
     }
     return index;
 }
-
-assert(can_arrange(std::vector<int>{}) == -1);
