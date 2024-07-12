@@ -1,9 +1,8 @@
 def fruit_distribution(s, n):
-    s = s.replace("apples", "a").replace("oranges", "o")
-    count = {"a": 0, "o": 0}
-    for word in s.split():
-        if word.isdigit():
-            n = int(word)
-        elif word in count:
-            count[word] += 1
-    return n - count["a"] - count["o"]
+    words = s.split()
+    mangoes = (
+        n
+        - int(words[words.index("apples") - 1].split()[0])
+        - int(words[words.index("oranges") - 1].split()[0])
+    )
+    return mangoes
