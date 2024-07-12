@@ -1,8 +1,4 @@
-def remove_duplicates(input_numbers):
-    unique_numbers = []
-
-    for num in input_numbers:
-        if num not in unique_numbers:
-            unique_numbers.append(num)
-
-    return list(set(unique_numbers))
+```
+def remove_duplicates(input_numbers): 
+    unique_numbers = list(set(map(str, input_numbers)))
+    return [int(x) for x in unique_numbers]
