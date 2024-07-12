@@ -1,6 +1,7 @@
-if __name__ == "__main__":
-    xs = list(map(float, input("Enter coefficients (space-separated): ").split()))
+```
+import math
 
+if __name__ == "__main__":
     def find_zero(xs: list):
         n = len(xs)
         if n % 2 != 0:
@@ -11,5 +12,3 @@ if __name__ == "__main__":
         d = xs[3] if n > 3 else 0
         x = (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
         return round(x, 2)
-
-    print(find_zero(xs))
