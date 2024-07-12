@@ -1,4 +1,4 @@
-```
+```"""
 import hashlib
 
 while True:
@@ -15,3 +15,4 @@ while True:
 
 output = hashlib.md5(s.encode()).hexdigest()
 print(f"Output: {output}")
+"""
