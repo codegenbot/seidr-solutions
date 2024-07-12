@@ -27,7 +27,7 @@ int main() {
 
     double result = calculateEuclideanDistance(vec1, vec2);
 
-    std::cout << "Euclidean Distance: " << result << std::endl;
+    std::cout << "Euclidean Distance: " << std::fixed << result << std::endl;
 
     return 0;
 }
