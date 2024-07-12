@@ -1,22 +1,32 @@
-```cpp
-#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <iostream>
 
-int main() {
-    std::vector<double> input_vector;
-    input_vector.push_back(1.0);
-    input_vector.push_back(2.0);
-    input_vector.push_back(3.0);
-    int odd_sum = double_the_difference(input_vector); 
-    assert(odd_sum == 5);
-    return 0;
+std::vector<double> double_the_difference() {
+    std::vector<int> input_vector;
+    int sum_even = 0, sum_odd = 0;
+
+    while (true) {
+        int num;
+        std::cout << "Enter a number (-1 to finish): ";
+        std::cin >> num;
+
+        if (num == -1)
+            break;
+
+        if (num % 2 == 0)
+            sum_even += num;
+        else
+            sum_odd += num;
+
+        input_vector.push_back(num);
+    }
+
+    return {(double)sum_even, (double)sum_odd};
 }
 
-int double_the_difference(const std::vector<double>& input_vector) {
-    int odd_sum = 0;
-    for (double x : input_vector) {
-        if (std::floor(x + 0.5) != x)
-            odd_sum += static_cast<int>(x * 2);
-    }
-    return odd_sum;
+int main() {
+    std::vector<double> result = double_the_difference();
+    std::cout << "Double the difference: " << (result[0] - result[1]) * 2.0 << std::endl;
+    return 0;
 }
