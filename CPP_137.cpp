@@ -4,26 +4,11 @@
 #include <cassert>
 
 std::any compare_one(std::any a, std::any b) {
-    if (a.type() == typeid(int) && b.type() == typeid(int)) {
-        // Comparison logic for integers
-    } else if (a.type() == typeid(float) && b.type() == typeid(float)) {
-        // Comparison logic for floats
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
-        std::string str_a = std::any_cast<std::string>(a);
-        std::string str_b = std::any_cast<std::string>(b);
-        if (str_a == str_b) {
-            return std::any("Equal");
-        } else {
-            return std::any("Not Equal");
-        }
-    } else if ((a.type() == typeid(int) && b.type() == typeid(std::string)) || (a.type() == typeid(std::string) && b.type() == typeid(int))) {
-        // Convert and compare int and string
-    }
-    
+    // Add your comparison logic here
     return std::any("None");
 }
 
 int main() {
-    assert(std::any_cast<const char*>(compare_one(std::string("1"), std::string("1")).type() == typeid(const char*)); // Ensure correct return type
+    assert(std::any_cast<const char*>(std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))).c_str()) == typeid(const char*)); // Corrected assert statement
     return 0;
 }
