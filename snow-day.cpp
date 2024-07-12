@@ -3,7 +3,7 @@
 int main() {
     int hours;
     float snow, snowFallRate, meltRate;
-    std::cin >> hours >> snow >> snowFallRate >> meltRate;
+    cin >> hours >> snow >> snowFallRate >> meltRate;
     
     for (int i = 0; i < hours; ++i) {
         snow += snowFallRate;
@@ -13,7 +13,7 @@ int main() {
         }
     }
     
-    std::cout << snow << std::endl;
+    cout << snow << endl;
     
     return 0;
 }
