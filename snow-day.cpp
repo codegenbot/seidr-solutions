@@ -6,11 +6,11 @@ float snowDay(int hours, float currentSnow, float rateOfSnowFall, float proporti
     float totalSnow = 0;
     
     for (int i = 0; i < hours; i++) {
-        totalSnow += rateOfSnowFall;
-        currentSnow += rateOfSnowFall - (currentSnow + totalSnow) * proportionOfSnowMelting / 100.0f;
+        totalSnow = currentSnow + rateOfSnowFall * (i + 1);
+        totalSnow -= totalSnow * proportionOfSnowMelting / 100.0f;
     }
     
-    return currentSnow;
+    return totalSnow;
 }
 
 int main() {
