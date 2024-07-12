@@ -1,6 +1,10 @@
+```
 def leaders(input_vector):
-    leaders = [input_vector[-1]]
-    for i in range(len(input_vector) - 2, -1, -1):
-        if input_vector[i] >= input_vector[-1]:
-            leaders.insert(0, input_vector[i])
-    return leaders
+    leaders = []
+    max_leader = input_vector[-1]
+    for num in reversed(input_vector[:-1]):
+        if num < max_leader:
+            leaders.append(max_leader)
+            max_leader = num
+    leaders.append(max_leader)  
+    return list(reversed(leaders))
