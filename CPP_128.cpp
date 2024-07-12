@@ -1,7 +1,4 @@
-```cpp
-#include <vector>
-#include <cassert>
-#include <cstdlib>
+#include <initializer_list>
 
 int prod_signs(std::vector<int> arr) {
     int product = 1;
