@@ -1,6 +1,7 @@
+Problem: Determine if a string is a palindrome and create a new palindrome by inserting characters.
+
 def is_palindrome(string: str) -> bool:
     return string == string[::-1]
-
 
 def make_palindrome(string: str) -> str:
     if string == string[::-1]:
