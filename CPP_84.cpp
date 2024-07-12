@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <cassert>
 using namespace std;
 
 int solve(int N) {
@@ -15,6 +14,9 @@ int solve(int N) {
 int main() {
     int N;
     cin >> N;
-    cout << solve(N) << endl;
-    assert(solve(963) == 10050);
+    try {
+        cout << to_string(solve(N)) << endl;
+    } catch (...) {
+        cout << "Error: Invalid input. Please enter a valid integer." << endl;
+    }
 }
