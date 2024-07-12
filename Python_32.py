@@ -1,7 +1,8 @@
+Here is the completed code:
+
 def find_zero(xs: list):
     n = len(xs)
-    if n % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
+    assert n % 2 == 0, "xs must have even number of coefficients"
     a = xs[-1]
-    b = -sum((coeff / math.factorial(i) for i, coeff in enumerate(xs[:-1])))
-    return round(-b / a, 2)
+    b = -sum([coeff for i, coeff in enumerate(xs) if i % 2 != 0])
+    return round(-b / (2 * a), 10)
