@@ -9,19 +9,24 @@ vector<int> leaders(vector<int>& arr) {
         return arr;
     }
     
-    for (int i = n - 2; i >= 0; i--) {
-        while (i > 0 && arr[i] <= arr[i + 1]) {
-            i--;
-        }
-        result.push_back(arr[i]);
-    }
+    int maxRight = arr[n - 1];
+    result.push_back(maxRight);
     
-    result.push_back(arr[n - 1]);
+    for (int i = n - 2; i >= 0; i--) {
+        if (arr[i] >= maxRight) {
+            result.push_back(arr[i]);
+            maxRight = arr[i];
+        }
+    }
     
     return result;
 }
 
 int main() {
-    leaders(vector<int>({}));
+    vector<int> arr = {1, 3, 4, 2};
+    vector<int> leadersVec = leaders(arr);
+    for (int leader : leadersVec) {
+        cout << leader << endl;
+    }
     return 0;
 }
