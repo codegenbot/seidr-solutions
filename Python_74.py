@@ -3,31 +3,19 @@ def total_match(lst1, lst2):
     sum1 = sum(len(s) for s in lst1)
     sum2 = sum(len(s) for s in lst2)
 
-    if set(map(len, lst1)) < set(map(len, lst2)):
+    if len(lst1) == 0 and len(lst2) == 0:
+        return "Both lists are empty"
+    elif sum1 < sum2:
         return lst1
-    elif set(map(len, lst1)) > set(map(len, lst2)):
+    elif sum1 > sum2:
         return lst2
     else:
         return lst1
 
-lst1 = []
-while True:
-    try:
-        lst1 = [s.strip() for s in input("Enter the first list of strings (comma-separated): ").split(",")]
-        if not all(isinstance(s, str) for s in lst1):
-            raise ValueError
-        break
-    except ValueError:
-        print("Invalid input. Please enter comma-separated string values.")
+lst1 = input("Enter the first list of strings (comma-separated): ")
+lst1 = [s.strip() for s in lst1.split(",")]
 
-lst2 = []
-while True:
-    try:
-        lst2 = [s.strip() for s in input("Enter the second list of strings (comma-separated): ").split(",")]
-        if not all(isinstance(s, str) for s in lst2):
-            raise ValueError
-        break
-    except ValueError:
-        print("Invalid input. Please enter comma-separated string values.")
+lst2 = input("Enter the second list of strings (comma-separated): ")
+lst2 = [s.strip() for s in lst2.split(",")]
 
 print(total_match(lst1, lst2))
