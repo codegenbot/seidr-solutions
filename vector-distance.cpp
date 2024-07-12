@@ -1,15 +1,23 @@
-#include <cmath>
-#include <vector>
+int main() {
+    size_t n; // Change data type from int to size_t
+    std::cout << "Enter the dimension of the vectors: ";
+    std::cin >> n;
 
-double calculateEuclideanDistance(const std::vector<double>& vector1, const std::vector<double>& vector2) {
-    if (vector1.size() != vector2.size()) {
-        return -1;
+    std::vector<double> vec1(n);
+    std::vector<double> vec2(n);
+
+    std::cout << "Enter the elements of the first vector: ";
+    for (size_t i = 0; i < n; ++i) { // Change loop index data type to size_t
+        std::cin >> vec1[i];
     }
 
-    double sum = 0.0;
-    for (size_t i = 0; i < vector1.size(); i++) {
-        sum += std::pow(vector1[i] - vector2[i], 2);
+    std::cout << "Enter the elements of the second vector: ";
+    for (size_t i = 0; i < n; ++i) { // Change loop index data type to size_t
+        std::cin >> vec2[i];
     }
 
-    return std::sqrt(sum);
+    double result = calculateEuclideanDistance(vec1, vec2);
+    std::cout << "Euclidean distance between the vectors: " << result << std::endl;
+
+    return 0;
 }
