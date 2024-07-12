@@ -1,5 +1,4 @@
-```
-def add(x: int, y: int):
-    x = int(input("Enter first number: "))
-    y = int(input("Enter second number: "))
-    return x + y
+def add(): 
+    n = int(input("Enter a number: ")) 
+    for i in range(1, n+1): 
+        print(i*i)
