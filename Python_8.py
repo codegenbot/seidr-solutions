@@ -1,4 +1,4 @@
-```Python
+```
 def sum_product() -> tuple:
     total_sum = 0
     product = 1
