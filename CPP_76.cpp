@@ -1,4 +1,5 @@
-Here's the solution:
+#include <cstddef>
+#include <cmath>
 
 bool is_simple_power(int x, int n) {
     double log_x = log((double)x);
