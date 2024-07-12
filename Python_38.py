@@ -1,4 +1,4 @@
-```
+```python
 def decode_cyclic():
     s = input("Enter the string: ")
     result = ""
