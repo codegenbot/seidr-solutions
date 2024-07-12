@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 int main() {
     string input;
     getline(cin, input);
@@ -7,10 +11,10 @@ int main() {
         if (c == '-') {
             capitalize = true;
         } else if (capitalize) {
-            cout << (char)toupper(c);
+            std::cout << (char)std::toupper(c);
             capitalize = false;
         } else {
-            cout << c;
+            std::cout << c;
         }
     }
     
