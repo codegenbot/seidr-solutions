@@ -1,4 +1,6 @@
-Here is the completed code:
+#include <vector>
+
+using namespace std;
 
 int add(vector<int> lst) {
     int sum = 0;
