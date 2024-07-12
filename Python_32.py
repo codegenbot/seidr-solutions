@@ -1,3 +1,4 @@
+```
 def quadratic_equation():
     import math
 
