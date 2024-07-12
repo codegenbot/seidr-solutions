@@ -1,4 +1,6 @@
-int bowling(std::string s) {
+#include <string>
+
+int bowling(string s) {
     int score = 0;
     bool lastRoll = false;
 
@@ -22,4 +24,3 @@ int bowling(std::string s) {
     }
 
     return score;
-}
