@@ -1,4 +1,4 @@
-#include <cctype>
+#include <vector>
 #include <iostream>
 #include <string>
 
@@ -9,7 +9,7 @@ std::string camelCase(std::string str) {
         if (c == '-' || c == ' ') {
             if (!isNextUpper) {
                 if (c == '-') {
-                    result += char(toupper(c));
+                    result += char(c - 32);
                 } else {
                     if (!result.empty()) {
                         result += ' ';
@@ -20,7 +20,7 @@ std::string camelCase(std::string str) {
         } else {
             isNextUpper = false;
             if (!result.empty() && c >= 'a' && c <= 'z') {
-                result += char(toupper(c));
+                result += char(c - 32);
             } else {
                 result += c;
             }
