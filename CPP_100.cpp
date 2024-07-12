@@ -1,13 +1,11 @@
 ```cpp
 #include <vector>
-#include <initializer_list>
 #include <cassert>
 
 using namespace std;
 
-bool issame(const initializer_list<int>& a, const initializer_list<int>& b) {
-    vector<int> vecA(a), vecB(b);
-    return vecA == vecB;
+bool issame(const vector<int>& a, const vector<int>& b) {
+    return a == b;
 }
 
 vector<int> make_a_pile(int n) {
