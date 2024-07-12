@@ -1,3 +1,4 @@
+```
 #include <iostream>
 using namespace std;
 
@@ -11,24 +12,19 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 }
 
 int main() {
+    int n;
+    cin >> n;
     vector<string> strings;
-    string prefix;
-
-    cout << "Enter the list of strings (space-separated): ";
-    getline(cin, input_string);
-    istringstream iss(input_string);
-    while (iss >> string) {
-        strings.push_back(string);
+    for(int i = 0; i < n; i++){
+        string s;
+        cin >> s;
+        strings.push_back(s);
     }
-
-    cout << "Enter the prefix: ";
+    string prefix;
     cin >> prefix;
-
-    vector<string> filtered_strings = filter_by_prefix(strings, prefix);
-
-    for(auto s : filtered_strings) {
+    vector<string> result = filter_by_prefix(strings, prefix);
+    for(auto s : result){
         cout << s << endl;
     }
-    
     return 0;
 }
