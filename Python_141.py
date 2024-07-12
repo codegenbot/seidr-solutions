@@ -4,10 +4,11 @@ def file_name_check(file_name):
         return 'No'
     if file_name.count('.') != 1:
         return 'No'
-    name, extension = file_name.rsplit('.', 1)
-    if not name or not name[0].isalpha():
+    if file_name[:file_name.index('.')] and not file_name[:file_name.index('.')][0].isalpha():
         return 'No'
+    extension = file_name[file_name.index('.') + 1:]
     valid_extensions = ['txt', 'exe', 'dll']
-    if extension.lower() not in valid_extensions:
+    if extension not in valid_extensions:
         return 'No'
-    return 'Yes'
+    else:
+        return 'Yes'
