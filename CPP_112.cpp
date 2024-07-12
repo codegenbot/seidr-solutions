@@ -1,5 +1,13 @@
-vector<string> reverse_delete(string s, string c) {
-    vector<string> result;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
+}
+
+std::vector<std::string> reverse_delete(string s, string c) {
+    std::vector<std::string> result;
     string temp = "";
     for (char ch : s) {
         bool found = false;
@@ -22,4 +30,10 @@ vector<string> reverse_delete(string s, string c) {
         result.push_back("False");
     }
     return result;
+}
+
+int main() {
+    assert(std::vector<std::string>({"", "True"}) == reverse_delete("mamma", "mia"));
+    // Other test cases...
+    return 0;
 }
