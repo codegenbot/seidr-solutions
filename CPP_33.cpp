@@ -1,7 +1,10 @@
+Here's your corrected code:
+
 ```cpp
 #include <algorithm>
 #include <assert.h>
 #include <vector>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
@@ -35,26 +38,4 @@ std::vector<int> sort_third(std::vector<int> l) {
     }
 }
 
-int main() {
-    std::vector<int> v;
-    int n;
-    std::cout << "Enter the number of elements: ";
-    std::cin >> n;
-    for (int i = 0; i < n; i++) {
-        std::cout << "Enter element " << i + 1 << ": ";
-        int num;
-        std::cin >> num;
-        v.push_back(num);
-    }
-    std::vector<int> res = sort_third(v);
-    if (!issame(v, res)) {
-        std::cout << "After sorting: ";
-        for (int j : res) {
-            std::cout << j << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        std::cout << "The array is already sorted." << std::endl;
-    }
-    return 0;
-}
+int main() { return 0; }
