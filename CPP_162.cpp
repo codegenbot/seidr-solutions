@@ -1,12 +1,6 @@
-```cpp
-#include <string>
-#include <sstream>
-#include <openssl/md5.h>
-
-using namespace std;
-
-string string_to_md5(string text) {
-    if (text.empty()) return "Error: Input is empty";
+```
+std::string string_to_md5(std::string text) {
+    if (text.empty()) return "";
 
     unsigned char md5[16];
     MD5_CTX ctx;
@@ -16,7 +10,7 @@ string string_to_md5(string text) {
     MD5_Update(&ctx, ptr, len);
     MD5_Final(md5, &ctx);
 
-    stringstream ss;
+    std::stringstream ss;
     for (int i = 0; i < 16; i++) {
         ss << setfill(2) << right << hex << (int)md5[i];
     }
