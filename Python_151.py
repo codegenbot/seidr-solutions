@@ -4,4 +4,7 @@ def double_the_difference(lst):
 
 
 def check(lst):
-    return double_the_difference(lst)
+    if len(lst) < 2:
+        return "List must contain at least two elements"
+    else:
+        return double_the_difference(lst)
