@@ -1,15 +1,11 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool issame(std::vector<float> a, std::vector<float> b) {
+bool issame(vector<float> a, vector<float> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
-std::vector<float> find_closest_elements(std::vector<float> numbers) {
-    std::sort(numbers.begin(), numbers.end());
+vector<float> find_closest_elements(vector<float> numbers) {
+    sort(numbers.begin(), numbers.end());
     float min_diff = numbers[1] - numbers[0];
-    std::pair<float, float> result = {numbers[0], numbers[1]};
+    pair<float, float> result = {numbers[0], numbers[1]};
     for (int i = 1; i < numbers.size() - 1; ++i) {
         if (numbers[i + 1] - numbers[i] < min_diff) {
             min_diff = numbers[i + 1] - numbers[i];
@@ -20,11 +16,15 @@ std::vector<float> find_closest_elements(std::vector<float> numbers) {
 }
 
 int main() {
-    std::vector<float> input = {5.6, 8.2, 3.4, 7.1, 2.9};
-    std::vector<float> closest_elements = find_closest_elements(input);
-    for (const auto& elem : closest_elements) {
-        std::cout << elem << " ";
+    vector<float> input = {3.2, 1.1, 4.5, 2.0, 5.6};
+    vector<float> result = find_closest_elements(input);
+    // Test the result by comparing with expected output
+    vector<float> expected_result = {4.5, 5.6};
+    if (issame(result, expected_result)) {
+        cout << "Test passed!" << endl;
+    } else {
+        cout << "Test failed!" << endl;
     }
-    std::cout << std::endl;
+
     return 0;
 }
