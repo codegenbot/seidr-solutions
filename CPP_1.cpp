@@ -1,27 +1,34 @@
-bool issame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    for (int i = 0; i < a.size(); ++i) {
-        if (a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
-}
+bool issame(vector<string> a, vector<string> b);
 
 vector<string> separate_paren_groups(string paren_string);
 
 int main() {
-    string input;
-    cin >> input;
-    vector<string> result = separate_paren_groups(input);
-    for (const string &group : result) {
-        cout << group << endl;
-    }
-    return 0;
+    // main function code here
 }
 
 vector<string> separate_paren_groups(string paren_string) {
-    // Existing function implementation remains unchanged
+    vector<string> result;
+    string temp;
+    int count = 0;
+    for (char c : paren_string) {
+        if (c == '(') {
+            if (count > 0) {
+                temp += c;
+            }
+            count++;
+        } else if (c == ')') {
+            count--;
+            if (count > 0) {
+                temp += c;
+            } else if (count == 0) {
+                result.push_back(temp);
+                temp = "";
+            }
+        }
+    }
+    return result;
+}
+
+bool issame(vector<string> a, vector<string> b) {
+    // issame function code here
 }
