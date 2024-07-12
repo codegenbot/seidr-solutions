@@ -1,19 +1,14 @@
+```
 def is_multiply_prime(n):
     if n < 2:
         return False
-    total = 1
-    i = 2
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            if i * i == n:
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            if i * i == n and is_prime(i): 
                 return True
-            j = i
-            while n % j == 0:
-                n //= j
-            total *= j
-    return is_prime(total) and is_prime(n)
+    if is_prime(n):
+        return True
+    return False
 
 
 def is_prime(num):
