@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <string>
 
@@ -31,3 +32,14 @@ vector<int> even_odd_palindrome(int n) {
     result[1] = countOdd;
 
     return result;
+}
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    vector<int> result = even_odd_palindrome(n);
+    cout << "Even palindromes: " << result[0] << endl;
+    cout << "Odd palindromes: " << result[1] << endl;
+    return 0;
+}
