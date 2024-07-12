@@ -1,3 +1,4 @@
+```
 def quadratic_equation():
     import math
 
@@ -14,3 +15,6 @@ def quadratic_equation():
         print(f"Root: {root}")
     else:
         print("No real roots")
+
+if __name__ == "__main__":
+    quadratic_equation()
