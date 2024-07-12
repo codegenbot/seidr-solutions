@@ -2,7 +2,7 @@
 #include <string>
 #include <initializer_list>
 
-bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
+bool isSame(const std::vector<std::vector<std::string>>& a, const std::vector<std::vector<std::string>>& b) {
     if (a.size() != b.size()) {
         return false;
     }
@@ -21,7 +21,7 @@ bool issame(const std::vector<std::vector<std::string>>& a, const std::vector<st
     return true;
 }
 
-std::vector<std::string> by_length(const std::initializer_list<int>& lengths) {
+std::vector<std::string> byLength(const std::initializer_list<int>& lengths) {
     std::vector<std::string> result;
     for(int length : lengths) {
         if (length == 4) {
@@ -47,10 +47,10 @@ std::vector<std::string> by_length(const std::initializer_list<int>& lengths) {
 
 int main() {
     std::vector<int> lengths = {9, 4, 8};
-    std::vector<std::string> output = by_length(lengths);
+    std::vector<std::string> output = byLength(lengths);
     
     std::vector<std::vector<std::string>> a({{output[0]}});
     std::vector<std::vector<std::string>> b({{output[0]}, {output[1], output[2]}});
     
-    std::cout << "Is same: " << (issame(a, b) ? "true" : "false") << std::endl;
+    std::cout << "Is same: " << (isSame(a, b) ? "true" : "false") << std::endl;
 }

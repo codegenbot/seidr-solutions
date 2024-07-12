@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <cmath>
 #include <iostream>
@@ -10,11 +11,11 @@ int sum_squares(std::vector<float> lst){
     return total;
 
 int main() {
-    float num;
     std::vector<float> input;
 
     std::cout << "Enter numbers (enter -1 to stop): ";
     while(true) {
+        float num;
         if(std::cin >> num) {
             if(num == -1.0f) break;
             input.push_back(num);
