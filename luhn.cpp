@@ -1,7 +1,7 @@
 #include <vector>
 
 int luhn(const std::vector<int>& numbers) {
-    return luhnHelper(numbers, 15);
+    return (numbers[14] * 2 >= 10 ? numbers[14] - 9 : numbers[14] * 2) + luhnHelper(numbers, 13);
 }
 
 int luhnHelper(const std::vector<int>& numbers, int pos) {
