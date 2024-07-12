@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 double vectorDistance(int n) {
     double sum = 0;
