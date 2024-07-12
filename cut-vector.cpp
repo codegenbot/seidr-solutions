@@ -14,6 +14,11 @@ int main() {
         input.push_back(num);
     }
 
+    if (input.empty()) {
+        cout << "No input provided." << endl;
+        return 1;
+    }
+
     int diff = numeric_limits<int>::max();
     int idx = 0;
     
@@ -27,11 +32,11 @@ int main() {
         }
     }
 
-    for (int i = 0; i < idx; ++i) {
+    for (int i = 0; i <= idx; ++i) {
         cout << input[i] << endl;
     }
     cout << endl;
-    for (int i = idx; i < input.size(); ++i) {
+    for (int i = idx;  i < input.size(); ++i) {
         cout << input[i] << endl;
     }
 
