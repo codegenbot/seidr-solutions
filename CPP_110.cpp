@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -11,8 +10,8 @@ int main() {
     int m2;
     std::cout << "Enter the number of elements in lst1: ";
     std::cin >> n1;
-    std::cout << "Enter the number of elements in lst2: ";
-    std::cin >> m2;
+    std::cout << "Enter the number of elements in lst1: ";
+    std::cin >> m1;
     std::vector<int> lst1(n1);
     std::cout << "Enter elements of lst1: ";
     for (int &i : lst1) {
@@ -20,6 +19,8 @@ int main() {
     }
     std::cout << "Enter the number of elements in lst2: ";
     std::cin >> n2;
+    std::cout << "Enter the number of elements in lst2: ";
+    std::cin >> m2;
     std::vector<int> lst2(n2);
     std::cout << "Enter elements of lst2: ";
     for (int &i : lst2) {
