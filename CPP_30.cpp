@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -16,19 +17,19 @@ bool issame(const std::vector<float>& a, const std::vector<float>& b) {
 
 int main() {
     assert(std::issame(get_positive({}), {}));
-    std::vector<float> input;
-    int n;
-    cin >> n;
-    for(int i = 0; i < n; i++) {
-        float x;
-        cin >> x;
-        input.push_back(x);
+    std::vector<float> vec = {1.0f, -2.0f, 3.0f, -4.0f};
+    std::cout << "Original vector: ";
+    for (float x : vec) {
+        std::cout << x << " ";
     }
-    vector<float> output = get_positive(input);
-    cout << "The positive numbers are: ";
-    for(float f : output) {
-        cout << f << " ";
+    std::cout << std::endl;
+    
+    vec = get_positive(vec);
+    std::cout << "Positive numbers in the vector: ";
+    for (float x : vec) {
+        std::cout << x << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
+    
     return 0;
 }
