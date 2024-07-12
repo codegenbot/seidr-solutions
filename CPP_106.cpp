@@ -6,7 +6,7 @@ bool issame(std::vector<int> a, std::vector<int> b){
 }
 
 std::vector<int> f(int n) {
-    return std::vector<int>{1, 2, n*2};
+    return std::vector<int>{1, 2, n};
 }
 
 int main() {
