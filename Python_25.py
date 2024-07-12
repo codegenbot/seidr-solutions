@@ -1,6 +1,5 @@
-```
 from typing import List
-def factorize(n: int) -> List[int]:
+def factorize(n: int) -> list:
     if n < 2:
         return [n]
     factors = []
