@@ -6,6 +6,5 @@ def sum_squares(lst):
             total_sum += lst[i] ** ((i % 3 + 1) * (i % 4 + 1))
     return total_sum
 
-lst = input("Enter a list of numbers separated by space: ")
-lst = [int(x) for x in lst.split()]
+lst = list(map(int, input("Enter a list of numbers separated by space: ").split()))
 print(sum_squares(lst))
