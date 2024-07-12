@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <sstream>
-#include <limits>
 
 int main() {
     std::string text, target;
@@ -17,7 +15,7 @@ int main() {
         pos = text.find(target, pos + 1);
     }
     
-    for (std::size_t i = 0; i < indices.size(); ++i) {
+    for (int i = 0; i < indices.size(); ++i) {
         std::cout << indices[i] << " ";
     }
     
