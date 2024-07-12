@@ -1,25 +1,18 @@
-bool check_dict_case(map<string, string> dict) {
-    if (dict.empty())
-        return false;
+bool check_map_case(map<string, string> dict) {
+    if(dict.empty()) return false;
 
-    for (auto &pair : dict) {
-        string key = pair.first;
-        bool allLower = true;
-        bool allUpper = true;
+    bool allLower = true;
+    bool allUpper = true;
 
-        for (char c : key) {
-            if (isupper(c)) {
-                allLower = false;
-                break;
-            } else if (islower(c)) {
-                allUpper = false;
-                break;
-            }
+    for(auto it = dict.begin(); it != dict.end(); ++it) {
+        if(!allLower && !allUpper) break;
+        if(allLower) {
+            allLower &= (it->first).find((char)32) == string::npos; // find(' ') == -1
         }
-
-        if (!allLower && !allUpper)
-            return false;
+        if(allUpper) {
+            allUpper &= (it->first).find((char)32) == string::npos;
+        }
     }
 
-    return true;
+    return allLower || allUpper;
 }
