@@ -1,3 +1,3 @@
-int product = abs(a % 10) * abs(b % 10);
-    return product;
+int multiply(int a, int b){
+    return abs((a % 10) * (b % 10));
 }
