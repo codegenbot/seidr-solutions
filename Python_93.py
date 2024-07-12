@@ -1,8 +1,7 @@
-```
 def encode(message):
     vowels = 'aeiouAEIOU'
     result = ""
-    for char in message.strip():
+    for char in message:
         if not char.isalpha():
             result += char
         elif char.lower() not in vowels:  
@@ -16,3 +15,5 @@ def encode(message):
                 index = (ord(char.lower()) - ord('a')) % 6
                 result += chr((index + 1) % 6 + ord('a'))
     return result
+
+print(encode("your_message_here"))
