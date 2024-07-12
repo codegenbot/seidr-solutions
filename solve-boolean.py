@@ -1,5 +1,5 @@
 def solve_boolean(expression):
-    return eval(expression, {"T": True, "F": False, "|": "or", "&": "and"})
+    return eval(expression, {"T": True, "F": False, "|": "|", "&": "&"})
 
 
 input_str = input()

@@ -9,6 +9,7 @@ int main() {
     
     std::getline(std::cin, text);
     std::getline(std::cin, target);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
