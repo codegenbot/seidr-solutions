@@ -1,4 +1,4 @@
-```
+````
 def solve(N):
     try:
         N = int(bin(N)[2:])
@@ -10,3 +10,4 @@ def solve(N):
         return str("1")
     else:
         return bin(N | (N - 1))[2:].replace("1", "10")
+```
