@@ -1,5 +1,3 @@
-Here is the modified code:
-
 def fruit_distribution(*s):
     total = 0
     for s_part in s:
