@@ -1,42 +1,26 @@
-int bowlingScore(string s) {
+#include <string>
+
+int bowling(string s) {
     int score = 0;
-    int currentFrame = 1;
-    int rollsLeftInFrame = 1;
+    bool lastRoll = false;
 
-    for (char c : s) {
-        if (c == 'X') { // strike
-            score += 10 + nextRollValue(s, currentFrame);
-            currentFrame++;
-            rollsLeftInFrame = 1;
-        } else if (c == '/') { // spare
-            score += 10 - nextRollValue(s, currentFrame) + nextRollValue(s, currentFrame);
-            currentFrame++;
-            rollsLeftInFrame = 0;
+    for (int i = 0; i < 10; i++) {
+        if (s[i] == '/') {
+            score += 10 - (i + 1);
+            lastRoll = true;
+        } else if (lastRoll) {
+            score += s[i] - '0';
         } else {
-            int rollValue = c - '0';
-            score += rollValue;
-
-            if (rollsLeftInFrame == 1) { // first roll
-                currentFrame++;
-                rollsLeftInFrame = 2; // two rolls left in frame
-            } else { // second roll
-                rollsLeftInFrame--;
+            int roll = 0;
+            for (int j = i; j < i+2 && j < s.size(); j++) {
+                roll = roll * 10 + (s[j] - '0');
+            }
+            if (roll == 10) {
+                score += 10;
+            } else {
+                score += roll;
             }
         }
     }
 
     return score;
-}
-
-int nextRollValue(string s, int frameNumber) {
-    for (char c : s) {
-        if (c == '/') {
-            continue;
-        }
-        if (c == 'X' || (frameNumber > 1 && c - '0' + nextRollValue(s, frameNumber) >= 10)) {
-            return 10;
-        }
-        return c - '0';
-    }
-    return 0;
-}
