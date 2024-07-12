@@ -1,17 +1,10 @@
 ```
 def compare_one(a, b):
     if isinstance(a, str) and isinstance(b, (int, float)):
-        a = convert_string_to_number(a)
+        return a if float(a.replace(',', '.')) > b else None
     elif isinstance(b, str) and isinstance(a, (int, float)):
-        b = convert_string_to_number(b)
-
-    if a > b:
-        return a
-    elif b > a:
-        return b
+        return b if float(b.replace(',', '.')) > a else None
+    elif isinstance(a, str) and isinstance(b, str):
+        return max([a, b]) if float(a.replace(',', '.')) > float(b.replace(',', '.')) else None
     else:
-        return None
-
-def convert_string_to_number(s):
-    s = s.replace('.', '').replace(',', '.')
-    return float(s)
+        return max((a, b)) if (isinstance(a, (int, float)) and a > b) or (isinstance(b, (int, float)) and b > a) else None
