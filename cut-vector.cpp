@@ -1,17 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <iostream>
+
+using namespace std;
 
 int main() {
     int n;
-    std::cin >> n;
-    std::vector<int> nums(n);
+    cin >> n;
+    vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
-        std::cin >> nums[i];
+        cin >> nums[i];
     }
     
-    int sum = std::accumulate(nums.begin(), nums.end(), 0);
+    int sum = accumulate(nums.begin(), nums.end(), 0);
     int target = sum / 2;
     int prefixSum = 0;
     int idx = 0;
@@ -24,14 +25,14 @@ int main() {
         }
     }
     
-    std::vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
-    std::vector<int> subvector2(nums.begin() + idx + 1, nums.end());
+    vector<int> subvector1(nums.begin(), nums.begin() + idx + 1);
+    vector<int> subvector2(nums.begin() + idx + 1, nums.end());
     
     for (int num : subvector1) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     for (int num : subvector2) {
-        std::cout << num << std::endl;
+        cout << num << endl;
     }
     
     return 0;
