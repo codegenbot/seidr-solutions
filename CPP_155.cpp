@@ -1,9 +1,9 @@
-```c++
+```cpp
 #include <vector>
 #include <string>
 #include <assert.h>
 
-bool issame(const std::vector& a, const std::vector& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
