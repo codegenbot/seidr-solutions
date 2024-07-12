@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -36,7 +35,11 @@ std::string reverse_delete(std::string s, std::string c) {
 }
 
 int main() {
-    if(checkEquality({"" , "True"}, reverse_delete("mamma", "mia").compare({"", "True"})) == 0) {
+    bool compareStrings(std::vector<std::string> a, std::vector<std::string>b) {
+        return checkEquality({a,b});
+    }
+
+    if(compareStrings({{"mamma", "True"}, reverse_delete("mamma", "mia"))) {
         std::cout << "The strings are the same." << std::endl;
     } else {
         std::cout << "The strings are not the same." << std::endl;
