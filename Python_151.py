@@ -1,5 +1,8 @@
-def check(num1, num2):
-    if double_the_difference([num1, num2]) == double_the_difference(
-        [abs(x) for x in [num1, num2]]
-    ):
-        return "It's a Pitfall!"
+```
+def check(lst1, lst2):
+    if double_the_difference(lst1) == double_the_difference(lst2):
+        return "The lists are equivalent."
+    elif double_the_difference(lst1) > double_the_difference(lst2):
+        return "List1 is greater."
+    else:
+        return "List2 is greater."
