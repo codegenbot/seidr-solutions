@@ -24,17 +24,13 @@ int main() {
         }
     }
 
-    std::cout << cutIndex << std::endl;
-
+    std::cout << vec[cutIndex - 1] << std::endl;
     for (int i = 0; i < cutIndex; ++i) {
         std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
-
     for (int i = cutIndex; i < n; ++i) {
-        if(i != cutIndex) {
-            std::cout << vec[i] << " ";
-        }
+        std::cout << vec[i] << " ";
     }
     std::cout << std::endl;
 
