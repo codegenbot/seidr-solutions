@@ -11,3 +11,9 @@ def simplify():
         return "Denominator cannot be zero!"
     else:
         return str(Fraction(x,y))
+
+def main():
+    print(simplify())
+
+if __name__ == "__main__":
+    main()
