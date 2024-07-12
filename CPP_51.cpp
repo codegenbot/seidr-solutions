@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 using namespace std;
 
 string remove_vowels(string text){
@@ -10,8 +11,12 @@ string remove_vowels(string text){
         }
     }
     return result;
-}
 
 int main() {
-    assert (remove_vowels("ybcd") == "ybcd");
+    string text;
+    cout << "Enter a sentence: ";
+    getline(cin, text);
+    string res = remove_vowels(text);
+    cout << "Sentence without vowels: " << res << endl;
+    return 0;
 }
