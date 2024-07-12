@@ -5,6 +5,6 @@ def modp(n: int, p: int):
     while p > 0:
         if p % 2 == 1:
             result = (result * n) % p
-        n = pow(n, 2, p)
+        n = (n * n) % p
         p //= 2
     return result
