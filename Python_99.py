@@ -1,7 +1,4 @@
 ```
-import math
-
-
 def find_closest_number():
     while True:
         try:
@@ -20,5 +17,6 @@ if __name__ == "__main__":
     while True:
         closest_integer, difference = find_closest_number()
         print("Closest integer: {}, Difference: {}".format(closest_integer, difference))
-        else:
-            continue
+        response = input("Do you want to continue? (yes/no): ")
+        if response.lower() != "yes":
+            break
