@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -21,6 +20,6 @@ int main() {
     std::string input;
     std::cout << "Enter a string: ";
     std::getline(std::cin, input);
-    std::cout << filp_case(input) << std::endl;
+    std::cout << filp_case(input) << std::endl; // Should output: "tHese ViOleNt DelIgHts HavE ViOLeNt EnDs"
     return 0;
 }
