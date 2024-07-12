@@ -1,3 +1,4 @@
+import sys
 from typing import List
 
 def separate_paren_groups(paren_string: str) -> List[str]:
@@ -21,3 +22,6 @@ def separate_paren_groups(paren_string: str) -> List[str]:
         result.append(current_group)
 
     return result
+
+paren_string = sys.stdin.readline().strip()
+print(separate_paren_groups(paren_string))
