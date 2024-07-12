@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+#include <cassert>
 using namespace std;
 
 int solve(int N) {
@@ -16,7 +19,7 @@ int main() {
         cout << "Error: Input should be a positive integer." << endl;
     } else {
         assert(solve(963) == 1010);
-        cout << to_string(solve(N)) << endl;
+        string str = to_string(solve(N));
+        cout << str << endl;
     }
     return 0;
-}
