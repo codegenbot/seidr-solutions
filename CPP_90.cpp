@@ -1,8 +1,6 @@
-```cpp
+#include <cassert>
 #include <algorithm>
 #include <vector>
-#include <iostream>
-#include <cassert>
 
 int findNextSmallest(std::vector<int> lst) {
     if (lst.empty()) return -1; 
