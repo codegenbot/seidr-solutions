@@ -1,7 +1,14 @@
-```cpp
+```
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
+std::vector<int> nextSmallest(std::vector<int>& nums) {
+    for (int i = 0; i < nums.size() - 1; i++) {
+        if (nums[i] != nums[i + 1]) return {nums[i]};
+    }
+    return {-1};
+}
 
 int main() {
     std::vector<int> lst;
@@ -15,12 +22,7 @@ int main() {
         for(int i = 0; i < n; i++){
             int x;
             std::cin >> x;
-            if(lst.size() + 1 <= lst.max_size()) 
-                lst.push_back(x);
-            else {
-                std::cout << "-1"; 
-                return 0;
-            }
+            lst.push_back(x);
         }
 
         if(lst.size() >= 2) {
