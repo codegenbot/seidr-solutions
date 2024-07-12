@@ -1,3 +1,3 @@
 ```Python
 def solve(N):
-    return bin(N)[2:]
+    return str(bin(N)[2:]).replace("1", "10")
