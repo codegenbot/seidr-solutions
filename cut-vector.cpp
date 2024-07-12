@@ -1,22 +1,41 @@
-int main() {
-    vector<int> A;
-    int n, a;
-    while (cin >> a) {
-        A.push_back(a);
-    }
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <cmath>
 
-    int sum1 = 0, sum2 = accumulate(A.begin() + 1, A.end(), 0);
-    for (int i = 0; i < A.size(); i++) {
-        sum1 += A[i];
-        sum2 -= A[i];
-        if (sum1 == sum2 || abs(sum1 - sum2) < abs(2*(sum1 - A[i]) - sum2)) {
-            for (int j = 0; j <= i; j++) {
-                cout << A[j] << endl;
-            }
-            cout << "0" << endl;
-            break;
+int main() {
+    std::vector<int> nums;
+    int num;
+    while (std::cin >> num) {
+        nums.push_back(num);
+    }
+    
+    int n = nums.size();
+    int diff = INT_MAX;
+    int cutIndex = 0;
+    
+    for (int i = 1; i < n; ++i) {
+        int leftSum = 0, rightSum = 0;
+        for (int j = 0; j < i; ++j) {
+            leftSum += nums[j];
+        }
+        for (int j = i; j < n; ++j) {
+            rightSum += nums[j];
+        }
+        
+        if (std::abs(leftSum - rightSum) < diff) {
+            diff = std::abs(leftSum - rightSum);
+            cutIndex = i;
         }
     }
-
+    
+    for (int i = 0; i < cutIndex; ++i) {
+        std::cout << nums[i] << std::endl;
+    }
+    std::cout << std::endl;
+    for (int i = cutIndex; i < n; ++i) {
+        std::cout << nums[i] << std::endl;
+    }
+    
     return 0;
 }
