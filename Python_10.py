@@ -1,14 +1,8 @@
-Here is the solution:
-
-def is_palindrome(string: str) -> bool:
-    return string == string[::-1]
-
+```
 def make_palindrome(string: str) -> str:
-    if string.islower():
-        for i in range(len(string), 0, -1):
-            if string[:i] == string[:i][::-1]:
-                return string + string[:i][::-1]
-    else:
-        for i in range(len(string), 0, -1):
-            if ''.join(sorted(string[:i])) == ''.join(sorted(string[:i][::-1])):
-                return string + string[:i][::-1]
+    if string == string[::-1]:
+        return string
+    for i in range(len(string)):
+        if string[:i+1] == string[:i+1][::-1] and string[i:] == string[i:][::-1]:
+            return string + string[i:][::-1]
+    return string + string[::-1]
