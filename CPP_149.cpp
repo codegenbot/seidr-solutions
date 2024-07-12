@@ -1,26 +1,23 @@
-bool issame(string a, string b) {
-    return (a.length() == b.length());
-}
-
-vector<string> sorted_list_sum(vector<string> lst) {
-    vector<string> result;
-
-    // Delete strings that have odd lengths from the list
-    for (const auto& str : lst) {
-        if (str.length() % 2 == 0) {
-            result.push_back(str);
+bool issame(const string& a, const string& b) {
+    if (a.length() != b.length()) {
+        return false;
+    }
+    for (int i = 0; i < a.length(); ++i) {
+        if (tolower(a[i]) != tolower(b[i])) {
+            return false;
         }
     }
+    return true;
+}
 
-    // Sort the resulted vector by length and then alphabetically
-    sort(result.begin(), result.end(),
-         [](const string& a, const string& b) {
-             if (issame(a, b)) {
-                 return a < b;
-             } else {
-                 return a.length() < b.length();
-             }
-         });
-
-    return result;
+bool issame(const string& a, const string& b) {
+    if (a.length() != b.length()) {
+        return false;
+    }
+    for (int i = 0; i < a.length(); ++i) {
+        if (tolower(a[i]) != tolower(b[i])) {
+            return false;
+        }
+    }
+    return true;
 }
