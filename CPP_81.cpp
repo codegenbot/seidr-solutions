@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <initializer_list>
-#include <cassert>
 #include <limits>
 
 using namespace std;
@@ -53,8 +52,8 @@ vector<string> numerical_letter_grade(initializer_list<float> grades) {
 }
 
 int main() {
-    vector<float> gradesList = {0.0, 0.7};
-    vector<string> result = numerical_letter_grade(gradesList);
+    vector<float> grades = {0.0, 0.7};
+    vector<string> result = numerical_letter_grade({grades});
     assert(checkSame(vector<string>(result.begin(), result.end())) == vector<string>{"E", "D-" });
     return 0;
 }
