@@ -18,7 +18,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         int complement = target - nums[i];
         if (numIndex.find(complement) != numIndex.end()) {
-            cout << complement << endl << nums[i];
+            cout << complement << " " << nums[i] << endl;
             break;
         }
         numIndex[nums[i]] = i;
