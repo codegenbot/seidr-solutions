@@ -3,4 +3,5 @@ def secure_code():
     digits = [int(x) for x in s.split()]
     unique_digits = set(digits)
     sorted_unique_digits = str(sorted(unique_digits)).replace(", ", " ")
-    return " ".join(map(str, digits)) + f" Sum: {sum(unique_digits)} - {'Even' if sum(unique_digits) % 2 == 0 else 'Odd'}"
+    is_even = sum(unique_digits) % 2 == 0
+    return " ".join(map(str, digits)) + f" Sum: {sum(unique_digits)} - {'Even' if is_even else 'Odd'}"
