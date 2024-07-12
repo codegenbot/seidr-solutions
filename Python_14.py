@@ -1,7 +1,7 @@
-from typing import list
+from typing import List
 
-def all_prefixes(string: str) -> list[str]:
-    prefixes = []
-    for i in range(len(string)):
-        prefixes.append(string[:i+1])
-    return prefixes
+def all_prefixes(string: str) -> List[str]:
+    result = []
+    for i in range(1, len(string) + 1):
+        result.append(string[:i])
+    return result
