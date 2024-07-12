@@ -31,8 +31,8 @@ int main() {
     }
     std::cout << std::endl;
 
-    for (int i = cutIndex; i < n; ++i) {
-        std::cout << nums[i] << (i < n - 1 ? " " : "") ;
+    for (int i = cutIndex + 1; i < n; ++i) {
+        std::cout << nums[i] << (i < n - 1 ? " " : "");
     }
     if (cutIndex == n - 1) {
         std::cout << std::endl;
