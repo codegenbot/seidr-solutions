@@ -1,10 +1,20 @@
-Here is the completed code:
+import math
+
+
+def poly(xs: list, x: float):
+    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+
 
 def find_zero(xs: list):
-    if len(xs) % 2 != 0:
-        raise ValueError("xs must have an even number of coefficients")
-    a = xs[-1]
-    b = -sum([coeff for i, coeff in enumerate(xs[:-1])])
-    c = sum([coeff for i, coeff in enumerate(xs[:-2], 1)])
-    d = -xs[0]
-    return round(-b / (2 * a), 2) if a != 0 else float('inf')
+    n = len(xs)
+    assert n % 2 == 0
+    a = xs[n // 2]
+    b = -xs[0] / (2 * a)
+    c = xs[0] / (4 * a**2) - b
+    d = b - c
+    r1 = (-b + math.sqrt(d)) / 2
+    r2 = (-b - math.sqrt(d)) / 2
+    if abs(r1) < abs(r2):
+        return round(r1, 10)
+    else:
+        return round(r2, 10)
