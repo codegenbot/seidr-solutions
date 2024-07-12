@@ -1,4 +1,3 @@
-# Prompt user to enter space-separated integers
-input_list = list(map(int, input("Enter space-separated integers: ").split()))
+input_list = [int(input("Enter element {}: ".format(i+1))) for i in range(int(input("Enter the number of elements: ")))]
 result = sum(input_list)
 print(result)
