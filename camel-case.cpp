@@ -1,47 +1,32 @@
-```cpp
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
-std::string camelCase(const std::string& s) {
+std::string camelCase(const std::string& input) {
+    std::istringstream iss(input);
+    std::string word;
     std::string result;
-    bool capitalize = true;
 
-    for (char c : s) {
-        if (c == '-') {
-            continue; // don't process '-'
-        } else if (capitalize) {
-            result += toupper(c);
+    bool capitalize = true;
+    
+    while (iss >> word) {
+        if (capitalize) {
+            result += charUpper(word[0]);
+            result += word.substr(1);
             capitalize = false;
         } else {
-            result += tolower(c);
+            result += word;
+        }
+        
+        if (iss.get() != -1 && iss.peek() == '-') {
+            iss.ignore();
+            capitalize = true;
         }
     }
 
     return result;
 }
 
-int main() {
-    std::string input;
-    std::getline(std::cin, input);
-
-    std::istringstream iss(input);
-    std::string word;
-    std::string result = "";
-
-    while (iss >> word) {
-        if (!word.empty()) {
-            for (char& c : word) {
-                if (c == '-') {
-                    c = ' ';
-                }
-            }
-
-            result += camelCase(word + " ");
-        }
-    }
-
-    std::cout << result.substr(0, result.length() - 1) << std::endl;
-
-    return 0;
+char charUpper(char c) {
+    return (c >= 'a' && c <= 'z') ? (char)(c + ('A' - 'a')) : c;
 }
