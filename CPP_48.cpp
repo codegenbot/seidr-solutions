@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cassert>
 
 bool is_palindrome(const std::string& text) {
     int left = 0;
@@ -16,10 +15,15 @@ bool is_palindrome(const std::string& text) {
 }
 
 int main() {
-    assert(is_palindrome("xywzx") == false);
-    assert(is_palindrome("level") == true);
-    assert(is_palindrome("radar") == true);
-    assert(is_palindrome("hello") == false);
+    std::string input;
+    std::cout << "Enter a text: ";
+    std::cin >> input;
+    
+    if (is_palindrome(input)) {
+        std::cout << "The text is a palindrome.";
+    } else {
+        std::cout << "The text is not a palindrome.";
+    }
     
     return 0;
 }
