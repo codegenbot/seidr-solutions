@@ -1,4 +1,2 @@
-Here is the solution:
-
-def camel_case(input_string):
-    return ' '.join(word.capitalize() for word in input_string.split('-'))
+def camel_case(s):
+    return "".join(word.capitalize() for word in s.replace("-", " ").split())
