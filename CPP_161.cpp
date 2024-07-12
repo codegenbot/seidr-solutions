@@ -1,3 +1,4 @@
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -21,5 +22,4 @@ string solve(string s) {
 
 int main() {
     cout << solve("#ccc") << endl;
-    return 0;
 }
