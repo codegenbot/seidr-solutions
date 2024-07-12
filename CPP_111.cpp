@@ -21,7 +21,6 @@ int main() {
     cout << result << endl;
     
     return 0;
-
 }
 
 bool issame(map<char,int> a,map<char,int> b){
