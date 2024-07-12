@@ -1,5 +1,12 @@
 ```cpp
-std::string validateTweet(std::string tweet) {
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string tweet;
+    std::cout << "Enter a tweet: ";
+    std::getline(std::cin, tweet);
+    
     if (tweet.size() > 140) {
         return "Too many characters";
     } else if (tweet.empty()) {
