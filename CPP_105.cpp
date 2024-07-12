@@ -1,56 +1,40 @@
-```
 #include <vector>
 #include <string>
 
 std::vector<std::string> by_length(std::vector<int> arr) {
-    std::vector<int> sortedArr;
+    std::vector<std::string> result;
     for (int num : arr) {
         if (num >= 1 && num <= 9) {
-            sortedArr.push_back(num);
-        }
-    }
-    std::reverse(sortedArr.begin(), sortedArr.end());
-    std::vector<std::string> result;
-    for (int num : sortedArr) {
-        switch (num) {
-            case 1:
-                result.push_back("One");
-                break;
-            case 2:
-                result.push_back("Two");
-                break;
-            case 3:
-                result.push_back("Three");
-                break;
-            case 4:
-                result.push_back("Four");
-                break;
-            case 5:
-                result.push_back("Five");
-                break;
-            case 6:
-                result.push_back("Six");
-                break;
-            case 7:
-                result.push_back("Seven");
-                break;
-            case 8:
-                result.push_back("Eight");
-                break;
-            case 9:
-                result.push_back("Nine");
-                break;
+            switch (num) {
+                case 1:
+                    result.push_back("One");
+                    break;
+                case 2:
+                    result.push_back("Two");
+                    break;
+                case 3:
+                    result.push_back("Three");
+                    break;
+                case 4:
+                    result.push_back("Four");
+                    break;
+                case 5:
+                    result.push_back("Five");
+                    break;
+                case 6:
+                    result.push_back("Six");
+                    break;
+                case 7:
+                    result.push_back("Seven");
+                    break;
+                case 8:
+                    result.push_back("Eight");
+                    break;
+                case 9:
+                    result.push_back("Nine");
+                    break;
+            }
         }
     }
     return result;
-}
-
-int main() {
-    std::vector<int> numbers = {5, 3, 1};
-    auto output = by_length(numbers);
-    for (const auto& str : output) {
-        std::cout << str << " ";
-    }
-    std::cout << std::endl;
-    return 0;
 }
