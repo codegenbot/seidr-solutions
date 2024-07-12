@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 #include <cassert>
@@ -19,7 +18,16 @@ vector<int> incr_list(vector<int> l){
 
 int main() {
     vector<int> l; 
-    l.push_back(5); l.push_back(2); l.push_back(5); l.push_back(2); l.push_back(3); l.push_back(3); l.push_back(9); l.push_back(0); l.push_back(123);
+    l.push_back(5); 
+    l.push_back(2); 
+    l.push_back(5); 
+    l.push_back(2); 
+    l.push_back(3); 
+    l.push_back(3); 
+    l.push_back(9); 
+    l.push_back(0); 
+    l.push_back(123);
+    
     assert(issame(incr_list(l), {6, 3, 6,3, 4, 4, 10, 1, 124}));
     return 0;
 }
