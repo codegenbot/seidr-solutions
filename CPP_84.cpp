@@ -18,6 +18,6 @@ int main() {
     } else {
         cout << solve(N) << endl;
     }
-    // assert (solve(963) == "10010"); 
+    assert(solve(963) == 15150);
     return 0;
 }
