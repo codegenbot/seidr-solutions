@@ -27,11 +27,14 @@ int main() {
         std::cin.clear();
         std::cin.ignore(10000, '\n');
         std::cin >> m1;
+        if(m1 < 0){
+            std::cout << "Invalid input. Please try again.\n";
+        }
     }
     int m;
-    m1 = m2; 
-    std::vector<int> lst2(m1);
-    for (int i = 0; i < m1; i++) {
+    m = m2; // Store the value in m
+    std::vector<int> lst2;
+    for (int i = 0; i < m; i++) {
         int temp;
         std::cout << "Enter element of lst2: ";
         std::cin >> temp;
