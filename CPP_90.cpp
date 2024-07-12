@@ -1,8 +1,9 @@
-int main { 
-    #include <iostream>
+```cpp
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
+int main() {
     std::vector<int> lst;
     int n;
 
