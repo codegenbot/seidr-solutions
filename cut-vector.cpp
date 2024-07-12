@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+#include <cstdlib>
 
 using namespace std;
 
@@ -8,16 +9,10 @@ int main() {
     vector<int> nums;
     int num;
     
-    while (true) {
-        if (!(cin >> num)) {
-            if (cin.eof()) {
-                break;
-            } else {
-                cin.clear();
-                cin.ignore(INT_MAX, '\n');
-            }
-        }
+    while (cin.peek() != '\n' && cin.peek() != EOF) {
+        cin >> num;
         nums.push_back(num);
+        cin.ignore();
     }
 
     int n = nums.size();
