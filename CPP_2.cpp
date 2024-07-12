@@ -3,6 +3,6 @@
 using namespace std;
 
 float truncate_number(float number) {
-    int integerPart = (int)number;
-    return number - integerPart;
+    int integer_part = (int)number;
+    return number - integer_part;
 }
