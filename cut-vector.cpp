@@ -36,26 +36,34 @@ int main() {
         }
     }
 
-    cout << "2" << endl << cutIndex+1 << " " << n - 1 - cutIndex << endl;
-    
-    for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i];
-        if (i != cutIndex) {
-            cout << " ";
+    if (cutIndex == 0) {
+        cout << "1" << endl << "1" << endl << nums[0] << endl << "1" << endl;
+        for (int i = 1; i < n; i++) {
+            cout << nums[i];
+            if (i != n-1) {
+                cout << " ";
+            }
+        }
+    } else {
+        cout << "2" << endl << cutIndex+1 << " " << n - 1 - cutIndex << endl;
+        
+        for (int i = 0; i <= cutIndex; i++) {
+            cout << nums[i];
+            if (i != cutIndex) {
+                cout << " ";
+            }
+        }
+        cout << endl;
+        
+        cout << "1" << endl;
+        
+        for (int i = cutIndex + 1; i < n; i++) {
+            cout << nums[i];
+            if (i != n-1) {
+                cout << " ";
+            }
         }
     }
-    cout << endl;
-    
-    cout << "2" << endl;
-    
-    for (int i = cutIndex + 1; i < n; i++) {
-        cout << nums[i];
-        if (i != n-1) {
-            cout << " ";
-        }
-    }
-    
-    cout << endl;
     
     return 0;
 }
