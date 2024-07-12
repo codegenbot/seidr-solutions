@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <cmath>
 
 vector<int> countEvenOddDigits(int num) {
     vector<int> counts(2, 0);
