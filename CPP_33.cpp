@@ -23,7 +23,7 @@ std::vector<int> sort_third(std::vector<int> l) {
                 temp.push_back(l[j]);
                 j++;
             }
-            sort(temp.begin(), temp.end());
+            std::sort(temp.begin(), temp.end());
             for (int k = 0; k < temp.size(); k++) {
                 result.push_back(temp[k]);
             }
