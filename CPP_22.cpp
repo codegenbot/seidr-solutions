@@ -1,20 +1,16 @@
-#include <boost/type_index.hpp>
+#include <boost/any.hpp>
+#include <typeindex>
 
-bool issame(const list_any& a, const list_any& b) {
-    if (!a.empty() && !b.empty()) {
-        for (size_t i = 0; i < a.size() && i < b.size(); ++i) {
-            if (!issame(a[i], b[i]))
-                return false;
-        }
-        return a.size() == b.size();
-    }
-    return a.empty() && b.empty();
+bool issame(const boost::any& a, const boost::any& b) {
+    if (!a.type() == b.type()) return false;
+    return std::type_index(typeid(*boost::any_cast<boost::any>(&a))) ==
+           std::type_index(typeid(*boost::any_cast<boost::any>(&b)));
 }
 
 vector<int> filter_integers(list_any values) {
     vector<int> result;
     for (const auto& value : values) {
-        if (boost::any_cast<int>(value).type() == typeid(int)) {
+        if (issame(value, boost::any(int(0)))) {
             result.push_back(boost::any_cast<int>(value));
         }
     }
