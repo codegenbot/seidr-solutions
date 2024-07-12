@@ -1,7 +1,7 @@
-```cpp
+#include <initializer_list>
+
 #include <vector>
 #include <string>
-#include <set>
 
 bool issame(const std::vector<std::string>& a) {
     return (a.size() > 0);
