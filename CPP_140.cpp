@@ -1,18 +1,22 @@
-string result = "";
-    int consecutive_spaces = 0;
+#include <string>
+
+std::string fix_spaces(std::string text) {
+    std::string result = "";
+    int count = 0;
     for (char c : text) {
         if (c == ' ') {
-            consecutive_spaces++;
-            if (consecutive_spaces > 2) {
+            count++;
+            if (count > 2) {
                 result.pop_back();
                 result.pop_back();
-                result.push_back('-');
+                result += "-";
+                count = 1;
             } else {
-                result.push_back('_');
+                result += "_";
             }
         } else {
-            result.push_back(c);
-            consecutive_spaces = 0;
+            count = 0;
+            result += c;
         }
     }
     return result;
