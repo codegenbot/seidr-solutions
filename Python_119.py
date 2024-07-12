@@ -1,12 +1,18 @@
+```
 def match_parens(lst):
-    a, b = lst
+    s1 = ''.join(lst[0])
+    s2 = ''.join(lst[1])
+    
     stack = []
-    for char in (a+b):
+    
+    for char in s1 + s2:
         if char == '(':
             stack.append(char)
         elif char == ')':
-            if len(stack) > 0 and stack.pop() == '(':
-                continue
-            else:
+            if not stack or stack.pop() != '(':
                 return 'No'
-    return 'Yes' if len(stack) == 0 else 'No'
+    
+    if stack:
+        return 'No'
+    else:
+        return 'Yes'
