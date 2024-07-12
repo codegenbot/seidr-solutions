@@ -1,19 +1,16 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
 
 bool evaluateBooleanExpression(const std::string& expression) {
     bool result = true;
-    int state = 1; // assume true initially
     for (char c : expression) {
         if (c == '&') {
-            state &= 1;
+            result &= false;
         } else if (c == '|') {
-            state |= 1;
+            result |= false;
         } else if (c == 'f' || c == 't') {
-            result = (c == 't');
-            state = (c == 't');
+            result = c == 't';
         }
     }
     return result;
