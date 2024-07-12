@@ -1,41 +1,39 @@
-Here is the completed code:
-
 #include <vector>
 using namespace std;
 
-int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    else
-        return gcd(b, a % b);
+vector<int> findIndices(string text, string target) {
+    vector<int> indices;
+    int index = 0;
+    while (index <= text.length() - target.length()) {
+        index = text.find(target, index);
+        if (index == string::npos) break;
+        indices.push_back(index);
+        index += 1; // increment by 1 to avoid overlapping
+    }
+    return indices;
 }
 
-vector<int> indicesOfSubstring(string text, string target) {
-    vector<int> result;
-    for (int i = 0; i <= text.size() - target.size(); ++i) {
-        bool found = true;
-        for (int j = 0; j < target.size(); ++j) {
-            if (text[i + j] != target[j]) {
-                found = false;
-                break;
-            }
-        }
-        if (found)
-            result.push_back(i);
+int greatestCommonDivisor(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
-    return result;
+    return a;
 }
 
 int main() {
-    int a, b;
-    cin >> a >> b;
-    cout << gcd(a, b) << endl;
+    int num1, num2;
+    cin >> num1 >> num2;
+    cout << greatestCommonDivisor(num1, num2) << endl;
 
     string text, target;
     cin >> text >> target;
-    vector<int> indices = indicesOfSubstring(text, target);
-    for (int i : indices)
+    vector<int> result = findIndices(text, target);
+    for (int i : result) {
         cout << i << " ";
+    }
     cout << endl;
+
     return 0;
 }
