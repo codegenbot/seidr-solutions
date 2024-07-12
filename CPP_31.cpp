@@ -1,6 +1,5 @@
+```
 #include <iostream>
-#include <string>
-
 using namespace std;
 
 bool is_prime(int num) {
@@ -16,14 +15,14 @@ bool is_prime(int num) {
 int main() {
     string s;
     cin >> s;
-
+    
     for (char c : s) {
         if (!isdigit(c)) {
             cout << "Error: Input should contain only digits." << endl;
             return 0;
         }
     }
-
+    
     int num = stoi(s);
     if(num < 2) {
         cout << "Error: Input should be greater than or equal to 2." << endl;
