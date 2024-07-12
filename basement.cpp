@@ -17,10 +17,7 @@ int basement(std::vector<int> nums) {
 int main() {
     std::vector<int> input;
     int n;
-    while (std::cin >> n || !std::cin.fail()) {
-        if (std::cin.eof()) {
-            break;
-        }
+    while (std::cin >> n) {
         input.push_back(n);
     }
 
