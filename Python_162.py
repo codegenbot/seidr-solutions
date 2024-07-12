@@ -1,7 +1,5 @@
-Here is the modified code:
-
-```Python
 import hashlib
+
 
 def string_to_md5(s):
     try:
