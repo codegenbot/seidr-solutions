@@ -1,9 +1,9 @@
 ```
 def sum_squares(lst):
-    total = 0
-    for i in range(len(lst)):
-        if i % 3 == 0 and i % 4 != 0:
-            total += lst[i]**2
-        elif i % 4 == 0 and i % 3 != 0:
-            total += lst[i]**3
-    return total
+    total_sum = 0
+    for num in lst:
+        if isinstance(num, int) and 1 <= num <= 100:
+            total_sum += num ** 2
+        elif isinstance(num, str) and len(num) > 1:
+            total_sum += len(num) ** 2
+    return total_sum
