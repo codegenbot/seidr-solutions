@@ -2,11 +2,11 @@
 #include <vector>
 #include <algorithm>
 
-int next_smallest(std::vector<int> lst) {
-    for(int i = 0; i < lst.size() - 1; i++){
-        if(lst[i] > lst[i+1]) return lst[i];
+std::vector<int> nextSmallest(std::vector<int>& nums) {
+    for (int i = 0; i < nums.size() - 1; i++) {
+        if (nums[i] != nums[i + 1]) return {nums[i]};
     }
-    return -1;
+    return {-1};
 }
 
 int main() {
@@ -29,8 +29,9 @@ int main() {
             bool same = true;
             for(int i = 0; i < lst.size() - 1; i++){
                 if(lst[i] != lst[i+1]) {
-                    std::cout << "The next smallest integer is: " << next_smallest(std::vector<int>(lst.begin(), lst.end()));
-                    return 0;
+                    std::cout << lst[i];
+                    same = false;
+                    break;
                 }
             }
             if(same) std::cout << "-1";
