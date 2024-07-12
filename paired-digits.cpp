@@ -1,18 +1,17 @@
-#include <string>
+#include <cstring>
 
-int pairedDigits(std::string s) {
+int pairedDigits(char* s) {
     int sum = 0;
-    for (int i = 0; i < s.length() - 1; i++) {
-        if (s[i] == s[i + 1]) {
-            sum += s[i] - '0';
+    for (int i = 0; i < strlen(s) - 1; i++) {
+        if ((s[i] - '0') == (s[i + 1] - '0')) {
+            sum += (s[i] - '0');
         }
     }
     return sum;
 }
 
 int main() {
-    const char* input = "1233345556";
-    std::string str(input);
-    int sum = pairedDigits(str);
+    char input[] = "1233345556";
+    int sum = pairedDigits(input);
     return 0;
 }
