@@ -1,4 +1,3 @@
-```
 def sumOfDigits(n):
     return sum(int(digit) for digit in str(n))
 
@@ -8,5 +7,6 @@ def check(n):
     else:
         print("The number is not divisible by 3")
 
-digitSum = sumOfDigits(123)
+num = 12
+digitSum = sumOfDigits(num)
 check(digitSum)
