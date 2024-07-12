@@ -1,5 +1,5 @@
 ```
 def substitution_cipher(cipher1, cipher2, message):
-    cipher = {a: b for a, b in zip(cipher1.lower(), cipher2.lower())}
-    deciphered_message = "".join([cipher.get(char.lower(), char) for char in message])
+    cipher = {a.lower(): b.lower() for a, b in zip(cipher1, cipher2)}
+    deciphered_message = "".join([cipher.get(char.lower(), char) for char in message.lower()])
     return deciphered_message
