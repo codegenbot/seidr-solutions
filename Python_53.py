@@ -1,4 +1,3 @@
-```
 def add(x: int, y: int):
     return x + y
 
@@ -21,8 +20,16 @@ def main():
                     num2 = int(input("Enter second number: "))
                     print(f"The sum is {add(num1, num2)}")
                     break
-                except (ValueError, KeyboardInterrupt):
-                    print("Invalid input. Please enter a valid number.")
+                except ValueError as e:
+                    if str(e) == "invalid literal for int()":
+                        cont_again = input(
+                            "Invalid input. Do you want to continue? (y/n): "
+                        )
+                        if cont_again.lower() != "y":
+                            print("Program ended.")
+                            break
+                    else:
+                        raise
         except ValueError:
             print(
                 "Invalid input. Please enter a valid number or 'n' to end the program."
