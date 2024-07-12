@@ -1,8 +1,7 @@
-```
 #include<cassert>
-#include<iostream>
+string flip_case(string str);
 
-string flip_case(string str){
+string filp_case(string str){
     string result = "";
     for(int i=0; i<str.length(); i++){
         char c = (char)str[i];
@@ -17,9 +16,8 @@ string flip_case(string str){
 }
 
 int main(){
-    string user_string;
-    cout << "Enter a sentence: ";
-    cin >> user_string;
-    cout << "Flipped case of the sentence: " << flip_case(user_string) << endl;
+    string s = "These violent delights have violent ends";
+    cout << flip_case(s) << endl;
+    assert(flip_case(s) == "tHEse ViOLEnt DeLiGhTs HaVe ViOLEnT EnDs");
     return 0;
 }
