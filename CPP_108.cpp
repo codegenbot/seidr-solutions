@@ -38,8 +38,9 @@ int main() {
         int num;
         std::cin >> num;
         std::string str = std::to_string(num);
-        nums[i] = new char[str.length() + 1];
+        nums[i] = new char[str.length() + 1]; // Add 1 for the null-terminator
         strcpy(nums[i], str.c_str());
+        nums[i][str.length()] = '\0'; // Manually add the null-terminator
     }
 
     int count = count_nums(nums, size);
