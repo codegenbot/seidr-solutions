@@ -1,5 +1,5 @@
-```
 def add(x: int, y: int):
-    x = int(input("Enter first number: "))
-    y = int(input("Enter second number: "))
-    return x + y
+    try:
+        if not isinstance(x, int) or not isinstance(y, int):
+            return "Error: Please enter valid integers"
+        return x + y
