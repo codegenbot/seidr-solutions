@@ -6,7 +6,8 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
-    vector<float> prices(n), discounts(n);
+    vector<float> prices(n);
+    vector<int> discounts(n);
     float total_price = 0.0;
 
     for (int i = 0; i < n; ++i) {
