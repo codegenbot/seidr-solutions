@@ -1,13 +1,13 @@
-```cpp
 int count_distinct_characters(string str) { 
-    vector<char> distinct_chars;
-    for (char c : str) {
-        if (tolower(c) >= 'a' && tolower(c) <= 'z') {
-            auto it = find(distinct_chars.begin(), distinct_chars.end(), tolower(c));
-            if (it == distinct_chars.end()) {
-                distinct_chars.push_back(tolower(c));
-            }
-        }
-    }
-    return distinct_chars.size();
+    string temp = str; 
+    for (char &c : temp) 
+        c = tolower(c); 
+    vector<char> v(temp.begin(), temp.end()); 
+    sort(v.begin(), v.end()); 
+    int distinct = 1; 
+    for (int i = 1; i < v.size(); ++i) { 
+        if (v[i] != v[i - 1]) 
+            distinct++; 
+    } 
+    return distinct;
 }
