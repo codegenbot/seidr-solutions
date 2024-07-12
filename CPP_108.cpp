@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <iostream>
 
@@ -30,5 +31,8 @@ int main() {
     vector<int> nums = {123, -456, 789, -9012};
     int result = count_nums(nums);
     std::cout << "The number of positive integers with an odd digital root is: " << result << std::endl;
+    int result1 = count_nums({1});
+    assert (result1 == 1);
+    
     return 0;
 }
