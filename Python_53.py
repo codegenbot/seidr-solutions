@@ -1,8 +1,8 @@
+```
 def add(x: int, y: int):
-    while True:
-        try:
-            x = int(input("Enter first number: "))
-            y = int(input("Enter second number: "))
-            return x + y
-        except ValueError:
-            print("Error: Please enter valid integers.")
+    try:
+        if not isinstance(x, int) or not isinstance(y, int):
+            return "Error: Please enter valid integers"
+        return x + y
+    except TypeError:
+        return "Error: Please enter valid integers"
