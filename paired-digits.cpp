@@ -1,4 +1,4 @@
-#include <iostream>
+```c++
 #include <string>
 
 int pairedDigits(std::string s) {
@@ -12,7 +12,7 @@ int pairedDigits(std::string s) {
 }
 
 int main() {
-    std::string s = "1233345556";
-    int sum = pairedDigits(s);
+    char input[] = "1233345556";
+    int sum = pairedDigits(input);
     return 0;
 }
