@@ -2,7 +2,7 @@ def bowling_score(bowls):
     score = 0
     bowl_index = 0
 
-    while bowl_index < len(bowls):
+    while bowl_index < len(bowls) - 1:
         if bowls[bowl_index] == "X":
             score += 10
             score += sum(map(lambda x: 10 if x == "X" else int(x) if x.isdigit() else 0, bowls[bowl_index + 1:bowl_index + 3]))
