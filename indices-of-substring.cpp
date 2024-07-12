@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <sstream>
+#include <limits>
 
 int main() {
     std::string text, target;
@@ -9,13 +11,13 @@ int main() {
     std::getline(std::cin, target);
     
     std::vector<int> indices;
-    size_t pos = text.find(target, 0, target.length());
+    size_t pos = text.find(target, 0);
     while (pos != std::string::npos) {
         indices.push_back(pos);
-        pos = text.find(target, pos + 1, target.length());
+        pos = text.find(target, pos + 1);
     }
     
-    for (int i = 0; i < indices.size(); ++i) {
+    for (std::size_t i = 0; i < indices.size(); ++i) {
         std::cout << indices[i] << " ";
     }
     
