@@ -1,11 +1,7 @@
-#include <vector>
-
-using namespace std;
-
-vector<int> incr_vector(const vector<int>& l) {
+vector<int> incr_vector(vector<int> v) {
     vector<int> result;
-    for (int num : l) {
-        result.push_back(num + 1);
+    for (int x : v) {
+        result.push_back(x + 1);
     }
     return result;
 }
