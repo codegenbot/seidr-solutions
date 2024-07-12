@@ -24,11 +24,8 @@ vector<int> leaders(vector<int>& arr) {
     return res;
 }
 
-int main() {
-    vector<int> test = {16, 17, 4, 3, 5, 2};
-    vector<int> result = leaders(test);
-    for(int i: result) {
-        cout << i << " ";
-    }
-    return 0;
+vector<int> result = leaders({16, 17, 4, 3, 5, 2});
+for(int i: result) {
+    cout << i << " ";
 }
+return 0;
