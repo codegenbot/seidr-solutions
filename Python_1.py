@@ -1,5 +1,5 @@
 def separate_paren_groups():
-    paren_string = input("Enter the string of parentheses: ")
+    paren_string = input("Enter the string of parentheses: ").strip()
     separated_groups = []
     current_group = ""
     open_count = 0
@@ -12,13 +12,11 @@ def separate_paren_groups():
 
         current_group += char
 
-        if open_count < 0:
-            raise ValueError("Invalid input: Unbalanced parentheses")
-
         if open_count == 0:
             separated_groups.append(current_group)
             current_group = ""
 
     return separated_groups
+
 
 print(separate_paren_groups())
