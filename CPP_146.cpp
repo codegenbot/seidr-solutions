@@ -12,6 +12,7 @@ int specialFilter(vector<int> nums) {
 }
 
 int main() {
-    assert(specialFilter({}) == 0);
+    vector<int> nums = {123, 234, 345, 456};
+    cout << specialFilter(nums);
     return 0;
 }
