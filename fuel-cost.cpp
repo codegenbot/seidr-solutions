@@ -16,7 +16,7 @@ int main() {
         sum += (num / 3) - 2;
     }
     
-    cout << sum << "\n";
+    cout << sum << endl;
     
     return 0;
 }
