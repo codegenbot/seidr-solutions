@@ -5,13 +5,14 @@ def decode_cyclic():
     if n == 1:
         print(s)
     else:
-        result = []
-        while len(s) >= 3:
-            result.extend([s[:3]])
-            s = s[3:]
-        if s:
-            result.append(s)
-        print("".join(result))
+        result = ""
+        i = 0
+        while i < len(s):
+            result += s[i]
+            if i < len(s) - 2:
+                result += s[i+1] * 2
+            i += 3
+        print(result)
 
 
 decode_cyclic()
