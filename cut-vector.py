@@ -1,3 +1,4 @@
+n = len(arr)
 for i in range(n):
     left_sum += arr[i]
     right_sum = total_sum - left_sum
