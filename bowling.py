@@ -1,5 +1,5 @@
 score = 0
-bowls = input("Enter the individual bowls in a 10-frame round of 10 pin bowling: ")
+bowls = input()
 
 frame = 9
 if frame == 9:
@@ -11,11 +11,14 @@ if frame == 9:
                 sum(
                     map(
                         lambda x: 10 if x == "X" else int(x) if x.isdigit() else 0,
-                        bowls[bowl_index + 1 : bowl_index + 4],
+                        bowls[bowl_index + 1: bowl_index + 3],
                     )
                 )
             )
         elif bowl.isdigit():
             score += int(bowl)
+
+if bowls[-3] == "/":
+    score += 10 - int(bowls[-2])
 
 print(score)
