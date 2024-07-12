@@ -1,17 +1,14 @@
 #include <iostream>
+#include <variant>
 #include <string>
 #include <cassert>
 
-boost::any compare_one(boost::any a, boost::any b) {
-    // Modify the comparison logic here
-    if (boost::any_cast<std::string>(a) == boost::any_cast<std::string>(b)) {
-        return boost::any("Equal");
-    } else {
-        return boost::any("Not Equal");
-    }
+std::variant<const char*, std::string> compare_one(std::string a, std::string b) {
+    // Add your comparison logic here
+    return "None";
 }
 
 int main() {
-    assert(boost::any_cast<const char*>(compare_one(std::string("1"), std::string("1")).c_str()) == typeid(const char*));
+    assert(std::get<std::string>(compare_one("1", "1")) == "None");
     return 0;
 }

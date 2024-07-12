@@ -9,7 +9,7 @@ long long double_the_difference(std::vector<float> lst) {
             sum += static_cast<long long>(pow(num, 2));
         }
     }
-    return sum * 2;
+    return sum;
 }
 
 int main() {
