@@ -1,25 +1,26 @@
+```cpp
 #include <vector>
 #include <string>
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
+    if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[i]) {
-            return false;
-        }
+        if (a[i] != b[i]) return false;
     }
     return true;
 }
 
-int by_length(std::vector<std::pair<std::string, int>> nums) {
-    std::sort(nums.begin(), nums.end(), [](const auto& a, const auto& b) {
-        return a.first.length() < b.first.length();
-    });
-    return 1; // Assuming the function should always return 1
+std::vector<std::string> by_length(const std::vector<std::pair<std::string, int>>& input) {
+    std::vector<std::string> result;
+    for (auto& p : input) {
+        result.push_back(p.first);
+    }
+    return result;
 }
 
 int main() {
-    return by_length({std::make_pair("Nine"), std::make_pair("Eight"), std::make_pair("Four")});
+    std::vector<std::pair<std::string, int>> input = {{"Nine", 1}, {"Eight", 2}, {"Four", 3}};
+    auto output = by_length(input);
+    // assert statement remains unchanged...
+    return 0;
 }
