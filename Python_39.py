@@ -1,1 +1,4 @@
-n = int(input('Enter a number:'))  # Read input with prompt
+try:
+    n = int(input("Enter a number: "))  # Read and convert input to integer
+except ValueError:
+    print("Invalid input. Please enter an integer.")
