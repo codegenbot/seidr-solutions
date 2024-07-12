@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> // for sort
-#include <cmath>     // for fabs
+#include <algorithm>
+#include <cmath>
 
 bool has_close_elements(std::vector<float> numbers, float threshold) {
     std::sort(numbers.begin(), numbers.end());
