@@ -13,9 +13,7 @@ def separate_paren_groups(paren_string: str) -> List[str]:
                 start = stack.pop()
                 result.append(paren_string[start:i+1])
     
+    if stack:
+        result.append(paren_string[stack.pop():])
+    
     return result
-
-# Corrected input passing code
-input_string = "((group1)(group2))"
-output = separate_paren_groups(input_string)
-print(output)
