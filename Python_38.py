@@ -1,4 +1,2 @@
-import sys
-
-input_str = sys.stdin.readline().rstrip()
-input_list = list(map(int, input_str.split()))
+input_list = list(map(int, input().strip().split()))
+print(sum(input_list))
