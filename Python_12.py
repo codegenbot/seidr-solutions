@@ -1,2 +1,2 @@
-string1 = input("Enter the first string: ")
-string2 = input("Enter the second string: ")
+string1 = raw_input("Enter string1: ")
+string2 = raw_input("Enter string2: ")
