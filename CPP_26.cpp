@@ -1,24 +1,30 @@
-#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-using namespace std;
-
-bool issame(vector<int> a, vector<int> b) {
-    if (a.size() != b.size()) {
-        return false;
-    }
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> result;
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::unordered_set<int> seen;
+    std::vector<int> result;
+    
     for (int num : numbers) {
-        if (find(result.begin(), result.end(), num) == result.end() || result.empty()) {
+        if (!seen.count(num)) {
+            seen.insert(num);
             result.push_back(num);
         }
     }
+    
     return result;
+}
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 4, 5, 2, 1};
+    std::vector<int> output = remove_duplicates(numbers);
+    for (auto num : output) {
+        std::cout << num << " ";
+    }
+    return 0;
 }
