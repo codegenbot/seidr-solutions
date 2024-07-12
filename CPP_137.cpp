@@ -1,4 +1,5 @@
 #include <boost/any.hpp>
+#include <string>
 #include <stdexcept>
 
 using namespace boost;
@@ -11,7 +12,7 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     else if (x < y)
         return b;
     else
-        return a; // Return the first integer value
+        return "None";
 } else if (a.type() == typeid(double) && b.type() == typeid(double)) {
     double x = any_cast<double>(a);
     double y = any_cast<double>(b);
@@ -20,7 +21,7 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     else if (x < y)
         return b;
     else
-        return a; // Return the first double value
+        return "None";
 } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
     std::string x = any_cast<std::string>(a);
     std::string y = any_cast<std::string>(b);
@@ -30,7 +31,6 @@ if (a.type() == typeid(int) && b.type() == typeid(int)) {
     else if (xi < yi)
         return b;
     else
-        return a; // Return the first string value
+        return "None";
 } else {
-    throw invalid_argument("Invalid input");
-}
+    throw std::invalid_argument("Invalid input");
