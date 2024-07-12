@@ -1,2 +1,5 @@
 def fix_spaces(text):
-    return text.replace("  ", " & ").replace("   ", " && ").replace("    ", " &&& ")
+    def check():
+        return " ".join(text.split())
+
+    return check()
