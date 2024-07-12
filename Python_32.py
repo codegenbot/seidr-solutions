@@ -1,7 +1,7 @@
 def find_zero():
     while True:
         try:
-            a = float(input("Enter a non-zero value for a: "))
+            a = float(input("Enter value for a: "))
             if a == 0:
                 print("Error: 'a' should not be zero. Please enter a non-zero value.")
             else:
