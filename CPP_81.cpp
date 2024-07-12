@@ -18,7 +18,7 @@ bool checkSame(vector<string> a) {
     return true;
 }
 
-vector<string> numerical_letter_grade(initializer_list<float> grades) {
+vector<string> numerical_letter_grade(vector<float> grades) {
     vector<string> result;
     for (float grade : grades) {
         if (grade >= 4.0)
