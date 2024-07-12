@@ -1,12 +1,6 @@
-#include <string>
+#include <cmath>
 
-int closest_integer(std::string value) {
+int closest_integer(string value) {
     double num = stod(value);
-    int integer = static_cast<int>(num);
-
-    if (abs(num - integer) > abs(num - (integer + 1))) {
-        return integer + 1;
-    } else {
-        return integer;
-    }
+    return (num >= 0) ? ceil(num) : floor(num);
 }
