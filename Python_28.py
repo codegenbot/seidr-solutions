@@ -1,6 +1,7 @@
 def concatenate_strings(strings):
     return "".join(strings)
 
-strings = input().split()
-result = concatenate_strings(strings)
-print(result)
+# Call the function with the desired input
+input_strings = ["abc", "def", "ghi"]
+output = concatenate_strings(input_strings)
+print(output)
