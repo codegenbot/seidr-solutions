@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 
@@ -15,7 +14,7 @@ std::vector<int> rolling_max(const std::vector<int>& numbers) {
     return maxNumbers;
 }
 
-bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.size() != b.size())
         return false;
 
@@ -51,7 +50,7 @@ int main() {
     
     std::vector<int> v1({3, 2, 3, 100, 3});
     std::vector<int> v2({3, 3, 3, 100, 100});
-    if(areEqual(rolling_max(v1), v2))
+    if(issame(rolling_max(v1), v2))
         std::cout << "Vectors are equal" << std::endl;
     else
         std::cout << "Vectors are not equal" << std::endl;
