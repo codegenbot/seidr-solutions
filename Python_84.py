@@ -1,5 +1,4 @@
 ```
-''
 def solve(N):
     try:
         N = int(bin(N)[2:])

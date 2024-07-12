@@ -1,13 +1,14 @@
-```
-def power_mod(a: int, n: int, p: int):
+a = int(input("Enter value of a: "))
+n = int(input("Enter value of n: "))
+p = int(input("Enter value of p: "))
+
+def power_mod(a, n, p):
     if n < 0:
         a = pow(a, -1, p)
     elif n > 1:
-        a = (a * power_mod(a, n-1, p)) % p
+        a = (a * power_mod(a, n - 1, p)) % p
+    else:
+        a = a % p
     return a
 
-def modp(n: int, p: int):
-    if p == 0:
-        raise ValueError("Modulus cannot be zero")
-    result = power_mod(n, p, p)
-    return result
+print(power_mod(a, n, p))
