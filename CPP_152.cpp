@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 bool isSame(vector<int> a,vector<int> b){
@@ -38,6 +39,5 @@ int main() {
     }
     vector<int> res = getResult(game,guess);
     for(auto x:res)cout << x << " ";
-    cout << endl; // added this line
     return 0;
 }
