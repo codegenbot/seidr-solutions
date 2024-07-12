@@ -12,5 +12,5 @@ bool prime_length(char* str){
 }
 
 int main() {
-    assert(prime_length("0") == false);
+    assert(prime_length((char *)"0") == false);
 }
