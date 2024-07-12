@@ -5,28 +5,28 @@ using namespace std;
 
 vector<vector<int>> cutVector(vector<int>& vec) {
     int n = vec.size();
-    vector<vector<int>> res(2);
+    vector<vector<int>> res;
     
-    int minDiff = INT_MAX;
-    int minDiffIndex = 0;
-
     for (int i = 1; i < n; i++) {
-        int diff = abs(vec[i] - vec[0]) - abs(vec[i-1] - vec[0]);
-        
-        if (diff == 0) {
-            res[0] = vector<int>(vec.begin(), vec.begin() + i);
-            res[1] = vector<int>(vec.begin() + i, vec.end());
+        if (vec[i] - vec[0] == vec[i-1] - vec[0]) {
+            res.push_back(vector<int>(vec.begin(), vec.begin() + i));
+            res.push_back(vector<int>(vec.begin() + i, vec.end()));
             return res;
-        }
-        
-        if (abs(diff) < minDiff) {
-            minDiff = abs(diff);
-            minDiffIndex = i;
         }
     }
     
-    res[0] = vector<int>(vec.begin(), vec.begin() + minDiffIndex);
-    res[1] = vector<int>(vec.begin() + minDiffIndex, vec.end());
+    int minDiff = INT_MAX;
+    int pos = 0;
+    for (int i = 1; i < n; i++) {
+        int diff = abs(vec[i] - vec[0]);
+        if (diff < minDiff) {
+            minDiff = diff;
+            pos = i;
+        }
+    }
+    res.push_back(vector<int>(vec.begin(), vec.begin() + pos));
+    res.push_back(vector<int>(vec.begin() + pos, vec.end()));
+    
     return res;
 }
 
