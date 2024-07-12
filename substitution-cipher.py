@@ -1,7 +1,8 @@
-def substitution_cipher(input1, input2, input3):
-    cipher = {
-        char: char
-        for char in set(input1 + input2)
-        if input1.count(char) == 1 or input2.count(char) == 1
-    }
-    return "".join(cipher[char] for char in input3)
+def substitution_cipher(cipher_a, cipher_b, message):
+    deciphered = ""
+    for char in message:
+        for i in range(len(cipher_a)):
+            if char == cipher_a[i]:
+                deciphered += cipher_b[i]
+                break
+    return deciphered
