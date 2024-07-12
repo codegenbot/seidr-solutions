@@ -1,4 +1,3 @@
-```
 def decode_cyclic():
     s = input("Enter a string: ")
     result = []
@@ -10,5 +9,6 @@ def decode_cyclic():
             if len(result) > 1 and char != result[-1] and char != result[-2]:
                 result.extend([char])
     print("".join(result))
+
 
 decode_cyclic()
