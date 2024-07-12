@@ -1,26 +1,19 @@
-```cpp
-#include <iostream>
+#include <cryptopp/sha.h>
 #include <string>
-#include <openssl/md5.h>
+#include <iomanip>
 
-int main() {
-    assert(string_to_md5("password") == "5f4dcc3b5aa765d61d8327deb882cf99");
-    return 0;
-}
+using namespace std;
+using namespace CryptoPP;
 
 std::string string_to_md5(const std::string& input) {
-    unsigned char buffer[16];
-    MD5_CTX mdContext;
-    MD5_Init(&mdContext);
-    MD5_Update(&mdContext, input.c_str(), input.size());
-    MD5_Final(buffer, &mdContext);
+    SHA256 sha;
+    byte hash[SHA256::DIGEST_SIZE];
+    sha.Update((byte*)input.c_str(), input.size());
+    sha.Finalize(hash);
+    return stringFromHex(hash, SHA256::DIGEST_SIZE * 2);
+}
 
-    std::string output;
-    for (int i = 0; i < 16; ++i) {
-        char temp[3];
-        sprintf(temp, "%02x", buffer[i]);
-        output += temp;
-    }
-
-    return output;
+int main() {
+    assert(string_to_md5("password") == "5baa61e4c9b93f3f068224d0d6b11de5");
+    return 0;
 }
