@@ -8,6 +8,6 @@ def match_parens(lst):
                 if len(stack) == 1 or stack.pop() != '(':
                     return
     if len(stack) == 0:
-        return
+        return 
     else:
         return
