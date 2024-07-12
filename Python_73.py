@@ -11,7 +11,7 @@ def smallest_change(arr):
         left += 1
     else:
         return 0
-        
+    
     for i in range(left, n):
         if arr[i] != arr[n - 1 - i]:
             changes += 1
