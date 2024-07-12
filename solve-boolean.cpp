@@ -1,12 +1,6 @@
 #include <iostream>
 #include <stack>
 
-int precedence(char op) {
-    if (op == '|') return 1;
-    if (op == '&') return 2;
-    return 0;
-}
-
 bool evaluateBooleanExpression(const std::string& expression) {
     std::stack<bool> operands;
     std::stack<char> operators;
@@ -14,23 +8,28 @@ bool evaluateBooleanExpression(const std::string& expression) {
     for (char c : expression) {
         if (c == 'T') {
             operands.push(true);
-            operators.push(c);
         } else if (c == 'F') {
             operands.push(false);
-            operators.push(c);
-        } else if (c == '&' || c == '|') {
-            while (!operators.empty() && precedence(operators.top()) >= precedence(c)) {
+        } else if (c == '&') {
+            while (!operators.empty() && operators.top() == '&') {
                 char op = operators.top();
                 operators.pop();
                 bool operand2 = operands.top();
                 operands.pop();
                 bool operand1 = operands.top();
                 operands.pop();
-                if (op == '&') {
-                    operands.push(operand1 && operand2);
-                } else if (op == '|') {
-                    operands.push(operand1 || operand2);
-                }
+                operands.push(operand1 && operand2);
+            }
+            operators.push(c);
+        } else if (c == '|') {
+            while (!operators.empty() && operators.top() == '|') {
+                char op = operators.top();
+                operators.pop();
+                bool operand2 = operands.top();
+                operands.pop();
+                bool operand1 = operands.top();
+                operands.pop();
+                operands.push(operand1 || operand2);
             }
             operators.push(c);
         }
@@ -56,7 +55,7 @@ bool evaluateBooleanExpression(const std::string& expression) {
 int main() {
     std::string expression;
     std::cout << "Enter a boolean expression: ";
-    std::getline(std::cin, expression);
+    std::cin >> expression; // Use cin for input
     
     bool result = evaluateBooleanExpression(expression);
     std::cout << "Result: " << (result ? "T" : "F") << std::endl;
