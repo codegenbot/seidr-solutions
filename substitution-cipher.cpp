@@ -1,36 +1,32 @@
-#include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
-using namespace std;
-
-string decipher(string cipherText, string key) {
-    string decrypted = "";
-    for (int i = 0; i < cipherText.length(); i++) {
-        if (cipherText[i] == ' ') {
-            decrypted += ' ';
+std::string decipher(std::string cipher1, std::string cipher2, std::string message) {
+    std::string result = "";
+    char current_char = 'a'; // Initialize with a default character
+    for (int i = 0; i < message.length(); i++) {
+        int index = 0;
+        while (index < cipher2.length() && cipher2[index] != message[i]) {
+            index++;
+        }
+        if (index < cipher2.length()) {
+            result += cipher1[std::distance(cipher2.begin(), std::find(cipher2.begin(), cipher2.end(), message[i]))];
         } else {
-            int j = 0;
-            while (j < key.length()) {
-                if (key[j] == cipherText[i]) {
-                    decrypted += cipherText[i-1] == ' ' ? ' ' : key.at((cipherText.find(key[j]) - 1) % key.length());
-                    break;
-                }
-                j++;
-            }
+            result += message[i];
         }
     }
-    return decrypted;
+    return result;
 }
 
 int main() {
-    string key, cipherText, plainText;
-    cout << "Enter the first string: ";
-    cin >> key;
-    cout << "Enter the second string: ";
-    cin >> cipherText;
-    cout << "Enter the third string: ";
-    cin >> plainText;
-    cout << "Decrypted message: " << decipher(plainText, key) << endl;
+    std::string cipher1, cipher2, message;
+    std::cout << "Enter the first string: ";
+    std::cin >> cipher1;
+    std::cout << "Enter the second string: ";
+    std::cin >> cipher2;
+    std::cout << "Enter the message to decipher: ";
+    std::cin >> message;
+    std::cout << "Deciphered message: " << decipher(cipher1, cipher2, message) << std::endl;
     return 0;
 }
