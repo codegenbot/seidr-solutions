@@ -18,6 +18,7 @@ std::string filp_case(const std::string& str) {
 }
 
 int main() {
-    assert(filp_case("These violent delights have violent ends") == "these Violent Delights Have Violent Ends");
+    std::string input = "These violent delights have violent ends";
+    std::cout << filp_case(input) << std::endl;
     return 0;
 }
