@@ -1,6 +1,6 @@
-return (
-    [item for sublist in [[x, delimeter] for x in numbers[:-1]] for item in sublist]
-    + numbers[-1:]
-    if numbers
-    else []
-)
+def intersperse(numbers: List[int], delimeter: int) -> List[int]:
+    result = []
+    for num in numbers:
+        result.extend([num, delimeter])
+    result.pop()  # Remove the last delimeter
+    return result
