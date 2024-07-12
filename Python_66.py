@@ -1,6 +1,6 @@
+```
 def sumOfDigits(n):
     return sum(int(digit) for digit in str(n))
-
 
 def check(n):
     if isinstance(n, int) and n >= 0:
@@ -11,6 +11,8 @@ def check(n):
     else:
         print("Invalid input. Please enter a non-negative integer.")
 
-
-num = int(input("Enter the number: "))
-check(num)
+try:
+    num = int(input("Enter the number: "))
+    check(num)
+except ValueError:
+    print("Invalid input. Please enter a valid integer.")

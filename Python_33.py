@@ -1,3 +1,4 @@
+```
 def unique_and_sorted(): 
     print("Please enter a list of numbers separated by commas (e.g., 1,2,3):")
     while True: 
@@ -15,3 +16,4 @@ def unique_and_sorted():
         except Exception as e:
             print("Invalid input. Please enter numbers separated by commas.")
     return sorted(user_input)
+print(unique_and_sorted())
