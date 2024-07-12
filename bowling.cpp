@@ -1,4 +1,6 @@
+````
 #include <string>
+using namespace std;
 
 int bowling(string s) {
     int score = 0;
@@ -6,7 +8,11 @@ int bowling(string s) {
 
     for (int i = 0; i < 10; i++) {
         if (s[i] == '/') {
-            score += 10 - (i + 1);
+            if (!lastRoll) {
+                score += 10 - (i + 1);
+            } else {
+                score += 10 - (i + 1);
+            }
             lastRoll = true;
         } else if (lastRoll) {
             score += s[i] - '0';
@@ -24,3 +30,5 @@ int bowling(string s) {
     }
 
     return score;
+}
+```
