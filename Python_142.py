@@ -1,8 +1,8 @@
-def sum_squares(lst):
+def sum_of_squares_and_cubes(lst):
     total_sum = 0
     for num in lst:
-        if num % 3 == 0 and num % 4 != 0:
+        if num % 2 == 0:
             total_sum += num ** 2
-        elif num % 4 == 0 and num % 3 != 0:
+        else:
             total_sum += num ** 3
     return total_sum
