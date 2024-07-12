@@ -2,7 +2,7 @@
 #include <climits>
 #include <initializer_list>
 
-long long minSubArraySum(std::vector<long long> nums){
+long long minSubArraySum(vector<long long> nums){
     long long sum = 0, min_sum = LLONG_MAX;
     for(long long i = 0; i < nums.size(); i++){
         sum = 0;
