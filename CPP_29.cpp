@@ -47,4 +47,3 @@ cout << "Strings are the same." << endl;
     }
 
     return 0;
-}
