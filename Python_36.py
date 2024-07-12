@@ -9,4 +9,4 @@ def fizz_buzz(n: int):
         ) and i % 13 != 0 and i % 21 != 0  # Additional exclusion conditions
            and "3" not in str(i)
     )
-    return count + 1  # Add 1 to the count to include an additional condition
+    return count
