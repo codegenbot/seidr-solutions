@@ -1,7 +1,8 @@
-```cpp
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstring>
+#include <cassert>
 
 using namespace std;
 
@@ -18,13 +19,12 @@ vector<string> split(const string& str, const char* delim) {
     while ((pos = str.find(*delim)) != string::npos) {
         if (pos > 0) {
             tokens.push_back(str.substr(0, pos));
-            str.erase(0, pos + 1);
+            str.erase(0, pos + strlen(delim)); 
         } else {
-            str.erase(0, pos + 1);
+            str.erase(0, strlen(delim)); 
         }
     }
-    if (!str.empty())
-        tokens.push_back(str); 
+    tokens.push_back(str);
     return tokens;
 }
 
@@ -42,4 +42,3 @@ int main() {
     assert(words_in_sentence("here is") == "is");
     cout << words_in_sentence("hello world") << endl;
     return 0;
-}
