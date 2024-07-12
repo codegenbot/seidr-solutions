@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -14,10 +13,10 @@ vector<int> get_odd_collatz(int n) {
         } else {
             result.push_back(n);
             has_odd_collatz = true;
-            break; // no need to check i anymore
+            break; 
         }
     }
-    if (!has_odd_collatz) return vector<int>(); // return empty vector if no odd Collatz found
+    if (!has_odd_collatz) return vector<int>(); 
     sort(result.begin(), result.end());
     return result;
 }
@@ -32,3 +31,4 @@ int main() {
     }
     cout << endl;
     return 0;
+}
