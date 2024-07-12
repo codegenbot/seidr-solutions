@@ -1,12 +1,13 @@
 #include <string>
 
-bool issame(vector<string> a, vector<string> b);
+bool issame(std::vector<std::string> a, std::vector<std::string> b);
+
+string planet1 = "Planet1";
+string planet2 = "Planet2";
 
 vector<string> planets = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 vector<string> result;
 int idx1 = -1, idx2 = -1;
-string planet1 = "Planet1";
-string planet2 = "Planet2";
 
 for (int i = 0; i < planets.size(); i++) {
     if (planets[i] == planet1) {
