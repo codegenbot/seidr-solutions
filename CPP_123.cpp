@@ -4,12 +4,6 @@
 
 using namespace std;
 
-vector<int> get_odd_collatz(int n);
-
-bool issame(std::vector<int> a, std::vector<int> b) {
-    return a == b;
-}
-
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
@@ -25,7 +19,7 @@ vector<int> get_odd_collatz(int n) {
     vector<int> odd_numbers;
     for (int num : result) {
         if (num % 2 != 0) {
-            odd_numbers.push_back(num);
+          odd_numbers.push_back(num);
         }
     }
     
