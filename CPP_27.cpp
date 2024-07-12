@@ -1,20 +1,14 @@
-#include <algorithm>
-#include <cctype>
 #include <string>
 
-std::string filp_case(const std::string& str) {
-    for (int i = 0; i < str.size(); i++) {
-        if (islower(str[i])) {
-            str[i] = toupper(str[i]);
-        } else if (isupper(str[i])) {
-            str[i] = tolower(str[i]);
-        }
+string flip_case(string str){
+    string result = "";
+    for(int i=0; i<str.length(); i++){
+        if(str[i] >= 'a' && str[i] <= 'z')
+            result += toupper(str[i]);
+        else if(str[i] >= 'A' && str[i] <= 'Z')
+            result += tolower(str[i]);
+        else
+            result += str[i];
     }
-    return str;
-}
-
-int main() {
-    std::string input = "These violent delights have violent ends";
-    std::cout << filp_case(input) << std::endl;
-    return 0;
+    return result;
 }
