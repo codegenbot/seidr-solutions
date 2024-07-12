@@ -8,16 +8,15 @@ int main() {
     int target;
     cin >> target;
     
-    map<int, int> hash;
-    
+    map<int, int> numToIndex;
     for (int i = 0; i < n; ++i) {
-        int diff = target - nums[i];
-        if (hash.find(diff) != hash.end()) {
-            cout << diff << endl;
+        int complement = target - nums[i];
+        if (numToIndex.find(complement) != numToIndex.end()) {
+            cout << nums[numToIndex[complement]] << endl;
             cout << nums[i] << endl;
             break;
         }
-        hash[nums[i]] = i;
+        numToIndex[nums[i]] = i;
     }
     
     return 0;
