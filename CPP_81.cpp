@@ -1,8 +1,6 @@
-```cpp
+```
 #include <vector>
 #include <string>
-#include <iostream>
-#include <initializer_list>
 
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size())
@@ -16,7 +14,7 @@ bool issame(vector<string> a, vector<string> b){
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> result;
-    for(float g : grades) { 
+    for(auto& g : grades) {
         string letterGrade;
         if(g >= 4.0) {
             letterGrade = "A+";
