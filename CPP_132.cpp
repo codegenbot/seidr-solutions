@@ -14,9 +14,8 @@ bool is_nested(const std::string& str) {
 }
 
 int main() {
-    std::string str;
-    std::cin >> str;
-    std::cout << is_nested(str) << std::endl;
-
+    std::string input;
+    std::cin >> input;
+    std::cout << is_nested(input) << std::endl;
     return 0;
 }
