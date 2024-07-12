@@ -1,6 +1,6 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 int findNextSmallest(std::vector<int> lst) {
     if (lst.empty()) return -1; 
