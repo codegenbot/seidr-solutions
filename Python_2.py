@@ -1,5 +1,6 @@
 def calculate_decimal_part(number):
-    return float(number) % 1
+    number = float(number)
+    return number % 1
 
-input_number = input("Enter a number: ")
+input_number = raw_input()
 print(calculate_decimal_part(input_number))
