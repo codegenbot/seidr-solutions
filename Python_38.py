@@ -6,10 +6,10 @@ def decode_cyclic(s: str):
     return "".join(groups)
 
 while True:
-    input_string = input("Enter a string: ").strip()
-    if len(input_string) >= 3:
+    input_string = input("Enter a string: ")
+    if len(input_string) >= 1:
         result = decode_cyclic(input_string)
         print(result)
         break
     else:
-        print("Input should have a length of at least 3. Please try again.")
+        print("Input should have a length of at least 1. Please try again.")
