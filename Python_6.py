@@ -1,4 +1,4 @@
-```python
+```
 def parse_nested_parens(paren_string: str) -> list:
     result = []
     stack = []
@@ -10,7 +10,7 @@ def parse_nested_parens(paren_string: str) -> list:
                 stack.pop()
             else:
                 result.append(1)
-        elif stack:
+        elif stack and stack[-1] == '(':
             level = len(stack)
             result.append(level)
             while stack and stack[-1] != '(':
