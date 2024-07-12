@@ -1,5 +1,4 @@
 arr = list(map(int, input().split()))
-
 total_sum = sum(arr)
 left_sum = 0
 min_diff = total_sum
@@ -11,11 +10,10 @@ for i in range(len(arr)):
     diff = abs(left_sum - right_sum)
     if diff < min_diff:
         min_diff = diff
-        cut_index = i
+        cut_index = i + 1
 
-cut_index = cut_index if cut_index != -1 else len(arr) - 1
-subvector1 = arr[:cut_index + 1]
-subvector2 = arr[cut_index + 1:]
+subvector1 = arr[:cut_index]
+subvector2 = arr[cut_index:]
 
 print(*subvector1)
 print(*subvector2)
