@@ -15,6 +15,6 @@ int solution(vector<int> lst) {
 }
 
 int main() {
-    vector<int> lst = {3, 13, 2, 9};
+    vector<int> lst({3, 13, 2, 9});
     cout << solution(lst);
 }
