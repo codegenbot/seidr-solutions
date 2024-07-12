@@ -4,11 +4,15 @@
 #include <algorithm>
 #include <string>
 
-bool checkEquality(std::string& s) {
+bool checkEquality(std::string& s, std::string& c) {
     return s == "True";
 }
 
 std::string reverse_delete(std::string& s, std::string& c) {
+    if(s.empty() || c.empty()) {
+        return "False";
+    }
+    
     std::string temp = "";
     for (char ch : s) {
         bool found = false;
@@ -24,16 +28,21 @@ std::string reverse_delete(std::string& s, std::string& c) {
     }
     std::string rev = temp;
     std::reverse(rev.begin(), rev.end());
-    return rev;
+    return rev == temp ? "True" : "False";
 }
 
 int main() {
     std::string s1 = reverse_delete("mamma", "mia");
     std::string s2 = "mama";
-    if(s1 == s2) {
-        std::cout << "are the same." << std::endl;
+    
+    if(checkEquality(reverse_delete("mamma", "mia"), "True")) {
+        if(s1 == s2) {
+            std::cout << std::move(s1) << " and " << s2 << " are the same." << std::endl;
+        } else {
+            std::cout << std::move(s1) << " and " << s2 << " are not the same." << std::endl;
+        }
     } else {
-        std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
+        std::cout << std::move(s1) << " and " << s2 << " are not the same." << std::endl;
     }
     return 0;
 }
