@@ -37,16 +37,16 @@ int main() {
     
     bool isSame = checkEquality(s1, "True");
     if(!s1.empty()) {
-        s1 = std::move(s1.erase(std::remove_if(s1.begin(), s1.end(), ::isspace), s1.end()));
+        s1 = s1.erase(std::remove_if(s1.begin(), s1.end(), ::isspace), s1.end());
     }
     if(!s2.empty()) {
-        s2 = std::move(s2.erase(std::remove_if(s2.begin(), s2.end(), ::isspace), s2.end()));
+        s2 = s2.erase(std::remove_if(s2.begin(), s2.end(), ::isspace), s2.end());
     }
     
-    if(s1 == "True") {
-        std::cout << s1 << " and " << s2 << " are the same." << std::endl;
-    } else {
-        std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
+    std::cout << "mama" << " and " << (s1.empty() ? "" : s1) << " are " << (isSame ? "" : "not ") << "the same." << std::endl;
+    if(!s1.empty()) {
+        std::cout << "After processing: " << (s1.empty() ? "" : s1) << std::endl;
+        s1 = s1.erase(std::remove_if(s1.begin(), s1.end(), ::isspace), s1.end());
     }
     return 0;
 }
