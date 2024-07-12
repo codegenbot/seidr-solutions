@@ -1,5 +1,7 @@
+#include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
 
 int gcd(int a, int b) {
     if (b == 0) {
@@ -27,4 +29,18 @@ vector<int> findIndicesOfSubstring(const string& text, const string& target) {
     }
     
     return indices;
+}
+
+int main() {
+    string text, target;
+    cin >> text >> target;
+
+    vector<int> result = findIndicesOfSubstring(text, target);
+
+    for (int idx : result) {
+        cout << idx << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
