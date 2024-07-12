@@ -18,7 +18,7 @@ string camelCase(string s) {
                 result[0] = toupper(result[0]);
             }
             result += s.substr(0, i);
-            result += s.substr(i + 1);
+            result += s.substr(i + 1).substr(0, 1).toupper() + s.substr(i + 1).substr(1);
             break;
         } else {
             result += s[i];
