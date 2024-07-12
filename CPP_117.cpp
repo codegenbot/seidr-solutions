@@ -1,50 +1,25 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 
 using namespace std;
 
-vector<string> select_words(string s, int n) {
-    vector<string> result;
-    string word = "";
-    for (char c : s) {
-        if (c == ' ') {
-            if (!word.empty()) {
-                if (count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + 
-                    count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + 
-                    count(word.begin(), word.end(), 'u') <= n) {
-                    result.push_back(word);
-                }
-                if (!word.empty() && word.length() > n) {
-                    return result;
-                }
-                word = "";
-            }
-        } else {
-            word += c;
-        }
-    }
-    if (!word.empty()) {
-        if (count(word.begin(), word.end(), 'a') + count(word.begin(), word.end(), 'e') + 
-            count(word.begin(), word.end(), 'i') + count(word.begin(), word.end(), 'o') + 
-            count(word.begin(), word.end(), 'u') <= n) {
-            result.push_back(word);
-        }
-        if (!word.empty() && word.length() > n) {
-            return result;
-        }
-    }
-    return result;
+bool issame(vector<string> a, vector<string> b) {
+    return a == b;
 }
 
-int main() {
-    string s = "Mary had a little lamb";
-    int n = 4;
-    vector<string> result = select_words(s, n);
-    for (string str : result) {
-        cout << str << endl;
+vector<string> select_words(string s, int n) {
+    vector<string> words = {};
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == ' ') {
+            continue;
+        }
+        string word = "";
+        while (i < s.length() && s[i] != ' ') {
+            word += s[i];
+            i++;
+        }
+        words.push_back(word);
     }
-    return 0;
+    return words;
 }
