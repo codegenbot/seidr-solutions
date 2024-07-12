@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int main() {
+int driver() {
     int n;
     cin >> n;
     vector<int> arr(n);
@@ -17,12 +17,8 @@ int main() {
     string str;
     cin >> str;
     
-    if(str == "print") {
-        int result = histogram(str, arr); 
-        cout << result << endl;
-    } else {
-        return 0;
-    }
+    int result = histogram(str, arr);
+    cout << result << endl;
     
     return 0;
 
