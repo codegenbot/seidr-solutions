@@ -1,4 +1,3 @@
-```
 def calculate_average_and_median():
     while True:
         user_input = input("Enter numbers separated by space: ")
@@ -10,7 +9,7 @@ def calculate_average_and_median():
             print("Invalid input. Please enter valid integers separated by space.")
 
     if not numbers:
-        return f"No numbers entered."
+        return "No numbers entered."
 
     average = sum(numbers) / len(numbers)
 
