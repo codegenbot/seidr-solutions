@@ -1,4 +1,6 @@
 #include <string>
+#include <iostream>
+
 using namespace std;
 
 int main() {
@@ -8,11 +10,11 @@ int main() {
     
     int len = s.length();
     if (len % 2 == 0) {
-        res = s.substr(len / 2 - 1, 1).str; 
-        res += s.substr(len / 2, 1).str;
+        string res = s.substr(len / 2 - 1, 1);
+        res += s.substr(len / 2, 1);
         cout << "Middle characters are: " << res << endl;
     } else {
-        res = s.substr(len / 2, 1).str;
+        string res = s.substr(len / 2, 1);
         cout << "Middle character is: " << res << endl;
     }
     
