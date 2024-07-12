@@ -8,10 +8,10 @@ int pairedDigits(std::string s) {
         }
     }
     return sum;
+
 }
 
 int main() {
-    std::string input = "1233345556";
-    int sum = pairedDigits(input);
+    int sum = pairedDigits("1233345556");
     return 0;
 }
