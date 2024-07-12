@@ -1,9 +1,9 @@
-```
-from typing import List
-import math
-
-
 def factorize(n: int) -> List[int]:
+    if not isinstance(n, int):
+        raise TypeError("Input should be an integer.")
+    if n < 1:
+        raise ValueError("Input should be a positive integer.")
+
     if n <= 1:
         return [n]
     factors = []
@@ -20,8 +20,4 @@ def factorize(n: int) -> List[int]:
             i = 2
     if n > 1:  
         return [n]
-    return [int(f) for f in set(map(str, factors))]
-
-
-n = int(input("Enter a number: "))
-factorize(n)
+    return sorted([int(f) for f in set(map(str, factors))])
