@@ -1,8 +1,9 @@
 def find_zero(xs: list):
-    a, b = map(int, xs)
-    assert b != 0
-    return -a / b
+    assert len(xs) == 2
+    assert xs[-1] != 0
+    return -xs[0] / xs[1]
 
-coefficients = list(map(int, input("Enter the coefficients of the quadratic equation (a b): ").split()))
-result = find_zero(coefficients)
-print(f"The value of x where the equation is equal to zero is: {result}")
+input_list = list(map(float, input("Enter two numbers separated by space: ").split()))
+
+result = find_zero(input_list)
+print(result)
