@@ -18,7 +18,7 @@ int main() {
         int rightSum = totalSum - leftSum;
         int diff = std::abs(leftSum - rightSum);
 
-        if (diff < minDiff || (diff == minDiff && i == n-2)) {
+        if (diff <= minDiff || (diff == minDiff && i == n-2)) {
             minDiff = diff;
             cutIndex = i;
         }

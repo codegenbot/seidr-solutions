@@ -13,7 +13,7 @@ int main() {
         snow_on_ground -= min(snow_on_ground, snow_melt_amount);
     }
 
-    cout << snow_on_ground << endl;
+    cout << fixed << snow_on_ground << endl;
 
     return 0;
 }
