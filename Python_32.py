@@ -1,3 +1,4 @@
+```
 def quadratic_equation():
     while True:
         try:
@@ -6,8 +7,6 @@ def quadratic_equation():
             if len(coefficients) != 3:
                 raise ValueError
             a, b, c = coefficients[0], coefficients[1], coefficients[2]
-            
-            import math
             
             discriminant = b**2 - 4 * a * c
             
