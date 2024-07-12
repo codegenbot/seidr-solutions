@@ -1,41 +1,29 @@
-#include <iostream>
-#include <vector>
-#include <climits>
-#include <cstdlib>
-
-using namespace std;
-
 int main() {
     vector<int> nums;
     int num;
-    
     while (cin >> num) {
         nums.push_back(num);
     }
     
-    int n = nums.size();
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += nums[i];
+    int total = 0;
+    for (int n : nums) {
+        total += n;
     }
     
-    int prefixSum = 0;
-    int minDiff = INT_MAX;
-    int cutIndex = -1;
-    for (int i = 0; i < n; i++) {
-        prefixSum += nums[i];
-        int suffixSum = sum - prefixSum;
-        int diff = abs(prefixSum - suffixSum);
-        if (diff < minDiff) {
-            minDiff = diff;
-            cutIndex = i;
+    int sum = 0;
+    int idx = 0;
+    for (int i = 0; i < nums.size(); ++i) {
+        sum += nums[i];
+        if (sum >= (total + 1) / 2) {
+            idx = i;
+            break;
         }
     }
     
-    for (int i = 0; i <= cutIndex; i++) {
-        cout << nums[i] << "\n";
+    for (int i = 0; i <= idx; ++i) {
+        cout << nums[i] << endl;
     }
-    cout << 0 << "\n";
+    cout << 0 << endl;
     
     return 0;
 }
