@@ -1,21 +1,15 @@
 n = int(input())
-nums = [int(input()) for _ in range(n)]
+vals = [int(input()) for _ in range(n)]
 
-total_sum = sum(nums)
+total_sum = sum(vals)
 half_sum = total_sum // 2
-cumulative_sum = 0
-min_diff = float("inf")
-cut_index = -1
+sub_sum = 0
+idx = 0
+for i, val in enumerate(vals):
+    sub_sum += val
+    if sub_sum >= half_sum:
+        idx = i
+        break
 
-for i, num in enumerate(nums):
-    cumulative_sum += num
-    diff = abs(cumulative_sum - half_sum)
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
-
-subvector1 = nums[: cut_index + 1]
-subvector2 = nums[cut_index + 1 :]
-
-print(*subvector1)
-print(*subvector2)
+print(vals[: idx + 1])
+print(vals[idx + 1 :])
