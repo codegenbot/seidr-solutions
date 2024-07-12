@@ -15,6 +15,7 @@ bool is_happy(string s) {
         if(!distinct) return false;
     }
     return true;
+
 }
 
 int main() {
