@@ -1,14 +1,14 @@
 #include <iostream>
-#include <boost/any.hpp>
+#include <any>
 #include <string>
-#include <cassert>
+#include <cassert> 
 
-boost::any compare_one(boost::any a, boost::any b) {
+std::any compare_one(std::any a, std::any b) {
     // Add your comparison logic here
-    return boost::any("None");
+    return std::any("None");
 }
 
 int main() {
-    assert(boost::any_cast<const char*>(boost::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))).c_str()) == typeid(const char*)); // Corrected assert statement
+    assert(std::any_cast<const char*>(std::any_cast<std::string>(compare_one(std::string("1"), std::string("1"))).c_str()) == typeid(const char*)); // Corrected assert statement
     return 0;
 }
