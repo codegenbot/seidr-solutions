@@ -1,6 +1,5 @@
 ```cpp
 #include <iostream>
-#include <cassert>
 
 int count_nums(int* nums, int size) {
     int count = 0;
@@ -34,13 +33,13 @@ int main() {
 
     int* nums = new int[size];
     for (int i = 0; i < size; i++) {
-        std::cout << "Enter integer # " << std::string(1, (i + 1) + '0') << ": ";
+        std::cout << "Enter integer # " << i+1 << ": ";
         std::cin >> nums[i];
     }
 
     int count = count_nums(nums, size);
     delete[] nums;
     std::cout << "The number of positive integers with an odd digital root is: " << count << std::endl;
-    assert (count == 1); 
+
     return 0;
 }
