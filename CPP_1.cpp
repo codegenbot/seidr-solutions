@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,6 +21,8 @@ vector<string> separate_paren_groups(string paren_string) {
                 result.push_back(temp);
                 temp = "";
             }
+        } else {
+            temp += c;
         }
     }
 
@@ -27,11 +30,12 @@ vector<string> separate_paren_groups(string paren_string) {
 }
 
 int main() {
-    string paren_string = "( ) (( )) (( )( \"";
-    vector<string> result; // Declare result here!
-    
-    for (string s : separate_paren_groups(paren_string)) {
-        cout << "Error: Unclosed parentheses in input string.\n";
+    string paren_string = R"(( ) (( )) (( )( "))";
+    vector<string> result;
+    result = separate_paren_groups(paren_string);
+
+    for (string s : result) {
+        cout << s << endl;
     }
     return 0;
 }
