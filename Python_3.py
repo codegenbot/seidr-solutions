@@ -1,3 +1,4 @@
+```
 from typing import List
 
 
@@ -12,8 +13,8 @@ def below_zero() -> None:
         if all(temp < 0 for temp in temperature_list):
             confirm_input = input("All temperatures are below zero. Continue? (y/n): ")
             if confirm_input.lower() != 'y':
-                break
+                return
         elif all(temp >= 0 for temp in temperature_list):
             confirm_input = input("No temperatures are below zero. Exit program? (y/n): ")
             if confirm_input.lower() != 'n':
-                break
+                return

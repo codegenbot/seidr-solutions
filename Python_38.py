@@ -1,8 +1,9 @@
+Here's the corrected code:
+
 def decode_cyclic():
     s = input("Enter the string: ")
     result = ""
     i = 0
-    group = ""  
     while i < len(s):
         if i + 2 <= len(s):  
             group = s[i : i + 2] + s[i]
@@ -16,5 +17,3 @@ def decode_cyclic():
             result += group
         i += 3
     return result
-
-print(decode_cyclic())
