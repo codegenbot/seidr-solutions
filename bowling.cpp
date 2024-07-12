@@ -1,6 +1,6 @@
 #include <iostream>
 
-int bowlingScore(std::string s) {
+int bowlingScore(string s) {
     int score = 0;
     int frame = 1;
     int i = 0;
@@ -26,7 +26,7 @@ int bowlingScore(std::string s) {
 }
 
 int main() {
-    std::string s;
+    string s;
     std::cin >> s;
     std::cout << bowlingScore(s) << std::endl;
     return 0;
