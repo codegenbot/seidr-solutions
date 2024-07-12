@@ -4,10 +4,7 @@ try:
     def factorize(num):
         if num <= 0:
             return []
-        factors = []
-        for i in range(1, num + 1):
-            if num % i == 0:
-                factors.append(i)
+        factors = [i for i in range(1, num + 1) if num % i == 0]
         return factors
 
     factors = factorize(n)
