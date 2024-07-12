@@ -8,7 +8,6 @@ vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
         result.push_back(n);
-
         if (n % 2 == 0) {
             n /= 2;
         } else {
@@ -17,7 +16,7 @@ vector<int> get_odd_collatz(int n) {
     }
     result.push_back(1);
     
-    sort(result.begin(), result.end()); // Sort the result vector
+    sort(result.begin(), result.end());
     
     vector<int> odd_numbers;
     for (int i = 0; i < result.size(); ++i) {
