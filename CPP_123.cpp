@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -8,7 +9,7 @@ vector<int> get_odd_collatz(int) {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
-    vector<int> result(1);  
+    vector<int> result;  
     while (n != 1) {
         if (n % 2 == 0) {
             n /= 2;  
@@ -20,12 +21,11 @@ vector<int> get_odd_collatz(int) {
     return result;
 }
 
-int main() {
+void main() {
     vector<int> odd_collatz = get_odd_collatz(0);
     cout << "The sequence of Collatz Conjecture for the given number is: ";
     for (int num : odd_collatz) {
         cout << num << " ";
     }
     cout << endl;
-    return 0;
 }
