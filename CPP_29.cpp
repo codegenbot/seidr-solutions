@@ -21,15 +21,11 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
 
 }
 
-int testMain() {
+int main() {
     assert(issame({{{"xxx"}, {"asd", "xxy", "john doe", "xxxA", "xxx"}},
                    {{"xxx"}, {"xxxAAA", "xxx"}}},
-                  false);
+                  false));
     std::vector<std::string> strings = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
     assert(std::equal(filter_by_prefix(strings, "xxx").begin(), filter_by_prefix(strings, "xxx").end(), {"xxx", "xxxAAA", "xxx"}));
     return 0;
-}
-
-int main() {
-    testMain();
 }
