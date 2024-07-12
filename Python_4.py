@@ -1,5 +1,5 @@
-import statistics
-
+Here is the completed code:
 
 def mean_absolute_deviation(numbers: List[float]) -> float:
-    return statistics.mean([abs(num - statistics.mean(numbers)) for num in numbers])
+    avg = sum(numbers) / len(numbers)
+    return sum(abs(n - avg) for n in numbers) / len(numbers)
