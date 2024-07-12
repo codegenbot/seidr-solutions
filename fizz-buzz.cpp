@@ -1,16 +1,15 @@
-```cpp
-#include <iostream>
-#include <string>
-
-std::string fizzBuzz(int x) {
-    std::string str = (x % 5 == 0) ? (x % 3 == 0) ? "FizzBuzz" : (x % 3 == 0) ? "Fizz" : "Buzz" : std::to_string(x);
-    return str;
-}
+Here is the solution:
 
 int main() {
-    int x;
-    std::cout << "Enter a number: ";
-    std::cin >> x;
-    std::cout << fizzBuzz(x) << std::endl;
+    int n;
+    cin >> n;
+    if (n % 3 == 0 && n % 5 == 0)
+        cout << "FizzBuzz";
+    else if (n % 3 == 0)
+        cout << "Fizz";
+    else if (n % 5 == 0)
+        cout << "Buzz";
+    else
+        cout << to_string(n);
     return 0;
 }
