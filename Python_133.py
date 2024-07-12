@@ -1,2 +1,2 @@
 def sum_squares(lst):
-    return sum([(int(x) + 1) ** 2 if int(x) >= 0 else (int(x) - 1) ** 2 for x in lst])
+    return sum([(x + 1) ** 2 if x >= 0 else (x - 1) ** 2 for x in lst])
