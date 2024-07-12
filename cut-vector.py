@@ -1,5 +1,5 @@
 n = int(input())
-arr = [int(input()) for _ in range(n)]
+arr = list(map(int, input().split()))
 
 total_sum = sum(arr)
 left_sum = 0
@@ -14,8 +14,8 @@ for i in range(n):
         min_diff = diff
         cut_index = i
 
-subvector1 = arr[: cut_index + 1]
-subvector2 = arr[cut_index + 1 :]
+subvector1 = arr[:cut_index + 1]
+subvector2 = arr[cut_index + 1:]
 
 print(*subvector1)
 print(*subvector2)
