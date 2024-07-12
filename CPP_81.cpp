@@ -1,8 +1,8 @@
 ```cpp
 #include <vector>
-using namespace std;
+#include <string>
 
-typedef vector<size_t>::size_type size_type;
+using namespace std;
 
 bool checkSame(vector<string> a) {
     if (a.size() != 1) {
