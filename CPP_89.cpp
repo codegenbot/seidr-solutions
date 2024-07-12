@@ -1,5 +1,6 @@
-#include <iostream>
+```cpp
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -19,8 +20,7 @@ string encrypt(string s){
 
 int main(){
     string s;
-    cout << "Enter a string: ";
     cin >> s;
-    cout << "Encrypted string: " << encrypt(s);
+    cout << encrypt(s) << endl;
     return 0;
 }
