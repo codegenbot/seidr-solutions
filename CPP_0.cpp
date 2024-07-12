@@ -1,15 +1,15 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> // for sort
-#include <cmath>     // for fabs
+#include <algorithm>
+#include <cmath>
 
 using namespace std;
 
-bool has_close_elements(std::vector<float> numbers, float threshold) {
-    std::sort(numbers.begin(), numbers.end());
+bool has_close_elements(vector<float> numbers, float threshold) {
+    sort(numbers.begin(), numbers.end());
     
     for (int i = 1; i < numbers.size(); ++i) {
-        if (std::fabs(numbers[i] - numbers[i - 1]) < threshold) {
+        if (fabs(numbers[i] - numbers[i - 1]) < threshold) {
             return true;
         }
     }
