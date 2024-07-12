@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <vector>
+
+using namespace std;
 
 int calculateBowlingScore(const string& bowls) {
     int score = 0;
