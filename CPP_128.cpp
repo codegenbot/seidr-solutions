@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -11,22 +12,23 @@ int prod_signs(const vector<int>& arr) {
     int product = 1;
     int sum = 0;
 
-    for (int num : arr) {
-        if (num > 0) {
+    for (int i : arr) {
+        if (i > 0) {
             product *= 1;
-        } else if (num < 0) {
+        } else if (i < 0) {
             product *= -1;
         } else {
             product *= 0;
         }
 
-        sum += abs(num);
+        sum += abs(i);
     }
 
     return product * sum;
 }
 
 int main() {
-    assert(prod_signs({-1, 1, 1, 0}) == 0); // Test case
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
+
     return 0;
 }
