@@ -1,7 +1,6 @@
-```
+```cpp
 #include <iostream>
 #include <string>
-#include <vector>
 
 bool is_happy(std::string s) {
     if (s.length() < 3)
