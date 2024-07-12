@@ -1,31 +1,36 @@
-```cpp
-#include <algorithm>
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
 string spinWords(string str) {
     string result = "";
+    
     int wordStart = 0;
     
-    for(int i=0; i<=str.length(); i++) {
-        if(i == str.length() || str[i] == ' ') {
+    for(int i=0; i<str.length(); i++) {
+        if(i == str.length() - 1) {
             string word = str.substr(wordStart, i-wordStart);
             
             if(word.length() >= 5) {
-                // Reverse the word
-                string reversedWord;
-                for(int j=word.length()-1; j>=0; j--) {
-                    reversedWord += word[j];
-                }
-                result += reversedWord + " ";
-            } else {
-                result += word + " ";
+                reverse(word.begin(), word.end());
             }
             
+            result += word + " ";
+            break;
+        } else if (str[i] == ' ') {
+            string word = str.substr(wordStart, i-wordStart);
+
+            if(word.length() >= 5) {
+                reverse(word.begin(), word.end());
+            }
+
+            result += word + " ";
             wordStart = i+1;
+        } else {
+            wordStart++;
         }
     }
     
