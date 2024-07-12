@@ -10,7 +10,7 @@ int main() {
     vector<int> input;
     int num;
 
-    while (cin >> num && num != -1 && !cin.eof()) {
+    while (cin >> num && num != -1) {
         input.push_back(num);
     }
 
@@ -27,7 +27,7 @@ int main() {
         }
     }
 
-    for (int i = 0; i <= idx; ++i) {
+    for (int i = 0; i < idx; ++i) {
         cout << input[i] << endl;
     }
     cout << endl;
