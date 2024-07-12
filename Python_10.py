@@ -1,3 +1,4 @@
+```
 import random
 
 def make_palindrome():
@@ -11,15 +12,15 @@ def make_palindrome():
 while True:
     result = input("Enter your desired output (or press enter to get a random palindrome): ")
     if not result:  
-        print(make_palindrome())
+        print(""""""), make_palindrome(), print("""""")
         break
     elif result.lower() == "quit" or result.lower() == "q":  
-        print("Goodbye!")
+        print("""Goodbye!""")
         break
     else:
         if result.lower() in ["mom", "dad"]:
-            print(result.capitalize())
+            print(""""""), result.capitalize(), print("""""")
         elif result.lower() not in ["madam", "mom", "dad", "noon"] and len(result) > 1 and result == result[::-1]:
-            print(result)
+            print(""""""), result, print("""""")
         else:
-            print("Invalid input. Try again.")
+            print("""Invalid input. Try again.""")
