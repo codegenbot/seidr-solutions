@@ -1,19 +1,24 @@
+```
 def bowling_score(frames):
     score = 0
-    frames = list(map(str.strip, frames.split("/")))
-    for i, f in enumerate(frames):
-        if f == "X":
-            score += 10
-            if i < len(frames) - 1:
-                score += int(frames[i + 1].lstrip("0")) or 0
-        elif f == "":
-            score += 10
-            if i < len(frames) - 1:
-                score += int(frames[i + 1]) or 0
+    roll = []
+    for frame in frames.split('/'):
+        if '-' in frame:
+            strike = True
+            spare = False
+        elif int(frame) == 10:
+            strike = True
+            spare = False
         else:
-            rolls = [int(roll) for roll in f.split(" ")]
-            if sum(rolls) == 10:
-                score += 10
-            else:
-                score += sum(rolls)
+            strike = False
+            spare = False
+        if strike:
+            score += 10 + (10 - len(roll)) * 10
+            roll = []
+        elif spare:
+            score += 10 + int(frame)
+            roll = []
+        else:
+            score += int(frame) + (10 - len(roll))
+            roll.append(int(frame))
     return score
