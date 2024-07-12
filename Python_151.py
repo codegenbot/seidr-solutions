@@ -1,7 +1,7 @@
 ```
 def check(lst):
-    odd_sum = sum(i for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
+    odd_sum = sum(i for i in lst if isinstance(i, int) and i >= 0)
     if double_the_difference(lst) == odd_sum:
-        return "The difference is zero"
+        return "Yes"
     else:
-        return "The difference is not zero"
+        return "No"
