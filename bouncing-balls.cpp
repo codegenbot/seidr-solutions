@@ -1,4 +1,4 @@
-```cpp
+```
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -18,7 +18,7 @@ int main() {
         startHeight *= bouncinessIndex;
     }
 
-    cout << fixed << std::setprecision(5);
+    cout << fixed << setprecision(5);
     cout << totalDistance << endl;
 
     return 0;
