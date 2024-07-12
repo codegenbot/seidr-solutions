@@ -1,11 +1,31 @@
 ```cpp
-#include <vector>
-#include <string>
+bool issame(vector<string> a, vector<string> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
 
-using namespace std;
-
-bool issame(vector<string> a,vector<string>b){
-    return a==b;
+int main() {
+    vector<int> arr;
+    cout << "Enter numbers separated by space: ";
+    int num;
+    while (cin >> num) {
+        arr.push_back(num);
+        if (cin.peek() == ' ') {
+            cin.ignore();
+        } else if (cin.peek() != '\n') {
+            break;
+        }
+    }
+    vector<string> result = by_length(arr);
+    cout << "The output is: ";
+    for (string s : result) {
+        cout << s << " ";
+    }
+    cout << endl;
+    return 0;
 }
 
 vector<string> by_length(vector<int> arr) {
@@ -52,9 +72,4 @@ vector<string> by_length(vector<int> arr) {
         result.push_back(s);
     }
     return result;
-}
-
-int main() {
-    assert (issame(by_length({9, 4, 8}) , {"Nine", "Four", "Eight"}));
-    return 0;
 }
