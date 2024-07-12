@@ -5,7 +5,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> digits[i];
     }
-
+    
     int sum = 0;
     for (int i = 0; i < n; ++i) {
         if (i % 2 == 1) {
@@ -19,8 +19,8 @@ int main() {
             sum += digits[i];
         }
     }
-
+    
     cout << sum << endl;
-
+    
     return 0;
 }
