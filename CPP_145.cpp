@@ -1,19 +1,24 @@
 #include <algorithm>
+using namespace std;
 
 vector<int> order_by_points(vector<int> nums) {
-    sort(nums.begin(), nums.end(), [&] (int a, int b) {
-        if (get_sum(a) == get_sum(b)) return nums.find(a) < nums.find(b);
-        return get_sum(a) < get_sum(b);
-    });
-    
-    return nums;
-}
-
-int get_sum(int n) {
-    int sum = 0;
-    while (n != 0) {
-        sum += n % 10;
-        n /= 10;
+    vector<pair<int, int>> pairs;
+    for (int i = 0; i < nums.size(); i++) {
+        int sum = 0;
+        int num = abs(nums[i]);
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        pairs.push_back({sum, i});
     }
-    return sum;
+
+    sort(pairs.begin(), pairs.end());
+
+    vector<int> result;
+    for (auto& pair : pairs) {
+        result.push_back((pair.second >= 0 ? nums[pair.second] : -nums[pair.second]));
+    }
+
+    return result;
 }
