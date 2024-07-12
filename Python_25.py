@@ -6,9 +6,14 @@ def factorize(num):
 
 
 while True:
+    n = input()
     try:
-        n = int(input("Enter a positive integer: "))
+        n = int(n)
+        if n <= 0:
+            raise ValueError("Invalid input. Please enter a positive integer.")
         factors = factorize(n)
         print(factors)
-    except ValueError:
-        print("\nInvalid input. Please enter a positive integer.")
+    except ValueError as e:
+        print(e)
+    except:
+        print("Invalid input. Please enter a valid integer.")
