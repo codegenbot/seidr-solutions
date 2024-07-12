@@ -1,50 +1,47 @@
-```
 #include <string>
-#include <iostream>
+#include <stdexcept>
 
-bool compareAny(const boost::any &a, const boost::any &b) {
+boost::any compare_one(boost::any a, boost::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
-        return (int)a.convert<int>() > (float)b.convert<float>();
+        return (int)a > (float)b ? a : b;
     } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
-        return (int)a.convert<int>() > (double)b.convert<double>();
+        return (int)a > (double)b ? a : b;
     } else if (a.type() == typeid(float) && b.type() == typeid(int)) {
-        return (float)a.convert<float>() > (int)b.convert<int>();
+        return (float)a > (int)b ? a : b;
     } else if (a.type() == typeid(double) && b.type() == typeid(int)) {
-        return (double)a.convert<double>() > (int)b.convert<int>();
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
+        return (double)a > (int)b ? a : b;
+    } else if (a.type() == typeid(string) && b.type() == typeid(float)) {
         try {
-            float fa = std::stof(a.convert<std::string>().get cref());
-            float fb = (float)b.convert<float>().get cref();
-            return fa > fb;
+            float fa = std::stof(a.convert<string>().c_str());
+            float fb = (float)b.convert<float>();
+            return fa > fb ? a : b;
         } catch (...) {
-            return false;
+            throw;
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
+    } else if (a.type() == typeid(string) && b.type() == typeid(double)) {
         try {
-            double fa = std::stod(a.convert<std::string>().get cref());
-            double fb = (double)b.convert<double>().get cref();
-            return fa > fb;
+            double fa = std::stod(a.convert<string>().c_str());
+            double fb = (double)b.convert<double>();
+            return fa > fb ? a : b;
         } catch (...) {
-            return false;
+            throw;
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
+    } else if (a.type() == typeid(string) && b.type() == typeid(int)) {
         try {
-            int fa = std::stoi(a.convert<std::string>().get cref());
-            int fb = (int)b.convert<int>().get cref();
-            return fa > fb;
+            int fa = std::stoi(a.convert<string>().c_str());
+            int fb = (int)b.convert<int>();
+            return fa > fb ? a : b;
         } catch (...) {
-            return false;
+            throw;
         }
-    } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
+    } else if (a.type() == typeid(string) && b.type() == typeid(string)) {
         try {
-            float fa = std::stof(a.convert<std::string>().get cref());
-            float fb = std::stof(b.convert<std::string>().get cref());
-            return fa > fb;
+            float fa = std::stof(a.convert<string>().c_str());
+            float fb = std::stof(b.convert<string>().c_str());
+            return fa > fb ? a : b;
         } catch (...) {
-            return false;
+            throw;
         }
-    } else {
-        throw "Unknown types";
     }
-
-    return false;
+    return boost::any("None");
+}
