@@ -2,7 +2,10 @@ def make_palindrome(string: str) -> str:
     if string == string[::-1]:
         return string
     for char in string:
-        middle = string.replace(char, "")
-        if middle == middle[::-1]:
-            return char + middle + middle[::-1] + char
+        temp = string[: len(string) - 1].replace(char, "")
+        if (
+            temp == temp[::-1]
+            and string[1:].replace(char, "") == (string[1:]).replace(char, "")[::-1]
+        ):
+            return char + temp + temp[::-1]
     return string + string[::-1]
