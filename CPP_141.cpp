@@ -4,8 +4,7 @@
 #include <cassert>
 
 std::string file_name_check(std::string file_name) {
-    if(file_name.empty())
-        return "No";
+    if(file_name.empty()) return "No";
     
     int digitCount = 0;
     int dotCount = 0;
