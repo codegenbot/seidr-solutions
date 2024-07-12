@@ -1,7 +1,7 @@
-```
 def smallest_change(arr):
     n = len(arr)
-    arr = list(map(str, map(int, input("Enter a space-separated sequence of numbers: ").split())))
+    arr = list(map(str, input("Enter a space-separated sequence of numbers: ").split()))
+    arr = ''.join(arr)
     rev_arr = arr[::-1]
     diff_count = 0
     i = 0
