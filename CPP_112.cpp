@@ -31,11 +31,11 @@ std::string reverse_delete(std::string& s, std::string& c) {
 }
 
 bool issame(std::vector<std::string> a, std::vector<std::string> b) {
-    return a == b;
+    return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
 int main() {
-    bool isEqual = (checkEquality("True"));
+    bool isEqual = checkEquality("True");
     
     if(isEqual) {
         if (!isEqual) {
