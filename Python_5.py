@@ -3,11 +3,11 @@ from typing import List
 
 
 def intersperse(numbers: List[int], delimiter: int) -> List[int]:
-    if not numbers:
-        return [delimiter]
-    result = [delimiter]
-    for num in numbers:
-        result.extend([result.pop(), num])
-    if result[-1] == delimiter:
+    if numbers:
+        result = [delimiter]
+        for num in numbers:
+            result.extend([result.pop(), num])
         result.pop()
+    else:
+        return []
     return result
