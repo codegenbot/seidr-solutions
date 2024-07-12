@@ -6,8 +6,12 @@ std::vector<int> make_a_pile(int n) {
     std::vector<int> stones;
     stones.push_back(n);
 
-    while (n % 2 == 0) {
-        n += 2;
+    for (int i = 1; i <= n; i++) {
+        if (n % 2 == 0) {
+            n += 2;
+        } else {
+            n += 1;
+        }
         stones.push_back(n);
     }
 
@@ -19,7 +23,14 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 int main() {
-    assert(issame(make_a_pile(8), std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22});
+    std::vector<int> expected_result = make_a_pile(8);
+    std::vector<int> target_result{8, 10, 12, 14, 16, 18, 20, 22};
     
+    if (issame(expected_result, target_result)) {
+        std::cout << "Test passed!" << std::endl;
+    } else {
+        std::cout << "Test failed!" << std::endl;
+    }
+
     return 0;
 }
