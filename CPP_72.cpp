@@ -1,10 +1,22 @@
-int main {
-    std::vector<std::vector<int>> q = {{1,2},{3,4}};
-    int w = 10;
-    if (!will_it_fly(q, w)) {
-        std::cout << "It won't fly.\n";
-    } else {
-        std::cout << "It will fly.\n";
+#include <initializer_list>
+#include <cassert>
+
+bool will_it_fly(std::vector<std::vector<int>>& q, int w) {
+    std::string str = "";
+    for(int i : q[0]) {
+        str += std::to_string(i);
     }
+    if(str != std::string(str.rbegin(), str.rend())) 
+        return false;
+    int sum = 0;
+    for(int i : q[0]) {
+        sum += i;
+    }
+    return sum <= w;
+}
+
+int main() {
+    std::vector<std::vector<int>> q = {{5}};
+    assert(will_it_fly(q, 5) == true);
     return 0;
 }
