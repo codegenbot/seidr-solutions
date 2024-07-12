@@ -22,9 +22,7 @@ int main() {
     int num;
     while (!std::cin.eof()) {
         std::cin >> num;
-        if (!std::cin.fail()) {
-            nums.push_back(num);
-        }
+        nums.push_back(num);
     }
 
     std::vector<int> result = findLeaders(nums);
