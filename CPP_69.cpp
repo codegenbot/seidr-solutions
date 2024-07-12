@@ -1,3 +1,4 @@
+```c++
 #include <vector>
 #include <map>
 
@@ -22,7 +23,4 @@ int findMaxFreq(std::vector<int> lst) {
     return maxFreqNum;
 }
 
-int main() {
-    assert(findMaxFreq({3, 10, 10, 9, 2}) == -1);
-    return 0;
-}
+assert(findMaxFreq({3, 10, 10, 9, 2}) == -1);
