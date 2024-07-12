@@ -1,22 +1,27 @@
+```cpp
 bool evaluateBooleanExpression(const std::string& expression) {
     bool result = true;
-    int operation = 0; // Flag for AND (0), OR (1)
-    char currentBit = ' ';
     for (char c : expression) {
-        if (c == '&') {
-            operation = 0;
-            currentBit = ' ';
+        if (c == 't') {
+            result = true;
+        } else if (c == 'f') {
+            result = false;
         } else if (c == '|') {
-            result = !result; 
-            operation = 1;
-            currentBit = ' ';
-        } else if (c != 't' && c != 'f') {
-            if (operation) {
-                result &= (c == 't');
-            } else {
-                result |= (c == 't');
-            }
+            return result | evaluateBooleanExpression(expression.substr(expression.find(c) + 1));
+        } else if (c == '&') {
+            return result & evaluateBooleanExpression(expression.substr(expression.find(c) + 1));
         }
     }
-    return !result; 
+    return result;
+}
+
+int main() {
+    int testCases;
+    std::cin >> testCases;
+    for (int i = 0; i < testCases; ++i) {
+        std::string expression;
+        std::cin >> expression;
+        std::cout << (evaluateBooleanExpression(expression) ? "True" : "False") << std::endl;
+    }
+    return 0;
 }
