@@ -1,18 +1,16 @@
 #include <algorithm>
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
-    return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
+bool issame(int a, int b) {
+    return a == b;
 }
 
-std::vector<int> order_by_points(const std::vector<int>& nums) {
-    std::vector<std::pair<int, int>> pairs;
+std::vector<std::pair<int, int>> order_by_points(const std::vector<int>& nums) {
+    std::vector<std::pair<int, int>> result;
     for (int i = 0; i < nums.size(); i++) {
-        for (int j = i + 1; j <= nums.size(); j++) {
-            if (!issame({nums[i]}, {nums[j]})) {
-                pairs.push_back({i, j});
-            }
+        if (i >= 1 && nums[i] != nums[i-1]) {
+            result.push_back({i, i});
         }
     }
-    return {};
+    return result;
 }
