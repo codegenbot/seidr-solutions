@@ -1,21 +1,9 @@
 #include <vector>
-using namespace std;
 
-int calculateFuelCost(vector<int> numbers) {
+int calculateFuelCost(vector<int> prices) {
     int total = 0;
-    for (int num : numbers) {
-        total += ((num / 3) - 2);
+    for (int price : prices) {
+        int newPrice = floor((double)price / 3) - 2;
+        total += newPrice;
     }
     return total;
-}
-
-int main() {
-    int n;
-    cin >> n;
-    vector<int> numbers(n);
-    for (int i = 0; i < n; i++) {
-        cin >> numbers[i];
-    }
-    cout << calculateFuelCost(numbers) << endl;
-    return 0;
-}
