@@ -1,4 +1,6 @@
-int vowels_count(string s) {
+#include <string>
+
+int vowels_count(std::string s) {
     int count = 0;
     for (char c : s) {
         switch (tolower(c)) {
@@ -7,11 +9,13 @@ int vowels_count(string s) {
             case 'i':
             case 'o':
             case 'u':
-                if (c == 'y' && s[s.size() - 1] != 'y') break;
-            default:
-                continue;
+                count++;
+                break;
+            case 'y':
+                if (s.find('y') == s.length() - 1)
+                    count++;
+                break;
         }
-        count++;
     }
     return count;
 }
