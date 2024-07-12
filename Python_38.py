@@ -1,5 +1,5 @@
 ```
-def decode_cyclic() -> str:
+def decode_cyclic():
     s = input("Enter the string: ")
     if len(s) < 3:
         return s
