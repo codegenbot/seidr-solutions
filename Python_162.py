@@ -1,3 +1,4 @@
+```Python
 import hashlib
 
 print("Please enter some text (alphanumeric characters only): ", end="")
