@@ -1,6 +1,10 @@
 def main():
     print("Enter a list of integers separated by spaces:")
-    xs = list(map(int, input().strip().split()))
+    try:
+        xs = list(map(int, input().split()))
+    except ValueError:
+        print("Invalid input format. Please enter integers separated by spaces.")
+        return
 
     def find_zero(xs: list):
         try:
