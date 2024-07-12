@@ -12,10 +12,3 @@ def do_algebra(operator, operand):
         elif operator[i-1] == '**':
             result **= operand[i]
     return result
-
-# Reading input from user
-operators = input().split()
-operands = list(map(int, input().split()))
-
-# Calling the function and printing the result
-print(do_algebra(operators, operands))
