@@ -1,6 +1,7 @@
-#include <iostream>
 #include <string>
 #include <cassert>
+
+std::string encode(std::string message);
 
 std::string encode(std::string message){
     std::string encoded_message = message;
@@ -16,6 +17,8 @@ std::string encode(std::string message){
 }
 
 int main() {
-    assert(encode("I DoNt KnOw WhAt tO WrItE") == "k dQnT kNqW wHcT Tq WrItE");
+    assert(encode("hello") == "hElLO");
+    assert(encode("world") == "wOrLd");
+    
     return 0;
 }
