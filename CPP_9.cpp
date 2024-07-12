@@ -1,14 +1,10 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <algorithm>
 
 bool issame(vector<int> a, vector<int> b);
 
 vector<int> rolling_max(vector<int> numbers);
-
-int main() {
-    // Main function code here
-}
 
 bool issame(vector<int> a, vector<int> b){
     return a == b;
@@ -25,4 +21,9 @@ vector<int> rolling_max(vector<int> numbers){
         result.push_back(max_val);
     }
     return result;
+}
+
+int main() {
+    // Your main function code here
+    return 0;
 }
