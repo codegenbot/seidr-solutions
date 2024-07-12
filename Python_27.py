@@ -1,2 +1,2 @@
-def modify_string(string):
-    return "".join([char.upper() if char.islower() else char.lower() for char in string])
+def swapcase_string(string):
+    return string.swapcase()
