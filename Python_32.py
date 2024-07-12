@@ -1,7 +1,3 @@
-```
 def find_zero(xs):
-    n = len(xs)
-    for i in range(n):
-        if xs[i] == 0:
-            return i
-    return -1
+    zero = sum(x / len(xs) for x in xs)
+    return zero
