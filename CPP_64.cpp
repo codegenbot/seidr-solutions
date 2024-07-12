@@ -1,4 +1,6 @@
-int vowels_count(string s) {
+#include <string>
+
+int vowels_count(std::string s) {
     int count = 0;
     for (char c : s) {
         switch (tolower(c)) {
