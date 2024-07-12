@@ -1,2 +1,1 @@
-numbers = [int(x) for x in input("Enter space-separated numbers: ").split()]
-print(find_closest_elements(numbers))
+print((find_closest_elements(map(int, input("Enter numbers: ").split()))))
