@@ -1,3 +1,6 @@
+import math
+
+
 def special_factorial(n):
     if n < 1:
         return "Input must be a positive integer"
