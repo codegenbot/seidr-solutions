@@ -1,1 +1,1 @@
-total_price += prices[i] * (1.0 - discounts[i] / 100.0);
+total_price += prices[i] * (discounts[i] / 100.0);
