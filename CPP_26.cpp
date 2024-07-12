@@ -1,8 +1,7 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
-bool sameVec(std::vector<int> &a, std::vector<int> &b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a.size() == b.size() && std::equal(a.begin(), a.end(), b.begin());
 }
 
@@ -20,4 +19,3 @@ int main() {
     std::vector<int> test1 = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
     assert(std::equal(test1.begin(), test1.end(), {1, 2, 3, 4, 5}));
     return 0;
-}
