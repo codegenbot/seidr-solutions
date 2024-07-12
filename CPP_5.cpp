@@ -9,7 +9,7 @@ bool issame(vector<int> a, vector<int> b) {
         return false;
     }
 
-    for (size_t i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < a.size(); ++i) {
         if (a[i] != b[i]) {
             return false;
         }
