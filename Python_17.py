@@ -1,6 +1,7 @@
-```python
+Here is the corrected code:
+
 def parse_music(music_string: str) -> list:
-    """"""if not isinstance(music_string, str):
+    if not isinstance(music_string, str):
         return []
 
     music_list = []
@@ -31,4 +32,4 @@ def parse_music(music_string: str) -> list:
         if i < len(music_string):
             while i < len(music_string) and not music_string[i].isalnum():
                 i += 1
-    return music_list"""
+    return music_list
