@@ -5,7 +5,14 @@ int main() {
     int n, m;
     std::cin >> n >> m;
 
-    long double probability = static_cast<long double>(n * (n - 1) - (n - 1) * (m - 1)) / (static_cast<long double>(n * m));
+    double probability = 0.0;
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= m; ++j) {
+            if (i > j) {
+                probability += 1.0 / (static_cast<double>(n) * static_cast<double>(m));
+            }
+        }
+    }
 
     std::cout << std::fixed << std::setprecision(8) << probability << std::endl;
 
