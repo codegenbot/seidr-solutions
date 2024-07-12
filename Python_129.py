@@ -19,5 +19,3 @@ def process_paths():
     
     for path in paths:
         print(f"Path is: {path}")
-
-process_paths()
