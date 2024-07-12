@@ -1,2 +1,2 @@
-x, y, z = map(int, input().split())
-print(x + y + z)
+def add(x: int, y: int):
+    return x + y
