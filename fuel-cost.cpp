@@ -1,15 +1,14 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 using namespace std;
 
 int main() {
-    vector<unsigned long long> nums = {2819, 5392, 7741};
+    vector<int> nums = {12, 15, 18, 21}; // Example input vector
 
-    unsigned long long sum = 0;
+    int sum = 0;
     for (int i = 0; i < nums.size(); ++i) {
-        sum += floor(nums[i] / 3) - 2;
+        sum += (nums[i] / 3) - 2 * nums.size();
     }
 
     cout << sum << endl;
