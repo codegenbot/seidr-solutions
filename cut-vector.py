@@ -6,7 +6,7 @@ right_sum = sum(arr)
 min_diff = float('inf')
 cut_index = -1
 
-for i in range(n-1):
+for i in range(n):
     left_sum += arr[i]
     right_sum -= arr[i]
     diff = abs(left_sum - right_sum)
