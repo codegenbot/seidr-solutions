@@ -1,3 +1,4 @@
+```cpp
 #include <initializer_list>
 #include <vector>
 #include <algorithm>
@@ -10,10 +11,10 @@ bool areSame(const std::vector<std::string>& a, const std::vector<std::string>& 
 
 std::vector<std::string> sortedListSum(const std::vector<std::string>& lst) {
     auto it = std::stable_partition(lst.begin(), lst.end(),
-                                     [&](const auto& s) { return !s.length() % 2; }),
+                                     [&](auto& s) { return !s.length() % 2; }),
         end = lst.erase(it, lst.end());
     std::stable_sort(std::next(lst.begin()), lst.end(),
-                      [](const auto& a, const auto& b) {
+                      [](auto& a, auto& b) {
                           if (a.length() != b.length())
                               return a.length() < b.length();
                           else
