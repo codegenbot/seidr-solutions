@@ -7,6 +7,7 @@ def file_name_check(file_name):
     dot_index = file_name.index('.')
     if not file_name[:dot_index].isalpha():
         return 'No'
-    if not file_name[dot_index + 1:].lower() in ['txt', 'exe', 'dll']:
+    extension = file_name[dot_index + 1:]
+    if extension not in ['txt', 'exe', 'dll']:
         return 'No'
     return 'Yes'
