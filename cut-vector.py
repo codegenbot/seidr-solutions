@@ -2,6 +2,8 @@ arr = list(map(int, input().split()))
 
 if len(arr) < 1:
     print("Invalid input, please provide at least 1 integer.")
+elif len(arr) == 1:
+    print([arr], [])
 else:
     total_sum = sum(arr)
     left_sum = arr[0]
