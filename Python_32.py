@@ -4,6 +4,7 @@ def find_zero(xs: list):
     b = xs[-2]
     return -b / a
 
+
 # Read input from user
 user_input = input("Enter a list of numbers separated by space: ")
 input_list = list(map(float, user_input.split()))
