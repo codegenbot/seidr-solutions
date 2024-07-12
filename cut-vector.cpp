@@ -38,6 +38,6 @@ int main() {
         cout << vec[i] << endl;
     }
     cout << 0 << endl;
-
+    
     return 0;
 }
