@@ -1,10 +1,13 @@
 def Strongest_Extension(extension, extensions_list):
     try:
+        extension = int(extension)
+    except ValueError:
+        pass
+
+    try:
         extensions_list = [int(ext) for ext in extensions_list]
     except ValueError:
         pass
-    
-    extension = int(extension)
 
     if extension not in extensions_list:
         return str(extension)
