@@ -1,4 +1,4 @@
-def complete_code(numbers, delimeter):
+def intersperse(numbers, delimeter):
     result = []
     for num in numbers:
         result.extend([num, delimeter])
