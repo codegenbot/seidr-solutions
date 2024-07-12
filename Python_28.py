@@ -1,3 +1,4 @@
+```
 from typing import List
 
 def concatenate() -> str:
@@ -6,10 +7,7 @@ def concatenate() -> str:
         user_input = input("Enter a string (or 'done' to finish): ")
         if user_input.lower() == 'done':
             break
-        try:
-            strings.append(user_input)
-        except ValueError:
-            print("Invalid input. Please enter a string.")
+        strings.append(user_input)
     return ''.join(strings)
 
 print(concatenate())
