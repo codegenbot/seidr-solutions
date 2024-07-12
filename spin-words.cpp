@@ -1,18 +1,23 @@
-int main() {
-    string line;
-    getline(cin, line);
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
 
-    istringstream iss(line);
-    string word;
+int main() {
+    std::string line;
+    std::getline(std::cin, line);
+
+    std::istringstream iss(line);
+    std::string word;
     bool first = true;
     while (iss >> word) {
         if (word.length() >= 5) {
-            reverse(word.begin(), word.end());
+            std::reverse(word.begin(), word.end());
         }
         if (!first) {
-            cout << " ";
+            std::cout << " ";
         }
-        cout << word;
+        std::cout << word;
         first = false;
     }
 
