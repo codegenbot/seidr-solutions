@@ -1,3 +1,8 @@
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
 int main(){
     vector<int> lst;
     int n;
@@ -12,12 +17,13 @@ int main(){
     if(lst.size() < 2) cout << "-1";
     else {
         sort(lst.begin(), lst.end());
-        for(int i = 0; i < lst.size() - 1; i++){
+        int next_smallest = -1;
+        for(int i = 0; i < lst.size()-1; i++){
             if(lst[i] != lst[i+1]) {
-                cout << lst[i];
+                next_smallest = lst[i];
                 break;
             }
         }
-        else cout << "-1";
+        cout << (next_smallest == -1 ? "-1" : to_string(next_smallest));
     }
 }
