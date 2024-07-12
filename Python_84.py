@@ -6,6 +6,7 @@ def solve():
             return bin(int(N, 2))[2:]
         print("Invalid Input. Please provide a binary number.")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = solve()
-    print(result)
+    if result:
+        print(result)
