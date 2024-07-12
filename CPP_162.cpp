@@ -1,9 +1,7 @@
-Here is the modified code:
-
-```c++
+```cpp
 #include <string>
-#include <iomanip>
 #include <sstream>
+#include <iomanip>
 #include <openssl/md5.h>
 
 using namespace std;
