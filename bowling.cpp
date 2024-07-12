@@ -33,4 +33,4 @@ int main() {
     cin >> input;
     cout << calculateScore(input) << endl;
     return 0;
-}
+}  
