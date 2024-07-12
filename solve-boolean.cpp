@@ -1,8 +1,27 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 int main() {
     string input;
     cin >> input;
     
-    if (input == "t") {
+    bool result = true;
+    
+    for (int i = 0; i < input.size(); ++i) {
+        if (input[i] == 't') {
+            result = result & true;
+        } else if (input[i] == 'f') {
+            result = result & false;
+        } else if (input[i] == '|') {
+            // do nothing
+        } else if (input[i] == '&') {
+            result = true;
+        }
+    }
+    
+    if (result) {
         cout << "True" << endl;
     } else {
         cout << "False" << endl;
