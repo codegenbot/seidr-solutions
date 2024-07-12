@@ -3,4 +3,4 @@ def fruit_distribution(s, n):
     parts = s.split()
     for i in range(len(parts)-1, -1, -1): 
         if not parts[i].isdigit():
-            return (int(parts[i-1]) // n) + 1
+            return (n // int(parts[i-1])) + 1
