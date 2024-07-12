@@ -4,21 +4,39 @@ using namespace std;
 
 bool solveBoolean(string expression) {
     stack<char> s;
-    bool isAnd = false;
     for (int i = 0; i < expression.length(); i++) {
-        if (expression[i] == '&') {
-            while (!s.empty() && ((char)s.top() == '&')) {
+        if (expression[i] == '|') {
+            while (!s.empty() && s.top() == '|') {
                 s.pop();
             }
-            isAnd = true;
-        } else if (expression[i] == '|') {
-            while (!s.empty() && ((char)s.top() == '|')) {
+            if (s.empty()) {
+                return true;
+            } else {
+                while (!s.empty() && s.top() == '&') {
+                    s.pop();
+                }
+                if (s.empty()) {
+                    return false;
+                }
+            }
+        } else if (expression[i] == '&') {
+            while (!s.empty() && s.top() == '&') {
                 s.pop();
             }
-            isAnd = false;
+            if (s.empty()) {
+                return false;
+            }
         } else {
             s.push(expression[i]);
         }
     }
-    bool result = (isAnd ? ! : )((bool)(s.top()) ? true : false);
-    return result;
+    while (!s.empty()) {
+        s.pop();
+    }
+    string result = "";
+    while (!s.empty()) {
+        result += s.top() == '&' ? 'F' : 'T';
+        s.pop();
+    }
+    return (result[0] == 'F') ? true : false;
+}
