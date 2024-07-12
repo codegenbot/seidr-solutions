@@ -1,9 +1,10 @@
+```
 def bowling_score(frames):
     score = 0
     frame_count = 0
     for i in range(0, len(frames), 2):
         if frames[i] == 'X':
-            score += 10 + (10 if frame_count < 8 else 0)
+            score += 10 + (10 if frame_count < 9 else int((frames[i+1].count('X')+frames[i+1].index('/'))/2))
             frame_count += 1
         elif frames[i] == '/':
             frame_roll = list(map(int, frames[i+1].split()))

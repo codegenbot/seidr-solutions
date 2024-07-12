@@ -8,7 +8,7 @@ std::string camelCase(const std::string& s) {
 
     for (char c : s) {
         if (c == '-') {
-            continue; // don't process '-'
+            capitalize = true;
         } else if (capitalize) {
             result += toupper(c);
             capitalize = false;
@@ -28,18 +28,14 @@ int main() {
     std::string word;
 
     while (iss >> word) {
-        if (!word.empty()) {
-            for (char& c : word) {
-                if (c == '-') {
-                    c = ' ';
-                }
-            }
-
-            result += camelCase(word + " ");
+        word[0] = toupper(word[0]);
+        for (auto i = 1; i < word.size(); ++i) {
+            word[i] = tolower(word[i]);
         }
+        input.erase(0, iss.str().find(word) + word.size());
     }
 
-    std::cout << result.substr(0, result.length() - 1) << std::endl;
+    std::cout << camelCase(input) << std::endl;
 
     return 0;
 }
