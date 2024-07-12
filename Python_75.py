@@ -13,4 +13,4 @@ def is_multiply_prime(a):
         while a % i == 0:
             prime_factors.add(i)
             a //= i
-    return len(prime_factors) == 3 and all(is_prime(x) for x in prime_factors)
+    return all(is_prime(factor) for factor in prime_factors) and len(prime_factors) >= 3
