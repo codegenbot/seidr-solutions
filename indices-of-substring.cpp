@@ -1,18 +1,20 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <limits>
 
 int main() {
     std::string text, target;
     
     std::getline(std::cin, text);
     std::getline(std::cin, target);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer
     
     std::vector<int> indices;
     
-    for (size_t i = 0; i <= text.size() - target.size(); ++i) {
+    for (int i = 0; i <= static_cast<int>(text.size()) - static_cast<int>(target.size()); ++i) {
         if (text.substr(i, target.size()) == target) {
-            indices.push_back(static_cast<int>(i));
+            indices.push_back(i);
         }
     }
     
