@@ -1,5 +1,11 @@
+```
 def decode_cyclic():
-    s = input("Enter a string: ")
+    while True:
+        s = input("Enter an encoded string (or 'quit' to finish): ")
+        if s.lower() == "quit":
+            break
+    print()
+
     while True:
         n = input(
             "Enter 1 for linear decoding and any other number for cyclic decoding: "
@@ -13,11 +19,11 @@ def decode_cyclic():
         print(s)
     else:
         result = s[0]
-        for char in s[1:]:
-            if len(result) % 3 == 0:
+        for i, char in enumerate(s[1:], start=2):
+            if i % 3 == 1:
                 result += char
-            elif len(result) % 3 == 1:
-                result += result[-1] + char
+            elif i % 3 == 2:
+                result += char
             else:
-                result = result[-1] + result[:-1] + char
-        print("".join(result))
+                result += result[-1]
+        print(result)
