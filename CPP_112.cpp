@@ -49,9 +49,17 @@ int main() {
     std::string c;
     std::cin >> c;
 
-    std::vector<std::string> result = reverse_delete(s, c);
-    for (const auto& str : result) {
-        std::cout << str << std::endl;
+    if (!s.empty()) {
+        if (issame({s})) {
+            std::vector<std::string> result = reverse_delete(s, c);
+            for (const auto& str : result) {
+                std::cout << str << std::endl;
+            }
+        } else {
+            std::cout << "Error: Input string contains duplicate characters." << std::endl;
+        }
+    } else {
+        std::cout << "Error: Input string is empty." << std::endl;
     }
     
     return 0;
