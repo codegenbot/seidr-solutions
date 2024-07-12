@@ -1,6 +1,7 @@
+```cpp
+#include <cassert>
 #include <algorithm>
 #include <string>
-#include <cassert>
 
 std::string filp_case(const std::string& str) {
     std::string result = "";
@@ -14,7 +15,6 @@ std::string filp_case(const std::string& str) {
         }
     }
     return result;
-
 }
 
 int main() {
