@@ -12,14 +12,14 @@ def decode_cyclic():
     if n == "1":
         print(s)
     else:
-        result = [s[0], s[1]]
-        for char in s[2:]:
-            if len(result) % 3 == 1:
-                result.append(char)
-            elif len(result) % 3 == 2:
-                result.append(char)
-        while len(result) < len(s):
-            result.append(result[-1])
+        result = s[0]
+        for char in s[1:]:
+            if len(result) % 3 == 0:
+                result += char
+            elif len(result) % 3 == 1:
+                result += result[-1] + char
+            else:
+                result = result[-1] + result[:-1] + char
         print("".join(result))
 
 
