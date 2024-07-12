@@ -12,8 +12,6 @@ def fibfib(n: int):
             if b % 2 == 0 and b not in seen:  
                 total_sum += b
                 seen.add(b)  
-            elif b % 2 != 0:
-                a, b = b, a+b
             else:
                 a, b = b, a+b
         return total_sum
