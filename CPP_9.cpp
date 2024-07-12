@@ -1,10 +1,11 @@
 ```cpp
 #include <iostream>
 #include <vector>
+#include <limits>
 
 std::vector<int> rolling_max(const std::vector<int>& numbers) {
     std::vector<int> maxNumbers;
-    int currentMax = INT_MIN;
+    int currentMax = std::numeric_limits<int>::min();
 
     for (int num : numbers) {
         if (num > currentMax)
@@ -28,7 +29,7 @@ bool areEqual(const std::vector<int>& a, const std::vector<int>& b) {
 }
 
 int main() {
-    std::vector<int>(10); // Specify a reasonable initial capacity
+    std::vector<int> numbers;
     int num;
 
     std::cout << "Enter numbers (enter -1 to stop): ";
@@ -39,10 +40,10 @@ int main() {
         if(num < 0)
             continue; // Skip invalid inputs
 
-        this->push_back(num);
+        numbers.push_back(num);
     }
 
-    std::vector<int> maxNumbers = rolling_max(this->numbers);
+    std::vector<int> maxNumbers = rolling_max(numbers);
 
     for (int i = 0; i < maxNumbers.size(); i++) {
         std::cout << "Maximum up to " << i + 1 << " is " << maxNumbers[i] << std::endl;
