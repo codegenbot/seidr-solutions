@@ -2,28 +2,32 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
-int numerical_letter_grade(vector<double> grades) {
-    if (grades[0] >= 3.7 && grades[1] >= 3.7)
-        return 4;
-    else if (grades[0] >= 3.3 && grades[1] >= 3.3)
-        return 3;
-    else if (grades[0] >= 2.9 && grades[1] >= 2.9)
-        return 2;
-    else if (grades[0] >= 2.5 && grades[1] >= 2.5)
-        return 1;
-    else
-        return 0;
-
+std::vector<std::string> numerical_letter_grade(int grade) {
+    if (grade >= 90) return {"A", "A+"};
+    else if (grade >= 80) return {"B", "B+"};
+    else if (grade >= 70) return {"C", "C+"};
+    else if (grade >= 60) return {"D", "D+"};
+    else return {"F"};
 }
 
-bool issame(const string& a, const string& b) {
-    return a == b;
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+bool sameLetterGrade(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return issame(a, b);
 }
 
 int main() {
-    int num = numerical_letter_grade({0, 0.7});
-    cout << "The two students have " << (issame(to_string(num), {"E", "D-"})) ? "" : "not" << " the same letter grade.\n";
-    return 0;
+    int numerical_grade1[2] = {0, 70};
+    std::vector<std::string> letter_grade1 = {"E", "C+"};
+
+    int numerical_grade2[2] = {0, 70};
+    std::vector<std::string> letter_grade2 = {"F", "C+"};
+
+    std::cout << "The two students have " << (issame(letter_grade1, letter_grade2) ? "" : "") << "the same letter grade.\n";
 }
