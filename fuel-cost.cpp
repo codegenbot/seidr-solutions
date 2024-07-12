@@ -14,7 +14,7 @@ int main() {
     
     int sum = 0;
     for (int num : nums) {
-        sum += (num / 3) - 2 + 2*num;
+        sum += (num / 3) - 2 * nums.size();
     }
     
     cout << sum << endl;
