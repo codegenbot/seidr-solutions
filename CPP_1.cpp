@@ -1,23 +1,16 @@
-bool issame(const string& s) {
-    int count = 0;
+bool issame(string s) {
+    stack<char> st;
     for (char c : s) {
-        count += (c == '(') ? 1 : -1;
-    }
-    return count == 0;
-}
-
-vector<string> separate_paren_groups(string paren_string);
-
-int main() {
-    vector<string> result = separate_paren_groups("()((()))(())(()())");
-    for (const string& group : result) {
-        if (issame(group)) {
-            cout << group << " is balanced." << endl;
-        } else {
-            cout << group << " is not balanced." << endl;
+        if (c == '(') {
+            st.push(c);
+        } else if (c == ')') {
+            if (st.empty() || st.top() != '(') {
+                return false;
+            }
+            st.pop();
         }
     }
-    return 0;
+    return st.empty();
 }
 
 vector<string> separate_paren_groups(string paren_string) {
@@ -41,4 +34,10 @@ vector<string> separate_paren_groups(string paren_string) {
         }
     }
     return result;
+}
+
+int main() {
+    cout << issame("(())()") << endl; // Example usage of the issame function
+    // Add more test cases to validate the function if needed
+    return 0;
 }
