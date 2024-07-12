@@ -1,1 +1,13 @@
-'def find_zero(xs: list):\n    n = len(xs)\n    if n % 2 != 0:\n        raise ValueError("xs must have even number of coefficients")\n    a = xs[0]\n    b = xs[1]\n    c = xs[2] if n > 2 else 0\n    d = xs[3] if n > 3 else 0\n\n    x = (-b + math.sqrt(b**2 - 4*a*c)) / (2*a)\n    return round(x, 2)'
+'S' = input("Enter the sequence: ")
+def find_zero(xs):
+    n = len(xs)
+    if n % 2 != 0:
+        raise ValueError("xs must have even number of coefficients")
+    a = xs[0]
+    b = xs[1]
+    c = xs[2] if n > 2 else 0
+    d = xs[3] if n > 3 else 0
+    
+    x = (-b + math.sqrt(b**2 - 4*a*c)) / (2*a)
+    
+    return round(x, 2)
