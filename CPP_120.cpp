@@ -26,8 +26,8 @@ int mainProblemCPP120() {
     }
     
     int arr[] = {1, 2, 3, -23, 243, -400, 0};
-    int n = static_cast<size_t>(sizeof(arr) / sizeof(arr[0])); // Calculate the size of the array
-    std::vector<int> vec(std::begin(arr), std::end(arr), n); // Create a vector from the array
+    int n = static_cast<size_t>(sizeof(arr) / sizeof(arr[0])); 
+    std::vector<int> vec(std::begin(arr), std::end(arr));
     
     assert (!issame(vec, std::vector<int>())); // Compare vectors
     
