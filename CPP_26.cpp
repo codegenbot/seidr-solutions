@@ -1,17 +1,8 @@
-bool issame(vector<int> a, vector<int> b) {
-    return a == b;
-}
+#include <vector>
+#include <algorithm>
 
-vector<int> remove_duplicates(vector<int> numbers) {
-    vector<int> unique_numbers;
-    unordered_map<int, int> freq;
-    for (int num : numbers) {
-        freq[num]++;
-    }
-    for (auto pair : freq) {
-        if (pair.second == 1) {
-            unique_numbers.push_back(pair.first);
-        }
-    }
-    return unique_numbers;
+std::vector<int> remove_duplicates(std::vector<int> numbers) {
+    std::sort(numbers.begin(), numbers.end());
+    numbers.erase(std::unique(numbers.begin(), numbers.end()), numbers.end());
+    return numbers;
 }
