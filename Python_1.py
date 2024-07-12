@@ -1,14 +1,13 @@
 def separate_paren_groups():
     paren_string = input("Enter the string of parentheses: ")
-
-    if len(paren_string) % 2 != 0 or not paren_string:
-        raise ValueError("Invalid input: Please enter a valid string with balanced parentheses")
-    
     separated_groups = []
     current_group = ""
     open_count = 0
 
     for char in paren_string:
+        if char not in "()":
+            raise ValueError("Invalid input: Only parentheses are allowed")
+
         if char == "(":
             open_count += 1
         elif char == ")":
@@ -26,3 +25,4 @@ def separate_paren_groups():
     return separated_groups
 
 print(separate_paren_groups())
+input()
