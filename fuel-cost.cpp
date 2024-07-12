@@ -6,8 +6,8 @@ using namespace std;
 
 int main() {
     vector<int> nums;
-
-    for (int n; cin >> n; ) {
+    int n;
+    while (cin >> n) {
         nums.push_back(n);
     }
     
