@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -12,11 +12,10 @@ bool isPrime(int n) {
 }
 
 int main() {
-    std::vector<int> lst;
     int n;
     std::cout << "Enter the number of elements: ";
     std::cin >> n;
-    lst.resize(n);
+    std::vector<int> lst(n);
     for(int i = 0; i < n; i++){
         std::cout << "Enter element " << i+1 << ": ";
         std::cin >> lst[i];
