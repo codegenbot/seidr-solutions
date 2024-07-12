@@ -5,9 +5,10 @@
 int main() {
     std::string text, target;
   
-    std::cin >> text >> target;
+    std::getline(std::cin, text);
+    std::getline(std::cin, target);
 
-    if (text.size() < target.size()) {
+    if (target.empty()) {
         std::cout << "0";
         return 0;
     }
