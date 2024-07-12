@@ -15,24 +15,14 @@ std::vector<int> factorize(int n) {
 }
 
 bool issame(const std::vector<int>& v1, const std::vector<int>& v2) {
-    if (v1.size() != v2.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < v1.size(); i++) {
-        if (v1[i] != v2[i]) {
-            return false;
-        }
-    }
-    return true;
+    return v1 == v2;
 }
 
 int main() {
-    std::vector<int> factors = factorize(100);
-    std::vector<int> expected = {2, 2, 5, 5};
-    
-    if (issame(factors, expected)) {
-        return 0;
-    } else {
-        return 1;
-    }
+    int n = 60;
+    std::vector<int> result = factorize(n);
+    std::vector<int> expected{2, 2, 3, 5};
+    bool same = issame(result, expected);
+
+    return 0;
 }
