@@ -1,4 +1,4 @@
-def decode_cyclic(s: str) -> str:
+def decode_cyclic(s: str):
     result = ""
     i = 0
     while i < len(s):
