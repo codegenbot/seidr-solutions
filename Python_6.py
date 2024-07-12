@@ -12,6 +12,3 @@ def parse_nested_parens(paren_string: str) -> List[int]:
             max_level = max(max_level, level)
         result.append(max_level)
     return result
-
-def check(func):
-    print(func("((()))"))
