@@ -14,7 +14,7 @@ bool issame(vector<string> a, vector<string> b){
 
 vector<string> numerical_letter_grade(vector<float> grades){
     vector<string> result;
-    for(auto& g : grades) {
+    for(auto& g : grades) { 
         string letterGrade;
         if(g >= 4.0) {
             letterGrade = "A+";
