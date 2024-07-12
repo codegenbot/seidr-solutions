@@ -10,7 +10,6 @@ bool check_match(const std::vector<std::string>& lst) {
         }
     }
     return open == close;
-
 }
 
 int main() {
