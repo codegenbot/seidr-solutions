@@ -1,8 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-bool std::vector<int> a == std::vector<int> b) {
+```c++
+bool std::issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
