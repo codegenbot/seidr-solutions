@@ -1,29 +1,20 @@
 def minPath(grid, k):
     n = len(grid)
-    for i in range(n):
-        grid[i] = list(map(str, grid[i]))
-
-    min_path = []
-    visited = set()
-
-    def dfs(i, j, path):
-        nonlocal min_path
-        if len(path) == k:
-            if not min_path or tuple(path) < tuple(min_path):
-                min_path = list(path)
-            return
-        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-            x, y = i + dx, j + dy
-            if 0 <= x < n and 0 <= y < n and grid[x][y] not in visited:
-                visited.add(grid[x][y])
-                dfs(x, y, path + [grid[x][y]])
-                visited.remove(grid[x][y])
-
-    for i in range(n):
-        for j in range(n):
-            if grid[i][j] not in visited:
-                visited.add(grid[i][j])
-                dfs(i, j, [grid[i][j]])
-                visited.remove(grid[i][j])
-
-    return min_path
+    visited = [[False] * n for _ in range(n)]
+    queue = [(0, 0, [grid[0][0]])]
+    result = None
+    while queue:
+        x, y, path = queue.pop(0)
+        if len(path) > k or any(val == grid[x][y] for val in path):
+            continue
+        visited[x][y] = True
+        new_path = path + [grid[x][y]]
+        if len(new_path) == k:
+            result = new_path if result is None else min(result, new_path)
+            break
+        queue.extend([(x-1, y, new_path) if x > 0 and not visited[x-1][y] 
+                       else [(x+1, y, new_path) if x < n-1 and not visited[x+1][y] 
+                            else [(x, y-1, new_path) if y > 0 and not visited[x][y-1] 
+                                 else [(x, y+1, new_path) if y < n-1 and not visited[x][y+1] 
+                                      else []]]])
+    return result
