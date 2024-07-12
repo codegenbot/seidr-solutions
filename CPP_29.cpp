@@ -2,12 +2,15 @@
 #include <vector>
 #include <string>
 
-bool isSame(vector<string> a, vector<string> b) {
-    if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); i++) {
-        if (a[i] != b[(i + 1) % a.size()]) return false;
+std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
+    std::vector<std::string> result;
+    for (const auto& s : strings) {
+        if (s.find(prefix) == 0) {
+            result.push_back(s);
+        }
     }
-    return true;
+    return result;
+
 }
 
 int main() {
@@ -19,14 +22,20 @@ int main() {
         a.push_back(s);
     }
 
-    bool same = isSame(a, a);
+    bool areStringsSame = true;
+    for (int i = 0; i < a.size(); i++) {
+        if (a[i] != a[(i+1)%a.size()]) {
+            areStringsSame = false;
+            break;
+        }
+    }
 
     std::string prefix;
     std::cout << "Enter prefix:" << std::endl;
     std::getline(std::cin, prefix);
     std::vector<std::string> result = filter_by_prefix(a, prefix);
 
-    if (!same) 
+    if (!areStringsSame) 
         std::cout << "Strings are not the same." << std::endl;
     else 
         std::cout << "Strings are the same." << std::endl;
@@ -36,16 +45,5 @@ int main() {
     }
 
     return 0;
-
-}
-
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
-    std::vector<std::string> result;
-    for (const auto& s : strings) {
-        if (s.find(prefix) == 0) {
-            result.push_back(s);
-        }
-    }
-    return result;
 
 }
