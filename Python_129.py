@@ -15,13 +15,16 @@ def process_paths():
         except ValueError:
             print("Invalid input. Please try again.")
 
-        minPath = float('inf')  
+        if "-" not in paths and "," not in paths: 
+            break
 
-        for path in paths:
-            if len(path) < minPath:
-                minPath = len(path)
+    minPath = float('inf')  
 
-        return minPath
+    for path in paths:
+        if len(path) < minPath:
+            minPath = len(path)
+
+    return minPath
 
 shortest_path = process_paths()
 print(f"The shortest path has {shortest_path} nodes.")
