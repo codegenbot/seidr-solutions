@@ -3,21 +3,21 @@
 #include <unordered_map>
 
 int main() {
-    int n, target;
+    int n;
+    long long target;
     std::cin >> n >> target;
     
-    std::vector<int> nums(n);
+    std::vector<long long> nums(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> nums[i];
     }
     
-    std::unordered_map<int, int> map;
-    // Initialize map with default value -1
+    std::unordered_map<long long, int> map;
     bool pairFound = false;
     for (int i = 0; i < n; ++i) {
-        int complement = target - nums[i];
-        if (map.find(complement) != map.end() && map[complement] != i) {
-            std::cout << complement << " " << nums[i] << std::endl;
+        long long complement = target - nums[i];
+        if (map.find(complement) != map.end()) {
+            std::cout << nums[i] << " " << complement << std::endl;
             pairFound = true;
             break;
         }
