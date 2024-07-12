@@ -1,13 +1,9 @@
-```cpp
 #include <iostream>
 #include <vector>
-using namespace std;
+#include <algorithm>
 
 bool issame(int a, int b) {
-    if(a == b)
-        return true;
-    else
-        return false;
+    return a == b;
 }
 
 int compare(int a, int b) {
@@ -19,32 +15,30 @@ int compare(int a, int b) {
         return 0;
 }
 
-vector<int> getResult(vector<int> game, vector<int> guess) {
-    vector<int> res;
+std::vector<int> getResult(std::vector<int> game, std::vector<int> guess) {
+    std::vector<int> res;
     for(int i = 0; i < game.size();i++){
         if(issame(game[i],guess[i]))
-            res.push_back(2);
-        else if(compare(game[i],guess[i]) == 1)
             res.push_back(1);
         else
-            res.push_back(0);
+            res.push_back(compare(game[i],guess[i]));
     }
     return res;
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<int> game(n),guess(n);
+    std::cin >> n;
+    std::vector<int> game(n), guess(n);
     for(int i = 0; i < n;i++){
-        cin >> game[i] >> guess[i];
+        std::cin >> game[i] >> guess[i];
     }
-    vector<int> res = getResult(game,guess);
+    std::vector<int> res = getResult(game,guess);
     if(res.size() != n) {
-        cout << "Error: Invalid input. Please check your input again." << endl;
+        std::cout << "Error: Invalid input. Please check your input again." << std::endl;
     } else {
-        for(auto x:res)cout << x << " ";
-        cout << endl; 
+        for(auto x:res)std::cout << x << " ";
+        std::cout << std::endl; 
     }
     return 0;
 }
