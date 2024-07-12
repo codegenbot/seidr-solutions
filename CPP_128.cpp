@@ -1,8 +1,10 @@
+#include <iostream>
 #include <vector>
 #include <cassert>
-#include <cmath>
 
-int prod_signs(const std::vector<int>& arr) {
+using namespace std;
+
+int prod_signs(const vector<int>& arr) {
     if (arr.empty()) {
         return -32768;
     }
@@ -10,23 +12,23 @@ int prod_signs(const std::vector<int>& arr) {
     int product = 1;
     int sum = 0;
 
-    for (const int& num : arr) {
-        if (num > 0) {
+    for (int i : arr) {
+        if (i > 0) {
             product *= 1;
-        } else if (num < 0) {
+        } else if (i < 0) {
             product *= -1;
         } else {
             product *= 0;
         }
 
-        sum += std::abs(num);
+        sum += abs(i);
     }
 
     return product * sum;
 }
 
 int main() {
-    assert (prod_signs({-1, 1, 1, 0}) == 0);
+    assert(prod_signs({-1, 1, 1, 0}) == 0);
 
     return 0;
 }
