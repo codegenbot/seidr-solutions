@@ -1,6 +1,11 @@
+```
 from fractions import Fraction
 
+
 def simplify():
-    x = int(input("Enter numerator: "))
-    y = int(input("Enter denominator: "))
-    return Fraction(x, y) == 1
+    while True:
+        x = float(input("Enter numerator: "))
+        y = float(input("Enter denominator: "))
+        if y != 0 and Fraction(x, y) == 1:
+            return
+        print("Invalid input. Denominator cannot be zero.")
