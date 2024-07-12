@@ -1,29 +1,26 @@
 #include <vector>
-#include <limits> // Include this for INT_MAX
-#include <cmath>  // Include this for abs
+#include <climits>
+#include <cmath>
 using namespace std;
 
-pair<vector<int>, vector<int>> cutVector(vector<int> nums) {
-    int min_diff = numeric_limits<int>::max();
-    int cut_index = -1;
-    
-    for(int i = 0; i < nums.size() - 1; i++) {
+pair<vector<int>, vector<int>> cutVector(vector<int> vec) {
+    int min_diff = INT_MAX;
+    int index = -1;
+    for (int i = 0; i < vec.size(); i++) {
         int left_sum = 0, right_sum = 0;
-        
-        for(int j = 0; j <= i; j++)
-            left_sum += nums[j];
-        
-        for(int j = i + 1; j < nums.size(); j++)
-            right_sum += nums[j];
-        
-        if(abs(left_sum - right_sum) < min_diff) {
-            min_diff = abs(left_sum - right_sum);
-            cut_index = i;
+        for (int j = 0; j < i; j++) {
+            left_sum += vec[j];
+        }
+        for (int j = i + 1; j < vec.size(); j++) {
+            right_sum += vec[j];
+        }
+        int diff = abs(left_sum - right_sum);
+        if (diff < min_diff) {
+            min_diff = diff;
+            index = i;
         }
     }
-    
-    vector<int> left_vec(nums.begin(), nums.begin() + cut_index + 1);
-    vector<int> right_vec(nums.begin() + cut_index + 1, nums.end());
-    
+    vector<int> left_vec(vec.begin(), vec.begin() + index);
+    vector<int> right_vec(vec.begin() + index, vec.end());
     return {left_vec, right_vec};
 }
