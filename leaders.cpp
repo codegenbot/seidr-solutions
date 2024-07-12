@@ -1,31 +1,26 @@
-```c++
+#include <iostream>
 #include <vector>
+
 using namespace std;
+
+int main() {
+    leaders(vector<int>{{1,2,3,4,5}});
+    return 0;
+}
 
 vector<int> leaders(vector<int>& arr) {
     int n = arr.size();
-    vector<int> result;
+    vector<int> leaders;
     
-    if (n == 1) {
-        return arr;
-    }
-    
-    int maxRight = arr[n - 1];
-    for (int i = n - 2; i >= 0; i--) {
-        if (arr[i] >= maxRight) {
-            result.push_back(arr[i]);
-            maxRight = arr[i];
+    int curLeader = arr[n-1];
+    for (int i = n - 2; i >= 0; --i) {
+        if (arr[i] >= curLeader) {
+            curLeader = arr[i];
+            leaders.push_back(curLeader);
         }
     }
     
-    return result;
-}
-
-int main() {
-    vector<int> arr = {1, 3, 4, 6, 8, 12};
-    vector<int> leadersVec = leaders(arr);
-    for (int leader : leadersVec) {
-        cout << leader << endl;
-    }
-    return 0;
+    reverse(leaders.begin(), leaders.end());
+    
+    return leaders;
 }
