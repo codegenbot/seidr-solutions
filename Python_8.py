@@ -1,4 +1,5 @@
-def sum_product() -> tuple:
+```
+def sum_product() -> tuple[int, int]:
     total_sum = 0
     product = 1
 
