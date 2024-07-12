@@ -1,7 +1,13 @@
-```
 def split_words(txt):
     words = txt.split()
-    if len(words) > 0 and all(char.isalnum() for char in words[0]):
-        return [word.strip('!,.') for word in words]
+    if len(words) > 0 and any(char.isalnum() for char in words[0]):
+        return words
+    elif "," in txt:
+        return txt.split(",")
     else:
-        return sum(1 for c in txt.lower() if ord(c) - ord('a') % 2 == 0)
+        odd_count = sum(
+            1
+            for i, c in enumerate(map(chr, range(ord("a"), ord("z") + 1)))
+            if c.lower() in txt
+        )
+        return odd_count
