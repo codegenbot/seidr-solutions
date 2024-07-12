@@ -1,7 +1,4 @@
-```Python
-def filter_by_substring(input_str, substring):
-    return [s for s in input_str if substring in s]
-
+```
 def find_substring():
     while True:
         input_str = input("Enter space separated strings: ").lower().split()
@@ -17,7 +14,7 @@ def find_substring():
             action = input("Enter search or quit: ")
 
         if action == "search":
-            result = filter_by_substring(input_str, substring)
+            result = [s for s in input_str if substring in s]
 
             if not result:
                 print(f"Substrings '{substring}' not found in any of the provided strings.")
@@ -29,3 +26,8 @@ def find_substring():
         elif action == "quit":
             print("Goodbye!")
             exit()
+
+def filter_by_substring():
+    find_substring()
+
+filter_by_substring()
