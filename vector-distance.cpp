@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 
 int main() {
     int n;
@@ -26,12 +27,12 @@ int main() {
         return 1;
     }
 
-    double result = 0.0;
+    float result = 0.0f;
     for (int i = 0; i < n; ++i) {
         result += (vec1[i] - vec2[i]) * (vec1[i] - vec2[i]);
     }
 
-    std::cout << std::fixed << std::sqrt(static_cast<double>(result)) << std::endl;
+    std::cout << std::fixed << std::setprecision(14) << std::sqrt(result) << std::endl;
 
     return 0;
 }
