@@ -37,11 +37,7 @@ int main() {
         cin >> game[i] >> guess[i];
     }
     vector<int> res = getResult(game,guess);
-    if(res.size() != n) {
-        cout << "Error: Invalid input. Please check your input again." << endl;
-    } else {
-        for(auto x:res)cout << x << " ";
-        cout << endl; 
-    }
+    for(auto x:res)cout << x << " ";
+    cout << endl;
     return 0;
 }
