@@ -17,7 +17,7 @@ def main():
                 if cont.lower() != "y":
                     break
                 else:
-                    input("Press Enter to continue...")
+                    break
             except ValueError:
                 print("Invalid input. Please enter a valid number.")
 
