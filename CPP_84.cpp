@@ -1,5 +1,3 @@
-Here's the modified code:
-
 ```cpp
 #include <iostream>
 using namespace std;
@@ -20,5 +18,7 @@ int main() {
         cout << "Error: Input should be a positive integer." << endl;
     } else {
         cout << solve(N) << endl;
+        assert(solve(963) == 1010);
     }
+    return 0;
 }
