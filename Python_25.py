@@ -1,16 +1,14 @@
-```
-from typing import List
-import math
-
-
-def factorize(n: int) -> List[int]:
+def factorize(n: int) -> list:
+    if not isinstance(n, int):
+        return [n]
+    if n < 2:
+        return []
     factors = []
     i = 2
     while i * i <= n:
         if n % i:
             i += 1
         else:
-            n //= i
             count = 0
             while n % i == 0:
                 n //= i
