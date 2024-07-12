@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,9 +12,9 @@ bool isSame(const vector<int>& a, const vector<int>& b) {
 }
 
 vector<int> make_a_pile(int n) {
-    vector<int> pile;
+    vector<int> pile(n+1); 
     for (int i = 1; i <= n; ++i) {
-        pile.push_back(i);
+        pile[i] = i; 
     }
     return pile;
 }
@@ -23,14 +22,12 @@ vector<int> make_a_pile(int n) {
 int main() {
     int n;
     cin >> n;
-    vector<int> a = make_a_pile(n);
+    vector<int> a(n+1); 
     sort(a.begin(), a.end());
     cout << "Enter the number of cards in your hand: ";
     int m;
     cin >> m;
-    vector<int> b = make_a_pile(m);  // Initialize with m cards
-    std::sort(b.begin(), b.end());    // Sort before pushing into vector
-    b = make_a_pile(m);                // Push elements from sorted array into vector
+    vector<int> b(m);
     sort(b.begin(), b.end());
     
     if (isSame(a, b)) {
