@@ -1,6 +1,7 @@
-#include <iostream>
-#include <string>
 #include <algorithm>
+#include <string>
+#include <cctype>
+#include <iostream>
 
 std::string solve(std::string s) {
     for (char &c : s) {
@@ -13,13 +14,14 @@ std::string solve(std::string s) {
         }
     }
     if (s.find_first_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == std::string::npos) {
-        reverse(s.begin(), s.end());
+        std::reverse(s.begin(), s.end());
     }
     return s;
 }
 
 int main() {
-    assert(solve("#ccc") == "#CCC");
-    // Add more test cases if needed
+    std::string input;
+    std::cin >> input;
+    std::cout << solve(input);
     return 0;
 }
