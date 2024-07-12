@@ -1,5 +1,4 @@
-```
-from typing import List
+from typing import List, float
 
 def has_close_elements(numbers: List[float], threshold: float) -> bool:
     numbers = sorted(set(numbers))
