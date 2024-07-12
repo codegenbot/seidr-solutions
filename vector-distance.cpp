@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <iostream>
 #include <cmath> 
@@ -6,7 +5,7 @@
 
 using namespace std;
 
-double vectorDistance(int n, double *vec1, double *vec2) {
+double vectorDistance(int n, vector<float>& vec1, vector<float>& vec2) {
     double sum = 0;
     for (int i = 0; i < n; i++) {
         sum += pow(vec2[i] - vec1[i], 2);
@@ -17,8 +16,7 @@ double vectorDistance(int n, double *vec1, double *vec2) {
 int main() {
     int n;
     cin >> n;
-    double vec1[n];
-    double vec2[n];
+    vector<float> vec1(n), vec2(n);
     for (int i = 0; i < n; i++) {
         cin >> vec1[i] >> vec2[i];
     }
