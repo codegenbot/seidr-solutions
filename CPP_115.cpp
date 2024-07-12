@@ -1,19 +1,19 @@
-Here is the completed code:
+```cpp
+#include <vector>
+using namespace std;
 
 int max_fill(vector<vector<int>> grid, int capacity) {
-    int count = 0;
+    int total_water = 0;
     for (const auto& row : grid) {
-        int water = 0;
-        for (int col = 0; col < row.size(); ++col) {
-            if (row[col] == 1) {
-                water += 1;
-            }
-        }
-        while (water > 0) {
-            water -= capacity;
-            count++;
-            if (water >= 0) break;
+        for (int water : row) {
+            total_water += water;
         }
     }
-    return count;
+
+    int buckets_needed = total_water / capacity;
+    if (total_water % capacity != 0) {
+        buckets_needed++;
+    }
+
+    return buckets_needed;
 }
