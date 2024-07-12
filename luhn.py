@@ -1,15 +1,16 @@
+# Read input
 n = int(input())
-digits = list(map(int, input().split()))
+numbers = list(map(int, input().split()))
 
+# Apply Luhn's algorithm
 total = 0
 for i in range(n):
+    num = numbers[i]
     if i % 2 == 1:
-        doubled_digit = digits[i] * 2
-        if doubled_digit > 9:
-            total += doubled_digit - 9
-        else:
-            total += doubled_digit
-    else:
-        total += digits[i]
+        num *= 2
+        if num > 9:
+            num -= 9
+    total += num
 
+# Print output
 print(total)
