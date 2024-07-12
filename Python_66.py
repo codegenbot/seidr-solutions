@@ -9,14 +9,11 @@ def check(n):
         else:
             print("The number is not divisible by 3")
 
-try:
-    while True:
-        num = input("Enter the number: ")
-        try:
-            n = int(num)
-            check(n)
-            break
-        except ValueError:
-            print("Invalid input. Please enter a valid integer.")
-except Exception as e:
-    print(f"An error occurred: {e}")
+while True:
+    num = input("Enter the number: ")
+    try:
+        n = int(num)
+        check(n)
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
