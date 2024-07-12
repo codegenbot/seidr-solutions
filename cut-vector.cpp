@@ -1,46 +1,42 @@
 #include <vector>
 using namespace std;
 
-vector<vector<int>> cutVector(vector<int>& vec) {
-    int n = vec.size();
-    vector<vector<int>> res(2);
+pair<vector<int>, vector<int>> cutVector(vector<int> v) {
+    int n = v.size();
+    pair<vector<int>, vector<int>> res;
     
-    for (int i = 1; i < n; i++) {
-        if (vec[i] - vec[0] == vec[i-1] - vec[0]) {
-            res[0] = vector<int>(vec.begin(), vec.begin() + i);
-            res[1] = vector<int>(vec.begin() + i, vec.end());
+    for (int i = 0; i < n; i++) {
+        if (i == 0 || v[i] - v[0] <= v[i-1] - v[0]) {
+            res.first = vector<int>(v.begin(), v.begin() + i);
+            res.second = vector<int>(v.begin() + i, v.end());
             return res;
         }
     }
     
-    if (n > 0) {
-        res[0] = vector<int>(vec.begin(), vec.end());
-        res[1] = {};
-    } else {
-        res[0] = {};
-        res[1] = {};
-    }
-    
+    res.first = vector<int>(v.begin(), v.end());
+    res.second.clear();
     return res;
 }
 
 int main() {
-    // Your code to read input and test the function
     int n;
     cin >> n;
-    vector<int> vec(n);
+    vector<int> v(n);
     for (int i = 0; i < n; i++) {
-        cin >> vec[i];
+        cin >> v[i];
     }
-    vector<vector<int>> result = cutVector(vec);
+    
+    pair<vector<int>, vector<int>> result = cutVector(v);
+    
     cout << "[";
-    for (int i = 0; i < result[0].size(); i++) {
-        cout << result[0][i] << " ";
+    for (int i = 0; i < result.first.size(); i++) {
+        cout << result.first[i] << " ";
     }
-    cout << "] [";
-    for (int i = 0; i < result[1].size(); i++) {
-        cout << result[1][i] << " ";
+    cout << "] " << "[";
+    for (int i = 0; i < result.second.size(); i++) {
+        cout << result.second[i] << " ";
     }
-    cout << "]\n";
+    cout << "]" << endl;
+    
     return 0;
 }
