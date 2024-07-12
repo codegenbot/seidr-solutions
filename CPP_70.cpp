@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <algorithm>
 
@@ -12,7 +11,8 @@ vector<int> strange_sort_vector(vector<int> lst) {
         lst.erase(remove(lst.begin(), lst.end(), min_val), lst.end());
         
         if (!lst.empty()) {
-            int max_val = *max_element(lst.begin(), lst.end());
+            sort(lst.begin(), lst.end());
+            int max_val = lst[0];
             result.push_back(max_val);
             lst.erase(remove(lst.begin(), lst.end(), max_val), lst.end());
         }
