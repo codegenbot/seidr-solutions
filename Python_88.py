@@ -1,4 +1,6 @@
-```
+array = list(map(int, input().split()))
+
+
 def sort_array(array):
     if len(array) == 0:
         return array
@@ -8,5 +10,5 @@ def sort_array(array):
     else:
         return sorted(array, reverse=True)
 
-array = list(map(int, input().split()))
+
 print(sort_array(array))
