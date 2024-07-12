@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,10 +15,10 @@ int main() {
     std::vector<std::string> numbers; 
     int n; 
     cin >> n;
-    
+
     for(int i = 0; i < n; i++) {
         std::string num; 
-        cin >> ws >> num; // Add this line
+        cin >> num; 
         numbers.push_back(num);
     }
     
