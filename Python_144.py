@@ -1,12 +1,15 @@
 from fractions import Fraction
 
 def simplify():
-    if input("Are you sure you want to proceed? (yes/no): ") != 'yes':
-        return 
-        x = float(input("Enter numerator: "))
-        y = float(input("Enter denominator: "))
+    while True:
+        try:
+            x = float(input("Enter numerator: "))
+            y = float(input("Enter denominator: "))
+            break
+        except ValueError:
+            print("Invalid input! Please enter a number.")
     
     if y == 0:
-        return "Denominator cannot be zero!"
+        return str(Fraction(x,y))
     else:
         return str(Fraction(x,y))
