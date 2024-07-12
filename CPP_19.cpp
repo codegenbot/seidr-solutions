@@ -22,7 +22,8 @@ map<string, int> number_map = {
 };
 
 string sort_numbers(string numbers);
-string sort_numbers(string numbers){
+
+string sort_numbers(string numbers) {
     vector<string> num_list;
     stringstream ss(numbers);
     string token;
@@ -40,7 +41,7 @@ string sort_numbers(string numbers){
     return result;
 }
 
-int main(){
+int main() {
     assert(sort_numbers("six five four three two one zero") == "zero one two three four five six");
     return 0;
 }
