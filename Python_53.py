@@ -1,8 +1,10 @@
-def get_median(lst):
-    lst = list(map(int, input("Enter a series of space-separated numbers: ").split()))
-    lst.sort()
-    n = len(lst)
-    if n % 2 == 0:
-        return (lst[n//2 - 1] + lst[n//2]) / 2
-    else:
-        return lst[n // 2]
+def find_max_and_min(input_string: str):
+    try:
+        numbers = [int(x) for x in input_string.split()]
+        if len(numbers) < 2:
+            return "Error: Please enter at least two numbers"
+        max_num = max(numbers)
+        min_num = min(numbers)
+        return f"Maximum number is {max_num} and minimum number is {min_num}"
+    except ValueError:
+        return "Error: Please enter valid numbers"
