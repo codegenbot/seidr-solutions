@@ -1,19 +1,26 @@
-int whitePegs = 0, blackPegs = 0;
-for (int i = 0; i < 4; ++i) {
-    if (code[i] == guess[i]) {
-        ++blackPegs;
-        code[i] = guess[i] = '.';
-    }
-}
-for (int i = 0; i < 4; ++i) {
-    if (guess[i] != '.') {
-        for (int j = 0; j < 4; ++j) {
-            if (code[j] == guess[i]) {
-                ++whitePegs;
-                code[j] = guess[i] = '.';
-                break;
-            }
+int main() {
+    string code, guess;
+    cin >> code >> guess;
+    
+    int black_pegs = 0, white_pegs = 0;
+    vector<int> code_count(6, 0);
+    vector<int> guess_count(6, 0);
+    
+    for (int i = 0; i < 4; ++i) {
+        if (code[i] == guess[i]) {
+            black_pegs++;
+        } else {
+            code_count[code[i] - 'A']++;
+            guess_count[guess[i] - 'A']++;
         }
     }
+    
+    for (int i = 0; i < 6; ++i) {
+        white_pegs += min(code_count[i], guess_count[i]);
+    }
+    
+    cout << white_pegs << endl;
+    cout << black_pegs << endl;
+    
+    return 0;
 }
-cout << whitePegs << endl << blackPegs << endl;
