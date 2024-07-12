@@ -1,3 +1,4 @@
+```
 def quadratic_equation():
     import math
 
@@ -5,7 +6,7 @@ def quadratic_equation():
     coefficients = list(map(float, input().split()))
     a, b, c = coefficients[0], coefficients[1], coefficients[2]
     discriminant = b**2 - 4 * a * c
-    if discriminant > 0:
+    if discrimininant > 0:
         root1 = (-b + math.sqrt(discriminant)) / (2 * a)
         root2 = (-b - math.sqrt(discriminant)) / (2 * a)
         print(f"Roots: {root1} and {root2}")
@@ -14,3 +15,6 @@ def quadratic_equation():
         print(f"Root: {root}")
     else:
         print("No real roots")
+
+if __name__ == "__main__":
+    quadratic_equation()
