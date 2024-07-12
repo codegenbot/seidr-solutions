@@ -1,3 +1,4 @@
+```
 #include <string>
 #include <cstdlib>
 
@@ -8,18 +9,18 @@ int count_nums(char** nums, int size) {
             std::string str = std::to_string(atoi(nums[i]));
             int sum = 0;
             for (char c : str) {
-                sum += (c - '0');
+                sum += c - '0';
             }
             if (sum % 2 != 0)
                 count++;
         } else {
             std::string str = "-" + std::to_string(std::abs(atoi(nums[i])));
-            int sign = 1, temp = 0;
+            int sum = 0, sign = 1;
             for(int j=str.length()-1; j>=0; j--) {
-                temp = temp*10 + std::abs(str[j]-'0') * sign;
+                sum += std::abs(str[j] - '0') * sign;
                 sign *= -1;
             }
-            if (temp % 2 != 0)
+            if (sign * sum % 2 != 0)
                 count++;
         }
     }
