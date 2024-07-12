@@ -1,4 +1,28 @@
-int main { 
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> get_odd_collatz(int n) {
+    vector<int> result;
+    bool has_odd_collatz = false;
+    while (n != 1) {
+        if (n % 2 == 0) {
+            n /= 2;
+        } else {
+            result.push_back(n);
+            has_odd_collatz = true;
+            break; 
+        }
+    }
+    if (!has_odd_collatz) return vector<int>(); 
+    sort(result.begin(), result.end());
+    return result;
+}
+
+int main() {
     int n;
     cout << "Enter a positive integer: ";
     cin >> n;
@@ -7,5 +31,6 @@ int main {
         cout << i << " ";
     }
     cout << endl;
-    return 0;
+    { 
+    return 0; 
 }
