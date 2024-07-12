@@ -1,29 +1,27 @@
 def minPath(grid, k):
     n = len(grid)
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-    visited = [[False] * n for _ in range(n)]
-    order = [i for i in range(1, n*n+1)]
-    res = []
+    m = [[i * j for j in range(1, n + 1)] for i in range(1, n + 1)]
 
-    def dfs(x, y):
-        nonlocal res
-        if len(res) == k:
-            return True
-        if (x, y) in [(i//n, i%n) for i in set().union(*[set(map(tuple, [list(visited[i]) for i in range(n*n)])))]) or visited[x][y]:
-            return False
-        visited[x][y] = True
-        res.append(grid[x][y])
-        for dx, dy in directions:
-            nx, ny = x+dx, y+dy
-            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
-                dfs(nx, ny)
-                if len(res) == k:
-                    return True
-                visited[x][y] = False
-        res.pop()
-        return False
+    visited = set()
+    q = [(0, 0, [m[0][0]])]
+    ans = []
 
-    for i in range(n):
-        for j in range(n):
-            if dfs(i, j):
-                return res
+    while q:
+        x, y, path = q.pop(0)
+        if len(path) == k:
+            ans = path
+            break
+
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nx, ny = x + dx, y + dy
+
+            if (
+                0 <= nx < n
+                and 0 <= ny < n
+                and m[nx][ny] not in path
+                and (nx, ny) not in visited
+            ):
+                visited.add((nx, ny))
+                q.append(((nx, ny), path + [m[nx][ny]]))
+
+    return ans
