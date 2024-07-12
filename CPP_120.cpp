@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -20,6 +21,6 @@ int main() {
     } else {
         std::cout << "Vectors are not same" << std::endl;
     }
-    
+
     return 0;
 }
