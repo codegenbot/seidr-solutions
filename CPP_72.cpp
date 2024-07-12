@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <string>
 
@@ -16,7 +16,8 @@ bool will_it_fly(std::vector<std::vector<int>>& q, int w) {
     return sum <= w;
 }
 
-int main() { 
-    std::vector<std::vector<int>> q = {{5}};
+int main() {
+    std::vector<std::vector<int>> q = {std::vector<int>(1, 5)};
     assert(will_it_fly(q, 5) == true);
     return 0;
+}
