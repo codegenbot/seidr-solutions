@@ -13,7 +13,7 @@ std::string find_max(std::vector<std::string> words) {
     
     for (std::string word : words) {
         if (word.length() >= max_word.length() &&
-            count(word.begin(), word.end(), unique(word.begin(), word.end())[0]) ==
+            std::count(word.begin(), word.end(), *unique(word.begin(), word.end()).begin()) ==
             unique(word.begin(), word.end()).size()) {
             max_word = word;
         }
