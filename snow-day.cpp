@@ -7,7 +7,7 @@ int main() {
     cin >> hours >> snow_on_ground >> snow_fall_rate >> snow_melt_rate;
 
     snow_on_ground += (snow_fall_rate - snow_melt_rate) * hours;
-    snow_on_ground -= (snow_melt_rate * hours * (hours) / 2);
+    snow_on_ground -= snow_melt_rate * (hours * (hours - 1) / 2);
 
     cout << snow_on_ground << '\n';
 

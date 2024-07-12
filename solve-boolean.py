@@ -1,6 +1,6 @@
 import ast
 
-expression = input().rstrip()
+expression = input().strip()
 
 def solve_boolean(expression):
     return ast.literal_eval(
