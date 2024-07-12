@@ -1,6 +1,8 @@
+```
 while True:
     try:
         array = list(map(int, input("Enter an array: ").split()))
+        print(array)
         break
     except ValueError:
         print("Invalid input. Please enter numbers separated by spaces.")
@@ -10,6 +12,13 @@ def sort_array(array):
         return array
     total = sum(array)
     if total % 2 != 0:
-        print(sorted(array))
+        return sorted(array)
     else:
-        print(sorted(array, reverse=True))
+        return sorted(array, reverse=True)
+
+while True:
+    try:
+        print(sort_array(array))
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        break
