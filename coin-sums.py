@@ -7,7 +7,7 @@ def coin_sums(cents):
     remaining_cents %= 5
     dimes = remaining_cents // 10
     remaining_cents %= 10
-    pennies = remaining_cents 
+    pennies = remaining_cents
 
     return quarters, nickles, dimes, pennies
 
