@@ -12,11 +12,12 @@ def calculate_average_and_median():
         return None
 
     average = sum(numbers) / len(numbers)
-    
-    sorted_numbers = sorted(numbers)
-    n = len(sorted_numbers)
-    median = (sorted_numbers[n // 2] + sorted_numbers[n // 2 - 1]) / 2 if n % 2 == 0 else sorted_numbers[n // 2]
-    
+    median = sorted(numbers)[len(numbers) // 2]
+
     print(f"Average: {average}, Median: {median}")
 
-calculate_average_and_median()
+while True:
+    calculate_average_and_median()
+    response = input("Do you want to process another set of numbers? (y/n): ")
+    if response.lower() != 'y':
+        break
