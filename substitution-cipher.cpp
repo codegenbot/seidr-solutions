@@ -1,17 +1,16 @@
 string decipher(string cipherText, string key) {
     string decrypted = "";
     for (int i = 0; i < cipherText.length(); i++) {
-        bool found = false;
-        for (int j = 0; j < key.length(); j++) {
+        int j = 0;
+        while (j < key.length()) {
             if (key[j] == cipherText[i]) {
-                decrypted += key[(key.find(key[j])) % key.length()];
-                found = true;
+                decrypted += cipherText;
                 break;
             }
+            j++;
         }
-        if (!found) {
+        if (j == key.length())
             decrypted += cipherText[i];
-        }
     }
     return decrypted;
 }
