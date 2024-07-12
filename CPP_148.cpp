@@ -17,12 +17,25 @@ std::vector<std::string> bf(const std::vector<std::string>& planets, const std::
     if (index1 == -1 || index2 == -1)
         return {};
     
-    if(index2 >= planets.size() || index1 + (index2 - index1) + 1 > planets.size()) {
-        return {};
-    } else {
+    if(index2 < index1) {
+        int temp = index1;
+        index1 = index2;
+        index2 = temp;
+    }
+    
+    if(index2 - index1 + 1 > planets.size()) {
         std::vector<std::string> result;
         
-        for (int i = index1; i <= index2; i++) { 
+        for (int i = 0; i <= index2; i++) { 
+            if(i < planets.size()) { 
+                result.push_back(planets[i]);
+            } 
+        }
+        
+        return result;
+    } else {
+        std::vector<std::string> result;
+        for (int i = index1; i <= index2; i++) {
             if(i < planets.size()) { 
                 result.push_back(planets[i]);
             } 
