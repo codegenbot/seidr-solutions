@@ -19,7 +19,7 @@ vector<string> odd_count(vector<string> lst){
     return result;
 }
 
-void solveProblem(){
+int main(){
     vector<string> expected_result {
         "the number of odd elements 1 in the string 271 of the input.",
         "the number of odd elements 2 in the string 137 of the input.",
@@ -28,9 +28,5 @@ void solveProblem(){
     vector<string> result = odd_count({"271", "137", "314"});
     assert(result == expected_result);
     cout << "Test passed successfully!" << endl;
-}
-
-int main(){
-    solveProblem();
     return 0;
 }
