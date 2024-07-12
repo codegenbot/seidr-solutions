@@ -26,12 +26,12 @@ int main() {
         leftSum += nums[i];
     }
 
-    for (int i = 0; i <= cutIndex; ++i) {
+    for (int i = 0; i < n; ++i) {
         std::cout << nums[i] << (i < cutIndex ? " " : "") ;
     }
     std::cout << std::endl;
 
-    for (int i = cutIndex + 1; i < n; ++i) {
+    for (int i = cutIndex; i < n; ++i) {
         std::cout << nums[i] << (i < n - 1 ? " " : "");
     }
     std::cout << std::endl;
