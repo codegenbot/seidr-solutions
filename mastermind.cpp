@@ -8,6 +8,9 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     
+    transform(code.begin(), code.end(), code.begin(), ::toupper);
+    transform(guess.begin(), guess.end(), guess.begin(), ::toupper);
+    
     int white = 0, black = 0;
     vector<int> codeFreq(6, 0), guessFreq(6, 0);
     
