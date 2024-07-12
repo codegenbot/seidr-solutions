@@ -11,12 +11,23 @@ double calculateEuclideanDistance(const std::vector<double>& vec1, const std::ve
 }
 
 int main() {
-    std::vector<double> vec1 = {1.0, 2.0, 3.0};
-    std::vector<double> vec2 = {4.0, 5.0, 6.0};
+    int n;
+    std::cin >> n;
     
+    std::vector<double> vec1(n);
+    std::vector<double> vec2(n);
+    
+    for (int i = 0; i < n; ++i) {
+        std::cin >> vec1[i];
+    }
+    
+    for (int i = 0; i < n; ++i) {
+        std::cin >> vec2[i];
+    }
+
     double distance = calculateEuclideanDistance(vec1, vec2);
-    
-    std::cout << "Euclidean distance: " << distance << std::endl;
-    
+
+    std::cout << "Euclidean Distance: " << distance << std::endl;
+
     return 0;
 }
