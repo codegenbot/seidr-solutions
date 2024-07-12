@@ -1,13 +1,13 @@
-```cpp
-#include <vector>
 #include <iostream>
+#include <vector>
 #include <string>
+
 using namespace std;
 
 vector<int> indicesOfSubstring(string text, string target) {
     vector<int> result;
     int i = 0;
-    while (i <= text.length() - target.length()) {
+    while (i < text.length() - target.length() + 1) {
         int j = 0;
         while (j < target.length()) {
             if (text[i + j] != target[j]) break;
