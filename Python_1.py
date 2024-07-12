@@ -6,14 +6,18 @@ def separate_paren_groups(paren_string: str) -> List[str]:
     
     start = -1
     for i, char in enumerate(paren_string):
-        if char in '({':
+        if char == '(' or char == '{':
             if not stack:
                 start = i
             stack.append(char)
-        elif char in ')}':
+        elif char == ')' or char == '}':
+            if not stack:
+                start = i
+            else:
+                stack.pop()
+            
             if not stack:
                 result.append(paren_string[start:i+1])
-            stack.pop()
     
     if stack:
         result.append(paren_string[start:])
