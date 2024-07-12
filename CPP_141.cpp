@@ -21,7 +21,6 @@ std::string file_name_check(std::string file_name) {
             dotIndex = i;
         }
     }
-    
     if(dotCount != 1 || dotIndex == 0 || dotIndex == file_name.size()-1)
         return "No";
     
