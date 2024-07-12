@@ -1,22 +1,25 @@
+```
 def minPath(grid, k):
-    n = len(grid)
-    result = []
-    
-    for i in range(n):
-        for j in range(n):
-            if grid[i][j] == 1:
-                current_path = [grid[i][j]]
-                dfs(grid, i, j, k - 1, k, current_path, result)
-                return current_path
+    N = len(grid)
+    memo = {}
 
-def dfs(grid, i, j, left, max_len, path, res):
-    n = len(grid)
-    if not left:
-        res.append(path[:])
-        return
-    for x, y in [(-1,0), (1,0), (0,-1), (0,1)]:
-        ni, nj = i + x, j + y
-        if 0 <= ni < n and 0 <= nj < n and grid[ni][nj] not in path:
-            grid[ni][nj], t = grid[i][j], grid[ni][nj]
-            dfs(grid, ni, nj, left - 1, max_len, path + [t], res)
-            grid[ni][nj] = t
+    def dfs(i, j, path, visited):
+        if (i, j) in visited:
+            return path
+        visited.add((i, j))
+        new_path = path + [grid[i][j]]
+        if len(new_path) == k:
+            return new_path
+        res = float('inf')
+        for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            ni, nj = i + di, j + dj
+            if 0 <= ni < N and 0 <= nj < N:
+                if grid[ni][nj] not in memo or len(memo[grid[ni][nj]]) == k:
+                    memo[grid[ni][nj]] = []
+                for p in dfs(ni, nj, new_path, visited):
+                    if p.count(grid[i][j]) + 1 <= k and len(p) - 1 < res:
+                        res = len(p) - 1
+                        return [grid[i][j]] * (k - (len(p) - 1)) + p[-k:]
+        return None
+
+    return dfs(0, 0, [], set())
