@@ -3,12 +3,13 @@
 #include <vector>
 
 int main() {
-    std::string text, target;
-    std::cin >> text >> target;
+    std::string target, text;
+    std::getline(std::cin, target);
+    std::getline(std::cin, text);
     std::vector<int> indices;
     size_t pos = text.find(target, 0);
     while (pos != std::string::npos) {
-        indices.push_back(pos);
+        indices.push_back(pos + 1); // 1-based indexing
         pos = text.find(target, pos + 1);
     }
     for (int i = 0; i < indices.size(); ++i) {
