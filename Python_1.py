@@ -1,4 +1,5 @@
 import re
+import sys
 
 def separate_parentheses(paren_string):
     if re.match(r'^[\(\)]+$', paren_string) is None:
@@ -26,7 +27,7 @@ def separate_parentheses(paren_string):
     return separated_groups
 
 try:
-    paren_string = input("Enter the parentheses string: ").strip()
+    paren_string = input().strip()
     print(separate_parentheses(paren_string))
 except ValueError as e:
     print(e)
