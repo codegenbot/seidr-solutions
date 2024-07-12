@@ -1,3 +1,5 @@
+Here's the corrected code:
+
 ```
 import random
 import re
