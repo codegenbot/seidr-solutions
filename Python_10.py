@@ -1,15 +1,7 @@
-def is_palindrome(s: str) -> bool:
-    return s == s[::-1]
-
-
 def make_palindrome(s: str) -> str:
-    while True:
-        if isinstance(s, str):
-            break
-        else:
-            print("Invalid input. Please enter a string.")
-            s = input()
-    if s == s[::-1]:
+    if s == "":  
+        return "a" + "a"  
+    elif s == s[::-1]:
         return s
     else:
         temp = s
