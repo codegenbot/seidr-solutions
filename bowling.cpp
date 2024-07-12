@@ -20,7 +20,7 @@ int score(std::string s) {
             }
             roll++;
         } else if (s[i] == '/') {
-            total += 10 - (s[i - 1] - '0');
+            total += 10 - (s[i - 1] - '0') + (s[i + 1] == 'X' ? 10 : (s[i + 1] == '-' ? 0 : s[i + 1] - '0'));
             if (roll < 10) {
                 total += (s[i + 1] == 'X' ? 10 : (s[i + 1] == '-' ? 0 : s[i + 1] - '0'));
             } else {
