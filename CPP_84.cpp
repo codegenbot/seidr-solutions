@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <cassert>
 using namespace std;
 
 int solve(int N) {
@@ -11,14 +13,13 @@ int solve(int N) {
 }
 
 int main() {
-    std::string str; 
-    cin >> str;
-    int N = stoi(str);
+    int N;
+    cin >> N;
     if(N < 1) {
         cout << "Error: Input should be a positive integer." << endl;
     } else {
-        cout << solve(N) << endl;
         assert(solve(963) == 1010);
+        string str = to_string(solve(N));
+        cout << str << endl;
     }
     return 0;
-}
