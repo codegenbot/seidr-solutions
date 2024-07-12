@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,14 +18,13 @@ vector<string> split(const string& str, const string& delimiter) {
     size_t pos = 0;
     while ((pos = str.find(delimiter)) != string::npos) {
         tokens.push_back(str.substr(0, pos));
-        str.erase(0, pos + 1);
+        str.erase(0, pos + delimiter.length());
     }
-    tokens.push_back(str);
     return tokens;
 }
 
 string words_in_sentence(string sentence){
-    string result = "";
+    string result = ""; // Initialize the result string
     for (const auto& word : split(sentence, " ")) {
         if (is_prime(word.length())) {
             result += word + " ";
