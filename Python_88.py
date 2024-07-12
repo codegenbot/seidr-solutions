@@ -1,7 +1,4 @@
 ```
-def sort_array(arr):
-    return sorted(map(int, arr))
-
 while True:
     try:
         array_str = input("Enter an array: ")
