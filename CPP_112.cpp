@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -6,7 +5,7 @@
 
 using namespace std;
 
-bool issame(vector<string> a, vector<string> b) {
+bool same(vector<string> a, vector<string> b) {
     if (a.size() != b.size())
         return false;
     for (int i = 0; i < a.size(); i++) {
@@ -44,15 +43,7 @@ vector<string> reverse_delete(string s, string c) {
     return result;
 }
 
-vector<string> solution(string s, string c) {
-    vector<string> result = reverse_delete(s, c);
-    if (!issame({"", "True"}, result)) {
-        assert(false);
-    }
-    return result;
-}
-
 int main() {
-    solution("mamma", "mia");
+    assert(same(reverse_delete("mamma", "mia"), vector<string> {"", "True"}));
     return 0;
 }
