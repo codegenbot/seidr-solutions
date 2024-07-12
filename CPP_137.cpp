@@ -2,7 +2,7 @@
 #include <string>
 #include <limits>
 
-std::any compare_one(std::any a, std::any b) {
+std::any compareOne(std::any a, std::any b) {
     if (a.type() == typeid(int) && b.type() == typeid(float)) {
         return (int)a > (float)b ? a : b;
     } else if (a.type() == typeid(int) && b.type() == typeid(double)) {
@@ -13,43 +13,36 @@ std::any compare_one(std::any a, std::any b) {
         return (double)a > (int)b ? a : b;
     } else if (a.type() == typeid(std::string) && b.type() == typeid(float)) {
         try {
-            float fa = std::stof(a.convert<std::string>().get());
-            float fb = (float)b.get();
+            float fa = std::stof(a.convert<std::string>().c_str());
+            float fb = (float)b.convert_to<float>();
             return fa > fb ? a : b;
         } catch (...) {
             return "None";
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(double)) {
         try {
-            double fa = std::stod(a.convert<std::string>().get());
-            double fb = (double)b.get();
+            double fa = std::stod(a.convert<std::string>().c_str());
+            double fb = (double)b.convert_to<double>();
             return fa > fb ? a : b;
         } catch (...) {
             return "None";
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(int)) {
         try {
-            int fa = std::stoi(a.convert<std::string>().get());
-            int fb = (int)b.get();
+            int fa = std::stoi(a.convert<std::string>().c_str());
+            int fb = (int)b.convert_to<int>();
             return fa > fb ? a : b;
         } catch (...) {
             return "None";
         }
     } else if (a.type() == typeid(std::string) && b.type() == typeid(std::string)) {
         try {
-            float fa = std::stof(a.convert<std::string>().get());
-            float fb = std::stof(b.convert<std::string>().get());
+            float fa = std::stof(a.convert<std::string>().c_str());
+            float fb = std::stof(b.convert<std::string>().c_str());
             return fa > fb ? a : b;
         } catch (...) {
             return "None";
         }
     }
     return "None";
-}
-
-int main() {
-    std::any a, b;
-    // Your code to read input from user
-    std::cout << compare_one(a, b) << std::endl;
-    return 0;
 }
