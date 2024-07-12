@@ -38,6 +38,6 @@ vector<int> get_odd_collatz(int n) {
 
 int main() {
     assert(issame(get_odd_collatz(1), {1})); // Testing the function
- 
+
     return 0;
 }
