@@ -1,3 +1,4 @@
+```
 #include <iostream>
 using namespace std;
 
@@ -19,3 +20,4 @@ int main() {
         cout << "None of the input numbers are integers.\n";
 
     return 0;
+}
