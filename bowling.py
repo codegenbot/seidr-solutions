@@ -1,3 +1,4 @@
+```
 def calculate_score(frames):
     score = 0
     frame = []
