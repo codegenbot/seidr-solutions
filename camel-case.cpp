@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -7,11 +6,13 @@
 
 using namespace std;
 
+size_t size_type;
+
 string kebabToCamel(string str) {
     string result = "";
     for (char c : str) {
         if (c == '-') {
-            result += toupper(str.find(c) + 1);
+            result += toupper(str[str.find(c) + 1]);
             str.erase(str.find(c), 1);
         } else if (c == ' ') {
             result += " ";
