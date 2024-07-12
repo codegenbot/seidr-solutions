@@ -1,4 +1,3 @@
-```
 def parse_music(music_string: str) -> list:
     if not isinstance(music_string, str):
         return []
@@ -32,9 +31,6 @@ def parse_music(music_string: str) -> list:
         elif music_string[i:i+3] == "o o|":
             music_list.append(4)
             i += 3
-        elif music_string[i:i+2] == "o o|":
-            music_list.append(4)
-            i += 2
 
     return music_list
 
@@ -45,6 +41,6 @@ while True:
         if not isinstance(input_str, str):
             raise Exception
         break
-    except:
+    except Exception:
         print("Invalid input. Please enter a string.")
 print(parse_music(input_str))
