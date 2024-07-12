@@ -1,11 +1,12 @@
+```
 def decode_shift(s: str):
-    key = int(input("Enter a shift key (1-25): "))
+    shift = int(input("Enter the shift value: "))
     decoded = ""
     for ch in s:
         if 'a' <= ch <= 'z':
-            decoded += chr((ord(ch) - ord('a') - key) % 26 + ord('a'))
+            decoded += chr((ord(ch) - shift - ord('a')) % 26 + ord('a'))
         elif 'A' <= ch <= 'Z':
-            decoded += chr((ord(ch) - ord('A') - key) % 26 + ord('A'))
+            decoded += chr((ord(ch) - shift - ord('A')) % 26 + ord('A'))
         else:
             decoded += ch
     return decoded
