@@ -1,8 +1,4 @@
 ```
-def add(x: int, y: int):
-    return x + y
-
-
 def main():
     while True:
         num1 = None
@@ -22,5 +18,3 @@ def main():
         if cont.lower() != "y":
             print("Program ended.")
             break
-        else:
-            continue
