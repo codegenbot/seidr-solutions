@@ -1,21 +1,21 @@
-```cpp
+```c++
 #include <vector>
 #include <algorithm>
-#include <initializer_list>
+#include <unordered_set>
 
-bool same(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector<int>& a, const std::vector<int> b) {
     return a == b;
 }
 
 std::vector<int> remove_duplicates(const std::vector<int>& vec) {
-    std::set<int> result(vec.begin(), vec.end());
+    std::unordered_set<int> result(vec.begin(), vec.end());
     return std::vector<int>(result.begin(), result.end());
 }
 
 int main() {
     std::vector<int> test1 = remove_duplicates({1, 2, 3, 2, 4, 3, 5});
     std::vector<int> test2 = {1, 2, 3, 4, 5};
-    if (same(test1, test2)) {
+    if (issame(test1, test2)) {
         for (int i : test1) {
             std::cout << i << " ";
         }
