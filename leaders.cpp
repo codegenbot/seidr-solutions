@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
-
 vector<int> findLeaders(vector<int> nums) {
     vector<int> leaders;
     int n = nums.size();
@@ -26,6 +21,7 @@ int main() {
         cin >> nums[i];
     }
 
+    reverse(nums.begin(), nums.end()); // Reverse the input vector
     vector<int> result = findLeaders(nums);
 
     for (int leader : result) {
