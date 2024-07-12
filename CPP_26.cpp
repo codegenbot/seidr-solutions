@@ -12,15 +12,15 @@ std::vector<int> remove_duplicates(std::vector<int> input) {
     return result;
 }
 
-bool isSame(const std::vector<int>& a, const std::vector<int>& b) { 
+std::vector<int> issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-int main() {
+int main_test() {
     int arr[] = {1, 2, 3, 2, 4, 3, 5};
     std::vector<int> test1(arr, arr + sizeof(arr) / sizeof(arr[0]));
     std::vector<int> test2 = remove_duplicates(test1);
-    if (isSame(test1, test2)) { 
+    if (issame(test1, test2)) {
         for (int i : test2) {
             std::cout << i << " ";
         }
