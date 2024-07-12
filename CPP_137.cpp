@@ -8,8 +8,7 @@ string compare_one(string a) {
     if (a.find('x') != string::npos)
         return "None";
     else {
-        int s2;
-        cin >> s2; 
+        int s2 = stoi(a); 
         if (s1 > s2)
             return to_string(s1);
         else if (s1 == s2)
