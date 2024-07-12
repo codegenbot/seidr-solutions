@@ -1,1 +1,1 @@
-strings = input().strip().split()
+strings = input("Enter space-separated strings: ").split()
