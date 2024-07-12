@@ -14,3 +14,7 @@ def indices_of_substring(text, target):
         result.append(i + pos)
         i += pos + 1
     return result
+
+if __name__ == "__main__":
+    print(gcd(48, 18))  
+    print(indices_of_substring("Hello world", "o"))
