@@ -6,5 +6,4 @@ def leaders(input_vector):
         if input_vector[i] >= max_right:
             leaders.append(max_right)
             max_right = input_vector[i]
-    leaders.append(max_right)
-    return leaders
+    return [input_vector[0]] + leaders
