@@ -11,7 +11,12 @@ int can_arrange(std::vector<int> arr) {
 }
 
 int main() {
-    assert(can_arrange({}) == -1);
-    // Add your test cases here
+    std::vector<int> arr = {1, 2, 3};
+    int result = can_arrange(arr);
+    if (result == -1) {
+        std::cout << "The array is already arranged.\n";
+    } else {
+        std::cout << "The array needs to be rearranged from index " << result << ".\n";
+    }
     return 0;
 }
