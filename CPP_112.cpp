@@ -1,4 +1,3 @@
-```
 vector<string> reverse_delete(string s, string c) {
     vector<char> char_s(s.begin(), s.end());
     for (char ch : c) {
