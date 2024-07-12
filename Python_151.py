@@ -1,3 +1,3 @@
-def double_the_difference(lst):
-    sum_of_squares = sum(i**2 for i in lst if isinstance(i, int) and i >= 0 and i % 2 != 0)
-    return sum_of_squares * 2
+def check(lst):
+    result = double_the_difference(lst)
+    print("The sum of squares of positive odd numbers in the list is: ", result)
