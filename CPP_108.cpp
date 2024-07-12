@@ -1,3 +1,4 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,10 +18,11 @@ int main() {
     cin >> n;
     
     for(int i = 0; i < n; i++) {
-        string num; 
+        std::string num; 
         cin >> num; 
         numbers.push_back(num);
     }
     
-    return count_nums(numbers);
+    int result = count_nums(numbers);
+    return static_cast<int>(result);
 }
