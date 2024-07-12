@@ -1,3 +1,6 @@
+#include <vector>
+#include <cassert>
+#include <cstdlib>
 #include <initializer_list>
 
 int prod_signs(std::vector<int> arr) {
@@ -18,10 +21,4 @@ int prod_signs(std::vector<int> arr) {
 
     return product * sum;
 
-}
-
-int main() {
-    std::vector<int> arr = {-1, 1, 1, 0};
-    int result = prod_signs(arr);
-    return result;
 }
