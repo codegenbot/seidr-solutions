@@ -15,10 +15,7 @@ bool is_nested(const std::string& str) {
     return count == 0;
 }
 
-int main() {
-    assert(!is_nested("[]"));
-    assert(is_nested("[[]]"));
-    assert(!is_nested("[]]"));
-    assert(is_nested("]]]]]]]]"));
-    return 0;
-}
+assert(is_nested("[]") == true);
+assert(is_nested("[[]]") == true);
+assert(is_nested("[]]") == false);
+assert(is_nested("]]]]]]]]") == false);
