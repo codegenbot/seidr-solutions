@@ -2,7 +2,7 @@ int main() {
     string code, guess;
     cin >> code >> guess;
     
-    int blackPegs = 0, whitePegs = 0;
+    int whitePegs = 0, blackPegs = 0;
     vector<int> codeCount(6, 0);
     vector<int> guessCount(6, 0);
     
