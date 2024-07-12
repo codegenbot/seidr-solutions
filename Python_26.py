@@ -1,6 +1,6 @@
 def check(func):
     def wrapper(*numbers):
-        return func(numbers[0])
+        return func(*numbers)
     return wrapper
 
 @check

@@ -1,17 +1,8 @@
-import sys
-
 def find_zero():
     xs = []
-    while True:
-        try:
-            line = sys.stdin.readline().strip()
-            if not line:
-                break
-            xs.extend(map(float, line.split()))
-        except:
-            break
-    a = xs[-2]
-    b = xs[-1]
+    for line in iter(input, None):
+        xs.extend(map(float, line.split()))
+    a, b = xs[-2:]
     return -b / a
 
 result = find_zero()
