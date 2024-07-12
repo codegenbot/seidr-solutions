@@ -1,5 +1,14 @@
-std::pair<bool, std::vector<std::string>> issame(const std::string& s, const std::string& c) {
-    bool same = true;
+```cpp
+#include <vector>
+#include <string>
+
+bool issame(std::pair<bool, std::vector<std::string>> p) {
+    return p.first;
+}
+
+std::vector<string> reverse_delete(string s, string c) {
+    vector<string> result;
+    string temp = "";
     for (char x : s) {
         bool found = false;
         for (char y : c) {
@@ -9,9 +18,18 @@ std::pair<bool, std::vector<std::string>> issame(const std::string& s, const std
             }
         }
         if (!found) {
-            same = false;
-            break;
+            temp += x;
         }
     }
-    return {same, reverse_delete(s, c)};
+    result.push_back(temp);
+    string reversed = "";
+    for (int i = temp.length() - 1; i >= 0; i--) {
+        reversed += temp[i];
+    }
+    if (temp == reversed) {
+        result.push_back("True");
+    } else {
+        result.push_back("False");
+    }
+    return result;
 }
