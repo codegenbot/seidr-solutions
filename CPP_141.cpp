@@ -1,14 +1,31 @@
-for(int i = 0; i < file_name.size(); i++){
-    if(!isalnum(file_name[i]) && file_name[i] != '.')
-        return "No";
-    if(isalpha(file_name[i]) && dotCount == 0)
-        return "No";
-    if(file_name[i] == '.'){
-        dotCount++;
-        dotIndex = i;
+#include <iostream>
+#include <string>
+#include <cassert>
+#include <cctype>
+
+std::string file_name_check(std::string file_name) {
+    int digitCount = 0;
+    int dotCount = 0;
+    int dotIndex = -1;
+    for(int i = 0; i < file_name.size(); i++) {
+        if (std::isdigit(file_name[i])) {
+            if (digitCount >= 3)
+                return "No";
+            digitCount++;
+        } else if (file_name[i] == '.') {
+            dotCount++;
+            dotIndex = i;
+        }
     }
+    if (dotCount != 1 || dotIndex == 0 || dotIndex == file_name.size() - 1)
+        return "No";
+    
+    std::string extension = file_name.substr(dotIndex + 1);
+    if (extension != "txt" && extension != "exe" && extension != "dll")
+        return "No";
+    
+    if (!std::isalpha(file_name[0]))
+        return "No";
+    
+    return "Yes";
 }
-if(file_name.size() > 12)
-    return "No";
-if(dotCount != 1 || dotIndex == 0 || dotIndex == file_name.size() - 1)
-    return "No";
