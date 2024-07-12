@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <cassert>
 
 int double_the_difference(const std::vector<float>& numbers) {
     int sum = 0;
