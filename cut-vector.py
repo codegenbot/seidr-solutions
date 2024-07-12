@@ -1,12 +1,11 @@
-arr = list(map(int, input().split()))
-
+n = len(arr)
 total_sum = sum(arr)
 left_sum = 0
 right_sum = total_sum
 min_diff = total_sum
 cut_index = 0
 
-for i in range(len(arr)):
+for i in range(n):
     left_sum += arr[i]
     right_sum -= arr[i]
     diff = abs(left_sum - right_sum)
