@@ -1,4 +1,4 @@
-Problem description: Write a Python function that checks if a given string is a palindrome and returns the original string if it's not a palindrome.
+Problem description: Determine if a given string is a palindrome and make it one if possible.
 
 function signature:
 def make_palindrome(string: str) -> str:
