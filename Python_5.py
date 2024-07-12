@@ -1,3 +1,4 @@
+```
 def process_numbers():
     user_input = input("Enter numbers separated by delimiter: ")
 
@@ -12,13 +13,14 @@ def process_numbers():
         return []
 
     result = [str(numbers[0])]
-    for num in numbers[1:]:
-        if num == ",":
-            result.append(",")
-        else:
-            while len(result) > 1 and str(result[-1]) == ",":
-                result.pop()
-            result.append(str(num))
+    if len(numbers) > 1:
+        for num in numbers[1:]:
+            if num == ",":
+                result.append(",")
+            else:
+                while len(result) > 1 and str(result[-1]) == ",":
+                    result.pop()
+                result.append(str(num))
     return result
 
 print(process_numbers())
