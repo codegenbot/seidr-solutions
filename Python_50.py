@@ -1,6 +1,7 @@
+```
 def decode_shift():
     while True:
-        s = input("Enter a message: ")
+        s = input("Enter the message: ")
         while True:
             try:
                 shift = int(input("Enter the shift (0-25): "))
@@ -10,7 +11,7 @@ def decode_shift():
                     print("Invalid input. Please enter a number between 0 and 25.")
             except ValueError:
                 print("Invalid input. Please enter an integer.")
-        decoded = "".join([chr(((ord(ch) - ord('a') - shift) % 26) + ord('a')) if ch.isalpha() else ch for ch in s])
+        decoded = "".join([chr(((ord(ch) - ord('a') - shift) % 26) + ord('a')) for ch in s])
         print(decoded)
         cont = input("Do you want to decode another message? (yes/no): ")
         if cont.lower() != "yes":
