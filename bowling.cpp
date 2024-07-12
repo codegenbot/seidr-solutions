@@ -1,26 +1,41 @@
 int score(string s) {
-    int res = 0;
+    int totalScore = 0;
     int frame = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == 'X') {
-            res += 10;
-            res += (s[i + 1] == 'X' ? 10 : isdigit(s[i + 1]) ? s[i + 1] - '0' : 10);
-            res += (s[i + 2] == 'X' ? 10 : s[i + 2] == '/' ? 10 - (s[i + 1] - '0') : isdigit(s[i + 2]) ? s[i + 2] - '0' : 10);
+    int rolls[22];
+
+    for (char c : s) {
+        if (c == 'X') {
+            rolls[frame] = 10;
             frame++;
-        } else if (s[i] == '/') {
-            res += 10 - (s[i - 1] - '0');
-            res += isdigit(s[i + 1]) ? s[i + 1] - '0' : 10;
+        } else if (c == '/') {
+            rolls[frame-1] = 10 - rolls[frame-1];
+        } else if (c == '-') {
+            rolls[frame] = 0;
             frame++;
-        } else if (isdigit(s[i])) {
-            res += s[i] - '0';
-            if (isdigit(s[i + 1])) {
-                res += s[i + 1] - '0';
-                frame++;
+        } else {
+            rolls[frame] = c - '0';
+            if (frame % 2 == 1) {
+                if (rolls[frame-1] + rolls[frame] == 10) {
+                    totalScore += rolls[frame+1];
+                }
             }
+            frame++;
         }
-        if (frame == 10) break;
     }
-    return res;
+    int i = 0;
+    for (int f = 0; f < 10; f++) {
+        if (rolls[i] == 10) {
+            totalScore += 10 + rolls[i+1] + rolls[i+2];
+            i++;
+        } else if (rolls[i] + rolls[i+1] == 10) {
+            totalScore += 10 + rolls[i+2];
+            i += 2;
+        } else {
+            totalScore += rolls[i] + rolls[i+1];
+            i += 2;
+        }
+    }
+    return totalScore;
 }
 
 int main() {
