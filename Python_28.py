@@ -1,12 +1,13 @@
-```Python
+```
 from typing import List
 
-def concatenate(strings: List[str]) -> str:
+def concatenate() -> str:
+    strings = []
+    while True:
+        user_input = input("Enter a string (or 'done' to finish): ")
+        if user_input.lower() == 'done':
+            break
+        strings.append(user_input)
     return ''.join(strings)
 
-if __name__ == "__main__":
-    strings = input("Enter space-separated strings (or leave blank): ")
-    if strings:
-        print(concatenate([s.strip() for s in strings.split()]))
-    else:
-        print("No strings provided")
+print(concatenate())
