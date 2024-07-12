@@ -11,6 +11,7 @@ int main() {
     
     while (cin >> num) {
         nums.push_back(num);
+        if (cin.peek() == '\n') break; // Exit the loop if new line character encountered
     }
 
     int n = nums.size();
