@@ -1,4 +1,11 @@
-def car_race_collision(n=None):
-    if n is None:
-        n = int(input("Enter a number: "))
-    return n * (n + 1) // 2
+car_race_collision = int(input("Enter car race collision: "))
+
+def check():
+    if car_race_collision > 5:
+        print("Collision is severe")
+    elif car_race_collision == 5:
+        print("Collision is moderate")
+    else:
+        print("No collision")
+
+check()
