@@ -1,11 +1,7 @@
-```
 #include <iostream>
 #include <cmath>
 
-double vectorDistance() {
-    int n;
-    cin >> n;
-
+double vectorDistance(int n) {
     double sum = 0;
     for (int i = 0; i < n; i++) {
         double val1, val2;
