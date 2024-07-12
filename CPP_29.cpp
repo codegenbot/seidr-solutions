@@ -19,7 +19,7 @@ std::vector<std::string> filter_by_prefix(const std::vector<std::string>& string
 
 }
 
-int test() {
+int main() {
     std::vector<std::string> input = {"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"};
     const std::string prefix = "xxx";
     std::vector<std::string> output = filter_by_prefix(input, prefix);
