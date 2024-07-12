@@ -5,15 +5,17 @@ import math
 
 def factorize(n: int) -> List[int]:
     factors = []
-    for i in range(2, math.isqrt(n) + 1):
-        while n % i == 0:
-            if i not in [factors[j] for j in range(len(factors))]:
-                factors.append(i)
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
             n //= i
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            factors.extend([i] * count)
     if n > 1:
         factors.append(n)
     return factors
-
-
-num = int(input("Enter a number: "))
-print(factorize(num))
