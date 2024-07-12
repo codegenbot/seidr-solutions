@@ -41,14 +41,26 @@ int main() {
         s1 = s1_temp.erase(std::remove_if(s1_temp.begin(), s1_temp.end(), ::isspace), s1_temp.end());
     }
     if(!s2.empty()) {
-        std::string s2_temp = s2; // Add const here
+        std::string s2_temp = s2;
         s2 = s2_temp.erase(std::remove_if(s2_temp.begin(), s2_temp.end(), ::isspace), s2_temp.end());
     }
     
     if(isSame) {
-        std::cout << s1 << " and " << s2 << " are the same." << std::endl;
+        if (!s1.empty() && !s2.empty()) {
+            std::cout << s1 << " and " << s2 << " are the same." << std::endl;
+        } else if (s1.empty()) {
+            std::cout << "empty" << " and " << s2 << " are the same." << std::endl;
+        } else {
+            std::cout << s1 << " and empty are the same." << std::endl;
+        }
     } else {
-        std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
+        if (!s1.empty() && !s2.empty()) {
+            std::cout << s1 << " and " << s2 << " are not the same." << std::endl;
+        } else if (s1.empty()) {
+            std::cout << "empty" << " and " << s2 << " are not the same." << std::endl;
+        } else {
+            std::cout << s1 << " and empty are not the same." << std::endl;
+        }
     }
     return 0;
 }
