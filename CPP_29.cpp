@@ -1,23 +1,5 @@
-```cpp
-int main() {
-    vector<string> a;
-    cout << "Enter strings (press Enter after each):";
-    string input;
-    while(getline(cin, input)) {
-        if(input.size() > 0) {
-            a.push_back(input);
-        }
-    }
-
-    vector<string> b = filter_by_prefix(a, "");
-    
-    bool same = issame(a, b);
-
-    if(!same) cout << "Strings are not the same." << endl;
-    else cout << "Strings are the same." << endl;
-    
-    return 0;
-}
+#include <vector>
+#include <string>
 
 bool issame(vector<string> a, vector<string> b){
     if(a.size() != b.size()) return false;
@@ -35,4 +17,10 @@ vector<string> filter_by_prefix(vector<string> strings, string prefix){
         }
     }
     return result;
+}
+
+int main() {
+    vector<string> output = filter_by_prefix({"xxx", "asd", "xxy", "john doe", "xxxxAAA", "xxx"}, "xxx");
+    assert(issame(output, {"xxx", "xxxAAA", "xxx"}));
+    return 0;
 }
