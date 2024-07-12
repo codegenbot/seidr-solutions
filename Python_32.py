@@ -1,10 +1,8 @@
 def find_zero(xs: list):
-    a, b = map(int, xs)
-    if b == 0:
-        return "Division by zero is not allowed."
+    a, b = map(int, xs.split())
+    assert b != 0
     return -a / b
 
-# Prompt the user to input the coefficients of the quadratic equation
-coefficients = list(map(int, input("Enter the coefficients of the quadratic equation (a b): ").split()))
+coefficients = input("Enter the coefficients of the quadratic equation (a b): ")
 result = find_zero(coefficients)
 print(f"The value of x where the equation is equal to zero is: {result}")
