@@ -1,7 +1,7 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include <algorithm>
+
 using namespace std;
 
 int main() {
@@ -24,7 +24,7 @@ int main() {
         white += min(codeFreq[i], guessFreq[i]);
     }
 
-    cout << white << endl << black << endl;
+    cout << white << "\n" << black << "\n";
 
     return 0;
 }
