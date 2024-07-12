@@ -1,13 +1,14 @@
 int main() {
     int hours;
-    float snow_on_ground, snow_fall_rate, melting_proportion;
-    cin >> hours >> snow_on_ground >> snow_fall_rate >> melting_proportion;
-    
+    float snow, rate, meltRate;
+    cin >> hours >> snow >> rate >> meltRate;
+
     for (int i = 0; i < hours; ++i) {
-        snow_on_ground = snow_on_ground + snow_fall_rate - melting_proportion * snow_on_ground;
+        snow += rate;
+        snow *= (1.0 - meltRate);
     }
-    
-    cout << snow_on_ground << endl;
-    
+
+    cout << snow << endl;
+
     return 0;
 }
