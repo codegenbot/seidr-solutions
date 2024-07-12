@@ -30,14 +30,14 @@ int mainProblemCPP120() {
     // Create a vector from the array
     std::vector<int> vec(arr, arr + n);
     
-    if (vec.empty()) { // Check for empty vectors
-        std::cout << "Vectors are empty." << std::endl;
+    if (!vec.empty()) { // Check for empty vectors
+        std::cout << "Vectors are not empty." << std::endl;
     } else {
-        std::cout << "Vectors are not empty" << std::endl;
+        std::cout << "Vectors are empty" << std::endl;
     }
     
     int* array = &arr[0];
-    int max = maximum(arr, n); 
+    int max = maximum({1, 2, 3, -23, 243, -400, 0}, 7); 
     std::cout << "Maximum value is: " << max << std::endl;
     
     return 0;
