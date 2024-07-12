@@ -19,7 +19,7 @@ int main(){
         bool same = true;
         for(int i = 0; i < lst.size() - 1; i++){
             if(lst[i] != lst[i+1]) {
-                std::cout << "Next Smallest is: " << lst[i];
+                std::cout << lst[i];
                 same = false;
                 break;
             }
