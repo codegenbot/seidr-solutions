@@ -1,7 +1,12 @@
 #include <vector>
+#include <algorithm>
 
-std::vector<float> get_positive(std::vector<float> l) {
-    std::vector<float> result;
+bool issame(float a, float b) {
+    return (a - b) < 1e-9;
+}
+
+vector<float> get_positive(vector<float> l) {
+    vector<float> result;
     for (float num : l) {
         if (num > 0) {
             result.push_back(num);
