@@ -1,7 +1,6 @@
-```
 def decode_shift():
-    s = input("Enter an encoded string: ")
-    shift = int(input("Enter the shift value: "))
+    shift = int(input("Enter a shift value: "))
+    s = input("Enter a string: ")
     result = ""
     for ch in s:
         if ch.isalpha():
