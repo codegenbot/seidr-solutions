@@ -1,19 +1,6 @@
-def factorize(num):
-    if num <= 0:
-        return []
-    factors = [i for i in range(1, num + 1) if num % i == 0]
+def factorize(n):
+    factors = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            factors.append(i)
     return factors
-
-
-while True:
-    try:
-        n = int(input("Enter a positive integer: "))
-        if n <= 0:
-            raise ValueError("Invalid input. Please enter a positive integer.")
-        factors = factorize(n)
-        print(factors)
-        break
-    except ValueError as e:
-        print(e)
-    except:
-        print("Invalid input. Please enter a valid integer.")
