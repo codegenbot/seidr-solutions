@@ -1,23 +1,18 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
 
-std::vector<int> order_by_points(std::vector<int>& nums) {
-    std::sort(nums.begin(), nums.end());
-    return nums;
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
 }
 
-int main() {
-    int n;
-    cin >> n;
-    std::vector<int> nums(n);
-    for (int i = 0; i < n; i++) {
-        cin >> nums[i];
+std::vector<int> order_by_points(const std::vector<int>& nums) {
+    std::vector<std::pair<int, int>> pairs;
+    for (int i = 0; i < nums.size(); i++) {
+        for (int j = i + 1; j <= nums.size(); j++) {
+            if (!issame({nums[i]}, {nums[j]})) {
+                pairs.push_back({i, j});
+            }
+        }
     }
-    
-    std::vector<int> result = order_by_points(nums);
-    for (const auto& num : result) {
-        cout << num << " ";
-    }
-    return 0;
+    return {};
 }
