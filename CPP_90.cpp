@@ -27,4 +27,5 @@ int main() {
         }
         if(same) std::cout << "-1";
     }
+    return 0;
 }
