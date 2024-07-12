@@ -4,14 +4,6 @@
 
 using namespace std;
 
-bool issame(vector<int> a, vector<int> b); // Function declaration
-
-vector<int> get_odd_collatz(int n); // Function declaration
-
-bool issame(vector<int> a, vector<int> b){
-    return a == b;
-}
-
 vector<int> get_odd_collatz(int n) {
     vector<int> result;
     while (n != 1) {
@@ -36,8 +28,12 @@ vector<int> get_odd_collatz(int n) {
     return odd_numbers;
 }
 
-int main() {
-    assert(issame(get_odd_collatz(1), {1})); // Testing the function
+bool issame(std::vector<int> a, std::vector<int> b) {
+    return a == b;
+}
 
+int main() {
+    assert(issame(get_odd_collatz(1), {1}));
+    
     return 0;
 }
