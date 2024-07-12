@@ -1,3 +1,10 @@
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <cstdlib>
+
+using namespace std;
+
 int main() {
     vector<int> nums;
     int num;
@@ -31,7 +38,9 @@ int main() {
         cout << nums[i] << endl;
     }
     
-    cout << 0 << endl;
+    for (int i = cutIndex + 1; i < n; i++) {
+        cout << nums[i] << endl;
+    }
     
     return 0;
 }
