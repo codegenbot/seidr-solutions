@@ -1,6 +1,3 @@
-```cpp
-#include <iostream>
-
 int solve(int N) {
     int sum = 0;
     for (int i = 1; i <= N; i++) {
@@ -8,10 +5,4 @@ int solve(int N) {
             sum += i;
     }
     return sum;
-}
-
-int main() {
-    int N;
-    std::cin >> N;
-    std::cout << solve(N) << std::endl;
 }
