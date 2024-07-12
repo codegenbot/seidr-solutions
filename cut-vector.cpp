@@ -40,10 +40,8 @@ int main() {
         firstSubvector.push_back(nums[i]);
     }
 
-    if (minDiff == 0 || prefixSum == sum - prefixSum) {
-        for (int i = cutIndex + 1; i < n; i++) {
-            secondSubvector.push_back(nums[i]);
-        }
+    for (int i = cutIndex + 1; i < n; i++) {
+        secondSubvector.push_back(nums[i]);
     }
 
     for (int num : firstSubvector) {
