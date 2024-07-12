@@ -1,28 +1,15 @@
-#include <vector>
-#include <iostream>
 #include <string>
 
-bool evaluateBooleanExpression(const std::string& expression) {
-    bool result = true;
-    for (char c : expression) {
-        if (c == '&') {
-            result &= false;
-        } else if (c == '|') {
-            result |= false;
-        } else if (c == 'f' || c == 't') {
-            result = c == 't';
+bool solveBoolean(string s) {
+    bool res = true;
+    for (char c : s) {
+        if (c == 'F') res = false; 
+        else if (c == '&') return res && res;
+        else if (c == '|') res = true;
+        else if (c == 'T') continue;
+        else if (c == 'T' || c == 'F') {
+            if (res) res = c == 'T';
+            else return c == 'T';
         }
     }
-    return result;
-}
-
-int main() {
-    int testCases;
-    std::cin >> testCases;
-    for (int i = 0; i < testCases; ++i) {
-        std::string expression;
-        std::cin >> expression;
-        std::cout << (evaluateBooleanExpression(expression) ? "True" : "False") << std::endl;
-    }
-    return 0;
-}
+    return res;
