@@ -13,8 +13,8 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 }
 
 int main() {
-    std::vector<std::string> result;
-    for (const std::string& word : {"grunt", "trumpet", "prune", "gruesome"}) {
+    vector<string> result;
+    for (const string& word : {"grunt", "trumpet", "prune", "gruesome"}) {
         result.push_back(word);
     }
     set<string> actualSet(result.begin(), result.end());
