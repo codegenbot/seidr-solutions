@@ -1,10 +1,13 @@
+```c++
 #include <vector>
 using namespace std;
 
 int main() {
     vector<int> arr = {1, 2, 7, 8, 5};
     vector<int> leaders = leaders(arr);
-    // do something with leaders vector...
+    for(int i : leaders) {
+        cout << i << " ";
+    }
     return 0;
 }
 
