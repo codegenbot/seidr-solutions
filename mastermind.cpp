@@ -24,7 +24,7 @@ int main() {
         white += min(codeFreq[i], guessFreq[i]);
     }
 
-    black -= white;  
+    black = 4 - white - black;  
     
     cout << white << endl << black << endl;
     
