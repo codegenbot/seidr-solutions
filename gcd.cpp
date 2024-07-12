@@ -32,11 +32,7 @@ int main() {
     std::string text, target;
     std::cout << "Enter the text and target separated by a space: ";
     std::getline(std::cin, text);
-    
-    size_t spacePos = text.find(' ');
-    
-    target = text.substr(spacePos + 1);
-    text = text.substr(0, spacePos);
+    std::getline(std::cin, target);
 
     std::vector<int> result = indicesOfSubstring(text, target);
 
