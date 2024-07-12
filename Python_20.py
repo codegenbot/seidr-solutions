@@ -1,3 +1,4 @@
+```
 from typing import List, Tuple
 
 def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
@@ -12,3 +13,10 @@ def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
                 closest_pair = (numbers[i], numbers[j])
 
     return closest_pair
+
+numbers = input("Enter numbers separated by space: ")
+numbers = [float(num) for num in numbers.split()]
+
+result = find_closest_elements(numbers)
+
+print("Closest pair is: ", result)

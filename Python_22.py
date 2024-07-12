@@ -1,17 +1,12 @@
+```
 from typing import List
+import ast
 
 
 def filter_integers() -> List[int]:
     while True:
         try:
             values = eval(input("Enter a list: "))
-            if values is not None and isinstance(values, (list, tuple)):
-                return [value for value in values if isinstance(value, int)]
-            else:
-                print("Invalid input. Please enter a list of integers or any other valid Python expression.")
-        except Exception as e:
-            print(f"Error: {e}")
-
-
-if __name__ == "__main__":
-    filter_integers()
+            return [value for value in values if isinstance(value, int)]
+        except (SyntaxError, NameError):
+            print(f"Invalid input. Please enter a valid Python expression.")
