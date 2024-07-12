@@ -1,8 +1,8 @@
-```cpp
-#include <cassert>
+#include <iostream>
+using namespace std;
 
 int findMaxFreq(int arr[], int n) {
-    std::map<int, int> freqMap;
+    map<int, int> freqMap;
     for (int i = 0; i < n; i++) {
         if (freqMap.find(arr[i]) == freqMap.end()) {
             freqMap[arr[i]] = 1;
@@ -13,7 +13,7 @@ int findMaxFreq(int arr[], int n) {
 
     int maxFreqNum = -1;
     for (auto it = freqMap.begin(); it != freqMap.end(); ++it) {
-        if (it->second >= it->first && it->first > 0) {
+        if (it->second > 0 && it->first == it->second) {
             maxFreqNum = it->first;
             break;
         }
@@ -22,12 +22,23 @@ int findMaxFreq(int arr[], int n) {
     return maxFreqNum;
 }
 
-int originalMain() {
-    int numbers[] = {3, 10, 10, 9, 2};
-    int size = sizeof(numbers)/sizeof(numbers[0]);
-    assert(findMaxFreq(numbers, size) == -1);
-    return 0;
-}
 int main() {
-    return originalMain();
+    int n;
+    cout << "Enter the number of elements in array: ";
+    cin >> n;
+
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        cout << "Enter element " << i + 1 << ": ";
+        cin >> arr[i];
+    }
+
+    int maxFreq = findMaxFreq(arr, n);
+
+    if(maxFreq != -1)
+        cout << "The number with maximum frequency is: " << maxFreq;
+    else
+        cout << "No number has a frequency greater than its value";
+
+    return 0;
 }
