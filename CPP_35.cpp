@@ -1,8 +1,2 @@
-#include <algorithm>
-#include <vector>
-
-int main() {
-    std::vector<int> my_vector = {1, 2, 3};
-    int max_val = *std::max_element(my_vector.begin(), my_vector.end());
-    return std::abs(max_val);
-}
+int vector_name[] = {5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10};
+return std::abs(*std::max_element(vector_name, vector_name + sizeof(vector_name)/sizeof(vector_name[0])));
