@@ -1,9 +1,6 @@
+```cpp
 #include <algorithm>
 #include <vector>
-
-bool issame(const std::vector<int>& nums1, const std::vector<int>& nums2) {
-    return nums1 == nums2;
-}
 
 int order_by_points(const std::vector<int>& nums) {
     int points = 0;
@@ -15,18 +12,11 @@ int order_by_points(const std::vector<int>& nums) {
     return points;
 }
 
-int main() {
-    auto output = order_by_points({0,6,6,-76,-21,23,4});
-    int expected_output[] = {-76, -21, 0, 4, 23, 6, 6};
-    std::vector<int> actual_output(output);
-    for (int i = 1; i < output.size(); i++) {
-        if (actual_output[i] > actual_output[i - 1]) {
-            return 0;
+bool isSame(const std::vector<int>& nums) {
+    for (int i = 1; i < nums.size(); i++) {
+        if (nums[i] <= nums[i - 1]) {
+            return false;
         }
     }
-    // If the loop didn't break, then the array is sorted
-    std::vector<int> expected(expected_output);
-    if (!std::equal(actual_output.begin(), actual_output.end(), expected.begin())) {
-        assert(false);  
-    }
+    return true;
 }
