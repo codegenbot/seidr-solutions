@@ -1,4 +1,5 @@
 #include <string>
+#include <algorithm>
 
 int mastermind(string code, string guess) {
     int white = 0;
@@ -9,7 +10,7 @@ int mastermind(string code, string guess) {
         if(code[i] == guess[i]) {
             black++;
         }
-        else if(count(guess.begin(), guess.end(), code[i]) > 0) {
+        else if(std::count(guess.begin(), guess.end(), code[i]) > 0) {
             white++;
         }
     }
