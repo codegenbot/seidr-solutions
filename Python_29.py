@@ -1,5 +1,5 @@
-def filter_by_prefix(user_input): 
-    if user_input is None:
+def filter_by_prefix(user_input=None): 
+    if user_input is None: 
         strings = input('Enter a list of strings (separated by commas): ')
     else:
         strings = user_input
