@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <climits>
+#include <cmath>
 
 int main() {
     int n;
@@ -21,7 +23,7 @@ int main() {
         for (int j = i; j < n; ++j) {
             rightSum += nums[j];
         }
-        int currentDiff = abs(leftSum - rightSum);
+        int currentDiff = std::abs(leftSum - rightSum);
         if (currentDiff < diff) {
             diff = currentDiff;
             cutIndex = i;
