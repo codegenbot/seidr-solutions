@@ -17,7 +17,8 @@ int main() {
     for (int i = 0; i < planets.size(); i++) {
         if (planets[i] == planet1) {
             idx1 = i;
-        } else if (planets[i] == planet2) {
+        }
+        if (planets[i] == planet2) {
             idx2 = i;
         }
     }
