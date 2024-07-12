@@ -11,11 +11,12 @@ int solve(int N) {
     return sum;
 }
 
-int main() {
+using namespace std;
+
+int mainProblem() {
     int N;
-    std::cin >> N;
-    std::cout << solve(N) << std::endl;
+    cin >> N;
+    cout << solve(N) << endl;
 
     assert(solve(963) == 483); 
-    return 0;
 }
