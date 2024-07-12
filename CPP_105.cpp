@@ -1,11 +1,12 @@
+```cpp
 #include <vector>
 #include <string>
 
-bool issame(vector<string> a, int len) {
-    if(a.size() != len)
+bool isSame(vector<string> a, vector<string> b) {
+    if(a.size() != b.size())
         return false;
     for(int i = 0; i < a.size(); i++)
-        if(a[i].length() > len)
+        if(a[i] != b[i])
             return false;
     return true;
 }
@@ -19,8 +20,6 @@ int by_length_helper(std::vector<std::pair<string, int>> result) {
 }
 
 int main() {
-    std::vector<std::string> words = {"apple", "banana", "cherry"};
-    int answer = by_length_helper({{word, word.length()} for word in words});
-    // Don't forget to print out the answer!
+    assert(isSame(by_length({9, 4, 8}), {"Nine", "Eight", "Four"}));
     return 0;
 }
