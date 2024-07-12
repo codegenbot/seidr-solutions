@@ -1,4 +1,3 @@
-```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -12,7 +11,7 @@ bool will_it_fly(vector<vector<int>> q, int w) {
 }
 
 int main() {
-    vector<vector<int>> q = {{}, {}};
+    vector<vector<int>> q;
     int n;  // number of pairs
     cin >> n;
     for(int i=0; i<n; i++) {
@@ -22,7 +21,7 @@ int main() {
     }
     int w;
     cin >> w;
-    if (!will_it_fly(q, w)) {
+    if (!will_it_fly({{q[0][0], q[0][1]}, {q[1][0], q[1][1]}}, w)) {
         cout << "Will not fly.\n";
     } else {
         cout << "Will fly.\n";
