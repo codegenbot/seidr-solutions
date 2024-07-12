@@ -1,5 +1,5 @@
 ```
-def factorize(n: int) -> List[int]:
+def factorize(n: int) -> list:
     if not isinstance(n, int):
         return [n]
     factors = []
