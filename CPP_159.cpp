@@ -12,5 +12,7 @@ bool issame(const std::vector<int>& a,const std::vector<int>& b){
     return a == b;
 }
 
-assert(issame(eat(4, 5, 1), {5, 0}));
-return 0;
+int main() {
+    assert(issame(eat(4, 5, 1), {5, 0}));
+    return 0;
+}
