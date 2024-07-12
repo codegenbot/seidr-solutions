@@ -19,13 +19,14 @@ vector<int> get_odd_collatz(int) {
         if (n % 2 == 0) {
             n /= 2;  
         } else {
-            if (n > 0) {
-                result.push_back(n);
-            } else {
-                // Handle invalid input: n should be a positive integer
-            }
+            n = (n * 3) + 1;
         }
-        if (n % 2 != 0) { 
+    }
+    while(n != 1){
+        result.push_back(n);
+        if (n % 2 == 0) {
+            n /= 2;  
+        } else {
             n = (n * 3) + 1;
         }
     }
