@@ -1,49 +1,19 @@
-#include <iostream>
 #include <vector>
+#include <cassert>
 
-std::vector<int> incr_list(std::vector<int> l) {
-    for (int i = 0; i < l.size(); i++) {
-        l[i]++;
+std::vector<int> incr_list(const std::vector<int>& l) {
+    std::vector<int> result = l;
+    for (int i = 0; i < result.size(); i++) {
+        result[i]++;
     }
-    return l;
+    return result;
 }
 
-bool issame(std::vector<int> a, std::vector<int> b) {
-    if(a.size() != b.size()) {
-        return false;
-    }
-    for(int i = 0; i < a.size(); i++) {
-        if(a[i] != b[i]) {
-            return false;
-        }
-    }
-    return true;
+bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+    return a == b;
 }
 
 int main() {
-    // Sample usage of incr_list and issame functions
-    std::vector<int> vec = {1, 2, 3, 4};
-    std::vector<int> modified_vec = incr_list(vec);
-    
-    std::cout << "Original vector: ";
-    for (int num : vec) {
-        std::cout << num << " ";
-    }
-    std::cout << "\n";
-    
-    std::cout << "Modified vector: ";
-    for (int num : modified_vec) {
-        std::cout << num << " ";
-    }
-    std::cout << "\n";
-
-    // Checking if two vectors are the same
-    std::vector<int> vec2 = {2, 3, 4, 5};
-    if (issame(vec, vec2)) {
-        std::cout << "The two vectors are the same.\n";
-    } else {
-        std::cout << "The two vectors are different.\n";
-    }
-
+    assert(issame(incr_list({5, 2, 5, 2, 3, 3, 9, 0, 123}), {6, 3, 6, 3, 4, 4, 10, 1, 124}));
     return 0;
 }
