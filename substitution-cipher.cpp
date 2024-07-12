@@ -8,13 +8,13 @@ int main() {
     cin >> cipher1 >> cipher2 >> message;
     
     for (char &c : message) {
-        auto index = cipher1.find(c);
-        if (index != string::npos) {
-            c = cipher2[index];
+        size_t pos = cipher1.find(c);
+        if (pos != string::npos) {
+            c = cipher2[pos];
         } else {
-            index = cipher2.find(c);
-            if (index != string::npos) {
-                c = cipher1[index];
+            pos = cipher2.find(c);
+            if (pos != string::npos) {
+                c = cipher1[pos];
             }
         }
     }
