@@ -1,19 +1,11 @@
-#include <vector>
-#include <algorithm>
-
-bool move_one_ball(std::vector<int>& arr);
-
-int main() {
-    // Main function body
-}
-
-bool move_one_ball(std::vector<int>& arr) {
+bool move_one_ball(const vector<int>& arr) {
     int n = arr.size();
-    for(int i = 0; i < n; ++i){
-        if(std::is_sorted(arr.begin(), arr.end())){
-            return true;
+    int min_val = *min_element(arr.begin(), arr.end());
+    int min_idx = find(arr.begin(), arr.end(), min_val) - arr.begin();
+    for (int i = 0; i < n; ++i) {
+        if (arr[(min_idx + i) % n] != min_val + i) {
+            return false;
         }
-        std::rotate(arr.rbegin(), arr.rbegin() + 1, arr.rend());
     }
-    return false;
+    return true;
 }
