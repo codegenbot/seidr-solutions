@@ -1,4 +1,9 @@
 #include <algorithm>
+#include <vector>
+
+bool issame(vector<int> a, vector<int>b) {
+    return a == b;
+}
 
 vector<int> order_by_points(vector<int> nums) {
     vector<pair<int, int>> pairs;
@@ -20,4 +25,9 @@ vector<int> order_by_points(vector<int> nums) {
     }
 
     return result;
+}
+
+int main() {
+    // Your test case assertion
+    assert (issame(order_by_points({0,6,6,-76,-21,23,4}) , {-76, -21, 0, 4, 23, 6, 6}));
 }
