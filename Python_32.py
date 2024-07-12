@@ -1,3 +1,5 @@
+import sys
+
 def main():
     print("Enter a list of floats separated by spaces:")
     xs = list(map(float, input().strip().split()))
@@ -20,7 +22,6 @@ def main():
         print(result)
     except ZeroDivisionError as e:
         print(str(e))
-
 
 if __name__ == "__main__":
     main()
