@@ -1,7 +1,9 @@
 def increment_list(l):
     return [num + 1 for num in l]
 
-# Sample usage
-input_list = [1, 2, 3, 4, 5]
-output_list = increment_list(input_list)
-print(output_list)
+def check(func):
+    input_list = [1, 2, 3, 4, 5]
+    output_list = func(input_list)
+    return output_list
+
+print(check(increment_list))
