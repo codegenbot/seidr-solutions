@@ -1,14 +1,21 @@
 int main() {
     map<string, string> dict;
-    cout << "Enter the key-value pairs (separated by space), then press Enter to finish: ";
-    string input;
-    while (getline(cin, input)) {
-        size_t space = input.find(' ');
-        if (space == string::npos) break;
-        string key = input.substr(0, space);
-        string value = input.substr(space + 1);
-        dict[key] = value;
+    cout << "Enter key-value pairs (separated by space), then press Enter to stop: ";
+    string line;
+    while (getline(cin, line)) {
+        size_t equalPos = line.find('=');
+        if (equalPos != string::npos) {
+            string key = line.substr(0, equalPos);
+            string value = line.substr(equalPos + 1);
+            dict.insert({key, value});
+        } else {
+            break;
+        }
     }
-    cout << "Dictionary contains all lower case keys: " << (check_dict_case(dict) ? "true" : "false") << endl;
+
+    bool result = check_dict_case(dict);
+
+    cout << "Dictionary case: " << (result ? "consistent" : "inconsistent") << endl;
+
     return 0;
 }
