@@ -1,8 +1,7 @@
-```c
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return (a == b);
 }
 
@@ -13,10 +12,10 @@ std::vector<std::string> reverse_delete(const std::string& s1, const std::string
             s1.erase(s1.find(s2.substr(i, 1)), 1);
     }
     result.push_back(s1);
-    return {{"", "True"}};
+    return {std::vector<std::string>{result}};
 }
 
 int main() {
-    assert(issame({reverse_delete("mamma", "mia")}, {{"", "True"}}));
+    assert(issame({reverse_delete("mamma", "mia")}, {"True"}));
     return 0;
 }
