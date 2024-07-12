@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -21,5 +22,4 @@ int main() {
     for (int i : result) {
         cout << i << " ";
     }
-    return 0;
 }
