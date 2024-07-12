@@ -8,12 +8,12 @@ int main() {
 
     int len = s.length();
     if (len % 2 == 0) {
-        string firstMid = s.substr(len / 2 - 1, 1);
-        string secondMid = s.substr(len / 2, 1);
-        std::cout << "Middle characters are: " << firstMid + secondMid << std::endl;
+        string mid1 = s.substr(len / 2 - 1, 1);
+        string mid2 = s.substr(len / 2, 1);
+        std::cout << "Middle characters are: " << mid1 + mid2 << std::endl;
     } else {
-        string middleChar = s.substr(len / 2, 1);
-        std::cout << "Middle character is: " << middleChar << std::endl;
+        string mid = s.substr(len / 2, 1);
+        std::cout << "Middle character is: " << mid << std::endl;
     }
 
     return 0;
