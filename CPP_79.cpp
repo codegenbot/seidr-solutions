@@ -11,7 +11,10 @@ string decimal_to_binary(int decimal){
             binary = "1" + binary;
         decimal /= 2;
     }
-    return "db" + binary + "db";
+    string result = "db";
+    result += binary;
+    result += "db";
+    return result;
 }
 
 int main(){
