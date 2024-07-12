@@ -4,12 +4,14 @@
 #include <algorithm>
 #include <cctype>
 
-std::vector<std::string> split_words(std::string txt);
-bool issame(std::vector<std::string> a, std::vector<std::string> b);
+using namespace std;
 
-std::vector<std::string> split_words(std::string txt) {
-    std::vector<std::string> words;
-    std::string word = "";
+vector<string> split_words(string txt); 
+bool issame(vector<string> a, vector<string> b);
+
+vector<string> split_words(string txt) {
+    vector<string> words;
+    string word = "";
     for (char c : txt) {
         if (c == ' ' || c == ',') {
             if (!word.empty()) {
@@ -30,12 +32,12 @@ std::vector<std::string> split_words(std::string txt) {
                 count++;
             }
         }
-        words.push_back(std::to_string(count));
+        words.push_back(to_string(count));
     }
     return words;
 }
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     return a == b;
 }
 
