@@ -7,20 +7,19 @@ def longest(strings: List[str]) -> Optional[str]:
     return max(strings, key=len)
 
 while True:
-    strings_list = []
-    for _ in range(5):
+    try:
+        strings_list = []
         while True:
             string_input = input("Enter a string (or 'stop' to finish): ")
-            if string_input.lower() == 'stop':
+            if string_input.strip().lower() == 'stop':
                 break
-            try:
-                strings_list.append(string_input.strip())
-            except ValueError:
-                print("Invalid input. Please enter a valid string.")
-                continue
+            strings_list.append(string_input.strip())
             if len(strings_list) == 5:
                 break
-    break
+        break
+    except ValueError:
+        print("Invalid input. Please enter a valid string.")
+        continue
 
 result = longest(strings_list)
 print(f"The longest string is: {result}")
