@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-bool issame(std::vector<std::string> a, std::vector<std::string> b) {
+bool issame(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
     for (int i = 0; i < a.size(); i++) {
         if (a[i] != b[i]) return false;
@@ -10,8 +10,8 @@ bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return true;
 }
 
-std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
-    std::vector<std::string> result;
+vector<string> filter_by_prefix(vector<string> strings, string prefix) {
+    vector<string> result;
     for (const auto& s : strings) {
         if (s.find(prefix) == 0) {
             result.push_back(s);
@@ -20,32 +20,30 @@ std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std:
     return result;
 
 }
-
 int main() {
-    std::vector<std::string> a;
-    std::cout << "Enter strings (stop when empty):" << std::endl;
-    std::string s;
-    while (std::getline(std::cin, s)) {
+    vector<string> a;
+    cout << "Enter strings (stop when empty):" << endl;
+    string s;
+    while (getline(cin, s)) {
         if (s.empty()) break;
         a.push_back(s);
     }
 
-    std::vector<std::string> b = a;
+    vector<string> b = a;
     bool same = issame(a, b);
 
-    std::string prefix;
-    std::cout << "Enter prefix:" << std::endl;
-    std::cin >> prefix;
-    std::cin.ignore();
-    std::vector<std::string> result = filter_by_prefix(a, prefix);
+    string prefix;
+    cout << "Enter prefix:" << endl;
+    cin >> prefix;
+    vector<string> result = filter_by_prefix(a, prefix);
 
     if (!same) 
-        std::cout << "Strings are not the same." << std::endl;
+        cout << "Strings are not the same." << endl;
     else 
-        std::cout << "Strings are the same." << std::endl;
+        cout << "Strings are the same." << endl;
 
     for (const auto& s : result) {
-        std::cout << s << std::endl;
+        cout << s << endl;
     }
 
     return 0;
