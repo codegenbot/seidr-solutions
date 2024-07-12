@@ -18,3 +18,4 @@ int main() {
     std::vector<std::vector<int>> q = {{5}};
     assert(will_it_fly(q, 5) == true);
     return 0;
+}
