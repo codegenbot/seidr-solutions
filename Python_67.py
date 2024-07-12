@@ -1,3 +1,5 @@
+Here is the corrected code:
+
 ```
 def fruit_distribution(s, total):
     s = s.lower().replace("apples", "0").replace("oranges", "0")
