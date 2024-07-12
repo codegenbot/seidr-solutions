@@ -1,4 +1,3 @@
-```
 def main():
     class Item:
         def __init__(self, name):
@@ -32,3 +31,7 @@ def main():
         print(f"The total cost is: {result}")
     else:
         print("No items were provided.")
+
+
+if __name__ == "__main__":
+    main()
