@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include <cmath>
 
 int main() {
     int n;
@@ -14,6 +15,8 @@ int main() {
         std::cin >> price >> discount;
         total_price += price * (100.0 - discount) / 100.0;
     }
+
+    total_price = round(total_price * 100) / 100;
 
     std::cout << total_price << std::endl;
 
