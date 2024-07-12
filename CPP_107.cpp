@@ -1,6 +1,6 @@
-```cpp
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 using namespace std;
 
@@ -42,4 +42,3 @@ int main() {
     cout << "Even palindromes: " << result[0] << endl;
     cout << "Odd palindromes: " << result[1] << endl;
     return 0;
-}
