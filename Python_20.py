@@ -1,3 +1,4 @@
+```
 def find_closest_elements(arr, target):
     arr.sort()
     left = 0
@@ -14,11 +15,13 @@ def find_closest_elements(arr, target):
         else:
             right = mid - 1
 
-    # find the closest elements
-    if abs(target - arr[left]) <= abs(target - arr[right]):
-        return [arr[left], arr[left]]
-    else:
-        return [arr[right], arr[right]]
+        closest_pair = []
+        if abs(arr[left] - target) < abs(arr[right] - target):
+            closest_pair = [arr[left], arr[left]]
+        else:
+            closest_pair = [arr[right], arr[right]]
+
+    return [arr[left], arr[left]]
 
 
 def check(func):
