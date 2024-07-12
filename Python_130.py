@@ -1,8 +1,16 @@
 def tri(n):
-    res = [3]
-    for i in range(1, n + 1):
-        if i % 2 == 0:
-            res.append(1 + i // 2)
+    if n == 0:
+        return [0]
+    if n == 1:
+        return [3]
+
+    seq = [3]
+    i, j, k = 0, 0, 3
+    for _ in range(1, n):
+        if _ % 2 == 0:
+            k = 1 + i // 2
         else:
-            res.append(res[i - 1] + res[i - 2] + res[i - 3])
-    return res
+            i, j, k = j, k, i + j + k
+        seq.append(k)
+
+    return seq
