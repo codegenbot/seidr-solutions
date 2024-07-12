@@ -1,5 +1,6 @@
+```
 def indices_of_substring(text):
-    target = input().split(',')[0]
+    target = input().split(',')[0]  
     result = []
     pos = text.find(target)
     while pos != -1:
