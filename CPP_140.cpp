@@ -1,6 +1,6 @@
 #include <string>
 
-string fix_spaces(string text){
+string fix_spaces(string text) {
     string result = "";
     bool previousSpace = false;
     for (char c : text) {
@@ -18,4 +18,3 @@ string fix_spaces(string text){
         }
     }
     return result;
-}
