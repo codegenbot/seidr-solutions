@@ -1,25 +1,9 @@
-#include <string>
-using namespace std;
-
-bool check_if_last_char_is_a_letter(string txt) {
-    if (txt.length() == 0) {
-        return false;
-    }
+bool check_if_last_char_is_a_letter(string txt){
+    if(txt.empty()) return false; // Check for empty string
+    char lastChar = txt.back(); // Get the last character of the string
+    bool isLastCharLetter = isalpha(lastChar); // Check if the last character is a letter
     
-    char lastChar = txt.back();
-    bool isLastCharLetter = isalpha(lastChar);
-    
-    if (!isalpha(txt.back())) {
-        return true;
-    }
-    
-    int i = txt.length()-2;
-    while(i >= 0 && txt[i] == ' ') {
-        i--;
-    }
-    if (i >= 0) {
-        return false;
-    }
-    
-    return isLastCharLetter;
+    if(!isLastCharLetter) return false; // If not, it's not a letter so return false
+    size_t lastWordEnd = txt.find_last_of(" "); // Find the end of the last word
+    return (lastWordEnd == string::npos || lastWordEnd == txt.size() - 1); // Check if the last character is part of the last word
 }
