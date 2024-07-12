@@ -1,4 +1,3 @@
-```cpp
 #include <iostream>
 #include <vector>
 #include <memory>
@@ -25,7 +24,7 @@ int sumOfDigits(int num) {
 }
 
 int main() {
-    std::vector<int> lst(std::allocator<int>{});
+    std::vector<int> lst;
     int num, maxPrime = 0;
     while (true) {
         std::cout << "Enter a number (-1 to stop): ";
@@ -44,4 +43,3 @@ int main() {
     }
     std::cout << "The sum of digits is: " << sumOfDigits(maxPrime) << std::endl;
     return 0;
-}
