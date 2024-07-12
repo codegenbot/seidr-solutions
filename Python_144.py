@@ -12,4 +12,4 @@ def simplify(x, n):
     new_x_num, new_x_denom = x_num // x_gcd, x_denom // x_gcd
     new_n_num, new_n_denom = n_num // n_gcd, n_denom // n_gcd
 
-    return new_x_num // new_x_denom == new_n_num // new_n_denom
+    return str(new_x_num // x_gcd) + "/" + str(new_x_denom // x_gcd) == str(n_num // n_gcd) + "/" + str(n_denom // n_gcd)
