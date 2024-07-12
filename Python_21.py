@@ -1,11 +1,14 @@
-```
 from typing import List
 
 
-def rescale_to_unit(numbers: List[float]) -> List[float]:
-    if not all(isinstance(x, float) for x in numbers):
-        print("Invalid input: Please enter a list of floats.")
-        return None
-    min_val = min(numbers)
-    max_val = max(numbers)
-    return [(x - min_val) / (max_val - min_val) for x in numbers]
+def rescale_to_unit(numbers: List[float]) -> str:
+    if not numbers:
+        return "No input provided"
+
+    zero_count = sum(1 for x in numbers if x == 0)
+    if zero_count > 0:
+        return "All inputs are zero. Please provide non-zero values"
+    else:
+        min_val = min(numbers)
+        max_val = max(numbers)
+        return ", ".join(str((x - min_val) / (max_val - min_val)) for x in numbers)
