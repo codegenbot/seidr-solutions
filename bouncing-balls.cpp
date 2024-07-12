@@ -1,17 +1,20 @@
 ```cpp
 #include <iostream>
 #include <cmath>
-#include <string>
 using namespace std;
 
 int main() {
-    string startHeightStr, firstBounceStr;
+    double startHeight, firstBounce;
     int numBounces;
 
-    cin >> startHeightStr >> firstBounceStr >> numBounces;
-
-    double startHeight = stod(startHeightStr);
-    double firstBounce = stod(firstBounceStr);
+    cin >> ws; // Read whitespace characters first
+    cin >> startHeight;
+    cin >> ws; 
+    cin >> firstBounce;
+    cin.ignore(); // Ignore any remaining whitespace characters
+    cin >> ws; 
+    cin >> numBounces;
+    cin.ignore(); // Ignore any remaining whitespace characters
 
     double bouncinessIndex = firstBounce / startHeight;
 
