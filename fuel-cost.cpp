@@ -7,8 +7,7 @@ int main() {
     vector<int> nums;
 
     int n;
-    while (cin.good()) {
-        cin >> n;
+    while (cin >> n) {
         nums.push_back(n);
     }
     
