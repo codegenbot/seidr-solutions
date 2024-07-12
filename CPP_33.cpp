@@ -1,7 +1,7 @@
-```
 #include <algorithm>
 #include <assert.h>
 #include <vector>
+#include <initializer_list>
 
 bool issame(std::vector<int> a, std::vector<int> b) {
     if (a.size() != b.size())
@@ -19,12 +19,10 @@ std::vector<int> sort_third(std::vector<int> l) {
         if (i % 3 == 0) {
             // values at the indices that are divisible by three are equal to the values of the corresponding indicies of l, but sorted
             std::vector<int> temp;
-            int j = i;
-            while(j < l.size() && j % 3 == 0) {
+            for (int j = i; j < l.size() && j % 3 == 0; j++) {
                 temp.push_back(l[j]);
-                j++;
             }
-            sort(temp.begin(), temp.end());
+            std::sort(temp.begin(), temp.end());
             for (int k = 0; k < temp.size(); k++) {
                 result.push_back(temp[k]);
             }
@@ -33,4 +31,3 @@ std::vector<int> sort_third(std::vector<int> l) {
         }
     }
     return result;
-}
