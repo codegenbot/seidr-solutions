@@ -1,7 +1,7 @@
-```
+```cpp
 #include <iostream>
 
-int starts_one_ends(int);
+int starts_one_ends(int n); // Forward declaration of the function
 
 int main() {
     int n;
