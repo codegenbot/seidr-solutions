@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int main() {
+int driver() {
     int n;
     cin >> n;
     vector<int> arr(n);

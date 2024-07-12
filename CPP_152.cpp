@@ -1,10 +1,12 @@
 #include <vector>
-bool issame(vector<int> a,vector<int>b){
+
+bool issame(vector<int> a, vector<int> b) {
     for(int i = 0; i < a.size();i++){
         if(a[i] != b[i]) return false;
     }
     return true;
 }
+
 vector<int> compare(vector<int> game, vector<int> guess) {
     vector<int> result;
     if(issame(game,guess)){
@@ -21,4 +23,16 @@ vector<int> compare(vector<int> game, vector<int> guess) {
         }
     }
     return result;
+}
+
+int main() {
+    vector<int> game,guess;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n;i++){
+        cin >> game[i] >> guess[i];
+    }
+    vector<int> res = compare(game,guess);
+    for(auto x:res)cout << x << " ";
+    return 0;
 }
