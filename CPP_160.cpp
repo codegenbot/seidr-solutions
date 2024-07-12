@@ -1,4 +1,3 @@
-```
 #include <vector>
 #include <cmath>
 
@@ -33,4 +32,3 @@ int main() {
 
     int result = do_algebra(operators, operands);
     return 0;
-}
