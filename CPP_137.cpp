@@ -5,27 +5,23 @@
 using namespace std;
 
 string compare_one(string a, string b) {
-    stof s1 = stof(a);
-    if (b.find('x') != string::npos) {
+    if (stof(a) > stof(b)) 
         return a;
-    } else {
-        stof s2 = stof(b);
-        if (s1 > s2)
-            return a;
-        else if (s1 == s2)
-            return "None";
-        else
-            return b;
-    }
+    else if (stof(a) == stof(b))
+        return "None";
+    else if (a > b) 
+        return a;
+    else
+        return b;
 }
 
 int main() {
     string a, b;
-    cout << "Enter the first number: ";
+    cout << "Enter the first number or word: ";
     cin >> a;
-    cout << "Enter the second number: ";
+    cout << "Enter the second number or word: ";
     cin >> b;
-    b = to_string(stoi(b)); 
+
     cout << compare_one(a, b) << endl;
 
     return 0;
