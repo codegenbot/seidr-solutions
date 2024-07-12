@@ -1,3 +1,4 @@
+```
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -23,10 +24,4 @@ std::vector<double> double_the_difference() {
     }
 
     return {(double)sum_even, (double)sum_odd};
-}
-
-int main() {
-    std::vector<double> result = double_the_difference();
-    std::cout << "Double the difference: " << (result[0] - result[1]) * 2.0 << std::endl;
-    return 0;
 }
