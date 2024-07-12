@@ -26,9 +26,8 @@ def separate_parentheses(paren_string):
     return separated_groups
 
 try:
-    paren_string = raw_input("Enter the parentheses string: ")
+    print("Enter the parentheses string:")
+    paren_string = input()
     print(separate_parentheses(paren_string))
-except ValueError as e:
-    print(e)
 except EOFError:
     print("Error: End of file reached unexpectedly")
