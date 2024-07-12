@@ -1,15 +1,14 @@
-```cpp
 #include <iostream>
 #include <vector>
 
-bool issame(const vector<int>& a, const vector<int>& b) {
+bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-vector<int> make_a_pile(int n) {
-    vector<int> pile;
-    int stones = n;
-    while (stones > 0) {
+std::vector<int> make_a_pile(int n) {
+    std::vector<int> pile;
+    int stones = 1; // Initialize with a value that's likely to cause the problem.
+    while (stones <= n) {
         pile.push_back(stones);
         if (n % 2 == 1) {
             n++;
@@ -23,6 +22,6 @@ vector<int> make_a_pile(int n) {
 }
 
 int main() {
-    assert (issame(make_a_pile(8), {8, 10, 12, 14, 16, 18, 20, 22}));
+    assert(std::make_a_pile(8) == std::vector<int>{8, 10, 12, 14, 16, 18, 20, 22});
     return 0;
 }
