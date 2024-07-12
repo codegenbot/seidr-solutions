@@ -1,3 +1,4 @@
+```
 def digits(n):
     total = 0
     while n:
