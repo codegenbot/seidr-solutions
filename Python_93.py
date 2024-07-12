@@ -5,9 +5,10 @@ def encode(message):
         if char.isalpha():
             char_code = ord(char)
             increment = 2 if char.lower() in "aeiou" else 3
-            new_code = (char_code - ord('a' if char.islower() else 'A') + increment) % 26 + ord('a' if char.islower() else 'A')
-            encoded_message += chr(new_code)
+            alpha_sign = 'a' if char.islower() else 'A'
+            new_code = char_code + (increment * (1 if char.islower() else -1))
+            encoded_message += chr(new_code - ord(alpha_sign) + ord('a'))
         else:
-            encoded_message += char
+            encoded_message += char.lower()
 
     return encoded_message
