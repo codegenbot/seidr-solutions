@@ -1,22 +1,10 @@
-```cpp
-#include <iostream>
 #include <vector>
-using namespace std;
+#include <string>
 
-bool issame(vector<string> a, vector<string>b){
-    if(a.size() != b.size())
-        return false;
-    for(int i = 0; i < a.size(); i++){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
-}
-
-vector<string> numerical_letter_grade(vector<float> grades){
-    vector<string> result;
+std::vector<std::string> numerical_letter_grade(std::vector<float> grades){
+    std::vector<std::string> result;
     for(float g : grades) {
-        string letterGrade;
+        std::string letterGrade;
         if(g >= 4.0) {
             letterGrade = "A+";
         } else if(g > 3.7) {
@@ -47,17 +35,4 @@ vector<string> numerical_letter_grade(vector<float> grades){
         result.push_back(letterGrade);
     }
     return result;
-}
-
-int main() {
-    vector<float> grades = {3.8, 4.2, 1.9};
-    vector<string> gradeLetters = numerical_letter_grade(grades);
-    
-    if (issame({"A+", "A+", "D-"}, gradeLetters)) {
-        cout << "Grades are same." << endl;
-    } else {
-        cout << "Grades are different." << endl;
-    }
-    
-    return 0;
 }
