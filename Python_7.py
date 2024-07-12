@@ -6,9 +6,7 @@ substring = input("Enter a substring to search: ").lower()
 
 if not strings or not substring:
     print("Expected input: multiple strings and one substring.")
-    print(
-        "Invalid input. Please provide at least one string and at least one character to search for."
-    )
+    print("Invalid input. Please provide at least one string and at least one character to search for.")
 elif action == 'search':
     result = [s for s in strings if substring in s]
 
