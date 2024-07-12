@@ -1,13 +1,9 @@
 #include <vector>
 #include <algorithm>
+#include <initializer_list>
 
-bool operator==(const vector<float>& a, const vector<float>& b) {
-    if (a.size() != b.size())
-        return false;
-    for (size_t i = 0; i < a.size(); ++i)
-        if (abs(a[i] - b[i]) > 1e-5f)
-            return false;
-    return true;
+bool issame(vector<float> a, vector<float> b) {
+    return a == b;
 }
 
 vector<float> get_positive(vector<float> l){
@@ -21,7 +17,6 @@ vector<float> get_positive(vector<float> l){
 
 int main() {
     vector<float> input({});
-    vector<float> positive = get_positive(input);
-    bool same = issame(input, positive);  
+    assert(get_positive(input) == vector<float>{});
     return 0;
 }
