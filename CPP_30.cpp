@@ -1,3 +1,4 @@
+```cpp
 #include <vector>
 #include <algorithm>
 
@@ -6,13 +7,12 @@ bool issame(vector<float> a, vector<float> b) {
 }
 
 int main() {
-    vector<float> input = {};
-    assert(issame(get_positive(input), {}));  
+    assert(issame(get_positive({}), {}));  
     return 0;
 }
 
-vector<float> get_positive(vector<float> l){
-    vector<float> result;
+std::vector<float> get_positive(std::vector<float> l){
+    std::vector<float> result;
     for(float x : l){
         if(x > 0)
             result.push_back(x);
