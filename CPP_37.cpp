@@ -13,7 +13,7 @@ bool issame(std::vector<float> a, std::vector<float> b) {
 }
 
 std::vector<float> sort_even(std::vector<float> l) {
-    std::vector<float> result;
+    std::vector<float> result(l.size());
     for (int i = 0; i < l.size(); i++) {
         if (i % 2 == 0) {
             std::vector<float> even_indices;
@@ -23,9 +23,9 @@ std::vector<float> sort_even(std::vector<float> l) {
                 }
             }
             std::sort(even_indices.begin(), even_indices.end());
-            result.push_back(even_indices[0]);
+            result[i] = even_indices[0];
         } else {
-            result.push_back(l[i]);
+            result[i] = l[i];
         }
     }
     return result;
