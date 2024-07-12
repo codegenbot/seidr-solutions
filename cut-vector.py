@@ -1,11 +1,18 @@
 n = int(input())
-v = [int(input()) for _ in range(n)]
-min_diff = float("inf")
-cut_index = 0
-for i in range(1, n):
-    diff = abs(sum(v[:i]) - sum(v[i:]))
-    if diff < min_diff:
-        min_diff = diff
-        cut_index = i
-print(*v[:cut_index])
-print(*v[cut_index:])
+nums = [int(input()) for _ in range(n)]
+
+total_sum = sum(nums)
+half_sum = total_sum // 2
+closest_sum = 0
+idx = 0
+
+for i in range(n):
+    if closest_sum <= half_sum:
+        closest_sum += nums[i]
+        idx = i
+
+subvector1 = nums[: idx + 1]
+subvector2 = nums[idx + 1 :]
+
+print(*subvector1)
+print(*subvector2)
