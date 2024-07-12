@@ -3,7 +3,7 @@ def fix_spaces(text):
     new_text = ''
     for char in text:
         if char == ' ':
-            if len(new_text) > 0 and new_text[-1] != '-':
+            if new_text and not new_text[-1].isspace():
                 new_text += '-'
             else:
                 new_text += '_'
