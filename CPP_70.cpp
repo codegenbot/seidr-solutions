@@ -7,7 +7,7 @@ bool issame(std::vector<int> a, std::vector<int> b) {
 }
 
 std::vector<int> strange_sort_list(std::vector<int> nums) {
-    std::sort(nums.begin(), nums.end(), std::greater<int>());
+    std::sort(nums.begin(), nums.end());
     return nums;
 }
 
