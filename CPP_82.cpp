@@ -1,7 +1,8 @@
+```cpp
 #include <cstring>
 #include <cassert>
 
-bool prime_length(char* str){
+bool prime_length(const char* str){
     int len = strlen(str);
     if(len <= 1) return false;
     for(int i=2; i*i<=len; i++){
@@ -12,5 +13,5 @@ bool prime_length(char* str){
 }
 
 int main() {
-    assert(prime_length((char *)"0") == false);
+    assert(prime_length(const_cast<char*>("0") )==false);
 }
