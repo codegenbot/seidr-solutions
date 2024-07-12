@@ -1,24 +1,18 @@
-Here is the completed code:
+#include <map>
+#include <string>
 
-bool check_dict_case(map<string, string> dict) {
-    if (dict.empty()) return false;
+bool check_dict_case(std::map<std::string, std::string> dict) {
+    bool allLower = true;
+    bool allUpper = true;
 
-    bool all_lower = true;
-    bool all_upper = true;
+    for(auto& pair : dict) {
+        if(dict.empty()) return false; 
+        string key = pair.first;
+        if(!allLower && !allUpper) break; 
 
-    for (auto it = dict.begin(); it != dict.end(); ++it) {
-        string key = it->first;
-        for (char& c : key) {
-            if (!islower(c)) {
-                all_lower = false;
-                break;
-            }
-            if (!isupper(c)) {
-                all_upper = false;
-                break;
-            }
-        }
+        if(allLower && !islower(key[0])) allLower = false; 
+        if(allUpper && !isupper(key[0])) allUpper = false; 
     }
 
-    return all_lower || all_upper;
+    return allLower || allUpper;
 }
