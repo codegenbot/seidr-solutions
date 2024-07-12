@@ -1,44 +1,40 @@
-int score(string s) {
-    int total = 0;
-    int frame = 1;
+int calculateBowlingScore(string input) {
+    int score = 0;
+    int frame = 0;
     int ball = 0;
-    vector<int> scores(21, 0);
+    vector<int> frames(10, 0);
 
-    for (char c : s) {
+    for (char c : input) {
         if (c == 'X') {
-            scores[ball] = 10;
-            scores[ball + 1] = 0;
-            ball += 2;
+            frames[frame] = 10;
             frame++;
         } else if (c == '/') {
-            scores[ball - 1] = 10 - scores[ball - 2];
+            frames[frame] = 10 - frames[frame - 1];
             frame++;
-            ball++;
+            ball = 0;
         } else if (c == '-') {
-            scores[ball] = 0;
             ball++;
         } else {
-            scores[ball] = c - '0';
-            ball++;
+            frames[frame] += c - '0';
+            if (ball == 1) {
+                ball = 0;
+                frame++;
+            } else {
+                ball++;
+            }
         }
     }
 
     for (int i = 0; i < 10; i++) {
-        if (scores[i * 2] == 10) {
-            total += 10 + scores[i * 2 + 2] + scores[i * 2 + 3];
-        } else if (scores[i * 2] + scores[i * 2 + 1] == 10) {
-            total += 10 + scores[i * 2 + 2];
-        } else {
-            total += scores[i * 2] + scores[i * 2 + 1];
-        }
+        score += frames[i];
     }
 
-    return total;
+    return score;
 }
 
 int main() {
-    string s;
-    cin >> s;
-    cout << score(s) << endl;
+    string input;
+    cin >> input;
+    cout << calculateBowlingScore(input) << endl;
     return 0;
 }
