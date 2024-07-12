@@ -12,10 +12,10 @@ bool will_it_fly(vector<vector<int>> q, int w) {
 
 int main() {
     vector<vector<int>> q;
-    int n;  // number of pairs
+    int n;  
     cin >> n;
     for(int i=0; i<n; i++) {
-        int x, y; // two numbers in a pair
+        int x, y; 
         cin >> x >> y;
         q.push_back({x,y});
     }
@@ -27,3 +27,4 @@ int main() {
         cout << "Will fly.\n";
     }
     return 0;
+}
