@@ -1,7 +1,7 @@
 ```cpp
 #include <vector>
 #include <string>
-#include <cstdlib>
+#include <initializer_list>
 
 bool compare(vector<string> a, vector<string> b) {
     if (a.size() != b.size()) return false;
