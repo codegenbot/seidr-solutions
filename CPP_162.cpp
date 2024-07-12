@@ -1,7 +1,6 @@
-```cpp
 #include <iostream>
 #include <string>
-#include <iomanip>
+#include <MD5.h>
 
 using namespace std;
 
@@ -25,8 +24,7 @@ string string_to_md5(string text) {
 int main() {
     string input;
     cout << "Enter a string: ";
-    cin >> input;
-    string output = string_to_md5(input);
-    cout << "MD5 of the input string is: " << output << endl;
+    getline(cin, input);
+    cout << "MD5 of the entered string is: " << string_to_md5(input) << endl;
     return 0;
 }
