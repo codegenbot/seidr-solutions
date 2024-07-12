@@ -1,4 +1,4 @@
-```cpp
+```
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -15,7 +15,7 @@ int findNextSmallest(std::vector<int> lst) {
     return -1; 
 }
 
-int driver() { 
+int main() { 
     std::vector<int> lst;
     int num;
     while (true) {
@@ -35,8 +35,4 @@ int driver() {
         }
     }
     return 0; 
-}
-
-int main() { 
-    driver(); 
 }
