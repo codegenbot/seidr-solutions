@@ -2,10 +2,10 @@ from typing import List
 
 
 def all_prefixes(string: str) -> List[str]:
-    result = [""]
+    result = [""]  
     for char in string:
         temp_result = result.copy()
-        temp_result.append(char)
+        temp_result.append("")
         for prefix in result:
             temp_result.append(prefix + char)
         result = temp_result
