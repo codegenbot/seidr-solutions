@@ -1,8 +1,8 @@
 #include <vector>
 #include <string>
 
-bool issame(const std::vector<std::string>& a) {
-    return (a.size() > 0);
+bool issame(const std::vector<std::string>& a, const std::vector<std::string>& b) {
+    return (a == b);
 }
 
 std::vector<std::string> filter_by_substring(const std::vector<std::string>& words, const std::string& substring) {
@@ -16,10 +16,10 @@ std::vector<std::string> filter_by_substring(const std::vector<std::string>& wor
 }
 
 int main() {
-    std::vector<std::string> result = filter_by_substring({"grunt", "trumpet", "prune", "gruesome"}, "run");
-    std::set<std::string> actualSet(result.begin(), result.end());
-    std::set<std::string> expectedSet = {"grunt", "prune"};
-    bool same = (actualSet == expectedSet);
-    assert(same == issame({result.begin(), result.end()}));
+    std::vector<std::string> words = {"grunt", "trumpet", "prune", "gruesome"};
+    const std::string substring = "run";
+    std::vector<std::string> result = filter_by_substring(words, substring);
+    bool same = issame(result, {{"grunt", "prune"}});
+    assert(same);
     return 0;
 }
