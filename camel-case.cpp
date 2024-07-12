@@ -1,4 +1,3 @@
-```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -21,8 +20,8 @@ string kebabToCamel(string str) {
 }
 
 int main() {
-    #define c++11
     string str;
+    #define c++11
     while (cin >> str) {
         cout << kebabToCamel(str) << endl;
     }
