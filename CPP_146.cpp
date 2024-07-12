@@ -2,22 +2,22 @@
 #include <vector>
 
 int main() {
+    int count = 0;
     std::vector<int> nums;
-    int count;
     
-    std::cout << "Enter numbers (enter 'q' to finish): ";
-    while (true) {
-        char input;
-        std::cin >> input;
-        if (input == 'q') break;
-        
+    // Read input from user
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
         int num;
         cin >> num;
         nums.push_back(num);
     }
     
     count = specialFilter(nums);
-    std::cout << "Number of special numbers: " << count << std::endl;
+    
+    // Print output
+    cout << "The number of elements that meet the condition is: " << count << endl;
     
     return 0;
 }
