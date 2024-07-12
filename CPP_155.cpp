@@ -1,15 +1,14 @@
-```
+```c++
 #include <vector>
 #include <string>
 #include <assert.h>
-#include <initializer_list>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(const std::vector& a, const std::vector& b) {
     return (a.size() == b.size()) && std::equal(a.begin(), a.end(), b.begin());
 }
 
 std::vector<int> even_odd_count(int num) {
-    std::vector<int> result({0, 0});
+    std::vector<int> result(std::vector<int>(2));
     if (num == 0) {
         return {1, 0};
     }
