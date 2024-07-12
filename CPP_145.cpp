@@ -1,10 +1,2 @@
-#include <vector>
-#include <algorithm>
-#include <numeric>
-
-using namespace std;
-
-vector<int> order_by_points(const vector<int>& nums) {
-    sort(nums.begin(), nums.end(), greater<int>());
-    return nums;
-}
+sort(nums.begin(), nums.end(), greater<int>());
+return nums;
