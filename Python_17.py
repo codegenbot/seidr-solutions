@@ -1,3 +1,4 @@
+```Python
 def main():
     while True:
         try:
@@ -20,8 +21,8 @@ def parse_music(music_string: str) -> list:
     if len(music_string) < 3 or not set(music_string[:3]).issubset({"o", "|", "."}):
         return ["Invalid input"]
 
-    if not music_string[0].isalnum():
-        raise Exception
+    if len(music_string) % 2 != 0:
+        return ["Invalid input"]
 
     music_list = []
     i = 0
@@ -40,14 +41,13 @@ def parse_music(music_string: str) -> list:
             music_list.append(0.5)
             i += 5
         elif music_string[i : i + 2] == "o o":
-            if (
-                not music_string[i + 1].isalnum()
-                or not music_string[i + 1 : i + 2] == "|"
-            ):
+            if not music_string[i + 1].isalnum() or not music_string[i + 1 : i + 2] == "|":
                 return ["Invalid input"]
             music_list.append(4)
             i += 2
         elif music_string[i : i + 3] == "o o|":
+            if not music_string[i + 1].isalnum() or not music_string[i + 1 : i + 2] == "|":
+                return ["Invalid input"]
             music_list.append(4)
             i += 3
 
