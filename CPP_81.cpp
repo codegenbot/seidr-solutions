@@ -52,7 +52,9 @@ int main() {
     vector<float> grades = {3.4, 4.1, 2.9};
     vector<string> grades_letter = numerical_letter_grade(grades);
 
-    if(issame(numerical_letter_grade({3.4, 4.1, 2.9}), grades_letter))
+    vector<string> temp = numerical_letter_grade(grades); // Create a temporary copy of the original grades
+
+    if(issame(temp, grades_letter)) // Compare the temporary copy with the actual output
         cout << "Grades are same." << endl;
     else
         cout << "Grades are not the same." << endl;
