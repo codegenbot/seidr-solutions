@@ -7,16 +7,15 @@ float calculateTotalPrice(vector<float> prices, vector<float> discounts) {
 }
 
 int main() {
-    int numItems;
-    cin >> numItems;
-
-    vector<float> prices(numItems);
-    for (int i = 0; i < numItems; ++i) {
+    int n;
+    cin >> n;
+    vector<float> prices(n);
+    for (int i = 0; i < n; ++i) {
         cin >> prices[i];
     }
 
-    vector<float> discounts(numItems);
-    for (int i = 0; i < numItems; ++i) {
+    vector<float> discounts(n);
+    for (int i = 0; i < n; ++i) {
         cin >> discounts[i];
     }
 
