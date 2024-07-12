@@ -1,4 +1,3 @@
-```
 import re
 
 def process_digits():
