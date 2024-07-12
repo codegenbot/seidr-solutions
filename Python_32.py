@@ -1,5 +1,3 @@
-Here is the modified code:
-
 ```
 import math
 
@@ -25,4 +23,6 @@ if __name__ == "__main__":
                 x2 = (-b - math.sqrt(b**2 - 4 * a * c)) / (2 * a)
                 print(f"Solutions: {round(x1, 2)} and {round(x2, 2)}")
     except ValueError as e:
-        print(f"Error: {e}")
+        print(f"Invalid input: {e}")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
