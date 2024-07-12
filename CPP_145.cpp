@@ -1,10 +1,10 @@
 #include <vector>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool std::issame(const std::vector<int>& a, const std::vector<int>& b) {
     return a == b;
 }
 
-std::vector<int> order_by_points(std::vector<int> nums) {
+std::vector<int> std::order_by_points(std::vector<int> nums) {
     std::sort(nums.begin(), nums.end(), [](int a, int b) {
         int sumA = std::accumulate(std::to_string(std::abs(a)).begin(), std::to_string(std::abs(a)).end(), 0, 
         [](int sum, char c) {
