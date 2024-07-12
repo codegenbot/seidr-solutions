@@ -1,6 +1,5 @@
 #include <vector>
 #include <string>
-
 using namespace std;
 
 bool issame(vector<string> a, vector<string> b) {
@@ -12,13 +11,15 @@ bool issame(vector<string> a, vector<string> b) {
 }
 
 std::vector<std::string> filter_by_prefix(std::vector<std::string> strings, std::string prefix) {
-    std::vector<std::string> result;
+    vector<string> result;
     for (const auto& s : strings) {
         if (s.find(prefix) == 0) {
             result.push_back(s);
         }
     }
     return result;
+
+}
 
 int main() {
     vector<string> a;
@@ -51,4 +52,3 @@ int main() {
     }
 
     return 0;
-}
