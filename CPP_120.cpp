@@ -1,16 +1,19 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool issame(const std::vector<int>& a, const std::vector<int>& b) {
+bool issame(std::vector<int> a, std::vector<int> b) {
     return a == b;
 }
 
 std::vector<int> maximumSubarray(std::vector<int> arr, int k);
 
 int main() {
-    std::vector<int> vec1 = {1, 2, 3};
-    std::vector<int> vec2 = {1, 2, 3};
+    std::vector<int> vec1(3); // Creates a vector of size 3 with default values (0).
+    vec1[0] = 1; vec1[1] = 2; vec1[2] = 3;
+    std::vector<int> vec2(3);
+    vec2[0] = 1; vec2[1] = 2; vec2[2] = 3;
     if (issame(vec1, vec2)) {
         std::cout << "Vectors are same" << std::endl;
     } else {
@@ -18,4 +21,11 @@ int main() {
     }
     
     return 0;
+}
+
+std::vector<int> maximumSubarray(std::vector<int> arr, int k) {
+    if(k > arr.size()) k = arr.size();
+    std::vector<int> result(arr.begin(), arr.begin() + k);
+    std::sort(result.begin(), result.end());
+    return result;
 }
