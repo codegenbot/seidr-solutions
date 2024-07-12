@@ -1,32 +1,17 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-int next_smallest(int n) {
-    std::vector<int> lst;
-
-    for (int i = 0; i < n; i++) {
-        int x;
-        std::cin >> x;
-        lst.push_back(x);
+std::vector<int> nextSmallest(std::vector<int>& nums) {
+    for (int i = 0; i < nums.size() - 1; i++) {
+        if (nums[i] != nums[i + 1]) return {nums[i]};
     }
-
-    if(lst.size() >= 2) {
-        std::sort(lst.begin(), lst.end());
-        bool same = true;
-        for(int i = 1; i < lst.size(); i++){
-            if(lst[i] != lst[i-1]) {
-                std::cout << lst[i];
-                return x;
-            }
-        }
-    } else 
-    std::cout << "-1";
-
-    return -1;
+    return {-1};
 }
 
 int main() {
+    std::vector<int> lst;
     int n;
 
     std::cout << "Enter number of elements: ";
@@ -34,9 +19,24 @@ int main() {
 
     if (n > 0) {
         std::cout << "Enter " << n << " integers: ";
-        next_smallest(n);
-    } else 
-    std::cout << "-1";
+        for(int i = 0; i < n; i++){
+            int x;
+            std::cin >> x;
+            lst.push_back(x);
+        }
+
+        if(lst.size() >= 2) {
+            std::sort(lst.begin(), lst.end());
+            bool same = true;
+            for(int i = 0; i < lst.size() - 1; i++){
+                if(lst[i] != lst[i+1]) {
+                    std::cout << "Next smallest number is: " << lst[i];
+                    return 0;
+                }
+            }
+            if(same) std::cout << "All numbers are the same.";
+        } else std::cout << "Please enter more than one number.";
+    } else std::cout << "Please enter a positive number.";
 
     return 0;
 }
