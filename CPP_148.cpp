@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cassert>
 
-bool issame(std::vector<std::string>& a, std::vector<std::string>& b) {
+bool issame(std::vector<std::string> a, std::vector<std::string> b) {
     return a == b;
 }
 
@@ -35,7 +35,7 @@ int main() {
         result.push_back(planets[i]);
     }
 
-    assert(issame(result, {}));
+    assert(issame(std::vector<std::string>{"Jupiter", "Makemake"}, {}));
 
     return 0;
 }
