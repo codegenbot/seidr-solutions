@@ -1,7 +1,12 @@
+#include <vector>
+
 int gcd(int a, int b) {
-    if (b == 0)
-        return a;
-    return gcd(b, a % b);
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
 }
 
 vector<int> indicesOfSubstring(const string& text, const string& target) {
@@ -18,9 +23,7 @@ vector<int> indicesOfSubstring(const string& text, const string& target) {
             }
         }
         if (found) {
-            for (int k = 0; k < m; ++k) {
-                indices.push_back(i + k);
-            }
+            indices.push_back(i);
         }
     }
     
