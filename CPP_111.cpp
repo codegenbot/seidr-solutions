@@ -1,4 +1,3 @@
-```cpp
 #include <map>
 #include <vector>
 #include <string>
@@ -17,8 +16,8 @@ bool issameInt(map<pair<char,int>, int> a, map<pair<char,int>, int> b) {
     return true;
 }
 
-map<pair<char,int>, int> histogram(string test) {
-    map<pair<char,int>, int> result;
+map<pair<char,int>, bool> histogram(string test) {
+    map<pair<char,int>, bool> result;
     if (test.empty()) return result;
 
     set<char> letters(test);
@@ -29,7 +28,7 @@ map<pair<char,int>, int> histogram(string test) {
         }
         for(int i=0; i<count; i++) {
             pair<char,int> p = make_pair(c, i);
-            result[p] = 1;
+            result[p] = true;
         }
     }
 
@@ -37,6 +36,7 @@ map<pair<char,int>, int> histogram(string test) {
 }
 
 int main() {
-    map<pair<char, int>, int> maxCountMap = histogram("a");
-    assert(issameInt(maxCountMap, {{make_pair('a', 1), 1}}));
+    map<pair<char,int>, bool> test = histogram("a");
+    assert(issameInt(test, {{make_pair('a',1),true},{make_pair('b',2),false}}));
+    return 0;
 }
