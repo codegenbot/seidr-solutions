@@ -1,11 +1,12 @@
 #include <iostream>
+#include <cassert>
 
 int greatest_common_divisor(int a, int b) {
     while (a != b) {
         if (a > b) {
-            a -= b;
+            a = a - b;
         } else {
-            b -= a;
+            b = b - a;
         }
     }
     return a;
