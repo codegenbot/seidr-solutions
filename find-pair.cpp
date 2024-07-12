@@ -1,12 +1,13 @@
 int main() {
-    int n, target;
+    int n;
     cin >> n;
     vector<int> nums(n);
     for (int i = 0; i < n; ++i) {
         cin >> nums[i];
     }
+    int target;
     cin >> target;
-
+    
     map<int, int> seen;
     for (int i = 0; i < n; ++i) {
         int complement = target - nums[i];
@@ -17,6 +18,6 @@ int main() {
         }
         seen[nums[i]] = i;
     }
-
+    
     return 0;
 }
