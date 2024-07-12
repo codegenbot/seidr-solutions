@@ -11,10 +11,12 @@ def below_zero() -> None:
             continue
 
         if all(temp < 0 for temp in temperature_list):
-            confirm_input = input("All temperatures are below zero. Continue? (y/n): ")
-            if confirm_input.lower() != 'y':
-                return
-        elif all(temp >= 0 for temp in temperature_list):
-            confirm_input = input("No temperatures are below zero. Exit program? (y/n): ")
+            print("All temperatures are below zero.")
+            confirm_input = input("Exit program? (y/n): ")
             if confirm_input.lower() != 'n':
-                return
+                break
+        elif all(temp >= 0 for temp in temperature_list):
+            print("No temperatures are below zero. Exit program?")
+            confirm_input = input("(y/n): ")
+            if confirm_input.lower() == 'y':
+                break
