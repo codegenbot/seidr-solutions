@@ -1,8 +1,8 @@
 #include <vector>
-using namespace std;
+#include <algorithm>
 
-vector<int> findLeaders(const vector<int>& nums) {
-    vector<int> leaders;
+std::vector<int> findLeaders(const std::vector<int>& nums) {
+    std::vector<int> leaders;
     int n = nums.size();
     int maxRight = nums[n - 1];
     leaders.push_back(maxRight);
@@ -12,6 +12,6 @@ vector<int> findLeaders(const vector<int>& nums) {
             leaders.push_back(maxRight);
         }
     }
-    reverse(leaders.begin(), leaders.end());
+    std::reverse(leaders.begin(), leaders.end());
     return leaders;
 }
