@@ -1,4 +1,4 @@
-```
+```cpp
 #include <vector>
 #include <iostream>
 #include <string>
@@ -6,7 +6,7 @@
 std::string camelCase(std::string str) {
     std::string result = "";
     std::vector<char> temp;
-    for (const auto& word : str) {
+    for (char word : str) {
         if (word == '-' || word == ' ') {
             for (auto c : temp) {
                 if (!result.empty()) {
