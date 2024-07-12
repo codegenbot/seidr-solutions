@@ -1,9 +1,12 @@
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
-bool operator==(const std::vector<int>& a, const std::vector<int>& b) {
-    return a == b;
+namespace mystd {
+    bool myissame(std::vector<int> a, std::vector<int> b) {
+        return a == b;
+    }
 }
 
 std::vector<int> strange_sort_list(std::vector<int> lst) {
