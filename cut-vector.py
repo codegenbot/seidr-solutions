@@ -13,7 +13,7 @@ for i in range(len(arr)):
         min_diff = diff
         cut_index = i
     elif diff == min_diff:
-        if i < len(arr) - 1 and abs(arr[i+1] - arr[i]) <= abs(arr[cut_index+1] - arr[cut_index]):
+        if i < len(arr) - 1 and abs(sum(arr[:i+1]) - sum(arr[i+1:])) < abs(sum(arr[:cut_index+1]) - sum(arr[cut_index+1:])):
             cut_index = i
 
 subvector1 = arr[:cut_index + 1]
