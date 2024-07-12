@@ -1,18 +1,24 @@
 int main() {
-    string input;
+    string input, word;
+    vector<string> words;
     getline(cin, input);
-
-    bool capitalize = true;
-    for (char &c : input) {
-        if (c == '-') {
-            capitalize = true;
-        } else if (capitalize) {
-            cout << (char)toupper(c);
-            capitalize = false;
+    
+    for (int i = 0; i < input.size(); ++i) {
+        if (input[i] == '-') {
+            words.push_back(word);
+            word = "";
         } else {
-            cout << c;
+            word += input[i];
         }
     }
-
+    words.push_back(word);
+    
+    for (int i = 0; i < words.size(); ++i) {
+        if (i != 0) {
+            words[i][0] = toupper(words[i][0]);
+        }
+        cout << words[i];
+    }
+    
     return 0;
 }
