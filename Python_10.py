@@ -2,7 +2,11 @@
 import random
 
 def make_palindrome():
-    word = random.choice(["madam", "mom", "dad", "noon"])
+    word = ''.join(random.choice('abcdefghijklmnopqrstuvwxyz') for _ in range(5))
+    if random.randint(0,1):
+        word += word[::-1]
+    else:
+        word = word + ''.join(reversed(word))
     return word.capitalize()
 
 while True:
@@ -14,7 +18,9 @@ while True:
         print("Goodbye!")
         break
     else:
-        if result in [word.lower() for word in ["madam", "mom", "dad", "noon"]]:
+        if result.lower() in ["mom", "dad"]:
+            print(result.capitalize())
+        elif result.lower() not in ["madam", "mom", "dad", "noon"] and len(result) > 1 and result == result[::-1]:
             print(result)
         else:
             print("Invalid input. Try again.")
