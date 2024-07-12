@@ -8,8 +8,7 @@ def unique_and_sorted():
             elif len(set(map(str, user_input))) != len(user_input):
                 print("Please do not repeat the same number.")
                 continue
-            else:
-                print("Success! Your numbers are:", sorted(user_input))
-                break
+            print("Success! Your numbers are:", sorted(user_input))
+            break
         except ValueError:
             print("Invalid input. Please enter numbers separated by commas.")
